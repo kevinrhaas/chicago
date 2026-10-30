@@ -1,0 +1,29 @@
+{
+  "id": "kinzie_1857_chicago_1831_panorama",
+  "type": "illustration",
+  "citation": "[Unresolved Beaubien-group identification] \"Fort Dearborn and Chicago in 1831.\" Labeled wood-engraved panorama after a sketch attributed to Juliette A. Kinzie; the local reproduction credits Wau-Bun, Chicago, 1857.",
+  "author": "Engraver not established; after a sketch attributed to Juliette A. Kinzie",
+  "date": "1857 as credited by the local caption; the date of this labeled reproduction is not established",
+  "describes_date": "1831",
+  "repository": "Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:Fort_Dearborn_%26_Chicago_in_1831.jpg",
+  "locator": "The committed 1920 by 1042 pixel reproduction chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg, with the printed upper credit and lower keys including Dean House, Gen. J. B. Beaubien’s, Fort, Wash-house, Agency-House and John-Kinzie House.",
+  "rights_status": "public_domain",
+  "rights_note": "The committed inventory chicago/reference/images/IMAGE_SOURCES.md identifies the image as public domain by pre-1930 publication. The underlying Wau-Bun illustration is nineteenth-century. The separately advertised Getty/Alamy reproductions are not acquired or licensed by this record.",
+  "asset_use": "cross_check",
+  "tier": 5,
+  "verified": true,
+  "access_notes": "The existing local image and its printed caption/key were opened and read; the inventory entry was checked. No fresh remote Commons or museum catalogue retrieval was performed for this record, and the precise original edition and later reproduction date remain unestablished.",
+  "note": "The key identifies a Beaubien group in a scene captioned 1831. It does not by itself identify that pictured building with the current sale-located homestead record. That residence, the older U.S. Factor’s House and the Dean house must remain separate candidates. Wau-Bun’s text places Jean Baptiste Beaubien’s residence between the gardens and river-bank, with Dean’s tenement farther south, but supplies no dimensions or fabric for the house. This small panorama is held as an explicitly unresolved contextual picture, not an accepted appearance reference or a solved camera. Its relationship to the other 1831 Wau-Bun-derived lithograph has not been proven independent, so it must not be counted as a second eyewitness.",
+  "what_it_supplies": [
+    "a panorama labeled Chicago in 1831, with a keyed Gen. J. B. Beaubien’s group",
+    "the drawn order of the separately keyed Dean, Beaubien, fort and north-bank groups",
+    "an existing credited contextual image to investigate before assigning facade details"
+  ],
+  "what_it_does_not_supply": [
+    "which of the currently modeled Beaubien buildings the keyed group depicts",
+    "a surveyed coordinate, a metric dimension or a camera calibration",
+    "independent proof of the pictured buildings’ material, storey count, openings or chimney count on 1 July 1835",
+    "proof that two reproductions of the Wau-Bun composition are independent witnesses"
+  ]
+}

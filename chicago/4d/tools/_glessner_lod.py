@@ -114,7 +114,8 @@ def _construct(root, *, roof_details_reduced=True):
             self.reduced_service_access=True
             self.components=Counter()
 
-        def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
+        def block(self,polygon,point,normal,confidence,mat,rng,holes=None,course=None):
+            # A course's own crown (T-3046) deepens a bow this tier does not build.
             if len(polygon)<3:return
             x0,y0,x1,y1=d.bounds(polygon)
             if min(x1-x0,y1-y0)<.002:return

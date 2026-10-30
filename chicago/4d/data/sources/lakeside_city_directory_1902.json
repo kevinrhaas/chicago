@@ -1,0 +1,29 @@
+{
+  "id": "lakeside_city_directory_1902",
+  "type": "book",
+  "citation": "Lakeside City Directory of Chicago, 1902. Chicago: The Chicago Directory Company, 1902.",
+  "author": "The Chicago Directory Company",
+  "date": "1902-07-20",
+  "describes_date": "1902 (canvassed the spring before publication)",
+  "repository": "Internet Archive",
+  "url": "https://archive.org/details/LakesideCityDirectoryOfChicago1902",
+  "locator": "The alphabetical list and the business directory: 'Bane Bros (Daniel H and Ira O Bane) livery 2129 Indiana av', 'Bane Ira O (Bane Bros) 2129 Indiana av h 2125 Indiana av', and under Livery, Boarding and Sale Stables 'Bane Bros. 2129 Indiana av.'; 'Morton George C Mrs h 2001 Indiana av'; 'Rueckert Louis saloon 2133 Indiana av' (and under Saloons); households at 202, 204, 206, 208 and 210 22d (the numbering east of State Street) and a grocer at 200 22d. For 1927 Indiana (T-3154): 'Joseph ... h 1927 Indiana av' under Schnable, 'Ycnseh [Yensch] Anton h 1927 Indiana aT', and 'Sobnable [Schnable] Sophia M. 1927 Indiana av.' in a second list; and 'Health Food Co. 1601 Wabash av.'.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1902; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read for T-3013 on 2026-10-23 from the item's OCR text (30 MB), searched for every house number from 2001 to 2135 Indiana Avenue and 200 to 212 East 22nd Street. The OCR garbles some entries ('Indiana ax', 'Indilnna'); only legible lines are cited. The 1904 edition is not on the Internet Archive. Read again for T-3154 on 2026-10-25 from the same OCR text, searched for 1925 to 1937 Indiana Avenue and 214 to 218 East 20th Street; nothing at 1925, 1929, 1935, 1937 or 216 E. 20th is legible.",
+  "note": "Two years before the scene: a residence at 2001 Indiana Avenue, Bane Brothers' livery at 2129, Louis Rueckert's saloon on the 2133 corner (still his in the 1911 Lakeside directory), and households along the 202-210 East 22nd Street frontage behind it. Nothing at 2003, 2101-2105 or 215-217 East 21st Street is legible in it.",
+  "what_it_supplies": [
+    "2129 Indiana Avenue as Bane Brothers' livery in 1902",
+    "2001 Indiana Avenue as a residence in 1902",
+    "a saloon at the 2133 Indiana Avenue corner in 1902, and households on 202-210 East 22nd Street",
+    "households at 1927 Indiana Avenue in 1902, and the Health Food Company on Wabash Avenue, not Indiana, in 1902"
+  ],
+  "what_it_does_not_supply": [
+    "the building's form, storeys, material or outline",
+    "a construction or demolition date",
+    "the 1904 state on its own authority"
+  ]
+}

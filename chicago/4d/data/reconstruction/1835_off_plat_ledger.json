@@ -2253,18 +2253,16 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
-    "agency_striker_log_house",
     "north_bank_shed_dearborn_e1",
     "north_bank_shed_dearborn_e2",
     "recon_1835_north_d3_016"
    ],
    "standing_families": {
-    "agency_striker_log_house": "D1",
     "north_bank_shed_dearborn_e1": "F1",
     "north_bank_shed_dearborn_e2": "F1",
     "recon_1835_north_d3_016": "D3"
    },
-   "principal_roofs_standing": 4
+   "principal_roofs_standing": 3
   },
   {
    "parcel_id": "blk_kinzie_dearborn_north#02",
@@ -2351,14 +2349,16 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "agency_striker_log_house",
     "mckee_log_house",
     "north_bank_shed_dearborn_e3"
    ],
    "standing_families": {
+    "agency_striker_log_house": "D1",
     "mckee_log_house": "D1",
     "north_bank_shed_dearborn_e3": "F1"
    },
-   "principal_roofs_standing": 2
+   "principal_roofs_standing": 3
   },
   {
    "parcel_id": "blk_kinzie_dearborn_north#04",
@@ -5604,8 +5604,13 @@
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
     "kimberly_residence",
+    "kinzie_bake_house_1812",
+    "kinzie_dairy_1812",
+    "kinzie_garden_1812",
     "kinzie_house_1812",
     "kinzie_house_1812_green",
+    "kinzie_lodging_house_1812",
+    "kinzie_stable_1812",
     "lake_house_construction",
     "recon_1835_north_a1_050",
     "recon_1835_north_a2_048",
@@ -5643,8 +5648,13 @@
    ],
    "standing_families": {
     "kimberly_residence": "D6",
+    "kinzie_bake_house_1812": null,
+    "kinzie_dairy_1812": null,
+    "kinzie_garden_1812": null,
     "kinzie_house_1812": null,
     "kinzie_house_1812_green": null,
+    "kinzie_lodging_house_1812": null,
+    "kinzie_stable_1812": null,
     "lake_house_construction": null,
     "recon_1835_north_a1_050": "A1",
     "recon_1835_north_a2_048": "A2",

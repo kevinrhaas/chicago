@@ -21,7 +21,9 @@ concurrency:
   cancel-in-progress: false
 jobs:
   era-studies:
-    runs-on: ubuntu-latest
+    # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
+    # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4

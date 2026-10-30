@@ -129,6 +129,8 @@ CHAIN_S = 0.042
 # How far a leaf-edge timber stands proud of the deck boards. Low enough to step over
 # without noticing, which is what a bridge deck's joint beams are.
 LEAF_PROUD_M = 0.055
+# Reconstructed top-cap thickness for T-2375's opt-in board parapet.
+BOARD_CAP_T_M = 0.06
 
 
 def build(params: BridgeTimberParams, name: str):
@@ -573,17 +575,67 @@ def _draw_leaves(b: MeshBuilder, p: BridgeTimberParams, deck_z: float,
 
 def _railing(b: MeshBuilder, p: BridgeTimberParams, deck_z: float,
              conf: float) -> None:
-    """A pole rail on posts. OFF by default — see the module docstring for the
-    argument, which is the substantive part of this function. The Dearborn Street
-    drawbridge turns it on; the two branch bridges do not."""
+    """Posts with the record's pole rail or horizontal-board parapet.
+
+    OFF by default. T-2375's Andreas plate shows the Dearborn parapet filled
+    with horizontal boards. The pole path keeps its previous geometry.
+    """
     h, r = 0.95, 0.06
     step = max(p.span_m / max(round(p.span_m / 2.2), 1), 1.0)
     n = int(p.span_m / step)
+    # Board caps sit on the post heads; overlapping their top faces would
+    # leave coplanar, differently materialled faces visible from above.
+    post_h = h - BOARD_CAP_T_M if p.railing_kind == "board" else h
     for y, sgn in ((0.0, -1), (p.width_m, 1)):
         yy = y + sgn * 0.05
         for i in range(n + 1):
             x = min(i * step, p.span_m)
-            b.add_box(x - 0.06, yy - 0.06, deck_z, x + 0.06, yy + 0.06, deck_z + h,
+            b.add_box(x - 0.06, yy - 0.06, deck_z, x + 0.06, yy + 0.06, deck_z + post_h,
                       conf, M_LOG, skip=("bottom",))
-        log_prism(b, (-0.10, yy, deck_z + h - r), (p.span_m + 0.10, yy, deck_z + h - r),
-                  r, conf, M_LOG)
+        if p.railing_kind == "board":
+            _board_parapet(b, p, yy, sgn, deck_z, h, step, n,
+                           p.worst_conf("railing", "railing_kind"))
+        else:
+            log_prism(b, (-0.10, yy, deck_z + h - r),
+                      (p.span_m + 0.10, yy, deck_z + h - r),
+                      r, conf, M_LOG)
+
+
+def _board_parapet(b: MeshBuilder, p: BridgeTimberParams, yy: float,
+                   sgn: int, deck_z: float, h: float, step: float,
+                   n: int, conf: float) -> None:
+    """T-2375: the plate's boarded side, with reconstructed scantlings.
+
+    Five courses, 40 mm thick, rise from a 40 mm deck gap to the underside
+    of a 60 mm cap; 10 mm separates courses. At the existing 0.95 m height
+    this makes each board 162 mm high. The cap is 200 mm wide.
+
+    Boards are jointed at post bays and at the draw's ends and leaf joint:
+    the cap and infill do not become continuous timbers across a moving leaf.
+    This does not model hinges, raised leaves or the plate's deck camber.
+    """
+    cuts = {min(i * step, p.span_m) for i in range(n + 1)}
+    cuts.update((0.0, p.span_m))
+    if p.draw_span_m:
+        mid = p.span_m / 2.0
+        cuts.update((mid - p.draw_span_m / 2.0,
+                     mid + p.draw_span_m / 2.0))
+        if p.draw_leaves == 2:
+            cuts.add(mid)
+    cuts = sorted(cuts)
+    courses, gap, thickness = 5, 0.01, 0.04
+    bottom, cap_t = 0.04, BOARD_CAP_T_M
+    board_h = (h - cap_t - bottom - (courses - 1) * gap) / courses
+    # Boards sit against the outside of the existing 120 mm square posts.
+    board_y = yy + sgn * (0.06 + thickness / 2.0)
+    for a, c in zip(cuts, cuts[1:]):
+        if c - a <= 0.01:
+            continue
+        x0, x1 = a + 0.005, c - 0.005
+        for course in range(courses):
+            z0 = deck_z + bottom + course * (board_h + gap)
+            b.add_box(x0, board_y - thickness / 2.0, z0,
+                      x1, board_y + thickness / 2.0, z0 + board_h,
+                      conf, M_DECK)
+        b.add_box(x0, yy - 0.10, deck_z + h - cap_t,
+                  x1, yy + 0.10, deck_z + h, conf, M_DECK)

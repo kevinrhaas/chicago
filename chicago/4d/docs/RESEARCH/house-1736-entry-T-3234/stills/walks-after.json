@@ -1,0 +1,71 @@
+{
+  "method": "Actual published /1904/ app; stills at 1280x800 full and 390x780 light; the walk is walker.update(0.1 s, forward) from the public walk toward the stoop foot, at most 14 s.",
+  "results": [
+    {
+      "label": "desktop",
+      "id": "house_1736_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1736-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1736-gate.jpg",
+          "problems": []
+        },
+        {
+          "name": "corner",
+          "file": "after-desktop-house_1736-corner.jpg",
+          "problems": []
+        },
+        {
+          "name": "side",
+          "file": "after-desktop-house_1736-side.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.017,
+        "street": 0.027,
+        "street_s_lo": 0.032,
+        "street_s_hi": 0.021,
+        "per_m_s": -0.0018
+      },
+      "walk": {
+        "closest_to_foot_m": 0.03,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1736_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1736-gate.jpg",
+          "problems": []
+        },
+        {
+          "name": "corner",
+          "file": "after-mobile-house_1736-corner.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.017,
+        "street": 0.027,
+        "street_s_lo": 0.032,
+        "street_s_hi": 0.021,
+        "per_m_s": -0.0018
+      },
+      "walk": {
+        "closest_to_foot_m": 0.03,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    }
+  ]
+}

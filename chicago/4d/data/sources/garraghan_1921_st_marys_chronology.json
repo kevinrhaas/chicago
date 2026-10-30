@@ -1,0 +1,30 @@
+{
+  "id": "garraghan_1921_st_marys_chronology",
+  "type": "book",
+  "citation": "Gilbert J. Garraghan, The Catholic Church in Chicago, 1673–1871 (Chicago: Loyola University Press, 1921), pages 65–66, 106–107 and 112.",
+  "author": "Gilbert J. Garraghan",
+  "date": "1921",
+  "describes_date": "1833–1844 in the passages read",
+  "repository": "Internet Archive, item catholicchurchin00garr_0",
+  "url": "https://archive.org/details/catholicchurchin00garr_0",
+  "archived_url": "https://archive.org/download/catholicchurchin00garr_0/catholicchurchin00garr_0_djvu.txt",
+  "locator": "Printed p.106 and footnote26: https://archive.org/download/catholicchurchin00garr_0/page/n159_large.jpg ; p.107: /page/n162_large.jpg ; p.112: /page/n171_large.jpg. These page images were read on2026-10-23. The p.65–66 Andreas quotation was searched in the OCR and collated against Andreas's actual p.290 instead. Whole-volume OCR sha256 e6b2dc30e2dd3fb7527d86a7742aa3c7947113326320da4e6668214e2f52889e,490179bytes.",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "what_it_supplies": [
+    "Printed p.106 footnote 26 gives the government purchase of the northwest Michigan/Madison property as June 21, 1839, price$262; it explicitly dates the PURCHASE, not the relocation.",
+    "The p.106 narrative about St Palais coming in December 1839 already describes O'Meara as having moved the old church from Lake Street to north Madison some yards west of Michigan. Together these statements support a retrospective later 1839 relocation window, with neither a move day nor a belfry completion date.",
+    "Printed p.107 says the NEW brick church 100 x 55 ft opened on Christmas Day 1843; those dimensions belong to the new brick building, not the first wooden church.",
+    "Printed p.112 says the OLD wooden church on north Madison between Wabash and Michigan was used for College St Mary on June 3, 1844. The old frame church therefore survived beyond 1843; a brick replacement opening does not date its demolition."
+  ],
+  "what_it_does_not_supply": [
+    "The date the wooden church's tower was added. Its p.65–66 Andreas quotation merely repeats some time afterwards.",
+    "Exact relocation day, an enlargement completion date, an enlarged plan measurement, bearing or metric coordinate.",
+    "Independence from Andreas for the initial church description, or independence from sources Garraghan names in his notes.",
+    "A date or site for the Moss engraving.",
+    "Read as later historical scholarship; the separately cited Quarter diary excerpt is not graded as this narrative."
+  ],
+  "note": "The 1921 author is a retrospective source. Printed p.106 footnote 26 cites The New World(Chicago), April 14, 1900 for its lot account; that 1900 page and the original land instrument have not been read. The December 1839 arrival and moved-church narrative provide a documentary upper window, not a verified day of arrival or movement. Thompson 1921–22 depends on Garraghan and Andreas; it is not an independent voice that can resolve discrepancies by repetition."
+}

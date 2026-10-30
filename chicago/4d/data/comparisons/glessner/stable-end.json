@@ -1,0 +1,701 @@
+{
+ "ticket": "T-3139",
+ "not_a_reading": "A bounded re-reading of two catalogued photographs through cameras refitted on measured controls at the stable; no building point is fitted.",
+ "sources": {
+  "habs15": "habs_glessner_photo_15_north_stable_1965",
+  "habs01": "habs_glessner_photo_01_nw_1963",
+  "controls": "habs_glessner_house_il_1015_drawings (sheet 2 doorway jambs W 134.9-147.0; sheet 3 loft and light jambs; sheet 5 soffit 12.6 ft)"
+ },
+ "model": {
+  "hoist": {
+   "W": [
+    140.75,
+    141.5
+   ],
+   "z": [
+    26.0,
+    28.15
+   ],
+   "projection_ft": 4.0,
+   "nose_ft": 0.83,
+   "points": {
+    "foot": [
+     141.125,
+     0.0,
+     26.0
+    ],
+    "nose_top": [
+     141.125,
+     -4.0,
+     28.15
+    ],
+    "nose_foot": [
+     141.125,
+     -4.0,
+     27.32
+    ]
+   }
+  }
+ },
+ "picks": {
+  "habs15_controls": [
+   [
+    "uv",
+    [
+     134.9,
+     0,
+     12.6
+    ],
+    [
+     1058.0,
+     485.5
+    ]
+   ],
+   [
+    "uv",
+    [
+     147.0,
+     0,
+     12.6
+    ],
+    [
+     1270.5,
+     485.5
+    ]
+   ],
+   [
+    "uv",
+    [
+     147.0,
+     0,
+     0.0
+    ],
+    [
+     1272.0,
+     703.0
+    ]
+   ],
+   [
+    "soffit",
+    [
+     null,
+     0,
+     0.0
+    ],
+    [
+     1200.0,
+     703.5
+    ]
+   ],
+   [
+    "edge",
+    [
+     134.9,
+     0,
+     null
+    ],
+    [
+     1056.5,
+     640.0
+    ]
+   ],
+   [
+    "edge",
+    [
+     137.5,
+     0,
+     null
+    ],
+    [
+     1101.7,
+     340.0
+    ]
+   ],
+   [
+    "edge",
+    [
+     144.7,
+     0,
+     null
+    ],
+    [
+     1224.3,
+     340.0
+    ]
+   ],
+   [
+    "edge",
+    [
+     132.4,
+     0,
+     null
+    ],
+    [
+     1005.0,
+     320.0
+    ]
+   ],
+   [
+    "edge",
+    [
+     133.6,
+     0,
+     null
+    ],
+    [
+     1028.3,
+     320.0
+    ]
+   ],
+   [
+    "edge",
+    [
+     149.1,
+     0,
+     null
+    ],
+    [
+     1300.0,
+     320.0
+    ]
+   ],
+   [
+    "edge",
+    [
+     150.3,
+     0,
+     null
+    ],
+    [
+     1321.7,
+     320.0
+    ]
+   ],
+   [
+    "edge",
+    [
+     161.25,
+     0,
+     null
+    ],
+    [
+     1529.0,
+     300.0
+    ]
+   ],
+   [
+    "edge",
+    [
+     161.25,
+     0,
+     null
+    ],
+    [
+     1530.0,
+     640.0
+    ]
+   ]
+  ],
+  "habs15_hoist": {
+   "foot": [
+    1162.0,
+    253.0
+   ],
+   "nose_top": [
+    1178.0,
+    209.6
+   ],
+   "nose_foot": [
+    1178.0,
+    224.0
+   ]
+  },
+  "habs01_hoist": {
+   "nose_top": [
+    1221.5,
+    491.0
+   ]
+  }
+ },
+ "habs15": {
+  "committed": {
+   "what": "T-2200's frozen pinhole, unchanged",
+   "fitted_obs": 16,
+   "rms_px": 17.87,
+   "max_px": 35.7,
+   "roll_deg": 1.32,
+   "pitch_deg": -0.87,
+   "px_per_ft_at_doorway": 18.69,
+   "hoist": {
+    "foot": {
+     "model_px": [
+      1181.7,
+      251.3
+     ],
+     "print_px": [
+      1162.0,
+      253.0
+     ],
+     "du_dv_px": [
+      19.7,
+      -1.7
+     ]
+    },
+    "nose_top": {
+     "model_px": [
+      1209.3,
+      193.3
+     ],
+     "print_px": [
+      1178.0,
+      209.6
+     ],
+     "du_dv_px": [
+      31.3,
+      -16.3
+     ]
+    },
+    "nose_foot": {
+     "model_px": [
+      1208.9,
+      209.7
+     ],
+     "print_px": [
+      1178.0,
+      224.0
+     ],
+     "du_dv_px": [
+      30.9,
+      -14.3
+     ]
+    }
+   },
+   "camera": {
+    "eye": [
+     14.7959,
+     47.5395,
+     2.5
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.986246,
+      0.163661,
+      0.02311
+     ],
+     [
+      0.0203,
+      -0.018823,
+      0.999617
+     ],
+     [
+      -0.164033,
+      -0.986337,
+      -0.015242
+     ]
+    ],
+    "focal_px": 1598.11,
+    "principal_px": [
+     900,
+     603
+    ],
+    "pixel_aspect": 1.0
+   }
+  },
+  "stable_level": {
+   "what": "level (the print's verticals do not lean: the NW arris and the east jamb stand within 2 px over 150-340 px), focal and principal point held; eye position and heading free",
+   "fitted_obs": 16,
+   "rms_px": 3.26,
+   "max_px": 5.8,
+   "roll_deg": 0.0,
+   "pitch_deg": 0.0,
+   "px_per_ft_at_doorway": 17.39,
+   "hoist": {
+    "foot": {
+     "model_px": [
+      1162.5,
+      251.4
+     ],
+     "print_px": [
+      1162.0,
+      253.0
+     ],
+     "du_dv_px": [
+      0.5,
+      -1.6
+     ]
+    },
+    "nose_top": {
+     "model_px": [
+      1164.0,
+      196.5
+     ],
+     "print_px": [
+      1178.0,
+      209.6
+     ],
+     "du_dv_px": [
+      -14.0,
+      -13.1
+     ]
+    },
+    "nose_foot": {
+     "model_px": [
+      1164.0,
+      211.6
+     ],
+     "print_px": [
+      1178.0,
+      224.0
+     ],
+     "du_dv_px": [
+      -14.0,
+      -12.4
+     ]
+    }
+   },
+   "camera": {
+    "eye": [
+     6.7089,
+     50.9335,
+     1.7634
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.989857,
+      -0.142069,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.142069,
+      -0.989857,
+      0.0
+     ]
+    ],
+    "focal_px": 1598.11,
+    "principal_px": [
+     900,
+     603
+    ],
+    "pixel_aspect": 1.0
+   },
+   "eye_W_S_height_ft": [
+    139.2,
+    -93.1,
+    5.79
+   ],
+   "one_sigma_eye_m": [
+    1.45,
+    0.26,
+    0.03
+   ]
+  },
+  "stable_level_roll": {
+   "what": "as stable_level, roll free",
+   "fitted_obs": 16,
+   "rms_px": 2.47,
+   "max_px": 4.1,
+   "roll_deg": -0.93,
+   "pitch_deg": 0.0,
+   "px_per_ft_at_doorway": 17.4,
+   "hoist": {
+    "foot": {
+     "model_px": [
+      1159.7,
+      251.9
+     ],
+     "print_px": [
+      1162.0,
+      253.0
+     ],
+     "du_dv_px": [
+      -2.3,
+      -1.1
+     ]
+    },
+    "nose_top": {
+     "model_px": [
+      1161.3,
+      197.1
+     ],
+     "print_px": [
+      1178.0,
+      209.6
+     ],
+     "du_dv_px": [
+      -16.7,
+      -12.5
+     ]
+    },
+    "nose_foot": {
+     "model_px": [
+      1161.6,
+      212.2
+     ],
+     "print_px": [
+      1178.0,
+      224.0
+     ],
+     "du_dv_px": [
+      -16.4,
+      -11.8
+     ]
+    }
+   },
+   "camera": {
+    "eye": [
+     7.0849,
+     50.9123,
+     1.8494
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.991295,
+      -0.130655,
+      -0.016227
+     ],
+     [
+      -0.016088,
+      -0.00212,
+      0.999868
+     ],
+     [
+      0.130673,
+      -0.991426,
+      0.0
+     ]
+    ],
+    "focal_px": 1598.11,
+    "principal_px": [
+     900,
+     603
+    ],
+    "pixel_aspect": 1.0
+   },
+   "eye_W_S_height_ft": [
+    138.0,
+    -93.0,
+    6.07
+   ],
+   "one_sigma_eye_m": [
+    1.08,
+    0.21,
+    0.03
+   ]
+  },
+  "stable_level_shift": {
+   "what": "as stable_level, the lens's lateral shift (principal x) free: the face cannot measure it",
+   "fitted_obs": 16,
+   "rms_px": 3.21,
+   "max_px": 5.2,
+   "roll_deg": 0.0,
+   "pitch_deg": 0.0,
+   "px_per_ft_at_doorway": 17.24,
+   "hoist": {
+    "foot": {
+     "model_px": [
+      1162.6,
+      254.5
+     ],
+     "print_px": [
+      1162.0,
+      253.0
+     ],
+     "du_dv_px": [
+      0.6,
+      1.5
+     ]
+    },
+    "nose_top": {
+     "model_px": [
+      1172.1,
+      200.2
+     ],
+     "print_px": [
+      1178.0,
+      209.6
+     ],
+     "du_dv_px": [
+      -5.9,
+      -9.4
+     ]
+    },
+    "nose_foot": {
+     "model_px": [
+      1172.1,
+      215.1
+     ],
+     "print_px": [
+      1178.0,
+      224.0
+     ],
+     "du_dv_px": [
+      -5.9,
+      -8.9
+     ]
+    }
+   },
+   "camera": {
+    "eye": [
+     9.8525,
+     51.5275,
+     1.7627
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.991749,
+      -0.128198,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.128198,
+      -0.991749,
+      0.0
+     ]
+    ],
+    "focal_px": 1598.11,
+    "principal_px": [
+     743.99,
+     603
+    ],
+    "pixel_aspect": 1.0
+   },
+   "eye_W_S_height_ft": [
+    128.9,
+    -95.1,
+    5.78
+   ],
+   "one_sigma_eye_m": [
+    5.56,
+    0.88,
+    0.03
+   ],
+   "one_sigma_principal_x_px": 253.0
+  }
+ },
+ "habs01": {
+  "committed": {
+   "what": "the committed whole-house camera, unchanged",
+   "rms_px_all_controls": 2.6,
+   "fitted_obs": 8,
+   "rms_px": 8.96,
+   "max_px": 19.4,
+   "roll_deg": 0.0,
+   "pitch_deg": 0.0,
+   "px_per_ft_at_doorway": 14.64,
+   "hoist": {
+    "nose_top": {
+     "model_px": [
+      1219.6,
+      488.3
+     ],
+     "print_px": [
+      1221.5,
+      491.0
+     ],
+     "du_dv_px": [
+      -1.9,
+      -2.7
+     ]
+    }
+   },
+   "camera": {
+    "eye": [
+     -10.17,
+     55.2387,
+     1.8
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.790527,
+      -0.612427,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.612427,
+      -0.790527,
+      0.0
+     ]
+    ],
+    "focal_px": 1721.61,
+    "principal_px": [
+     904.5,
+     823.15
+    ],
+    "pixel_aspect": 1.0
+   },
+   "note": "fitted_obs / rms_px / max_px are over the doorway alone"
+  },
+  "doorway_eye_height": {
+   "what": "as doorway, eye height free",
+   "rms_px_all_controls": 3.09,
+   "fitted_obs": 8,
+   "rms_px": 2.8,
+   "max_px": 5.0,
+   "roll_deg": 0.0,
+   "pitch_deg": 0.0,
+   "px_per_ft_at_doorway": 14.17,
+   "hoist": {
+    "nose_top": {
+     "model_px": [
+      1221.5,
+      486.9
+     ],
+     "print_px": [
+      1221.5,
+      491.0
+     ],
+     "du_dv_px": [
+      0.0,
+      -4.1
+     ]
+    }
+   },
+   "camera": {
+    "eye": [
+     -7.8439,
+     54.729,
+     1.3443
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.813715,
+      -0.581264,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.581264,
+      -0.813715,
+      0.0
+     ]
+    ],
+    "focal_px": 1595.62,
+    "principal_px": [
+     904.5,
+     833.52
+    ],
+    "pixel_aspect": 1.0
+   },
+   "note": "fitted_obs / rms_px / max_px are over the doorway alone"
+  }
+ }
+}

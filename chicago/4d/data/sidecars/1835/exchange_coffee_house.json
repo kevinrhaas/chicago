@@ -24,7 +24,8 @@
       "andreas_1884_v1",
       "drloih_hotels"
     ],
-    "note": "THE YEAR IS DOCUMENTED TWICE IN ANDREAS AND THE MONTH IS NOT. In his hotel chapter: 'Mr. Beaubien had meanwhile built a new house on the northwest corner of Wells and Lake streets. In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House.' In his life of Mark Beaubien: 'In the latter year [1834] he completed another house on the northwest corner of Wells and Lake streets, which was called the Exchange Coffee House, and first kept by Mr. and Mrs. John Murphy.' So the house was finished and trading by August 1834, eleven months before the scene date, and 1834-01-01 is the first day the attested year permits rather than a date anybody gives - which is why this range is inferred and not documented. THE SCENE DATE IS NOT AT RISK: whatever month in 1834 the building went up, it was open under the Murphys from August 1834 and they 'remained there until 1836'. THE END IS A BOUND WHERE THE EVIDENCE STOPS, NOT A DEMOLITION: the Murphys left for the old Sauganash in 1836 and this project has nothing dating the building's fate. Andreas's list of minor houses in 1845 includes 'the Illinois Exchange, corner Wells and Lake streets', which may be the same fabric under a later sign or may not; the phase is closed at the end of the attested tenancy rather than run on speculatively."
+    "note": "THE YEAR IS DOCUMENTED TWICE IN ANDREAS AND THE MONTH IS NOT. In his hotel chapter: 'Mr. Beaubien had meanwhile built a new house on the northwest corner of Wells and Lake streets. In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House.' In his life of Mark Beaubien: 'In the latter year [1834] he completed another house on the northwest corner of Wells and Lake streets, which was called the Exchange Coffee House, and first kept by Mr. and Mrs. John Murphy.' So the house was finished and trading by August 1834, eleven months before the scene date, and 1834-01-01 is the first day the attested year permits rather than a date anybody gives - which is why this range is inferred and not documented. THE SCENE DATE IS NOT AT RISK: whatever month in 1834 the building went up, it was open under the Murphys from August 1834 and they 'remained there until 1836'. THE END IS A BOUND WHERE THE EVIDENCE STOPS, NOT A DEMOLITION: the Murphys left for the old Sauganash in 1836 and this project has nothing dating the building's fate. Andreas's list of minor houses in 1845 includes 'the Illinois Exchange, corner Wells and Lake streets', which may be the same fabric under a later sign or may not; the phase is closed at the end of the attested tenancy rather than run on speculatively.",
+    "from_is": "began"
   },
   "change_note": "The house Mark Beaubien built at Lake and Wells in 1834 after leaving the Sauganash, in the state it stood on the scene date and under the keepers it had then. Nothing in the phase is a change of fabric: the christening as the Exchange Coffee House in August 1834, the arrival of Abram A. Markle's name on it by 1836 and the later sign 'Illinois Exchange' are changes of use and of sign.",
   "placement": {
@@ -130,6 +131,14 @@
         "andreas_1884_v1"
       ],
       "note": "Attested twice in Andreas, in two chapters, with dates either side of the scene date: 'In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House. They remained there until 1836, when they removed to the old Sauganash, the name of which they changed to United States Hotel'; and, in the life of Mark Beaubien, the house was 'first kept by Mr. and Mrs. John Murphy'. So 1835-07-01 falls inside their tenancy with eleven months either side, which makes this the best-attested occupancy in the parcel. A CONFLICT WORTH RECORDING RATHER THAN RESOLVING: this project's dossiers have Abram A. Markle 'associated from 1835-36' with the house, and the American's advertisement of August 1836 does call it 'Markle's Exchange Coffee House'. Andreas has Markle taking the MANSION HOUSE in 1835 and keeping it two years. Either Markle held both houses, or one of the two datings is loose; the Murphy tenancy is the one with dates on both sides of the scene date and it is what this record carries."
+    },
+    "built": {
+      "value": 1834,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: Mark Beaubien 'completed another house on the northwest corner' of Wells and Lake in 1834."
     }
   },
   "residents": [
@@ -138,7 +147,7 @@
       "name": "The lodgers of Exchange Coffee House",
       "division": "south",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "This group was reconstructed using an earlier estimate of 11 ordinary-night beds. The current estimate is 10, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
       "sources": [],
       "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
       "persons": [
@@ -147,49 +156,49 @@
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 11 ordinary-night beds here (the current model reports 10) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Abigail Rice",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 11 ordinary-night beds here (the current model reports 10) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Lucy Whitcomb",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 11 ordinary-night beds here (the current model reports 10) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Hugh Doyle",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 11 ordinary-night beds here (the current model reports 10) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Francois Pothier",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 11 ordinary-night beds here (the current model reports 10) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Dennis Sullivan",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 11 ordinary-night beds here (the current model reports 10) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Ira Fisk",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 11 ordinary-night beds here (the current model reports 10) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
@@ -296,7 +305,7 @@
   "review_required": false,
   "lodging": {
     "class": "inn_tavern",
-    "beds_ordinary": 11,
+    "beds_ordinary": 10,
     "beds_crowded": 35,
     "ceiling": 35,
     "clamped_at_1840_maximum": true,
@@ -306,9 +315,9 @@
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
       "people": 11,
-      "beds_ordinary": 11,
+      "beds_ordinary": 10,
       "empty": 0,
-      "statement": "11 on this card against an ordinary night's 11 beds: 4 the residents layer already housed here, 7 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "statement": "11 on this card against an ordinary night's 10 beds: 4 the residents layer already housed here, 7 drawn against the order book's lodging buckets for beds that were standing empty.",
       "empty_note": "",
       "keeper_persons": 4,
       "keeper_owed": ""

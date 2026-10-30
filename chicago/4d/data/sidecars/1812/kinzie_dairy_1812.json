@@ -1,0 +1,160 @@
+{
+  "id": "kinzie_dairy_1812",
+  "phase": "kinzie_1804",
+  "name": "The Kinzie dairy, behind the house",
+  "aka": [
+    "the 'dairy' of Wau-Bun's list of the Kinzie establishment (1831)",
+    "the dairy of du Sable's bill of sale (1800), as T-2484 reported it"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/kinzie_dairy_1812__kinzie_1804.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1804-10-01",
+    "to": "1833-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "currey_1912_story_of_old_fort_dearborn"
+    ],
+    "note": "THE KINZIE YEARS, AS THE HOUSE'S OWN RANGE, AND BOTH ENDS INFERRED FOR THIS BUILDING. No source dates this building. Wau-Bun ch. XVII names the establishment's buildings as Juliette Kinzie found them in 1831 (dairy, bake-house, lodging-house for the Frenchmen, stables), and no picture draws this one; neither is a sighting of 1812. It is taken to stand from the Kinzies' purchase in the fall of 1804 (kinzie_house_1812's opening, Currey ch. II) through the 1812 scene dates (1 and 14 August) to the end of 1833 with the house it served: Currey says the house 'escaped the general destruction at the time of the massacre', nothing read says the yard behind it burned, and the family was away from 1812 to 1816, so the 1820 and 1831 pictures show a yard that was either standing in 1812 or rebuilt on its ground after the return; this record takes the first. It closes with the house (data/exclusions.json kinzie_house: derelict from 1832, gone by 1835), so it stands in no 1835 view. L420."
+  },
+  "change_note": "Built T-2485 (2026-10-21): the dairy of the Kinzie establishment. No picture shows it.",
+  "placement": {
+    "local_e": 1157.0,
+    "local_n": 359.5,
+    "rotation_deg": 180.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "kinzie_waubun_1856"
+    ],
+    "position_note": "PLACED BY THIS RECORD, IN THE SHADE BEHIND THE HOUSE. Wau-Bun says only that the buildings surrounded the dwelling. No picture draws a dairy: from across the river the house and its cottonwoods hide this spot, and Eastman's view of 1820 does not reach it. A dairy wants shade and the kitchen door, so it stands between the two great cottonwoods, close behind the house (docs/LIBERTIES.md L420).",
+    "symbolic_location": "Behind the Kinzie house between its two cottonwoods, front at local N +354.9, east wall at E +1157.0; facing south toward the house's back door. This record's origin is the footprint's north-east corner, which a 180-degree facing puts at the frame's (0, 0).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        4.0,
+        0
+      ],
+      [
+        4.0,
+        4.6
+      ],
+      [
+        0,
+        4.6
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "4.0 x 4.6 m. DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. The size is this record's: a small log milk-house."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "note": "Unattested. Log, like the rest of the yard."
+    },
+    "wall_height_m": {
+      "value": 2.2,
+      "confidence": "reconstructed",
+      "note": "Unattested."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "Unattested; the yard's other roofs are gabled."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "reconstructed",
+      "note": "Unattested."
+    },
+    "door": {
+      "value": "man",
+      "confidence": "reconstructed",
+      "note": "A dairy is entered on foot with a pail."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "note": "Toward the house's back door."
+    },
+    "function": {
+      "value": "dairy",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun ch. XVII, describing 1831: 'A fine, well-cultivated garden extended to the north of the dwelling, and surrounding it were various buildings appertaining to the establishment—dairy, bake-house, lodging-house for the Frenchmen, and stables.' Wau-Bun ch. VI also has the household's 'superabundance of all the luxuries of garden, corn-field, and dairy', with kegs of butter for the vessels' captains."
+    },
+    "land_owner": {
+      "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 52 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+        "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+        "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+        "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+        "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'",
+        "the lake shore south of the river mouth before 1812, in the same chapter: 'mostly devoid of trees, a scanty growth of cottonwoods and pines, however, maintaining a precarious existence among the sand-dunes', the low sand-hills 'the predominant feature of the landscape' a mile or two south of the mouth (used by T-2768 for the pines on the south sand hills)"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension of the house, the piazza or the green",
+        "the number of the house's rooms, windows or chimneys",
+        "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+        "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    }
+  ],
+  "research_note": "THE DAIRY (T-2485). DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. RULING: the dairy STANDS in 1812, inferred: the bill names one in 1800 and Wau-Bun's establishment of 1831 still has one, so a dairy is taken to stand between the two dates; whether du Sable's own or a successor is not known. No picture shows it, so it carries no image gate; its place, size and form are this project's (docs/LIBERTIES.md L420). Nobody is drawn (L1).",
+  "research_doc": "",
+  "review_required": false
+}

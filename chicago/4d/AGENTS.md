@@ -89,8 +89,33 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    `data/reference_views/<structure_id>/`; build; render with `node tools/photo_match.mjs`; and
    work the differences down until the side-by-side shows none in what the picture shows. A
    building ticket carries an `## Image gate` section naming its structure ids, and
-   `ticket.mjs done` refuses it while any view is not `matches`. A summary of a picture is not
-   the picture: read the image itself. `data/reference_views/README.md` is the page.
+   `ticket.mjs done` refuses it while any view is not `matches`; a split ticket's gate is asked
+   by its last piece to close (2026-10-28: 1729 Pullman closed through twelve pieces while its
+   records said `differs`). A summary of a picture is not the picture: read the image itself. `data/reference_views/README.md` is the page.
+
+   **…and it stops at what a visitor would notice** (the photo-ticket stopping rule, T-3153).
+   The owner, 2026-10-25: *"you keep going on with creating tickets in an almost never ending
+   fashion ... you need to help me with not creating more and more tickets when there are
+   probably some seriously diminishing returns"*. Glessner had taken 115 tickets since the
+   gate opened, fixed 110 differences and left 9, mostly under a foot or a few pixels, and
+   its sign-off had been re-filed five times. He chose the full rule:
+   - **A good-enough bar.** A difference is `open` only if a visitor on the street would
+     notice it: more than about 1 ft (0.3 m) off in size or place, an element missing or the
+     wrong shape, the wrong number of bays, openings or stacks, or the wrong material or
+     colour. Anything smaller, any pixel offset, and any gap two pictures or two camera fits
+     disagree about is `within tolerance`, which does not block `matches`.
+   - **Runs file no photo follow-ups.** A gap found on a photo-gated house (one with a folder
+     in `data/reference_views/`) goes into that view's match record, never a new ticket;
+     `ticket.mjs new` refuses any filing that is not `--by owner` and names such a house
+     (a performance follow-up, or one placed with `--blocks` because dev's gate is red,
+     still files). Only the owner opens new work on it, and `--by owner` means he asked.
+   - **One sign-off, never split.** A house's sign-off finishes in its own run: it marks what
+     is under the bar `within tolerance`, fixes what is over it in the same PR if that fits,
+     and writes the rest into the discrepancy register. `split` refuses a sign-off.
+   - **A cap.** A house past 25 tickets since 2026-10-11 takes new ones only from the owner,
+     and a photo-gated one past it is not split. `split … --owner-asked "<his words>"` is the
+     only way past either, and writes his words into every piece. Ship what fits and
+     `release` the rest instead.
 
 12. **A structure's own grade says whether we know what it looked like** (T-2686). The owner,
    2026-10-16: *"for a structure if there is an image of it that is reasonable, not just like a
@@ -340,6 +365,13 @@ it to the attested instances.
 >   lists the files: publish them with `sync -m`, or `git -C tickets stash` them. Before
 >   this, `pushTickets`' `git add -A` published them under the command's own message —
 >   `done T-1205` (b679d90) reverted a scratch copy of T-1171 to `claimed` for a week.
+> - **Bulky evidence goes to kevinrhaas/chicago-evidence, never to the tickets repo**
+>   (owner, 2026-10-23, T-3071). Checkpoint folders, tar/zip snapshots, gate and smoke
+>   transcripts, solver dumps and screenshot runs grew chicago-tickets' `evidence/` to
+>   2.4 GB in five days, and every gate and steward run cloned it (it also ran runners out
+>   of memory, T-3069). Commit them to `evidence/<topic>-<date>/` in chicago-evidence (a
+>   separate clone; nothing in CI clones it) and cite the path from the ticket. A small
+>   text file a tool reads (the T-1837 frontage register) may stay in `tickets/evidence/`.
 
 **`tickets/` is the single operational answer to "what next".** The owner asked for it
 directly: his requests were getting lost inside an 11,000-line ROADMAP, and he could not
@@ -484,7 +516,8 @@ is the contract. The short form:
   2026-09-10, after the queue reached 195 lines: *"I don't want you to keep adding a whole
   bunch of tickets below your current one and working them … I want fewer tickets to
   work"*). First, **if an open ticket already owns the question, add the finding to it**
-  and file nothing. Second, if it is a real one-run piece of the goal, `ticket.mjs new
+  and file nothing. **A picture gap on a photo-gated house is never a ticket** (rule 11's
+  stopping rule, T-3153): it goes into the match record, `open` or `within tolerance`. Second, if it is a real one-run piece of the goal, `ticket.mjs new
   "title" --after T-NNNN` places it directly under the ticket it serves — beside related
   work, not at the foot. **Since 2026-09-27 a follow-up a run files goes to the FOOT OF
   BAND 9 instead, and `new` enforces it** (owner: *"move loop follow-ups to band 9"*, then

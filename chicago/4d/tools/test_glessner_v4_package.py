@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile
 import zipfile
 
-from recover_glessner_v4 import TARGETS, materialize, pack, sha256, verified_members, write_member
+from recover_glessner_v4 import TARGETS, drift, materialize, pack, sha256, verified_members, write_member
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--self-test', action='store_true', help='run the fixture assertions (also the default)')
@@ -78,3 +78,28 @@ with tempfile.TemporaryDirectory() as directory:
     (root / canonical[0]).write_bytes(b"new canonical bake")
     refuses(lambda: materialize(root, recovery))
 print("PASS: promoted canonical paths restore exactly and still refuse a divergent bake")
+
+# T-3004: a clone holding outputs materialized before the archive was repacked must read
+# as that clone's drift, by hash alone, never as a stale committed derivative.
+with tempfile.TemporaryDirectory() as directory:
+    root = Path(directory) / "checkout"; recovery = Path(directory) / "package"
+    write_member(root, "data/structures/glessner_house.json", b"{}")
+    canonical = tuple(name.replace("versions/glessner_house/v4/", "") for name in TARGETS)
+    for name in canonical:
+        write_member(root, name, b"old " + name.encode())
+    pack(root, recovery)
+    old = {name: (root / name).read_bytes() for name in canonical}
+    assert drift(root, recovery) == {}, "a tree that matches its archive has no drift"
+    for name in canonical:
+        write_member(root, name, b"repacked " + name.encode())
+    pack(root, recovery)                       # the archive moves on (a merged rebake)...
+    for name, content in old.items():
+        write_member(root, name, content)      # ...and this clone still holds the old bytes
+    assert drift(root, recovery) == {name: "divergent" for name in canonical}, drift(root, recovery)
+    (root / canonical[2]).unlink()
+    assert drift(root, recovery)[canonical[2]] == "missing", "an absent output is named missing"
+    for name in canonical:
+        (root / name).unlink(missing_ok=True)
+    assert materialize(root, recovery) == 3 and drift(root, recovery) == {}, "--materialize heals it"
+    assert drift(root, Path(directory) / "no-package") == {}, "an unreadable manifest is --check's to report"
+print("PASS: drift names a stale or missing materialized output by hash, and --materialize clears it")

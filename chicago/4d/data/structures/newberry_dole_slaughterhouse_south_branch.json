@@ -15,7 +15,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "THE YEAR IS DOCUMENTED AND THE MONTH IS NOT. Andreas, in the packing-house chapter: 'In 1834, Oliver Newberry and George W. Dole had a slaughter-house erected on the South Branch of the river, where some three hundred head of cattle and fourteen hundred hogs were packed during the year' (scan p. 1151). The range therefore opens at the start of 1834 for want of a month; packing is winter work, so the plant was probably up by the autumn of that year rather than in January, and the phrase 'during the year' means the 1834 season. THE SURVIVAL TO 1835-07-01 IS ORDINARY CONTINUITY AND IS NOT ATTESTED — nothing reached follows this building past its first season. What can be said for it is that a purpose-built plant which handled 300 cattle and 1,400 hogs in its first year was not abandoned within eighteen months, and that the firm was still trading in Chicago through the decade. The range closes at the end of 1835 as the last date this record needs to claim."
+        "note": "THE YEAR IS DOCUMENTED AND THE MONTH IS NOT. Andreas, in the packing-house chapter: 'In 1834, Oliver Newberry and George W. Dole had a slaughter-house erected on the South Branch of the river, where some three hundred head of cattle and fourteen hundred hogs were packed during the year' (scan p. 1151). The range therefore opens at the start of 1834 for want of a month; packing is winter work, so the plant was probably up by the autumn of that year rather than in January, and the phrase 'during the year' means the 1834 season. THE SURVIVAL TO 1835-07-01 IS ORDINARY CONTINUITY AND IS NOT ATTESTED — nothing reached follows this building past its first season. What can be said for it is that a purpose-built plant which handled 300 cattle and 1,400 hogs in its first year was not abandoned within eighteen months, and that the firm was still trading in Chicago through the decade. The range closes at the end of 1835 as the last date this record needs to claim.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 447147.0,
@@ -78,6 +79,14 @@
       "andreas_1884_v1"
     ],
     "note": "'a slaughter-house erected on the South Branch of the river, where some three hundred head of cattle and fourteen hundred hogs were packed during the year' (scan p. 1151). The building and its first season's throughput are the whole of what is recorded. Note that July is between packing seasons — the trade is winter work — so the honest reading of the scene date is a standing plant not in operation."
+  },
+  "built": {
+    "value": 1834,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: 'In 1834, Oliver Newberry and George W. Dole had a slaughter-house erected on the South Branch'."
   },
   "occupants": {
     "value": "George W. Dole and Walter L. Newberry, trading as Newberry & Dole",

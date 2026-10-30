@@ -13950,39 +13950,39 @@
      -120.65
     ],
     [
-     -26.01,
-     -121.66
+     -28.62,
+     -121.64
     ],
     [
-     -28.68,
-     -240.03
+     -30.19,
+     -240.02
     ],
     [
      -146.28,
      -239.07
     ]
    ],
-   "area_m2": 14414.5,
-   "frontage_m": 121.77,
-   "frontage_ft": 399.5,
+   "area_m2": 14170.8,
+   "frontage_m": 119.71,
+   "frontage_ft": 392.7,
    "depth_m": 118.38,
    "lots_per_column": 5,
    "alley_local_enu_m": [
     [
-     -91.81,
-     -121.13
+     -93.1,
+     -121.12
     ],
     [
-     -86.14,
-     -121.18
+     -87.45,
+     -121.17
     ],
     [
-     -84.83,
+     -85.57,
      -239.57
     ],
     [
-     -90.13,
-     -239.53
+     -90.89,
+     -239.52
     ]
    ],
    "lots": [
@@ -13991,19 +13991,19 @@
      "column": "west",
      "row": 1,
      "frontage_m": 23.7,
-     "depth_m": 59.73,
+     "depth_m": 58.49,
      "polygon": [
       [
        -151.93,
        -120.65
       ],
       [
-       -91.81,
-       -121.13
+       -93.1,
+       -121.12
       ],
       [
-       -91.47,
-       -144.81
+       -92.66,
+       -144.8
       ],
       [
        -150.8,
@@ -14019,19 +14019,19 @@
      "column": "west",
      "row": 2,
      "frontage_m": 23.7,
-     "depth_m": 58.93,
+     "depth_m": 57.8,
      "polygon": [
       [
        -150.8,
        -144.33
       ],
       [
-       -91.47,
-       -144.81
+       -92.66,
+       -144.8
       ],
       [
-       -91.14,
-       -168.49
+       -92.22,
+       -168.48
       ],
       [
        -149.67,
@@ -14047,19 +14047,19 @@
      "column": "west",
      "row": 3,
      "frontage_m": 23.7,
-     "depth_m": 58.14,
+     "depth_m": 57.11,
      "polygon": [
       [
        -149.67,
        -168.02
       ],
       [
-       -91.14,
-       -168.49
+       -92.22,
+       -168.48
       ],
       [
-       -90.8,
-       -192.17
+       -91.78,
+       -192.16
       ],
       [
        -148.54,
@@ -14075,19 +14075,19 @@
      "column": "west",
      "row": 4,
      "frontage_m": 23.7,
-     "depth_m": 57.35,
+     "depth_m": 56.42,
      "polygon": [
       [
        -148.54,
        -191.7
       ],
       [
-       -90.8,
-       -192.17
+       -91.78,
+       -192.16
       ],
       [
-       -90.46,
-       -215.85
+       -91.34,
+       -215.84
       ],
       [
        -147.41,
@@ -14103,19 +14103,19 @@
      "column": "west",
      "row": 5,
      "frontage_m": 23.7,
-     "depth_m": 56.55,
+     "depth_m": 55.73,
      "polygon": [
       [
        -147.41,
        -215.39
       ],
       [
-       -90.46,
-       -215.85
+       -91.34,
+       -215.84
       ],
       [
-       -90.13,
-       -239.53
+       -90.89,
+       -239.52
       ],
       [
        -146.28,
@@ -14131,23 +14131,23 @@
      "column": "east",
      "row": 1,
      "frontage_m": 23.68,
-     "depth_m": 59.73,
+     "depth_m": 58.49,
      "polygon": [
       [
-       -86.14,
-       -121.18
+       -87.45,
+       -121.17
       ],
       [
-       -26.01,
-       -121.66
+       -28.62,
+       -121.64
       ],
       [
-       -26.55,
-       -145.34
+       -28.93,
+       -145.32
       ],
       [
-       -85.88,
-       -144.86
+       -87.08,
+       -144.85
       ]
      ],
      "plat_lot_number": 1,
@@ -14159,23 +14159,23 @@
      "column": "east",
      "row": 2,
      "frontage_m": 23.68,
-     "depth_m": 58.93,
+     "depth_m": 57.8,
      "polygon": [
       [
-       -85.88,
-       -144.86
+       -87.08,
+       -144.85
       ],
       [
-       -26.55,
-       -145.34
+       -28.93,
+       -145.32
       ],
       [
-       -27.08,
-       -169.01
+       -29.25,
+       -168.99
       ],
       [
-       -85.61,
-       -168.54
+       -86.7,
+       -168.53
       ]
      ],
      "plat_lot_number": 4,
@@ -14187,22 +14187,22 @@
      "column": "east",
      "row": 3,
      "frontage_m": 23.68,
-     "depth_m": 58.14,
+     "depth_m": 57.11,
      "polygon": [
       [
-       -85.61,
-       -168.54
+       -86.7,
+       -168.53
       ],
       [
-       -27.08,
-       -169.01
+       -29.25,
+       -168.99
       ],
       [
-       -27.61,
-       -192.68
+       -29.56,
+       -192.67
       ],
       [
-       -85.35,
+       -86.32,
        -192.21
       ]
      ],
@@ -14215,22 +14215,22 @@
      "column": "east",
      "row": 4,
      "frontage_m": 23.68,
-     "depth_m": 57.35,
+     "depth_m": 56.42,
      "polygon": [
       [
-       -85.35,
+       -86.32,
        -192.21
       ],
       [
-       -27.61,
-       -192.68
+       -29.56,
+       -192.67
       ],
       [
-       -28.14,
-       -216.36
+       -29.87,
+       -216.34
       ],
       [
-       -85.09,
+       -85.95,
        -215.89
       ]
      ],
@@ -14243,22 +14243,22 @@
      "column": "east",
      "row": 5,
      "frontage_m": 23.68,
-     "depth_m": 56.55,
+     "depth_m": 55.73,
      "polygon": [
       [
-       -85.09,
+       -85.95,
        -215.89
       ],
       [
-       -28.14,
-       -216.36
+       -29.87,
+       -216.34
       ],
       [
-       -28.68,
-       -240.03
+       -30.19,
+       -240.02
       ],
       [
-       -84.83,
+       -85.57,
        -239.57
       ]
      ],
@@ -14270,7 +14270,7 @@
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
-    "samples": 561,
+    "samples": 558,
     "off_the_modelled_field": 0,
     "below_datum": 0,
     "min_m": 1.0,
@@ -14309,8 +14309,8 @@
     "closure_against_the_committed_lines": {
      "axis": "east to west",
      "the_sheet_asks_ft": 378.0,
-     "the_committed_lines_give_ft": 399.5,
-     "short_by_ft": -21.5,
+     "the_committed_lines_give_ft": 392.7,
+     "short_by_ft": -14.7,
      "so": "the lot lines below divide the block the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size. What is short is this project's West Division street spacing and not the module — T-1540 is the ticket that owns those centrelines, and T-0444 and tools/measure_west_division_module.py report the same gap."
     }
    },
@@ -14836,38 +14836,38 @@
      -263.47
     ],
     [
-     -29.23,
-     -264.41
+     -30.51,
+     -264.4
     ],
     [
-     -31.72,
-     -375.35
+     -31.98,
+     -375.34
     ],
     [
      -139.81,
      -374.47
     ]
    ],
-   "area_m2": 12426.4,
-   "frontage_m": 111.99,
-   "frontage_ft": 367.4,
+   "area_m2": 12341.1,
+   "frontage_m": 111.23,
+   "frontage_ft": 364.9,
    "depth_m": 110.96,
    "lots_per_column": 5,
    "alley_local_enu_m": [
     [
-     -85.0,
-     -263.96
+     -85.69,
+     -263.95
     ],
     [
-     -79.32,
+     -80.03,
      -264.0
     ],
     [
-     -78.45,
+     -78.58,
      -374.97
     ],
     [
-     -83.74,
+     -83.9,
      -374.92
     ]
    ],
@@ -14877,19 +14877,19 @@
      "column": "west",
      "row": 1,
      "frontage_m": 22.21,
-     "depth_m": 59.71,
+     "depth_m": 59.08,
      "polygon": [
       [
        -145.12,
        -263.47
       ],
       [
-       -85.0,
-       -263.96
+       -85.69,
+       -263.95
       ],
       [
-       -84.75,
-       -286.15
+       -85.33,
+       -286.14
       ],
       [
        -144.06,
@@ -14905,18 +14905,18 @@
      "column": "west",
      "row": 2,
      "frontage_m": 22.21,
-     "depth_m": 58.9,
+     "depth_m": 58.38,
      "polygon": [
       [
        -144.06,
        -285.67
       ],
       [
-       -84.75,
-       -286.15
+       -85.33,
+       -286.14
       ],
       [
-       -84.5,
+       -84.97,
        -308.34
       ],
       [
@@ -14933,19 +14933,19 @@
      "column": "west",
      "row": 3,
      "frontage_m": 22.21,
-     "depth_m": 58.1,
+     "depth_m": 57.68,
      "polygon": [
       [
        -143.0,
        -307.87
       ],
       [
-       -84.5,
+       -84.97,
        -308.34
       ],
       [
-       -84.25,
-       -330.54
+       -84.61,
+       -330.53
       ],
       [
        -141.94,
@@ -14961,18 +14961,18 @@
      "column": "west",
      "row": 4,
      "frontage_m": 22.21,
-     "depth_m": 57.29,
+     "depth_m": 56.97,
      "polygon": [
       [
        -141.94,
        -330.07
       ],
       [
-       -84.25,
-       -330.54
+       -84.61,
+       -330.53
       ],
       [
-       -83.99,
+       -84.25,
        -352.73
       ],
       [
@@ -14989,18 +14989,18 @@
      "column": "west",
      "row": 5,
      "frontage_m": 22.21,
-     "depth_m": 56.48,
+     "depth_m": 56.27,
      "polygon": [
       [
        -140.88,
        -352.27
       ],
       [
-       -83.99,
+       -84.25,
        -352.73
       ],
       [
-       -83.74,
+       -83.9,
        -374.92
       ],
       [
@@ -15017,23 +15017,23 @@
      "column": "east",
      "row": 1,
      "frontage_m": 22.19,
-     "depth_m": 49.76,
+     "depth_m": 49.23,
      "polygon": [
       [
-       -79.32,
+       -80.03,
        -264.0
       ],
       [
-       -29.23,
-       -264.41
+       -30.51,
+       -264.4
       ],
       [
-       -29.73,
-       -286.6
+       -30.8,
+       -286.59
       ],
       [
-       -79.15,
-       -286.2
+       -79.74,
+       -286.19
       ]
      ],
      "plat_lot_number": 1,
@@ -15045,23 +15045,23 @@
      "column": "east",
      "row": 2,
      "frontage_m": 22.19,
-     "depth_m": 49.09,
+     "depth_m": 48.65,
      "polygon": [
       [
-       -79.15,
-       -286.2
+       -79.74,
+       -286.19
       ],
       [
-       -29.73,
-       -286.6
+       -30.8,
+       -286.59
       ],
       [
-       -30.22,
-       -308.79
+       -31.1,
+       -308.78
       ],
       [
-       -78.97,
-       -308.39
+       -79.45,
+       -308.38
       ]
      ],
      "plat_lot_number": 4,
@@ -15073,22 +15073,22 @@
      "column": "east",
      "row": 3,
      "frontage_m": 22.19,
-     "depth_m": 48.41,
+     "depth_m": 48.06,
      "polygon": [
       [
-       -78.97,
-       -308.39
+       -79.45,
+       -308.38
       ],
       [
-       -30.22,
-       -308.79
+       -31.1,
+       -308.78
       ],
       [
-       -30.72,
+       -31.39,
        -330.97
       ],
       [
-       -78.8,
+       -79.16,
        -330.58
       ]
      ],
@@ -15101,22 +15101,22 @@
      "column": "east",
      "row": 4,
      "frontage_m": 22.19,
-     "depth_m": 47.74,
+     "depth_m": 47.48,
      "polygon": [
       [
-       -78.8,
+       -79.16,
        -330.58
       ],
       [
-       -30.72,
+       -31.39,
        -330.97
       ],
       [
-       -31.22,
+       -31.68,
        -353.16
       ],
       [
-       -78.62,
+       -78.87,
        -352.77
       ]
      ],
@@ -15129,22 +15129,22 @@
      "column": "east",
      "row": 5,
      "frontage_m": 22.19,
-     "depth_m": 47.06,
+     "depth_m": 46.89,
      "polygon": [
       [
-       -78.62,
+       -78.87,
        -352.77
       ],
       [
-       -31.22,
+       -31.68,
        -353.16
       ],
       [
-       -31.72,
-       -375.35
+       -31.98,
+       -375.34
       ],
       [
-       -78.45,
+       -78.58,
        -374.97
       ]
      ],
@@ -15156,7 +15156,7 @@
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
-    "samples": 500,
+    "samples": 493,
     "off_the_modelled_field": 0,
     "below_datum": 0,
     "min_m": 1.0,
@@ -15198,8 +15198,8 @@
     "closure_against_the_committed_lines": {
      "axis": "east to west",
      "the_sheet_asks_ft": 348.0,
-     "the_committed_lines_give_ft": 367.4,
-     "short_by_ft": -19.4,
+     "the_committed_lines_give_ft": 364.9,
+     "short_by_ft": -16.9,
      "so": "the lot lines below divide the block the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size. What is short is this project's West Division street spacing and not the module — T-1540 is the ticket that owns those centrelines, and T-0444 and tools/measure_west_division_module.py report the same gap."
     }
    },

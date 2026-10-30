@@ -41,7 +41,8 @@
       "sanborn_1911_vol3_sheet_28",
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "STANDING IN 1904 is what the scene needs, and it rests on the 1911 Sanborn sheet 28 carried back seven years, the same reading the Glessner record and the 1904 parcels make of it (the Glessner House correspondent reads no change on this sheet between 1904 and 1911). FROM: the T-1837 building register reports 1886 (Cobb & Frost); it is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the loss in 1968; same footing, the year's last day."
+    "note": "STANDING IN 1904 is what the scene needs, and it rests on the 1911 Sanborn sheet 28 carried back seven years, the same reading the Glessner record and the 1904 parcels make of it (the Glessner House correspondent reads no change on this sheet between 1904 and 1911). FROM: the T-1837 building register reports 1886 (Cobb & Frost); it is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the loss in 1968; same footing, the year's last day.",
+    "from_is": "began"
   },
   "change_note": "",
   "placement": {
@@ -681,7 +682,7 @@
       "value": {
         "kit": "k14_condition",
         "built": 1886,
-        "lawn": "turf",
+        "lawn": "none",
         "grass_edge": "street_front",
         "under_stoop": "earth",
         "front_walk": {
@@ -700,7 +701,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The ground inside the K11 boundary, from the K14 condition kit (T-2324, data/components/prairie_1904/k14_condition.json) at the house's own age: built 1886 (this phase's documented year), so 18 years standing on 1904-07-01 and the kit's age factor 0.45. THE LINES are the boundary's and the house's: the front yard runs from the street front (and the foot of its stone bay) to the fence curb's house face, between the house's south wall line and the north lot line (s 10.225), which is all the sheet's parcel gives. THE LAWN is turf over that yard, Glessner's courtyard turf map, its surface 0.035 m over grade (the terrain under this yard rises up to 0.018 m above the lowest point the renderer beds the house on). Along the street front's wall foot and round the bay a bare strip is cut, the kit's grass_edge at 0.45: 0.14 m wide, its line wobbling 0.02 m by the property's seed. Under the stoop, an open stair whose foot alone touches grade, the ground is bare earth: no lawn is kept in its shade. THE FRONT WALK runs from the stoop's foot through the entrance pair to the public walk, 1.28 m wide between the gate piers, in flags of the stoop's own stone 0.025 m proud of the lawn, worn along its centre by the kit's front_walk path_wear (a polished line, to 0.9 at full wear). THE SERVICE WALK is cinder down the side passage, from the side gate to the house's rear corner (u 0), between the boundary wall's north face and the house's south wall, beaten along its centre by the kit's service_walk path_wear (to 0.78 at full wear, the K14 study's cinder). RECONSTRUCTED: no source read here shows 1808's yard, its lawn, its walks or their surfaces; the sheet bounds where they can be and nothing more. Every surface and number is the kit's generic one or chosen here (liberty L-k14-1808-yard-2360, T-2360). T-1883: the walks now pass through open gaps in the low stone boundary; references above to iron gates, tall piers and a south wall are superseded. The path surfaces remain reconstructed."
+      "note": "The ground inside the K11 boundary, from the K14 condition kit (T-2324, data/components/prairie_1904/k14_condition.json) at the house's own age: built 1886 (this phase's documented year), so 18 years standing on 1904-07-01 and the kit's age factor 0.45. THE LINES are the boundary's and the house's: the front yard runs from the street front (and the foot of its stone bay) to the fence curb's house face, between the house's south wall line and the north lot line (s 10.225), which is all the sheet's parcel gives. THE LAWN is turf over that yard, Glessner's courtyard turf map, its surface 0.035 m over grade (the terrain under this yard rises up to 0.018 m above the lowest point the renderer beds the house on). Along the street front's wall foot and round the bay a bare strip is cut, the kit's grass_edge at 0.45: 0.14 m wide, its line wobbling 0.02 m by the property's seed. Under the stoop, an open stair whose foot alone touches grade, the ground is bare earth: no lawn is kept in its shade. THE FRONT WALK runs from the stoop's foot through the entrance pair to the public walk, 1.28 m wide between the gate piers, in flags of the stoop's own stone 0.025 m proud of the lawn, worn along its centre by the kit's front_walk path_wear (a polished line, to 0.9 at full wear). THE SERVICE WALK is cinder down the side passage, from the side gate to the house's rear corner (u 0), between the boundary wall's north face and the house's south wall, beaten along its centre by the kit's service_walk path_wear (to 0.78 at full wear, the K14 study's cinder). RECONSTRUCTED: no source read here shows 1808's yard, its lawn, its walks or their surfaces; the sheet bounds where they can be and nothing more. Every surface and number is the kit's generic one or chosen here (liberty L-k14-1808-yard-2360, T-2360). T-1883: the walks now pass through open gaps in the low stone boundary; references above to iron gates, tall piers and a south wall are superseded. The path surfaces remain reconstructed. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "stone_finish": {
       "value": {
@@ -787,10 +788,32 @@
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "note": "The 1911 Sanborn sheet 28 draws a three-storey-and-basement brick house ('3B') with a rear two-storey garage on the lot; a house of that kind on Prairie Avenue in 1904 is a residence. The T-1837 building register names it the Osborn R. Keith (later Stanley Field) residence, reported 1886 by Cobb & Frost; that register's evidence handles are not yet source records here, so the names ride in the record's name and aka, not in a cited attribute."
+    },
+    "built": {
+      "value": 1886,
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "The marker: 'Osborn R. Keith Residence. Built 1886'."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "hmdb_prairie_lost_houses_1800_1900_west",
+      "citation": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (West Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308706.",
+      "url": "https://www.hmdb.org/m.asp?m=308706",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "year built, architect and style as the marker states them for 1808, 1812, 1824, 1834, 1912 and 1936 Prairie"
+      ],
+      "what_it_does_not_supply": [
+        "measurements or appearance beyond the style named"
+      ]
+    },
     {
       "source_id": "inland_architect_1886_09_keith_notice",
       "citation": "The Inland Architect and News Builder, vol. VIII, no. 3 (September 1886), p. 28, Chicago building news, Cobb & Frost notice for O. R. Keith, 1808 Prairie Avenue.",

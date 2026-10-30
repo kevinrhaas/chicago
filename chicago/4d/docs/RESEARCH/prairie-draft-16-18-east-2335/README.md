@@ -37,6 +37,6 @@ The 19 GLBs add 567 KB of web derivatives (3.13 MB of masters). The renderer bat
 
 ## Not drafted here
 
-- **Pullman's glasshouses and lodge across 18th Street.** The sheet-28 census allocates two glasshouse ranges and the two-storey lodge between them to the Pullman estate (`s28-pullman-service-garden`, package T-1934). The sheet-28 trace never drew them, so the builder has no polygon to read, and the draft archetype has no glass roof. They are left to T-1934, which owns that glasshouse geometry and the K13 kit it needs; its ticket now says so.
+- **Pullman's glasshouses and lodge across 18th Street.** The sheet-28 census allocates two glasshouse ranges and the two-storey lodge between them to the Pullman estate (`s28-pullman-service-garden`, package T-1934). The sheet-28 trace never drew them, so the builder has no polygon to read, and the draft archetype has no glass roof. They were left to T-1934, which owns that glasshouse geometry and the K13 kit it needs; T-3164 (its first piece) has since read them off sheet 28 by hand and built them (`L-pullman-glasshouses-1800-calumet-3164`).
 - Rounded and canted bays stay square-cornered projections. No K02-K16 kit part is laid, as on the other drafted sides.
 - 1609 and 1611 rest on the weakest of the four georeferences. Their storeys, roofs and openings are the draft's, and T-1867 reads them.

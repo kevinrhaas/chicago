@@ -693,8 +693,12 @@
   {
    "no": 32,
    "name": "Old Grist Mill Worked by Horses",
-   "status": "not_located",
-   "why": "No numeral '32' read with confidence among the buildings near Kinzie's."
+   "status": "sheet_only",
+   "why": "The building carrying the numeral '32' is drawn between the easternmost no. 31 house and Mr Kinzie's kitchen garden, at about sheet px [1177, 427, 1215, 455], its '32' under it near (1190, 460): found at T-2504 and recorded in T-2485. T-2485 seats it in north_bank as kinzie_horse_mill_1812; that run could not fetch the sheet to re-read it, so the box is T-2504's reading.",
+   "sheet_px_centre": [
+    1196,
+    441
+   ]
   },
   {
    "no": 33,
@@ -1109,10 +1113,10 @@
     ],
     "scale_ft_per_in": 40.0,
     "facing": 180,
-    "record": null,
-    "builds": "T-2486",
+    "record": "ouilmette_house_1812",
     "drawn": "the smallest: a log house, one light and a door, a chimney on its west gable, between the middle house and the building numbered 32 beside Kinzie's garden",
-    "occupant": "Ouilmette, inferred: the one no. 31 house nearest Kinzie's, where Currey's 'close in the rear of the Kinzie house' and Wau-Bun's 'close at hand' put his. T-2486 builds it."
+    "occupant": "Ouilmette, inferred: the one no. 31 house nearest Kinzie's, where Currey's 'close in the rear of the Kinzie house' and Wau-Bun's 'close at hand' put his. Built by T-2486.",
+    "read": "Re-read at T-2486 on a 12x gridded crop of the pinned sheet: the chimney stands on the west gable (x 1124-1132), the door left of the middle (x 1132-1135, y 460-469) and the one light right of it (x 1142-1147, y 461-467), so their centres stand 0.345 and 0.607 of the box from its west end."
    },
    {
     "part": "coursoll_field",
@@ -1136,6 +1140,21 @@
     "occupant": "Coursoll, attested: 'a house and inclosed field north of the river, belonging to Mr. \"Coursoll.\"' (Quaife 1913 p. 167); the sheet letters 'Mr Coursell' inside it.",
     "drawn": "READ AT T-2513 on 3x and 6x crops. West of the three no. 31 houses: a field bounded by a zigzag lettered 'Worm Fence' along its south-west side, 'Mr Coursell' inside it, drawn TURNED about 29.5 degrees anticlockwise off the sheet's axes. Its corners read about N (707, 387), W (522, 490) and S (611, 604). Three sides are the zigzag. The fourth, from N down to the bank at about (748, 525), is the hatched paling whose length T-2504 could not read; the westernmost no. 31 house (no31_west) stands across the field's south-east corner, the south-east zigzag ending at its west gable. The corners make a skewed quadrilateral, so the field is read as a box in its own axes: 184 px along it (the mean of its two long sides), and across it from the north-west side down to the south-east side as far as the house allows (108 px of the drawn 141), because the house stands OUTSIDE the fence at that corner and a box carried to the drawn south-east side would put the fence through it. sheet_px is that box about its own centre; drawn_bbox_px is the turned drawing's whole extent.",
     "scale_note": "No scale is lettered at the field and it is not a building, so the index's forty feet to the inch does not apply. A field is ground: its outline is a set of distances on the ground like the ones between the houses, so it is opened out by the bank's own expansion (the '52 yards in length' on the picket), as the gardens outside the stockade are by theirs."
+   },
+   {
+    "part": "no32",
+    "index_no": 32,
+    "sheet_px": [
+     1177,
+     427,
+     1215,
+     455
+    ],
+    "scale_ft_per_in": 40.0,
+    "facing": 180,
+    "record": "kinzie_horse_mill_1812",
+    "drawn": "a small building with a pitched roof between the easternmost no. 31 house and Mr Kinzie's kitchen garden, its numeral '32' under it; index no. 32, 'Old Grist Mill Worked by Horses'",
+    "read": "Box read at T-2504 and recorded in the T-2485 ticket ('Found at T-2504'); not re-read at T-2485, whose container could not fetch the sheet. Faces the river as the draught draws the houses on this bank (reconstructed)."
    }
   ]
  }

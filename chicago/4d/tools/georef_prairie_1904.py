@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Georeference the four Prairie Avenue sheets (T-1250) and publish their GCP files.
+"""Georeference the five Prairie Avenue sheets (T-1250, T-3150) and publish their GCP files.
 
-    python3 tools/georef_prairie_1904.py            # (re)write the four GCP files
+    python3 tools/georef_prairie_1904.py            # (re)write the five GCP files
     python3 tools/georef_prairie_1904.py --check    # re-derive, change nothing
     python3 tools/georef_prairie_1904.py --self-test
 
@@ -11,6 +11,11 @@ committed at chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/:
     Sanborn, Chicago vol. 3 (1911), sheets 20, 28 and 35
     Robinson's Atlas of the City of Chicago (1886), plate 10
 
+with a fifth beside them that the owner did not supply: Sanborn vol. 3 (1911), sheet 27,
+Indiana Avenue from 18th to 20th Street, fetched from the Library of Congress for T-3150
+(its item's image 0027 at full size; the sha256 below is of that copy). It is fitted
+differently from the other four -- see SHEET 27 IS TIED TO ITS NEIGHBOURS below.
+
 and the outputs sit beside every other fitted sheet in this corpus, in
 data/traces/gcp/, so the streets (T-0474), the Glessner House (T-1729) and anything
 else that later reads a footprint off these sheets starts from the same transform:
@@ -18,6 +23,7 @@ else that later reads a footprint off these sheets starts from the same transfor
     data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json
     data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json
     data/traces/gcp/sanborn_1911_v3_sheet_35_gcps.json
+    data/traces/gcp/sanborn_1911_v3_sheet_27_gcps.json
     data/traces/gcp/robinson_1886_plate_10_gcps.json
 
 What is the same as rees_rucker_1849_gcps.json, and what is not
@@ -71,6 +77,20 @@ easting on the modern Prairie centreline at that northing. Sheet 28 is the Gless
 House sheet, and it is also the one checked hardest: three houses standing today on
 both the 1911 sheet and the OpenStreetMap map (1800, 1801 and 1900 Prairie) are read
 off the sheet and compared, and the georeference was never fitted to any of them.
+
+SHEET 27 IS TIED TO ITS NEIGHBOURS (T-3150). It draws Michigan and Indiana Avenues from
+18th to 20th Street and stops at the alley behind Indiana's east-face lots, so the only
+crossing on it with a modern node is Indiana & 18th, and that one is control for its
+northing alone (Indiana's modern centreline is displaced, above). One component cannot
+turn a sheet. What the sheet does share is three crossings its neighbours already fit:
+Indiana & 18th, which sheet 20 draws whole at its foot, and the 24-ft alley's crossings
+with 18th and 20th Streets, which sheet 28 draws at its west edge. Each is taken where
+that neighbour's fit puts it -- easting and northing, by the neighbour's own picks of the
+same drawn lines -- and sheet 27's rotation and translation are the least squares over
+those six components at its printed scale. So the Indiana lots line up with the 16th-18th
+face sheet 20 carries and with the Prairie lots behind them on sheet 28 by construction,
+and the residuals say how well the three sheets agree about where they meet. No modern
+control enters sheet 27 except through the neighbours' fits.
 """
 from __future__ import annotations
 
@@ -192,12 +212,18 @@ SHEETS: dict[str, dict] = {
             "s18_s": ("h", [[950, 1191.3], [2500, 1190.1]]),
             "s20_n": ("h", [[950, 6031.2], [2500, 6043.8], [3550, 6051.1]]),
             "s20_s": ("h", [[950, 6433.0], [2500, 6445.7], [3550, 6452.8]]),
+            # The 24-ft alley behind the Prairie west-face lots (printed "24'"), 146 px wide.
+            # Read for the street grid (T-0474) and kept here, where sheet 27's tie can reach it.
+            "alley_w_w": ("v", [[439.6, 1400], [426.7, 3000], [420.3, 4300], [409.7, 5800]]),
+            "alley_w_e": ("v", [[585.7, 1400], [572.7, 3000], [562.8, 4300], [554.6, 5800]]),
         },
         "streets": {
             "prairie": {"pair": ["prairie_w", "prairie_e"]},
             "18th": {"pair": ["s18_n", "s18_s"]},
             "20th": {"pair": ["s20_n", "s20_s"]},
         },
+        # Lines another sheet is tied to but this sheet's own fit does not use (T-3150).
+        "tie_streets": {"alley_w": {"pair": ["alley_w_w", "alley_w_e"], "width_ft": 24}},
         "band_tolerance_pct": 4.0,
         "crossings": [
             ("prairie_18th", "prairie", "18th", "EN"),
@@ -217,6 +243,44 @@ SHEETS: dict[str, dict] = {
              "osm": "the ring's north-east vertex",
              "sheet": "the north-east corner of the brick house's main block at 1900 Prairie"},
         ],
+    },
+    "sanborn_1911_v3_sheet_27": {
+        "source": "sanborn_1911_chicago_v3_sheet_27",
+        "raster": "sanborn_1911_vol3_sheet_27.jpg",
+        "size": [5873, 7323],
+        "sha256": "30fda8b283e0334b82a4f54698a290a093482d5eeaa101b97ce090b26df5b0fd",
+        "title": "Sanborn Map Company, Chicago vol. 3 (1911), sheet 27: E. 18th to E. 20th St., S. Michigan Av. to the alley behind Indiana Av.",
+        "scale_bar": {"feet": [-50, 0, 150], "px": [4462.5, 4765.5, 5668.5], "row_px": 6840,
+                      "note": "the printed 'Scale of Feet' under the sheet's lower right, its 50-ft left extension, zero and 150-ft ends, read on a 4x enlargement with a 10-px grid"},
+        "pick_method": "as sheet 20: each line is the peak of a 5-px-smoothed MEDIAN darkness profile across a window of 300 rows (vertical lines) or 350 columns (horizontal lines); vertical lines at three or four stations along the block, street lines at four stations across both blocks, Michigan-Indiana and Indiana-alley",
+        "lines": {
+            "indiana_w": ("v", [[3302.1, 1650], [3300.3, 2600], [3287.8, 5600]]),
+            "indiana_e": ("v", [[3701.8, 1650], [3699.2, 2600], [3687.1, 5600]]),
+            "alley_w_w": ("v", [[4773.4, 1650], [4771.3, 3200], [4761.4, 5050], [4753.5, 5850]]),
+            "alley_w_e": ("v", [[4912.7, 1650], [4911.3, 3200], [4904.7, 5050], [4899.9, 5850]]),
+            "s18_n": ("h", [[1675, 824.3], [2875, 827.9], [3975, 832.9], [4525, 838.5]]),
+            "s18_s": ("h", [[1675, 1230.0], [2875, 1235.3], [3975, 1241.3], [4525, 1243.8]]),
+            "s20_n": ("h", [[1675, 6075.7], [2875, 6081.8], [3975, 6085.6], [4525, 6087.8]]),
+            "s20_s": ("h", [[1675, 6470.0], [2875, 6479.1], [3975, 6486.0], [4525, 6488.8]]),
+        },
+        "streets": {
+            "indiana": {"pair": ["indiana_w", "indiana_e"]},
+            "18th": {"pair": ["s18_n", "s18_s"]},
+            "20th": {"pair": ["s20_n", "s20_s"]},
+        },
+        # The alley is printed "24'" here as on sheet 28, but this sheet draws it 139-146 px
+        # (23.1-24.3 ft) wide, narrowing northward, where sheet 28 draws 142-146 px; so it is
+        # a tie line, not a test of the bar.
+        "tie_streets": {"alley_w": {"pair": ["alley_w_w", "alley_w_e"], "width_ft": 24}},
+        "band_tolerance_pct": 4.0,
+        "crossings": [],
+        # T-3150: (id, this sheet's crossing, the neighbour that already fits it)
+        "ties": [
+            ("indiana_18th", ("indiana", "18th"), ("sanborn_1911_v3_sheet_20", "indiana", "18th")),
+            ("alley_18th", ("alley_w", "18th"), ("sanborn_1911_v3_sheet_28", "alley_w", "18th")),
+            ("alley_20th", ("alley_w", "20th"), ("sanborn_1911_v3_sheet_28", "alley_w", "20th")),
+        ],
+        "fitted_on": "2026-10-25",
     },
     "robinson_1886_plate_10": {
         "source": "robinson_1886_chicago_plate_10",
@@ -257,9 +321,9 @@ SHEETS: dict[str, dict] = {
     },
 }
 # Sheet 20 after sheet 28, which it is joined to (T-2691); sheet 28 after sheet 35, which
-# carries its second control point.
+# carries its second control point; sheet 27 after both of the sheets it is tied to (T-3150).
 ORDER = ["sanborn_1911_v3_sheet_35", "sanborn_1911_v3_sheet_28",
-         "sanborn_1911_v3_sheet_20", "robinson_1886_plate_10"]
+         "sanborn_1911_v3_sheet_20", "sanborn_1911_v3_sheet_27", "robinson_1886_plate_10"]
 
 WHY_COMPONENT = {
     "EN": "both: Prairie Avenue is the 1886 and 1911 corridor, 66 ft wide, with houses standing on it today at the setbacks the sheets draw",
@@ -285,7 +349,7 @@ def line_fit(axis: str, pts: list[list[float]]) -> tuple[str, float, float]:
 
 
 def street_line(sheet: dict, name: str, px_per_ft: float) -> tuple[str, float, float]:
-    spec = sheet["streets"][name]
+    spec = sheet["streets"].get(name) or sheet["tie_streets"][name]
     if "pair" in spec:
         a = line_fit(*sheet["lines"][spec["pair"][0]])
         b = line_fit(*sheet["lines"][spec["pair"][1]])
@@ -420,7 +484,7 @@ def derive(control: dict) -> dict[str, dict]:
         sh = SHEETS[key]
         ppf = px_per_ft(sh)
         s = FT / ppf
-        streets = {n: street_line(sh, n, ppf) for n in sh["streets"]}
+        streets = {n: street_line(sh, n, ppf) for n in [*sh["streets"], *sh.get("tie_streets", {})]}
         obs = []
         for cid, ns, ew, comp in sh["crossings"]:
             px = crossing_px(streets[ns], streets[ew])
@@ -441,6 +505,18 @@ def derive(control: dict) -> dict[str, dict]:
                                 "anchored at Twenty-First Street 120 m away; the EASTING is the modern Prairie "
                                 "Avenue centreline (the line through the 18th and 21st crossing nodes) at that northing."),
                         "transferred": {"from": frm, "pixel_on_that_sheet": src_px}})
+        for cid, (ns, ew), (frm, ons, oew) in sh.get("ties", []):
+            px = crossing_px(streets[ns], streets[ew])
+            osh = SHEETS[frm]
+            o_px = crossing_px(street_line(osh, ons, px_per_ft(osh)), street_line(osh, oew, px_per_ft(osh)))
+            e_t, n_t = sim_apply(*fits[frm], *o_px)
+            obs.append({"id": cid, "px": px, "comp": "EN", "E": e_t, "N": n_t, "modern": None,
+                        "why": ("both, from the neighbouring sheet that draws the same crossing: " + frm + " fits it, "
+                                "and its easting and northing here are where that fit puts the crossing of the "
+                                "same two drawn street bands on that sheet (T-3150)"),
+                        "transferred": None,
+                        "tied": {"to": frm, "pixel_on_that_sheet": [round(o_px[0], 1), round(o_px[1], 1)],
+                                 "local_e": r2(e_t), "local_n": r2(n_t)}})
         join = None
         if sh.get("joined_to"):
             frm, ns, ew = sh["joined_to"]
@@ -481,6 +557,8 @@ def derive(control: dict) -> dict[str, dict]:
                 g["modern"] = o["modern"]
             if o["transferred"]:
                 g["transferred"] = dict(o["transferred"], local_e=r2(o["E"]), local_n=r2(o["N"]))
+            if o.get("tied"):
+                g["tied"] = o["tied"]
             g["residual_e_m"] = None if re is None else r2(re)
             g["residual_n_m"] = None if rn is None else r2(rn)
             g["leave_one_out_m"] = loo
@@ -557,6 +635,14 @@ def derive(control: dict) -> dict[str, dict]:
             "affine_diagnostic": diag,
             "gcps": gcps,
         }
+        if sh.get("ties"):
+            doc["control_source"] = ("tied to " + " and ".join(sorted({t[2][0] for t in sh["ties"]})) + " (T-3150): "
+                                     "each control point is a crossing this sheet shares with a neighbour, at the "
+                                     "position that neighbour's fit gives it. Modern control (data/traces/"
+                                     "prairie_1904_control.json, OpenStreetMap, ODbL) enters only through those fits.")
+            doc["fit"]["type"] = ("similarity at the sheet's printed scale, TIED to its neighbours (T-3150): scale "
+                                  "from the printed bar, rotation and translation by least squares over the "
+                                  "crossings it shares with them, pixel -> local ENU of data/datum.json")
         if join:
             doc["fit"]["type"] = ("similarity at the sheet's printed scale, JOINED to " + join["from"] + " (T-2691): "
                                   "scale from the printed bar, the translation that puts the crossing both sheets "
@@ -635,6 +721,13 @@ def extra_notes(docs: dict[str, dict]) -> None:
     docs["sanborn_1911_v3_sheet_35"]["use"] = (
         "For the blocks from 20th to 22nd Street and, now, for one thing more: its Prairie & Twentieth crossing is "
         "sheet 28's second control point. No lake edge is drawn on it -- the sheet stops at Calumet Avenue.")
+    d27 = docs["sanborn_1911_v3_sheet_27"]
+    d27["use"] = (
+        "For Indiana Avenue's east-face lots from 18th to 20th Street and their corners (T-3150, the street "
+        "grid's tracer) and the buildings on them (T-3151). Tied to sheets 20 and 28 where it meets them: the "
+        f"three shared crossings agree to {d27['fit']['rms_m']} m RMS (worst component "
+        f"{d27['fit']['max_component_m']} m). West of Indiana Avenue -- Michigan Avenue and its lots -- the sheet "
+        "is read by nothing yet, and nothing ties it there.")
     docs["robinson_1886_plate_10"]["use"] = (
         "For the 1886 lake edge between 16th and 18th Streets, which BOUNDS the 1904 edge from before "
         "(tools/trace_ic_edge_1904.py), and for the outlines of the two houses Glessner House names as standing "
@@ -688,6 +781,7 @@ CEILINGS = {
     "sanborn_1911_v3_sheet_20": 4.0,    # 1 px = 5 cm; the crossings and the modern nodes are good to ~2 m
     "sanborn_1911_v3_sheet_28": 4.0,
     "sanborn_1911_v3_sheet_35": 4.0,    # 1 px = 19 cm, picks +/- 1 px
+    "sanborn_1911_v3_sheet_27": 4.0,    # as 20 and 28: its control is theirs
     "robinson_1886_plate_10": 6.0,      # a photographed, curved page
 }
 
@@ -761,6 +855,13 @@ def self_test(control: dict) -> int:
     a, b = at18("sanborn_1911_v3_sheet_20"), at18("sanborn_1911_v3_sheet_28")
     cases.append(("sheets 20 and 28 put the Prairie & 18th crossing they both draw in one place (T-2691)",
                   math.hypot(a[0] - b[0], a[1] - b[1]) < 0.02))
+    saved = copy.deepcopy(SHEETS["sanborn_1911_v3_sheet_27"]["lines"])
+    for name in ("indiana_w", "indiana_e"):
+        SHEETS["sanborn_1911_v3_sheet_27"]["lines"][name] = (
+            "v", [[x + 200.0, y] for x, y in saved[name][1]])
+    cases.append(("sheet 27's Indiana Avenue misread 200 px (10 m) fails its tie to sheets 20 and 28 (T-3150)",
+                  any("sanborn_1911_v3_sheet_27: fit RMS" in b for b in contract(build(control)))))
+    SHEETS["sanborn_1911_v3_sheet_27"]["lines"] = saved
     cases.append(("the committed files are what the tool derives", not check(control)))
     for label, ok in cases:
         print(("   ok   " if ok else "   FAIL ") + label)
@@ -785,7 +886,7 @@ def main() -> int:
             print("FAIL", b)
         if not bad:
             docs = build(control)
-            print("OK four Prairie Avenue sheets re-derive: " + "; ".join(
+            print("OK five Prairie Avenue sheets re-derive: " + "; ".join(
                 f"{short(k)} {d['fit']['rms_m']} m" for k, d in docs.items())
                 + f"; sheet 28 checks {docs['sanborn_1911_v3_sheet_28']['independent_checks']['rms_component_m']} m"
                 " on three standing houses")

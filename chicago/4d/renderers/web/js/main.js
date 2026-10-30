@@ -40,12 +40,13 @@ import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, grou
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
+import { renderBudget } from './render-budget.js';
 import { toggleByGrade, restoreLooks } from './confidence-presets.js';
 import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
-import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
+import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -65,6 +66,8 @@ import { loadAgencies } from './agencies.js';
 import { createFencedGround, fetchPrebuiltYards } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
+import { createParkedTransport } from './parked-transport.js';
+import { createStandingHorses } from './standing-horses.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js';
 import { setPickRenderer, setPickLog, pickResources } from './gpu-pick.js';
@@ -91,6 +94,8 @@ import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
+import { createStreetFurniture } from './street-furniture.js';
+import { createFrontYards } from './front-yards.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { createContext } from './context.js';
@@ -825,6 +830,16 @@ const DETAIL_DECLARED = {
   // and measured strings below are retained as the history of these rungs.
   full:     { triangles: 3470000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
+              // T-3146: Full as well as Light runs T-2529's sun-pass test
+              // (shadow-casters.js), unchanged: a structure piece is left out of
+              // the shadow map only when its whole swept shadow lies outside one
+              // plane of the view frustum. On Prairie 38 m east and 30 m south of
+              // Glessner looking at it, 4,677,248 -> 4,383,566 against 4,600,000;
+              // on 18th 45 m west and 32 m north, 4,601,509 -> 4,594,157 (the sun
+              // throws Glessner's shadow toward that camera, so it keeps casting).
+              // Every pixel of each held frame reads the same off and on.
+              // Receipts: docs/RESEARCH/glessner-close-budget-3146/.
+              castersTowardView: true,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
               // protects is the next version of this ticket". The archaeology
@@ -1252,7 +1267,18 @@ const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 // Light and draw-call ceilings unchanged. Before/after receipts and cameras:
 // docs/RESEARCH/glessner-service-junction-T-2219/ . This is a spot measurement,
 // not a frame-rate guarantee; the existing Scene detail control selects Light.
-const GLESSNER_V4_FULL_TRIANGLES = 4600000;
+// T-3084, 2026-10-26: a conscious Full-only allowance for the catalogue
+// Brougham body, keeping its original 45,338 / 23,062 geometry intact. The
+// separate thin-sheet optical delivery avoids the whole-world transmission
+// pass. A fresh exact-e97 published diagnostic measured 24 two-step/GPU-readback
+// frames at both widths and both tiers; desktop Full carriage quarter was
+// 4,654,565 against the previous 4,600,000. Price selected inspection Full at
+// 4,700,000 (45,435 triangles clear), not the unmeasured 4.65M proposal.
+// Ordinary Full, Balanced, every Light/draw/shadow/reach/LOD setting stay exact.
+// Both Light district-air readings still exceed their unchanged 1.27M floor;
+// neither that shared failure nor memory is repaired by this Full allowance.
+// Actual readings and limits: docs/measurements/brougham-optical-delivery-3084.json.
+const GLESSNER_V4_FULL_TRIANGLES = 4700000;
 // T-2217, 2026-10-14: the previously unmeasured carriage-door close-up
 // already draws 340 calls on dev, before the door change (4,443,344 tris).
 // The rebuilt door draws the SAME 340 calls (4,465,836 tris); the other four
@@ -1943,7 +1969,7 @@ async function boot() {
   const detailLevels = inspectionLod ? { ...DETAIL,
     full: { ...DETAIL.full, triangles: GLESSNER_V4_FULL_TRIANGLES,
       declared: GLESSNER_V4_FULL_TRIANGLES,
-      measured: 'Selected Glessner v4 inspection; see T-1730/T-2219 at GLESSNER_V4_FULL_TRIANGLES.' },
+      measured: 'Selected Glessner v4 inspection and T-3084 Brougham; fresh 4,654,565 at Full, priced at 4.7M. See GLESSNER_V4_FULL_TRIANGLES.' },
     light: { ...DETAIL.light, triangles: GLESSNER_V4_LIGHT_TRIANGLES,
       declared: GLESSNER_V4_LIGHT_TRIANGLES,
       measured: 'Glessner courtyard inspection; see T-2218 at GLESSNER_V4_LIGHT_TRIANGLES.' },
@@ -2026,6 +2052,9 @@ async function boot() {
   });
 
   const confidence = createConfidenceView();
+  // T-2981: public and frame statistics read the same current view/tier policy.
+  const currentBudget = () => renderBudget(BUDGET, detailLevel, confidence.ghosting);
+  Object.defineProperty(api, 'budget', { get: currentBudget });
   // T-2647: the furniture ghosts as a dither in the opaque pass, not in a second draw —
   // X-RAY one tap away has to fit the draw budget (confidence.js § setGhostAsDither).
   // T-2863: and so does the grown wood, since its batches hold a Reconstructed grade
@@ -2091,11 +2120,15 @@ async function boot() {
   // T-2529: one switch for every structure batch, old and rebuilt alike; the
   // detail tier sets it (applyShadowTier) and the sun is read when the shadow
   // map is drawn. See shadow-casters.js for the test and the reading behind it.
-  const shadowCasters = { on: false, culled: 0, sun: () => world.direction };
+  const shadowCasters = { on: false, culled: 0, sun: () => world.direction,
+    light: () => world.light, fresh: () => detailLevel === 'full' && governor.shadowFresh };
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
-    collectViewBackings: inspectionLod && detailLevel!=='full',
+    // T-3012: every tier collects them now, Full too (refreshGlessnerOcclusion says
+    // why). Balanced draws without the filter but keeps them, because a Balanced ->
+    // Light switch keeps the same asset and batches and Light filters with them.
+    collectViewBackings: inspectionLod,
     // Balanced and Light share the reduced asset and its batches. Keep their
     // cells identical so a same-asset Balanced -> Light switch stays culled.
     spatialCells: inspectionLod && detailLevel !== 'full' ? { cellM: 4, heightM: 2 } : null,
@@ -2251,6 +2284,27 @@ async function boot() {
   });
   scene3d.add(streetTrees.group);
   api.streetTrees = streetTrees;
+  // T-3199 — the district's street furniture (data/street_furniture/<scene>.json): the gas
+  // lamps at every corner and along the parkways, instanced, standing on the parkway's fall
+  // toward the curb. Only a scene listing `street_furniture` is handed a data base.
+  const streetFurniture = await createStreetFurniture({
+    dataBase: layerBase('street_furniture'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_furniture'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+  });
+  scene3d.add(streetFurniture.group);
+  api.streetFurniture = streetFurniture;
+  // T-3203 — the house lots' front yards (data/front_yards/<scene>.json): a mown lawn to each
+  // house, foundation shrubs along it, low beds, and ivy where a picture shows it; laid clear
+  // of every stoop, walk, fence and door's way the houses' own models draw.
+  const frontYards = await createFrontYards({
+    dataBase: layerBase('front_yards'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('front_yards'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    // T-3223: grown as the parkway elms are, on their leaf and bark atlases, in the Season.
+    grownMaterials: streetTrees.materials ?? null, lowSpec: coarse, checkpoint: bootCheckpoint,
+    mode: SEASON_TREE_MODE[seasonPref.season] ?? 'summer',
+  });
+  scene3d.add(frontYards.group);
+  api.frontYards = frontYards;
 
 
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
@@ -2260,6 +2314,9 @@ async function boot() {
   const railway = await createRailway({
     dataBase: layerBase('railway'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     terrain, confidence, problems: layerProblems('railway'), ...detailOpts(),
+    // Newly reached rail zones are marked before their next draw. This only
+    // installs upload callbacks; it does not render from inside update().
+    onGeometry: coarse ? (group) => releaseAfterUpload(group) : undefined,
   });
   scene3d.add(railway.group);
   api.railway = railway;
@@ -2271,11 +2328,24 @@ async function boot() {
   let glessnerOcclusion=null;
   function refreshGlessnerOcclusion() {
     glessnerOcclusion?.dispose();glessnerOcclusion=null;
-    if (!inspectionLod || detailLevel!=='light') return;
+    // T-3012: Full as well as Light. From Calumet's east walk at 20th, looking north,
+    // Glessner stands about 290 m off behind the Calumet houses and their elms, in the
+    // frustum and hidden from it, and its full master still went to the colour pass
+    // whole: 1,421,694 of the frame's 4,739,066 triangles against Full's 4,600,000. The
+    // filter is the one Light has carried since T-2227, unchanged: a piece is left out
+    // only when its whole box projects inside one opaque building triangle and behind
+    // it, and the sun's pass is not filtered. With it, 2,921,468. Filter off against on
+    // at eight stands, five of them round Glessner: seven pixel-identical, one with 3
+    // pixels of 1,024,000 a few levels apart on its shaded granite. Costs about 8 MB of
+    // heap for Full's backing triangles. Balanced shares Light's asset and stands inside
+    // its ceiling without it. Receipts: docs/RESEARCH/calumet-walk-budget-3012/.
+    if (!inspectionLod || detailLevel==='balanced') return;
     const batches=[...buildings.batches];
     for(const group of [railway.group,terrain.group,streets.group])
       group.traverse(o=>{if(o.isBatchedMesh)batches.push(o);});
     glessnerOcclusion=createViewOcclusion({camera,renderer,triangles:buildings.viewOccluders,batches,
+      // T-3152: Glessner's flat backings, the cells of each proven covered (planar-occluders.js).
+      planes:buildings.planarCovers??[],
       // Each backing triangle checks its own actual confidence range. Tinting
       // opaque stone is safe; a hidden or dithered backing fails open.
       // The pixel proof covers the scene's July appearance. Winter's on/off
@@ -2317,6 +2387,7 @@ async function boot() {
     world.setSunDate(seasonDate(s, loaded.scene.target_date));
     contextCity.setSeason?.(s);
     await seasonPlants(s);
+    await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
   };
   if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
@@ -2369,6 +2440,7 @@ async function boot() {
   const yards = await createFencedGround({
     records: enclosures.records, terrain, confidence, problems,
     prebuilt: yardsPrebuilt, recordHashes: enclosureHashes,
+    supportRegions: draws('standing_horses') ? (loaded.scene.static_support_regions ?? []) : [],
   });
   performance.measure('yards', 'yards:start');
   scene3d.add(yards.group);
@@ -2395,13 +2467,33 @@ async function boot() {
   // the board hangs 1.7 m one side of the facade's centre and the goods pile
   // from the other end. Unlike a board, a barrel stands on the TERRAIN rather
   // than on the building's wall base — it is resting on the ground it is on.
+  const parkedDrawingBuffer = new THREE.Vector2();
+  const parkedTransport = await createParkedTransport({
+    dataBase: layerBase('parked_transport'), sceneId: YEAR, terrain, confidence,
+    detail: detailLevel, problems: layerProblems('parked_transport'), hostMissing,
+    groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : null,
+    getDrawingBufferHeight: () => renderer.getDrawingBufferSize(parkedDrawingBuffer).y,
+  });
+  scene3d.add(parkedTransport.group);
+  api.parkedTransport = parkedTransport;
+  const standingHorses = await createStandingHorses({
+    dataBase: layerBase('standing_horses'), sceneId: YEAR, confidence, detail: detailLevel,
+    problems: layerProblems('standing_horses'), hostMissing,
+    groundHeight: (e, n, recordId, regionId) => yards.drawnBaseHeightAt(e, n, recordId, regionId),
+  });
+  scene3d.add(standingHorses.group); settleOnGpu(standingHorses.group);
+  api.standingHorses = standingHorses;
+  standingHorses.update(camera);
   const yard = await createYardGoods({
     dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
     lowSpec: coarse,
+    replacementIds: parkedTransport.replacementIds,
   });
   scene3d.add(yard.group);
   settleOnGpu(yard.group);
   api.yard = yard;
+  parkedTransport.setFallback((id, visible) => yard.setReplacementVisible(id, visible));
+  parkedTransport.update(camera);
 
   // The frontage works — the plank walks along a building's street walls, the
   // board crossing over the road and the named board on its post at the corner
@@ -2924,7 +3016,7 @@ async function boot() {
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             shadowCasters,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
-            collectViewBackings: level!=='full',
+            collectViewBackings: true,
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
             glass: glassForDetail(level, GLASS_REQUEST) });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
@@ -3022,9 +3114,13 @@ async function boot() {
       // they land, after this commit; a phone lets go of their page arrays then.
       const streetsRebuilt = streets.setDetail?.(level);
       void streetTrees.setDetail(level);
+      streetFurniture.setDetail(level);
+      frontYards.setDetail(level);
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
+      void parkedTransport.setTier(level);
+      void standingHorses.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
@@ -3070,6 +3166,8 @@ async function boot() {
     enclosures.setDetail?.(level);
     // T-2473: the parkway elms rebuild their dozen crowns at the new spray count.
     void streetTrees.setDetail(level);
+    streetFurniture.setDetail(level);
+    frontYards.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     // T-2600: cut on the job pool; awaited in the serialised run below, before
@@ -3079,6 +3177,8 @@ async function boot() {
     railway.setDetail(level);
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
     api.humans?.setTier(level);
+    void parkedTransport.setTier(level);
+    void standingHorses.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
@@ -3332,17 +3432,38 @@ async function boot() {
     return { e: pl.local_e, n: pl.local_n };
   }
 
+  /** T-3263 — what a jaunt stop or a Go to must not stand behind, as { e, n, r }. The
+   *  list is rebuilt only when the timber is re-grown; the router drops its stands then. */
+  const STAND_POST_R = { gas_lamp: 0.12, utility_pole: 0.15 };
+  let standOccludersFor = null, standOccluderList = [];
+  function standOccluders() {
+    if (standOccludersFor === trees) return standOccluderList;
+    standOccludersFor = trees;
+    standOccluderList = [
+      ...(streetTrees.records ?? []).map((t) => ({ e: t.e, n: t.n, r: 0.29 * (t.scale ?? 1) })),
+      ...(streetFurniture.records ?? []).filter((f) => STAND_POST_R[f.kind])
+        .map((f) => ({ e: f.e, n: f.n, r: STAND_POST_R[f.kind] })),
+      ...(trees?.trunks?.() ?? []),
+    ];
+    return standOccluderList;
+  }
+
   // The route planner and the travel controller. `travel` is assigned after the
   // HUD exists (it paints through it); the HUD's callbacks below reach it through
   // the binding, which is settled long before the first frame.
   const router = createRouter({
     terrain, streets, footprints, decks, surfaceAt: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
     streetGrid: streetGrid.grid, walks: frontage.walks,
+    // T-3263: the trunks and posts a stand must see past — the parkway elms, the lamps
+    // and poles, and the grown timber's trunks (re-read when a detail change re-grows it).
+    occluders: standOccluders,
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
     radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
+    passageNeed: WALK.eyeHeight + HEADROOM_MARGIN_M,
   });
   let travel = null;
   api.router = router;
+  api.standOccluders = standOccluders;
   const buildingBounds = buildings.instanceBounds();
 
   /**
@@ -3774,14 +3895,16 @@ async function boot() {
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
     focusPoint, structurePosition,
     // Where a ride or a flight ends: the framed stand-off, the same one Go to uses.
-    standFor: (id, options) => framing(id, { card: true, ...options }),
+    // T-3022: the arrival opens the building in Inspect where it can, so frame for that.
+    // (A ride says `card: false` when it opens nothing; any other ride opens the building.)
+    standFor: (id, options) => framing(id, { ...options, card: options?.card === false ? false : arrivalPanel(id) }),
     registry: loaded.registry,
-    frame: (id, options) => frame(id, { card: true, ...options }),
+    frame: (id, options) => frame(id, { ...options, card: options?.card === false ? false : arrivalPanel(id) }),
     teleport: (where) => walker.teleport(where),
     goToAnchor: (id) => api.goTo(id),
     setFly: (on) => hud.setFly(on, { announce: false }),
     // Arriving is what opens the card: the menu closes, the building's card opens.
-    onArrive: (id) => { hud.setPanel(false); pick(id); lastArrival = { id, e: walker.state.e, n: walker.state.n }; },
+    onArrive: (id) => { hud.setPanel(false); openBuilding(id); lastArrival = { id, e: walker.state.e, n: walker.state.n }; },
   });
   api.travel = travel;
   // The stored pace and travel mode, through the one function that writes WALK
@@ -3849,6 +3972,7 @@ async function boot() {
     // A click on the scene with a card open is the release (T-2954): the card goes and
     // the same click takes the look back.
     if (popup.openId) popup.close();
+    else if (inspectingByHand()) releaseInspect(); // T-3022: Inspect, the same
     if (!pointerlock.isLocked) pointerlock.lock();
   });
 
@@ -3861,11 +3985,14 @@ async function boot() {
   window.addEventListener('keydown', (e) => {
     if (e.code !== 'Escape' || isTyping(e.target)) return;
     if (popup.openId) popup.close();
+    // T-3022: Inspect opened on a building is let go to where the Navigator was, rather than
+    // the Navigator closing whole (its own Escape, which this press is kept from).
+    else if (inspectingByHand()) { e.preventDefault(); releaseInspect(); }
   });
 
   // ---- picking ---------------------------------------------------------- //
 
-  function inspect(ndc = null) {
+  function inspect(ndc = null, { by = 'code' } = {}) {
     blackbox.log('tap', { to: ndc ? 'point' : 'crosshair' });
     let hit = buildings.pickAt(ndc, camera);
     /**
@@ -3944,6 +4071,10 @@ async function boot() {
     if (boat && boat.record && (!hit || boat.distance < hit.distance)) {
       hit = { ...boat };
     }
+    const vehicle = parkedTransport.pickAt(ndc, camera);
+    if (vehicle?.record && (!hit || vehicle.distance < hit.distance)) hit = vehicle;
+    const horse = standingHorses.pickAt(ndc, camera);
+    if (horse?.record && (!hit || horse.distance < hit.distance)) hit = horse;
     /**
      * And so can the fort's well, which is the second thing here belonging to no
      * structure at all: a curb answers with its OWN card record, built by the
@@ -3968,6 +4099,17 @@ async function boot() {
     const treeHit = streetTrees.pickAt(ndc, camera);
     if (treeHit && treeHit.record && (!hit || treeHit.distance < hit.distance)) {
       hit = { ...treeHit };
+    }
+    // And a street lamp's post (T-3199), a fire hydrant (T-3201) or a wooden pole (T-3202), with its
+    // own card: what it is, its grade, its pictures.
+    const furnitureHit = streetFurniture.pickAt(ndc, camera);
+    if (furnitureHit && furnitureHit.record && (!hit || furnitureHit.distance < hit.distance)) {
+      hit = { ...furnitureHit };
+    }
+    // And a front yard's shrub, ivy or bed (T-3203): what it is and whether a picture shows it.
+    const yardHit = frontYards.pickAt(ndc, camera);
+    if (yardHit && yardHit.record && (!hit || yardHit.distance < hit.distance)) {
+      hit = { ...yardHit };
     }
     // ...and a stand-in of the context city (T-2477) answers with what it is and what it
     // rests on: a sheet's outline or a projection, and the rule its height came from.
@@ -3994,8 +4136,62 @@ async function boot() {
       hud.say('Nothing there — aim at a building');
       return null;
     }
+    // T-3022: a building the visitor clicks or taps opens in the Navigator's Inspect; a
+    // street, a tree, a stand-in or the railway keeps the floating card.
+    if (by === 'hand' && loaded.registry.get(hit.record.id) && openBuilding(hit.record.id)) return hit;
     popup.show(hit.record, { fromSign: !!hit.fromSign });
     return hit;
+  }
+
+  // ---- T-3022: a building the visitor opens opens in the Navigator's Inspect ----------
+  // The owner, 2026-10-22: "the detailed research card needs to be folded into" the
+  // Navigator, behind a setting for expert research. So a click or tap on a building, an
+  // arrival, a row in People and Home's Inspect key open it in Inspect, whose Research tab
+  // (Settings › Expert research) carries the card's evidence, liberties and record. The
+  // floating card stays for what Inspect does not show (a street, a tree, a stand-in, the
+  // railway) and behind `pick`, the harness's reading of a record. Inspect opened this way
+  // holds as the card did (T-2954): Esc, its Back key, or a click or tap on the town lets
+  // it go, back to where the Navigator was (docked, if it was docked).
+  let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
+  let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
+  function openBuilding(id, { person = null } = {}) {
+    const record = loaded.registry.get(id);
+    if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
+    if (popup.openId) popup.close();
+    void ensureReaderText(); // T-2825: Inspect reads the record as the card says it
+    if (isReconstructed(record.sidecar)) hints.show('reconstructed'); // T-2664
+    const inspecting = !!handInspect && navigatorUi.app === 'inspect';
+    // `opening` until Inspect is on screen: the device passes through other states on its way
+    // there (a first open loads Inspect), and those must not let the building go.
+    const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true };
+    handInspect = hand;
+    inspectHold = id;
+    // T-3265: a person's own card, on the People tab of the house they lived in.
+    const link = person ? { app: 'inspect', id, tab: 'people', person } : { app: 'inspect', id };
+    void Promise.resolve(navigatorUi.openLink(link)).finally(() => {
+      hand.opening = false;
+      if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
+    });
+    // The panel is read and clicked, as the card was: the mouse is let go.
+    if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
+    return { id, record };
+  }
+  /** What an arrival at `id` opens, for the framing: Inspect (as openBuilding does), else the card. */
+  const arrivalPanel = (id) => (loaded.registry.get(id)?.sidecar && navigatorUi?.has?.('inspect') ? 'inspect' : true);
+  // Held from the moment it is asked for, so Esc or the key a moment later lets it go even
+  // while Inspect is still on its way (a slow frame, or its first load).
+  const inspectingByHand = () => !!handInspect && (handInspect.opening || (navigatorUi?.app === 'inspect' && navigatorUi.level > 0));
+  function letGo(was) {
+    if (navigatorUi?.app !== 'inspect') return false;
+    if (was.wasLevel === 0) navigatorUi.closeApp(); else void navigatorUi.back();
+    return true;
+  }
+  function releaseInspect() {
+    const was = handInspect;
+    handInspect = null;
+    if (!was) return false;
+    if (was.opening) { was.released = true; letting = was; return true; }
+    return letGo(was);
   }
 
   /** Programmatic pick: by structure_id, by NDC point, or down the crosshair. */
@@ -4021,7 +4217,7 @@ async function boot() {
    * height the record carries and from the camera's live field of view, never
    * from a fixed number, so a privy and a long store are each framed to fit.
    */
-  function framing(id, { card = popup.openId !== null, mode = travel?.mode ?? 'walk' } = {}) {
+  function framing(id, { card = popup.openId !== null || (handInspect ? 'inspect' : false), mode = travel?.mode ?? 'walk' } = {}) {
     const centre = structurePosition(id);
     const aim = focusPoint(id);
     if (!centre || !aim) return null;
@@ -4088,6 +4284,13 @@ async function boot() {
     if (!card) return { x: [-1, 1], y: [-1, 1] };
     const w = Math.max(1, window.innerWidth);
     const hgt = Math.max(1, window.innerHeight);
+    // T-3022: a building opens in the Navigator's Inspect now (`card` is 'inspect'), which
+    // mirrors css/navigator.css instead: a 400 px panel 10 px in from the LEFT above 620 px
+    // wide, else the half sheet over the lower 48 % of a phone.
+    if (card === 'inspect') {
+      if (w > 620) return { x: [-1 + 2 * Math.min(0.9, (Math.min(400, w - 20) + 10) / w), 1], y: [-1, 1] };
+      return { x: [-1, 1], y: [-1 + 2 * 0.48, 1] };
+    }
     if (w > 620) {
       const cardFrac = Math.min(0.9, Math.min(440, w - 24) / w);
       return { x: [-1, 1 - 2 * cardFrac], y: [-1, 1] };
@@ -4169,7 +4372,7 @@ async function boot() {
       if (row?.kind === 'business' && !row.derived_from) { openBusiness(row.id); return true; }
       if (row?.kind === 'business' && row.derived_from === 'structure') {
         // A fallback firm owns no separate register card; its source building does.
-        hud.setPanel(false); pick(row.at); hud.say(row.limit || 'No safe arrival point'); return true;
+        hud.setPanel(false); openBuilding(row.at); hud.say(row.limit || 'No safe arrival point'); return true;
       }
       return false;
     }
@@ -4419,6 +4622,21 @@ async function boot() {
   });
 
   // ---- the Navigator (T-2617) ------------------------------------------- //
+  // T-3265: the household records a person's card reads, by the directory row's `file`.
+  // Only a scene whose directory names its own `residents_root` (1904); 1835's cards are
+  // the drawer's People section's, which reads its records its own way.
+  const householdRecords = new Map();
+  let residentCitations = null;
+  async function householdRecord(file) {
+    const root = String((await peopleDirectory.load())?.residents_root ?? '').replace(/^data\//, '');
+    if (!root || !file) return null;
+    if (!householdRecords.has(file)) {
+      householdRecords.set(file, fetch(new URL(`${root}/${file}`, resolveBases().dataBase), { cache: 'no-cache' })
+        .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+        .catch((err) => { householdRecords.delete(file); throw err; }));
+    }
+    return householdRecords.get(file);
+  }
   // T-2618: whether this scene has a people directory, without paying for it at boot.
   const peopleDirectory = (() => {
     const url = new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase);
@@ -4429,7 +4647,11 @@ async function boot() {
       ask() {
         if (asked) return;
         asked = true;
-        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then((r) => { known = r.ok; }, () => { known = false; });
+        // Complete the zero-byte body too: discarding Chromium's HEAD response
+        // can leave its request aborted even after a successful HTTP status.
+        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then(async (r) => {
+          await r.arrayBuffer(); known = r.ok;
+        }).catch(() => { known = false; });
       },
       load() {
         if (people) return Promise.resolve(people);
@@ -4516,14 +4738,10 @@ async function boot() {
       return ['street-historic', 'street-modern'].map((id) => document.getElementById(id)?.textContent ?? '');
     },
     onInspect: (t) => {
-      // Inspect opens on what is selected first, so a card left open on another
-      // building is put away before the tag hands over its own.
-      if (popup.openId && popup.openId !== t.id) popup.close();
-      void ensureReaderText(); // T-2825: Inspect reads the record as the card says it
-      // …and Inspect drops the building it was holding for the tag's (T-2639).
-      inspectHold = t.id ?? null;
-      if (isReconstructed(loaded.registry.get(t.id)?.sidecar)) hints.show('reconstructed'); // T-2664
-      if (navigatorUi?.select) void navigatorUi.select('inspect');
+      // T-3022: as a click on the building does: Inspect, holding it until it is let go
+      // (and a card left open on another building is put away first).
+      if (t?.id && loaded.registry.get(t.id)) openBuilding(t.id);
+      else if (navigatorUi?.select) void navigatorUi.select('inspect');
       else pick(t.id);
     },
   });
@@ -4610,7 +4828,7 @@ async function boot() {
     move: () => ({ flying: hud.flying, pace: hud.settings.pace, riding: (travel?.state?.phase ?? 'idle') !== 'idle' }),
     confidence: () => hud.confidenceOn,
     units: () => hud.settings.units,
-    onInspect: (id) => pick(id),
+    onInspect: (id) => openBuilding(id),
     // T-2622: its keys wait for the arrival to close, and Escape goes to the drawer or a
     // building card first when one is open.
     keysActive: () => !gateOpen,
@@ -4641,7 +4859,7 @@ async function boot() {
       actions: {
         // The drawer's own sections, where they are until they move in (T-2620).
         openSection: (id) => { hud.setPanel(true); hud.selectTab(id); },
-        inspect: (id) => (id ? pick(id) : pick()),
+        inspect: (id) => (id ? openBuilding(id) : pick()),
         jaunts: () => { api.welcome.show(); api.welcome.enter('jaunts'); },
         // T-2630: what the Navigator's Jaunts app asks of the page.
         jauntList: () => openJauntList(),
@@ -4694,13 +4912,25 @@ async function boot() {
           return popup.sections(record);
         },
         // A person by directory id: in the drawer's People section where the scene has one
-        // (1835), else the Navigator's People screen (1904, T-1740).
-        openPerson: (id) => {
+        // (1835), else their own card in Inspect on the house they lived or worked in
+        // (T-3265), else the Navigator's People screen (1904, T-1740).
+        openPerson: async (id) => {
           if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
             hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
           }
+          const row = (await peopleDirectory.load().catch(() => null))?.people?.find((r) => r.id === id);
+          const at = [row?.lives_at, row?.works_at].find((s) => s && loaded.registry.has(s));
+          if (at) return !!openBuilding(at, { person: id });
           return navigatorUi?.select?.('people');
         },
+        // T-3265: a person's card reads their household's own record (the scene's
+        // data/residents_<scene>/, published by publish.sh) and the citations it cites,
+        // each once, when a card first asks.
+        householdRecord: (file) => householdRecord(file),
+        residentCitations: () => (residentCitations ??= fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/residents_sources.json`, resolveBases().dataBase), { cache: 'no-cache' })
+          .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+          .then((doc) => doc?.citations ?? {})
+          .catch((err) => { residentCitations = null; throw err; })),
         openPicture: (id, i) => openPictureViewer(popup.picturesDoc, id, i),
         holdInspect: (id) => { inspectHold = id ?? null; },
         closeCard: () => popup.close(),
@@ -4716,6 +4946,16 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  // T-3022: Inspect opened on a building by hand is let go once the device leaves it.
+  navigatorUi?.onChange?.(({ app, level }) => { if (handInspect && !handInspect.opening && (app !== 'inspect' || level === 0)) handInspect = null; });
+  api.openBuilding = openBuilding;
+  /** T-3022: put away what the visitor has open on a building: the card, or Inspect. */
+  api.closeBuilding = () => { popup.close(); if (handInspect) releaseInspect(); };
+  /** T-3022: the building on screen for the visitor — the card's, or Inspect's while it is open
+   *  (from the moment it is asked for: a first open loads Inspect before it draws). */
+  Object.defineProperty(api, 'inspecting', { enumerable: true, configurable: true,
+    get: () => popup.openId ?? handInspect?.id ?? (!letting && navigatorUi?.app === 'inspect' && navigatorUi.level > 0
+      ? (document.getElementById('nav-app-inspect')?.dataset.structure || null) : null) });
   // T-2620: the drawer's sections now live in the Navigator's apps; hud.setPanel and
   // hud.selectTab open and close them there.
   // Go to is not a drawer section any more but the Jaunts app's own segment (T-2630): G and
@@ -4783,7 +5023,7 @@ async function boot() {
       const level = navigatorUi?.level ?? 0;
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
         apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level,
-        selected: !!popup.openId || (app === 'inspect' && level > 0),
+        selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
         scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
     },
     render: (v) => {
@@ -4898,8 +5138,10 @@ async function boot() {
     // (T-0108). Since T-2954 a click or tap on the scene does too: an open card
     // holds the visitor until it is closed or the town is touched again (the owner,
     // 2026-10-20), so a second building is one more click away, not one less.
+    // T-3022: Inspect opened on a building by hand is released the same way.
     if (asked && popup.openId) popup.close();
-    else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null);
+    else if (asked && inspectingByHand()) releaseInspect();
+    else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null, { by: 'hand' });
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
     if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
@@ -4929,8 +5171,12 @@ async function boot() {
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
     streetTrees.update(dt, camera);
+    streetFurniture.update(dt, camera);
+    frontYards.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
+    parkedTransport.update(camera);
+    standingHorses.update(camera, frameDt, { paused: animationHold || gateOpen });
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.
     residency?.tick(camera.position);
@@ -5128,7 +5374,7 @@ async function boot() {
     setGroundReach(m) { return terrain.setGroundReach(m); },
     stats() {
       const info = renderer.info;
-      const budget = BUDGET;
+      const budget = currentBudget();
       // T-2970: `drawCalls` is the driver's draws, the figure the budgets are held
       // to; `rendererCalls` is three's own count, which takes a BatchedMesh's whole
       // multi-draw as one and is kept so the readings before T-2970 stay comparable.
@@ -5235,6 +5481,9 @@ async function boot() {
     /** Same-camera on/off proof, like setFarMerge; no visitor setting. */
     setGlessnerOcclusion(on) { return glessnerOcclusion?.setEnabled(on) ?? false; },
     glessnerOcclusionStats() { return glessnerOcclusion?.stats ?? {active:false}; },
+    /** T-3152: the proven planar backings alone, for the same on/off proof. The filter
+     *  caches its occluders by camera, so the next frame is re-projected either way. */
+    setPlanarCovers(on) { const v=buildings.setPlanarCovers?.(on) ?? false; glessnerOcclusion?.setEnabled(glessnerOcclusion.enabled); return v; },
     walkBudget: WALK,
   });
 

@@ -1,0 +1,65 @@
+{
+  "id": "coleman_ames_house_1811_prairie",
+  "scene": "1904",
+  "name": "Joseph G. Coleman House",
+  "address": "1811 S. Prairie Ave.",
+  "status": {
+    "text": "Still standing",
+    "today": "Still on Prairie Avenue",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ],
+    "note": "The district's marker for the houses still standing lists it."
+  },
+  "built": {
+    "year": 1886,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ]
+  },
+  "use": "Home",
+  "summary": "A Romanesque house of rough brown sandstone, built in 1886 for Joseph G. Coleman. Cobb and Frost were the architects. It still stands.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "Cobb & Frost",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    },
+    {
+      "label": "Built for",
+      "value": "Joseph G. Coleman",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    },
+    {
+      "label": "Style",
+      "value": "Romanesque",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Its architects were known for the Romanesque style. Here they built it in rough-faced brown sandstone.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    }
+  ],
+  "style": null,
+  "story": []
+}

@@ -98,5 +98,35 @@ for the draught's unbuilt outer works; the cornfield goes with the forks.
 | The company garden and public cornfield, 8-9 acres by the forks | Whistler's description, through Quaife | IN, the forks build (ground, not a building) |
 | A farmer's house a mile south-east of the fort | Cooper; Quaife takes it to be Lee's | CARRIED by T-2487 |
 | Bridges' house, between Kinzie's and Jouett's | Mrs. Callis: "occupied in 1816 by a Mr. Bridges" (Andreas p. 89) | HELD: dated only to 1816; it may be one of the no. 31 houses, which the La Lime build weighs |
-| The horse mill (Whistler no. 32) | the draught; du Sable's bill of sale | CARRIED by T-2485 |
+| The horse mill (Whistler no. 32) | the draught; du Sable's bill of sale as T-2484 reported it | IN at T-2485: `kinzie_horse_mill_1812`, 1808-1816 (below) |
 | The 1812 agency house on the south bank | Wau-Bun; Whistler no. 17 | STANDS: `first_fort_outer_agents_house` |
+
+### The Kinzie establishment and du Sable's bill of sale — T-2485
+
+**Read:** Wau-Bun ch. XVII (the establishment in 1831: "dairy, bake-house, lodging-house for the
+Frenchmen, and stables", and the garden north of the dwelling) and ch. VI (the dairy), from the
+local Gutenberg epub; Currey 1912 and Kirkland 1893 on the Kinzie house (neither names an
+outbuilding); Eastman's view of 1820, Sarony's lithograph, the Cram plate, the Teich painting and
+Gemmell's plate, through the house's solved cameras; Whistler's index (no. 32, through Quaife 1913
+note 413) and T-2504's box for no. 32 as recorded in the ticket.
+
+**Not reachable:** Quaife, "Property of Jean Baptiste Point Sable", *Mississippi Valley Historical
+Review* 15:1 (1928), which prints the bill of sale of 1800 — JSTOR (behind a script wall) and
+HathiTrust (blocked) both refused the run's container, and archive.org was blocked. The bill's list
+(two barns, a horse mill, a bakehouse, a poultry house, a dairy, a smokehouse) is T-2484's report of
+it; no dimension from it is used and it is not cited. The Whistler sheet image could not be fetched
+either (the Gutenberg image host was blocked), so no. 32's box was not re-read.
+
+| bill of sale item | ruling for 1812 | record |
+|---|---|---|
+| horse mill | STANDS: Whistler's "Old Grist Mill Worked by Horses", 1808; closes 1816, Sarony draws nothing at its place about 1831 | `kinzie_horse_mill_1812` |
+| bakehouse | STANDS, inferred: the bill (1800, as reported) and Wau-Bun (1831) | `kinzie_bake_house_1812` |
+| dairy | STANDS, inferred: the bill and Wau-Bun | `kinzie_dairy_1812` |
+| barn (one) | STANDS as the stable: Wau-Bun's "stables", Eastman's one log barn | `kinzie_stable_1812` |
+| barn (second) | NOT BUILT: no source after 1800 names two | exclusion `kinzie_second_barn_1812` |
+| poultry house | NOT BUILT: named nowhere after 1800 | exclusion `kinzie_poultry_house_1812` |
+| smokehouse | NOT BUILT: named nowhere after 1800 | exclusion `kinzie_smokehouse_1812` |
+
+Not on the bill but Wau-Bun's: the lodging house for the Frenchmen (`kinzie_lodging_house_1812`)
+and the garden (`kinzie_garden_1812`). Which pictured building is which, and every place and size,
+is L420.

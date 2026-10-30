@@ -1,0 +1,29 @@
+{
+ "id": "otis_1913_first_presbyterian_21st_indiana_1912",
+ "type": "photograph",
+ "citation": "\"First Presbyterian Church. Indiana Avenue and Twenty-First Street (1912).\" Halftone plate facing p. 76 in Philo Adams Otis, The First Presbyterian Church, 1833-1913: A History of the Oldest Organization in Chicago (Chicago: Fleming H. Revell, 1913).",
+ "author": "Philo Adams Otis (compiler); photographer not named",
+ "date": "1913",
+ "describes_date": "1912 (the photograph, as its caption dates it); the church as finished about 1872-1873",
+ "repository": "Internet Archive, item firstpreschurch00otis (scanned from a library copy).",
+ "url": "https://archive.org/details/firstpreschurch00otis/page/n116/mode/1up",
+ "locator": "Scan leaf n116, the plate captioned 'FIRST PRESBYTERIAN CHURCH. Indiana Avenue and Twenty-First Street (1912).' The whole plate: the church's south-west tower and spire, the west gable seen edge-on, and the nave's south roof slope to the east gable, from Indiana Avenue south of 21st Street; in front, the two-storey brick building with a billboard and a small gabled house across 21st Street, a streetcar, and the row houses on Indiana Avenue north of the church.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A photograph published in a book in the United States in 1913, in the public domain. Read for forms, counts and proportions; no texture or mesh is derived from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-24 from the Internet Archive's page image https://archive.org/download/firstpreschurch00otis/page/n116.jpg (2247 x 3630 px, sha256 d772ea7d8d116194da3728a10c8084119cdd88dd0f58589767970e19418d1754); the plate inside its printed border (page px 278-1902 x 598-2932) is committed, scaled to 1050 x 1509 px and greyscale, as data/sources/assets/first_presbyterian_2029_otis_t3104/otis_1913_plate_1912.jpg (T-3104).",
+ "note": "Taken twenty-five years after the book's 1887 plate (otis_1913_first_presbyterian_21st_indiana_1887) and some months before the last service of 29 December 1912. The camera stood in Indiana Avenue's roadway about 66 m south of 21st Street and looked north-north-east, tilted up about 17.5 degrees to take in the spire, so the tower's verticals lean and the spire is foreshortened (the camera is solved in data/reference_views/first_presbyterian_church_2029_indiana/otis_1913_plate_1912.json). It shows the tower's south face in light and its west face in shade, the tower's three stages, gablets, corner pinnacles and plain octagonal slated spire to its knob and rod; the west gable edge-on, its coping and the tall cross at its apex; the nave's south slope, slated, with two gabled ventilators, and the east gable with a short stack at its apex. The 21st Street flank does not show: the buildings on 21st Street's south side and the streetcar on Indiana Avenue screen it below the eaves. A tall stack rising beyond the east gable lines up with the left end of the frame building in the right foreground and cannot be placed from one view.",
+ "what_it_supplies": [
+  "a second camera on the tower and spire, which agree with the 1887 plate's heights within the halftone's reading",
+  "the nave's south roof slope: its two gabled ventilators and the stack on the east gable's apex",
+  "the height of the west gable's cross, which it reads as the 1887 plate does once that plate's crossbar is not taken for its top"
+ ],
+ "what_it_does_not_supply": [
+  "the 21st Street flank's walls, buttresses and openings, screened by the buildings across 21st Street and the streetcar",
+  "the north slope and the north and east walls",
+  "colour: a monochrome halftone",
+  "the spire's band of lucarnes, too small to resolve in the halftone at this distance"
+ ]
+}

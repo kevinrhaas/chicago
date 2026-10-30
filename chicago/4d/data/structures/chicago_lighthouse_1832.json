@@ -17,7 +17,8 @@
           "andreas_1884_v1",
           "lighthousefriends_chicago"
         ],
-        "note": "THE SECOND TOWER, AND THE ONLY ONE STANDING ON THE SCENE DATE. Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.' No month is given by any source reached, so the range opens at the last day of 1832 rather than at an invented date inside it - which is deliberately conservative and still leaves the tower two and a half years old on 1835-07-01. The end of the range is an upper bound rather than a terminus: the Government put a new light at the end of the North Pier and the old one was eventually given away with its ground by an act of 1 August 1854, with Mark Beaubien the last keeper. THE FIRST TOWER IS NOT THIS ONE and is excluded in data/exclusions.json: it fell on 30 October 1831, unfinished, and everything usually quoted about its fabric - three-foot walls, fifty feet of height - is about the tower that collapsed."
+        "note": "THE SECOND TOWER, AND THE ONLY ONE STANDING ON THE SCENE DATE. Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.' No month is given by any source reached, so the range opens at the last day of 1832 rather than at an invented date inside it - which is deliberately conservative and still leaves the tower two and a half years old on 1835-07-01. The end of the range is an upper bound rather than a terminus: the Government put a new light at the end of the North Pier and the old one was eventually given away with its ground by an act of 1 August 1854, with Mark Beaubien the last keeper. THE FIRST TOWER IS NOT THIS ONE and is excluded in data/exclusions.json: it fell on 30 October 1831, unfinished, and everything usually quoted about its fabric - three-foot walls, fifty feet of height - is about the tower that collapsed.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 448128.29,
@@ -38,25 +39,25 @@
       "footprint": {
         "polygon": [
           [
-            0,
-            0
+            1.28,
+            1.28
           ],
           [
-            5.6,
-            0
+            4.32,
+            1.28
           ],
           [
-            5.6,
-            5.6
+            4.32,
+            4.32
           ],
           [
-            0,
-            5.6
+            1.28,
+            4.32
           ]
         ],
         "confidence": "reconstructed",
         "sources": [],
-        "note": "INVENTED. No source reached gives this tower a diameter, a plan or a wall thickness. 5.6 m - about eighteen feet - is the base a forty-foot masonry tower of the period needs, and the square polygon is the archetype's convention for a round shaft: the generator refuses a tower whose footprint is not square and builds a twelve-sided tapering shaft inside it. What a visitor sees of this outline is entirely ours."
+        "note": "INVENTED. No source reached gives this tower a diameter, a plan or a wall thickness. 5.6 m - about eighteen feet - is the base a forty-foot masonry tower of the period needs, and the square polygon is the archetype's convention for a round shaft: the generator refuses a tower whose footprint is not square and builds a twelve-sided tapering shaft inside it. What a visitor sees of this outline is entirely ours. CURRENT PICTURE-BOUNDED PROTOTYPE: replace the former invented 5.6 m square with a reconstructed 3.04 m physical diameter, in local bounds 1.28 to 4.32 m on both axes, keeping the same centre at (2.8, 2.8), surveyed origin and world placement. The Castelnau harbour print constrains visible proportions under a provisional camera; it does not measure a historical diameter or plan. This is the saved visible prototype, not an accepted match."
       },
       "form": {
         "kind": {
@@ -75,7 +76,7 @@
             "andreas_1884_v1",
             "lighthousefriends_chicago"
           ],
-          "note": "THE ONE DOCUMENTED DIMENSION. Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.' 40 ft is 12.192 m, recorded converted with the original figure stated, per data/datum.json's units rule. GUARD: the fifty feet in the same paragraph is the height the FIRST tower had reached when it fell."
+          "note": "THE ONE DOCUMENTED DIMENSION. Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.' 40 ft is 12.192 m, recorded converted with the original figure stated, per data/datum.json's units rule. GUARD: the fifty feet in the same paragraph is the height the FIRST tower had reached when it fell. PICTURE-BOUNDED PROTOTYPE: the literal 12.19 m is retained, but the historical 40 ft datum is not identified as shaft, gallery, crown or finial. The reconstructed top is 12.84968 m and does not establish that datum."
         },
         "construction": {
           "value": "stone",
@@ -102,6 +103,97 @@
           "value": "stone",
           "confidence": "reconstructed",
           "note": "Unattested. Bare masonry rather than whitewash, which is the commoner finish for an early Great Lakes tower - but nothing says which this was, and a whitewashed tower would read very differently across the river."
+        },
+        "lantern_profile": {
+          "value": "birdcage_dome",
+          "confidence": "inferred",
+          "sources": [
+            "castelnau_1842_chicago_harbor"
+          ],
+          "note": "The Castelnau harbour print shows a rounded crown, finial, open framed lantern and gallery rail. Applying circa 1838 detail to the July 1835 occurrence is inferred continuity. Sections, dome curve, member counts, hidden joints and neutral finishes remain reconstructed. The reflectors are not modelled. Source comparisons still differ; see L-lighthouse-visible-prototype-2373."
+        },
+        "tower_diameter_m": {
+          "value": 3.04,
+          "confidence": "reconstructed",
+          "sources": [
+            "castelnau_1842_chicago_harbor"
+          ],
+          "note": "Reconstructed visible-width trial of 3.04 m, not a measured historical diameter. The shifted physical outline retains its old local centre at(2.8, 2.8), surveyed origin, bearing and world placement. Under the provisional square-pixel camera this produces about 24 px shaft-head and 32 px gallery-floor width against coarse source readings. Taper 0.62 and gallery enlargement 1.34 are reconstruction. The 40 ft datum remains unresolved; see L-lighthouse-visible-prototype-2373."
+        },
+        "tower_openings": {
+          "value": [
+            {
+              "facet": 8,
+              "width_m": 0.34,
+              "z0_fraction": 0.865,
+              "z1_fraction": 0.928,
+              "offset_m": -0.055
+            },
+            {
+              "facet": 10,
+              "width_m": 0.42,
+              "z0_fraction": 0.7,
+              "z1_fraction": 0.79,
+              "offset_m": -0.03
+            },
+            {
+              "facet": 7,
+              "width_m": 0.54,
+              "z0_fraction": 0.477,
+              "z1_fraction": 0.55,
+              "offset_m": 0.0
+            }
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "castelnau_1842_chicago_harbor"
+          ],
+          "note": "Three small dark shaft apertures are interpreted in the actual 1842 plate: two clearer marks on the light/front face and one less certain shaded upper-right mark. Their reconstructed widths are 0.34/0.42/0.54 m; tangent offsets−0.055/−0.03/0 m, normalized heights and facet orientation are trial set-out, not measured historic windows. Each is a plain 60 mm recess without bright kit casing. No unequivocal ground door is visible. Camera, hidden toe and 1838-to 1835 continuity remain unresolved; see L-lighthouse-visible-prototype-2373."
+        },
+        "tower_profile": {
+          "value": {
+            "gallery_underside_m": 8.719767307057847,
+            "cap_base_m": 11.0,
+            "gallery_rail_height_m": 1.0
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "castelnau_1842_chicago_harbor"
+          ],
+          "note": "Reconstructed vertical subdivision of the saved visible prototype: gallery underside 8.719767307 m, crown base 11.0 m and gallery rail 1.0 m. Many decimals reproduce a diagnostic; they are not historical precision. Nominal 12.19 m remains the literal rounded 40 ft control, while the actual reconstructed top is 12.84968 m. The source does not identify what Andreas measured. No foundation elevation or placement changes; see L-lighthouse-visible-prototype-2373."
+        },
+        "tower_lantern_detail": {
+          "value": {
+            "pane_opacity": 0.18,
+            "sill_height_m": 0.16,
+            "dome_rise_m": 0.72,
+            "cage_uprights": 12,
+            "cage_member_m": 0.045,
+            "gallery_posts": 16,
+            "gallery_member_m": 0.035,
+            "finial_radius_m": 0.018
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "castelnau_1842_chicago_harbor"
+          ],
+          "note": "Reconstructed lantern treatment: pane opacity 0.18, dark sill 0.16 m, rounded dome rise 0.72 m, 12 cage uprights at 45 mm, 16 gallery posts at 35 mm and 18 mm finial radius. A lower gallery ring is included. These are source-shaped diagnostic choices, not historical counts, sections or paint. The crown/finial partition keeps the same 12.84968 m maximum. Local cage glazing is transparent; shaft panes and shared town glass are unchanged. All source views still differ; see L-lighthouse-visible-prototype-2373."
+        },
+        "tower_masonry": {
+          "value": {
+            "course_m": 0.3,
+            "bond_m": 0.5,
+            "joint_m": 0.025,
+            "relief_m": 0.012,
+            "reveal_m": 0.06,
+            "seed": 2373,
+            "character": "irregular_rubble"
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "castelnau_1842_chicago_harbor"
+          ],
+          "note": "Reconstructed irregular masonry treatment: nominal 0.30 m courses, 0.50 m bond, 25 mm joints, 12 mm inward relief, 60 mm aperture reveals and seed 2373. Independently varied beds/unit widths, slopes and chipped corners soften the old checker bands inside the same 12 taper planes. Five local stone tones and a dark joint proxy are reconstruction; no source texture, geometry or colour is sampled. Graphic hatch does not establish a masonry bond, stone type, bare stone or whitewash. Camera, 40 ft datum and 1838-to 1835 continuity remain unresolved; see L-lighthouse-visible-prototype-2373."
         }
       }
     }
@@ -115,7 +207,15 @@
     ],
     "note": "The light at the mouth of the Chicago River, the first established on Lake Michigan. Samuel Lasby was the first keeper; who kept it on 1835-07-01 was not established - Wentworth names William M. Stevens as keeper when he arrived in October 1836, and no source reached covers the gap."
   },
-  "research_note": "BUILT BECAUSE IT IS THE OTHER THING ANYONE COULD SEE FROM THE RIVER MOUTH IN 1835, and graded almost entirely conjectural because two of the three things everybody repeats about it belong to a different tower. The height is documented and the lantern is documented. THE SHAPE IS NOT: 'conical' appears in this project's dossier and in data/exclusions.json and could not be traced to either source those entries cite, so the taper this archetype builds is the archetype's own and docs/LIBERTIES.md owns it. The material is an inference from the contractor and the site rather than a statement. And the position is adjacency turned into a coordinate. See docs/RESEARCH/chicago_lighthouse_1832.md.",
+  "built": {
+    "value": 1832,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.'"
+  },
+  "research_note": "The river-mouth lighthouse has picture evidence for its broad appearance; most precise dimensions, material and July 1835 details remain reconstructed or inferred. Andreas records the second tower's forty-foot height and the bird-cage lantern is described separately. The first tower's fifty-foot collapse must not supply second-tower dimensions. The actual 1842 Castelnau harbour plate, commonly described as a circa 1838 view, guides the tapered shaft, small apertures, gallery, open lantern and rounded crown. Transfer to July 1835 remains inferred continuity. The selected 8,021-triangle prototype has a reconstructed 3.04 m diameter about the unchanged local centre, while the nominal 12.19 m height literal has an unresolved historical datum and the reconstructed top reaches 12.84968 m. Irregular stone units, neutral tones, exact sections, member counts and hidden construction are chosen details, not measurements or colour evidence from the print. Position remains the existing inferred reading of Wright's 1834 lighthouse glyph, with its uncertainty, coordinate, bearing and dates retained. The directional-overcast trial changes shading only. All seven linked views retain their camera, date, identification and rights limits; no original picture-match ticket is complete. See docs/RESEARCH/chicago_lighthouse_1832.md and L-lighthouse-visible-prototype-2373.",
   "review_required": false,
   "land_owner": {
     "value": "The ground was entered by John Baptist Baubian, 28 May 1835",

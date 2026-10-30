@@ -1,0 +1,1 @@
+Original V17 producer, strict near/mid gates/contracts and delivery metadata preserved byte-exact before V18 lamp registration. Its original GLBs remain Git-history assets from merged PR1175. These files are historical V17 predicates/evidence; active V18 uses a separately measured new contract. No old gate/result is relabelled.

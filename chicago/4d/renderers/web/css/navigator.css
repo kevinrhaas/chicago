@@ -268,6 +268,19 @@ a.nav-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px
 .nav-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .nav-tile { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px; border: 1px solid var(--edge);
   border-radius: 10px; font-size: 15px; }
+/* T-3021: Home's tiles open Move and the Confidence view. T-3043: the open key's hit area
+   is stretched over its tile, and a locked term in the tile's name sits above it. */
+.nav-tiles .nav-tile { position: relative; min-height: 44px; color: var(--ink); }
+.nav-tiles .nav-tile::after { content: '›'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  color: var(--ink-dim); font-size: 18px; pointer-events: none; }
+.nav-tile-open { all: unset; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.nav-tile-open::before { content: ''; position: absolute; inset: -1px; border-radius: 10px; }
+.nav-tiles .nav-tile .locked-term { position: relative; z-index: 1; }
+.nav-tiles .nav-tile:has(.nav-tile-open:hover) { border-color: var(--accent); }
+.nav-tiles .nav-tile:has(.nav-tile-open:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* T-3021: Guide's tour key, outlined: Inspect keeps the device's one signal-red key. */
+.nav-key.nav-tour-key { border-color: var(--accent); background: transparent; color: var(--accent); box-shadow: none; }
+.nav-key.nav-tour-key:hover { background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent)); }
 
 /* ---- desktop: the left panel and its rail ------------------------------------ */
 @media (min-width: 621px) {
@@ -406,6 +419,9 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 .nav-screen:has(> .nav-guide-sheet) > .hud-panel { flex: none; }
 .nav-screen:has(> .nav-guide-sheet) .panel-scroll { overflow: visible; }
 .nav-guide-sheet { padding: 12px 16px 8px; }
+/* T-3021: the tour leads Guide (apps/guide.js lifts it to the top of the screen). */
+.nav-screen > .nav-guide-tour { flex: none; margin: 12px 16px 0; }
+.nav-guide-tour .nav-tour-key { margin-top: 10px; }
 .navigator .hud-panel {
   position: static;
   inset: auto;

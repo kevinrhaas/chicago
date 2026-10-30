@@ -1,0 +1,257 @@
+{
+  "method": "Actual published /1904/ app; stills at 1280x800 full and 390x780 light; the walk is walker.update(0.1 s, forward) from the public walk toward the stoop foot, at most 14 s.",
+  "results": [
+    {
+      "label": "desktop",
+      "id": "kimball_house_1801_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-kimball_house_1801-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-kimball_house_1801-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.33,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "keith_house_1808_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-keith_house_1808-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-keith_house_1808-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.13,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "coleman_ames_house_1811_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-coleman_ames_house_1811-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-coleman_ames_house_1811-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.09,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "wheeler_house_1812_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-wheeler_house_1812-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-wheeler_house_1812-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.31,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "sears_meeker_house_1815_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-sears_meeker_house_1815-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-sears_meeker_house_1815-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.02,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "henderson_house_1816_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-henderson_house_1816-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-henderson_house_1816-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.23,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "dent_house_1823_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-dent_house_1823-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-dent_house_1823-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.22,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "marsh_house_1824_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-marsh_house_1824-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-marsh_house_1824-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.04,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "doane_house_1827_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-doane_house_1827-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-doane_house_1827-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.31,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1828_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1828-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1828-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.26,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "jones_house_1834_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-jones_house_1834-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-jones_house_1834-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.25,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "ream_house_1901_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-ream_house_1901-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-ream_house_1901-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.02,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    }
+  ]
+}

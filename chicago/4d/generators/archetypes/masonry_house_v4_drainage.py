@@ -150,6 +150,26 @@ def layout(p,reduced=False):
            (bx,by),bn,{'centre':(bow['cx'],bow['cy']),'r':bow['r']},'none',True)
     gutter('bow',edge,[(math.cos(a),math.sin(a),0) for a in angles],['court-bow'])
     if section:gutters[-1]['section']=section
+    if 'bow_leader' in cfg:
+        # T-2939: sheet 4 draws this leader side-on, standing on the north range's court face
+        # in its corner with the bow: a head hung under the trough's floor with its back on the
+        # line of that wall, its front stepping in to the pipe's 100 mm side; so the pipe's broad face
+        # looks south. The drop from the trough's outlet into the head is inside the head.
+        g=cfg['bow_leader'];row=leaders[-1]
+        pd=row['depth_m']
+        floor=row['inlet'][2]-section.get('depth_m',depth)-.012
+        front=n['y0']-g['head_depth_m']
+        bx=bow['cx']-math.sqrt(bow['r']**2-(front-bow['cy'])**2)-g['head_width_m']/2-.005
+        by=n['y0']-pd/2-.003
+        ix=row['inlet'][0]  # the drop keeps to the pipe's line, south of the wall face
+        row.update(normal=(0,-1,0),wall=n['y0'],mouth=floor,mount=(bx,by,floor-g['head_straight_m']),
+                   spout=[(ix,by,row['spout'][0][2]),(ix,by,floor-.005)],
+                   path=[(ix,by,floor-.005),(bx,by,floor-.06),(bx,by,floor-g['head_straight_m']),
+                         (bx,by,.10),(bx,by-.17,.065)],
+                   hopper=dict(centre=(bx,n['y0']-.003,floor),width=g['head_width_m'],depth=g['head_depth_m'],
+                               straight=g['head_straight_m'],height=g['head_height_m'],neck=pd,
+                               studs=g.get('studs',[])))
+        bn=row['normal']
     right=bow['cx']-math.sqrt(radius*radius-(cy-bow['cy'])**2)
     gutter('court-north-east',[(d1[0],cy,cz),(right,cy,cz)],[normals[-1],(0,-1,0)],[])
     branches.append(dict(name='court-north-bow', target='court-bow', width=cfg['pipe_width_m'],
@@ -165,6 +185,13 @@ def layout(p,reduced=False):
         # The surveyed tower position and broad garden light leave different
         # clear wall strips than the earlier tangent-based reconstruction.
         # Explicit record anchors keep both leaders and their straps off glass.
+        if name in cfg.get('court_east_into_bow',()):
+            # T-2928: sheet 4 draws no leader on the strip between the bow and the
+            # stair tower; its gutter runs on to the end of the bow's trough, whose
+            # leader (court-bow) takes the water. The junction is not drawn.
+            gutter(name,[(ex,a,ez),(ex,c,ez)],[(-1,0,0)]*2,[])
+            gutters[-1]['feeds']='bow'
+            continue
         y=cfg.get('court_east_leaders_y',{}).get(name,y)
         # T-2926: sheet 4 draws the south one under a hopper head.
         head=cfg.get('court_east_leader_heads',{}).get(name,'none')
@@ -275,6 +302,33 @@ def _head(b,centre,normal,spec,kind,reduced):
         boss=point(0,-h*.46,face+.009)
         _rod(b,[boss,tuple(boss[k]+normal[k]*.018 for k in range(3))],
              w*spec.get('boss_width_fraction',.38)/2,(0,0,1),8 if reduced else 12)
+
+
+def _hopper(b,spec,reduced):
+    """T-2939: a wall head drawn side-on, its back flat on a south-facing wall and its
+    front stepping in to the pipe. Open top; the studs are the drawn round features
+    on its west side, each a shallow disc."""
+    x,wall,z=spec['centre'];w=spec['width'];stock=.003
+    profile=[(0,spec['depth']),(-spec['straight'],spec['depth']),(-spec['height'],spec['neck']+2*stock)]
+    def ring(q,inset):
+        dz,d=q;ww=w/2-inset
+        return [(x+a,wall-c,z+dz) for a,c in [(-ww,inset),(ww,inset),(ww,d-inset),(-ww,d-inset)]]
+    centre=lambda q:(x,wall-q[1]/2,z+q[0])
+    for inset,inward in ((0,False),(stock,True)):
+        for a,c in zip(profile,profile[1:]):
+            ra,rc=ring(a,inset),ring(c,inset)
+            for j in range(4):
+                k=(j+1)%4;pts=[ra[j],ra[k],rc[k],rc[j]]
+                o=centre(a);want=tuple(sum(v[i] for v in pts)/4-o[i] for i in range(3))
+                want=(want[0],want[1],0)
+                _raw(b,pts,tuple(-v for v in want) if inward else want)
+    for q,sign in ((profile[0],1),(profile[-1],-1)):
+        outer,inner=ring(q,0),ring(q,stock)
+        for j in range(4):
+            k=(j+1)%4;_raw(b,[outer[j],outer[k],inner[k],inner[j]],(0,0,sign))
+    for s in spec['studs']:
+        a=(x-w/2+.002,wall-s['off_wall_m'],z-s['below_top_m'])
+        _rod(b,[a,(a[0]-s['proud_m'],a[1],a[2])],s['diameter_m']/2,(0,0,1),8 if reduced else 16)
 
 
 def _attachments(b,row,cfg):
@@ -404,6 +458,7 @@ def build(b,p):
         # Carry water through the actual bottom slot into the receiver or the
         # offset leader. Its lower end overlaps the neck, not a closed cap.
         _pipe(b,row['spout'],width,row['normal'],depth)
+        if row.get('hopper'):_hopper(b,row['hopper'],reduced)
         if head!='none':
             _head(b,(*inlet[:2],row['mouth']),row['normal'],cfg['heads'][head],head,reduced)
             spec=cfg['heads'][head];nx,ny,_=row['normal'];tx,ty=-ny,nx

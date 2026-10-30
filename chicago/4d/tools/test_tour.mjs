@@ -43,9 +43,11 @@ assert.equal(STEPS[3].bubble({ scene: '1904' }), 'Click the Glessner House. Its 
 assert.equal(STEPS[3].bubble({ scene: '1904', touch: true }), 'Tap the Glessner House. Its file opens.', 'and on touch');
 assert.equal(STEPS[3].bubble({ scene: '1835', front: 'Sauganash Hotel', touch: true }), 'Tap the Sauganash Hotel. Its file opens.', 'in 1835, the building in front of you');
 assert.match(STEPS[4].bubble({}), /Esc/, 'release names Esc on a keyboard');
-assert.match(STEPS[4].bubble({ touch: true }), /Tap Close/, 'and Close on touch');
+assert.match(STEPS[4].bubble({ touch: true, card: true }), /Tap Close/, 'and the card\'s Close on touch');
+assert.match(STEPS[4].bubble({ touch: true }), /Tap Back/, 'and Inspect\'s Back where the building opened in Inspect (T-3022)');
 assert(!/Esc/.test(STEPS[4].bubble({ touch: true })), 'a phone has no Esc key');
-assert.equal(STEPS[4].target, '#popup:not([hidden]) .pop-close', 'release rings the card\'s Close');
+assert.equal(STEPS[4].target({ card: true }), '#popup:not([hidden]) .pop-close', 'release rings the card\'s Close');
+assert.equal(STEPS[4].target({}), '#nav-app-inspect .insp-back', 'or Inspect\'s Back (T-3022)');
 assert.equal(STEPS[5].target({ touch: true, level: 0 }), '#navigator', 'on a docked phone, Move rings the dock first');
 assert.equal(STEPS[5].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="move"]', 'then the rail key');
 assert.equal(STEPS[6].target({ touch: false, level: 0 }), '#navigator .nav-app[data-app="settings"]', 'the desktop rail is always out');
@@ -134,6 +136,10 @@ const html = read('renderers/web/index.html');
 for (const id of ['tour', 'tour-count', 'tour-skip', 'tour-task', 'tour-bubble', 'tour-status', 'tour-next', 'tour-start']) {
   assert(html.includes(`id="${id}"`), `#${id} is on the page`);
 }
+// T-3021: the tour can be taken any time — its block leads Guide, whatever became of the offer.
+assert(/id="guide-tour"[\s\S]{0,400}id="tour-start"[^>]*>Take the tour/.test(html), 'Guide\u2019s tour block carries Take the tour');
+assert(/getElementById\('guide-tour'\)[\s\S]{0,80}el\.append\(tour\)[\s\S]{0,200}nav-guide-sheet/.test(read('renderers/web/js/apps/guide.js')),
+  'Guide lifts the tour block to the top of its screen, ahead of the controls sheet');
 const main = read('renderers/web/js/main.js');
 assert(/if \(firstEntry && !api\.tour\?\.running\) api\.tour\?\.resume\(\);/.test(main), 'a reload resumes once back in the town');
 assert(/tourCounts\.apps\[now\] = \(tourCounts\.apps\[now\] \?\? 0\) \+ 1/.test(main), 'each Navigator app opening is counted');

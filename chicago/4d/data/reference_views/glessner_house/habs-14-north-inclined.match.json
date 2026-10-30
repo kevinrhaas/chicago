@@ -2,10 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "22d4bb361f05c26ddab3d7b935c368538e48b03d63d7365d4cd36f91b772c6a5",
-  "camera_sha256": "7639e074421cc7e1a4768e010e8678a6e3b2ed4af090a69cbfb58e6ebc7efd72",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
+  "camera_sha256": "8bfd6b92c10170309c7b2656ba3f8d146184065de167400db4ce40edf4577a1d",
+  "photo_sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Actual master reviewed: the extruded apex is replaced by a pointed north cone joining a lower decorated pitched connector. The approved flat north facade, wrapped staggered drum and flared eave remain; no roof hole is visible in this view.",
@@ -20,8 +21,8 @@
       "status": "fixed"
     },
     {
-      "what": "Stone/course appearance differs.",
-      "status": "open"
+      "what": "Stone/course appearance differs. T-3044: course heights to T-3045, rock-face relief to T-3046 (docs/RESEARCH/glessner-course-reading-T-3044/). T-3045 laid the heights (the fixed entry below), and T-3046 the relief on both granite faces, one coursing round the corner, closing with Taylor 2135's: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "T-2870: the upper date stone's monogram. The photograph shows one joined device, not two letters: two bowls facing outward, each closed by a stem, and a bar between the stems at mid-height (x 959-991, y 267-280 on a stone at x 938-1013, y 262-287: about 0.43 of the stone's width and 0.53 of its height, centred; the stems at about 0.33 and 0.73 of the device's width). The model drew AD in a generic font; it now draws that device as cut strokes at those shares, and the render's device falls on the photograph's within the stone.",
@@ -48,9 +49,33 @@
       "status": "fixed"
     },
     {
-      "what": "T-2854 (found by T-2873): the stack's vertical layout. The gable's coping meets the stack's sides about 34 px lower in the photograph than in the render (rows 326 against 292; about 20 px past the camera's 14 px stack-crest offset, roughly 1.5 ft), the 1886 stone stands about 0.6 ft lower under the device's stone (a 13 px gap against 5), and the two crosses read level at the 1886 stone's mid-height here where the record carries photograph 4's stepped reading.",
-      "status": "open"
+      "what": "T-2854 (found by T-2873): the stack's vertical layout. The gable's coping meets the stack's sides about 34 px lower in the photograph than in the render (rows 326 against 292; about 20 px past the camera's 14 px stack-crest offset, roughly 1.5 ft), the 1886 stone stands about 0.6 ft lower under the device's stone (a 13 px gap against 5), and the two crosses read level at the 1886 stone's mid-height here where the record carries photograph 4's stepped reading. T-3024, ruled and rebuilt (docs/RESEARCH/glessner-stack-layout-T-3024/): read through this camera with its crest put on sheet 6's printed 48.62 ft (the solve draws it about 15 px high), the photograph's stones and coping agree with sheet 6's edge-on stack within 0.2 ft. The 1886 stone is re-set to 43.3-44.75 ft ng (it was 1.9 ft tall; both read it about 1.45), the crosses stand level at its mid-height (44.05; this print reads 44.15 and 44.0), and the 18th Street parapet is lowered from 1.2 to 0.5 ft so the coping meets the stack 0.7 ft lower. Re-rendered: the device's stone, the course under it, the 1886 stone and the crosses fall row for row on the photograph's (a 16 px course against 15, a 24 px stone against 22, both crosses level at its middle), and the coping meets the stack about 2 px under the stone's foot against the photograph's 7. The whole stack still renders about 22 px above the photograph's, the camera's offset at this height.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3045 course heights: the courses above bed 7 laid 4.5 % over the printed inches on both granite faces, the narrow first-floor light re-set on beds 8-15 (9.3044-14.7471 ft) and this camera re-solved on it (tools/glessner_north_pairs.py --cameras): the pairs read 19.77-24.61 ft here, and the record builds both plates' 19.83-24.52.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3065: the stack's depth is corrected from 3.1 to 2.6 ft (sheet 6, edge-on) and its 7.1-ft face kept, because this view, square to the face, reads it: the photograph's silhouette runs x 912-1040 against the box's 913-1043, and the east rake, drawn through this camera from the Prairie corner to the stack's side, lies on the photograph's along its whole length, so the camera's scale at the stack is not in question. Re-rendered from the rebaked master; from this eye, 4.6 ft east of the stack's east face, the shallower east side moves the silhouette's left edge under 1 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3115 (found by T-3065): the two crosses beside the 1886 stone are cut lines draped on the stack's own rock, 2 mm over it, where they were flat quads at the rock's furthest reach (0.106 m) and stood 2-4 cm proud of the stone round them. In the GLB the strokes now stand a median 1.4 mm (at most 6 mm) in front of the rock beside them. This print shows them incised and resolves each in about 10 px: the arms read about 9 px across and 10 px tall against the build's 11-12 and 9, within the print's 1-2 px, so the 0.6 ft size stands. docs/RESEARCH/glessner-crosses-T-3115/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3116 (found by T-3024 and T-3065): the crest against the gable's fan. Sheet 6 draws the gable edge-on, so the fan is read off the photograph camera-free, on its vertical through the stack and the light, scaled by sheet 6's crest and both stones and by the north pairs' sill and head (a 1-D projective fit, residuals 0.14 ft at most; run on the render it returns the built heights within 0.25 ft). The fan's crown read 1.4 ft, the light's head 1.2 and its sill 0.8 over the build, while the fan's crown stood as far over the light's head as built (69 px in both), so the camera's 15 px at the crest was not all of it: the light and fan stood low under a stack sheet 6 sets. Rebuilt 1.0 ft higher (sill 30.0, transom 34.14-34.88, spring 35.45, the fan's crown 40.15 ft ng), the readings' mean with HABS 01's. Re-rendered: the crest stands 147 px over the fan's crown against the photograph's 142 (162 before). The coping's junction reads 42.6-43.0 ft ng through the same fit, 0.3-0.7 ft under the built 43.3 and about 8 px under the 1886 stone's foot (T-3115's 13 px was the raw crop); sheet 6 draws it 43.5-43.7, so T-3024's middle stands. docs/RESEARCH/glessner-gable-fan-T-3116/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3127 (found by T-3116): the gable light's width. Its jambs, read through the camera the north pairs solved, put it 2.08-2.12 ft wide (sash and head) where the same picks on the render return the built 1.5 ft as 1.43-1.45; the fan's outer ring spans 9.8 ft against the built 9.4. Rebuilt 2.1 ft wide on its old centre (W 17.75-19.85), its head held at 36.2 ft ng, so its spring comes down to 35.15 and the fan's radius goes to 5.0 ft to keep the crown at 40.15. Re-rendered: the light reads 39 px across against the photograph's 38 (27 before). The print sets the centre about 0.2 ft east, which HABS 01 contradicts, so it is not moved. What it left open is its own entry below (T-3136). docs/RESEARCH/glessner-gable-light-T-3127/.",
+      "status": "fixed"
+    },
+    {
+      "what": "Handed on by T-3127, re-read by T-3136: the light's round head stands higher over its transom in this print than built. T-3116's camera-free fit read the transom 0.54-0.70 ft and the head 1.23 ft over the build before its 1.0 ft rise, which leaves the print's transom about 0.3-0.5 ft under the build's 34.14-34.88 ft. The fan shows fewer, broader stones than the 11 voussoirs built. HABS 01 does not resolve the transom, and neither print resolves every joint of the fan, so both rest on this print alone; T-3137 owns them. T-3137, read with HABS 17 as the second picture: the transom's centre reads 0.45 ft under the build's here (camera-free on T-3116's vertical, the method's error taken off) and 0.40 on HABS 17, so it is rebuilt 0.4 ft lower at 33.74-34.48 ft ng, the head standing 0.67 ft plumb over it; a polar profile of the fan finds six joints about 24 degrees apart with a keystone at the crown, where the same profile finds all ten joints of the 11 built, so the fan is rebuilt with seven. Re-rendered: the transom reads 34.35-33.59 against the photograph's 34.31-33.52 (34.74-33.98 before), and the fan's two crown joints land on the print's (75 and 102 degrees against 75 and 101). docs/RESEARCH/glessner-gable-transom-T-3137/.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

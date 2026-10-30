@@ -33,6 +33,10 @@ sys.path.insert(0, str(ROOT/'tools'))
 from human_grounded_gait import (prepare_legs, pose_at_phase, linearize_action,
                                  SPEED_M_S, CYCLE_DURATION_S, CYCLE_FRAMES,
                                  STANCE_FRACTION)
+from human_workwear_fit import garment_shell, fitted_shoes, standing_collar_extension
+from human_eye_components import build_eye_components, iris_pixels, MATERIALS as EYE_MATERIALS
+from human_period_wardrobe import (resolve_wardrobe, finish_edges, waistcoat_buttons,
+                                   work_hat, round_jacket)
 
 
 def parse_args():
@@ -97,8 +101,10 @@ def resolve_person_reference(variant, root=ROOT):
     people={p['id']:p for p in json.loads(scene_path.read_text())['people']}
     if pid not in people:raise ValueError(f'{pid}: absent from the existing 1835 people layer')
     record=root/variant['person_reference_record']
-    if not record.is_relative_to(root/'data/residents/reconstructed_trades'):
-        raise ValueError('person reference must resolve under reconstructed_trades')
+    dress_reference=(variant.get('component_assembly')=='adult_dress_v1' and pid=='rc_flynn_mary'
+                     and record==root/'data/residents/households/hh_rc_flynn_mary.json')
+    if not (record.is_relative_to(root/'data/residents/reconstructed_trades') or dress_reference):
+        raise ValueError('person reference must resolve under reconstructed_trades or the explicit existing Mary Flynn dress study')
     household=json.loads(record.read_text())
     person=next((p for p in household['persons'] if p['id']==pid),None)
     if person is None:raise ValueError(f'{pid}: missing in referenced household')
@@ -136,6 +142,12 @@ def build(args):
     if args.variant and args.variant not in variants:
         raise ValueError(f'unknown proof variant {args.variant!r}')
     variant = variants[args.variant]
+    if 'waistcoat_shoulder_pattern' in variant:
+        if args.variant!='bardwell_otis_1835':raise ValueError('connected waistcoat study is Bardwell-only')
+        recipe={**recipe,'waistcoat_shoulder_pattern':variant['waistcoat_shoulder_pattern']}
+    wardrobe = None
+    if 'modular_wardrobe' in recipe:
+        recipe, wardrobe = resolve_wardrobe(recipe, variant)
     reference = resolve_person_reference(variant)
     bodypath = ROOT/variant['body_input']
     if args.body and args.body.resolve()!=bodypath.resolve():
@@ -144,11 +156,20 @@ def build(args):
     bones = validate_input(body, contract)
     if body.get('target_blend',{}).get('phenotype',{}).get('chosen_age_years')!=variant['body_parameters']['engineering_age_years']:
         raise ValueError('variant adult macro body does not match its reconstructed authoring-age parameter')
+    dress = None
+    if variant.get('component_assembly'):
+        from human_dress_components import prepare_dress_assembly
+        dress = prepare_dress_assembly(ROOT, recipe, variant, body)
+        if args.sit_drive_study:
+            raise ValueError('dress study has no qualified seated/driver assignment')
     skinpath = verify_skin_texture(recipe)
     from human_hair_short04 import fit as fit_short04
     hair, hairpath, hair_report = fit_short04(body, recipe['hair_component'], ROOT)
     colors = {**recipe['colors_linear_rgba'], **variant.get('color_overrides',{})}
-    colors['garment_upper__shirt_collar'] = colors['garment_upper__shirt_linen']
+    if wardrobe:
+        colors.update(wardrobe['colors'])
+    colors.pop('eyes',None)
+    colors.update({name:spec['base_color'] for name,spec in EYE_MATERIALS.items() if name!='eyes__cornea'})
     asset = args.variant
     scale = float(recipe.get('height_scale',1))
     if scale <= 0:
@@ -162,6 +183,8 @@ def build(args):
         raise ValueError('prepared height differs from the variant reconstructed height parameter')
     if not .45 <= height <= 2.3:
         raise ValueError(f'body height {height} m violates the contract')
+    if wardrobe:
+        wardrobe['body_height_m'] = height
     bpy.ops.wm.read_factory_settings(use_empty=True)
     scene = bpy.context.scene
     scene.render.fps = 30
@@ -189,9 +212,21 @@ def build(args):
         bsdf = material.node_tree.nodes['Principled BSDF']
         bsdf.inputs['Base Color'].default_value = color
         bsdf.inputs['Roughness'].default_value = .75 if name.startswith('skin') else .88
+        if wardrobe and name in recipe['modular_wardrobe']['material_roughness']:
+            bsdf.inputs['Roughness'].default_value=recipe['modular_wardrobe']['material_roughness'][name]
+        if dress and name in dress['materials']:
+            bsdf.inputs['Roughness'].default_value=dress['materials'][name]['roughness']
         if name.startswith('eyes'):
             bsdf.inputs['Roughness'].default_value = .18
+        if name in EYE_MATERIALS:bsdf.inputs['Roughness'].default_value=EYE_MATERIALS[name]['roughness']
         materials[name] = material
+    # Original opaque sclera/iris/pupil; no transparent shell/new extension.
+    # Dimensions and brown color are reconstruction, not resident facts.
+    iris=bpy.data.images.new('original_reconstructed_iris',width=512,height=256,alpha=False)
+    iris.colorspace_settings.name='sRGB';iris.pixels=iris_pixels();iris.file_format='PNG';iris.pack()
+    iris_nodes=materials['eyes__iris'].node_tree.nodes
+    iris_tex=iris_nodes.new('ShaderNodeTexImage');iris_tex.image=iris
+    materials['eyes__iris'].node_tree.links.new(iris_tex.outputs['Color'],iris_nodes['Principled BSDF'].inputs['Base Color'])
     # Reviewed source atlas: preserve sRGB and do not tint with the old flat skin.
     skin_image=bpy.data.images.load(str(skinpath.resolve()),check_existing=True)
     skin_image.colorspace_settings.name='sRGB'
@@ -207,20 +242,19 @@ def build(args):
     # Packing is essential: exported masters must decode an actual texture.
     weave=bpy.data.images.new('original_reconstructed_woven_shirt',width=256,height=256,alpha=False)
     weave.colorspace_settings.name='sRGB'
-    base=colors['garment_upper__shirt_linen'];pixels=[]
+    cloth_material='garment_upper__plain_dress' if dress else 'garment_upper__shirt_linen'
+    base=colors[cloth_material];pixels=[]
     for yy in range(256):
         for xx in range(256):
-            warp=(xx%8)/7;weft=(yy%8)/7
-            over=((xx//8)+(yy//8))%2==0
-            ridge=math.sin(math.pi*(warp if over else weft))
-            # Bounded microvariation, no baked directional highlight or dirt.
-            shade=.88+.12*ridge
+            # The old eight-texel ridges read as giant blocks on body UVs.
+            # This original one-texel alternation has only one percent contrast.
+            shade=.99+.01*((xx+yy)%2)
             pixels.extend([base[0]*shade,base[1]*shade,base[2]*shade,1.])
     weave.pixels=pixels
     weave.file_format='PNG'
     weave.pack()
-    nodes=materials['garment_upper__shirt_linen'].node_tree.nodes
-    links=materials['garment_upper__shirt_linen'].node_tree.links
+    nodes=materials[cloth_material].node_tree.nodes
+    links=materials[cloth_material].node_tree.links
     tex=nodes.new('ShaderNodeTexImage');tex.name='Original reconstructed cloth weave';tex.image=weave
     tex.interpolation='Linear'
     links.new(tex.outputs['Color'],nodes['Principled BSDF'].inputs['Base Color'])
@@ -252,15 +286,16 @@ def build(args):
     hair_links.new(inverse.outputs[0],hair_bsdf.inputs['Alpha'])
     materials['hair__makehuman_short04']=hair_mat
     # Incoming source UVs are retained per loop, including source-seam duplicates.
-    def object_mesh(name,points,faces,uvs,weights,material,col,ratio=1,source_vertex_indices=None):
+    def object_mesh(name,points,faces,uvs,weights,material,col,ratio=1,source_vertex_indices=None,corner_uvs=None,flat_face_indices=()):
         mesh = bpy.data.meshes.new(name)
         mesh.from_pydata([xyz(v) for v in points],[],faces)
         mesh.update()
         layer = mesh.uv_layers.new(name='UVMap')
+        flat_face_indices = set(flat_face_indices)
         for polygon in mesh.polygons:
-            polygon.use_smooth = True
+            polygon.use_smooth = polygon.index not in flat_face_indices
             for li in polygon.loop_indices:
-                layer.data[li].uv = uvs[mesh.loops[li].vertex_index]
+                layer.data[li].uv = corner_uvs[polygon.index][list(polygon.loop_indices).index(li)] if corner_uvs is not None else uvs[mesh.loops[li].vertex_index]
         if source_vertex_indices is not None:
             # Body UV duplicates share rest normals without welding positions/UVs.
             # Decimation, morph and export behavior still require canonical checks.
@@ -345,47 +380,11 @@ def build(args):
         mod = obj.modifiers.new('skin','ARMATURE')
         mod.object = rig
         return obj
-    waist = recipe['waist_height_fraction']*height/scale
-    hem = recipe['shirt_hem_fraction']*height/scale
     shoulder_y = bones['upperarm_l']['head_m'][1]
     wrist_x = abs(bones['hand_l']['head_m'][0])
     neck_y = bones['neck_01']['head_m'][1]
-    def region(m, face, kind):
-        p=[sum(m['positions_m'][i][axis] for i in face)/3 for axis in range(3)]
-        w={}
-        for i in face:
-            for b,v in m['weights'][i].items():w[b]=w.get(b,0)+v/3
-        armweight=sum(v for b,v in w.items() if b.startswith(('clavicle','upperarm','lowerarm')))
-        legweight=sum(v for b,v in w.items() if b.startswith(('thigh','calf','pelvis')))
-        footweight=sum(v for b,v in w.items() if b.startswith(('foot','ball')))
-        if kind=='shirt':return (hem<=p[1]<=neck_y+.035 and abs(p[0])<.23) or (armweight>.35 and abs(p[0])<wrist_x-.012)
-        if kind=='waistcoat':
-            torso=waist-.04<=p[1]<=shoulder_y+.025 and armweight<.35 and abs(p[0])<.235
-            # Original open V: progressively wider toward the collar. Not a traced cut.
-            opening=max(.012,.105*(p[1]-waist)/max(.01,shoulder_y-waist))
-            return torso and not(p[2]>0 and abs(p[0])<opening)
-        if kind=='trousers':return p[1]<=waist and legweight>.25 and footweight<.35
-        if kind=='shoes':return footweight>.30 and p[1]<.17
-        return False
     def shell(m,kind,offset):
-        faces=[f for f in m['triangles'] if region(m,f,kind)]
-        indices=sorted({i for f in faces for i in f})
-        remap={v:i for i,v in enumerate(indices)}
-        normals={i:Vector((0,0,0)) for i in indices}
-        for a,b,c in faces:
-            v=[Vector(m['positions_m'][i]) for i in (a,b,c)]
-            n=(v[1]-v[0]).cross(v[2]-v[0])
-            for i in (a,b,c):normals[i]+=n
-        points=[]
-        for i in indices:
-            v=Vector(m['positions_m'][i]);n=normals[i].normalized() if normals[i].length else Vector((0,0,0))
-            v+=n*(offset/scale)
-            # Add original garment ease rather than just recoloring skin.
-            if kind in ('shirt','waistcoat','trousers'):
-                v.x += math.copysign(.007/scale,v.x) if abs(v.x)>.02 else 0
-            if kind=='shoes':v.y=max(0,v.y)
-            points.append(list(v))
-        return points,[[remap[i] for i in f] for f in faces],[m['uvs'][i] for i in indices],[m['weights'][i] for i in indices]
+        return garment_shell(m,kind,offset,recipe,bones,height,scale)
     def morphs(obj):
         # Actual geometric targets on the source-derived head, not empty name tokens.
         obj.shape_key_add(name='Basis')
@@ -413,71 +412,45 @@ def build(args):
         for mi,m in enumerate(body['meshes']):
             obj=object_mesh(f'{asset}_body_{mi}_lod{lod}',m['positions_m'],m['triangles'],m['uvs'],m['weights'],'skin',col,ratio,source_vertex_indices=m['source_vertex_indices'])
             if lod in contract['morphs']['required_lods']:morphs(obj)
-            for kind,mat,offset in [('shirt','garment_upper__shirt_linen',recipe['shirt_offset_m']),('waistcoat','garment_outer__waistcoat_wool',recipe['waistcoat_offset_m']),('trousers','garment_lower__highwaist_pantaloons',recipe['trouser_offset_m'])]:
-                points,faces,uvs,weights=shell(m,kind,offset)
-                if not faces:raise ValueError(f'{kind}: no faces selected from body; input proportions need review')
-                object_mesh(f'{asset}_{kind}_{mi}_lod{lod}',points,faces,uvs,weights,mat,col,ratio)
-        # Originally authored closed shoes: copying a toe-separated nude foot
-        # shell would leave five visible toes and would not model footwear.
-        sp=[];sf=[];su=[];sw=[];N=20 if lod<2 else 8
-        for side,cell in [('l',0),('r',1)]:
-            candidate=[p for m in body['meshes'] for p,w in zip(m['positions_m'],m['weights']) if sum(v for b,v in w.items() if b in ('foot_'+side,'ball_'+side))>.35 and p[1]<.16]
-            if not candidate:raise ValueError('missing source foot bounds for closed shoe')
-            xmin,xmax=min(p[0] for p in candidate),max(p[0] for p in candidate)
-            zmin,zmax=min(p[2] for p in candidate),max(p[2] for p in candidate)
-            cx=(xmin+xmax)/2;cz=(zmin+zmax)/2
-            rx=(xmax-xmin)/2+recipe['shoe_offset_m']/scale
-            rz=(zmax-zmin)/2+recipe['shoe_offset_m']/scale
-            base=len(sp)
-            # Sole, leather upper and ankle opening: all dimensions reconstructed.
-            rings=[(0,1,1,cz),(.016/scale,1,1,cz),(.050/scale,.97,.98,cz),(.090/scale,.83,.68,cz-rz*.22),(.13/scale,.70,.33,cz-rz*.43)]
-            for j,(y,fx,fz,zc) in enumerate(rings):
-                for k in range(N+1):
-                    t=2*math.pi*k/N;z=zc+rz*fz*math.sin(t)
-                    sp.append([cx+rx*fx*math.cos(t),y,z]);su.append([(cell+.05+.9*k/N)/2,.05+.9*j/4])
-                    blend=max(0,min(1,(z-bones['ball_'+side]['head_m'][2]+.04)/.08))
-                    sw.append({'foot_'+side:1-blend,'ball_'+side:blend})
-            for j in range(4):
-                for k in range(N):
-                    a=base+j*(N+1)+k;b=a+1;c=b+N+1;dd=a+N+1
-                    sf.extend([(a,c,b),(a,dd,c)])
-            # A separate sole UV island occupies the unused bottom atlas margin.
-            center=len(sp);sp.append([cx,0,cz]);su.append([cell*.5+.25,.025]);sw.append({'foot_'+side:1.})
-            sole=len(sp)
-            for k in range(N):
-                t=2*math.pi*k/N
-                sp.append(sp[base+k]);su.append([cell*.5+.25+.20*math.cos(t),.025+.020*math.sin(t)]);sw.append(sw[base+k])
-            for k in range(N):sf.append((center,sole+k,sole+(k+1)%N))
-        object_mesh(f'{asset}_closed_shoes_lod{lod}',sp,sf,su,sw,'footwear__closed_leather_shoes',col)
-        # Original standing collar, separate material UV island set; a reconstructed
-        # construction detail rather than a painted modern shirt neckline.
-        cp=[];cf=[];cu=[];cw=[];N=16 if lod<2 else 8
-        neck=Vector(bones['neck_01']['head_m']);ch=recipe['collar_height_m']/scale
-        rings=[(.052,.048,0),(.050,.046,ch),(.047,.043,ch),(.049,.045,0),(.052,.048,0)]
-        for j,(rx,rz,dy) in enumerate(rings):
-            for k in range(N+1):
-                t=2*math.pi*k/N
-                cp.append([neck.x+rx*math.cos(t),neck.y+dy,neck.z+rz*math.sin(t)])
-                cu.append([.05+.9*k/N,.05+.9*j/4]);cw.append({'neck_01':1.})
-        for j in range(4):
-            for k in range(N):
-                a=j*(N+1)+k;b=a+1;c=b+N+1;d=a+N+1
-                cf.extend([(a,b,c),(a,c,d)])
-        object_mesh(f'{asset}_standing_collar_lod{lod}',cp,cf,cu,cw,'garment_upper__shirt_collar',col)
-        # Independent originally-authored corneas; no extracted photographic eye map.
-        pts=[];faces=[];uv=[];weights=[]
-        for side,cell in [('l',0),('r',1)]:
-            center=Vector(bones['eye_'+side]['head_m']);base=len(pts);N=12 if lod<2 else 6
-            for j in range(7):
-                theta=math.pi*j/6
-                for k in range(N):
-                    phi=2*math.pi*k/N
-                    p=center+Vector((.010*math.sin(theta)*math.cos(phi),.010*math.cos(theta),.010*math.sin(theta)*math.sin(phi)))
-                    pts.append(list(p));uv.append([(cell+.05+.9*k/N)/2,.05+.9*j/6]);weights.append({'eye_'+side:1.})
-            for j in range(6):
-                for k in range(N):
-                    a=base+j*N+k;b=base+j*N+(k+1)%N;c=b+N;d=a+N;faces.extend([(a,c,b),(a,d,c)])
-        object_mesh(f'{asset}_eyes_lod{lod}',pts,faces,uv,weights,'eyes',col)
+            if not dress:
+                for kind,mat,offset in [('shirt','garment_upper__shirt_linen',recipe['shirt_offset_m']),('waistcoat','garment_outer__waistcoat_wool',recipe['waistcoat_offset_m']),('trousers','garment_lower__highwaist_pantaloons',recipe['trouser_offset_m'])]:
+                    garment=shell(m,kind,offset)
+                    if kind=='shirt':garment=standing_collar_extension(garment,m,bones,recipe,scale)
+                    if wardrobe:
+                        if kind == 'waistcoat':
+                            detail = waistcoat_buttons(garment,bones,recipe,wardrobe,lod,scale)
+                            object_mesh(f'{asset}_buttons_{mi}_lod{lod}',detail['positions_m'],detail['triangles'],detail['uvs'],detail['weights'],detail['material'],col,corner_uvs=detail['corner_uvs'])
+                        garment=finish_edges(garment,recipe['modular_wardrobe']['edge_thickness_m'],scale)
+                    object_mesh(f'{asset}_{kind}_{mi}_lod{lod}',garment['positions_m'],garment['triangles'],garment['uvs'],garment['weights'],mat,col,ratio,corner_uvs=garment['corner_uvs'],flat_face_indices=garment.get('flat_face_indices',()))
+                    if lod==0:print(json.dumps({'source_workwear_coverage':garment['receipt']}),flush=True)
+                if wardrobe:
+                    jacket=round_jacket(m,bones,recipe,height,wardrobe,scale)
+                    if jacket:
+                        jacket=finish_edges(jacket,recipe['modular_wardrobe']['edge_thickness_m'],scale)
+                        object_mesh(f'{asset}_jacket_{mi}_lod{lod}',jacket['positions_m'],jacket['triangles'],jacket['uvs'],jacket['weights'],jacket['material'],col,ratio,corner_uvs=jacket['corner_uvs'],flat_face_indices=jacket.get('flat_face_indices',()))
+                        if lod==0:print(json.dumps({'source_jacket_construction':jacket['receipt']}),flush=True)
+        if wardrobe:
+            hat=work_hat(hair,bones,wardrobe,lod,scale)
+            if hat:
+                object_mesh(f'{asset}_hat_lod{lod}',hat['positions_m'],hat['triangles'],hat['uvs'],hat['weights'],hat['material'],col,corner_uvs=hat['corner_uvs'])
+                if lod==0:print(json.dumps({'source_hat_construction':hat['receipt']}),flush=True)
+        if dress:
+            for component in dress['meshes']:
+                if component['name']=='closed_low_shoes':
+                    continue # Native per-LOD source-foot shoe below preserves sole support.
+                object_mesh(f"{asset}_{component['name']}_lod{lod}",component['positions_m'],component['triangles'],component['uvs'],component['weights'],component['material'],col,ratio,corner_uvs=component['corner_uvs'],flat_face_indices=component.get('flat_face_indices',()))
+                if lod==0:print(json.dumps({'source_dress_component':component.get('receipt',{})}),flush=True)
+        # Actual source foot sections bound this reconstructed closed shoe.
+        # No body skin is hidden. All sole points survive at every LOD; the
+        # existing loaded stance/foot/sole contact gates remain unchanged.
+        shoes=fitted_shoes(body,bones,lod,scale,recipe['workwear_coverage']['shoe_clearance_m'])
+        shoe_material='footwear__plain_low_shoes' if dress else 'footwear__closed_leather_shoes'
+        object_mesh(f'{asset}_closed_shoes_lod{lod}',shoes['positions_m'],shoes['triangles'],shoes['uvs'],shoes['weights'],shoe_material,col)
+        if lod==0:print(json.dumps({'source_shoe_enclosure':shoes['receipt']}),flush=True)
+        # Standing collar is welded into the linen shirt before LOD reduction.
+        eye_data=build_eye_components(bones,lod,recipe['eye_components'])
+        for component in eye_data['meshes']:
+            object_mesh(f"{asset}_{component['name']}_lod{lod}",component['positions_m'],component['triangles'],component['uvs'],component['weights'],component['material'],col)
     for name,bone in contract['sockets']['required']:
         obj=bpy.data.objects.new(name,None);rigcol.objects.link(obj)
         obj.empty_display_size=.035;obj.parent=rig;obj.parent_type='BONE';obj.parent_bone=bone
@@ -556,8 +529,17 @@ def build(args):
     for pose in rig.pose.bones:
         pose.location=(0,0,0)
         pose.rotation_mode='QUATERNION';pose.rotation_quaternion=(1,0,0,0)
-    scene['chicago4d_human']={'contract_version':contract['version'],'rigid_bone_frame_export':True,'kind':'body','asset_id':asset,'lod':0,'skeleton':contract['skeleton']['id'],'grade':'reconstructed','basis':recipe['basis']+' '+recipe['source_scope']+' Existing resident reference '+variant['person_reference_id']+' has reconstructed identity/presence/age/occupation. Age-bounded CC0 male macro body and cleared generic skin atlas are provisional authoring choices; height/complexion are not record facts, and no photographic likeness or individually validated anatomy is claimed.','sources':recipe['sources'],'liberty':liberty,'license':recipe['license'],'master':str(args.output),'authored_by':'Chicago4D original workwear authoring (T-1789)','recipe':'data/humans/recipes/worker_1835.json','person_reference_id':variant['person_reference_id'],'person_reference_scene':variant['person_reference_scene'],'person_reference_grade':variant['person_reference_grade'],'review_required':reference['review_required'],'touches_removal':reference['touches_removal'],'person_reference_summary_json':json.dumps(reference,sort_keys=True),'body_input':variant['body_input'],'body_target_blend_json':json.dumps(body.get('target_blend',{}),sort_keys=True),'body_parameters_json':json.dumps(variant['body_parameters'],sort_keys=True),'skin_source_json':json.dumps(recipe['skin_texture'],sort_keys=True),'body_source_json':json.dumps(body.get('source',body.get('provenance',{})),sort_keys=True)}
+    scene['chicago4d_human']={'contract_version':contract['version'],'rigid_bone_frame_export':True,'kind':'body','asset_id':asset,'lod':0,'skeleton':contract['skeleton']['id'],'grade':'reconstructed','basis':recipe['basis']+' '+recipe['source_scope']+' Existing resident reference '+variant['person_reference_id']+' has reconstructed identity/presence/age/occupation. '+variant.get('body_basis','Age-bounded CC0 male macro body and cleared generic skin atlas are provisional authoring choices; height/complexion are not record facts, and no photographic likeness or individually validated anatomy is claimed.'),'sources':recipe['sources'],'liberty':liberty,'license':recipe['license'],'master':str(args.output),'authored_by':'Chicago4D original workwear authoring (T-1789)','recipe':variant.get('recipe_path','data/humans/recipes/worker_1835.json'),'person_reference_id':variant['person_reference_id'],'person_reference_scene':variant['person_reference_scene'],'person_reference_grade':variant['person_reference_grade'],'review_required':reference['review_required'],'touches_removal':reference['touches_removal'],'person_reference_summary_json':json.dumps(reference,sort_keys=True),'body_input':variant['body_input'],'body_target_blend_json':json.dumps(body.get('target_blend',{}),sort_keys=True),'body_parameters_json':json.dumps(variant['body_parameters'],sort_keys=True),'skin_source_json':json.dumps(recipe['skin_texture'],sort_keys=True),'body_source_json':json.dumps(body.get('source',body.get('provenance',{})),sort_keys=True)}
     scene['chicago4d_human']['hair_source_json']=json.dumps(hair_report,sort_keys=True)
+    if wardrobe:
+        scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({
+            'assembly':variant['wardrobe_assembly'],'profile':wardrobe,
+            'liberty':recipe['modular_wardrobe']['liberty'],
+            'master_umbrella_liberty':liberty,
+            'body_and_identity_unchanged':True,'grade':'reconstructed',
+            'canonical_fit_and_photo_accepted':False},sort_keys=True)
+    if dress:
+        scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'adult_dress_v1','liberty':recipe['dress_components']['liberty'],'production_eligible':False,'qualified_roles':[],'standing_source_only':True,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True},sort_keys=True)
     scene['authoring_status']='UNVERIFIED: fitting, anatomy, facial targets, UV density, grounded animation and all export/render gates remain open until Blender/CI runs'
     scene.frame_set(1)
     args.output.parent.mkdir(parents=True,exist_ok=True)

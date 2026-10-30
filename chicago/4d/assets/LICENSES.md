@@ -39,6 +39,8 @@ with what it permits and what it does not.
 | `data/sources/assets/samstone_2017_tallgrass_trail/tallgrass_prairie_trail_2017-09-08.jpg` — Samstone13, *Tallgrass Prairie Trail*, 8 September 2017, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tallgrass_Prairie_Trail.jpg) | **CC BY-SA 4.0**, attribution required | **Verbatim redistribution in this repository, and measurement.** Committed byte-for-byte unmodified (SHA-1 `c2da32962b8c4ddb73b8f2cd36f4a39abeff7628`), so what is redistributed is the licensed work and not an adaptation — ShareAlike is not triggered. Source record `samstone_2017_tallgrass_trail`; it is the road-contrast reference for R-M1b. | **Any derived asset.** A crop, a resample, a texture or a tile built from it is an adaptation and would have to be released under CC BY-SA 4.0. This project derives nothing from it: it is measured and never enters a scene. `tools/publish.sh` does not copy `data/sources/`, so it is not on the published site. |
 | `data/sources/assets/haas_2021_sagebrush_two_track/sagebrush_two_track_2021-06-26.jpg` — Kevin Haas, *Earth two-track through sagebrush steppe*, 26 June 2021 | **All rights reserved.** The owner's own photograph, deliberately NOT under an open licence | **Reading it, to check the figures derived from it.** Committed verbatim (SHA-1 `9fdb465d952b98adb6ada9356f21df8c76897bd1`, 4032x3024) so a reader can verify a measurement against the pixels it came from — which is this project's standard and why it is committed rather than withheld. Source record `haas_2021_sagebrush_two_track`; it is the far-band road-contrast reference for R-M1b. | **Reuse of any kind.** No redistribution, no republication, no derived asset — not a crop, a resample, a texture or a tile. VISIBLE IS NOT REUSABLE: this is the one row in this table outside the CC0/CC-BY default, at the owner's direction of 2026-08-15. `tools/publish.sh` does not copy `data/sources/`, so it is not on the published site. |
 
+| `gifford_tremont_house_no_1` — N. Roswell Gifford, first Tremont drawing, reproduced by [Chicagology](https://chicagology.com/prefire/prefire021/) | **Owner-approved attributed project use**, 2026-10-22; original publication/collection and copyright status unresolved | Reference, picture comparison/source display and this project’s explicitly reconstructed Tremont appearance. Credit and source link retained in the source record and research comparison. Generated model contains no external image texture. | Public-domain status, copyright-holder permission, an open redistribution licence or any geographic/metric survey claim. |
+
 Held out of the published tree entirely, by the user's instruction:
 
 | item | disposition |
@@ -729,9 +731,9 @@ textures/prairie_1904_brick/tools/generate_prairie_1904_brick.py
 
 ### The Prairie Avenue 1904 stone library (K02) — `textures/prairie_1904_stone/`
 
-T-2288, piece 1 of T-1844. Six procedural stone fabrics for the 1904 programme's walls, trim and
-foundations (rock-faced granite, brown sandstone, Lemont and Bedford limestone, dressed trim,
-foundation rubble), built by the generator that ships inside it
+T-2288, piece 1 of T-1844. Seven procedural stone fabrics for the 1904 programme's walls, trim and
+foundations (rock-faced granite, brown sandstone, light fawn sandstone (T-1881), Lemont and Bedford
+limestone, dressed trim, foundation rubble), built by the generator that ships inside it
 (`tools/generate_prairie_1904_stone.py`, deterministic, seeded per fabric). Which building wears
 which stone is its structure record's to say; the look of every map is reconstructed
 (`docs/LIBERTIES.md` L-k02-stone-library-2288).
@@ -797,6 +799,14 @@ textures/prairie_1904_stone/sandstone_brown/sandstone_brown_normal_gl.png
 textures/prairie_1904_stone/sandstone_brown/sandstone_brown_normal_gl_web.jpg
 textures/prairie_1904_stone/sandstone_brown/sandstone_brown_orm.png
 textures/prairie_1904_stone/sandstone_brown/sandstone_brown_orm_web.jpg
+textures/prairie_1904_stone/sandstone_fawn/material.json
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_basecolor.png
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_basecolor_web.jpg
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_height16.png
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_normal_gl.png
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_normal_gl_web.jpg
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_orm.png
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_orm_web.jpg
 textures/prairie_1904_stone/tools/generate_prairie_1904_stone.py
 ```
 
@@ -936,7 +946,7 @@ failure.
 | `web/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb` | `tools/web_derivatives.sh` from the master above | project license | The web derivative of the K16 timber front; same provenance. |
 | `gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb` | `python3 generators/k12_emit.py` (this repo, pure Python, no Blender) from `data/structures/wheeler_house_1812_prairie_coach_house.json` | project license | The first K12 coach house on a named lot (T-2321). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only; embeds no image. |
 | `web/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb` | `tools/web_derivatives.sh` from the master above | project license | The web derivative of the 1812 coach house; same provenance, no image. |
-| `gltf/*__draft_1904.glb` (the one hundred and thirty-nine `prairie_draft` records) | `python3 generators/draft_emit.py` (this repo, pure Python, no Blender) from the matching `data/structures/*.json` record, written by `tools/draft_prairie_1904.py` | project license | The Prairie Avenue district draft (T-2329, T-2330, T-2334, T-2335, T-2351). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only: no image is embedded. |
+| `gltf/*__draft_1904.glb` (the one hundred and thirty-nine `prairie_draft` records) | `python3 generators/draft_emit.py` (this repo, pure Python, no Blender) from the matching `data/structures/*.json` record, written by `tools/draft_prairie_1904.py` | project license | The Prairie Avenue district draft (T-2329, T-2330, T-2334, T-2335, T-2351) and its named context buildings off the avenue (T-2982). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only: no image is embedded. |
 | `web/*__draft_1904.glb` | `tools/web_derivatives.sh` from the masters above | project license | The web derivatives of the district draft; same provenance. |
 | `gltf/recon_1835_*__inferred_1835.glb` and matching `web/` derivatives | `generators/inferred_placeholder.py` from the matching `data/structures/recon_1835_*.json` record | project license | Pure-Python review massing for the 108 anonymous inferred roofs. Every file self-identifies as a placeholder and is replaced, not silently promoted, when the canonical family bake lands. |
 | `humans/c4d_fixture.lod0.glb` | `tools/human_export.sh` (this repo, Blender 4.5.3): `tools/human_fixture_blend.py` builds the master, `tools/human_export.py` exports it | project license | The portable-human pipeline's CI fixture (T-1787, liberty L417): a figure that is nobody, built from primitives. Its master is the script, so the `.blend` is rebuilt on every run and this file is never the only copy. Its one texture, a 64 px twill, is generated in the script; nothing third-party is sampled or embedded. |
@@ -1116,9 +1126,15 @@ textures/trees/leaf_atlas.ktx2
 textures/trees/bark_basecolor.ktx2
 textures/trees/bark_normal.ktx2
 
-These are painted entirely from code (the .ktx2 files are GPU-compressed copies of the same maps) by `tools/generate_tree_atlas.py` (seeded noise, cell patterns and drawn leaf
-outlines). No photograph or third-party image is sampled. They are project-authored under the
-repository licence, and the generator reproduces them. They show what a species' leaf and bark
+These are painted from code (the .ktx2 files are GPU-compressed copies of the same maps) by `tools/generate_tree_atlas.py` (seeded noise, cell patterns and drawn leaf
+outlines), and the generator reproduces them. One photograph is sampled: since T-3247 the elm
+tiles' blades take their surface (lightness only) from Steven J. Baskauf, *Ulmus americana
+(Ulmaceae) - leaf - whole upper surface*, 2 June 2002, [Bioimages, Vanderbilt University
+image 11688](https://bioimages.vanderbilt.edu/baskauf/11688.htm), **CC BY 4.0**
+(https://creativecommons.org/licenses/by/4.0/); source record `bioimages_ulmus_americana_11688`,
+the photograph at `data/sources/assets/bioimages_ulmus_americana_11688/`. The leaf atlas is an
+adaptation of it and carries that attribution; everything else in these files is
+project-authored under the repository licence. They show what a species' leaf and bark
 generally look like; they are not evidence about any tree that stood (docs/LIBERTIES.md
 L-tree-architecture-2743).
 
@@ -1310,3 +1326,223 @@ is dedicated to CC0-1.0 alongside those inputs):
 | `authored/humans/era_studies/1904/body-target.json` | CC0-1.0 | Original reconstructed age61/height parameters; existing cleared MakeHuman graphical targets, not application code. |
 | `authored/humans/era_studies/1904/glessner_john_j_1904.prepared.json` | CC0-1.0 | Prepared existing cleared hm08 graphical body; exact source and target hashes remain in this file. |
 | `authored/humans/era_studies/1904/glessner_john_j_1904.garments.json` | CC0-1.0 | Original project-authored conjectural garment arrays; no external garment or picture derived. |
+
+
+## Parked original transport variants (T-2979)
+
+W01 geometry and source: GPL-3.0-or-later; nine original generated timber/paint/iron maps: CC0-1.0. See each SOURCE.json/ORIGINAL-MATERIAL-LICENSE.txt. No external photographic pixels or scans are incorporated.
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked/ORIGINAL-MATERIAL-LICENSE.txt` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/SOURCE.json` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+
+## Original covered-wagon surfaces (T-2980)
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_covered/SOURCE.json` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/ORIGINAL-LICENSE.txt` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_color.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_normal.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_orm.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+
+
+## Original authored W01 material charts (T-2980)
+
+The existing project-authored geometry supplies these original UV/tangent source inputs. Their GPL license is separate from the CC0 original procedural pixel maps. Exact hardware, ownership, recipe and original authoring hashes are recorded in SOURCE.json and the chart manifest. The ordinary producer validates these authored inputs; the original numerical authoring remains explicit opt-in. No outside geometry or photographic pixels are incorporated.
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked/charts/original-w01-charts.bin` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+| `authored/transport/wagon_parked/charts/original-w01-charts.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+| `authored/transport/wagon_parked/charts/original-w01-charts.mapping.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+
+### Actual Bardwell initial-standing canonical exports — 2026-10-22
+
+Actual run39712579846, head34cf462ed343b8b2b70da70303344fff7e5e083f, artifact12398870779; exact existing CC0-1.0 graphical/component/master-export licenses and notices above continue. This receipt records actual bytes, not likeness, photographic or full-fit acceptance.
+
+|Path under assets/|Bytes|SHA256|
+|---|---:|---|
+|humans/bardwell_otis_1835.lod0.glb|8633684|8b7d165bedfa5c8f12fd7e9aeb8d51e1cfc3cab816675a7817900f4bd9418198|
+|humans/bardwell_otis_1835.lod1.glb|8004644|7935a45d0332020adae619b05fe84c5010a84a260ba04764bea6371ad953f318|
+|humans/bardwell_otis_1835.lod2.glb|7459216|555432bfd5ca37c96755d33ed8ff24cc1ff7d77ad50896fa75ec0b61497c00c4|
+|humans/bardwell_otis_1835.lod3.glb|7238540|4ec095034edbe19e91a53d34d82f5eb47ed99a0ec620ca2e487e328170872aa4|
+|humans/web/bardwell_otis_1835.lod0.glb|4439324|47132fdfe27c1c144039e2db708bca6da6db63c201b37351a7632f1c0f45a953|
+|humans/web/bardwell_otis_1835.lod1.glb|1564256|485856360666b48ea0534e645ebda0e678af63be9e66514be78df0621a262454|
+|humans/web/bardwell_otis_1835.lod2.glb|617540|b9976874ae6a20a1e884bec62d97c4039312ae2e8ac4bd5cfbffd8148192485a|
+|humans/web/bardwell_otis_1835.lod3.glb|308100|c86fff664ac893d0fb5d6877040a0d0a9d388dc9f25acfc208be0eeb13e12ad2|
+
+### Actual Bardwell connected-waistcoat canonical replacement — 2026-10-22
+
+Actual source96c4da4b1fe68e6dec3b18c15da2f14c596a60c5, successful canonical run39736567239 attempt1, artifact12408480668, ZIP SHA2569ca4e1e692da77d3cbb1e0089f2d53cc01cd360d8cafc2b0e97230434326d5f5. These eight exact same-run exports replace the earlier Bardwell initial-standing bytes only. Existing CC0-1.0 graphical/master/base/skin/hair provenance and notices above remain; project build-code licensing is unchanged. Source/web/sole/normal/rigid-frame/container/seated/W01 mechanical qualification is actual. Root reviewed actual publishedLOD0front/profile and accepted the repaired upper panels for the initial visible increment; broad photographic/full-fit/occupied acceptance remains open. Historical export receipts above remain historical.
+
+|Path under assets/|Bytes|SHA256|
+|---|---:|---|
+|humans/bardwell_otis_1835.lod0.glb|8656876|84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04|
+|humans/bardwell_otis_1835.lod1.glb|8018176|e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3|
+|humans/bardwell_otis_1835.lod2.glb|7465876|bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f|
+|humans/bardwell_otis_1835.lod3.glb|7241808|8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233|
+|humans/web/bardwell_otis_1835.lod0.glb|4447008|3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999|
+|humans/web/bardwell_otis_1835.lod1.glb|1568968|af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1|
+|humans/web/bardwell_otis_1835.lod2.glb|619964|ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a|
+|humans/web/bardwell_otis_1835.lod3.glb|309428|b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40|
+
+## V18 catalogue-guided Brougham lamps (T-2794)
+
+Original project GPL-3.0-or-later source and generated geometry: `tools/transport/brougham/{generate.py,lamp_geometry.py,source_details.py,quarter_surface.py,index_streams.py,static_master.py,parameters.json,lods.json,rear-quarter.json,ring16-mid-lods.json,LICENSE}`. Current V18 near raw SHA256 `99f2ca33f0228d486db274f461c59eecdfa19dcb70d1eb2c080c30d4d5456b4a`, indexed SHA256 `bce1ecc757a7175cb193b1263fc8dbcdf1ce76a263916d3cff5e41dc4a835938` (33,374 triangles). Current mid raw SHA256 `f184d0fc96ecca92ae4ed51a57c468e9cf7e689264865ae45b23ccb007236f0d`, indexed SHA256 `65eec8b7e04e636c90e2d797f5e7e8c1d2695f0f45c6fb5c7f340f73e5616fa1` (11,706 triangles). The existing ring16 distance recipe uses 480 near and 314 mid subdivision records. Protected non-lamp positions/normals, seven materials, nodes, anchors, contacts and original conservative collision proxy remain exact; only the reconstructed lamp form changes. No external geometry or image textures are used.
+
+The public-domain appearance reference is US1893 Studebaker catalogue leaf0095, source `studebaker_1893_illustrated_souvenir`, plate SHA256 `b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe`. No plate pixels are embedded. Maker/design availability is evidenced; this specimen, owner, stop, absolute dimensions, hidden construction and optical materials remain reconstructed. No Pullman/Glessner ownership is claimed. Rounder twin-faced lamp heads replace the earlier tall angular cages; a fixed-camera software projection comparison supports that limited form improvement, not Three PBR, browser, world, photographic or occupied acceptance. New native desktop/mobile image acceptance remains false after environment-limited launches. Eight earlier native views applied only to historical V17 distance appearance and are not transferred to V18. V17 source/contracts/metadata/receipts are retained explicitly as historical under `tools/transport/brougham/archive-v17/`, with its original GLBs in PR1175 Git history. The earlier22,238-triangle mid likewise remains historical. No Brougham file is added under assets/.
+
+## W01 fine-grained timber material increment (T-2793)
+
+`parked-wagon-fine-wood/` uses unchanged original project W01 geometry and project-authored UV/tangent/index charts (GPL-3.0-or-later). Side timber pixels derive from [Fine Grained Wood](https://polyhaven.com/a/fine_grained_wood), Rob Tuytel / Poly Haven, [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/); original paint, iron and cut-end pixels remain CC0. Native2K maps were rotated, cropped, reduced2x, narrow8pxperiodic edge blended, and albedo given bounded1.5linear exposure; GL normal vectors were correspondingly rotated and renormalized. This is a modern optical analogy and reconstructed brown finish, with no species/date/coating/maker/Chicago-specimen attestation. Photographic/world/budget acceptance remains open. Source map URLs, official hashes and derivation are in `assets/authored/transport/wagon_parked_fine_wood/SOURCE.json`.
+
+The authored binding files `assets/authored/transport/wagon_parked_fine_wood/{surface.json,surface.bin}` combine original project GPL-3.0-or-later UV/tangent/index charts with the documented CC0 image derivatives; the geometry is freshly regenerated by `tools/transport/generate_parked_wagon_fine_wood.py` through the unchanged original W01 pipeline. `ATTRIBUTION.txt` and `SOURCE.json` preserve creator, URLs, source hashes and transformations. The installed `renderers/web/transport/parked-wagon-fine-wood/wagon-w01.glb` SHA256 is e1e5b4f1d7dfe6bf08cca21e8cfae2e88748a3f6e6c6959753334ae2b0c84dd8. The original parked-wagon asset remains unchanged. The two covered variants retain distinct finish families and take only the separately documented cloth-drape increment.
+
+| Asset | License | Provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked_fine_wood/ATTRIBUTION.txt` | GPL-3.0-or-later | Original project attribution text identifying the separately licensed CC0 texture maps and their transformations. |
+| `authored/transport/wagon_parked_fine_wood/surface.json` | GPL-3.0-or-later (project binding and charts); CC0-1.0 (texture derivatives) | Original project UV/tangent/index binding; Fine Grained Wood maps by Rob Tuytel / Poly Haven and original CC0 paint, iron and cut-end pixels, as documented above and in SOURCE.json. |
+| `authored/transport/wagon_parked_fine_wood/surface.bin` | GPL-3.0-or-later (project charts); CC0-1.0 (texture pixels) | Original project chart streams and documented CC0 texture derivatives; no third-party geometry. |
+
+The covered-cloth refinement under T-2980 changes only the reconstructed inter-bow drape constants (8–10mm to20–28mm over750mm spans), retaining original GPL geometry/source lineage and CC0 analytic texture pixels. Current source/product hashes are in `assets/authored/transport/wagon_covered/SOURCE.json`: core679fc439, blue GLB aaffa339, oak GLB22072e6f. Variant identities, seeded finish colors/aging, yokes, pivots, stands and newer terrain qualification are preserved. This is not an attested historic textile form or physical cloth simulation.
+
+
+## Canonical26 planted-standing horse development derivative (T-2800/T-2803)
+
+“Horse” by sevketkabatas, [CC BY4.0](https://creativecommons.org/licenses/by/4.0/), original https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe, retrieved via Objaverse on2026-10-22. Exact original source SHA41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988 is unchanged in preserved acquisition/recovery. Current derivative b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be is3,783,600bytes. Source rest surface baked to canonical metres; reconstructed26controls/V16skin and12s planted body-shift clip are explicit project adaptations. UV/maps/index topology and source shape retain CC BY4.0; no source six-clip or earlier head/tail playback is composed.
+
+Rigged Mid-Poly Horse by antemeossa, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83 supplied hierarchy analogy only, not copied mesh or animation keys. Objaverse database notice remains ODC-By1.0 (Deitke etal.,2022); individual object rights remain CC BY4.0. Modern source publication/rights do not attest a Chicago individual, breed, owner or period appearance.
+
+|Path relative to assets/|License and provenance|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-v16-planted-standing-v1.glb`|CC-BY-4.0 derivative; exact source/field/export lineage in SOURCE.json and ADAPTATION.md.|
+|`authored/transport/horse_standing/SOURCE.json`|Project-authored source/change/binary binding; original third-party rights preserved.|
+|`authored/transport/horse_standing/ADAPTATION.md`|Project-authored exact reconstruction/normalization/motion scope notice.|
+|`authored/transport/horse_standing/ATTRIBUTION.md`|Preserved author/listing/license/acquisition credit and dataset notice.|
+|`authored/transport/horse_standing/CC-BY-4.0-legal-text.txt`|Creative Commons legal-text notice preserved verbatim.|
+|`authored/transport/horse_standing/dataset-README.md`|Preserved Objaverse ODC-By1.0 database notice; individual CC object license remains separate.|
+|`authored/transport/horse_standing/53a6eb7ccf054aa2a378dd7ec08f88fe-public-metadata.json`|Preserved modern author/source/CC-BY-4.0 metadata, not period evidence.|
+|`authored/transport/horse_standing/selected-dataset-metadata.json`|Preserved individual object license/creator metadata, not a new license grant.|
+|`authored/transport/horse_standing/selected-acquisition.json`|Preserved exact-source acquisition provenance.|
+|`authored/transport/horse_standing/planted-standing-export-receipt.json`|Project-authored source-protection/export receipt; export-only scope.|
+
+Byte-identical runtime copy: `renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb`. The renderer's declared organic_dielectric_v1 variant changes only cloned material metalness0, with original PBR maps/roughness/UV policy unchanged. Loaded129 CPU/Mixer PASS is recorded separately; yard/mobile/GPU/photographic/gait/tack/riding acceptance is not implied.
+
+## Verified 1902 jail reference pages — T-3056
+
+| item | licence | cleared for | NOT established |
+|---|---|---|---|
+| `data/sources/assets/trowbridge_first_jail_gale_1902/` — three unmodified JPEG scans, exact URLs/hashes in its manifest; [Internet Archive](https://archive.org/details/reminiscencesofe00ingale/page/n79/mode/1up) | **Public domain by age: US publication 1902**, verified actual title and copyright pages | Faithful reference copies and model derivation from W. E. S. Trowbridge’s published illustration in Edwin O. Gale’s book; credit retained in the source record and companion README | Exact July 1835 condition, metric dimensions, rights in added 1947 newspaper layout, or an item-specific licence for the separate UCR copy |
+
+
+## Verified1902 Green Tree and Sauganash reference pages — T-3055
+
+| item | licence | provenance and limits |
+|---|---|---|
+| `data/sources/assets/trowbridge_green_tree_1902/gale-n55.jpg` and `data/sources/assets/trowbridge_sauganash_hotel/gale-n49.jpg` | Public domain by independently verified 1902 US publication | Unmodified InternetArchive page scans of W. E. S. Trowbridge illustrations in Edwin O. Gale, *Reminiscences of Early Chicago and Vicinity* (Fleming H. Revell Company,1902), facing printed pp. 35 and31. Exact URLs/hashes in adjacent manifests; actual title/copyright proof shared with `trowbridge_first_jail_gale_1902`. Retrospective 1835 caption does not establish July 1835 fitting dates, metrics, colours or modern stock reproduction licences. |
+
+
+## T-3055 first Tremont reconstructed arch name
+
+The optional baked TREMONT paint strokes are original project GPL-3.0-or-later procedural geometry, adapting six existing prairie_draft.GLYPHS capitals locally through MeshBuilder. No external font, photograph or source-image pixels are baked. The independently known house name bounds the explicit reconstructed word; Gifford/Chicagology remains owner-approved attributed reference use, with no claim of a legible original inscription or public-domain finding. Exact glyph/colour/placement choices and source limits are recorded in L-tremont-reconstructed-arch-name-2385.
+
+## Eye-UV-v1 planted-standing derivative amendment (T-2800)
+
+The historical b479 entry above describes the preserved previous stage. The current separately versioned selection is d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914,3,784,176bytes, `horse-sevket-v16-planted-standing-eye-uv-v1.glb`. Its eye UV10/bounds and derivative notice change; source texture pixels, other UVs, material records, geometry, rig and planted animation are exact b479 data. Reconstructed gaze/pupil is an adaptation under the same sevketkabatas Horse CC BY4.0 source credit and Objaverse database notice, not attested Chicago anatomy or photographic completion. The preceding unchanged-UV statements apply to the historical b479 stage only. Fresh d454 loaded129 CPU qualification is distinct from historical b479 results; neither certifies native/mobile/GPU/world/photographic quality.
+
+|Path relative to assets/|License and provenance|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-v16-planted-standing-eye-uv-v1.glb`|CC-BY-4.0 derivative of Horse by sevketkabatas; exact changes in ADAPTATION.md.|
+|`authored/transport/horse_standing/generate_eye_uv_v1.py`|Project-authored UV recipe/source-aperture evidence/protection receipt; source mesh/image rights and author credit remain CC-BY-4.0.|
+|`authored/transport/horse_standing/eye-uv-v1-source-aperture-rays.json`|Project-authored UV recipe/source-aperture evidence/protection receipt; source mesh/image rights and author credit remain CC-BY-4.0.|
+|`authored/transport/horse_standing/eye-uv-v1-boundary-receipt.json`|Project-authored UV recipe/source-aperture evidence/protection receipt; source mesh/image rights and author credit remain CC-BY-4.0.|
+|`authored/transport/horse_standing/eye-uv-v1-derivation-receipt.json`|Project-authored UV recipe/source-aperture evidence/protection receipt; source mesh/image rights and author credit remain CC-BY-4.0.|
+
+Byte-identical current runtime copy: `renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb`. Protected b479 authored/runtime files and original receipts remain unchanged.
+
+## V19 catalogue-guided Brougham body and finish (T-3084)
+
+Original GPL-3.0-or-later source and generated geometry: `tools/transport/brougham/{generate.py,body_finish.py,body_geometry.py,build_body.py,parameters.json,quarter_surface.py,source_details.py,index_streams.py,static_master.py,LICENSE}` and `renderers/web/transport/parked-brougham/`. Current near raw SHA256 `fbe0f9b3d60c69ff85678b877a7d5c5e86fea05262d5fe13cfe246687e6b2d45`, indexed SHA256 `80bdf8a64ff2205de6575675f81efce7de0a6d41f45f934e3730f454cc1ab87f` (45,338triangles); mid raw SHA256 `5fa3a2127a805c52d040e17c533105ce43c545bcb3903f1ea717afb52c429694`, indexed SHA256 `6b8134c697c5538a004ca34e0a5a5822377b3e16d856ee098e1422bdf290fb2f` (23,062triangles). Both are deterministic original source exports with lossless indexing, freshly validated by gltf-validator2.0.0-dev.3.10 with0errors/0warnings. No external geometry, source pixels or texture images are embedded.
+
+Appearance reference remains the cleared public-domain1893 Studebaker catalogue Brougham leaf0095, source `studebaker_1893_illustrated_souvenir`, plate SHA256 `b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe`. Native model studies are original project renders. Dark green/black colour families and narrow bright lining are visible in the colour plate; metric dimensions, hidden/opposite construction, empty upholstery, wood species, lacquer pigments/optics and physical glass coefficients are reconstructed. Maker/type availability does not identify an actual1904 specimen or household. Original V18 lamp geometry/materials and physical interfaces are preserved. V18 source/contracts/metadata remain under `archive-v18/`; its original GLBs remain in accepted cb93 Git history. Final source-camera/published/phone/world budget and photographic acceptance remain pending; T-3085's later qualification is not claimed here.
+
+### V19 C1 front-slope output amendment (T-3084,2026-10-26)
+
+Current near raw SHA256 `50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635`, indexed `5bbdb1932074b0bddfa72afc99f34773a0fb337cb02480136deb8fe65ef0cec0`; mid raw `d2e2452b04f63c366a8debac88833d7ca21ef9f6a8031d57c240b600e3740b0a`, indexed `90e258c14ea9201b055e1862066c28077ea4ee48d699b9ca59928a371c13bcc3`. Same original GPL source and public-domain1893 plate, no embedded source pixels. Limited continuous front slopes replace the previous fbe0 candidate; source-bearing values, interval envelope, V18 lamps/physical interfaces remain protected. Fresh four raw/indexed validator reports retain0errors/0warnings. Earlier image evidence is explicitly PRE-C1; current native/photographic/published qualification remains pending.
+
+### Analytical-front-normal-only current output (T-3084,2026-10-26)
+
+Near raw `206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4`, indexed `3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89`; mid raw `560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d`, indexed `d5cdd34e981d29db41634ac780c22526742f6a20527b5866d2349c727a67400d`. Original GPL geometry/source and the same cleared1893plate. All priorC1POSITION streams remain exact; only owned front NORMAL changes, with inverse-transpose body scaling and separate thin-rim normals. Current actual close-up is source-bound; older17-image proofs remain historical. No new geometry source, texture image, source pixel, pigment attestation or photographic/published acceptance is introduced.
+
+
+### Optical-only V19 runtime delivery (T-3084, 2026-10-26)
+
+`renderers/web/transport/parked-brougham/brougham-near-delivery-v1.glb` (SHA256 `b5b183b4f115c5c7779ba0cb4ccba83fbffb62349647a9a6487f50cde49aef77`) and `brougham-mid-delivery-v1.glb` (`16daaf1d5003aae3ea64de9d037962aaabf2a5c8638ac77a5a2e037564ef2d63`) are original GPL-3.0-or-later optical derivatives of the retained indexed V19 masters. Canonical source is `tools/transport/brougham/generate_optical_delivery.mjs`; `OPTICAL-DELIVERY-RECEIPT.json` records its exact producer/source bindings. Every BIN byte, geometry/layout/node/scene value and material0–6 remains exact; 45,338/23,062 triangles and eight batches are retained. Only cabin glass uses the declared reconstructed BLEND/0.14-opacity/zero-transmission/IOR1.5 delivery approximation. All four physical raw/indexed masters remain unchanged, including their separate0.98-transmission optics. No new geometry, pixels, textures or outside material rights are introduced; the same cleared1893 catalogue/source limits apply. Actual source-bound diagnostic images are project renders and retain their NONPASS whole-budget result; a source derivative or Full-only allowance is not photographic/Light/memory acceptance.
+
+## T-3088 source-bounded horse anatomy authoring
+
+The anatomy recipes derive from the preserved selected d454 standing horse above,
+under the same sevketkabatas **CC-BY-4.0** credit, source URL and change-notice
+requirements. Existing source images, repaired eye UVs, acquired original,
+b479 and d454 parent files remain preserved. The project-authored recipe code
+and bounds are **GPL-3.0-or-later**; no claim is made that a software licence
+replaces the model's attribution licence.
+
+|Path relative to assets/|Licence and provenance|
+|---|---|
+|`authored/transport/horse_standing/generate_anatomy_v1.py`|Project-authored GPL-3.0-or-later source-only smooth rest-surface recipe; parent mesh rights remain CC-BY-4.0.|
+|`authored/transport/horse_standing/anatomy-v1-recipe.json`|Project-authored reconstructed source bounds and exact reference-image bindings; no reference pixels copied into the model.|
+|`authored/transport/horse_standing/generate_anatomy_v2.py`|Project-authored GPL-3.0-or-later canonical authored-mesh derivation with immutable-parent and live-field lineage.|
+|`authored/transport/horse_standing/anatomy_topology_v2.py`|Project-authored GPL-3.0-or-later adaptive hoof-wall/coronet/toe subdivision and bounded fairing; generated geometry remains an attributed CC-BY-4.0 model derivative.|
+|`authored/transport/horse_standing/anatomy-v2-recipe.json`|Project-authored reconstructed anatomy/topology choices, per-feature source IDs, confidence and immutable reference hashes.|
+|`authored/transport/horse_standing/ANATOMY.md`|Project-authored source, reconstruction, authoring and acceptance boundary notice; original model attribution remains separate.|
+|`authored/transport/horse_standing/horse-sevket-anatomy-v2.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse; reconstructed eyelid and hoof topology changes declared in ANATOMY.md and the versioned recipe. Repaired eye UVs and original six image payloads retain the source rights and credit.|
+
+The anatomy runtime copy is byte-identical at
+`renderers/web/transport/standing-horse/horse-sevket-anatomy-v2.glb`.
+The original acquired model and b479/d454 authored parents and their old receipts
+remain unchanged. Fresh selected-body Mixer129 physical proof is separate from
+surface, LOD, world, device performance and photographic qualification.
+
+The input plates by Ellenberger/Baum/Dittrich and Seton are recorded public-domain
+anatomical works. The Vassil and Joselodos living-animal photographs are cleared
+CC0 references. These supply anatomical relationships and visible continuity;
+neither the modern animals' breeds/markings nor their dimensions become evidence
+for an 1835 Chicago animal. Their pixels are not sampled into output textures.
+The unchanged six model texture payloads retain the source model's CC-BY-4.0
+provenance. Source recipes and uninstalled candidate generation do not constitute
+native, physical, historical or photographic acceptance.
+
+
+### T-1789 modular workwear source construction (canonical outputs pending)
+
+`tools/human_period_wardrobe.py` is original project GPL-3.0-or-later code; the original graphical arrays generated by its garment returns, fitted buttons, short jacket/lapel and felt-hat constructors are dedicated CC0-1.0, as declared in `data/humans/recipes/worker_1835.json`. They use existing cleared CC0 MakeHuman body/hair components without copying upstream program logic. No new outside image/texture or rights-pending source is derived into an asset. Colors, materials and garment dimensions are original reconstructions. The currently committed human GLBs remain the prior outputs with their existing provenance; this source checkpoint does not relabel them as the new wardrobe. Canonical new masters/exports and their hashes/licenses must accompany their eventual integration.
+
+
+### T-1789 original adult dress components and verified female source base
+
+`assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json`, its report and `adult_female_25.recipe.json` are original CC0-1.0 engineering derivatives of the same pinned MakeHuman graphical data. The three female-young category targets and header-only universal-female target preserve their upstream CC0 notices; exact upstream commit, source URLs, bytes and SHA256 are in `SOURCE-female.json`. The universal target has zero delta rows and is not claimed as a deformation. Upstream category labels are software provenance, not an inference of a resident ancestry. Existing MakeHuman graphical/license notices remain unchanged.
+
+Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_components.py` are original CC0-1.0 geometry. Generator/test code is GPL-3.0-or-later. Cuts, cloth dimensions, color and drape are reconstructed, not traced from a historical pattern or painting. The held credited public-domain Wild1835 Cincinnati image is a narrow cross-check via source wild_1835_third_vine; no image pixel enters any texture or asset. Generic cleared skin/hair components retain their existing source notices and remain unqualified for photographic female appearance.
+
+| Path relative to assets/ | Licence and provenance |
+|---|---|
+| `authored/humans/makehuman_hm08/SOURCE-female.json` | Project-authored CC0-1.0 graphical-source provenance, exact official upstream hashes and notices. |
+| `authored/humans/makehuman_hm08/adult_female_25.recipe.json` | Original CC0-1.0 graphical blend recipe; reconstructed engineering parameters, no resident ancestry or portrait. |
+| `authored/humans/makehuman_hm08/prepared_adult_female_25.json` | CC0-1.0 engineering derivative of verified MakeHuman graphical data; complete anatomy/UV/rig retained. |
+| `authored/humans/makehuman_hm08/prepared_adult_female_25.report.json` | Project-authored CC0-1.0 preparation measurements and explicit unqualified limitations. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |

@@ -1,0 +1,155 @@
+{
+  "id": "kinzie_horse_mill_1812",
+  "phase": "mill_1808",
+  "name": "The old horse mill beside Kinzie's garden",
+  "aka": [
+    "Whistler's index no. 32, 'Old Grist Mill Worked by Horses' (1808)",
+    "the horse mill of du Sable's bill of sale (1800), as T-2484 reported it"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/kinzie_horse_mill_1812__mill_1808.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1808-01-25",
+    "to": "1816-06-30",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "THE RANGE IS BOUNDED BY THE DRAUGHT AND BY SILENCE. It opens on 25 January 1808, the date of Whistler's draught, whose index already calls it 'Old'; it is older, and the bill of sale of 1800 is reported to list a horse mill (T-2484; not read here). It is taken to stand through the 1812 scene dates (1 and 14 August) by continuity: nothing read says it was pulled down or burned. It closes on 30 June 1816 with the no. 31 houses beside it, the day before the second fort's records open: no source read names it after the war, Wau-Bun's establishment of 1831 has no mill in it, and Sarony's lithograph of about 1831 draws only trees and the road where it stood. Out of 1835. L420.",
+    "from_is": "seen"
+  },
+  "change_note": "Built T-2485 (2026-10-21): Whistler's no. 32, the old horse mill, on the north bank.",
+  "placement": {
+    "local_e": 1131.152,
+    "local_n": 351.424,
+    "rotation_deg": 180.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "position_note": "SEATED BY STATED RULE, NOT MEASURED. Whistler's index names no. 32 'Old Grist Mill Worked by Horses' (Quaife 1913, note 413). The building carrying the numeral was found on the sheet at T-2504 between the easternmost no. 31 house and Kinzie's kitchen garden, at sheet px [1177, 427, 1215, 455] with its '32' under it near (1190, 460), and recorded in this ticket; this run could not fetch the sheet to read it again (the Gutenberg image host was unreachable from its container), so the box is T-2504's reading. It is seated by T-2504's north-bank rule, opened out about the Kinzie house as built by the drafter's '52 yards in length', exactly as the no. 31 houses are, and faces the river as the draught draws the houses on this bank. tools/read_whistler_1808.py --check re-derives this seat from the box and refuses it wet or on a neighbour. L420.",
+    "symbolic_location": "The north bank west of the Kinzie house, between the easternmost no. 31 house and Kinzie's kitchen garden, where the draught draws building no. 32; fort-frame box E -85.2..-68.4 ft, N +415.5..+427.9 ft by the north-bank rule (data/traces/whistler_1808_fort_dearborn.json north_bank). This record's origin is the footprint's north-east corner, local E +1131.2, N +351.4, which a south facing puts at the frame's (0, 0).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        5.121,
+        0
+      ],
+      [
+        5.121,
+        3.78
+      ],
+      [
+        0,
+        3.78
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "17 x 12 ft: the drawn box at the index's forty feet to the inch, the scale every outside building is read at; an upper bound, the drawing being roof and front together. DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. Nothing here is its figure. The horse's walk and the sweep are not built: no source says whether the horse worked inside the building or round it."
+  },
+  "attributes": {
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "note": "Unattested; the draught draws every building on this bank in logs."
+    },
+    "wall_height_m": {
+      "value": 2.6,
+      "confidence": "reconstructed",
+      "note": "Unattested: high enough to header a door a horse is led through."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "note": "The draught draws a pitched roof, as on every building on this bank."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "reconstructed",
+      "note": "Unattested; the north-bank houses' pitch."
+    },
+    "door": {
+      "value": "stable",
+      "confidence": "reconstructed",
+      "note": "Wide enough to lead the mill horse in, and the sacks of grain and meal with it."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "note": "Toward the river."
+    },
+    "function": {
+      "value": "horse_mill",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913"
+      ],
+      "note": "Whistler's index, no. 32: 'Old Grist Mill Worked by Horses'."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+        "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+        "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+      ],
+      "what_it_does_not_supply": [
+        "any building height: the folded elevations disagree with each other",
+        "the fort's bearing to true north: no north arrow was found on the reproduction",
+        "the covered way to the river and the gutters, which the index itself says are omitted",
+        "anything about the second fort of 1816"
+      ]
+    }
+  ],
+  "research_note": "THE OLD HORSE MILL (T-2485). DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. RULING: the horse mill STANDS in 1812, inferred: the draught names it in January 1808 and already calls it old, which fits a mill of du Sable's time, and nothing read says it went before the war. That it is the bill's mill is not shown. Whose it was in 1812 is not stated: it stands between the no. 31 houses and Kinzie's garden. No picture of it is known (Whistler's sheet is a plan with small elevations, read for place, as for the no. 31 houses), so it has no image gate to meet.",
+  "research_doc": "",
+  "review_required": false
+}

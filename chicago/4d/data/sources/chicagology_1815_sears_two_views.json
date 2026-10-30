@@ -1,0 +1,28 @@
+{
+ "id": "chicagology_1815_sears_two_views",
+ "type": "photograph",
+ "citation": "[1815 S. Prairie Ave. (Joseph Sears house; Arthur Meeker's from 1893).] Two photographs printed side by side: on the left the street front square-on from Prairie Avenue, the house number 1815 on the door's transom; on the right the same front and its south flank obliquely from the south-west. Unknown photographer(s), undated. Reproduced on chicagology.com, Prairie Avenue, 1815 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (the Prairie library's dating: 1882-1915; Chicagology: Burnham & Root, 1882, 'reconstructed by Arthur Heun')",
+ "describes_date": "undated, after the house was built (1882)",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a18-cgy-1815-sears-two-views, '1815 S. Prairie Avenue (two historic views)', recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a18-cgy-1815-sears-two-views.jpg), committed since T-1893 at data/sources/assets/sears_1815_photos_t1893/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1815prairie/",
+ "locator": "Left print: the whole street front from the north corner's recessed strip to the south-west corner bay, the roofs and stacks over it, the stoop, the parkway and the curb. Right print: the front from the stoop southward and the south flank's front half, the mansard and the south stack.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-1893) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-25 (T-1893) from the image store's reference copy, 2000 x 1295 px greyscale, sha256 39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929.",
+ "note": "The two photographs of the Sears house this project reads. Both show one state of it: a smooth light ashlar street front two storeys over a raised basement under a slated mansard; at the north end a quoined pavilion carried up a storey past the main cornice, two paired lights in it, under a steep hipped roof with a cross finial; the door in the pavilion's south half under a pedimented hood on carved brackets, up a stoop between stone newels; south of it one window column and a gabled dormer in the mansard; at the south-west corner a one-storey bay, its north cheek canted, carrying a stone balcony of pierced panels; a deep stone cornice on blocks over a dentil course; two tall stacks, the south one broad; and a rock-faced, darker south flank. The interpretive panel at the site (Glessner House, c. 1980) draws the 1882 house the same way. The 1911 Sanborn sheet draws a one-storey projection north of the front's centre and no corner bay, so the 1902 Heun remodel may have changed the front: the photographs are evidence of their own (undated) state, weighed against the sheet in the match record.",
+ "what_it_supplies": [
+  "the street front's composition: the north pavilion, the door, the window column, the corner bay and balcony, the dormer, the stacks",
+  "the heights: basement, principal floor, two storeys, cornice, mansard curb, the pavilion's roof, through the square-on print's own scale",
+  "the materials' tones: a light smooth ashlar front and a darker rock-faced south flank"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the prints are monochrome",
+  "a date: undated, so whether they show the house before or after the 1902 Heun remodel is open",
+  "the north flank, the rear and the rear range"
+ ]
+}

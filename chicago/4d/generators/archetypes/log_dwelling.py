@@ -72,13 +72,15 @@ from archetypes.log_dwelling_params import (  # noqa: E402
     LIGHT_HALF_W_M, LIGHT_HALF_H_M,
     ADDITION_WIN_HALF_M, DOOR_HALF_M, WIN_AT_FRAC, WIN_HALF_M, LogDwellingParams,
     addition_extent, addition_front_rects, core_extent, core_front_rects,
-    lean_to_extent,
+    lean_to_extent, compound_front_rects, resolved_core_ridge_axis,
 )
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
 #: `materials.roof_substrate` holds the argument for why it is this one and
 #: which half of it is graded by materials.md §2.2 and which half is L266.
 _ROOF = materials.roof_substrate("log_dwelling")
+# T-2386: same reconstructed local stock as frame_tavern; no shared finish retune.
+ROOF_DEEP_BROWN_RGBA = tuple(c * 0.25 for c in materials.roof_finish("darkened").rgba[:3]) + (1.0,)
 
 
 # Materials are indices into the list passed to to_object(), in this order.
@@ -139,58 +141,78 @@ def build(params: LogDwellingParams, name: str):
     # reads ("stories", "construction", "cladding") this reads ("stories",
     # "construction") — there is no third attribute, not an omission.
     c_mass = params.worst_conf("stories", "construction")
-    c_roof = params.worst_conf("roof_type", "roof_pitch_deg")
+    roof_conf_keys = ("roof_type", "roof_pitch_deg")
+    if params.roof_ridge_axis is not None:
+        roof_conf_keys += ("roof_ridge_axis",)
+    c_roof = params.worst_conf(*roof_conf_keys)
 
-    # Where the log core sits inside the footprint once the addition is carved out.
-    cx0, cy0, cx1, cy1 = core_extent(params)
-    wall_z = params.wall_height_m
+    if params.compound_joint == "elbow":
+        _elbow(b, params)
+    elif params.compound_parts:
+        _compound(b, params)
+    else:
+        # Where the log core sits inside the footprint once the addition is carved out.
+        cx0, cy0, cx1, cy1 = core_extent(params)
+        wall_z = params.wall_height_m
 
-    hewn_log_wall(b, cx0, cy0, cx1, cy1, 0.0, wall_z, c_mass, M_LOG, M_CHINK,
-                  skip=("bottom", "top"))
+        hewn_log_wall(b, cx0, cy0, cx1, cy1, 0.0, wall_z, c_mass, M_LOG, M_CHINK,
+                      skip=("bottom", "top"))
 
-    ridge_z = _roof(b, params, cx0, cy0, cx1, cy1, wall_z, c_roof)
+        if params.front_door_state == "recess":
+            _cut_front_door_recess(b, params, cy1)
 
-    if params.loft:
-        _loft_opening(b, params, cx0, cy0, cx1, cy1, wall_z, ridge_z,
-                      params.conf("loft"))
+        ridge_z = _roof(b, params, cx0, cy0, cx1, cy1, wall_z, c_roof)
 
-    _core_openings(b, params, cx0, cy0, cx1, cy1, wall_z,
-                   params.conf("fenestration", "reconstructed"))
-    if params.end_openings:
-        _end_openings(b, params, cx0, cy0, cx1, cy1, wall_z)
+        if params.loft:
+            _loft_opening(b, params, cx0, cy0, cx1, cy1, wall_z, ridge_z,
+                          params.conf("loft"))
 
-    addition_ridge_z = _frame_addition(b, params) if params.frame_addition else None
+        _core_openings(b, params, cx0, cy0, cx1, cy1, wall_z,
+                       params.conf("fenestration", "reconstructed"))
+        if params.end_openings:
+            _end_openings(b, params, cx0, cy0, cx1, cy1, wall_z)
 
-    if params.lean_to:
-        _lean_to(b, params, params.conf("lean_to", "reconstructed"),
-                 params.worst_conf("roof_type", "lean_to"))
+        addition_ridge_z = _frame_addition(b, params) if params.frame_addition else None
 
-    if params.piazza:
-        _piazza(b, params, cx0, cy0, cx1, cy1, wall_z, params.conf("piazza", "reconstructed"))
+        if params.lean_to:
+            _lean_to(b, params, params.conf("lean_to", "reconstructed"),
+                     params.worst_conf("roof_type", "lean_to"))
 
-    painted = bool(params.sign and params.sign_device)
-    _chimneys(b, params, cx0, cy0, cx1, cy1, ridge_z, addition_ridge_z,
-              params.conf("chimneys", "reconstructed"),
-              (M_CHIMNEY_AFTER_PAINT if painted else M_CHIMNEY_AFTER_SIGN)
-              if params.chimneys > 0 else M_ROOF)
+        if params.piazza:
+            _piazza(b, params, cx0, cy0, cx1, cy1, wall_z, params.conf("piazza", "reconstructed"))
 
-    if params.sign:
-        # The BOARD's confidence is the confidence that a sign hung there. Its size
-        # and its bracket are invented, but those are dimensional, and by the
-        # convention above dimensions do not drag an object's character down.
-        #
-        # THE MOUNTING IS A SEPARATE CLAIM and takes its own confidence, because at
-        # Wolf Point it is the better-evidenced half: a source says the board hung on
-        # a sapling and no source says a board hung on a bracket anywhere. So the
-        # pole is built at `sign_mount`'s grade and the board it carries at `sign`'s,
-        # least-confident-wins over the pair for the members that are both.
-        if params.sign_mount == "sapling_pole":
-            _sign_pole(b, params, ridge_z,
-                       params.worst_conf("sign", "sign_mount"),
-                       params.conf("sign", "reconstructed"),
-                       params.conf("sign_device", "reconstructed"))
-        else:
-            _sign(b, params, params.conf("sign", "reconstructed"))
+        painted = bool(params.sign and params.sign_device)
+        _chimneys(b, params, cx0, cy0, cx1, cy1, ridge_z, addition_ridge_z,
+                  params.conf("chimneys", "reconstructed"),
+                  (M_CHIMNEY_AFTER_PAINT if painted else M_CHIMNEY_AFTER_SIGN)
+                  if params.chimneys > 0 else M_ROOF)
+
+        if params.sign:
+            # The BOARD's confidence is the confidence that a sign hung there. Its size
+            # and its bracket are invented, but those are dimensional, and by the
+            # convention above dimensions do not drag an object's character down.
+            #
+            # THE MOUNTING IS A SEPARATE CLAIM and takes its own confidence, because at
+            # Wolf Point it is the better-evidenced half: a source says the board hung on
+            # a sapling and no source says a board hung on a bracket anywhere. So the
+            # pole is built at `sign_mount`'s grade and the board it carries at `sign`'s,
+            # least-confident-wins over the pair for the members that are both.
+            if params.sign_mount == "sapling_pole":
+                _sign_pole(b, params, ridge_z,
+                           params.worst_conf("sign", "sign_mount"),
+                           params.conf("sign", "reconstructed"),
+                           params.conf("sign_device", "reconstructed"))
+            else:
+                _sign(b, params, params.conf("sign", "reconstructed"))
+
+    # The optional tone carries its own uncertainty on every roof face.
+    # Absent/legacy selectors leave every previous confidence value untouched.
+    if params.roof_colour == "deep_brown":
+        c_colour = params.worst_conf("roof_colour")
+        for face, material in zip(b.faces, b.mat_index):
+            if material == M_ROOF:
+                for vertex in face:
+                    b.conf[vertex] = max(b.conf[vertex], c_colour)
 
     # ---- the surfaces, off the sheet (T-0007) --------------------------------
     # The log core is the town's log fabric and does not vary: a cabin's walls ARE
@@ -220,7 +242,8 @@ def build(params: LogDwellingParams, name: str):
         # FOR, and a cabin is a dwelling and not a shed. `materials.roof_substrate`
         # holds the argument; the 0.9 is unchanged.
         simple_material(materials.roof_material_name(_ROOF),
-                        materials.roof_finish(params.roof_condition).rgba,
+                        (ROOF_DEEP_BROWN_RGBA if params.roof_colour == "deep_brown"
+                         else materials.roof_finish(params.roof_condition).rgba),
                         roughness=_ROOF.roughness),
         simple_material("frame", frame_rgba, roughness=frame_rough),
         # ONE DARK (T-0126) — the sheet's `DARK` row, converging the three readings
@@ -289,7 +312,7 @@ def _gable_axis(p: LogDwellingParams, x0, y0, x1, y1) -> str:
     """
     if p.roof_type == "shed":
         return "x"
-    return "x" if _ridge_along_x(x0, y0, x1, y1) else "y"
+    return resolved_core_ridge_axis(p)
 
 
 # ------------------------------------------------------------------ primitives
@@ -313,6 +336,67 @@ def _panel(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
     b.add_poly(pts, conf, mat)
 
 
+
+def _cut_front_door_recess(b: MeshBuilder, p: LogDwellingParams, wall_y: float) -> None:
+    """Existing +Y Hogan skin cutter; same rectangles, order and zero skin-back."""
+    _cut_door_recesses(b,"y",wall_y,core_front_rects(p))
+
+
+def _cut_door_recesses(b,axis,plane,rects,skin_back_m=0.):
+    """Subtract stated external doors from one outward +X/+Y wall skin only.
+
+    Reuses the established half-plane partitions; default +Y calls retain all
+    old faces/material/confidence. Compound skin-back includes its inset dark
+    joint backing so the same blind300mm recess has actual cut reveals.
+    """
+    def clip(poly, axis, bound, above):
+        result = []
+        for a, q in zip(poly, poly[1:] + poly[:1]):
+            ai = a[axis] >= bound if above else a[axis] <= bound
+            qi = q[axis] >= bound if above else q[axis] <= bound
+            if ai:
+                result.append(a)
+            if ai != qi:
+                t = (bound - a[axis]) / (q[axis] - a[axis])
+                result.append(tuple(a[k] + t * (q[k] - a[k]) for k in range(3)))
+        # Boundary vertices may coincide after successive cuts.
+        clean = []
+        for v in result:
+            if not clean or sum((v[k]-clean[-1][k])**2 for k in range(3)) > 1e-20:
+                clean.append(v)
+        if len(clean) > 1 and sum((clean[0][k]-clean[-1][k])**2 for k in range(3)) < 1e-20:
+            clean.pop()
+        return clean
+    def area(poly):
+        n = [0., 0., 0.]
+        for a,q in zip(poly, poly[1:] + poly[:1]):
+            for k in range(3):
+                i,j = (k+1)%3,(k+2)%3
+                n[k] += (a[i]-q[i])*(a[j]+q[j])
+        return sum(v*v for v in n)
+    normal_axis,along_axis = (1,0) if axis == "y" else (0,1)
+    doors = [r for r in rects if r[0] == "door"]
+    for _, u0, u1, z0, z1 in doors:
+        old = [(tuple(b.verts[i] for i in f), tuple(b.conf[i] for i in f), mat)
+               for f,mat in zip(b.faces,b.mat_index)]
+        b.verts, b.faces, b.conf, b.mat_index = [], [], [], []
+        for points,confidence,mat in old:
+            poly = list(points)
+            if (all(v[normal_axis] >= plane-skin_back_m-1e-9 for v in poly)
+                    and min(v[along_axis] for v in poly) < u1 and max(v[along_axis] for v in poly) > u0
+                    and min(v[2] for v in poly) < z1 and max(v[2] for v in poly) > z0):
+                for axis,bound,above in [(along_axis,u0,True),(along_axis,u1,False),(2,z0,True),(2,z1,False)]:
+                    outside = clip(poly,axis,bound,not above)
+                    if len(outside) >= 3 and area(outside) > 1e-18:
+                        b.add_poly(outside,max(confidence),mat)
+                    poly = clip(poly,axis,bound,above)
+                    if not poly:
+                        break
+            else:
+                ids = b.add_poly(points,confidence[0],mat)
+                for idx,c in zip(ids,confidence):
+                    b.conf[idx] = c
+
 def _kit(b: MeshBuilder) -> openings.Mats:
     """The openings kit's materials (T-2278): the sawn surround's own colour for casing
     and sash, the town's glass (Glessner's dark pane), a weathered board leaf with iron
@@ -330,7 +414,7 @@ def _kit(b: MeshBuilder) -> openings.Mats:
 def _opening(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
              z0: float, z1: float, outward: int, conf: float, kind: str = "window",
              relief: float = RELIEF_M, frame_wall: bool = False,
-             shutters: bool = True) -> None:
+             shutters: bool = True, door_state: str = "closed") -> None:
     """A door or window in a log wall (or the frame addition's), built by the shared
     openings kit (T-2278).
 
@@ -349,6 +433,16 @@ def _opening(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
     k = _kit(b)
     w = openings.Wall(axis, plane, outward, relief)
     if kind == "door":
+        if door_state == "recess":
+            # The wall was actually cut back here, including proud chink strips.
+            # A 0.30 m blind recess bounds the representation: no interior or
+            # unseen leaf/hinge is inferred from Cameron's dark occupied doorway.
+            back = -0.30 - w.skin
+            openings.surround(b, w, u0, u1, z0, z1, conf, k, sill=False,
+                              cap=False, casing_w=0.11, proud=0.045, back=back)
+            openings.face(b, w, -0.30, u0, u1, z0, z1, conf, M_DARK)
+            openings.threshold(b, w, u0, u1, z0, conf, k.casing, 0.11, 0.045)
+            return
         if frame_wall:
             openings.panelled_door(b, w, u0, u1, z0, z1, conf, k)
         else:
@@ -398,8 +492,70 @@ def _roof(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     which the chimney needs so its stack clears the ridge."""
     if p.roof_type == "shed":
         return _shed_roof(b, x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf, M_ROOF)
+    if p.hip_end is not None:
+        return _hip_end_roof(b, x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf, M_ROOF,
+                             at_min=p.hip_end == "min", inset=p.hip_inset_m)
+    if p.end_gable_courses == "+x":
+        # Same two slopes and hidden -X cap as the generic roof. Only the
+        # pictured +X triangular finish changes; no ridge/footprint alteration.
+        ax0, ay0, ax1, ay1 = x0-.25, y0-.25, x1+.25, y1+.25
+        ym = (ay0+ay1)/2
+        ridge_z = eave_z + (ay1-ay0)/2*math.tan(math.radians(p.roof_pitch_deg))
+        b.add_poly([(ax0,ay0,eave_z),(ax1,ay0,eave_z),
+                    (ax1,ym,ridge_z),(ax0,ym,ridge_z)],conf,M_ROOF)
+        b.add_poly([(ax1,ay1,eave_z),(ax0,ay1,eave_z),
+                    (ax0,ym,ridge_z),(ax1,ym,ridge_z)],conf,M_ROOF)
+        b.add_poly([(ax0,ay0,eave_z),(ax0,ym,ridge_z),(ax0,ay1,eave_z)],conf,M_ROOF)
+        _horizontal_end_courses(b, ax1, ay0, ay1, eave_z, ridge_z,
+                                p.conf("end_gable_courses", "inferred"))
+        return ridge_z
+    if p.front_gable_cladding == "log_courses":
+        # Use precisely the existing generic roof's two slopes and back cap.
+        # Replace its front cap with the pictured category of horizontal courses.
+        # Every course interval, joint and relief is reconstructed, not measured.
+        ax0, ay0, ax1, ay1 = x0-.25, y0-.25, x1+.25, y1+.25
+        xm = (ax0+ax1)/2
+        ridge_z = eave_z + (ax1-ax0)/2*math.tan(math.radians(p.roof_pitch_deg))
+        b.add_poly([(ax0,ay0,eave_z),(xm,ay0,ridge_z),
+                    (xm,ay1,ridge_z),(ax0,ay1,eave_z)],conf,M_ROOF)
+        b.add_poly([(xm,ay0,ridge_z),(ax1,ay0,eave_z),
+                    (ax1,ay1,eave_z),(xm,ay1,ridge_z)],conf,M_ROOF)
+        b.add_poly([(ax0,ay0,eave_z),(ax1,ay0,eave_z),(xm,ay0,ridge_z)],conf,M_ROOF)
+        _log_course_gable(b,"y",ay1,ax0,ax1,eave_z,ridge_z,+1)
+        return ridge_z
     return b.add_gable_roof(x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf, M_ROOF,
-                            ridge_along_x=_ridge_along_x(x0, y0, x1, y1))
+                            ridge_along_x=(resolved_core_ridge_axis(p) == "x"))
+
+
+def _hip_end_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf, mat,
+                  at_min: bool, inset: float | None = None,
+                  overhang: float = 0.25) -> float:
+    """`add_gable_roof` along x with one end hipped (T-2485).
+
+    The ridge stops `inset` short of that end's eave line and the end's roof falls from
+    there to the eave, the way Eastman's 1820 view draws the lodging house's far end.
+    None is half the span, a hip at the slopes' own pitch; the inset is measured from
+    the wall, and the overhang is added to it. The other end keeps its gable. The
+    ridge runs along x only: params refuse `hip_end` anywhere else.
+    """
+    x0, y0, x1, y1 = x0 - overhang, y0 - overhang, x1 + overhang, y1 + overhang
+    rise = ((y1 - y0) / 2.0) * math.tan(math.radians(pitch_deg))
+    ridge_z = eave_z + rise
+    ym = (y0 + y1) / 2.0
+    inset = (y1 - y0) / 2.0 if inset is None else inset + overhang
+    ra = x0 + inset if at_min else x0
+    rb = x1 if at_min else x1 - inset
+    b.add_poly([(x0, y0, eave_z), (x1, y0, eave_z),
+                (rb, ym, ridge_z), (ra, ym, ridge_z)], conf, mat)
+    b.add_poly([(x1, y1, eave_z), (x0, y1, eave_z),
+                (ra, ym, ridge_z), (rb, ym, ridge_z)], conf, mat)
+    if at_min:
+        b.add_poly([(x0, y0, eave_z), (ra, ym, ridge_z), (x0, y1, eave_z)], conf, mat)
+        b.add_poly([(x1, y1, eave_z), (x1, ym, ridge_z), (x1, y0, eave_z)], conf, mat)
+    else:
+        b.add_poly([(x0, y0, eave_z), (x0, ym, ridge_z), (x0, y1, eave_z)], conf, mat)
+        b.add_poly([(x1, y1, eave_z), (rb, ym, ridge_z), (x1, y0, eave_z)], conf, mat)
+    return ridge_z
 
 
 def _shed_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf, mat,
@@ -441,7 +597,8 @@ def _loft_opening(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     stands against the LOW end of the ridge's own axis (`_chimneys`, `_gable_axis`) and
     is wider than this opening, so an opening at both ends buries one of them inside
     masonry — invisible in the render and still costing its triangles. The vent below
-    takes the +x or +y end to match, which is why both read the same `_ridge_along_x`.
+    takes the +x or +y end to match, which is why both read
+    `resolved_core_ridge_axis` rather than independently inspecting the footprint.
     """
     if p.roof_type != "gable":
         return
@@ -450,7 +607,7 @@ def _loft_opening(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     # A closed board hatch in a sawn frame (T-2278): a loft was reached for hay,
     # seed and bedding, not lit, and an open black square read as a hole in the roof.
     k = _kit(b)
-    if _ridge_along_x(x0, y0, x1, y1):
+    if resolved_core_ridge_axis(p) == "x":
         yc = (y0 + y1) / 2.0
         w, uc = openings.Wall("x", x1, 1, out - 0.02), yc
     else:
@@ -493,7 +650,9 @@ def _core_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
         # storey, and the back window hung on the band its first window takes.
         shut = (x1 - x0) >= 5.2 if p.front_shutters is None else p.front_shutters
         for kind, u0, u1, z0, z1 in rects:
-            _opening(b, "y", y1, u0, u1, z0, z1, 1, conf, kind=kind, shutters=shut)
+            _opening(b, "y", y1, u0, u1, z0, z1, 1,
+                     p.conf("front_door_state", "reconstructed") if kind == "door" and p.front_door_state == "recess" else conf,
+                     kind=kind, shutters=shut, door_state=p.front_door_state)
         wins = [r for r in rects if r[0] == "window"]
         z0, z1 = (wins[0][3], wins[0][4]) if wins else (0.82, 1.54)
         if gable_front:
@@ -687,11 +846,22 @@ def _end_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     for end, kind, at, z in p.end_openings:
         x, out = plane[end]
         yc = y0 + at * (y1 - y0)
-        if kind == "light":
+        if kind in ("light", "hatch"):
             if z - LIGHT_HALF_H >= wall_z:
                 x += out * GABLE_FACE_OUT
-            _opening(b, "x", x, yc - LIGHT_HALF_W, yc + LIGHT_HALF_W, z - LIGHT_HALF_H,
-                     z + LIGHT_HALF_H, out, c, shutters=False)
+            if kind == "hatch":
+                # A boarded proxy for the painting's framed rectangle, not a
+                # claim that glass is absent or that its closure is documented.
+                w = openings.Wall("x", x, out, RELIEF_M)
+                k = _kit(b)
+                openings.surround(b, w, yc - LIGHT_HALF_W, yc + LIGHT_HALF_W,
+                                  z - LIGHT_HALF_H, z + LIGHT_HALF_H, c, k,
+                                  sill=False, cap=False, casing_w=0.07, head_w=0.08, proud=0.03)
+                openings.board_shutter(b, w, yc - LIGHT_HALF_W, yc + LIGHT_HALF_W,
+                                      z - LIGHT_HALF_H, z + LIGHT_HALF_H, c, k)
+            else:
+                _opening(b, "x", x, yc - LIGHT_HALF_W, yc + LIGHT_HALF_W, z - LIGHT_HALF_H,
+                         z + LIGHT_HALF_H, out, c, shutters=False)
         elif kind == "door":
             _opening(b, "x", x, yc - _DOOR_HALF, yc + _DOOR_HALF, 0.02, 1.95, out, c,
                      kind="door")
@@ -719,14 +889,27 @@ def _frame_addition(b: MeshBuilder, p: LogDwellingParams) -> float:
     ax0, ay0, ax1, ay1 = addition_extent(p)
     az = p.addition_height_m
 
-    b.add_box(ax0, ay0, 0.0, ax1, ay1, az, c, M_FRAME, skip=("bottom", "top"))
-    _clapboard(b, ax0, ay0, ax1, ay1, az, c_clad)
+    mixed_cladding = p.frame_addition_cladding == "log_lower_vertical_upper"
+    if mixed_cladding:
+        c_finish = p.conf("frame_addition_cladding", "reconstructed")
+        split = az / 2.0
+        hewn_log_wall(b, ax0, ay0, ax1, ay1, 0.0, split, c_finish, M_LOG, M_CHINK,
+                      skip=("bottom", "top"))
+        b.add_box(ax0, ay0, split, ax1, ay1, az, c_finish, M_FRAME,
+                  skip=("bottom", "top"))
+        _vertical_addition_edges(b, ax0, ay0, ax1, ay1, split, az, 1.0)
+    else:
+        b.add_box(ax0, ay0, 0.0, ax1, ay1, az, c, M_FRAME, skip=("bottom", "top"))
+        _clapboard(b, ax0, ay0, ax1, ay1, az, c_clad)
     # An end addition abuts the log core, so its roof gets no overhang on that side —
     # `add_gable_roof` grows uniformly, and 0.25 m of eave driven into the core's roof
     # plane is a z-fighting stripe right down the most visible surface of the building.
     rx0 = ax0 + 0.26 if p.frame_addition_side == "end" else ax0
-    add_ridge_z = b.add_gable_roof(rx0, ay0, ax1, ay1, az, p.roof_pitch_deg, c, M_ROOF,
+    roof_conf = c if p.frame_addition_roof_pitch_deg is None else max(c, p.conf("frame_addition_roof_pitch_deg"))
+    add_ridge_z = b.add_gable_roof(rx0, ay0, ax1, ay1, az, p.resolved_addition_roof_pitch_deg, roof_conf, M_ROOF,
                                    ridge_along_x=True)
+    if mixed_cladding:
+        _vertical_addition_gables(b, rx0, ay0, ax1, ay1, az, add_ridge_z, c_finish)
 
     rel = 0.026                    # clapboard lip, not log relief
     # THE ADDITION'S FACADE IS THE PARAMS MODULE'S SET-OUT (T-0520), door and
@@ -743,10 +926,62 @@ def _frame_addition(b: MeshBuilder, p: LogDwellingParams) -> float:
     if p.frame_addition_side == "end":
         yc = (ay0 + ay1) / 2.0
         for story in range(p.frame_addition_stories):
-            z0, z1 = front_rects[2 * story][3:]
+            if p.frame_addition_front_set_out is None:
+                z0, z1 = front_rects[2 * story][3:]
+            else:
+                lo, hi = story*p.addition_height_m/p.frame_addition_stories, (story+1)*p.addition_height_m/p.frame_addition_stories
+                rect = next(r for r in front_rects if r[0] == "window" and lo <= r[3] < r[4] <= hi)
+                z0, z1 = rect[3:]
             _opening(b, "x", ax1, yc - ADDITION_WIN_HALF_M, yc + ADDITION_WIN_HALF_M,
                      z0, z1, 1, c_fen, relief=rel, frame_wall=True)
     return add_ridge_z
+
+
+def _vertical_addition_edges(b: MeshBuilder, x0: float, y0: float, x1: float,
+                             y1: float, bottom: float, top: float, conf: float) -> None:
+    """Reconstructed dark joint proxy, not measured gaps or applied battens.
+
+    The first same-material 12 mm edges vanished in the actual neutral review.
+    Reuse the log slot for 24 mm contrast strips with 4 mm relief, explicitly
+    a readable joint depiction, not a claim about historic gap/section sizes.
+    """
+    spacing, half_edge, proud = 0.24, 0.012, 0.004
+    for axis, lo, hi in (("x", x0, x1), ("y", y0, y1)):
+        n = max(1, round((hi - lo) / spacing))
+        for k in range(1, n):
+            at = lo + (hi - lo) * k / n
+            if axis == "x":
+                for plane, out in ((y0, -1), (y1, 1)):
+                    ya, yb = sorted((plane, plane + out * proud))
+                    b.add_box(at - half_edge, ya, bottom, at + half_edge, yb, top,
+                              conf, M_LOG, skip=("bottom", "top"))
+            else:
+                for plane, out in ((x0, -1), (x1, 1)):
+                    xa, xb = sorted((plane, plane + out * proud))
+                    b.add_box(xa, at - half_edge, bottom, xb, at + half_edge, top,
+                              conf, M_LOG, skip=("bottom", "top"))
+
+
+def _vertical_addition_gables(b: MeshBuilder, x0: float, y0: float, x1: float,
+                             y1: float, eave: float, ridge: float, conf: float) -> None:
+    """Board faces on the roof builder's closed gable planes, not hidden behind them."""
+    oh, proud, half_edge = 0.25, 0.004, 0.012
+    lo, hi = y0 - oh, y1 + oh
+    mid = (lo + hi) / 2.0
+    n = max(1, round((hi - lo) / 0.24))
+    for plane, out in ((x0 - oh, -1), (x1 + oh, 1)):
+        face = plane + out * proud
+        pts = [(face, lo, eave), (face, mid, ridge), (face, hi, eave)]
+        b.add_poly(pts if out < 0 else list(reversed(pts)), conf, M_FRAME)
+        for k in range(1, n):
+            at = lo + (hi - lo) * k / n
+            run = min(at - half_edge - lo, hi - at - half_edge)
+            top = eave + (ridge - eave) * run / ((hi - lo) / 2.0) - 0.02
+            if top <= eave:
+                continue
+            xa, xb = sorted((face, face + out * 0.004))
+            b.add_box(xa, at - half_edge, eave, xb, at + half_edge, top,
+                      1.0, M_LOG, skip=("bottom", "top"))
 
 
 #: The lean-to's plank battens (T-2511): the vertical strokes the Currey plate draws
@@ -821,7 +1056,8 @@ def _chimneys(b: MeshBuilder, p: LogDwellingParams, cx0, cy0, cx1, cy1,
       log cabin behind — would normally carry a stack in each element", and putting
       both on the log core would build a number the record gives while contradicting
       the reasoning it gives for the number. It goes against the addition's outer
-      gable, mirroring the core's. The addition's roof is always built ridge-along-x
+      gable by default, mirroring the core's. A stated frame_addition_ridge_stack
+      instead puts its short flue through the addition's own ridge. That roof is built ridge-along-x
       (`_frame_addition`), so its gable ends are always its +/-x faces.
     - With no addition, a second stack goes against the core's other gable, which is
       the other end of the one element there is. No record in the dataset asks for
@@ -845,8 +1081,22 @@ def _chimneys(b: MeshBuilder, p: LogDwellingParams, cx0, cy0, cx1, cy1,
         return
     if p.frame_addition and add_ridge_z is not None:
         ax0, ay0, ax1, ay1 = addition_extent(p)
-        _stack(b, ax0, ay0, ax1, ay1, add_ridge_z, conf, mat, at_min=False,
-               gable_axis="x")
+        if p.frame_addition_ridge_stack is None:
+            _stack(b, ax0, ay0, ax1, ay1, add_ridge_z, conf, mat, at_min=False,
+                   gable_axis="x")
+        else:
+            # The addition always runs its ridge along x, independently of the
+            # log core's axis. Only its existing second stack changes disposition.
+            f, width, head = p.frame_addition_ridge_stack
+            half = width / 2.0
+            rx0 = ax0 + 0.26 if p.frame_addition_side == "end" else ax0
+            x = rx0 + f * (ax1 - rx0)
+            y = (ay0 + ay1) / 2.0
+            foot = add_ridge_z - half * math.tan(math.radians(p.resolved_addition_roof_pitch_deg)) - 0.25
+            b.add_box(x - half, y - half, foot, x + half, y + half,
+                      add_ridge_z + head,
+                      p.worst_conf("chimneys", "frame_addition_ridge_stack"), mat,
+                      skip=("bottom",))
     else:
         _stack(b, cx0, cy0, cx1, cy1, ridge_z, conf, mat, at_min=not first_min,
                gable_axis=axis,
@@ -861,8 +1111,8 @@ def _ridge_stack(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1, ridge_z: 
     shaft, so no gap shows on either slope, and its head the archetype's usual height
     over the ridge. Placed where a record says a picture puts it, never by default.
     """
-    half = _STACK_HALF
-    if _ridge_along_x(x0, y0, x1, y1):
+    half = _STACK_HALF if p.ridge_stack_w_m is None else p.ridge_stack_w_m / 2.0
+    if resolved_core_ridge_axis(p) == "x":
         c = x0 + f * (x1 - x0)
         ym = (y0 + y1) / 2.0
         bx = (c - half, ym - half, c + half, ym + half)
@@ -871,8 +1121,18 @@ def _ridge_stack(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1, ridge_z: 
         xm = (x0 + x1) / 2.0
         bx = (xm - half, c - half, xm + half, c + half)
     run = half * math.tan(math.radians(p.roof_pitch_deg))
-    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], ridge_z + 0.95, conf, mat,
-              skip=("bottom",))
+    head = 0.95 if p.ridge_stack_head_m is None else p.ridge_stack_head_m
+    shaft_top = ridge_z + head - (p.ridge_stack_cap_m[1] if p.ridge_stack_cap_m is not None else 0.)
+    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], shaft_top, conf, mat,
+              skip=("bottom", "top") if p.ridge_stack_cap_m is not None else ("bottom",))
+
+    if p.ridge_stack_cap_m is not None:
+        projection, thickness = p.ridge_stack_cap_m
+        # Cap replaces the top band of the shaft: the stated overall head
+        # height stays fixed. All unseen section dimensions are reconstructed.
+        b.add_box(bx[0]-projection, bx[1]-projection, ridge_z+head-thickness,
+                  bx[2]+projection, bx[3]+projection, ridge_z+head,
+                  p.conf("ridge_stack_cap_m", "reconstructed"), mat)
 
 
 def _facade_stack_cross(span: float) -> float:
@@ -1121,3 +1381,268 @@ def _sign_pole(b: MeshBuilder, p: LogDwellingParams, ridge_z: float,
         for side in (-1.0, 1.0):
             _device(b, py + side * (bt / 2.0 + DEVICE_PROUD_M / 2.0),
                     DEVICE_PROUD_M / 2.0, pts, conf_device, M_PAINT)
+
+
+def _compound(b: MeshBuilder, p: LogDwellingParams) -> None:
+    """First compound log massing; joints and all set-out are reconstructed.
+
+    Roof rectangles may extend over adjoining rooms: their intersecting surfaces
+    conceal the internal gable caps. No valley flashing or interior is claimed.
+    All emitted faces use reconstructed confidence because the subdivision,
+    roof intersections and openings have no measured elevation.
+    """
+    roofs = []
+    for r, roof, axis, opening in p.compound_parts:
+        x0,y0,x1,y1 = r
+        hewn_log_wall(b,x0,y0,x1,y1,0.0,p.wall_height_m,1.0,M_LOG,M_CHINK,
+                      skip=("bottom","top"))
+        ridge = b.add_gable_roof(*roof,p.wall_height_m,p.roof_pitch_deg,1.0,M_ROOF,
+                                  ridge_along_x=axis == "x")
+        roofs.append(ridge)
+    for plane,kind,u0,u1,z0,z1 in compound_front_rects(p):
+        _opening(b,"y",plane,u0,u1,z0,z1,+1,1.0,kind=kind)
+    # Retain the recorded count, but choose the outermost rooms for the two
+    # stacks. Their axis, position, section and head remain reconstructed.
+    if p.chimneys:
+        indices=[min(range(len(p.compound_parts)),key=lambda i:p.compound_parts[i][0][0])]
+        if p.chimneys == 2:
+            indices.append(max(range(len(p.compound_parts)),key=lambda i:p.compound_parts[i][0][2]))
+        for n,i in enumerate(indices):
+            r,roof,axis,_=p.compound_parts[i]
+            _stack(b,*r,roofs[i],1.0,M_CHIMNEY_AFTER_SIGN,gable_axis=axis,at_min=n == 0,
+                   head_z=p.chimney_head_m)
+
+
+def _clip_plan(poly, a, c, bound, keep_less=True):
+    """Clip a convex XY roof cell by a*x+c*y<=bound (or its opposite)."""
+    out=[]
+    for u,v in zip(poly,poly[1:]+poly[:1]):
+        du=a*u[0]+c*u[1]-bound;dv=a*v[0]+c*v[1]-bound
+        iu=du<=1e-10 if keep_less else du>=-1e-10
+        iv=dv<=1e-10 if keep_less else dv>=-1e-10
+        if iu:out.append(u)
+        if iu!=iv:
+            t=du/(du-dv);out.append((u[0]+t*(v[0]-u[0]),u[1]+t*(v[1]-u[1])))
+    clean=[]
+    for pt in out:
+        if not clean or abs(pt[0]-clean[-1][0])+abs(pt[1]-clean[-1][1])>1e-9:clean.append(pt)
+    if len(clean)>1 and abs(clean[0][0]-clean[-1][0])+abs(clean[0][1]-clean[-1][1])<1e-9:clean.pop()
+    return clean
+
+
+def _elbow_roof(b,p):
+    """Upper envelope at a true L corner; no buried intersecting roof planes.
+
+    First trial uses flush roof edges at the declared walls. Equal spans keep
+    both ridges equal. Eave/valley/flashing details remain reconstructed.
+    """
+    cw=core_extent(p)[2];D=p.depth_m;W=p.width_m;h=p.wall_height_m;t=math.tan(math.radians(p.roof_pitch_deg))
+    o=p.compound_roof_overhang_m
+    def emit(poly,z):
+        if len(poly)>=3:
+            pts=[(x,y,z(x,y)) for x,y in poly]
+            b.add_poly(pts,1.,M_ROOF)
+            if o>0:b.add_poly([(x,y,z-.05) for x,y,z in reversed(pts)],1.,M_ROOF)
+    def rect(x0,y0,x1,y1):return [(x0,y0),(x1,y0),(x1,y1),(x0,y1)]
+    emit(rect(-o,-o,cw/2,D+o),lambda x,y:h+x*t)
+    emit(rect(cw/2,cw+o,cw+o,D+o),lambda x,y:h+(cw-x)*t)
+    # Core right slope survives above each cross-roof half.
+    emit(_clip_plan(rect(cw/2,-o,cw+o,cw/2),1,1,cw),lambda x,y:h+(cw-x)*t)
+    emit(_clip_plan(rect(cw/2,cw/2,cw+o,cw+o),1,-1,0),lambda x,y:h+(cw-x)*t)
+    # Cross roof starts at core ridge and ends at its outward +X gable.
+    emit(_clip_plan(rect(cw/2,-o,cw+o,cw/2),1,1,cw,False),lambda x,y:h+y*t)
+    emit(rect(cw+o,-o,W+o,cw/2),lambda x,y:h+y*t)
+    emit(_clip_plan(rect(cw/2,cw/2,cw+o,cw+o),1,-1,0,False),lambda x,y:h+(cw-y)*t)
+    emit(rect(cw+o,cw/2,W+o,cw+o),lambda x,y:h+(cw-y)*t)
+    z=h+cw/2*t
+    # +Y and +X pictured ends plus unseen rear core cap; CCW outward.
+    if p.compound_log_profile == "rounded_relief":
+        _rounded_compound_gable(b,"y",D,0,cw,h,z,+1)
+        _rounded_compound_gable(b,"y",0,0,cw,h,z,-1)
+        _rounded_compound_gable(b,"x",W,0,cw,h,z,+1)
+    elif p.compound_wall_cladding == "log_courses":
+        _log_course_gable(b,"y",D,0,cw,h,z,+1)
+        _log_course_gable(b,"y",0,0,cw,h,z,-1)
+        _log_course_gable(b,"x",W,0,cw,h,z,+1)
+    else:
+        b.add_poly([(cw,D,h),(0,D,h),(cw/2,D,z)],1.,M_ROOF)
+        b.add_poly([(0,0,h),(cw,0,h),(cw/2,0,z)],1.,M_ROOF)
+        b.add_poly([(W,0,h),(W,cw,h),(W,cw/2,z)],1.,M_ROOF)
+    if o>0:
+        # Reconstructed50mm edge, not a source-measured board or thickness.
+        outline=[(-o,-o),(cw/2,-o),(cw+o,-o),(W+o,-o),(W+o,cw/2),(W+o,cw+o),(cw+o,cw+o),(cw+o,D+o),(cw/2,D+o),(-o,D+o)]
+        def top(x,y):
+            za=h+min(x,cw-x)*t if x<=cw+o+1e-9 else -math.inf
+            zb=h+min(y,cw-y)*t if x>=cw/2-1e-9 and y<=cw+o+1e-9 else -math.inf
+            return max(za,zb)
+        for (x,y),(xx,yy) in zip(outline,outline[1:]+outline[:1]):
+            za,zb=top(x,y),top(xx,yy)
+            b.add_poly([(x,y,za),(x,y,za-.05),(xx,yy,zb-.05),(xx,yy,zb)],1.,M_ROOF)
+    return z
+
+
+def _elbow(b,p):
+    """Bounded source-backed L massing; exact plan and all set-out reconstructed."""
+    for i,(r,roof,axis,openings_) in enumerate(p.compound_parts):
+        log_face=i==0 or p.compound_wall_cladding == "log_courses"
+        if p.compound_log_profile == "rounded_relief":
+            _rounded_compound_wall(b,r,p.wall_height_m)
+        elif log_face:hewn_log_wall(b,*r,0.,p.wall_height_m,1.,M_LOG,M_CHINK,skip=("bottom","top"))
+        else:
+            b.add_box(r[0],r[1],0.,r[2],r[3],p.wall_height_m,1.,M_FRAME,skip=("bottom","top"))
+            _clapboard(b,*r,p.wall_height_m,1.)
+        if p.compound_door_state == "recess":
+            for face in {v[0] for v in openings_ if v[1]=="door"}:
+                axis_="x" if face=="+x" else "y";plane=r[2] if axis_=="x" else r[3]
+                _cut_door_recesses(b,axis_,plane,[(k,u0,u1,z0,z1) for f,k,u0,u1,z0,z1 in openings_ if f==face],skin_back_m=.30)
+        for face,kind,u0,u1,z0,z1 in openings_:
+            axis_="x" if face=="+x" else "y";plane=r[2] if axis_=="x" else r[3]
+            _opening(b,axis_,plane,u0,u1,z0,z1,1,1.,kind=kind,frame_wall=not log_face,relief=RELIEF_M if log_face else .026,
+                     door_state="recess" if p.compound_door_state=="recess" and kind=="door" else "closed")
+    ridge=_elbow_roof(b,p)
+    _ridge_stack(b,p,*core_extent(p),ridge,p.chimney_ridge_at[0],1.,M_CHIMNEY_AFTER_PAINT if p.sign and p.sign_device else M_CHIMNEY_AFTER_SIGN)
+    if p.roof_pipe is not None:
+        at,diameter,head=p.roof_pipe;x=core_extent(p)[2]/2;y=at*p.depth_m;r=diameter/2
+        low=ridge-r*math.tan(math.radians(p.roof_pitch_deg))-.1;top=ridge+head
+        ring=[(x+r*math.cos(k*math.tau/8),y+r*math.sin(k*math.tau/8)) for k in range(8)]
+        for (xa,ya),(xb,yb) in zip(ring,ring[1:]+ring[:1]):b.add_poly([(xa,ya,low),(xb,yb,low),(xb,yb,top),(xa,ya,top)],1.,M_DARK)
+        b.add_poly([(xa,ya,top) for xa,ya in ring],1.,M_DARK)
+    if p.sign:
+        # Existing kit retained; its source position/height/lean still differs.
+        if p.sign_pole_set_out is not None:_posed_sign_pole(b,p)
+        elif p.sign_mount == "sapling_pole":_sign_pole(b,p,ridge,p.worst_conf("sign","sign_mount"),p.conf("sign"),p.conf("sign_device"))
+        else:_sign(b,p,p.conf("sign"))
+
+
+def _horizontal_end_courses(b, x, y0, y1, z0, z1, conf):
+    """Pictured horizontal end courses, without asserting log versus board fabric.
+
+    The 200mm rhythm, 8mm shadow joints and 12mm relief are reconstructed first
+    fits. The +X surface remains behind the existing framed hatch at x+40mm.
+    """
+    mid=(y0+y1)/2;half=(y1-y0)/2;rise=z1-z0
+    b.add_poly([(x,y0,z0),(x,y1,z0),(x,mid,z1)],conf,M_FRAME)
+    course=.20;gap=.008;proud=.012
+    for i in range(math.floor(z0/course),math.ceil(z1/course)):
+        low=max(z0,i*course);high=min(z1,(i+1)*course-gap)
+        if high <= low:
+            continue
+        lh=half*(1-(low-z0)/rise);hh=half*(1-(high-z0)/rise)
+        b.add_poly([(x+proud,mid-lh,low),(x+proud,mid+lh,low),
+                    (x+proud,mid+hh,high),(x+proud,mid-hh,high)],1.,M_FRAME)
+        # Bottom return gives each horizontal joint geometric relief.
+        b.add_poly([(x,mid-lh,low),(x,mid+lh,low),
+                    (x+proud,mid+lh,low),(x+proud,mid-lh,low)],1.,M_FRAME)
+
+
+def _log_course_gable(b,axis,plane,u0,u1,z0,z1,outward):
+    """Triangle and horizontal course relief; every chosen dimension reconstructed.
+
+    The inferred source category is log coursing, not literal measured wood/chink,
+    exact colour, log section or joinery. Continue the existing340mm rhythm into
+    the triangular face without changing the shared logwork default elsewhere.
+    """
+    mid=(u0+u1)/2;half=(u1-u0)/2;rise=z1-z0
+    def xyz(u,z,proud=0):return (u,plane+outward*proud,z) if axis=="y" else (plane+outward*proud,u,z)
+    def emit(pts,mat):
+        # +Y front has decreasingU, +X front increasingU when seen from outside.
+        reverse=(axis=="y") == (outward>0)
+        b.add_poly(list(reversed(pts)) if reverse else pts,1.,mat)
+    emit([xyz(u0,z0),xyz(u1,z0),xyz(mid,z1)],M_LOG)
+    za=math.ceil(z0/.34)*.34
+    while za<z1-.04:
+        low=max(z0,za-.0275);high=min(z1,za+.0275)
+        lohalf=half*(1-(low-z0)/rise);hihalf=half*(1-(high-z0)/rise)
+        pts=[xyz(mid-lohalf,low,RELIEF_M),xyz(mid+lohalf,low,RELIEF_M),xyz(mid+hihalf,high,RELIEF_M),xyz(mid-hihalf,high,RELIEF_M)]
+        emit(pts,M_CHINK)
+        # Tiny bottom return makes a geometric relief rather than a painted line.
+        emit([xyz(mid-lohalf,low),xyz(mid+lohalf,low),xyz(mid+lohalf,low,RELIEF_M),xyz(mid-lohalf,low,RELIEF_M)],M_CHINK)
+        za+=.34
+
+
+def _posed_sign_pole(b,p):
+    """Source-bounded pose; all set-out, sections and device remain reconstructed."""
+    (bx,by),(tx,ty,top),arm,(bw,bh),drop=p.sign_pole_set_out
+    def add(a,z):return tuple(x+y for x,y in zip(a,z))
+    def scale(a,s):return tuple(x*s for x in a)
+    def dot(a,z):return sum(x*y for x,y in zip(a,z))
+    def cross(a,z):return (a[1]*z[2]-a[2]*z[1],a[2]*z[0]-a[0]*z[2],a[0]*z[1]-a[1]*z[0])
+    def unit(a):return scale(a,1/math.sqrt(dot(a,a)))
+    def polept(z):return (bx+(tx-bx)*z/top,by+(ty-by)*z/top,z)
+    def member(a,z,r,sides=8,mat=M_LOG):
+        v=unit(tuple(y-x for x,y in zip(a,z)));q=unit(cross(v,(0,0,1) if abs(v[2])<.95 else (0,1,0)));w=cross(v,q)
+        ring=[add(scale(q,r*math.cos(k*math.tau/sides)),scale(w,r*math.sin(k*math.tau/sides))) for k in range(sides)]
+        for i in range(sides):j=(i+1)%sides;b.add_poly([add(a,ring[i]),add(a,ring[j]),add(z,ring[j]),add(z,ring[i])],1.,mat)
+        b.add_poly([add(a,q) for q in reversed(ring)],1.,mat);b.add_poly([add(z,q) for q in ring],1.,mat)
+    member(polept(-POLE_SET_M),polept(top*.56),POLE_BUTT_R)
+    member(polept(top*.56),polept(top),POLE_HEAD_R)
+    origin=polept(top-.4);e=unit(arm);up=unit(add((0,0,1),scale(e,-e[2])));normal=cross(e,up)
+    member(add(origin,scale(e,-.35)),add(origin,arm),POLE_ARM_R,6)
+    member(polept(top-1.6),add(origin,scale(arm,.45)),.035,6)
+    centre=add(add(origin,scale(arm,.65)),scale(up,-drop))
+    bt=SIGN_BOARD[2]
+    def pt(u,v,n=0):return add(add(add(centre,scale(e,u)),scale(up,v)),scale(normal,n))
+    # Slender reconstructed iron hangers; no literal hinge pattern is claimed.
+    for u in (-bw*.34,bw*.34):member(pt(u,0),pt(u,drop+.035),.018,6,M_DARK)
+    front=[pt(-bw/2,-bh,bt/2),pt(bw/2,-bh,bt/2),pt(bw/2,0,bt/2),pt(-bw/2,0,bt/2)]
+    back=[pt(-bw/2,-bh,-bt/2),pt(bw/2,-bh,-bt/2),pt(bw/2,0,-bt/2),pt(-bw/2,0,-bt/2)]
+    b.add_poly(front,1.,M_SIGN);b.add_poly(list(reversed(back)),1.,M_SIGN)
+    for i in range(4):j=(i+1)%4;b.add_poly([back[i],back[j],front[j],front[i]],1.,M_SIGN)
+    if p.sign_device == "wolf":
+        dw=bw*DEVICE_FRACTION[0];dh=min(bh*DEVICE_FRACTION[1],dw/_WOLF_ASPECT);dw=dh*_WOLF_ASPECT
+        uv=[(-dw/2+u*dw,-bh+(bh-dh)/2+v*dh) for u,v in _WOLF_UV]
+        for side in (-1,1):
+            pts=[pt(u,v,side*(bt/2+DEVICE_PROUD_M)) for u,v in uv]
+            b.add_poly(pts if side>0 else list(reversed(pts)),1.,M_PAINT)
+
+
+def _rounded_log_face(b,axis,plane,u0,u1,z0,z1,outward,gable=None):
+    """Small rounded relief and thin inset joints, not literal measured log fabric.
+
+    Chosen300mm rhythm,20mm dark gap and38..48mm curved relief replace the pale
+    strip proxy only on opt-in compounds. Six angular panels per log give normals
+    for shading under the same light/palette; stable seeded relief avoids a perfect
+    repeated board face. No historic colour/woodgrain or exact section is claimed.
+    """
+    course=.30;gap=.020
+    def xyz(u,z,proud=0):return (u,plane+outward*proud,z) if axis=="y" else (plane+outward*proud,u,z)
+    def widths(z):
+        if gable is None:return u0,u1
+        mid=(u0+u1)/2;half=(u1-u0)/2*(1-(z-z0)/(z1-z0));return mid-half,mid+half
+    def emit(pts):
+        clean=[]
+        for v in pts:
+            if not clean or sum((v[k]-clean[-1][k])**2 for k in range(3))>1e-20:clean.append(v)
+        if len(clean)>1 and sum((clean[0][k]-clean[-1][k])**2 for k in range(3))<1e-20:clean.pop()
+        if len(clean)<3:return
+        reverse=(axis=="y") == (outward>0)
+        b.add_poly(list(reversed(clean)) if reverse else clean,1.,M_LOG)
+    for i in range(math.floor(z0/course),math.ceil(z1/course)):
+        low=max(z0,i*course+gap/2);high=min(z1,(i+1)*course-gap/2)
+        if high<=low:continue
+        mid=(i+.5)*course;radius=(course-gap)/2
+        # Identity uses the official asset key via b.name; all choices reconstructed.
+        relief=.038+.010*openings.deal(f"{b.name}|rounded|{axis}|{plane:.3f}|{i}",101)/100
+        theta0=math.asin(max(-1.,min(1.,(low-mid)/radius)));theta1=math.asin(max(-1.,min(1.,(high-mid)/radius)))
+        for k in range(6):
+            a=theta0+(theta1-theta0)*k/6;c=theta0+(theta1-theta0)*(k+1)/6
+            za,zb=mid+radius*math.sin(a),mid+radius*math.sin(c);pa,pb=relief*math.cos(a),relief*math.cos(c)
+            ua,va=widths(za);ub,vb=widths(zb)
+            emit([xyz(ua,za,pa),xyz(va,za,pa),xyz(vb,zb,pb),xyz(ub,zb,pb)])
+
+
+def _rounded_compound_wall(b,r,height):
+    x0,y0,x1,y1=r
+    # Dark backing is15mm behind the physical face, visible only in thin joints.
+    # It is a shadow/recess proxy using the existing palette, not black painted clay.
+    b.add_box(x0+.015,y0+.015,0.,x1-.015,y1-.015,height,1.,M_DARK,skip=("bottom","top"))
+    for axis,plane,u0,u1,outward in [("y",y1,x0,x1,1),("y",y0,x0,x1,-1),("x",x1,y0,y1,1),("x",x0,y0,y1,-1)]:
+        _rounded_log_face(b,axis,plane,u0,u1,0.,height,outward)
+
+
+def _rounded_compound_gable(b,axis,plane,u0,u1,z0,z1,outward):
+    mid=(u0+u1)/2;back=plane-outward*.015
+    pts=[(u0,back,z0),(u1,back,z0),(mid,back,z1)] if axis=="y" else [(back,u0,z0),(back,u1,z0),(back,mid,z1)]
+    reverse=(axis=="y") == (outward>0)
+    b.add_poly(list(reversed(pts)) if reverse else pts,1.,M_DARK)
+    _rounded_log_face(b,axis,plane,u0,u1,z0,z1,outward,gable=True)

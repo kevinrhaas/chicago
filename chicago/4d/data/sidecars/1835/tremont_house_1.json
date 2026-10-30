@@ -12,9 +12,11 @@
   "scene": "1835",
   "target_date": "1835-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "early-gifford-first-tremont"
+    ]
   },
   "documented_range": {
     "from": "1833-01-01",
@@ -24,9 +26,11 @@
       "andreas_1884_v1",
       "chicagology_prefire021"
     ],
-    "note": "BOTH ENDS ARE ATTESTED, WHICH IS RARE HERE. Andreas, printed p. 635: 'In 1833, the first Tremont House, situated then on the northwest corner of Lake and Dearborn streets, was built by Alanson Sweet.' The end is dated to the day, twice in the same volume: 'was managing it at the time it burned, October 27, 1839' (p. 635) and, in the year-by-year narrative, 'October 27, the most disastrous fire occurred that had ever visited Chicago. It commenced on Lake Street, near Dearborn. The Tremont House and seventeen other buildings were burned.' chicagology_prefire021's 1874 Tribune letter agrees on the year - 'In the fall of 1839, the Tremont House was first consumed by fire.' THE FROM DATE IS A BOUND, NOT A DATE: no source gives a month in 1833, so 1833-01-01 is the earliest day the attested year permits. The scene date sits nearly two years inside the range under any reading of that month, so nothing in this record turns on it - unlike the Steamboat Hotel, where the same kind of bound is the whole risk."
+    "note": "BOTH ENDS ARE ATTESTED, WHICH IS RARE HERE. Andreas, printed p. 635: 'In 1833, the first Tremont House, situated then on the northwest corner of Lake and Dearborn streets, was built by Alanson Sweet.' The end is dated to the day, twice in the same volume: 'was managing it at the time it burned, October 27, 1839' (p. 635) and, in the year-by-year narrative, 'October 27, the most disastrous fire occurred that had ever visited Chicago. It commenced on Lake Street, near Dearborn. The Tremont House and seventeen other buildings were burned.' chicagology_prefire021's 1874 Tribune letter agrees on the year - 'In the fall of 1839, the Tremont House was first consumed by fire.' THE FROM DATE IS A BOUND, NOT A DATE: no source gives a month in 1833, so 1833-01-01 is the earliest day the attested year permits. The scene date sits nearly two years inside the range under any reading of that month, so nothing in this record turns on it - unlike the Steamboat Hotel, where the same kind of bound is the whole risk.",
+    "from_is": "began",
+    "to_is": "ended"
   },
-  "change_note": "The house as built in 1833 by Alanson Sweet and kept through the scene date by Ira Couch. No change of fabric is attested inside the phase - Andreas records changes of proprietor (Sweet and a man from Canada named Darwin, then the Couch brothers, then James Couch from 1836) and no alteration - so the whole 1833-1839 span is modelled as one state, which is a limitation of the evidence rather than a claim that nothing changed.",
+  "change_note": "The house as built in 1833 by Alanson Sweet and kept through the scene date by Ira Couch. No change of fabric is attested inside the phase - Andreas records changes of proprietor (Sweet and a man from Canada named Darwin, then the Couch brothers, then James Couch from 1836) and no alteration - so the whole 1833-1839 span is modelled as one state, which is a limitation of the evidence rather than a claim that nothing changed. T-2385 adopts the owner-approved Gifford picture's three-storey form as a retrospective inference, retaining the existing broad phase. The picture does not establish when each visible fitting was added; no alteration date is invented. The pictured three-storey shuttered form remains the primary interpretation. A smaller two-storey reading of Gale's retrospective text is available separately; no dated growth sequence is asserted.",
   "placement": {
     "local_e": 687.82,
     "local_n": -91.42,
@@ -65,7 +69,7 @@
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "INVENTED. NO SOURCE REACHED GIVES THIS BUILDING ANY DIMENSION. 15.24 x 9.14 m is 50 x 30 ft, recorded converted with the original figures stated per data/datum.json's units rule. The size is chosen to sit between the two frame hotels this project can measure at all - the Green Tree's 40 x 25 ft, itself derived from a room module rather than measured, and the Western Hotel's attested 40 ft front with a 60 ft wing - because the Tremont was the principal house on the town's other main street and took stage passengers off the Lake and Dearborn crossing. Nothing about that reasoning is evidence. The rectangle is a rectangle because no source describes a plan, and the record carries no sources on this attribute because none supports it. TO RESOLVE: the 1839 fire losses printed in the Daily American, which Andreas quotes for the merchants burned out that night and which named insured sums building by building; or an 1830s Chicago American or Democrat advertisement of the house, which in the period habitually counted rooms."
+    "note": "RETAINED RECONSTRUCTED CANONICAL SCALE, NOT MEASURED FROM GIFFORD. The existing reconstructed rectangle remains 15.24 x 9.14 m (the prior 50 x 30 ft working choice), so the pictured three-storey, shuttered form and both established street-facing planes stay unchanged. Gale 1902 p 51 DOES give 20 x 30 in a retrospective 1835-framed walk, inferred as feet; the former claim that no dimension was known is superseded. That smaller, two-storey textual reading is preserved as the optional gale-reading version. Neither source proves a dated enlargement or that either envelope describes precisely 1 July1835. The retained larger metrics remain reconstruction, not an archival measurement, while Gifford governs the visible storeys, bays and shutters."
   },
   "attributes": {
     "construction": {
@@ -78,29 +82,41 @@
       "note": "FRAME IS DOCUMENTED THREE TIMES OVER; THE FRAMING SYSTEM IS NOT. Andreas, of the first Tremont and its 1840 successor together: 'Both of these structures were of wood and far different in style and cost of construction from the costly edifice which to-day ranks among Chicago's leading hotels.' The 1874 Tribune letter calls it 'an unpretending frame structure'; Chicago Illustrated of January 1866 calls it 'a wooden structure'. What none of them says is whether it was braced or balloon framed. Balloon framing was developed in Chicago in 1832-33, so an 1833 building could be either, and braced_frame is the conservative reading for the earlier date - the same value and the same reasoning as data/structures/green_tree_tavern.json, built the same year. The distinction changes stud rhythm behind the sheathing and is not visible at this level of detail."
     },
     "stories": {
-      "value": 2,
-      "confidence": "reconstructed",
-      "note": "THE THREE-STOREY TREMONT OF 1833 RESTS ON ONE UNCREDITED MODERN SENTENCE, AND THIS RECORD DOES NOT ADOPT IT. data/sources/chicagology_prefire021.json sets the problem out from the page itself: the only storey count anywhere on it is the editorial 'Building Summary' paragraph, 'The first Tremont House, a three-story wooden building at the northwest corner of Lake and Dearborn streets, was built in 1833.' NEITHER PERIOD TEXT ON THAT PAGE COUNTS STOREYS. The 1874 Tribune letter says 'an unpretending frame structure'; Chicago Illustrated (1866) says 'a wooden structure'. Andreas, who gives this building a builder, a corner, four proprietors, a construction material and a death date, gives it no height at all. So the three-storey reading is one modern compilation and whatever copied it, and docs/research/04-structures-south.md line 155 - which records the height as contested, says 'chicagology and Wikipedia say three-story wooden', and adopts three - is weighing one sentence twice. TWO IS ADOPTED AND IS STILL A GUESS. What can be said for it, and it is an argument rather than evidence: Chicago in 1833 held about 350 people, and Wau-Bun has the Sauganash's TWO storeys and white paint as 'the admiration of all the little circle at Wolf Point' two years earlier; the Chicago American's own 'Improvements in 1836' list, quoted by Andreas, counts 'about twenty large two to three-story wooden buildings' among that year's NEW work, which places the three-storey wooden building in Chicago as a phenomenon of 1836 and not of 1833; and this project already excludes the Saloon Building of 1836 on the understanding that it was the town's first three-storey structure (data/exclusions.json), which the three-storey reading here would contradict. THE LIVE ALTERNATIVE WOULD RAISE THE BUILDING ABOUT 2.6 M and is recorded here so nobody has to rediscover it. TO RESOLVE: the 1839 fire coverage in the Daily American, or any period advertisement of the house."
+      "value": 3,
+      "confidence": "inferred",
+      "note": "T-2385 PICTURE-BASED FORM READING: the owner-approved Gifford drawing captioned Tremont House No. 1 visibly shows three complete storeys on the short gable and long eaves elevation. This supersedes the earlier two-storey reconstruction, which considered textual descriptions but not this actual picture. The drawing is retrospective/undated within the first house's 1833-1839 life; adopting its pictured form for 1835 is an inference, not a dated construction record or proof against the Saloon Building's separate claim.",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ]
     },
     "wall_height_m": {
-      "value": 5.2,
+      "value": 7.8,
       "confidence": "reconstructed",
-      "note": "NOT ATTESTED. 5.2 m is about 17 ft - two storeys at period floor heights plus structure and a sill, the same figure this project uses for the Steamboat Hotel and the Miller house's two-storey range. It inherits the storey count above, which is itself a guess, and would be about 7.8 m if the three-storey reading is right. The one attested ceiling height in this dataset is the Green Tree's seven and a half feet, which its own source calls low for a hotel."
+      "note": "INVENTED METRIC, NOT MEASURED FROM GIFFORD. Total wall height is 7.8 m: the explicit first_story_height_m divides it into a working 3.1 m lower storey and two 2.35 m upper storeys. These divisions supersede the earlier equal-2.6 m proposal while retaining its total height. The illustration supplies a visible count but no metric scale. Camera/height coupling remains unresolved, and a calibrated comparison may replace this working height."
     },
     "roof_type": {
       "value": "gable",
-      "confidence": "reconstructed",
-      "note": "NOT ATTESTED. Nothing describes a roof of any kind on this building. Gable is the ordinary roof for a frame block of this type and period, and it is what the archetype would default to in any case; it is stated rather than defaulted so the confidence view can show it as the invention it is."
+      "confidence": "inferred",
+      "note": "The owner-approved Gifford picture visibly depicts a gabled roof. Its retrospective/undated depiction is adopted as a form inference for the existing first-house phase, not a dated 1835 survey. The existing ridge axis is retained; the current reconstructed pitch is 32 degrees as stated by roof_pitch_deg. The provisional camera does not independently calibrate pitch or justify rotating the footprint.",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ]
     },
     "roof_pitch_deg": {
-      "value": 38.0,
-      "confidence": "inferred",
-      "note": "No pitch is attested. 38 degrees is this archetype's mid-range for period framing, inferred from construction practice rather than measured - the same value and the same reasoning as the other frame records here. It is an inference about how a roof of this kind was framed, sitting on a roof form the record has already tagged as a guess."
+      "value": 32.0,
+      "confidence": "reconstructed",
+      "note": "WORKING APPEARANCE FIT, NOT A HISTORICAL MEASUREMENT. The source near-gable apex is approximately pixel (953,277). With the current reconstructed 15.24 x 9.14 x 7.8 m envelope and provisional six-wall-corner camera, the old 38-degree ridge projected near y260. About 31.5 degrees puts its apex near the source; 32 degrees is adopted as a rounded reconstruction. Camera, scale, paper perspective and roof thickness remain coupled; this does not provide a surveyed pitch.",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ]
     },
     "paint": {
-      "value": "unpainted",
-      "confidence": "reconstructed",
-      "note": "NOT ATTESTED EITHER WAY, and this attribute is read by the archetype, so leaving it out would have painted the building white by default - which is a claim. Unpainted weathered clapboard is the cheaper reading and it is weakly supported by the one description anybody wrote down: Ira Couch 'found the house a mere shell, without any sidewalk around it, and poorly furnished, as none of the rooms were entirely carpeted' (chicagology_prefire021, Chicago Tribune, 2 February 1874). A man who itemised the missing carpets and the missing pillows did not mention paint. That is weak negative evidence at best, and the value is still a choice."
+      "value": "yellow",
+      "confidence": "inferred",
+      "sources": [
+        "gale_1902_tremont_town_walk"
+      ],
+      "note": "Gale 1902 p 51 explicitly calls the first Tremont yellow in the retrospective 1835-framed walk. Retain the pictured three-storey, shuttered canonical form already represented; adopt only this compatible colour evidence as inferred. The monochrome Gifford drawing establishes no pigment. The renderer stock yellow and exact trim tones remain reconstructed. Gale’s smaller two-storey dimensional interpretation is an optional native version, not a dated earlier stage or enlargement chronology."
     },
     "gallery": {
       "value": false,
@@ -108,9 +124,12 @@
       "note": "NOT ATTESTED EITHER WAY. False is what the archetype falls back to, not a finding, and the consequence is the one docs/LIBERTIES.md L19 records for the Green Tree and the Western: a plain front reads as the answer while a drawn shape at least announces itself as a choice. A stage house on the town's principal crossing is exactly the type that often carried a porch - and the 1874 letter's complaint that around this corner in early spring 'it was impossible to drive the stage, and the passengers had to walk some two blocks' says stages came here without saying what they drew up under."
     },
     "chimneys": {
-      "value": 2,
+      "value": 4,
       "confidence": "inferred",
-      "note": "Not attested. Two is the count a frame block of this frontage carries if it is heating public rooms and lodging rooms through a Chicago winter, and it is what this project's other frame hotels record. The COUNT is the inference; position, size and material are the archetype's - docs/LIBERTIES.md L26."
+      "note": "Four separate capped stack silhouettes are visible: approximately source pixels (904,292), (1019,278), (1114,293), (1202,309). Their metric station/height and which roof slope each penetrates remain reconstruction; using the undated retrospective form in 1835 is inferred.",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ]
     },
     "sidewalk": {
       "value": false,
@@ -125,6 +144,145 @@
       "value": 0.114,
       "confidence": "reconstructed",
       "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "chimney_placement": {
+      "value": "slope_offsets",
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "Working four-stack layout chosen against the provisional picture camera: normalized (u,v) stations (0.04,0.86), (0.23,0.40), (0.525,0.23), (0.82,0.08). Heights above their local roof slopes are 1.75, 0.60, 1.00 and 1.20 m; shafts 0.45 x 0.50 m, plain 75 mm caps. These are reconstructed geometry, not surveyed roof controls. The picture is the occurrence/rough-silhouette reference only."
+    },
+    "corner_entry_surround": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "The pictured ground-level entries have broad simple outlines. Add plain jambs and a level header around the existing opening without a pediment or invented ornamental order. The working0.14m stock and65mm projection, existing trim palette, exact sections, and repeated concealed entry surrounds are reconstructed, not measured dimensions. Existing opening centres, door leaf,7.8m envelope, platform layout, footprint/placement and source-date uncertainty remain unchanged."
+    },
+    "elevation_scheme": {
+      "value": "corner_gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "Gifford shows three bays on the short gable and five on the long eaves elevation, a centred ground entrance on each, and shutters. This opt-in scheme puts those counts on the existing 15.24 x 9.14 m rectangle without moving its position, bearing or footprint. Equal stations, 0.85 x 1.35 m sashes, 1.2 x 2.1 m doors, the 3.1/2.35/2.35 m floor divisions and mirrored unseen elevations/entrances are reconstructed. The picture does not identify compass faces; repeating the pictured pair on the unseen pair does not attest four historical entrances. Explicit opt-ins now draw raised landings, the opaque arched panel, plain entry outlines and the roof spar; the app flag layer attaches reconstructed cloth using the explicit phase/date-local flag_anchor. Exact proportions, lettering and cloth pose remain open."
+    },
+    "entry_raise_m": {
+      "value": 0.6,
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "Raised entrance platforms/steps are visible at both pictured doors. Threshold 0.6 m, 2.2 x 1.2 m platforms, four 0.15 m risers on 0.28 m treads and 0.85 m side guards are reconstructed. Unpictured entrances repeat them by the existing corner scheme; no four-door historical count or platform dimensions are attested. The projections extend outside the wall footprint without changing its geographic polygon."
+    },
+    "first_story_height_m": {
+      "value": 3.1,
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "The picture has raised door thresholds within the lower storey. 3.1 m for that storey and two 2.35 m upper storeys retain total wall height 7.8 m while admitting the existing 2.1 m door above a 0.6 m threshold with structural headroom. These are invented working dimensions, not measurements from Gifford."
+    },
+    "flag": {
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "value": "us_flag_24_star",
+      "note": "The Gifford reproduction shows a striped roof flag with a canton; a United States flag is a working reading, not a recoverable star count. For the1835-07-01 scene the existing24-star/13-stripe library pattern is period-correct under the1818 Flag Act. Pattern identity/layout remain reconstructed for this hotel; no colour or readable stars are claimed from the monochrome picture. Explicit anchor validity ends1836-07-03 before the25-star law takes effect; later scenes require an appropriate supported pattern/anchor update."
+    },
+    "flag_anchor": {
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "value": {
+        "phase": "frame_1833",
+        "frame": "footprint_enu_m",
+        "valid_from": "1833-01-01",
+        "valid_to": "1836-07-03",
+        "foot": [
+          5.6388,
+          4.57,
+          10.661870276202958
+        ],
+        "head": [
+          5.6388,
+          4.57,
+          15.061870276202958
+        ],
+        "radius_m": 0.035,
+        "fly_m": 1.85,
+        "hoist_m": 1.3
+      },
+      "note": "Explicit anchor on the separately modelled roof spar, not the hotel bounding box. Coordinates are footprint metres[east,north,up] mapped to glTF[east,up,south] before the existing placement matrix. Head/foot agree with the reconstructed32degree/7.8m envelope and4.25m spar; all are reconstructed. Source picks stafftop(1034,192),base(1034,279); approximate flag outline x1000..1034,y197..224 gives projected fly/staff~0.39 and hoist/staff~0.31. Perspective/folds do not yield metres: working fly1.85m/hoist1.30m sit within broad0.35..0.50/0.25..0.40 staff-height ratios. Both dimensions,0.035m square-spar half-width, pattern, date use and orientation/pose are reconstructed; opposite wind/image fit remain open. Phase/date mismatch or invalid/stale/out-of-bounds anchor refuses cloth and reports why. This interval prevents carrying the24-star reconstruction into later patterns without review."
+    },
+    "flag_flying": {
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "value": true,
+      "note": "The picture shows cloth flying, but the undated retrospective view does not establish that it flew on1835-07-01. Displaying it in this scene and using the existing app breeze/pose/wear are reconstructed; source attribution and owner-approved project use remain controlling. Cloth remains an app layer, not baked hotel geometry."
+    },
+    "flagstaff": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "The Gifford drawing visibly has a staff and flying flag over the ridge. The model builds the spar, and the app flag layer now attaches cloth at this hotel's explicit phase/date-local flag_anchor rather than at its whole-building bounding box. Staff occurrence is inferred for the 1835 scene because source timing within 1833-1839 is undated. The separately graded flag, flying state, anchor, dimensions and pose remain reconstructed."
+    },
+    "flagstaff_height_m": {
+      "value": 4.25,
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "Height above ridge is an appearance-bounded working 4.25 m, with staff at 0.37 of the current long axis on the ridge and a 70 mm square spar. The picture provides no metric scale or section. Existing provisional camera projects the source staff near x1034 from y279 to192; none of those image picks attest metres or geographic placement."
+    },
+    "gable_arch_treatment": {
+      "value": "opaque_panel",
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "CURRENT KNOWN-NAME RECONSTRUCTION: optional gable_arch_text now paints the documented house name TREMONT on this existing opaque panel. This is consciously reconstructed lettering, not a reliable transcription of the unresolved native Gifford inscription. Typeface, colour, exact station and date use remain reconstructed.\n\nPRIOR OPAQUE-PANEL DECISION (its blank/no-lettering status is superseded by this new opt-in):\nRe-inspecting the Gifford reproduction, the dark arched field contains irregular light lettering-like marks rather than a clearly resolved fanlight radial pattern. Opaque matte panel is the more cautious working interpretation: remove the invented glass/radial bars, retain the prior arch outline, and do not invent a legible hotel name or any letter shapes. Exact original inscription, panel construction, finish/pigment and hidden opposite treatment remain unresolved/reconstructed. Working warm charcoal is a tonal choice from a monochrome image, not an attested colour. All source attribution and owner-approved use metadata remain controlling."
+    },
+    "gable_lunette": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "CURRENT KNOWN-NAME RECONSTRUCTION: optional gable_arch_text now paints the documented house name TREMONT on this existing opaque panel. This is consciously reconstructed lettering, not a reliable transcription of the unresolved native Gifford inscription. Typeface, colour, exact station and date use remain reconstructed.\n\nPRIOR OPAQUE-PANEL DECISION (its blank/no-lettering status is superseded by this new opt-in):\nThe drawing visibly contains a shallow arched dark feature below the gable peak; its lettering and sign-versus-window identity remain unresolved. The current gable_arch_treatment=opaque_panel draws an opaque matte field and plain rim, superseding the earlier glazed field and radial bars. No readable lettering or historical pigment is invented. Width 0.40 of the short gable, rise 0.74 m and base 0.55 m above the eaves remain reconstructed; the unseen gable repeats the feature."
+    },
+    "shutters": {
+      "value": "green",
+      "confidence": "reconstructed",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "Shutter OCCURRENCE is visible around the Gifford picture's windows. Green is an explicit reconstructed stock-palette colour: the monochrome reproduction supplies no original paint colour. Plain 25 mm-thick open leaves at 42 percent of sash width, their stations and concealed hardware are reconstructed; no louvre pattern is asserted."
+    },
+    "gable_arch_text": {
+      "value": "TREMONT",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "gifford_tremont_house_no_1"
+      ],
+      "note": "CONSCIOUS KNOWN-NAME RECONSTRUCTION, NOT A TRANSCRIPTION. The Gifford reproduction has light letter-like marks on the dark arched panel, but its native roughly70x20px feature does not independently resolve the whole inscription. TREMONT uses the independently documented house name as an explicit working choice. Six existing project stroke-capital shapes form seven matte light-paint letters; typeface, word, colour, spacing, exact1835presence and metricplacement are reconstructed. Only the pictured localx_min gable receives text; the concealedopposite stays blank. Working textwidth is2.68/9.14of the shortgable (2.68m here), height.32m and bottom.65m aboveeaves, entirely inside the existingopaqueinnerarch. The paintproxy lies5mm proud of the darkfield to avoidz-fighting; all addedvertices carryreconstructedconfidence1. Exactsourcelettering andfullimagematch remainopen."
+    },
+    "roof_colour": {
+      "value": "deep_brown",
+      "confidence": "reconstructed",
+      "note": "A deliberately reconstructed dark-brown stock appearance, reusing the existing material-sheet darkened RGBA solely as a tonal proxy to the dark roof/light walls in the monochrome Gifford view. The source does not establish a brown pigment, actual weather-blackening, age, damage, material condition or precise dated colour. This does not add an infill reconstruction block or change roof shape, covering or geography. All affected roof material vertices carry reconstructed confidence. The resumed same-camera native roof-only comparison chooses the deep_brown stock, exactly one quarter of the previous darkened stock linear RGB, as the nearest of three bounded contrast alternatives. This is a reconstructed display-appearance decision, not a calibrated reflectance or historical pigment: the monochrome Gifford source does not establish either. Camera, date, geometry, all non-roof material slots, lighting/exposure, roof roughness and native flag/wind/time are unchanged in that comparison. Other roof_colour values retain their exact prior stock. The original full picture match still differs.",
+      "sources": [
+        "gifford_tremont_house_no_1"
+      ]
     },
     "function": {
       "value": "hotel",
@@ -144,6 +302,14 @@
         "chicagology_prefire021"
       ],
       "note": "Two sources put Couch here across the scene date and neither leaves a gap. chicagology_prefire021's 1874 letter: 'In 1833 there was built ... the Tremont House, and the following year Ira Couch became its proprietor' - i.e. 1834. Andreas: 'Ira Couch opened it as a hotel. He ran it until 1836, when his brother James took control.' So 1835-07-01 falls squarely inside Ira Couch's tenure. TWO CLAIMS IN CIRCULATION ARE NOT ADOPTED BECAUSE NOTHING THIS PROJECT HOLDS SUPPORTS THEM: docs/research/04-structures-south.md line 155 names Starr Foot as first proprietor and has the house 'sold to Mallory & Able 1835'. Neither name attaches to this building anywhere in Andreas vol. 1 - Starr Foot appears once, in an unrelated list, and no Mallory but a Hiram Mallory in another context - and neither is on the chicagology page. They are left out rather than repeated."
+    },
+    "built": {
+      "value": 1833,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: 'In 1833, the first Tremont House ... was built by Alanson Sweet.'"
     }
   },
   "residents": [
@@ -238,7 +404,7 @@
       "name": "The lodgers of Tremont House (the first)",
       "division": "south",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 17, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
       "sources": [],
       "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
       "persons": [
@@ -247,35 +413,35 @@
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Maria Ingalls",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Amos Metcalf",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Louis Bourassa",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Jared Whitcomb",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
@@ -381,6 +547,47 @@
       ]
     },
     {
+      "source_id": "gale_1902_tremont_town_walk",
+      "citation": "Edwin O. Gale, Reminiscences of Early Chicago and Vicinity (Chicago: Fleming H. Revell Company, 1902), printed pp. 25, 43 and 51.",
+      "url": "https://archive.org/details/reminiscencesofe00ingale/page/n76/mode/1up",
+      "archived_url": "https://archive.org/download/reminiscencesofe00ingale/page/n76.jpg",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "A retrospective, 1835-framed account identifying the original Tremont at the northwest Lake and Dearborn corner, built 1833 by Alanson Sweet.",
+        "The printed description original20x30 yellow two story: compatible inferred colour for the primary pictured form, with dimensions/storeys retained as a contrary optional textual interpretation.",
+        "Starr Foot named as first proprietor, without a precise tenure date."
+      ],
+      "what_it_does_not_supply": [
+        "A surveyed plan, explicit units or long/short axis orientation, wall heights, exact yellow pigment, dated roof or opening details.",
+        "A dated construction alteration reconciling the two-storey text with the three-storey Gifford depiction.",
+        "Proof that every detail remembered in 1902 was present on 1 July 1835."
+      ]
+    },
+    {
+      "source_id": "gifford_tremont_house_no_1",
+      "citation": "N. Roswell Gifford. View of the first Tremont House and the storefront row on its street — wash drawing, signed \"N. Roswell Gifford\" at the lower left. Reproduced on Chicagology, \"Tremont House\", captioned \"Tremont House No. 1\".",
+      "url": "https://chicagology.com/prefire/prefire021/",
+      "archived_url": "http://web.archive.org/web/20260411172619/https://chicagology.com/prefire/prefire021/",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "a continuous commercial frontage of one-and-a-half and two-storey stores standing shoulder to shoulder with shared party lines",
+        "a lettered signboard across the front of each store, some legible: H. WELLS, GROCERIES, BOOTS & SHOES, THOMPSON, & ALBEE",
+        "a raised board walk running the length of the frontage, with posts at the road edge",
+        "the first Tremont House as a three-storey shuttered block with a flagstaff, standing in the row rather than apart from it",
+        "gable-front and eaves-front stores alternating along one street rather than one repeated form",
+        "an unmade road of ruts and standing water in front of the row"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — no scale, no baseline, no lettered street",
+        "which corner it is taken from: the caption names the building and not the viewpoint",
+        "awnings, which the brief lists and this plate does not legibly show",
+        "a date, either of the drawing or of the scene within the first Tremont's 1833-1839 life",
+        "the identity or trade of any store whose board is not legible"
+      ]
+    },
+    {
       "source_id": "osm_streets_2026",
       "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
       "url": "https://www.openstreetmap.org/",
@@ -389,24 +596,24 @@
       "tier_label": "later scholarship"
     }
   ],
-  "research_note": "THE GUARD ON THIS RECORD IS ITS STOREY COUNT, and it is a clean example of how a modern compilation manufactures a fact. chicagology_prefire021 prints, with no typographic break between them, an uncredited editorial summary, a passage of Chicago Illustrated (January 1866) and a reader's letter to the Chicago Tribune of 2 February 1874. The two period texts describe 'a wooden structure' and 'an unpretending frame structure' and count no storeys. The uncredited sentence says 'a three-story wooden building', and that sentence - one modern editor, no source - is where every three-storey Tremont of 1833 comes from, including Wikipedia's and including this project's own dossier, which cites 'chicagology and Wikipedia' as though they were two witnesses. Andreas, the fullest account, gives the building a builder, a corner, a material, four proprietors and a death date, and no height. The record therefore carries two storeys, tagged conjectural, with the three-storey reading argued against on the record rather than dropped. THE SAME PAGE'S HEADER IS WORSE AND MUST NOT BE READ: it gives 'SE corner of Lake and Dearborn Streets' and 'Architect: John M. Van Osdel', both of which belong to the LATER Tremonts, and it contradicts all three body texts on the corner. Andreas independently confirms the move, since the house begun in December 1839 stood 'on the corner where the present Tremont stands'. WHAT IS SOLIDLY ATTESTED, and it is not much: the north-west corner of Lake and Dearborn (three times), frame construction (three times), built 1833 by Alanson Sweet, Ira Couch proprietor from 1834, burned 27 October 1839 with seventeen other buildings, and Couch's own description of what he took over - 'a mere shell, without any sidewalk around it, and poorly furnished, as none of the rooms were entirely carpeted, little pieces in front of the bed being considered sufficient for anyone; and very many of the beds were minus one pleasant luxury, a pillow.' A USEFUL SCENE-LEVEL CHECK ON THIS PARCEL: the Chicago American of 15 August 1835, quoted by Andreas, counts the town's stock six weeks after the scene date - 'There are now upward of fifty business houses, four large forwarding-houses, EIGHT TAVERNS, two printing offices, two book-stores, one steam saw-mill, one brewery, one furnace (just going up), and twenty-five mechanics' shops of all kinds.' With this record, the Mansion House and the Exchange Coffee House added, the dataset holds exactly eight public houses for 1835 - Sauganash, Green Tree, Western, Wolf Point, Steamboat, Tremont, Mansion House, Exchange - which is a corroboration of the parcel as a whole rather than of any building in it. See docs/RESEARCH/tremont_house_1.md. THE PLAIN NAME IS CARRIED AS AN AKA (T-0406), because the printed corpus does not use the disambiguator this record is titled with. 'the Tremont House' is what the Chicago Democrat prints - it is the anchor of six advertisements in the gazetteer - and the register resolves an anchor against the committed town by WHOLE-SET equality of identity-bearing words, deliberately, so that 'the store' cannot land on the first store in the town. 'Tremont House (the first)' reduces to {tremont, house, first} and the printed anchor to {tremont, house}, so the two sets were not equal and the register reported that a building this project models, places at the north-west corner of Lake and Dearborn and draws named nothing the town holds. The '(the first)' in the NAME stays, and stays load-bearing: there was a second Tremont House, begun December 1839 on the corner where the later house stood, and nothing here is a statement that any successor stands in 1835 - the successor is not a committed record at all. The aka is the plain form only, and it still matches whole: 'the Tremont House' resolves here, 'Tremont' alone does not.",
+  "research_note": "CURRENT RECONSTRUCTED ROOF TONE: the named hotel now chooses the existing dark-brown stock colour as an appearance proxy to the dark roof/light walls in the monochrome Gifford view. Brown pigment, actual weather-blackening, age and damage are not attested. All affected roof material vertices retain reconstructed confidence. Roof geometry, flag, dates and geography are unchanged; comparisons remain differs.\n\nCURRENT RECONSTRUCTED ARCH NAME: the opaque panel now carries a consciously reconstructed TREMONT in light stroke capitals. The actual native Gifford marks do not independently resolve that full inscription; the word comes from the known house identity. All new glyph vertices are reconstructed, with font, pigment, dimensions, station and dated presence explicitly uncertain. Actual before/after comparison shows added light marks but still differs; no accepted match or historical transcription is claimed.\n\nCURRENT T-3055 INTEGRATION: this working first-Tremont model now has three unequal floor divisions (3.1/2.35/2.35 m within 7.8 m total walls), a reconstructed 32-degree roof, opaque arched gable panels without radial glazing or invented lettering, plain entry outlines, raised landings and a roof spar. The application flag layer uses an explicit phase/date-local anchor to display reconstructed cloth, with the 24-star pattern bounded through 1836-07-03. These changes follow the attributed owner-approved Gifford reference; they do not establish the exact July 1835 fitting dates, historical colours or metric dimensions. All provisional comparisons still differ, including the flag's wind pose. The original picture-match case remains open.\n\nHISTORICAL SECOND-PROPOSAL RESEARCH SNAPSHOT (its cloth-attachment/glazing status is superseded above):\nSECOND T-2385 ISOLATED PROPOSAL: visible arched gable feature, raised entrances, roof staff and four offset stack silhouettes are being reconstructed toward Gifford; the retained envelope and source limits remain. The arched feature's glazing/lettering interpretation and flag-cloth renderer attachment are unresolved. No image match or dated alteration is asserted.\n\nT-2385 CURRENT PICTURE-BASED READING: the actual owner-approved Gifford drawing visibly depicts three storeys and shuttered three/five-bay elevations. Form now follows it as an explicitly retrospective inference, while metric height and unpictured details remain reconstructed. Geographic placement and footprint are unchanged. The pictured three-storey reading and the project's Saloon Building first-three-storey shorthand remain in tension: Gifford is undated within 1833-1839, so it does not settle construction sequence. Saloon remains excluded for its documented 1836 date; no exclusion or dated historical statement is rewritten here. The historical text-only argument below is retained as SUPERSEDED on the two-storey choice, not erased; the drawing still does not settle a feature-by-feature date within 1833-1839.\n\nSUPERSEDED TEXT-ONLY STOREY INTERPRETATION:\nTHE GUARD ON THIS RECORD IS ITS STOREY COUNT, and it is a clean example of how a modern compilation manufactures a fact. chicagology_prefire021 prints, with no typographic break between them, an uncredited editorial summary, a passage of Chicago Illustrated (January 1866) and a reader's letter to the Chicago Tribune of 2 February 1874. The two period texts describe 'a wooden structure' and 'an unpretending frame structure' and count no storeys. The uncredited sentence says 'a three-story wooden building', and that sentence - one modern editor, no source - is where every three-storey Tremont of 1833 comes from, including Wikipedia's and including this project's own dossier, which cites 'chicagology and Wikipedia' as though they were two witnesses. Andreas, the fullest account, gives the building a builder, a corner, a material, four proprietors and a death date, and no height. The record therefore carries two storeys, tagged conjectural, with the three-storey reading argued against on the record rather than dropped. THE SAME PAGE'S HEADER IS WORSE AND MUST NOT BE READ: it gives 'SE corner of Lake and Dearborn Streets' and 'Architect: John M. Van Osdel', both of which belong to the LATER Tremonts, and it contradicts all three body texts on the corner. Andreas independently confirms the move, since the house begun in December 1839 stood 'on the corner where the present Tremont stands'. WHAT IS SOLIDLY ATTESTED, and it is not much: the north-west corner of Lake and Dearborn (three times), frame construction (three times), built 1833 by Alanson Sweet, Ira Couch proprietor from 1834, burned 27 October 1839 with seventeen other buildings, and Couch's own description of what he took over - 'a mere shell, without any sidewalk around it, and poorly furnished, as none of the rooms were entirely carpeted, little pieces in front of the bed being considered sufficient for anyone; and very many of the beds were minus one pleasant luxury, a pillow.' A USEFUL SCENE-LEVEL CHECK ON THIS PARCEL: the Chicago American of 15 August 1835, quoted by Andreas, counts the town's stock six weeks after the scene date - 'There are now upward of fifty business houses, four large forwarding-houses, EIGHT TAVERNS, two printing offices, two book-stores, one steam saw-mill, one brewery, one furnace (just going up), and twenty-five mechanics' shops of all kinds.' With this record, the Mansion House and the Exchange Coffee House added, the dataset holds exactly eight public houses for 1835 - Sauganash, Green Tree, Western, Wolf Point, Steamboat, Tremont, Mansion House, Exchange - which is a corroboration of the parcel as a whole rather than of any building in it. See docs/RESEARCH/tremont_house_1.md. THE PLAIN NAME IS CARRIED AS AN AKA (T-0406), because the printed corpus does not use the disambiguator this record is titled with. 'the Tremont House' is what the Chicago Democrat prints - it is the anchor of six advertisements in the gazetteer - and the register resolves an anchor against the committed town by WHOLE-SET equality of identity-bearing words, deliberately, so that 'the store' cannot land on the first store in the town. 'Tremont House (the first)' reduces to {tremont, house, first} and the printed anchor to {tremont, house}, so the two sets were not equal and the register reported that a building this project models, places at the north-west corner of Lake and Dearborn and draws named nothing the town holds. The '(the first)' in the NAME stays, and stays load-bearing: there was a second Tremont House, begun December 1839 on the corner where the later house stood, and nothing here is a statement that any successor stands in 1835 - the successor is not a committed record at all. The aka is the plain form only, and it still matches whole: 'the Tremont House' resolves here, 'Tremont' alone does not.\n\nPICTURE-PRIORITY READING, 2026-10-26: Gifford is the distinct whole-building picture and visibly shows three storeys with shutters. Gale 1902 p51 is TEXT, not a second picture: its smaller two-storey description remains contrary evidence and is represented by the optional gale-reading version. The pictured canonical form and existing reconstructed dimensions/placement are retained, with Gale's compatible yellow colour adopted as inferred. Neither source supplies a dated enlargement or proves every detail on1July1835. Stock yellow/trim tones remain liberties; the drawing is monochrome.",
   "research_doc": "docs/RESEARCH/tremont_house_1.md",
   "review_required": false,
   "lodging": {
     "class": "inn_tavern",
-    "beds_ordinary": 12,
+    "beds_ordinary": 17,
     "beds_crowded": 35,
     "ceiling": 35,
     "clamped_at_1840_maximum": true,
-    "enclosed_floor_m2": 278.59,
+    "enclosed_floor_m2": 417.88,
     "confidence": "reconstructed",
-    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 279 m² of enclosed floor (139 m² × 2 storeys) is of the class's floor area.",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 418 m² of enclosed floor (139 m² × 3 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
       "people": 12,
-      "beds_ordinary": 12,
-      "empty": 0,
-      "statement": "12 on this card against an ordinary night's 12 beds: 2 the residents layer already housed here, 5 seated here from elsewhere in the layer, where no source gives them a roof, 5 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "beds_ordinary": 17,
+      "empty": 5,
+      "statement": "12 on this card against an ordinary night's 17 beds: 2 the residents layer already housed here, 5 seated here from elsewhere in the layer, where no source gives them a roof, 5 drawn against the order book's lodging buckets for beds that were standing empty.",
       "empty_note": "",
       "keeper_persons": 2,
       "keeper_owed": ""

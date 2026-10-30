@@ -234,6 +234,94 @@ def wedges_segmental(cx, spring, rise, radius, L, R, top):
     return out
 
 
+def wedges_elliptical(cx, spring, half, rise, L, R, top):
+    """T-3134: the block L..R x spring..top over a half-elliptical head (semi-axes `half` and
+    `rise`, centred on the springing line) cut into stones along K06's own head vertices
+    (k06_windows.Head.curve: 12 equal steps of the parametric angle over the half), the two
+    at the crown one stone, each joint run from the ellipse's centre through its vertex out
+    to the block's edge. Each as wedges() gives it."""
+    ts = [math.pi * i / ROUND_SEGMENTS for i in range(ROUND_SEGMENTS + 1)]
+    h = ROUND_SEGMENTS // 2
+    ts = ts[:h] + ts[h + 1:]
+    P = lambda t: (cx + half * math.cos(t), spring + rise * math.sin(t))
+    ang = lambda t: math.atan2(rise * math.sin(t), half * math.cos(t))
+    corners = [(math.atan2(top - spring, R - cx), (R, top)), (math.atan2(top - spring, L - cx), (L, top))]
+    out = []
+    for t0, t1 in zip(ts, ts[1:]):
+        a0, a1 = ang(t0), ang(t1)
+        pts = [P(t0), _hit(cx, spring, a0, L, R, top)]
+        pts += [q for an, q in corners if a0 + 1e-6 < an < a1 - 1e-6]
+        pts += [_hit(cx, spring, a1, L, R, top), P(t1)]
+        clean = []
+        for q in pts:
+            if not clean or math.dist(clean[-1], q) > 1e-6:
+                clean.append(q)
+        if math.dist(clean[0], clean[-1]) < 1e-6:
+            clean.pop()
+        out.append((clean, ["radial"] * (len(clean) - 1) + ["intrados"], (a0 + a1) / 2))
+    return out
+
+
+def _moulding(a, frame, g, mo, conf):
+    """T-3134: a narrow moulded ring of light stone round an arch's intrados and down both
+    jambs to the floor, as the Levy print shows 1812's porch arch: two faces stepped out from
+    the opening's edge (`steps_m` broad, `proud_m` before the wall), on the head's own curve
+    (k06_windows.Head, the hole K07 cuts) so its inner edge is the reveal's."""
+    from . import k06_windows
+    (s0, s1, spring, rise, floor), = g["lights"]
+    el = g.get("elliptical")
+    kind = "elliptical" if el else "segmental" if g.get("segmental") else "round"
+    ros = rise / (s1 - s0)
+    (w1, w2), (p1, p2) = mo["steps_m"], mo["proud_m"]
+    seed = a.instance("k01.opening.arch_moulding", "opening",
+                      {"of": g["component"], "head": kind, "width_m": round(w1 + w2, 4), "proud_m": p1},
+                      {"springing": _P(frame, s0 - w1 - w2, spring, p1)})
+
+    def path(off):
+        hd = k06_windows.Head(kind, s0, s1, spring, ros)
+        return [(s0 - off, floor)] + hd.curve(-off, s1 + off, s0 - off)[::-1] + [(s1 + off, floor)]
+    sec = [(0.0, 0.0), (0.0, p1), (w1, p1), (w1, p2), (w1 + w2, p2), (w1 + w2, 0.0)]
+    rings = {off: path(off) for off in (0.0, w1, w1 + w2)}
+    cx = (s0 + s1) / 2
+    # T-3135: an arch cut into a projection's corner: its moulding past the corner stands on
+    # the projection's own face, as both 1812 photographs draw it, each face split at the corner
+    cut = _k01().entrance_cut(a.p) if g["component"] == "k01.opening.door_leaf" else None
+
+    def face(a, mat, frame, pts, hint, seed, conf, _put=_face):
+        if cut is None:
+            return _put(a, mat, frame, pts, hint, seed, conf)
+        k, xc, fwd = (1.0 if cut["side"] == "left" else -1.0), cut["corner_s_m"], cut["proud_m"]
+        for keep_in, dd in ((True, fwd), (False, 0.0)):   # the side within the bay goes forward
+            res = []
+            for i, q in enumerate(pts):
+                r = pts[(i + 1) % len(pts)]
+                dq, dr = k * (q[0] - xc), k * (r[0] - xc)
+                if (dq <= 1e-9) == keep_in:
+                    res.append(q)
+                if (dq <= 1e-9) != (dr <= 1e-9):
+                    t = dq / (dq - dr)
+                    res.append(tuple(q[j] + (r[j] - q[j]) * t for j in range(3)))
+            if len(res) >= 3 and max(abs(k * (x[0] - xc)) for x in res) > 1e-6:
+                _put(a, mat, frame, [(x, y, d + dd) for x, y, d in res], hint, seed, conf)
+    for (oa, da), (ob, db) in zip(sec, sec[1:]):
+        A, B = rings[oa], rings[ob]
+        for i in range(len(A) - 1):
+            pts = [(*A[i], da), (*A[i + 1], da), (*B[i + 1], db), (*B[i], db)]
+            if oa == ob:   # a riser: the innermost faces the opening, the outermost the wall
+                m = ((A[i][0] + A[i + 1][0]) / 2, (A[i][1] + A[i + 1][1]) / 2)
+                k = 1.0 if oa > 0 else -1.0
+                o = (m[0] - cx, m[1] - spring) if m[1] > spring + 1e-9 else (m[0] - cx, 0.0)
+                hint = (k * o[0], k * o[1], 0.0)
+            else:
+                hint = (0, 0, 1)
+            face(a, "dress_stone", frame, pts, hint, seed, conf)
+    for sg in (-1, 1):   # the feet, on the floor
+        for (ra, rb, d) in ((0.0, w1, p1), (w1, w1 + w2, p2)):
+            x0, x1 = sorted((cx + sg * ((s1 - s0) / 2 + ra), cx + sg * ((s1 - s0) / 2 + rb)))
+            face(a, "dress_stone", frame, [(x0, floor, 0.0), (x1, floor, 0.0), (x1, floor, d), (x0, floor, d)],
+                  (0, -1, 0), seed, conf)
+
+
 def _keystone(a, frame, k, seed, conf):
     s, y0, y1 = k["s_m"], k["bed_m"], k["top_m"]
     w0, w1 = (x / 2 for x in k["width_m"])
@@ -297,8 +385,10 @@ def _voussoirs(a, frame, g, conf, recess):
         cx = (s0 + s1) / 2
         L, Rr = g["cuts"][i], g["cuts"][i + 1]
         sg = g.get("segmental")
-        for pts, kinds, mid in (wedges_segmental(cx, spring, r, sg["radius_m"], L, Rr, g["top_m"]) if sg
-                                else wedges(cx, spring, r, L, Rr, g["top_m"])):
+        ws = (wedges_elliptical(cx, spring, (s1 - s0) / 2, r, L, Rr, g["top_m"]) if g.get("elliptical")
+              else wedges_segmental(cx, spring, r, sg["radius_m"], L, Rr, g["top_m"]) if sg
+              else wedges(cx, spring, r, L, Rr, g["top_m"]))
+        for pts, kinds, mid in ws:
             bed = k._unit(k._add(k._mul(R, math.cos(mid)), k._mul(k.Y, math.sin(mid))))
             a.stone(frame, pts, [hj] * len(pts), "rough_stone_trim", a._stone_seed(cid, inst, j), conf,
                     recess=recess, bevel=wk["bevel_m"], F=0.0, bed=bed)
@@ -308,9 +398,15 @@ def _voussoirs(a, frame, g, conf, recess):
         a.stone(frame, [(p0, g["sill_m"]), (p1, g["sill_m"]), (p1, g["spring_m"]), (p0, g["spring_m"])], [hj] * 4,
                 "rough_stone_trim", a._stone_seed(cid, inst, j), conf, recess=recess, bevel=wk["bevel_m"], F=0.0)
         j += 1
+    cl = loggia_columns(a.p, g)
+    if cl:   # T-2918: the arch springs from clustered shafts in its jambs
+        _jamb_columns(a, frame, g, cl, conf)
     cv = loggia_carving(a.p, g)
     if cv:   # T-2923: the loggia's carving stands where the keystone would (the print has none)
         _loggia_carving(a, frame, g, cv, conf)
+        return
+    if g.get("moulding"):   # T-3134: the moulded ring runs unbroken over the crown (the print has no keystone)
+        _moulding(a, frame, g, g["moulding"], conf)
         return
     _keystone(a, frame, g["keystone"], a._stone_seed(cid, inst, j), conf)
 
@@ -326,6 +422,54 @@ def loggia_carving(p, g) -> dict:
     if g["component"] not in LOGGIA_ARCHES:
         return {}
     return (((p.entrance_kit or {}).get("loggia") or {}).get("carving")) or {}
+
+
+def loggia_columns(p, g) -> dict:
+    """T-2918: the loggia's jamb columns (`entrance_kit.loggia.columns`) where `g` is its
+    mouth, else an empty dict."""
+    if g["component"] != "k01.opening.door_leaf":
+        return {}
+    return (((p.entrance_kit or {}).get("loggia") or {}).get("columns")) or {}
+
+
+def _jamb_columns(a, frame, g, cl, conf):
+    """T-2918: 1811's porch mouth (the Inland Architect plate of October 1888): each side of
+    the arch a cluster of round shafts standing before the jamb's face, `shafts_m` off the
+    intrados outward, on one plinth a side, each shaft on a square base under a carved
+    capital, a necking ring and a bell flaring to a square abacus whose top is the arch's
+    springing. The plate's capitals are carved leafage finer than its 2.3 cm a pixel; the
+    bell and abacus stand for it (docs/LIBERTIES.md L-k01-1811-ames-front-2541)."""
+    (s0, s1, spring, r, floor), = g["lights"]
+    c = (s0 + s1) / 2
+    rs, pr = cl["radius_m"], cl["proud_m"]
+    ph, bh, ch = cl["plinth_m"], cl["base_m"], cl["capital_m"]
+    left, right = cl["shafts_m"]
+    axes = [c - r - x for x in left] + [c + r + x for x in right]
+    seed = a.instance("k01.wall.jamb_columns", "wall",
+                      {"of": g["component"], "shafts": len(axes), "radius_m": rs,
+                       "shafts_s_m": [round(x, 4) for x in axes], "plinth_top_m": round(floor + ph, 4),
+                       "spring_m": round(spring, 4),
+                       "carving": "a necking ring, a flared bell and an abacus standing for the plate's leafage"},
+                      {"springing": _P(frame, c - r, spring, pr)})
+    mat = "dress_stone"
+    yp, yb, yc = floor + ph, floor + ph + bh, spring - ch
+    bw, aw = rs + 0.03, rs * 1.55
+    for sg, side in ((-1, left), (1, right)):
+        ss = [c + sg * (r + x) for x in side]
+        pa, pb = min(ss) - bw - 0.04, max(ss) + bw + 0.04
+        # the plinth runs back into the jamb's face; its inner end stands on the intrados' line
+        if sg < 0:
+            pb = min(pb, c - r + rs)
+        else:
+            pa = max(pa, c + r - rs)
+        _box(a, mat, frame, pa, pb, floor, yp, 0.0, pr + bw + 0.04, seed, conf, skip=("back", "bottom"))
+        for sc in ss:
+            _box(a, mat, frame, sc - bw, sc + bw, yp, yb, pr - bw, pr + bw, seed, conf, skip=("bottom",))
+            _frustum(a, mat, frame, sc, pr, yb, yc, rs, rs * 0.92, seed, conf)
+            # the necking ring, then the bell from the shaft out to the abacus' corners
+            _frustum(a, mat, frame, sc, pr, yc, yc + 0.04, rs * 1.08, rs * 1.08, seed, conf)
+            _frustum(a, mat, frame, sc, pr, yc + 0.04, spring - 0.06, rs * 0.92, aw, seed, conf)
+            _box(a, mat, frame, sc - aw, sc + aw, spring - 0.06, spring, pr - aw, pr + aw, seed, conf)
 
 
 def _raised(a, frame, poly, d0, d1, seed, conf, mat="dress_stone"):
@@ -742,6 +886,27 @@ def _rails(a, frame, sr, conf):
                     continue
                 _box(a, "iron", frame, x - bm / 2, x + bm / 2, tread(d), rail_top(d), d - bm / 2, d + bm / 2,
                      seed, conf, skip=("bottom",))
+        # T-3184: a panel of scrolls along the rake under the handrail (1834's photograph: the
+        # rails are scrolled cast-iron panels on newels), between it and a bar `panel_m` below
+        pm = sr.get("panel_m")
+        if pm:
+            lo = lambda d: rail_top(d) - pm
+            _beam(a, "iron", frame, x, rw, (lo(d_top), d_top), (lo(d_foot), d_foot), rm * 0.6, seed, conf)
+            n_c = max(2, round((d_foot - d_top) / 0.24))
+            cell = (d_foot - d_top) / n_c
+            rc = min(cell, pm) / 2 - 0.015
+            for c in range(n_c):
+                dc = d_top + cell * (c + 0.5)
+                yc = rail_top(dc) - pm / 2
+                hand = 1 if c % 2 == 0 else -1
+                pts = []
+                for j in range(SCROLL_SEGMENTS + 1):
+                    t = j / SCROLL_SEGMENTS
+                    ang = math.pi / 2 * (1 - hand) + hand * (math.pi * 0.25 + 2 * math.pi * 1.5 * t)
+                    rr_ = rc * (1 - 0.65 * t)
+                    pts.append((yc + rr_ * math.sin(ang), dc + rr_ * math.cos(ang)))
+                for p0, p1 in zip(pts, pts[1:]):
+                    _beam(a, "iron", frame, x, rw * 0.6, p0, p1, IRON_BAR_M, seed, conf)
         # the scroll: the handrail carried past the foot newel and turned down in a half turn
         cy, cd = rail_top(d_foot) - sc / 2, d_foot
         pts = [(cy + sc / 2 * math.cos(t), cd + sc / 2 * math.sin(t))
@@ -767,6 +932,15 @@ def _landing_guard(a, frame, gd, cs, R, y0, d, g, seed, conf):
     _box(a, "iron", frame, xb - nm / 2, xb + nm / 2, y0, top + 0.1, d - nm / 2, d + nm / 2, seed, conf, skip=("bottom",))
     _box(a, "iron", frame, lo, hi, top - rm, top, d - rw / 2, d + rw / 2, seed, conf)
     _box(a, "iron", frame, lo, hi, foot, foot + b, d - b / 2, d + b / 2, seed, conf)
+    if gd.get("scrolled"):
+        # T-3184: a guard pierced along its whole length (1834's photograph), the stoop's own
+        # scrolled panel laid flat: two rows of scrolls on a middle bar, no balusters
+        ym = (foot + b + top - rm) / 2
+        _box(a, "iron", frame, lo, hi, ym - b / 2, ym + b / 2, d - b / 2, d + b / 2, seed, conf)
+        count = max(2, round((hi - lo) / max(0.12, ym - foot - b)))
+        for y_a, y_b in ((foot + b, ym - b / 2), (ym + b / 2, top - rm)):
+            _scrolls(a, frame, {"count": count}, lo, hi, y_a, y_b, d - b / 2, d + b / 2, seed, conf)
+        return
     pa, pb = sorted(gd["panel_v_m"])
     pitch = g / R["per_tread"]
     n = max(1, round((hi - lo) / pitch))
@@ -842,6 +1016,48 @@ def _guilloche_run(a, frame, s0, s1, b0, b1, g, seed, conf):
     return n
 
 
+def _interlace_run(a, frame, s0, s1, b0, b1, il, seed, conf):
+    """T-3093: an interlace on one run [s0, s1] of a belt [b0, b1], two straps crossing as a
+    plait (1812's frieze, read at 3x on Levy's print: crossing straps where T-2819's rings had
+    stood for them). Each strap's centre line is a sine about the belt's middle, the second
+    the first's mirror, so they cross every half `wavelength_m`; each stands up to `proud_m`
+    before the belt and dips to a fifth of that at alternate crossings, the other strap over
+    it there, as a plait's straps pass over and under. The print's leaves between the straps
+    are not modelled. Returns the crossings."""
+    st, rp, mg = il["strap_m"], il["proud_m"], il["margin_m"]
+    wl, k = il["wavelength_m"], int(il["segments"])
+    d0 = BELT_PROUD_M - 0.005
+    yc = (b0 + b1) / 2
+    amp = (b1 - b0) / 2 - mg - st / 2
+    halves = max(1, round((s1 - s0) / (wl / 2)))
+    lam = 2 * (s1 - s0) / halves              # whole half waves on the run, so both ends cross
+    n = halves * k
+    for i in (0, 1):
+        sign = 1.0 if i == 0 else -1.0
+        ph = lambda s: 2 * math.pi * (s - s0) / lam
+        c = [(s0 + (s1 - s0) * j / n) for j in range(n + 1)]
+        mid = [(s, yc + sign * amp * math.sin(ph(s))) for s in c]
+        dep = [BELT_PROUD_M + rp * (0.6 + 0.4 * sign * math.cos(ph(s))) for s in c]
+        edges = []
+        for j, (s, y) in enumerate(mid):
+            sa, ya = mid[max(j - 1, 0)]
+            sb, yb = mid[min(j + 1, n)]
+            ts, ty = sb - sa, yb - ya
+            ln = math.hypot(ts, ty)
+            ns, ny = -ty / ln * st / 2, ts / ln * st / 2
+            edges.append(((s + ns, y + ny), (s - ns, y - ny)))
+        for j in range(n):
+            (u0, l0), (u1, l1) = edges[j], edges[j + 1]
+            e0, e1 = dep[j], dep[j + 1]
+            _face(a, "limestone_trim", frame, [(*l0, e0), (*l1, e1), (*u1, e1)], (0, 0, 1), seed, conf)
+            _face(a, "limestone_trim", frame, [(*l0, e0), (*u1, e1), (*u0, e0)], (0, 0, 1), seed, conf)
+            for (p0, p1), hint in (((u0, u1), (u0[0] - mid[j][0], u0[1] - mid[j][1], 0.0)),
+                                   ((l0, l1), (l0[0] - mid[j][0], l0[1] - mid[j][1], 0.0))):
+                _face(a, "limestone_trim", frame, [(*p0, d0), (*p1, d0), (*p1, e1)], hint, seed, conf)
+                _face(a, "limestone_trim", frame, [(*p0, d0), (*p1, e1), (*p0, e0)], hint, seed, conf)
+    return halves + 1
+
+
 def _panel_run(a, frame, s0, s1, b0, b1, pa, seed, conf):
     """T-2915: a band of sunk panels on one run of a belt: raised ribs on the belt's face, one
     along its bed, one along its top and one between each two rows, and in each row upright
@@ -885,13 +1101,16 @@ def street_carved_bands(a, frame, bands, conf):
     for cb in bands:
         b0, b1 = cb["bed_m"], cb["top_m"]
         s0, s1 = cb["s_m"]
-        kind = "guilloche" if "guilloche" in cb else "panels"
+        kind = next(k for k in ("guilloche", "interlace", "panels") if k in cb)
         seed = a.instance("k01.wall.carved_band", "wall",
                           {"bed_m": b0, "top_m": b1, "from_s_m": s0, "to_s_m": s1, "carving": kind},
                           {"bed": _P(frame, s0, b0, 0.0), "top": _P(frame, s1, b1, 0.0)})
         if kind == "guilloche":
             n = _guilloche_run(a, frame, s0, s1, b0, b1, cb["guilloche"], seed, conf)
             a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] = n
+        elif kind == "interlace":
+            n = _interlace_run(a, frame, s0, s1, b0, b1, cb["interlace"], seed, conf)
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"]["crossings"] = n
         else:
             n = _panel_run(a, frame, s0, s1, b0, b1, cb["panels"], seed, conf)
             a.components["k01.wall.carved_band"]["instances"][-1]["params"]["panels"] = n
@@ -904,6 +1123,58 @@ def side_arch(a, frame, g):
     conf = a.p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front",
                           "entrance_kit")
     _voussoirs(a, frame, g, conf, k["wall"]["recess_m"])
+
+
+def street_iron(a, frame, si, conf):
+    """T-3184: a brick front's iron (k01_frontage_params._street_iron), read off 1834's
+    photograph: the stoop's rails as `_rails` lays them on an arched front, and each
+    balconette."""
+    if si.get("stoop_rails"):
+        _rails(a, frame, si["stoop_rails"], conf)
+    for b in si.get("balconettes", ()):
+        _balconette(a, frame, b, conf)
+
+
+def _balconette(a, frame, bc, conf):
+    """T-3184: a balconette before a street window, as 1834's photograph shows two: a dressed
+    stone slab out from the front at the floor, on scrolled consoles where it stands clear of
+    the basement's top, and on it a pierced iron guard — a top rail and a foot bar, a newel at
+    each front corner, returns to the wall, and between them the band of C-scrolls a grille
+    is filled with (`_scrolls`), standing for the print's pierced panels."""
+    s0, s1, fl, d, h, sl, n = (bc[k] for k in ("from_s_m", "to_s_m", "floor_m", "proud_m", "height_m",
+                                              "slab_m", "consoles"))
+    seed = a.instance("k01.opening.balconette", "opening",
+                      {"length_m": s1 - s0, "height_m": h, "proud_m": d, "slab_m": sl, "consoles": n},
+                      {"floor": _P(frame, (s0 + s1) / 2, fl, 0.0)})
+    _box(a, "limestone_trim", frame, s0, s1, fl - sl, fl, 0.0, d, seed, conf, skip=("back",))
+    # the consoles: a scrolled block under the slab, deep at its head and dying into the wall
+    cw, drop = 0.16, min(0.55, 2.4 * d)
+    for i in range(n):
+        x = s0 + 0.12 + (s1 - s0 - 0.24) * i / max(1, n - 1)
+        steps = 5
+        for k in range(steps):
+            t0, t1 = k / steps, (k + 1) / steps
+            reach = (d - 0.04) * (1.0 - t0) ** 1.6
+            _box(a, "limestone_trim", frame, x - cw / 2, x + cw / 2, fl - sl - drop * t1, fl - sl - drop * t0,
+                 0.0, max(0.05, reach), seed, conf, skip=("back",))
+    b = IRON_BAR_M
+    g0, g1 = s0 + 0.04, s1 - 0.04
+    f0 = d - 0.06                                   # the guard's face, in from the slab's edge
+    y0, y1 = fl, fl + h
+    _bar(a, frame, g0, g1, y1 - 0.035, y1, f0 - 0.03, f0 + 0.01, seed, conf)       # the top rail
+    _bar(a, frame, g0, g1, y0 + 0.02, y0 + 0.05, f0 - b, f0, seed, conf)            # the foot bar
+    _bar(a, frame, g0, g1, y0 + 0.14, y0 + 0.14 + b, f0 - b, f0, seed, conf)        # the scroll band's foot
+    for x in (g0, g1 - 0.04):                                                       # the corner newels
+        _bar(a, frame, x, x + 0.04, y0, y1, f0 - 0.04, f0, seed, conf)
+    for x in (g0, g1 - b):                                                          # the returns
+        for yy in (y1 - 0.035, y0 + 0.02):
+            _bar(a, frame, x, x + b, yy, yy + 0.03, 0.0, f0 - 0.04, seed, conf)
+    # the pierced panel: two rows of scrolls between the scroll band's foot and the top rail
+    ym = (y0 + 0.14 + b + y1 - 0.035) / 2
+    _bar(a, frame, g0, g1, ym - b / 2, ym + b / 2, f0 - b, f0, seed, conf)
+    count = max(2, round((g1 - g0) / max(0.12, ym - y0 - 0.14)))
+    for lo_, hi_ in ((y0 + 0.14 + b, ym - b / 2), (ym + b / 2, y1 - 0.035)):
+        _scrolls(a, frame, {"count": count}, g0 + 0.04, g1 - 0.04, lo_, hi_, f0 - b, f0, seed, conf)
 
 
 def lay(a, frame, yf, length, conf, recess):

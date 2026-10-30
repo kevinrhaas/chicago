@@ -4138,11 +4138,9 @@
   "id": "dw-aabn-1889-mcbirney-1736-permit",
   "kind": "permit record",
   "title": "Building Intelligence: 'H. J. McBirney, three-st'y dwell., Prairie Ave.; … architects, Burling & Whitehouse.'",
-  "building_ids": [
-   "pa-1736-49"
-  ],
+  "building_ids": [],
   "addresses": [
-   "1736 S. Prairie Avenue"
+   "1625 S. Prairie Avenue"
   ],
   "streetscape": false,
   "view": "text",
@@ -4176,7 +4174,7 @@
   },
   "verified": "viewed",
   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 618)",
-  "notes": "Permit notice for the McBirney house; OCR columns are interleaved so the cost is not reliably attributable — read from the page image.",
+  "notes": "Permit notice for Hugh J. McBirney's new house; OCR columns are interleaved so the cost is not reliably attributable — read from the page image. ADDRESS (T-3020, 2026-10-22): the notice names only 'Prairie Ave.', and it was first filed under 1736, the elder Hugh McBirney's 1864 house. It is the son's house at 1625: H. J. McBirney, a three-storey dwelling, Burling & Whitehouse, in spring 1889, as the Tribune's 6 May 1889 permit ('No. 1627 (sic) Prairie avenue', $9,000) and 9 June 1889 report of the Burling & Whitehouse Tudor house say (cgn-1625-text), and as the January 1890 Inland Architect plate of the finished house shows (a16-inland-1890-hj-mcbirney-residence). The id keeps its old '1736' because the image store holds the page under it.",
   "measurements": []
  },
  {

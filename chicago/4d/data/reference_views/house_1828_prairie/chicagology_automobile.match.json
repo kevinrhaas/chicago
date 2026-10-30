@@ -1,0 +1,93 @@
+{
+  "structure_id": "house_1828_prairie",
+  "view": "chicagology_automobile",
+  "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
+  "glb_sha256": "9c944d14783bd8e09b8673ca7af75b8afba28986b61b795e5ddad00d38d1d188",
+  "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
+  "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a light stone front over a raised basement, the principal storey and the foot of the second, the canted bay and the recessed north part with the porch, seen square-on",
+      "status": "fixed",
+      "how": "T-3166: the 1911 sheet's 19.4 x 8.2 m front block on K01 with K02's smooth Lemont ashlar front, the principal floor 2.3 m and the storeys 5.6 and 4.4 m, read through this camera"
+    },
+    {
+      "what": "the canted bay through the basement and both storeys, one tall window in its south cheek (x 190-250 px) and one in its front (x 300-365), each under a small moulded cap",
+      "status": "fixed",
+      "how": "T-3166: a K08 canted bay 4.54 m at the wall and 1.25 m out, its front 1.92 m, one window a storey in each cheek and in the front, 1.05 x 3.5 m on the principal storey, under K09's cornice-hood lintels; they render within about 10 px"
+    },
+    {
+      "what": "the basement windows under the principal ones, about y 505-580 px (about 0.25-1.45 m over grade)",
+      "status": "open",
+      "how": "built 0.8 m high to 1.05 m, where K02's two Lemont base courses (0.2-0.41 m each) put the coping the lights' heads must meet; the print's stand about 0.4 m taller; T-3168 tried the print's 1.2 m and K02's Lemont profile refuses it (at most two base courses of 0.41 m under the coping the lights' heads meet), so it is K02 work"
+    },
+    {
+      "what": "the porch: columns at the stoop's head, a deep carved entablature (y 140-215 px) under a cornice, a balustrade on its top (y 100-140), its floor at the principal floor",
+      "status": "fixed",
+      "how": "T-3166: K01's door hood on two columns (T-2963), 2.4 m wide and 1.8 m out, its soffit 6.0 m and its fascia 1.0 m; the entablature and the balustrade render within about 10 px"
+    },
+    {
+      "what": "the porch's round arches on its front and its south side, springing from the columns, and the third column at its south-rear corner (x 440 px)",
+      "status": "open",
+      "how": "built as a flat soffit on two front columns with responds at the wall (T-3168: K01's door hood carries no arch or rear column; kit work)"
+    },
+    {
+      "what": "the porch's carving: the entablature's carved frieze, the spandrels over the arches, the columns' capitals",
+      "status": "within tolerance",
+      "how": "T-3168: built plain: K01's hood fascia and square capital blocks under the entablature; carving is relief of a few centimetres on the right members, the entablature's and the capitals' places and sizes within about 10 px, under the T-3153 bar"
+    },
+    {
+      "what": "the porch's balustrade in stone with turned balusters, heavier than the build's",
+      "status": "fixed",
+      "how": "T-3168: the porch laid columns, entablature and balustrade in the front's stone (T-3159's portico fabric), its balustrade 0.65 m high on 0.3 m posts with 0.1 m balusters under a 0.25 m rail; the balusters are square where the print's are turned, under a foot (the partial view reads the same balustrade as solid panels: the two prints disagree on its fill)"
+    },
+    {
+      "what": "the stoop's cheeks: solid stone parapets carried down beside the flight with turned balusters on their tops, and a newel at the foot",
+      "status": "fixed",
+      "how": "T-3168: a turned stone balustrade on both cheeks' tops, 0.9 m over the nosings, with newels at the landing and at the foot (entrance_kit.balustrade); the partial view reads the cheeks as solid parapets with blocks at the foot, so the two prints disagree on the fill over the cheek"
+    },
+    {
+      "what": "the panelled stone pilasters framing the bay's faces (x 145-160, 285-300, 385-400 px), and the carved panels between the storeys",
+      "status": "within tolerance",
+      "how": "built as plain ashlar on the bay's angles and between its storeys at the print's places; the panels and the carved panels are surface relief of a few centimetres, under the T-3153 bar"
+    },
+    {
+      "what": "the light stone face south of the bay's cheek at the print's left edge (x 0-150 px) with a pilaster at x 40-60: the print shows front wall south of the bay, where the 1911 sheet's trace starts the bay's cheek at the house's south corner",
+      "status": "open",
+      "how": "built to the sheet: the cheek from 0.3 m inside the corner, rendering about 50 px left of the print's junction (x 100 against 150)"
+    },
+    {
+      "what": "the second storey and the mansard: the frame cuts them off",
+      "status": "not shown",
+      "how": "read off the partial view (glessner_partial.json, solved by T-3168), whose match record carries them"
+    },
+    {
+      "what": "the iron fence on a stone curb before the house, with tall turned posts at its gate",
+      "status": "within tolerance",
+      "how": "K11's spear fence on its curb 7.4 m before the front, its posts square; the print's posts are turned, under a foot of difference in size"
+    },
+    {
+      "what": "the front's colour",
+      "status": "not shown",
+      "how": "the print is monochrome; it reads light, and K02's Lemont limestone renders a warm buff: the tone is the Inter Ocean's 'light stone-front'"
+    },
+    {
+      "what": "the flanks, the round bay and the canted bay on the south flank, and the rear range",
+      "status": "not shown",
+      "how": "the camera is square to the front; built to the 1911 sheet at the reconstructed tier (L-k01-1828-shipman-1887)"
+    },
+    {
+      "what": "the walk and the entrance gate",
+      "status": "fixed",
+      "how": "T-3206 adds the K14 walk and stands the entrance gate open, with a cinder walk down the side passage"
+    },
+    {
+      "what": "the boundary's kind",
+      "status": "within tolerance",
+      "how": "this print shows an iron fence on a curb; glessner_partial reads as a low solid wall; the fence is kept (L-k14-walks-1800-block-3206)"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

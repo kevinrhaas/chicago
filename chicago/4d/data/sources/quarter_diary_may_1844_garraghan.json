@@ -1,0 +1,34 @@
+{
+  "id": "quarter_diary_may_1844_garraghan",
+  "type": "book",
+  "citation": "Bishop William Quarter, Diary, entry headed 1844, May, as quoted in Gilbert J. Garraghan, The Catholic Church in Chicago, 1673–1871 (Chicago: Loyola University Press, 1921), printed p.127.",
+  "author": "William Quarter (diary); Gilbert J. Garraghan (1921 excerpt)",
+  "date": "1844-05 (diary entry); 1921 (the printing inspected)",
+  "describes_date": "May 1844",
+  "repository": "Internet Archive, item catholicchurchin00garr_0; original diary not inspected",
+  "url": "https://archive.org/details/catholicchurchin00garr_0",
+  "archived_url": "https://archive.org/download/catholicchurchin00garr_0/page/n192_large.jpg",
+  "locator": "Printed p.127, opening paragraph. Whole page inspected2026-10-23. Exact text:1844,May.The old church is a long,low,frame building,having a small steeple and bell surmounted by a cross. Spacing here normalized; exact typographic punctuation can be reread on the page.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "transcribes": [
+    {
+      "work": "William Quarter, Diary, entry headed 1844, May:description of the old wooden church and new brick church",
+      "date": "1844-05",
+      "tier": 1,
+      "note": "This source records only the period diary excerpt actually printed at Garraghan p.127. The original manuscript has not been inspected. The 1921 page was scan-verified; the 1844 witness text remains mediated through that printing."
+    }
+  ],
+  "what_it_supplies": [
+    "A period diary description expressly dated May 1844:the old church was long, low, frame, with small steeple, bell and cross. This gives a real later comparison epoch without asserting when the tower was built.",
+    "The following 100 x 55 ft dimensions refer to the NEW brick church, not to the old frame church."
+  ],
+  "what_it_does_not_supply": [
+    "No exact day in May, no tower installation date, no proof that the tower was absent in 1835.",
+    "No number of openings, no old-church dimensions, no metric position or bearing.",
+    "No proof that the Moss engraving depicts May 1844 or this exact form of tower."
+  ],
+  "access_notes": "Read a 1921 printed quotation of the diary, not the 1844 manuscript. Keep scan verification of the 1921 printing separate from the transmission status of the original witness text."
+}

@@ -1,0 +1,235 @@
+{
+  "id": "second_presbyterian_church_1936_michigan",
+  "name": "1936 S. Michigan Avenue — Second Presbyterian Church (district draft; refined by T-1942)",
+  "aka": [
+    "1936 S. Michigan Avenue",
+    "Second Presbyterian Church"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "church",
+    "confidence": "attested",
+    "sources": [
+      "habs_second_presbyterian_il_328_drawings",
+      "chicago_tribune_1901_11_10_second_presbyterian",
+      "newberry_sloan_second_presbyterian_street"
+    ],
+    "note": "Second Presbyterian Church (James Renwick, 1872-1874), gutted by fire in March 1900 and rededicated in November 1901 inside its surviving walls and tower (Chicago Tribune, 10 November 1901)."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-2982, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1942 refines in place under this same id. Written by tools/draft_prairie_1904.py from the rules' site row (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-edges-2982). The church stands on Michigan Avenue at 20th Street, west of the three committed Sanborn sheets, so it is drafted from HABS IL-328's measured plan and south elevation and placed on the 1904 grid's measured lines. Its 1904 tower state is the full spire: the 1901 Tribune cut and Sloan's photograph (1901-1925) both show it, and it was lost in 1929.",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "habs_second_presbyterian_il_328_drawings",
+          "chicago_tribune_1901_11_10_second_presbyterian",
+          "newberry_sloan_second_presbyterian_street"
+        ],
+        "note": "The rebuilt church was rededicated in November 1901 (Chicago Tribune, 10 November 1901) and stands today; the draft claims the 1904 target."
+      },
+      "position": {
+        "utm_e": 448169.049,
+        "utm_n": 4633939.799,
+        "rotation_deg": -0.572,
+        "symbolic_location": "1936 S. Michigan Avenue, the north-west corner of Michigan Avenue and East Twentieth Street, west of every committed Sanborn sheet.",
+        "confidence": "reconstructed",
+        "note": "The rear corner of the main body (u -32.340, v 5.960 m from the building's front and southernmost faces), set from the corner at local (1128.75, -3461.64): Michigan Avenue's centre is the e1871 terrain box's reading at 16th Street (E +1136.7), carried south on the bearing of Indiana Avenue's measured east line; its west line is 10.06 m out (the 66 ft every street on the committed sheets prints; Michigan's own width is not read here), and the church's east face stands a reconstructed 3.0 m behind it, as the photograph's lawn strip shows; the south face stands 3.0 m behind East Twentieth Street's measured north line (data/street_grid/1904.json). Good to a few metres. Rotation -0.572 degrees squares the plan to the avenue.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the 1904 street grid's faces and the rules' site row by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            -16.17,
+            -5.96
+          ],
+          [
+            0.0,
+            -5.96
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            32.34,
+            0.0
+          ],
+          [
+            32.34,
+            21.84
+          ],
+          [
+            25.53,
+            21.84
+          ],
+          [
+            25.53,
+            26.38
+          ],
+          [
+            0.0,
+            26.38
+          ],
+          [
+            0.0,
+            27.23
+          ],
+          [
+            -16.17,
+            27.23
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "habs_second_presbyterian_il_328_drawings",
+          "chicago_tribune_1901_11_10_second_presbyterian",
+          "newberry_sloan_second_presbyterian_street"
+        ],
+        "note": "The building's whole plan, the nave, the parish hall and the north aisle range as HABS IL-328 sheet 2 draws them, buttresses and the tower's projection left off, so the walls a visitor meets and the ground the context's stand-ins give way to are the church's own; the main body (the nave and narthex, 32.3 x 21.8 m) is draft_plan's first rectangle."
+      },
+      "form": {
+        "stories": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "note": "Three draft storeys of 4.6 m over a 0.9 m floor stand the walls to the 14.7 m eave the 1901 cut shows against the nave's ridge; a church has no storeys, and the count only sets the wall height and the rows of openings."
+        },
+        "construction": {
+          "value": "stone",
+          "confidence": "attested",
+          "sources": [
+            "habs_second_presbyterian_il_328_drawings",
+            "chicago_tribune_1901_11_10_second_presbyterian",
+            "newberry_sloan_second_presbyterian_street"
+          ],
+          "note": "Stone: the rock-faced ashlar of the photograph and the 1901 cut, drawn in stone on HABS IL-328's elevations."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 3,
+                "roof": "gable",
+                "pitch_deg": 48,
+                "rect": [
+                  0.0,
+                  0.0,
+                  32.34,
+                  21.84
+                ],
+                "from": "the nave with its east narthex, chancel arch to the east wall (HABS IL-328 sheet 2, read at the feet bar (42.3 px/m on the library copy), north up)"
+              },
+              {
+                "id": "r2",
+                "role": "wing",
+                "storeys": 3,
+                "roof": "gable",
+                "pitch_deg": 50,
+                "rect": [
+                  -16.17,
+                  -5.96,
+                  0.0,
+                  27.23
+                ],
+                "from": "the parish hall across the west end with the chancel and stair rooms beside it, its gable to 20th Street (HABS IL-328 sheet 2, read at the feet bar (42.3 px/m on the library copy), north up)"
+              },
+              {
+                "id": "r3",
+                "role": "range",
+                "storeys": 1,
+                "roof": "flat",
+                "rect": [
+                  0.0,
+                  21.84,
+                  25.53,
+                  26.38
+                ],
+                "from": "the north aisle range along the nave (HABS IL-328 sheet 2, read at the feet bar (42.3 px/m on the library copy), north up)"
+              }
+            ],
+            "lot_v": [
+              -8.96,
+              30.23
+            ],
+            "street_u": 35.34
+          },
+          "confidence": "inferred",
+          "sources": [
+            "habs_second_presbyterian_il_328_drawings",
+            "chicago_tribune_1901_11_10_second_presbyterian",
+            "newberry_sloan_second_presbyterian_street"
+          ],
+          "note": "Three rectangles read off HABS IL-328 sheet 2 at its feet bar (the metric bar disagrees by 22 %; the pews' 0.92 m spacing settles which is right): the nave, the parish hall with the chancel rooms beside it, and the north aisle range. The narthex, vestibule and buttresses fold into the rectangles."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "house",
+            "seed": 169477518,
+            "principal_floor_m": 0.9,
+            "storey_heights_m": [
+              4.6,
+              4.6,
+              4.6
+            ],
+            "roof_pitch_deg": 48,
+            "mansard_lower_m": 3.0,
+            "front_bays": 3,
+            "entrance": "centre",
+            "side_spacing_m": 4.0,
+            "chimneys": 0,
+            "brackets": false,
+            "attic_dormers": false,
+            "stone": "stone",
+            "features": [
+              {
+                "kind": "corner_tower",
+                "sides": 4,
+                "radius_m": 5.52,
+                "above_eave_m": 23.3,
+                "cap_m": 16.0,
+                "at": [
+                  28.37,
+                  1.56
+                ]
+              }
+            ],
+            "draft_label": {
+              "pass": "T-2982",
+              "refined_by": [
+                "T-1942"
+              ]
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the site row: The nave's ridge stands at HABS sheet 4's 87'-8 1/4\" (26.7 m: a 48-degree gable over the 21.8 m nave) and the hall's gable at its 80'-1\" (24.4 m: 50 degrees over 16.2 m). The tower is HABS sheet 2's 7.9 m square at the south-east corner; its masonry to about 38 m and its spire about 16 m above are proportions read off Sloan's photograph against the nave's ridge (upper figures: the tower stands nearer the camera). Openings are the draft's sash in rows, not the church's lancets, rose and great window, which are T-1942's. The seed 169477518 only tints the fabric inside +-6 %. Liberty L-draft-district-edges-2982."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-2982",
+            "liberty": "L-draft-district-edges-2982",
+            "register_row": "pa-1936-s.-michigan-avenue-32",
+            "census_ids": [],
+            "trace_building": null,
+            "seed": 169477518,
+            "replaceable_by": [
+              "T-1942"
+            ],
+            "card": "District draft — refined by T-1942."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

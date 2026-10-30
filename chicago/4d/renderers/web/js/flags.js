@@ -40,6 +40,7 @@
 
 import * as THREE from 'three';
 import { LEVELS } from './confidence.js';
+import { flownFlags, flagMount } from './flag-anchors.js';
 
 /**
  * THE PATTERNS — counted from the acts, laid out by us. Rows of stars are the
@@ -110,31 +111,9 @@ const CLOTH = {
 };
 const WEAR = { us_flag_24_star: 1.0, us_flag_15_star_15_stripe: 0.5 };
 
-function valueOf(a) {
-  return a && typeof a === 'object' && !Array.isArray(a) ? a.value : a;
-}
-
-function gradeOf(a) {
-  const c = a && typeof a === 'object' ? a.confidence : null;
-  return LEVELS[c] ?? LEVELS.reconstructed;
-}
-
-/** The staff records that fly a flag on this scene's date, with what they fly. */
+/** Phase-selected sidecars provide pattern, flying state and optional anchor. */
 export function flagsFlown(registry) {
-  const out = [];
-  for (const record of registry.values()) {
-    const at = record.sidecar?.attributes ?? {};
-    const pattern = valueOf(at.flag);
-    if (!pattern || valueOf(at.flag_flying) !== true) continue;
-    out.push({
-      id: record.id,
-      pattern,
-      // The cloth is drawn at the worse of its two grades: a flag whose pattern
-      // is inferred but whose being up is reconstructed is a reconstruction.
-      confidence: Math.max(gradeOf(at.flag), gradeOf(at.flag_flying)),
-    });
-  }
-  return out;
+  return flownFlags(registry, LEVELS);
 }
 
 /** A five-pointed star, filled, centred at (x, y) with outer radius r. */
@@ -159,12 +138,12 @@ function rng(seed) {
 }
 
 /** Draw one flag into a canvas: stripes, canton, stars, then the wear. */
-export function paintFlag(patternId, { width = 512, seed = 1835 } = {}) {
+export function paintFlag(patternId, { width = 512, seed = 1835, hoistToFly = HOIST_TO_FLY } = {}) {
   const pat = PATTERNS[patternId];
   if (!pat) throw new Error(`no flag pattern '${patternId}'`);
   const wear = WEAR[patternId] ?? 0.5;
   const w = width;
-  const h = Math.round(width * HOIST_TO_FLY);
+  const h = Math.round(width * hoistToFly);
   const cv = document.createElement('canvas');
   cv.width = w;
   cv.height = h;
@@ -396,17 +375,19 @@ export function createFlags({ registry, buildings, confidence = null, problems =
       problems.push(`${flag.id}: flag pattern '${flag.pattern}' is not one this layer knows`);
       continue;
     }
-    // The staff's axis and head, from the mesh the buildings actually drew.
-    const axis = new THREE.Vector3((box.min[0] + box.max[0]) / 2, box.max[1],
-      (box.min[2] + box.max[2]) / 2).applyMatrix4(m);
-    const foot = new THREE.Vector3((box.min[0] + box.max[0]) / 2, box.min[1],
-      (box.min[2] + box.max[2]) / 2).applyMatrix4(m);
+    let mount;
+    try {
+      mount = flagMount(flag, box, { fly: FLY_M, hoistToFly: HOIST_TO_FLY, truckGap: TRUCK_GAP_M });
+    } catch (error) {
+      problems.push(`${flag.id}: ${error.message} — no flag hung`);
+      continue;
+    }
+    const axis = new THREE.Vector3(...mount.axis).applyMatrix4(m);
+    const foot = new THREE.Vector3(...mount.foot).applyMatrix4(m);
     const staffH = axis.y - foot.y;
-    const radius = Math.max(0.04, Math.min(box.max[0] - box.min[0], box.max[2] - box.min[2]) / 2 * 0.6);
-    const fly = FLY_M;
-    const hoist = fly * HOIST_TO_FLY;
+    const { radius, fly, hoist } = mount;
 
-    const tex = new THREE.CanvasTexture(paintFlag(flag.pattern, { seed: flag.id.length * 7919 }));
+    const tex = new THREE.CanvasTexture(paintFlag(flag.pattern, { seed: flag.id.length * 7919, hoistToFly: hoist / fly }));
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = 4;
     // Wool is matte with a soft sheen at grazing light, never a gloss: the

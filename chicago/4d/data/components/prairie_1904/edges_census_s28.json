@@ -1,0 +1,221 @@
+{
+  "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 28 for the background behind Prairie Avenue: Calumet Avenue's west frontage, 18th to 20th Street (T-3008, piece 1 of T-2983, which tools/census_prairie_1904_background.py ranks the most-seen block face off the avenue). The T-1841 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json) counts Prairie frontages only, so these nine rows are read here, in the same frontage contract, for tools/trace_prairie_1904_footprints.py (sheet '28x') and tools/draft_prairie_1904.py. 1800 Calumet is not here: its two glasshouse ranges and lodge are Pullman's estate across 18th Street, allocated by the sheet-28 census to T-1934 (s28-pullman-service-garden).",
+  "ticket": "T-3008",
+  "sheet": "28x",
+  "target_date": "1904-07-01",
+  "source": {
+    "source_id": "sanborn_1911_chicago_v3_sheet_28",
+    "file": "chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_28.jpg",
+    "observation_year": 1911
+  },
+  "reading": {
+    "by": "Read by eye from the committed sheet 28 scan (5873 x 7323 px) at 1x and 0.5x over the Calumet lots, 2026-10-22.",
+    "conventions": "Sanborn colour: pink brick, yellow frame, blue stone. A crossed square marks a stable. D = dwelling. Storey figures as printed (B = basement).",
+    "limits": "A 1911 label is a 1911 observation (study ruling 11): the one 'GARAGE' is backcast as a stable. Robinson 1886 plate 10 ends north of 1830, so no earlier plan checks these outlines. No dimension is claimed beyond the trace."
+  },
+  "frontages": [
+    {
+      "frontage_id": "frontage-28x-1830",
+      "printed_number_1911": "1830",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1830"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1830-front",
+          "kind": "front",
+          "reading_1911": "2B brick dwelling (D) with a rounded bay at the south corner of its Calumet front and a 2B rear part behind a dashed line; a one-storey and a two-storey frame closet (T.CL.) on its north side at the alley end"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-28x-1832",
+      "printed_number_1911": "1832",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1832"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1832-front",
+          "kind": "front",
+          "reading_1911": "2½B brick dwelling (D), long on its lot, with a 2B rear part at the alley end and a shallow projection on each side"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-28x-1836",
+      "printed_number_1911": "1836",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1836"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1836-front",
+          "kind": "front",
+          "reading_1911": "2B brick dwelling (D) on an L plan, a 2-storey frame porch (yellow) along its Calumet front"
+        },
+        {
+          "id": "s28x-1836-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-28x-1840",
+      "printed_number_1911": "1840",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1840"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1840-front",
+          "kind": "front",
+          "reading_1911": "3 brick dwelling (D) with a small 3-storey piece at its alley end, a rounded corner at the south of its front behind a dashed outline, and two one-storey frame pieces on its south side"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-28x-1900",
+      "printed_number_1911": "1900",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1900"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1900-front",
+          "kind": "front",
+          "reading_1911": "2B brick dwelling (D) with a 2B rear part on its north half"
+        },
+        {
+          "id": "s28x-1900-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-28x-1910",
+      "printed_number_1911": "1910",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1910"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1910-front",
+          "kind": "front",
+          "reading_1911": "2½B brick dwelling (D) with a 3B rear part with canted corners, a cross wing on its north side, a 2-storey brick piece on its south side and a one-storey frame porch across its Calumet front"
+        },
+        {
+          "id": "s28x-1910-rear",
+          "kind": "detached_service",
+          "reading_1911": "3-storey brick stable (crossed) on the alley, with a one-storey brick strip at its south end"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-28x-1922",
+      "printed_number_1911": "1922",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1922"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1922-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) with a rounded bay at the north corner of its front and a round bay on its south side, a 1B rear part with canted corners, a one-storey frame piece and a one-storey brick piece on its north side"
+        },
+        {
+          "id": "s28x-1922-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+          "note_1904": "A 1911 garage label is a 1911 use (study ruling 11): backcast as the lot's stable."
+        },
+        {
+          "id": "s28x-1922-strip",
+          "kind": "detached_service",
+          "reading_1911": "one-storey brick strip on the alley, the south end of 1910's stable drawn across the 1910/1922 lot line"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-28x-1928",
+      "printed_number_1911": "1928",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1928"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1928-front",
+          "kind": "front",
+          "reading_1911": "2½B brick dwelling (D) with a canted bay on its north side"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-28x-1932",
+      "printed_number_1911": "1932",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_1932"
+      ],
+      "polygons": [
+        {
+          "id": "s28x-1932-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) on a T plan, a dashed line drawn inside its outline, with canted corners at its alley end"
+        },
+        {
+          "id": "s28x-1932-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops north of it, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    }
+  ],
+  "vacant_ground": []
+}

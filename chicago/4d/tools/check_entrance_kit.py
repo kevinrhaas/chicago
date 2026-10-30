@@ -29,7 +29,8 @@ is a rule here:
              its wall and any vestibule it declares
   leaf       each door leaf stands clear of the threshold by no more than its gap and
              fills its frame from jamb to jamb
-  enclosed   every glass light has the dark backing behind it (K06's rule)
+  enclosed   every glass light has the dark backing behind it (K06's rule), at every
+             K01 house's own door as well as the kit's variants (T-3228)
   one layer  glass is the only transparent material and no two lights overlap
   doubled    no two coplanar faces overlap (K06's rule)
   costs      every entrance inside its triangle budget
@@ -304,10 +305,11 @@ def rule_data(data):
     return out
 
 
-def house_entrances(data):
+def house_entrances(data, every=False):
     """T-2409: every K01 house whose door carries a terrace or a balustrade (T-2530: or a side
     stoop), built as the house builds it (its own floor, tread, landing, width and the terrace's
-    reach), so the kit's rules measure what the kit's variants alone never build."""
+    reach), so the kit's rules measure what the kit's variants alone never build. `every`
+    (T-3228): every K01 house's door, whatever it carries."""
     import json
     from archetypes import k01_frontage, k01_frontage_params
     out = []
@@ -318,10 +320,16 @@ def house_entrances(data):
         for ph in st.get("phases", []):
             ek = ((((ph.get("form") or {}).get("entrance_kit") or {}).get("value") or {})
                   .get("k01.opening.door_leaf") or {})
-            if ek.get("terrace") or ek.get("balustrade") or ek.get("side_stoop"):
+            if ek and (every or ek.get("terrace") or ek.get("balustrade") or ek.get("side_stoop")):
                 a = k01_frontage.Assembly(st["id"], k01_frontage_params.from_phase(ph, st))
                 v = a.door_variant()
-                out.append((f"{st['id']}.{ph['id']}", v, K.Entrance(v, data).build()))
+                # T-3144: a house the kit cannot build under a broken kit is a finding, not a crash
+                # (1812's pierced cheek refuses a sweep too short for its openings)
+                try:
+                    o = K.Entrance(v, data).build()
+                except ValueError as e:
+                    o = e
+                out.append((f"{st['id']}.{ph['id']}", v, o))
     return out
 
 
@@ -329,9 +337,17 @@ def check(data, glb_check=True):
     fails = list(rule_data(data))
     mats = K.materials(data)
     for name, v, o in house_entrances(data):
+        if isinstance(o, Exception):
+            fails.append(f"{name} (its house's entrance): does not build ({o})")
+            continue
         rules = (rule_floor_and_grade(o, v, data) + rule_risers(o, v, data) + rule_closed(o, v, data)
                  + rule_walk(o, v, data) + rule_one_layer(o, v, mats) + W.rule_doubled(o, data))
         fails += [f"{name} (its house's entrance): {f}" for f in rules]
+    # T-3228: no house's door glass looks through to the sky. 1812's side light and the lights
+    # over its transom had no hall behind them, and the hollow house showed through them.
+    for name, v, o in house_entrances(data, every=True):
+        if not isinstance(o, Exception) and o.panes:   # one that does not build fails its own house
+            fails += [f"{name} (its house's entrance): {f}" for f in W.rule_enclosed(o, data)]
     mats = K.materials(data)
     for v in data["variants"]:
         try:
@@ -496,9 +512,11 @@ def main(argv) -> int:
     n = len(data["variants"])
     tris = [K.triangles(K.build_variant(v, data, board=False)) for v in data["variants"]]
     houses = house_entrances(data)
+    glazed = sum(not isinstance(o, Exception) and bool(o.panes) for _, _, o in house_entrances(data, every=True))
     print(f"ok   the K07 entrance kit: {n} variants, each landing on its threshold and standing on grade with equal "
           f"risers, every step closed, the walk clear, a recess with a closed reveal, its leaves clear of the floor; "
           f"{min(tris)}-{max(tris)} triangles an entrance; the specimen GLB is the generator's bytes; "
+          f"{glazed} house doors' glass each with its hall behind it; "
           f"{len(houses)} house entrance(s) with a terrace or balustrade held to the same rules"
           + "".join(f" ({nm}: {o.meta.get('balusters', 0)} balusters, "
                     f"{K.triangles(o)} triangles)" for nm, _, o in houses))

@@ -1,8 +1,8 @@
 {
   "ticket": "T-2228",
   "not_a_reading": "Re-review of existing cleared images and fixed-camera candidate renders; not new independent evidence.",
-  "master_sha256": "6b2cff4d0a7f41c0e5618d3df6790784126d1e7ea579312bf46a9ddd9af6391a",
-  "final_acceptance": false,
+  "master_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
+  "final_acceptance": true,
   "items": [
     {
       "id": "north-straight-ridge",
@@ -77,12 +77,13 @@
     },
     {
       "id": "terrace-post-join",
-      "status": "open",
+      "status": "ruled",
       "views": [
         "habs04-terrace-section"
       ],
       "finding": "The flat shelf is gone, but the coping still continues across the rounded post in projection. The measured section ends nearS45.35 while the circular model path reaches the plan-centred post nearS46.78. T-2759: the plan's wall stays on its circle into the post (inner 17.6, outer 18.7 ft), and the plan's post is larger and sits outward of the band (circle fit W33.81/S46.20, r0.93 ft), standing about 0.6 ft proud of the wall. Built that way, the post's shaft shows whole in the west view and the coping dies into its north side. What remains is a cross-sheet S offset: the section draws the junction at S45.35 with 1.22 ft of clear shaft, while the plan puts it near S46.5 with about 0.5 ft of clear shaft.",
-      "next": "Only a third measured source can move the junction along S (the sheets already disagree by 0.63 ft the other way at the stair tower). Photograph 5 is rights check_required, so it is a cross-check only. See docs/RESEARCH/glessner-terrace-terminal-T-2759/."
+      "ruling": "T-2879 ruled the plan against the section: sheet 2's printed court chain governs, sheet 4's court is shifted north, not rescaled, and re-zeroed (+0.65 ft) its post reads S46.0-47.3 against the plan-built S46.2-47.1. The post stays on the plan; habs04-terrace-section reads matches since T-2906.",
+      "basis": "attested"
     },
     {
       "id": "court-garden-light",
@@ -96,31 +97,39 @@
     },
     {
       "id": "tower-plan-section",
-      "status": "open",
+      "status": "ruled",
       "views": [
         "habs04-court-exterior"
       ],
       "finding": "Plan-centred stair tower remains offset from the section projection by about0.63ft; section radius also exceeds the retained plan radius.",
-      "next": "Compare independently rectified HABS2/4 lines and document which observation governs each axis; do not fit the camera to erase disagreement."
+      "ruling": "T-2879 and T-2925: the stair tower stays on the plan's drum (sheet 2's printed 10'-0\" mass), sheet 4 drawing it 11.09 ft across; its lights are placed by angle on the drum. habs04-court-exterior reads matches.",
+      "basis": "attested"
     },
     {
       "id": "north-correspondence",
-      "status": "open",
+      "status": "superseded",
       "views": [
         "habs-13-north-level",
         "habs-14-north-inclined"
       ],
       "finding": "Directly reviewed current HABS13 comparison exposes substantial frozen-pose/opening correspondence residuals. HABS14 retains finial/stack and material/lighting differences.",
-      "next": "Revalidate semantic survey/photo controls before attributing all pixel error to geometry. Frozen T2200 baseline and all80 original picks remain untouched."
+      "superseded_by": [
+        "north-gable-pairs",
+        "gable-light-transom-fan",
+        "eighteenth-stack-proportion"
+      ]
     },
     {
       "id": "prairie-correspondence",
-      "status": "open",
+      "status": "superseded",
       "views": [
         "taylor-2135-ne"
       ],
       "finding": "Street openings, entry, silhouette and stone course/lighting differences remain in the early photograph; this roof pass does not resolve them.",
-      "next": "Review visible original fabric against early photograph and cleared HABS detail views; separate later alterations and camera sensitivity."
+      "superseded_by": [
+        "prairie-pair-north-light",
+        "habs16-camera-scale"
+      ]
     },
     {
       "id": "west-court-access",
@@ -153,6 +162,117 @@
       ],
       "finding": "T-2848: each photographic camera now carries the light read off its own print instead of the review default: HABS 01 a low east-north-east sun (the 18th Street wall raked, the stable's west end in shade); HABS 14 and 15 a hazy sun behind the house to the south-south-west (north faces lit by the sky alone); HABS 13, 16, 17, the Cornell view and Taylor 2135 overcast (nothing in them casts a shadow), rendered with photo_match's new overcast sky. Each camera's solve.light says what it was read from.",
       "limit": "Sun azimuths are read from lit faces, shadows and flare, not solved from a dated exposure; elevations are not measured. The 1960s HABS prints show soot-darkened stone, which cannot stand for its 1887 tone (recorded as not shown)."
+    },
+    {
+      "id": "north-gable-pairs",
+      "status": "within tolerance",
+      "views": [
+        "habs-13-north-level"
+      ],
+      "basis": "inferred",
+      "finding": "HABS 13 reads each 18th Street gable pair's lights about equal (east wing about 3.1 ft each against the built 3.35/2.85; tower shoulder about 2.9-3.0 each against 2.65/3.1), the shoulder pair's jambs 15-27 px east of the render's. One print; HABS 14 is the second reading.",
+      "closed_by": "T-3140",
+      "ruling": "Both pairs are there, two lights each round a colonnette. The lights differ by 0.25-0.5 ft, under the 1 ft bar; the jambs' 0.7-1.3 ft rests on one camera that cannot part itself from the plan, which puts the outer jambs within 0.1-0.3 ft (T-3153; T-3142 withdrawn)."
+    },
+    {
+      "id": "gable-light-transom-fan",
+      "status": "fixed",
+      "views": [
+        "habs-14-north-inclined"
+      ],
+      "basis": "inferred",
+      "finding": "The 18th Street gable light's transom stands about 0.3-0.5 ft under the build's in HABS 14, and its fan shows fewer, broader stones than the 11 built (T-3127's handover). HABS 01 resolves neither.",
+      "closed_by": "T-3137",
+      "ruling": "The transom rebuilt 0.4 ft lower, read on HABS 14 and HABS 17, and the fan rebuilt with seven voussoirs keyed at the crown (#1305)."
+    },
+    {
+      "id": "eighteenth-stack-proportion",
+      "status": "within tolerance",
+      "views": [
+        "habs-17-habs-ne",
+        "habs-14-north-inclined",
+        "habs-01-northwest"
+      ],
+      "basis": "inferred",
+      "finding": "HABS 17 reads the 18th Street stack above the coping's junction at 1.15 of its seen width against the render's 0.95, through a camera about 8 px off the stack; HABS 14 and 01 put the junction at 42.5-43.0 ft ng against the built 43.3, inside T-3024's ruled spread.",
+      "closed_by": "T-3140",
+      "ruling": "A proportion read through a camera about 8 px off the stack; HABS 14 and 01 put the junction 0.3-0.8 ft under the built 43.3, inside T-3024's ruled spread (T-3153; T-3138 withdrawn)."
+    },
+    {
+      "id": "prairie-pair-north-light",
+      "status": "within tolerance",
+      "views": [
+        "habs-16-prairie-front",
+        "taylor-2135-ne"
+      ],
+      "basis": "attested",
+      "finding": "Both prints read the Prairie front's first-floor pair over the porte-cochere with its north light about 2.2-2.4 ft and its pier 1.1-1.25 ft, where the build has 2.7 and 0.8; the south light (2.3) agrees. Sheet 6 is the measured drawing to rule it on.",
+      "closed_by": "T-3140",
+      "ruling": "Attested by two prints, but 0.3-0.5 ft on the light and 0.3-0.45 ft on the pier, under the 1 ft bar; the pair, its two lights and its pier are as built (T-3153; T-3141 withdrawn)."
+    },
+    {
+      "id": "habs16-camera-scale",
+      "status": "within tolerance",
+      "views": [
+        "habs-16-prairie-front"
+      ],
+      "basis": "camera",
+      "finding": "Through HABS 16's camera the render's openings stand 7-20 px north of the print's, growing away from the south corner, while their spacing fits camera-free to 3.3 px (T-2857).",
+      "closed_by": "T-3140",
+      "ruling": "A camera's scale, not the building: the openings' spacing fits camera-free to 3.3 px (T-2857)."
+    },
+    {
+      "id": "stable-end-cameras",
+      "status": "fixed",
+      "views": [
+        "habs-01-northwest",
+        "habs-15-stable-detail",
+        "cornell-northwest-west-windows"
+      ],
+      "basis": "camera",
+      "finding": "HABS 01's camera is fitted at the Prairie corner and stands 17-35 px right and 30-40 px high at the stable's gable and cupola; HABS 15's roll and loft offset put the hoist about 15 px west. The Cornell camera is fitted at the stable and does not reach the range east of it (great arch about 40 px, stacks 40-60 px off), so the range is judged from the other views.",
+      "closed_by": "T-3147, T-3148",
+      "ruling": "HABS 15 refitted at the stable on sixteen measured controls at 3.3 px (T-3147); through it and HABS 01 the hoist's 4.0 ft cantilever stands, and the eave either side of the gable was rebuilt level (T-3148). What HABS 01's corner-fitted camera still reads at the coping apex (1.0-1.5 ft) rests on that one print's fits, inside the 1.5 ft the record gives it: within tolerance (T-3140)."
+    },
+    {
+      "id": "stable-pigeon-holes",
+      "status": "fixed",
+      "views": [
+        "cornell-northwest-west-windows",
+        "habs-01-northwest"
+      ],
+      "basis": "attested",
+      "finding": "Both northwest prints show the stable's north-gable pigeon holes round-headed and about a course tall, where the build has 0.45-0.65 ft slits; HABS 01 sets the ledge higher under the apex. The form is attested by two prints; the sizes are readings through hand-solved cameras.",
+      "closed_by": "T-3143",
+      "ruling": "Nine round-headed holes a course tall, the ledge raised 0.85 ft, read through HABS 15's stable-fitted camera and checked on HABS 01 and the Cornell print (#1312)."
+    },
+    {
+      "id": "great-arch-window",
+      "status": "fixed",
+      "closed_by": "T-3140",
+      "views": [
+        "cornell-northwest-west-windows",
+        "habs-01-northwest",
+        "habs-15-stable-detail"
+      ],
+      "basis": "attested",
+      "finding": "Found at the sign-off: the window over the great arch was built as three lights between two stone piers, where the c. 1887 Cornell print (unglazed), HABS 01 (1963) and HABS 15 (1965) each show one opening under one lintel with no pier in it.",
+      "ruling": "Rebuilt as one opening on its old span and heights; the sash is the kit's (L-glessner-great-arch-window-3140). docs/RESEARCH/glessner-signoff-T-3140/."
     }
-  ]
+  ],
+  "reviewed": "T-3140, 2026-10-25: every row re-read against the twelve match records of this master, each of which reads matches with nothing open (node tools/image_gate.mjs --structure glessner_house); see docs/RESEARCH/glessner-signoff-T-3140/. T-3136's reading before it: docs/RESEARCH/glessner-signoff-reading-T-3136/.",
+  "final_acceptance_by": "T-3140, 2026-10-25",
+  "basis_legend": {
+    "attested": "two independent pictures (or a measured drawing) show it",
+    "inferred": "one picture shows it, or the reading rests on a hand-solved camera",
+    "camera": "a camera's fit, not the building",
+    "scope": "every row; a fixed row's basis is the evidence it was fixed to, written in its own record entry"
+  },
+  "acceptance": {
+    "attested": "Two pictures, or a picture and a measured drawing, agree: the 18th Street and Prairie fronts' openings, stacks, gables and roofs (HABS 01, 13, 14, 16, 17, Taylor 2135 with sheets 2, 3, 5 and 6); the stable end, its doorway, hoist, eaves and pigeon holes (HABS 15, HABS 01, the Cornell print); the window over the great arch (three prints); the courtyard faces and the terrace (HABS sheet 4's section against HABS photograph 4 and the plans).",
+    "inferred": "Resting on one picture or a hand-solved camera, and said so in the record: the gable light's transom and fan (HABS 14, checked on HABS 17); the stable roof's courses (counted on two prints, heights through fitted cameras); every sash pattern, the roof's red tile and the stone's tone, which no monochrome print shows.",
+    "within_tolerance": "Under the 1 ft bar, or two camera fits apart (T-3153): the north gable pairs' light widths, the Prairie pair's north light and pier, the 18th Street stack's proportion, HABS 16's scale, and the stable apex through HABS 01's corner-fitted camera. Each is written in its record with what was read.",
+    "courtyard_and_rear": "Reviewed on this master: the courtyard's north, east and terrace faces against sheet 4 and HABS photograph 4 (the three HABS 04 records read matches), the west court door (west-court-access) and the east court's leaders (court-east-drainage). Sheet 4's ground datum (T-2978) is the one the section records are drawn on. Faces no picture shows stand on the plans (sheets 2-3) and sheet 4 at inferred, as their records say.",
+    "not_a_ticket": "Nothing is left open. A later reading of a difference goes into the view's match record and this register (rule 11), not into a ticket."
+  }
 }

@@ -1,0 +1,26 @@
+{
+  "id": "chicago_blue_book_1910",
+  "type": "book",
+  "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1910. Chicago: The Chicago Directory Company.",
+  "author": "The Chicago Directory Company",
+  "date": "1910",
+  "describes_date": "1910 (the edition 'for the year ending 1910', compiled the winter before)",
+  "repository": "Internet Archive",
+  "url": "https://archive.org/details/chicagobluebooko1910chic",
+  "locator": "The classified business list, 'Livery and Boarding Stables': 'WEST GEO. G. LIVERY CO. 2123, 2125, 2127, and 2129 Indiana av. tels. Calumet-405 and 406'. For 216 E. 20th (T-3154): 'Kidde Regnar. 216 E. 20th.' and 'Willing E. A. Miss, 216 E 2oth', the first households the series seats there; Kavanagh Marcus Judge at the Congress hotel.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1910; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read for T-3013 on 2026-10-23 from the item's OCR text (chicagobluebooko1910chic_djvu.txt), found by the Internet Archive's full-text search; the OCR is clean in these lines.",
+  "note": "The same four numbers under a new keeper, still a horse livery, on a telephone line numbered 405 as Bane Brothers' was in 1904 (South-405 then, Calumet-405 now); that it is the same line is a reading of the number, not a record of the exchange.",
+  "what_it_supplies": [
+    "that 2123-2129 Indiana Avenue were still one livery in 1910, under George G. West",
+    "the first Blue Book households at 216 East 20th Street, in 1910"
+  ],
+  "what_it_does_not_supply": [
+    "the building's form, storeys, material or outline",
+    "a construction or demolition date"
+  ]
+}

@@ -18,7 +18,7 @@
    141.0,
    14.6
   ],
-  "cupola_apex_ft": 47.0
+  "cupola_apex_ft": 48.2
  },
  "picks": {
   "habs01_doorway": [
@@ -633,7 +633,7 @@
     ],
     "basis_right_up_forward": [
      [
-      -0.776767,
+      -0.776766,
       -0.629789,
       0.0
      ],
@@ -644,7 +644,7 @@
      ],
      [
       0.629789,
-      -0.776767,
+      -0.776766,
       0.0
      ]
     ],
@@ -935,7 +935,7 @@
    ]
   },
   "cupola_apex_ft_at_model_centre": {
-   "model": 47.0,
+   "model": 48.2,
    "habs01_committed": 45.07,
    "habs01_doorway_fits": [
     45.51,

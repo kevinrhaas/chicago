@@ -1,0 +1,99 @@
+{
+ "method": "published /1904/ at 1280x800 Full with this change; at each stand the same frame rendered with the Glessner view filter off (setGlessnerOcclusion(false)) and on, both read back whole with gl.readPixels and compared channel by channel; controlOffOff renders the filter-off frame twice. node tools/qa_t3012_triangles.mjs with QA_PIXELS=1 (QA_CONTROL=1). glessner-* stands are offsets in metres from Glessner footprint centre.",
+ "stands": [
+  {
+   "name": "calumet-east-walk",
+   "trianglesFilterOff": 4739066,
+   "trianglesFilterOn": 2921468,
+   "pixelsDiffering": 0,
+   "maxChannelDifference": 0,
+   "piecesTested": 6024,
+   "piecesCulled": 4105
+  },
+  {
+   "name": "east-down-18th",
+   "trianglesFilterOff": 1985588,
+   "trianglesFilterOn": 1824887,
+   "pixelsDiffering": 0,
+   "maxChannelDifference": 0,
+   "piecesTested": 2088,
+   "piecesCulled": 1318
+  },
+  {
+   "name": "glessner-prairie-ne",
+   "trianglesFilterOff": 4114784,
+   "trianglesFilterOn": 4049638,
+   "pixelsDiffering": 0,
+   "maxChannelDifference": 0,
+   "piecesTested": 3824,
+   "piecesCulled": 422
+  },
+  {
+   "name": "between-prairie-east-houses",
+   "trianglesFilterOff": 1045605,
+   "trianglesFilterOn": 1037355,
+   "pixelsDiffering": 0,
+   "maxChannelDifference": 0,
+   "piecesTested": 410,
+   "piecesCulled": 68
+  },
+  {
+   "name": "air",
+   "trianglesFilterOff": 3727650,
+   "trianglesFilterOn": 3727638,
+   "pixelsDiffering": 0,
+   "maxChannelDifference": 0,
+   "piecesTested": 4295,
+   "piecesCulled": 1
+  },
+  {
+   "name": "glessner-18th-nw",
+   "trianglesFilterOff": 4720756,
+   "trianglesFilterOn": 4593424,
+   "pixelsDiffering": 3,
+   "maxChannelDifference": 6,
+   "differingAt": [
+    [
+     996,
+     358,
+     6
+    ],
+    [
+     1017,
+     241,
+     6
+    ],
+    [
+     1037,
+     231,
+     6
+    ]
+   ],
+   "piecesTested": 4913,
+   "piecesCulled": 1055,
+   "controlOffOff": {
+    "pixelsDiffering": 0,
+    "maxChannelDifference": 0,
+    "differingAt": []
+   }
+  },
+  {
+   "name": "glessner-prairie-se",
+   "trianglesFilterOff": 4751044,
+   "trianglesFilterOn": 4675021,
+   "pixelsDiffering": 0,
+   "maxChannelDifference": 0,
+   "piecesTested": 3830,
+   "piecesCulled": 419
+  },
+  {
+   "name": "glessner-elevated-ne",
+   "trianglesFilterOff": 4373017,
+   "trianglesFilterOn": 4358785,
+   "pixelsDiffering": 0,
+   "maxChannelDifference": 0,
+   "piecesTested": 4087,
+   "piecesCulled": 149
+  }
+ ]
+}

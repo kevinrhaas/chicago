@@ -87,3 +87,88 @@ Three generator rules widened (additive, each inert for a record that does not n
 place of the band and key (`k01_frontage.hole` cuts the segmental curve; `k09_frontage.head` lays
 the hood); K07's veranda may stand `open_under` (`k07_entrances._terrace` and `_veranda`); and
 `entrance_kit.balustrade.fabric` may be `painted_timber`, which K01 paints with the walls.
+
+## T-2962 / T-2994 — the 18th Street wall's three bays and the mansard's date
+
+T-2962 (piece 3 of T-2935) was split: T-2994 builds the flank's bays and argues the mansard's date;
+T-2995 has the roof behind the curb, the rear behind the brick bay and the coach house.
+
+**The sheet, re-read off the raster** (sheet 20 at x 2650-3180, y 5895-6070). The 18th Street wall
+carries three projections, every one drawn **canted** (its face shorter than its foot), about 0.85 m
+out, read from the trace's outline in the record's frame:
+
+| | colour | at the wall (u, m) | face (u, m) | built |
+|---|---|---|---|---|
+| rear | yellow, frame | 3.37 - 6.01 | 3.94 - 5.36 | K08 canted bay, frame, one storey to 5.75 m |
+| middle | pink, brick | 9.42 - 12.75 | 9.93 - 12.21 | K08 canted bay, brick, two storeys to a flat top at 9.25 m |
+| front | yellow, frame | 15.97 - 19.17 | 16.48 - 18.51 | K08 canted bay, frame, one storey to 5.75 m |
+
+The trace's role rule called the front one a frame porch (part p4: frame and under 15 m2 on a
+masonry house). The sheet draws it in solid lines, closed and canted exactly as the rear one is,
+where it draws the veranda in a porch's dashes, so it is built as a frame bay. Neither yellow bay has
+a storey figure, so each is one storey (1730's yellow bay, T-2934). The brick bay rises under the
+roof: the mansard's dashed curb turns down into its rear cheek. K01 cannot carry the mansard's face
+out over a bay, so the bay stands to a flat top 0.65 m under the eave.
+
+**The curb.** The dashed line runs about 1.2 m inside the street front and about 1.0 m inside the
+18th Street wall, from the front back only as far as the brick bay (u about 9.9). None is drawn along
+the north wall or over the rear 9.9 m. The sheet prints `12 12 8` against the north wall (u about
+14-17) and `14 12 12` against the south (u about 13-15), wall thicknesses in inches by storey; whether
+they start at the basement is not settled, so whether the north side and the rear stand as a straight
+brick third storey is left to T-2995. Today K05 builds the mansard on all four walls.
+
+**The mansard's date.** The Glessner House Museum's post on early Prairie Avenue
+(`glessner_blog_2020_07_early_history_prairie_iv`, read 2026-10-22) has the house 'completed in
+1864' for Granville S. Ingraham. Its author judges the mansard 'may well have been a later addition'
+to an Italianate house of the Civil War years. That is a judgement made from the photographs, not a
+record, and nothing read here dates the mansard. The Keith house at 1900 Prairie had its mansard
+added in the 1880s (`glessner_blog_2014_11_elbridge_keith_house`). The 1904 scene does not depend
+on the answer: the c. 1890 photograph (earliest 1885) shows the mansard and the 1911 sheet draws its
+curb, so it stood through 1904.
+
+**From 18th Street.** `south-flank-t2994.jpg` is the committed GLB rendered from a camera in 18th
+Street (u 12, v -24, eye 1.6 m, looking north). It is a review render, not a reference view: no
+picture of this wall is known.
+
+## T-2995 — the roof behind the curb, the rear, and the coach house
+
+Piece 2 of T-2962. Both readings are off sheet 20 and its key
+(`chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_key.jpg`).
+
+**The ruling.** The key draws a *mansard roof* as a dashed line inside a building's outline, and
+*'Figures 20, 16, 12, 8 indicate thickness of wall in inches'*, one figure a storey. On 1736 the dashed
+line runs inside the street front and inside the 18th Street wall back to the brick bay (u about 9.9),
+and nowhere else. The north wall's `12 12 8` and the south wall's `14 12 12` are three figures each,
+the three storeys of the sheet's `3B` over the basement. So the north wall is brick through the third
+storey (8 inches at the top). The rear, which the curb line leaves out as it leaves out the north, is
+ruled the same (inferred: no figures stand on it). The mansard stands on the street front and on the
+18th Street wall forward of the brick bay. The north side, the rear and the 18th Street wall behind
+the bay rise as a straight brick third storey, the service side.
+
+**Built.** K01 learns `mansard.straight` (`generators/archetypes/k01_mansard_straight.py`): the
+straight walls are carried up from the eave as coped brick parapets 0.45 m over the curb, and the
+eave box and the lower faces are cut away outside their planes. Where a mansard face runs on past a
+straight wall (the street front's at the north wall, the south face at u 9.9) its section is closed in
+the wall's brick. The bracketed cornice and the gutter stop at the same ends, the gutter with stop
+ends, and the downpipes move from the rear corners (which no longer carry a gutter) to the 18th Street
+wall at u 13.3 and 22.9. The south face's second dormer (u 8.0) goes with the mansard behind the bay.
+No picture sees the straight walls, so their third storey is built blank
+(L-k01-1736-roof-rear-2995). The change is inert for every record that does not name it: the other 24
+K01 assets, both K12 coach houses, the K13 conservatory and the five K16 fronts rebuilt byte-identical.
+
+- `roof-rear-t2995.jpg`: from 18th Street (south-west), the committed GLB
+- `rear-north-t2995.jpg`: from over the alley (north-west), the rear and north walls under their parapets
+
+**The coach house.** `house_1736_prairie_coach_house` moves from the district draft onto the K12 kit
+(L-k12-1736-coach-house-2995), the second K12 coach house after 1812's. Read off the raster by median
+darkness profiles: the alley wall at column 2227, the east wall at 2528.5, the north wall at row 5910.5,
+the south wall on the 18th Street line at row 6063, so 15.31 m deep by 7.74 m along the alley at the
+sheet's 0.050779 m a pixel. It is `2` storeys, brick, with `12 8` on its north wall, and the key's
+window symbol (strokes across the wall, a dot for each storey) stands on the alley wall about 3.3 m from
+the north end. 1730's alley building stands on its north line from the alley to about 7.6 m back; the
+house's rear wall is 7.31 m east. GARAGE is a 1911 use, so it is built as the house's stable and coach
+house, as 1812's is. It has a party wall at the north end, the kit's open gable on 18th Street, and a
+window pair where the sheet's mark stands, with the carriage bay toward the street. The draft rules skip
+census row `s20-1736-r1`.
+
+- `coach-house-t2995.jpg`: the K12 GLB from 18th Street (the gable), from the alley, and from the yard

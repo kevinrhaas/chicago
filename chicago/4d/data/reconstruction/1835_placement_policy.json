@@ -1092,8 +1092,8 @@
         "evidence_records": 5,
         "standing_with_a_street": 4,
         "by_street_class": {
-          "principal": 1,
-          "ordinary": 2,
+          "principal": 2,
+          "ordinary": 1,
           "light": 1
         },
         "fronting_no_street": 0,
@@ -1307,7 +1307,7 @@
         "fronting_no_street": 0,
         "on_the_street_line": 7,
         "setback_m_min": -1.75,
-        "setback_m_max": 39.76
+        "setback_m_max": 42.15
       }
     },
     {
@@ -1389,7 +1389,7 @@
         "fronting_no_street": 1,
         "on_the_street_line": 6,
         "setback_m_min": -8.4,
-        "setback_m_max": 317.96
+        "setback_m_max": 319.7
       }
     },
     {
@@ -1635,9 +1635,9 @@
       "family": "I3",
       "street": null,
       "class": null,
-      "setback_m": 317.96,
+      "setback_m": 319.7,
       "measured": [
-        "fronts no street (its nearest corridor is 317.96 m away, beyond the frontage reach), and institutions_stand_where_named seats it by a `street_line` setback, which is measured from one"
+        "fronts no street (its nearest corridor is 319.70 m away, beyond the frontage reach), and institutions_stand_where_named seats it by a `street_line` setback, which is measured from one"
       ],
       "reason": "at the river mouth on the federal reserve — a lighthouse is seated by the harbour and not by a street."
     },
@@ -1712,9 +1712,9 @@
       "family": "C4",
       "street": "market_north",
       "class": "light",
-      "setback_m": 60.66,
+      "setback_m": 54.66,
       "measured": [
-        "stands 60.66 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands 54.66 m off the street line (2.71 m), and commercial_front puts it on the line",
         "stands on a light street, which commercial_front avoids"
       ],
       "reason": "on the north bank, at the forks. It is nearest Market Street's north-bank corridor at 60.66 m since T-1191 and was nearest South Water's line at 138 m across the river before it; neither is a face this house takes."
@@ -1791,9 +1791,9 @@
       "family": "T1",
       "street": "lake",
       "class": "principal",
-      "setback_m": 39.76,
+      "setback_m": 42.15,
       "measured": [
-        "stands 39.76 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line"
+        "stands 42.15 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line"
       ],
       "reason": "at the forks, 40 m off Lake's line: the tavern fronts the ferry and the two branches, which is precisely why it stands there."
     },

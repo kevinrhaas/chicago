@@ -106,6 +106,8 @@ def verdicts(name, a):
     for o in [*a.p.openings, *[x for w in a.p.rear_wings for x in w["openings"]]]:
         if o.wall in ("k01.wall.street_front", "k01.wall.dormer_face") or o.wall in timber:
             continue   # the front keeps its own K09 heads; a dormer's face is the roof's; timber is cased
+        if o.component in P.ROUND_CUT:
+            continue   # T-3133: a round head is K06's arch band, or plain as its picture draws it (T-2884)
         O, R = frames[o.wall]
         s0 = o.s_m - o.width_m / 2 - 0.12   # the arch's springing, seated 0.12 m into the wall
         want = (O[0] + R[0] * s0, o.head_m, O[2] + R[2] * s0)
@@ -154,7 +156,10 @@ def as_was(recs):
         if phase["form"]["construction"]["value"] == "stone":
             continue
         a = build(st, phase)
-        stone = [cid for cid in walls_of(a) if cid != "k01.wall.street_front"
+        # T-3006: a rounded corner is the street front's own stone turning the corner, not a flank;
+        # T-3112: nor is a pier at the front's end, laid apart from it in the same stone
+        stone = [cid for cid in walls_of(a) if cid not in ("k01.wall.street_front", "k01.wall.round_corner",
+                                                          "k01.wall.front_pier")
                  and a.components[cid]["instances"][0]["params"].get("fabric")]
         out.append((not stone, f"{sid} as-was", f"stone-coursed side walls: {stone or 'none'}"))
     return out

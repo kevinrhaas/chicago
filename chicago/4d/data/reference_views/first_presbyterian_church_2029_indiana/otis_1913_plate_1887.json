@@ -1,0 +1,26 @@
+{
+ "structure_id": "first_presbyterian_church_2029_indiana",
+ "source_id": "otis_1913_first_presbyterian_21st_indiana_1887",
+ "photo": "../../sources/assets/first_presbyterian_2029_otis_t3066/otis_1913_plate_1887.jpg",
+ "image_px": [
+  1050,
+  1546
+ ],
+ "principal_px": [
+  890,
+  1450
+ ],
+ "focal_px": 2431,
+ "eye": [
+  173.7,
+  42.1,
+  1.5
+ ],
+ "yaw_deg": -90.0,
+ "sun_uvy": [
+  0.8,
+  -0.25,
+  0.55
+ ],
+ "solve": "Fitted by T-3066 to the Otis 1913 plate captioned '(1887)' (the committed 1050 x 1546 px copy), in the record's frame: u from the body's rear toward Indiana Avenue (west), the west front at u 43.70; v from the body's north face southward, its south face at v 23.11 and the tower block's south face at v 27.89 (the record's v_toward: south). A view camera's photograph: the tower's and the front's verticals stand vertical (the tower face's centre moves 6 px in 800 px of height), so the camera is level. 21st Street's kerbs and roadway converge at (890, 1450) px; that is the east direction's vanishing point, so the horizon is y 1450 and, the west front's string courses running level across the tower (within 3 px over 130 px), the front is square to the view: yaw -90 (looking east, down 21st Street), principal point (890, 1450), far right of the plate's centre and low (a shifted and raised front, or a crop of a larger negative). Scale on the front: the body's north-west corner (v 0, the narrow low bay's outer edge) at x 103 px and the tower's south-west angle buttress (v 28.2 on the trace) at x 630 px give 18.7 px/m; the gable's apex then falls at v 12.6 and its north foot at v 2.0 (x 140), so the gable spans v 2.0 to the body's south face, and the tower's north edge (v 20.1 on the trace's jog) at x 479 against the photograph's 467 (its angle buttress). The camera's offset follows: x 103 at v 0 puts the eye at v 42.1, in 21st Street's south half (its north line is at v 28.0, the street 66 ft wide). Distance is the weakest number. A square-on front fixes only f over distance (18.7 px/m); depth comes from things behind the front. The spire's axis (x 545-555 px over y 100-700) stands within about 5-13 px of the tower face's centre (x 537-540 at the gablet apex), where a camera nearer than about 100 m would carry the spire, 3.8 m behind the front, at least 13 px toward x 890; and the vacant lot's fence along 21st Street's north line, which ends at Indiana Avenue's west line about 23 m in front of the church, has its foot at y 1495-1500 there, which wants about 60 m. The eye is set at 130 m (u 173.7, about Michigan Avenue's east walk), f = 2431 px; at 60 m the render's tower shaft would move about 25 px right of the photograph's and the spire about 30 px, so read depth-dependent differences against that. Height: grade at the tower's foot reads y 1478 px (the walk at its plinth), 28 px under the horizon, so the eye stands 1.5 m over the church's grade, the fence's top on the horizon. Heights read through the camera, at the front's 18.7 px/m and the spire's 18.2: the gable's north foot (kneeler) 14.9 m, against the sheet's printed 48 ft (14.63 m) to the eaves; the gable's coping apex y 900, 30.9 m, and the cross over it to 33.0 m; the tower's first stage to its string course y 1278, 10.7 m; the second stage, its two-light window 12.2-20.2 m, to the belfry stage at y 1003, 25.4 m; the louvred belfry opening 27.7-36.8 m; the brick to the gablets' springing y 740, 39.5 m, the gablets' apexes y 668, 43.3 m; the spire's foot among the pinnacles about y 700, 42.7 m, its band of lucarnes y 380-420, 58-60 m, and its finial top y 85, 76.5 m. Light: the tower's west face and the front are lit and the tower's south face and its buttresses' south sides are in shade, with a buttress's shadow falling down and to the right across the tower's first stage, so the sun stood in the west, a little north, and fairly high (sun_uvy)."
+}

@@ -1,0 +1,37 @@
+{
+  "structure_id": "dearborn_street_drawbridge",
+  "view": "andreas-provisional-official",
+  "glb": "assets/gltf/dearborn_street_drawbridge__draw_1834.glb",
+  "glb_sha256": "bb8e6ee23dc53e6ccfba2d6adbded8952f382b0a369ebf121875fe3cf5b9bfbf",
+  "camera_sha256": "0d49131d03fac607f30d7be7be37280e69a59687bbd5dec5713f3c9eba92177a",
+  "photo_sha256": "e050ec582de1c82416a77ac9958fdc7ac174946037ac7c7816f93367f182aa8b",
+  "side_by_side": "docs/RESEARCH/photo-match/dearborn_street_drawbridge/T3126-board-parapets/andreas-provisional-official-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The deck/parapets remain flat; the engraving rises prominently towards the closed draw centre. No curved-deck or profile consumer is adopted.",
+      "status": "open"
+    },
+    {
+      "what": "Gallows proportions/bracing, chain paths and closed-leaf machinery do not match the pictured forms; mechanism attribution remains uncertain.",
+      "status": "open"
+    },
+    {
+      "what": "Crib/support set-out and approach/trestle geometry still differ. The neutral review does not render the plate's boats, masts, beacon, bank buildings or shoreline.",
+      "status": "open"
+    },
+    {
+      "what": "Horizontal-board infill is now present, but the reconstructed courses, joints/cap/post sections and tonal finish remain uncalibrated to the engraving.",
+      "status": "open"
+    },
+    {
+      "what": "The provisional camera reaches a principal-point bound; the upright-fit framing is not an accepted perspective or metric measurement.",
+      "status": "open"
+    },
+    {
+      "what": "The monochrome print does not attest material colour.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

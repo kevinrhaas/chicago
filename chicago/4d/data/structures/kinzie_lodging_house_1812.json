@@ -1,0 +1,209 @@
+{
+  "id": "kinzie_lodging_house_1812",
+  "name": "The lodging house for Kinzie's Frenchmen",
+  "aka": [
+    "the 'lodging-house for the Frenchmen' of Wau-Bun's list of the Kinzie establishment (1831)",
+    "the whitewashed house with a door and a window behind the stable in Eastman's view of 1820"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "kinzie_1804",
+      "documented_range": {
+        "from": "1804-10-01",
+        "to": "1833-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856",
+          "currey_1912_story_of_old_fort_dearborn",
+          "eastman_schoolcraft_chicago_1820_engraving"
+        ],
+        "note": "THE KINZIE YEARS, AS THE HOUSE'S OWN RANGE, AND BOTH ENDS INFERRED FOR THIS BUILDING. No source dates this building. Wau-Bun ch. XVII names the establishment's buildings as Juliette Kinzie found them in 1831 (dairy, bake-house, lodging-house for the Frenchmen, stables), and Eastman's 1820 view draws draws this one; neither is a sighting of 1812. It is taken to stand from the Kinzies' purchase in the fall of 1804 (kinzie_house_1812's opening, Currey ch. II) through the 1812 scene dates (1 and 14 August) to the end of 1833 with the house it served: Currey says the house 'escaped the general destruction at the time of the massacre', nothing read says the yard behind it burned, and the family was away from 1812 to 1816, so the 1820 and 1831 pictures show a yard that was either standing in 1812 or rebuilt on its ground after the return; this record takes the first. It closes with the house (data/exclusions.json kinzie_house: derelict from 1832, gone by 1835), so it stands in no 1835 view. L420."
+      },
+      "position": {
+        "utm_e": 448241.053,
+        "utm_n": 4637754.46,
+        "rotation_deg": 88.0,
+        "symbolic_location": "Behind the Kinzie house to the north-east, between the house's east cottonwood and the stable, centred on local E +1171.0, N +354.5, its long front facing east (88 degrees). This record's origin is the footprint's (0, 0) corner, at local E +1168.353, N +358.660.",
+        "confidence": "reconstructed",
+        "sources": [
+          "eastman_schoolcraft_chicago_1820_engraving"
+        ],
+        "note": "PLACED ON EASTMAN'S LINE OF SIGHT, NOT MEASURED. Eastman's view of 1820 draws a low whitewashed house with a door and a window just right of the stable and behind it, its long front to the eye a little turned, so that the far gable's rake shows at the right, its left end hidden by the stable's roof: so it stands on a line a little north of the stable's and further off. No other picture sees it: from across the river the house and its east cottonwood stand in front of it. The distance along the line is this record's (docs/LIBERTIES.md L420).",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No plat, survey or measured drawing records the Kinzie yard; it is placed on one picture's line of sight, which the position note gives."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            8.5,
+            0
+          ],
+          [
+            8.5,
+            5.0
+          ],
+          [
+            0,
+            5.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "8.5 x 5.0 m (28 x 16 ft): a one-room log house long enough for the door and window Eastman draws on its front and the part the stable hides. No source measures it."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "Eastman draws one low storey."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Eastman draws the walls smooth and white, which hides what is under them; log, like every other building of the yard and the house it served."
+        },
+        "log_finish": {
+          "value": "whitewash",
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "Eastman draws the walls white against the stable's dark courses, in 1820, eight years after the scene; the one picture of it is the reading this record takes."
+        },
+        "wall_height_m": {
+          "value": 2.3,
+          "confidence": "reconstructed",
+          "note": "Unattested: about seven and a half feet of log to the plate."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "Eastman draws a ridge along the front; its far end is hipped (hip_end)."
+        },
+        "hip_end": {
+          "value": "min",
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "THE FAR END HIPPED, AS EASTMAN DRAWS IT (T-2485; owner's ruling 2026-10-22). The plate stops the ridge over the front's right-hand corner and draws the end's roof falling from there to the back eave corner, a hip plane, not a gable's rake. How far in the hip stands is fitted to the plate (hip_inset_m). The near (left) end is hidden by the stable's roof, so it keeps the archetype's gable. One small figure in one engraving is the whole of the evidence."
+        },
+        "hip_inset_m": {
+          "value": 0.9,
+          "confidence": "reconstructed",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "FITTED TO THE PLATE, NOT MEASURED. On this record's camera a gable (no hip) puts the ridge's end at x 1570, a hip at the slopes' own 40 degrees (2.5 m in from the wall, the default) at 1548, and the plate draws it at 1561 (+/-2 px), straight over the front's right-hand corner. 0.9 m in reproduces it: ridge end 1561, the end plane's outer edge running to the back eave corner at 1578 against the plate's 1575. That hip is steeper than the slopes, about 64 degrees, which is the plate's figure and may be the engraver's."
+        },
+        "roof_pitch_deg": {
+          "value": 40.0,
+          "confidence": "reconstructed",
+          "note": "Read off Eastman through the re-fitted camera: the ridge stands about 19 px over the 19 px wall, which at this record's 5 m depth is about 40 degrees. The plate is small; no figure is given."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "Eastman draws one stack on its ridge; a house men sleep in keeps a fire."
+        },
+        "chimney_ridge_at": {
+          "value": [
+            0.55
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "Fraction of the ridge from its -x end, which is the right-hand end as Eastman sees the front: his stack stands a little left of the middle of the roof he shows."
+        },
+        "front_set_out": {
+          "value": [
+            [
+              "door",
+              1.45
+            ],
+            [
+              "window",
+              4.05
+            ]
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "Eastman draws a door near the right-hand end of the front and one window left of it (x 1547-1551 and 1525-1530 px on a front whose right end is at 1561 px); the front's (0, 0) end is the right-hand one from outside. Placed at his spacing, scaled by the wall's drawn height."
+        },
+        "window_w_m": {
+          "value": 0.7,
+          "confidence": "reconstructed",
+          "note": "Eastman's window is a little wider than the door (6 px to 5 px)."
+        },
+        "window_h_m": {
+          "value": 1.4,
+          "confidence": "reconstructed",
+          "note": "Eastman's window hangs from the door's head line and is about four fifths of its height (12 px to 15 px on a 19 px wall)."
+        },
+        "front_shutters": {
+          "value": false,
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "Eastman draws the window bare in the white wall."
+        }
+      },
+      "change_note": "Built T-2485 (2026-10-21): the lodging house of the Kinzie establishment."
+    }
+  ],
+  "function": {
+    "value": "lodging_house",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "eastman_schoolcraft_chicago_1820_engraving"
+    ],
+    "note": "Wau-Bun ch. XVII, describing 1831: 'A fine, well-cultivated garden extended to the north of the dwelling, and surrounding it were various buildings appertaining to the establishment—dairy, bake-house, lodging-house for the Frenchmen, and stables.' WHICH PICTURED BUILDING IS THE LODGING HOUSE IS OURS: of the two Eastman draws beside the house, this is the one with a dwelling's door, window and stack. L420."
+  },
+  "occupants": {
+    "value": "Kinzie's hired Frenchmen, the engages of his trade, whose names no source read gives",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Wau-Bun's 'lodging-house for the Frenchmen'. Nobody is drawn (L1)."
+  },
+  "land_owner": {
+    "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+    "confidence": "inferred",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 49 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the north fraction of section 10",
+    "entries": [
+      "ls0058",
+      "ls0059"
+    ],
+    "date_purchased": "1831-05-07",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 48.9,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  },
+  "research_note": "THE LODGING HOUSE FOR THE FRENCHMEN (T-2485). Wau-Bun names it among the buildings of the Kinzie establishment in 1831; the house had room besides for 'quite a number of servants and helpers' (Currey ch. II, from Mrs. Helm's daughter). The bill of sale of 1800, as T-2484 reported it, lists no lodging house; this one is the Kinzies', and standing in 1812 is inferred, not dated. Matched to Eastman's view of 1820 in data/reference_views/kinzie_lodging_house_1812/eastman_1820.json. Nobody is drawn in or near it (L1).",
+  "review_required": false
+}

@@ -1,0 +1,99 @@
+{
+  "method": "Actual published /1904/ app at 390x780, `light`; animation paused after readiness; each stand renders the same held frame with the far rails as shipped and as dev drew them (shown wherever the zone's near section is not), and once with no rails at all as the control; triangles from renderer.info and every pixel with gl.readPixels in the same task. Software GL on this machine.",
+  "result": {
+    "viewport": {
+      "width": 390,
+      "height": 780
+    },
+    "detail": "light",
+    "boot": {
+      "scene": "1904",
+      "detail": "light",
+      "ceiling": 1270000
+    },
+    "errors": [],
+    "bad": [],
+    "stands": [
+      {
+        "name": "air",
+        "railsInView": false,
+        "dev": {
+          "triangles": 1314358,
+          "drawCalls": 2950,
+          "farRailZonesDrawn": 57
+        },
+        "shipped": {
+          "triangles": 1252942,
+          "drawCalls": 2925,
+          "withinBudget": true,
+          "farRailZonesDrawn": 0
+        },
+        "pixels": 304200,
+        "pixelsDiffering": 122,
+        "maxChannelDelta": 29,
+        "controlPixelsDifferingWithNoRails": 122,
+        "problems": 0
+      },
+      {
+        "name": "yard-looking-north",
+        "railsInView": true,
+        "dev": {
+          "triangles": 1274635,
+          "drawCalls": 2903,
+          "farRailZonesDrawn": 55
+        },
+        "shipped": {
+          "triangles": 1209703,
+          "drawCalls": 2877,
+          "withinBudget": true,
+          "farRailZonesDrawn": 3
+        },
+        "pixels": 304200,
+        "pixelsDiffering": 130,
+        "maxChannelDelta": 29,
+        "controlPixelsDifferingWithNoRails": 19633,
+        "problems": 0
+      },
+      {
+        "name": "yard-looking-south",
+        "railsInView": true,
+        "dev": {
+          "triangles": 884064,
+          "drawCalls": 2480,
+          "farRailZonesDrawn": 55
+        },
+        "shipped": {
+          "triangles": 810540,
+          "drawCalls": 2456,
+          "withinBudget": true,
+          "farRailZonesDrawn": 3
+        },
+        "pixels": 304200,
+        "pixelsDiffering": 68,
+        "maxChannelDelta": 29,
+        "controlPixelsDifferingWithNoRails": 18409,
+        "problems": 0
+      },
+      {
+        "name": "prairie-east-to-yard",
+        "railsInView": false,
+        "dev": {
+          "triangles": 259362,
+          "drawCalls": 773,
+          "farRailZonesDrawn": 57
+        },
+        "shipped": {
+          "triangles": 259362,
+          "drawCalls": 773,
+          "withinBudget": true,
+          "farRailZonesDrawn": 4
+        },
+        "pixels": 304200,
+        "pixelsDiffering": 0,
+        "maxChannelDelta": 0,
+        "controlPixelsDifferingWithNoRails": 0,
+        "problems": 0
+      }
+    ]
+  }
+}

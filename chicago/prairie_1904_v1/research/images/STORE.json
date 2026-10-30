@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 159606282,
+ "bytes": 162132529,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -1100,6 +1100,30 @@
   "a18-gh-shipman-1828-with-automobile.jpg": {
    "bytes": 65613,
    "sha256": "7fc488986ba392bab28bbd5a42a7d3837f56797d55060a4fd1a49fb33b83b259"
+  },
+  "a18-ghm-blog-capital-1-2013-thumb.jpg": {
+   "bytes": 35272,
+   "sha256": "486fa686b6f08ef85b53b6fc2b8d4e8de4111d6a5fbdb9f8504db025742453e1"
+  },
+  "a18-ghm-blog-capital-1-2013.jpg": {
+   "bytes": 88530,
+   "sha256": "d4f7978eab16ddf25da250d7214391e58e2ba35fbe51cc233705b0022c7236a1"
+  },
+  "a18-ghm-blog-capital-2-2013-thumb.jpg": {
+   "bytes": 38535,
+   "sha256": "500bf35c89d2163b71bdf49da24c591c43f07b062f1c112931e977880761cb0f"
+  },
+  "a18-ghm-blog-capital-2-2013.jpg": {
+   "bytes": 99860,
+   "sha256": "b22d1cd27589408afc4501c67977160658d56a8e3073077c1689ddeb1b028aa4"
+  },
+  "a18-ghm-blog-capital-hhr-2013-thumb.jpg": {
+   "bytes": 31410,
+   "sha256": "217ede6c292e7f06fbdbda82bf83d5a0e9128023865ed080109c7fe74c1537bc"
+  },
+  "a18-ghm-blog-capital-hhr-2013.jpg": {
+   "bytes": 112899,
+   "sha256": "8d5507d6add4bdd53f539035adc8a78c4035e0e3e8cdb1141c3039f8c13aa2bf"
   },
   "a18-gho-house-under-construction-1887-thumb.jpg": {
    "bytes": 18404,
@@ -4756,6 +4780,54 @@
   "dw-rb-sketch-club-second-presbyterian-shaw-interior.jpg": {
    "bytes": 175446,
    "sha256": "ffb8718a0ce6ec0f45a1799f9878c0d15a6b4ad9fc0af83cd2704b403b788729"
+  },
+  "early-andreas-1884-sauganash-thumb.jpg": {
+   "bytes": 24718,
+   "sha256": "a89d5d2ca906024c87e94ce04311541447891e06da35fac8576f8baae189bd8a"
+  },
+  "early-andreas-1884-sauganash.jpg": {
+   "bytes": 398547,
+   "sha256": "8ae046d8405a13616fc82316b6afa4e3dfaa67560f8e997e0e2de18922b25808"
+  },
+  "early-blanchard-shober-1867-wolf-point-thumb.jpg": {
+   "bytes": 16471,
+   "sha256": "d8fbf745318f7f2ede8428c90f7a453d5f606c7badbf9b8cda7a271612808be2"
+  },
+  "early-blanchard-shober-1867-wolf-point.jpg": {
+   "bytes": 384631,
+   "sha256": "976241fee67dba2606704a3d66cdbaac0a5dba6dcd6037e04f8e868e454ce25c"
+  },
+  "early-cameron-first-post-office-1833-thumb.jpg": {
+   "bytes": 23767,
+   "sha256": "b906d69e6c647b6b24412b7e23a4e199fe70210629ce28860a5252cdd733414a"
+  },
+  "early-cameron-first-post-office-1833.jpg": {
+   "bytes": 352506,
+   "sha256": "930a6249b928700422249dd831eb4ec1028c94a7549d37e5ad4eaf14a8ff9387"
+  },
+  "early-castelnau-1842-chicago-harbor-thumb.jpg": {
+   "bytes": 20576,
+   "sha256": "37373debd17b6ba48d02dead0fb4699c90cdb696ce5e75ab2515d3c825f49e7c"
+  },
+  "early-castelnau-1842-chicago-harbor.jpg": {
+   "bytes": 59854,
+   "sha256": "eee65adf2a3902a6bae159fddab38292d49017e847ddf9d8df3a048d41d18f12"
+  },
+  "early-gifford-first-tremont-thumb.jpg": {
+   "bytes": 16397,
+   "sha256": "c61276a331c7a2e9e1812127548910b5b77a71c4be71146ad0753b7778eac16a"
+  },
+  "early-gifford-first-tremont.jpg": {
+   "bytes": 229586,
+   "sha256": "ee935a51c5cd7cfa4a07c7bf9451d79e4efffc10e0f36bdab9614ea3ce75a3ed"
+  },
+  "early-moss-1884-st-marys-thumb.jpg": {
+   "bytes": 22068,
+   "sha256": "87c44065a3250f88008a4621e2cda22d896d2e6a81672b4242895cfeba539b67"
+  },
+  "early-moss-1884-st-marys.jpg": {
+   "bytes": 570620,
+   "sha256": "f8e09b8e14f3d0ae56ae7664233b631b142f92009d09f0e0f2c6c11e88730571"
   },
   "np-1630-school-directory-1905-06-louisa-brust-thumb.jpg": {
    "bytes": 26992,

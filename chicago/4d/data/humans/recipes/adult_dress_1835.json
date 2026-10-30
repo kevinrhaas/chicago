@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "Existing male-named Bronze atlas is a provisional cleared source experiment only; female skin appearance, atlas fit and photographic qualification remain open."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Existing cleared short04 component is only a provisional source experiment on this adult female body; no1835female hair style, personal appearance or photographic qualification is asserted.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Opt-in reconstructed adult dress components on the shared portable rig",
+  "scene_date": "1835-07-01",
+  "grade": "reconstructed",
+  "sources": [
+    "wild_1835_third_vine"
+  ],
+  "basis": "Original reusable bodice, gathered skirt, separate apron and source-fitted closed shoes. Cuts, seam construction, proportions, colours and outfit choice are conjectural. Complete source anatomy remains unchanged beneath clothing. No accepted photographic or historical personal likeness.",
+  "source_scope": "Actually viewed held John Caspar Wild1835 Cincinnati painting supplies only tiny full-skirt/bodice/head-covering silhouette analogues. Exact completion before1July is unknown; Cincinnati does not attest Chicago presence, personal wardrobe, material, seams or measurements. No source image pixels or traced garment shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__plain_dress": [
+      0.095,
+      0.12,
+      0.15,
+      1.0
+    ],
+    "garment_lower__plain_dress": [
+      0.095,
+      0.12,
+      0.15,
+      1.0
+    ],
+    "garment_outer__plain_apron": [
+      0.46,
+      0.42,
+      0.34,
+      1.0
+    ],
+    "footwear__plain_low_shoes": [
+      0.045,
+      0.031,
+      0.022,
+      1.0
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "flynn_mary_1835_dress_study",
+      "component_assembly": "adult_dress_v1",
+      "person_reference_id": "rc_flynn_mary",
+      "person_reference_scene": "1835",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/residents/households/hh_rc_flynn_mary.json",
+      "reference_summary": {
+        "name": "Mary Flynn",
+        "age_band": "20-29",
+        "occupation": "domestic",
+        "division": "south",
+        "presence": "present"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "Reconstructed authoring choice; not a recorded resident height",
+        "engineering_age_years": 25,
+        "age_basis": "Chosen inside existing reconstructed20\u201329 band; no asserted birth year",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical target body and generic cleared skin are reconstructed authoring choices. Existing Mary Flynn identity remains reconstructed; no portrait, actual personal outfit, ancestry, biological age or historical exact height is asserted.",
+      "recipe_path": "data/humans/recipes/adult_dress_1835.json"
+    }
+  ],
+  "dress_components": {
+    "version": 1,
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+    "standing_source_only": true,
+    "production_eligible": false,
+    "walking_seated_or_photo_accepted": false,
+    "generator": "tools/human_dress_components.py"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "ticket": "T-3084",
+  "source_id": "studebaker_1893_illustrated_souvenir",
+  "reference_scan_leaf": "0095",
+  "reference_sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe",
+  "source_kind": "1893 colour lithograph; one oblique design view",
+  "current_near_source_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+  "current_mid_source_sha256": "560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d",
+  "verdict": "differs",
+  "differences": [
+    {
+      "id": "body-front-wrap",
+      "status": "improved_actual_native_review",
+      "what": "Final source-bound native quarter/front/detail views show a closed curved lower front replacing the angular partial closure. This visible improvement does not establish full photographic completion."
+    },
+    {
+      "id": "body-shade-banding",
+      "status": "improved_residual_open",
+      "what": "Shadow-off diagnostic leaves broad bands, so disabling shadows is not the remedy. Actual1410vertex readback found up to4.209degree normal error; analytical front-only normals reduce it below0.000532degree with every481POSITION stream and every other NORMAL/material/node exact. Current206 same-close image improves highlight flow; faint broad shade variation remains, so no whole photographic cure is claimed."
+    },
+    {
+      "id": "lacquer-black-finish",
+      "status": "improved_actual_native_review",
+      "what": "Final native views read darker green/black, with physical clearcoat reflections under identical neutral studio panels. Catalogue pixels are not measured PBR; final world light review remains pending."
+    },
+    {
+      "id": "cabin-glass",
+      "status": "improved_actual_native_review",
+      "what": "Final real GLTFLoader physical transmission glass has restrained studio reflection and visible empty interior. It is not a proof of matching the occupied catalogue or production shader/phone qualification."
+    },
+    {
+      "id": "empty-upholstery",
+      "status": "reconstructed",
+      "what": "Dark rounded empty pads and seam piping replace box pads/orange study leather; actual catalogue occupants hide upholstery."
+    },
+    {
+      "id": "rear-quarter-identity",
+      "status": "unresolved_source",
+      "what": "Dark recessed source area is retained without identifying glass, curtain, lining or exact hidden depth."
+    },
+    {
+      "id": "matched-catalogue-camera",
+      "status": "provisional_actual_native_review",
+      "what": "Actual native orthographic projection matches the two declared informal wheel centres within0.005px; radius residuals+2.24/-3.75px remain. This two-control hypothesis is nonunique; wheel ellipses and every coach contour are not thereby calibrated or matched."
+    },
+    {
+      "id": "front-rear-hidden-details",
+      "status": "reconstructed",
+      "what": "Native front/rear studies examine original construction; one oblique source cannot attest hidden elevations or joinery."
+    },
+    {
+      "id": "occupied-versus-static-pose",
+      "status": "not_claimed",
+      "what": "Source shows occupied team-drawn carriage; master remains empty, closed, static and parked-down with original contacts. It is not occupied or hitch/traffic qualification."
+    },
+    {
+      "id": "published-phone-budget",
+      "status": "pending_T3085",
+      "what": "Portable LOD, physical-interface, published phone/desktop and whole-scene budget qualification follow accepted exact master;8materials is not a render-pass count."
+    },
+    {
+      "id": "catalogue-versus-empty-master",
+      "status": "open_source_comparison",
+      "what": "Fixed source-quarter pair is personally viewed. Source wheel ellipses, roof/window/body contours and fine finish still differ; occupants/working pole are deliberately absent. Body refinement is visible, but the specimen is not yet fully photographic."
+    }
+  ],
+  "photographic_accepted": false,
+  "world_budget_accepted": false,
+  "phone_desktop_published_accepted": false,
+  "previous_angle_weighted_near_source_sha256": "fbe0f9b3d60c69ff85678b877a7d5c5e86fea05262d5fe13cfe246687e6b2d45",
+  "previous_native_study_binding": "FINAL-NATIVE-STUDY-BINDING.json",
+  "previous_C1_near_source_sha256": "50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635",
+  "current_native_close_binding": "ANALYTICAL-FRONT-NORMAL-FIX.json",
+  "previous_C1_native_study": "C1-NATIVE-STUDY-BINDING.json"
+}

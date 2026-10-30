@@ -1,0 +1,212 @@
+{
+ "ticket": "T-3102",
+ "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+ "glb_sha256": "6651e4d5b3c4a60f90b437416c72a9072a3d277786e3fe4f74146c00b6b54cac",
+ "how": "read_slope.py (T-3080) unchanged; roll foot and eave as read_rebuild.py (T-3096). Positive: the print's stands higher.",
+ "cameras": {
+  "roof_pitched": {
+   "controls_rms_px": 3.65,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    0.21,
+    0.35,
+    0.44
+   ],
+   "print_eave_over_model_eave_m": [
+    0.03,
+    0.01,
+    0.08
+   ]
+  },
+  "roof_level": {
+   "controls_rms_px": 4.76,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    -0.25,
+    -0.13,
+    -0.05
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.22,
+    -0.25,
+    -0.19
+   ]
+  },
+  "tilt_0deg": {
+   "controls_rms_px": 4.76,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    -0.25,
+    -0.13,
+    -0.05
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.22,
+    -0.25,
+    -0.19
+   ]
+  },
+  "tilt_1deg": {
+   "controls_rms_px": 4.46,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    -0.19,
+    -0.06,
+    0.01
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.23,
+    -0.26,
+    -0.2
+   ]
+  },
+  "tilt_2deg": {
+   "controls_rms_px": 4.18,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    -0.12,
+    0.01,
+    0.08
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.22,
+    -0.25,
+    -0.19
+   ]
+  },
+  "tilt_3deg": {
+   "controls_rms_px": 3.94,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    -0.06,
+    0.07,
+    0.15
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.21,
+    -0.24,
+    -0.18
+   ]
+  },
+  "tilt_4deg": {
+   "controls_rms_px": 3.74,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    0.01,
+    0.14,
+    0.22
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.19,
+    -0.22,
+    -0.16
+   ]
+  },
+  "tilt_5deg": {
+   "controls_rms_px": 3.61,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    0.07,
+    0.2,
+    0.28
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.16,
+    -0.19,
+    -0.13
+   ]
+  },
+  "tilt_6deg": {
+   "controls_rms_px": 3.55,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    0.12,
+    0.26,
+    0.34
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.13,
+    -0.15,
+    -0.09
+   ]
+  },
+  "tilt_7deg": {
+   "controls_rms_px": 3.56,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    0.17,
+    0.31,
+    0.39
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.08,
+    -0.11,
+    -0.05
+   ]
+  },
+  "tilt_8deg": {
+   "controls_rms_px": 3.64,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    0.21,
+    0.35,
+    0.44
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.03,
+    -0.05,
+    0.01
+   ]
+  },
+  "tilt_9deg": {
+   "controls_rms_px": 3.77,
+   "print_courses": [
+    41.7,
+    43.9
+   ],
+   "print_over_model_roll_foot_m": [
+    0.24,
+    0.38,
+    0.47
+   ],
+   "print_eave_over_model_eave_m": [
+    0.02,
+    0.0,
+    0.07
+   ]
+  }
+ }
+}

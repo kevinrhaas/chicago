@@ -1,0 +1,198 @@
+{
+  "id": "livery_2129_indiana",
+  "name": "2129 S. Indiana Avenue — Bane Brothers' livery stable at 2129-2131 (district draft; refined by T-1946)",
+  "aka": [
+    "2129 S. Indiana Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "stable_and_wagon_yard",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1911"
+    ],
+    "note": "The 1911 sheet reads '3-storey brick building lettered GARAGE, auto repairing on the second floor, wood-working and painting on the third, an office on the first, two rows of iron columns each floor'. In 1904 this was Bane Brothers' livery and boarding stables, which the Blue Book for that year advertises at 2125, 2127 and 2129 Indiana Avenue; the same address was a horse livery until 1910 and the West Motor Livery Co.'s garage by 1911, so the sheet's garage is read as the livery's stable kept in use (T-3013). Carried to 1904 on the T-3009 census ruling (present_as_mapped)."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-3009, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35w trace (s35wfp-indiana_2129-b1), the T-3009 census (s35w-2129-front) and the T-1837 register row frontage-35w-2129–2131; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3009).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-3009 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
+      },
+      "position": {
+        "utm_e": 448398.869,
+        "utm_n": 4633692.773,
+        "rotation_deg": 179.121,
+        "symbolic_location": "2129 S. Indiana Avenue, parcel indiana_2129 (data/street_grid/1904.json), east side of Indiana Avenue, the background behind Prairie Avenue: Indiana Avenue's east frontage, 20th to 22nd Street, and East Twenty-first Street's lots behind its 2101-2105 corner (Sanborn 1911 vol. 3 sheet 35).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 9.500, v -7.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.121 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            34.75,
+            0.0
+          ],
+          [
+            34.75,
+            12.75
+          ],
+          [
+            0.0,
+            12.75
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 3,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The census reading '3-storey brick building lettered GARAGE, auto repairing on the second floor, wood-working and painting on the third, an office on the first, two rows of iron columns each floor': 3 storeys."
+        },
+        "construction": {
+          "value": "brick",
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The trace's fabric colour on the main part: brick."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 3,
+                "roof": "gable",
+                "rect": [
+                  0.0,
+                  0.0,
+                  34.75,
+                  12.75
+                ],
+                "from": "s35wfp-indiana_2129-b1 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 78% of its fill"
+              },
+              {
+                "id": "r2",
+                "role": "wing",
+                "storeys": 3,
+                "roof": "gable",
+                "rect": [
+                  34.75,
+                  3.75,
+                  43.25,
+                  14.0
+                ],
+                "from": "s35wfp-indiana_2129-b1 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 78% of its fill"
+              },
+              {
+                "id": "r3",
+                "role": "wing",
+                "storeys": 3,
+                "roof": "gable",
+                "rect": [
+                  -6.25,
+                  -0.5,
+                  0.0,
+                  7.0
+                ],
+                "from": "s35wfp-indiana_2129-b1 outline (main, brick), rectangle 3 of that part; the part's rectangles cover 78% of its fill"
+              }
+            ],
+            "lot_v": [
+              -0.825,
+              14.825
+            ],
+            "street_u": 45.622
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35wfp-indiana_2129-b1 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 78% of its fill; s35wfp-indiana_2129-b1 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 78% of its fill; s35wfp-indiana_2129-b1 outline (main, brick), rectangle 3 of that part; the part's rectangles cover 78% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "service",
+            "seed": 2594005858,
+            "principal_floor_m": 0.0,
+            "storey_heights_m": [
+              3.4,
+              2.8,
+              2.6
+            ],
+            "roof_pitch_deg": 40,
+            "mansard_lower_m": 3.0,
+            "front_bays": 5,
+            "entrance": "north",
+            "side_spacing_m": 2.6,
+            "chimneys": 0,
+            "brackets": false,
+            "attic_dormers": false,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-3009",
+              "refined_by": [
+                "T-1946"
+              ]
+            },
+            "v_toward": "south"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: Bane Brothers' livery and boarding stables, 2125 to 2129 Indiana Avenue in the 1904 Blue Book (T-3013), which the 1911 sheet draws as a three-storey brick GARAGE from Indiana Avenue to the alley, the West Motor Livery Co.'s by then: drafted as one service building at the trace's outline under a gable, its height the service rules', like the livery's 2123-2125 half beside it. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2594005858 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3009."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-3009",
+            "liberty": "L-draft-district-background-3009",
+            "register_row": "frontage-35w-2129–2131",
+            "census_ids": [
+              "s35w-2129-front"
+            ],
+            "trace_building": "s35wfp-indiana_2129-b1",
+            "seed": 2594005858,
+            "replaceable_by": [
+              "T-1946"
+            ],
+            "card": "District draft — refined by T-1946."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

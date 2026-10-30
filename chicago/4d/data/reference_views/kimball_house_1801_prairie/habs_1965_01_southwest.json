@@ -1,0 +1,44 @@
+{
+  "structure_id": "kimball_house_1801_prairie",
+  "source_id": "habs_kimball_photo_01_sw_1965",
+  "library_image": "a18-kimball-habs-photo-01",
+  "photo": "../../../../prairie_1904_v1/research/public/kimball-habs-photo-01.jpg",
+  "image_px": [
+    1800,
+    1363
+  ],
+  "principal_px": [
+    1056.6,
+    696.1
+  ],
+  "focal_px": 1778.0,
+  "eye": [
+    41.67,
+    29.0,
+    7.33
+  ],
+  "yaw_deg": 241.44,
+  "basis_right_up_forward": [
+    [
+      -0.478089,
+      0.878161,
+      -0.016231
+    ],
+    [
+      -0.007761,
+      0.014255,
+      0.999868
+    ],
+    [
+      -0.878277,
+      -0.478152,
+      0.0
+    ]
+  ],
+  "sun_uvy": [
+    0.55,
+    0.55,
+    1.0
+  ],
+  "solve": "Fitted by T-3107 to Harold Allen's HABS photograph 1 of June 1965 (the LOC master TIFF reduced to 1800 x 1363 px; the copy reads true: the NO PARKING sign on the court fence is not mirrored). In the footprint frame u runs toward Prairie Avenue (west) and v runs SOUTH from the 18th Street wall. A view camera: its verticals are parallel, so it is not pitched, but the whole plate is turned about 0.9 degrees (the stacks' edges and the pavilion's pilasters all lean the same way, dx/dy 0.014-0.018 across the frame), so it is rolled -0.93 degrees. It looks down on the court fence, the lawn behind it and the roofs of the rear range and of the low building at the left edge, so the eye is raised well above the street. BEARINGS (x, y on the 1800 px copy) against the build's own points: the loggia's front arch's crown (u 20.5, v 1.6, about 3.9 m) at x 395, y 935; the pavilion's north pilaster's outer edge (u 20.68, v 6.85, T-3060's bearing on the Taylor print) at x 465; the front's south-west corner where the round bay meets the south wall (u 20.0, v 11.3, the 1911 sheet's corner) at x 750; the main block's south-east corner (u 0, v 11), where the recessed range begins, at x 1222 and its cornice at y 655; the gable's apex at x 543, y 168, and the pavilion's second-storey sill and head at y 812 and 685. The gable's apex and the pavilion's face could not both sit where the build stands them: the print's gabled face spans x 465-620 with its apex on its axis, and a round two-storey bay fills x 620-750 between it and the south wall, where the build's pavilion runs on flat to v 11 (T-3108). The camera was solved with the pavilion's face free to stand proud (it fitted about 2.1 m, which no other reading supports and which is not built): RESULT the eye about 24 m west of the front and 21 m south of the south wall, over the west side of Prairie Avenue, about 7.7 m above the lot's grade; yaw 239.0 (looking north-east), f 1778 px (about 54 degrees across the plate), the principal point at x 1057, y 696 (a small lateral shift; the horizon at about y 700). RESIDUALS (render minus print), read off the side-by-side: the loggia arch, the first south window column (x 850-905) and the south-east corner within about 10 px; the south wall's second-storey window at x 1060-1125 within 10 px; but the south cornice renders about 85 px under the print's at the round bay (the print's at about y 548 at x 750) and about 10 px at the south-east corner, so the print's cornice slopes more steeply than the render's: either the eye is lower and nearer than solved, or the corner's cornice stands higher than the build's, and the front that would decide it is the one T-3108 rebuilds. Re-solve this camera then. LIGHT: a June afternoon sun from the south-west; the south wall and the gabled face are lit, the bay's canted east side and the recessed range are in shade, and the stacks throw their shadows north-east across the slate. RE-SOLVED by T-3108 on the rebuilt front (the face narrowed to v 6.85-9.7 and the round bay on the chamfer behind it): focal length, principal point and roll held as above, the eye and heading least-squares fitted to the pavilion's north and south edges (x 465 and 618 at u 20.68, v 6.85 and 9.7), its second- and third-storey pairs' sills and heads on their axis (x 543; y 812, 680, 575 and 455 against 5.6, 7.8, 9.6 and 11.45 m), the round bay's junction with the south wall (x 757), its second-storey light's head and sill (686, 667 and 807 against 7.55 and 5.4 m) and the main block's south-east cornice (1222, 655). RESULT the eye at u 41.67, v 29.0, 7.33 m up, yaw 241.44; rms 11.8 px, the pavilion's rows within 13 px, its north edge 15 px south of the print's, the round's rows about 20 px under the print's and the south-east cornice 23 px over. The loggia arch was left out: no eye fits it with the rest (it renders about 117 px north of the print's through this camera), so the front's layout north of the pavilion and this picture disagree, an open difference in the match record. Freeing the focal length and principal point drives them to unphysical values (f about 900-1030 px, the principal point at the frame's edge) for a few pixels' gain, so they stay held."
+}

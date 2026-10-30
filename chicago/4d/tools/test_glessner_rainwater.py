@@ -39,14 +39,24 @@ for reduced in (False,True):
     net=layout(p,reduced)
     leaders={r['name']:r for r in net['leaders']}
     branches={r['name']:r for r in net['branches']}
-    assert len(leaders)==12 and len(net['gutters'])==12
+    # T-2928: a gutter that runs on into the bow's trough has no leader of its own.
+    fed=len(cfg.get('court_east_into_bow',()))
+    assert len(leaders)==12-fed and len(net['gutters'])==12
     assert leaders['prairie-north']['head']==leaders['prairie-south']['head']=='panel'
     assert leaders['north-tower']['head']=='bowl' and leaders['north-service']['head']=='plain'
     assert leaders['alley-north']['normal']==(0,1,0),'Alley corner leader belongs on the north face'
     for row in net['leaders']+net['branches']:
         assert all(a[2]>=c[2] for a,c in zip(row['path'],row['path'][1:])),(row['name'],'uphill drainage')
     for row in net['gutters']:
-        assert row['drains'] or row.get('branch'),(row['name'],'no outlet')
+        assert row['drains'] or row.get('branch') or row.get('feeds'),(row['name'],'no outlet')
+        if row.get('feeds'):
+            # It ends against the trough it feeds, level with that trough's floor: no gutter here is
+            # modelled with a fall, and sheet 4 draws both feet at about 27.0 ft.
+            target=next(r for r in net['gutters'] if r['name']==row['feeds'])
+            tip=row['edge'][-1]
+            reach=min(math.dist(tip[:2],q[:2]) for q in target['edge'])
+            floor=min(q[2] for q in target['edge'])-target.get('section',{}).get('depth_m',cfg['gutter_depth_m'])
+            assert reach<.10 and abs(tip[2]-cfg['gutter_depth_m']-floor)<.03,(row['name'],'does not reach its trough',reach)
         destinations=[leaders[k]['inlet'] for k in row['drains']]
         if row.get('branch'):
             q=branches[row['branch']]['path'][0]
@@ -65,6 +75,15 @@ for reduced in (False,True):
             assert min(distance_to_segment(q,a,c) for a,c in zip(target['path'],target['path'][1:]))<.001
     # T-2861: a trough with its own section (the bow's, off sheet 4) keeps its own floor.
     trough={k:r.get('section',{}) for r in net['gutters'] for k in r['drains']}
+    if cfg.get('bow_leader'):
+        # T-2939: sheet 4 draws the court-bow leader side-on: its back on the north range's court
+        # face, 0.10 m deep, under a head hung from the trough's floor, and neither in the bow.
+        row=leaders['court-bow'];h=row['hopper'];north=next(r for r in p.ranges if r['name']=='north_range')['y0']
+        bow=next(t for t in p.bows if t['name']=='hall_bow')
+        assert row['normal']==(0,-1,0) and abs(row['mount'][1]+row['depth_m']/2-north)<.005
+        assert abs(h['centre'][2]-row['mouth'])<1e-9 and h['neck']==row['depth_m']
+        for y in (north-h['depth'],row['mount'][1]-row['depth_m']/2):
+            assert h['centre'][0]+h['width']/2<bow['cx']-math.sqrt(bow['r']**2-(y-bow['cy'])**2),'court-bow head in the bow'
     for row in leaders.values():
         assert row['spout'][0][2]>row['spout'][1][2]
         floor=row['inlet'][2]-trough.get(row['name'],{}).get('depth_m',cfg['gutter_depth_m'])-.012
@@ -109,4 +128,4 @@ for reduced in (False,True):
     assert floors
     assert not any(contains(f,1,-.045) for f in floors),'Sealed gutter floor above outlet'
     assert any(contains(f,.5,-.045) for f in floors),'Missing gutter floor away from outlet'
-    print(f'PASS {"Light" if reduced else "Full"}: 12 collectors, 12 leaders, 2 descending connections; openings clear; open gutter stock ({sum(len(f)-2 for f,_ in emitted.faces)} nominal triangles)')
+    print(f'PASS {"Light" if reduced else "Full"}: 12 collectors, {len(leaders)} leaders, 2 descending connections; openings clear; open gutter stock ({sum(len(f)-2 for f,_ in emitted.faces)} nominal triangles)')

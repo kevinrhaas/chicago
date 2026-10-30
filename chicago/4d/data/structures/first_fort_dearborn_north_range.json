@@ -17,7 +17,8 @@
           "quaife_1913",
           "andreas_1884_v1"
         ],
-        "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
+        "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together.",
+        "to_is": "ended"
       },
       "position": {
         "utm_e": 448232.26,
@@ -118,10 +119,108 @@
         "chimneys": {
           "value": 1,
           "confidence": "inferred",
-          "note": "The north range's folded elevation draws one chimney above its roof, and one is built; that the drawing shows every stack is not something a folded elevation promises.",
           "sources": [
             "whistler_1808_fort_dearborn_draught"
-          ]
+          ],
+          "note": "The source’s identified 1808 folded front visibly shows 1 clear stack(s), checked in the actual drawing. Use that visible count for this first-fort occurrence with inferred continuity to 1812. No hidden or ambiguous stack is added. Exact position, height, section, brick treatment and survival unchanged to the scene date are not attested; the existing procedural set-out remains reconstructed."
+        },
+        "gallery_storeys": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "currey_1912_first_fort_birdseye"
+          ],
+          "note": "T-3041 upper gallery refinement. Whistler’s 1808 index attests two-storey barracks with 'Galliaries fronting the parade', without counting gallery levels. Currey’s 1912 retrospective bird’s-eye shows a covered upper walk with a vertical-pale railing over an open lower gallery on the visible courtyard ranges. Two levels are inferred for this member of the same garrison ranges, not claimed as a separately identified contemporary elevation of this individual facade. Gallery reach, post and floor sections, railing height and spacing, and roof fall are reconstructed; the 1808 folded elevations are not used as height scales. No surveyed placement or range footprint changes. Follow-up support placement: where explicit front rectangles exist, retain the old support count/rhythm but project a colliding post centre to the nearest solid pier clearing both storeys' rectangles and the existing casing/sill-horn envelope. This algorithm/placement and all sections remain reconstructed. Rail density/height and remaining occlusion are unresolved; no upper entrance or accessible gallery interior is asserted."
+        },
+        "face_openings": {
+          "value": [
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 0.9252,
+              "u1": 1.6452,
+              "z0": 0.1,
+              "z1": 2.05
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 2.286,
+              "u1": 3.006,
+              "z0": 0.65,
+              "z1": 2.05
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 5.0832,
+              "u1": 5.8032,
+              "z0": 0.65,
+              "z1": 2.05
+            },
+            {
+              "face": "front",
+              "kind": "door",
+              "u0": 6.444,
+              "u1": 7.164,
+              "z0": 0.02,
+              "z1": 2.05
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 0.9252,
+              "u1": 1.6452,
+              "z0": 2.6,
+              "z1": 4.55
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 2.286,
+              "u1": 3.006,
+              "z0": 3.15,
+              "z1": 4.55
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 5.0832,
+              "u1": 5.8032,
+              "z0": 3.15,
+              "z1": 4.55
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 6.444,
+              "u1": 7.164,
+              "z0": 2.6,
+              "z1": 4.55
+            },
+            {
+              "face": "back",
+              "kind": "window",
+              "u0": 3.4499999999999997,
+              "u1": 4.109999999999999,
+              "z0": 0.75,
+              "z1": 1.8
+            },
+            {
+              "face": "back",
+              "kind": "window",
+              "u0": 3.4499999999999997,
+              "u1": 4.109999999999999,
+              "z0": 3.25,
+              "z1": 4.3
+            }
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "Whistler’s actual 1808 upright folded front reads T/S/S/T in SCREEN order on both storeys (T extends lower, S is shorter). Source-relative horizontal fractions [0.1, 0.28, 0.65, 0.83] record a qualitative rhythm, not surveyed bay coordinates. Source count/relative silhouette is inferred; all metre set-out remains reconstructed: width 0.72 m, common 2.05 m head per existing storey, short sill 0.65 m and long-window sill 0.10 m. The single modelled lower door is the leftmost source-long bay in the upright crop, at reconstructed 0.02 m sill; this does not establish an actual door identity or entrance count. Upper long rectangles remain reconstructed glazed windows, not attested gallery doors. Existing rear rectangles retained. Long/short distinctions are weaker in the southern drawings; ignore lettering and ink noise. No plan, wall/storey height, position, bearing, roof, camera or date changes; 1808-to-1812 continuity remains inferred. Actual reviewed comparisons still differ."
         }
       }
     }

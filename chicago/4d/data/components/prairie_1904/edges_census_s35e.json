@@ -1,0 +1,277 @@
+{
+  "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 35 for the background behind Prairie Avenue: Calumet Avenue's west frontage, 20th to 22nd Street (T-3018, piece 1 of T-3010, piece 3 of T-2983), which tools/census_prairie_1904_background.py ranks behind Calumet 18th-20th among the Calumet faces (21st-22nd: 6 of 6 lots seen, 2140 from 20 stands; 20th-21st: 4 of 6). The T-1842 census (chicago/prairie_1904_v1/data/sheet_census/sheet-35.json) counts Prairie frontages only, so these ten rows are read here, in the same frontage contract, for tools/trace_prairie_1904_footprints.py (sheet '35e') and tools/draft_prairie_1904.py. 2008 and 2018 Calumet are not here: they are the named Hanford and Wheeler-Kohn houses, edges_census_s35.json's (T-2982). 2016 is read and drafted though no Prairie stand sees it, so the frontage stands whole.",
+  "ticket": "T-3018",
+  "sheet": "35e",
+  "target_date": "1904-07-01",
+  "source": {
+    "source_id": "sanborn_1911_chicago_v3_sheet_35",
+    "file": "chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_35.jpg",
+    "observation_year": 1911
+  },
+  "reading": {
+    "by": "Read by eye from the committed sheet 35 scan (1602 x 2000 px) at 3x over the Calumet lots and 8x over 2032's storey figure, 2026-10-22.",
+    "conventions": "Sanborn colour: pink brick, blue stone, yellow frame. A crossed square marks a stable. D = dwelling. Storey figures as printed (B = basement, S.B. as printed).",
+    "limits": "A 1911 label is a 1911 observation (study ruling 11): the six alley buildings lettered GARAGE, VACANT or REPAIRING & GARAGE are backcast as stables. 2128's diagonal wash is read as the sheet draws it (stone and brick), not as a material split on the plan. No dimension is claimed beyond the trace."
+  },
+  "frontages": [
+    {
+      "frontage_id": "frontage-35e-2000",
+      "printed_number_1911": "2000",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2000"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2000-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) on the 20th Street corner with a canted bay on its Calumet front, a one-storey frame porch at its north-east corner, a 3B rear part behind a dashed line and a one-storey frame strip along the rear part's north side"
+        },
+        {
+          "id": "s35e-2000-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered VACANT, dashed inside",
+          "note_1904": "A 1911 'vacant' building is a 1911 state; the alley building of a corner house, backcast as the lot's stable."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2004",
+      "printed_number_1911": "2004",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2004"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2004-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) faced in stone (blue) along its Calumet front, with a canted bay there, long on its lot, a projection on its south side"
+        },
+        {
+          "id": "s35e-2004-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered GARAGE, a small frame box drawn inside it",
+          "note_1904": "A 1911 garage label is a 1911 use (study ruling 11): backcast as the lot's stable."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2016",
+      "printed_number_1911": "2016",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2016"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2016-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) faced in stone (blue) along its Calumet front, with a canted bay there, and a 2B rear part"
+        },
+        {
+          "id": "s35e-2016-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley, the width of the lot"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2032",
+      "printed_number_1911": "2032",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2032"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2032-front",
+          "kind": "front",
+          "reading_1911": "3S.B. brick dwelling (D) on the 21st Street corner, a dashed inner line round its front block, a 3B rear part and a 2B piece on the north side, one-storey frame porches on the front, the north and the south, and a small frame box lettered on its roof"
+        },
+        {
+          "id": "s35e-2032-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered GARAGE with a canted east side, a one-storey frame piece at its north end",
+          "note_1904": "A 1911 garage label is a 1911 use (study ruling 11): backcast as the lot's stable."
+        },
+        {
+          "id": "s35e-2032-shed",
+          "kind": "detached_service",
+          "reading_1911": "one-storey frame building standing apart in the yard north of the house, its outline dashed"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2100",
+      "printed_number_1911": "2100",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2100"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2100-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) on the 21st Street corner, a one-storey frame porch along its north side and its Calumet front, a 2B south piece with a rounded east end, a 1B piece behind it and a one-storey frame piece at its west end"
+        },
+        {
+          "id": "s35e-2100-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley lettered GARAGE",
+          "note_1904": "A 1911 garage label is a 1911 use (study ruling 11): backcast as the lot's stable."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2106",
+      "printed_number_1911": "2106",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2106"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2106-front",
+          "kind": "front",
+          "reading_1911": "2B brick dwelling (D) with a rounded bay on its Calumet front, a 3B rear part, a 2B piece forward on its south side with one-storey frame porches beside it and a frame porch at the rear"
+        },
+        {
+          "id": "s35e-2106-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+          "note_1904": "A 1911 garage label is a 1911 use (study ruling 11): backcast as the lot's stable."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2114",
+      "printed_number_1911": "2114",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2114"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2114-front",
+          "kind": "front",
+          "reading_1911": "2½B brick dwelling (D), a 2B rear part with a one-storey frame piece at its west end, a one-storey frame porch along its Calumet front and round its south side with a canted bay"
+        },
+        {
+          "id": "s35e-2114-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+          "note_1904": "A 1911 garage label is a 1911 use (study ruling 11): backcast as the lot's stable."
+        },
+        {
+          "id": "s35e-2114-rear2",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley south of the garage, unlettered"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2124",
+      "printed_number_1911": "2124",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2124"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2124-front",
+          "kind": "front",
+          "reading_1911": "2½B brick dwelling (D) with a canted bay faced in stone (blue) on its Calumet front and a 3B rear part with a cut corner; nothing drawn on the alley"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2128",
+      "printed_number_1911": "2128",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2128"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2128-front",
+          "kind": "front",
+          "reading_1911": "2B dwelling (D) washed half stone (blue) and half brick (pink) across a diagonal, a dashed porch on its Calumet front, a canted projection and a one-storey frame piece on its south side"
+        },
+        {
+          "id": "s35e-2128-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered GARAGE, a stone (blue) strip along its east face",
+          "note_1904": "A 1911 garage label is a 1911 use (study ruling 11): backcast as the lot's stable."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35e-2140",
+      "printed_number_1911": "2140",
+      "side": "west",
+      "parcel_ids": [
+        "calumet_2140"
+      ],
+      "polygons": [
+        {
+          "id": "s35e-2140-front",
+          "kind": "front",
+          "reading_1911": "2½B brick dwelling (D) with a 2B and a 1B rear part, a small projection on its north side and one-storey frame porches on its south side"
+        },
+        {
+          "id": "s35e-2140-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered REPAIRING & GARAGE, the largest on the block's alley",
+          "note_1904": "A 1911 repair-garage label is a 1911 use (study ruling 11); nothing in hand dates the building, so it is backcast as the lot's stable, the reading every garage on this alley takes, and the liberty says the commercial use may mean a later building."
+        },
+        {
+          "id": "s35e-2140-shed",
+          "kind": "detached_service",
+          "reading_1911": "one-storey brick building on the alley lettered SHED"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and no earlier plan of this block face is in hand, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    }
+  ],
+  "vacant_ground": []
+}

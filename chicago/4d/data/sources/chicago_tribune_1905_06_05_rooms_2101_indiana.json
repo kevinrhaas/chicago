@@ -1,0 +1,25 @@
+{
+  "id": "chicago_tribune_1905_06_05_rooms_2101_indiana",
+  "type": "newspaper",
+  "citation": "Classified advertisement, 'To rent—nicely furnished rooms; good location; moderate prices. 2101 Indiana-av.'. Chicago Daily Tribune, 5 June 1905 (vol. 64 no. 133).",
+  "author": "Chicago Daily Tribune",
+  "date": "1905-06-05",
+  "describes_date": "1905-06-05",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "url": "https://archive.org/details/per_chicago-daily-tribune_1905-06-05_64_133",
+  "locator": "The issue's OCR text (per_chicago-daily-tribune_1905-06-05_64_133), the classified columns; the OCR runs neighbouring advertisements together, so only the words quoted in the note are read from it.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States newspaper of 1905; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Found by the Internet Archive's full-text search for the street address and read in the issue's OCR text for T-3013 on 2026-10-23; the page image was not consulted.",
+  "note": "Furnished rooms let at 2101 Indiana Avenue in June 1905, and in 1906-1907 a Mrs. Burnett advertises from the address: the corner was a lodging house, not a garage, after 1904.",
+  "what_it_supplies": [
+    "that 2101 Indiana Avenue was a lodging house in 1905"
+  ],
+  "what_it_does_not_supply": [
+    "the building's form, storeys, material or outline",
+    "a construction or demolition date"
+  ]
+}

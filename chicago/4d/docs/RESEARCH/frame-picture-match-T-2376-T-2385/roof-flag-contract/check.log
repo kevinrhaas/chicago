@@ -1,0 +1,6 @@
+  ok unanchored fort mount exactly retains legacy bounding-box computation
+  ok phase-selected roof data maps east/north/up to local glTF without hotel centre
+  ok record anchor stays on reconstructed generator spar and source bounds
+  ok anchor grade participates in cloth confidence and absence keeps it off
+  ok unsupported dates/phase/frames and malformed/stale anchors refuse without fallback
+Flag anchor contract: 5 checks passed; no browser or accepted image match.

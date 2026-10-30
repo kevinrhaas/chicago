@@ -1,0 +1,44 @@
+{
+  "structure_id": "st_marys_church",
+  "view": "moss-engraving",
+  "glb": "assets/gltf/st_marys_church__frame_1833.glb",
+  "glb_sha256": "1443ab7dc50739a211a41ba87eb3ab31c85644c344469fdd578ad80101b6bbaf",
+  "camera_sha256": "944c60cee23e516513a287648ab488d9e08308eafad7940f3331f373d584d49a",
+  "photo_sha256": "e0c28e377dce83fe936cf74a2fd76186269ce6e6ec864182f5f49f37d0f7a1f2",
+  "side_by_side": "docs/RESEARCH/photo-match/st_marys_church/moss-engraving-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The five long-wall sash and far-end door replace the generic house opening order; the pictured near gable is now blank. These count/topology differences are fixed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The missing open four-post belfry, arches, crossed lower rails, concave cap, bell and cross are present. The body roof is lower, the belfry slimmer and taller, and the single stack is at the far roof end. Their presence and shapes are reconstructed for 1835, not attested to that date.",
+      "status": "fixed"
+    },
+    {
+      "what": "The generic low house-window setout is fixed: only the five pictured long-wall sash rise 0.45 m, with reconstructed sill 1.40 m and head 2.8322 m at the retained 3.2 m wall. Their count, full width/height, horizontal stations and the far door remain unchanged. The actual same-camera comparison now places their heads close beneath the eaves and above the door head, following the engraving. The selected height is a bounded reconstruction from same-wall proportions, not a calibrated historical measurement or dated 1835 setout.",
+      "status": "fixed"
+    },
+    {
+      "what": "The coarse camera/body-groundline mismatch is not a separate geometry defect. The initial steeper-roof fit had 72.87 px RMS/160.42 px maximum residual; the corrected roof is shown from the same camera. Pixel offsets and disagreements between camera fits are within tolerance under T3153. No surveyed placement or ground anchor was moved to fit the retrospective drawing.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "A held unattributed sepia photograph appears to show three sash rather than five, but its identity, depicted date and rights have not been established. No geometry or licensed comparison asset was derived from it. The conflicting opening counts are disclosed as a picture/state disagreement; they do not independently create another OPEN geometry gap under T3153. The credited Moss engraving supplies the chosen five-sash topology.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The engraving is undated. Its filename ending in 1843 does not date it, and the text dates only the original 1833 tower absence and an undated later addition. The 1835 presence, profiles, scantlings and pitch remain reconstructed choices. The picture cannot establish the unseen far gable, interior, precise paint/metal colours, original-site installation date or relocation. These are disclosed limits, not automatic OPEN geometry gaps.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_review": {
+    "reviewed_at": "2026-10-27T03:14:59.126791+00:00",
+    "method": "Directly viewed the actual whole Moss engraving and new native side-by-side after the selected pinned master rebuild. The five front sash now have the pictured high setout, with the door, sash dimensions/count, blank gable, open belfry/cross and far stack retained. The subsequent genuine271 MASTER batch produced the EXACT same Mary master hash, so this actual rendered comparison remains current without another identical render.",
+    "stopping_rule": "T3153: no remaining street-noticeable difference is identified in the chosen engraving. Existing drawing/camera-groundline mismatch and conflicting unidentified sepia remain within tolerance; unseen geometry, exact colours and depicted year remain not shown. No surveyed metric precision or dated1835 belfry witness is claimed.",
+    "production": "All271 genuine pinned masters rebuilt; all270 non-Mary defaults and all nonfamily models are byte-exact. WEB production and final group owning/app/code gates remain pending.",
+    "original_ticket": "T-2384 image view may now pass its gate; the original is not DONE until the reviewed grouped PR is created, verified and merged."
+  }
+}

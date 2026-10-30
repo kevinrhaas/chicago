@@ -247,7 +247,31 @@ WIDE_RANGE_YEARS = 12
 # guard are unchanged. What exhausts it next: a prebuilt layer set for a second year
 # (1835's is 28.7 MiB), each new textured Prairie house (1.5-3.5 MiB web GLB), and more
 # transport. docs/SITE-BUDGET.md section 11 has the table.
-SITE_BUDGET_MB = 384
+# T-3170, 2026-10-26: measured whole-tree re-budget, 384 -> 416 MiB. dev (a9c5bd4a9)
+# read 380.885 MiB, so #1331 (T-3162, 1823 Prairie's textured web GLB, +3.43 MB) read
+# 384.058 and was green on all else. T-2958's dev (5f787d3a7) republished in the same
+# checkout reads 320.221; the 60.664 MiB since: walk/transport 24.566 (the standing
+# horse, Brougham, parked and covered wagons), data/gltf 23.774 (21.231 of it new
+# textured Prairie houses: 1729, 1815, 1828, 1816, 1730, 1726), data/humans 6.688,
+# sidecars 3.463, rest 2.173. No identical files over 64 KiB. Two 416 MiB allowances
+# plus 129.136 MiB of other site content total 961.136 MiB, under the 1 GiB Pages
+# ceiling by 62.864. Levers measured, not pulled: 66.309 MiB of KTX2 sheets embedded
+# again and again across the houses' GLBs, and 7.18 MB of transport masters no runtime
+# fetch reads. docs/SITE-BUDGET.md section 13 has the numbers.
+# T-3220, 2026-10-28: measured whole-tree re-budget, 416 -> 432 MiB. dev (00d814a9)
+# published 415.800 MiB, 0.200 left, so #1384 (T-3211, 1700 and 1706 Prairie, +3.99)
+# and #1408 (T-3229, the 1600 block's walks, +2.10) were complete and red on this line
+# alone. The transport-masters lever was already pulled (T-3084); no identical files
+# over 64 KiB. The ceiling is now read from the DEPLOYED artifact, not restated: the
+# github-pages artifact of 2026-10-28T07:00Z unpacks to 874.898 MiB - /4d/dev/ 415.824,
+# /4d/ 326.840, other content 132.233 (not 129.136: /prairie-1904/ is republished from
+# its package at deploy time and reads 46.974 against the committed 43.876). Two 432 MiB
+# allowances plus 132.233 total 996.233 MiB, under 1 GiB by 27.767. Pages says "1 GB"
+# without a unit: read as 10^9 B (953.674 MiB), two trees at today's dev ALREADY exceed
+# it, so no raise is the answer there - T-3232 (each KTX2 kit sheet shipped once, 66.309
+# MiB of copies) is. Storage hygiene only: boot payload, frame/Light limits, the 90 %
+# warning and the duplicate guard are unchanged. docs/SITE-BUDGET.md section 14.
+SITE_BUDGET_MB = 432
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).
@@ -261,7 +285,7 @@ SLUG = re.compile(r"^[a-z0-9_]+$")
 # enumerated from the data rather than listed here. Kept in step with
 # tools/compile_liberties.py's COVER_ASPECTS.
 PHASE_ASPECTS = ("footprint", "position", "documented_range")
-STRUCTURE_ASPECTS = ("function", "occupants", "present_status")
+STRUCTURE_ASPECTS = ("function", "occupants", "present_status", "built")
 
 
 class Report:
@@ -353,6 +377,37 @@ def validate_schemas(sources, structures, scenes, rep: Report) -> None:
 # --------------------------------------------------------------------------
 # semantic: the confidence contract
 # --------------------------------------------------------------------------
+
+# T-3037. THE BUILD DATE A CARD PRINTS, in the few forms it can say truthfully: a year,
+# "about"/"by" a year, a span, or two years where the sources disagree. The card writes
+# "Built in 1886." from it, so a free phrase here would reach a visitor unread.
+BUILT_FORMS = re.compile(r"^(?:(?:about|by) \d{4}|between \d{4} and \d{4}|\d{4} or \d{4})$")
+
+
+def built_years(value) -> list[int]:
+    """The years a `built` value names, or [] when its form is not one the card reads."""
+    if isinstance(value, int) and not isinstance(value, bool):
+        return [value]
+    if isinstance(value, str) and BUILT_FORMS.match(value):
+        return [int(y) for y in re.findall(r"\d{4}", value)]
+    return []
+
+
+def check_built(where: str, st: dict, rep: Report) -> None:
+    """`built` holds a form the card can print, and no structure is built after a phase ends."""
+    block = st.get("built")
+    if block is None:
+        return
+    years = built_years(block.get("value") if isinstance(block, dict) else None)
+    if not years:
+        rep.error(where, "built: value must be a year, 'about 1834', 'by 1886', "
+                         "'between 1870 and 1876' or '1864 or 1875' (T-3037)")
+        return
+    for ph in st.get("phases", []):
+        to = (ph.get("documented_range") or {}).get("to", "")
+        if re.match(r"^\d{4}", to) and min(years) > int(to[:4]):
+            rep.error(where, f"built: {block['value']} is after phase {ph.get('id')} ends ({to})")
+
 
 def check_attested(where: str, key: str, att: dict, source_ids: set, rep: Report) -> str | None:
     """attested needs a resolving source; inferred and reconstructed need stated reasoning."""
@@ -1588,6 +1643,21 @@ GEOMETRY_OWES_LIBERTY = ("absent", "simplified")
 GROUND_GEOMETRY_STATES = GEOMETRY_STATES + ("restated_in_code",)
 
 
+# The app's real flag reads are checked separately from master CONSUMED fields.
+# Keep fort record_only master declarations compatible; never use them to excuse
+# a missing renderer or a silently unbuilt roof anchor.
+from flag_form_contract import flag_form_fields  # noqa: E402
+
+
+def renderer_form_consumed(rep: Report | None = None) -> frozenset[str]:
+    try:
+        return flag_form_fields(ROOT)
+    except ValueError as error:
+        if rep is not None:
+            rep.error("renderer form contract", str(error))
+        return frozenset()
+
+
 def unbuilt_values(structures: dict, consumed: dict[str, frozenset]) -> list[tuple]:
     """Every form attribute whose archetype does not read it.
 
@@ -1602,6 +1672,7 @@ def unbuilt_values(structures: dict, consumed: dict[str, frozenset]) -> list[tup
     and the mesh cannot show.
     """
     found: list[tuple] = []
+    app_known = renderer_form_consumed()
     for name, st in sorted(structures.items()):
         sid = st.get("id", name)
         known = consumed.get(st.get("archetype"))
@@ -1610,7 +1681,7 @@ def unbuilt_values(structures: dict, consumed: dict[str, frozenset]) -> list[tup
         for ph in st.get("phases", []):
             pid = ph.get("id", "?")
             for attr, a in sorted((ph.get("form") or {}).items()):
-                if attr in known or not isinstance(a, dict):
+                if attr in known or attr in app_known or not isinstance(a, dict):
                     continue
                 found.append((sid, pid, f"form.{attr}", f"structure {sid}/{pid}", a))
     return found
@@ -1643,6 +1714,7 @@ def check_geometry_declarations(structures: dict, consumed: dict[str, frozenset]
         rep.note("geometry check: no archetype params modules to compare against")
         return
     declared = 0
+    app_known = renderer_form_consumed(rep)
     for name, st in sorted(structures.items()):
         sid = st.get("id", name)
         known = consumed.get(st.get("archetype"))
@@ -1662,6 +1734,11 @@ def check_geometry_declarations(structures: dict, consumed: dict[str, frozenset]
                                          f"— it is built from the value, so there is nothing to "
                                          f"declare. Drop the field, or remove the attribute from "
                                          f"CONSUMED if the generator stopped using it")
+                    continue
+                if attr in app_known:
+                    if state not in (None, "record_only"):
+                        rep.error(where, f"form.{attr} is consumed by a registered app renderer, "
+                                         f"so geometry: '{state}' is a false omission admission")
                     continue
                 if state is None:
                     rep.error(where, f"form.{attr} is stated by the record and the "
@@ -6408,11 +6485,12 @@ def check_record_provenance(where: str, st: dict, source_ids: set, rep: Report,
         fp_conf = ph.get("footprint", {}).get("confidence")
         tally[fp_conf] = tally.get(fp_conf, 0) + 1
 
-    for key in ("function", "occupants", "present_status"):
+    for key in ("function", "occupants", "present_status", "built"):
         if key in st:
             check_attested(where, key, st[key], source_ids, rep)
             c = st[key].get("confidence")
             tally[c] = tally.get(c, 0) + 1
+    check_built(where, st, rep)
 
 
 def load_dir(d: Path, rep: Report) -> dict:
@@ -6749,6 +6827,11 @@ def run_license_check(sources: dict, rep: Report) -> None:
         if p.is_dir() or p.name in ("LICENSES.md", "manifest.json") or p.name.startswith("."):
             continue
         rel = p.relative_to(ROOT / "assets").as_posix()
+        # T-3088: assets/authored/transport/horse_standing/ holds Python the gate's own
+        # tests import, and CI writes their bytecode beside them. A .pyc is the
+        # interpreter's cache of a file already licensed here, not an asset.
+        if "__pycache__" in p.parts:
+            continue
 
         # Build output under gltf/ and web/ is provenance-tracked by the manifest
         # (which records its input hash and the Blender that made it), not by a
@@ -6851,8 +6934,29 @@ def run_stale_check(structures: dict, rep: Report) -> None:
     by_id = {st.get("id"): st for st in structures.values() if isinstance(st, dict)}
     fresh, stale, unchecked = 0, 0, 0
 
+    # Glessner's three v4 GLBs are untracked outputs of a committed archive (T-1730), so
+    # a clone that materialized them before the archive was repacked keeps the old bytes
+    # through every pull. Read against the manifest they look like a stale committed
+    # derivative, and T-3004 was filed against dev for exactly that while dev rebuilt
+    # byte-for-byte. Name the local cause first; the derivative checks below would
+    # only be measuring this clone's leftovers.
+    sys.path.insert(0, str(ROOT / "tools"))
+    try:
+        import recover_glessner_v4 as glessner_pack  # noqa: PLC0415
+        pack_drift = glessner_pack.drift(ROOT, ROOT / "docs/RESEARCH/glessner-v4-recovery")
+    except Exception as e:  # noqa: BLE001
+        rep.error("stale", f"cannot read the Glessner v4 package to tell a stale clone from a "
+                           f"stale derivative: {e}")
+        glessner_pack, pack_drift = None, {}
+    if pack_drift:
+        listed = ", ".join(f"{n} ({why})" for n, why in sorted(pack_drift.items()))
+        rep.error("stale", f"Glessner v4 packaged outputs do not match the committed archive: "
+                           f"{listed} — {glessner_pack.STALE_CLONE}")
+
     for name, entry in sorted(assets.items()):
         if not (gltf_dir / name).exists():
+            if f"assets/gltf/{name}" in pack_drift:
+                continue  # said once above, with the command that restores it
             rep.error("stale", f"manifest.json lists {name} but assets/gltf/{name} does not "
                                f"exist — the record of a bake outlived its output")
             continue
@@ -6889,7 +6993,7 @@ def run_stale_check(structures: dict, rep: Report) -> None:
 
         if got == recorded:
             fresh += 1
-            if name == "glessner_house__as_built_1887.glb":
+            if name == "glessner_house__as_built_1887.glb" and not pack_drift:
                 from common import versions as V
                 for problem in V.lod_problems(name, entry, ROOT):
                     rep.error("stale", f"{name}: {problem}")

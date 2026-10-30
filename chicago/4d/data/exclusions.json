@@ -117,7 +117,7 @@
       "id": "ouilmette_cabin",
       "name": "Antoine Ouilmette's cabin",
       "reason": "Almost certainly gone — Ouilmette left for Gross Pointe in the later 1820s and no source attests the cabin's survival past that decade.",
-      "detail": "It belonged to the Kinzie mansion group, which was derelict by 1832. Omit, or model as a ruin at most, and only with better evidence than currently exists.",
+      "detail": "It belonged to the Kinzie mansion group, which was derelict by 1832. Omit, or model as a ruin at most, and only with better evidence than currently exists. FOR 1812 IT STANDS (T-2486): ouilmette_house_1812, the draught's no. 31 house nearest Kinzie's, dated 1808-01-25 to 1829-12-31, which is this entry's own bound, so it resolves in the 1812 scene and in no 1835 view.",
       "earliest_scene": null,
       "sources": [
         "chicagology_prefire273"
@@ -295,6 +295,64 @@
         "andreas_1884_v1",
         "moses_kirkland_history_of_chicago_v1",
         "kinzie_waubun_1856"
+      ]
+    },
+    {
+      "id": "kinzie_second_barn_1812",
+      "name": "The second of the two barns of du Sable's bill of sale (1800), for 1812",
+      "scenes": [
+        "1812"
+      ],
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — one barn stands as the Kinzie stable; nothing names a second.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as T-2484 reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at T-2485: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (kinzie_stable_1812) and the lodging house, and nothing else. RULING (T-2485): one barn stands in 1812 as kinzie_stable_1812; the second is not built, because no source after 1800 names two and the one picture of the yard draws one. WHAT WOULD REOPEN THIS: a reading of the bill with a size or place for the barns, or any source after 1800 naming two barns or a barn besides the stable.",
+      "earliest_scene": null,
+      "sources": [
+        "kinzie_waubun_1856",
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ]
+    },
+    {
+      "id": "kinzie_poultry_house_1812",
+      "name": "The poultry house of du Sable's bill of sale (1800), for 1812",
+      "scenes": [
+        "1812"
+      ],
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — Wau-Bun's list of the establishment in 1831 has none, and Eastman's view of the yard draws none.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as T-2484 reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at T-2485: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (kinzie_stable_1812) and the lodging house, and nothing else. RULING (T-2485): not built for 1812. A poultry house is a small, short-lived building and may well have stood; nothing read says so, and the scene does not build what no source after 1800 names. WHAT WOULD REOPEN THIS: any source naming a poultry house at the Kinzie place between 1804 and 1812.",
+      "earliest_scene": null,
+      "sources": [
+        "kinzie_waubun_1856",
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ]
+    },
+    {
+      "id": "kinzie_smokehouse_1812",
+      "name": "The smokehouse of du Sable's bill of sale (1800), for 1812",
+      "scenes": [
+        "1812"
+      ],
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — Wau-Bun's list of the establishment in 1831 has none, and Eastman's view of the yard draws none.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as T-2484 reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at T-2485: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (kinzie_stable_1812) and the lodging house, and nothing else. RULING (T-2485): not built for 1812, for the same reason as the poultry house. WHAT WOULD REOPEN THIS: any source naming a smokehouse at the Kinzie place between 1804 and 1812.",
+      "earliest_scene": null,
+      "sources": [
+        "kinzie_waubun_1856",
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ]
+    },
+    {
+      "id": "pettell_cabin_1812",
+      "name": "Pettell's 'small cabin near the Kinzie house', for 1812",
+      "scenes": [
+        "1812"
+      ],
+      "reason": "NOT A FIFTH HOUSE — the two counts of the north bank made in 1808 find four houses and no Pettell, so his hut of 1803 is taken to be one of the four already built under a later occupant's name. An identity ruling, not a date guard.",
+      "detail": "THE WITNESSES. Currey (1912, ch. II), after Ouilmette's cabin: 'A man named Pettell also had a small cabin near the Kinzie house', in a passage on what John Kinzie found when he came in 1804 ('When John Kinzie arrived here he found Ouilmette, Pettell, Le Mai, and Guarie, all of whom were permanent residents'); Currey cites nothing for either. Mrs. William Whistler, of the troops' arrival in 1803: 'there were here then but four rude huts or traders' cabins, occupied by white men, Canadian French with Indian wives; among them Le Mai, Ouillemette and Pettell' (Moses and Kirkland v1 p. 35, lines 5578-5584 of the committed text), and Moses and Kirkland note that Le Mai was then in the house Kinzie bought. THE COUNTS OF 1808. Captain Whistler's draught of January 1808 draws the north bank with the Kinzie house and exactly three more dwellings west of it (no. 31, 'Oather Dwelling Houses on opisite side River'; data/traces/whistler_1808_fort_dearborn.json north_bank), and Surgeon Cooper, at the post from 1808, counts four houses on the north side 'occupied by Kinzie, Ouilmette, La Lime, and Le Mai' (Quaife 1913 p. 166, as T-2504 read it for lemai_house_1812). Four huts in 1803 and four houses in 1808, with Le Mai moved out of the one Kinzie bought: the simplest reading is that the houses are the same four and their occupants changed, so Pettell's hut of 1803 is La Lime's or Le Mai's of 1808 (which one is not known), and both stand in this scene already. Building a fifth house beside Kinzie's would put a building on the bank where both 1808 witnesses have none. PETTELL HIMSELF may still have been at Chicago in 1812: Moses and Kirkland think the twelve militia killed on 15 August 'perhaps included Lee, Pettell, Russell, Burns, etc.' (line 7027), a guess about a man, not a house. WHAT WOULD REOPEN THIS: a record between 1808 and 1812 that puts Pettell in a house of his own on the north bank, or a fifth house there. T-2486.",
+      "earliest_scene": null,
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "moses_kirkland_history_of_chicago_v1",
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913"
       ]
     }
   ],

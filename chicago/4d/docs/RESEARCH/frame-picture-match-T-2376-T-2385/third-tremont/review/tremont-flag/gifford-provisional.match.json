@@ -1,0 +1,45 @@
+{
+  "structure_id": "tremont_house_1",
+  "view": "gifford-provisional",
+  "glb": "assets/gltf/tremont_house_1__frame_1833.proposal.glb",
+  "glb_sha256": "0b6bc57f85cb1d454fb53a3ca047e15bfe11e11f2d6b8c14b8007ec991739611",
+  "camera_sha256": "16830ecda2efde0b4ccdb028bc559fb88529711a11b9cb0f05adbf4e8294bda2",
+  "photo_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+  "side_by_side": "review/tremont-flag/gifford-provisional-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Opaque matte arch panel removes invented radial glazing bars without inventing text; exact inscription/sign-versus-window identity, construction, tone and timing remain unresolved.",
+      "status": "fixed"
+    },
+    {
+      "what": "Plain broad jamb/header boards now outline the existing raised entries; exact sections, proportions, palette and hidden repeats remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "Source flag pose, opening/landing/rail/shutter/stack/eave details, finishes, neighbours and street context remain unresolved; the provisional camera is not accepted.",
+      "status": "open"
+    },
+    {
+      "what": "Actual proposed app layer draws one period24-star flag on the explicit roof-spar anchor, held at time0, confidence reconstructed(1), with no reported anchor/phase/date problems. Cloth is not in the hotel GLB.",
+      "status": "fixed"
+    },
+    {
+      "what": "The current shared SW-to-NE breeze presents cloth nearly edge-on to this camera; the source flag projects visibly left of its spar. A source-faithful pose/wind comparison remains open; no larger dimensions were invented to hide orientation disagreement.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "prototype_only": true,
+  "runtime_layer_diagnostic": {
+    "animation_time": 0,
+    "prototype_only": true,
+    "actual_app_module": true,
+    "code_sha256": {
+      "flags.js": "99df78c566e097a4a137079a8b51249ade4d7c41c57e1fae57b9509f26466e96",
+      "flag-anchors.js": "ac2c6f914f6550ee2b779c5b3d797d52fb44feba8779caf7664c8915f1f73b85"
+    },
+    "receipt": "review/tremont-flag/flag-layer-diagnostic.json",
+    "standard_photo_match_acceptance": false
+  }
+}

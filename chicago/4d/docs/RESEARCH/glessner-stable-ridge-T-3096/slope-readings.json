@@ -1,0 +1,432 @@
+{
+ "ticket": "T-3080",
+ "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+ "fits": "data/comparisons/glessner/stable-roof-heights.json",
+ "course_in": 5.0,
+ "views": {
+  "cornell-northwest-west-windows": [
+   {
+    "camera": "committed",
+    "what": "the committed west-wall homography on reconstructed eaves, unchanged",
+    "rms_px_on_measured_controls": 18.31,
+    "plane_pitch_deg": 44.0,
+    "model_slope_ft": 17.9,
+    "model_courses_at_5in": 43.1,
+    "print_courses": [
+     41.7,
+     43.9
+    ],
+    "camera_course_in": [
+     5.98,
+     6.07
+    ],
+    "camera_slope_ft": [
+     20.92,
+     22.22
+    ],
+    "columns": [
+     {
+      "column": 1040,
+      "print_ridge_row": 290,
+      "print_eave_row": 472,
+      "courses": 41.7,
+      "camera_slope_ft": 20.92,
+      "camera_course_in": 6.03,
+      "model_top_row": 334,
+      "model_foot_row": 503,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 12.69,
+      "print_eave_on_plane_m": 8.16,
+      "ridge_below_model_top_m": -1.28,
+      "eave_below_model_foot_m": -0.51
+     },
+     {
+      "column": 1060,
+      "print_ridge_row": 280,
+      "print_eave_row": 470,
+      "courses": 43.7,
+      "camera_slope_ft": 21.77,
+      "camera_course_in": 5.98,
+      "model_top_row": 328,
+      "model_foot_row": 499,
+      "model_top_m": 11.45,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 12.83,
+      "print_eave_on_plane_m": 8.12,
+      "ridge_below_model_top_m": -1.38,
+      "eave_below_model_foot_m": -0.47
+     },
+     {
+      "column": 1080,
+      "print_ridge_row": 272,
+      "print_eave_row": 467,
+      "courses": 43.9,
+      "camera_slope_ft": 22.22,
+      "camera_course_in": 6.07,
+      "model_top_row": 323,
+      "model_foot_row": 496,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.58,
+      "print_ridge_on_plane_m": 12.91,
+      "print_eave_on_plane_m": 8.1,
+      "ridge_below_model_top_m": -1.49,
+      "eave_below_model_foot_m": -0.52
+     }
+    ]
+   },
+   {
+    "camera": "roof_pitched",
+    "what": "pose, focal, pitch and roll free; principal point at the image centre",
+    "rms_px_on_measured_controls": 3.65,
+    "plane_pitch_deg": 42.6,
+    "model_slope_ft": 18.2,
+    "model_courses_at_5in": 43.8,
+    "print_courses": [
+     41.7,
+     43.9
+    ],
+    "camera_course_in": [
+     5.26,
+     5.32
+    ],
+    "camera_slope_ft": [
+     18.25,
+     19.49
+    ],
+    "columns": [
+     {
+      "column": 1040,
+      "print_ridge_row": 290,
+      "print_eave_row": 472,
+      "courses": 41.7,
+      "camera_slope_ft": 18.25,
+      "camera_course_in": 5.26,
+      "model_top_row": 297,
+      "model_foot_row": 476,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.53,
+      "print_eave_on_plane_m": 7.68,
+      "ridge_below_model_top_m": -0.12,
+      "eave_below_model_foot_m": -0.03
+     },
+     {
+      "column": 1060,
+      "print_ridge_row": 280,
+      "print_eave_row": 470,
+      "courses": 43.4,
+      "camera_slope_ft": 19.04,
+      "camera_course_in": 5.27,
+      "model_top_row": 293,
+      "model_foot_row": 473,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.67,
+      "print_eave_on_plane_m": 7.66,
+      "ridge_below_model_top_m": -0.26,
+      "eave_below_model_foot_m": -0.01
+     },
+     {
+      "column": 1080,
+      "print_ridge_row": 272,
+      "print_eave_row": 467,
+      "courses": 43.9,
+      "camera_slope_ft": 19.49,
+      "camera_course_in": 5.32,
+      "model_top_row": 288,
+      "model_foot_row": 471,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.58,
+      "print_ridge_on_plane_m": 11.76,
+      "print_eave_on_plane_m": 7.66,
+      "ridge_below_model_top_m": -0.35,
+      "eave_below_model_foot_m": -0.08
+     }
+    ]
+   },
+   {
+    "camera": "roof_level",
+    "what": "pose, focal and roll free, level (a view camera's rising front: principal height free)",
+    "rms_px_on_measured_controls": 4.76,
+    "plane_pitch_deg": 42.6,
+    "model_slope_ft": 18.2,
+    "model_courses_at_5in": 43.8,
+    "print_courses": [
+     41.7,
+     43.9
+    ],
+    "camera_course_in": [
+     4.98,
+     5.03
+    ],
+    "camera_slope_ft": [
+     17.3,
+     18.42
+    ],
+    "columns": [
+     {
+      "column": 1040,
+      "print_ridge_row": 290,
+      "print_eave_row": 472,
+      "courses": 41.7,
+      "camera_slope_ft": 17.3,
+      "camera_course_in": 4.98,
+      "model_top_row": 280,
+      "model_foot_row": 461,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.07,
+      "print_eave_on_plane_m": 7.43,
+      "ridge_below_model_top_m": 0.34,
+      "eave_below_model_foot_m": 0.22
+     },
+     {
+      "column": 1060,
+      "print_ridge_row": 280,
+      "print_eave_row": 470,
+      "courses": 43.4,
+      "camera_slope_ft": 18.02,
+      "camera_course_in": 4.98,
+      "model_top_row": 275,
+      "model_foot_row": 458,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.2,
+      "print_eave_on_plane_m": 7.4,
+      "ridge_below_model_top_m": 0.22,
+      "eave_below_model_foot_m": 0.25
+     },
+     {
+      "column": 1080,
+      "print_ridge_row": 272,
+      "print_eave_row": 467,
+      "courses": 43.9,
+      "camera_slope_ft": 18.42,
+      "camera_course_in": 5.03,
+      "model_top_row": 268,
+      "model_foot_row": 456,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.58,
+      "print_ridge_on_plane_m": 11.27,
+      "print_eave_on_plane_m": 7.39,
+      "ridge_below_model_top_m": 0.14,
+      "eave_below_model_foot_m": 0.19
+     }
+    ]
+   }
+  ],
+  "habs-01-northwest": [
+   {
+    "camera": "doorway",
+    "what": "level, eye 1.8 m (as committed); committed controls + the doorway",
+    "rms_px_on_measured_controls": 3.92,
+    "plane_pitch_deg": 42.5,
+    "model_slope_ft": 18.3,
+    "model_courses_at_5in": 43.9,
+    "print_courses": [
+     40.7,
+     42.9
+    ],
+    "camera_course_in": [
+     5.25,
+     5.35
+    ],
+    "camera_slope_ft": [
+     18.15,
+     18.87
+    ],
+    "columns": [
+     {
+      "column": 1480,
+      "print_ridge_row": 390,
+      "print_eave_row": 528,
+      "courses": 40.7,
+      "camera_slope_ft": 18.15,
+      "camera_course_in": 5.35,
+      "model_top_row": 389,
+      "model_foot_row": 521,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.3,
+      "print_eave_on_plane_m": 7.45,
+      "ridge_below_model_top_m": 0.12,
+      "eave_below_model_foot_m": 0.2
+     },
+     {
+      "column": 1500,
+      "print_ridge_row": 385,
+      "print_eave_row": 527,
+      "courses": 42.5,
+      "camera_slope_ft": 18.57,
+      "camera_course_in": 5.25,
+      "model_top_row": 385,
+      "model_foot_row": 519,
+      "model_top_m": 11.37,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.36,
+      "print_eave_on_plane_m": 7.43,
+      "ridge_below_model_top_m": 0.01,
+      "eave_below_model_foot_m": 0.22
+     },
+     {
+      "column": 1520,
+      "print_ridge_row": 380,
+      "print_eave_row": 525,
+      "courses": 42.9,
+      "camera_slope_ft": 18.87,
+      "camera_course_in": 5.28,
+      "model_top_row": 383,
+      "model_foot_row": 517,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.42,
+      "print_eave_on_plane_m": 7.42,
+      "ridge_below_model_top_m": -0.0,
+      "eave_below_model_foot_m": 0.23
+     }
+    ]
+   },
+   {
+    "camera": "doorway_eye_height",
+    "what": "as doorway, eye height free",
+    "rms_px_on_measured_controls": 3.09,
+    "plane_pitch_deg": 42.5,
+    "model_slope_ft": 18.3,
+    "model_courses_at_5in": 43.8,
+    "print_courses": [
+     40.7,
+     42.9
+    ],
+    "camera_course_in": [
+     5.21,
+     5.28
+    ],
+    "camera_slope_ft": [
+     17.92,
+     18.63
+    ],
+    "columns": [
+     {
+      "column": 1480,
+      "print_ridge_row": 390,
+      "print_eave_row": 528,
+      "courses": 40.7,
+      "camera_slope_ft": 17.92,
+      "camera_course_in": 5.28,
+      "model_top_row": 381,
+      "model_foot_row": 514,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.06,
+      "print_eave_on_plane_m": 7.26,
+      "ridge_below_model_top_m": 0.35,
+      "eave_below_model_foot_m": 0.39
+     },
+     {
+      "column": 1500,
+      "print_ridge_row": 385,
+      "print_eave_row": 527,
+      "courses": 41.9,
+      "camera_slope_ft": 18.34,
+      "camera_course_in": 5.26,
+      "model_top_row": 378,
+      "model_foot_row": 511,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.12,
+      "print_eave_on_plane_m": 7.23,
+      "ridge_below_model_top_m": 0.29,
+      "eave_below_model_foot_m": 0.41
+     },
+     {
+      "column": 1520,
+      "print_ridge_row": 380,
+      "print_eave_row": 525,
+      "courses": 42.9,
+      "camera_slope_ft": 18.63,
+      "camera_course_in": 5.21,
+      "model_top_row": 374,
+      "model_foot_row": 509,
+      "model_top_m": 11.41,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.18,
+      "print_eave_on_plane_m": 7.23,
+      "ridge_below_model_top_m": 0.24,
+      "eave_below_model_foot_m": 0.42
+     }
+    ]
+   },
+   {
+    "camera": "doorway_lean",
+    "what": "as doorway, image lean (roll) free",
+    "rms_px_on_measured_controls": 3.13,
+    "plane_pitch_deg": 40.8,
+    "model_slope_ft": 17.4,
+    "model_courses_at_5in": 41.8,
+    "print_courses": [
+     40.7,
+     43.3
+    ],
+    "camera_course_in": [
+     5.35,
+     5.54
+    ],
+    "camera_slope_ft": [
+     18.8,
+     19.46
+    ],
+    "columns": [
+     {
+      "column": 1480,
+      "print_ridge_row": 390,
+      "print_eave_row": 528,
+      "courses": 40.7,
+      "camera_slope_ft": 18.8,
+      "camera_course_in": 5.54,
+      "model_top_row": 391,
+      "model_foot_row": 512,
+      "model_top_m": 11.09,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.11,
+      "print_eave_on_plane_m": 7.25,
+      "ridge_below_model_top_m": -0.02,
+      "eave_below_model_foot_m": 0.4
+     },
+     {
+      "column": 1500,
+      "print_ridge_row": 385,
+      "print_eave_row": 527,
+      "courses": 43.0,
+      "camera_slope_ft": 19.19,
+      "camera_course_in": 5.35,
+      "model_top_row": 387,
+      "model_foot_row": 508,
+      "model_top_m": 11.12,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.15,
+      "print_eave_on_plane_m": 7.21,
+      "ridge_below_model_top_m": -0.03,
+      "eave_below_model_foot_m": 0.44
+     },
+     {
+      "column": 1520,
+      "print_ridge_row": 380,
+      "print_eave_row": 525,
+      "courses": 43.3,
+      "camera_slope_ft": 19.46,
+      "camera_course_in": 5.39,
+      "model_top_row": 382,
+      "model_foot_row": 504,
+      "model_top_m": 11.18,
+      "model_foot_m": 7.65,
+      "print_ridge_on_plane_m": 11.19,
+      "print_eave_on_plane_m": 7.2,
+      "ridge_below_model_top_m": -0.01,
+      "eave_below_model_foot_m": 0.45
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,202 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 29383,
+      "js_heap_used_bytes": 119060936,
+      "js_heap_total_bytes": 132509696,
+      "draft_records_in_registry": 145,
+      "placed": [
+        "kellogg_house_1709_prairie",
+        "kellogg_house_1709_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "front",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 638,
+            "rendererCalls": 75,
+            "multiDraw": true,
+            "triangles": 369895,
+            "programs": 40,
+            "geometries": 368,
+            "textures": 1070,
+            "batches": 312,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 283,
+            "structuresExpected": 283,
+            "structuresStanding": 283,
+            "bytes": 128536756,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1513.3,
+          "camera": [
+            1396,
+            -3108,
+            5.63
+          ],
+          "target": [
+            1425,
+            -3108,
+            8.96
+          ]
+        },
+        {
+          "name": "oblique-south",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1169,
+            "rendererCalls": 136,
+            "multiDraw": true,
+            "triangles": 547873,
+            "programs": 40,
+            "geometries": 393,
+            "textures": 1120,
+            "batches": 312,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 283,
+            "structuresExpected": 283,
+            "structuresStanding": 283,
+            "bytes": 128536756,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1859,
+          "camera": [
+            1400,
+            -3136,
+            5.79
+          ],
+          "target": [
+            1424,
+            -3110,
+            8.96
+          ]
+        },
+        {
+          "name": "oblique-north",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1828,
+            "rendererCalls": 139,
+            "multiDraw": true,
+            "triangles": 1162672,
+            "programs": 40,
+            "geometries": 420,
+            "textures": 1174,
+            "batches": 312,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 283,
+            "structuresExpected": 283,
+            "structuresStanding": 283,
+            "bytes": 128536756,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 3017.3,
+          "camera": [
+            1400,
+            -3080,
+            5.56
+          ],
+          "target": [
+            1424,
+            -3105,
+            8.94
+          ]
+        }
+      ]
+    }
+  ]
+}

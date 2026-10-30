@@ -41,11 +41,11 @@
       "street_name": "Lake Street",
       "centreline_local_enu_m": [
         [
-          -18.9,
+          -24.7,
           -97.3
         ],
         [
-          -31.09,
+          -36.89,
           -97.3
         ]
       ],
@@ -55,8 +55,8 @@
       "plank_pitch_m": 0.26,
       "plank_thickness_m": 0.055,
       "wall_offset_m": 0.2,
-      "verge_to_track_m": 6.01,
-      "note": "A PLANK WALK ON THE INN'S FRONTAGE, and the plates are the whole reason it is here. The Braunhold engraving of the Green Tree (data/sources/assets/owner_brief_2026_08_18/README.md, image 6) shows plank sidewalks with board crossings at this building — a tier-5 retrospective view, which may drive setting and may never drive a coordinate. So WHERE is derived: the deck lies 0.20 m off the left wall, 1.83 m wide, leaving 6.01 m of verge between its outer edge and the Lake Street track — which is the number that decides a walk may lie here at all. What is invented is the width, the rise, the plank pitch, and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L135."
+      "verge_to_track_m": 5.96,
+      "note": "A PLANK WALK ON THE INN'S FRONTAGE, and the plates are the whole reason it is here. The Braunhold engraving of the Green Tree (data/sources/assets/owner_brief_2026_08_18/README.md, image 6) shows plank sidewalks with board crossings at this building — a tier-5 retrospective view, which may drive setting and may never drive a coordinate. So WHERE is derived: the deck lies 0.20 m off the left wall, 1.83 m wide, leaving 5.96 m of verge between its outer edge and the Lake Street track — which is the number that decides a walk may lie here at all. What is invented is the width, the rise, the plank pitch, and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L135."
     }
   ],
   "posts": [],
@@ -69,7 +69,7 @@
     {
       "structure_id": "green_tree_tavern",
       "wall": "front",
-      "why": "the nearest street outward of this wall is Lake Street, and it lies BESIDE the wall rather than in front of it — 0.14 m of its 17.05 m stands outward, where a frontage needs 50%. A walk laid here would run down the inn's flank and call it a frontage — no walk is laid."
+      "why": "the nearest street outward of this wall is Lake Street, and it lies BESIDE the wall rather than in front of it — 0.14 m of its 17.00 m stands outward, where a frontage needs 50%. A walk laid here would run down the inn's flank and call it a frontage — no walk is laid."
     },
     {
       "structure_id": "green_tree_tavern",
@@ -79,7 +79,7 @@
     {
       "structure_id": "green_tree_tavern",
       "wall": "rear",
-      "why": "no street centreline lies outward of this wall within 22 m — a walk here would be a walk through the inn's own yard."
+      "why": "the inn's rear ell is built against this wall (form.rear_ell), so a walk laid off it would run through the wing — no walk is laid."
     },
     {
       "structure_id": "green_tree_tavern",

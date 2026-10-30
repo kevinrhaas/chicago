@@ -1,0 +1,36 @@
+{
+  "structure_id": "pullman_house_1729_prairie_ranges",
+  "scene": "1904",
+  "flora": {
+    "front_yards": [
+      "prairie_1729"
+    ],
+    "street_trees_m": 70,
+    "street_furniture_m": 70,
+    "season": "winter"
+  },
+  "also_render": [
+    "pullman_house_1729_prairie_conservatory",
+    "pullman_house_1729_prairie"
+  ],
+  "library_image": "a16-aic-taylor-pullman-from-sw-palm-house",
+  "photo": "../../sources/assets/pullman_1729_stable_t3193/aic_taylor_16554_pullman_from_sw.jpg",
+  "image_px": [
+    1200,
+    927
+  ],
+  "principal_px": [
+    600,
+    535.1
+  ],
+  "focal_px": 850,
+  "eye": [
+    -26.268,
+    68.558,
+    1.2
+  ],
+  "yaw_deg": 160.634,
+  "solve": "T-1934: re-anchored into the stable's frame (pullman_house_1729_prairie_ranges) from the camera T-3193 solved on this picture in data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16554_from_south.json, through the 1904 scene's placements of the two records (the conservatory frame turned 180.426 degrees and offset u -11.21, v -2.43 m; eye, heading and sun turned with it), so it is the same pose and renders the same group. THE SOLVE ON THE CONSERVATORY FRAME: Fitted by T-3193 to the image store's 1200 x 927 px copy of AIC 16554 (the print with its border and grey scale) in this record's frame, level, principal x at the print's centre. The holder's caption and the source record call it a view from the south-west, but the house shows its 18th Street side and its east face, so the eye stands SOUTH-EAST of the range, looking north-north-west: the stable's court face and its arcade are hidden behind its own corner, and the drum stands directly against the bay. FITTED ON the drum's balustrade silhouette (x 662 and 762) and top (y 457), the stable front's three bays of sash in both storeys (x 887, 955, 1020; ground at y 521, upper at y 472, on the record's sash at u 14.5, 18.1 and 21.0) and the stack's middle (x 1062), with the eye held at a standing height (1.2-2.0 m): 6.1 px rms over 16 readings, the eye 1.2 m up at u 14.5, v -71.1 (in the yard south of 18th Street), heading 18.9 degrees west of north, focal 850 px, horizon y 535. CHECKS IT WAS NOT FITTED ON: the front's east end lands at x 1091 (the print's at about x 1090), the lantern at x 934 (the print's at about 945), and the house's outline within about 35 px of the print's, though the house was left out of the fit (its corners are ambiguous at this size: a pavilion's edge and the corner read alike). The sash positions are the record's as T-3193 moved them; the fit is therefore not an independent test of their places along the front, which the plate and 16555's re-solved camera are.",
+  "source_id": "aic_taylor_16554_pullman_from_sw",
+  "sky": "overcast"
+}

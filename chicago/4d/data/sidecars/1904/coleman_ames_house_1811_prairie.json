@@ -26,7 +26,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -126,7 +127,41 @@
         "corner_bond": []
       },
       "confidence": "reconstructed",
-      "note": "The plate's front is rock-faced ashlar in large courses with dressed trim; the T-1837 register reads it brown sandstone (frontage-28-050). The colour is the register's, not the plate's. The smooth ashlar of the bay's upper stage is T-2542's."
+      "note": "The plate's front is rock-faced ashlar in large courses with dressed trim; the T-1837 register reads it brown sandstone (frontage-28-050). The colour is the register's, not the plate's. The north bay is rock-faced in large courses only up to its first floor's sill course, its upper stage smooth ashlar, as the plate shows (T-2987, on the bay's own `masonry`)."
+    },
+    "round_corner": {
+      "value": {
+        "corner": "north",
+        "radius_m": 0.9
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1888_10_ames_residence"
+      ],
+      "note": "T-3006, on T-3005's re-read of the 1888 plate through the T-2541 camera (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the entrance block's south corner (K01's 'north', the front's far end) is ROUNDED, not square. The porch arcade's colonnettes (x 476, 490, 501 px) step down as they go round it, the oriel's south return (x 470-497 px) is about 27 px wide where a square 0.6 m return would show about 9, and the rock-faced base under them is lit evenly from x about 458 to 514 px with no arris. A radius of about 0.9 m (centre near u 6.67, v 9.5) reads all of it: the front's tangent at x 470 px and the far side at about x 515-520 px. The round is coursed on the front's own beds in its rock-faced stone from grade; its last course is a dressed corbel rising from the round to the square, so the cornice, the eave and the coped gable stand on the square corner. The plate shows the coped gable's edge rising straight over the round's far side and the oriel's roof hides the corner's head, so that corbel is reconstructed (L-k01-1811-round-corner-3006). The 1911 sheet draws the corner square at its 50 ft scale, where a 0.9 m round is under 1 mm."
+    },
+    "front_pier": {
+      "value": {
+        "to_m": 0.93,
+        "band_m": [
+          7.1,
+          7.22
+        ],
+        "cap_m": [
+          7.52,
+          7.72
+        ],
+        "band_proud_m": 0.05,
+        "cap_proud_m": 0.12,
+        "weathering_pitch_deg": 42
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1888_10_ames_residence",
+        "chicagology_1811_ames_photo",
+        "habs_kimball_house_il_1077"
+      ],
+      "note": "T-3112: the front's north end (K01's low-s end, v 0 to 0.93, where T-3111 put the canted cheek's junction) stands as a pier capped BELOW the bay's cornice, with sky over it, in all three pictures: the 1888 plate through T-2541's camera (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) caps it at y 475-500 px with a small slate top to y 450 (about 7.3-7.8 m, the slate to 8.4 m), the Chicagology photograph through T-3052's camera (chicagology_photo.json) at y 625-675 px with the slate to y 590 (about 7.1-7.7 m, to 8.1 m), and the 1965 HABS photograph (habs_kimball_house_il_1077, its LoC photograph of 1801 Prairie) shows the same head across 1801's court (its camera is not good for heights, habs_1965.json). Read at twice the plate's scale, the Chicagology print's head is a narrow dressed band (y 670-681 px, about 7.10-7.22 m, scaled from the cap's top at 89 px/m), one rock-faced course of about 0.3 m, and a moulded cap (y 625-642 px, about 7.52-7.72 m), a fillet over a deep cove, about twice the band's projection, with a pale slate weathering over it rising back toward the bay's cornice; the pier's rock-faced courses run unbroken from its base course to that band, the front's dressed string course (4.8-5.0 m) stopping at it. Built so: the pier in the front's stone on the front's own bed lines less its belts, the band 0.05 m and the cap 0.12 m proud (its lower member a narrower fillet) and both returned on the side wall under the weathering, the weathering slated at 42 degrees from the cap's front edge, and the front's wall head, the moulded cornice and the roof's street and side eaves cut back over the pier to that slope, so nothing of the main roof stands over the cap at the front. What the pictures do not show, the weathering's pitch behind its front edge, how the hipped roof meets it over the north wall, and the cap's return along the north side, is reconstructed (L-k01-1811-north-pier-3112)."
     },
     "street_front_trim": {
       "value": {
@@ -148,7 +183,7 @@
     "roof_form": {
       "value": "gable",
       "confidence": "reconstructed",
-      "note": "A ridge along the street front, its street slope rising steeply from the eave behind the bay's stone gable and the oriel's pyramid (T-2542), and the front block's side walls carried up in brick as coped gable ends, the south one to the tall stack, as the plate and the Chicagology print show it; the north end, unseen, the same."
+      "note": "T-3050: a steep hipped mass over the bay and a lower gable roof south of it, its ridge parallel to the street 1.4 m behind the front, in the same street plane; the south wall carried up in brick as a coped gable to the tall stack, as the 1888 plate and the Chicagology print show it. The north end is under the hip, unseen by either picture."
     },
     "roof_pitch_deg": {
       "value": 61.2,
@@ -156,7 +191,7 @@
       "sources": [
         "inland_architect_1888_10_ames_residence"
       ],
-      "note": "T-2542: read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the street slope rises from its eave, at about 8.5-8.8 m, to the roof's apex, x 320 y 240 px, about 16 m over grade if it stands on the ridge 3.78 m behind the front (the ridge's depth is reconstructed; the plate sees no ridge end). 61.2 degrees from the 9.14 m eave datum over 3.78 m rises 6.87 m, to 16.01 m: in the K01 contract's steep band, which a gable read off a source may take. The rear slope falls at about the same pitch to the same wall head."
+      "note": "T-2542: read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the street slope rises from its eave, at about 8.5-8.8 m, to the roof's apex, x 320 y 240 px, about 16 m over grade. T-3050 puts that apex on a hipped mass over the bay's end of the block rather than on a ridge along the whole front: a K05 hip over the full 7.57 m depth at 61.2 degrees from the 9.14 m eave datum rises to 16.01 m, and the lower gable roof south of it shares the street plane. In the K01 contract's steep band, which a roof read off a source may take."
     },
     "eave_overhang_m": {
       "value": 0.35,
@@ -188,12 +223,11 @@
     },
     "front_bays": {
       "value": [
-        0.9,
         3.6,
         7.9
       ],
       "confidence": "reconstructed",
-      "note": "Centres along the front from its north end (v 0): 0.9 m, the narrow strip north of the bay that the plate shows as a canted face with one narrow window a storey; 3.6 m, behind the bay, whose own windows are the bay's; 7.9 m, the entrance arch's centre, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) at x 400 px."
+      "note": "Centres along the front from its north end (v 0): 3.6 m, behind the bay, whose own windows are the bay's; 7.9 m, the entrance arch's centre, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) at x 400 px. T-2988: the narrow strip north of the bay (a window at 0.9 m) is gone: the plate shows it as the bay's canted north face, which the bay now builds with its own light a storey."
     },
     "bays": {
       "value": [
@@ -201,11 +235,12 @@
           "id": "north_bay",
           "variant": "k08.projection.full_height",
           "wall": "k01.wall.street_front",
-          "s_m": 3.6,
+          "s_m": 4.14,
           "fabric": "front_stone",
           "plan": {
             "width_m": 3.7,
-            "proud_m": 1.0
+            "proud_m": 1.0,
+            "cant_left_m": 1.36
           },
           "storeys": [
             {
@@ -214,18 +249,22 @@
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 0.95,
-                  "clear_height_m": 1.0,
-                  "sill_m": 0.22,
+                  "clear_height_m": 1.05,
+                  "sill_m": 0.17,
                   "at": [
-                    0.3702,
-                    0.6825
+                    0.427,
+                    0.7229
                   ],
                   "grille": {
-                    "bars": 5,
+                    "panel": {
+                      "border_m": 0.12,
+                      "pitch_m": 0.06,
+                      "rosette_m": 0.07
+                    },
                     "set_back_m": 0.04,
-                    "ring_radius_m": 0.24
+                    "ring_radius_m": 0.22
                   },
-                  "why_not_ordinary": "a basement light under each of the bay's windows, read off the 1888 plate: about 0.95 m across and 1.0 m high, its head at the plate's 1.2 m, flat-headed under a rock-faced course and filled with a scrolled iron grille (T-2916)"
+                  "why_not_ordinary": "a basement light under each of the bay's windows, read off the 1888 plate: about 0.95 m across and 1.0 m high, its head at the plate's 1.2 m, flat-headed under a rock-faced course and filled with a scrolled iron grille (T-2916). T-3129: the grille as the c. 1888 Chicagology photograph shows it (chicagology_photo, x 278-362 px, y 1175-1276 px): a flat-bar frame round the light with a border about 0.12 m wide of short bars about 0.06 m apart (uprights across the head and foot, rungs up the sides), and inside it a square panel with a small rosette at its centre, eight spokes out to a ring about 0.44 m across, a volute curling in each corner and a smaller one on the middle of each side. The pattern is read off the photograph; its sizes are scaled from it against the light's 0.95 m, and the leaves on the scrolls are below what the bar can carry. The photograph also takes the light lower than the plate's reading: through its camera the head lands on the plate's line (y 1176 px against the render's 1178) but the foot sits 14 px lower (y 1277 against 1263) over a plinth half as deep. T-3133 lowers it towards the photograph's foot: its head kept at 1.22 m and its sill brought down from 0.22 to 0.17 m, the light 1.05 m, by halving the bay's plinth to 0.05 m (the bay's `plinth_m`) and keeping the 0.02 m of wall the kit leaves between the plinth and the K06 sill laid under the light, so the plinth and sill together make the photograph's pale ledge under the grille, which reads about 0.15 m (y 1276-1290 px at the bay's 89.2 px a metre). The photograph's foot (y 1276 px) stands about 0.10 m over the bay's foot (1285): the build's stands 0.07 m higher, the sill's 0.10 m less the plinth's 0.05 m given up, which no lower plinth recovers while the kit lays a sill under every light"
                 }
               ]
             },
@@ -238,9 +277,19 @@
                   "clear_height_m": 2.2,
                   "sill_m": 0.3,
                   "at": [
-                    0.3702,
-                    0.6825
+                    0.427,
+                    0.7229
                   ]
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 2.2,
+                  "sill_m": 0.3,
+                  "at": [
+                    0.1753
+                  ],
+                  "why_not_ordinary": "the canted north face's one light a storey, read off the 1888 plate at x 92-107 px (about 0.6-0.87 of the face from the wall, about 0.65 m across seen obliquely) at the front windows' sill and head; built at the K06 ordinary least width, 0.75 m (T-2988)"
                 }
               ]
             },
@@ -253,9 +302,19 @@
                   "clear_height_m": 2.1,
                   "sill_m": 0.46,
                   "at": [
-                    0.3702,
-                    0.6825
+                    0.427,
+                    0.7229
                   ]
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 2.1,
+                  "sill_m": 0.46,
+                  "at": [
+                    0.1753
+                  ],
+                  "why_not_ordinary": "the canted north face's one light a storey, read off the 1888 plate at x 92-107 px (about 0.6-0.87 of the face from the wall, about 0.65 m across seen obliquely) at the front windows' sill and head; built at the K06 ordinary least width, 0.75 m (T-2988)"
                 }
               ]
             }
@@ -268,19 +327,30 @@
           "eaves": {
             "cornice": "k10.cornice.moulded_stone"
           },
-          "plinth_m": 0.1,
+          "plinth_m": 0.05,
           "balcony": {
             "fabric": "stone",
             "height_m": 0.7,
             "inset_m": 0.3,
             "post_m": 0.3,
             "bar_m": 0.05,
-            "pitch_m": 0.12,
+            "pitch_m": 0.24,
             "rail_m": [
               0.22,
               0.12
             ],
-            "foot_rail_m": 0.1
+            "foot_rail_m": 0.1,
+            "panels": {
+              "count": 1,
+              "rows": 2
+            }
+          },
+          "masonry": {
+            "course_m": 0.6,
+            "block_m": 1.1,
+            "joint_m": 0.01,
+            "relief_m": 0.04,
+            "to_m": 5.0
           }
         },
         {
@@ -290,68 +360,98 @@
           "s_m": 7.9,
           "fabric": "front_stone",
           "base_m": 5.0,
-          "corbel": {
-            "courses": 3
-          },
           "plan": {
             "kind": "polyline",
+            "asymmetric": true,
             "points": [
               [
-                -1.4,
+                -1.08,
                 0.0
               ],
               [
-                -1.2,
-                0.5
+                -1.08,
+                0.6
               ],
               [
-                1.2,
-                0.5
+                1.79,
+                0.6
               ],
               [
-                1.4,
+                2.2,
                 0.0
               ]
             ]
           },
           "storeys": [
             {
-              "height_m": 4.46,
+              "height_m": 0.7,
+              "windows": []
+            },
+            {
+              "height_m": 3.11,
               "windows": [
                 {
                   "opening": "k06.opening.sash_transom_flat",
                   "clear_width_m": 0.48,
                   "clear_height_m": 2.2,
-                  "sill_m": 0.95,
+                  "sill_m": 0.25,
                   "at": [
-                    0.2843,
-                    0.5,
-                    0.7157
+                    0.3193,
+                    0.498,
+                    0.6767
                   ],
                   "why_not_ordinary": "the oriel's three tall narrow transomed lights, read off the 1888 plate at about 0.5 m each between stone mullions over a 2.8 m front"
+                },
+                {
+                  "opening": "k06.opening.sash_transom_flat",
+                  "clear_width_m": 0.2,
+                  "clear_height_m": 2.2,
+                  "sill_m": 0.25,
+                  "at": [
+                    0.8626,
+                    0.9174
+                  ],
+                  "narrow": true,
+                  "recess_m": 0.33,
+                  "why_not_ordinary": "the oriel's south return's narrow transomed lights, read off the 1888 plate at x 473-491 px, close-set on a return 0.73 m long (three there; two of 0.2 m are what the return holds)"
                 }
               ]
             }
           ],
           "roof": {
             "kind": "spire",
-            "rise_m": 2.1,
+            "rise_m": 2.75,
             "covering": "slate_pennsylvania",
-            "finial": true
+            "finial": true,
+            "apex_m": 0.355
           },
           "through_eave": true,
           "eaves": {
             "overhang_m": 0.15,
             "fascia_m": 0.25
+          },
+          "apron": {
+            "foot_m": 5.0,
+            "fabric": "front_stone",
+            "form": "round",
+            "radius_m": 0.2
+          },
+          "masonry": {
+            "course_m": 0.35,
+            "block_m": 0.9,
+            "joint_m": 0.01,
+            "relief_m": 0.04,
+            "to_m": 0.7
           }
         }
       ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
-        "inland_architect_1888_10_ames_residence"
+        "inland_architect_1888_10_ames_residence",
+        "chicagology_1811_ames_photo"
       ],
-      "note": "Read off the plate through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json). NORTH BAY: the front block's north part stands forward of the entrance block (the sheet's stone part p1 draws it about 1.0 m proud); its front, x 112-287 px, is about 3.7 m wide at the bay's own scale (47.4 px/m), with two windows a storey at about 0.3 and 0.78 of its front, iron-grilled basement lights under them, and a cornice at about 8.3 m over which the third storey stands back behind a pierced stone balcony. Built as K08's square-cornered full-height projection, two storeys from grade to 8.4 m: the plate shows (and the sheet draws) its north face CANTED, which K08 has no shape for; that and the bay's smooth upper stage are open on the match record. T-2916: the bay is three storeys of K08, a 1.75 m basement storey under the 3.25 m ground storey and the 2.944 m first, so the string course at 1.67-1.83 m stands where the plate's smooth sill course does (about 1.6-1.9 m, under the ground-floor sills at 2.05 m, unchanged); in it a basement light under each window, 0.95 m across and 1.0 m high from 0.22 m, the plate's lights at x 139-184 and 235-272 px and y 765-819 px (about 1.2 m down to just over grade: the head is the plate's, the sill stands 0.16 m higher because K06's sill stone, 0.1 m deep under the light, must stand on the plinth, not in its face), each barred in K08's grille (five bars and a ring: the plate's grilles are scrolled panels, which the kit draws as bars and one scroll); the bay's plinth is 0.1 m (the kit's 0.6 m would cover the lights' lower half, and the plate's rock-faced courses run down to the walk). On the bay's flat deck a stone balustrade round its cheeks and front (K08's balcony in the bay's stone, T-2780/T-2888): 0.7 m high, the plate's panel and coping at y 392-425 px, 0.3 m posts at the corners as the plate's piers are, a 0.22 m coping, and close-set stone bars at 0.12 m where the plate's panels are pierced fretwork (its interlace is not carved; the bars carry the panel's pierced light and shade). ORIEL: over the entrance arch, corbelled out from about 5.2 m, its front x 340-465 px (about 2.8 m) with three tall transomed lights and a window in each return, its cornice at about 9.1 m; built as K08's corbelled oriel 0.5 m out on three corbel courses from 4.4 m, its returns canted 0.2 m (the plate's are square, and stand further out: K08's oversail rule holds three courses to 0.52 m, and a fourth would bring the corbel down onto the arch). T-2542: carried through the street eave as 1623's is (T-2778), so the eave and the moulded stone cornice die into its cants, under its steep pyramid and finial on K08's spire: its wall top 9.46 m (one 4.46 m storey from 5.0 m), 0.4 m over the plate's cornice at 9.06 m because K01 carries an oriel through the eave only 0.3 m past the eave datum (9.14 m), and its spire rising 2.1 m toward the plate's apex at about 12.0 m. The bay's wall top is the stone cornice's foot (7.94 m), the cornice carried round it to 8.30 m, the plate's 8.3 m."
+      "note": "Read off the plate through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json). NORTH BAY: the front block's north part stands forward of the entrance block (the sheet's stone part p1 draws it about 1.0 m proud); its front, x 112-287 px, is about 3.7 m wide at the bay's own scale (47.4 px/m), with two windows a storey at about 0.3 and 0.78 of its front, iron-grilled basement lights under them, and a cornice at about 8.3 m over which the third storey stands back behind a pierced stone balcony. Built as K08's square-cornered full-height projection, two storeys from grade to 8.4 m: the plate shows (and the sheet draws) its north face CANTED, which K08 has no shape for; that and the bay's smooth upper stage are open on the match record. T-2916: the bay is three storeys of K08, a 1.75 m basement storey under the 3.25 m ground storey and the 2.944 m first, so the string course at 1.67-1.83 m stands where the plate's smooth sill course does (about 1.6-1.9 m, under the ground-floor sills at 2.05 m, unchanged); in it a basement light under each window, 0.95 m across and 1.0 m high from 0.22 m, the plate's lights at x 139-184 and 235-272 px and y 765-819 px (about 1.2 m down to just over grade: the head is the plate's, the sill stands 0.16 m higher because K06's sill stone, 0.1 m deep under the light, must stand on the plinth, not in its face), each barred in K08's grille (five bars and a ring: the plate's grilles are scrolled panels, which the kit draws as bars and one scroll); the bay's plinth is 0.1 m (the kit's 0.6 m would cover the lights' lower half, and the plate's rock-faced courses run down to the walk). On the bay's flat deck a stone balustrade round its cheeks and front (K08's balcony in the bay's stone, T-2780/T-2888): 0.7 m high, the plate's panel and coping at y 392-425 px, 0.3 m posts at the corners as the plate's piers are, a 0.22 m coping, and, T-3052, the panel pierced through between its coping and its base: the Chicagology photograph (chicagology_1811_ames_photo), at about twice the plate's scale, shows the front run as one continuous pierced panel of interlaced fretwork between plain end blocks, its openings about 0.25 m apart in two rows (x 225-540 px, y 497-525 px), where the build stood close-set bars at 0.12 m; it is built as K08's pierced stone panel (T-2930), one panel a run, a diagonal lattice of 0.05 m straps at 0.24 m, two diamonds to its height. The interlace's own curves are not carved: the lattice carries the panel's pierced light and shade at the photograph's spacing. ORIEL: over the entrance arch, corbelled out from about 5.2 m, its front x 340-465 px (about 2.8 m) with three tall transomed lights and a window in each return, its cornice at about 9.1 m; built as K08's corbelled oriel 0.5 m out on three corbel courses from 4.4 m, its returns canted 0.2 m (the plate's are square, and stand further out: K08's oversail rule holds three courses to 0.52 m, and a fourth would bring the corbel down onto the arch). T-2542: carried through the street eave as 1623's is (T-2778), so the eave and the moulded stone cornice die into its cants, under its steep pyramid and finial on K08's spire: its wall top 9.46 m (one 4.46 m storey from 5.0 m), 0.4 m over the plate's cornice at 9.06 m because K01 carried an oriel through the eave only 0.3 m past the eave datum (9.14 m), and its spire rising 2.1 m toward the plate's apex at about 12.0 m. T-3005 (piece 1 of T-2989): the plate's 9.06 m is the TOP of the oriel's cornice, its band drawn at y 407-417 px (about 8.81-9.03 m at the oriel's face) with the slates starting over it; K01 now lets a through-eave oriel's wall top stand under the eave datum so long as it rises 0.3 m over the eave's front edge (the fascia's top, 8.50 m here), so the eave still dies into its walls, its back closed over the datum behind its eaves and spire only. Its storey is 3.81 m, its wall top 8.81 m (0.31 m over the eave's front edge) and its 0.25 m fascia's top, where the spire starts, 9.06 m: the band lands at y 407-417 px with the plate's; its lights stay at 5.95-8.15 m (the plate's 6.0-8.2). The spire rises 2.75 m, so its apex stays at 11.81 m, where T-2542 matched it to the plate's. The bay's wall top is the stone cornice's foot (7.94 m), the cornice carried round it to 8.30 m, the plate's 8.3 m. T-2987: the plate's bay is rock-faced in large courses from grade up to its first floor's sill course (about y 575-580 px, where the 5.0 m storey line's band stands) and smooth ashlar above it, as the oriel is; the bay's K08 walls now carry K08's rock-faced relief (`masonry`, courses 0.6 m and blocks about 1.1 m, the plate's about 30 px high and 45-55 px long at 47.4 px/m) on its basement and ground storeys only (`masonry.to_m` 5.0, new), and its first floor stands smooth over the band. The courses' joints are the kit's even rhythm, not the plate's stone-by-stone layout. T-2988: the bay's north face is canted, as the sheet draws it (trace s28fp-1811-b1: from the wall at u 7.51, v 0.16 to the front's north corner at u 8.60, v 2.29) and the plate shows it at x 60-112 px: K01's projection cants its left (north) cheek (`plan.cant_left_m`), the front 3.16 m from the solve's north corner at v 2.29 to the south return, which stays at 5.45 m beside the downpipe (s_m 3.87, the front's centre), 1.0 m proud; the cheek leaves the wall at 0.3 m, the kit's least corner pier, where the sheet draws about 0.16 m. In it one light a storey, 0.75 m across (the K06 ordinary least; the plate's reads about 0.65 m seen obliquely) at 0.72 of the face from the wall (the plate's x 92-107 px), at the front windows' sills and heads; the basement storey is black on the plate and has no light here. The front's north window stands at v 3.33, the plate's (x 163 px); the south one stays at v 4.64, about 20 px north of the plate's, because the plate's front runs on to about v 5.99 past the build's return (T-2993). T-2993: the south return moves to v 5.99, the solve's place for the plate's front's south corner (x 287 px): the front's level lines (the cornice, both string courses, the sills and heads) run straight to about x 287-290 px, where the bay's rounded south corner stands (x 285-296), so the front is flat to there; its south side does not cant as the sheet's trace draws it (from u 8.51, v 4.88 back to the wall at v 6.02), which would bend those lines by up to 20 px and put the plate's south window on the cant. The front is 3.70 m, T-2541's own reading (s_m 4.14, the cant unchanged at 1.99 from the north corner at v 2.29), its return square and 1.0 m deep. The south window and the basement light under it stand at v 5.22, the plate's centres (x 251 and 253 px): landing at x 231-276 px against the plate's 232-271 (the plate draws its south lights about 39 px across and its north ones about 53 px, within the 15 px T-2541 read the front to; the build keeps both at the record's one width, 1.05 m); the north ones stay at v 3.33 and the canted face's light at 0.72 of its face. The `at` fractions run along the bay's girth (canted cheek 2.23 m, front 3.70, return 1.0): 0.4716 and 0.7445, the cheek's light 0.2315. T-3007 (piece 3 of T-2989): the ORIEL to the plate over the rounded corner. Its plan is the plate's (`asymmetric`): a flat front 0.6 m out (the plate's 'about 0.6 m') from v 6.82 to 9.69, where the camera puts the plate's x 338 and 470 px at that depth; a square north return, which the camera cannot see; and a south return splayed back to the wall plane at v 10.10 (x 497 px), 0.73 m long, standing over the entrance block's round, whose curve falls up to 0.23 m behind the wall plane there (K01 closes the oriel's back on that plane from its base to the round's top). A square 0.6 m return shows about 9 px from this camera; the plate's is 27 px, a flat face (its lights and cornice recede evenly) carried back to the round. In it two narrow transomed lights, 0.2 m, at 0.15 and 0.38 m along the return, recessed K08's least 0.33 m (the plate draws three close-set at x 473-491 px; L-k01-1811-oriel-3007). The front's three lights stand at the plate's centres, v 7.56, 8.31 and 9.06 (x 372, 406 and 440 px). Its base: the plate's rock-faced band from the floor at 5.0 m to the sill course at about 5.7 m, its face ending at about 5.18 m and turning under to the wall, built as a windowless 0.7 m storey in K08's rock-faced relief (to_m 0.7, courses 0.35 m) whose foot turns under on K08's round apron (radius 0.2 m, its foot the floor), in place of the three corbel courses; the lit storey over it is 3.11 m, its sills 0.25 m up (5.95 m, unchanged). The spire's apex stands over the front's middle (`apex_m` 0.355), the plate's finial at x 416 px. T-3101: THE NORTH PIER. The canted cheek leaves the wall 0.93 m from the north arris, not 0.3 m (`cant_left_m` 1.36, the front's north corner unmoved at v 2.29), so the front's north end stands as a pier of the front's own rock-faced stone 0.93 m wide. All three pictures show it: the plate at x 52-92 px, its arris and its junction with the cheek landing at v 0 and 0.93 on the front's plane through T-2541's camera; the Chicagology photograph at x 110-185 px, where the build now renders 113-190 through its own independent camera; and the 1965 HABS photograph of 1801 (data/reference_views/coleman_ames_house_1811_prairie/habs_1965.json), which sees only this corner of 1811, across the court, at x 927-972 px against the build's 928-970. T-2988 had read the plate's canted face at x 60-112 px and the Chicagology solve its north end at x 134, both in the middle of the pier; the 1911 sheet's trace draws the cheek from about v 0.16, but at its 50 ft scale 0.77 m is about a millimetre, so the pictures hold the place. The cheek's light stays one a storey, 0.75 m, its centre 1.12 m along the 1.69 m face (`at` 0.1753; the plate's light at x 97-112 px is 0.42-1.67 m along it, its centre about 1.06 m, and K08 keeps a light's recess in front of the wall's plane only from about 1.08 m out on so shallow a cheek), and the girth is now 6.39 m (cheek 1.69, front 3.70, return 1.0), so the front's lights keep their places at `at` 0.427 and 0.7229. The pier's own head is still the front's wall head and cornice at the bay's height, where the pictures cap it 0.3-0.5 m lower under a small slate top; that, the string course the build runs across it and the downpipe at its junction are open on the match records."
     },
     "side_bays": {
       "value": [
@@ -385,9 +485,9 @@
           ],
           "floor_m": 1.35,
           "storey_heights_m": [
-            3.65,
-            3.4,
-            3.0
+            3.25,
+            3.0,
+            3.08
           ],
           "sash_by_storey": [
             {
@@ -396,14 +496,14 @@
               "height_m": 2.2
             },
             {
-              "sill_above_floor_m": 0.55,
+              "sill_above_floor_m": 0.5,
               "width_m": 1.0,
-              "height_m": 2.0
+              "height_m": 2.1
             },
             {
-              "sill_above_floor_m": 0.5,
+              "sill_above_floor_m": 0.4,
               "width_m": 0.9,
-              "height_m": 1.6
+              "height_m": 1.7
             }
           ],
           "windows": {
@@ -425,6 +525,16 @@
             "overhang_m": 0.15,
             "fascia_m": 0.3,
             "covering": "painted_tin_sheet"
+          },
+          "round_heads": [
+            "north"
+          ],
+          "basement_lights": {
+            "north": {
+              "sill_m": 0.3,
+              "width_m": 1.0,
+              "height_m": 1.05
+            }
           }
         },
         {
@@ -437,8 +547,8 @@
           ],
           "floor_m": 1.35,
           "storey_heights_m": [
-            3.65,
-            3.4
+            3.25,
+            3.8
           ],
           "sash_by_storey": [
             {
@@ -447,9 +557,9 @@
               "height_m": 2.2
             },
             {
-              "sill_above_floor_m": 0.55,
+              "sill_above_floor_m": 0.5,
               "width_m": 1.0,
-              "height_m": 2.0
+              "height_m": 2.1
             }
           ],
           "windows": {
@@ -466,15 +576,26 @@
             "overhang_m": 0.15,
             "fascia_m": 0.3,
             "covering": "painted_tin_sheet"
+          },
+          "round_heads": [
+            "north"
+          ],
+          "basement_lights": {
+            "north": {
+              "sill_m": 0.3,
+              "width_m": 1.0,
+              "height_m": 1.05
+            }
           }
         }
       ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
-        "inland_architect_1888_10_ames_residence"
+        "inland_architect_1888_10_ames_residence",
+        "chicagology_1811_ames_photo"
       ],
-      "note": "The sheet's main part behind the front block, 8.4 m wide on the south wall's straight line (trace s28fp-1811-b1 p2, v 2.0-10.4 here), drawn as one part to its rear wall 18.4 m back with a drawn division about 4.3 m from the rear: the three-storey range ('3B') and the two-storey rear section ('section 2B'). The plate and the Chicagology print show the range's south flank in brick, three rows of windows over a basement, evenly spaced, and a flat-topped wall head; the spacing here is reconstructed at about 2.6 m. The sheet's small projection on the range's north wall (about 1.6 m out, 4.5 m long) is not built: no picture shows that side."
+      "note": "The sheet's main part behind the front block, 8.4 m wide on the south wall's straight line (trace s28fp-1811-b1 p2, v 2.0-10.4 here), drawn as one part to its rear wall 18.4 m back with a drawn division about 4.3 m from the rear: the three-storey range ('3B') and the two-storey rear section ('section 2B'). The plate and the Chicagology print show the range's south flank in brick, three rows of windows over a basement, evenly spaced, and a flat-topped wall head; the spacing here is reconstructed at about 2.6 m. The sheet's small projection on the range's north wall (about 1.6 m out, 4.5 m long) is not built: no picture shows that side. T-3077: the range is three storeys, as the sheet's '3B' says, and its deck stands level with the front block's coping. Through the T-2541 camera on the 1888 plate (heights on the flank's plane do not depend on the camera's distance, only on the flank's 4.05 m offset from the eye and the eye's 1.05 m height): the coping runs level at 10.98 m back to x 572 px, a level line at about 8.65 m runs the whole flank from x 520 to 584 px, and past x 572 that line is the wall head of a lower part, two rows of windows over arched basement lights, which the Chicagology print (cgn-1811-coleman-ames-photo, rights unknown, read in the image store's display copy and not committed) draws the same at x 1167-1200 px. That lower part is the sheet's two-storey 'section 2B', not the range: between the stone face and x 578 px the plate draws six windows a storey (centres about x 525, 541, 553, 564, 571 and 576 px), the build's six bays along the flank (the block's one and the range's five at 2.6 m), which a camera standing about 32 m from the front instead of 15 m puts at x 529-574 px and T-2541's at x 555-611 px, where the plate shows sky; the same farther camera puts x 573 px about 19-21.6 m behind the face, the sheet's solid wall between '3B' and '2B' (21.6 m). The range's rows read off the flank: ground-floor heads about 4.1-4.3 m, first-floor lights about 5.1-7.2 m, second-floor lights about 8.0-9.7 m. So the range's storeys are 3.25, 3.0 and 3.08 m from the 1.35 m principal floor (floors at 4.6 and 7.6 m, wall top 10.68 m, its deck's fascia top 10.98 m, the plate's coping), its lights 1.95-4.15, 5.1-7.2 and 8.0-9.7 m; the rear section's upper floor stands on the range's 4.6 m, its storeys 3.25 and 3.8 m to the same 8.4 m wall top and 8.7 m deck (the plate's 8.65 m), its first-floor lights 5.1-7.2 m (the plate's at x 576 px read 5.1-7.21 m). The range's floors are about 0.4 m under the front block's: the sheet gives no floor levels, and the plate's rows are read to about +-0.3 m. The camera's distance itself is T-3079's (L-k01-1811-range-3077). T-3133: the c. 1888 Chicagology photograph (chicagology_1811_ames_photo) draws every light along the brick flank (K01's 'north') round-headed, and under each of the rear lights a round-headed basement light (x 1084, 1107, 1148, 1167, 1185 and 1197 px), its crown on the horizon (y 1165-1168 px), so about 1.35 m over grade at the camera's 1.35 m eye, whatever the flank's depth, and its foot at y 1228-1245 px, a few tenths over the walk; each about as wide as the light over it (1.0-1.2 times its width in the print). So both wings' flank lights are cut round-headed (`round_heads`) and each takes a basement light under it (`basement_lights`): 1.0 m across, 0.30-1.35 m, which keeps the K01 sash's least sill and clears the principal floor's 1.95 m sills by 0.6 m. Their places along the flank are the lights' own over them, as the print sets each under one, not read off the camera, whose depth along the flank T-3079 and T-3099 ruled is the camera's and not the building's. Whether the heads carry a brick ring is below the print's grain: they take K06's arch band, reconstructed."
     },
     "sash_by_storey": {
       "value": [
@@ -524,8 +645,40 @@
         "cap_depth_m": 0.15,
         "stacks": [
           {
-            "u_m": 0.8,
-            "v_m": 9.4
+            "u_m": 6.8,
+            "v_m": 10.2,
+            "plan_m": [
+              0.8,
+              0.4
+            ],
+            "in_parapet": true,
+            "top_m": 12.29,
+            "cap_proud_m": 0.1,
+            "cap_depth_m": 0.58
+          },
+          {
+            "u_m": 6.8,
+            "v_m": 10.235,
+            "plan_m": [
+              0.5,
+              0.33
+            ],
+            "in_parapet": true,
+            "top_m": 12.86,
+            "cap_proud_m": 0.03,
+            "cap_depth_m": 0.12
+          },
+          {
+            "u_m": 2.5,
+            "v_m": 10.175,
+            "plan_m": [
+              0.8,
+              0.45
+            ],
+            "in_parapet": true,
+            "top_m": 12.29,
+            "cap_proud_m": 0.1,
+            "cap_depth_m": 0.4
           },
           {
             "u_m": 1.0,
@@ -533,13 +686,41 @@
           }
         ]
       },
-      "confidence": "reconstructed",
-      "note": "The plate's tall stack at the junction of the front block and the brick range on the south side, and one on the north wall, reconstructed; T-2542 carried them up past the steepened ridge with it. Their corbelled caps and the range's second stack (the plate's, x about 545 px) stay open on the match record."
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1888_10_ames_residence"
+      ],
+      "note": "T-3050: the two south stacks stand IN the south wall's coped gable, as the 1888 plate and the Chicagology print (cgn-1811-coleman-ames-photo) both draw them, solved through the T-2541 camera and checked on its render. The tall stack rises from the gable's street slope about 0.8 m behind the front (its shaft the plate's x 498-522 px, about 0.4 m across the wall), its shaft to a corbelled band at 11.7-12.29 m (y 293-320 px), built as K01's deep proud cap, and over it a narrower top stage to 12.86 m (y 268 px, x 502-517), built as a second, smaller stack standing in the first. The second stack stands on the gable's rear fall about 4.3 m further back (x 537-557 px, its top y 395, 12.29 m), with its own head. Their places along the flank are inferred from the camera to about +-0.5 m. The north stack is reconstructed (no picture sees the north side) and stands where T-2542 put it, now under the hip."
     },
     "rainwater": {
-      "value": null,
+      "value": {
+        "fabric": "painted_tin_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "front_pipes": [
+          {
+            "s_m": 5.99,
+            "on": "return",
+            "head_m": 7.85,
+            "foot_m": 0.0,
+            "proud_m": 0.8
+          },
+          {
+            "s_m": 10.29,
+            "head_m": 7.85,
+            "foot_m": 0.0,
+            "proud_m": -0.368
+          },
+          {
+            "s_m": 0.93,
+            "head_m": 7.0,
+            "foot_m": 0.0,
+            "proud_m": 0.0
+          }
+        ]
+      },
       "confidence": "reconstructed",
-      "note": "No gutters yet: a K01 gable roof hangs none (T-2459). The plate's two downpipes on the front (at the bay's south return and the entrance block's south corner) are open on the match record."
+      "note": "The plate draws two downpipes on the front (T-2987), read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): one down the main front beside the bay's south return, a pale rod at x 298-302 px clear of the tree's trunk from a box head under the cornice (about y 440-455 px), at about 5.6 m along the front from its north corner, built at 5.7 m so its head clears the bay's own cornice; and one down the entrance block's south corner (x 505-510 px) to a shoe kicked out at grade (y 805-820 px), built at 10.25 m, its head within the front. No eave gutter runs to them (a K01 gable roof hangs none, T-2459), so each runs from a rainwater head of its own (T-2953's front_pipes, which a gable roof may now carry), the heads at 7.85 m under the build's moulded cornice (the plate's stand about 0.4 m higher, under a cornice the build lays lower there). The pipes' fabric and paint (K04's painted tin, round) are the kit's: the print is monochrome and reads them only as pale; the heads' size, the straps and the splash stones are K04's too (L-k01-1811-ames-front-2541). T-2993: with the bay's south return moved to v 5.99, the plate's rod at x 298-302 px reads down the return's own south face, about 0.3 m in from the front's corner: a 1.0 m return there hides the main wall from x 288 to 315 px. K01's front pipes run only along the street front, so the pipe stands on the main front beside the return at 6.24 m (the return plus the same 0.25 m clear of the bay's cornice), landing at about x 323 px, 21 px south of the plate's; carrying it on the return's face is T-2997. T-3006: with the entrance block's south corner rounded on 0.9 m, the plate's rod at x 505-510 px stands on the round itself, about 50 degrees round from the front, so the pipe is built there: 10.29 m along the front and 0.368 m behind its plane (proud_m -0.368), its centre 1.030 m from the round's centre (as far off the curve as a front pipe stands off the front), landing at about x 508 px. T-2997: K01's front pipes learn a projection's return (`on: \"return\"`, `s_m` the return's face, `proud_m` its place along it), so the bay's south pipe stands on the return's own south face 0.8 m before the main front (0.2 m in from the bay front's corner), head, straps, shoe and splash stone turned to that face; it lands at x 297-301 px against the plate's 298-302, where the main-front pipe stood 21 px south. T-3112: a third pipe down the north pier's junction with the bay's canted cheek, from under the pier's band to grade: the Chicagology print's dark rod at x 110-115 px and the HABS print's at x 972-975 px, both against the cheek's foot; built at the junction, 0.93 m along the front, its head (K04's box, 6.76-7.0 m) under the pier's band at 7.10 m, where the weathering over the cap would shed to it. Its head and shoe are K04's, as the other two."
     },
     "window_kit": {
       "value": {
@@ -547,10 +728,15 @@
         "k01.opening.area_light": {
           "variant": "k06.opening.area_light",
           "well": false
+        },
+        "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+        "k01.opening.sash_round_plain": {
+          "variant": "k06.opening.basement_round",
+          "well": false
         }
       },
       "confidence": "reconstructed",
-      "note": "The district's two-over-two sash; the plate's sash is too small to count lights."
+      "note": "The district's two-over-two sash; the plate's sash is too small to count lights. T-3133: the south flank's round-headed lights (the c. 1888 Chicagology photograph) take K06's single round-headed sash, a one-over-one to the spring under a fixed fan; the photograph is too small to count their lights, so the fan is the kit's, reconstructed. The round-headed basement lights under them take K06's fixed round-headed basement light."
     },
     "entrance_kit": {
       "value": {
@@ -558,38 +744,109 @@
           "variant": "k07.entrance.double_door_deep_arch",
           "front_yard_m": 7.6,
           "reveal_depth_m": 0.32,
+          "opening_m": [
+            1.9,
+            2.75
+          ],
           "arch": {
             "ring_m": 0.4,
-            "keystone_top_m": 4.75,
+            "keystone_top_m": 4.65,
             "keystone_m": [
               0.3,
-              0.45
+              0.4
             ]
+          },
+          "porch_door": {
+            "width_m": 1.3,
+            "offset_m": 0.0,
+            "height_m": 2.4,
+            "leaves": 2,
+            "panels": [
+              1,
+              2
+            ],
+            "transom_m": 0.4
+          },
+          "loggia": {
+            "v_m": [
+              6.75,
+              9.05
+            ],
+            "depth_m": 1.8,
+            "ceiling_m": 3.0,
+            "columns": {
+              "shafts_m": [
+                [
+                  0.03,
+                  0.27
+                ],
+                [
+                  0.03,
+                  0.27,
+                  0.51
+                ]
+              ],
+              "radius_m": 0.11,
+              "proud_m": 0.1,
+              "plinth_m": 0.86,
+              "base_m": 0.05,
+              "capital_m": 0.24
+            },
+            "round_arcade": {
+              "angles_deg": [
+                8,
+                27,
+                44
+              ],
+              "clear_width_m": 0.18,
+              "crown_m": 0.79,
+              "reveal_m": 0.3,
+              "band_m": 0.55,
+              "drops_m": [
+                0.0,
+                0.1,
+                0.2
+              ]
+            }
+          },
+          "cheek_form": {
+            "kind": "scrolled",
+            "foot_block_m": 0.7
           }
         }
       },
       "confidence": "reconstructed",
-      "note": "The plate's deep round arch on clustered columns, its springing about 3.3 m and its extrados about 4.5 m over grade through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), read on K07's deep-arched double door. The porch's depth, the columns and the stair's scrolled cheek walls are the finishing ticket's (T-1892)."
+      "note": "The plate's entrance is an OPEN PORCH (T-2918), read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) at 44.2 px/m on the entrance face: a round arch about 1.9 m across between its jambs (x 355-440 px), about 1.75 m between the columns' inner faces, springing at about 3.25 m and crowned at 4.2 m over grade (built at 4.1 m, 2.75 m over the door's floor, so the head and its 0.3 m clear the oriel's corbel foot at 4.4 m as K01 requires), its plain voussoirs about 0.4-0.55 m deep to an extrados at about 4.5-4.6 m (built 0.4 m, to 4.5 m). Each jamb carries a CLUSTER of round shafts with carved capitals, two on the north side and three on the south, about 0.24 m on centres and about 0.22 m thick (x 337 and 348 px; 442, 452 and 463 px), on a plinth whose top stands about 2.2 m over grade (y 725 px), the capitals under the springing (y 673-684 px). Through the mouth the plate shows only the porch's dark interior, the door far back in it: a loggia (K01's T-2910 room) 2.3 m along the front and 1.8 m deep from the face, the ticket's reading of the plate's porch 'about 1.8 m wide and deep' (the plate cannot measure a depth: reconstructed), its ceiling 3.0 m over the floor, and a double door 1.3 by 2.4 m under a transom in its back wall. The stair's cheeks are massive stone walls swept down to a rolled scroll at the foot (y 640-700 px at x 300-345 and 420-460 px), K07's carved cheek (T-2565). T-2990: each roll stands on a plain foot block, as the plate draws them (x 421-440 px on the south cheek): the roll's centre about 45 px over grade at the stair's foot (y 781 against grade at about 826 px; about 0.9 m at the foot's scale) on a block about 34 px tall; built with the block 0.7 m tall (`cheek_form.foot_block_m`, new), the roll 0.4 m across on it, which lands it at y 773-790 px against the plate's 775-792. The block's face is plain; the plate shows no carving on it. The leafage of the capitals and the scrolls' carving are finer than the print shows; what stands for them is reconstructed. T-2991: beside the arch the plate carries the porch round the entrance block's rounded south corner (T-3006's 0.9 m round) as a small arcade (`loggia.round_arcade`), read at 7x on the plate (x 465-510, y 620-745 px). Three colonnettes like the mouth's stand round the curve at x 477, 490 and 500 px, which on the round are about 8, 27 and 44 degrees from the front's tangent. Their capitals are at y 678-697 px, the mouth's springing line, and their bases on a ledge at y 722-733 px, the mouth's plinth top. Over each capital, not between them, the plate draws a narrow dark round-headed light: x 473-480, 485-492 and 497-503 px, crowns y 646, 652 and 658. So each light stands on its own colonnette, its sill on the abacus. Built: lights 0.18 m across, sills on the springing's bed at 3.15 m and crowns 0.79 m over them (3.94 m against the plate's 3.94 m for the first), cut 0.3 m into the round's courses; the colonnettes are the mouth's own (0.11 m shafts, 0.1 m proud of the round); and under them a dressed plinth band 0.55 m deep down from the plinth top, as proud as the mouth's plinth (the plate's smooth band, y 727-748 px). Through the camera the lights land at x 472-479, 485-492 and 497-503 px and the colonnettes at about 475, 487 and 499. The plate's arcade steps down to the south, its bases by 0, 4 and 9 px and its crowns by 0, 6 and 12 px. Neither the curve nor the camera explains that (going round the 0.9 m round lowers a crown by under 1 px), so it stands as a residual for T-3079's re-solve of the camera along the south flank, and the build is level. T-3129: the Chicagology photograph, a second negative through its own camera (T-3052), steps it the same way: against the mouth's south jamb the three colonnettes' capitals stand 3, 10 and 20 px lower (y 1005 to 1025) and their bases 5, 10 and 13 px (y 1093 to 1106), where the level build renders all three on the jamb's line through that camera, so the drop is in the porch and not the perspective. At that camera's 1.1 cm a pixel and the plate's 2.3 cm, both read about 0.1 m a light. Built stepped: each light, its colonnette and the plinth band under it stand 0, 0.1 and 0.2 m lower going round the curve (`round_arcade.drops_m`, new), the first on the mouth's springing as the plate draws it. Why the porch steps no source says; the step is read from the two pictures and its cause is not built. What the lights open into is in shadow on the plate, so the porch is not carried round behind them: each light's back is dark at 0.3 m (L-k01-1811-round-arcade-2991)."
     },
     "gable_roof": {
       "value": {
-        "ridge_back_m": 3.78,
+        "ridge_back_m": 1.4,
         "top_above_ridge_m": 0.3,
+        "hip_mass": {
+          "v_m": 7.1,
+          "apex_v_m": 3.3,
+          "attic_from_m": 5.0
+        },
+        "rear_fall": {
+          "wall_head_m": 10.95,
+          "pitch_deg": 61.2,
+          "head_back_m": 0.1
+        },
         "ends": {
           "north": {
-            "style": "coped"
-          },
-          "south": {
             "style": "coped"
           }
         }
       },
-      "confidence": "reconstructed",
-      "note": "The ridge at half the front block's depth, so the two slopes fall at the same pitch to the one wall head; the side walls carried up as coped parapets (K01's 'north' is the street's south end: the brick gable the plate and the Chicagology print show rising to the tall stack, a smooth coped rake, not crow-stepped)."
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1888_10_ames_residence"
+      ],
+      "note": "T-3050, read through the T-2541 camera on the 1888 plate and checked on the Chicagology print (cgn-1811-coleman-ames-photo, a second negative from nearly the same place, which shows the south flank whole). The roof is two masses, not one ridge. Over the bay (K01's low-v end) a steep HIPPED mass, its apex at the plate's x 313-329 px, y 243-247, which the camera puts at u 3.8, v 3.8-4.2 and 16.0 m: a K05 hip over the whole depth from v 0 to 8.0 m at the street's 61.2 degrees reaches 16.01 m there, its south hip arris crossing y 335 at x 386 (the plate's 390). South of it a LOWER gable roof in the same street plane, its ridge 1.4 m behind the front at 11.68 m: the plate's level slate top at y 345-352 between the oriel's pyramid and the stack (x 448-498) lies on that line, and the south wall's coped gable rises from the front corner at the street's pitch to the tall stack and falls behind it, as both pictures draw it; a ridge at half the depth (T-2542's 3.78 m) would stand the coped rake in the sky the plate shows at x 541, y 335. Only the south (K01 'north') wall is carried up as a coped parapet; the north wall is under the hip's end. The ridge's depth is inferred to about +-0.4 m (the camera's depth along the flank is good to about +-1 m); the rear slope falls at 22.6 degrees to the wall head, its fall unseen. T-3063, the rear fall, read through the same camera on the plate and checked on the Chicagology print: behind the tall stack the south wall's coping runs LEVEL, not down a rear slope. On the plate its top edge stands at (528, 374-380) px just clear of the stack and at (572, 485) px at the block's rear wall, which the camera puts on the wall's plane (v 10.4) at u 5.9, 10.96 m and u -0.3, 10.98 m, a line running into the flank's vanishing point; the second stack stands on it, 26-35 px over it. The print, from further south-west, draws the same: a short steep fall from the tall stack, then a long coping line back past the second stack to a step down at the block's rear. Neither picture shows any roof over that coping, where the plain 22.4-degree rear slope stood the coping 0.5-1.4 m higher and its own covering over it near the ridge. So `rear_fall`: the coping's top level at 10.95 m from the rear wall to where the fall meets the deck; the parapet's head runs on only 0.1 m behind the ridge (the plate's coping has already fallen at u 5.9, just behind the stack), and the rear slope falls from the ridge at the street's own 61.2 degrees to a flat deck 0.38 m under the coping (K05's 0.3 m upstand and the 0.08 m coping) running back to the rear wall. The head's level height (10.95 m) is read; the fall's pitch and the deck are inferred (no picture sees behind the coping), the street's pitch the plainest choice; L-k01-1811-rear-fall-3063."
     },
     "dormer": {
       "value": {
-        "width_m": 3.6,
+        "width_m": 3.8,
         "face_setback_m": 0.0,
         "face_height_m": 1.95,
         "face_thickness_m": 0.2,
@@ -606,16 +863,34 @@
             0.82
           ]
         },
-        "v_m": 3.6,
+        "v_m": 3.32,
         "wall_gable": {
           "pinnacles": {
-            "at_m": 1.85,
+            "at_m": 2.0,
             "shaft_m": 0.3,
             "foot_m": -0.35,
             "top_m": 2.6,
             "cap_m": 0.1,
             "spire_m": 0.3,
-            "engage": true
+            "engage": true,
+            "heads": [
+              {
+                "top_m": 1.44,
+                "spire": "scaled_pyramid",
+                "spire_m": 0.46,
+                "block": {
+                  "in_m": 0.36,
+                  "width_m": 0.45,
+                  "foot_m": 2.0,
+                  "height_m": 0.86
+                }
+              },
+              {
+                "top_m": 2.16,
+                "spire": "dome",
+                "spire_m": 0.56
+              }
+            ]
           },
           "finial": {
             "height_m": 0.6,
@@ -674,7 +949,75 @@
       "sources": [
         "inland_architect_1888_10_ames_residence"
       ],
-      "note": "T-2542: the north bay's STONE GABLE, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), built as K01's wall gable (T-2428) on the street wall's plane over the bay, behind the balcony on its deck: centred on the bay (v 3.6); its rake's foot at about 10.2 m and its apex at about 13.2 m with a finial (x 192 px), so a face standing 1.95 m over the 9.14 m eave datum, 3.0 m across and pitched 55 degrees: its pediment's cornice at about 10.1-10.3 m and its apex at about 13.1 m; the third storey's three lights between their colonnettes, about 9.0-9.9 m and about 0.45 m wide on the plate, built at the wall gable's narrowest sash (0.5 m) 1.05 m apart, at T-2541's centres, 9.39-10.29 m (0.4 m high: a wall gable's face stands on the eave datum and its lights 0.25 m over it); a pinnacle either side at the bay's corners (x about 120 and 285 px, 3.7 m apart) rising to about 12 m under a pyramid. T-2936: the face is the plate's GREAT ARCH (`arch`): a ring of fifteen voussoirs rising from the pediment's horizontal cornice, which reads as the plate's lintel over the lights, its centre 0.3 m under the cornice's top because the plate's ring is still curving where the lintel meets it (half-span about 1.2 m and rise about 0.9 m over the lintel on the plate); a 1.15 m intrados and a 0.16 m ring, the most the raking cornice leaves room for on a 3.0 m face; the tympanum recessed 0.1 m with three round-arched lights, the middle one taller (the plate's at x about 163, 199 and 235 px, about 0.82 m apart and 0.42 m wide at the plate's 4 m width, built 0.72 m apart and 0.34-0.36 m wide to stand inside the narrower arch); four colonnettes beside and between the flat-headed lights, which carry no voussoirs; a small round-arched light over the crown (the plate's at about 195, 262-282 px); and the face in the front's own brown sandstone, dressed smooth (`face_fabric`). T-2937: the gable to the plate's WIDTH. The face is 3.6 m, so its raking cornice's outer edge reaches the foot about 1.95 m either side of the centre (the plate's rake, run down to the cornice's level, about 82-93 px either side at the face's 44.2 px/m, about 3.9 m across) and runs out past the pinnacles' inner faces into the shafts (`pinnacles.engage`), which take its ends as the plate's do; the apex rises with it to about y 213 px against the plate's 207 (T-2542's stood about 25 px under). The pinnacles keep their 0.3 m shafts at the bay's corners and stand 0.5 m lower, their caps at about y 293-300 px with the plate's right-hand cap at 293. The great arch is the plate's: a 1.4 m intrados whose centre stands 0.6 m under the cornice's top, its crown at about y 312 px against the plate's 315-318; a ring of 0.2 m voussoirs and outside it a moulded hood order 0.12 m wide standing 0.1 m proud (`arch.hood`), the whole archivolt 0.32 m deep (the plate's reads 14-16 px, 0.32-0.36 m), its outer edge springing about 1.6 m either side and cresting at about y 298 px against the plate's 300-302. The tympanum's lights stand at the plate's 0.8 m spacing and 0.4-0.42 m width (x about 172, 208 and 244 px against 163, 199 and 235); the crown light's sill 1.5 m over the cornice (y about 261-279 px against 262-282); and the flat-headed lights under the cornice at the plate's 0.82 m spacing and 0.55 m width (about 34-39 px apart and 23-27 px wide on the plate) with their colonnettes between and beside them. Reconstructed: the face's 3.6 m width and the 55-degree pediment within the plate's reading; the archivolt's two orders for the plate's moulded ring, whose profile the plate does not resolve; the colonnettes' 0.055 m radius and square caps (the plate's are stouter, with carved capitals); the pinnacles' square plan and pyramid tops (the plate's are carved, one capped with a scaled dome); the lower lights' sash; and the gable's centre, which stands about 10 px (0.25 m) south of the plate's with its pinnacles, as T-2542 placed it. No carving over the arch is built: at the plate's resolution the pediment over the archivolt reads as coursed rock-faced stone under the crown light, with no legible carved panel (L-k01-1811-ames-front-2541)."
+      "note": "T-2542: the north bay's STONE GABLE, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), built as K01's wall gable (T-2428) on the street wall's plane over the bay, behind the balcony on its deck: centred on the bay (v 3.6); its rake's foot at about 10.2 m and its apex at about 13.2 m with a finial (x 192 px), so a face standing 1.95 m over the 9.14 m eave datum, 3.0 m across and pitched 55 degrees: its pediment's cornice at about 10.1-10.3 m and its apex at about 13.1 m; the third storey's three lights between their colonnettes, about 9.0-9.9 m and about 0.45 m wide on the plate, built at the wall gable's narrowest sash (0.5 m) 1.05 m apart, at T-2541's centres, 9.39-10.29 m (0.4 m high: a wall gable's face stands on the eave datum and its lights 0.25 m over it); a pinnacle either side at the bay's corners (x about 120 and 285 px, 3.7 m apart) rising to about 12 m under a pyramid. T-2936: the face is the plate's GREAT ARCH (`arch`): a ring of fifteen voussoirs rising from the pediment's horizontal cornice, which reads as the plate's lintel over the lights, its centre 0.3 m under the cornice's top because the plate's ring is still curving where the lintel meets it (half-span about 1.2 m and rise about 0.9 m over the lintel on the plate); a 1.15 m intrados and a 0.16 m ring, the most the raking cornice leaves room for on a 3.0 m face; the tympanum recessed 0.1 m with three round-arched lights, the middle one taller (the plate's at x about 163, 199 and 235 px, about 0.82 m apart and 0.42 m wide at the plate's 4 m width, built 0.72 m apart and 0.34-0.36 m wide to stand inside the narrower arch); four colonnettes beside and between the flat-headed lights, which carry no voussoirs; a small round-arched light over the crown (the plate's at about 195, 262-282 px); and the face in the front's own brown sandstone, dressed smooth (`face_fabric`). T-2937: the gable to the plate's WIDTH. The face is 3.6 m, so its raking cornice's outer edge reaches the foot about 1.95 m either side of the centre (the plate's rake, run down to the cornice's level, about 82-93 px either side at the face's 44.2 px/m, about 3.9 m across) and runs out past the pinnacles' inner faces into the shafts (`pinnacles.engage`), which take its ends as the plate's do; the apex rises with it to about y 213 px against the plate's 207 (T-2542's stood about 25 px under). The pinnacles keep their 0.3 m shafts at the bay's corners and stand 0.5 m lower, their caps at about y 293-300 px with the plate's right-hand cap at 293. The great arch is the plate's: a 1.4 m intrados whose centre stands 0.6 m under the cornice's top, its crown at about y 312 px against the plate's 315-318; a ring of 0.2 m voussoirs and outside it a moulded hood order 0.12 m wide standing 0.1 m proud (`arch.hood`), the whole archivolt 0.32 m deep (the plate's reads 14-16 px, 0.32-0.36 m), its outer edge springing about 1.6 m either side and cresting at about y 298 px against the plate's 300-302. The tympanum's lights stand at the plate's 0.8 m spacing and 0.4-0.42 m width (x about 172, 208 and 244 px against 163, 199 and 235); the crown light's sill 1.5 m over the cornice (y about 261-279 px against 262-282); and the flat-headed lights under the cornice at the plate's 0.82 m spacing and 0.55 m width (about 34-39 px apart and 23-27 px wide on the plate) with their colonnettes between and beside them. Reconstructed: the 55-degree pediment within the plate's reading; the archivolt's two orders for the plate's moulded ring, whose profile the plate does not resolve; the colonnettes' 0.055 m radius and square caps (the plate's are stouter, with carved capitals); the pinnacles' square shafts; the lower lights' sash. No carving over the arch is built: at the plate's resolution the pediment over the archivolt reads as coursed rock-faced stone under the crown light, with no legible carved panel (L-k01-1811-ames-front-2541). T-3062: the gable on the plate's centre line and 3.8 m across: `v_m` 3.32 (0.28 m north of T-2542's place), its apex at about x 196 px and its lights' centre at 197 against the plate's 196 and 197, and its pinnacles 2.0 m either side, the shafts landing at x 96-115 and 272-297 px against the plate's 97-119 and 276-298; the wider face lifts the apex about 6 px onto the plate's. The plate carves the pinnacles apart (`pinnacles.heads`): the south one's shaft rises to a moulded band at 11.40 m (y 316 px, the plate's 318; K01 holds an engaged shaft's cap 0.25 m over the rake where it enters it) under a dome to 11.96 m (y 292 px, the plate's 292); the north one carries a moulded block, 0.45 m square from 11.14 m to 12.00 m (its top at y 282 px with the plate's), its centre 0.36 m in from the shaft's so the rake dies into its side, as the plate's rake runs into it. Reconstructed: the dome's scales and the block's mouldings (a plain quarter-ellipse dome; a plinth, die and cornice); the block's 16 px offset from the shaft is read as inward, not as a block 0.4 m behind it, which the one camera cannot tell apart (L-k01-1811-ames-front-2541). T-3064: the north shaft stops under its block, as the plate draws it: K01 lets a shaft under a block stop below the face's eave, so it rises to 10.58 m, its cap (the plate's band, level with the horizontal cornice) at 10.58-10.68 m (y 339-346 px against the plate's 342-348), and over the cap the plate's scaled stone (`scaled_pyramid`) leans in to the block's plinth at 11.14 m (its outer edge x 97-104 px against the plate's 98-105, its top at y 318 against 320); the gable's eave and rake die into that stone. Reconstructed: the scales are five courses each 15 mm proud of the one under it, the plate's imbricated stones not being resolved; the stone's top is the block's plinth and its foot the cap (L-k01-1811-ames-front-2541)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 7.55,
+        "lot_s_m": [
+          -0.87,
+          13.07
+        ],
+        "thickness_m": 0.45,
+        "chamfer_m": 0.08,
+        "runs": [
+          {
+            "to_s_m": 7.6,
+            "height_m": 0.45
+          },
+          {
+            "to_s_m": 10.0,
+            "opening": true
+          },
+          {
+            "to_s_m": 10.4,
+            "height_m": 0.5
+          },
+          {
+            "to_s_m": 11.3,
+            "opening": true
+          },
+          {
+            "to_s_m": 13.07,
+            "height_m": 0.45
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1811_ames_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The photograph shows no fence: a low coping of rock-faced brownstone on the lot line inside the public walk, about 0.45 m high against the stair's risers, broken where the walk leaves the stair and again at the south passage, a rock-faced block standing between the two (the brief's 'a block plus a low coping'). K11's stone coping wall on the parcel's street line (7.6 m from the front; data/street_grid/1904.json prairie_1811): 0.45 m from the north lot line to s 7.6, open s 7.6-10.0 for the walk, a 0.4 m block s 10.0-10.4 at 0.5 m, open s 10.4-11.3, and a 1.8 m run s 11.3-13.07 to the south lot line. The three pictures that reach the lot line (the Chicagology photograph, the Glessner blog print and the Inland Architect plate) agree on that sequence: a long run, the walk's opening a little south of the stair, a small block, a gap, a long run, then paving beyond. Read through the solved camera, registered on the stair, the opening's centre falls about 0.9 m south of the stair's axis (s 7.9), so the walk leaves the stair square and turns south behind the coping to the opening, as the prints show it angling. The prints show no opening across the south passage, so no service walk is laid through the coping."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 2.2
+        },
+        "grade_m": {
+          "front": 0.016,
+          "street": 0.024,
+          "per_m_s": 0.002,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_1811_ames_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot, 2.2 m wide (the stair's width), out toward the coping and south behind it to the coping's opening, which the three prints that reach the lot line put a little south of the stair. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",
@@ -683,10 +1026,66 @@
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "note": "The 1911 sheet marks the building 'D' (dwelling): '3B; section2B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+    },
+    "built": {
+      "value": 1886,
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "note": "The marker: 'Joseph G. Coleman Residence. Built 1886'."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_1811_ames_photo",
+      "citation": "[1811 S. Prairie Ave. (Coleman / Ames house).] Photograph of the house from the west side of Prairie Avenue, south-west of it: its street front, its south flank and the ground to the curb; unknown photographer, undated (after 1886). Reproduced on chicagology.com, Prairie Avenue, 1811 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1811prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the street front, bay, gable, oriel and entrance at about twice the plate's resolution, agreeing with it",
+        "the south flank: the coped front block's wall, a lower range ending well short of the 1911 sheet's rear, and a separate pavilion with an arched door",
+        "the bay's balcony as a pierced fretwork panel and the basement lights' scrolled grilles",
+        "the street section in front of the house: walk, parkway, tree, lamp and curb, with the camera fitted to them"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome",
+        "a date: undated, after 1886",
+        "the north flank and the rear"
+      ]
+    },
+    {
+      "source_id": "habs_kimball_house_il_1077",
+      "citation": "Historic American Buildings Survey. W. W. Kimball House, 1801 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1077 (HABS ILL,16-CHIG,75-). Documentation compiled after 1933; historians Wesley Shank and Leland Roth. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+      "url": "https://www.loc.gov/item/il0136/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "that the Kimball House at 1801 South Prairie Avenue was designed by Solon S. Beman for the founder of the Kimball Piano Company, and that it is one of the few residences of the avenue still standing when the survey was made"
+      ],
+      "what_it_does_not_supply": [
+        "A CONSTRUCTION DATE. This record was opened specifically to date the house and it carries no `Building/structure dates` note and no date in its significance statement.",
+        "any position, footprint or dimension; nothing is traced from it"
+      ]
+    },
+    {
+      "source_id": "hmdb_prairie_heritage_preserved",
+      "citation": "'A Heritage Preserved', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308723.",
+      "url": "https://www.hmdb.org/m.asp?m=308723",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "year built, architect and style as the marker states them for 1800, 1801, 1811, 1900 and 1919 Prairie"
+      ],
+      "what_it_does_not_supply": [
+        "anything about the houses' state in 1904 beyond what each entry dates"
+      ]
+    },
     {
       "source_id": "inland_architect_1888_10_ames_residence",
       "citation": "\"Residence of Miner T. Ames, Chicago. Cobb & Frost, Architects.\" Photographic plate. The Inland Architect and News Record, vol. XII, no. 3 (October 1888), plate section ('Our Illustrations').",

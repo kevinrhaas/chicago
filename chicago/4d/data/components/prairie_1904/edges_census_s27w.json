@@ -1,0 +1,587 @@
+{
+ "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 27 for the background behind Prairie Avenue: Indiana Avenue's east frontage, 18th to 20th Street, and the row at 213-217 East Eighteenth Street (T-3151, piece 2 of T-3145; T-3150, piece 1, ingested the sheet and read its 26 lots into the 1904 grid). It replaces T-3011's reconstructed background row, which stood 22 houses re-stood from the neighbouring Indiana faces while the sheet was not in hand. The rows are read in the same frontage contract as sheets 20w and 35w, for tools/trace_prairie_1904_footprints.py (sheet '27w') and tools/draft_prairie_1904.py. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face: the sheet is the only plan, as on 35w. The 1904 Blue Book's households on the face (T-3011's reading: 1813 (three), 1815, 1819, 1821, 1825, 1829, 1833 (two), 1901, 1921 and 1933) each fall on a lot whose 1911 front is a dwelling, and each is named in its row. Two frontages carry 1911 commercial uses whose 1904 state nothing in hand attests: the P.O. sub-station at 1925-1929 and the corner store at 1935-1937 with the 216-216a E. 20th flats behind it; they are traced and not drafted, and T-3154 read their 1904 state from the 1902 and 1911 Lakeside directories and the Blue Books of 1902-1911: households lived at 1927 in 1902 and again in 1911, so 1925-1929 is ruled replaced_after_1904 (the sub-station is not the 1904 building, and nothing stands until the house's form is found); nothing in hand puts anyone at 1935-1937 or 216-216a E. 20th before 1910, so that corner stays phase_unresolved. The 1-storey stores built forward of 1801 and 1807 and the stores at 205-207 E. 18th are 1911 shops on house lots; the houses are drafted and the shops are not. The two unnumbered lots between 1839 and 1901 are open on the sheet and kept open.",
+ "ticket": "T-3151",
+ "sheet": "27w",
+ "target_date": "1904-07-01",
+ "source": {
+  "source_id": "sanborn_1911_chicago_v3_sheet_27",
+  "file": "chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_27.jpg",
+  "observation_year": 1911
+ },
+ "reading": {
+  "by": "Read by eye from the committed sheet 27 scan (5873 x 7323 px), the 1904 grid's parcel lines drawn over each crop, 2026-10-25.",
+  "conventions": "Sanborn colour: pink brick, yellow frame, blue stone. A crossed square marks a stable. D = dwelling, F = flats, S = store. Storey figures as printed (B = basement).",
+  "limits": "A 1911 label is a 1911 observation (study ruling 11): the stores, the garage, the post-office sub-station and the basement cigar factory are not carried back to 1904. Robinson 1886 plate 10 ends at 18th Street, so no earlier plan checks these outlines. No dimension is claimed beyond the trace."
+ },
+ "frontages": [
+  {
+   "frontage_id": "frontage-27w-1801",
+   "printed_number_1911": "1801",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1801"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1801-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), 40 ft, the north end of a row of four (1801-1807) behind a stone (blue) strip run along their Indiana fronts; a 1-storey brick store (S) built forward of it to the street line"
+    },
+    {
+     "id": "s27w-1801-stores",
+     "kind": "attached",
+     "reading_1911": "Two 2-storey brick stores (S) printed 205 and 207 E. 18th St., fronting 18th Street against the house's rear wall, the sheet drawing no line between them and the house's lot",
+     "note_1904": "Stores in 1911, their 1904 state not read; drawn joined to the house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1801 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty. The row's four houses stand; the 1-storey store at the street and the two stores on 18th Street are 1911 shops whose 1904 state is not read. A 1911 shop is a 1911 observation (study ruling 11); its 1904 state is not read, and the draft does not stand it.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1803",
+   "printed_number_1911": "1803",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1803"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1803-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), the row's second house behind the stone strip"
+    },
+    {
+     "id": "s27w-1803-rear",
+     "kind": "detached_service",
+     "reading_1911": "At the rear of the lot a 2-storey brick shed (\"2\", lettered SHEDS across 1803-1807) with a 2-storey brick piece (\"2B\") and a 1-storey frame lean-to (yellow) joined to its street side"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1803 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1805",
+   "printed_number_1911": "1805",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1805"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1805-front",
+     "kind": "front",
+     "reading_1911": "3B. brick dwelling (D), the row's third house behind the stone strip"
+    },
+    {
+     "id": "s27w-1805-rear",
+     "kind": "detached_service",
+     "reading_1911": "The 2-storey brick shed at the rear of the lot (\"2\", the SHED lettering)"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1805 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1807",
+   "printed_number_1911": "1807",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1807"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1807-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), 40 ft, the row's south end behind the stone strip, a fire escape (F.E.) on its south wall; a 1-storey brick store (S) built forward of it to the street line"
+    },
+    {
+     "id": "s27w-1807-rear",
+     "kind": "detached_service",
+     "reading_1911": "The 2-storey brick shed at the rear of the lot (\"2\", the SHED lettering)"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1807 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty. The 1-storey store at the street is a 1911 shop whose 1904 state is not read. A 1911 shop is a 1911 observation (study ruling 11); its 1904 state is not read, and the draft does not stand it.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-213–217",
+   "printed_number_1911": "213–217",
+   "side": "south",
+   "parcel_ids": [
+    "e18th_213"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-213-front",
+     "kind": "front",
+     "reading_1911": "A row of three 3B frame (yellow-ruled F, flats) buildings, 213, 215 and 217 E. 18th St., their party walls carried to the rear, a stone (blue) strip at 213's corner; 1-storey brick pieces and a 3-storey frame porch (\"3\") at the rear"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "No 1904 directory row for 213-217 East 18th Street is in hand (T-3011 read Indiana Avenue's list only). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1809",
+   "printed_number_1911": "1809",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1809"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1809-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D) with a 2B. rear range, a 1-storey frame porch (yellow, \"1\") at its north-west corner and another at the range's end"
+    },
+    {
+     "id": "s27w-1809-stable",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick stable (crossed square, \"2\") on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1809 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1813",
+   "printed_number_1911": "1813",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1813"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1813-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), a fire escape (F.E.) on its south wall"
+    },
+    {
+     "id": "s27w-1813-stable",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick building on the alley lettered GARAGE",
+     "note_1904": "A 1911 garage label is backcast as the lot's stable for 1904 (as T-1841 rules on sheet 28)."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists three households at 1813 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1815",
+   "printed_number_1911": "1815",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1815"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1815-front",
+     "kind": "front",
+     "reading_1911": "3B. brick dwelling (D) with a canted bay on its Indiana front and a 2B rear range"
+    },
+    {
+     "id": "s27w-1815-stable",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick BARN on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists a household at 1815 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1819",
+   "printed_number_1911": "1819",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1819"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1819-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D) with a canted bay on its Indiana front and a 2B rear range ending in a canted bay"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists a household at 1819 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1821",
+   "printed_number_1911": "1821",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1821"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1821-front",
+     "kind": "front",
+     "reading_1911": "2B brick dwelling (D), a stone (blue) strip along its Indiana front, deep to the rear, a 1-storey frame range (yellow, \"1\") across its rear wall"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists a household at 1821 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1825",
+   "printed_number_1911": "1825",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1825"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1825-front",
+     "kind": "front",
+     "reading_1911": "3B. brick dwelling (D) behind a stone (blue) front with a round bay, a 2B rear range and a 1-storey frame porch (yellow, \"1\") at its end"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists a household at 1825 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1829",
+   "printed_number_1911": "1829",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1829"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1829-front",
+     "kind": "front",
+     "reading_1911": "2B brick dwelling (D) on a wide lot, a 2B rear range and a 1-storey frame porch (yellow, \"1\")"
+    },
+    {
+     "id": "s27w-1829-stable",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick building on the alley lettered PEDDLERS (a peddlers' stable)"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists a household at 1829 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1833",
+   "printed_number_1911": "1833",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1833"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1833-front",
+     "kind": "front",
+     "reading_1911": "2½B. brick dwelling (D) with a 1-storey brick (\"1B\") rear piece"
+    },
+    {
+     "id": "s27w-1833-stable",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick building on the alley (\"2\"), a 1-storey part at its street end (\"1\")"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists two households at 1833 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1837",
+   "printed_number_1911": "1837",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1837"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1837-front",
+     "kind": "front",
+     "reading_1911": "2½S.B. frame dwelling (yellow, D) with a 1-storey frame porch at its Indiana front and 1-storey frame and brick pieces (\"1BB\") behind it"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1837 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1839",
+   "printed_number_1911": "1839",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1839"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1839-front",
+     "kind": "front",
+     "reading_1911": "3 brick dwelling (D) with a long 2B rear range, a 1-storey frame porch (yellow) at its Indiana front and a 3-storey frame porch (\"3\") on its south side"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1839 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1901",
+   "printed_number_1911": "1901",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1901"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1901-front",
+     "kind": "front",
+     "reading_1911": "2S.B. brick dwelling (D), the north half of a pair with 1909 (\"S in B\": a store in its basement in 1911; a small frame piece printed FR. ON RF. on the roof between them), a 2B rear range with 1-storey frame porches"
+    },
+    {
+     "id": "s27w-1901-rear",
+     "kind": "detached_service",
+     "reading_1911": "On the alley a 2-storey brick building with a 1-storey frame shed (yellow) joined to its north side"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists a household at 1901 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1909",
+   "printed_number_1911": "1909",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1909"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1909-front",
+     "kind": "front",
+     "reading_1911": "2S.B. brick dwelling (D), the south half of the pair with 1901, a 2B rear range with a 1-storey frame porch"
+    },
+    {
+     "id": "s27w-1909-rear",
+     "kind": "detached_service",
+     "reading_1911": "On the alley a 2-storey brick building with a 1-storey frame shed (yellow) joined to its south side"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1909 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1913",
+   "printed_number_1911": "1913",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1913"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1913-front",
+     "kind": "front",
+     "reading_1911": "3B. brick dwelling (D) behind a stone (blue) strip, a 1-storey brick (\"1B\") piece and a 2-storey frame porch (yellow, \"2\") at its rear"
+    },
+    {
+     "id": "s27w-1913-shed",
+     "kind": "detached_service",
+     "reading_1911": "A 1-storey frame shed (yellow) on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1913 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1915",
+   "printed_number_1911": "1915",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1915"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1915-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D) behind a stone (blue) strip, a 2B rear range and a 1-storey frame porch (yellow, \"1\")"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1915 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1917–1919",
+   "printed_number_1911": "1917–1919",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1917"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1917-front",
+     "kind": "front",
+     "reading_1911": "A pair of 3B brick dwellings (D), 1917 and 1919, each with a 2B rear range, a tin-clad (TIN CLAD) strip on the pair's rear wall"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists nobody at 1917 (it lists selected households only, so that does not make the lot empty). Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1921–1923",
+   "printed_number_1911": "1921–1923",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1921"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1921-front",
+     "kind": "front",
+     "reading_1911": "A pair of 2B. brick dwellings (D), 1921 and 1923, behind stone (blue) fronts with canted bays, each lettered CIGAR FACTORY B. (a cigar factory in the basement in 1911)"
+    },
+    {
+     "id": "s27w-1921-stable",
+     "kind": "detached_service",
+     "reading_1911": "On the alley a 2-storey brick stable (crossed square, \"2\") with a 1-storey frame shed (yellow) joined to its street side"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists a household at 1921 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty. The basement cigar factory is a 1911 use and is not carried back.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1925–1929",
+   "printed_number_1911": "1925–1929",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1925"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1925-front",
+     "kind": "non_building_use",
+     "reading_1911": "A 1-storey brick building, 17 ft, across both numbers to the stone (blue) strip at the street line, lettered P.O. SUB-STATION"
+    }
+   ],
+   "decision_1904": "replaced_after_1904",
+   "why": "A dwelling stood here on 1 July 1904, and the one-storey P.O. sub-station the 1911 sheet draws across 1925-1929 is a later building: the 1902 Lakeside directory gives two households their homes at 1927 Indiana (Joseph Schnable and Anton Yensch, the OCR's 'Ycnseh'), and the 1911 Lakeside directory still gives six people their homes at 1927 and lists Ira S. Weidner's furnished rooms there, so a house let in rooms stood on the lots on both sides of the scene date, and the sub-station came after the 1911 directory's canvass (or the sheet carries a later correction). The street numbers run unchanged across the 1909 renumbering on this face (the Blue Books seat Sprague at 1933 in 1902-1904 and Bourchier at 1933 in 1905-1911, both on the 1931-1933 pair). The 1911 outline is not the 1904 building, and no plan, view or description of the house is in hand (Robinson 1886 plate 10's page ends at 18th Street), so the draft stands nothing here rather than invent it; the ground is NOT open, and drafting the house waits on an outline. The Blue Books list nobody at 1925-1929 in any year from 1902 to 1911, which says only that no household of theirs lived there.",
+   "named_record_ids": [],
+   "front_package": "T-1946",
+   "reading_1904": {
+    "by": "T-3154",
+    "text": "1927 Indiana: a dwelling. Lakeside 1902: 'Schnable ... Joseph ... h 1927 Indiana av' and 'Yensch [OCR Ycnseh] Anton h 1927 Indiana av', with Sophia M. Schnable at 1927 Indiana in a second list. Lakeside 1911: homes at 1927 Indiana for Miss Ester Garten (model), Emmet (engineer), Christ (foreman), C. and Harry (labourers) and Miss Hettie (nurse), and 'Weidner Ira S furn rooms 1927 Indiana av'. Nothing legible at 1925 or 1929 in either edition.",
+    "sources": [
+     "lakeside_city_directory_1902",
+     "lakeside_annual_directory_1911",
+     "chicago_blue_book_1904",
+     "chicago_blue_book_1911"
+    ]
+   }
+  },
+  {
+   "frontage_id": "frontage-27w-1931–1933",
+   "printed_number_1911": "1931–1933",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1931"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1931-front",
+     "kind": "front",
+     "reading_1911": "A pair of 3S.B. brick dwellings (D), 1931 and 1933, with round bays on their Indiana fronts and stepped rear ranges"
+    },
+    {
+     "id": "s27w-1931-rear",
+     "kind": "detached_service",
+     "reading_1911": "On the alley a pair of 2-storey brick dwellings over basements (2B., D), standing apart from the front pair",
+     "note_1904": "Rear dwellings in 1911, drawn at their 1911 envelope."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists a household at 1933 Indiana (T-3011's reading of its Indiana Avenue street list), a dated household on this lot, so a dwelling stood here in 1904. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face and the 1911 sheet is the only one: the draft stands the sheet's building for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-27w-1935–1937",
+   "printed_number_1911": "1935–1937",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1935"
+   ],
+   "polygons": [
+    {
+     "id": "s27w-1935-front",
+     "kind": "non_building_use",
+     "reading_1911": "A 1-storey brick store (S), 16 ft, at the 20th Street corner, filling the lot's Indiana end"
+    },
+    {
+     "id": "s27w-1935-flats",
+     "kind": "detached_service",
+     "reading_1911": "Behind it on 20th Street a 4B frame building (F, flats) printed 216 and 216a E. 20th St., fire escapes at both ends"
+    }
+   ],
+   "decision_1904": "phase_unresolved",
+   "why": "A corner store in 1911, a 1-storey brick building against the street lines, with four-storey frame flats behind it on 20th Street, and nothing in hand dates either before 1910. The 1911 Lakeside directory has the corner as the Health Food Company's western agency (J. G. Moore & Co., 1935 Indiana), a firm the 1902 edition puts at 1601 Wabash; the 1902 edition has nobody legible at 1935, 1937 or 216 E. 20th; and the Blue Books first seat households at 216 E. 20th in 1910 (Regnar Kidde, Miss E. A. Willing) and 1911 (Judge Marcus Kavanagh, who lived on Michigan Avenue through 1908, Murray P. Kellar), none there from 1902 to 1909. That points to flats built about 1909, but an absence from the Blue Book and from a rough OCR (1933's Sprague household is missing from the same 1902 text) is not a date, so the frontage stays phase_unresolved: both outlines are traced and neither is drafted. A permit for the flats, a dated advertisement for the corner, or a pre-1909 plan of the block would settle it. Robinson 1886 plate 10's page ends at 18th Street.",
+   "named_record_ids": [],
+   "front_package": "T-1946",
+   "reading_1904": {
+    "by": "T-3154",
+    "text": "1935-1937 Indiana: in 1911 'HEALTH FOOD COMPANY Western agency 1935 Indiana av' and 'Moore J G & Co 1935 Indiana av', the firm at '1601 Wabash av' in 1902; nobody legible at 1935 or 1937 in 1902. 216 E. 20th: households in the 1911 Lakeside directory (among them 'Kavanagh Marcus judge superior ct ... h 216 E 20th'), in the Blue Book from 1910 and in none of 1902-1909.",
+    "sources": [
+     "lakeside_city_directory_1902",
+     "lakeside_annual_directory_1911",
+     "chicago_blue_book_1904",
+     "chicago_blue_book_1910",
+     "chicago_blue_book_1911"
+    ]
+   }
+  }
+ ],
+ "vacant_ground": [
+  {
+   "id": "s27w-vacant-1839-1901",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1839_1901_a",
+    "indiana_1839_1901_b"
+   ],
+   "reading_1911": "Two unnumbered lots (about 26 ft each) between 1839 and 1901, unbuilt from street to alley",
+   "named_record_ids": [],
+   "decision_1904": "present_as_mapped",
+   "why": "Open ground in 1911 with no number printed; the 1904 Blue Book lists nobody between 1833 and 1901, and nothing in hand puts a building here in 1904, so the lots are kept open for 1904."
+  }
+ ]
+}

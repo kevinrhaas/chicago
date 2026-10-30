@@ -144,7 +144,9 @@ assert(/blocked: \(\) => !!api\.tour\?\.running/.test(main), 'a hint waits while
 assert(/if \(firstEntry && jumpedIn\) hints\.show\('jump'\);/.test(main), 'the far year of a Jump says how to go back, on the way in');
 assert(/state\.phase === 'atStop'\) hints\.show\('jaunt'\)/.test(main), 'the first Jaunt\'s first stop');
 assert(/if \(isReconstructed\(record\?\.sidecar\)\) api\.hints\?\.show\('reconstructed'\);/.test(main), 'a Reconstructed building\'s card');
-assert(/isReconstructed\(loaded\.registry\.get\(t\.id\)\?\.sidecar\)\) hints\.show\('reconstructed'\)/.test(main), 'and Inspect from the tag');
+// T-3022: the tag's Inspect opens the building as a click does, through openBuilding.
+assert(/function openBuilding\(id(?:, \{ person = null \} = \{\})?\) \{[\s\S]{0,400}if \(isReconstructed\(record\.sidecar\)\) hints\.show\('reconstructed'\)/.test(main)
+  && /onInspect: \(t\) => \{[\s\S]{0,300}openBuilding\(t\.id\)/.test(main), 'and Inspect from the tag');
 assert(/if \(ok\) api\.tour\?\.start\(\);/.test(main) && /!resume && !destination && !tourEntering\) roamTip\.show/.test(main),
   'taking the offer goes in as Free roam goes, without Free roam\'s tip, and starts step 01');
 const css = read('renderers/web/css/walk.css');

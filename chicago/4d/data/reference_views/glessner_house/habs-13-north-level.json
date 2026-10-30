@@ -11,38 +11,38 @@
     900.0,
     634.0
   ],
-  "focal_px": 1475.661,
+  "focal_px": 1515.318,
   "eye": [
-    48.0853,
-    42.939,
+    47.6611,
+    43.7335,
     1.0
   ],
   "yaw_deg": 0,
   "basis_right_up_forward": [
     [
-      -0.9947641241,
-      0.1008338062,
-      -0.0166397365
+      -0.9968173467,
+      0.0789171332,
+      -0.0112811121
     ],
     [
-      -0.0156952655,
-      0.0101527667,
-      0.9998252747
+      -0.0104734452,
+      0.010640816,
+      0.9998885338
     ],
     [
-      -0.1009851274,
-      -0.9948514788,
-      0.0085169948
+      -0.0790283768,
+      -0.9968243873,
+      0.0097804157
     ]
   ],
   "sky": "overcast",
   "solve": {
-    "method": "T-2850: re-solved by tools/glessner_north_pairs.py with the north gable pairs' sill and head left free (HABS 14's, principal point at plate centre). Fixed controls: 3; pair corners at plan W: 7. The pairs read sill 19.64 ft, head 24.14 ft.",
+    "method": "T-2850: re-solved by tools/glessner_north_pairs.py with the north gable pairs' sill and head left free (HABS 14's, principal point at plate centre). Fixed controls: 3; pair corners at plan W: 7. The pairs read sill 19.89 ft, head 24.43 ft.",
     "record": "data/comparisons/glessner/north-pairs.json#habs-13-north-level",
     "limitations": "1965 coplanar bay; roof is cropped and utility poles obscure the western pair. Every control in frame lies on the north wall's plane, so distance and focal length cannot be separated from this plate alone: the focal length is HABS 14's (the companion plate) and the camera height is bounded 1.0-2.5 m (T-2200's assumption), at whose lower bound the solve rests. Not a surveyed exposure station. No whole-north-elevation sign-off.",
     "warning": "T-2200's frozen camera, which this replaces, was fitted with the upper pairs' heads at the corridor rows' 22.25 ft; the photograph reads them at about 24.1-24.3 ft, so that camera drew the windows about two feet high. Lighting: see light (T-2848).",
     "light": "T-2848, read off the photograph: overcast. The street is wet and reflecting, and neither the poles standing a few feet in front of the north wall nor its downpipe throws any shadow on it, so there is no sun direction to read. The north face is lit by the sky alone; the render uses the overcast sky and no sun_uvy (a soft overhead key, no shadow).",
-    "coordinate_rms_px": 5.7,
-    "max_residual_px": 9.2
+    "coordinate_rms_px": 5.45,
+    "max_residual_px": 8.84
   }
 }

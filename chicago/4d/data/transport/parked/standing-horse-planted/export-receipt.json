@@ -1,0 +1,106 @@
+{
+  "status": "ACTUAL_EXPORT_ONLY_NO_LOADED_OR_VISUAL_ACCEPTANCE",
+  "schema": "sevket_v16_planted_standing_export_v1",
+  "source_rig_sha256": "03a1f747189ee2457f0fc3dc9720b1d3d288e36c32b7171b5a9976afb7e63c36",
+  "field_sha256": "04df599158ea091eb6d0036d3aeab9159ee96b8dfd43524a17ff874d72492e2d",
+  "stationary_result_sha256": "807dba14460aca11ec78e8f94d6357fffd1b9afb9cc18bbcaaea2f78f81cb396",
+  "stationary_matrices_sha256": "294f0a1a8a1f154831b5d6fd3207bfda9c1ec7dd61ee2bf9802d4248e532a107",
+  "output_file": "horse-sevket-v16-planted-standing-v1.glb",
+  "output_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "output_bytes": 3783600,
+  "skin_joints": 26,
+  "animation": "sevket_reconstructed_planted_posture_v1",
+  "channels": 13,
+  "keys": 65,
+  "duration_s": 12,
+  "interpolation": "LINEAR",
+  "translation_nodes": [
+    1
+  ],
+  "rotation_nodes": [
+    7,
+    8,
+    9,
+    12,
+    13,
+    14,
+    17,
+    18,
+    19,
+    22,
+    23,
+    24
+  ],
+  "local_translation_residual_limit_m": 1e-09,
+  "every_original_nonweight_BIN_byte_exact": true,
+  "original_document_except_buffer_append_and_new_animation_exact": true,
+  "original_geometry_normals_uv_indices_materials_images_inverse_binds_exact": true,
+  "original_tail969_joint_weight_bytes_exact": true,
+  "accepted_field_bytes_exact": [
+    {
+      "mesh": 0,
+      "semantic": "JOINTS_0",
+      "accessor": 201,
+      "buffer_view": 16,
+      "byte_offset": 3236372,
+      "bytes": 26200,
+      "sha256": "a2bd6753a1336572c1a434f5ca95f23fc43fed1fb118cfb3b8caac80283bcca8"
+    },
+    {
+      "mesh": 0,
+      "semantic": "WEIGHTS_0",
+      "accessor": 202,
+      "buffer_view": 17,
+      "byte_offset": 3262572,
+      "bytes": 52400,
+      "sha256": "87c86832e90d3230699309bffaf3be9db4c57dca8c90da6bdbd482c9585cdd97"
+    },
+    {
+      "mesh": 1,
+      "semantic": "JOINTS_0",
+      "accessor": 205,
+      "buffer_view": 20,
+      "byte_offset": 3418484,
+      "bytes": 34504,
+      "sha256": "49dcc3171860a8bebca62abe259a4d6d377aeea8b321a619f86155a8f218535f"
+    },
+    {
+      "mesh": 1,
+      "semantic": "WEIGHTS_0",
+      "accessor": 206,
+      "buffer_view": 21,
+      "byte_offset": 3452988,
+      "bytes": 69008,
+      "sha256": "9221df1e5aa9c0f057f8d80d381e55c217240ea80a5b4e1e46cb2d03fca1d17f"
+    },
+    {
+      "mesh": 2,
+      "semantic": "JOINTS_0",
+      "accessor": 209,
+      "buffer_view": 24,
+      "byte_offset": 3617228,
+      "bytes": 31744,
+      "sha256": "d1e76a034d5a2e814ab48653581c8b84363da17fb1c28c79604b0a2bd5208318"
+    },
+    {
+      "mesh": 2,
+      "semantic": "WEIGHTS_0",
+      "accessor": 210,
+      "buffer_view": 25,
+      "byte_offset": 3648972,
+      "bytes": 63488,
+      "sha256": "0e21eb2ce823d77ba7dc439c464b4bfa3e7cd0aafc8e62de6f9742028b7d2e26"
+    }
+  ],
+  "original15_head_tail_clip_composed": false,
+  "walking_or_trotting_enabled": false,
+  "source_credit": "Horse by sevketkabatas, CC BY4.0. Modern development derivative; not historical testimony. Project-reconstructed 26-joint controls, V16 skin and planted posture.",
+  "original_source_url": "https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "readback_reference_file": "CPU-REST-AND-PROTECTION-REFERENCE.json",
+  "readback_reference_sha256": "2179deb652914a49ee16b6c05c2a676587fb05bb746f996f7ecc5d121210c0b1",
+  "fields_built": 0,
+  "solvers": 0,
+  "exports": 1,
+  "inputs_unchanged_after": true,
+  "pending": "Khronos validation, actual GLTFLoader/Mixer all65 world/skin/normal/contact readback and actual street visuals before any app intake or activation."
+}

@@ -504,6 +504,66 @@ batch.dispose();cube.dispose();wall.dispose();split.dispose();material.dispose()
 console.log('PASS opaque backing: conservative bounds, holes, near/depth edges, shadow isolation, evidence/visibility bypass, current transforms, exact geometry, picking and reversible lifetime');
 }
 
+// T-3152: a flat backing's proven cover hides a box only where its own triangles leave
+// no gap — across a T-junction seam, never through an opening or a crack.
+{
+const text = await readFile(path.join(web, 'js/view-occlusion.js'), 'utf8');
+const { planeOccluded, boxInView, createViewOcclusion } = await import(
+  'data:text/javascript;base64,'+Buffer.from(text.replace("from 'three'",`from '${threeURL}'`)).toString('base64'));
+const { planarCoverPlanes, boundarySegments } = await import(pathToFileURL(path.join(web, 'js/planar-occluders.js')).href);
+// z = -5, 20 m square, a 2 m opening at x 2..4, y 2..4: four rectangles, so the left one's
+// right edge meets the top and bottom ones' vertices (T-junctions) either side of the hole.
+const rect=(x0,y0,x1,y1)=>[x0,y0,-5,x1,y0,-5,x1,y1,-5, x0,y0,-5,x1,y1,-5,x0,y1,-5];
+const wallOf=(gap=0)=>[...rect(-10,-10,2,10),...rect(2+gap,-10,4,2),...rect(2+gap,4,4,10),...rect(4,-10,10,10)];
+const worldPlane=(c)=>({...c,o:new THREE.Vector3(...c.normal.map(x=>x*c.d)),n:new THREE.Vector3(...c.normal),
+  u:new THREE.Vector3(...c.u),v:new THREE.Vector3(...c.v),active:()=>true});
+const [plane]=planarCoverPlanes(wallOf(),null).map(worldPlane);
+assert.ok(plane && plane.cells>30000,'the wall is one plane with its cells proven');
+assert.equal(planarCoverPlanes(wallOf(),null,{minPlaneArea:500}).length,0,'a small plane is not a cover');
+const eye=new THREE.Vector3(),forward=new THREE.Vector3(0,0,-1),px=2/800;
+const box=(a,b)=>new THREE.Box3(new THREE.Vector3(...a),new THREE.Vector3(...b));
+const seam=box([3.8,-1.2,-10.2],[4.2,-.8,-9.8]);   // its shadow straddles x = 2 below the opening
+assert.ok(planeOccluded(seam,eye,forward,.1,px,plane),'a T-junction seam covered on both sides hides');
+assert.equal(planeOccluded(box([5.6,5.6,-10.2],[6.4,6.4,-9.8]),eye,forward,.1,px,plane),false,'seen through the opening');
+assert.equal(planeOccluded(box([3.6,3.6,-10.2],[4.4,4.4,-9.8]),eye,forward,.1,px,plane),false,'its shadow overlaps the opening');
+assert.equal(planeOccluded(box([-1,-1,-4],[1,1,-3]),eye,forward,.1,px,plane),false,'in front of the wall');
+assert.equal(planeOccluded(box([-1,-1,-6],[1,1,-4.99]),eye,forward,.1,px,plane),false,'crossing the wall');
+assert.equal(planeOccluded(box([-1,-1,-5.019],[1,1,-5.0101]),eye,forward,.1,px,plane),false,'inside the 2 cm depth gap');
+assert.equal(planeOccluded(box([30,-1,-10.2],[30.4,-.8,-9.8]),eye,forward,.1,px,plane),false,'its shadow leaves the wall');
+assert.equal(planeOccluded(seam,eye,forward,6,px,plane),false,'the cover is nearer than the near plane, so not drawn');
+assert.equal(planeOccluded(box([-1,-1,-40],[1,1,-39]),new THREE.Vector3(0,0,-4.9),forward,.1,px,plane),false,'a grazing look is refused');
+const [cracked]=planarCoverPlanes(wallOf(.01),null).map(worldPlane);
+assert.equal(planeOccluded(seam,eye,forward,.1,px,cracked),false,'a 1 cm crack along the seam is an opening');
+const [hairline]=planarCoverPlanes(wallOf(.001),null).map(worldPlane);
+assert.ok(planeOccluded(seam,eye,forward,.1,px,hairline),'under the 2 mm seam tolerance a T-junction vertex is on its line');
+// Two triangles sharing an edge from opposite sides leave it interior; one alone is outline.
+const a=[0,0],b=[1,0],up=[.5,1],down=[.5,-1];
+assert.equal(boundarySegments([[a,b,up],[b,a,down]]).length,0);
+assert.equal(boundarySegments([[a,b,up],[b,a,up]]).length,1,'a fold, both on one side, is outline');
+const camera=new THREE.PerspectiveCamera(90,1,.1,100);camera.updateMatrixWorld();
+const vp=new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);
+assert.ok(boxInView(seam,vp,800,800));
+assert.equal(boxInView(box([9,-1,-10],[11,1,-9]),vp,800,800),false,'a box crossing the viewport edge fails open');
+const material=new THREE.MeshStandardMaterial({side:THREE.DoubleSide});
+const cube=new THREE.BoxGeometry(.3,.3,.3);
+const batch=new THREE.BatchedMesh(2,cube.attributes.position.count,cube.index.count,material);
+const geometry=batch.addGeometry(cube);
+for(const pos of [[4,-1,-10],[6,6,-10]])batch.setMatrixAt(batch.addInstance(geometry),new THREE.Matrix4().makeTranslation(...pos));
+batch.sortObjects=false;batch.updateMatrixWorld();
+let standing=true;plane.active=()=>standing;
+const renderer={info:{render:{frame:0}},getDrawingBufferSize:size=>size.set(800,800)};
+const cull=createViewOcclusion({camera,renderer,triangles:[],planes:[plane],batches:[batch]});
+const draw=cam=>{renderer.info.render.frame++;batch.onBeforeRender(renderer,null,cam,batch.geometry,material);return batch._multiDrawCount;};
+assert.equal(draw(camera),1,'the box behind the wall is left out; the one behind the opening stays');
+assert.equal(cull.stats.planeCulled,1);
+const shadow=new THREE.OrthographicCamera(-15,15,15,-15,.1,100);shadow.updateMatrixWorld();
+assert.equal(draw(shadow),2,'the sun keeps both');
+standing=false;assert.equal(draw(camera),2,'a cover that is not standing hides nothing');
+standing=true;assert.equal(draw(camera),1);
+cull.dispose();batch.dispose();cube.dispose();material.dispose();
+console.log('PASS planar covers: T-junction seams hide, openings, cracks, near, depth and grazing fail open, sun and standing isolated');
+}
+
 {
 const source=await readFile(path.join(web,'js/confidence.js'),'utf8');
 const {opaqueConfidenceRange}=await import('data:text/javascript;base64,'+

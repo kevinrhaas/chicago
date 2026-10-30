@@ -1,196 +1,521 @@
 {
-  "id": "house_1712_prairie",
-  "name": "1712 Prairie Avenue — Stone-front masonry (district draft; refined by T-1872)",
-  "aka": [
-    "1712 S. Prairie Avenue"
+ "id": "house_1712_prairie",
+ "name": "1712 Prairie Avenue \u2014 stone-front house of two and a half storeys, K01 frontage assembly",
+ "aka": [
+  "1712 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_20"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '2\u00bdB brick dwelling (D), stone (blue) front; small frame porch on its south wall'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
+ },
+ "review_required": false,
+ "research_note": "T-3187 (piece 1 of T-1872) refines the district draft (T-2334) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits \u2014 a K02 stone street front, K03 brick side and rear walls, K06 sash, K07 door and stoop, K08 projection, K10 moulded cornice, a K04/K05 hip with a K05 dormer \u2014 instead of the draft builder. What is read: the 1911 Sanborn sheet 20 (storeys '2\u00bdB', brick with a stone front across the whole street face, 'D', the small frame porch on the south wall and the '2B' rear wing with its one-storey frame end) through the T-1840 census, which rules it present in 1904. No photograph, plate or description of the house is known: the one picture the Prairie library files under 1712 (cgn-1712-tribune-1939-kodak-model) is the Chicago Tribune's 1939 photograph of the architects' model of the Eastman Kodak plant built on the 1712-1720 frontage after the house was gone, ruled not a picture of it in data/structure_grades.json. So every elevation is the kits' (liberty L-k01-1712-stone-front-map-led-3187); a later reading that finds a picture replaces the kit's choices here.",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_20"
+     "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D), stone (blue) front; small frame porch on its south wall'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1872 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1712-b1), the T-1840 census (s20-1712-f, s20-1712-a1) and the T-1837 register row frontage-20-017 (Stone-front masonry); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_20"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-      },
-      "position": {
-        "utm_e": 448436.366,
-        "utm_n": 4634273.207,
-        "rotation_deg": -0.581,
-        "symbolic_location": "1712 S. Prairie Avenue, parcel prairie_1712 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_20"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 28.250, v -2.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.581 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            16.75,
-            0.0
-          ],
-          [
-            16.75,
-            7.75
-          ],
-          [
-            0.0,
-            7.75
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_20"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 2,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
-          ],
-          "note": "'2B' printed on the 1911 sheet: 2 full storeys."
-        },
-        "construction": {
-          "value": "brick_with_stone_front",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
-          ],
-          "note": "The register reads the map's colours as 'brick with stone front'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  16.75,
-                  7.75
-                ],
-                "from": "s20fp-1712-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 71% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  -3.0,
-                  1.25,
-                  0.0,
-                  4.5
-                ],
-                "from": "s20fp-1712-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 71% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "bay",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  16.5,
-                  1.0,
-                  18.0,
-                  7.25
-                ],
-                "from": "s20fp-1712-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 65% of its fill"
-              }
-            ],
-            "lot_v": [
-              -5.011,
-              10.511
-            ],
-            "street_u": 27.004
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1712-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 71% of its fill; s20fp-1712-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 71% of its fill; s20fp-1712-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 65% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 3077387939,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 25,
-            "mansard_lower_m": 3.0,
-            "front_bays": 3,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2334",
-              "refined_by": [
-                "T-1872"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Stone-front' overlaid with the frontage row: 2B brick with a stone front: the stone-front family's flat roof behind a cornice. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3077387939 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2334",
-            "liberty": "L-draft-prairie-16-18-west-2334",
-            "register_row": "frontage-20-017",
-            "census_ids": [
-              "s20-1712-f",
-              "s20-1712-a1"
-            ],
-            "trace_building": "s20fp-1712-b1",
-            "seed": 3077387939,
-            "replaceable_by": [
-              "T-1872"
-            ],
-            "card": "District draft — refined by T-1872."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448442.175,
+    "utm_n": 4634272.415,
+    "rotation_deg": -0.581,
+    "symbolic_location": "1712 S. Prairie Avenue, parcel prairie_1712 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The rear south corner of the main body read off the 1911 sheet's trace (T-3187): lot frame u 34.050, v -3.600 m from the middle of the rear lot line, where the traced main part s20fp-1712-b1 p2's rear wall (u 5.80 in the draft's frame) meets its south wall (v -0.85); the draft's corner stood 5.8 m further back and 1.9 m north, at the largest rectangle its fill found. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.581 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is read from the traced sheet and the 1904 parcel with tools/draft_prairie_1904.py's lot_frame and to_uv (T-3187)."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      12.24,
+      0.0
+     ],
+     [
+      12.24,
+      10.65
+     ],
+     [
+      0.0,
+      10.65
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The main body read off the 1911 sheet's trace (s20fp-1712-b1, data/traces/prairie_1904_footprints_s20.json) in the draft's lot frame: the rear wall at u 5.80, the front at 18.04 (12.24 m deep), the south wall at v -0.85 and the north wall at 9.80 (10.65 m along the street, 0.7 m off the north lot line). The front is the outer side of the blue band the sheet draws across the whole front, the stone front laid inside the outline (u 16.3-18.04), not a projecting bay: the outline runs straight past it on both corners. The draft read the band as a one-storey stone bay 1.5 m out in front of a 16.75 by 7.75 m rectangle, the largest its fill found inside a plan whose rear wing narrows it. What stands outside this rectangle is the rear wings' (the '2B' wing and its one-storey frame end) and K08's (the small frame porch on the south wall)."
+   },
+   "form": {
+    "stories": {
+     "value": 2,
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "'2\u00bdB' printed on the 1911 sheet over the front block (T-1840 census s20-1712-f, '2\u00bdB brick dwelling (D), stone (blue) front'): two full storeys of brick and a half storey in the roof, lit by a street dormer. The '2B' printed on the rear piece is the rear wing's (rear_wings); the draft had read that '2B' as the house's and built two storeys under a flat deck."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "The sheet colours the house pink (brick) and its street front blue (stone): the census reads 'stone (blue) front'."
+    },
+    "principal_floor_m": {
+     "value": 1.7,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a high stoop (the T-1837 register's brief for 1712: 'foundation and high stoop'), the principal floor 1.7 m over grade on the stone basement with its area lights, as 1726's."
+    },
+    "storey_heights_m": {
+     "value": [
+      4.0,
+      3.6
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: two storeys inside RECONSTRUCTION-RULES.md's starting ranges, the principal storey the taller; the wall head stands at 9.3 m."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a stone front on its brick backing, as 1612's and 1634's."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.33,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a brick-and-a-half wall; the sheet prints '12' (inches) against the side walls, a 0.30 m wall, which K01 lays at 0.33 with its joints."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the one K03 panel k03_brick lays, on the side and rear walls behind the stone front."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "limestone_lemont",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 2,
+      "coping_height_m": 0.25,
+      "corner_bond": []
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the sheet says only stone (blue). K02's smooth Lemont limestone, the light stone of the post-1871 Prairie Avenue fronts, over two rusticated base courses to the area lights' heads; 1634 and 1636 up the block are brownstone, so this front reads light. No picture of the house is known; the stone, its dressing and its courses are the kit's."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k09.surround.rowhouse_restrained",
+       "k09.surround.rowhouse_restrained"
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: K09's restrained rowhouse surround round every street window on both storeys, an architrave under a cornice hood on consoles in the dressed stone; chosen so the front does not repeat 1726's plain cornice hoods or 1730's flat lintels. The sheet draws no opening."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.bracketed_timber"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: K10's bracketed timber cornice at the eave under the hip (K10's moulded stone cornice stands only under a flat or gable roof); the sheet draws no cornice."
+    },
+    "roof_form": {
+     "value": "hip",
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a hip over the main body, its half storey in the roof under a street dormer: the sheet's '\u00bd' puts a storey in the roof, and the sheet draws no dashed curb line inside the walls, the mark that put a mansard on 1730 (T-2934), so a hip and not a mansard. No source reads this roof."
+    },
+    "roof_pitch_deg": {
+     "value": 38,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: steep enough to hold the half storey the sheet's '\u00bd' records, 1726's pitch."
+    },
+    "eave_overhang_m": {
+     "value": 0.5,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K05 eave over the moulded cornice, 1726's."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_standing_seam_painted",
+      "flashing": "copper_sheet",
+      "caps": "copper_ridge_roll"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: painted standing-seam tin on the hip, copper flashings and ridge roll, 1726's."
+    },
+    "dormer": {
+     "value": {
+      "width_m": 1.5,
+      "face_setback_m": 0.3,
+      "face_height_m": 2.1,
+      "face_thickness_m": 0.2,
+      "pitch_deg": 45,
+      "verge_m": 0.15,
+      "sash": {
+       "sill_m": 0.25,
+       "width_m": 0.85,
+       "height_m": 1.5
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: one gabled dormer on the street hip, the light of the attic the sheet's '\u00bd' records, so the half storey is seen from the street; 1726's dormer."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K07 stoop's, as 1634's."
+    },
+    "stair_landing_depth_m": {
+     "value": 1.2,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K07 stoop's, as 1634's."
+    },
+    "stoop_width_m": {
+     "value": 1.8,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K07 stoop's, as 1634's."
+    },
+    "entrance_bay": {
+     "value": "south",
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the door in the south bay of a three-bay front, the side the small frame porch stands on and the side the house's 4.2 m side yard is on; the sheet draws no stoop and no door. The draft rules had it at the south too."
+    },
+    "front_bays": {
+     "value": [
+      1.95,
+      5.325,
+      8.7
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: three bays across the 10.65 m front, south to north: the door with a window a storey over it, and two windows a storey; the sheet draws a flat front, with no bay."
+    },
+    "side_bays": {
+     "value": [
+      2.2,
+      10.4
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a window a storey in the south wall behind the frame porch (s 2.2 from the rear corner) and one in front of it (s 10.4); the porch's own wall is K08's."
+    },
+    "north_bays": {
+     "value": [],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: none: the north wall stands 0.77 m from 1708's south wall, the slot the sheet leaves between them, and is built blank with the chimney stacks in it."
+    },
+    "rear_bays": {
+     "value": [
+      0.9,
+      9.75
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a window a storey in the rear wall either side of the rear wing (which joins it from s 1.85 to 8.65, north to south)."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.75,
+       "width_m": 1.0,
+       "height_m": 2.3
+      },
+      {
+       "sill_above_floor_m": 0.7,
+       "width_m": 1.0,
+       "height_m": 1.9
+      }
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K01 proof's two-storey sash, the principal storey's the taller, as 1726's."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.35,
+      "width_m": 0.9,
+      "height_m": 0.65
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: area lights in the stone basement under the principal windows, 0.65 m high so two rusticated base courses and the coping reach their heads, as 1634's."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: K06 two-over-two double-hung sash in every wall; the basement lights the kit's area light. The kit's commonest forms, not a reading of this house."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 0.9,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 3.6,
+        "v_m": 9.9
+       },
+       {
+        "u_m": 8.6,
+        "v_m": 9.9
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: two brick stacks in the north wall, the side close to 1708, over the walls between front, middle and back rooms; the sheet draws no flue."
+    },
+    "rainwater": {
+     "value": {
+      "gutter": "half_round",
+      "fabric": "copper_sheet",
+      "downpipe": "round",
+      "ends_at": "grade_with_splash_stone",
+      "downpipes": [
+       {
+        "wall": "k01.wall.street_front",
+        "s_m": 10.3
+       },
+       {
+        "wall": "k01.wall.side.south",
+        "s_m": 11.9
+       },
+       {
+        "wall": "k01.wall.rear_service",
+        "s_m": 0.35
+       },
+       {
+        "wall": "k01.wall.side.north",
+        "s_m": 0.35
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: half-round copper gutters on the hip's eaves, round downpipes to splash stones at the front's two corners, the rear's north corner and the north wall's front end, 1726's."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 8.96
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: K07's panelled door at the head of a straight stoop, a high one (the principal floor at 1.7 m); the front wall stands 8.96 m from the draft's street line, the sheet's 8.96 m."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "south_frame_porch",
+       "variant": "k08.projection.full_height",
+       "wall": "k01.wall.side.south",
+       "s_m": 6.86,
+       "fabric": "frame",
+       "plan": {
+        "width_m": 2.45,
+        "proud_m": 0.8
+       },
+       "storeys": [
+        {
+         "height_m": 4.6,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.8,
+           "clear_height_m": 1.6,
+           "sill_m": 2.6,
+           "at": [
+            0.5
+           ]
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.25,
+        "covering": "tin_flat_seam_painted"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "The sheet's small frame porch on the south wall (census s20-1712-f, 'small frame porch on its south wall'; coloured yellow, frame, with no storey figure), read off the raster in this frame: from s 5.6 to 8.1 along the south wall from the rear corner, 0.8 m out. Built as a one-storey K08 projection in timber, closed, with one sash, as 1730's vestibule is built; whether it was open or glazed, its door and its height are RECONSTRUCTED."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_wing",
+       "rect": [
+        -7.65,
+        0.0,
+        2.0,
+        8.8
+       ],
+       "floor_m": 1.7,
+       "storey_heights_m": [
+        4.0,
+        3.6
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.75,
+         "width_m": 1.0,
+         "height_m": 2.3
+        },
+        {
+         "sill_above_floor_m": 0.7,
+         "width_m": 1.0,
+         "height_m": 1.9
+        }
+       ],
+       "windows": {
+        "south": [
+         2.0,
+         5.6
+        ],
+        "north": [
+         1.9,
+         5.4
+        ],
+        "rear": [
+         5.0
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      },
+      {
+       "id": "frame_end",
+       "fabric": "frame",
+       "rect": [
+        -9.2,
+        -7.65,
+        2.0,
+        5.5
+       ],
+       "floor_m": 0.3,
+       "storey_heights_m": [
+        3.0
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.8,
+         "width_m": 0.9,
+         "height_m": 1.6
+        }
+       ],
+       "windows": {
+        "rear": [
+         1.75
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.25,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "The pieces the 1911 sheet draws behind the rear wall (T-1840 census s20-1712-a1, '2B brick rear wing with a 1-storey frame end'; trace s20fp-1712-b1 p2), whose PLACE and storey counts are read from the map and whose form is K01's reconstruction, measured in this frame: (1) REAR_WING, u -7.65 to 0, v 2.0 to 8.8: the brick piece lettered '2B', two storeys over a basement, its floors on the main body's so its courses run on, narrower than the main body by 2.0 m on the south and 1.85 m on the north. (2) FRAME_END, u -9.2 to -7.65, v 2.0 to 5.5: the yellow (frame) strip across the south part of the wing's rear, with no storey figure, built one storey from near grade in painted timber, as 1730's rear porch is. Heights, windows, the flat painted-tin decks, their fascias and overhang are RECONSTRUCTED: the sheet prints storeys, not heights, and no opening."
+    },
+    "boundary": {
+     "value": {
+      "layout": "stone_coping_wall",
+      "street_line_m": 8.96,
+      "lot_s_m": [
+       -4.16,
+       11.36
+      ],
+      "thickness_m": 0.35,
+      "chamfer_m": 0.05,
+      "runs": [
+       {
+        "to_s_m": 1.05,
+        "height_m": 0.35
+       },
+       {
+        "to_s_m": 2.85,
+        "opening": true
+       },
+       {
+        "to_s_m": 11.36,
+        "height_m": 0.35
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). No picture of 1712's front in its own time is held: the 1893 Rand McNally strip is too small to read a boundary off, and the 1939-1942 views show the Kodak plant that replaced it. Built as the block's own boundary, a low squared stone coping on the street line (the 1904 parcel's, data/street_grid/1904.json, at the public walk's inner edge), 0.35 m, as 1700's (Chicagology's photograph), 1721's (the 1891 plate) and 1736's (the c. 1890 photograph and its curbstone, still in place in 2015) stand; cut 1.8 m for the walk square to the stair. RECONSTRUCTED: kind, height and cut are the block's (liberty L-k14-walks-1700-block-3205)."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.9,
+       "top_m": 0.06,
+       "wear_tone": 0.9,
+       "width_m": 1.5
+      },
+      "grade_m": {
+       "front": 0.059,
+       "street": 0.046,
+       "per_m_s": -0.005,
+       "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot through the coping's cut to the public walk, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget."
+    }
+   }
+  }
+ ]
 }

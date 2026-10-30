@@ -165,6 +165,12 @@ ASSIGNMENTS = {**ASSIGNMENTS, **REFUSALS}
 # three metres from another one is not a dense town, it is two records occupying one
 # yard, and nothing downstream can tell them apart.
 MIN_SEPARATION_M = 3.0
+# A WING IS WALL, NOT YARD (T-3078). An H3 boarding house builds a one-storey kitchen
+# ell behind its rear wall, outside its footprint polygon, so the three-metre test above
+# never saw it and a stable dealt behind one stood 1.1 m inside the wing. The yard
+# spacing is not re-asked of the wing — on a 15 m lot it cannot be — but nothing may
+# stand in it or against it closer than this.
+ELL_CLEAR_M = 0.5
 # LOT_MARGIN_M — how far a footprint must stand clear of its own lot line — is authored
 # in `tools/plat_occupancy.py` and imported above, because the occupancy rule reads the
 # same number from the other side: the buildable part of a lot is the lot inset by it.
@@ -1150,6 +1156,34 @@ def distance_to_edges(pt: tuple[float, float], poly: list[tuple[float, float]]) 
         t = 0.0 if span == 0 else max(0.0, min(1.0, ((pt[0] - a[0]) * vx + (pt[1] - a[1]) * vy) / span))
         best = min(best, math.dist(pt, (a[0] + t * vx, a[1] + t * vy)))
     return best
+
+
+_REAR_ELLS: list | None = None
+
+
+def rear_ells(datum: dict) -> list[tuple[str, list[tuple[float, float]]]]:
+    """(structure_id, world polygon) of every committed frame tavern's rear ell — the wing
+    `frame_tavern._rear_ell` builds centred on the rear wall, outside the footprint."""
+    global _REAR_ELLS
+    if _REAR_ELLS is None:
+        from archetypes.frame_tavern_params import from_phase
+        _REAR_ELLS = []
+        for path in sorted(STRUCTURES.glob("*.json")):
+            record = json.loads(path.read_text(encoding="utf-8"))
+            if record.get("archetype") != "frame_tavern":
+                continue
+            for phase in record.get("phases") or []:
+                pos, poly = phase.get("position") or {}, (phase.get("footprint") or {}).get("polygon") or []
+                if pos.get("utm_e") is None or len(poly) < 3 or not from_phase(phase).rear_ell:
+                    continue
+                params = from_phase(phase)
+                u0, u1 = min(p[0] for p in poly), max(p[0] for p in poly)
+                v0 = min(p[1] for p in poly)
+                cu, hw, d = (u0 + u1) / 2, params.rear_ell_width_m / 2, params.rear_ell_depth_m
+                ell = {"position": pos, "footprint": {"polygon": [
+                    [cu - hw, v0 - d], [cu + hw, v0 - d], [cu + hw, v0], [cu - hw, v0]]}}
+                _REAR_ELLS.append((record["id"], world_polygon({"phases": [ell]}, datum)))
+    return _REAR_ELLS
 
 
 def polygon_gap(a: list[tuple[float, float]], b: list[tuple[float, float]]) -> float:
@@ -2369,6 +2403,13 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
             gap = polygon_gap(poly, other)
             if gap < MIN_SEPARATION_M:
                 raise SystemExit(f"{sid} stands {gap:.2f} m from {other_id}")
+        for other_id, ell in rear_ells(datum):
+            if other_id == sid:
+                continue
+            gap = polygon_gap(poly, ell)
+            if gap < ELL_CLEAR_M:
+                raise SystemExit(f"{sid} stands {gap:.2f} m from {other_id}'s rear wing, "
+                                 f"inside the {ELL_CLEAR_M} m it keeps clear")
 
     # ground that was ever open to a private builder. The five tests around this one
     # ask where a roof stands relative to other roofs, to lot lines, to the roadway and

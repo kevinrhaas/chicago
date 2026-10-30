@@ -43,6 +43,16 @@
  * A zone's full rail section is laid only while the eye is near it (T-2775): laid
  * for the whole yard at load it was 82 MB a phone kept and never drew.
  *
+ * THE FAR GROUND IS A COARSER COPY ON A PHONE (T-3247). The ground is cut at the
+ * heightfield's 2.5 m cell, and a phone looking down the yard drew 225,000 to
+ * 245,000 of those triangles 600 m and more away, where its terrain is already
+ * the 15 m base (main.js GROUND_DETAIL_REACH_LIGHT_M). Each surface is laid a
+ * second time at 15 m edges, with the same stations, tints and material, and at
+ * `light` each 40 m piece draws the fine cut inside the ground reach and the
+ * coarse one past it. Hiding the far ground instead turned the yard green from
+ * the air. `full` and `balanced` draw the fine cut everywhere, as before, and a
+ * page that opens at either lays no copy.
+ *
  * A scene that does not list `railway` hands this no data base and it draws
  * nothing (T-1739). A failed fetch draws nothing and records a problem; maps that
  * do not arrive leave flat tones and a problem.
@@ -50,6 +60,8 @@
 
 import * as THREE from 'three';
 import { spatialBatchAsync } from './spatial-batch.js';
+import { compactStreams, constantConfidence } from './compact-streams.js';
+const { compactNormals, uniformGrade } = compactStreams(THREE);
 
 const LIBRARY = 'textures/prairie_1904_rail/';
 const MAPS = {
@@ -66,6 +78,10 @@ const TUFT = 'foliage/grass_tuft';
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
 /** Longest triangle edge after draping: the heightfield's own cell. */
 const MAX_EDGE_M = 2.5;
+/** The far copy's longest edge (T-3247): the base terrain's own cell. */
+const FAR_EDGE_M = 15;
+/** The far copy's bed stations, every this many metres of track. */
+const FAR_BED_STATION_M = 20;
 /** Each ground surface's lift over the heightfield and its draw order. */
 const GROUND = {
   // the face is steep and bends over at its crest: it stands higher and is pulled
@@ -78,11 +94,12 @@ const GROUND = {
 };
 /** The zone length along the yard, metres of northing. */
 const ZONE_M = 110;
-/** Per level: full section within `near`, ties at all within `ties`, tufts within `tufts`. */
+/** Per level: full section within `near`, ties and far rails at all within `ties`, tufts within `tufts`,
+ *  the fine ground within `ground` and its coarse copy past it (T-3247). */
 const REACH = {
-  full: { near: 130, ties: 650, tufts: 240, rocks: 110 },
-  balanced: { near: 100, ties: 480, tufts: 170, rocks: 85 },
-  light: { near: 60, ties: 220, tufts: 100, rocks: 50 },
+  full: { near: 130, ties: 650, tufts: 240, rocks: 110, ground: Infinity },
+  balanced: { near: 100, ties: 480, tufts: 170, rocks: 85, ground: Infinity },
+  light: { near: 60, ties: 220, tufts: 100, rocks: 50, ground: 240 },
 };
 /** Wet stone: the tone a block or the face takes at and under the waterline. */
 const WET = [0.52, 0.56, 0.48];
@@ -146,6 +163,8 @@ function trackPath(line, terrain) {
     for (let j = Math.max(0, i - k); j <= Math.min(raw.length - 1, i + k); j += 1) { sum += raw[j]; c += 1; }
     return sum / c;
   });
+  // Only grade is read by the returned path; the sampling scratch is finished.
+  raw.length = 0;
   const gradeAt = (s) => {
     const x = Math.max(0, Math.min(grade.length - 1, s / STEP));
     const i = Math.floor(x); const f = x - i;
@@ -167,26 +186,26 @@ function trackPath(line, terrain) {
 
 /**
  * A ribbon given as stations across it ([e_a, n_a, e_b, n_b] each), draped on the
- * heightfield with no triangle edge longer than MAX_EDGE_M, its two long edges faded
+ * heightfield with no triangle edge longer than `edge` (MAX_EDGE_M), its two long edges faded
  * to nothing over `fade` metres so the ground it lies on shows through at the seam.
  * UVs are world metres on the yard's own axes, so beds, cinders and verges share a
  * grain where they overlap.
  */
-function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M, fineNear = 0, drape = false }) {
+function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M, fineNear = 0, drape = false, edge = MAX_EDGE_M }) {
   const { pos, uv, col, conf, idx } = out;
   for (let i = 0; i + 1 < stations.length; i += 1) {
     const [ae0, an0, be0, bn0] = stations[i];
     const [ae1, an1, be1, bn1] = stations[i + 1];
     const along = Math.max(Math.hypot(ae1 - ae0, an1 - an0), Math.hypot(be1 - be0, bn1 - bn0));
     const width = Math.max(Math.hypot(be0 - ae0, bn0 - an0), Math.hypot(be1 - ae1, bn1 - an1), 1e-3);
-    const nu = Math.max(1, Math.ceil(along / MAX_EDGE_M));
+    const nu = Math.max(1, Math.ceil(along / edge));
     const f = Math.min(0.45, fade / width);
     // `fineNear`: only the last metres before the b edge are cut at `across`, the rest
     // at the heightfield's own cell — a face bends over at its crest, nowhere else
     const vs = [0, f];
     const fine = fineNear > 0 ? Math.min(1 - 2 * f, fineNear / width) : 1 - 2 * f;
     const coarse = 1 - 2 * f - fine;
-    const nc = coarse > 1e-6 ? Math.max(1, Math.ceil((width * coarse) / MAX_EDGE_M)) : 0;
+    const nc = coarse > 1e-6 ? Math.max(1, Math.ceil((width * coarse) / edge)) : 0;
     for (let j = 1; j <= nc; j += 1) vs.push(f + (coarse * j) / nc);
     const nf = Math.max(1, Math.ceil((width * fine) / across));
     for (let j = 1; j < nf; j += 1) vs.push(f + coarse + (fine * j) / nf);
@@ -245,19 +264,15 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = 
   }
 }
 
-async function groundMesh(name, out, kind, lib, confidence) {
+/** A fine/far pair may omit its confidence stream only at one exact shared grade. */
+function sharedGroundGrade(fine, far) {
+  const grade = uniformGrade(fine.conf);
+  return grade !== null && (!far || uniformGrade(far.conf) === grade) ? grade : null;
+}
+
+/** A ground surface's material. Its fine cut and its far copy share it (T-3247). */
+function groundMaterial(name, kind, lib, confidence, grade = null) {
   const g = GROUND[kind];
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
-  geo.setAttribute('uv', new THREE.Float32BufferAttribute(out.uv, 2));
-  // T-2806: a tint and a fade are bytes, not floats (16 bytes a corner down to 4)
-  const col = new Uint8Array(out.col.length);
-  for (let i = 0; i < col.length; i += 1) col[i] = Math.round(Math.max(0, Math.min(1, out.col[i])) * 255);
-  geo.setAttribute('color', new THREE.BufferAttribute(col, 4, true));
-  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(out.conf, 1));
-  geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
-  geo.computeVertexNormals();
-  geo.computeBoundingSphere();
   const mat = new THREE.MeshStandardMaterial({
     color: lib ? 0xffffff : g.colour, roughness: 1, metalness: 0, vertexColors: true,
     transparent: true, depthWrite: false,
@@ -270,13 +285,38 @@ async function groundMesh(name, out, kind, lib, confidence) {
     mat.aoMapIntensity = 0.6; mat.normalScale = new THREE.Vector2(0.9, 0.9);
   }
   mat.name = name;
-  confidence?.patch(mat);
-  mat.customProgramCacheKey = () => `chicago4d-railway-ground-${lib ? 'mapped' : 'flat'}`;
+  confidence?.patch(mat, grade === null ? {} : { packed: constantConfidence(grade) });
+  mat.customProgramCacheKey = () => `chicago4d-railway-ground-${lib ? 'mapped' : 'flat'}|confidence:${grade === null ? 'vertex' : grade}`;
+  return mat;
+}
+
+async function groundMesh(name, out, kind, mat, grade = null) {
+  const g = GROUND[kind];
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(out.uv, 2));
+  // T-2806: a tint and a fade are bytes, not floats (16 bytes a corner down to 4)
+  const col = new Uint8Array(out.col.length);
+  for (let i = 0; i < col.length; i += 1) col[i] = Math.round(Math.max(0, Math.min(1, out.col[i])) * 255);
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 4, true));
+  if (grade === null) geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(out.conf, 1));
+  else geo.userData.confidence = grade;
+  geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
+  geo.computeVertexNormals();
+  geo.setAttribute('normal', compactNormals(geo.getAttribute('normal').array));
+  geo.computeBoundingSphere();
   // T-2219: a courtyard view was submitting all 74k ballast/cinder triangles
   // whenever any part of the kilometre-long yard entered the frustum. Use the
   // same exact 40-m ground cells as terrain; keep UVs, alpha and pick surfaces.
   // T-2600: the cells are cut on the job pool; the batch is the same one.
   const mesh = await spatialBatchAsync(geo, mat);
+  if (grade !== null) {
+    // Partitioning retains all vertex streams; the omitted uniform travels as metadata.
+    mesh.geometry.userData.confidence = grade;
+    mesh.geometry.userData.confidenceRange = [grade, grade];
+    mesh.userData.confidenceRanges = Array.from(
+      { length: mesh.userData.spatialBatch.pieces }, () => [grade, grade]);
+  }
   mesh.sortObjects = false;
   geo.dispose();
   mesh.name = name;
@@ -350,10 +390,93 @@ function laySection(path, s0, s1, prof, spec, out) {
   }
 }
 
+// Only these eight matrix entries vary for the present upright ties. The other
+// lanes must be canonical +0/+1 after Float32 storage, including zero's sign.
+const TIE_MATRIX_LANES = [0, 2, 5, 8, 10, 12, 13, 14];
+const TIE_MATRIX_FIXED = [[1, 0], [3, 0], [4, 0], [6, 0], [7, 0], [9, 0], [11, 0], [15, 1]];
+function packTieCache(final) {
+  const count = final.length / 19;
+  if (!Number.isInteger(count)) throw new Error('Tie cache needs final matrix/color records');
+  for (let i = 0; i < count; i += 1) {
+    for (const [lane, value] of TIE_MATRIX_FIXED) {
+      // A tilt or a negative zero takes the entire exact 76-byte fallback.
+      if (!Object.is(final[i * 19 + lane], value)) return { count, stride: 19, values: final };
+    }
+  }
+  const values = new Float32Array(count * 11);
+  for (let i = 0; i < count; i += 1) {
+    TIE_MATRIX_LANES.forEach((lane, k) => { values[i * 11 + k] = final[i * 19 + lane]; });
+    values.set(final.subarray(i * 19 + 16, i * 19 + 19), i * 11 + 8);
+  }
+  return { count, stride: 11, values };
+}
+
+function installTieCache(near, far, cache) {
+  const matrix = new Float32Array(cache.count * 16);
+  const color = new Float32Array(cache.count * 3);
+  for (let i = 0; i < cache.count; i += 1) {
+    if (cache.stride === 11) {
+      matrix[i * 16 + 15] = 1;
+      TIE_MATRIX_LANES.forEach((lane, k) => { matrix[i * 16 + lane] = cache.values[i * 11 + k]; });
+      color.set(cache.values.subarray(i * 11 + 8, i * 11 + 11), i * 3);
+    } else if (cache.stride === 19) {
+      matrix.set(cache.values.subarray(i * 19, i * 19 + 16), i * 16);
+      color.set(cache.values.subarray(i * 19 + 16, i * 19 + 19), i * 3);
+    } else throw new Error('Unknown tie cache layout');
+  }
+  near.instanceMatrix = new THREE.InstancedBufferAttribute(matrix, 16);
+  near.instanceColor = new THREE.InstancedBufferAttribute(color, 3);
+  far.instanceMatrix = near.instanceMatrix;
+  far.instanceColor = near.instanceColor;
+  near.count = far.count = cache.count;
+  // A bounds visitor may have cached empty boxes on the count-zero shells.
+  if (near.boundingBox !== null) near.computeBoundingBox();
+  if (far.boundingBox !== null) far.computeBoundingBox();
+  near.computeBoundingSphere();
+  far.boundingSphere = near.boundingSphere;
+}
+
+// Uniform crossed-card transforms can store six matrix lanes and R/B only.
+// Relations are tested AFTER Float32 conversion; sign-zero is part of equality.
+function packTuftCache(final) {
+  const upright = packTieCache(final);
+  if (upright.stride !== 11) return upright;
+  for (let i = 0; i < upright.count; i += 1) {
+    const o = i * 19;
+    if (!Object.is(final[o], final[o + 10])
+        || !Object.is(final[o + 8], -final[o + 2])
+        || !Object.is(final[o + 16], final[o + 17])) return upright;
+  }
+  const values = new Float32Array(upright.count * 8);
+  for (let i = 0; i < upright.count; i += 1) {
+    const o = i * 19;
+    [0, 2, 5, 12, 13, 14, 16, 18].forEach((lane, k) => { values[i * 8 + k] = final[o + lane]; });
+  }
+  return { count: upright.count, stride: 8, values };
+}
+
+function installTuftCache(mesh, cache, wantedCount) {
+  let upright = cache;
+  if (cache.stride === 8) {
+    const values = new Float32Array(cache.count * 11);
+    for (let i = 0; i < cache.count; i += 1) {
+      const o = i * 8;
+      values.set([cache.values[o], cache.values[o + 1], cache.values[o + 2],
+        -cache.values[o + 1], cache.values[o], cache.values[o + 3], cache.values[o + 4],
+        cache.values[o + 5], cache.values[o + 6], cache.values[o + 6], cache.values[o + 7]], i * 11);
+    }
+    upright = { count: cache.count, stride: 11, values };
+  }
+  // The old sphere covered the complete built payload before density trimming.
+  installTieCache(mesh, mesh, upright);
+  mesh.count = wantedCount;
+  if (mesh.boundingBox !== null) mesh.computeBoundingBox();
+}
+
 function railMesh(name, out, level, mat, castShadow) {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
-  geo.setAttribute('normal', new THREE.Float32BufferAttribute(out.nrm, 3));
+  geo.setAttribute('normal', compactNormals(out.nrm));
   geo.setAttribute('color', new THREE.Float32BufferAttribute(out.col, 3));
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Float32Array(out.pos.length / 3).fill(level), 1));
   geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
@@ -602,6 +725,7 @@ function capMesh(crest, faces, cap, terrain, lib, confidence) {
  */
 export async function createRailway({
   dataBase, assetBase = null, sceneId, terrain, confidence = null, problems = [], detail = 'full',
+  onGeometry = () => {},
 } = {}) {
   const group = new THREE.Group();
   group.name = 'railway';
@@ -658,45 +782,59 @@ export async function createRailway({
   // arrays stayed reachable as long as the layer did: 74 MB of JS heap in 1904.
   const scratch = [];
   const buffers = () => { const b = { pos: [], uv: [], col: [], conf: [], idx: [] }; scratch.push(b); return b; };
-  const cinders = buffers();
+  // T-3247: on a page that opens at `light`, every surface is laid twice, at the
+  // heightfield's cell and as its far copy at the base terrain's, from the same
+  // stations and options, with one material. A page that opens higher lays no copy
+  // and draws the fine cut everywhere at any level, as before.
+  const farGround = [];
+  const withFar = Number.isFinite(REACH[detail]?.ground);
+  const surface = (name, kind, lib, runs) => {
+    const fine = buffers(); const far = withFar ? buffers() : null;
+    for (const [stations, opts, farStations = stations] of runs) {
+      ribbon(stations, { ...opts, out: fine });
+      if (far) ribbon(farStations, { ...opts, out: far, edge: FAR_EDGE_M, across: opts.across ?? FAR_EDGE_M });
+    }
+    const grade = sharedGroundGrade(fine, far);
+    const mat = groundMaterial(name, kind, lib, confidence, grade);
+    if (far) farGround.push(groundMesh(`${name}-far`, far, kind, mat, grade));
+    return groundMesh(name, fine, kind, mat, grade);
+  };
   const ground = maps.get(spec.ballast?.right_of_way_material ?? 'trodden_cinders');
-  ribbon(row.cinders ?? [], {
+  const cinders = [[row.cinders ?? [], {
     terrain, lift: GROUND.cinders.lift, fade: GROUND.cinders.fade, axis, span: ground?.along ?? 4,
-    level: tierLevel(spec.ballast?.tier ?? 'inferred'), out: cinders,
-  });
-  const verge = buffers();
+    level: tierLevel(spec.ballast?.tier ?? 'inferred'),
+  }]];
   const vergeLib = maps.get(spec.verges?.material ?? 'weedy_verge');
-  for (const v of row.verges ?? []) {
-    ribbon(v.stations ?? [], {
-      terrain, lift: GROUND.verge.lift, fade: GROUND.verge.fade, axis, span: vergeLib?.along ?? 3,
-      level: tierLevel(spec.verges?.tier ?? 'reconstructed'), out: verge,
-    });
-  }
-  const bed = buffers();
+  const verges = (row.verges ?? []).map((v) => [v.stations ?? [], {
+    terrain, lift: GROUND.verge.lift, fade: GROUND.verge.fade, axis, span: vergeLib?.along ?? 3,
+    level: tierLevel(spec.verges?.tier ?? 'reconstructed'),
+  }]);
   const bedLib = maps.get(spec.ballast?.material ?? 'cinder_ballast');
   const halfBed = spec.ballast?.bed_half_width_m ?? 1.75;
-  tracks.forEach((t, i) => {
+  const beds = tracks.map((t, i) => {
     const p = paths[i];
-    const st = [];
+    const st = []; const stFar = [];
     for (let s = 0; s <= p.length + 1e-6; s += 5) {
       const a = p.at(Math.min(s, p.length));
       st.push([a.e - a.tn * halfBed, a.n + a.te * halfBed, a.e + a.tn * halfBed, a.n - a.te * halfBed]);
+      if (s % FAR_BED_STATION_M === 0) stFar.push(st.at(-1));
     }
     if (p.length % 5 > 0.5) {
       const a = p.at(p.length);
       st.push([a.e - a.tn * halfBed, a.n + a.te * halfBed, a.e + a.tn * halfBed, a.n - a.te * halfBed]);
     }
-    ribbon(st, {
+    if (stFar.at(-1) !== st.at(-1)) stFar.push(st.at(-1));
+    return [st, {
       terrain, lift: GROUND.bed.lift, fade: GROUND.bed.fade, axis, span: bedLib?.along ?? 2,
-      level: Math.max(tierLevel(spec.ballast?.tier ?? 'inferred'), tierLevel(t.geometry_tier)), out: bed,
-    });
+      level: Math.max(tierLevel(spec.ballast?.tier ?? 'inferred'), tierLevel(t.geometry_tier)),
+    }, stFar];
   });
   // T-2600: each surface is laid here and partitioned on the job pool, all five
   // at once; they are awaited below, in this order, so the group is the same.
   const groundJobs = [
-    groundMesh('railway-cinders', cinders, 'cinders', ground, confidence),
-    groundMesh('railway-verges', verge, 'verge', vergeLib, confidence),
-    groundMesh('railway-ballast-beds', bed, 'bed', bedLib, confidence),
+    surface('railway-cinders', 'cinders', ground, cinders),
+    surface('railway-verges', 'verge', vergeLib, verges),
+    surface('railway-ballast-beds', 'bed', bedLib, beds),
   ];
 
   /* ---- the lake edge (T-2479): the stone face and the made ground ---- */
@@ -705,27 +843,25 @@ export async function createRailway({
   const edgeJobs = [];
   if (edgeSpec && lake && (lake.face ?? []).length >= 2) {
     const wetBelow = edgeSpec.face?.wet_below_m ?? 0.35;
-    const face = buffers();
     const faceLib = maps.get(edgeSpec.face?.material ?? 'riprap_limestone');
-    ribbon(lake.face, {
+    const face = [[lake.face, {
       terrain, lift: GROUND.face.lift, fade: GROUND.face.fade, axis, span: faceLib?.along ?? 4,
-      level: tierLevel(edgeSpec.face?.tier ?? 'reconstructed'), out: face,
+      level: tierLevel(edgeSpec.face?.tier ?? 'reconstructed'),
       // darker than a block's face: between the blocks near the eye it is their shadow
       tint: (y) => wetTint(y, wetBelow).map((v) => v * 0.88),
       // the face bends over at its crest: a coarse ribbon's chord would pass under the
       // ground there and the grass would show through, so it is cut finely across
       across: 0.5, fineNear: 1.2,
       drape: true,
-    });
-    const made = buffers();
+    }]];
     const madeLib = maps.get(edgeSpec.made_ground?.material ?? 'made_ground');
-    ribbon(row.made_ground ?? [], {
+    const made = [[row.made_ground ?? [], {
       terrain, lift: GROUND.made.lift, fade: GROUND.made.fade, axis, span: madeLib?.along ?? 4,
-      level: tierLevel(edgeSpec.made_ground?.tier ?? 'reconstructed'), out: made, across: 0.6, fineNear: 1.2,
-    });
+      level: tierLevel(edgeSpec.made_ground?.tier ?? 'reconstructed'), across: 0.6, fineNear: 1.2,
+    }]];
     edgeJobs.push(
-      groundMesh('railway-lake-face', face, 'face', faceLib, confidence),
-      groundMesh('railway-made-ground', made, 'made', madeLib, confidence),
+      surface('railway-lake-face', 'face', faceLib, face),
+      surface('railway-made-ground', 'made', madeLib, made),
     );
     for (let i = 0; i + 1 < lake.crest.length; i += 1) {
       out.census.edge_m += Math.hypot(lake.crest[i + 1][0] - lake.crest[i][0], lake.crest[i + 1][1] - lake.crest[i][1]);
@@ -734,6 +870,7 @@ export async function createRailway({
   }
   // One await over both, so a surface that fails leaves no other one unheard.
   const laid = await Promise.all([...groundJobs, ...edgeJobs]);
+  const farLaid = await Promise.all(farGround);
   for (const b of scratch) { b.pos = null; b.uv = null; b.col = null; b.conf = null; b.idx = null; }
   scratch.length = 0;
   const groundMeshes = laid.slice(0, groundJobs.length);
@@ -741,6 +878,26 @@ export async function createRailway({
   for (const m of [...groundMeshes, ...edgeMeshes]) {
     group.add(m); meshes.push(m); materials.push(m.material); geometries.push(m);
   }
+  // T-3247: the far copies join hidden, each after its own surface's cut; `update`
+  // shows them piece by piece past the ground reach. Each piece's box is kept so a
+  // frame measures it without asking the batch.
+  const pieceBoxes = (m) => {
+    const box = new THREE.Box3(); const n = m.instanceCount;
+    const b = new Float32Array(n * 6); const shown = new Uint8Array(n);
+    for (let i = 0; i < n; i += 1) {
+      m.getBoundingBoxAt(m.getGeometryIdAt(i), box);
+      box.min.toArray(b, i * 6); box.max.toArray(b, i * 6 + 3);
+      shown[i] = m.getVisibleAt(i) ? 1 : 0;
+    }
+    return { mesh: m, b, shown };
+  };
+  const groundPairs = farLaid.map((far, i) => {
+    group.add(far); geometries.push(far);
+    far.userData.farCopyOf = laid[i].name;
+    far.visible = false;
+    out.census.farGroundTriangles = (out.census.farGroundTriangles ?? 0) + far.userData.spatialBatch.triangles;
+    return { fine: pieceBoxes(laid[i]), far: pieceBoxes(far) };
+  });
 
   /* ---- zones along the yard: rails, ties and tufts ---- */
   const ns = tracks.flatMap((t) => t.centreline_local_m.map(([, n]) => n));
@@ -748,7 +905,7 @@ export async function createRailway({
   const zoneCount = Math.max(1, Math.ceil((nTop - nBot) / ZONE_M));
   const zones = Array.from({ length: zoneCount }, (_, z) => ({
     nHi: nTop - z * ZONE_M, nLo: nTop - (z + 1) * ZONE_M,
-    sections: [], railFar: { pos: [], nrm: [], col: [], idx: [] },
+    sections: [],
     ties: [], tufts: [], rocks: [], eSum: 0, eCount: 0, rockE: 0,
   }));
   const zoneOf = (n) => zones[Math.max(0, Math.min(zoneCount - 1, Math.floor((nTop - n) / ZONE_M)))];
@@ -769,7 +926,6 @@ export async function createRailway({
       if (z !== z0 || sc >= p.length) {
         // T-2775: the full section is laid only when its zone comes near (below)
         z0.sections.push([i, s0, sc]);
-        laySection(p, s0, sc, profFar, spec, z0.railFar);
         z0.level = Math.max(z0.level ?? 0, trackLevel[i]);
         s0 = sc; z0 = z;
       }
@@ -942,24 +1098,24 @@ export async function createRailway({
     }
     z.centre = new THREE.Vector3(z.eCount ? z.eSum / z.eCount : (f0[0] + f1[0]) / 2, 0, wz((z.nHi + z.nLo) / 2));
     z.index = zi;
-    if (z.railFar.pos.length) {
-      z.railsFar = railMesh(`railway-rails-far-z${zi}`, z.railFar, z.level ?? 1, railMat, false);
-      group.add(z.railsFar); meshes.push(z.railsFar); geometries.push(z.railsFar.geometry);
-    }
-    z.railFar = null;
     if (z.ties.length) {
-      const near = new THREE.InstancedMesh(tieGeoNear, tieMat, z.ties.length);
-      const far = new THREE.InstancedMesh(tieGeoFar, tieMat, z.ties.length);
+      // Reserve the original Object3D ids, names and child order, not every
+      // zone's 76-byte instance payload. Unreached count-zero shells draw nothing.
+      const near = new THREE.InstancedMesh(tieGeoNear, tieMat, 0);
+      const far = new THREE.InstancedMesh(tieGeoFar, tieMat, 0);
+      near.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(0), 3);
+      const final = new Float32Array(z.ties.length * 19);
       z.ties.forEach((t, k) => {
         q.setFromAxisAngle(up, t.yaw + Math.PI / 2);
         m4.compose(v3.set(wx(t.e), t.y, wz(t.n)), q, s3.set(t.length, tieDepth, ties.width_m));
-        near.setMatrixAt(k, m4);
+        m4.toArray(final, k * 19);
         c.setRGB(t.tone, t.tone * (0.97 + 0.05 * t.warm), t.tone * (0.92 + 0.06 * t.warm));
-        near.setColorAt(k, c);
+        final.set([c.r, c.g, c.b], k * 19 + 16);
       });
+      // Only final Float32 values survive packing; the full temporary does not.
+      z.tieCache = packTieCache(final);
       far.instanceMatrix = near.instanceMatrix;
       far.instanceColor = near.instanceColor;
-      near.computeBoundingSphere(); far.boundingSphere = near.boundingSphere;
       near.name = `railway-ties-z${zi}`; far.name = `railway-ties-far-z${zi}`;
       near.castShadow = false; far.castShadow = false; near.receiveShadow = true; far.receiveShadow = true;
       group.add(near, far);
@@ -969,15 +1125,18 @@ export async function createRailway({
     z.ties = null;
     if (tuftGeo && z.tufts.length) {
       z.tufts.sort((a, b) => a.keep - b.keep);
-      const mesh = new THREE.InstancedMesh(tuftGeo, tuftMat, z.tufts.length);
+      const mesh = new THREE.InstancedMesh(tuftGeo, tuftMat, 0);
+      mesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(0), 3);
+      const final = new Float32Array(z.tufts.length * 19);
       z.tufts.forEach((t, k) => {
         q.setFromAxisAngle(up, t.yaw);
         const h = tuftLib.sheet.height_m * t.scale;
         m4.compose(v3.set(wx(t.e), t.y, wz(t.n)), q, s3.set(h, h, h));
-        mesh.setMatrixAt(k, m4);
-        mesh.setColorAt(k, c.setRGB(t.tone, t.tone, t.tone * 0.92));
+        m4.toArray(final, k * 19);
+        c.setRGB(t.tone, t.tone, t.tone * 0.92);
+        final.set([c.r, c.g, c.b], k * 19 + 16);
       });
-      mesh.computeBoundingSphere();
+      z.tuftCache = packTuftCache(final);
       mesh.name = `railway-tufts-z${zi}`;
       mesh.castShadow = false; mesh.receiveShadow = true;
       z.tuftKeeps = z.tufts.map((t) => t.keep);
@@ -1014,8 +1173,16 @@ export async function createRailway({
   let pileSpots = [];
   if (edgeSpec?.cap && lake && (lake.crest ?? []).length >= 2) {
     const capLib = maps.get(edgeSpec.cap.material ?? 'cap_timber');
-    const { mesh, pts } = capMesh(lake.crest, lake.face, edgeSpec.cap, terrain, capLib, confidence);
-    group.add(mesh); meshes.push(mesh); materials.push(mesh.material); geometries.push(mesh.geometry);
+    const { mesh: whole, pts } = capMesh(lake.crest, lake.face, edgeSpec.cap, terrain, capLib, confidence);
+    // T-2992: cut into the ground's 40 m cells. As one mesh three kilometres long the
+    // cap was never outside the sun's ±120 m box, so it drew into the shadow map from
+    // anywhere in the district; cut, three's own shadow-camera cull (and the view's)
+    // takes each cell on its own. The same triangles, so the same picture.
+    const mesh = await spatialBatchAsync(whole.geometry, whole.material);
+    whole.geometry.dispose();
+    mesh.name = 'railway-cap';
+    mesh.castShadow = true; mesh.receiveShadow = true;
+    group.add(mesh); meshes.push(mesh); materials.push(mesh.material); geometries.push(mesh);
     const pile = edgeSpec.piles;
     if (pile) {
       const pr = pile.diameter_m / 2;
@@ -1071,6 +1238,7 @@ export async function createRailway({
     for (const [i, s0, s1] of z.sections) laySection(paths[i], s0, s1, profNear, spec, buf);
     z.railsNear = railMesh(`railway-rails-z${z.index}`, buf, z.level ?? 1, railMat, true);
     group.add(z.railsNear);
+    onGeometry(group);
     out.census.nearZones += 1;
   };
   const dropNearRails = (z) => {
@@ -1079,6 +1247,24 @@ export async function createRailway({
     z.railsNear.geometry.dispose();
     z.railsNear = null;
     out.census.nearZones -= 1;
+  };
+
+  // The same three-face sections, in the same order as the former eager
+  // buffers. Only allocate them inside their EXISTING tie reach; all other
+  // zones used to keep page arrays that had never been uploaded or drawn.
+  const farRails = (z) => {
+    if (z.railsFar || !z.sections.length) return;
+    const buf = { pos: [], nrm: [], col: [], idx: [] };
+    for (const [i, s0, s1] of z.sections) laySection(paths[i], s0, s1, profFar, spec, buf);
+    z.railsFar = railMesh(`railway-rails-far-z${z.index}`, buf, z.level ?? 1, railMat, false);
+    group.add(z.railsFar);
+    onGeometry(group);
+  };
+  const dropFarRails = (z) => {
+    if (!z.railsFar) return;
+    group.remove(z.railsFar);
+    z.railsFar.geometry.dispose();
+    z.railsFar = null;
   };
 
   /* ---- level and reach ---- */
@@ -1101,18 +1287,53 @@ export async function createRailway({
       if (!z.tuftMesh) continue;
       const ratio = want / full;
       let n = 0; while (n < z.tuftKeeps.length && z.tuftKeeps[n] < ratio) n += 1;
-      z.tuftMesh.count = n;
+      z.tuftWanted = n;
+      if (!z.tuftCache) z.tuftMesh.count = n;
       out.census.tufts += n;
     }
   };
   applyDetail();
   out.setDetail = (next) => { if (REACH[next]) { level = next; applyDetail(); } };
 
+  /** T-3247: a piece shown or hidden, written only when it changes. */
+  const showPieces = (p, test) => {
+    const { mesh, b, shown } = p;
+    for (let i = 0; i < shown.length; i += 1) {
+      const want = test(b, i * 6) ? 1 : 0;
+      if (want !== shown[i]) { mesh.setVisibleAt(i, want === 1); shown[i] = want; }
+    }
+  };
+  /** Per frame: the fine ground within the ground reach, its far copy past it. A
+   *  piece of the fine cut draws if any of it is inside the reach and a piece of
+   *  the copy if any of it is outside, so between them every point is covered:
+   *  where a piece's edge crosses the reach, both draw (the same tones, overlaid). */
+  const updateGround = (cx, cy, cz, reach) => {
+    const r2 = reach * reach;
+    const nearest = (b, o) => {
+      const dx = Math.max(b[o] - cx, 0, cx - b[o + 3]); const dy = Math.max(b[o + 1] - cy, 0, cy - b[o + 4]);
+      const dz = Math.max(b[o + 2] - cz, 0, cz - b[o + 5]);
+      return dx * dx + dy * dy + dz * dz;
+    };
+    const farthest = (b, o) => {
+      const dx = Math.max(Math.abs(b[o] - cx), Math.abs(b[o + 3] - cx));
+      const dy = Math.max(Math.abs(b[o + 1] - cy), Math.abs(b[o + 4] - cy));
+      const dz = Math.max(Math.abs(b[o + 2] - cz), Math.abs(b[o + 5] - cz));
+      return dx * dx + dy * dy + dz * dz;
+    };
+    const finite = Number.isFinite(reach) && groundPairs.length > 0;
+    for (const { fine, far } of groundPairs) {
+      showPieces(fine, finite ? (b, o) => nearest(b, o) < r2 : () => true);
+      far.mesh.visible = finite;
+      if (finite) showPieces(far, (b, o) => farthest(b, o) >= r2);
+    }
+  };
+
   /** Per frame: which zones draw in full, which far, which not at all. */
   out.update = (camera) => {
     if (!camera) return;
     const r = REACH[level];
     const cx = camera.position.x; const cz = camera.position.z; const cy = camera.position.y;
+    updateGround(cx, cy, cz, r.ground);
     for (const z of zones) {
       // distance from the eye to the zone's span of northing, and to its middle across
       const n = -cz;
@@ -1123,9 +1344,30 @@ export async function createRailway({
       if (near) nearRails(z);
       else if (z.railsNear && d > r.near + ZONE_M) dropNearRails(z);
       if (z.railsNear) z.railsNear.visible = near;
-      if (z.railsFar) z.railsFar.visible = !(near && z.railsNear);
-      if (z.tiesNear) { z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties; }
-      if (z.tuftMesh) z.tuftMesh.visible = d < r.tufts && z.tuftMesh.count > 0;
+      // T-2992: past the tie reach a zone draws only its ground, as the header says.
+      // The three-face strips drew to the far end of the yard at every tier: from the
+      // air over the district at `light` that was 61,000 triangles of rail 600 m and
+      // more away, a fifteenth of a pixel wide, and it put the phone over its ceiling.
+      const far = !(near && z.railsNear) && d < r.ties;
+      if (far) farRails(z);
+      else if (z.railsFar && d > r.ties + ZONE_M) dropFarRails(z);
+      if (z.railsFar) z.railsFar.visible = far;
+      if (z.tiesNear) {
+        if (z.tieCache && (near || d < r.ties)) {
+          installTieCache(z.tiesNear, z.tiesFar, z.tieCache);
+          z.tieCache = null;
+        }
+        z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties;
+      }
+      if (z.tuftMesh) {
+        const wanted = z.tuftWanted ?? z.tuftMesh.count;
+        const visible = d < r.tufts && wanted > 0;
+        if (visible && z.tuftCache) {
+          installTuftCache(z.tuftMesh, z.tuftCache, wanted);
+          z.tuftCache = null;
+        }
+        z.tuftMesh.visible = visible;
+      }
       if (z.rockMeshes) {
         // the blocks lie along the water, not the yard's middle: measured from their own line
         const dr = Math.hypot(dn, Math.max(0, Math.abs(cx - z.rockCentre) - 10), Math.max(0, cy - 20));
@@ -1201,7 +1443,10 @@ export async function createRailway({
     for (const g of geometries) g.dispose();
     for (const m of materials) m.dispose();
     for (const z of zones) {
-      z.railsNear?.geometry.dispose();
+      dropNearRails(z);
+      dropFarRails(z);
+      z.tieCache = null;
+      z.tuftCache = null;
       z.tiesNear?.dispose(); z.tiesFar?.dispose(); z.tuftMesh?.dispose();
       for (const m of z.rockMeshes ?? []) m.dispose();
     }

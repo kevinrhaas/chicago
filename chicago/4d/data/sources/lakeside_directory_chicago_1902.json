@@ -1,0 +1,27 @@
+{
+ "id": "lakeside_directory_chicago_1902",
+ "type": "book",
+ "citation": "The Lakeside Annual Directory of the City of Chicago, 1902. Chicago: The Chicago Directory Company, 1902.",
+ "author": "The Chicago Directory Company",
+ "date": "1902",
+ "describes_date": "1902",
+ "repository": "Internet Archive, item LakesideCityDirectoryOfChicago1902.",
+ "url": "https://archive.org/details/LakesideCityDirectoryOfChicago1902",
+ "locator": "The public offices list (U. S. Engineer Office, 1637 Indiana av., Maj. J. H. Willard, Corps of Engineers in charge of river and harbor improvements), and the alphabetical entries giving homes at 1605 and 1609 Indiana av. and the Collins Bros. (1629-1637 Wabash av.), Thompson-Reid (441 Wabash av.) and Taprell, Loomis & Co. (418 Dearborn) addresses.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "asset_use": "text_only",
+ "verified": true,
+ "rights_note": "A US directory published in 1902, in the public domain. Read for addresses only.",
+ "access_notes": "Read 2026-10-24 (T-3068) by searching the item's OCR text (Lakeside City Directory of Chicago, 1902_djvu.txt, 30.2 MB) for every number on the block face; the OCR is rough, so an absence is weak evidence.",
+ "note": "Two years before the scene: the 1886 houses on 1605 and 1609 still had households, the ice-cream and photographic-supply firms the 1911 sheet puts on the block were elsewhere, and 1637 was the Corps of Engineers' Chicago district office. No home at an odd number from 1727 to 1737 was found.",
+ "what_it_supplies": [
+  "homes at 1605 and 1609 Indiana in 1902",
+  "the U.S. Engineer Office at 1637 Indiana in 1902",
+  "the 1902 addresses of Collins Bros., Thompson-Reid and Taprell, Loomis & Co., none of them on Indiana Avenue"
+ ],
+ "what_it_does_not_supply": [
+  "any building's form",
+  "the state of the block on 1 July 1904"
+ ]
+}

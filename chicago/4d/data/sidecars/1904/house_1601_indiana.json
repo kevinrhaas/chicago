@@ -1,0 +1,194 @@
+{
+  "id": "house_1601_indiana",
+  "phase": "draft_1904",
+  "name": "1601 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+  "aka": [
+    "1601 S. Indiana Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/house_1601_indiana__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1904-07-01",
+    "confidence": "inferred",
+    "sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the row and T-3068 carries its corner to 1904 because the ice-cream works reached the corner only after the scene. When the corner houses came down is not read."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1299.079,
+    "local_n": -2953.346,
+    "rotation_deg": 179.529,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.750, v -6.180 m from the middle of the rear lot line), through the T-1250 fit of the plate: the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading. Rotation 179.529 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "1601 S. Indiana Avenue, parcel indiana_1601 (data/street_grid/1904.json), east side of Indiana Avenue, the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (Sanborn 1911 vol. 3 sheet 20, checked lot by lot against Robinson 1886 plate 10).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        22.25,
+        0.0
+      ],
+      [
+        22.25,
+        12.361
+      ],
+      [
+        0.0,
+        12.361
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the row. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow)."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 3,
+            "roof": "hip",
+            "rect": [
+              0.0,
+              0.0,
+              22.25,
+              12.361
+            ],
+            "from": "r1886-1601-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 97% of its fill"
+          }
+        ],
+        "lot_v": [
+          0.0,
+          12.361
+        ],
+        "street_u": 26.02
+      },
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1601-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 97% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "house",
+        "seed": 3342707308,
+        "principal_floor_m": 1.4,
+        "storey_heights_m": [
+          3.9,
+          3.5,
+          3.3,
+          3.1
+        ],
+        "roof_pitch_deg": 38,
+        "mansard_lower_m": 3.0,
+        "front_bays": 5,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "chimneys": 2,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-3068",
+          "refined_by": [
+            "T-1946"
+          ]
+        },
+        "v_toward": "south"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The west end of the 1886 brick row on 16th Street, at the Indiana corner: the brick family's hip over three storeys, until T-1946 parts it into its houses. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3342707308 only tints the fabric inside +-6 %. Liberty L-draft-indiana-1904-lots-3068."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-3068",
+        "liberty": "L-draft-indiana-1904-lots-3068",
+        "register_row": "frontage-20w-1601–1603",
+        "census_ids": [
+          "r1886-1601-f"
+        ],
+        "trace_building": "r1886-1601-f",
+        "seed": 3342707308,
+        "replaceable_by": [
+          "T-1946"
+        ],
+        "card": "District draft — refined by T-1946."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "The 1911 sheet draws the ice-cream works' five-storey office and tin shop at 1601-1603. The T-3019 census, as T-3068 rules it (frontage-20w-1601–1603, backcast_1886), stands the corner of the 1886 brick row for 1904, because the corner was not in the ground the ice-cream firms bought in September 1903 and is first in their hands in December 1906. Residence is inferred from the row's 1886 form; no household at the corner is in the 1902 directory or the 1904 Blue Book."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "robinson_1886_chicago_plate_10",
+      "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
+      "url": "",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from above 16th Street to 18th, as of 1886 -- a bound, from before, on the 1904 edge",
+        "Lot and subdivision lines, and the outlines of the houses at 1609-1611 and 1620 Prairie that Glessner House names as standing in 1904 and gone by 1911"
+      ],
+      "what_it_does_not_supply": [
+        "Street widths: its bands are not drawn to the widths it prints (Prairie printed 66, drawn about 55 ft)",
+        "Anything as of 1904 on its own authority",
+        "Elevations or grades"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-3068, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the Robinson 1886 plate 10 reading (r1886-1601-f: the outline in the plate's pixels, carried by its T-1250 fit) (r1886-1601-f), the T-3019 census (r1886-1601-f) and the T-1837 register row frontage-20w-1601–1603 (Brick dwelling); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-indiana-1904-lots-3068).",
+  "research_doc": "",
+  "review_required": false,
+  "called": "1601 Indiana Avenue — Brick dwelling"
+}

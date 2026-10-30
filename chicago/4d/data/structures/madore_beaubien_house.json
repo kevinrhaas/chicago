@@ -16,7 +16,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "THE BUILD YEAR IS DOCUMENTED AND THE SURVIVAL TO THE SCENE DATE IS NOT, which is why this range is tagged inferred rather than documented. Andreas: 'a two roomed log house which was the first building on lot No. 1', built 1831; Madore Beaubien was licensed as a merchant in 1831 and was a town trustee in 1833. No month is given, so the range opens at the start of the year. NO SOURCE REACHED FOLLOWS THE BUILDING PAST ITS ERECTION. It stands in this scene on the ordinary continuity argument — a standing building stands until something says otherwise, and data/exclusions.json is where documented removals go — and the counter-argument belongs here rather than in a footnote: the south-west corner of South Water and Dearborn was prime frontage on the town's business street in the 1835 boom, the drawbridge landed at the foot of Dearborn a year before the scene date, and a four-year-old log house on that corner is exactly the building a boom replaces first. The same weakness, argued the same way, carries hogan_store. If evidence turns up that this building came down before July 1835 it belongs in data/exclusions.json and this record leaves the scene."
+        "note": "THE BUILD YEAR IS DOCUMENTED AND THE SURVIVAL TO THE SCENE DATE IS NOT, which is why this range is tagged inferred rather than documented. Andreas: 'a two roomed log house which was the first building on lot No. 1', built 1831; Madore Beaubien was licensed as a merchant in 1831 and was a town trustee in 1833. No month is given, so the range opens at the start of the year. NO SOURCE REACHED FOLLOWS THE BUILDING PAST ITS ERECTION. It stands in this scene on the ordinary continuity argument — a standing building stands until something says otherwise, and data/exclusions.json is where documented removals go — and the counter-argument belongs here rather than in a footnote: the south-west corner of South Water and Dearborn was prime frontage on the town's business street in the 1835 boom, the drawbridge landed at the foot of Dearborn a year before the scene date, and a four-year-old log house on that corner is exactly the building a boom replaces first. The same weakness, argued the same way, carries hogan_store. If evidence turns up that this building came down before July 1835 it belongs in data/exclusions.json and this record leaves the scene.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 447750.379,
@@ -101,6 +102,14 @@
       "andreas_1884_v1"
     ],
     "note": "Andreas calls the building a house and separately records that Madore Beaubien was licensed as a merchant in 1831, the year it was built. The trading half is therefore an inference from the coincidence of dates and from the building's position on the town's business street, not a statement that goods were sold in this building. What it was doing on 1835-07-01 specifically is not attested at all."
+  },
+  "built": {
+    "value": 1831,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: 'a two roomed log house which was the first building on lot No. 1', built 1831."
   },
   "occupants": {
     "value": "Madore Beaubien",

@@ -43,6 +43,7 @@
 import { citationItems, escapeHtml } from './citations.js';
 import { claimValueText } from './claim-value.js';
 import { clean, fallbackAddress } from './fallback-summary.js';
+import { rangeWords } from './range-words.js';
 import { t } from './strings/index.js';
 import './strings/inspect-sources.js';
 import { gradeTerm } from './strings/terms.js';
@@ -106,7 +107,7 @@ export function buildingFacts(sidecar, summary) {
   const sum = summary && typeof summary === 'object' ? summary : null;
   if (sum) {
     if (sum.status) add('summary', s('label.today'), [sum.status.text, sum.status.today].filter(Boolean).join(' · '), sum.status);
-    if (sum.built) add('summary', s('label.built'), sum.built.year ?? '', sum.built);
+    if (sum.built) add('summary', s('label.built'), sum.built.phrase ?? sum.built.year ?? '', sum.built);
     for (const k of list(sum.key)) add('summary', k.label, k.value, k);
     for (const r of list(sum.residents)) add('summary', r.name ?? '', r.role ?? '', r);
     for (const l of list(sum.lookFor)) add('summary', s('label.look'), l.text, l);
@@ -121,8 +122,12 @@ export function buildingFacts(sidecar, summary) {
     // apart and said to be a fault.
     const range = sc.documented_range;
     if (range && (range.from || range.to)) {
+      // T-3037: the span in the ends the record dates; a bound is not a date, so with
+      // neither end dated the fact is the scene's year, which is what the record claims.
+      const sceneYear = /^\d{4}/.exec(String(sc.target_date ?? sc.scene ?? ''))?.[0] ?? '';
       add('record', s(sc.attributes?.present_status ? 'label.stood' : 'label.stood.whether'),
-        `${range.from || '?'} to ${range.to || '?'}`, { ...range, confidence: range.confidence || 'reconstructed' });
+        rangeWords(range) || (sceneYear ? s('stood.in', { year: sceneYear }) : ''),
+        { ...range, confidence: range.confidence || 'reconstructed' });
     }
     const p = sc.placement ?? {};
     add('record', s('label.place'), fallbackAddress(sc),

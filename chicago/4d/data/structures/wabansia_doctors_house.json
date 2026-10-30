@@ -15,7 +15,8 @@
         "sources": [
           "chicago_democrat_1833_1835"
         ],
-        "note": "THE ADVERTISEMENT ATTESTS THE HOUSE STANDING ON 16 JULY 1834, ELEVEN AND A HALF MONTHS BEFORE THE SCENE DATE; THAT IT STILL STOOD ON 1 JULY 1835 IS INFERRED. Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.' A house offered to rent or lease is a house its owner meant to keep, and nothing in the corpus records its removal, so it is carried to the end of 1835 as the last date this record needs, not as an attested end. The from date is the advertisement's own date and not a build date: no source says when it was raised."
+        "note": "THE ADVERTISEMENT ATTESTS THE HOUSE STANDING ON 16 JULY 1834, ELEVEN AND A HALF MONTHS BEFORE THE SCENE DATE; THAT IT STILL STOOD ON 1 JULY 1835 IS INFERRED. Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.' A house offered to rent or lease is a house its owner meant to keep, and nothing in the corpus records its removal, so it is carried to the end of 1835 as the last date this record needs, not as an attested end. The from date is the advertisement's own date and not a build date: no source says when it was raised.",
+        "from_is": "seen"
       },
       "position": {
         "utm_e": 446654.165,

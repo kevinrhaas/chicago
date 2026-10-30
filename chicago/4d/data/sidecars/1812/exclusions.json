@@ -211,6 +211,233 @@
         "T-2489",
         "T-0471"
       ]
+    },
+    {
+      "id": "kinzie_second_barn_1812",
+      "name": "The second of the two barns of du Sable's bill of sale (1800), for 1812",
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — one barn stands as the Kinzie stable; nothing names a second.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as other work reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at other work: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (The Kinzie stable, east of the house) and the lodging house, and nothing else. RULING: one barn stands in 1812 as The Kinzie stable, east of the house; the second is not built, because no source after 1800 names two and the one picture of the yard draws one. WHAT WOULD REOPEN THIS: a reading of the bill with a size or place for the barns, or any source after 1800 naming two barns or a barn besides the stable.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+          "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+          "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction",
+          "what_it_supplies": [
+            "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+            "two stacks through the ridge, one just behind the east gable",
+            "two windows in the east end under the gable, and light, smooth walls",
+            "a log building, a whitewashed house and a yard fence round it in 1820",
+            "the second Fort Dearborn across the river to the left"
+          ],
+          "what_it_does_not_supply": [
+            "the house in 1812: it shows it eight years later, after the family's return in 1816",
+            "any dimension or position"
+          ]
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        }
+      ],
+      "work_refs": [
+        "T-2485",
+        "T-2484"
+      ]
+    },
+    {
+      "id": "kinzie_poultry_house_1812",
+      "name": "The poultry house of du Sable's bill of sale (1800), for 1812",
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — Wau-Bun's list of the establishment in 1831 has none, and Eastman's view of the yard draws none.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as other work reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at other work: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (The Kinzie stable, east of the house) and the lodging house, and nothing else. RULING: not built for 1812. A poultry house is a small, short-lived building and may well have stood; nothing read says so, and the scene does not build what no source after 1800 names. WHAT WOULD REOPEN THIS: any source naming a poultry house at the Kinzie place between 1804 and 1812.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+          "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+          "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction",
+          "what_it_supplies": [
+            "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+            "two stacks through the ridge, one just behind the east gable",
+            "two windows in the east end under the gable, and light, smooth walls",
+            "a log building, a whitewashed house and a yard fence round it in 1820",
+            "the second Fort Dearborn across the river to the left"
+          ],
+          "what_it_does_not_supply": [
+            "the house in 1812: it shows it eight years later, after the family's return in 1816",
+            "any dimension or position"
+          ]
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        }
+      ],
+      "work_refs": [
+        "T-2485",
+        "T-2484"
+      ]
+    },
+    {
+      "id": "kinzie_smokehouse_1812",
+      "name": "The smokehouse of du Sable's bill of sale (1800), for 1812",
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — Wau-Bun's list of the establishment in 1831 has none, and Eastman's view of the yard draws none.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as other work reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at other work: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (The Kinzie stable, east of the house) and the lodging house, and nothing else. RULING: not built for 1812, for the same reason as the poultry house. WHAT WOULD REOPEN THIS: any source naming a smokehouse at the Kinzie place between 1804 and 1812.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+          "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+          "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction",
+          "what_it_supplies": [
+            "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+            "two stacks through the ridge, one just behind the east gable",
+            "two windows in the east end under the gable, and light, smooth walls",
+            "a log building, a whitewashed house and a yard fence round it in 1820",
+            "the second Fort Dearborn across the river to the left"
+          ],
+          "what_it_does_not_supply": [
+            "the house in 1812: it shows it eight years later, after the family's return in 1816",
+            "any dimension or position"
+          ]
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        }
+      ],
+      "work_refs": [
+        "T-2485",
+        "T-2484"
+      ]
+    },
+    {
+      "id": "pettell_cabin_1812",
+      "name": "Pettell's 'small cabin near the Kinzie house', for 1812",
+      "reason": "NOT A FIFTH HOUSE — the two counts of the north bank made in 1808 find four houses and no Pettell, so his hut of 1803 is taken to be one of the four already built under a later occupant's name. An identity ruling, not a date guard.",
+      "detail": "THE WITNESSES. Currey (1912, ch. II), after Ouilmette's cabin: 'A man named Pettell also had a small cabin near the Kinzie house', in a passage on what John Kinzie found when he came in 1804 ('When John Kinzie arrived here he found Ouilmette, Pettell, Le Mai, and Guarie, all of whom were permanent residents'); Currey cites nothing for either. Mrs. William Whistler, of the troops' arrival in 1803: 'there were here then but four rude huts or traders' cabins, occupied by white men, Canadian French with Indian wives; among them Le Mai, Ouillemette and Pettell' (Moses and Kirkland v1 p. 35, lines 5578-5584 of the committed text), and Moses and Kirkland note that Le Mai was then in the house Kinzie bought. THE COUNTS OF 1808. Captain Whistler's draught of January 1808 draws the north bank with the Kinzie house and exactly three more dwellings west of it (no. 31, 'Oather Dwelling Houses on opisite side River'; the whistler 1808 fort dearborn data north bank), and Surgeon Cooper, at the post from 1808, counts four houses on the north side 'occupied by Kinzie, Ouilmette, La Lime, and Le Mai' (Quaife 1913 p. 166, as read it for Le Mai's house, the westernmost of the three houses west of the Kinzie house, at the field the draught letters 'Mr Coursell'). Four huts in 1803 and four houses in 1808, with Le Mai moved out of the one Kinzie bought: the simplest reading is that the houses are the same four and their occupants changed, so Pettell's hut of 1803 is La Lime's or Le Mai's of 1808 (which one is not known), and both stand in this scene already. Building a fifth house beside Kinzie's would put a building on the bank where both 1808 witnesses have none. PETTELL HIMSELF may still have been at Chicago in 1812: Moses and Kirkland think the twelve militia killed on 15 August 'perhaps included Lee, Pettell, Russell, Burns, etc.' (line 7027), a guess about a man, not a house. WHAT WOULD REOPEN THIS: a record between 1808 and 1812 that puts Pettell in a house of his own on the north bank, or a fifth house there. Other work.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+          "url": "https://www.gutenberg.org/ebooks/52346",
+          "archived_url": "",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "what_it_supplies": [
+            "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+            "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+            "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+            "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+            "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+            "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'",
+            "the lake shore south of the river mouth before 1812, in the same chapter: 'mostly devoid of trees, a scanty growth of cottonwoods and pines, however, maintaining a precarious existence among the sand-dunes', the low sand-hills 'the predominant feature of the landscape' a mile or two south of the mouth (used by for the pines on the south sand hills)"
+          ],
+          "what_it_does_not_supply": [
+            "any dimension of the house, the piazza or the green",
+            "the number of the house's rooms, windows or chimneys",
+            "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+            "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+          ]
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812, the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+          "url": "https://archive.org/details/historyofchicago01mose",
+          "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "transcribes": [
+            {
+              "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+              "date": "1881",
+              "tier": 3,
+              "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+            }
+          ],
+          "what_it_supplies": [
+            "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+            "A BUILDING WITH FOUR OF THE FIVE FIELDS the structures data WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+            "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+            "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+            "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+            "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own piece of work, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+            "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+          ],
+          "what_it_does_not_supply": [
+            "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at the moses kirkland v1 lead surnames data so the next run does not pay for the search twice.",
+            "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+            "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+            "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+            "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+            "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+          ]
+        },
+        {
+          "source_id": "quaife_1913",
+          "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+          "url": "https://www.gutenberg.org/ebooks/69274",
+          "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+            "Major Long's 1816 report on the second fort under construction",
+            "a scholarly negative: no dimension of the second fort's stockade"
+          ],
+          "what_it_does_not_supply": [
+            "any plan or dimension of the 1816 fort",
+            "anything about the fort after 1835"
+          ]
+        },
+        {
+          "source_id": "whistler_1808_fort_dearborn_draught",
+          "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+          "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+          "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+            "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+            "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+          ],
+          "what_it_does_not_supply": [
+            "any building height: the folded elevations disagree with each other",
+            "the fort's bearing to true north: no north arrow was found on the reproduction",
+            "the covered way to the river and the gutters, which the index itself says are omitted",
+            "anything about the second fort of 1816"
+          ]
+        }
+      ],
+      "work_refs": [
+        "T-2504",
+        "T-2486",
+        "T-0471",
+        "T-2768"
+      ]
     }
   ],
   "uncertain_standard": "Structures whose status on this date is genuinely OPEN — neither built with confidence nor ruled out. They are the third category, and each one says whether it is standing in front of you or was never found on the ground.",

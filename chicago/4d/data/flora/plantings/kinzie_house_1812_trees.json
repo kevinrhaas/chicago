@@ -6,6 +6,7 @@
   "scene": "1812",
   "target_date": "1812-08-14",
   "zone": "z10_settled_town",
+  "in_structure": "kinzie_house_1812_green",
   "existence": {
     "value": true,
     "confidence": "inferred",
@@ -65,11 +66,11 @@
       "species": "populus_deltoides",
       "at_local_enu_m": [
         1146.0,
-        349.0
+        352.5
       ],
       "height_m": 21,
       "confidence": "reconstructed",
-      "note": "ONE OF THE TWO COTTONWOODS BEHIND THE HOUSE. Wau-Bun, of 1831: 'Two immense cottonwood-trees stood in the rear of the building, one of which still remains as an ancient landmark'; data/exclusions.json kinzie_house adds that they are 'separately attested and one survived into the 20th century'. Every picture draws a great broad crown behind the house. Where each stood is this record's own: behind the house, toward either end. HEIGHT 21 m, inside the species' 18-26 m band in z10_settled_town: trees 'immense' in 1831 were already grown in 1812."
+      "note": "ONE OF THE TWO COTTONWOODS BEHIND THE HOUSE. Wau-Bun, of 1831: 'Two immense cottonwood-trees stood in the rear of the building, one of which still remains as an ancient landmark'; data/exclusions.json kinzie_house adds that they are 'separately attested and one survived into the 20th century'. Every picture draws a great broad crown behind the house. Where each stood is this record's own: behind the house, toward either end. Moved 3.5 m north at T-2485 (from N +349.0), when the bake-house the pictures draw behind the house's west end took the ground just behind it; the renderer keeps a stem 4.5 m clear of every footprint. HEIGHT 21 m, inside the species' 18-26 m band in z10_settled_town: trees 'immense' in 1831 were already grown in 1812."
     },
     {
       "id": "kinzie_cottonwood_east",
@@ -83,5 +84,5 @@
       "note": "ONE OF THE TWO COTTONWOODS BEHIND THE HOUSE. Wau-Bun, of 1831: 'Two immense cottonwood-trees stood in the rear of the building, one of which still remains as an ancient landmark'; data/exclusions.json kinzie_house adds that they are 'separately attested and one survived into the 20th century'. Every picture draws a great broad crown behind the house. Where each stood is this record's own: behind the house, toward either end. HEIGHT 20 m, inside the species' 18-26 m band in z10_settled_town: trees 'immense' in 1831 were already grown in 1812."
     }
   ],
-  "research_note": "WHAT WOULD MOVE THESE. A measured plan of the Kinzie lot, or the Sarony lithograph after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32, not yet in the image store, T-2498), would place the row and the two trees. Until then their places are reconstructed (docs/LIBERTIES.md L-kinzie-house-1812-2497)."
+  "research_note": "WHAT WOULD MOVE THESE. A measured plan of the Kinzie lot, or the Sarony lithograph after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32, not yet in the image store, T-2498), would place the row and the two trees. Until then their places are reconstructed (docs/LIBERTIES.md L-kinzie-house-1812-2497). T-3106: in_structure names the green's own fence footprint, where the four poplars are explicitly planted; the two rear cottonwoods remain outside it. This existing planted-container rule exempts only that polygon, never the house, other walls or travelled tracks. No stem or source claim moves."
 }

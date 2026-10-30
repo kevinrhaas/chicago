@@ -1,0 +1,44 @@
+{
+  "structure_id": "log_jail",
+  "scene": "1835",
+  "enclosures": [
+    "log_jail_palisade"
+  ],
+  "source_id": "trowbridge_first_jail_gale_1902",
+  "photo": "../../sources/assets/log_jail_gale_1902/page_n79.jpg",
+  "image_px": [
+    1112,
+    1645
+  ],
+  "principal_px": [
+    556,
+    552
+  ],
+  "focal_px": 1500,
+  "eye": [
+    -12,
+    18,
+    1.7
+  ],
+  "yaw_deg": 136.0,
+  "basis_right_up_forward": [
+    [
+      0,
+      0,
+      -1
+    ],
+    [
+      -0.7193398003386512,
+      -0.6946583704589971,
+      0
+    ],
+    [
+      0.6946583704589971,
+      -0.7193398003386512,
+      0
+    ]
+  ],
+  "sky": "overcast",
+  "solve": "PROVISIONAL COMPOUND DIAGNOSTIC, not an accepted camera solution. The entire1853x2741 original page is displayed at1112x1645; no crop, pixel edit or source rotation. The basis rolls the camera to the original sideways page. The chosen1.70m standing eye, approximately22m range and1500px focal length frame the unchanged jail and its native enclosure on a common flat review plane. Principal point is a visual framing choice, not a measured calibration. The source shows a keeper house and taller gabled core; neither its metric scale nor original1833cell identity is solved. Pictured palisade form may inform this bounded improvement; no coordinate or July date comes from the plate. Actual app terrain/clearance remain separately verified.",
+  "diagnostic_only": true
+}

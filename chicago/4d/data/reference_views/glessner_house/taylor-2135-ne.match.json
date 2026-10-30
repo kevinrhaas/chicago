@@ -2,10 +2,11 @@
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "905a3dd4947991bdd4d4d8c27c45b0b9e1cf4fe320bb4e6682d29a09a2b780e3",
-  "camera_sha256": "9eabf3e71a78ab9e598afc4b1e3fc1ba7fbe88b94f0edda25318a1808517fe92",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
+  "camera_sha256": "7146c5ae0d24d7c724177b925417a90c20a38cb3d0e36e01a5a6ad3e04549ec7",
+  "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2857 openings: the jambs of the four first-floor windows and the door fit the model's opening spacing camera-free (one-dimensional projective fit along the course, 10 jambs, 1.50 px rms). The openings are right relative to one another (docs/RESEARCH/glessner-prairie-front-T-2857/).",
@@ -20,16 +21,24 @@
       "status": "fixed"
     },
     {
-      "what": "T-2858 south stack: through the refitted camera its north face still reads 14.6 px left of the photograph (the middle stack 7-8 px, the north within 4 px), a gradient along the roof that the jambs below do not show. Its plan place (W 14.18-21.8, S 57.2-61.2) is not read here.",
-      "status": "open"
+      "what": "T-3027 south stack's plan place, read against the sheets: it stands, and nothing is moved. Sheet 6 (1966, plotted photogrammetrically) draws its shaft at S 57.14-61.07 (built 57.2-61.2) and its east foot 1.30 ft below the middle stack's (built 1.36, the step that puts its east face at W 14.18); sheet 4 draws both stacks' west feet level (y 2150 and 2148), as the two west faces at W 21.8 are built. Through the refitted camera the stack's box is 95 px across against the photograph's 96, so the photograph shows the same stack, displaced. Closing its north face alone would need it 1.5 ft north (sheet 6 draws that face 0.06 ft from where it is built, at 75 px to the foot) or 2.05 ft west (the feet on both sheets refuse it). Sheet 4, the coarser drawing, puts it about 1.3 ft south, the other way. What is left is not the stack's place: the item below (docs/RESEARCH/glessner-south-stack-T-3027/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3058 camera: the principal point, held at T-2221's value since T-2858, is freed, and the camera is fitted on the ten jambs, the five earlier controls, the three stacks' centres and tops and the photograph's own plumb edges (43 read off it, for pitch and roll). The stacks are their record boxes: the built cap course reads within 0.5 px of each box, so the correction T-2858 carried from T-2221's render was its picks' scatter, not a cap overhang. Every one of 36 starts ends at one camera: principal (549.6, 712.0), f 2251, pitch 2.6 deg, roll 1.4 deg; controls and jambs 2.08 px rms, jambs within 3.2 px, the stacks' centres and tops 1.6 px rms (centres: south -3.1, middle -1.9, north +0.3 px). The south and middle stacks' widths, not fitted, read within 0.6 px. Re-read through it, T-3045's courses stand: the two clean piers' free fits want scale 0.9975 about bed 7. Open: the plumb edges alone put the pitch at about 1.2 deg, the joint fit at 2.6 (docs/RESEARCH/glessner-taylor-camera-T-3058/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3065 (found by T-3058): the north stack reads 8.6 px wider than the photograph through this camera (its box 82.6 px against the picks' 74; at rows 200-216, under the cap's soft right edge, about 82.6 against 77). The east face reads as built (44 px, 3.1 ft), the north face 34 px against the built 39, about 6.2 ft against T-2873's 7.1 from HABS 14; HABS 01 read about 6.3. The render's right-hand cross stands proud of the photograph's edge. Ruled and rebuilt by T-3065 (docs/RESEARCH/glessner-stack-depth-T-3065/): the face stands at 7.1 ft and the depth was wrong. Sheet 6 draws the stack edge-on 2.44 ft between its strokes (2.6 ft on the reading that gives the middle and south stacks their recorded depths), where the record carried 3.1 since T-2214 moved its face and not its back; rebuilt at S 0-2.6 and rebaked. Refitted on the new box, the camera puts the stack's back corner at x 992.0 against the photograph's edge at 991.5, the stones' east ends at 1035.9 (the photograph's joint at 1035, which T-3058 had read as the corner), their west ends at 1060.2 against the stones' shadows ending at about 1061, and the north-west corner at 1067.6 against 1068: the north face is the photograph's. The stack's width now reads +1.5 px against the picks (74 px; a row-220 reading is 77). The render's west cross stands about 2 px past the face's edge on one row, within a pixel of the photograph's; its float is carried on T-3028.",
+      "status": "fixed"
     },
     {
       "what": "T-2857 roof and stacks: the three stack tops are within 2 px of the photograph (south +2, middle -1, north +1 px) and the ridge within 4-8 px; the main roof and stack heights agree.",
       "status": "fixed"
     },
     {
-      "what": "Stone/course relief: the photograph's rock-faced courses alternate deep and shallow more strongly than the render's.",
-      "status": "open"
+      "what": "Stone/course relief: the photograph's rock-faced courses alternate deep and shallow more strongly than the render's. Read by T-3044 (docs/RESEARCH/glessner-course-reading-T-3044/). The \"deep and shallow\" is two things. First, the heights: relative to the photograph's own sills and heads, its beds 7-23 stand 4.5-4.75 % over the printed string the model lays, on three piers, bed 23 at 22.19-22.40 ft door against the model's 21.63 and sheet 6's 22.39-22.49 (T-3045 re-courses). Second, the relief: a high course's lower-lip shadow is 1.32 times a low course's here and 0.95 times in the render (T-3046 deepens the high courses). T-3045 laid the heights (the fixed entry below), and T-3046 the relief: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "The early streetscape and neighbor geometry are separate context work; monochrome/sepia reproduction does not establish exact1904 RGB, and the courtyard is not visible.",
@@ -38,7 +47,27 @@
     {
       "what": "T-2848 light: hazy, shadowless light, the Prairie front a little brighter than the 18th Street flank; the render now uses the overcast sky with its soft key from the east (camera solve.light), replacing a sun carried over with the camera and no reading behind it.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3045 course heights: the courses between bed 7 and bed 23 are now laid 4.5 % over sheet 5's printed inches. Re-read through this camera by T-3044's own read_courses.py on the re-coursed render, the render's courses as laid now correlate with the photograph's at 0.77 and 0.69 on the two clean piers (N1, N2; 0.04 and 0.07 before) and 0.17 on S1 (-0.12 before), and the best free fit about bed 7 is 0.995-1.000 where it was 1.045-1.0475: the beds stand where the photograph's do (docs/RESEARCH/glessner-recourse-T-3045/readings.json). The relief half of the item stays open on T-3046.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3024: the 18th Street coping lowered 0.7 ft to sheet 6's junction (parapet 0.5 ft, was 1.2) and the 1886 stone re-set (43.3-44.75 ft ng). Re-rendered from the rebaked master. Read as a proportion (not through the camera), the stack above the coping's junction stands about 1.14 of its seen width in the photograph against 1.03 in the render, so this view reads the junction lower still; that is carried with the stack's depth and width on T-3065. T-3065: the seen width was the depth. At 2.6 ft the stack is about 76 px across here, not 82.6, and the junction is where it was, so the render's proportion rises to about 1.12 (the 85 px the stack stood over it, on 76) against the photograph's 1.14.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3065 camera: refitted by tools/glessner_prairie_front.py on the north stack's corrected box (S 0-2.6). Principal (564.5, 696.9), f 2256, pitch 3.0 deg, roll 1.3 deg; controls and jambs 2.08 px rms, jambs within 3.2 px, the stacks' centres and tops 1.9 px rms (north centre +2.2), and every stack's width within 1.5 px (south -0.0, middle -0.6, north +1.5). The plumb edges keep a lean rms of 0.0104; the pitch question T-3058 left open (the edges alone give 1.2 deg) stands.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3115 (found by T-3065): the west cross no longer stands past the face's edge from this eye; draped on the rock instead of at its furthest reach, it falls on the face (docs/RESEARCH/glessner-crosses-T-3115/taylor-before-after.jpg). The print does not resolve the crosses themselves.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3136, read on this side-by-side at 6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light about 23 px and its pier about 11 where the render draws 26 and 7.5 (the south light 21.7 against 21.3): the narrower north light and wider pier HABS 16 shows. Through this camera the pair also stands about 15 px north (right) of the print's, where the first-floor jambs fit within 3.2 px. T-3141 owns it. T-3140, ruled within tolerance (T-3153): as on HABS 16, the north light 0.3-0.5 ft narrow and the pier 0.3-0.45 ft wide, under the 1 ft bar; the pair's 15 px northward stand is this camera's, the jambs either side fitting within 3.2 px. T-3141 was withdrawn on this ground.",
+      "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

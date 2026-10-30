@@ -1,0 +1,29 @@
+{
+  "id": "vassil_2014_konik_horse_anatomy",
+  "type": "photograph",
+  "citation": "Vassil, Konik Polski horses at Solutre,26October2014; cropped lateral horse photograph, Wikimedia Commons, CC0-1.0.",
+  "author": "Vassil",
+  "date": "2014-10-26",
+  "describes_date": "2014-10-26",
+  "repository": "Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:Konik_Polski_Solutr%C3%A9_26102014_4_(cropped).jpg",
+  "archived_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Konik_Polski_Solutr%C3%A9_26102014_4_%28cropped%29.jpg",
+  "locator": "Complete1903x1377 near-lateral animal frame, actually viewed2026-10-22; exact original image and saved Commons rights page hashes in T2799 packet.",
+  "tier": 4,
+  "rights_status": "cleared",
+  "rights_note": "Author self-published under CC0-1.0; saved Commons metadata explicitly names CC0 and no attribution requirement. Keep authorship and waiver evidence. No photographic pixels or existing3D mesh are included in this proposal.",
+  "rights_checked": {
+    "date": "2026-10-22",
+    "method": "Read saved original Commons file page/API metadata and CC0 deed; inspected exact saved photograph.",
+    "outcome": "Cleared as general anatomical visual reference under CC0-1.0; historical identification explicitly excluded."
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Modern biological exterior reference, not period Chicago evidence. Continuous neck/shoulder/barrel/croup, pastern/hoof and mane/tail transitions are visible. Named modern breed and dun coat must not be transferred to an1812/1835/1904 Chicago animal; stocky conformation does not define the first medium light-harness body. Perspective, grass occlusion and non-neutral stance preclude absolute dimension extraction.",
+  "what_it_supplies": [
+    "Living exterior tissue continuity, head/hoof proportions qualitatively, hair lay."
+  ],
+  "what_it_does_not_supply": [
+    "Historical Chicago breed/owner/coat, calibrated dimensions, neutral orthographic planes or measured motion."
+  ]
+}

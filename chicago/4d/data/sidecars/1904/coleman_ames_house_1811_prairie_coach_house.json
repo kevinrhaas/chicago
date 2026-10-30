@@ -21,7 +21,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -66,12 +67,13 @@
   },
   "attributes": {
     "stories": {
-      "value": 1,
+      "value": 2,
       "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "chicago_tribune_1904_04_16_1811_prairie_to_rent",
+        "carlson_greeley_1891_prairie_environs"
       ],
-      "note": "The census reading '1½-storey brick GARAGE on the alley': 1 storeys and a half."
+      "note": "Two storeys in 1904, where the 1911 sheet reads a '1½-storey brick GARAGE on the alley' (T-3099). The Tribune of 16 April 1904 offers the empty house to rent with a '2 story stable', and the same agents repeat it in September 1905; the Greeley-Carlson plate of 1891 draws a crossed stable marked '25' at the alley behind the house, 38-46 m from the street line where the 1911 sheet's garage stands 37-46 m; and the Chicagology photograph (after 1886; its rights unresolved, so read beside these and not cited for the count) shows it past the house's south flank as a separate pavilion with an arched carriage door under a steep roof. The plan stays the 1911 trace's. Why the 1911 sheet counts one and a half storeys no source says: the stable altered when it became a garage, or its loft counted as a roof storey, are both open."
     },
     "construction": {
       "value": "brick",
@@ -87,7 +89,7 @@
           {
             "id": "r1",
             "role": "main",
-            "storeys": 1,
+            "storeys": 2,
             "roof": "gable",
             "rect": [
               0.0,
@@ -171,6 +173,39 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "carlson_greeley_1891_prairie_environs",
+      "citation": "Greeley-Carlson Company, Atlas of the City of Chicago (Chicago, 1891), the plate covering Prairie Avenue and its environs, as reproduced by Chicagology under the caption \"Prairie Avenue and Environs\".",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "The 1891 track count beside Prairie Avenue (four or five), a bound from before on the 1911 sheets' eleven",
+        "The breakwater offshore and the water's edge against the railway",
+        "1811 Prairie's house depth and its stable on the alley in 1891 (T-3099)"
+      ],
+      "what_it_does_not_supply": [
+        "Measured positions: the copy is not georeferenced",
+        "Anything as of 1904 on its own authority"
+      ]
+    },
+    {
+      "source_id": "chicago_tribune_1904_04_16_1811_prairie_to_rent",
+      "citation": "'To Rent—1811 Prairie-av., 16 room house; light on all sides; beautifully finished; 3 bathrooms, billiard and ball rooms; will decorate to suit tenant; 2 story stable. Holton, Seelye & Co., 204 Dearborn-st.' Classified advertisement, 'To Rent—Houses', Chicago Daily Tribune, 16 April 1904.",
+      "url": "https://archive.org/details/per_chicago-daily-tribune_1904-04-16_63_92/page/n9/mode/1up",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that 1811's alley building was a stable of two storeys in April 1904",
+        "that the house was detached, with light on all sides, and empty in spring 1904"
+      ],
+      "what_it_does_not_supply": [
+        "the stable's plan, roof or material",
+        "the house's rear range"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",

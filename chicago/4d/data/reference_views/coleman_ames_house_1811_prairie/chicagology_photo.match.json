@@ -1,0 +1,103 @@
+{
+  "structure_id": "coleman_ames_house_1811_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
+  "glb_sha256": "e936066f02a9c14c7948140aebfbf125cf99f5c255fbba1a2a29ab5becd7a1a3",
+  "camera_sha256": "cb362fce20647693405877df9217185fbe854f22b072fdf325c232d8d6a9771c",
+  "photo_sha256": "6f5d94e0a9794ccf9f84d0f5cd0cf00c6bd09caa8e57be79d83958572bbc9b0c",
+  "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing and the street front: the bay, its canted north face, the entrance block, the oriel and the gable stand where the photograph stands them; the camera was fitted to them (2.4 px rms on 36 points, 6.9 px at worst), so this says the front and the plate agree, read again on a sharper, wider print",
+      "status": "fixed"
+    },
+    {
+      "what": "the NORTH PIER (T-3101): the front's north end stands as a pier of rock-faced brownstone about 0.93 m wide on the front's plane, from the north wall's arris to the bay's canted cheek, which leaves the wall there; the plate draws it at x 52-92 px (its arris and its junction with the cheek, v 0 and 0.93 through T-2541's camera), the Chicagology photograph at x 110-185 px and the 1965 HABS photograph at x 927-972 px. The build ran the canted cheek from 0.3 m off the corner (the kit's least corner pier, the 1911 sheet's trace drawing about 0.16 m, which at its 50 ft scale cannot part 0.16 m from 0.93), so the cheek covered most of the pier, and K01's coursing stopped one box round the whole bay (its cornice reaches the wall at v 0.37), leaving the strip plain dressed trim. Now the cheek leaves the wall at v 0.93 (`cant_left_m` 1.36, the front's north corner unmoved at v 2.29) and a canted bay seats its walls apart from its cornice, so the pier is coursed rock-faced from grade to the wall head: it renders at x 51-92 px on the plate, 113-190 on the Chicagology print and 928-970 on the HABS print. The cheek's light stays one a storey, 0.75 m, now on a 1.69 m face (`at` 0.1753, its centre 1.12 m along it, where K08 keeps its recess in front of the wall; the front's two lights keep their places, `at` 0.427 and 0.7229)",
+      "status": "fixed"
+    },
+    {
+      "what": "the bay's storeys: the basement lights under their rock-faced course, the ground-floor and first-floor windows two a storey, the moulded string course and the bay's cornice, all within about 3 px of the photograph's",
+      "status": "fixed"
+    },
+    {
+      "what": "the bay's stone gable: its apex and finial (x 380 px), the arched group of three round lights over three flat lights between colonnettes, and the two pinnacles, the north one stopping at its band under a capped pyramid",
+      "status": "fixed"
+    },
+    {
+      "what": "the entrance: the deep round arch, the arcade of clustered colonnettes to its south, the stair of about nine risers between cheek walls ending in scrolls on foot blocks, and the rounded south corner",
+      "status": "fixed"
+    },
+    {
+      "what": "the oriel over the arch: three transomed lights in front and one in each return, its corbelled foot and cornice, and its steep pyramid with the finial",
+      "status": "fixed"
+    },
+    {
+      "what": "the downpipes at the bay's south return and at the entrance block's south corner",
+      "status": "fixed"
+    },
+    {
+      "what": "the two south stacks with their corbelled caps: the tall one in the south gable and the second further back, each within about 25 px of the photograph's (the build put them through the plate's camera; this print agrees)",
+      "status": "fixed"
+    },
+    {
+      "what": "the north eave: the build's main roof carries its eave out past the canted face's top at about 8.8 m, to x 50 px, where the photograph shows sky and only the bay's own cornice returning at x 115-135 px; the roof's north side is to be brought in over the canted face; T-3101: the 'bay's own cornice returning at x 115-135 px' is the north pier's cap (the pier item above), and the eave to be brought in is the main roof's over the pier's head; T-3112: fixed. The main roof's street and side eaves are cut back over the pier to its weathering's slope (front_pier), so from x 50 to the bay's cornice the render shows sky over the pier's slate top, as the print does.",
+      "status": "fixed"
+    },
+    {
+      "what": "the bay's balcony: the photograph's parapet over the bay's cornice is a solid pierced stone panel, a running fretwork of interlaced loops between plain end blocks; the build stands a rail on turned balusters there. FIXED (T-3052): built as K08's pierced stone panel, one panel a run between the corner blocks, a diagonal lattice of 0.05 m straps at 0.24 m, two diamonds to its height: the photograph's openings, about 0.25 m apart in two rows, pierced through the stone as the photograph's are. The interlace's curves are not carved; the lattice is its light and shade at its spacing",
+      "status": "fixed"
+    },
+    {
+      "what": "the basement lights' grilles: the photograph's are scrolled ironwork round a central rosette; the build's read as plain vertical bars from here. T-3132: fixed. Each grille is now the photograph's pattern (the bay's `grille.panel`): a flat-bar frame round the light, a border about 0.12 m wide of short bars 0.06 m apart (uprights over and under, rungs at the sides), and inside it a rosette, eight spokes out to a ring 0.44 m across, a volute in each corner and a smaller one on each side. The scrolls' leaves and the petal-shaped spokes are below the bar's reach (L-k01-1811-basement-grilles-3132).",
+      "status": "fixed"
+    },
+    {
+      "what": "the basement lights' foot: through this camera the lights' heads land on the build's (y 1176 px against 1178), but their foot stands 14 px lower (y 1277 against 1263) over a plinth about half as deep as the build's, so the lights are about 0.15 m taller in the photograph. The bay's basement storey keeps its clear wall from 0.10 m over its plinth, so lowering the lights means lowering the plinth: T-3133's (found by T-3132) T-3133 lowered them towards the photograph's foot: the sill brought down from 0.22 to 0.17 m with the bay's plinth halved to 0.05 m (the 0.02 m of wall the kit keeps over the plinth, and the K06 sill under the light, kept), the head kept at 1.22 m, so each light stands 1.05 m. Through this camera the render's light now runs y 1178-1270 px against the print's 1176-1277: the head on the print's, the foot 7 px (about 0.08 m) short of it, which is the K06 sill the kit lays under every light standing where the print draws the grille's foot rail on the ledge, and the plinth and sill under it make the pale ledge the print draws. The 7 px is the kit's, not a reading still open.",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch arcade round the rounded corner steps down to the south: against the mouth's south jamb the three colonnettes' capitals stand 3, 10 and 20 px lower (y 1005 to 1025) and their bases 5, 10 and 13 px (y 1093 to 1106), where the build stood level on the jamb's line through this camera. T-3132: fixed. Each light, its colonnette and the plinth band under it now stand 0, 0.1 and 0.2 m lower round the curve (round_arcade.drops_m); through the plate's camera the capitals render about 0, 3 and 9 px down against its 0, 6 and 12, within 3 px. Why the porch steps no source says (L-k01-1811-round-arcade-2991).",
+      "status": "fixed"
+    },
+    {
+      "what": "the south flank (T-3079, ruled; T-3099 to settle): past the front block the photograph's flank is short. The coped south wall runs back from the tall stack to x 1160 px, the wall head there drops to a lower brick range whose end stands at x 1197 px, and past it a separate pavilion with an arched door (about u -16, v 9 through this camera, by its foot at y 1215 px) stands in the sheet's rear section with lawn to the right of it. Through this camera the sheet's straight south wall reaches x 1312 px at u -18.4 with a three-storey range all the way. Its windows differ with it: arched ground-floor heads at x 1143, 1163, 1180 and 1195 px and tall first-floor lights over them, where the build has flat-headed sash at its own spacing. The photograph is of about 1888 and the scene is 1904, so this is not copied: what stood in 1904 is T-3099's. T-3099 ruled the 1911 sheet's continuous 26 m house for 1904 and read the 'short range' as its rear seen end-on through a near camera; what this picture still shows along the flank is T-3133's (split from T-3129), with the photograph's arched rear openings and the coping's height. T-3133 built the flank's openings as the print draws them: every light along the brick flank round-headed, turned in the flank's own brick, and under each of the rear lights a round-headed basement light (the print's at x 1084, 1107, 1148, 1167, 1185 and 1197 px, their crowns on the horizon at y 1165-1168, so about 1.35 m over grade, and their feet a few tenths over the walk), built 1.0 m across from 0.30 to 1.35 m, one under each of the range's and the rear section's flank lights, where the build had flat-headed sash over blank brick. They are placed under the lights over them, as the print sets each, not off this camera. What this camera still shows: the build's flank is the sheet's, so its lights and basement lights run on along it to x 1300 px and past, where the print's 3B/2B step stands at x 1167 (the build's about 1295) and its flank ends at about 1205 with the stable past it. T-3099 RULED (2026-10-25) that the 1891 Greeley-Carlson atlas's and the 1911 sheet's one continuous 26 m house stands for 1904, so the build's flank is not shortened to the picture; the camera's depth along the flank is filed as T-3149, with the stable past it.",
+      "status": "fixed"
+    },
+    {
+      "what": "the front block's coped south wall: the photograph's coping, read against the flank's vanishing point, stands about 0.6 m higher than the build's level 10.95 m and runs back to about x 1160 px, about 2.8 m past the front block's rear wall, before it drops; both belong to the flank's question (T-3099) and are read with it. T-3099 ruled the 1911 sheet's continuous 26 m house for 1904 and read the 'short range' as its rear seen end-on through a near camera; what this picture still shows along the flank is T-3133's (split from T-3129), with the photograph's arched rear openings and the coping's height. T-3133 RULED: the build's coping stands. Compared in the image through this camera, the render's wall head lands on the print's where the print's high coping runs, y 587 against 583 px at x 1150 and 602 against 604 at x 1165, on the same slope (about 1.4 px a pixel), which at the flank's scale there (about 56 px a metre) is within 0.07 m: a ray through one pixel meets the flank's plane at one height, so the build's 10.98 m (the plate's reading, T-3077) is the print's too. The 0.6 m came from reading the coping's height off the vanishing point rather than against the render. What differs is where it ends, the 3B/2B step, which is the flank's depth through this camera (item 14, T-3149).",
+      "status": "fixed"
+    },
+    {
+      "what": "the north pier's head: the pictures cap the pier BELOW the bay's cornice, a moulded cap with a small slate-covered top over it: on the plate the cap at y 475-500 px and the slate to y 450 (about 7.3-7.8 m, the slate to 8.4 m through T-2541's camera), on the Chicagology print the cap at y 625-675 px and the slate to 590 (about 7.1-7.7 m, to 8.1 m); the build carries the front's wall head and its K10 cornice across it at the bay's height (7.94 m, the cornice to 8.3 m) with the main roof's eave over it, so its top stands about 0.3-0.5 m high and reads as the bay's cornice run on, not a cap of its own; T-3112: fixed. The pier is capped under the bay's cornice (front_pier): a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m (a fillet over a deeper member), 0.05 and 0.12 m proud and returned on the side wall, under a slate weathering rising back at 42 degrees from the cap's front edge into the bay's cornice; the front's wall head, the moulded cornice and the main roof's street and side eaves are cut back over the pier to that slope, so sky stands over it. On this print the cap's top lands at y 626 px against 625, the band at y 671-683 against 670-681, and the weathering rises to y 588-592 where the print's slate meets the bay's cornice at about 590.",
+      "status": "fixed"
+    },
+    {
+      "what": "the north pier's courses: the photographs' pier is rock-faced in unbroken courses from its base course to its cap; the build runs the front's dressed string course (about 4.8-5.0 m) across it as a pale band; T-3112: fixed. The pier is laid apart from the front (k01.wall.front_pier) on the front's own bed lines less its belts, so its rock-faced courses run unbroken from the base course to the band and the front's dressed string course stops at the bay's cheek.",
+      "status": "fixed"
+    },
+    {
+      "what": "the downpipe down the pier's junction with the canted cheek, from the cap to grade (the Chicagology print's x 110-115 px dark rod, the HABS print's x 972-975 px): the build hangs none there; T-3112: fixed. A third front pipe stands at the pier's junction with the canted cheek, 0.93 m along the front, its K04 head (6.76-7.0 m) under the pier's band and its shoe at grade. On the Chicagology print it renders within about 3 px of the print's dark rod, which reads at about x 188-193 px at the cheek's foot (the x 110-115 px written above is not where this print's rod stands; re-measured here), and on the HABS print it stands at the pier's south arris beside the cheek, as the print's does.",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: a monochrome print; the brown sandstone and the brick are the T-1837 register's",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank and the rear: the camera stands south-west of the house",
+      "status": "not shown"
+    },
+    {
+      "what": "the low rock-faced coping, its openings and the walk",
+      "status": "fixed",
+      "how": "T-3206 lays K11's 0.45 m stone coping on the lot line in the sequence the three prints that reach the lot line agree on (a long run, the walk's opening a little south of the stair, a 0.4 m block, a gap, a long run); the K14 walk leaves the stair square and turns south behind the coping to the opening"
+    },
+    {
+      "what": "where the coping's openings fall along the lot line",
+      "status": "within tolerance",
+      "how": "registered on the stair, the print's opening and blocks fall within about 0.3 m of where they are laid; the walk's turn behind the coping is the kit's reading of the print's angled walk"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -31,10 +31,18 @@ planted right up to every threshold in town.
 
 `facade_openings.front_wall` for every archetype it reads (frame_storefront,
 frame_dwelling since T-1984, log_dwelling, outbuilding): a `door`, `shop_door` or a
-ground-level `open_bay`. `frame_tavern` has no reader; both its schemes centre the
-front door on the front wall, 1.2 m wide (`frame_tavern.py`, "the front gable: centred
-door" and "four plus a centred door below"), and that is what is read here, by name.
+ground-level `open_bay`. `frame_tavern` remains UNREAD by the generic facade API. Its primary door is
+read separately from the pure shared resolved_front_ground_stations property after resolving
+the exact sidecar-selected source phase. Absent opt-in keeps the centred 1.2 m
+door and old read_by metadata; a declared gable-front layout moves only that door's
+native approach/clearance along the same front wall.
 Fort, palisade, bridge, pier and camp records carry no street door and are not read.
+
+`front_doors` remains the primary +Y front-wall reader. A declared additional
+side face is read separately through log_dwelling_params.side_access_faces;
+the first is the elbow plan's +X ground-level entry. Its own wall coordinates,
+outward bearing and apron feed the same entrance/clearance list. It is never
+flattened onto the primary front or inferred for an unstated side wall.
 
 ## What is invented
 
@@ -66,6 +74,8 @@ sys.path.insert(0, str(ROOT / "generators"))
 
 import generate_business_signboards as gbs  # noqa: E402
 import generate_frontage_works as gfw  # noqa: E402
+from archetypes.log_dwelling_params import side_access_faces as _log_side_access_faces  # noqa: E402
+from archetypes.frame_tavern_params import from_phase as _frame_tavern_params  # noqa: E402
 
 SIDECARS = ROOT / "data" / "sidecars" / "1835"
 OUT = ROOT / "data" / "enclosures" / "town_entrance_aprons.json"
@@ -73,8 +83,12 @@ INDEX = ROOT / "data" / "enclosures" / "index.json"
 STREETS = ROOT / "data" / "streets" / "1835.json"
 
 ENTRANCE_KINDS = ("door", "shop_door", "open_bay")
+# Door approaches ask where the visitor's travelled track is actually drawn.
+# They do not claim where the survey control places a platted street corridor.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = ("Aprons use the committed1835 drawn travelled tracks; no survey-control recentering or historical coordinate is inferred.")
 GROUND_Z_M = 0.30          # an opening whose foot is above this is a loft or a window
-TAVERN_DOOR_W_M = 1.2      # frame_tavern.py's front door, w/2 +- 0.6, both schemes
+TAVERN_DOOR_W_M = 1.2      # shared stock front-door width; only the declared centre moves
 
 # THE WORN GROUND (reconstructed, L359). Two parts, one ring per front:
 #  * a STRIP the length of the front wall and a little past its corners — the drip
@@ -123,9 +137,19 @@ def front_doors(sc: dict) -> tuple[list[dict], str | None]:
         if len(poly) < 3:
             return [], None
         u0, u1, _v = gbs._front_edge(poly)
-        c = (u0 + u1) / 2.0
+        record = gbs._load(gbs.STRUCTURES / f"{sc['id']}.json")
+        phases = [ph for ph in record.get("phases", []) if ph.get("id") == sc.get("phase")]
+        if len(phases) != 1:
+            raise ValueError(f"{sc['id']}: front entrance needs exactly one selected phase")
+        params = _frame_tavern_params(phases[0], record)
+        c, _sash = params.resolved_front_ground_stations
+        reader = "frame_tavern centred front door"
+        if params.front_ground_layout is not None:
+            if poly != phases[0].get("footprint", {}).get("polygon"):
+                raise ValueError(f"{sc['id']}: front entrance sidecar footprint is stale")
+            reader = "frame_tavern.resolved_front_ground_stations (selected phase)"
         return ([{"kind": "door", "u0": c - TAVERN_DOOR_W_M / 2,
-                  "u1": c + TAVERN_DOOR_W_M / 2}], "frame_tavern centred front door")
+                  "u1": c + TAVERN_DOOR_W_M / 2}], reader)
     wall = gbs._front_wall(sc["id"])
     if wall is None:
         return [], None
@@ -133,6 +157,23 @@ def front_doors(sc: dict) -> tuple[list[dict], str | None]:
              for o in wall["openings"]
              if o["kind"] in ENTRANCE_KINDS and o["z0"] < GROUND_Z_M]
     return doors, f"facade_openings.{arch}"
+
+
+def side_access_faces(sc: dict) -> list[dict]:
+    """Declared extra ground-door faces on the selected sidecar, or none.
+
+    A compiled sidecar names its selected phase but flattens form into attributes.
+    Resolve that exact source phase with the builder's normal record-aware reader;
+    invalid data raises rather than silently losing an entry. No id special case.
+    """
+    if sc.get("archetype") != "log_dwelling":
+        return []
+    record = gbs._load(gbs.STRUCTURES / f"{sc['id']}.json")
+    phases = [ph for ph in record.get("phases", []) if ph.get("id") == sc.get("phase")]
+    if len(phases) != 1:
+        raise ValueError(f"{sc['id']}: side entrance needs exactly one selected phase")
+    params = gbs._log_dwelling_params(phases[0], record)
+    return _log_side_access_faces(params)
 
 
 def merged_openings(sc: dict) -> list[str]:
@@ -283,7 +324,33 @@ def build() -> dict:
                 "bearing_deg": _r((math.degrees(b)) % 360.0),
                 "width_m": _r(w),
             })
-    return {
+        # Additional declared faces use their own along-wall/outward basis.
+        # Keep primary IDs/order and front_wall semantics unchanged.
+        for face in side_access_faces(sc):
+            if face["face"] != "+x":
+                raise ValueError("entrance reader has no transform for " + face["face"])
+            plane = face["plane_m"]
+            bearing = (float(place.get("rotation_deg") or 0.0) + 90.0) % 360.0
+            outward = (math.sin(math.radians(bearing)), math.cos(math.radians(bearing)))
+            def side_to_enu(s_, t, plane=plane, place=place):
+                return gbs._to_enu(plane + t, s_, place)
+            face_doors = face["openings"]
+            spec = [((d["u0"] + d["u1"]) / 2.0, (d["u1"] - d["u0"]) / 2.0,
+                     path_depth(side_to_enu((d["u0"] + d["u1"]) / 2.0, 0), outward, streets))
+                    for d in face_doors]
+            if spec:
+                # +Y along-wall / +X outward reverses the primary basis winding.
+                rings.append(list(reversed(_front_ring(face["u0"], face["u1"], spec, side_to_enu))))
+            for k, d in enumerate(sorted(face_doors, key=lambda o: o["u0"])):
+                e, n = side_to_enu((d["u0"] + d["u1"]) / 2.0, 0)
+                entrances.append({
+                    "id": f"{sc['id']}__side_xp_{d['kind']}_{k + 1}",
+                    "structure_id": sc["id"], "archetype": sc["archetype"],
+                    "kind": d["kind"], "read_by": "log_dwelling.side_access_faces(+x)",
+                    "at_local_enu_m": [_r(e), _r(n)], "bearing_deg": _r(bearing),
+                    "width_m": _r(d["u1"] - d["u0"]),
+                })
+    result = {
         "id": "town_entrance_aprons",
         "name": "The trodden ground at the town's doors",
         "aka": ["the door yards", "the worn ground at the thresholds"],
@@ -291,7 +358,10 @@ def build() -> dict:
         "scene": "1835",
         "target_date": "1835-07-01",
         "generated_by": "tools/generate_entrances.py",
-        "generated_from": ["data/sidecars/1835/", "generators/archetypes/facade_openings.py"],
+        "generated_from": ["data/sidecars/1835/", "generators/archetypes/facade_openings.py"] + (
+            ["data/structures/", "generators/archetypes/frame_tavern_params.py"]
+            if any(x["read_by"] == "frame_tavern.resolved_front_ground_stations (selected phase)"
+                   for x in entrances) else []),
         "belongs_to": sorted({x["structure_id"] for x in entrances}),
         "documented_range": {
             "from": "1835-07-01", "to": "1835-07-01", "confidence": "reconstructed",
@@ -332,6 +402,11 @@ def build() -> dict:
                           "frontage stoop and the doorway sweep cannot disagree with the "
                           "mesh about where the door is."),
     }
+
+    if any("__side_xp_" in x["id"] for x in entrances):
+        result["generated_from"].append("generators/archetypes/log_dwelling_params.py")
+        result["research_note"] += " Explicit additional side faces use their declared wall line and outward bearing; primary-front APIs retain their original meaning."
+    return result
 
 
 def main() -> int:

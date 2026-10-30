@@ -12,6 +12,7 @@ that split possible.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field
 
 # Confidence values as they are written into the _CONFIDENCE glTF attribute.
@@ -49,7 +50,10 @@ CONSUMED = frozenset({
     "shutter_type", "entrance_frontispiece", "chimney_material", "roof_colour",
     "log_wing_door", "log_wing_porch_hood",
     "cross_wing", "cross_wing_depth_m", "cross_wing_end",
-    "upper_windows", "stovepipes", "rear_ell_door",
+    "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
+    "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout",
+    "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
+    "gable_arch_treatment", "corner_entry_surround", "gable_arch_text",
 })
 
 # How narrow a window bay may get before the piers between the sashes are not walls
@@ -93,6 +97,10 @@ class FrameTavernParams:
     roof_pitch_deg: float = 38.0
     construction: str = "braced_frame"
 
+    # Main-block end triangles continue the wall cladding (T-2376/T-2383).
+    # False retains every legacy roof-material gable; no subsidiary roofs change.
+    gable_wall_cladding: bool = field(default=False, kw_only=True)
+
     # appearance
     paint: str = "white"
     shutters: str | None = None
@@ -129,7 +137,24 @@ class FrameTavernParams:
     # attic lights, and a second entrance may stand mid-eaves where a record
     # attests one. Requires depth_m > width_m so the ridge actually runs along
     # the deep axis and the facade is a gable end.
+    # T-2385: "corner_gable" keeps the existing wide-axis ridge and dresses
+    # its short x gables with three bays and its long y walls with five.
+    # The two unseen elevations repeat the seen pair as reconstruction.
     elevation_scheme: str = "frontage"
+
+    # T-2385: optional details for the corner-gable block. None/0/False keep
+    # both original elevation schemes and the first corner proposal unchanged.
+    first_story_height_m: float | None = field(default=None, kw_only=True)
+    entry_raise_m: float = field(default=0.0, kw_only=True)
+    gable_lunette: bool = field(default=False, kw_only=True)
+    # A matte unresolved panel avoids asserting glazing where Gifford shows
+    # lettering-like light marks. No text is invented or claimed legible.
+    gable_arch_treatment: str = field(default="fanlight", kw_only=True)
+    # Optional known-name reconstruction, never a source transcription.
+    gable_arch_text: str = field(default="", kw_only=True)
+    corner_entry_surround: bool = field(default=False, kw_only=True)
+    flagstaff: bool = field(default=False, kw_only=True)
+    flagstaff_height_m: float = field(default=4.25, kw_only=True)
 
     # What the stacks are made of, where a view says. None keeps the archetype's
     # roof-toned masses (the original treatment, kept exactly so no committed
@@ -140,6 +165,10 @@ class FrameTavernParams:
     # The roof's colour, where a view says. None keeps ROOF_RGBA (the archetype's
     # weathered-shingle grey, and every committed building's until T-0092);
     # "moss_green" is the Petford view's dark green/moss shingle tone.
+    # "dark_brown" is a reconstructed stock-appearance proxy for monochrome
+    # contrast, not source-attested pigment or actual weather-blackening.
+    # "deep_brown" selects one quarter of that stock's linear RGB for the
+    # reviewed Tremont contrast; it carries the same reconstruction requirement.
     roof_colour: str | None = None
 
     # Where the stacks stand. "frontage" is the original arrangement — spaced
@@ -180,6 +209,24 @@ class FrameTavernParams:
     # the ground floor keeps its five bays and its centred door. The count is the
     # record's, sized there from the house's beds; the spacing is this archetype's.
     upper_windows: int | None = None
+
+    # A pictured gable-front eaves wall may state its own bay count (T-2376).
+    # Sparse overrides: x_min/x_max only; a face not named retains the existing
+    # footprint-derived count. This does not transfer one pictured elevation's
+    # evidence to the unpictured opposite wall. A ground-floor side entrance
+    # still replaces one of that face's bays, as before.
+    eaves_bays: dict[str, int] = field(default_factory=dict, kw_only=True)
+
+    # Ground floor of the +y gable only: door then two sash in local +u, at fractions
+    # across its width. None preserves the legacy centred-door layout exactly.
+    # Stations and stock sections remain reconstructed; this is not a survey.
+    front_ground_layout: list[float] | None = field(default=None, kw_only=True)
+
+    # Explicit sash on the MAIN gable ends of a frontage-scheme block (T-2383).
+    # Each tuple is (end, at, z, width, height): end +x/-x, at a fraction of
+    # depth from the rear, z the centre above grade, sizes in metres. Empty
+    # preserves the old blank ends; cross-wing windows are separate geometry.
+    end_windows: tuple = field(default=(), kw_only=True)
 
     # Sheet-iron stovepipes through the roof, beside the brick stacks. Positions and
     # heights are dealt here, deterministically by index, so a house with four reads
@@ -266,6 +313,10 @@ class FrameTavernParams:
         if not 0.0 <= self.siding_lay_m <= 0.010:
             raise ParamError(f"siding_lay_m {self.siding_lay_m} outside 0-0.010 m: a lay "
                              f"that wide would climb a course over its 0.018 m lip")
+        if not isinstance(self.gable_wall_cladding, bool):
+            raise ParamError("gable_wall_cladding must be a boolean")
+        if self.gable_wall_cladding and self.roof_type != "gable":
+            raise ParamError("gable_wall_cladding requires a gable roof")
         if self.roof_type not in ROOF_TYPES:
             raise ParamError(f"roof_type '{self.roof_type}' not in {ROOF_TYPES}")
         if not 10.0 <= self.roof_pitch_deg <= 60.0:
@@ -285,12 +336,12 @@ class FrameTavernParams:
         for k, v in self.confidence.items():
             if v not in CONFIDENCE_VALUE:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
-        if self.elevation_scheme not in ("frontage", "gable_front"):
+        if self.elevation_scheme not in ("frontage", "gable_front", "corner_gable"):
             raise ParamError(f"elevation_scheme '{self.elevation_scheme}' not in "
-                             f"('frontage', 'gable_front')")
-        if self.chimney_placement not in ("frontage", "gable_ends"):
+                             f"('frontage', 'gable_front', 'corner_gable')")
+        if self.chimney_placement not in ("frontage", "gable_ends", "slope_offsets"):
             raise ParamError(f"chimney_placement '{self.chimney_placement}' not in "
-                             f"('frontage', 'gable_ends')")
+                             f"('frontage', 'gable_ends', 'slope_offsets')")
         if self.elevation_scheme == "gable_front":
             if self.depth_m <= self.width_m:
                 raise ParamError(
@@ -301,6 +352,83 @@ class FrameTavernParams:
                 raise ParamError("elevation_scheme 'gable_front' draws no shutters — "
                                  "no record needs both yet, and drawing them wrong "
                                  "would be worse than refusing")
+        if self.elevation_scheme == "corner_gable":
+            if self.width_m <= self.depth_m:
+                raise ParamError("corner_gable needs width > depth: its short gables "
+                                 "are the x faces, with the ridge along the wide axis")
+            if self.roof_type != "gable":
+                raise ParamError("corner_gable needs a gable roof")
+            if self.wall_height_m / self.stories < 2.25:
+                raise ParamError("corner_gable needs at least 2.25 m per storey "
+                                 "for its existing window/entrance kit")
+            # Existing 0.85 m sash, casing and two 0.357 m open shutter leaves.
+            # Reject a bay that would overlap the next instead of shrinking it.
+            bay_min = 1.95 if self.shutters else UPPER_BAY_MIN_M
+            if self.width_m / 5 < bay_min or self.depth_m / 3 < bay_min:
+                raise ParamError("corner_gable's five/three-bay elevations are too "
+                                 f"narrow for their openings (minimum bay {bay_min} m)")
+            if self.shutter_type is not None:
+                raise ParamError("corner_gable supplies plain shutter leaves; a "
+                                 "particular louvre pattern is not resolved")
+            if self.rear_ell or self.log_wing or self.gallery:
+                raise ParamError("corner_gable does not resolve attached wings or "
+                                 "a gallery; do not silently add those to its faces")
+        if self.chimney_placement == "slope_offsets":
+            if self.elevation_scheme != "corner_gable" or self.chimneys != 4:
+                raise ParamError("slope_offsets is the corner-gable four-stack "
+                                 "layout, not an alias for the old ridge stacks")
+        for label, value in (("gable_lunette", self.gable_lunette),
+                             ("flagstaff", self.flagstaff),
+                             ("corner_entry_surround", self.corner_entry_surround)):
+            if type(value) is not bool:
+                raise ParamError(f"{label} must be boolean")
+        for label, value in (("entry_raise_m", self.entry_raise_m),
+                             ("flagstaff_height_m", self.flagstaff_height_m)):
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                raise ParamError(f"{label} must be a finite number")
+        if not 0.0 <= self.entry_raise_m <= 1.2:
+            raise ParamError("entry_raise_m outside 0..1.2 m")
+        if not 0.5 <= self.flagstaff_height_m <= 8.0:
+            raise ParamError("flagstaff_height_m outside 0.5..8 m")
+        if self.first_story_height_m is not None:
+            height = self.first_story_height_m
+            if isinstance(height, bool) or not isinstance(height, (int, float)) or not math.isfinite(height):
+                raise ParamError("first_story_height_m must be a finite number")
+            if self.stories < 2 or not 2.25 <= height <= self.wall_height_m - 2.25 * (self.stories - 1):
+                raise ParamError("first_story_height_m must leave at least 2.25 m "
+                                 "for each upper storey")
+        if self.gable_arch_treatment not in ("fanlight", "opaque_panel"):
+            raise ParamError("gable_arch_treatment must be fanlight or opaque_panel")
+        if self.gable_arch_treatment != "fanlight" and not self.gable_lunette:
+            raise ParamError("opaque arch treatment needs a gable_lunette outline")
+        if not isinstance(self.gable_arch_text, str) or self.gable_arch_text not in ("", "TREMONT"):
+            raise ParamError("gable_arch_text supports only empty or reconstructed TREMONT")
+        if self.gable_arch_text:
+            if (self.elevation_scheme != "corner_gable" or not self.gable_lunette
+                    or self.gable_arch_treatment != "opaque_panel"):
+                raise ParamError("gable_arch_text needs the opaque corner-gable panel")
+            if self.confidence.get("gable_arch_text", "reconstructed") != "reconstructed":
+                raise ParamError("gable_arch_text is a conscious reconstruction, not a transcription")
+            inner_half = self.depth_m * .20 - .09
+            text_half = self.depth_m * (2.68 / 9.14) / 2
+            if inner_half <= text_half:
+                raise ParamError("gable_arch_text is wider than the inner arch")
+            top = .64 + .56 * math.sqrt(1 - (text_half / inner_half) ** 2)
+            if top < .65 + .32 + .005:
+                raise ParamError("gable_arch_text breaks the inner arch outline")
+        detailed = (self.first_story_height_m is not None or self.entry_raise_m > 0
+                    or self.gable_lunette or self.flagstaff or self.corner_entry_surround)
+        if detailed and self.elevation_scheme != "corner_gable":
+            raise ParamError("corner details need the corner_gable elevation scheme")
+        if self.gable_lunette:
+            rise = (self.depth_m / 2 + 0.25) * math.tan(math.radians(self.roof_pitch_deg))
+            if rise < 0.55 + 0.74 + 0.15:
+                raise ParamError("gable_lunette needs room below the ridge for "
+                                 "its reconstructed arch and surround")
+        first_height = self.first_story_height_m or self.wall_height_m / self.stories
+        if self.entry_raise_m and self.entry_raise_m + 2.1 + 0.15 > first_height:
+            raise ParamError("raised entrance and its head need 0.15 m below the "
+                             "first-floor structure")
         if self.chimney_placement == "gable_ends" and self.chimneys != 2:
             raise ParamError(f"chimney_placement 'gable_ends' stands one stack at each "
                              f"gable end, so the count must be 2, not {self.chimneys}")
@@ -340,6 +468,67 @@ class FrameTavernParams:
                     f"upper_windows {self.upper_windows} on a {self.width_m} m front "
                     f"leaves {self.width_m / self.upper_windows:.2f} m a bay, under "
                     f"the {UPPER_BAY_MIN_M} m a sash and its pier need")
+        if not isinstance(self.eaves_bays, dict):
+            raise ParamError("eaves_bays must map x_min/x_max faces to whole bay counts")
+        if self.eaves_bays and self.elevation_scheme != "gable_front":
+            raise ParamError("eaves_bays is read by the gable_front scheme only")
+        for face, bays in self.eaves_bays.items():
+            if face not in ("x_min", "x_max"):
+                raise ParamError(f"eaves_bays face {face!r} is not x_min or x_max")
+            if (not isinstance(bays, int) or isinstance(bays, bool)
+                    or not 3 <= bays <= 12):
+                raise ParamError(f"eaves_bays[{face!r}] {bays!r} is not a count in 3..12")
+            if self.depth_m / bays < UPPER_BAY_MIN_M:
+                raise ParamError(
+                    f"eaves_bays[{face!r}] {bays} on a {self.depth_m} m wall "
+                    f"leaves {self.depth_m / bays:.2f} m a bay, under "
+                    f"the {UPPER_BAY_MIN_M} m a sash and its pier need")
+        if self.front_ground_layout is not None:
+            stations = self.front_ground_layout
+            if self.conf("front_ground_layout") != 1.0:
+                raise ParamError("front_ground_layout metrics must remain reconstructed")
+            if self.elevation_scheme != "gable_front":
+                raise ParamError("front_ground_layout needs the gable_front scheme")
+            if not isinstance(stations, list) or len(stations) != 3:
+                raise ParamError("front_ground_layout needs three local fractions: door, sash, sash")
+            if any(isinstance(v, bool) or not isinstance(v, (int, float))
+                   or not math.isfinite(v) for v in stations):
+                raise ParamError("front_ground_layout stations must be finite numbers")
+            if not stations[0] < stations[1] < stations[2]:
+                raise ParamError("front_ground_layout must order low-u door before the two local-u sash")
+            # Existing opening widths, plus at least .15 m to a corner and
+            # .30 m between openings. Never shrink a kit to fit a bad layout.
+            spans = [(at * self.width_m - width / 2,
+                      at * self.width_m + width / 2)
+                     for at, width in zip(stations, (1.20, .85, .85))]
+            if spans[0][0] < .15 or spans[-1][1] > self.width_m - .15:
+                raise ParamError("front_ground_layout reaches a wall corner")
+            if any(right[0] - left[1] < .30 for left, right in zip(spans, spans[1:])):
+                raise ParamError("front_ground_layout overlaps openings or leaves too little pier")
+            if self.wall_height_m / self.stories < 2.25:
+                raise ParamError("front_ground_layout needs the stock 2.1 m door below its storey")
+        if self.end_windows:
+            if self.elevation_scheme != "frontage" or self.roof_type != "gable" or self.width_m < self.depth_m:
+                raise ParamError("end_windows needs a frontage block with gables at its x ends")
+            for end, at, z, width, height in self.end_windows:
+                if end not in ("+x", "-x"):
+                    raise ParamError(f"end_windows end {end!r} not in (+x, -x)")
+                if not all(math.isfinite(v) for v in (at, z, width, height)):
+                    raise ParamError("end_windows dimensions and stations must be finite")
+                if not 0.05 <= at <= 0.95 or not 0.3 <= width <= 1.4 or not 0.3 <= height <= 1.8:
+                    raise ParamError("end_windows station/size outside supported bounds")
+                lo, hi = z - height / 2, z + height / 2
+                u0, u1 = at * self.depth_m - width / 2, at * self.depth_m + width / 2
+                if lo < 0.15 or u0 < 0.15 or u1 > self.depth_m - 0.15:
+                    raise ParamError("end_windows reaches a wall corner or the ground")
+                if lo < self.wall_height_m < hi:
+                    raise ParamError("end_windows crosses the eave: state a wall or attic sash")
+                if lo >= self.wall_height_m:
+                    # Same 0.25 m eave overhang as the committed roof builder.
+                    run = min(u0 + 0.25, self.depth_m + 0.25 - u1)
+                    ceiling = self.wall_height_m + run * math.tan(math.radians(self.roof_pitch_deg))
+                    if hi > ceiling - 0.10:
+                        raise ParamError("end_windows attic sash breaks the roof silhouette")
         if (not isinstance(self.stovepipes, int) or isinstance(self.stovepipes, bool)
                 or not 0 <= self.stovepipes <= 6):
             raise ParamError(f"stovepipes {self.stovepipes!r} not a count in 0..6")
@@ -365,9 +554,12 @@ class FrameTavernParams:
         if self.chimney_material not in (None, "brick"):
             raise ParamError(f"chimney_material '{self.chimney_material}' not in "
                              f"(None, 'brick')")
-        if self.roof_colour not in (None, "moss_green"):
+        if self.roof_colour not in (None, "moss_green", "dark_brown", "deep_brown"):
             raise ParamError(f"roof_colour '{self.roof_colour}' not in "
-                             f"(None, 'moss_green')")
+                             f"(None, 'moss_green', 'dark_brown', 'deep_brown')")
+        if self.roof_colour in ("dark_brown", "deep_brown") and self.conf("roof_colour") != 1.0:
+            raise ParamError("dark_brown/deep_brown roof_colour is an explicitly reconstructed "
+                             "stock tonal proxy, not an attested pigment/weather history")
         if self.log_wing_door and not self.log_wing:
             raise ParamError("log_wing_door without log_wing — a door needs a wing "
                              "to open into")
@@ -401,6 +593,22 @@ class FrameTavernParams:
 
 
 
+    @property
+    def resolved_front_ground_stations(self) -> tuple[float, tuple[float, float]]:
+        """Actual local-u centres consumed by mesh and native primary access.
+
+        Existing mesh_inputs hashes all dataclass property VALUES. Keeping the
+        geometry arithmetic here makes a station change a real recipe change;
+        this is not a hash-only proxy. No plain params helper can move the mesh.
+        Exterior +y reverses screen order, so low-u door precedes the local sash.
+        Default door applies to all tavern schemes; sash only to gable_front.
+        """
+        if self.front_ground_layout is None:
+            return self.width_m / 2, (self.width_m * .22, self.width_m * .78)
+        door, sash_a, sash_b = self.front_ground_layout
+        return self.width_m * door, (self.width_m * sash_a, self.width_m * sash_b)
+
+
 def _board_lay(recon: dict) -> float:
     """The fabric rule's lay for this roof (FIN-L), from the material sheet."""
     from common.materials import board_lay  # noqa: E402 — generators/ is on the path
@@ -418,6 +626,14 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
     def val(attr, default=None):
         a = form.get(attr)
         return default if a is None else a.get("value", default)
+
+    def measure(attr, default=None):
+        raw = val(attr, default)
+        if raw is None:
+            return None
+        if isinstance(raw, bool) or not isinstance(raw, (int, float)) or not math.isfinite(raw):
+            raise ParamError(f"{attr} must be a finite number")
+        return float(raw)
 
     def conf(attr, default="reconstructed"):
         a = form.get(attr)
@@ -476,6 +692,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         roof_pitch_deg=float(val("roof_pitch_deg", 38.0)),
         construction=str(val("construction", "braced_frame")),
         paint=str(val("paint", "unpainted")),
+        gable_wall_cladding=val("gable_wall_cladding", False),
         siding_exposure_m=float(val("siding_exposure_m", 0.14)),
         shutters=val("shutters"),
         shutter_type=val("shutter_type"),
@@ -488,12 +705,25 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         chimney_material=val("chimney_material"),
         roof_colour=val("roof_colour"),
         elevation_scheme=str(val("elevation_scheme", "frontage")),
+        first_story_height_m=measure("first_story_height_m"),
+        entry_raise_m=measure("entry_raise_m", 0.0),
+        gable_lunette=val("gable_lunette", False),
+        gable_arch_treatment=val("gable_arch_treatment", "fanlight"),
+        gable_arch_text=val("gable_arch_text", ""),
+        corner_entry_surround=val("corner_entry_surround", False),
+        flagstaff=val("flagstaff", False),
+        flagstaff_height_m=measure("flagstaff_height_m", 4.25),
         chimney_placement=str(val("chimney_placement", "frontage")),
         side_entrance_face=side_face,
         rear_ell=bool(val("rear_ell", False)),
         rear_ell_door=str(val("rear_ell_door", "carriage")),
         upper_windows=(None if val("upper_windows") is None
                        else int(val("upper_windows"))),
+        eaves_bays=val("eaves_bays", {}),
+        front_ground_layout=val("front_ground_layout"),
+        end_windows=tuple((str(o["end"]), float(o["at"]), float(o["z"]),
+                           float(o["width_m"]), float(o["height_m"]))
+                          for o in (val("end_windows") or ())),
         stovepipes=int(val("stovepipes", 0)),
         cross_wing=bool(val("cross_wing", False)),
         cross_wing_depth_m=float(val("cross_wing_depth_m", 8.0)),

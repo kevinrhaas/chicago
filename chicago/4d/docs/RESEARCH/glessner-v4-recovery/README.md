@@ -24,6 +24,14 @@ python3 tools/recover_glessner_v4.py --materialize  # fresh checkout, three GLBs
 python3 tools/recover_glessner_v4.py --check        # exact package/output gate
 ```
 
+The outputs are untracked, so a pull that brings a repacked archive never refreshes
+a clone's existing copies. Run alone, `tools/validate.py --stale` used to read those
+leftovers against the new manifest and report the light derivative "stale against its
+version master" with "bytes differ from the producer record". T-3004 was filed against
+dev for exactly that, and dev rebuilt byte-for-byte. The validator now hashes the
+three outputs against this manifest first (`drift()`). When they differ or are absent,
+it reports that one cause and its remedy instead: delete them and `--materialize`.
+
 The normal canonical web-derivative step repacks the three outputs immediately after
 recording the v4 derivative. Commit the changed archive parts and manifest with the
 bake's data/manifests. `--out` measurements and derivatives for any other asset do

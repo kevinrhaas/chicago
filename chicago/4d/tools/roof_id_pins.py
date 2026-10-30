@@ -96,7 +96,21 @@ NOT_THE_SOURCE_TREE = (".git/", "node_modules/", "site/")
 # execute_roof_redeal.cpython-312.pyc names recon_1835_blk_randolph_market_a1_07`,
 # for a name the list had already ruled may stand. A prefix tuple cannot say this —
 # a pycache sits at any depth — so it is asked as a path SEGMENT.
-NOT_A_SOURCE_DIR = ("__pycache__",)
+#
+# AND NEITHER IS A NESTED `.git`, at any depth. The prefix above only ever matched a
+# `.git/` at this tree's root, where there is none (the repository's own sits two
+# levels up), so a clone dropped inside the tree was read object pack and all. One is:
+# tools/tickets.sh clones kevinrhaas/chicago-tickets into `tickets/`. Its tickets stay
+# swept (the `ticket` pin below is about them), but on 2026-10-23 its
+# `.git/objects/pack/*.pack` had grown to 1.9 GB, and the two sweeps that walk the
+# whole tree (`execute_roof_redeal.py --check-migration` and `--check-blocks`) each
+# read it with `read_text(errors="ignore")`: about 10 GB resident apiece, because
+# stray high code points make Python store the string at four bytes a character.
+# With both in the gate's pool at once a 16 GB runner ran out, which GitHub reports
+# as "the runner has received a shutdown signal" — six steward runs and four gate
+# runs died that way between 09:50 and 11:40 UTC. Skipping it, each sweep peaks
+# under 400 MB and takes a third of the time.
+NOT_A_SOURCE_DIR = ("__pycache__", ".git")
 
 
 def not_the_source_tree(rel: str) -> bool:
@@ -479,6 +493,28 @@ def self_test() -> int:
     finally:
         mod.PINS = keep
     assert not mod.disjoint()
+    fired += 1
+
+    # A NESTED `.git` IS NOT SOURCE, AT ANY DEPTH (T-3069, T-3070). Reading the
+    # tickets clone's object pack as text took about 10 GB per sweep, and the runner
+    # died with exit 143 and no verdict. Nothing asserted the rule, so dropping
+    # ".git" from NOT_A_SOURCE_DIR would have brought the failure back silently. The
+    # tickets themselves stay swept, and a name that only STARTS with ".git" is not
+    # the directory.
+    pack = "tickets/.git/objects/pack/pack-0.pack"
+    assert mod.not_the_source_tree(pack)
+    assert mod.not_the_source_tree("tickets/.git/HEAD")
+    assert not mod.not_the_source_tree("tickets/T-3000-3249/T-3070-a.md")
+    assert not mod.not_the_source_tree("assets/.gitkeep")
+    assert not any(".git" in rel.split("/") for rel in tree_now), \
+        "a sweep reaches a nested .git"
+    keep_dirs = mod.NOT_A_SOURCE_DIR
+    try:
+        mod.NOT_A_SOURCE_DIR = tuple(d for d in keep_dirs if d != ".git")
+        assert not mod.not_the_source_tree(pack), "the .git rule was never what held"
+    finally:
+        mod.NOT_A_SOURCE_DIR = keep_dirs
+    assert mod.not_the_source_tree(pack)
     fired += 1
 
     print(f"roof_id_pins self-test: {fired} guard(s) fired")

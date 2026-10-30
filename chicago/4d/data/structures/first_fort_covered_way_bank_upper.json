@@ -16,7 +16,8 @@
           "whistler_1808_fort_dearborn_draught",
           "quaife_1913"
         ],
-        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS WORK. It opens on 25 January 1808, the date Whistler's draught carries, whose index names it; it may well be older. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). Quaife's description of it ends 'Such was the old Fort previous to 1812', so nothing of it is carried to the second fort."
+        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS WORK. It opens on 25 January 1808, the date Whistler's draught carries, whose index names it; it may well be older. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). Quaife's description of it ends 'Such was the old Fort previous to 1812', so nothing of it is carried to the second fort.",
+        "from_is": "seen"
       },
       "position": {
         "utm_e": 448238.56,

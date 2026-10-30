@@ -41,6 +41,7 @@ sys.path.insert(0, str(ROOT / "generators"))
 from common.materials import fabric_tone  # noqa: E402
 from grade_structures import grade_street  # noqa: E402
 import readable_text  # noqa: E402
+from flag_form_contract import compiled_form_attributes  # noqa: E402
 
 
 CHECK = False
@@ -767,6 +768,12 @@ def compile_residents_sources(scene_id: str, sources: dict, outdir: Path) -> int
     directory_path = DATA / "residents" / "directory_1844.json"
     if directory_path.exists():
         walk(load(directory_path))
+    # A later scene's own household cards (T-2702) are what its person card opens
+    # (Inspect › People): a census servant's card quotes the census the way an 1835
+    # card quotes its poll list, not a bare source id.
+    if has_own_people(scene_id):
+        for household_path in sorted((residents_root(scene_id) / "households").glob("*.json")):
+            walk(load(household_path))
 
     citations = cite(sorted(cited), sources)
     emit(outdir / "residents_sources.json", {
@@ -855,7 +862,7 @@ PERSON_EVIDENCE_KINDS = (
 #: other four grade how well the town knew a RESIDENT, and a visitor of the season is not
 #: one. It is decided by the household the row came from (T-1353), not by a person flag,
 #: so it is passed in rather than read off the person.
-HOW_KNOWN = ("documented", "letter_list", "civic_mint", "projected", "transient")
+HOW_KNOWN = ("documented", "letter_list", "civic_mint", "projected", "transient", "reconstructed")
 
 #: T-1400. A pill is read by a visitor, and three of the programme's stage keys are
 #: written for the tool that owns them rather than for a reader: `readmissions` is a
@@ -879,6 +886,12 @@ def how_known(person: dict, transient: bool = False) -> str:
         return "civic_mint"
     if person.get("resident_subtype") == "projected_resident":
         return "projected"
+    # This explicit mint category invents names; grade alone does not.
+    # Readmitted and underdocumented source-read names keep their evidence category.
+    if (person.get("grade") == "reconstructed"
+            and person.get("resident_subtype") == "reconstructed_trade_head"
+            and (person.get("reconstruction") or {}).get("stage") == "trade_households"):
+        return "reconstructed"
     return "documented"
 
 
@@ -1593,9 +1606,8 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # out of it rather than folded in: a summer crowd nobody named would otherwise have
     # read as 307 more documented Chicagoans. They are counted on their own row.
     known = {
-        "documented": sum(1 for r in resident_rows if not r["letter_list_only"]
-                          and not r["civic_mint"]
-                          and r["resident_subtype"] != "projected_resident"),
+        "documented": sum(1 for r in resident_rows if r["how_known"] == "documented"),
+        "reconstructed": sum(1 for r in resident_rows if r["how_known"] == "reconstructed"),
         "letter_list": sum(1 for r in resident_rows if r["letter_list_only"]),
         "civic_mint": sum(1 for r in resident_rows if r["civic_mint"]),
         "projected": sum(1 for r in resident_rows
@@ -1663,6 +1675,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "civic_mint": known["civic_mint"],
             "projected_residents": known["projected"],
             "documented": known["documented"],
+            "reconstructed_identities": known["reconstructed"],
             "by_grade": by_grade,
             # T-1400. The stage of the reconstruction programme that minted each person,
             # and the people no stage minted — which is every person a source names.
@@ -2868,7 +2881,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                     collect(v)
 
         collect(phase)
-        for key in ("function", "occupants", "present_status", "lot_address", "land_owner",
+        for key in ("function", "occupants", "present_status", "built", "lot_address", "land_owner",
                     "part_of", "stated_use"):
             collect(st.get(key, {}))
         if st.get("reconstruction", {}).get("source_id"):
@@ -2880,11 +2893,12 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         # to it: a documented value the mesh does not contain is a true statement
         # about the evidence and a false one about the view, and the popup has to
         # be able to say which it is showing.
-        attributes = {}
-        for attr, a in (phase.get("form") or {}).items():
-            attributes[attr] = {k: v for k, v in a.items() if k in
-                                ("value", "confidence", "sources", "note", "geometry")}
-        for key in ("function", "occupants", "present_status"):
+        # Runtime flag values have a real declared reader; do not compile a
+        # silently unbuilt anchor or a false card geometry omission marker.
+        attributes = compiled_form_attributes(phase.get("form") or {}, ROOT)
+        # T-3037: `built` is the structure's build date as its sources give it, which the
+        # card prints; the phase's range below is not one (see `from_is`).
+        for key in ("function", "occupants", "present_status", "built"):
             if key in st:
                 attributes[key] = {k: v for k, v in st[key].items() if k in
                                    ("value", "confidence", "sources", "note", "geometry")}
@@ -3028,6 +3042,10 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": rng.get("confidence", "reconstructed"),
                 "sources": rng.get("sources", []),
                 "note": rng.get("note", ""),
+                # T-3037. What each end IS — a dated beginning or end, a first or last
+                # sighting — carried only where the record says, so a card never prints a
+                # bound the record chose (the scene's own year, most often) as a date.
+                **{k: rng[k] for k in ("from_is", "to_is") if k in rng},
             },
             # What this phase IS, in the record's own words. Written for a reader
             # and read by nobody: it is where a record says that a building holding

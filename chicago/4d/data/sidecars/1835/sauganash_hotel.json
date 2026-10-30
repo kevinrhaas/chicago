@@ -27,7 +27,9 @@
       "kinzie_waubun_1856",
       "drloih_hotels"
     ],
-    "note": "Wau-Bun, describing 1831: 'a house just completed by Mark Beaubien.' Destroyed by fire 4 March 1851. The 1838 rename to Chicago Hotel and the 1837 arrival of the Chicago Theatre Company in the dining room are changes of use, not of form, so they do not open a new phase."
+    "note": "Wau-Bun, describing 1831: 'a house just completed by Mark Beaubien.' Destroyed by fire 4 March 1851. The 1838 rename to Chicago Hotel and the 1837 arrival of the Chicago Theatre Company in the dining room are changes of use, not of form, so they do not open a new phase.",
+    "from_is": "began",
+    "to_is": "ended"
   },
   "change_note": "Two-story frame block built onto the log core at the Lake and Market corner, 1831; the whole then known as the Sauganash Hotel, Chicago's first hotel.",
   "placement": {
@@ -164,9 +166,12 @@
       "note": "RETIRED 2026-09-04 (T-0626), BECAUSE IT WAS THE SAME BUILDING DRAWN TWICE. This attribute stood a one-storey log wing FORWARD of the frame block's street face at its left third, and the owner reported exactly that from the dev preview: 'there is an extra log structure you have in front'. Two things are wrong with it and they are different. WHERE: all three views put the log annex at the END of the composition, beside the tall wing, and the main block's street face is unobstructed in every one of them. WHOSE: the annex is not this record's to draw. drloih_beaubien captions the very engraving this project measures — 'The Sauganash Hotel. The log cabin on the left was Chicago's first drugstore' — and that cabin is data/structures/philo_carpenter_log_shop.json, the 16 x 20 ft log building Andreas puts on Lake Street near the river, held here since 2026-08-11 and already sited hard against this block's EAST face on the same Lake Street frontage. So the annex stands in the scene, at the end, beside the wing; it simply stood there twice. The value is false rather than deleted so that the claim, its sources and its grade stay legible. The 1829 cabin's survival is not withdrawn — it is carried on the log_1829 phase below, which is that same building, and on the shop's own record. The hood is not withdrawn either; like the door it belongs to the cabin's own record, and it rested on the engraving alone."
     },
     "roof_pitch_deg": {
-      "value": 38.0,
-      "confidence": "inferred",
-      "note": "No pitch is attested. 38 degrees is mid-range for period gable framing — steep enough to shed snow, shallow enough for the timber spans available. Inferred from construction practice, not measured."
+      "value": 25.2,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "T-3055 WORKING PICTURE REFINEMENT, NOT A MEASURED HISTORICAL PITCH. Keeping the existing9.92x8m footprint,5.5m walls and exact provisional camera,25.2degrees puts the withheld near ridge apex near(636.5,350.1) against an approximate source pick(648,350), replacing the old38degree projection near(636.5,231.4). This is an appearance-bounded reconstruction, not an accepted camera solve or independent metric calibration. The cross-wing shares the same span/pitch/ridge height as before. No position, footprint, bearing, date or historical dimension is moved to fit it. Source dependence, drawing-perspective uncertainty and actual image match remain unresolved."
     },
     "fenestration": {
       "value": "five_bay_regular",
@@ -208,7 +213,7 @@
       "sources": [
         "andreas_1884_v1"
       ],
-      "note": "THE SECOND TWO-STOREY MASS, AND THE PLATE PROVES IT BY ARITHMETIC. The owner reported it missing on 2026-09-03 from the dev preview: 'i think there is a structure missing but you have it on the front and they have it on the rear in pictures, and it looks like the full height of the main building and similar design as the main building appears to be almost the same size, it connects from the back and side in the images.' T-0617 measured the near apex at (648, 350) with one line running out of it at image slope -0.318 and one at +0.095, and called the right-hand one a ridge on the strength of the asymmetry alone. T-0626 finished the sum. Project each line onto the vertical through the vanishing point of the plane it lies in — the plate gives both horizontal vanishing points and its own focal length, recovered from their orthogonality — and BOTH come out horizontal in the world: 1.35 deg and 0.11 deg, where a 38 deg rake in the same plane would have been DRAWN at image slope -1.99 against the -0.318 measured. So they are two RIDGES meeting at one apex, not a ridge and a rake, and the mass the owner reported is on the sheet as a measurement rather than as an impression. tools/sauganash_apex_lines.py is that arithmetic and tools/check.sh gates on it. THE SHARED APEX IS ALSO WHAT SIZES THE WING: two gable ridges of one wall height and one pitch meet at a point only when they span the same width, so the wing's span is this block's own depth and the archetype refuses to build it at any other. GRADE. One sheet — Braunhold's. The Petford watercolour and the Trowbridge drawing are the same composition from the same station, so they copy it rather than corroborate it (docs/RESEARCH/sauganash_image_accuracy.md section 1), and a tier-5 retrospective that passes its own perspective test may be read for PROPORTION and never for a coordinate. CITED ON BRAUNHOLD ALONE. The Petford and Trowbridge views were dropped from this row on 2026-09-04 for the reason the reading itself gives: they are the same composition from the same station, so listing them would dress a copy as a corroboration — and trowbridge_sauganash_hotel's rights are unresolved, so citing it here would put a mesh on a source nobody has checked for nothing gained."
+      "note": "THE SECOND TWO-STOREY MASS, AND THE PLATE PROVES IT BY ARITHMETIC. The owner reported it missing on 2026-09-03 from the dev preview: 'i think there is a structure missing but you have it on the front and they have it on the rear in pictures, and it looks like the full height of the main building and similar design as the main building appears to be almost the same size, it connects from the back and side in the images.' T-0617 measured the near apex at (648, 350) with one line running out of it at image slope -0.318 and one at +0.095, and called the right-hand one a ridge on the strength of the asymmetry alone. T-0626 finished the sum. Project each line onto the vertical through the vanishing point of the plane it lies in — the plate gives both horizontal vanishing points and its own focal length, recovered from their orthogonality — and BOTH come out horizontal in the world: 1.35 deg and 0.11 deg, where a 38 deg rake in the same plane would have been DRAWN at image slope -1.99 against the -0.318 measured. So they are two RIDGES meeting at one apex, not a ridge and a rake, and the mass the owner reported is on the sheet as a measurement rather than as an impression. tools/sauganash_apex_lines.py is that arithmetic and tools/check.sh gates on it. THE SHARED APEX IS ALSO WHAT SIZES THE WING: two gable ridges of one wall height and one pitch meet at a point only when they span the same width, so the wing's span is this block's own depth and the archetype refuses to build it at any other. GRADE. One sheet — Braunhold's. The Petford watercolour and the Trowbridge drawing are the same composition from the same station, so they copy it rather than corroborate it (docs/RESEARCH/sauganash_image_accuracy.md section 1), and a tier-5 retrospective that passes its own perspective test may be read for PROPORTION and never for a coordinate. CITED ON BRAUNHOLD ALONE. The Petford and Trowbridge views were dropped from this row on 2026-09-04 for the reason the reading itself gives: they are the same composition from the same station, so listing them would dress a copy as a corroboration. The earlier separate rights concern is now superseded by verified 1902 publication, but the dependence argument still applies: a later copy is not independent corroboration."
     },
     "cross_wing_end": {
       "value": "x_max",
@@ -219,6 +224,44 @@
       "value": 8.0,
       "confidence": "reconstructed",
       "note": "INVENTED WITHIN A BOUND, AND IT IS THE ONLY NUMBER ON THIS MASS THAT IS. How far the wing runs BACK is what one sheet cannot give (docs/RESEARCH/sauganash_image_accuracy.md row 11): from the plate's station the wing stands behind the main block with only its ridge showing, so the drawing carries its height and its direction and not its length. 8.0 m is the owner's own reading of the views — 'almost the same size' as the main block — taken as equal to the block's 8 m depth, which is also the span the shared apex forces on the wing, so the wing comes out square in plan. docs/LIBERTIES.md L217 owns the invention. The number was also chosen to leave the fenced rear yard, its Market Street gateway and its three kept trees their room: nothing about that yard is attested either, and a wing sized to fill it would be one guess crowding another."
+    },
+    "end_windows": {
+      "value": [
+        {
+          "end": "+x",
+          "at": 0.3,
+          "z": 4.25,
+          "width_m": 0.85,
+          "height_m": 1.35
+        },
+        {
+          "end": "+x",
+          "at": 0.7,
+          "z": 4.25,
+          "width_m": 0.85,
+          "height_m": 1.35
+        },
+        {
+          "end": "+x",
+          "at": 0.54,
+          "z": 6.1,
+          "width_m": 0.85,
+          "height_m": 1.2
+        }
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "T-3055 WORKING ATTIC REFINEMENT. Keep the pictured two upper sash unchanged; lower the attic centre to workingz6.1m, at54percent of the retained8mdepth, widen it to.85m and retain1.2mheight. Actual native-image inspection shows the whole attic frame roughlyx625..690,y415..535, with manual±10pxbounds; the older banked attic detectorboxx590..663,y403..460 captures partialhatching/topdetail and must not be treated as the fullwindow outline. This trial does not silently rebank that gate. These metricstations/sizes remain reconstructed under the same provisionalcamera, whose principalpoint lies outside theimage. The newwindow fits beneath the trialroof with the existingguard; count, upperpair and oppositeend stayunchanged. The inspected working comparison remains different; no accepted match or source-date resolution is asserted."
+    },
+    "gable_wall_cladding": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "The pictured main gable continues the framed wall’s horizontal clapboard above the eaves; it is not roof covering. The main-block end triangles now use the existing wall finish and existing reconstructed siding course stock. This switch covers both main gables for a closed model: continuing the pictured finish around the unseen/opposite end is reconstructed, not independently attested. Existing footprint, placement, eave/ridge geometry, roof pitch and covering, course stock and all subsidiary roofs remain unchanged. It does not settle the provisional camera or any remaining opening, roof, wing or grouped-annex differences."
     },
     "function": {
       "value": "tavern_inn",
@@ -238,6 +281,14 @@
         "drloih_hotels"
       ],
       "note": "The Beaubiens owned it until 1834; the hotel chronology gives 'Davis (1835)' as operator, possibly the John Davis running the Steamboat Hotel on North Water Street. Mark Beaubien himself had moved on by the scene date — he built the Exchange Coffee House at Lake and Wells in 1834. The 1835 proprietor is a lead, not a settled fact."
+    },
+    "built": {
+      "value": 1831,
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun, describing 1831: 'a house just completed by Mark Beaubien.'"
     }
   },
   "residents": [
@@ -265,7 +316,7 @@
       "name": "The lodgers of Sauganash Hotel",
       "division": "south",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 7 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "This group was reconstructed using an earlier estimate of 7 ordinary-night beds. The current estimate is 7, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
       "sources": [],
       "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
       "persons": [
@@ -274,28 +325,28 @@
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 7 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 7 ordinary-night beds here (the current model reports 7) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Martin Doyle",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 7 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 7 ordinary-night beds here (the current model reports 7) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Orrin Sheldon",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 7 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 7 ordinary-night beds here (the current model reports 7) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Patrick Brady",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 7 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 7 ordinary-night beds here (the current model reports 7) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
@@ -340,6 +391,27 @@
     }
   ],
   "citations": [
+    {
+      "source_id": "andreas_1884_sauganash_hotel_plate",
+      "citation": "\"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 632, in the chapter \"Wolf Point and Early Hotels\". A copyright line reading \"A. T. Andreas, 188-\" is lettered inside the plate border at the lower left.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n1297/mode/1up",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the Sauganash's two-storey clapboard block with a chimney at each end of the ridge",
+        "the log wing running back at the left, lower, with its door direct to grade under a shed roof",
+        "a wide entrance surround at the centre of the front elevation",
+        "a plank walk along the front, returning round the corner of the block",
+        "the even two-storey rhythm of sash across the clapboard front"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension",
+        "the hitching posts or the right-hand board fence the brief lists — not resolvable in this scan, and not claimed here",
+        "a resolved given name or independently identified biography for the engraver; the held reproduction supplies a signed surname, Braunhold",
+        "a date for the scene, and a date for the plate only by way of the volume's 1884 imprint"
+      ]
+    },
     {
       "source_id": "andreas_1884_v1",
       "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
@@ -447,9 +519,9 @@
     },
     {
       "source_id": "trowbridge_sauganash_hotel",
-      "citation": "W. E. S. Trowbridge. Drawing of the Sauganash Hotel, Mark Beaubien's tavern on Lake Street near Market Street — signed \"W. E. S. Trowbridge\" at the lower left. Reproduced on Chicagology, \"Lake Street\", captioned \"A drawing by W. E. S. Trowbridge of Mark Beaubien's Sauganash hotel on Lake st. near Market st. It was built in 1831. It burned down in 1851.\"",
-      "url": "https://chicagology.com/chicagostreets/lakestreet/",
-      "archived_url": "http://web.archive.org/web/20260611044628/https://chicagology.com/chicagostreets/lakestreet/",
+      "citation": "Mark Beaubien's Tavern, the Sauganash, in 1835 (published 1902). W. E. S. Trowbridge, in Edwin O. Gale, Reminiscences of Early Chicago and Vicinity. Chicago: Fleming H. Revell Company, 1902; plate facing printed p. 31.",
+      "url": "https://archive.org/details/reminiscencesofe00ingale/page/n49/mode/1up",
+      "archived_url": "https://archive.org/download/reminiscencesofe00ingale/page/n49_large.jpg",
       "tier": 5,
       "tier_label": "modern retrospective illustration/reconstruction",
       "what_it_supplies": [
@@ -461,7 +533,7 @@
       ],
       "what_it_does_not_supply": [
         "any coordinate, footprint outline or dimension",
-        "its own date — the plate as reproduced does not give a legible year",
+        "a drawing creation day or an independently observed1835 state; verified 1902 publication does not date every pictured fitting",
         "independent corroboration of the Braunhold engraving: it belongs to the same retrospective descent",
         "the state of the building on 1 July 1835 as against any other year of its 1831-1851 life"
       ]
@@ -486,7 +558,7 @@
       ]
     }
   ],
-  "research_note": "MILESTONE 0 REFERENCE RECORD. Two things are documented and vivid — the white two-story frame and the bright-blue shutters, both from Wau-Bun — and two things are unknown: the building's dimensions and whether it had a gallery. That combination is exactly why the per-attribute confidence model exists, and this record is deliberately the first one in the dataset. See docs/RESEARCH/sauganash_hotel.md for the source conflicts and the reasoning behind each reading. The Wigwam of 1860 stood on this site later; the hotel burned 4 March 1851.",
+  "research_note": "CURRENT T-3055 ROOF/ATTIC REFINEMENT: a reconstructed25.2-degree working pitch lowers the Sauganash roof toward the Andreas drawing under the retained provisional camera. The pictured attic sash is lower and slightly wider; its new numeric choices stay reconstructed. Main footprint, wall height, geographic placement, phase dates, source-dependent colours/shutters and whole-picture grade remain unchanged. The original picture comparison still differs, and the drawing/camera/date limits remain unresolved.\n\nVERIFIED 1902 PICTURE SOURCE: trowbridge_sauganash_hotel is W. E. S. Trowbridge’s \"Mark Beaubien's Tavern, the Sauganash, in 1835\", independently verified in Edwin O. Gale’s 1902 book, facing printed p. 31. The artwork’s earlier rights hold is superseded by the actual title/copyright publication evidence. Its 1835 caption is retrospective and does not date every feature to 1 July 1835. Bright-blue shutters remain grounded in Wau-Bun’s separate recollection of 1831; louvred leaf detail remains inferred from this later drawing. The monochrome Andreas plate cannot independently establish colour. Original picture comparisons remain open; no dimensions, placement, geometry or confidence values change with this source verification.\n\nPRIOR RESEARCH RECORD:\nMILESTONE 0 REFERENCE RECORD. Two things are documented and vivid — the white two-story frame and the bright-blue shutters, both from Wau-Bun — and two things are unknown: the building's dimensions and whether it had a gallery. That combination is exactly why the per-attribute confidence model exists, and this record is deliberately the first one in the dataset. See docs/RESEARCH/sauganash_hotel.md for the source conflicts and the reasoning behind each reading. The Wigwam of 1860 stood on this site later; the hotel burned 4 March 1851.",
   "research_doc": "docs/RESEARCH/sauganash_hotel.md",
   "review_required": false,
   "lodging": {

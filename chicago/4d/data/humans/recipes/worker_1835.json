@@ -9,9 +9,11 @@
   "license": "CC0-1.0",
   "grade": "reconstructed",
   "sources": [
-    "chicago_american_1835"
+    "chicago_american_1835",
+    "mount_1835_bargaining_for_a_horse",
+    "mount_1835_bar_room_scene"
   ],
-  "source_scope": "Text terminology only. Nearby June/July 1835 advertisements mention shirts, vests, pantaloons and round jackets. The July 4 advertisement postdates July 1; source text does not attest an exact outfit or before-scene availability. No page pixels, photographic garment tracing or named likeness is used.",
+  "source_scope": "Newspaper terminology only for chicago_american_1835: transcription-mediated nearby June/July 1835 advertisements mention shirts, vests, pantaloons and round jackets; the July 4 advertisement postdates July 1 and does not attest an exact outfit or before-scene stock. The two directly read Mount 1835 reproduction sources are qualitative period analogies for fuller hanging lower trousers and closed lower waistcoat fronts. Their year-only painting dates do not establish completion before 1835-07-01, exact Chicago outfits or named likenesses. No page/image pixels, painted garment tracing or measured patterns enter the model.",
   "reading": "transcription_mediated",
   "basis": "Original garment shells fitted to the cleared anonymous adult base. Shirt, separate waistcoat, high-waisted trousers and closed shoes are a bounded reconstruction. Pattern/cut, seams, layer ease, colors, buttons, wear and body shape are unmeasured choices; not an attested uniform or photographic character.",
   "liberty": "L418",
@@ -67,8 +69,8 @@
       1.0
     ]
   },
-  "material_limitations": "Hash-verified CC0 reusable generic skin atlas is packed as sRGB with WHITE base-color factor; it does not attest a resident complexion or photographic likeness. Skin roughness is reconstructed. Shirt uses original deterministic 256x256 procedural weave; other surfaces remain flat original PBR colors. Final skin UV/LOD/export fidelity and photographic quality remain unaccepted.",
-  "validation_status": "Earlier recipe revisions passed canonical mechanical CI; this hair and body-normal revision requires a new pinned Blender build and source/web inspection. Anatomical and garment fit, individual appearance and photographic quality remain unaccepted.",
+  "material_limitations": "Generic cleared CC0 body skin atlas remains; original procedural opaque brown iris atlas now supplies reconstructed sclera/iris/pupil components. Cloth and shoes still use original coarse PBR colors/procedural linen micro-pattern without measured period fabric, captured leather, seams or photographic material qualification. Skin/eyes/hair/clothing are provisional reconstructions, not a named photographic likeness.",
+  "validation_status": "T1789 modular wardrobe source candidate: three explicit existing-resident assemblies with connected waistcoats, physical edge returns, fitted buttons, optional short work jackets/lapels and fitted hats. Fresh canonical output, continuous fit, LOD, period/material and actual photo-quality review remain required; no old source proof qualifies this change.",
   "proof_variants": [
     {
       "id": "bardwell_otis_1835",
@@ -91,7 +93,27 @@
         "engineering_age_years": 25,
         "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
         "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
-      }
+      },
+      "waistcoat_shoulder_pattern": {
+        "id": "bardwell_connected_waistcoat_v1",
+        "status": "source_proposal_unrendered",
+        "neckline_drop_m": 0.025,
+        "neck_opening_halfwidth_m": 0.05,
+        "armhole_transition_below_joint_m": [
+          0.1,
+          0.015
+        ],
+        "shoulder_outer_inset_m": 0.026,
+        "armhole_field_scale_m": 0.04,
+        "scope": "Original connected shoulder/armhole pattern over cleared source torso, replacing mistaken joint-height cap and arm-weight-only clothing ownership. Dimensions unmeasured; Mount1835 qualitative shoulder-connected waistcoat/loose-shirt analogies only, no tracing or source likeness. Existing body/rig/weights/UV/material/normals/sole limits and lower closure preserved.",
+        "sources": [
+          "mount_1835_bargaining_for_a_horse",
+          "mount_1835_bar_room_scene"
+        ],
+        "acceptance": "Unrendered source proposal; targeted source controls only. Full fit/40 inherited negatives/animatedLOD/canonical/photo remain open.",
+        "maximum_head_jaw_source_mass": 0.01
+      },
+      "wardrobe_assembly": "teamster_waistcoat_hat"
     },
     {
       "id": "dufresne_joseph_1835",
@@ -122,7 +144,8 @@
         "engineering_age_years": 35,
         "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
         "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
-      }
+      },
+      "wardrobe_assembly": "stable_keeper_round_jacket"
     },
     {
       "id": "flynn_martin_1835",
@@ -153,7 +176,8 @@
         "engineering_age_years": 35,
         "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
         "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
-      }
+      },
+      "wardrobe_assembly": "teamster_short_jacket_hat"
     }
   ],
   "procedural_shirt_texture": {
@@ -161,10 +185,10 @@
       256,
       256
     ],
-    "construction": "original deterministic alternating warp/weft ridge pattern",
+    "construction": "original one-texel alternating thread study, one percent albedo contrast, no baked light",
     "embedded": true,
     "historical_status": "reconstructed; no sampled or attested period textile",
-    "metric_uv_density": "unverified until Blender/export review"
+    "metric_uv_density": "Body source UVs retained; no measured historic textile density asserted."
   },
   "recipe_family": "worker_1835",
   "identity_policy": "Each required variant references an existing reconstructed person in the 1835 people layer. Names, ages, occupations and presence remain reconstructed record attributes. Shared anonymous CC0 anatomy and original clothing are provisional depiction studies, not photographic likenesses or three independently validated anatomies.",
@@ -196,5 +220,179 @@
     "alpha_cutoff": 0.4,
     "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
     "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "workwear_coverage": {
+    "garment_seams": "Full-body source-shared offset normals; welded geometry and source per-corner UVs",
+    "vest_front": "Source-triangle clipped V, replacing centroid-stepped whole-face exclusion",
+    "trouser_ease": "Retain7mm source-shared normal ease; no globalX translation that cancels inner-leg clearance",
+    "shirt_neckline": "Triangles clipped to existing collar-baseY; UVs/weights interpolated, boundary shares geometry; no headweight whole-face staircut",
+    "new_collar_seam_weights": "Only newly clipped shirt seam transfers head/jaw influence to existing neck_01; original body and below-cut shirt weights unchanged; actual transferred mass is reported",
+    "shoe_clearance_m": 0.004,
+    "shoe_construction": "Fixed-normal support-plane loft containing complete adjacent source foot slabs; no body visibility mask",
+    "skin_influence_interpolation": "New vest cuts retain four largest interpolated weights; discard <=0.025, report actual mass; body skin unchanged",
+    "status": "Source construction only; actual exported fit/deformation/sole/photo acceptance pending"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "workwear_tailoring": {
+    "status": "Original bounded reconstruction; source construction only, canonical fit/animation/period/photographic acceptance open",
+    "period_basis": "Existing chicago_american_1835 text attests garment terms only, not a collar pattern or measured outfit; original standing-collar detail remains a conjectural reconstruction, not a named personal wardrobe",
+    "collar_construction": "Standing linen collar with lower front profile, attached by one actual shared shirt boundary before LOD decimation; no separate ellipse, new draw/material, source body mutation or hidden skin",
+    "collar_front_height_m": 0.012,
+    "collar_return_thickness_m": 0.0012,
+    "collar_return_depth_m": 0.002,
+    "dimensions_basis": "Original engineering choices;23mm side/back height inherited,12mm front avoids following the source lower jaw;6mm radial source-section ease inherited from shirt offset, not complete cloth/body collision proof",
+    "waistcoat_boundaries": "Same intended hem/top/side bounds and original V; replace whole-face centroid ownership by continuous source-triangle cuts at hem/top/side/arm-influence boundaries; retains source corner UV interpolation and four-weight refusal",
+    "waistcoat_limit": "This repairs jagged boundaries; source shoulder silhouette, tailoring, lapels/buttons/seams, period pattern and material quality remain open",
+    "shirt_x_ease_arm_radius_fraction": 0.5,
+    "shirt_x_ease_basis": "Reconstructed continuous source-arm ease field: original7mm X shift times clamp((upperarm_axisY-sourcepointY)/(0.5*actual dominant upperarm radialextent),0,1). Full6mm source normal ease, original source body/rig/weights/UV and original13mm maximum displacement envelope retained. The measured shoulder face/ray collision motivates this bounded construction, not a period measurement or body mask.",
+    "shirt_coverage_limit": "Actual first idle shoulder rays and original source-face support regressions controlled; remaining preexisting negative face projections, complete triangle/animation/LOD/period/photographic fit remain open."
+  },
+  "workwear_tailoring_v5": {
+    "status": "V5 fuller lower trousers/closed waistcoat with V6 level hem: actual V6 source-preview hem technical PASS; canonical qualification, full fit,40 inherited idle negative projections and photographic acceptance remain OPEN. Prior whole-shoe disappearance was V2 stale preview-sphere culling; complete seated footwear enclosure remains unaccepted",
+    "selected_features": "Knee-to-shoe hanging trouser silhouette with a smooth mid-thigh transition and existing highwaist retained; substantial closed lower waistcoat front with shorter V",
+    "deferred": "Full seat/upperthigh drape, fuller shirt sleeves/distinctcuffs, collar/neckcloth, lapels/buttons/seams and photographic materials remain separate work",
+    "trouser_added_section_ease_m": 0.012,
+    "trouser_cuff_radius_ratio": 0.85,
+    "trouser_thigh_transition_fraction": 0.65,
+    "waistcoat_closed_front_torso_fraction": 0.4,
+    "engineering_basis": "Original dimensions from actual prepared body sections and unchanged bone landmarks;12mm added section ease,85percent cuff radius and65percent upper-leg transition are disclosed choices, not painted garment measurements. Lower front closes at40percent of waist-to-shoulder span.",
+    "period_analogy": "William Sidney Mount Bargaining for aHorse(1835),NYHS1858.59, and Bar-roomScene(1835),AIC1939.392: public-domain2D comparators support hanging trouser silhouettes and substantial closed lower waistcoat fronts; no named Chicago likeness/outfit, exactpattern/material or preJuly1completion is claimed.",
+    "source_registration_note": "Period comparator source records mount_1835_bargaining_for_a_horse and mount_1835_bar_room_scene are linked here and in recipe.sources with saved original-image/Commons rights proof. They permit cross-checking qualitative circa 1835 silhouette only; no completion before July 1, exact Chicago outfit, named likeness, geometry tracing or measured pattern is attested. Direct NYHS catalog proof is saved; AIC accession/title/link rely on saved Commons metadata because the V5 direct museum requests failed. Original dimensions and hem trim remain declared engineering choices; canonical/full fit/photographic acceptance remains OPEN.",
+    "sources": [
+      "mount_1835_bargaining_for_a_horse",
+      "mount_1835_bar_room_scene"
+    ],
+    "reading": "direct"
+  },
+  "modular_wardrobe": {
+    "version": 1,
+    "grade": "reconstructed",
+    "edge_thickness_m": 0.0015,
+    "construction_basis": "Original reusable garment construction. Short jackets, broad uncreased felt hats, button counts, colors and 1.5mm cloth returns are reconstructed design choices, not measured patterns or a resident possession. Connected waistcoat shoulder construction reuses the existing exact Bardwell pattern on the eligible adult35 body; actual fit and canonical review remain required.",
+    "connected_waistcoat_pattern": {
+      "id": "bardwell_connected_waistcoat_v1",
+      "status": "source_proposal_unrendered",
+      "neckline_drop_m": 0.025,
+      "neck_opening_halfwidth_m": 0.05,
+      "armhole_transition_below_joint_m": [
+        0.1,
+        0.015
+      ],
+      "shoulder_outer_inset_m": 0.026,
+      "armhole_field_scale_m": 0.04,
+      "scope": "Original connected shoulder/armhole pattern over cleared source torso, replacing mistaken joint-height cap and arm-weight-only clothing ownership. Dimensions unmeasured; Mount1835 qualitative shoulder-connected waistcoat/loose-shirt analogies only, no tracing or source likeness. Existing body/rig/weights/UV/material/normals/sole limits and lower closure preserved.",
+      "sources": [
+        "mount_1835_bargaining_for_a_horse",
+        "mount_1835_bar_room_scene"
+      ],
+      "acceptance": "Unrendered source proposal; targeted source controls only. Full fit/40 inherited negatives/animatedLOD/canonical/photo remain open.",
+      "maximum_head_jaw_source_mass": 0.01
+    },
+    "assemblies": {
+      "teamster_waistcoat_hat": {
+        "grade": "reconstructed",
+        "waistcoat_buttons": 5,
+        "button_radius_m": 0.004,
+        "hat": {
+          "crown_height_m": 0.105,
+          "brim_m": 0.065,
+          "seating_depth_m": 0.045
+        },
+        "jacket": null,
+        "colors": {
+          "headwear__felt_hat": [
+            0.085,
+            0.064,
+            0.042,
+            1.0
+          ],
+          "accessory__horn_buttons": [
+            0.075,
+            0.052,
+            0.031,
+            1.0
+          ]
+        }
+      },
+      "stable_keeper_round_jacket": {
+        "grade": "reconstructed",
+        "waistcoat_buttons": 6,
+        "button_radius_m": 0.0035,
+        "hat": null,
+        "jacket": {
+          "ease_m": 0.028,
+          "hem_fraction": 0.55,
+          "lapel_width_m": 0.025
+        },
+        "colors": {
+          "garment_outer__round_jacket": [
+            0.045,
+            0.055,
+            0.063,
+            1.0
+          ],
+          "accessory__horn_buttons": [
+            0.1,
+            0.075,
+            0.05,
+            1.0
+          ]
+        }
+      },
+      "teamster_short_jacket_hat": {
+        "grade": "reconstructed",
+        "waistcoat_buttons": 4,
+        "button_radius_m": 0.0045,
+        "hat": {
+          "crown_height_m": 0.065,
+          "brim_m": 0.038,
+          "seating_depth_m": 0.04
+        },
+        "jacket": {
+          "ease_m": 0.028,
+          "hem_fraction": 0.565,
+          "lapel_width_m": 0.018
+        },
+        "colors": {
+          "headwear__felt_hat": [
+            0.14,
+            0.115,
+            0.075,
+            1.0
+          ],
+          "garment_outer__round_jacket": [
+            0.095,
+            0.06,
+            0.035,
+            1.0
+          ],
+          "accessory__horn_buttons": [
+            0.055,
+            0.038,
+            0.026,
+            1.0
+          ]
+        }
+      }
+    },
+    "material_roughness": {
+      "garment_upper__shirt_linen": 0.88,
+      "garment_outer__waistcoat_wool": 0.9,
+      "garment_outer__round_jacket": 0.92,
+      "garment_lower__highwaist_pantaloons": 0.87,
+      "footwear__closed_leather_shoes": 0.57,
+      "headwear__felt_hat": 0.95,
+      "accessory__horn_buttons": 0.38
+    },
+    "material_basis": "Original restrained roughness choices distinguish linen/wool/felt, closed leather shoes and horn-like buttons. No captured roughness/normal map, historical fiber, resident possession or photographic material match is asserted.",
+    "liberty": "L-human-modular-workwear-1789"
   }
 }

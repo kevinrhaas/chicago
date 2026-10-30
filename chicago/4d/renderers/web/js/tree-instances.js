@@ -96,8 +96,9 @@ export const isGrownForm = (spec) => spec.form !== 'thicket' && spec.form !== 's
 export const grownGroupName = (name) => `${name}s-grown`;
 
 function archetypeKey(spec) {
+  // A habit named outright (`spec.arch`, T-3017) is its own archetype.
   return [spec.speciesId ?? spec.common, spec.form, spec.common, spec.dark, spec.light, spec.bark,
-    spec.conf ?? 0.5].join('|');
+    spec.conf ?? 0.5].join('|') + (spec.arch ? `|${spec.arch}` : '');
 }
 
 /**
@@ -125,7 +126,7 @@ export class TreeInstances {
   /** One stem. Its height in the spec's band, its turn and its variant are drawn
    *  from a stream seeded by where it stands, so the planter's own stream is not
    *  consumed and a re-grown species moves no other stem. */
-  add(spec, x, groundY, z, scale = 1, { yaw = null, variant = null, lodK = 1 } = {}) {
+  add(spec, x, groundY, z, scale = 1, { yaw = null, variant = null, lodK = 1, crownW = null } = {}) {
     const rnd = mulberry32(hashString(`${Math.round(x * 100)},${Math.round(z * 100)}`));
     const key = archetypeKey(spec);
     let kind = this.kinds.get(key);
@@ -139,7 +140,9 @@ export class TreeInstances {
     kind.hMax = Math.max(kind.hMax, h);
     const turn = rnd() * Math.PI * 2;
     const pick = rnd();
-    this.stems.push({ kind, x, y: groundY, z, h, yaw: yaw ?? turn, pick, variant, lodK });
+    // T-3223: a planter that measured a stem's spread (the front yards keep doors clear
+    // by it) names its crown width, and the stem is drawn to it.
+    this.stems.push({ kind, x, y: groundY, z, h, yaw: yaw ?? turn, pick, variant, lodK, crownW });
     return h;
   }
 
@@ -170,8 +173,11 @@ export class TreeInstances {
       for (let v = 0; v < n; v++) {
         const pause = checkpoint(); if (pause) { const p0 = performance.now(); await pause; paused += performance.now() - p0; }
         const seed = (hashString(kind.key) + v * 7919) >>> 0;
-        const o = { conf: spec.conf ?? 0.5, ...season };
         const light = this.level === 'light';
+        // T-3017: the phone's tier asks a grown habit that has one (the parkway
+        // elm) for its coarse leaf: fewer, larger sprays.
+        // T-3223: an evergreen (the front yards' arborvitae) keeps its summer crown in every Season.
+        const o = { conf: spec.conf ?? 0.5, ...(spec.evergreen ? {} : season), coarse: light };
         const first = buildTreeTemplate(spec, seed, light ? 'mid' : 'near', o);
         const mid = light ? first : buildTreeTemplate(spec, seed, 'mid', { ...o, skeleton: first.skeleton });
         const far = buildTreeTemplate(spec, seed, 'far', { ...o, skeleton: first.skeleton });
@@ -182,7 +188,7 @@ export class TreeInstances {
         if (distant) distant.skeleton = null;
         const levels = light ? { mid, far } : { near: first, mid, far };
         if (distant) levels.distant = distant;
-        kind.variants.push({ H: first.height, levels });
+        kind.variants.push({ H: first.height, R: first.crownR, levels });
         stats.variants++;
       }
     }
@@ -284,8 +290,10 @@ export class TreeInstances {
       // A width jitter, so two stems of one variant side by side
       // are not the same silhouette.
       q.setFromAxisAngle(up, s.yaw);
-      pos.set(s.x, s.y - 0.2 * k, s.z);
-      const w = k * (0.92 + s.pick * 0.16);
+      // The foot is set a little into the ground, under its root flare; T-3223: a small
+      // plant (the front yards' bedding) names its own, so a geranium is not half buried.
+      pos.set(s.x, s.y - (s.kind.spec.sinkM ?? 0.2) * k, s.z);
+      const w = s.crownW && v.R ? (s.crownW / (2 * v.R)) * (0.96 + s.pick * 0.04) : k * (0.92 + s.pick * 0.16);
       scl.set(w, k, w);
       m.compose(pos, q, scl);
       s.inst = {};

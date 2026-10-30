@@ -23,14 +23,14 @@
           "drloih_hotels",
           "chicagology_prefire273"
         ],
-        "note": "THE BUILD DATE IS DISPUTED AND IS NOT RESOLVED HERE. Two readings: 1828, James Kinzie, west bank at Wolf Point (drloih_wolf_point, and the same date in general circulation); and 1823, James Kinzie with David Hall (drloih_hotels' chronology, which gives the tavern as 'opened in 1823'). 1828 is adopted because it is the reading of the narrative account that also carries the operator succession and the wolf sign, and because the 1823 date sits oddly with the licensing record — Archibald Caldwell's liquor licence is 8 December 1829 and the first Peoria County tavern licence in the settlement went to Clybourn and Miller. The two sources are the SAME PUBLICATION disagreeing with itself, which is a reason to distrust both dates rather than to prefer one confidently, so this range is inferred, not documented. A five-year error in the start does not affect the 1835 scene: the building stood under either reading. The end of the range is set at the end of 1836, the last year of William Walters's attested tenancy — NOT a demolition date. No source reached gives the building's fate, so the phase is closed where the evidence stops rather than run on speculatively."
+        "note": "THE BUILD DATE IS DISPUTED AND IS NOT RESOLVED HERE. Two readings: 1828, James Kinzie, west bank at Wolf Point (drloih_wolf_point, and the same date in general circulation); and 1823, James Kinzie with David Hall (drloih_hotels' chronology, which gives the tavern as 'opened in 1823'). 1828 is adopted because it is the reading of the narrative account that also carries the operator succession and the wolf sign, and because the 1823 date sits oddly with the licensing record \u2014 Archibald Caldwell's liquor licence is 8 December 1829 and the first Peoria County tavern licence in the settlement went to Clybourn and Miller. The two sources are the SAME PUBLICATION disagreeing with itself, which is a reason to distrust both dates rather than to prefer one confidently, so this range is inferred, not documented. A five-year error in the start does not affect the 1835 scene: the building stood under either reading. The end of the range is set at the end of 1836, the last year of William Walters's attested tenancy \u2014 NOT a demolition date. No source reached gives the building's fate, so the phase is closed where the evidence stops rather than run on speculatively."
       },
       "position": {
-        "utm_e": 446995.4,
-        "utm_n": 4637350.7,
+        "utm_e": 446993.85,
+        "utm_n": 4637348.3,
         "rotation_deg": 90.0,
         "symbolic_location": "West bank of the river at the forks, north of the Lake Street crossing; north of James Kinzie's residence and south of the Methodist log meeting house.",
-        "confidence": "inferred",
+        "confidence": "reconstructed",
         "derivation": {
           "method": "not_derivable",
           "reason": "The weakest placement in the dataset and the one this check most conspicuously cannot help with. Lake Street's centreline northing at the west bank is interpolated between two control points, and the building is then set 40 m north of it because nothing fixes how far north of the crossing the tavern stood. An interpolation plus a free 40 m is not a derivation from control; recording it as one would be the check certifying a guess."
@@ -41,7 +41,7 @@
           "kinzie_waubun_1856",
           "osm_streets_2026"
         ],
-        "note": "PLACED 2026-08-09. NO SURVIVING INTERSECTION LOCATES THIS BUILDING, so the method used for the Sauganash — half an 80 ft platted street off a documented corner — does not apply. The coordinate is derived from the datum origin at the forks confluence and from bank geometry instead, and it is the weakest placement in this parcel. What is attested: the tavern stood on the WEST BANK at the forks, north of the Lake Street crossing (chicagology, which puts it 'on the ground north of Lake Street Bridge'); James Kinzie's residence was next south of it and Father Walker's log meeting house north of it, so it sits in the middle of a three-building river-front row; and Wau-Bun's 1831 sequence reads 'Facing down the river from the west was, first a small tavern kept by Mr. Wentworth', which is why the facade is put on the river. Method: Lake Street's centreline northing at the west bank is 4637286.5, interpolated along Lake between the two OpenStreetMap control points (Lake and Canal, Lake and Market); its north kerb is 12.2 m beyond that at 4637298.7, half an 80 ft platted street. The footprint's south face is set 40 m north of that kerb, which places the building clearly north of the crossing while leaving room to the south for the Kinzie residence and about 50 m to the north for the meeting house, in the documented order. Across the bank, the footprint's east face is set back between about 11 m at its north end and 19 m at its south end from the MODERN west-bank line read from OpenStreetMap water polygons, the setback varying because the modern bank runs north-west across the building. WORKING UNCERTAINTY IS ABOUT 40 m ALONG THE BANK AND ABOUT 20 m ACROSS IT — the along-bank figure is this record's own, since nothing fixes how far north of the bridge the tavern stood; the across-bank figure is the georeference's, compounded by the modern bank not being the 1835 bank (this reach was wharfed and rebuilt, and the direction of that change is not established here). Facade bearing 90, due east onto the water; the bank runs north-west here, so anything from about 75 to 105 is equally defensible."
+        "note": "PLACED 2026-08-09. NO SURVIVING INTERSECTION LOCATES THIS BUILDING, so the method used for the Sauganash \u2014 half an 80 ft platted street off a documented corner \u2014 does not apply. The coordinate is derived from the datum origin at the forks confluence and from bank geometry instead, and it is the weakest placement in this parcel. What is attested: the tavern stood on the WEST BANK at the forks, north of the Lake Street crossing (chicagology, which puts it 'on the ground north of Lake Street Bridge'); James Kinzie's residence was next south of it and Father Walker's log meeting house north of it, so it sits in the middle of a three-building river-front row; and Wau-Bun's 1831 sequence reads 'Facing down the river from the west was, first a small tavern kept by Mr. Wentworth', which is why the facade is put on the river. Method: Lake Street's centreline northing at the west bank is 4637286.5, interpolated along Lake between the two OpenStreetMap control points (Lake and Canal, Lake and Market); its north kerb is 12.2 m beyond that at 4637298.7, half an 80 ft platted street. The footprint's south face is set 40 m north of that kerb, which places the building clearly north of the crossing while leaving room to the south for the Kinzie residence and about 50 m to the north for the meeting house, in the documented order. Across the bank, the footprint's east face is set back between about 11 m at its north end and 19 m at its south end from the MODERN west-bank line read from OpenStreetMap water polygons, the setback varying because the modern bank runs north-west across the building. WORKING UNCERTAINTY IS ABOUT 40 m ALONG THE BANK AND ABOUT 20 m ACROSS IT \u2014 the along-bank figure is this record's own, since nothing fixes how far north of the bridge the tavern stood; the across-bank figure is the georeference's, compounded by the modern bank not being the 1835 bank (this reach was wharfed and rebuilt, and the direction of that change is not established here). Facade bearing 90, due east onto the water; the bank runs north-west here, so anything from about 75 to 105 is equally defensible. T-2386 physical-L trial retains this numericUTM origin and90degree bearing. The old40m south-face placement and approximate11/19m modern-bank setbacks describe the former12x7m placeholder, not a newly verified contact after the plan change. The new7.2m localX span moves the former south extent4.8m north and the10.1m localY span moves the max-east frontage3.1m east; bbox centre changes(+1.55E,+2.4N)m. These are consequences of reconstructed geometry, not new surveyed coordinates; existing40m along-bank/20m across-bank uncertainties remain. Normal scene/contact/terrain/route compilation and actual app review are still required. T-2386 CENTRE-PRESERVING REBASE supersedes the retained-origin L trial in the preceding paragraph. The former12x7m placeholder bbox centre is kept at its old world position while replacing its outline with7.2x10.1m L. At the retained90degree bearing this changes only the model-origin coordinates by(-1.55E,-2.40N)m; it does not move that coarse old world centre or derive a historical coordinate from picture pixels. Exact new origin and plan are reconstructed, so this position attribute is explicitly reconstructed; west-bank/relative-order textual sources and40m along/20m across uncertainty remain. Numeric anchor becomesE446993.85,N4637348.30. Compared with the original rectangle, south extent is now2.4m north, max-east frontage1.55m east and max-north extent2.4m south. Checks against the committed the committed 1834 harbor-cut river outline river (not the modern bank cited earlier) keep body/apron dry at about3.69/2.18m; these are model-clearance diagnostics, not historical bank setbacks or surveyed precision. No source has established an exact1835 location, and terrain/contact/application checks still follow normally."
       },
       "footprint": {
         "polygon": [
@@ -50,26 +50,34 @@
             0
           ],
           [
-            12,
+            7.2,
             0
           ],
           [
-            12,
-            7
+            7.2,
+            5
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            10.1
           ],
           [
             0,
-            7
+            10.1
           ]
         ],
         "confidence": "reconstructed",
-        "note": "PLACEHOLDER — NO DIMENSIONS ARE ATTESTED FOR THIS BUILDING IN ANY SOURCE REACHED. No period map shows building footprints (see data/sources/hathaway_1834.json and wright_1834.json), and the textual sources describe the tavern's materials, its sign, its rates and its landlords without ever measuring it. This 12 x 7 m rectangle is a plausible envelope for a log-and-frame tavern that lodged travellers at 12 1/2 cents a night and briefly housed Gen. Winfield Scott's Black Hawk War headquarters, and it carries no evidence whatsoever. The 12 m runs north-south along the river frontage and the 7 m is the depth. Sources are deliberately omitted from this attribute because none supports it. To resolve: Andreas vol. 1, 'Wharfs, Piers and Early Hotels' pp. 626-631, at page-image level."
+        "note": "PLACEHOLDER \u2014 NO DIMENSIONS ARE ATTESTED FOR THIS BUILDING IN ANY SOURCE REACHED. No period map shows building footprints (see data/sources/hathaway_1834.json and wright_1834.json), and the textual sources describe the tavern's materials, its sign, its rates and its landlords without ever measuring it. This 12 x 7 m rectangle is a plausible envelope for a log-and-frame tavern that lodged travellers at 12 1/2 cents a night and briefly housed Gen. Winfield Scott's Black Hawk War headquarters, and it carries no evidence whatsoever. The 12 m runs north-south along the river frontage and the 7 m is the depth. Sources are deliberately omitted from this attribute because none supports it. To resolve: Andreas vol. 1, 'Wharfs, Piers and Early Hotels' pp. 626-631, at page-image level. T-2386 L trial supersedes the former12x7 placeholder with a physical concaveL union. The NYPL sheet supports two outward gable ends meeting at an inside corner; exact5m spans,7.2x10.1m extents and absolute scale remain reconstructed. This is a5m gauge shape/camera hypothesis, not a traced survey. Geographic record origin/bearing remain, while bbox centre moves(-2.4,+1.55)m in local plan and actual occupied ground changes. T-2386 centre-preserving rebase supersedes the retained-origin trial above: physicalL dimensions stay, but origin is rebased so old world bbox centre remains; exact origin/shape remain reconstructed. See the current position note for coordinates, grade and clearances."
       },
       "form": {
         "stories": {
           "value": 1,
           "confidence": "inferred",
-          "note": "No source gives a storey count. One storey with a loft under the roof is the standard form for a log tavern of this date and region, and it is the conservative reading: the sources that do describe height at Wolf Point single out the Sauganash's two storeys and Miller's two-storey frame addition as remarkable, which they would not be if the Wolf Point Tavern had also been two storeys. Not attested either way. The Braunhold-style retrospective view 'Wolf Point from the south as it might have appeared in 1830' reproduced in Andreas shows this building and Miller's together and is the obvious next check — it has not been examined for this record, and it is a tier-5 retrospective in any case."
+          "note": "No source gives a storey count. One storey with a loft under the roof is the standard form for a log tavern of this date and region, and it is the conservative reading: the sources that do describe height at Wolf Point single out the Sauganash's two storeys and Miller's two-storey frame addition as remarkable, which they would not be if the Wolf Point Tavern had also been two storeys. Not attested either way. The Braunhold-style retrospective view 'Wolf Point from the south as it might have appeared in 1830' reproduced in Andreas shows this building and Miller's together and is the obvious next check \u2014 it has not been examined for this record, and it is a tier-5 retrospective in any case. T-2386 L review has now inspected all eight ticket views. Its one-storey interpretation is supported by the pictured low gable ends, but the retrospective views do not establish the exactJuly1835 state."
         },
         "construction": {
           "value": "log",
@@ -86,12 +94,15 @@
           "sources": [
             "chicagology_prefire273"
           ],
-          "note": "'partly log and partly frame' — the tavern had grown a frame element by the early 1830s. Its SIZE, POSITION on the building and DATE are all unattested, which is why the four attributes below state the invented ones explicitly instead of leaving them to the archetype's defaults. SPELLING, 2026-08-10: this attribute was recorded on 2026-08-09 as `frame_extension`, which is not the name the log_dwelling archetype reads, so the frame half of a 'partly log and partly frame' house was silently dropped for a day and the record showed a `documented` chip over something the model did not contain. Found by the omission gate, admitted in docs/LIBERTIES.md L20 and fixed here. The spelling is now the archetype's, and the attribute is built."
+          "note": "'partly log and partly frame' \u2014 the tavern had grown a frame element by the early 1830s. Its SIZE, POSITION on the building and DATE are all unattested, which is why the four attributes below state the invented ones explicitly instead of leaving them to the archetype's defaults. SPELLING, 2026-08-10: this attribute was recorded on 2026-08-09 as `frame_extension`, which is not the name the log_dwelling archetype reads, so the frame half of a 'partly log and partly frame' house was silently dropped for a day and the record showed a `documented` chip over something the model did not contain. Found by the omission gate, admitted in docs/LIBERTIES.md L20 and fixed here. The spelling is now the archetype's, and the attribute is built."
         },
         "frame_addition_side": {
-          "value": "end",
+          "value": "elbow",
           "confidence": "reconstructed",
-          "note": "NOT ATTESTED. No source says where on the building the frame part stood, so 'end' — a frame bay extending the building sideways from a gable, rather than a block across its river front — is a choice, not a finding. What can be said for it is weak and typological: a log pen is enlarged most easily along its ridge, since the log walls are not cut and the roof simply runs on, and Wau-Bun's 1831 sequence describes the tavern facing down the river without mentioning a frame front, where Miller's house across the water is specifically described as having its frame range 'fronting the river'. That is an argument from the absence of a phrase in one retrospective account, which is not evidence. Recorded conjectural and admitted in docs/LIBERTIES.md L24."
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial: a rear corner cross-wing replaces the unsupported inline/parallel reading. The inspected NYPL left roof recedes rightward and right roof leftward, with an inside wall corner. L disposition is inferred from those cues, while which pen was frame, its partition and every metric dimension remain reconstructed. Source does not establish July1835 continuity."
         },
         "frame_addition_stories": {
           "value": 1,
@@ -99,14 +110,20 @@
           "note": "No source gives the frame part a height. One storey is inferred by the same argument as the storey count above: the sources that do describe height at Wolf Point single out the Sauganash's two storeys and Miller's two-storey frame addition as remarkable, which they would not be if the Wolf Point tavern's frame piece had also stood two storeys. Inference, not attestation."
         },
         "frame_addition_width_m": {
-          "value": 4.0,
+          "value": 2.2,
           "confidence": "reconstructed",
-          "note": "NO DIMENSION IS ATTESTED, and this one is invented outright. 4 m of the footprint's 12 m frontage leaves an 8 m log core, which keeps 'partly log and partly frame' reading as a log building with a frame piece rather than the reverse — the distinction that decides which archetype the record belongs to at all. The footprint it is carved out of is itself a placeholder, so this number inherits that and adds to it. Admitted in docs/LIBERTIES.md L24."
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial:2.2m is the non-overlapping extension beyond the5m-wide core, within the reconstructed7.2m total span; the full cross-roof pen is5m deep. No source measures this partition or identifies hidden frame fabric."
         },
         "frame_addition_depth_m": {
-          "value": 7.0,
+          "value": 5.0,
           "confidence": "reconstructed",
-          "note": "NOT ATTESTED. Set to the full 7 m depth of the footprint so the frame bay fills the end of the building; anything less would leave a notch at the back corner that no source describes and that would read as a modelled fact about the plan. The value is a consequence of the massing rule, not a finding. Admitted in docs/LIBERTIES.md L24."
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial: reconstructed5m cross-pen depth is equal to the nominal5m core span to give a bounded simple joined roof; neither metre dimension is evidence."
         },
         "wall_height_m": {
           "value": 2.6,
@@ -116,12 +133,23 @@
         "roof_type": {
           "value": "gable",
           "confidence": "inferred",
-          "note": "Not attested for this building. Gable is the near-universal roof form for log construction of this type, period and region."
+          "note": "Not attested for this building. Gable is the near-universal roof form for log construction of this type, period and region. T-2386 L review now cites the inspected1867 NYPL sheet for the visible gable category; roof plan, scale and chosen angle remain reconstructed."
         },
         "roof_pitch_deg": {
-          "value": 40.0,
-          "confidence": "inferred",
-          "note": "No pitch is attested. 40 degrees is mid-range for a log building roofed in riven shakes or clapboards — steep enough to shed snow, shallow enough for the short rafters a log pen allows. Inferred from construction practice, not measured."
+          "value": 42.0,
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial rounds the analytic shape/camera hypothesis to42degrees on a nominal5m span. Source bounds its silhouette, not an exact angle, scale or camera. The numeric12-corner fit is within manual pick uncertainty; actual model comparison remains unrun."
+        },
+        "roof_colour": {
+          "value": "deep_brown",
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 picture-bounded roof tone: select the optional deep_brown stock, exactly one quarter of the existing darkened linear RGB with unchanged alpha and roughness. The actual first darkened-preset native mobile comparison remained visibly pale; the inspected NYPL Wolf's Point in 1833 lithograph bounds a darker warm field. Rufus Blanchard published it and Chas. Shober & Co. lithographed it in Chicago in 1867. This explicit reconstructed colour is not a roof-condition, brown-pigment, weather-blackening, age or calibrated-reflectance attestation. The retrospective 1833 depiction does not prove unchanged appearance on 1 July 1835. Existing covering/normal-ORM relief, geometry, coordinates, other finishes and source rights remain unchanged. All eight source pictures and actual current master comparisons still govern original acceptance."
         },
         "paint": {
           "value": "unpainted",
@@ -136,7 +164,7 @@
             "drloih_wolf_point",
             "chicagology_prefire273"
           ],
-          "note": "'A painted sign of a wolf was hung outside the tavern by approximately 1833.' THE SINGLE MOST DISTINCTIVE DOCUMENTED VISUAL FEATURE OF THIS BUILDING and the thing that gave the point its name in popular usage — hung well before the scene date, so it belongs in the 1835 model. What the sign LOOKED LIKE — its size, its board shape, how it was hung, how the wolf was drawn — is entirely unattested, so the archetype carries the sign as a distinct, separately-confidenced element rather than folding it into the massing, and the value names the SUBJECT of the board while the mesh says only that a board hung there. The wolf itself is deliberately not drawn (docs/LIBERTIES.md L25). Wau-Bun separately derives the Wolf Point name from an Indian resident called Moa-way, 'the Wolf', which is a competing etymology, not a competing fact about the sign. SPELLING, 2026-08-10: recorded on 2026-08-09 as `signage`, which the archetype does not read, so nothing hung outside the tavern until this slice — see L20. THE SOURCES WERE READ FURTHER ON 2026-08-21 (T-0072), AND THEY DESCRIBE THE BOARD, THE IRONWORK AND THE POST. chicagology's Wolf's Point note (chicagology_prefire273, the editorial matter around the 1857 Chicago Magazine account): “Wentworth was ambitious, and wanted a sign to attract wayfarers. Lieutenant Allen made one for him out of a piece of a box. He painted a picture of a wolf on it. The fort blacksmith made hinges, and the wolf sign was hung on a sapling. The tavern was the first institution to have a sign board in Chicago.” Four claims reach the model. A BOARD, made from box stock, which is what was already built. A PICTURE OF A WOLF ON IT, which had never been built and is now carried on form.sign_device. IRON HINGES, made at the fort, which are the straps between the cross-arm and the board. And a SAPLING, which is a young trunk set in the ground rather than a bracket on a wall — carried on form.sign_mount, and the reason the board no longer hangs off the tavern's front. The line about the first sign board in Chicago also explains why this one is described at all when a hundred other frontage boards are not. This attribute's own value is unchanged: what was hung there is still the wolf sign, and it is still the tavern's most distinctive documented feature."
+          "note": "'A painted sign of a wolf was hung outside the tavern by approximately 1833.' THE SINGLE MOST DISTINCTIVE DOCUMENTED VISUAL FEATURE OF THIS BUILDING and the thing that gave the point its name in popular usage \u2014 hung well before the scene date, so it belongs in the 1835 model. What the sign LOOKED LIKE \u2014 its size, its board shape, how it was hung, how the wolf was drawn \u2014 is entirely unattested, so the archetype carries the sign as a distinct, separately-confidenced element rather than folding it into the massing, and the value names the SUBJECT of the board while the mesh says only that a board hung there. The wolf itself is deliberately not drawn (docs/LIBERTIES.md L25). Wau-Bun separately derives the Wolf Point name from an Indian resident called Moa-way, 'the Wolf', which is a competing etymology, not a competing fact about the sign. SPELLING, 2026-08-10: recorded on 2026-08-09 as `signage`, which the archetype does not read, so nothing hung outside the tavern until this slice \u2014 see L20. THE SOURCES WERE READ FURTHER ON 2026-08-21 (T-0072), AND THEY DESCRIBE THE BOARD, THE IRONWORK AND THE POST. chicagology's Wolf's Point note (chicagology_prefire273, the editorial matter around the 1857 Chicago Magazine account): \u201cWentworth was ambitious, and wanted a sign to attract wayfarers. Lieutenant Allen made one for him out of a piece of a box. He painted a picture of a wolf on it. The fort blacksmith made hinges, and the wolf sign was hung on a sapling. The tavern was the first institution to have a sign board in Chicago.\u201d Four claims reach the model. A BOARD, made from box stock, which is what was already built. A PICTURE OF A WOLF ON IT, which had never been built and is now carried on form.sign_device. IRON HINGES, made at the fort, which are the straps between the cross-arm and the board. And a SAPLING, which is a young trunk set in the ground rather than a bracket on a wall \u2014 carried on form.sign_mount, and the reason the board no longer hangs off the tavern's front. The line about the first sign board in Chicago also explains why this one is described at all when a hundred other frontage boards are not. This attribute's own value is unchanged: what was hung there is still the wolf sign, and it is still the tavern's most distinctive documented feature."
         },
         "sign_mount": {
           "value": "sapling_pole",
@@ -144,20 +172,195 @@
           "sources": [
             "chicagology_prefire273"
           ],
-          "note": "THE POST COMES FROM A TEXT, THE CROSS-ARM FROM A PICTURE, AND NEITHER IS STRONG ENOUGH TO CARRY MORE THAN `inferred`. “The fort blacksmith made hinges, and the wolf sign was hung on a sapling” (chicagology_prefire273). A sapling is a slender standing trunk; it is not a wall bracket, and until 2026-08-21 this building carried the archetype's bracket — a board on a short arm beside the door — which is the arrangement a tavern sign usually has and which nothing here ever said. THE OTHER HALF OF THE VALUE IS A PICTURE. The owner's brief of 2026-08-18 supplies an engraving of this tavern (data/sources/assets/owner_brief_2026_08_18/README.md, image 4) drawing a very tall pole beside the log building with a cross-arm at its head and the board flying from the arm; the owner read it as “almost like a flag”, which is what a board on a yard looks like. That is a TIER 5 PICTORIAL view — retrospective, drawn decades after 1835 — and the standing rule for one is that it may drive form as `inferred` and may never drive a coordinate. `sapling_pole` names the pole AND the cross-arm it carries, so by least-confident-wins the whole value is graded at the picture's tier even though the post itself sits on a text. WHAT THE VALUE DRIVES AND WHAT IT DOES NOT: the mesh gets a set pole standing clear of the facade, a cross-arm lashed at its head, two iron hinge straps and the board flying from them. Its height, its taper, the arm's reach, where along the front it stands and the board's proportions are the archetype's own numbers within bounds it states, and are recorded in docs/LIBERTIES.md L165 rather than claimed here. WHERE THE TEXT SITS, WHICH IS THE HONEST LIMIT ON IT: the sapling sentence is in a NOTE at the foot of the chicagology page, not in the 1857 Chicago Magazine body that earned that source its tier 2. The note names no author and cites nothing. It is the only description anybody wrote of how this board was hung, and it is a compiler's summary of the standard retellings — better than nothing and not as good as the page it sits on."
+          "note": "THE POST COMES FROM A TEXT, THE CROSS-ARM FROM A PICTURE, AND NEITHER IS STRONG ENOUGH TO CARRY MORE THAN `inferred`. \u201cThe fort blacksmith made hinges, and the wolf sign was hung on a sapling\u201d (chicagology_prefire273). A sapling is a slender standing trunk; it is not a wall bracket, and until 2026-08-21 this building carried the archetype's bracket \u2014 a board on a short arm beside the door \u2014 which is the arrangement a tavern sign usually has and which nothing here ever said. THE OTHER HALF OF THE VALUE IS A PICTURE. The owner's brief of 2026-08-18 supplies an engraving of this tavern (data/sources/assets/owner_brief_2026_08_18/README.md, image 4) drawing a very tall pole beside the log building with a cross-arm at its head and the board flying from the arm; the owner read it as \u201calmost like a flag\u201d, which is what a board on a yard looks like. That is a TIER 5 PICTORIAL view \u2014 retrospective, drawn decades after 1835 \u2014 and the standing rule for one is that it may drive form as `inferred` and may never drive a coordinate. `sapling_pole` names the pole AND the cross-arm it carries, so by least-confident-wins the whole value is graded at the picture's tier even though the post itself sits on a text. WHAT THE VALUE DRIVES AND WHAT IT DOES NOT: the mesh gets a set pole standing clear of the facade, a cross-arm lashed at its head, two iron hinge straps and the board flying from them. Its height, its taper, the arm's reach, where along the front it stands and the board's proportions are the archetype's own numbers within bounds it states, and are recorded in docs/LIBERTIES.md L165 rather than claimed here. WHERE THE TEXT SITS, WHICH IS THE HONEST LIMIT ON IT: the sapling sentence is in a NOTE at the foot of the chicagology page, not in the 1857 Chicago Magazine body that earned that source its tier 2. The note names no author and cites nothing. It is the only description anybody wrote of how this board was hung, and it is a compiler's summary of the standard retellings \u2014 better than nothing and not as good as the page it sits on."
         },
         "sign_device": {
           "value": "wolf",
           "confidence": "reconstructed",
-          "note": "THAT A WOLF WAS PAINTED ON THE BOARD IS ATTESTED; HOW IT WAS DRAWN IS LOST, AND THE OUTLINE IN THE MESH IS THE PROJECT'S OWN. “Lieutenant Allen made one for him out of a piece of a box. He painted a picture of a wolf on it” — chicagology_prefire273. THE DECISION THIS REVERSES, and it was this project's for eleven months of its own history: docs/LIBERTIES.md L25 held that the board must stay blank, because painting a wolf from imagination would be the most conspicuous fabrication in the scene. That reasoning was right about the risk and wrong about where the risk lay. A blank board is not neutral. A source says a picture of a wolf was on this board, so an empty one asserts the opposite of the evidence, in the one place a visitor is guaranteed to look. The three-tier vocabulary exists for exactly this case (AGENTS.md § RECONSTRUCTED IS A TIER): the honest move is to build at the lowest tier that carries it and say what bounded the invention, not to leave the object wrong and undocumented. The owner's standing ruling of 2026-08-18 is the same instruction in his own words. WHAT IS BOUNDED AND BY WHAT: a flat dark silhouette of a standing canine in profile, ears up and brush low, painted on both faces of the board — the plainest reading of “a picture of a wolf” that a sign painter with lampblack in oil could lay on box stock. It carries no attitude, no snarl, no ground line and no lettering, because each of those would be a further claim on top of this one; the engraving of the tavern shows a device on the board and is not held here at a resolution that could be copied even if a tier-5 plate were allowed to drive one. Graded at the bottom tier and admitted in docs/LIBERTIES.md L165, which is where the outline itself is claimed."
+          "note": "THAT A WOLF WAS PAINTED ON THE BOARD IS ATTESTED; HOW IT WAS DRAWN IS LOST, AND THE OUTLINE IN THE MESH IS THE PROJECT'S OWN. \u201cLieutenant Allen made one for him out of a piece of a box. He painted a picture of a wolf on it\u201d \u2014 chicagology_prefire273. THE DECISION THIS REVERSES, and it was this project's for eleven months of its own history: docs/LIBERTIES.md L25 held that the board must stay blank, because painting a wolf from imagination would be the most conspicuous fabrication in the scene. That reasoning was right about the risk and wrong about where the risk lay. A blank board is not neutral. A source says a picture of a wolf was on this board, so an empty one asserts the opposite of the evidence, in the one place a visitor is guaranteed to look. The three-tier vocabulary exists for exactly this case (AGENTS.md \u00a7 RECONSTRUCTED IS A TIER): the honest move is to build at the lowest tier that carries it and say what bounded the invention, not to leave the object wrong and undocumented. The owner's standing ruling of 2026-08-18 is the same instruction in his own words. WHAT IS BOUNDED AND BY WHAT: a flat dark silhouette of a standing canine in profile, ears up and brush low, painted on both faces of the board \u2014 the plainest reading of \u201ca picture of a wolf\u201d that a sign painter with lampblack in oil could lay on box stock. It carries no attitude, no snarl, no ground line and no lettering, because each of those would be a further claim on top of this one; the engraving of the tavern shows a device on the board and is not held here at a resolution that could be copied even if a tier-5 plate were allowed to drive one. Graded at the bottom tier and admitted in docs/LIBERTIES.md L165, which is where the outline itself is claimed."
+        },
+        "chimney_ridge_at": {
+          "value": [
+            0.29
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial places the broad head near the inside junction on the core ridge at0.29of its10.1m length. This supersedes0.58 on the incompatible inline core; exact host/fraction and hidden flue remain reconstructed. Existing0.45m shaft/0.5m head and one masonry-stack count stay."
+        },
+        "ridge_stack_w_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "T-2386: a 0.45 m square shaft is a reconstructed one-flue head, deliberately smaller than the archetype's 0.96 m default. The print's small roof head bounds the choice but is not a scale drawing; no dimension is attested. This does not identify the shaft's hidden fabric."
+        },
+        "ridge_stack_head_m": {
+          "value": 0.5,
+          "confidence": "reconstructed",
+          "note": "T-2386: the reconstructed head clears the ridge by 0.50 m. This is a short, visible chimney head within a period single-flue envelope, not a dimension read from the 1867 print. The pipe beside the adjacent roof is a distinct, unresolved element rather than silently folded into this shaft."
         },
         "chimneys": {
           "value": 1,
           "confidence": "inferred",
           "note": "Not attested. One stack is the minimum a tavern with a public room and cooking needed; a log pen of this size would rarely carry more. The number is inference."
+        },
+        "frame_addition_height_m": {
+          "value": 2.6,
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial retains the core eave2.6m and gives the cross piece equal eaves. This is a construction/scale choice, not a measured or attested height."
+        },
+        "compound_joint": {
+          "value": "elbow",
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial uses exactly two connected non-overlapping rooms, a true concave physical polygon and clipped upper-envelope orthogonal roofs. Flush eaves, simple closed gable caps and unmeasured valley construction remain reconstructed. It does not reuse the old intersecting independent-roof approximation."
+        },
+        "compound_parts": {
+          "value": [
+            {
+              "wall_rect": [
+                0,
+                0,
+                5,
+                10.1
+              ],
+              "roof_rect": [
+                0,
+                0,
+                5,
+                10.1
+              ],
+              "ridge_axis": "y",
+              "front_opening": [
+                [
+                  "+y",
+                  "door",
+                  3.1,
+                  4.0,
+                  0.02,
+                  1.8
+                ],
+                [
+                  "+y",
+                  "window",
+                  1.1,
+                  1.8,
+                  1.4,
+                  2.0
+                ]
+              ]
+            },
+            {
+              "wall_rect": [
+                5,
+                0,
+                7.2,
+                5
+              ],
+              "roof_rect": [
+                2.5,
+                0,
+                7.2,
+                5
+              ],
+              "ridge_axis": "x",
+              "front_opening": [
+                [
+                  "+x",
+                  "door",
+                  2.9,
+                  3.8,
+                  0.02,
+                  1.7
+                ]
+              ]
+            }
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial records the actual two-room physicalL and two outward gable entries. All rectangles, roof extents, face assignment, door/window stations/widths/heights and closed kit states are reconstructed proxies from the NYPL sheet, not surveyed dimensions or a proven frame/log partition. The+X entry is not falsely reported on the+Y front-wall API. Secondary-entry metadata still requires explicit consumer review; log gable courses, clapboard versus logs, roof/eave detail and pole remain different. T-2386 surface/pole continuation supersedes only the low-window proxy: raise that existing right light300mm to z1.4..2.0m, retaining width and station; its prior analytic centre was about9sourcepx low. This is a reconstructed local set-out change, not an attested sill height. The separate +X access consumer is now implemented by the entry/site followup. Roof/gable/cladding and pole changes are explicitly carried by the new opt-ins; full matching remains open. T-2386 door/log-relief continuation keeps all room/opening rectangles, raised-window bounds, plan, pole and roof controls unchanged. External door leaves are now omitted only under explicit the doorway treatment=recess and backed blindly at300mm; no interior geometry/passable collision is implied. Chosen curved log relief replaces the pale-strip proxy only under the log-face relief."
+        },
+        "roof_pipe": {
+          "value": [
+            0.74,
+            0.14,
+            0.55
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 L trial gives the separate slender roof projection a core-ridge fraction0.74,0.14m diameter and0.55m exposed head. Dark eight-sided uncapped proxy, all sections/stations/finish/absence of cap are reconstructed; metal/stove/interior is not identified and it is not silently counted as another masonry stack."
+        },
+        "compound_wall_cladding": {
+          "value": "log_courses",
+          "confidence": "inferred",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 actual L render continuation: the governing 1867 NYPL sheet visibly shows horizontal log-like courses on both facing walls and through both gable triangles. Apply that pictured envelope to this bounded compound, without asserting that both hidden structures were solid log or overriding the text that the tavern was partly frame. Exact340mm course rhythm,55mm pale relief, notching, material tones and hidden faces are reconstructed kit choices, not source measurements or attested textures/colours."
+        },
+        "compound_roof_overhang_m": {
+          "value": 0.12,
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 continuation chooses120mm roof projection and50mm vertical slab/edge thickness to represent the thin visible eave/rake edge missing from the actual flush L render. These are bounded model dimensions, not source-measured metres. Existing pitch/ridge/wall plan/camera remain unchanged; actual roof-edge comparison is still required."
+        },
+        "sign_pole_set_out": {
+          "value": {
+            "base_xy": [
+              5.4,
+              7.3
+            ],
+            "head_xyz": [
+              6.45,
+              6.0,
+              10.3
+            ],
+            "arm_vector_xyz": [
+              -1.32,
+              1.63,
+              0.66
+            ],
+            "board_wh": [
+              1.6,
+              1.05
+            ],
+            "hanger_drop_m": 0.32
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 continuation reconstructs a local sapling/sign pose from the governing sheet: pole base around[350,915]sourcepx, head[303,610], rising cross-arm toward[363,598], tilted hanging board around[322..378,611..652]. Same provisional square-pixel camera and5m building gauge; no historical metre or geographic coordinate follows from these picks. Place the base in the actual empty L courtyard, keep it and the shaft clear of the walls, lean screen-left, enlarge/tilt the board and add a slim supporting brace. All local coordinates, pole height/taper, arm reach/section, board dimensions/drop and iron pieces are chosen proxies; original wolf silhouette and neutral colours remain reconstructed. Base screen-height residual is deliberately retained instead of moving the pole tens of metres toward the camera to overfit the common-grade drawing. Existing sign occurrence/mount evidence and all world position uncertainty remain."
+        },
+        "compound_door_state": {
+          "value": "recess",
+          "confidence": "reconstructed",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 next actual-render difference: both source entry rectangles read deep/dark/open, while the current actual L has pale closed planked leaves. Cut only their stated outward wall skins and put a blind dark backing300mm behind the face with casing/reveals/threshold. This is a bounded exterior depth proxy, not a room, inferred door swing, occupant or interior passage. Whole physicalL and solid-footprint walker collision remain unchanged, and the same explicit +X access descriptor remains external-clearance metadata."
+        },
+        "compound_log_profile": {
+          "value": "rounded_relief",
+          "confidence": "inferred",
+          "sources": [
+            "blanchard_shober_1867_wolf_point"
+          ],
+          "note": "T-2386 source course faces read rounded/unevenly shaded with narrow dark recessed joints, unlike the current regular pale chink stripes. Use bounded curved face relief and inset existing-palette dark backing only on this explicit log-course compound.300mm rhythm,20mm gaps,15mm joint setback,38..48mm seeded relief and six profile panels are reconstructed rendering sections, not source-measured logs, original colour, exact weathering or a photoreal texture. Extend the same chosen profile through facing gable triangles; hidden structural fabric remains unproved and partly-frame textual evidence is retained."
         }
       },
-      "change_note": "The tavern as it stood through the 1830s: a log building that had acquired a frame element by the early 1830s, with the painted wolf sign hung outside by about 1833. No documented change of fabric falls inside the phase, so the whole 1828-1836 span is modelled as one state — which is a limitation of the evidence, not a claim that nothing changed."
+      "change_note": "The tavern as it stood through the 1830s: a log building that had acquired a frame element by the early 1830s, with the painted wolf sign hung outside by about 1833. No documented change of fabric falls inside the phase, so the whole 1828-1836 span is modelled as one state \u2014 which is a limitation of the evidence, not a claim that nothing changed."
     }
   ],
   "function": {
@@ -169,6 +372,15 @@
     ],
     "note": "DISPUTED FOR THE SCENE DATE. Three readings: William Walters was landlord 1833-1836, which puts the house in ordinary innkeeping in July 1835 (drloih_wolf_point); the hotel chronology says it 'ceased operations as a public house in 1834' (drloih_hotels); and a third account has the name changing successively to the Travelers' Home and the Western Stage House after 1834, which is a change of sign rather than of trade. Innkeeping is adopted because two of the three readings are compatible with it and because a stage house is still a public house, but the tag is inferred, not documented. Rates while it was a public house: 12 1/2 cents a night, 13 cents to stable a horse. In 1832 it served as Gen. Winfield Scott's headquarters during the Black Hawk War."
   },
+  "built": {
+    "value": "1823 or 1828",
+    "confidence": "attested",
+    "sources": [
+      "drloih_wolf_point",
+      "drloih_hotels"
+    ],
+    "note": "The sources disagree: the Wolf Point account gives 1828, the hotel chronology has it opened in 1823."
+  },
   "occupants": {
     "value": "William Walters, landlord",
     "confidence": "inferred",
@@ -177,6 +389,6 @@
     ],
     "note": "The operator succession runs Archibald Caldwell for James Kinzie by 1829 (liquor licence 8 December 1829), Elijah 'Old Geese' Wentworth from early 1830, Charles and Mary Taylor 1831-1833, William Walters 1833-1836. Walters therefore covers 1835-07-01. Inferred rather than documented because the same body of sources also says the house stopped operating as a public house in 1834, and a landlord of a closed house is a contradiction someone needs to resolve."
   },
-  "research_note": "The building that named Wolf Point, and the least precisely placeable structure in this parcel. Its identity is vivid and its geometry is unknown: the painted wolf sign, the landlord succession, the 12 1/2-cent rate and the Black Hawk War headquarters are all attested, while not one source measures the building, counts its storeys or fixes it to an intersection. TWO DISPUTES ARE RECORDED RATHER THAN RESOLVED: the build date, 1823 versus 1828, where the same publication contradicts itself and 1828 is adopted for the reasons in the phase's date note; and whether it was still in innkeeping in July 1835, where the balance favours yes under a changed name. Neither dispute changes the scene — the building stood, on the west bank, north of the Lake Street crossing, with a wolf on a board outside it. What would change the record is a measured description in Andreas pp. 626-631, or the Braunhold retrospective view of Wolf Point examined at plate level for storey count and massing. See docs/RESEARCH/wolf_point_tavern.md.",
+  "research_note": "The building that named Wolf Point, and the least precisely placeable structure in this parcel. Its identity is vivid and its geometry is unknown: the painted wolf sign, the landlord succession, the 12 1/2-cent rate and the Black Hawk War headquarters are all attested, while not one source measures the building, counts its storeys or fixes it to an intersection. TWO DISPUTES ARE RECORDED RATHER THAN RESOLVED: the build date, 1823 versus 1828, where the same publication contradicts itself and 1828 is adopted for the reasons in the phase's date note; and whether it was still in innkeeping in July 1835, where the balance favours yes under a changed name. Neither dispute changes the scene \u2014 the building stood, on the west bank, north of the Lake Street crossing, with a wolf on a board outside it. What would change the record is a measured description in Andreas pp. 626-631, or the Braunhold retrospective view of Wolf Point examined at plate level for storey count and massing. See docs/RESEARCH/wolf_point_tavern.md. T-2386 L review has now inspected those retrospective pictures. The new physicalL is a bounded image-supported hypothesis, not a surveyed plan or accepted match; the original request remains open. The physicalL also rebases its local origin to preserve the old coarse world bbox centre; the retained-origin analytic trial would put part of the primary worn apron into the committed river. This is an explicit reconstructed model-coherence correction, not a picture-derived world location. T-2386 actual physical-L review found material topology/two-entry improvement but differs. This bounded continuation addresses facing horizontal wall/gable courses, roof edges, pole/sign pose and low right light, with reconstructed details and unchanged provisional camera; it does not close any image gate. T-2386 actual surface/pole comparison improved but still differs: this separate next proposal targets dark blind doorway recesses and curved course shading with narrow dark recessed joints, using the same camera and no global palette change. Full acceptance remains open.",
   "review_required": false
 }

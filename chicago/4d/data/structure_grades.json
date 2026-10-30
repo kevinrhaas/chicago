@@ -42,9 +42,106 @@
       "structure": "kinzie_house_1812_green",
       "picture": "lossing_1869_kinzie_mansion_engraving",
       "why": "Lossing's engraving draws a low picket fence before the house enclosing a green to the water, with the row of poplars beside it (data/sources/lossing_1869_kinzie_mansion_engraving.json)."
+    },
+    {
+      "scene": "1904",
+      "structure": "second_presbyterian_church_1936_michigan",
+      "picture": "newberry_sloan_second_presbyterian_street",
+      "why": "Sloan's photograph (1901-1925, before the spire's loss in 1929) shows the church whole from Michigan Avenue's west walk: the corner tower and spire, the east front's gable and great window, the south flank and the hall's gable beyond (read 2026-10-22, T-2982)."
+    },
+    {
+      "scene": "1835",
+      "structure": "hogan_store",
+      "picture": "early-cameron-first-post-office-1833",
+      "why": "Cameron's retrospective halftone shows the whole log building at left, including its roof and two elevations, and its printed caption identifies Chicago's first post office in 1833. This is a reasonable picture of the building under rule 12; it does not attest dimensions, hidden elevations, continued survival/use on 1 July 1835 or a solved historical camera. Local caption inspected for T-2377, 2026-10-22. The canonical library id aliases this same held composition, rather than adding a second independent picture; original source credit and per-attribute grades remain."
+    },
+    {
+      "scene": "1835",
+      "structure": "st_marys_church",
+      "picture": "early-moss-1884-st-marys",
+      "why": "Andreas 1884 printed p.291 shows the whole old wooden church and belfry. This library ID and legacy source andreas_1884_st_marys_engraving identify one physical engraving, displayed once on the Images tab and counted once under its canonical library ID, not two independent witnesses. The caption is undated, not 1843; Quarter describes a belfry in May 1844. This attests availability of a reasonable whole-building picture, not the tower's presence or precise form in July 1835. The current 1835 belfry remains reconstructed and all per-attribute grades and scene-date limits remain."
+    },
+    {
+      "scene": "1835",
+      "structure": "tremont_house_1",
+      "picture": "early-gifford-first-tremont",
+      "why": "Gifford shows the whole first Tremont, with three storeys, shuttered corner elevations and roof staff. Owner-approved attributed project use; undated retrospective form does not date each fitting to July 1835 or attest metric dimensions. The canonical held-library id names the same Gifford picture as source gifford_tremont_house_no_1; its diagnostic-only comparison camera supplies no historical observer position."
+    },
+    {
+      "scene": "1835",
+      "structure": "miller_house",
+      "picture": "early-blanchard-shober-1867-wolf-point",
+      "why": "The actual NYPL Wolf's Point in 1833 lithograph (published 1867), inspected 2026-10-23 for T-2381, depicts Miller House whole at right: tall main block, log lower storey, vertically boarded upper storey/gable and adjoining low cabin. This is a reasonable retrospective picture under rule 12, not proof of surveyed dimensions, unchanged July 1835 appearance, occupancy or a completed match. Existing per-attribute inferred/reconstructed grades remain. The canonical library id aliases this same held composition, rather than adding a second independent picture; original source credit and per-attribute grades remain."
+    },
+    {
+      "scene": "1835",
+      "structure": "wolf_point_tavern",
+      "picture": "blanchard_shober_1867_wolf_point",
+      "why": "The actual NYPL Wolf's Point in 1833 lithograph (published 1867), inspected 2026-10-23 for T-2386, depicts the left-bank tavern whole with its distinctive wolf board on a tall sapling pole, low paired volumes, doors/windows and roof heads. It is a reasonable retrospective picture under rule 12. It does not supply surveyed coordinates/dimensions, prove unchanged July 1835 appearance or settle a solved camera/match; per-attribute grades remain."
+    },
+    {
+      "scene": "1835",
+      "structure": "philo_carpenter_log_shop",
+      "picture": "early-andreas-1884-sauganash",
+      "why": "The actual Braunhold engraving published by Andreas in 1884, inspected 2026-10-23 for T-2382, shows the attached low log cabin whole beside the Sauganash, including its log end, front doorway, tall sash, roof and stack. This library ID and the legacy source ID andreas_1884_sauganash_hotel_plate identify the same held reproduction, displayed once on the Images tab; count it once under the library ID, not as an additional picture or independent witness. Identification follows this record's existing Illinois History Journal Beaubien-caption ruling for Beaubien's cabin/former Carpenter shop; it is not a new identification of the separate school-shore picture. Reasonable whole-building picture availability supports rule 12 while the retrospective date, July 1835 survival/use, exact dimensions and full matching remain unresolved and per-attribute grades remain."
+    },
+    {
+      "scene": "1812",
+      "structure": "first_fort_dearborn_north_range",
+      "picture": "whistler_1808_fort_dearborn_draught",
+      "why": "The complete northern folded elevation shows one two-storey, four-bay front and its roof, immediately adjoining the single plan range divided into 12 Soldiers Barracks and13 Contractors Store. Quaife p. 165 identifies the northern building as partly soldiers barracks and partly contractor supplies. It is the combined exterior this record represents, not two separate buildings or proof of either room's interior. Inspected the complete Whistler sheet and this source crop on 2026-10-24. This is the January 25, 1808 draught reproduced in Quaife 1913 facing p. 164, identified by its accompanying index in note 413 and narrative on p. 165. The whole folded facade is appearance evidence, despite the source record being typed map; the plan alone is not the basis of this ruling. Attribution to the same first-fort occurrence in the 1812 scene does not attest unchanged 1812 fittings, metric dimensions, true bearing, hidden elevations, exact door/window types or a completed image match. Existing attribute grades remain."
+    },
+    {
+      "scene": "1812",
+      "structure": "first_fort_dearborn_officers_barracks",
+      "picture": "whistler_1808_fort_dearborn_draught",
+      "why": "The complete folded elevation at the sheet's west range shows the five-bay, two-storey barracks front with its roof and three drawn stacks. Its adjoining plan range is 11, Officers Barracks in Whistler's index; Quaife p. 165 locates the subordinate officers directly opposite the east commanding quarters. The crop's270-degree quarter-turn only restores the drawn facade to upright; it is not a perspective or aspect correction. Inspected the complete Whistler sheet and this source crop on 2026-10-24. This is the January 25, 1808 draught reproduced in Quaife 1913 facing p. 164, identified by its accompanying index in note 413 and narrative on p. 165. The whole folded facade is appearance evidence, despite the source record being typed map; the plan alone is not the basis of this ruling. Attribution to the same first-fort occurrence in the 1812 scene does not attest unchanged 1812 fittings, metric dimensions, true bearing, hidden elevations, exact door/window types or a completed image match. Existing attribute grades remain."
+    },
+    {
+      "scene": "1812",
+      "structure": "first_fort_dearborn_commanding_officers_barracks",
+      "picture": "whistler_1808_fort_dearborn_draught",
+      "why": "The complete folded elevation at the sheet's east range shows a four-bay, two-storey front with roof and two drawn stacks. Its adjoining plan range is 10, Comm'g Officers Barracks in Whistler's index; Quaife p. 165 explicitly places the commanding officer's quarters on the east side. The crop's90-degree quarter-turn only restores the drawn facade to upright. Inspected the complete Whistler sheet and this source crop on 2026-10-24. This is the January 25, 1808 draught reproduced in Quaife 1913 facing p. 164, identified by its accompanying index in note 413 and narrative on p. 165. The whole folded facade is appearance evidence, despite the source record being typed map; the plan alone is not the basis of this ruling. Attribution to the same first-fort occurrence in the 1812 scene does not attest unchanged 1812 fittings, metric dimensions, true bearing, hidden elevations, exact door/window types or a completed image match. Existing attribute grades remain."
+    },
+    {
+      "scene": "1812",
+      "structure": "first_fort_dearborn_soldiers_barracks_sw",
+      "picture": "whistler_1808_fort_dearborn_draught",
+      "why": "The southern folded elevation on the plan-west side of the main gate shows this two-storey, four-bay soldiers' front and roof, adjoining the southern plan compartments numbered 12. Whistler's index calls 12 Soldiers Barracks, and Quaife p. 165 places the common soldiers' barracks on either side of the southern main gateway. The gatehouse touches the facade's inner end but the barracks' front and roof remain separately readable; it is not a ruling on the gatehouse or its fittings. Inspected the complete Whistler sheet and this source crop on 2026-10-24. This is the January 25, 1808 draught reproduced in Quaife 1913 facing p. 164, identified by its accompanying index in note 413 and narrative on p. 165. The whole folded facade is appearance evidence, despite the source record being typed map; the plan alone is not the basis of this ruling. Attribution to the same first-fort occurrence in the 1812 scene does not attest unchanged 1812 fittings, metric dimensions, true bearing, hidden elevations, exact door/window types or a completed image match. Existing attribute grades remain."
+    },
+    {
+      "scene": "1812",
+      "structure": "first_fort_dearborn_soldiers_barracks_se",
+      "picture": "whistler_1808_fort_dearborn_draught",
+      "why": "The southern folded elevation on the plan-east side of the main gate shows this separate two-storey, four-bay soldiers' front and roof, adjoining the other southern plan compartments numbered 12. Whistler's index calls 12 Soldiers Barracks, and Quaife p. 165 identifies the two barracks flanking the southern gateway. The adjacent gatehouse touches the inner end but does not obscure the barracks' complete front; it is not included in this structure's ruling. Inspected the complete Whistler sheet and this source crop on 2026-10-24. This is the January 25, 1808 draught reproduced in Quaife 1913 facing p. 164, identified by its accompanying index in note 413 and narrative on p. 165. The whole folded facade is appearance evidence, despite the source record being typed map; the plan alone is not the basis of this ruling. Attribution to the same first-fort occurrence in the 1812 scene does not attest unchanged 1812 fittings, metric dimensions, true bearing, hidden elevations, exact door/window types or a completed image match. Existing attribute grades remain."
+    },
+    {
+      "scene": "1835",
+      "structure": "chicago_lighthouse_1832",
+      "picture": "early-castelnau-1842-chicago-harbor",
+      "why": "The identified 1842 Castelnau harbour print shows the distinct visible lighthouse shaft, gallery, framed lantern, rounded crown and finial sufficiently to guide its appearance, although it is the small far-right building and its foot is occluded. The entire source and its original plate detail were inspected; this is appearance evidence rather than the mapped plan alone. The whole-building grade does not attest metric diameter, the 40 ft datum, paint, hidden construction, a historical viewing station or unchanged July 1835 detail. Circa 1838-to-1835 continuity remains inferred. The canonical Castelnau comparison now matches under T-3153; the Kellogg aperture/proportion and Baker cap disagreements remain explicit conflicting-picture readings, not literal matches. Tiny or occluded features and the original source/date/rights limits remain qualified in the seven-picture review."
     }
   ],
-  "not_pictured": [],
+  "not_pictured": [
+    {
+      "scene": "1835",
+      "structure": "log_jail",
+      "picture": "trowbridge_first_jail_gale_1902",
+      "why": "This is a partial/ambiguous view of the concealed log-jail CORE, not a ruling that no jail image exists. The1902Gale compound and1884Andreas court-house plate depict its surrounding palisade/keeper house, but the rear core is mostly concealed and their gable/hip caps disagree; neither resolves the original1833cell against the later separate cell on1July1835. The provisional compound QA cameras are not solved appearance evidence for that core. The Gale image/text remain valid evidence of the pictured high plank palisade; that enclosure finding is not downgraded."
+    },
+    {
+      "scene": "1835",
+      "structure": "log_jail",
+      "picture": "andreas_1884_v1",
+      "why": "This is a partial/ambiguous view of the concealed log-jail CORE, not a ruling that no jail image exists. The1902Gale compound and1884Andreas court-house plate depict its surrounding palisade/keeper house, but the rear core is mostly concealed and their gable/hip caps disagree; neither resolves the original1833cell against the later separate cell on1July1835. The provisional compound QA cameras are not solved appearance evidence for that core. The Gale image/text remain valid evidence of the pictured high plank palisade; that enclosure finding is not downgraded."
+    },
+    {
+      "scene": "1904",
+      "structure": "house_1712_prairie",
+      "picture": "cgn-1712-tribune-1939-kodak-model",
+      "why": "The Chicago Tribune's photograph of 24 December 1939 shows the architects' model of the Eastman Kodak film-processing plant (Schmidt, Garden & Erikson; five storeys, 120 by 160 ft) to be built on the 1712-1720 frontage, as the Prairie library's own note says ('what replaced the Sturges/Walker houses'). It is a picture of the building that replaced the house, not of the house, so it does not attest 1712's 1904 form (read 2026-10-27, T-3187)."
+    }
+  ],
   "street_maps": {
     "1835": {
       "maps": [

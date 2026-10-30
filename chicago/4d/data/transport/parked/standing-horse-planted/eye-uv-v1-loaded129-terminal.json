@@ -1,0 +1,17 @@
+{
+  "status": "FRESH_1904_LOADER_CLONE_MIXER129_CPU_PASS_ONLY",
+  "exit_code": 0,
+  "elapsed_seconds": 2.793528724985663,
+  "peak_rss_bytes": 166969344,
+  "resource_or_supervisor_failure": null,
+  "parent_error": null,
+  "readback_parse_error": null,
+  "child_reaped": true,
+  "no_owned_child_active": true,
+  "world_qualified": false,
+  "app_or_GPU_or_photo_accepted": false,
+  "activation_or_next_phase": false,
+  "new_browser": false,
+  "new_GLTFLoader_import": true,
+  "reruns": 0
+}

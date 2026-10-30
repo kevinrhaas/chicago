@@ -1,0 +1,21 @@
+{
+  "structure_id": "kinzie_bake_house_1812",
+  "source_id": "cram_1893_old_kinzie_mansion_1832_engraving",
+  "photo": "../../../../reference/images/chicago/chicago_kinzie_mansion_1832_and_1845_view.jpg",
+  "image_px": [
+    1280,
+    881
+  ],
+  "principal_px": [
+    446.6,
+    157.0
+  ],
+  "focal_px": 1600.0,
+  "eye": [
+    56.12,
+    142.01,
+    20.51
+  ],
+  "yaw_deg": 195.25,
+  "solve": "THE HOUSE'S CAMERA ON THE SAME PICTURE, RE-AIMED ON THIS BUILDING (T-2485). The eye, focal (1600.0 px) and heading are the house's own, from data/reference_views/kinzie_house_1812/cram_1893.json, carried into this record's footprint frame (eye [56.12, 142.01, 20.51], heading 195.25 degrees). With the building at its reconstructed place, that camera draws it about 14 px lower than the plate does; so the principal point alone is fitted, by least squares, to points read off the picture on gridded crops (4-10x, to about +/-2 px): the west gable's back eave corner (572, 351) and apex (578, 343), and the stack's head (577, 338); the rest is behind the house and the shrubs. It moves from [448.9, 170.6] by (-2.3, -13.6) px, rms 4.1 px. A shifted principal point is a camera turned by a fraction of a degree; it stands for the looseness of a background building behind the drawing's subject, which the house's own fit cannot take up (the house fits this picture's camera at rms 5.5 px). The building's place is reconstructed (docs/LIBERTIES.md L420), so this solve tests its form, not its position. The light is the house camera's (none stated: the review sun)."
+}

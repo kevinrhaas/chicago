@@ -125,7 +125,8 @@ ROOF_TYPES = ("gable", "shed")
 CONSTRUCTIONS = ("balloon_frame", "braced_frame")
 
 # Room arrangement, which is what decides where the front door is. Not a style.
-PLANS = ("single_pen", "hall_parlour", "centre_passage")
+# T-2384: chapel_side is a picture-bounded side entrance, not a house interior.
+PLANS = ("single_pen", "hall_parlour", "centre_passage", "chapel_side")
 
 # A stoop is a plank landing and two or three steps at the door. A roofed porch is the
 # same thing with a small shed roof on two posts, over the door only. Neither is the
@@ -311,7 +312,7 @@ CONSUMED = frozenset({
     "stories", "wall_height_m", "knee_wall_m", "roof_type", "roof_pitch_deg",
     "construction", "plan", "bays", "porch", "ell", "ell_wall_height_m",
     "chimneys", "paint", "shutters", "siding_exposure_m", "stovepipes", "glazing",
-    "trim", "chimney_head",
+    "trim", "chimney_head", "tower", "chimney_placement", "front_window_sill_m",
 })
 # NOT in the set, and each absence is a decision rather than an oversight:
 #   `cladding`      — this archetype always builds clapboard over sheathing, so a
@@ -441,7 +442,56 @@ class FrameDwellingParams:
     # per-attribute confidence, keyed by the attribute name in the record
     confidence: dict = field(default_factory=dict)
 
+    # T-2384. Opt-in chapel details; keyword-only so the house API is unchanged.
+    tower: bool = field(default=False, kw_only=True)
+    chimney_placement: str = field(default="house", kw_only=True)
+    # T-2384: opt-in setout of only the pictured chapel-front sash.
+    # None preserves the existing house, rear and gable opening arithmetic.
+    front_window_sill_m: float | None = field(default=None, kw_only=True)
+
     # ---------------------------------------------------------------- derived
+
+    @property
+    def chapel_front_stations(self) -> tuple:
+        """The pictured chapel's five sash followed by its end door.
+
+        T-2384 transfers topology from an undated engraving to the original
+        footprint as a declared reconstruction. Fractions are chosen set-out,
+        not measurements of the engraving. Keep the actual arithmetic here:
+        mesh_inputs hashes derived properties, and both the builder and the
+        native entrance reader consume these same resolved centres.
+        """
+        if self.plan != "chapel_side":
+            return ()
+        raw = ((0.15, "window"), (0.29, "window"), (0.43, "window"),
+               (0.57, "window"), (0.71, "window"), (0.90, "door"))
+        return tuple((_snap_bay(self.width_m * u, self, self.width_m), kind)
+                     for u, kind in raw)
+
+    @property
+    def chapel_blank_gables(self) -> bool:
+        """The pictured chapel's blank end walls; the unseen end is reconstructed."""
+        return self.plan == "chapel_side"
+
+    @property
+    def stack_x_positions(self) -> tuple:
+        """The unchanged house layout, or the pictured chapel's existing far stack."""
+        if self.chimneys <= 0:
+            return ()
+        if self.chimney_placement == "far_gable":
+            return (self.width_m - 0.75,)
+        out = [0.75]
+        if self.chimneys >= 3 or (self.chimneys == 2 and not self.ell):
+            out.append(self.width_m - 0.75)
+        return tuple(out)
+
+    @property
+    def front_sill_m(self) -> float:
+        """Front sash sill; the exact former arithmetic when no override is stated."""
+        if self.front_window_sill_m is not None:
+            return float(self.front_window_sill_m)
+        story_h = self.wall_height_m / 2.0 if self.stories >= 2.0 else self.wall_height_m
+        return min(0.95, story_h * 0.36)
 
     @property
     def window_w_m(self) -> float:
@@ -639,6 +689,15 @@ class FrameDwellingParams:
     def _validate_facade(self) -> None:
         if self.plan not in PLANS:
             raise ParamError(f"plan '{self.plan}' not in {PLANS}")
+        if not isinstance(self.tower, bool):
+            raise ParamError("tower must be true or false")
+        if self.tower and self.plan != "chapel_side":
+            raise ParamError("the open chapel tower requires chapel_side")
+        if self.chimney_placement not in ("house", "far_gable"):
+            raise ParamError("chimney_placement must be house or far_gable")
+        if self.chimney_placement == "far_gable" and (
+                self.plan != "chapel_side" or self.chimneys != 1):
+            raise ParamError("far_gable places the chapel's single existing chimney")
         if self.porch is not None and self.porch not in PORCHES:
             raise ParamError(
                 f"porch '{self.porch}' not in {PORCHES}. A full-width two-tier gallery "
@@ -649,6 +708,16 @@ class FrameDwellingParams:
                              f"a colour for")
         if self.glazing not in GLAZINGS:
             raise ParamError(f"glazing '{self.glazing}' not in {tuple(GLAZINGS)}")
+        if self.front_window_sill_m is not None:
+            sill = self.front_window_sill_m
+            if (isinstance(sill, bool) or not isinstance(sill, (int, float))
+                    or not math.isfinite(sill) or sill <= 0):
+                raise ParamError("front_window_sill_m must be a finite positive number")
+            if self.plan != "chapel_side":
+                raise ParamError("front_window_sill_m is the pictured chapel-front opt-in")
+            _across, up, lo, _pw, ph = glazing_lights(self.glazing)
+            if sill + sash_height_m(up, lo, ph) > self.wall_height_m - 0.28 + 1e-9:
+                raise ParamError("front_window_sill_m must fit the full sash below the frieze")
         if self.trim not in TRIMS:
             raise ParamError(f"trim '{self.trim}' not in {tuple(TRIMS)}")
         if self.chimney_head not in CHIMNEY_HEADS:
@@ -664,6 +733,14 @@ class FrameDwellingParams:
                 f"above seven the frontage would have to exceed the 20 m this archetype "
                 f"accepts at all")
         n = self.bays or self.derived_bays()
+        if self.plan == "chapel_side":
+            if self.stories != 1.0 or self.ell or self.roof_type != "gable":
+                raise ParamError("chapel_side is a single-storey gabled range without an ell")
+            if n != 6:
+                raise ParamError("chapel_side has five sash and one door: bays must be 6")
+            stations = self.chapel_front_stations
+            if any(_clash(a, b, self) for a, b in zip(stations, stations[1:])):
+                raise ParamError("chapel_side's six openings do not fit this frontage")
         if self.plan == "centre_passage" and n % 2 == 0:
             raise ParamError(
                 f"a centre-passage front is an ODD number of bays — a centred door with "
@@ -945,6 +1022,9 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         siding_lay_m=_board_lay(recon),
         siding_seed=f"{(record or {}).get('id', '')}|{phase.get('id', '')}",
         confidence=confidences,
+        tower=val("tower", False),
+        chimney_placement=str(val("chimney_placement", "house")),
+        front_window_sill_m=val("front_window_sill_m"),
     )
     p.resolve()
     return p
@@ -1049,6 +1129,8 @@ def facade_bays(p: "FrameDwellingParams") -> list:
     something the sidecar mentions. Openings the snap runs together are parted
     (`_part`, T-1984).
     """
+    if p.plan == "chapel_side":
+        return list(p.chapel_front_stations)
     w, n = p.width_m, p.bays
     if p.plan == "centre_passage":
         centres = [w * (i + 0.5) / n for i in range(n)]
@@ -1081,7 +1163,7 @@ def front_wall(p: "FrameDwellingParams") -> dict:
     w = float(p.width_m)
     wall_z = float(p.wall_height_m)
     story_h = wall_z / 2.0 if p.stories >= 2.0 else wall_z
-    sill = min(0.95, story_h * 0.36)
+    sill = p.front_sill_m
     top_head = wall_z - 0.28
     h = sash_rows(p.glazing, (story_h - 0.14 if p.stories >= 2.0 else top_head) - sill)[2]
     door_h = min(DOOR_H_M, top_head - DOOR_SILL_M)

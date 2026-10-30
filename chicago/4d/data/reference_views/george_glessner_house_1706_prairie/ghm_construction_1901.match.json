@@ -1,0 +1,128 @@
+{
+  "structure_id": "george_glessner_house_1706_prairie",
+  "view": "ghm_construction_1901",
+  "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
+  "glb_sha256": "5a747ab9e9ad634071b9a69d4f8edc135fffe78cbcd85837ec6c0dddffaeaa57",
+  "camera_sha256": "d7e05311b1304078449f5b22e531ef5286302740d4e7d8e3fa4161fea21603be",
+  "photo_sha256": "1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b",
+  "rendered_members": [
+    {
+      "structure_id": "george_glessner_house_1706_prairie",
+      "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.171,
+        "local_n": -3104.665,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "5a747ab9e9ad634071b9a69d4f8edc135fffe78cbcd85837ec6c0dddffaeaa57"
+    },
+    {
+      "structure_id": "glessner_lee_house_1700_prairie",
+      "glb": "assets/gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.059,
+        "local_n": -3093.615,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0.000054848602107582245,
+        0,
+        -11.05056758709686
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "35207868edd6434300bb3e60832a0577c1935cff74c0cdf78c0d977747b12e63"
+    },
+    {
+      "structure_id": "house_1708_prairie",
+      "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.577,
+        "local_n": -3112.161,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0.32996826827847453,
+        0,
+        7.499731524656778
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
+    }
+  ],
+  "group_sha256": "cec984fb0dcd97598d9a0fc1a4efdad3ee217fb1c973e19da630ecc65ededc02",
+  "side_by_side": "docs/RESEARCH/photo-match/george_glessner_house_1706_prairie/ghm_construction_1901-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the pair's brick front of two storeys over a low basement, under one mansard, from 1706's south corner against 1708 to 1700's north corner",
+      "status": "fixed",
+      "how": "T-3211's pair; the line under the main cornice renders at both corners and the party line within about 5 px of the print's"
+    },
+    {
+      "what": "the upper storey's windows: four to 1706 and the first of 1700's",
+      "status": "fixed",
+      "how": "the camera was fitted on these thirteen corners (rms 1.9 px), so they say where the camera stood, not that the windows are right: their spacing, width and heights fit the print within 3 px with nothing adjusted"
+    },
+    {
+      "what": "the principal storey's round-arched openings outside 1706's door (two to 1706, the first of 1700's)",
+      "status": "fixed",
+      "how": "T-3212: their places and crowns render on the print's; their feet, which the print shows at about 1.37 m over grade (the openings unglazed), were at 2.0 m and now stand at 1.45 m, the lights running down behind the balconettes as Chicagology's photograph shows"
+    },
+    {
+      "what": "the cornice, the slate mansard, its pedimented dormers and the stacks",
+      "status": "within tolerance",
+      "how": "in place in 1901; dormers, stacks and the cornice's line render where the print draws them to within the dormers' cases' width, as T-3211 left them in the later views"
+    },
+    {
+      "what": "the porches, the balconettes, the balcony railings and the glazing",
+      "status": "not shown",
+      "how": "EVIDENCE OF ITS OWN DATE: in 1901 none is built (1706's door is a wide opening under a stone lintel carrying a builder's sign board; every window is an empty opening). The 1904 porches, balconettes and sashes are the after-1902 photographs' (Chicagology's and the Christmas print's); this picture neither supports nor contradicts them"
+    },
+    {
+      "what": "the builder's timber shed, the lumber and sand heaps, the young parkway tree and the overhead wire",
+      "status": "not shown",
+      "how": "EVIDENCE OF ITS OWN DATE: the building site of 1901, gone (or grown) by 1904; not built"
+    },
+    {
+      "what": "the front walks",
+      "status": "not shown",
+      "how": "no walk to either door is laid in 1901: the yard is the builder's"
+    },
+    {
+      "what": "the gateway in the railing before 1706: in 1901 a spear railing on a stone curb runs on from 1708's to a pair of capped piers at about x 320 and 356 and stops at about x 367, which this camera puts on the street line at about v 0.6, 2.3 and 2.8 in 1706's frame (to about 0.15 m: the street line's projection moves 3 px across eye heights of 0.34 to 1.8 m); the render's gateway stands at v 2.35-3.85, square to 1706's flight, about 1.6 m north of the print's",
+      "status": "open",
+      "how": "T-3212: the railing stopping at the gateway's north pier is the arrangement Chicagology's later photograph shows, so this is probably the 1904 railing, and its gateway stood toward the pair's south end of the flight's axis. K11 lays a gateway only square to the flight and K14 runs the walk straight, so it is left square; a visitor at the gate would see it about 1.6 m north of where it stood. Chicagology's camera, fitted on the front alone, cannot place it (its gateway reads still further south)"
+    },
+    {
+      "what": "1700's front north of its first upper window, its door and its porch's place, behind the young street tree; and its north corner's foot, behind the builder's sand",
+      "status": "not shown",
+      "how": "hidden in the print"
+    },
+    {
+      "what": "colour: the brick's, the stone's and the slate's",
+      "status": "within tolerance",
+      "how": "T-3244: the new wall of 1901 prints lighter against the stone than the finished front does in the later pictures (fresh brick under construction dust), but darker than its own slate, as a red brick does and a buff one cannot; the porches, sash and paint are not up yet (docs/RESEARCH/colour-1700-block-T-3244/README.md)"
+    },
+    {
+      "what": "the rear, the north wall and the roof deck",
+      "status": "not shown",
+      "how": "out of the picture"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,27 @@
+{
+ "structure_id": "sears_meeker_house_1815_prairie",
+ "source_id": "chicagology_1815_sears_two_views",
+ "library_image": "a18-cgy-1815-sears-two-views",
+ "photo": "../../sources/assets/sears_1815_photos_t1893/sears_1815_two_views.jpg",
+ "image_px": [
+  2000,
+  1295
+ ],
+ "principal_px": [
+  2783,
+  727
+ ],
+ "focal_px": 1250,
+ "eye": [
+  32.5,
+  27.23,
+  5.36
+ ],
+ "yaw_deg": 262.54,
+ "sun_uvy": [
+  1.0,
+  0.7,
+  1.0
+ ],
+ "solve": "Fitted by T-3156 to the RIGHT print of the two-view copy (x 1045-2000 px of the image store's 2000 x 1295 px copy; the left print is chicagology_square_on's camera), the front and south flank from the south-west, the view the Glessner House Museum's photograph a18-gh-sears-house-exterior also shows. LEVEL: the walls' verticals stand vertical in the print, so the camera is level and its horizon is principal_px's y. POINTS: sixteen points on the street front, each read in BOTH prints and placed in 3-D through the square-on camera (on the front's plane u 17.46, or the pavilion's face 0.3 m proud of it): the four corners of the attic's paired lights (square-on x 200-325, y 250-390; here x 1088-1185, y 330-470), of the pavilion's second-storey window (x 220-305, y 478-630; here 1112-1175, 552-700), of the principal-storey window right of the door, its leaded light seen past the tree (x 512-598, y 718-890; here 1380-1428, 785-962), the narrow light over the door's south jamb (x 408-438, y 515-598; here 1300-1320, 580-660) and the door's opening (x 305-410, y 718-918; here 1180-1270, 790-985). Those points all stand on one plane, which leaves distance and focal length trading against each other (a fit on them alone moved the eye from 33 m to 114 m out for under 1 px of residual), so the south flank's cornice was added as a line: its top, 9.56 m over grade on the square-on, runs here from (1610, 405) to (1890, 468) px, and four points along the flank at that height were held to it. RESULT (least squares): the eye 15 m in front of the house in Prairie Avenue's roadway (u 32.5; the street line at u 26.8) and 16.8 m south of its south wall (v 27.23), 5.36 m over grade (the print looks slightly down on the stoop, so the camera stood raised, a window or a platform across the avenue); heading 262.5 degrees; f 1250 px; the principal point at x 2783 px, right of the print, so the print is an off-centre crop of a wider plate. RESIDUALS: the front's sixteen points 11.7 px rms (19 px at most, the narrow light's), the flank line within 6 px. UNCERTAINTY: the corner the print shows does not stand where the build stands it, and so it was not fitted: the print's main cornice turns onto the flank at x 1605 px and its corner bay's south face is seen at x 1745-1790 px, where this camera puts the build's corner at 1711 and the bay's south-west corner at 1618, i.e. the print's bay runs about 0.75 m south of the main front's south corner as the square-on's does (the bay's south edge at x 905 px there, the cornice's return at x 850). That is open in this view's match record. LIGHT: the front lit, the flank in half shade, as the square-on: the sun from the south-west."
+}

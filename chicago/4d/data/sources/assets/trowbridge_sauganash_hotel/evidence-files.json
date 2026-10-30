@@ -1,0 +1,29 @@
+{
+  "source_id": "trowbridge_sauganash_hotel",
+  "publication": "Gale 1902, illustrated by W. E. S. Trowbridge",
+  "plate": {
+    "path": "gale-n49.jpg",
+    "bytes": 554101,
+    "sha256": "8cc3904241f5ee86962075f653f925788008cb38ce215e63ee3ffb587eb2e591",
+    "url": "https://archive.org/download/reminiscencesofe00ingale/page/n49_large.jpg",
+    "caption": "Mark Beaubien's Tavern, the Sauganash, in 1835",
+    "printed_page_facing": 31,
+    "actual_image_read": true
+  },
+  "shared_publication_proof": [
+    {
+      "path": "chicago/4d/data/sources/assets/trowbridge_first_jail_gale_1902/gale-title-n12.jpg",
+      "sha256": "f173ab1f53a972dffca951afe4ebe0e195c80f4be669529ef9e9d964725518b5",
+      "url": "https://archive.org/download/reminiscencesofe00ingale/page/n12_large.jpg",
+      "actual_image_read": true
+    },
+    {
+      "path": "chicago/4d/data/sources/assets/trowbridge_first_jail_gale_1902/gale-copyright-n13.jpg",
+      "sha256": "4e8de039eb2d92260fd7529ccef70c65c2385162f5469b277fe6addb275485a8",
+      "url": "https://archive.org/download/reminiscencesofe00ingale/page/n13_large.jpg",
+      "actual_image_read": true
+    }
+  ],
+  "rights": "Public domain by independently verified 1902 US publication; no modernstockreproductionlicenceclaimed",
+  "limits": "Retrospective 1835 caption; not dated July 1835 geometry, colours or metric dimensions."
+}

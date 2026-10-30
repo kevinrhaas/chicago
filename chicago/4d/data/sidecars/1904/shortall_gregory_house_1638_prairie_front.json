@@ -28,7 +28,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner, 1808 and 1904 parcel records make of these sheets. FROM: the T-1837 building register gives 1868 (the street marker) against 1870 (a 1973 report) for the house; the register is not a source record here, so the earlier year's first day stands, inferred. TO: the register gives the loss as 1944 (marker); same footing, that year's last day."
+    "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner, 1808 and 1904 parcel records make of these sheets. FROM: the T-1837 building register gives 1868 (the street marker) against 1870 (a 1973 report) for the house; the register is not a source record here, so the earlier year's first day stands, inferred. TO: the register gives the loss as 1944 (marker); same footing, that year's last day.",
+    "from_is": "began"
   },
   "change_note": "",
   "placement": {
@@ -934,6 +935,25 @@
       ],
       "note": "The front fence and its two gate piers (T-2456, piece 1 of T-2426), read off the photograph, and re-read by T-2524 through the camera T-2523 re-solved on the front steps and the fence's base (data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json: eye 30.71 m in front of the house, v 2.7 m and 3.25 m over the walk, f 2242 px, principal point 459, 657 px). The street line is the 1911 sheet's, 10.8 m in front of the house (form.position), and the lot lines are parcel prairie_1638's (data/street_grid/1904.json) carried into this frame, v -4.40 and 8.39 m. The plinths' street faces stand on the line, 19.91 m from the eye, where the print draws 112.6 px a metre (T-2456 read the same pixels at 158.7, from the old camera's eye 20 m out; every size it took across came out 1.44 times too small through this one). Each reading is taken at the face it was read on: across = 2.7 + (column - 459) x depth / 2242, and height over the walk = 3.25 - (row - 657) x depth / 2242, the depth the eye's 30.71 m less the face's distance out. The shafts' street faces 75-131 and 282-336 px (0.50 and 0.48 m: 0.49 m square), their middles at s -0.47 and 1.365 m, an open gateway 1.255 m clear between plinths 0.58 m square (the shafts' ratio carried to T-2456's 0.4 m, unread); the caps 63 px (0.56 m) at their lower corners. T-2521 read the caps' outline row by row at 3x (through T-2423's camera; the rows are carried here through T-2523's): each is 57 px (0.51 m) across at its top (797-806 px), its eave a hair over the shaft, and its lower corners flare out like a hood over the heart, the south pier's south edge stepping out 1 px every 4-6 rows from 806 px (1.93 m) to its widest at 826-830 px (1.75-1.71 m), 6 px out, then turning back in to the shaft's line by 836 px (1.66 m); the north pier's lower corners stand 275-338 px (63 px) over a 52 px shaft. So the cap's boards are the shaft's breadth (0.49 m, under a 0.008 m eave) and each board's lower corners are swept out along a quarter-sine to 0.56 m at 1.721 m and rounded back in to the shaft at 1.66 m (`flare`); the curve between the readings is RECONSTRUCTED. Heights: plinths to 975 px (0.43 m); the shaft's top under the cap 842 px (1.61 m); the cap's top about 800 px (1.98 m), level; in each cap's face a pierced inverted heart 39 px across (0.35 m), its point at 808 px (1.91 m) and its two lobes down to 838 px (1.64 m), dark behind; the south pier's finial a thin spike to about 753 px (2.385 m), the north pier's a spike through a ring 20-22 px across (0.19 m) whose middle is 787 px (2.08 m), standing on the cap (built at 2.085 m, the least that clears the cap's point). The base is the light band from 986 px to the foot (0.32 m), its street face kept 10.75 m out where the camera was solved on it (so 0.48 m wide, 0.05 m behind the plinths' faces, as before), and on it thin dark bars 38.7 px apart (0.349 m), the first at 345 px against the north plinth (0.018 m off its face, s 1.673 m), stand against the lawn up to the hedge line at 939 px (0.71 m) and, where the stoop's steps are behind them, to about 926 px: 0.83 m over the walk, a rail at the top that the hedge hides. The bars are laid from each gate pier at that pitch (`bars.first_m`), so they stand where the print draws them rather than spread to fill the run; the gap left at the far lot line is RECONSTRUCTED. The print's foot falls at 1026 px, 4 px under the camera's grade at the line (1022 px, the reading the camera was solved on), so heights carry about 0.035 m of that. What T-2456 never read — the rod, ring bar, cap boards' thickness and pyramid, the bars' and rail's section — is carried by the same 1.44, so the fence draws in the print's proportions. The print shows the fence from south of the south pier to some 5 m along the front, where the frame cuts it off; north of that, and south to the lot line, it is carried on unchanged (RECONSTRUCTED), with no second gate where a walk to the stoop might cross it, because none is seen. The materials are RECONSTRUCTED: the base and plinths a pale stone, the piers painted timber in the house's trim (the print draws them in one tone with the base), the bars and finials iron. Nothing in the gateway: the print shows lawn and a shrub through it and no leaf."
     },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.2
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_1638_prairie_photo",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3222 (piece 2 of T-3215; the owner, 2026-10-27: walks, gates and boundaries to the pictures). A K14 front walk the K16 generator lays (k16_timber.yard_walk): K14's router takes it out from the porch stair's foot, along the fence's back clear of the gate piers' plinths, and out through the gateway between them to the street line, in 0.9 m flags of the plinths' stone worn by the condition kit. The gateway and the stair are read off the photograph (chicagology_1638_prairie_photo, through the camera T-2523 solved): it shows pale ground in the gateway and at the stair's foot behind the fence, where the walk lands in the render (data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.match.json). The hedge hides the rest of the yard, so the line along the fence, the 1.2 m width and the flags are RECONSTRUCTED (the district's K14 walk sizes). No grade_m: the app's ground rises 2-21 mm over the house's bed under the walk (tools/qa_house_walks_t3222.mjs), less than the flags' 0.06 m. Liberty L-k16-1638-walk-3222; stills docs/RESEARCH/house-boundaries-T-3222/."
+    },
     "function": {
       "value": "residence",
       "confidence": "attested",
@@ -941,6 +961,14 @@
         "sanborn_1911_chicago_v3_sheet_20"
       ],
       "note": "Sheet 20 prints the 1911 use 'D' (dwelling) on the 1638 lot."
+    },
+    "built": {
+      "value": 1868,
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "note": "The marker: 'John G. Shortall-Robert B. Gregory Residence. Built 1868'. The Prairie library notes a 1973 report that gives 1870."
     }
   },
   "residents": [],
@@ -961,6 +989,22 @@
         "colour: the print is monochrome, so every paint colour stays reconstructed",
         "the side, rear and north walls, and the roofs behind the gable",
         "a date: undated, and its 1904 reading rests on nothing recorded as changing"
+      ]
+    },
+    {
+      "source_id": "hmdb_prairie_lost_houses_1600_1700",
+      "citation": "'Lost Houses of Prairie Avenue: 1600-1700 Blocks', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308722.",
+      "url": "https://www.hmdb.org/m.asp?m=308722",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "each house's builder, year built and architect as the district's marker gives them",
+        "Pullman's theatre, organ and bowling alley and Beman's conservatory additions, in paraphrase"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 occupants",
+        "any measurement or appearance"
       ]
     },
     {

@@ -4,12 +4,13 @@
  *
  * Every row is a dated fact the data already carries; nothing here composes a date:
  *
- *   - BUILT is the summary record's own `built.year`, with its grade. A building without a
- *     record has no build date anywhere in its sidecar — `documented_range.from` is where
- *     the evidence of its standing begins (often the date of a description, or the scene's
- *     own date), never when it went up — so the row says the records give no date.
+ *   - BUILT is the summary record's own `built.year` (worded by its `phrase` where it has one), with its grade, or else the sidecar's
+ *     `built` attribute (T-3037: "1864 or 1875" where the sources disagree). With neither, the
+ *     row says the records give no date: `documented_range.from` is where the record's claim
+ *     begins (often the date of a description, or the scene's own date), never when it went up.
  *   - STOOD HERE is the modelled phase (`documented_range`, §12 "Modeled phase dates → Story
- *     timeline"), the years this scene shows the building as it stood, with that claim's grade.
+ *     timeline"), from the ends the record dates (`from_is`, `to_is`; range-words.js), with
+ *     that claim's grade. A range whose ends are both bounds has no row.
  *   - The record's `story` entries, each with its grade — only those whose `era` is this
  *     scene's (§12: content tagged with another scene's era never renders).
  *   - The town's fire limit, from the 5 August 1835 by-law, on an 1835 building only (the
@@ -26,6 +27,7 @@
  */
 import { t } from './strings/index.js';
 import './strings/inspect-story.js';
+import { builtPhrase, rangeEnds, rangeWords } from './range-words.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const ISO = /^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/;
@@ -53,12 +55,10 @@ function graded(g) {
   return GRADES.includes(g) ? g : null;
 }
 
-/** "1887 – 1946" (non-breaking), or the one year when both ends fall in it. */
+/** The span the record dates (T-3037, range-words.js), its dash kept on one line:
+ *  "1887 – 1946", "by 1890, still in 1911"; '' where both ends are bounds. */
 function span(range) {
-  const f = yearOf(range?.from);
-  const to = yearOf(range?.to);
-  if (f && to) return f === to ? f : `${f}\u00a0–\u00a0${to}`; // kept on one line
-  return f ?? to ?? '';
+  return rangeWords(range).replace(/ – /g, '\u00a0–\u00a0');
 }
 
 /** The visit, in words: "1 July 1904". */
@@ -106,15 +106,29 @@ export function storyTimeline({ sum = null, sidecar = null, scene = null, fireLi
 
   const dated = [];
   const built = sum?.built;
+  // T-3037: with no summary record, the structure's own `built` attribute, as its sources
+  // give it ("1864 or 1875" where they disagree), dated at its earliest year.
+  const attrBuilt = sidecar?.attributes?.built;
+  const attrPhrase = builtPhrase(attrBuilt?.value);
   const builtRow = Number.isInteger(built?.year)
-    ? { kind: 'built', mark: 'built', date: String(built.year), text: '', grade: graded(built.grade) }
-    : { kind: 'built', mark: 'built', date: null, text: t('inspect-story.built.none'), grade: null, missing: true };
+    ? { kind: 'built', mark: 'built', date: String(built.year),
+      text: builtPhrase(built.phrase) ? t('inspect-story.built.phrase', { phrase: builtPhrase(built.phrase) }) : '',
+      grade: graded(built.grade) }
+    : attrPhrase
+      ? { kind: 'built', mark: 'built', date: attrPhrase.match(/\d{4}/)[0],
+        text: /^in \d{4}$/.test(attrPhrase) ? '' : t('inspect-story.built.phrase', { phrase: attrPhrase }),
+        grade: graded(attrBuilt.confidence) }
+      : { kind: 'built', mark: 'built', date: null, text: t('inspect-story.built.none'), grade: null, missing: true };
   if (builtRow.date) dated.push(builtRow);
 
+  // The phase's span, from the ends the record dates; a bound is not a date (T-3037), so a
+  // range with neither end dated has no row and the Built row says what is not known.
   const range = sidecar?.documented_range;
-  if (range && (yearOf(range.from) || yearOf(range.to))) {
-    dated.push({ kind: 'stood', mark: 'stood', date: range.from && yearOf(range.from) ? range.from : range.to,
-      text: t('inspect-story.stood.span', { span: span(range) }), grade: graded(range.confidence) });
+  const ends = rangeEnds(range);
+  const spanText = range ? span(range) : '';
+  if (spanText) {
+    dated.push({ kind: 'stood', mark: 'stood', date: ends.from ? range.from : range.to,
+      text: t('inspect-story.stood.span', { span: spanText }), grade: graded(range.confidence) });
   }
 
   for (const entry of Array.isArray(sum?.story) ? sum.story : []) {

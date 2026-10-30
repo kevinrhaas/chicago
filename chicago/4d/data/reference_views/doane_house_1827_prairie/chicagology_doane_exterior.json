@@ -1,0 +1,27 @@
+{
+ "structure_id": "doane_house_1827_prairie",
+ "source_id": "chicagology_1827_doane_exterior",
+ "library_image": "cgn-1827-doane-exterior",
+ "photo": "../../sources/assets/doane_1827_photo_t3171/doane_1827_exterior.jpg",
+ "image_px": [
+  1444,
+  1770
+ ],
+ "principal_px": [
+  722.0,
+  1333.5
+ ],
+ "focal_px": 4131.0,
+ "eye": [
+  65.53,
+  41.69,
+  2.79
+ ],
+ "yaw_deg": 234.45,
+ "sun_uvy": [
+  1.0,
+  0.6,
+  1.0
+ ],
+ "solve": "Re-solved by T-3176 (piece 2 of T-3172) on the 1911 sheet's plan (trace s28fp-1827-b1) and the corner tower that plan and the photograph agree on, replacing T-3171's fit, which stood on an assumed corner point and put the pavilion's north edge 98 px and the tower's south angle 219 px off the print. The photograph alone, the image store's 1444 x 1770 px copy. The footprint frame's u runs toward Prairie Avenue (west) and v runs SOUTH from the main block's north wall; the main block is u 0-24.4, v 0-15.5. WHICH WAY IT LOOKS: north-east, from the west side of Prairie south of the house, as before. THE TOWER IT STANDS ON: the sheet draws the south-west corner as a square turned 45 degrees across the corner, three of its faces outside the walls: its north-west face from the front at v 14.36 out to an angle at u 25.5, v 15.5, its south-west face 2.1 m on to an angle at u 24.0, v 17.1, and its south-east face back to the flank at u 22.3 (a square 2.27 m on a face centred on u 23.98, v 15.55). The photograph's broad south-west face (x 857-1135 px, seen nearly square on) is 3.5 times the width of the front's own window beside it (x 665-745, 1.15 m), which with the two faces' angles to the eye makes it about 3.2 m; no level camera holds the sheet's 2.27 m square on the print (the best leaves 40-47 px). Fitted with the square's side free and its centre the sheet's, the side comes out at 3.25 m. FIT: a least-squares fit of eye, heading, focal length, horizon and three heights (the water table, the string course and the main cornice's top, all left free) to 23 readings of five plan edges: the pavilion's north and south edges (u 24.87, v 5.33 and 10.79; x 270 and 600 px), and the tower's junction with the front (v 13.62; x 818), its west angle (u 26.28, v 15.5; x 857) and its south angle (u 23.98, v 17.80; x 1135), each at grade (y 1555-1581), at the water table (y 1458-1480), at the string course (y 1113-1157) and at the main cornice's top (y 752-823). It puts the eye at u 65.5, v 41.7, 2.8 m over the house's grade (across the avenue and south of the house), heading 234.4 degrees, f 4131 px, the horizon at y 1333 px. RESIDUALS: 4.4 px RMS, 10 px at most. WHAT IT SAYS ABOUT THE HEIGHTS: read with the sheet's widths, the print puts the water table at about 1.2 m, the string course at 5.2 m and the main cornice's top at 9.4 m over grade, where the record (read through T-3171's camera) has 2.0, 7.5 and 12.6 m: the house as built stands about a third taller than the photograph shows it (the match record). UNCERTAINTY: the distance and the focal length trade against each other along one valley, held by the plan's widths and the faces' foreshortening; a square of 3.0-3.5 m fits within 7 px, 2.6 m within 30. A pixel_aspect would be another way to reconcile the heights; the roundel over the tower's second-floor lights reads round (30 x 32 px) on a face seen square on, so the pixels are taken square. LIGHT: the front and the corner's south face lit alike by a high sun in the south-west, the street tree's shadow falling across the fence (sun_uvy)."
+}

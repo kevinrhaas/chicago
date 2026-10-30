@@ -1,0 +1,58 @@
+{
+  "id": "marshall_field_jr_house_1919_prairie",
+  "scene": "1904",
+  "name": "Marshall Field Jr. House",
+  "address": "1919 S. Prairie Ave.",
+  "status": {
+    "text": "Still standing",
+    "today": "Still on Prairie Avenue",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ],
+    "note": "The district's marker for the houses still standing lists it."
+  },
+  "built": {
+    "year": 1867,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ]
+  },
+  "use": "Home",
+  "summary": "Built in 1867 and made bigger several times. Marshall Field Jr. bought it in 1890. In 1902 D. H. Burnham and Company added a huge new part.",
+  "key": [
+    {
+      "label": "Owner from 1890",
+      "value": "Marshall Field Jr.",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    },
+    {
+      "label": "Last addition",
+      "value": "1902, D. H. Burnham & Company",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The house grew in stages. Its last addition, a huge one, was only two years old in 1904.",
+      "about": "structure",
+      "surprising": true,
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    }
+  ],
+  "style": null,
+  "story": []
+}

@@ -1053,27 +1053,22 @@ def build_green_tree_yard(cars: dict) -> tuple[list, list, list, list]:
 
 def _green_tree_wagon_shed(sc: dict, place: dict, poly: list,
                            walls: list) -> tuple[list, list, list]:
-    """The open-sided wagon shed at the inn's yard end, and the tilt under it.
+    """The north-wall wagon bay beside the front gable, and the tilt under it.
 
     WHAT THE PLATE GIVES: an open-sided wagon shed attached at the left of the
     house with a covered wagon standing under it. WHAT IT MAY NOT GIVE: which
     wall, and how big. Both are derived here.
 
-    WHICH WALL, and this is the one judgement in the function. The plate's word is
-    "left", which is a word about a viewpoint and not about a building — so it is
-    read as *the end of the elevation away from the streets*, and three committed
-    facts say the same wall. The placement record puts the front on Canal (west)
-    and the long side on Lake (south), so the yard is the north and east ground.
-    T-0080's two farm wagons already stand off the east (rear) wall, one metre
-    clear of it. That leaves the NORTH side wall, which is the only wall of this
-    inn that is neither a street frontage nor already occupied — and a wagon shed
-    is a yard building, entered off the yard rather than off a corporation street.
-    WHAT IS NOT HONOURED, said out loud rather than smoothed over: the committed
-    massing runs this building's ridge along its depth (`frame_tavern` lays the
-    ridge on the longer axis, 12.19 m here against 7.62 m), which puts its GABLES
-    on the front and the rear and makes the north wall an eaves wall. So the shed
-    stands at the left END and not at a gable, and the gable half of the plate is
-    a correction to the building's fabric, which is bake-gated and is T-0083's.
+    WHICH WALL stays the existing +u north wall, derived from the inn's unchanged
+    placement. WHICH END changes on T-2376: the verified Trowbridge/Gale 1902
+    plate, captioned 1835, shows the open bay beside the viewer-left of the FRONT
+    gable. The former rear-end rule hid it behind the core from that quarter.
+    +v is the recorded facade normal, and v1 is also the native primary door's
+    front plane; the bay therefore occupies the last `length` metres before v1.
+    This is a reconstructed relative attachment, not a measured historical
+    coordinate. Its July-1835 presence remains reconstructed. The enclosed
+    gabled annexes in Andreas are separate unresolved building masses, not this
+    open yard roof. Neither the inn nor its front door is moved to fit a picture.
 
     HOW BIG is arithmetic on numbers this record already carries: the bay is as
     long as the wagon's body with half a metre of air at each end, as deep as the
@@ -1113,10 +1108,10 @@ def _green_tree_wagon_shed(sc: dict, place: dict, poly: list,
             f"up and the record gives this building {wall_h:.2f} m of wall — no shed "
             "is drawn rather than one through the first-floor windows.")}]
 
-    # The bay stands at the YARD end of that wall: it starts at the rear wall's own
-    # plane and runs forward, so it is behind the Canal frontage the sign, the bench
-    # and the barrels occupy, and it never reaches the Lake Street corner.
-    v_c = v0 + length / 2
+    # Keep the same north host wall, ending at the actual front-gable plane.
+    # Both the covered ground and its coupled wagon use this single interval.
+    shed_v0, shed_v1 = v1 - length, v1
+    v_c = (shed_v0 + shed_v1) / 2
     u_c = u1 + depth / 2
     e, nn = _to_enu(u_c, v_c, place)
 
@@ -1124,7 +1119,8 @@ def _green_tree_wagon_shed(sc: dict, place: dict, poly: list,
     # centre: a 3.2 x 4.05 m roof is the largest thing this layer has ever put on
     # the ground and its centre clearing a wall says nothing about its corners.
     corners = [_to_enu(u, v, place) for u, v in (
-        (u1, v0), (u1, v0 + length), (u1 + depth, v0 + length), (u1 + depth, v0))]
+        (u1, shed_v0), (u1, shed_v1),
+        (u1 + depth, shed_v1), (u1 + depth, shed_v0))]
     clear = min([_dist_to_polygon(c, w) for c in corners for _, w in walls] or [1e9])
     if clear < GT_WALL_CLEAR_M:
         return [], [], [{"structure_id": GREEN_TREE_ID, "why": (
@@ -1145,21 +1141,20 @@ def _green_tree_wagon_shed(sc: dict, place: dict, poly: list,
         "head_m": _round(head),
         "clearance_m": _round(min(clear, 999.0)),
         "note": (
-            "AN OPEN-SIDED WAGON SHED AT THE INN'S YARD END, and the picture is the "
-            "whole reason it is here. The Trowbridge drawing of this inn "
-            "(data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows an "
+            "AN OPEN-SIDED WAGON SHED BESIDE THE FRONT GABLE, and the picture is the "
+            "whole reason it is here. The verified Trowbridge/Gale 1902 plate "
+            "(data/sources/trowbridge_green_tree_1902.json), captioned 1835, shows an "
             "open-sided wagon shed attached at the left of the house with a covered "
             "wagon standing under it — a tier-5 retrospective view, which may drive "
             "furniture and setting and may never drive a coordinate. WHICH WALL IS "
-            "DERIVED: the placement record puts the front on Canal and the long side "
-            "on Lake, T-0080's wagons already stand off the rear wall, and that leaves "
-            "the north side wall — the only one of this inn's four that is neither a "
-            "street frontage nor already occupied, and a wagon shed is entered off a "
-            "yard rather than off a corporation street. WHAT IS NOT HONOURED: the "
-            "committed massing lays this building's ridge along its longer axis, which "
-            "puts its gables on the front and the rear, so this stands at the left END "
-            "and not at a gable; the gable is a correction to the building's fabric and "
-            "is bake-gated (T-0083). HOW BIG IS ARITHMETIC on numbers already here: the "
+            "DERIVED: the existing north (+u) host wall is unchanged. T-2376 places "
+            "the bay at that wall's front end, ending at the same +v plane as the "
+            "native primary entrance, instead of its former rear-end station. The "
+            "covered wagon shares this centre. This is reconstructed setting from a "
+            "retrospective drawing, not a surveyed coordinate or proof of the exact "
+            "July-1835 state; the inn and its doors do not move. The enclosed gabled "
+            "Andreas annexes remain unresolved and are not this yard roof. "
+            "HOW BIG IS ARITHMETIC on numbers already here: the "
             f"bay is {length:.2f} m along the wall (the wagon's body and "
             f"{GT_SHED_END_M:.2f} m of air at each end) by {depth:.2f} m out from it "
             f"(the ground a parked wagon is given), its open eave stands {eave:.2f} m "
@@ -1752,7 +1747,7 @@ def record(frontages: list, refused: list, wagons: list, wagons_refused: list,
         "_doc": (
             "Goods standing on the town's own ground — barrels and cases on the "
             "footway at the taverns and the stores, the bench against the Green Tree's "
-            "front wall, the open-sided wagon shed at its yard end, and THE TOWN'S "
+            "front wall, the open-sided wagon bay beside its front gable, and THE TOWN'S "
             "WAGONS: the one the source calls a wagon yard carries, the ones a picture "
             "puts in the Green Tree's, and the farm wagons, covered emigrant wagons and "
             "two-wheeled carts standing at the street verges and in the working yards "

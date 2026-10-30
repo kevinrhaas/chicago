@@ -1,0 +1,118 @@
+{
+  "structure_id": "sears_meeker_house_1815_prairie",
+  "view": "chicagology_square_on",
+  "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
+  "glb_sha256": "885b7a29381657f0296feca0ac21a66d250d9d92dc96355e551b87b87e9e0f4f",
+  "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
+  "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
+  "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a stone front two storeys over a raised basement under a slated mansard, 10.4 m across from the pavilion's north corner (x 160 px) to the corner bay's south edge (x 905 px), the cornice's top at y 357 px",
+      "status": "fixed",
+      "how": "T-3155: the 1911 sheet's 10.47 x 17.46 m front block on K01, the principal floor 1.8 m, storeys 3.75 and 3.7 m, a K02 limestone front; the render's north corner on x 160 and its cornice within 5 px"
+    },
+    {
+      "what": "the recessed strip in shadow north of the pavilion (x 105-160 px), the north stack rising behind it",
+      "status": "fixed",
+      "how": "T-3155: the sheet's stair projection on the north flank as a K08 pavilion 0.86 m behind the front; it renders on those pixels"
+    },
+    {
+      "what": "the door in the pavilion's south half (x 288-393 px) up a stoop, the window column south of it (x 495-577 px) on both storeys, the barred basement light under it",
+      "status": "fixed",
+      "how": "T-3155: the door at v 3.36, the column at v 6.1, K01's area light under it"
+    },
+    {
+      "what": "the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted with one light, two narrow lights in its front, barred basement lights under them, a stone balcony of pierced panels on its deck",
+      "status": "fixed",
+      "how": "T-3155: a K08 projection 2.08 m wide and 1.2 m out with a 1.4 m canted left cheek, flush with the south flank, under K08's stone balcony with one row of pierced panels"
+    },
+    {
+      "what": "the gabled dormer in the mansard over the window column (x 470-600 px)",
+      "status": "fixed",
+      "how": "T-3155: a gabled dormer at 6.1 m on the street face"
+    },
+    {
+      "what": "the pavilion: the photograph's is about 4.0 m wide (x 160-445 px) with the door in its south half; the build's is 2.2 m wide, 0.3 m in from the north corner and clear of the door, because K01 cannot cut a door through a projection; so the attic storey over it stands about 0.5-0.7 m north of the print's",
+      "status": "open"
+    },
+    {
+      "what": "the pavilion's attic storey: a stone wall carried up past the main cornice to its own eave at y 205 px (11.6 m), two paired lights in it (x 178-302 px, y 248-390 px), under its steep roof; the build's steep hipped crown starts at the main eave, so the paired lights and their wall are missing and the roof starts 2.4 m lower (its apex within 0.4 m of the print's)",
+      "status": "fixed",
+      "how": "T-3156: the pavilion carried up a 2.4 m attic storey past the main cornice, the main eave stopping at its cheeks, a mullioned and transomed pair of lights in it (1.5 m clear, 9.25-11.0 m over grade), and K01's hipped crown raised onto its wall head (mansard.crown.attic_m 2.35): the crown's eave and apex render within about 0.3 m of the print's heights"
+    },
+    {
+      "what": "the pavilion's own dentil band at the second storey's head (y 440-470 px), lower than the main cornice; the build carries the main cornice across the pavilion",
+      "status": "open"
+    },
+    {
+      "what": "the door's pedimented hood on carved brackets (x 245-430 px, y 615-700 px) and the transom with the house number",
+      "status": "open"
+    },
+    {
+      "what": "the stoop's stone newels and cheek walls and the basement doorway under the landing",
+      "status": "open"
+    },
+    {
+      "what": "the narrow light over the door's south jamb (x 388-416 px, about 0.4 m wide): built at the storey's 1.1 m sash width",
+      "status": "open"
+    },
+    {
+      "what": "the corner bay's south edge renders about 40 px (0.5 m) south of the print's",
+      "status": "within tolerance",
+      "how": "the bay's 1.2 m projection read through a camera fitted on the main plane; under a visitor's notice at the street"
+    },
+    {
+      "what": "the north stack stands about 0.8 m south of the print's (x 145-190 px): K01 stands a stack inside the main footprint and the print's rises from the stair projection",
+      "status": "open"
+    },
+    {
+      "what": "the mansard's cresting, the dormer's finial and the pavilion roof's cross finial (K01's deck cresting cannot stand on a mansard that carries a crown, k01_mansard_deck.resolve)",
+      "status": "open"
+    },
+    {
+      "what": "the leaded upper lights of the principal-storey windows and the bay's lights",
+      "status": "within tolerance",
+      "how": "glazing pattern inside the sash, not read at the street's distance"
+    },
+    {
+      "what": "the stone's colour and tone: the print is monochrome and very light; the build's K02 Lemont limestone is buff, after the 1973 landmarks report's 'yellow limestone'",
+      "status": "not shown"
+    },
+    {
+      "what": "the street fence, the walk and the parkway's stone posts",
+      "status": "not shown",
+      "how": "outside the building record; the boundary is not built on this house yet"
+    },
+    {
+      "what": "which front stood in 1904: the photographs are undated and show Joseph Sears's house; he sold it to Mrs. Grace Murray Meeker in March 1902 with fifteen rooms (Inter Ocean, 28 March 1902), and in 1915 it had twenty-one, 'extensively remodeled' after the purchase (Chicago Tribune, 1 May 1915), Arthur Heun's remodel (Chicagology); the 1911 sheet, drawing a one-storey projection north of the front's centre and no corner bay, is the remodelled house. Whether the remodel came before 1 July 1904 is not known (T-3156): the build follows the photographs (L-k01-1815-sears-1893)",
+      "status": "open"
+    },
+    {
+      "what": "the main cornice: the print's is a deep bracketed one, a row of large stone consoles under a moulded crown (y 360-430 px); the build carries K10's moulded stone cornice with no consoles",
+      "status": "open"
+    },
+    {
+      "what": "the stone shoulders either side of the attic storey (y 285-330 px), where the pavilion's 4 m block stops under the narrower attic",
+      "status": "open",
+      "how": "one with the pavilion's width (above)"
+    },
+    {
+      "what": "the low coping and the two square posts flanking the walk",
+      "status": "fixed",
+      "how": "T-3206 lays K11's 0.25 m stone coping with 0.9 m posts either side of a 1.8 m opening and the K14 walk through it"
+    },
+    {
+      "what": "the posts' places along the lot line",
+      "status": "within tolerance",
+      "how": "through the camera the print's posts stand at s 1.96-2.22 and 3.83-4.10; they are laid 0.2-0.45 m off, at the stopping rule's edge (T-3153)"
+    },
+    {
+      "what": "a low iron fence set back on the north side",
+      "status": "open",
+      "how": "the print shows a low railing behind the coping north of the walk that no record explains; not built"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

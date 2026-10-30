@@ -1899,6 +1899,13 @@ kbd {
 
 /* ---- What's new -------------------------------------------------------- */
 
+/* T-3125: a long URL in one release must not set every row's minimum width.
+   Keep each nested grid inside the panel and wrap intact text when needed. */
+.wn-list, .wn-entry, .wn-items {
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  overflow-wrap: anywhere;
+}
 
 .wn-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 16px; }
 .wn-entry { display: grid; gap: 5px; }

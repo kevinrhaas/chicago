@@ -1,0 +1,122 @@
+{
+ "ticket": "T-3137",
+ "built_before": {
+  "light_head": 36.2,
+  "transom_top": 34.88,
+  "transom_foot": 34.14,
+  "light_sill": 30.0
+ },
+ "habs14": {
+  "transom_top": {
+   "photo_ng": 34.31,
+   "render_ng": 34.74,
+   "built_ng": 34.88,
+   "photo_less_method_ng": 34.45,
+   "photo_over_built_ft": -0.43
+  },
+  "transom_foot": {
+   "photo_ng": 33.52,
+   "render_ng": 33.98,
+   "built_ng": 34.14,
+   "photo_less_method_ng": 33.68,
+   "photo_over_built_ft": -0.46
+  },
+  "light_head": {
+   "photo_ng": 36.34,
+   "render_ng": 36.02,
+   "built_ng": 36.2,
+   "photo_less_method_ng": 36.52,
+   "photo_over_built_ft": 0.32
+  },
+  "light_sill": {
+   "photo_ng": 29.77,
+   "render_ng": 29.96,
+   "built_ng": 30.0,
+   "photo_less_method_ng": 29.81,
+   "photo_over_built_ft": -0.19
+  },
+  "transom_centre_over_built_ft": -0.45
+ },
+ "habs17": {
+  "transom_top": {
+   "photo_ng": 34.25,
+   "render_ng": 34.81,
+   "built_ng": 34.88,
+   "photo_less_method_ng": 34.32,
+   "photo_over_built_ft": -0.56
+  },
+  "transom_foot": {
+   "photo_ng": 33.83,
+   "render_ng": 34.07,
+   "built_ng": 34.14,
+   "photo_less_method_ng": 33.9,
+   "photo_over_built_ft": -0.24
+  },
+  "light_head": {
+   "photo_ng": 36.2,
+   "render_ng": 36.2,
+   "built_ng": 36.2,
+   "photo_less_method_ng": 36.2,
+   "photo_over_built_ft": 0.0
+  },
+  "light_sill": {
+   "photo_ng": 30.0,
+   "render_ng": 30.0,
+   "built_ng": 30.0,
+   "photo_less_method_ng": 30.0,
+   "photo_over_built_ft": 0.0
+  },
+  "transom_centre_over_built_ft": -0.4,
+  "note": "head and sill are this view's scale, so they read as built by construction"
+ },
+ "transom_centre_mean_over_built_ft": -0.43,
+ "fan": {
+  "centre_px": {
+   "photo": [
+    979,
+    452
+   ],
+   "render": [
+    982.5,
+    443
+   ]
+  },
+  "photo_joints_deg": [
+   30,
+   53,
+   75,
+   101,
+   125,
+   151
+  ],
+  "render_joints_deg": [
+   13,
+   29,
+   45,
+   63,
+   80,
+   97,
+   115,
+   134,
+   151,
+   168
+  ],
+  "voussoirs_built": 11,
+  "photo_joint_spacing_deg": 24.2,
+  "render_joint_spacing_deg": 17.2,
+  "voussoirs_read": 7,
+  "keyed": "no joint within 10 degrees of the crown (75 and 101): a keystone, so an odd count"
+ },
+ "ruled": {
+  "transom_ng": [
+   33.74,
+   34.48
+  ],
+  "drop_ft": 0.4,
+  "stilt_over_transom_ft": 0.67,
+  "voussoirs": 7,
+  "head_ng": 36.2,
+  "spring_ng": 35.15,
+  "sill_ng": 30.0
+ }
+}

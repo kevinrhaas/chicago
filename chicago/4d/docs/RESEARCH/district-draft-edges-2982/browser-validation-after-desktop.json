@@ -1,0 +1,152 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of 3 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 62401,
+      "js_heap_used_bytes": 58896744,
+      "js_heap_total_bytes": 60010496,
+      "draft_records_in_registry": 154,
+      "placed": [
+        "house_213_e20th",
+        "house_215_e20th",
+        "house_217_e20th",
+        "hanford_house_2008_calumet",
+        "hanford_house_2008_calumet_coach_house",
+        "wheeler_kohn_house_2018_calumet",
+        "wheeler_kohn_house_2018_calumet_coach_house",
+        "second_presbyterian_church_1936_michigan"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 127,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "church-across-michigan",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 2265,
+            "rendererCalls": 38,
+            "multiDraw": true,
+            "triangles": 466191,
+            "programs": 64,
+            "geometries": 259,
+            "textures": 581,
+            "batches": 217,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 159,
+            "structuresExpected": 159,
+            "structuresStanding": 159,
+            "bytes": 114273096,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 6036.8,
+          "camera": [
+            1162,
+            -3487,
+            5.94
+          ],
+          "target": [
+            1112,
+            -3448,
+            26.23
+          ]
+        },
+        {
+          "name": "calumet-hanford-wheeler",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 5346,
+            "rendererCalls": 72,
+            "multiDraw": true,
+            "triangles": 948100,
+            "programs": 65,
+            "geometries": 274,
+            "textures": 599,
+            "batches": 217,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 159,
+            "structuresExpected": 159,
+            "structuresStanding": 159,
+            "bytes": 114273096,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 11969.2,
+          "camera": [
+            1547,
+            -3512,
+            6.15
+          ],
+          "target": [
+            1500,
+            -3540,
+            12.49
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "state": "SOURCE_CANDIDATE_WRITTEN_NOT_RENDERED_OR_ACCEPTED",
+  "baseline": "horse-sevket-v16-planted-standing-v1.glb",
+  "baseline_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "recipe_version": "V4_CINF_LINEAR_RESERVE_AXIS_RADII",
+  "photographic_acceptance": false,
+  "candidate_file": "horse-sevket-v16-planted-standing-eye-uv-v1.glb",
+  "candidate_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "candidate_bytes": 3784176,
+  "changed_uv_accessor": 10,
+  "uv_start_in_BIN": 332984,
+  "uv_bytes": 31744,
+  "non_uv_BIN_exact": true,
+  "materials_exact": true,
+  "images_exact_sha256": [
+    "979df4f4dcdf4490f3f1780a7b411ac0e3c6be2af96e51ab49d83011a87d2a45",
+    "59465a0984f36264f7d2f9082c355f4c632f2e03e1c3c2e51cfda7bdb7b7ae90",
+    "38ec10da4600112c14988e3bb8156299cdf21a4443f6c0cbccecb94ead471938",
+    "237aaec69c56661e6179b8028cd604a11b058d4e45877ae168379b3d31936618",
+    "1e0382c8ad5d155dc3bf45378a5a37bb10bdcc79ffefee211e69edb3b609a5b3",
+    "f6a1cefd4126d387a1d73655918c1a97896845e527650a3555f560c2098fede3"
+  ],
+  "components": {
+    "positive_X": {
+      "center": [
+        0.08116701945301986,
+        1.519635937540778,
+        1.3421654828710219
+      ],
+      "radius_scale_m": 0.03476434946060181,
+      "radius_min_m": 0.03482836775417075,
+      "radius_max_m": 0.034831625730858816,
+      "gaze_reconstructed": [
+        0.9163814507951016,
+        -0.4003061786166495,
+        -7.990030435185286e-13
+      ],
+      "horizontal": [
+        7.321915682092109e-13,
+        -3.198458550539747e-13,
+        1.0
+      ],
+      "vertical": [
+        0.4003061786166495,
+        0.9163814507951015,
+        -5.509397630248785e-29
+      ],
+      "front_vertices": 1120,
+      "back_vertices": 864,
+      "index_islands": 512,
+      "alpha_front": 1.8707229794421012,
+      "alpha_back": 1.633643121160835,
+      "max_centroid_interpolation_error_uv": 0.009462560414504863
+    },
+    "negative_X": {
+      "center": [
+        -0.08190009839862826,
+        1.5196372190406406,
+        1.342166382949227
+      ],
+      "radius_scale_m": 0.03472316265106201,
+      "radius_min_m": 0.034828470127292545,
+      "radius_max_m": 0.034831720981740165,
+      "gaze_reconstructed": [
+        -0.9161545382973106,
+        -0.40082522619870325,
+        -8.202117291175087e-13
+      ],
+      "horizontal": [
+        -7.5144069799569e-13,
+        -3.2876155185435495e-13,
+        1.0
+      ],
+      "vertical": [
+        -0.40082522619870325,
+        0.9161545382973106,
+        0.0
+      ],
+      "front_vertices": 1112,
+      "back_vertices": 872,
+      "index_islands": 512,
+      "alpha_front": 1.8645716694942522,
+      "alpha_back": 1.61447816988937,
+      "max_centroid_interpolation_error_uv": 0.007882959380057281
+    }
+  },
+  "minimum_absolute_uv_double_area": 3.998032667595908e-06,
+  "chart_orientation": {
+    "negative_X:back": 1,
+    "negative_X:front": -1,
+    "positive_X:back": -1,
+    "positive_X:front": 1
+  },
+  "existing_seam_positions": 88,
+  "baseline_after_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "portable_generator": "generate_eye_uv_v1.py",
+  "portable_generator_sha256": "ce9e1770c94c71a3092472640bde477ab54be576f7bc504c54df94d876d27f24",
+  "original_trial_generator_sha256": "1c0f477661df398ebfb2dea2ab5c97dd079c176e2f90b8f29410d677b56e54f7",
+  "source_aperture_file": "eye-uv-v1-source-aperture-rays.json",
+  "source_aperture_sha256": "d44a04364da6e3a8dcc23f3e67ea5dc00d14cda9c4c2801d7036e44a1da7a6fa",
+  "independent_boundary_file": "eye-uv-v1-boundary-receipt.json",
+  "independent_boundary_sha256": "8ce64a7c9b038af33e27b14b84bf6ef18c43e4cc2061539661107b8911ff51f5",
+  "original_export_receipt": "planted-standing-export-receipt.json",
+  "original_export_applies_to_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "loaded_qualification_file": "../../../../data/transport/parked/standing-horse-planted/eye-uv-v1-loaded129-summary.json",
+  "loaded_qualification_sha256": "3e8fd9351fce726bf1216360cfda00197a288dd903877993dd5231f67ab4e39d",
+  "qualification_scope": "Fresh current-SHA production loader/clone/Mixer129 CPU only. Source-only trial receipt and historical b479 qualification do not imply native/GPU/world/photo acceptance.",
+  "native_browser_acceptance": false,
+  "portable_reproduction_actual_status": "SOURCE_CANDIDATE_WRITTEN_NOT_RENDERED_OR_ACCEPTED",
+  "portable_reproduction_candidate_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "portable_reproduction_actual_receipt_sha256": "ce0ef621d3579f6a48abfdd76fe4a9174a6e1e43be4867171436dc33bc6ab213",
+  "portable_boundary_actual_status": "PASS_INDEPENDENT_UV_ONLY_CHANGE_BOUNDARY",
+  "portable_boundary_actual_sha256": "7fe14e055675b0af73e1cab4d4796544a534024574e9fcfa40df1ff778b6433d",
+  "portable_boundary_test_sha256": "acfd9b2c2beb7f8941e84edf11bdff58f105a3997e07a8805deacb2c78fba2ee"
+}

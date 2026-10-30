@@ -1014,34 +1014,34 @@
       "why_goods": "a stable's hay stands in a rick outside it",
       "confidence": "reconstructed",
       "faces": [
-        "left side"
+        "rear"
       ],
       "ground_quad_local_enu_m": [
         [
-          954.16,
-          510.94
+          954.17,
+          512.94
         ],
         [
-          959.55,
-          510.9
+          959.56,
+          512.9
         ],
         [
-          959.6,
-          518.04
+          959.61,
+          520.04
         ],
         [
-          954.21,
-          518.08
+          954.22,
+          520.08
         ]
       ],
       "items": [
         {
           "kind": "hay",
           "at_local_enu_m": [
-            950.48,
-            514.53
+            956.85,
+            510.72
           ],
-          "bearing_deg": 270.4
+          "bearing_deg": 180.4
         }
       ]
     },

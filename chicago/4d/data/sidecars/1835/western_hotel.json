@@ -22,7 +22,8 @@
       "chicagology_prefire278",
       "drloih_hotels"
     ],
-    "note": "THE BUILD DATE IS DISPUTED, 1834 AGAINST 1835, AND THE DISPUTE IS RESOLVED HERE RATHER THAN LEFT OPEN — but the reasoning matters, because the two dates mean different things for this scene. chicagology reports W. H. Stow, who 'came to Chicago about 1833', saying of his own hotel that 'it was built in 1834'. The hotel chronology says it 'opened in 1835'. 1834 is adopted because it is the BUILDER'S OWN STATEMENT about his own building, recorded with the same detail that gives the 40 ft front, the 60 ft wing and the yard, against an undated one-line entry in a chronology that also mis-sizes the building. THE PHASE MECHANISM WAS CONSIDERED AND DELIBERATELY NOT USED. If the 1835 date were right, the hotel might have been unfinished or brand new on 1835-07-01, and a construction phase would be the honest way to show that. But a construction phase would have to invent a start month, a duration and a state of completeness, none of which any source gives, and it would silently adopt the weaker date to do it. One completed phase on the better-attested date, with the alternative recorded here and in the dossier, claims less. If the 1835 date is ever confirmed, split this phase then. The end of the range is set at the end of 1840, past the last account reached that describes the house in operation; it is not a demolition date and no source reached gives one."
+    "note": "THE BUILD DATE IS DISPUTED, 1834 AGAINST 1835, AND THE DISPUTE IS RESOLVED HERE RATHER THAN LEFT OPEN — but the reasoning matters, because the two dates mean different things for this scene. chicagology reports W. H. Stow, who 'came to Chicago about 1833', saying of his own hotel that 'it was built in 1834'. The hotel chronology says it 'opened in 1835'. 1834 is adopted because it is the BUILDER'S OWN STATEMENT about his own building, recorded with the same detail that gives the 40 ft front, the 60 ft wing and the yard, against an undated one-line entry in a chronology that also mis-sizes the building. THE PHASE MECHANISM WAS CONSIDERED AND DELIBERATELY NOT USED. If the 1835 date were right, the hotel might have been unfinished or brand new on 1835-07-01, and a construction phase would be the honest way to show that. But a construction phase would have to invent a start month, a duration and a state of completeness, none of which any source gives, and it would silently adopt the weaker date to do it. One completed phase on the better-attested date, with the alternative recorded here and in the dossier, claims less. If the 1835 date is ever confirmed, split this phase then. The end of the range is set at the end of 1840, past the last account reached that describes the house in operation; it is not a demolition date and no source reached gives one.",
+    "from_is": "began"
   },
   "change_note": "Built 1834 by W. H. Stow at the south-east corner of Randolph and Canal — a 40 ft front with a 60 ft wing in an L, a large stable and a yard the wagon trains drove into. Complete and in operation on the scene date under the adopted 1834 date.",
   "placement": {
@@ -165,6 +166,14 @@
       ],
       "note": "Both sources have Stow building and operating the house; the hotel chronology says outright that it was 'built and operated by W.H. Stow'. He came to Chicago about 1833, so he is present at the scene date on either build date."
     },
+    "built": {
+      "value": 1834,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire278"
+      ],
+      "note": "Its builder, W. H. Stow, says 'it was built in 1834'; the hotel chronology has it opening in 1835."
+    },
     "stands_on_lot": {
       "value": "lot 2, west division",
       "confidence": "inferred",
@@ -216,7 +225,7 @@
       "name": "The lodgers of Western Hotel",
       "division": "south",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 15 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "This group was reconstructed using an earlier estimate of 15 ordinary-night beds. The current estimate is 14, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
       "sources": [],
       "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
       "persons": [
@@ -225,56 +234,56 @@
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Lydia Woodruff",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Abigail Thayer",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Alvah Newell",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Lemuel Parmelee",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Otis Nash",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Toussaint Marcotte",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
           "name": "Joseph Eastman",
           "relationship": "lodger",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
@@ -389,7 +398,7 @@
   "review_required": false,
   "lodging": {
     "class": "inn_tavern",
-    "beds_ordinary": 15,
+    "beds_ordinary": 14,
     "beds_crowded": 35,
     "ceiling": 35,
     "clamped_at_1840_maximum": true,
@@ -399,9 +408,9 @@
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
       "people": 15,
-      "beds_ordinary": 15,
+      "beds_ordinary": 14,
       "empty": 0,
-      "statement": "15 on this card against an ordinary night's 15 beds: 4 the residents layer already housed here, 3 seated here from elsewhere in the layer, where no source gives them a roof, 8 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "statement": "15 on this card against an ordinary night's 14 beds: 4 the residents layer already housed here, 3 seated here from elsewhere in the layer, where no source gives them a roof, 8 drawn against the order book's lodging buckets for beds that were standing empty.",
       "empty_note": "",
       "keeper_persons": 4,
       "keeper_owed": ""

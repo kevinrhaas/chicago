@@ -12,9 +12,11 @@
   "scene": "1835",
   "target_date": "1835-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "early-cameron-first-post-office-1833"
+    ]
   },
   "documented_range": {
     "from": "1831-03-31",
@@ -24,7 +26,8 @@
       "andreas_1884_v1",
       "chicagology_first_post_office"
     ],
-    "note": "THE START IS THE FIRST DATE A SOURCE PUTS THIS BUILDING IN EXISTENCE, NOT ITS BUILD DATE, and the record does not claim otherwise: on 31 March 1831 Jonathan N. Bailey was appointed postmaster and 'opened the post-office in a log house occupied as a store by John Stephen Coates' Hogan' (Andreas). The building was therefore already standing and already a store on that date, and nothing reached says when it went up — Hogan came to Chicago 'as early as 1830'. THE END OF THE RANGE IS THE HONEST MINIMUM AND IT IS THE WEAKEST THING IN THIS RECORD. What is attested is that the building stood and held the post office from March 1831 until about July 1834, when Andreas has the office removed to Franklin and South Water; that is eleven months before the scene date, and NO SOURCE REACHED FOLLOWS THE BUILDING PAST IT. The range is closed at the end of 1835 on the ordinary continuity argument — a standing building stands until something says otherwise, and this project's data/exclusions.json is where documented removals go — but the counter-argument is real and belongs here rather than in a footnote: Lake and South Water was the corner most exposed to the 1835 boom, log buildings on prime frontage were exactly what got replaced first, and the post office's own move out of it in July 1834 is unexplained. Tagged inferred, not documented, for that reason. If evidence turns up that this building came down before July 1835 it belongs in exclusions.json and this record leaves the scene."
+    "note": "THE START IS THE FIRST DATE A SOURCE PUTS THIS BUILDING IN EXISTENCE, NOT ITS BUILD DATE, and the record does not claim otherwise: on 31 March 1831 Jonathan N. Bailey was appointed postmaster and 'opened the post-office in a log house occupied as a store by John Stephen Coates' Hogan' (Andreas). The building was therefore already standing and already a store on that date, and nothing reached says when it went up — Hogan came to Chicago 'as early as 1830'. THE END OF THE RANGE IS THE HONEST MINIMUM AND IT IS THE WEAKEST THING IN THIS RECORD. What is attested is that the building stood and held the post office from March 1831 until about July 1834, when Andreas has the office removed to Franklin and South Water; that is eleven months before the scene date, and NO SOURCE REACHED FOLLOWS THE BUILDING PAST IT. The range is closed at the end of 1835 on the ordinary continuity argument — a standing building stands until something says otherwise, and this project's data/exclusions.json is where documented removals go — but the counter-argument is real and belongs here rather than in a footnote: Lake and South Water was the corner most exposed to the 1835 boom, log buildings on prime frontage were exactly what got replaced first, and the post office's own move out of it in July 1834 is unexplained. Tagged inferred, not documented, for that reason. If evidence turns up that this building came down before July 1835 it belongs in exclusions.json and this record leaves the scene.",
+    "from_is": "seen"
   },
   "change_note": "The log store standing at the west end of the Lake Street block when the United States established a post office at Chicago on 31 March 1831, and for three years the building that held it: partitioned into a post office on one side and the store of Brewster, Hogan & Co. on the other, with John Bates Jr. sorting the mail from 1833. The post office moved out to Franklin and South Water about July 1834; that is a change of USE and does not open a new phase, and it is why this building is not the post office on the scene date.",
   "placement": {
@@ -100,10 +103,124 @@
       "confidence": "inferred",
       "note": "No pitch is attested. 35 degrees is the archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
     },
+    "front_set_out": {
+      "value": [
+        [
+          "door",
+          8.45
+        ],
+        [
+          "window",
+          11.55
+        ]
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "One sash between the visible gable corner and an off-centre doorway in Cameron's retrospective picture. Stations 8.45 m and 11.55 m run from minimum-u on the retained attested 13.716 m frontage. They were revised after actual paired renders exposed the first estimates too far along the wall. These are reconstructed positions under a provisional six-wallpoint camera, not surveyed dimensions. Drawing perspective is inconsistent; the full image match remains open. The hidden elevation retains the archetype's reconstructed treatment."
+    },
+    "window_w_m": {
+      "value": 0.75,
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Reconstructed 0.75 m sash width under the provisional drawing camera, revised from the first rendered 0.55 m estimate. Cameron supplies the relative visible arrangement, not a measured window width. The selected width and retained 0.95 m height remain reconstructed pending the full comparison."
+    },
+    "window_h_m": {
+      "value": 0.95,
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "The visible sash is approximately half the doorway's height in Cameron's retrospective picture. 0.95 m follows the reconstructed 1.95 m doorway and remains a provisional proportion, not a measured historic dimension. The pictured occurrence/proportion bounds this choice, but its metric dimensions depend on reconstructed openings/eave height; the numeric attribute is therefore reconstructed."
+    },
+    "door_w_m": {
+      "value": 1.45,
+      "confidence": "reconstructed",
+      "note": "Reconstructed 1.45 m doorway width under the provisional drawing camera, revised after the first rendered 0.85 m door read too narrow. The depicted dark opening bounds its appearance, without supplying an independent metric scale. The existing width is retained while front_door_state chooses a reconstructed blind recess for the depicted dark doorway; no measured historic width or interior is claimed."
+    },
+    "door_h_m": {
+      "value": 1.95,
+      "confidence": "reconstructed",
+      "note": "Initial doorway height used to scale the pictured sash. The picture contains no independent scale; 1.95 m retains the archetype's approximately human-height opening rather than asserting a historic measurement."
+    },
+    "end_openings": {
+      "value": [
+        {
+          "end": "+x",
+          "kind": "hatch",
+          "at": 0.5,
+          "z": 3.35
+        }
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Cameron's visible gable has a small framed rectangle above the log wall. Its local +x assignment, 0.7 by 0.8 m size and 3.35 m centre are reconstructed within the existing roof, not a compass bearing or metric dimension from the painting. This trial uses a boarded hatch proxy at that same station rather than generic glazed sash. The painting does not resolve the infill well enough to attest glass or boards; board rhythm, ledges, closure and material remain reconstructed. No loft occupancy or hidden gable opening is inferred."
+    },
+    "chimney_ridge_at": {
+      "value": [
+        0.6
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "The one visible chimney rises through the roof rather than standing against an exterior gable. Its initial station is 0.6 of the ridge from the local minimum-u end, estimated from the retrospective drawing and awaiting rendered comparison. Neither an exact station nor the stack's dimensions are attested. The pictured arrangement is the visual bound; its exact station remains a reconstruction pending a solved comparison."
+    },
     "chimneys": {
       "value": 1,
       "confidence": "inferred",
-      "note": "Not attested, and nothing describes a stack on this building at all. One is the minimum for a store kept through Chicago winters with a clerk sorting mail in half of it, and the normal number for a single-pen log building. The COUNT is the inference; where the stack stands, how big it is and what it is made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26."
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "One stack is visible above the roof in Cameron's retrospective picture of the post office in 1833. This supports an inferred visible count, not a scene-date attestation or a finding about hidden stacks. chimney_ridge_at states its provisional position; ridge_stack_w_m states a reconstructed section while ridge_stack_head_m chooses a reconstructed 0.75 m head and the construction retains the archetype's treatment, recorded in docs/LIBERTIES.md L-hogan-pictured-openings-2377 and L26."
+    },
+    "ridge_stack_w_m": {
+      "value": 0.65,
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Reconstructed 0.65 m square ridge-stack section, reduced from the generic 0.96 m after comparing the actual render to Cameron's narrower visible stack. This numerical section and unseen plan depth are not measured from the retrospective drawing. The head is separately trialled at ridge_stack_head_m; plain cap, masonry and cap details remain reconstructed and unmatched."
+    },
+    "front_door_state": {
+      "value": "recess",
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Cameron depicts a dark open doorway occupied by a figure. A 0.30 m blind recess with an actually cut facade and framed returns replaces the generic closed board leaf. No interior, leaf position, hinges, figure identity, measured depth or July 1835 door state is attested; the reconstruction follows visible appearance in the retrospective 1833 scene."
+    },
+    "ridge_stack_head_m": {
+      "value": 0.75,
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Provisional 0.75 m head rather than the generic 0.95 m, bounded by the short roof-piercing stack silhouette in Cameron. Not a measurement; painting perspective and unknown cap details remain unresolved. Shaft width and ridge station are unchanged."
+    },
+    "end_gable_courses": {
+      "value": "+x",
+      "confidence": "inferred",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Horizontal courses are visible across Cameron's retrospective gable around its framed rectangle; the local +X assignment follows the existing diagnostic view, not a surveyed compass bearing. This replaces the smooth roof-material triangle only on that visible end. The picture does not resolve log versus board fabric. The generator's 0.20m course rhythm, 8mm joints, 12mm relief and neutral timber treatment are reconstructed first fits, not measured historic fabric. Footprint, roof envelope, hidden end and existing hatch remain unchanged."
+    },
+    "ridge_stack_cap_m": {
+      "value": [
+        0.1,
+        0.12
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Cameron depicts a projecting dark top on the short roof-piercing shaft, supporting the cap's occurrence/profile as inferred. Projection0.10m on every shaft side and thickness0.12m are reconstructed first fits, including the unseen depth and masonry treatment; no metric or original color is read from the monochrome surrogate. The cap occupies the existing head's top band, preserving the stated0.75m total head,0.65m shaft, count and ridge station."
     },
     "function": {
       "value": "store",
@@ -196,6 +313,25 @@
       "archived_url": "",
       "tier": 3,
       "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "cameron_c1900_first_post_office",
+      "citation": "Edgar S. Cameron. Chicago's First Postoffice in 1833. Halftone reproduction after an oil painting, credited on the reproduced sheet to the Chicago Historical Society.",
+      "url": "https://commons.wikimedia.org/wiki/File:Chicago%27s_first_post_office,_1833.jpg",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the pictured log cabin's visible opening arrangement and gable roof",
+        "one framed opening in the visible gable and one visible chimney",
+        "a depiction explicitly labelled Chicago's First Postoffice in 1833"
+      ],
+      "what_it_does_not_supply": [
+        "coordinates, dimensions or an independent scale",
+        "the hidden elevations, exact sash pattern or material colours",
+        "the building's state, continued existence or use on 1 July 1835",
+        "a creation or publication date printed on the reproduced sheet"
+      ]
     },
     {
       "source_id": "chicago_democrat_1833_1835",

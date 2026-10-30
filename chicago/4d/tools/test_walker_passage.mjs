@@ -110,11 +110,13 @@ try {
   // driver (eye 1.68 + 0.5 m) and the walk steps down onto the paving, not the field.
   assert(g.clear >= 1.68 + 0.5 + HEADROOM_MARGIN_M, `its ${g.clear} m clears a driver's eye`);
   const sunk = passageGroundFrom(new Map([[side.id, { id: side.id, sidecar: side }]]));
-  assert.equal(sunk.length, 4, 'approach, threshold, passage floor and court ramp are declared');
+  // T-2978: and the court ground's fall to the mouth, four quads (bank and low ground,
+  // each out to the section plane and on to where it rises back to the court's level).
+  assert.equal(sunk.length, 8, 'approach, threshold, passage floor, court ramp and the court fall are declared');
   const atMouth = passageDepth(sunk, mouth[0] + (mouth[0] - court[0]) * 0.005, mouth[1] + (mouth[1] - court[1]) * 0.005);
   assert(Math.abs(atMouth - -0.3536) < 0.01, `the mouth's paving is 1.16 ft under the sidewalk (${atMouth})`);
   const atCourt = passageDepth(sunk, court[0] - (mouth[0] - court[0]) * 0.001, court[1] - (mouth[1] - court[1]) * 0.001);
-  assert(Math.abs(atCourt - -0.2835) < 0.01, `the court mouth's paving is 0.93 ft under the drive datum (${atCourt})`);
+  assert(Math.abs(atCourt - -0.6858) < 0.01, `the court mouth's paving is 2.45 ft under the court face's zero, 9.65 ft under its lintel (${atCourt})`);
   assert.equal(passageDepth(sunk, mouth[0] + 50, mouth[1]), null, 'off the carriage way the field is the ground');
   const sunkTerrain = { ...flat, walkHeight: (e, n) => passageDepth(sunk, e, n) ?? 0 };
   {

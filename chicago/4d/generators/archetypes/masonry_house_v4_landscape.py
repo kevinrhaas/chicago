@@ -67,6 +67,7 @@ def add_lawn_blades(builder, params, max_blades=MAX_BLADES, seed=18871904):
                          max(p[0] for p in q),max(p[1] for p in q)) for q in exclusions]
     if not lawns or not max_blades:
         return 0
+    fall = getattr(params, "court_fall", None)
     bounds = []
     for ground in lawns:
         polygon = list(ground["pts"])
@@ -92,7 +93,8 @@ def add_lawn_blades(builder, params, max_blades=MAX_BLADES, seed=18871904):
             height = rng.triangular(0.01, 0.04, 0.022)
             bend = rng.uniform(-0.38, 0.38) * height
             dx, dy = math.cos(angle) * width / 2, math.sin(angle) * width / 2
-            z = ground["lift_m"] + 0.0001
+            # T-2978: the court lawn follows the fall to the passage mouth.
+            z = ground["lift_m"] + 0.0001 + (fall(x, y) if fall else 0.0)
             points = [(x - dx, y - dy, z), (x + dx, y + dy, z),
                       (x - math.sin(angle) * bend, y + math.cos(angle) * bend, z + height)]
             if not all(_usable(p[:2], polygon, exclusions, BOUNDARY_MARGIN_M, exclusion_bounds) for p in points):

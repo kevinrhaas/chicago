@@ -1,0 +1,30 @@
+{
+  "id": "castelnau_1842_chicago_harbor",
+  "type": "illustration",
+  "citation": "Francis de Castelnau, Vues et souvenirs de l'Amérique du Nord (Paris: Arthus Bertrand, 1842), plate 18: the Chicago river entrance occupies the panel visibly numbered 4. The volume's prose explanation instead calls Chicago Fig. 1. Exact period plate inspected through Library and Archives Canada microfiche surrogate, Internet Archive item cihm_43444; held reproduction is Commons File:Chicago1838.jpg.",
+  "author": "Francis de Castelnau (book); exact panel draughtsman/lithographer not newly adjudicated",
+  "date": "1842 (IA catalogue, title-page OCR M D CCC XLII, and actual volume/plate identified)",
+  "describes_date": "circa 1838 (project image inventory); after the 1835-07-01 scene",
+  "repository": "Internet Archive, cihm_43444, microfiche of an original edition held by the National Library of Canada; Commons reproduction File:Chicago1838.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Chicago1838.jpg",
+  "locator": "Plate 18, actual Chicago panel visibly numbered 4; explanatory prose under PLANCHE XVIII instead labels Chicago Fig. 1. The microfiche page is sideways; a 90-degree rotation only was used to read it. Commons original 760×429 and held 640×361 show the same scene. Exact Chicago source attribution/depicted-date authority remain distinguished from a calibrated photograph.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "The actual plate was located and visually inspected in the 1842 edition's scanned microfiche surrogate. IA identifies the book as Castelnau, Paris:A.Bertrand, 1842; title-page OCR independently reads M D CCC XLII. The 1842 illustration is public domain in the US by publication age. Commons also marks its reproduction public domain. No modern editorial image is substituted as historic evidence.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-10-23: Commons page and imageinfo metadata, original 760×429 image, IA catalogue/whole-book OCR and actual plate 18 page image. The title-page date was collated in OCR, not separately claimed as visual title-page verification. Plate/prose figure-number discrepancy preserved. No library physical copy or original drawing inspected.",
+  "note": "The harbour view shows the 1832 lighthouse at the right with a tapered shaft, gallery, railed platform, framed lantern, rounded cap and finial. It is evidence for the depicted circa 1838 form, not direct attestation of July 1835 details. Lantern-profile continuity into 1835 is an explicitly inferred model choice supported also by the documented bird-cage lantern. The lower shaft edge is partly lost in foliage and the image supplies no secure base diameter, surveyed position, paint colour, optic count or historical camera.",
+  "what_it_supplies": [
+    "An identified actual 1842 published plate for the held harbour scene, with the same fort/lighthouse/pile/boat composition.",
+    "Rounded lantern cap/finial, an upper rail/lantern-base band near y 75–76 and a separate gallery-floor/shaft-head band near y 88–90 in the held 640×361 copy; these must not be conflated.",
+    "A retrospective pictorial reference for the described circa 1838 harbour state; not a camera calibration or July 1835 installation record."
+  ],
+  "what_it_does_not_supply": [
+    "No measured diameter, base plan, wall thickness, shaft taper, exact height datum or metric camera station.",
+    "No evidence that 40 ft means shaft-only or finial-inclusive; that phrase is from separately cited historical text, not this print.",
+    "No demonstrated material horizontal/vertical resampling distortion: the held file is consistent with a uniformly scaled Commons thumbnail rounded to integer height; comparison to an uncalibrated microfiche cannot establish a corrective pixel_aspect.",
+    "No proof of unchanged lantern detail on1July 1835, exact member counts/sections, historic colour or hidden construction."
+  ],
+  "archived_url": "https://archive.org/download/cihm_43444/page/n217_large.jpg"
+}

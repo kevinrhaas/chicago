@@ -28,7 +28,7 @@ for (const f of ['confidence-presets.js', 'confidence-rows.js', 'confidence-stor
 await writeFile(path.join(js, 'field-log.js'), await readFile(path.join(web, 'js/field-log.js'), 'utf8'));
 await cp(path.join(web, 'js/strings'), path.join(js, 'strings'), { recursive: true });
 // T-2650: the app mounts its overlays at its foot, with the naming they reuse.
-for (const f of ['confidence-overlays.js', 'display-name.js', 'fallback-summary.js']) await writeFile(path.join(js, f), await readFile(path.join(web, 'js', f), 'utf8'));
+for (const f of ['confidence-overlays.js', 'display-name.js', 'fallback-summary.js', 'range-words.js']) await writeFile(path.join(js, f), await readFile(path.join(web, 'js', f), 'utf8'));
 const load = (f) => import(pathToFileURL(path.join(js, f)).href);
 const THREE = await import(threeURL);
 const C = await load('confidence.js');

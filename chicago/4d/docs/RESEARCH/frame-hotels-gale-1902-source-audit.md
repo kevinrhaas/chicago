@@ -1,0 +1,11 @@
+# T-3055: actual1902 publication of Trowbridge hotel pictures
+
+The exact held Sauganash composition is printed in Edwin O. Gale, *Reminiscences of Early Chicago and Vicinity* (Fleming H. Revell Company,1902), facing printed p. 31, actual InternetArchive `reminiscencesofe00ingale/page/n49`. Its full caption reads “Mark Beaubien’s Tavern, The Sauganash, in 1835.” It visibly shows sash shutters, attached log annex, figures, roadposts and the horse. The held GreenTreecomposition is in the same book facing printed p. 35, actual `page/n55`; its caption names1835 and Lake/WestWater(nowCanal), and its signature ends’02.
+
+Both full unmodified pages were fetched and actually viewed, as were the actual title page n12 and copyright page n13. The title credits ILLUSTRATED BY W.E.S.TROWBRIDGE and MCMII; copyright reads COPYRIGHT, 1902, BY FLEMINGH.REVELL COMPANY / October. This is independently verified 1902 US publication, so the artwork is public domain by age and the older source-record artwork holds are superseded. Modern stock reproduction offers are separate and no stock licence is claimed.
+
+This verifies publication, not the exact 1835 condition. The pictures are retrospective and compositionally dependent on earlier views. Their1835 captions do not establish each fitting on 1 July 1835, survey dimensions, geographic coordinates, historical colours or independent corroboration. All existing form values/confidences and original image-match gates remain unchanged.
+
+Sauganash shutters: **bright-blue colour** is separately stated in Juliette Kinzie’s *Wau-Bun* (1856), recollecting1831. **Louvred leaf detail** remains a weaker inferred reading of the later Trowbridge drawing. The monochrome Andreas plate cannot establish colour. A whole-building Attested grade does not override those per-attribute limits. The newly verified source removes the rights uncertainty; it does not promote detail confidence.
+
+The newsource asset directories retain exact scans/URLs/hashes. Title/copyright pages are reused from the already verified jail source directory with their hashes pinned in each hotel manifest. No accepted camera, full source-image match, official geometry freshness, published-app QA or full gate is asserted by this source-only verification package.

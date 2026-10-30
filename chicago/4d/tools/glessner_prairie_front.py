@@ -17,7 +17,10 @@ T-2857 read the front against sheet 6 and the three street photographs
 3. TAYLOR 2135'S CAMERA. It was fitted on five controls, two of them the downspouts taken
    for the corners, and registered every jamb about 20 px left. Refitted here on the ten
    first-floor jambs (x only; the far jamb at the sash plane) with the controls' heights,
-   the downspouts at sheet 6's positions; the three stacks are withheld as checks.
+   the downspouts at sheet 6's positions. T-3058 freed its principal point (held at T-2221's
+   value, no pose reached the stacks) and admits the three stacks' centres and tops and the
+   photograph's plumb edges, which hold the pitch the freed principal point would trade
+   against; the stacks' widths are the check.
 
 The photograph picks are T-2857's (read_front.py); none is re-picked here.
 
@@ -45,6 +48,8 @@ import read_front as T2857  # noqa: E402  the picks and the sheet's columns, as 
 RECORD = ROOT / "data/structures/glessner_house.json"
 VIEWS = ROOT / "data/reference_views/glessner_house"
 OUT = ROOT / "data/comparisons/glessner/prairie-front.json"
+VERTICALS = ROOT / "docs/RESEARCH/glessner-taylor-camera-T-3058/verticals.json"
+STACK_NAMES = ("south", "middle", "north")
 FT = 0.3048
 DOOR_DATUM = 0.74        # frame_ft.door_datum_above_grade_ft
 REVEAL_FT = 0.6          # arris to the visible sash edge; the model's sash runs 0.49-0.98 ft back
@@ -147,9 +152,38 @@ def committed_stacks():
     return out
 
 
+def verticals():
+    """The photograph's plumb edges (x, y, lean dx/dy, rows), read by T-3058's
+    docs/RESEARCH/glessner-taylor-camera-T-3058/read_verticals.py; the gate never opens the image."""
+    d = json.loads(VERTICALS.read_text())
+    return np.array([[e["x"], e["y"], e["lean"], e["rows"]] for e in d["edges"]], float)
+
+
+def lean_residual(B, f, c, edges):
+    """Each plumb edge's lean against the line to the vertical vanishing point, in px over the
+    edge's own length (so a lean read on more rows weighs more)."""
+    v = B @ np.array([0.0, 0.0, 1.0])
+    vx, vy, vw = c[0] * v[2] + f * v[0], c[1] * v[2] - f * v[1], v[2]
+    want = (vx - edges[:, 0] * vw) / (vy - edges[:, 1] * vw)
+    return (edges[:, 2] - want) * edges[:, 3]
+
+
+def stack_offsets(eye, B, f, c):
+    """Each stack's record box (its shaft at the record's top height) through the camera against
+    T-2857's photograph picks: box minus photograph for the centre, the top and the width. The
+    built cap reads within about 1 px of the box (T-3058, read_caps.py), so nothing is carried."""
+    out = {}
+    for name, p in stacks().items():
+        lo, hi, top = silhouette(p, eye, B, f, c)
+        ph = T2857.STACKS[name][0]
+        out[name] = {"centre_x": (lo + hi - ph[0] - ph[1]) / 2, "top_y": top - ph[2],
+                     "width": (hi - lo) - (ph[1] - ph[0])}
+    return out
+
+
 def solve_taylor(model, down, reveal_ft=REVEAL_FT):
     cam = TAYLOR_BEFORE
-    c = np.array(cam["principal_px"])
+    c0 = np.array(cam["principal_px"])
     old = cam["controls_xyz_px"]
     # The two Prairie corners' x picks stand on the downspouts (T-2857), whose standoff from
     # the wall no source gives: they control height only. The gable foot keeps both.
@@ -167,54 +201,60 @@ def solve_taylor(model, down, reveal_ft=REVEAL_FT):
             jambs.append(metric(w, sj, z))
             jx.append(xj)
     jambs, jx = np.array(jambs), np.array(jx, float)
+    edges = verticals()
     F = np.array(cam["basis_right_up_forward"][2])
     yaw0 = math.atan2(F[1], F[0])
-    lo = [-np.inf, -np.inf, 1.0, -np.inf, -0.5, -0.2, math.log(500)]
-    hi = [np.inf, np.inf, 2.5, np.inf, 0.5, 0.2, math.log(20000)]
+    # T-3058: the principal point is free. T-2221 fitted it with five controls and T-2858 held
+    # it, and held, no pose reaches the stacks (T-3027: the south stack -13 px with all three
+    # admitted). Freed, it trades against pitch, so the photograph's own plumb edges hold the
+    # pitch and roll, and the three stacks' centres and tops are controls; their widths are not
+    # fitted, and are the check.
+    lo = [-np.inf, -np.inf, 1.0, -np.inf, -0.5, -0.2, math.log(500), -2000, -2000]
+    hi = [np.inf, np.inf, 2.5, np.inf, 0.5, 0.2, math.log(20000), 4000, 4000]
+
+    def unpack(x):
+        return x[:3], basis(*x[3:6]), math.exp(x[6]), x[7:9]
 
     def residual(x):
-        B, f = basis(*x[3:6]), math.exp(x[6])
-        d = project(pts, x[:3], B, f, c) - uv
+        eye, B, f, c = unpack(x)
+        d = project(pts, eye, B, f, c) - uv
         d[:, 0] *= wx
-        return np.r_[d.ravel(), project(jambs, x[:3], B, f, c)[:, 0] - jx]
+        st = stack_offsets(eye, B, f, c)
+        return np.r_[d.ravel(), project(jambs, eye, B, f, c)[:, 0] - jx,
+                     [st[n][k] for n in STACK_NAMES for k in ("centre_x", "top_y")],
+                     lean_residual(B, f, c, edges)]
 
-    # The pose trades yaw against eye and focal length, and has more than one minimum:
-    # start from the committed camera turned through +/-15 degrees and keep the best.
-    starts = [np.r_[cam["eye"], yaw0 + math.radians(dy), math.asin(F[2]), 0.0, math.log(cam["focal_px"] * k)]
-              for dy in (-15, -10, -5, 0, 5, 10, 15) for k in (0.9, 1.0, 1.1)]
-    opt = min((least_squares(residual, x0, bounds=(lo, hi), xtol=1e-12, ftol=1e-12, max_nfev=8000)
-               for x0 in starts), key=lambda o: o.cost)
-    eye, B, f = opt.x[:3], basis(*opt.x[3:6]), math.exp(opt.x[6])
+    # Every start, the committed camera turned through +/-10 degrees, scaled 0.9-1.1 and its
+    # principal point moved across the frame, ends at one camera (T-3058 README).
+    starts = [np.r_[cam["eye"], yaw0 + math.radians(dy), math.asin(F[2]), 0.0, math.log(cam["focal_px"] * k),
+                    c0[0] + dc, c0[1]]
+              for dy in (-10, 0, 10) for k in (0.9, 1.0, 1.1) for dc in (-300, 0, 300, 600)]
+    opt = min((least_squares(residual, x0, bounds=(lo, hi), x_scale="jac", xtol=1e-12, ftol=1e-12,
+                             max_nfev=8000) for x0 in starts), key=lambda o: o.cost)
+    eye, B, f, c = unpack(opt.x)
     r = residual(opt.x)
-    nc = len(pts) * 2
+    nc, nj, ns = len(pts) * 2, len(jx), 2 * len(STACK_NAMES)
     ctrl_res = r[:nc].reshape(-1, 2)
-    used = np.r_[np.column_stack((wx, np.ones(len(wx)))).ravel(), np.ones(len(jx))] > 0
-    checks = {}
-    old_eye, old_B, old_f = np.array(cam["eye"]), np.array(cam["basis_right_up_forward"]), cam["focal_px"]
-    for name, p in stacks().items():
-        ph, rd = T2857.STACKS[name]
-        # The render was drawn through the old camera: what it drew minus where the old camera
-        # puts the shaft's top box is the cap's own overhang, carried to the new camera.
-        o, n = silhouette(p, old_eye, old_B, old_f, c), silhouette(p, eye, B, f, c)
-        row = {}
-        for i, label in enumerate(("left_x", "right_x", "top_y")):
-            if ph[i] is not None and rd[i] is not None:
-                row[label] = round(float(n[i] + (rd[i] - o[i]) - ph[i]), 1)
-        checks[name] = row
-    flat = [v for row in checks.values() for v in row.values()]
+    used = np.r_[np.column_stack((wx, np.ones(len(wx)))).ravel(), np.ones(nj)] > 0
+    st = stack_offsets(eye, B, f, c)
+    fit = r[nc + nj:nc + nj + ns]
+    leans = r[nc + nj + ns:] / edges[:, 3]
     return {
         "eye": [round(float(v), 6) for v in eye],
         "yaw_deg": round((90.0 - math.degrees(opt.x[3])) % 360, 6),
+        "pitch_deg": round(math.degrees(opt.x[4]), 3),
+        "roll_deg": round(math.degrees(opt.x[5]), 3),
         "basis_right_up_forward": [[round(float(v), 10) for v in row] for row in B],
         "focal_px": round(f, 4),
-        "principal_px": [float(v) for v in c],
+        "principal_px": [round(float(v), 3) for v in c],
         "controls_xyz_px": [[round(float(v), 4) for v in p] + [float(u), float(w)] for p, (u, w) in zip(pts, uv)],
         "control_residual_px": [[None if not k else round(float(a), 2), round(float(b), 2)]
                                 for k, (a, b) in zip(wx, ctrl_res)],
-        "jamb_residual_px": [round(float(v), 2) for v in r[nc:]],
-        "rms_px": round(float(np.sqrt(np.mean(r[used] ** 2))), 2),
-        "stack_checks_px": checks,
-        "stack_check_rms_px": round(float(np.sqrt(np.mean(np.square(flat)))), 1),
+        "jamb_residual_px": [round(float(v), 2) for v in r[nc:nc + nj]],
+        "rms_px": round(float(np.sqrt(np.mean(r[:nc + nj][used] ** 2))), 2),
+        "stacks_px": {n: {k: round(float(v), 1) for k, v in row.items()} for n, row in st.items()},
+        "stack_fit_rms_px": round(float(np.sqrt(np.mean(fit ** 2))), 1),
+        "verticals": {"edges": len(edges), "lean_rms": round(float(np.sqrt(np.mean(leans ** 2))), 4)},
     }
 
 
@@ -232,7 +272,7 @@ def derive():
                                 "corner": corner[0], "corner_pick_ft_from_N": round(corner[1], 2)}
         views[view] = rows
     taylor = solve_taylor(model, down)
-    cases = {f"{d:.2f}": solve_taylor(model, down, d)["stack_check_rms_px"] for d in REVEAL_CASES}
+    cases = {f"{d:.2f}": solve_taylor(model, down, d)["stack_fit_rms_px"] for d in REVEAL_CASES}
     return {
         "ticket": "T-2858",
         "not_a_reading": "a re-fit of T-2857's picks (docs/RESEARCH/glessner-prairie-front-T-2857/); nothing is re-picked",
@@ -244,7 +284,7 @@ def derive():
         "camera_free": views,
         "taylor_2135_before_stacks_px": before_stacks,
         "taylor_2135": taylor,
-        "taylor_2135_stack_check_rms_by_reveal_px": cases,
+        "taylor_2135_stack_fit_rms_by_reveal_px": cases,
         "rulings": {
             "widths": "sheet 6's outer lines: with any reveal 0.49-0.95 ft every photograph fits them at least as well as the record's 3.9 ft, and the frontal HABS 16 much better",
             "door": "kept at 30.4-35.4: sheet 6 gives only the fan's centre (32.53, its reveal hatched), and the photographs split on it (Taylor 2135 prefers the record, HABS 16 the sheet)",
@@ -275,7 +315,8 @@ def close(a, b, tol=0.05):
 def camera_agrees(cam, t):
     return (np.abs(np.array(cam["eye"]) - np.array(t["eye"])).max() <= 0.01
             and np.abs(np.array(cam["basis_right_up_forward"]) - np.array(t["basis_right_up_forward"])).max() <= 1e-4
-            and abs(cam["focal_px"] - t["focal_px"]) <= 0.5)
+            and abs(cam["focal_px"] - t["focal_px"]) <= 0.5
+            and np.abs(np.array(cam["principal_px"]) - np.array(t["principal_px"])).max() <= 0.5)
 
 
 def check(result):
@@ -321,7 +362,8 @@ def main():
         print(f"  {view:<22} record {r['record_before_rms_px']:.2f} px -> sheet 6 {r['sheet6_rms_px']:.2f} px; "
               f"{r['corner']} pick at {r['corner_pick_ft_from_N']:.2f} ft from N")
     print(f"  Taylor 2135 refit: rms {t['rms_px']} px; jambs {t['jamb_residual_px']}; "
-          f"stacks withheld {t['stack_checks_px']} (rms {t['stack_check_rms_px']})")
+          f"principal {t['principal_px']}, f {t['focal_px']}, pitch {t['pitch_deg']}, roll {t['roll_deg']}; "
+          f"stacks {t['stacks_px']} (centres and tops rms {t['stack_fit_rms_px']}); verticals {t['verticals']}")
     if a.camera:
         path = VIEWS / "taylor-2135-ne.json"
         cam = json.loads(path.read_text())
@@ -331,17 +373,23 @@ def main():
         for k in ("eye", "yaw_deg", "basis_right_up_forward", "focal_px", "principal_px"):
             cam[k] = t[k]
         cam["solve"]["method"] = (
-            "T-2858: refitted on the ten first-floor jambs of T-2857 (x only; each jamb whose reveal faces "
-            f"the camera at the sash, {REVEAL_FT} ft behind the arris) with the five earlier controls, the two "
-            "Prairie-corner x picks put on sheet 6's downspouts (0.90 ft in from the north corner, 0.82 from "
-            "the south). Level camera with a small fitted roll, height bounded 1.0-2.5 m, principal point "
-            "held. The three stacks are withheld checks (tools/glessner_prairie_front.py; "
+            "T-3058: fitted on the ten first-floor jambs of T-2857 (x only; each jamb whose reveal faces the "
+            f"camera at the sash, {REVEAL_FT} ft behind the arris), the five earlier controls (the two "
+            "Prairie-corner x picks put on sheet 6's downspouts, so they control height only), the three "
+            "stacks' centres and tops (their record boxes against T-2857's picks; the built caps read within "
+            "about 1 px of the boxes) and the photograph's plumb edges (docs/RESEARCH/"
+            "glessner-taylor-camera-T-3058/verticals.json, each lean weighted by its length). Principal "
+            "point, pitch and roll free; height bounded 1.0-2.5 m; every start ends at this camera. The "
+            "stacks' widths are not fitted and are the check (tools/glessner_prairie_front.py; "
             "data/comparisons/glessner/prairie-front.json).")
         cam["solve"]["controls_xyz_px"] = t["controls_xyz_px"]
         cam["solve"]["residual_px"] = t["control_residual_px"]
         cam["solve"]["jamb_residual_px"] = t["jamb_residual_px"]
         cam["solve"]["rms_px"] = t["rms_px"]
-        cam["solve"]["stack_checks_px"] = t["stack_checks_px"]
+        cam["solve"].pop("stack_checks_px", None)
+        cam["solve"]["stacks_px"] = t["stacks_px"]
+        cam["solve"]["stack_fit_rms_px"] = t["stack_fit_rms_px"]
+        cam["solve"]["verticals"] = t["verticals"]
         path.write_text(json.dumps(cam, indent=2) + "\n")
         print(f"wrote {path.relative_to(ROOT)}")
 

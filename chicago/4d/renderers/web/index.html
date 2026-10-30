@@ -619,6 +619,16 @@
          (T-2658), with the full essay under "Why this default" in Researcher mode.
          Every id here is read by the smoke gate — keep them. -->
     <section class="panel-body" data-panel="settings" hidden>
+      <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device.
+           T-3022 (the owner, 2026-10-22: "be a setting for the user on can they see the expert
+           research or not in the navigator") names it Expert research and puts it first: it is
+           what adds Inspect's Research tab, the building card folded into the Navigator. -->
+      <div class="settings-group" id="s-research">
+        <h4 data-str="settings.research">Research</h4>
+        <label class="field row check-field"><span data-str="research.switch">Expert research</span>
+          <input type="checkbox" id="s-researcher"></label>
+        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building: its evidence, liberties and full record. This device remembers it.</p>
+      </div>
       <div class="settings-group" id="s-display">
         <h4 data-str="settings.display">Display</h4>
         <!-- T-2625 moved light / dark here from the HUD; T-2656 makes it a two-way choice. -->
@@ -815,17 +825,18 @@
             <button class="setting-button" id="s-field-log-clear" type="button" data-str="fieldlog.clear">Clear</button></div>
           <p class="legend-note" id="s-field-log-status" role="status"></p>
         </div>
-        <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device. -->
-        <label class="field row check-field"><span data-str="research.switch">Researcher mode</span>
-          <input type="checkbox" id="s-researcher"></label>
-        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Shows the full reasoning and the working records we keep for researchers, in place. This device remembers it.</p>
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
-      <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here, the
-           section Guide opens until Guide's own screen lands (T-2661). -->
-      <div class="field row"><span>Tour mode: a sixty-second field check</span>
-        <button class="setting-button" id="tour-start" type="button">Take the field check</button></div>
+      <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here. T-3021:
+           Guide's screen lifts this block to its top (apps/guide.js), so the tour is the
+           first thing Guide offers, skipped or finished before. -->
+      <section class="nav-block nav-guide-tour" id="guide-tour" aria-labelledby="guide-tour-title">
+        <span class="nav-k">Tour</span>
+        <strong class="nav-place" id="guide-tour-title">The field check</strong>
+        <span class="nav-sub">Eight steps, about a minute. Skip any time.</span>
+        <button class="nav-key nav-tour-key" id="tour-start" type="button">Take the tour <span aria-hidden="true">→</span></button>
+      </section>
       <dl class="keys" id="keys-desktop">
         <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>walk</dd>
         <dt><kbd>Shift</kbd></dt><dd>run</dd>
@@ -869,7 +880,7 @@
        Walk/Fly key moved into the instrument's heading row, so this holds one key, and it
        fades in and out (css/walk.css) rather than popping; nothing beside it moves. -->
   <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
-    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg> <span class="chip-label">Inspect</span></button>
+    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></svg> <span class="chip-label">Inspect</span></button>
   </div>
   <!-- T-2640: Show me pulses this outline on the building for 2 s. -->
   <div class="show-me-outline" id="show-me-outline" aria-hidden="true" hidden></div>
@@ -961,9 +972,14 @@
         <strong class="nav-jaunt-title" id="nav-jaunt-title"></strong>
         <span class="nav-meter" aria-hidden="true"><i id="nav-jaunt-bar"></i></span>
       </section>
+      <!-- T-3021: each tile opens its app (the owner, 2026-10-22: "the move walking and
+           confidence view would go to those settings"). T-3043: the tile's name sits beside
+           its open key, not inside it, so "Confidence view" stays a locked term's first
+           appearance that explains itself on tap; the key's hit area covers the tile and the
+           term sits above it, so a tap on the term shows its line and opens nothing. -->
       <div class="nav-tiles">
-        <span class="nav-tile"><span class="nav-k" data-str="nav.tile.move">Move</span><span id="nav-move">Walking</span></span>
-        <span class="nav-tile"><span class="nav-k" data-str="nav.tile.confidence">Confidence view</span><span id="nav-confidence">Off</span></span>
+        <div class="nav-tile"><span class="nav-k" id="nav-tile-move-k" data-str="nav.tile.move">Move</span><button class="nav-tile-open" id="nav-tile-move" type="button" data-app="move" aria-labelledby="nav-tile-move-k nav-move"><span id="nav-move">Walking</span></button></div>
+        <div class="nav-tile"><span class="nav-k" id="nav-tile-confidence-k" data-str="nav.tile.confidence">Confidence view</span><button class="nav-tile-open" id="nav-tile-confidence" type="button" data-app="confidence" aria-labelledby="nav-tile-confidence-k nav-confidence"><span id="nav-confidence">Off</span></button></div>
       </div>
     </div>
   </div>

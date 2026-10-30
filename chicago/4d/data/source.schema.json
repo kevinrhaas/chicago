@@ -103,13 +103,14 @@
       "type": "string",
       "enum": [
         "geometry",
+        "texture",
         "inventory",
         "cross_check",
         "orientation",
         "text_only"
       ],
       "default": "cross_check",
-      "description": "How far this source may be used. 'geometry' permits tracing; 'orientation' permits toponyms and rough placement only."
+      "description": "How far this source may be used. 'geometry' permits tracing; 'texture' permits sampling its pixels into a texture (T-3247); 'orientation' permits toponyms and rough placement only."
     },
     "verified": {
       "type": "boolean",

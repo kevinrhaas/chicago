@@ -1,0 +1,83 @@
+{
+  "structure_id": "kellogg_house_1709_prairie",
+  "view": "rand_mcnally_1893_p233",
+  "glb": "assets/gltf/kellogg_house_1709_prairie__as_mapped_1904.glb",
+  "glb_sha256": "8e2eb9b1fe80fd61d85574761a78ca4013490d9060178ac9544b5e88aec59d31",
+  "camera_sha256": "5da46b2ca32b7433da35962f921951f0276dea4553a2706da566d5b2268a4ba0",
+  "photo_sha256": "432f11b41adc85eb66e7fb20b3ea038f9f1b1ef6819cd9e5f892c4e120825fb3",
+  "side_by_side": "docs/RESEARCH/photo-match/kellogg_house_1709_prairie/rand_mcnally_1893_p233-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: a front of two storeys of tall windows over a raised basement, the cornice's bed about y 514 px and the front's foot about y 651 px, about 14 m across from the porch's north column (x about 351) to the corner piece",
+      "status": "fixed",
+      "how": "T-1877: the K01 main body on the 1911 sheet's plan, the principal floor 1.8 m, storeys 3.8 and 3.5 m, the render's cornice and foot within 5 px of the drawing's"
+    },
+    {
+      "what": "three window columns across the front at x about 377, 418 and 473 px, one a storey on both floors, the north one over the door; basement lights under the south two",
+      "status": "fixed",
+      "how": "T-1877: front_bays 1.9, 4.75 and 8.4 m; the render's at x about 375, 416 and 470 px"
+    },
+    {
+      "what": "a columned porch at the north end of the front, two turned columns (x about 351 and 393 px) under a deep entablature at about the upper floor's band, the door in its shade",
+      "status": "fixed",
+      "how": "T-1877: K07's hood on columns, 3.6 m wide and 1.7 m out, its soffit at 4.9 m; the render's at x about 346 and 395 px"
+    },
+    {
+      "what": "the stoop climbing to the porch from the walk, straight out toward the street",
+      "status": "fixed",
+      "how": "T-1877: K07's straight stoop, 1.8 m wide, under the porch"
+    },
+    {
+      "what": "a deep moulded cornice across the front and round the corner piece",
+      "status": "fixed",
+      "how": "T-1877: K10's moulded cornice round the front and both side walls and the corner bay's own"
+    },
+    {
+      "what": "a slated mansard over the cornice with two dormers over the north part of the front, a steep gabled one at x about 377 px and a lower one at x about 416 px",
+      "status": "fixed",
+      "how": "T-1877: K05's mansard, 3.0 m rise at 74 degrees, slated, its two street dormers at v 1.9 and 4.75 m (render x about 377 and 417 px)"
+    },
+    {
+      "what": "at the south end a corner piece standing forward with its own tall slated roof over the cornice, its north-west face hatched in shade with a light a storey (x about 540 px) and its south-west face lit",
+      "status": "fixed",
+      "how": "T-1877: the 1911 sheet's diagonal corner bay, a square turned 45 degrees across the front's south corner (circumradius 1.78 m), a light a storey in each outer face, a blank 1.2 m stage over the cornice under a steep slated pyramid; the sun from the south-west leaves its north-west face in shade"
+    },
+    {
+      "what": "the south flank seen past the corner piece, lit, with a window a storey (x about 542-604 px)",
+      "status": "fixed",
+      "how": "T-1877: the canted bay and the south wall's windows on the sheet's plan; the render shows them at x about 563-609 px"
+    },
+    {
+      "what": "the principal windows' hoods: the drawing tops them with small pointed pediments, about 3 px (0.2 m) high at its scale, where K09's lintel-and-cornice hood is flat-topped",
+      "status": "within tolerance",
+      "how": "T-1877: the hood stands in the drawing's place at its width; its top differs by about 0.2 m, under the bar, and K09 has no pedimented window head (adding one changes a kit every K01 house is built from). Written here for the owner to overrule if he reads the drawing's pediments as a shape a visitor would see."
+    },
+    {
+      "what": "the corner piece is drawn wider than the sheet's diagonal bay: its shaded face from x about 501 to 542 px and its roof about 6 m across, where the sheet's square is 3.6 m corner to corner",
+      "status": "within tolerance",
+      "how": "T-1877: the 1911 sheet measures the bay and the guidebook drawing does not; where the two disagree the plan is built, and the drawing's piece stands within about 1 m of the render's"
+    },
+    {
+      "what": "the recess of the front's north part: the sheet sets the north 6.42 m of the front 1.71 m behind the corner bay's block; the drawing draws the front in one plane",
+      "status": "within tolerance",
+      "how": "T-1877: built in one plane, the drawing's way; the recess is depth, which this projection draws and the drawing does not show (L-k01-1709-kellogg-drawing-led-1877)"
+    },
+    {
+      "what": "the roof's deck, cresting and chimneys, the corner roof's top, and the north wall and rear",
+      "status": "not shown",
+      "how": "T-1877: the strip's trees stand in front of the roofs over the cornice line, and the camera sees only the front and the south flank"
+    },
+    {
+      "what": "materials and colour",
+      "status": "not shown",
+      "how": "T-1877: a line drawing; the sheet says brick"
+    },
+    {
+      "what": "the front's boundary and walk",
+      "status": "not shown",
+      "how": "T-3205: the drawing's trees and its scale (about 6 px a metre at the street line) do not resolve a boundary before 1709; the low coping and walk are reconstructed (L-k14-walks-1700-block-3205; docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

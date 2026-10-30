@@ -1,10 +1,10 @@
 {
   "id": "dent_house_1823_prairie",
-  "name": "1823 Prairie Avenue — Dent masonry mansion (district draft; refined by T-1894)",
+  "name": "1823 Prairie Avenue — Thomas Dent house",
   "aka": [
     "1823 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,10 +14,10 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B; rear2B brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1894 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1823-b1), the T-1841 census (s28-1823-front, s28-1823-wing) and the T-1837 register row frontage-28-052 (Dent masonry mansion); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "Refined from the district draft (T-2330) in place by T-3162 (piece 1 of T-1894), under the draft's own id, as a K01 stone-fronted house read off its two pictures against the 1911 sheet's plan: the Chicagology engraving after a photograph (chicagology_1823_dent_engraving, undated, from the north-west) and the 1883 New Chicago Album vignette of the same view (newberry_new_chicago_album_1883_residences). The front with its south pavilion under a steep crown, the triple window groups, the door up its stoop, the mansard with its dormers, the tall stacks, and the two-storey rear range. The engraving's camera and match record are in data/reference_views/dent_house_1823_prairie/; what it shows that is not built yet is open there, for T-3163. T-3163 (piece 2 of T-1894) re-solved the engraving's camera (its pavilion corners had been read about 60 px out), re-read the front's and the north flank's openings through it, built the north flank's box bay, the pavilion's attic under its gable, the deck's cresting, the paired-light dormers, the moulded window heads and the stoop from the north, and solved the 1883 vignette's camera; docs/RESEARCH/k01-1823-dent-1894/README.md.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -25,18 +25,19 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The engraving is undated; the 1883 album vignette draws the same composition two years after the house was built, and nothing read so far records an alteration before 1904.",
+        "to_is": "seen"
       },
       "position": {
-        "utm_e": 448514.064,
-        "utm_n": 4634115.684,
+        "utm_e": 448507.512,
+        "utm_n": 4634115.832,
         "rotation_deg": 179.455,
         "symbolic_location": "1823 S. Prairie Avenue, parcel prairie_1823 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 14.250, v -7.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.455 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The front block's rear north corner: lot frame u 20.8, v -7.71 (the draft's frame point u 6.55, v -0.21 through its own rotation), where the 1911 sheet's trace (s28fp-1823-b1) runs the north wall (v -7.3 to -7.7), narrows the south side to the rear range (u 20.3-20.8) and puts the front's main plane at u 32.85. The draft's fit of the sheet stands behind it (its georeference's independent check 1.47 m RMS). Rotation 179.455 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -49,121 +50,787 @@
             0.0
           ],
           [
-            19.5,
+            12.05,
             0.0
           ],
           [
-            19.5,
-            13.75
+            12.05,
+            13.88
           ],
           [
             0.0,
-            13.75
+            13.88
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The front block read off the 1911 sheet's trace (s28fp-1823-b1 p1) in the lot frame: the front's main plane at u 32.85, the north wall at v -7.71 and the south wall at v 6.17, 13.88 m along the front; 12.05 m deep to lot u 20.8, where the trace narrows the south side to the rear range. The pavilion (lot v 0.43-6.15, to u 33.97) stands on it as a K08 projection and the rear range (to u 14.1) as a K01 rear wing."
       },
       "form": {
         "stories": {
-          "value": 3,
-          "confidence": "attested",
+          "value": 2,
+          "confidence": "inferred",
           "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "'3B; rear2B' printed on the 1911 sheet: 3 full storeys."
+          "note": "Two wall storeys over a raised basement under a mansard, read off the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px) and drawn the same way in the 1883 album's vignette: the 1911 sheet's '3B' counts the mansard storey."
         },
         "construction": {
-          "value": "brick",
-          "confidence": "attested",
+          "value": "brick_with_stone_front",
+          "confidence": "inferred",
           "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The register reads the map's colours as 'brick'."
+          "note": "A stone street front on brick flanks: the 1883 vignette draws the front light and smooth beside a darker brick north flank, and the engraving draws the front's stone base course and quoined pavilion against the flank's brick; the 1911 sheet colours the building brick, which is its body. The register's caution (compare the engraving's stone with the map's brick, do not make every wall ashlar) is followed: only the street front is stone."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 2.35,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "The principal floor 2.35 m over grade: the door's foot on the landing at 2.15-2.4 m and the stone base course's top at 2.4-2.5 m on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px); the flank's principal-floor sills at 3.3 m; 2.35 rather than 2.4 so K07's stoop and K01's stair solve the rise in the same number of risers."
+        },
+        "storey_heights_m": {
+          "value": [
+            4.0,
+            4.2
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "The principal storey 4.0 m and the chamber storey 4.2 m, to a wall head at 10.55 m and the cornice's top at about 11.2 m: on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px) the flank's principal-floor windows stand 3.3-5.9 m, its chamber windows 7.4-10.0 m, and the camera's fit puts the cornice's top at 10.7-11.6 m (the fit trades height against distance, the sheet's 13.88 m front its scale)."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "Reconstructed (T-3162): a stone-faced brick front of the 1880s, K01's 0.45 m; no picture shows a reveal deep enough to measure."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "Reconstructed (T-3162): K01's 0.33 m brick party/flank wall; not measurable from either picture."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "Reconstructed (T-3162): K03's common buff brick for the flanks and rear; the pictures are monochrome, so the brick's colour is not read."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "Reconstructed (T-3162): K07's 0.30 m tread; the stoop's steps are not countable on either picture."
+        },
+        "roof_pitch_deg": {
+          "value": 10,
+          "confidence": "reconstructed",
+          "note": "Reconstructed (T-3162): the mansard's upper deck at K05's 10 degrees; no picture sees over the curb."
+        },
+        "window_kit": {
           "value": {
-            "parts": [
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "Reconstructed (T-3162): K06 two-over-two sash in the street front and flanks, and K06's area light in the basement; the engraving's sash bars are not readable at its screen."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "mansard",
-                "rect": [
-                  0.0,
-                  0.0,
-                  19.5,
-                  13.75
-                ],
-                "from": "s28fp-1823-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
+                "wall": "k01.wall.side.south",
+                "s_m": 0.6
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
               }
-            ],
-            "lot_v": [
-              -1.221,
-              16.221
-            ],
-            "street_u": 28.854
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "Reconstructed (T-3162): K05's copper half-round gutter and round downpipes; neither picture shows a downpipe."
+        },
+        "stair_landing_depth_m": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "note": "Reconstructed (T-3162): K07's 1.5 m landing at the door."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll",
+            "lower_faces": "slate_pennsylvania",
+            "paint": "black"
           },
           "confidence": "inferred",
           "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "Slate on the mansard's lower faces (the engraving's and the vignette's lower faces read as a laid covering, darker than the walls) under a painted tin deck behind the curb, which neither picture sees."
+        },
+        "stone_front": {
+          "value": {
+            "fabric": "limestone_bedford",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.25,
+            "corner_bond": []
+          },
+          "confidence": "inferred",
+          "sources": [
+            "newberry_new_chicago_album_1883_residences",
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "A smooth light stone front (the 1883 vignette's tone, the engraving's base course and quoins) on K02's Bedford limestone, its base two courses deep under the principal floor's 2.35 m. Which limestone is reconstruction: the pictures say only light and smooth, and K02's Lemont profile cannot course a base that tall (its courses stop at 0.41 m; this base's are 0.525 m)."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k09.trim.lintel_cornice_hood",
+              "k09.trim.lintel_cornice_hood"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "K09's lintel with a cornice hood over the windows on both storeys of the front's north part, as both pictures draw moulded heads under small cornices over the triple groups and the door's bay (T-3163; T-3162 had K01's flat lintel). Their mouldings' profiles are the kit's."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.moulded_stone",
+            "walls": [
+              "k01.wall.side.south",
+              "k01.wall.street_front",
+              "k01.wall.side.north"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "A moulded cornice of blocks over a dentil course at the wall head on the front and both flanks: the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px) draws it along the whole north flank and the front; the south flank's is reconstruction."
+        },
+        "roof_form": {
+          "value": "mansard",
+          "confidence": "attested",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "A mansard: both pictures draw the slated lower faces with dormers over the cornice on the front and the north flank."
+        },
+        "eave_overhang_m": {
+          "value": 0.45,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "The cornice projects about 0.45 m: on the engraving it overhangs the front's north corner by about 25 px at 62 px/m."
+        },
+        "stoop_width_m": {
+          "value": 2.2,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "The stoop about 2.2 m wide, the door's width and its reveals: the engraving's stoop climbs from the north to the landing (x 740-840 px), which K07's straight stoop does not, open in the match record."
+        },
+        "entrance_bay": {
+          "value": "north",
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "The door is the front's second bay from its north corner, beside the pavilion: K01 counts its bays from the front's north end (its 'south'), so the door is K01's 'north' entrance."
+        },
+        "front_bays": {
+          "value": [
+            1.6,
+            2.75,
+            3.9,
+            6.2
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "The front's north part re-read through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json): the triple group's three lights at x 655-685, 710-745 and 765-805 px (v 1.6, 2.75 and 3.9 m, 1.15 m apart) and the door at x 860-930 px (v 6.2 m), north of the pavilion (T-3162 had read 0.88, 1.9, 2.92 and 4.85 m through the earlier camera)."
+        },
+        "front_bays_by_storey": {
+          "value": {
+            "1": [
+              1.6,
+              2.75,
+              3.9,
+              6.2,
+              7.4
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "The chamber storey repeats the triple group and adds a window over the door and the narrow light beside it (x 960-980 px, v 7.7-8.2 m) through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json). The narrow light is laid at the storey's 0.75 m sash at v 7.4 m, clear of the pavilion's junction. The principal storey's narrow light beside the door is not built (K01 lays no window between the door and the pavilion there): open."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.9,
+              "width_m": 0.75,
+              "height_m": 2.6
+            },
+            {
+              "sill_above_floor_m": 1.0,
+              "width_m": 0.75,
+              "height_m": 2.3
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "Tall narrow sash: the flank's principal windows 3.3-5.9 m over grade (floor 2.4, so sill 0.9, 2.6 m tall) and its chamber windows 7.4-10.0 m (floor 6.35: sill 1.0; built 2.3 m tall, so the lintel clears the cornice's frieze, which the engraving's heads run up into) on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px); 0.75 m wide (K01's narrowest) so the triple group's three lights stand 1.02 m apart, as drawn."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.4,
+            "width_m": 0.8,
+            "height_m": 0.9
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "Basement lights 0.6-1.6 m over grade on the flank (x 230 px, y 910-955 px) on the Chicagology engraving through its solved camera (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json; grade at y 975-995 px); the front's under the pavilion are grilled."
+        },
+        "side_bays": {
+          "value": [
+            0.25,
+            2.15,
+            {
+              "s_m": 5.0,
+              "sill_m": 7.35,
+              "width_m": 0.75,
+              "height_m": 2.3
+            },
+            7.35,
+            11.0
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving"
+          ],
+          "note": "The north flank's five window columns over the main body, read off the Chicagology engraving through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json) at x 257-292, 305-332, 375-402, 435-465 and 537-570 px on the chamber storey: u 0.25, 2.15, 5.0, 7.35 and 11.0 m from the main body's rear on the north wall's line (T-3162 had read four, at 2.1, 4.3, 8.4 and 10.9 m, through a camera whose pavilion corners were about 60 px out). On the principal storey the print's wall is blank at 5.0 m beside the box bay, so that column is laid once, on the chamber storey at its storey's sill and sash; the 7.35 m column's principal window stands behind the box bay and is not cut. K01 calls the north flank its 'south' wall."
+        },
+        "north_bays": {
+          "value": [
+            2.5,
+            6.0,
+            9.5
+          ],
+          "confidence": "reconstructed",
+          "note": "The south flank faces 1827's north flank about 3.3 m away and no picture shows it: three window columns, K01's spacing, reconstruction."
+        },
+        "rear_bays": {
+          "value": [
+            3.5,
+            10.4
+          ],
+          "confidence": "reconstructed",
+          "note": "The main body's rear wall above the rear range's roof is not in either picture: two windows, reconstruction."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
+            ],
+            "top_above_ridge_m": 0.9,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 7.8,
+                "v_m": 0.3,
+                "top_m": 17.5,
+                "on_cornice": true
+              },
+              {
+                "u_m": 6.4,
+                "v_m": 13.58,
+                "top_m": 17.7,
+                "on_cornice": true
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "The tall stack on the north flank: x 455-520 px, its top at y 20 px through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json), at u 7.8 m and 17.5 m high, standing on the mansard's cornice over the north wall (K01's on-cornice stack, as 1620's), since the deck's cresting leaves no room for a stack across the curb. The second stands at the pavilion's back on the south wall's cornice, where the 1883 vignette draws a stack (its place reconstructed; its top at 17.7 m). The stack at the flank's rear (the engraving's x 170-235 px, the vignette's at the flank's rear corner) stands over the rear range, where K01 stands no stack: open."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 10.25,
+              "side_stoop": {
+                "run": "left",
+                "landing_v_m": [
+                  5.3,
+                  7.1
+                ],
+                "out_m": 0.3
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1823-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "K07's panelled door up a stoop, the front 10.25 m behind the street line (the 1911 sheet's trace: the front's main plane at lot u 32.85, the street line at 43.1). T-3163: the stoop climbs from the north, as both pictures draw it, along the front to a landing at v 5.3-7.1 m before the door (K01's side stoop, 1621's), 0.3 m clear of the face. The grilled round-arched basement doorway the pictures draw under the landing is not built: open."
         },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 1468617848,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 38,
-            "mansard_lower_m": 3.0,
-            "front_bays": 5,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 3,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2330",
-              "refined_by": [
-                "T-1894"
-              ]
+        "bays": {
+          "value": [
+            {
+              "id": "south_pavilion",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.street_front",
+              "s_m": 11.01,
+              "plan": {
+                "width_m": 5.74,
+                "proud_m": 1.12
+              },
+              "flush_corner": "right",
+              "fabric": "front_stone",
+              "storeys": [
+                {
+                  "height_m": 2.35,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 0.9,
+                      "sill_m": 0.6,
+                      "at": [
+                        0.38,
+                        0.62
+                      ],
+                      "recess_m": 0.35,
+                      "why_not_ordinary": "the pavilion's two grilled basement lights under its principal window, x 1060-1110 and 1130-1170 px and y 925-985 px on the engraving"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.6,
+                      "clear_height_m": 3.0,
+                      "sill_m": 0.2,
+                      "at": [
+                        0.5
+                      ],
+                      "recess_m": 0.35,
+                      "why_not_ordinary": "the pavilion's one broad principal window, x 1005-1090 px and y 720-870 px on the engraving (2.4-5.5 m over grade, about 1.6 m clear; its sill 0.2 m over the floor, K08's lowest on that storey's clear wall)",
+                      "surround": {
+                        "band_m": 0.2,
+                        "proud_m": 0.04,
+                        "head_m": 0.25,
+                        "head_proud_m": 0.08
+                      }
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.2,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.5,
+                      "clear_height_m": 2.75,
+                      "sill_m": 0.75,
+                      "at": [
+                        0.5
+                      ],
+                      "recess_m": 0.35,
+                      "why_not_ordinary": "the pavilion's one broad chamber window, x 1010-1090 px and y 505-640 px on the engraving (7.1-9.9 m over grade)",
+                      "surround": {
+                        "band_m": 0.2,
+                        "proud_m": 0.04,
+                        "head_m": 0.25,
+                        "head_proud_m": 0.08
+                      }
+                    }
+                  ]
+                },
+                {
+                  "height_m": 2.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.casement_pair_mullioned",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 1.6,
+                      "sill_m": 0.45,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the pavilion's paired attic lights under its pediment, two lights on a mullion, as the 1883 New Chicago Album vignette draws them between the pavilion's cornice and its pedimented gable (the Chicagology engraving's are behind the trees)",
+                      "surround": {
+                        "band_m": 0.15,
+                        "proud_m": 0.04,
+                        "head_m": 0.15,
+                        "head_proud_m": 0.06
+                      }
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "gable",
+                "pitch": 1.0,
+                "covering": "slate_pennsylvania",
+                "gable": {
+                  "inset_m": [
+                    0.0,
+                    0.0
+                  ],
+                  "upstand_m": 0.15,
+                  "coping": {
+                    "width_m": 0.4,
+                    "height_m": 0.18,
+                    "proud_m": 0.08
+                  },
+                  "kneeler": {
+                    "width_m": 0.4,
+                    "out_m": 0.03
+                  },
+                  "finial": {
+                    "width_m": 0.22,
+                    "shaft_m": 0.3,
+                    "cap_m": 0.35
+                  }
+                }
+              },
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
+              },
+              "plinth_m": 0.05,
+              "masonry": {
+                "course_m": 0.45,
+                "block_m": 1.0,
+                "joint_m": 0.01,
+                "relief_m": 0.03,
+                "to_m": 2.35
+              }
             },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's 'three-storey wall, high attic/mansard profile, tall chimneys' on a brick body (the map's colour, not the engraving's ashlar); rear2B is the two-storey range. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1468617848 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
+            {
+              "id": "north_box_bay",
+              "variant": "k08.bay.rectangular",
+              "wall": "k01.wall.side.south",
+              "s_m": 6.68,
+              "fabric": "front_stone",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.2,
+                    0.0
+                  ],
+                  [
+                    -1.18,
+                    0.5
+                  ],
+                  [
+                    1.18,
+                    0.5
+                  ],
+                  [
+                    1.2,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 2.35,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 0.8,
+                      "sill_m": 0.75,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the basement light under the box bay, x 404-438 px and y 915-965 px on the engraving",
+                      "recess_m": 0.33
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_paired_flat",
+                      "clear_width_m": 1.4,
+                      "clear_height_m": 2.9,
+                      "sill_m": 0.25,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the box bay's one broad light, x 390-440 px and y 690-855 px on the engraving (2.6-5.7 m over grade), a pair under one head as the 1883 vignette draws it",
+                      "recess_m": 0.33
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "overhang_m": 0.2,
+                "fascia_m": 0.35
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The south pavilion: the 1911 sheet's front projection (lot v 0.43-6.15, 1.12 m forward of the front's main plane at u 32.85) on K08, 5.74 m wide and flush with the south wall, in the front's stone; one broad window to a storey under a stone surround and two grilled basement lights, read off the engraving (x 1035-1233 px through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json)) and drawn the same in the 1883 vignette. T-3163: carried up past the main cornice as an attic storey 2.4 m high with its paired lights (two lights on a mullion, 1.1 m clear), under a coped stone gable rising 1.0 m a metre in to a finial, as the vignette draws the pavilion's pedimented attic with its finial (the engraving's is behind the trees); the gable's pitch and the attic's height are reconstruction, read to put the finial near the engraving's pavilion top (y 150 px, about 18 m). The north flank's one-storey box bay on the principal storey, the engraving's x 377-455 px (its front x 385-445 px, its street-side cheek beyond): 2.4 m wide and 0.5 m out at u 5.5-7.9 m (its depth reconstruction, enough for K08's window recesses), its broad light 2.6-5.5 m over grade and its hood's top about 6.3 m (y 645 px); the vignette draws the same hooded window. Built as K08's rectangular bay with its basement light (x 404-438 px) in its foot under a low hipped hood: K08's corbelled oriel stands only on an upper floor, so the foot is carried to grade 0.5 m proud where the print corbels it out at about 1.8 m. Its stone and depth are reconstruction."
         },
-        "draft": {
+        "mansard": {
           "value": {
-            "pass": "T-2330",
-            "liberty": "L-draft-prairie-18-20-east-2330",
-            "register_row": "frontage-28-052",
-            "census_ids": [
-              "s28-1823-front",
-              "s28-1823-wing"
+            "variant": "k05.roof.mansard_convex",
+            "lower_rise_m": 4.5,
+            "bulge": 0.0,
+            "lower_pitch_deg": 72,
+            "dormers": [
+              {
+                "face": "street",
+                "along_m": 3.1,
+                "sash": {
+                  "variant": "k06.opening.casement_pair_mullioned",
+                  "width_m": 1.1,
+                  "height_m": 2.1,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.4,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 50
+              },
+              {
+                "face": "street",
+                "along_m": 5.6,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.8,
+                  "height_m": 1.2,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 50
+              },
+              {
+                "face": "south",
+                "along_m": 4.2,
+                "sash": {
+                  "variant": "k06.opening.casement_pair_mullioned",
+                  "width_m": 1.1,
+                  "height_m": 1.8,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.35,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 40
+              },
+              {
+                "face": "south",
+                "along_m": 2.05,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.8,
+                  "height_m": 1.2,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 50
+              }
             ],
-            "trace_building": "s28fp-1823-b1",
-            "seed": 1468617848,
-            "replaceable_by": [
-              "T-1894"
+            "deck": {
+              "cresting": {
+                "height_m": 0.55,
+                "inset_m": 0.08
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "The slated mansard rising 4.5 m over the wall head to its curb at 15.05 m (K05's most for a one-storey face): through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json) the curb at the front's north corner reads about 14.7-15.0 m, and the 1883 vignette draws it at the same height. On the curb, an iron cresting 0.55 m high round the deck (K10's iron ridge, the pattern the kit's), which both pictures draw. On the street face the pedimented dormer over the triple group, at v 3.1 m (its lights x 690-770 px) with paired lights, and the small dormer over the door (x 855-880 px, 5.6 m); on the north flank (K01's 'south' face) the broad dormer with paired lights under one pediment (x 375-445 px, u 4.2 m) and a small one behind it (x 300-340 px), at 2.05 m, the nearest the hip lets it stand. Open on the match records: the triple group's dormer is drawn broad (its pediment x 620-800 px) rising about 1.3 m over the curb, where K05's dormer is at most 2.0 m wide and stops under the curb. T-3162's hipped crown over the pavilion is gone: the pavilion carries its own attic and gable (bays), which lets the deck carry its cresting."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_range",
+              "rect": [
+                -6.7,
+                0.0,
+                0.0,
+                12.1
+              ],
+              "floor_m": 2.35,
+              "storey_heights_m": [
+                4.0,
+                4.2
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.9,
+                  "width_m": 0.9,
+                  "height_m": 2.4
+                },
+                {
+                  "sill_above_floor_m": 0.9,
+                  "width_m": 0.9,
+                  "height_m": 2.2
+                }
+              ],
+              "windows": {
+                "rear": [
+                  3.0,
+                  9.0
+                ],
+                "south": [
+                  5.25
+                ],
+                "north": [
+                  2.0,
+                  4.7
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "chicagology_1823_dent_engraving",
+            "newberry_new_chicago_album_1883_residences"
+          ],
+          "note": "The 1911 sheet's rear range ('rear2B'): its trace narrows the house on the south side behind lot u 20.8 (to lot v 4.4) and runs the north wall on unbroken to the rear at u 14.1, 6.7 m deep and 12.1 m wide, two storeys at the main body's floor heights under a flat tin roof. The engraving's north flank shows one window column over it (x 225-250 px, 1.15 m behind the main body; T-3163, which read the wall from x 140 to 225 px blank on every storey where T-3162 had laid three) and its cornice dropping a little where it begins; the 1883 vignette draws the mansard stopping short of the flank's rear over it. Its windows' places on the south flank and the rear are reconstruction."
+        },
+        "boundary": {
+          "value": {
+            "layout": "stone_coping_wall",
+            "street_line_m": 10.15,
+            "lot_s_m": [
+              -1.01,
+              16.43
             ],
-            "card": "District draft — refined by T-1894."
+            "thickness_m": 0.3,
+            "chamfer_m": 0.05,
+            "runs": [
+              {
+                "to_s_m": -0.65,
+                "height_m": 0.3
+              },
+              {
+                "to_s_m": -0.3,
+                "height_m": 0.75
+              },
+              {
+                "to_s_m": 1.6,
+                "opening": true
+              },
+              {
+                "to_s_m": 1.95,
+                "height_m": 0.75
+              },
+              {
+                "to_s_m": 16.43,
+                "height_m": 0.3
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "newberry_new_chicago_album_1883_residences",
+            "chicagology_1823_dent_engraving",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The 1883 album view (album_1883.json) draws a low line along the walk before the house, broken at the walk that comes out from the side stoop's foot, with a post at the break (x about 220 px on the 390 px vignette, s about 1.4 through its solved camera); the engraving shows no iron fence across the front. K11's stone coping wall, 0.3 m, on the parcel's street line (10.25 m from the front; data/street_grid/1904.json prairie_1823), open s -0.3-1.6 where the flight ends (s 1.4) and a 0.75 m post either side. The posts' pair, their height and the coping's section are reconstructed: the vignette is 390 px across."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.5
+            },
+            "grade_m": {
+              "front": 0.013,
+              "street": 0.016,
+              "per_m_s": 0.0034,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "sources": [
+            "newberry_new_chicago_album_1883_residences",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The side stoop's flight ends running north along the front (its foot at s 1.4); the walk leaves it there, from the flight's wall side out to the public walk through the coping's opening, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
         }
       }
     }

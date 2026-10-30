@@ -1,0 +1,569 @@
+{
+  "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 35 for the background behind Prairie Avenue: Indiana Avenue's east frontage, 20th to 22nd Street, and the two lots of East Twenty-first Street behind its 2101-2105 corner (T-3009, piece 2 of T-2983, which tools/census_prairie_1904_background.py ranks: every Indiana lot of the 20th-21st block is seen from the avenue's walks). The T-1842 census (chicago/prairie_1904_v1/data/sheet_census/sheet-35.json) counts Prairie frontages only, and edges_census_s35.json holds T-2982's named lots on 20th Street and Calumet, so these rows are read here, in the same frontage contract, for tools/trace_prairie_1904_footprints.py (sheet '35w') and tools/draft_prairie_1904.py. Four fronts carry 1911 commercial uses whose 1904 state nothing in hand attests (2001-2003, 2101-2105 and 2129-2131 Indiana, 215-217 E. 21st): they are read and traced, and T-3013 then read their 1904 state from the Blue Book, the 1902 Lakeside directory and the Tribune's columns: 2001-2003, 2101-2105 and 215-217 stood in other uses in 1904 (houses, rooms, an agent's office, a dwelling) and are ruled replaced_after_1904, the 1911 outline not the 1904 building and nothing stood until their form is found; 2129-2131 was Bane Brothers' livery and is ruled present_as_mapped. The fifth, 2133 on the 22nd Street corner, is not read here at all: the sheet draws it as a five-storey brick block, 68 ft, lettered BRANCH P.O., with a saloon on the corner, stores along 22nd Street (202-212 E. 22nd ride on its lot) and a two-storey frame dwelling at its east end, and those stores and rear buildings want their own reading beside its 1904 state. T-3013 read what the directories give: Louis Rueckert kept the corner saloon at 2133 in both the 1902 and the 1911 Lakeside directories, and households lived at 202-210 East 22nd in 1902, so the corner was built and in the same trade across 1904, but whether the five-storey block is the building of 1904 is not read; the lot is outside this trace. 213-217 E. 20th, inside this block's north-east corner, are T-2982's and are not here.",
+  "ticket": "T-3009",
+  "sheet": "35w",
+  "target_date": "1904-07-01",
+  "source": {
+    "source_id": "sanborn_1911_chicago_v3_sheet_35",
+    "file": "chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_35.jpg",
+    "observation_year": 1911
+  },
+  "reading": {
+    "by": "Read by eye from the committed sheet 35 scan (1602 x 2000 px) at 3x over the Indiana lots, the 1904 grid's parcel lines drawn over each crop, 2026-10-22.",
+    "conventions": "Sanborn colour: pink brick, yellow frame, blue stone. A crossed square marks a stable. D = dwelling. Storey figures as printed (B = basement).",
+    "limits": "A 1911 label is a 1911 observation (study ruling 11): the garages, the printing works, the repair shop and the post office are not carried back to 1904. The scan is coarse (0.186 m/px), so a storey figure on a small outbuilding is not always legible and is left unread. Robinson 1886 plate 10 ends north of 20th Street, so no earlier plan checks these outlines. No dimension is claimed beyond the trace."
+  },
+  "frontages": [
+    {
+      "frontage_id": "frontage-35w-2001–2003",
+      "printed_number_1911": "2001–2003",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2001"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2001-front",
+          "kind": "front",
+          "reading_1911": "3-storey brick building, 40 ft, across both lots from Indiana Avenue to the alley, lettered PRINTING and POWER ELEV., with an office on the first floor"
+        }
+      ],
+      "decision_1904": "replaced_after_1904",
+      "why": "Two houses stood here on 1 July 1904, and the printing works the 1911 sheet draws across both lots came after September 1909: the 1904 Blue Book seats two households at 2001, a twelve-room stone-front house at 2003 was to let in 1902, 2001 still kept a private family's cook in 1907 and let rooms with board in September 1909. The 1911 outline is not the 1904 building, and no plan, view or description of the two houses is in hand, so the draft stands nothing here rather than invent their fronts; the ground is NOT open, and drafting the houses waits on an outline (T-3013's follow-up).",
+      "named_record_ids": [],
+      "front_package": "T-1946",
+      "reading_1904": {
+        "by": "T-3013",
+        "text": "2001 Indiana: a residence (Mr. and Mrs. A. Courtney Campbell and Mrs. George C. Morton, Blue Book 1904; Mrs. George C. Morton, Lakeside 1902; a private family's cook, October 1907; large rooms with board, September 1909). 2003 Indiana: a stone-fronted house of twelve rooms, to let in May, August and October 1902.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "lakeside_city_directory_1902",
+          "chicago_tribune_1902_10_17_to_rent_2003_indiana",
+          "chicago_tribune_1907_10_04_cook_2001_indiana",
+          "chicago_tribune_1909_09_14_rooms_2001_indiana"
+        ]
+      }
+    },
+    {
+      "frontage_id": "frontage-35w-2007",
+      "printed_number_1911": "2007",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2007"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2007-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) behind a stone (blue) strip along its Indiana front, shared with 2009"
+        },
+        {
+          "id": "s35w-2007-wing",
+          "kind": "attached",
+          "reading_1911": "A one-storey brick piece at the rear (\"1\") with a small frame lean-to"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2009",
+      "printed_number_1911": "2009",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2009"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2009-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D), the stone strip carried along its front, an open stair in the yard behind it"
+        },
+        {
+          "id": "s35w-2009-rear",
+          "kind": "detached_service",
+          "reading_1911": "A two-storey brick dwelling (D, \"2\") standing apart at the rear of the lot, a three-storey frame porch (yellow, \"FR. 3\") on its alley side",
+          "note_1904": "A rear dwelling in 1911, drawn at its 1911 envelope."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2011",
+      "printed_number_1911": "2011",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2011"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2011-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) with a rounded stone (blue) bay on its Indiana front"
+        },
+        {
+          "id": "s35w-2011-wing",
+          "kind": "attached",
+          "reading_1911": "3B and 1B brick rear parts"
+        },
+        {
+          "id": "s35w-2011-rear",
+          "kind": "detached_service",
+          "reading_1911": "A small frame (yellow) outbuilding in the yard behind the house, crossed as a stable",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2013",
+      "printed_number_1911": "2013",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2013"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2013-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) with a rounded stone bay"
+        },
+        {
+          "id": "s35w-2013-wing",
+          "kind": "attached",
+          "reading_1911": "A 2B brick rear part"
+        },
+        {
+          "id": "s35w-2013-rear",
+          "kind": "detached_service",
+          "reading_1911": "Brick stable (crossed) on the alley",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2017",
+      "printed_number_1911": "2017",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2017"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2017-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) with a rounded stone bay"
+        },
+        {
+          "id": "s35w-2017-wing",
+          "kind": "attached",
+          "reading_1911": "A 2B brick rear part"
+        },
+        {
+          "id": "s35w-2017-rear",
+          "kind": "detached_service",
+          "reading_1911": "A one-storey frame shed (yellow, \"1\") near the alley",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2019",
+      "printed_number_1911": "2019",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2019"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2019-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) with a rounded stone bay and a small frame porch"
+        },
+        {
+          "id": "s35w-2019-wing",
+          "kind": "attached",
+          "reading_1911": "A 2B brick rear part"
+        },
+        {
+          "id": "s35w-2019-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2021",
+      "printed_number_1911": "2021",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2021"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2021-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) with a rounded stone bay"
+        },
+        {
+          "id": "s35w-2021-wing",
+          "kind": "attached",
+          "reading_1911": "A 2B brick rear part"
+        },
+        {
+          "id": "s35w-2021-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick building on the alley lettered WAGON SHED",
+          "note_1904": "A wagon shed in 1911; drawn as the 1904 alley building at its 1911 envelope."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2023",
+      "printed_number_1911": "2023",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2023"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2023-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) with a rounded stone bay and a small frame porch"
+        },
+        {
+          "id": "s35w-2023-wing",
+          "kind": "attached",
+          "reading_1911": "A 2B brick rear part"
+        },
+        {
+          "id": "s35w-2023-rear",
+          "kind": "detached_service",
+          "reading_1911": "One-storey frame stable (crossed, yellow) in the yard",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        },
+        {
+          "id": "s35w-2023-rear2",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley, against the frame one",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2027",
+      "printed_number_1911": "2027",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2027"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2027-front",
+          "kind": "front",
+          "reading_1911": "3B brick dwelling (D) with a rounded stone bay"
+        },
+        {
+          "id": "s35w-2027-wing",
+          "kind": "attached",
+          "reading_1911": "A 2B brick rear part"
+        },
+        {
+          "id": "s35w-2027-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2029–2035",
+      "printed_number_1911": "2029–2035",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2029"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2029-front",
+          "kind": "front",
+          "reading_1911": "Brick church lettered 1st PRESBYN. CHURCH, buttressed, 48 ft to the eaves under a hipped roof, heat steam, lights electric and gas; a three-storey square tower at its south-west corner with a slated spire 90 ft high"
+        },
+        {
+          "id": "s35w-2029-rear",
+          "kind": "detached_service",
+          "reading_1911": "A 2B brick dwelling (D) with a 1B brick piece on the alley, behind the church (216 E. 21st Street rides on this lot)",
+          "note_1904": "A dwelling on the church's lot, drawn at its 1911 envelope."
+        },
+        {
+          "id": "s35w-2029-rear2",
+          "kind": "detached_service",
+          "reading_1911": "A 1½-storey frame stable (crossed, yellow) at the alley's north end",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "The church fills the lot from Indiana Avenue nearly to the alley. No 1904 source for it is in hand, so its presence is inferred: a masonry church of this size, with a 90 ft spire, is not a building put up and lettered in the seven years to 1911 without a trace in the study, and the sheet is the only plan. The draft stands it as a site record (draft_prairie_1904.json `sites`), its dwelling and stable from the trace.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2101–2105",
+      "printed_number_1911": "2101–2105",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2101"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2101-front",
+          "kind": "front",
+          "reading_1911": "2-storey brick building lettered GARAGE, office on the first floor and repairing on the second, concrete floors on iron columns, a power elevator; 26 ft"
+        }
+      ],
+      "decision_1904": "replaced_after_1904",
+      "why": "Buildings in other uses stood here on 1 July 1904, and the two-storey garage the 1911 sheet draws, concrete floors on iron columns, came after: a rental agent kept an office at 2105 from January 1904 to 1908, the corner let furnished rooms in 1905-1907, and the Stanley Motor Carriage Company was at 2101 by April 1909. The 1911 outline is not the 1904 building, and nothing in hand gives the 1904 buildings' form, so the draft stands nothing here; the ground is NOT open, and drafting them waits on an outline (T-3013's follow-up).",
+      "named_record_ids": [],
+      "front_package": "T-1946",
+      "reading_1904": {
+        "by": "T-3013",
+        "text": "2101 Indiana: furnished rooms to let, June 1905; Mrs. Burnett advertising from the address, 1906-1907; the Stanley Motor Carriage Co., April 1909 onward. 2105 Indiana: the rental agent Brinkman's address, January 1904 to March 1908.",
+        "sources": [
+          "chicago_tribune_1904_01_31_brinkman_2105_indiana",
+          "chicago_tribune_1905_06_05_rooms_2101_indiana",
+          "chicago_tribune_1909_04_02_stanley_2101_indiana"
+        ]
+      }
+    },
+    {
+      "frontage_id": "frontage-35w-215–217",
+      "printed_number_1911": "215–217",
+      "side": "south",
+      "parcel_ids": [
+        "e21st_215"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-215-front",
+          "kind": "front",
+          "reading_1911": "2-storey brick building lettered AUTO REPAIRING AND BL. SM., wood posts, 35 ft, from 21st Street to the lot's rear"
+        }
+      ],
+      "decision_1904": "replaced_after_1904",
+      "why": "A dwelling stood at 215 East 21st Street in July 1904, letting a furnished room three weeks after the scene's date; by 1910 the Security Demountable Rim Co. held 215-217, and the 1911 sheet draws a two-storey brick repair and blacksmith shop on wood posts filling the lot to its rear, a workshop's build rather than a converted house. The 1911 outline is ruled not the 1904 building, nothing in hand gives the dwelling's form, so the draft stands nothing here; the ground is NOT open (T-3013's follow-up).",
+      "named_record_ids": [],
+      "front_package": "T-1946",
+      "reading_1904": {
+        "by": "T-3013",
+        "text": "215 E. 21st: a furnished room to let, 23 July 1904. 215-217 E. 21st: the Security Demountable Rim Co., April 1910 trade directories.",
+        "sources": [
+          "chicago_tribune_1904_07_23_to_rent_215_e_21st"
+        ]
+      }
+    },
+    {
+      "frontage_id": "frontage-35w-2107",
+      "printed_number_1911": "2107",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2107"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2107-front",
+          "kind": "front",
+          "reading_1911": "2-storey frame (yellow) dwelling (D) with one-storey frame pieces on its front and side"
+        },
+        {
+          "id": "s35w-2107-wing",
+          "kind": "attached",
+          "reading_1911": "A 2-storey frame rear part with a one-storey frame piece"
+        },
+        {
+          "id": "s35w-2107-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley with a one-storey frame shed against its west side",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2111",
+      "printed_number_1911": "2111",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2111"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2111-front",
+          "kind": "front",
+          "reading_1911": "2-storey frame dwelling (D) with a one-storey frame porch on its front"
+        },
+        {
+          "id": "s35w-2111-wing",
+          "kind": "attached",
+          "reading_1911": "A one-storey frame rear range with a small frame piece"
+        },
+        {
+          "id": "s35w-2111-rear",
+          "kind": "detached_service",
+          "reading_1911": "2-storey brick stable (crossed) on the alley",
+          "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2115–2117",
+      "printed_number_1911": "2115–2117",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2115"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2115-front",
+          "kind": "front",
+          "reading_1911": "Two 3B brick dwellings (D) on a party wall, 2115 the deeper with a small frame bay on its front"
+        },
+        {
+          "id": "s35w-2115-wing",
+          "kind": "attached",
+          "reading_1911": "A 2B brick rear part on 2115 with a one-storey frame piece, and a small frame piece on 2117"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2119",
+      "printed_number_1911": "2119",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2119"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2119-front",
+          "kind": "front",
+          "reading_1911": "2-storey frame dwelling (D) with a small frame bay and stoop on its front"
+        },
+        {
+          "id": "s35w-2119-wing",
+          "kind": "attached",
+          "reading_1911": "2-storey and one-storey frame rear parts, stepped"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study, and Robinson 1886 plate 10 stops well north of 20th Street, so the 1911 sheet is the only plan: the draft stands the sheet's house for 1904 as background, its presence inferred from the sheet alone (study ruling 11) under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2123–2125",
+      "printed_number_1911": "2123–2125",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2123"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2123-front",
+          "kind": "non_building_use",
+          "reading_1911": "A livery (LIVERY, crossed): a 2-storey frame wagon shed and one-storey frame range on 2123, joined to a 3-storey brick livery stable 80 ft long on 2125, from Indiana Avenue to the alley"
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "No named record or 1904 directory row for this lot is in the T-1837 study and no earlier plan reaches it. A livery stable is a horse-age building, so the sheet's 1911 livery is carried to 1904 as one, its presence and use inferred from the sheet alone under the block's single liberty.",
+      "named_record_ids": [],
+      "front_package": "T-1946"
+    },
+    {
+      "frontage_id": "frontage-35w-2129–2131",
+      "printed_number_1911": "2129–2131",
+      "side": "east",
+      "parcel_ids": [
+        "indiana_2129"
+      ],
+      "polygons": [
+        {
+          "id": "s35w-2129-front",
+          "kind": "non_building_use",
+          "reading_1911": "3-storey brick building lettered GARAGE, auto repairing on the second floor, wood-working and painting on the third, an office on the first, two rows of iron columns each floor",
+          "note_1904": "In 1904 this was Bane Brothers' livery and boarding stables, which the Blue Book for that year advertises at 2125, 2127 and 2129 Indiana Avenue; the same address was a horse livery until 1910 and the West Motor Livery Co.'s garage by 1911, so the sheet's garage is read as the livery's stable kept in use (T-3013)."
+        }
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "Part of Bane Brothers' livery and boarding stables in 1904, which the Blue Book for that year advertises at 2125, 2127 and 2129 Indiana Avenue; the livery held 2123-2129 in 1905, passed to George G. West's livery by 1910, and the 1911 Blue Book puts the West Motor Livery Co.'s garage at 2127-2129 on the livery's own 405 and 406 lines. One horse livery at this address from 1902 to 1910, turning motor livery by 1911, is read as one building kept in use: the three-storey brick house of two rows of iron columns the sheet letters GARAGE is carried to 1904 as the livery's, its 1904 use a livery stable, both inferred. A single 1907 rental ad for a 'seven-room modern apartment' at 2131 is read in garbled OCR and is not acted on.",
+      "named_record_ids": [],
+      "front_package": "T-1946",
+      "reading_1904": {
+        "by": "T-3013",
+        "text": "2129 Indiana: Bane Brothers' livery and boarding stables, 2125 to 2129 (Blue Book 1904; Lakeside 1902, 2129 alone), 2123 to 2129 in 1905 (incorporated 1904); George G. West's livery, 2123-2129, 1910; the West Motor Livery Co.'s garage, 2127-2129, 1911.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "lakeside_city_directory_1902",
+          "chicago_blue_book_1905",
+          "chicago_blue_book_1910",
+          "chicago_blue_book_1911"
+        ]
+      }
+    }
+  ],
+  "vacant_ground": [
+    {
+      "id": "s35w-vacant-e21st-w-215",
+      "side": "south",
+      "parcel_ids": [
+        "e21st_w_215"
+      ],
+      "reading_1911": "The unnumbered lot between the 2101-2105 garage and 215 E. 21st: no building, a gasoline pump and tank at its street end",
+      "named_record_ids": [],
+      "decision_1904": "phase_unresolved",
+      "why": "Open in 1911 beside two motor buildings. T-3013 searched the 1902 Lakeside directory, the Blue Books for 1904-1911 and the Tribune's columns for its likely numbers (211-213 East 21st) and found nothing legible, so what stood here in 1904 stays unread: nothing is drafted, and the lot is not recorded open either."
+    }
+  ]
+}

@@ -16,7 +16,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "WHAT IS DATED IS A SCHOOL, NOT A BUILDING, AND THE DIFFERENCE IS THE POINT OF THIS RECORD. Andreas has Eliza Chappel's infant school in 1833-34 in 'a log house just outside the military reservation ... divided into school-room and lodging quarters' (docs/research/04-structures-south.md section 9, from Andreas I scan p. 431). During 1834 the school MOVED INTO THE FIRST PRESBYTERIAN CHURCH at Lake and Clark. Nothing reached says what became of the log house. 1833-01-01 is the first day of the year the school is attested in it and is a bound; the house itself is older than the school by an unknown amount. 1835-12-31 IS AN INFERENCE ABOUT PERSISTENCE, NOT AN ATTESTATION: a sound log house eighteen months old is not pulled down when its tenant leaves, and the town in 1835 was short of buildings and growing, so the structure very probably still stood. That is the reasoning, and it is the whole of it. IF THE HOUSE WAS DEMOLISHED, MOVED OR BURNT BETWEEN 1834 AND THE SCENE DATE, THIS RECORD IS WRONG AND NOTHING IN THE SOURCES WOULD SHOW IT."
+        "note": "WHAT IS DATED IS A SCHOOL, NOT A BUILDING, AND THE DIFFERENCE IS THE POINT OF THIS RECORD. Andreas has Eliza Chappel's infant school in 1833-34 in 'a log house just outside the military reservation ... divided into school-room and lodging quarters' (docs/research/04-structures-south.md section 9, from Andreas I scan p. 431). During 1834 the school MOVED INTO THE FIRST PRESBYTERIAN CHURCH at Lake and Clark. Nothing reached says what became of the log house. 1833-01-01 is the first day of the year the school is attested in it and is a bound; the house itself is older than the school by an unknown amount. 1835-12-31 IS AN INFERENCE ABOUT PERSISTENCE, NOT AN ATTESTATION: a sound log house eighteen months old is not pulled down when its tenant leaves, and the town in 1835 was short of buildings and growing, so the structure very probably still stood. That is the reasoning, and it is the whole of it. IF THE HOUSE WAS DEMOLISHED, MOVED OR BURNT BETWEEN 1834 AND THE SCENE DATE, THIS RECORD IS WRONG AND NOTHING IN THE SOURCES WOULD SHOW IT.",
+        "from_is": "seen"
       },
       "position": {
         "utm_e": 447883.62,
@@ -81,6 +82,52 @@
           "confidence": "inferred",
           "note": "No pitch is attested. 35 degrees is this archetype's own mid-range for a log building roofed in riven shakes and is the figure this project's other log records carry. Inferred from construction practice, not measured."
         },
+        "front_set_out": {
+          "value": [
+            [
+              "window",
+              1.609
+            ],
+            [
+              "door",
+              3.658
+            ],
+            [
+              "window",
+              5.706
+            ]
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "eliza_chappel_school_shore_view"
+          ],
+          "note": "T-2372: a declared design choice using the owner-approved, attributed school-shore drawing as a visual reference. Two framed windows flank a central doorway in the visible log wall. Their centres retain this model's existing symmetric spacing (rounded to millimetres); they are not dimensions recovered from the composed drawing. The picture's subject remains unresolved, so this does not attest the appearance of Chappel's 1833-34 building or its continued state on 1 July 1835. This record is not reidentified as the Sauganash annex."
+        },
+        "door_w_m": {
+          "value": 1.2,
+          "confidence": "reconstructed",
+          "note": "T-2372: reconstructed 1.20 m opening within the existing two-room cabin frontage. The approved reference draws a broad doorway; no absolute width is supplied. This replaces the archetype's 1.04 m default for this record alone; it does not claim the person's scale or a metric camera."
+        },
+        "door_h_m": {
+          "value": 2.05,
+          "confidence": "reconstructed",
+          "note": "T-2372: reconstructed 2.05 m clear opening, beginning at the existing 0.02 m sill. This raises its head from the old default 1.95 m to 2.07 m over grade, below the unchanged 2.50 m eave. It is an ordinary headroom choice guided by the drawing's tall doorway, not a measured height. The drawn door may still be taller relative to the wall; its open state remains unresolved."
+        },
+        "window_w_m": {
+          "value": 0.85,
+          "confidence": "reconstructed",
+          "note": "T-2372: reconstructed 0.85 m framed sash width, enlarged from the default 0.62 m to better reflect the reference's substantial nearly square lights. The drawing has no independent scale and the school identification remains unsettled; no measured or attested dimension is asserted."
+        },
+        "window_h_m": {
+          "value": 0.85,
+          "confidence": "reconstructed",
+          "note": "T-2372: reconstructed 0.85 m sash height. The explicit front set-out hangs it at the common 2.07 m door-head datum, with its sill at 1.22 m, replacing the old default 0.85..1.57 m band. The reference shows the lights much higher in the log wall than the baseline render; a common head is the existing builder's bounded approximation, not a claim that the composed drawing has exactly aligned heads."
+        },
+        "front_shutters": {
+          "value": false,
+          "confidence": "reconstructed",
+          "note": "T-2372: the project chooses framed sash without the archetype's randomly dealt external shutter leaves. No leaves are resolved on the approved drawing; absence is not attested, especially given the crop and unresolved subject. This is the simpler declared visible treatment for this record, leaving hidden elevations and historic window closures unknown."
+        },
         "chimneys": {
           "value": 1,
           "confidence": "inferred",
@@ -94,6 +141,30 @@
           ],
           "geometry": "absent",
           "note": "Documented and not built. This is the only thing any source says about the building's arrangement, and it is what distinguishes it from an ordinary cabin - the schoolroom and the teacher's own quarters under one roof. No interior is modelled in this project, so the partition is invisible; it is the reason the footprint is a two-room size rather than a single pen, so it does reach the mesh indirectly, through a number a human chose."
+        },
+        "roof_ridge_axis": {
+          "value": "y",
+          "confidence": "reconstructed",
+          "sources": [
+            "eliza_chappel_school_shore_view"
+          ],
+          "note": "T-2372: this model chooses a gable over the doorway, guided by the owner-approved attributed school-shore drawing. Y runs back from the unchanged +y entrance facade; this overrides only the core roof's automatic longer-plan-axis rule. The footprint polygon, building position and rotation are unchanged. The picture's school/annex identity and original date remain unresolved, so this is a declared reconstruction of the model's appearance, not attestation that this house looked this way in 1833 or on 1 July 1835. It supplies neither a surveyed alignment nor a solved camera."
+        },
+        "front_door_state": {
+          "value": "recess",
+          "confidence": "reconstructed",
+          "sources": [
+            "eliza_chappel_school_shore_view"
+          ],
+          "note": "T-2372 next visible increment uses the owner-approved attributed school-shore reproduction as a provisional design reference. Its woman occupies a dark/open-looking doorway; the actual proposed model still has a closed planked leaf. Omit that leaf and use the existing blind 300 mm exterior recess with cut skin, casing, reveals and threshold. The depth and exact construction are reconstructed proxies, not an inferred room, passage, door swing or 1835 occupant. Preserve all opening sizes/stations, gable-axis choice, physical footprint/placement/dates and the unknown former-school 1835 use. The school/annex identification and original publication/date remain unresolved; no accepted camera or grade promotion follows."
+        },
+        "front_gable_cladding": {
+          "value": "log_courses",
+          "confidence": "reconstructed",
+          "note": "T-2372 next single-surface proposal follows the owner-approved attributed journal drawing in continuing horizontal logs into the visible +Y gable. Keep the current roof slopes, overhang outline, ridge, mass, openings, camera and blind doorway unchanged. Use the inherited 0.34 m course rhythm and 0.055 m chink-band proxy with existing shallow relief; these dimensions, section, joints and colour are reconstructed, not measured from the drawing. Only the front cap changes; no unseen rear-gable finish, historical 1835 occupant, building identity, original artist/date or accepted match is inferred.",
+          "sources": [
+            "eliza_chappel_school_shore_view"
+          ]
         }
       },
       "change_note": "The log house Eliza Chappel's infant school occupied in 1833-34, divided into a school-room and lodging quarters, standing just outside the western edge of the military reservation. THE SCHOOL LEFT IN 1834 for the First Presbyterian Church at Lake and Clark; this phase carries the BUILDING, which is inferred to have still stood on 1835-07-01, and makes no claim about what it was used for then."
@@ -115,6 +186,6 @@
     ],
     "note": "Chappel's occupancy is attested for 1833-34 and is over before the scene date. No source reached names anyone in this building in 1835. Stated with its end date rather than carried forward, which is the opposite of what most occupancy fields in this dataset do and is deliberate."
   },
-  "research_note": "A BUILDING THAT IS ATTESTED THROUGH AN INSTITUTION THAT HAD LEFT IT. Everything documented here - the log house, the division into school-room and lodging quarters, the siting just outside the military reservation - comes from one sentence of Andreas about the school (docs/research/04-structures-south.md section 9, from Andreas I scan p. 431), and the school moved out in 1834. So the record makes two separable claims, and a later source can knock down either without touching the other: that a log house of this description stood west of State Street, and that it was still standing on 1835-07-01. The second is an inference about how long a log house lasts. THREE GUARDS. (1) DO NOT CONFLATE THIS WITH THE NORTH SIDE SCHOOLS. John Watkins taught near the old Indian agency-house on the north bank in the spring of 1833, and a public school stood on the north bank just east of Clark Street in the building erected by Cols. Hamilton and Owen; both are north-side buildings and neither is this one. The Watkins house on Michigan Street is a separate record here. (2) DO NOT PROMOTE THE POSITION. The dossier itself tags the exact lot conjectural and the placement here is a point inside a two-block strip. (3) THE LATER SCHOOL BUILDINGS ARE EXCLUDED BY DATE: the first public school building erected by private means is 1837 and the Miltimore and Dearborn schools are 1837 and 1844-45. WHAT WOULD UPGRADE IT: Andreas vol. 1 at page-image level around scan p. 431, read for a street or a lot rather than for the school; the 1834 or 1835 Chicago Democrat, which advertised schools and would date the move out of this house from the other side; and any of the Chappel biographical literature, which is extensive because she later founded the Chicago Orphan Asylum. A NOTE ON SCOPE, for the same reason walker_meeting_house carries one: an infant school in Chicago in 1833 taught the children of a town that was still a Potawatomi trading settlement in the year of the final removal, and interpretive text about this building sits close to the project's standing constraint on Indigenous history even though the structure itself is a settler building. review_required is set false, consistent with walker_meeting_house, but the call is worth a second opinion.",
+  "research_note": "A BUILDING THAT IS ATTESTED THROUGH AN INSTITUTION THAT HAD LEFT IT. Everything documented here - the log house, the division into school-room and lodging quarters, the siting just outside the military reservation - comes from one sentence of Andreas about the school (docs/research/04-structures-south.md section 9, from Andreas I scan p. 431), and the school moved out in 1834. So the record makes two separable claims, and a later source can knock down either without touching the other: that a log house of this description stood west of State Street, and that it was still standing on 1835-07-01. The second is an inference about how long a log house lasts. THREE GUARDS. (1) DO NOT CONFLATE THIS WITH THE NORTH SIDE SCHOOLS. John Watkins taught near the old Indian agency-house on the north bank in the spring of 1833, and a public school stood on the north bank just east of Clark Street in the building erected by Cols. Hamilton and Owen; both are north-side buildings and neither is this one. The Watkins house on Michigan Street is a separate record here. (2) DO NOT PROMOTE THE POSITION. The dossier itself tags the exact lot conjectural and the placement here is a point inside a two-block strip. (3) THE LATER SCHOOL BUILDINGS ARE EXCLUDED BY DATE: the first public school building erected by private means is 1837 and the Miltimore and Dearborn schools are 1837 and 1844-45. WHAT WOULD UPGRADE IT: Andreas vol. 1 at page-image level around scan p. 431, read for a street or a lot rather than for the school; the 1834 or 1835 Chicago Democrat, which advertised schools and would date the move out of this house from the other side; and any of the Chappel biographical literature, which is extensive because she later founded the Chicago Orphan Asylum. A NOTE ON SCOPE, for the same reason walker_meeting_house carries one: an infant school in Chicago in 1833 taught the children of a town that was still a Potawatomi trading settlement in the year of the final removal, and interpretive text about this building sits close to the project's standing constraint on Indigenous history even though the structure itself is a settler building. review_required is set false, consistent with walker_meeting_house, but the call is worth a second opinion.\n\nT-2372 opening refinement, 2026-10-22 project approval applied: the attributed school-shore drawing now guides an explicitly reconstructed front treatment with larger, higher framed sash and a slightly broader/taller doorway. The drawing is a provisional design reference, not proof that its log building is this one. The log house's location, footprint, dates, former-school use and the unknown 1835 occupants remain as recorded above. Its gable-front roof, open doorway, covering and exact proportions still differ from this model; no camera is enrolled and no image-match completion is claimed. T-2372 next door-only increment replaces the actual closed-leaf proxy with an explicitly reconstructed blind exterior recess, guided by approved attributed project use of the journal reproduction. This does not stage the pictured teacher/children in 1835 or identify the depicted building. Broad facade/gable surfaces, roof fabric, opening alignment, stack visibility, camera and identity/date differences remain open. T-2372 front-gable next proposal is isolated/unrun: horizontal courses replace only the existing +Y plain cap under the unchanged roof silhouette; identity/date/camera and many appearance differences remain unresolved.",
   "review_required": false
 }

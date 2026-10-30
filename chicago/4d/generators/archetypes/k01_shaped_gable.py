@@ -36,6 +36,14 @@ outline steps over a square stone `shoulders` block each side, laid through the 
 stands over the outline as the print's do; and each kneeler's pinnacle stands over a carved
 `scroll` console at the front's corner, under the slab's foot: a moulded roll at the console's
 foot, a raised eye in it, and a cap under the slab. L-k01-1812-wheeler-gable-2951.
+
+T-3090: the rest of 1812's gable as the Levy and c. 1955 photographs show it. The grid window's
+`glazing: "dark"` reads its lights as the prints' dark openings (no K06 sash, a dark backing
+behind glass), between `quoins` long and short up each side, under a `hood` whose upper edge
+waves to a crown at its middle and a flick at each end, over a two-step `shelf`; each shoulder
+block carries a sunk `panel`; each scroll a carved `rosette` in its eye; the `finial` is an
+`urn` on a carved ball; and `base_ledge_half_m` draws the slab's base in from its foot to the
+kneelers' ledge. L-k01-1812-wheeler-gable-3090.
 """
 
 from __future__ import annotations
@@ -89,9 +97,10 @@ def geometry(p, ye):
     hl = half_width(sg, ledge)
     up = [(w, y) for w, y in sg["profile_m"] if y > ledge + 1e-6]
     right = [(hl, ledge)] + up        # foot to apex, the last on the centre line
-    side = [(zc - hb, sg["foot_m"]), (zc + hb, sg["foot_m"]), (zc + hb, ledge)]
+    bl = sg.get("base_ledge_half_m") or hb   # T-3090: the base drawn in to the ledge
+    side = [(zc - hb, sg["foot_m"]), (zc + hb, sg["foot_m"]), (zc + bl, ledge)]
     pts = side + [(zc + w, y) for w, y in right[:-1]] + [(zc, right[-1][1])]
-    pts += [(zc - w, y) for w, y in reversed(right[:-1])] + [(zc - hb, ledge)]
+    pts += [(zc - w, y) for w, y in reversed(right[:-1])] + [(zc - bl, ledge)]
     return {"xf": xf, "xb": xb, "zc": zc, "ledge": ledge, "hb": hb, "right": right,
             "apex": right[-1][1], "outline": pts}
 
@@ -103,6 +112,7 @@ def element(a, k5, ye):
     foot = a.p.shaped_gable["foot_m"]
     if a.p.shaped_gable.get("fabric") == "front":
         a.front_parapet_u = g["xb"] - 1e-6   # T-2730: _emit_shell dresses the slab in the front's stone
+    a.front_gable_u = g["xb"] - 1e-6         # T-3093: and a toned front's brick, its brick
 
     def role(i, p_, q_):
         if abs(p_[1] - foot) < 1e-9 and abs(q_[1] - foot) < 1e-9:
@@ -180,7 +190,23 @@ def _shoulders(a, frame, sg, gseed, conf):
     for sgn in (-1, 1):
         s0, s1 = sorted((W / 2 + sgn * sh["inner_m"], W / 2 + sgn * sh["outer_m"]))
         poly = [(s0, sh["bed_m"]), (s1, sh["bed_m"]), (s1, sh["top_m"]), (s0, sh["top_m"])]
-        _prism(a, "limestone_trim", frame, poly, d0, sh["proud_m"], seed, conf)
+        pn = sh.get("panel")
+        if not pn:
+            _prism(a, "limestone_trim", frame, poly, d0, sh["proud_m"], seed, conf)
+        else:
+            # T-3090: the block's face sunk in a panel — the block to the panel's floor, and
+            # the face's four margins round it to the block's own face
+            fl = sh["proud_m"] - pn["sunk_m"]
+            _prism(a, "limestone_trim", frame, poly, d0, fl, seed, conf)
+            sc_ = (s0 + s1) / 2
+            p0, p1 = sc_ - pn["width_m"] / 2, sc_ + pn["width_m"] / 2
+            q1 = sh["top_m"] - pn["drop_m"]
+            q0 = q1 - pn["height_m"]
+            for m_ in ([(s0, sh["bed_m"]), (s1, sh["bed_m"]), (s1, q0), (s0, q0)],
+                       [(s0, q1), (s1, q1), (s1, sh["top_m"]), (s0, sh["top_m"])],
+                       [(s0, q0), (p0, q0), (p0, q1), (s0, q1)],
+                       [(p1, q0), (s1, q0), (s1, q1), (p1, q1)]):
+                _prism(a, "limestone_trim", frame, m_, fl, sh["proud_m"], seed, conf)
         _back(a, "limestone_trim", frame, poly, d0, seed, conf)
 
 
@@ -205,8 +231,27 @@ def _scroll(a, frame, sg, W, sgn, conf):
                       {"foot": (a.shaped_gable_geom["xf"], round(sc["bed_m"], 4), round(-xs, 4))})
     d = -(a.p.eave_overhang_m + sg["proud_m"])   # the wall's face under the slab, behind its face
     _prism(a, "limestone_trim", frame, _circle(xs, yc, r), d, d + pr, seed, conf)
-    _prism(a, "limestone_trim", frame, _circle(xs, yc, r * SCROLL_EYE), d + pr, d + pr + SCROLL_EYE_PROUD_M,
-           seed, conf)
+    if sc.get("rosette"):
+        # T-3090: the print's eye is carved, a rosette: a boss at its middle and its petals
+        # round it, each a pointed leaf standing out of the roll's face
+        re_ = r * SCROLL_EYE
+        _prism(a, "limestone_trim", frame, _circle(xs, yc, re_ * 0.32), d + pr, d + pr + SCROLL_EYE_PROUD_M * 1.4,
+               seed, conf)
+        n_ = sc["rosette"]
+        for i in range(n_):
+            t_ = 2 * math.pi * (i + 0.25) / n_
+            ux, uy = math.cos(t_), math.sin(t_)
+            vx, vy = -uy, ux
+            hw_ = re_ * math.sin(math.pi / n_) * 0.8
+            r0_, r1_, rm_ = re_ * 0.36, re_ * 1.02, re_ * 0.68
+            _prism(a, "limestone_trim", frame, [(xs + ux * r0_, yc + uy * r0_),
+                                                (xs + ux * rm_ + vx * hw_, yc + uy * rm_ + vy * hw_),
+                                                (xs + ux * r1_, yc + uy * r1_),
+                                                (xs + ux * rm_ - vx * hw_, yc + uy * rm_ - vy * hw_)],
+                   d + pr, d + pr + SCROLL_EYE_PROUD_M, seed, conf)
+    else:
+        _prism(a, "limestone_trim", frame, _circle(xs, yc, r * SCROLL_EYE), d + pr, d + pr + SCROLL_EYE_PROUD_M,
+               seed, conf)
     bw = r * 0.8                       # the body, narrower than the roll, from its axis up
     _prism(a, "limestone_trim", frame, [(xs - bw, yc), (xs + bw, yc), (xs + bw, top - ch), (xs - bw, top - ch)],
            d, d + pr * 0.8, seed, conf)
@@ -261,6 +306,79 @@ def _prism(a, mat, frame, poly, d0, d1, seed, conf):
     k01_wall_gable._prism(a, mat, frame, poly, d0, d1, seed, conf)
 
 
+# T-3090: the urn finial's turned outline, bottom to top, as (fraction of its height,
+# fraction of the ball's radius): the carved ball, the neck and its ring, the urn's moulded
+# foot, its body swelling to its shoulder, the lid and the knob
+URN_PROFILE = [(0.0, 0.62), (0.02, 0.85), (0.08, 0.96), (0.18, 1.0), (0.28, 0.88), (0.35, 0.58),
+               (0.37, 0.4), (0.41, 0.4), (0.41, 0.54), (0.46, 0.54), (0.46, 0.36), (0.52, 0.46),
+               (0.6, 0.62), (0.68, 0.58), (0.74, 0.42), (0.74, 0.5), (0.8, 0.46), (0.82, 0.23),
+               (0.86, 0.19), (0.9, 0.23), (0.95, 0.12), (1.0, 0.015)]
+HOOD_STRIPS = 24            # the hood's waved top, in this many upright strips
+DARK_FRAME_M = 0.03         # a dark light's frame, round its glass
+
+
+def _dark_lights(a, frame, v, s, sill, rev, gseed, conf):
+    """T-3090: a light the print reads as a dark opening — no sash in it, the dark backing at
+    the recess's back and the glass just before it, a thin frame round it."""
+    from . import k06_windows as k6
+    o = k6.Opening(v, a._kit)
+    o.build()
+    af = _af()
+    for hole in o.holes:
+        pane = [(s + q[0], sill + q[1]) for q in hole]
+        af._face(a, "backing", frame, [(x, y, -rev + 0.004) for x, y in pane], (0, 0, 1), gseed, conf)
+        af._face(a, "glass", frame, [(x, y, -rev + 0.03) for x, y in pane], (0, 0, 1), gseed, conf)
+        xs_, ys_ = [x for x, _ in pane], [y for _, y in pane]
+        x0, x1, y0, y1 = min(xs_), max(xs_), min(ys_), max(ys_)
+        f = DARK_FRAME_M
+        for poly in ([(x0, y0), (x1, y0), (x1, y0 + f), (x0, y0 + f)], [(x0, y1 - f), (x1, y1 - f), (x1, y1), (x0, y1)],
+                     [(x0, y0 + f), (x0 + f, y0 + f), (x0 + f, y1 - f), (x0, y1 - f)],
+                     [(x1 - f, y0 + f), (x1, y0 + f), (x1, y1 - f), (x1 - f, y1 - f)]):
+            _prism(a, "sash", frame, poly, -rev + 0.004, -rev + 0.05, gseed, conf)
+
+
+def _window_dress(a, frame, li, s, gseed, conf):
+    """T-3090: the grid window's quoins up each side, its waved hood and its moulded shelf."""
+    hw = li["width_m"] / 2
+    rs = row_sills(li)
+    yb, yt = rs[0], rs[-1] + li["height_m"]
+    qn = li.get("quoins")
+    if qn:
+        n = len(rs)
+        h = (yt - yb) / n
+        for i in range(n):
+            w_ = qn["long_m"] if i % 2 == 0 else qn["short_m"]
+            y0, y1 = yb + i * h + JOINT_M, yb + (i + 1) * h - JOINT_M
+            for sgn in (-1, 1):
+                e0, e1 = sorted((s + sgn * hw, s + sgn * (hw + w_)))
+                _prism(a, "limestone_trim", frame, [(e0, y0), (e1, y0), (e1, y1), (e0, y1)],
+                       0.0, qn["proud_m"], gseed, conf)
+    hd = li.get("hood")
+    if hd:
+        half = hw + hd["over_m"]
+        def top(t):   # t from -1 to 1 across the hood
+            y = yt + hd["height_m"]
+            if abs(t) < 0.35:
+                y += hd["crown_m"] * (1 + math.cos(math.pi * t / 0.35)) / 2
+            if abs(t) > 0.8:
+                y += hd["flick_m"] * ((abs(t) - 0.8) / 0.2) ** 2
+            return y
+        for i in range(HOOD_STRIPS):
+            t0, t1 = -1 + 2 * i / HOOD_STRIPS, -1 + 2 * (i + 1) / HOOD_STRIPS
+            x0, x1 = s + t0 * half, s + t1 * half
+            _prism(a, "limestone_trim", frame, [(x0, yt), (x1, yt), (x1, top(t1)), (x0, top(t0))],
+                   0.0, hd["proud_m"], gseed, conf)
+    sf = li.get("shelf")
+    if sf:
+        half = hw + sf["over_m"]
+        _prism(a, "limestone_trim", frame, [(s - half, yb - sf["height_m"]), (s + half, yb - sf["height_m"]),
+                                            (s + half, yb), (s - half, yb)], 0.0, sf["proud_m"], gseed, conf)
+        if sf["band_m"]:
+            y1 = yb - sf["height_m"]
+            _prism(a, "limestone_trim", frame, [(s - hw, y1 - sf["band_m"]), (s + hw, y1 - sf["band_m"]),
+                                                (s + hw, y1), (s - hw, y1)], 0.0, sf["band_proud_m"], gseed, conf)
+
+
 def dress(a, roof_seed):
     """The lights' sashes, the coping band on the face, the kneelers and the finial."""
     from . import k06_windows as k6
@@ -285,9 +403,13 @@ def dress(a, roof_seed):
         a._kit = k6.load()
     v = _variant(sg, k6)
     roles = {r: ("limestone_trim" if m == "stone" else (m or "dormer_stone")) for r, m in a.K06_ROLES.items()}
+    rev = k6.load()["parts"]["reveal_depth_m"]["value"]
     for at in li["at_m"]:
         s = W / 2 + at
         for sill in row_sills(li):
+            if li.get("glazing") == "dark":
+                _dark_lights(a, frame, v, s, sill, rev, gseed, conf)
+                continue
             op = Opening("k01.opening.gable_light", "k01.wall.shaped_gable", s, sill, li["width_m"], li["height_m"])
             seed = a.instance(op.component, "opening", {"clear_width_m": li["width_m"], "clear_height_m": li["height_m"],
                                                         "k06_variant": v["id"], "wall": op.wall},
@@ -296,6 +418,7 @@ def dress(a, roof_seed):
             o.seed = seed
             o.build()
             a.graft(o, "K06", roles, frame, op, lambda role, sd=seed: (sd, conf), ("reveal",))
+        _window_dress(a, frame, li, s, gseed, conf)
         if li.get("rows", 1) < 2:
             continue
         # T-2951: a grid window's stone — the transom between each row and the one over it,
@@ -363,6 +486,15 @@ def dress(a, roof_seed):
                        {"foot": (xm, round(ya, 4), g["zc"])})
     Ff = ((xm, 0.0, g["zc"]), R, N)
     rr, hgt = fn["radius_m"], fn["height_m"]
+    if fn.get("form") == "urn":
+        # T-3090: a carved ball on the apex's plinth and an urn over it on a moulded foot,
+        # under a lid and a knob — the c. 1955 photograph's, which Levy's print cuts at the
+        # urn's foot. Turned on URN_PROFILE, (height, radius) of the whole and of the ball.
+        pts = [(ya + hgt * f, rr * q) for f, q in URN_PROFILE]
+        for (y0, r0), (y1, r1) in zip(pts, pts[1:]):
+            if y1 - y0 > 1e-6 or abs(r1 - r0) > 1e-6:
+                af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, y0, y1, r0, r1, fseed, conf)
+        return
     af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya, ya + 0.3 * hgt, rr, rr * 1.1, fseed, conf)
     af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya + 0.3 * hgt, ya + 0.55 * hgt, rr * 1.1, rr * 0.5, fseed, conf)
     af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya + 0.55 * hgt, ya + hgt, rr * 0.5, 0.004, fseed, conf)

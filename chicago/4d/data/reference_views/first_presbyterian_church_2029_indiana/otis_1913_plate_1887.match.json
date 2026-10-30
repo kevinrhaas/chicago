@@ -1,0 +1,86 @@
+{
+  "structure_id": "first_presbyterian_church_2029_indiana",
+  "view": "otis_1913_plate_1887",
+  "glb": "assets/gltf/first_presbyterian_church_2029_indiana__draft_1904.glb",
+  "glb_sha256": "5007a5be41acb7a36265919dbc8777535806d03fc841db1bd79be8364ad41287",
+  "camera_sha256": "0a0d607f2335c50326c51b62cb768e445520aca1090923831e2c985f7f91c938",
+  "photo_sha256": "6b3dc7eafeb0de4608f0ec51fd0087a668f0f31502bd1f2280e6340209ccf6f3",
+  "side_by_side": "docs/RESEARCH/photo-match/first_presbyterian_church_2029_indiana/otis_1913_plate_1887-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "roof: one steep gable over the body with its gable to Indiana Avenue; the draft stood a 40 degree hip with no gable at all",
+      "status": "fixed",
+      "how": "T-3066: gable at 54 degrees, ridge east-west; T-3103 springs it 2.0 m in from the north wall (below) and steepens it to 56.5 degrees, the plate's own rise of 16.0 m over 10.6 m from the north kneeler to the apex, so the coping's apex stays at y 900 (30.9 m)"
+    },
+    {
+      "what": "tower: a square brick tower in three stages at the south-west corner, its brick to about 39.5 m and its gablets to 43.3 m; the draft stood a 5.5 m square to 16.5 m under a 10.9 m pyramid",
+      "status": "fixed",
+      "how": "T-3066: 6.0 m square to 39.5 m under a 3.8 m pyramid standing for the gablets; the render's tower spans x 496-620 px against the plate's shaft 490-595 inside buttresses 467-630, its top at y 742 against the plate's 740"
+    },
+    {
+      "what": "spire: a slender octagonal slated spire rising out of the gablets to a finial at about 76.5 m; the draft's spire stopped at the sheet's printed 90 ft (27.4 m)",
+      "status": "fixed",
+      "how": "T-3066 stood the spire to the finial's height; T-3103 gives it the plate's taper: 5.5 m across at its foot (y 680, 100 px), 3.0 m at the lucarne band (y 380, 55 px) and 1.1 m at its flat top under the finial (y 170, 71.8 m), a frustum on the 16-sided ring where the draft stood a 4.1 m cone to a point; on the render the spire's edges land within 5-8 px of the plate's at each of those heights, its axis about 12 px (0.65 m) south of the plate's, the camera's depth residual T-3066 recorded"
+    },
+    {
+      "what": "the gable's north foot: the photograph's gable springs about 2 m in from the body's north wall over a narrow low bay (x 103-140 px) with its own small roof and a pinnacle, so the apex stands at v 12.6; the render's gable spans the whole 23.1 m and its apex stands about 19 px north (left) of the plate's",
+      "status": "fixed",
+      "how": "T-3103: the gable springs at v 2.0 (x 140 px, the plate's kneeler) over a 2.0 m north strip with its own flat roof behind a cornice at the eave, the front's north corner buttress stepping at 8.3 m and 12.7 m to a pinnacle at 16.6 m beside the kneeler; the render's apex now stands over v 12.6, on the plate's"
+    },
+    {
+      "what": "the gable's verge: a deep coping on a corbel table down both slopes, a kneeler at each foot and a cross on the apex; the render's gable had a plain edge. The cross's top stands at y 831 px, 34.6 m, its crossbar (y 857, 33.2 m, the 33.0 m first read as its top) about 2.8 m across with a ring about 0.75 m in radius round the crossing; T-3104 raised it to 34.65 m (cross_m 3.8) with those arms and ring, which the 1912 plate's cross confirms. Its fleuried arm ends and knotted foot are drawn square",
+      "status": "fixed",
+      "how": "T-3103: a 0.45 m coping down both slopes from the kneelers (14.2-15.9 m, the plate's y 1180-1213) to the apex at 30.9 m, a corbel block every 0.7 m under it, and the cross with its ring to 33.0 m (the plate's y 860)"
+    },
+    {
+      "what": "the west front's openings: a round window in the gable, a traceried rose over three lancets in the centre, a lancet each side lower down and two small lancets at the north end's foot; the render carries three rows of the draft's square sash",
+      "status": "fixed",
+      "how": "T-3103, read through the camera at 18.7 px/m: the gable's rose at v 12.96, 25.0 m, radius 1.07 m; the centre window 3.3 m wide, 11.5-22.2 m, two lights under a rose head; a lancet each side (v 10.2 and 16.25, 1.4 m, 11.1-18.2 m) on the sill course at 10.9 m; the north window (v 5.95, 2.0 m, 5.8-12.7 m, two lights and a rose head) over the base course at 4.2 m; the two small lancets at the north foot (2.2-3.6 m). On the render each lands within 3-7 px of the plate's jambs, heads and sills"
+    },
+    {
+      "what": "the gabled stone porch at the centre of the west front with its pointed, traceried doorway, about 7 m wide and to about 10 m at its apex; nothing in the render but the draft's door",
+      "status": "fixed",
+      "how": "T-3103: a stone porch 7.6 m wide (v 9.4-17.0) and 2.0 m deep, its shoulders at 7.0 m and its gable's coping to 12.4 m with a finial, the pointed doorway 3.2 m inside a 0.5 m moulded surround to 8.0 m, the doors to 5.2 m under a two-light tympanum with a rose; the render's porch gable spans x 265-425 px and peaks at y 1230 against the plate's 265-425 and 1235"
+    },
+    {
+      "what": "the tower's angle buttresses, stepped with gabled offsets at each stage and rising into corner pinnacles beside the gablets; the render's tower is a plain prism",
+      "status": "fixed",
+      "how": "T-3103: an angle buttress each way at every corner of the tower, stepping 1.2, 0.9 and 0.6 m out at 10.7 m and 25.4 m under gabled stone offsets and rising at 37.5 m into a corner pinnacle to 44.0 m; the north-west one stands 1.5 m proud of the front (v 19.5-21.14), as its shadow on the front wall shows, landing at about x 470-507 px against the plate's 460-500"
+    },
+    {
+      "what": "the tower's openings: the pointed west door at its foot with the inscribed panel over it, the two-light window with a rose head in the second stage, the louvred belfry with a rose head, the string courses and the corbelled cornice under the belfry; the render stands narrow sash in their rows",
+      "status": "fixed",
+      "how": "T-3103: the pointed west door (2.2 m, to 7.2 m) and the inscribed panel over it (8.4-9.6 m); string courses at 10.7 m and 25.4 m with a corbelled course at 23.4 m; the two-light window with a rose head on the west and south faces (2.9 m, 12.2-20.8 m); the louvred belfry with a rose head on all four faces (27.7-36.8 m); on the render each lands within 5-10 px of the plate's"
+    },
+    {
+      "what": "the gablets and pinnacles at the tower's head: four steep gablets with roses and four corner pinnacles about the spire's foot; the render stands a low pyramid",
+      "status": "fixed",
+      "how": "T-3103: four steep gablets springing at 39.5 m to apexes at 43.3 m (the plate's y 668), a rose in the west and south ones, with the buttresses' corner pinnacles beside them; the draft's low pyramid now stands behind them as their roof"
+    },
+    {
+      "what": "the spire's band of gabled lucarnes at about 58-60 m and its finial; the render's spire is a plain cone with a post at its tip",
+      "status": "fixed",
+      "how": "T-3103: a moulded band at 57.1-57.4 m and four gabled lucarnes standing 1.85 m out of the spire's axis to 59.5 m (the plate's band at y 395-435, 3.4 m across); the finial is a knob 0.9 m across from the spire's top at 71.8 m to 73.8 m, a fleur's arms 1.3 m across at 74.7 m and the rod to 78.1 m (the plate's y 55)"
+    },
+    {
+      "what": "the narrow north bay at the front's north end, its pinnacle and the brick chimney stack behind it",
+      "status": "fixed",
+      "how": "T-3103: the north strip (v 0-2.0) stands to the eave under its own flat roof with the corner buttress's pinnacle, and the brick stack behind it rises to 18.1 m (the plate's x 113-130, y 1140)"
+    },
+    {
+      "what": "the south side seen past the tower (a lower roof and wall at x 640-680 px): the flank's eave behind the tower; the 1912 plate (T-3104) does not show that flank either, screened by the buildings across 21st Street",
+      "status": "not shown",
+      "how": "Ruled not shown on this plate: the sliver at x 640-680 px is 21st Street's flank, standing behind the tower's south buttresses about 130 m from the camera; the Otis book's 1912 plate (scan leaf n116) shows that flank from the south-east, and T-3104 ingests it, solves its camera and builds the flank's buttresses, corbel table and openings to it"
+    },
+    {
+      "what": "fabric and tone: brick walls with stone dressings, the porch and buttress caps lighter; the monochrome plate shows the tone, not the colour",
+      "status": "not shown"
+    },
+    {
+      "what": "the north and east sides and the roof's far slope",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

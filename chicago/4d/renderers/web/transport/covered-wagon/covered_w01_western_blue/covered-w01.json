@@ -1,0 +1,949 @@
+{
+  "asset_id": "covered_w01_western_blue",
+  "authored_parts_sha256": "2fb3709d233e896280c50342618c28f9e340029e52c67b328100e05a125e2c27",
+  "bodyPartColorMapping": [
+    {
+      "oldSeedScalar": 0.9525400533340871,
+      "part": "floor_plank_00"
+    },
+    {
+      "oldSeedScalar": 0.9525400533340871,
+      "part": "floor_plank_02"
+    },
+    {
+      "oldSeedScalar": 0.9525400533340871,
+      "part": "floor_plank_04"
+    },
+    {
+      "oldSeedScalar": 0.9525400533340871,
+      "part": "floor_plank_06"
+    },
+    {
+      "oldSeedScalar": 0.9484057241957635,
+      "part": "side_-1_course_0"
+    },
+    {
+      "oldSeedScalar": 0.9433803186193108,
+      "part": "side_-1_course_2"
+    },
+    {
+      "oldSeedScalar": 0.9037012053094804,
+      "part": "side_1_course_0"
+    },
+    {
+      "oldSeedScalar": 1.0355448286887259,
+      "part": "side_1_course_2"
+    },
+    {
+      "oldSeedScalar": 0.8784368097223342,
+      "part": "end_-1.525_course_0"
+    },
+    {
+      "oldSeedScalar": 1.035243896897882,
+      "part": "end_-1.525_course_2"
+    },
+    {
+      "oldSeedScalar": 1.042562101772055,
+      "part": "end_1.525_course_0"
+    },
+    {
+      "oldSeedScalar": 0.9129732192400842,
+      "part": "end_1.525_course_2"
+    },
+    {
+      "oldSeedScalar": 0.9525400533340871,
+      "part": "floor_plank_01"
+    },
+    {
+      "oldSeedScalar": 0.9525400533340871,
+      "part": "floor_plank_03"
+    },
+    {
+      "oldSeedScalar": 0.9525400533340871,
+      "part": "floor_plank_05"
+    },
+    {
+      "oldSeedScalar": 0.9525400533340871,
+      "part": "floor_plank_07"
+    },
+    {
+      "oldSeedScalar": 0.9484057241957635,
+      "part": "side_-1_course_1"
+    },
+    {
+      "oldSeedScalar": 0.9433803186193108,
+      "part": "side_-1_course_3"
+    },
+    {
+      "oldSeedScalar": 0.9037012053094804,
+      "part": "side_1_course_1"
+    },
+    {
+      "oldSeedScalar": 1.0355448286887259,
+      "part": "side_1_course_3"
+    },
+    {
+      "oldSeedScalar": 0.8784368097223342,
+      "part": "end_-1.525_course_1"
+    },
+    {
+      "oldSeedScalar": 1.035243896897882,
+      "part": "end_-1.525_course_3"
+    },
+    {
+      "oldSeedScalar": 1.042562101772055,
+      "part": "end_1.525_course_1"
+    },
+    {
+      "oldSeedScalar": 0.9129732192400842,
+      "part": "end_1.525_course_3"
+    },
+    {
+      "oldSeedScalar": 0.9494778775703162,
+      "part": "stake_-1_0"
+    },
+    {
+      "oldSeedScalar": 0.987197198169306,
+      "part": "stake_-1_1"
+    },
+    {
+      "oldSeedScalar": 0.987197198169306,
+      "part": "stake_-1_2"
+    },
+    {
+      "oldSeedScalar": 0.930111564444378,
+      "part": "stake_-1_3"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "top_rail_-1"
+    },
+    {
+      "oldSeedScalar": 0.9007700003217906,
+      "part": "stake_1_0"
+    },
+    {
+      "oldSeedScalar": 0.9686807643715293,
+      "part": "stake_1_1"
+    },
+    {
+      "oldSeedScalar": 0.9686807643715293,
+      "part": "stake_1_2"
+    },
+    {
+      "oldSeedScalar": 0.9821671362407506,
+      "part": "stake_1_3"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "top_rail_1"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_-1_0_1.04"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_-1_0_1.4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_-1_1_1.04"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_-1_1_1.4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_-1_2_1.04"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_-1_2_1.4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_-1_3_1.04"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_-1_3_1.4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_1_0_1.04"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_1_0_1.4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_1_1_1.04"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_1_1_1.4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_1_2_1.04"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_1_2_1.4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_1_3_1.04"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "stake_bolt_1_3_1.4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "rear_axle"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "bolster_rear"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "bolster_front_fixed"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "reach"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "front_axle"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "hound_-1"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "hound_1"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "kingbolt"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "iron_tyre_rearleft"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "band"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "band"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "wood_felloe_rearleft"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_0"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_1"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_2"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_3"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_5"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_6"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_7"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_8"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_9"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_10"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_left_11"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "hub_rearleft"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "iron_tyre_rearright"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "band"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "band"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "wood_felloe_rearright"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_0"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_1"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_2"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_3"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_5"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_6"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_7"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_8"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_9"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_10"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_rear_right_11"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "hub_rearright"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "iron_tyre_frontleft"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "band"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "band"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "wood_felloe_frontleft"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_0"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_1"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_2"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_3"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_5"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_6"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_7"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_8"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_9"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_10"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_left_11"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "hub_frontleft"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "iron_tyre_frontright"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "band"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "band"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "wood_felloe_frontright"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_0"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_1"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_2"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_3"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_4"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_5"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_6"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_7"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_8"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_9"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_10"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "spoke_front_right_11"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "hub_frontright"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "tongue_timber"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "tongue_strap_0.1"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "tongue_strap_0.3"
+    },
+    {
+      "oldSeedScalar": 1.0,
+      "part": "tongue_strap_2.65"
+    }
+  ],
+  "bytes": 2970448,
+  "canvasTexture": {
+    "RGBA8_mip_bytes_estimate": 2097152,
+    "grade": "Original analytic woven-surface reconstruction; not a photograph/scan or dated textile weave measurement",
+    "size": [
+      512,
+      256
+    ],
+    "tile_m": [
+      0.28,
+      0.14
+    ]
+  },
+  "estimatedActiveMappedRGBA8MipsBytes": 8388608,
+  "glb_sha256": "aaffa3396778d9ab88153b80480034354b03ac6aa0128aa4a2f4b0a5d839655a",
+  "legacy_record_id": "town_wagon_western_hotel_wagon_yard_1",
+  "limitations": [
+    "No actual ground qualification or main-scene placement",
+    "All new bows,seams,folds,weave,wear and cloth construction are original reconstruction",
+    "No manufacturer,owner,historical load or Dearborn identity",
+    "No occupied socket,driver,horse,hitch,forces,animation,riding or boarding support",
+    "Actual appearance,GLTF validation and matched comparisons remain separate required evidence"
+  ],
+  "materialGroupsReferenced": 9,
+  "originalNodeTransformsPivotsAndChildPrefixesExact": true,
+  "original_bearing_deg": 356.2,
+  "original_coordinates": [
+    -136.05,
+    -291
+  ],
+  "parameters_sha256": "ce25a2df4daf8ac1923c2fd232945cdd63c48f7b888560c6ad6a97652c285a8a",
+  "parentBINprefixExact": true,
+  "parent_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+  "primitives": 26,
+  "retainedBatchReceipt": [
+    {
+      "batch": "vehicle_body_plank_a",
+      "originalVertices": 1584,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 1584
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "originalVertices": 1584,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 1584
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "originalVertices": 1128,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 1128
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "originalVertices": 4224,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 2112
+    },
+    {
+      "batch": "vehicle_running_gear_rear_paint",
+      "originalVertices": 36,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 36
+    },
+    {
+      "batch": "vehicle_root_paint",
+      "originalVertices": 108,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 108
+    },
+    {
+      "batch": "vehicle_steer_front_paint",
+      "originalVertices": 108,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 108
+    },
+    {
+      "batch": "vehicle_steer_front_iron",
+      "originalVertices": 36,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 36
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_iron",
+      "originalVertices": 3456,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 3456
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "originalVertices": 2160,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 2160
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_paint",
+      "originalVertices": 1152,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 1152
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_iron",
+      "originalVertices": 3456,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 3456
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "originalVertices": 2160,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 2160
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_paint",
+      "originalVertices": 1152,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 1152
+    },
+    {
+      "batch": "vehicle_wheel_front_left_iron",
+      "originalVertices": 3456,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 3456
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "originalVertices": 2160,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 2160
+    },
+    {
+      "batch": "vehicle_wheel_front_left_paint",
+      "originalVertices": 1152,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 1152
+    },
+    {
+      "batch": "vehicle_wheel_front_right_iron",
+      "originalVertices": 3456,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 3456
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "originalVertices": 2160,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 2160
+    },
+    {
+      "batch": "vehicle_wheel_front_right_paint",
+      "originalVertices": 1152,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 1152
+    },
+    {
+      "batch": "vehicle_tongue_timber",
+      "originalVertices": 36,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 36
+    },
+    {
+      "batch": "vehicle_tongue_iron",
+      "originalVertices": 108,
+      "positionNormalUvTangentChangedOnlyByListedFurnitureRemoval": true,
+      "retainedOriginalVertexOrder": true,
+      "retainedVertices": 108
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "originalVertices": 288,
+      "retainedVertices": 0,
+      "retiredOnlySourceOwnedFurnitureBatch": true
+    }
+  ],
+  "retiredOnlySourceOwnedFurniture": [
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_bolt_-1_0.56",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_-1_0.56_1.583_washer",
+      "triangles": 96
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_-1_0.56_1.583_stem",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_-1_0.56_1.583_square_head",
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_-1_0.56_1.487",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_bolt_-1_0.74",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_-1_0.74_1.583_washer",
+      "triangles": 96
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_-1_0.74_1.583_stem",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_-1_0.74_1.583_square_head",
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_-1_0.74_1.487",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_bolt_1_0.56",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_1_0.56_1.583_washer",
+      "triangles": 96
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_1_0.56_1.583_stem",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_1_0.56_1.583_square_head",
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_1_0.56_1.487",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_bolt_1_0.74",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_1_0.74_1.583_washer",
+      "triangles": 96
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_1_0.74_1.583_stem",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_1_0.74_1.583_square_head",
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "part": "driver_bench_plate_1_0.74_1.487",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "part": "driver_bench_plank",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "part": "driver_bench_cleat_-1",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "part": "driver_bench_cleat_1",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "part": "driver_footboard",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "part": "driver_footboard_block_-1_1.201",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "part": "driver_footboard_block_-1_1.339",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "part": "driver_footboard_block_1_1.201",
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "part": "driver_footboard_block_1_1.339",
+      "triangles": 12
+    }
+  ],
+  "retiredSourceOwnedFurnitureMeshIndices": [
+    22
+  ],
+  "seeded_coat": {
+    "ageScalar": 1.0226475121639669,
+    "baseSrgb": {
+      "body": "#5e7080",
+      "canvas": "#bfb49b",
+      "gear": "#7a4536"
+    },
+    "boardVariation": {
+      "floorScalar": 0.9525400533340871,
+      "sideAndEndBoardScalars": [
+        0.9037012053094804,
+        0.8784368097223342,
+        1.0355448286887259,
+        1.035243896897882,
+        0.9484057241957635,
+        1.042562101772055,
+        0.9433803186193108,
+        0.9129732192400842
+      ],
+      "stakeScalars": [
+        0.9007700003217906,
+        0.9686807643715293,
+        0.9821671362407506,
+        0.9494778775703162,
+        0.987197198169306,
+        0.930111564444378
+      ]
+    },
+    "canvasScalar": 0.8676343060377985,
+    "firstFourDraws": [
+      0.004941538209095597,
+      0.792486178688705,
+      0.9885709681548178,
+      0.15352392243221402
+    ],
+    "gearMultiplier": 1.0188570968154818,
+    "gearScalar": 1.0419316753089543,
+    "nominalUncachedLinear": {
+      "body": [
+        0.11446741885788426,
+        0.1656989378948177,
+        0.22074920341594878
+      ],
+      "canvas": [
+        0.45203363260592494,
+        0.39599786136513193,
+        0.28439152264167744
+      ],
+      "gear": [
+        0.20277848211698507,
+        0.06200664407886517,
+        0.03843628685764474
+      ]
+    },
+    "scheme": {
+      "body": "blue",
+      "gear": "oxide",
+      "weight": 3
+    },
+    "seedParts": [
+      "wagon",
+      "town_wagon_western_hotel_wagon_yard_1",
+      -136.05,
+      -291
+    ],
+    "seedText": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
+    "seedUint32": 1970835735
+  },
+  "source_sha256": "679fc439a98921b0afcf60b31a437687dd3f243c7d62c1737da3cb215a882e29",
+  "triangles": 17292,
+  "unsupportedInheritedSockets": [
+    "vehicle_hitch_team",
+    "vehicle_hitch_single",
+    "vehicle_seat_driver",
+    "vehicle_seat_passenger_01",
+    "vehicle_board_left",
+    "vehicle_board_right",
+    "vehicle_camera_ride",
+    "vehicle_collision",
+    "vehicle_driver_foot_left",
+    "vehicle_driver_foot_right"
+  ]
+}

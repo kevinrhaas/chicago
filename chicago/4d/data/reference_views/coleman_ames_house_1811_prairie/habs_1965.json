@@ -1,0 +1,30 @@
+{
+  "structure_id": "coleman_ames_house_1811_prairie",
+  "library_image": "a18-kimball-habs-photo-01",
+  "photo": "../../sources/assets/ames_1811_photos_t3052/ames_1811_habs_1965_kimball_court.jpg",
+  "image_px": [
+    1024,
+    776
+  ],
+  "principal_px": [
+    527,
+    589.2
+  ],
+  "focal_px": 1420.5,
+  "eye": [
+    36.92,
+    11.62,
+    1.5
+  ],
+  "yaw_deg": -127.35,
+  "scene": "1904",
+  "also_render": [
+    "kimball_house_1801_prairie"
+  ],
+  "sun_uvy": [
+    0.5,
+    0.7,
+    1.4
+  ],
+  "solve": "Solved by T-3101 from Harold Allen's HABS photograph of June 1965 (HABS IL-1077, LoC il0136 photo 580872, 1024 x 776 px, the Prairie library's a18-kimball-habs-photo-01). It is a photograph OF 1801 PRAIRIE (W. W. Kimball's house, its Prairie Avenue front and its south court face) and sees 1811 only at its right edge, across the court: the front's north end, x 927 px to the frame at x 983, behind the court's iron fence. So the camera is fitted to 1801, in 1811's footprint frame (u toward Prairie Avenue, v south; 1801's frame lands at u -13.01, v -25.19 and 0.01 degrees, from the two sidecars' placements), and 1811 is what it is checked on. A view camera's photograph: the verticals stand vertical (1801's arrises and 1811's pier), so the camera is level; the principal point's x is held at the negative's centre, 527 px, and the eye at 1.5 m over grade. Fitted by least squares (scipy) to 7 readings: 1801's rounded south-west corner at its main cornice (u 7.71, v -14.14, 8.75 m, the build's wall head) at (428, 320) px; the front's north end at the same cornice (u 7.6, v -25.19) at (169, 375) px, its height weighted by half (the recessed north part's cornice may stand lower than the build's one wall head); two points on the south face's cornice line, (485, 338) and (585, 360) px, held to that line through the camera; and 1811's front at its north wall (u 7.57, v 0), the pier's left arris, at x 927 px. RESULT: eye u 36.92, v 11.62 (on the far side of Prairie Avenue, about 29 m in front of 1811's face and level with its south wall), yaw -127.35 (looking north-east), f 1421 px, principal y 589. RESIDUALS (render minus print): the south-west corner -1.8 and +4.0 px, the north end +0.9 px across and -5.8 px (weighted) down, the cornice line +0.8 and +0.4 px, 1811's north arris +0.7 px. CHECKED ON WHAT IT WAS NOT FITTED TO: the pier's south edge, v 0.93 on the front plane as the 1888 plate's camera reads it (T-3101), lands at x 970 px, where this print's downpipe at the pier's junction with the bay's canted cheek stands at x 972-975; and 1801's entrance arch renders about 15 px left of the print's (x 182-229 against 202-242), within what 1801's own build is good to (its front is T-3003's and T-1890's). WHAT IT IS NOT GOOD FOR: heights on 1811. The scale is 1801's, carried 14 m across the court, and 1811's grade under the fence is hidden; through it the pier's cap reads about 7.9-8.6 m where the plate and the Chicagology photograph read 7.1-7.8 m, so the cap's height is taken from those two (the match records say so). Light: 1801's south face and its front are both lit and the court is in sun, so a high sun from the south-west (June)."
+}

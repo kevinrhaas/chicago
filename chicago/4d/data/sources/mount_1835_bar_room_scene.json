@@ -1,0 +1,33 @@
+{
+  "id": "mount_1835_bar_room_scene",
+  "type": "illustration",
+  "citation": "William Sidney Mount, Bar-room Scene,1835, Art Institute of Chicago, accession 1939.392; public-domain two-dimensional reproduction via Wikimedia Commons.",
+  "author": "William Sidney Mount",
+  "date": "1835",
+  "repository": "Art Institute of Chicago; saved faithful two-dimensional reproduction and imageinfo rights metadata from Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:William_Sidney_Mount_-_Bar-room_Scene_-_1939.392_-_Art_Institute_of_Chicago.jpg",
+  "locator": "The whole 3000x2444 pixel reproduction, especially the seated clothed man at right; Commons file page id 74566906; accession 1939.392.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "The saved Commons imageinfo for this exact reproduction explicitly states Public domain, Copyrighted=False, AttributionRequired=false, and PD-Art/PD-old-100-expired categories. It reproduces a two-dimensional 1835 painting by William Sidney Mount (1807-1868). This clearance does not attest the depicted clothing as a named resident wardrobe.",
+  "rights_checked": {
+    "date": "2026-10-22",
+    "method": "Read the saved Commons imageinfo rights fields and original image bytes; exact image SHA1 matches its saved imageinfo SHA1. No new catalog/rights request.",
+    "outcome": "public_domain for this faithful two-dimensional reproduction, supported by the saved Commons declaration and work/author dates"
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Title, artist, year, accession 1939.392 and AIC artwork 30709 link are supplied by the saved Commons record/file title. The V5 review brief records museum webpage 403/API 503; no successful direct AIC catalog read or saved AIC catalog response is claimed. Catalog link https://www.artic.edu/artworks/30709. Both original saved reproduction pixels and saved Commons metadata were locally re-read on 2026-10-22 without a new network request. Saved image SHA1 4459dcccf69068ef6e8eb537488669b459991dce matches the Commons imageinfo record.",
+  "what_it_supplies": [
+    "A circa 1835 American genre-painting comparator for a declared reconstruction, not Chicago eyewitness evidence.",
+    "Visible hanging trouser fullness and a substantial closed lower waistcoat front; qualitative silhouette analogy only.",
+    "A seated clothed figure whose trousers span the thigh and knee; qualitative comparison, not a measured draping pattern."
+  ],
+  "what_it_does_not_supply": [
+    "Completion before the 1835-07-01 Chicago scene date: the painting date is year-only.",
+    "Any named Chicago resident, likeness, exact outfit, occupation or uniform.",
+    "Measured garment/body dimensions, cutting patterns, fibers, weave, cloth thickness, colors as material measurements, hardware or PBR parameters.",
+    "Full fit, animated/LOD clearance, photographic quality, exact July 1835 Chicago wardrobe or geometry-tracing authority."
+  ],
+  "note": "Tier 1 describes the date of the original painting, not eyewitness status for Chicago. Genre staging is not an occupational uniform survey. Used only to cross-check the independently reconstructed lower-trouser silhouette and waistcoat front; no painted pixels, tracing, portrait, color sampling or historical measurements enter the authored model."
+}

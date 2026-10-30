@@ -1,0 +1,28 @@
+{
+  "id": "lakeside_annual_directory_1911",
+  "type": "book",
+  "citation": "The Lakeside Annual Directory of the City of Chicago, 1911. Chicago: The Chicago Directory Company, 1911.",
+  "author": "The Chicago Directory Company",
+  "date": "1911",
+  "describes_date": "1911 (canvassed the spring before publication)",
+  "repository": "Internet Archive, item lakesideannualdi1911unse.",
+  "url": "https://archive.org/details/lakesideannualdi1911unse",
+  "locator": "The alphabetical list: 'Garten Ester Miss model h 1927 Indiana av' and five more homes at 1927 Indiana av (an engineer, a foreman, two labourers and a nurse), '[Weidner] Ira S furn rooms 1927 Indiana av' and 'Weidner Ira S 1927 Indiana av' in the furnished-rooms list; 'HEALTH FOOD COMPANY Western agency 1935 Indiana av', 'Health Food Co 1935 Indiana av' and 'Moore J G & Co 1935 Indiana av', with clerks and a bookkeeper working at 1935; and homes at 216 E 20th, among them 'Kavanagh Marcus judge superior ct ... h 216 E 20th'.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1911; public domain. Read for addresses only.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read for T-3154 on 2026-10-25 from the item's OCR text (lakesideannualdi1911unse_djvu.txt, 44.6 MB), searched for every number from 1901 to 1937 Indiana Avenue and 214 to 218 East 20th Street. The OCR doubles its spaces and garbles some names; only legible lines are cited. Its numbers are the city's after the 1909 renumbering, which left this face's numbers as they were (the Blue Books' 1933 Indiana households sit on the same pair before and after).",
+  "note": "Seven years after the scene and in the year of the Sanborn sheet: a house at 1927 Indiana still let in rooms, where the 1911 sheet draws a one-storey post-office sub-station, so the sub-station came after this canvass or the sheet carries a later correction; the 1935 corner a health-food firm's agency; households in the 216 East 20th flats.",
+  "what_it_supplies": [
+    "homes and furnished rooms at 1927 Indiana Avenue in 1911",
+    "the Health Food Company's western agency at 1935 Indiana Avenue in 1911",
+    "households at 216 East 20th Street in 1911"
+  ],
+  "what_it_does_not_supply": [
+    "any building's form, storeys, material or outline",
+    "a construction or demolition date",
+    "the 1904 state on its own authority"
+  ]
+}

@@ -1,196 +1,634 @@
 {
-  "id": "marsh_house_1824_prairie",
-  "name": "1824 Prairie Avenue — Pomeroy/Marsh altered stone-front villa (district draft; refined by T-1887)",
-  "aka": [
-    "1824 S. Prairie Avenue"
+ "id": "marsh_house_1824_prairie",
+ "name": "1824 Prairie Avenue — Pomeroy/Marsh house (the 1857 villa refaced in stone after 1880)",
+ "aka": [
+  "1824 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_28"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B; rear2B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+ },
+ "built": {
+  "value": 1857,
+  "confidence": "attested",
+  "sources": [
+   "hmdb_prairie_lost_houses_1800_1900_west"
+  ],
+  "note": "The marker: 'Samuel B. Pomeroy Residence. Built 1857'."
+ },
+ "review_required": false,
+ "research_note": "Refined from the district draft (T-2329) in place by T-3167 (piece 2 of T-1887), under the draft's own id, as a K01 house: Samuel B. Pomeroy's 1857 Italianate villa, its flanks, bracketed eaves and low hip read off the Pomeroy photograph (glessner_blog_1824_pomeroy_italianate, before 1880), behind the stone front George B. Marsh gave it after 1880, read off the right side of the automobile photograph of 1828 next door (chicagology_1828_shipman_automobile, about 1897-1906) against the 1911 sheet's plan: the canted bay at the south end of the front, the porch with its balcony at the north end, the rear range. The cupola is ruled out of 1904 and the open points are listed in docs/RESEARCH/k01-1824-marsh-3167/README.md for T-3168.",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_28"
+     "sanborn_1911_chicago_v3_sheet_28",
+     "hmdb_prairie_lost_houses_1800_1900_west"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B; rear2B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1887 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1824-b1), the T-1841 census (s28-1824-front, s28-1824-wing) and the T-1837 register row frontage-28-040 (Pomeroy/Marsh altered stone-front villa); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-      },
-      "position": {
-        "utm_e": 448431.343,
-        "utm_n": 4634100.571,
-        "rotation_deg": -0.627,
-        "symbolic_location": "1824 S. Prairie Avenue, parcel prairie_1824 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 19.750, v -1.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.627 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            22.75,
-            0.0
-          ],
-          [
-            22.75,
-            6.5
-          ],
-          [
-            0.0,
-            6.5
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 2,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "'2½B; rear2B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
-        },
-        "construction": {
-          "value": "brick_with_stone_front",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "The register reads the map's colours as 'brick with stone front'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
-                  0.0,
-                  0.0,
-                  22.75,
-                  6.5
-                ],
-                "from": "s28fp-1824-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  -3.75,
-                  12.75,
-                  0.0
-                ],
-                "from": "s28fp-1824-b1 p3 (main, brick), rectangle 2 of that part; the part's rectangles cover 82% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  6.75,
-                  -6.25,
-                  10.5,
-                  -3.75
-                ],
-                "from": "s28fp-1824-b1 p3 (main, brick), rectangle 3 of that part; the part's rectangles cover 82% of its fill"
-              }
-            ],
-            "lot_v": [
-              -8.616,
-              12.116
-            ],
-            "street_u": 34.202
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1824-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s28fp-1824-b1 p3 (main, brick), rectangle 2 of that part; the part's rectangles cover 82% of its fill; s28fp-1824-b1 p3 (main, brick), rectangle 3 of that part; the part's rectangles cover 82% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 1151074351,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 35,
-            "mansard_lower_m": 3.0,
-            "front_bays": 2,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": true,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2329",
-              "refined_by": [
-                "T-1887"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'villa' overlaid with the frontage row: 2½B on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1151074351 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2329",
-            "liberty": "L-draft-prairie-18-20-west-2329",
-            "register_row": "frontage-28-040",
-            "census_ids": [
-              "s28-1824-front",
-              "s28-1824-wing"
-            ],
-            "trace_building": "s28fp-1824-b1",
-            "seed": 1151074351,
-            "replaceable_by": [
-              "T-1887"
-            ],
-            "card": "District draft — refined by T-1887."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1857 for Samuel B. Pomeroy (the marker), refaced in stone by George B. Marsh after he bought it in 1880 (the Glessner House Museum blog); the automobile photograph (about 1897-1906) shows the new front.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448444.206,
+    "utm_n": 4634099.462,
+    "rotation_deg": -0.627,
+    "symbolic_location": "1824 S. Prairie Avenue, parcel prairie_1824 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The main block's rear south corner: lot frame u 32.60, v -3.00 (the draft's frame point u 12.85, v -1.25 through its own rotation), where the 1911 sheet's trace (s28fp-1824-b1) runs the front part's south wall (v -2.93 to -3.01) and the rear range widens to the south. The draft's fit of the sheet stands behind it (its georeference's independent check 1.47 m RMS). Rotation -0.627 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      12.1,
+      0.0
+     ],
+     [
+      12.1,
+      9.1
+     ],
+     [
+      0.0,
+      9.1
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The main block read off the 1911 sheet's trace (s28fp-1824-b1) in the lot's frame: its south wall at v -3.0 from u 32.6 to the front, its north wall at v 6.1, its front on the sheet's stone strip at u 44.7 (the strip, about 1.2 m deep, is the 1880 stone front laid before the villa's old front), and its rear at u 32.6, where the sheet's rear range widens to the south. The front's canted bay and the rear range stand on it as a K08 bay and a K01 rear wing."
+   },
+   "form": {
+    "stories": {
+     "value": 2,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate",
+      "chicagology_1828_shipman_automobile",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "Two wall storeys over a raised basement: the Pomeroy photograph (before 1880) shows the villa's two tall storeys over a basement, a stoop climbing to the principal floor, and the automobile photograph (about 1897-1906) the new stone front's canted bay through two storeys. The 1911 sheet's '2½B' counts a half storey in the roof: the attic behind the villa's deep frieze (the small panels between its brackets in the partial view), not a masonry storey."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "glessner_blog_1824_pomeroy_italianate",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "The 1911 sheet: '2½B; rear2B brick with stone front'; George B. Marsh bought the house in 1880 and 'soon gave it an entirely new stone façade' (the Glessner House Museum blog, with the Pomeroy photograph). The sheet draws the new front as a stone strip about 1.2 m deep across the old brick front. K01 lays stone on the street front only, so the flanks and rear stand in brick; the Pomeroy photograph shows them painted or stuccoed light, and the automobile photograph the south flank still light (open for T-3168)."
+    },
+    "principal_floor_m": {
+     "value": 2.0,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "The principal floor about 2.0 m over grade: the Pomeroy photograph's stoop climbs about a dozen risers to the entrance and its basement windows stand clear over the grade behind the fence; the automobile photograph's stoop to the new front's porch climbs as high as 1828's beside it (2.3 m) or a little less. Read in proportion to the door's height; neither print is scaled for 1824."
+    },
+    "storey_heights_m": {
+     "value": [
+      4.9,
+      4.7
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "The villa's principal storey about 4.9 m and the second about 4.7 m to the frieze's head, read in the Pomeroy photograph in proportion to the principal windows (about 3.3 m) and the entrance; the 1880 front was laid to the old floors, its belt between the bay's storeys on the second floor's line in the automobile photograph. Its eave stands about 11.6 m, a little under 1828's main cornice beside it (12.3 m), and the new front's bay stops under the frieze, as the automobile photograph shows."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "The stone front's thickness inside the K01 contract's range; the 1911 sheet's stone strip (about 1.2 m) holds the new facing and the old brick wall behind it together, which K01 draws as one wall."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.33,
+     "confidence": "reconstructed",
+     "note": "The K01 brick flank's thickness; no picture shows a reveal."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "K01 lays the flanks and the rear in brick, as the 1911 sheet colours them; buff for the light painted walls of the Pomeroy photograph (the Prairie library reads them as painted stucco) and the light south flank in the automobile photograph."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "limestone_bedford",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 2,
+      "coping_height_m": 0.25,
+      "corner_bond": []
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "Smooth ashlar on the new front's bay in the automobile photograph (about 1897-1906), a mid tone a little darker than 1828's light Lemont beside it, with incised panels on its pilasters (the 1880s' Neo-Grec); K02's Bedford limestone stands for it. The quarry is reconstructed."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k09.trim.lintel_cornice_hood",
+       "k09.trim.lintel_cornice_hood"
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "Flat-headed windows under moulded caps in both storeys of the new front's bay, in the automobile photograph (about 1897-1906)."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.bracketed_timber"
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate",
+      "glessner_blog_1828_shipman_partial",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "The villa's deep bracketed cornice, its brackets paired over a frieze, round the main block and the lower range in the Pomeroy photograph (before 1880); the partial view and the automobile photograph show the same frieze with its panels and brackets still on the south flank about 1897-1906, so the 1880 front left the eaves. K10's bracketed timber cornice; the frieze's panels are open for T-3168."
+    },
+    "roof_form": {
+     "value": "hip",
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate"
+     ],
+     "note": "A low hip over the main block and the lower range in the Pomeroy photograph (before 1880), its eaves on the brackets; no later picture shows the roof, and the 1880 front is not shown carrying it up into a mansard (the automobile photograph's top edge is the cornice). The cupola it carried then is ruled in docs/RESEARCH/k01-1824-marsh-3167/README.md: not built."
+    },
+    "roof_pitch_deg": {
+     "value": 34,
+     "confidence": "reconstructed",
+     "note": "Low, as the Pomeroy photograph shows it: the K05 hip at 34 degrees, the pitch at which the kit's roof union hips a long plan cleanly with a 0.5-0.6 m eave (1616's sweep, docs/RESEARCH/k01-1616-brick-2353). The photograph does not fix it nearer."
+    },
+    "eave_overhang_m": {
+     "value": 0.6,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate"
+     ],
+     "note": "The deep Italianate eave over the paired brackets in the Pomeroy photograph (before 1880), about 0.6 m against its second-storey windows' width."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_standing_seam_painted",
+      "flashing": "copper_sheet",
+      "caps": "copper_ridge_roll"
+     },
+     "confidence": "reconstructed",
+     "note": "Painted tin in standing seams, K04's cover for a roof too low for its slate; no picture shows the covering."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: K06's two-over-two flat sash and area lights; the automobile photograph shows the bay's tall windows with a transom bar, not their glazing pattern. The villa's flank windows are round-headed under hoods in the Pomeroy photograph and the partial view; K01 cuts a flank's windows flat (open for T-3168)."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "The stoop's treads; the automobile photograph shows the flight from its side."
+    },
+    "stair_landing_depth_m": {
+     "value": 1.55,
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The porch's floor at the stoop's head: the 1911 sheet's stone piece before the north part of the front (s28fp-1824-b1 p1), lot frame u 45.0-46.26, about 1.55 m out from the stone front at u 44.7."
+    },
+    "stoop_width_m": {
+     "value": 3.0,
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The 1911 sheet's stone piece before the north part of the front runs v 2.5-5.8 in the lot's frame, 3.3 m; the stoop between its cheeks a little inside it."
+    },
+    "entrance_bay": {
+     "value": "north",
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1828_shipman_automobile",
+      "sanborn_1911_chicago_v3_sheet_28",
+      "glessner_blog_1824_pomeroy_italianate"
+     ],
+     "note": "The entrance at the north end of the new front, in the porch beside the canted bay, in the automobile photograph (about 1897-1906), where the 1911 sheet draws the stone piece before the north part of the front. In the Pomeroy photograph (before 1880) the old entrance is at the right-hand end too, up a stoop."
+    },
+    "front_bays": {
+     "value": [
+      7.15
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "One opening column on the north part of the front beside the bay: the door in the porch and one window over it behind the balcony, centred on the 1911 sheet's stone piece (lot frame v 2.5-5.8, s 5.5-8.8 here)."
+    },
+    "side_bays": {
+     "value": [
+      3.4,
+      8.6
+     ],
+     "confidence": "reconstructed",
+     "note": "The south flank's windows. The partial view shows round-headed windows under hoods in the flank's second storey; their count and places are not readable, so two are set in the 12.1 m flank, clear of the bay at the front."
+    },
+    "north_bays": {
+     "value": [
+      2.6,
+      6.0,
+      9.4
+     ],
+     "confidence": "reconstructed",
+     "note": "The north flank's windows; no picture shows the flank."
+    },
+    "rear_bays": {
+     "value": [],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "None: the rear range covers the main block's whole rear wall (the 1911 sheet)."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.6,
+       "width_m": 1.05,
+       "height_m": 3.3
+      },
+      {
+       "sill_above_floor_m": 0.6,
+       "width_m": 1.0,
+       "height_m": 2.6
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "The principal windows about 1.05 x 3.3 m and the second storey's about 1.0 x 2.6 m, in proportion to the storeys in the Pomeroy photograph and to the bay's windows in the automobile photograph."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.25,
+      "width_m": 0.9,
+      "height_m": 0.8
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "Basement windows under the principal ones in the Pomeroy photograph and under the bay in the automobile photograph; heads at the top of K02's two base courses."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 0.9,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 4.5,
+        "v_m": 1.0
+       },
+       {
+        "u_m": 8.5,
+        "v_m": 8.1
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate"
+     ],
+     "note": "Stacks on the flank walls over the hip, as the Pomeroy photograph shows the villa's (a tall stack on each block); their places on this plan are reconstructed."
+    },
+    "rainwater": {
+     "value": {
+      "gutter": "half_round",
+      "fabric": "copper_sheet",
+      "downpipe": "round",
+      "ends_at": "grade_with_splash_stone",
+      "downpipes": [
+       {
+        "wall": "k01.wall.side.south",
+        "s_m": 0.4
+       },
+       {
+        "wall": "k01.wall.side.north",
+        "s_m": 0.4
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "K01's copper gutter and two downpipes; no picture shows them."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 9.25,
+       "hood": {
+        "soffit_m": 5.4,
+        "width_m": 3.0,
+        "out_m": 1.55,
+        "fascia_m": 0.8,
+        "cornice": {
+         "height_m": 0.25,
+         "proud_m": 0.2
+        },
+        "brackets": "k08.bay.canted_hooded",
+        "railing": {
+         "height_m": 0.6,
+         "post_m": 0.2,
+         "baluster_m": 0.08,
+         "pitch_m": 0.2,
+         "rail_m": [
+          0.2,
+          0.12
+         ]
+        },
+        "columns": {
+         "diameter_m": 0.3,
+         "plinth_m": [
+          0.45,
+          0.5
+         ],
+         "capital_m": 0.35,
+         "respond_m": 0.15
+        }
+       }
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1828_shipman_automobile",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The porch in the automobile photograph (about 1897-1906): columns at its front on the stoop's head, an entablature over them on the line of the bay's belt between its storeys, and a balcony with a balustrade on its flat top before the window over the door; on the 1911 sheet's stone piece before the north part of the front, about 3.3 m wide and 1.55 m out. K01's door hood on two columns (T-2963) is the porch; the camera that would scale it is T-3168's, so its sizes are the sheet's and its heights the storeys'. The front yard to the street line is 9.25 m (the sheet's front at lot u 44.7, the parcel's street line at 53.95)."
+    },
+    "boundary": {
+     "value": {
+      "street_line_m": 9.0,
+      "lot_s_m": [
+       -7.37,
+       13.37
+      ],
+      "fence": "k11.fence.spear_on_curb",
+      "entrance_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "leaves": 2,
+       "clear_m": 1.3,
+       "drawn_deg": 70
+      },
+      "side_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "pier_s_m": -5.55,
+       "drawn_deg": 0
+      },
+      "posts": {
+       "section_m": 0.12,
+       "height_m": 1.55
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "Stone posts and an iron fence on a curb before the house at the right edge of the automobile photograph (about 1897-1906); the Pomeroy photograph's ornamental iron fence before it is older. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates are reconstructed. T-3206: the side gate is hung across 1.6 m of the south yard's mouth at the lot line (s -7.25 to -5.55), the fence carried on from its pier; it had spanned the whole 5.45 m mouth as one leaf, which no gate of the district does (reconstructed, as the gates were). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "front_canted",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.street_front",
+       "s_m": 2.8,
+       "fabric": "front_stone",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -2.5,
+          0.0
+         ],
+         [
+          -1.42,
+          1.0
+         ],
+         [
+          1.42,
+          1.0
+         ],
+         [
+          2.5,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 6.9,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.7,
+           "clear_height_m": 3.3,
+           "sill_m": 2.6,
+           "at": [
+            0.127,
+            0.873
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "the automobile photograph's tall windows in the bay, one to each face, with a transom bar, the cheek's narrower"
+          },
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 3.3,
+           "sill_m": 2.6,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the automobile photograph's tall windows in the bay, one to each face, with a transom bar"
+          }
+         ]
+        },
+        {
+         "height_m": 3.3,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.7,
+           "clear_height_m": 2.4,
+           "sill_m": 0.5,
+           "at": [
+            0.127,
+            0.873
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "the automobile photograph's tall windows in the bay, one to each face, with a transom bar, the cheek's narrower"
+          },
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 2.4,
+           "sill_m": 0.5,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the automobile photograph's tall windows in the bay, one to each face, with a transom bar"
+          }
+         ]
+        }
+       ],
+       "eaves": {
+        "cornice": "k10.cornice.moulded_stone"
+       },
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.25,
+        "covering": "slate_pennsylvania"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "The new front's canted bay through both storeys over the basement, at the south end of the front: the 1911 sheet's stone strip steps out to lot frame u 45.7 across v -1.8 to 1.0 and cants back to the south corner and to v 2.2 (s28fp-1824-b1 p2), built as K08's canted bay 5.0 m across and 1.0 m out from the front at u 44.7, from 0.3 m inside the south corner (K08's least pier); the automobile photograph (about 1897-1906) shows it in stone between panelled pilasters with one tall window to each face per storey, a deep belt between the storeys and a cornice at its head under the villa's frieze (its second storey 3.3 m to that cornice, its lights 2.4 m, so the bay stops under K10's bracketed cornice). Its pilasters' incised panels are open for T-3168."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_range",
+       "rect": [
+        -13.0,
+        0.0,
+        -3.0,
+        9.1
+       ],
+       "past_host": true,
+       "floor_m": 2.0,
+       "storey_heights_m": [
+        4.2,
+        3.8
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.7,
+         "width_m": 1.0,
+         "height_m": 2.4
+        },
+        {
+         "sill_above_floor_m": 0.7,
+         "width_m": 1.0,
+         "height_m": 2.2
+        }
+       ],
+       "windows": {
+        "rear": [
+         2.5,
+         6.0,
+         9.5
+        ],
+        "south": [
+         2.5,
+         10.5
+        ],
+        "front": [
+         1.5
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.5,
+        "fascia_m": 0.4,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "glessner_blog_1824_pomeroy_italianate",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "The sheet's 'rear2B' range behind the main block, lot frame u 19.6-32.6, from the main block's north wall (v 6.1) to v -6.0, so it stands 3.0 m past the main block's south flank, where it shows a short front of its own to the street: the lower two-storey block under a hipped roof on bracketed eaves beside the villa in the Pomeroy photograph (before 1880), its street face (with the trees' shadows on it) in the automobile photograph. Heights and windows are reconstructed in proportion to the photograph. Its roof is decked flat in K04's tin behind a deep fascia: the photograph's roof is a low hip, and a pitched K01 wing is slated, which K04's slates allow only from 45 degrees, far steeper than the photograph's (open for T-3168). The sheet's bay on its south wall (u 26.1-31.4 out to v -8.0) is not built: a K01 wing's wall carries a tower or a full-height projection, not a bay (open in the research note)."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.6,
+       "top_m": 0.06,
+       "wear_tone": 0.9
+      },
+      "service_walk": {
+       "surface": "cinder",
+       "to_u_m": 0.0,
+       "wear_tone": 0.78,
+       "band": "gate"
+      },
+      "grade_m": {
+       "front": 0.022,
+       "street": 0.024,
+       "per_m_s": -0.0035,
+       "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "chicagology_1828_shipman_automobile",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk; the cinder service walk from the side gate back along the south lot line, the gate's width. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
+    }
+   }
+  }
+ ]
 }

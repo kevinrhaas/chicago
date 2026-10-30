@@ -24,7 +24,7 @@ here changes a record.
 |---|---|---|
 | **Braunhold** | `chicago/reference/images/chicago/chicago_sauganash_hotel_1831.jpg` (2017 × 1296) | F. Braunhold's pen engraving, *"Copyright secured by A. T. Andreas, 1884"*. The sharpest and largest of the four. **This is the plate that was measured.** |
 | Petford | `…/sauganash-hotel/sauganashhotel.jpg` (1200 × 847) | C. F. Petford's watercolour, lettered *"Sauganash Hotel. 1831."* Same composition, same station, same five bays; coloured. |
-| Trowbridge | `…/sauganash-hotel/sauganash2.jpg` (860 × 508) | The wash already recorded at `data/sources/trowbridge_sauganash_hotel.json`, undated, its companion signed 1902. Same composition with figures added. |
+| Trowbridge | `…/sauganash-hotel/sauganash2.jpg` (860 × 508) | The wash recorded at `data/sources/trowbridge_sauganash_hotel.json`, now independently verified in Gale 1902 facing p. 31 (actual IA n49). Same composition with figures added; the1835 caption remains retrospective, not independent corroboration. |
 | the thumbnail | `…/sauganash-hotel/images.jpeg` (192 × 135) | A watermarked stock-library thumbnail of a coloured version of the same composition. At 192 px it carries no measurable detail and is used for nothing. |
 
 `docs/RESEARCH/sauganash_hotel.md` § 4 already treats the Andreas engraving and the

@@ -74,6 +74,10 @@
       "$ref": "#/$defs/attested",
       "description": "Optional sourced present-day survival/status, separate from historical phase ranges. The note must state when it was checked; never extends a modeled phase."
     },
+    "built": {
+      "$ref": "#/$defs/attested",
+      "description": "T-3037. When the structure was built, as its sources give it, separate from the phase ranges (a phase can begin later than the building, as an alteration does). `value` is a year (1886), or 'about 1834', 'by 1886', 'between 1870 and 1876', or '1864 or 1875' where the sources disagree; tools/validate.py holds the form. The card prints it ('Built in 1886.'), so a year no source gives is never written here."
+    },
     "reconstruction": {
       "type": "object",
       "additionalProperties": false,
@@ -775,6 +779,7 @@
             "cooperage",
             "council_house",
             "county_court_house",
+            "dairy",
             "deep_plan_frame_cottage",
             "dooryard_green",
             "drug_store",
@@ -793,6 +798,7 @@
             "freight_shed",
             "garrison_flagstaff",
             "gathering_camp",
+            "glasshouse",
             "grocery_and_provision_store",
             "guard_house",
             "gunsmith_shop",
@@ -800,16 +806,19 @@
             "harbour_works",
             "harness_shop",
             "haystack",
+            "horse_mill",
             "hotel",
             "hotel_stable",
             "hotel_under_construction",
             "jail",
+            "kitchen_garden",
             "land_sale_camp",
             "large_boarding_house",
             "large_river_warehouse",
             "large_workshop",
             "larger_one_and_a_half_story_house",
             "livestock_pound",
+            "lodging_house",
             "log_cabin_former_store_and_school_use_unattested",
             "log_house_former_school_use_unattested",
             "lumber_shed",
@@ -1072,6 +1081,20 @@
         },
         "note": {
           "type": "string"
+        },
+        "from_is": {
+          "enum": [
+            "began",
+            "seen"
+          ],
+          "description": "T-3037. What the start IS, so a card may print it: 'began' when a source dates the start of this phase (built, completed, converted, extended, opened), 'seen' when it is the first date a source shows the structure standing and it may be older. Absent: the start is a bound the record chose (the scene's year, a description's window, a parent's range), and no card prints it as a date."
+        },
+        "to_is": {
+          "enum": [
+            "ended",
+            "seen"
+          ],
+          "description": "T-3037. What the end IS: 'ended' when a source dates the end of this phase (burned, demolished, moved, altered), 'seen' when it is the last date a source shows the structure standing (a later map or directory). Absent: the end is a bound the record chose, and no card prints it as a date."
         }
       }
     },

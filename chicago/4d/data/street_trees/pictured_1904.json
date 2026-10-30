@@ -1,0 +1,94 @@
+{
+ "_doc": "Parkway trees READ OFF PICTURES for the 1904 scene (T-1934). Hand-authored INPUT to tools/plant_prairie_1904_street_trees.py: on each stretch below, the rule's trees are withdrawn and these are planted in their place, each at a distance along the face's parkway line (the same line, 62 % of the way from the walk to the curb, that the rule plants on; at_m from the face's first point, as data/street_trees/1904.json measures it). A stretch is the run of the parkway the named pictures see, so an empty stretch is a reading too: the pictures show no tree there. Each reading is the trunk's x in the picture, carried to the parkway line through that picture's solved camera (data/reference_views/). docs/LIBERTIES.md L-pullman-18th-street-trees-1934 says what is read and what is chosen.",
+ "scene": "1904",
+ "ticket": "T-1934",
+ "liberty": "L-pullman-18th-street-trees-1934",
+ "views": {
+  "taylor_16555": {"camera": "data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json", "source_id": "aic_taylor_16555_pullman_west_front", "date": "1892 to May 1894 (its content)"},
+  "inland_1894": {"camera": "data/reference_views/pullman_house_1729_prairie_conservatory/inland_1894_plate.json", "source_id": "inland_1894_pullman_palm_house_stable", "date": "1894 (published)"},
+  "inland_1894_conservatory": {"camera": "data/reference_views/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory.json", "source_id": "inland_1894_pullman_conservatory", "date": "1894 (published)"},
+  "lowe_c1897": {"camera": "data/reference_views/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory.json", "source_id": "aic_lowe_pullman_conservatory_c1897", "date": "c. 1897 (its view)"},
+  "taylor_1445": {"camera": "data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json", "source_id": "aic_taylor_1445_pullman_from_sw", "date": "1890s, after the 1892 additions (its content)"},
+  "detroit_4a08065": {"camera": "data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json", "source_id": "loc_det_4a08065_pullman_residence", "date": "1897-1901 (the Detroit Photographic Co. imprint; the holder's 1890-1901)"}
+ },
+ "stretches": [
+  {
+   "face": "prairie__prairie_ic_16_18",
+   "from_m": 228.5,
+   "to_m": 257.5,
+   "seen_by": ["detroit_4a08065 x 43-570 (the Prairie front, squarely, from 228.5 m to the corner's bed)"],
+   "note": "Prairie Avenue's east parkway before the Pullman house, from its north end to the 18th Street corner's curbed bed (T-1881). The Detroit print sees the Prairie front squarely and governs along it (the large dormer and the stair land within a few px through its camera); each trunk's x is carried to the planting line (u 48.0 in the house's frame) through it. The 1890 Albertype plate (library image a16-albertype-1890-pullman-residence, no source record yet, so a check and not a reading) shows the same two trunks before the portico and at the corner, braced as young trees, at 248.0 and 257.2 m through its camera, 1.6 and 1.2 m south of the Detroit readings (toward 18th Street): the same 1 m or so its camera draws the front's dormer off along this face. Taylor's no. 1445 sees only the corner end, edge-on, and draws no trunk there; it is the earlier picture. The corner itself (257.5 m to the face's end) is not part of this stretch: the Detroit print's trunk at x 630 stands there on neither planting line through its camera, the stretch where it and Taylor's disagree (the corner's tree on 18th Street, T-1881), and the rule plants nothing within 10.5 m of the corner.",
+   "trees": [
+    {"at_m": 232.0, "kind": "mature", "read": ["detroit_4a08065 x 95 (base y 503 against the line's 510, on the walk's inner edge as it reads; a tall trunk rising past the print's top edge): 232.0 m"], "note": "Before the house's north end. Its foot reads 7 px above the planting line, which would put it about 1 m behind the walk; planted on the line, as the print stands no other tree in the walk or the lawn there."},
+    {"at_m": 238.8, "kind": "mature", "read": ["detroit_4a08065 x 204 (base y 510, the line's 512): 238.8 m"], "note": "A full-grown trunk rising past the print's top edge."},
+    {"at_m": 246.4, "kind": "mature", "read": ["detroit_4a08065 x 341 (base y 515, the line's 514): 246.4 m"], "note": "A full-grown trunk. The Albertype plate's trunk at x 1052 reads 248.0 m."},
+    {"at_m": 256.0, "kind": "mature", "read": ["detroit_4a08065 x 541 (base y 522, the line's 518; in a low curbed bed beside the lamp post at x 528): 256.0 m"], "note": "Before the house's south-west corner, in a curbed bed whose foot reads about 0.5 m nearer the curb than the line; planted on the line. The Albertype plate's trunk at x 1312, beside its own lamp post, reads 257.2 m."}
+   ]
+  },
+  {
+   "face": "e18th__prairie_ic_16_18",
+   "from_m": 0.0,
+   "to_m": 46.9,
+   "seen_by": ["taylor_1445 x 207-1098 (the Prairie corner to 46.9 m)", "detroit_4a08065 x 686-860 (a grazing view along the flank)"],
+   "note": "18th Street's north parkway beside the Pullman house, from the Prairie Avenue corner to where T-1934's stretch begins (T-1881). Taylor's no. 1445 sees it at 20-30 px a metre, the Detroit print at 4-6, and the house's record already rules that Taylor's governs along this flank (the two cameras disagree there by up to several metres, T-3161), so each tree stands at Taylor's reading and the Detroit print checks it: pairing the two pictures' trunks through both cameras lands the trees at 24.7, 37.7 and 43.7 m within 0.5 m of the planting line (v 31.41 in the house's frame) and the corner's within 0.8 m.",
+   "trees": [
+    {"at_m": 3.7, "kind": "mature", "read": ["taylor_1445 x 308 (a thick trunk on the parkway by the corner, its foot below the walk): 2.8 m", "detroit_4a08065 x 691 (base y 506): 0.6 m"], "note": "The corner's tree. Both readings fall on the Prairie walk's crossing of the parkway (data/street_section/1904.json, its east edge at 3.1 m), where Taylor's print stands the trunk in the grass east of the walk; the two pictures' trunks paired through both cameras meet at 3.45 m, 0.8 m off the planting line, so it is planted at 3.7 m, clear of the walk."},
+    {"at_m": 14.25, "kind": "mature", "read": ["taylor_1445 x 622 (base y 672, in front of the coping wall): 14.25 m", "detroit_4a08065 x 786 (base y 495): 19.3 m"], "note": "The Detroit print's nearest trunk to Taylor's; the 5 m between their readings is the two cameras' disagreement along this flank."},
+    {"at_m": 24.65, "kind": "mature", "read": ["taylor_1445 x 821: 24.65 m", "detroit_4a08065 x 806: 25.3 m"]},
+    {"at_m": 37.65, "kind": "mature", "read": ["taylor_1445 x 1001.5 (base y 632): 37.65 m", "detroit_4a08065 x 838: 37.7 m"], "note": "West of the carriage way's gap in the coping wall."},
+    {"at_m": 43.7, "kind": "mature", "read": ["taylor_1445 x 1067.5 (base y 631): 43.7 m", "detroit_4a08065 x 846: 41.5 m"], "note": "East of the carriage way's gap."}
+   ],
+   "not_planted": [
+    {"read": "detroit_4a08065 x 735.5 (base y 502): 7.85 m", "why": "Taylor's print sees this place (its x 455) at 25 px a metre and shows the coping wall's face clear, no trunk in front of it; Taylor's governs along this flank."},
+    {"read": "detroit_4a08065 x 821.5 (base y 495): 30.8 m", "why": "Taylor's print sees this place (its x 905) clear of any trunk; Taylor's governs along this flank."},
+    {"read": "taylor_1445 x 412-420 and 443-448; detroit_4a08065 x 758-760 and 768-770", "why": "Slender young trees whose trunks stop at the coping wall's top in both pictures: they stand inside the lot, on the lawn between the house and the wall, not in the parkway, so they are the front-yard layer's, not this file's."}
+   ]
+  },
+  {
+   "face": "e18th__prairie_ic_16_18",
+   "from_m": 46.9,
+   "to_m": 66.3,
+   "seen_by": ["inland_1894 x 0-2000 (46.9-64.0 m)", "taylor_16555 x 0-1200 (49.5 m to the corner)"],
+   "note": "18th Street's north parkway before the Pullman estate, from the house's 18th Street porch to the Calumet corner.",
+   "trees": [
+    {"at_m": 51.3, "kind": "mature", "read": ["inland_1894 x 550 (base y 1150, 1149 predicted): 50.9 m", "taylor_16555 x 97 (its base behind the man): 51.7 m"], "note": "Both pictures; planted between their readings."},
+    {"at_m": 58.8, "kind": "mature", "read": ["inland_1894 x 1487 (base y 1106, 1113 predicted): 58.8 m, a full-crowned tree", "taylor_16555 x 453: a DEAD trunk in a guard at 60.0 m"], "note": "The plate's living tree. Taylor's print shows a dead trunk 1.2 m east of it; a dead street tree is not standing ten years on, and the two readings are one tree's place within the pictures' disagreement."},
+    {"at_m": 64.1, "kind": "mature", "read": ["taylor_16555 x 621 (base y 710): 64.1 m"], "note": "Past the plate's right edge (64.0 m); Taylor's print alone."}
+   ],
+   "not_planted": [
+    {"read": "taylor_16555 x 298 (base y 704): 56.3 m", "why": "The plate, the later of the two, sees this place before the palm house's terrace and shows no tree there; the earlier print's tree is taken to have gone. The two pictures disagree, so this is the plate's reading, not a measurement."}
+   ]
+  },
+  {
+   "face": "calumet__prairie_ic_16_18",
+   "from_m": 0.0,
+   "to_m": 13.3,
+   "seen_by": ["taylor_16555 x 640-1200 (the parkway carried round the Calumet corner)"],
+   "note": "The parkway's turn from 18th Street into Calumet Avenue, before the stable.",
+   "trees": [
+    {"at_m": 3.3, "kind": "mature", "read": ["taylor_16555 x 834 (base y 713): 3.3 m"]},
+    {"at_m": 10.3, "kind": "mature", "read": ["taylor_16555 x 1086 (base y 713): 10.3 m"], "note": "Where the rule had stood a young tree (11.3 m); the print's is full grown."}
+   ]
+  },
+  {
+   "face": "e18th__prairie_calumet_18_20",
+   "from_m": 0.0,
+   "to_m": 21.9,
+   "seen_by": ["taylor_16555 x 0-1200 (0-12.6 m)", "inland_1894 x 0-2000 (13.7-21.9 m: below the plate's frame, where a parkway tree's trunk would rise through its foreground)", "inland_1894_conservatory x 1343-1690 (0-2.5 m: the photograph's right edge, x 1692, cuts the parkway at e 1472.9)", "lowe_c1897 x 904-1200 (0-2.5 m)"],
+   "note": "18th Street's south parkway opposite the estate, where Taylor stood behind it in the garden across the street.",
+   "trees": [
+    {"at_m": 3.0, "kind": "mature", "scale": 0.6, "read": ["taylor_16555 x 873 (base y 764, 760 predicted): 1.3 m through its camera, which stands the estate's west gate pier (T-3164's, placed off the conservatory plate) about 180 px west of the print's (west face x 786 drawn, x 965 in the print); read against that pier, 90 px west of its west face, the trunk stands at 1.7 to 3.5 m", "lowe_c1897 x 1110 (base y 710): 3.0 m", "inland_1894_conservatory x 1343-1690: no trunk, so nothing stands at 0-2.5 m; its trunk (about 0.45 m) would show at the frame's edge nearer than 2.9 m"], "note": "At the Calumet corner, before the estate's west gate pier. Taylor's print is the earliest and its camera was solved on the north side's ground; the plate, the one uncropped picture, sees this parkway clear to 2.5 m, and Lowe and Taylor read against the pier put the trunk just past that edge. Moved 1.7 m west from Taylor's raw reading (T-3164)."}
+   ]
+  },
+  {
+   "face": "calumet__prairie_calumet_18_20",
+   "from_m": 264.0,
+   "to_m": 270.99,
+   "seen_by": ["inland_1894_conservatory x 320-1343 (264.0 m to the corner)", "lowe_c1897 x 0-904 (265.3 m to the corner)"],
+   "note": "Calumet Avenue's west parkway where it turns into 18th Street, before the east pier of the glasshouse ground's gate (T-3164).",
+   "trees": [
+    {"at_m": 266.9, "kind": "mature", "scale": 0.6, "read": ["inland_1894_conservatory x 744 (base y 1160): 266.9 m, its foot 0.85 m nearer the curb than the planting line", "lowe_c1897 x 394 (base y 739): 267.5 m"], "note": "Both pictures, a full-grown trunk before the east gate pier; planted at the plate's reading, the uncropped picture the estate's places are read from."}
+   ]
+  }
+ ]
+}

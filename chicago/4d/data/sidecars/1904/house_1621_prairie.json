@@ -23,7 +23,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -549,6 +550,43 @@
       },
       "confidence": "reconstructed",
       "note": "Read off the drawing where it shows the roof, reconstructed where it does not. The roof's ridge 4.23 m behind the front wall, at 13.43 m, where the drawing's parapet reaches its stack (about 13.5 m up and about 4 m back through its camera, building_budget_front.json); the rear slope falls from it to the rear wall's head, at about 25 degrees, which no picture shows. The house's SOUTH side wall (K01's 'north', high v) is carried up as the drawing's crow-stepped parapet: five steps up the street slope, as the drawing draws them (its kneeler blocks at about y 225, 205, 185, 165 and 145 px in the panel), each coped and clearing the slates by K05's 0.3 m upstand, to a level head 0.3 m (the upstand) over the ridge, at 13.73 m, where the stack stands; the same five steps down the rear slope are reconstructed. The NORTH side wall (K01's 'south'), which no picture shows, is carried up as a plain coped parapet on the slopes, reconstructed (L-k01-1621-hamline-front-2440)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "open",
+        "lot_s_m": [
+          -0.3,
+          7.5
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "building_budget_1886_06_hamline_farwell_houses",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3215: no boundary across the front. Treat & Foltz's 1886 drawing of the Hamline house (data/reference_views/house_1621_prairie/building_budget_front.json) draws its front yard running straight out to the walk with no fence, wall, coping or gate across it: the side stoop comes down beside the swell bay onto open ground, and the next house's stoop to the north does the same. Carried to 1904 on that drawing alone (an architect's perspective of the house as designed, eighteen years before the scene; no later picture of the front is held), so INFERRED, not read in 1904. The lot's sides are parcel prairie_1621's street corners (data/street_grid/1904.json) in this frame, s -0.3 and 7.5."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.2
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "building_budget_1886_06_hamline_farwell_houses",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3215 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures). The drawing brings the side stoop's flight down to the ground in front of the house and draws no fence, so the walk is laid in flags from the flight's foot, its width (1.2 m), straight out across the open front to the inner edge of the public walk, 3.8 m before the street front; the lawn covers the rest of the front yard. The drawing hatches the ground and does not show a walk's line or material. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",

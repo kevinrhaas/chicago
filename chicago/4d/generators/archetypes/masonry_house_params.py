@@ -85,7 +85,7 @@ CONSUMED = frozenset({
     "range_east_wing", "range_north_range", "range_west_wing",
     "ridge_east_wing", "ridge_north_range", "ridge_west_wing",
     "gable_east_wing_north", "gable_east_wing_south",
-    "gable_west_wing_north", "gable_west_wing_south",
+    "gable_west_wing_north", "gable_west_wing_south", "gable_west_wing_west",
     "tower_stair", "tower_north", "tower_north_plan",
     "hall_bow", "hall_bow_height", "hall_bow_roof",
     "bay_dining", "bay_dining_elevation",
@@ -550,8 +550,12 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "perch_projection_m": float(v["perch_projection_ft"]) * FT}
             if "ledge_ft" in v:
                 p.turrets[-1]["vent"]["ledge_m"] = float(v["ledge_ft"]) * FT
+            if v.get("ledge_corners") == "wrapped":
+                p.turrets[-1]["vent"]["ledge_corners"] = "wrapped"
             if t.get("body_material"):
                 p.turrets[-1]["body_material"] = t["body_material"]
+            if t.get("body_coursing"):
+                p.turrets[-1]["shaft_courses"] = int(t["body_coursing"]["shaft_courses"])
             p.turrets[-1]["eave"] = {
                 "overhang_m": float(e["overhang_ft"]) * FT,
                 "drop_m": float(e["drop_ft"]) * FT,
@@ -635,10 +639,16 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 if it.get("sash"):
                     # T-2212: a sash pattern read off a photograph (two_over_two).
                     op["sash"] = it["sash"]
+                if it.get("terminal_ft"):
+                    # T-2985: a carved band's end blocks, as wide as the elevation draws them.
+                    op["terminal"] = round(float(it["terminal_ft"]) * FT, 4)
                 if it.get("courses"):
                     # T-2926: the light stands in continuous lintel and sill courses
                     # (their own `band` items), so it lays no stones of its own.
                     op["courses"] = True
+                if it.get("panes"):
+                    # T-2928: a narrow light drawn as one pane, with no glazing bars.
+                    op["panes"] = int(it["panes"])
                 if it.get("corbels"):
                     # T-2926: a passage mouth narrowed by two stone corbels under its lintel.
                     cb = it["corbels"]
@@ -739,6 +749,16 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "conf": cf("courtyard_ground"),
             "wall_fall_start_y": fr.y(finish["wall_fall_start_S"]),
         }
+        # T-2978: sheet 4 draws the court ground falling from the lawn to the passage
+        # mouth; the generator sinks the court's surfaces by it (v4_ground.fall_quads).
+        mf = finish.get("mouth_fall")
+        if mf:
+            p.detail["court_ground"]["mouth_fall"] = {
+                "depth_m": round(float(mf["depth_ft"]) * FT, 4),
+                "x": [fr.x(mf["low_W"][0]), fr.x(mf["low_W"][1]), fr.x(mf["rise_to_W"])],
+                "y": [fr.y(mf["bank_S"][0]), fr.y(mf["bank_S"][1])],
+                "footing_y": sorted(fr.y(s) for s in mf.get("footing_S", [])),
+            }
 
     if p.detail_profile:
         fg = val("prairie_frontage")
@@ -767,6 +787,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 'batter_m':es['batter_at_grade_ft']*FT,
                 **{k.replace('_ft','_m'):es[k]*FT for k in
                    ('recess_base_width_ft','recess_top_width_ft','lintel_crown_rise_ft','lintel_end_inset_ft')},
+                # T-2972: the raised centre's width, when it does not span the stone.
+                'lintel_crown_width_m':es.get('lintel_crown_width_ft',0.)*FT,
                 'relief_section':es['relief_section_m'],
                 'threshold_front_x':fr.x(es['threshold_front_W']),
                 'threshold_back_x':fr.x(es['threshold_back_W']),
@@ -807,12 +829,23 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     chimney['z0']=min(chimney['z0'],
                                       chimney_foot(p,chimney['x0']),
                                       chimney_foot(p,chimney['x1']))
-        p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
-                                          for h in raw.get("ashlar_courses_in", [])]
+        # T-3045: the printed inches stay the record's figures; the courses between two
+        # beds are laid at a measured scale over them (Taylor 2135 and sheet 6, beds 7-23).
+        stretch = raw.get("ashlar_course_scale") or {}
+        lo, hi = stretch.get("beds", (0, 0))
+        p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254 * (float(stretch["scale"]) if lo < i + 1 <= hi else 1.0), 6)
+                                          for i, h in enumerate(raw.get("ashlar_courses_in", []))]
         # T-2955: the string is laid from north grade, so the beds run level round the NE
         # corner and stay registered on the 18th Street apertures (set on its sums above
         # north grade); on the Prairie face that is sheet 5's base line, 0.20 ft over the walk.
         p.detail["ashlar_origin_m"] = fr.z(0.0, "ng")
+        # T-3046: a course printed at or over `from_in` crowns `scale` times its stones'
+        # bow, its lower face rising over at most `lip_m` (Taylor 2135's deep and shallow).
+        crown = raw.get("ashlar_crown_by_course")
+        if crown:
+            high = {"crown_scale": float(crown["scale"]), "lip": float(crown["lip_m"])}
+            p.detail["ashlar_course_crowns"] = [high if float(h) >= float(crown["from_in"]) else None
+                                                for h in raw.get("ashlar_courses_in", [])]
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in
                                         raw.get("ashlar_relief_ft", [0.025,0.15])]
         p.detail["conf"] = cf("v4_detail")
@@ -871,6 +904,13 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "hip_y": fr.y(rework["south_hip_S"]),
                 "front_hip_y": fr.y(rework["front_hip_S"]),
                 "north_range": dict(north)}
+            if west["gable_ends"].get("west") == "parapet" and "alley_gable_apex" in rework:
+                # T-3096: the alley gable's wall keeps its own apex, standing proud of a
+                # cross roof that comes down behind it; the roof stops at the wall.
+                west["stable_roof"]["alley_parapet"] = {
+                    "apex_y": fr.y(rework["alley_gable_apex_S"]),
+                    "apex_z": fr.zval(rework["alley_gable_apex"]),
+                    "lift": west["parapet_m"]["west"]}
             west["stable_roof"]["connected_roof_plan"] = rework.get("connected_roof_plan", False)
             west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
             west["stable_roof"]["lower_rear_gable"] = rework.get("lower_rear_gable", False)
@@ -957,6 +997,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             if "hook_drop_ft" in hoist:
                 p.detail["north_stable_fabric"]["hoist_stone"]["hook_drop"] = \
                     hoist["hook_drop_ft"]*FT
+            if "nose_ft" in hoist:
+                # T-3030: the nose's own depth, read from the Cornell view.
+                p.detail["north_stable_fabric"]["hoist_stone"]["nose"] = \
+                    hoist["nose_ft"]*FT
             leaves = stable_fabric.get("loft_leaves")
             if leaves:
                 p.detail["north_stable_fabric"]["loft_leaves"] = {

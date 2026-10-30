@@ -37,6 +37,17 @@ That is the conservative reading in the two ways it can be wrong:
   builds each stack with one helper, relative to the ridge it is handed. Said plainly
   here rather than left for a reader to assume.
 
+The declared `slope_offsets` and `far_gable` schemes are measured separately:
+an offset stack or a separate belfry roof makes the global ridge an unsuitable
+reference for the roof the stack passes through. Decode the actual
+brick/chimney and upward roof triangles, recover every shaft and cap, and use the
+highest roof point under the entire cap footprint for each stack. All stacks must
+clear the same eighteen-inch floor; no generator heights or named-building
+exemptions are used. Unsupported mesh layouts, missing roof coverage and a count
+that disagrees with the record fail closed. Existing schemes keep the original
+bounds reading. This is the project's existing dimensional ratchet, not evidence
+that this undated retrospective image attests compliance in July1835.
+
 ## What the ordinance's second clause binds, which is nothing today
 
 *"No stove pipe shall be passed through the side or end of any building."* **This model
@@ -104,6 +115,218 @@ STACK_MATERIALS = ("chimney", "brick")
 EPS_M = 0.0005
 
 
+def local_stack_clearances(js, bins, expected):
+    """Actual uncompressed, identity-node mesh: each stack over its own roof.
+
+    Bounded to declared local-roof paths. Unsupported layouts fail closed;
+    no generator heights, accessor bounds or structure-name exemptions are used.
+    glTF is Y-up, so the horizontal footprint is X/Z. Shaft/cap mesh islands are
+    welded by positions, then merged only when their XY footprints and Z ranges
+    intersect (in Y-up terms, XZ and Y). Every recovered stack is measured.
+    """
+    import math
+    import struct
+
+    def refuse(why):
+        raise ValueError("local stack measurement: " + why)
+
+    def integer(value):
+        return isinstance(value, int) and not isinstance(value, bool) and value >= 0
+
+    if not integer(expected) or expected < 1:
+        refuse("invalid expected chimney count")
+    if js.get("extensionsUsed") or len(js.get("buffers", [])) != 1:
+        refuse("extensions or multiple buffers unsupported")
+    blob = bins.get(0)
+    if not isinstance(blob, bytes) or js["buffers"][0].get("uri"):
+        refuse("missing embedded buffer")
+    if js["buffers"][0].get("byteLength") not in range(len(blob) - 3, len(blob) + 1):
+        refuse("buffer length mismatch")
+    nodes = js.get("nodes", [])
+    if len(nodes) != 1 or nodes[0].get("children"):
+        refuse("only one identity mesh node is supported")
+    node = nodes[0]
+    identity = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+    for key, want in (("matrix", identity), ("translation", [0, 0, 0]),
+                      ("rotation", [0, 0, 0, 1]), ("scale", [1, 1, 1])):
+        if node.get(key, want) != want:
+            refuse("nonidentity node transform unsupported")
+    scenes = js.get("scenes", [])
+    scene = js.get("scene", 0)
+    if not integer(scene) or scene >= len(scenes) or scenes[scene].get("nodes") != [0]:
+        refuse("unsafe scene roots")
+    mesh_i = node.get("mesh")
+    if not integer(mesh_i) or mesh_i >= len(js.get("meshes", [])):
+        refuse("missing mesh")
+
+    def accessor(index, positions=False):
+        if not integer(index) or index >= len(js.get("accessors", [])):
+            refuse("missing accessor")
+        acc = js["accessors"][index]
+        ct = acc.get("componentType")
+        types = {5123: ("H", 2), 5125: ("I", 4), 5121: ("B", 1)}
+        if positions:
+            if ct != 5126 or acc.get("type") != "VEC3":
+                refuse("POSITION must be unnormalized FLOAT VEC3")
+            fmt, size, n = "f", 4, 3
+        else:
+            if ct not in types or acc.get("type") != "SCALAR":
+                refuse("indices must be unsigned integer SCALAR")
+            fmt, size = types[ct]
+            n = 1
+        if acc.get("normalized") or acc.get("sparse") or acc.get("extensions"):
+            refuse("normalized/sparse/extension accessor unsupported")
+        count, vi = acc.get("count"), acc.get("bufferView")
+        if not integer(count) or count < 1 or not integer(vi) or vi >= len(js.get("bufferViews", [])):
+            refuse("invalid count or buffer view")
+        view = js["bufferViews"][vi]
+        if view.get("buffer", 0) != 0 or view.get("extensions"):
+            refuse("external/compressed view unsupported")
+        vo, ao = view.get("byteOffset", 0), acc.get("byteOffset", 0)
+        length, stride = view.get("byteLength"), view.get("byteStride", size * n)
+        if not all(integer(x) for x in (vo, ao, length, stride)) or stride < size * n or stride % size:
+            refuse("invalid view layout")
+        if vo + length > len(blob) or ao + (count - 1) * stride + size * n > length:
+            refuse("truncated accessor")
+        values = [struct.unpack_from("<" + fmt * n, blob, vo + ao + i * stride)
+                  for i in range(count)]
+        if positions and not all(math.isfinite(x) for point in values for x in point):
+            refuse("nonfinite POSITION")
+        return values
+
+    bricks, roofs = [], []
+    for prim in js["meshes"][mesh_i].get("primitives", []):
+        mi = prim.get("material")
+        if not integer(mi) or mi >= len(js.get("materials", [])):
+            refuse("invalid material")
+        name = js["materials"][mi].get("name", "")
+        target = bricks if name in STACK_MATERIALS else roofs if name == "roof" or name.startswith("roof_") else None
+        if target is None:
+            continue
+        if prim.get("mode", 4) != 4 or prim.get("extensions") or prim.get("targets"):
+            refuse("only static uncompressed triangles supported")
+        points = accessor(prim.get("attributes", {}).get("POSITION"), True)
+        ix = [v[0] for v in accessor(prim.get("indices"))]
+        if len(ix) % 3 or any(i >= len(points) for i in ix):
+            refuse("invalid triangle indices")
+        for offset in range(0, len(ix), 3):
+            tri = tuple(points[i] for i in ix[offset:offset + 3])
+            a, b, c = tri
+            cross = ((b[1]-a[1])*(c[2]-a[2])-(b[2]-a[2])*(c[1]-a[1]),
+                     (b[2]-a[2])*(c[0]-a[0])-(b[0]-a[0])*(c[2]-a[2]),
+                     (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]))
+            if sum(v*v for v in cross) <= 1e-16:
+                refuse("degenerate triangle")
+            if target is bricks or cross[1] > 1e-9:
+                target.append(tri)
+    if not bricks or not roofs:
+        refuse("missing stack or upward roof triangles")
+
+    # Exported faces split normals/UVs, so index connectivity is insufficient.
+    parent = list(range(len(bricks)))
+
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    def join(i, j):
+        parent[find(i)] = find(j)
+
+    seen = {}
+    for i, tri in enumerate(bricks):
+        for point in tri:
+            key = tuple(round(x, 6) for x in point)
+            if key in seen:
+                join(i, seen[key])
+            seen[key] = i
+    islands = {}
+    for i, tri in enumerate(bricks):
+        islands.setdefault(find(i), []).extend(tri)
+    boxes = [[list(min(p[k] for p in points) for k in range(3)),
+              list(max(p[k] for p in points) for k in range(3))]
+             for points in islands.values()]
+    if any(any(hi[k] - lo[k] <= 1e-6 for k in range(3)) for lo, hi in boxes):
+        refuse("stack island has no volume")
+    # A cap touches its shaft at a different rectangle, without welded vertices.
+    changed = True
+    while changed:
+        changed = False
+        for i in range(len(boxes)):
+            for j in range(i + 1, len(boxes)):
+                a, b = boxes[i], boxes[j]
+                horizontal = all(min(a[1][k], b[1][k]) - max(a[0][k], b[0][k]) > 1e-6 for k in (0, 2))
+                vertical = min(a[1][1], b[1][1]) - max(a[0][1], b[0][1]) >= -1e-5
+                if horizontal and vertical:
+                    boxes[i] = [[min(a[0][k], b[0][k]) for k in range(3)],
+                                [max(a[1][k], b[1][k]) for k in range(3)]]
+                    boxes.pop(j)
+                    changed = True
+                    break
+            if changed:
+                break
+    if len(boxes) != expected:
+        refuse(f"record counts {expected} stacks; mesh recovers {len(boxes)}")
+
+    def clip(poly, axis, edge, sign):
+        out = []
+        for a, b in zip(poly, poly[1:] + poly[:1]):
+            da, db = sign * (a[axis] - edge), sign * (b[axis] - edge)
+            if da >= 0:
+                out.append(a)
+            if (da < 0) != (db < 0):
+                t = da / (da - db)
+                out.append(tuple(a[k] + t * (b[k] - a[k]) for k in range(3)))
+        return out
+
+    def height(tri, x, z):
+        a, b, c = tri
+        det = (b[2]-c[2])*(a[0]-c[0]) + (c[0]-b[0])*(a[2]-c[2])
+        if abs(det) < 1e-12:
+            return None
+        u = ((b[2]-c[2])*(x-c[0]) + (c[0]-b[0])*(z-c[2])) / det
+        v = ((c[2]-a[2])*(x-c[0]) + (a[0]-c[0])*(z-c[2])) / det
+        if min(u, v, 1-u-v) < -1e-6:
+            return None
+        return u*a[1] + v*b[1] + (1-u-v)*c[1]
+
+    results = []
+    for lo, hi in sorted(boxes, key=lambda b: (b[0][0], b[0][2])):
+        samples = [(x, z) for x in (lo[0], hi[0]) for z in (lo[2], hi[2])]
+        samples.append(((lo[0]+hi[0])/2, (lo[2]+hi[2])/2))
+        sampled = []
+        for x, z in samples:
+            values = [h for tri in roofs if (h := height(tri, x, z)) is not None]
+            if not values:
+                refuse("roof missing under stack footprint corner/centre")
+            sampled.append(max(values))
+        # Clipping also catches a ridge crossing the cap away from the centre:
+        # a linear triangle's maximum is at a clipped vertex, not an arbitrary sample.
+        clipped, area = [], 0.0
+        for tri in roofs:
+            poly = list(tri)
+            for axis, edge, sign in ((0, lo[0], 1), (0, hi[0], -1),
+                                     (2, lo[2], 1), (2, hi[2], -1)):
+                poly = clip(poly, axis, edge, sign) if poly else []
+            if len(poly) < 3:
+                continue
+            a = abs(sum(p[0]*q[2]-q[0]*p[2] for p, q in zip(poly, poly[1:]+poly[:1]))) / 2
+            if a > 1e-10:
+                area += a
+                clipped.extend(p[1] for p in poly)
+        wanted = (hi[0]-lo[0])*(hi[2]-lo[2])
+        if abs(area-wanted) > max(1e-6, wanted*1e-5) or not clipped:
+            refuse("roof does not cover footprint once (hole/overlap)")
+        roof = max(clipped + sampled)
+        if not lo[1] < roof < hi[1]:
+            refuse("stack does not penetrate measured roof")
+        results.append({"bbox_min": lo, "bbox_max": hi, "top": hi[1],
+                        "roof_top": roof, "above": hi[1]-roof,
+                        "roof_samples": sampled})
+    return results
+
+
 def readings():
     """One row per phase whose record counts a chimney and whose master is committed."""
     manifest = json.loads((ROOT / "assets" / "manifest.json").read_text())["assets"]
@@ -117,12 +340,29 @@ def readings():
         rec = json.loads(path.read_text())
         for phase in rec.get("phases", []):
             n = chimney_count(phase)
-            if n <= 0:
+            placement = (phase.get("form", {}).get("chimney_placement", {}) or {}).get("value")
+            local_roof = placement in ("slope_offsets", "far_gable")
+            if n <= 0 and not local_roof:
                 continue
             key = (rec["id"], phase.get("id"))
             if key not in by_key:
+                if local_roof:
+                    raise ValueError(f"{key}: {placement} has no committed master")
                 continue
-            tops = material_tops(read_glb(ROOT / "assets" / "gltf" / by_key[key])[0])
+            glb = read_glb(ROOT / "assets" / "gltf" / by_key[key])
+            if local_roof:
+                expected_archetype = {"slope_offsets": "frame_tavern", "far_gable": "frame_dwelling"}[placement]
+                if arch_of[key] != expected_archetype:
+                    raise ValueError(f"{key}: unsupported {placement} archetype")
+                measured = local_stack_clearances(*glb, n)
+                worst = min(measured, key=lambda row: row["above"])
+                names = {m.get("name") for m in glb[0].get("materials", [])}
+                out.append({"id": rec["id"], "archetype": arch_of[key], "stacks": n,
+                            "material": "+".join(sorted(names.intersection(STACK_MATERIALS))),
+                            "roof_top": worst["roof_top"], "above": worst["above"],
+                            "per_stack": measured})
+                continue
+            tops = material_tops(glb[0])
             # The COVERING, whatever the sheet named it — `roof_top` and not
             # `tops["roof"]`, which skipped every `outbuilding` in the town until
             # T-1680 because its slot is called `roof_board`.
@@ -209,6 +449,110 @@ def report(rows, quiet=False):
     return 0
 
 
+def local_stack_self_test():
+    """Actual triangle fixtures; no generator module or height metadata."""
+    import math
+    import struct
+
+    failures = []
+
+    def fixture(rises=(0.8, 0.8, 0.8, 0.8), ridge=False, distant_roof=False):
+        if ridge:
+            # A ridge inside the cap but away from its centre. Five samples
+            # alone miss its maximum; the clipped triangle vertices must catch it.
+            roof = []
+            for z0, h0, z1, h1 in ((0, 5, 3.1, 5.31), (3.1, 5.31, 8, 4.82)):
+                a,b,c,d = (0,h0,z0),(0,h1,z1),(20,h1,z1),(20,h0,z0)
+                roof.extend(((a,b,c),(a,c,d)))
+            foot = 5.3
+        else:
+            a,b,c,d = (0,5,0),(0,7.4,8),(20,7.4,8),(20,5,0)
+            roof, foot = [(a,b,c),(a,c,d)], 5.9
+        if distant_roof:
+            # A tall roof outside every stack footprint (a belfry, for example).
+            # Its global maximum must neither condemn a compliant local stack
+            # nor excuse a short one on the roof it actually penetrates.
+            a,b,c,d = (18,20,0),(18,20,2),(20,20,2),(20,20,0)
+            roof.extend(((a,b,c),(a,c,d)))
+        brick = []
+
+        def box(x0,y0,z0,x1,y1,z1):
+            p = [(x,y,z) for x in (x0,x1) for y in (y0,y1) for z in (z0,z1)]
+            # Five faces: no lower face, matching emitted shaft/cap boxes.
+            for a,b,c,d in ((0,1,3,2),(4,6,7,5),(0,2,6,4),(2,3,7,6),(1,5,7,3)):
+                brick.extend(((p[a],p[b],p[c]),(p[a],p[c],p[d])))
+        for x, rise in zip((2,6,10,14), rises):
+            box(x-.25,foot-.3,2.75,x+.25,foot+rise,3.25)
+            box(x-.3,foot+rise,2.7,x+.3,foot+rise+.075,3.3)
+        js = {"buffers": [], "bufferViews": [], "accessors": [],
+              "materials": [{"name":"roof_shingle"},{"name":"brick"}],
+              "meshes":[{"primitives":[]}], "nodes":[{"mesh":0}],
+              "scenes":[{"nodes":[0]}], "scene":0}
+        blob = bytearray()
+        for material, triangles in enumerate((roof,brick)):
+            vertices = [p for tri in triangles for p in tri]
+            attrs = []
+            for kind, ct, fmt, data in (("VEC3",5126,"fff",vertices),
+                                         ("SCALAR",5125,"I",[(i,) for i in range(len(vertices))])):
+                while len(blob)%4:
+                    blob.append(0)
+                start = len(blob)
+                for value in data:
+                    blob.extend(struct.pack("<"+fmt,*value))
+                js["bufferViews"].append({"buffer":0,"byteOffset":start,"byteLength":len(blob)-start})
+                js["accessors"].append({"bufferView":len(js["bufferViews"])-1,
+                                        "componentType":ct,"type":kind,"count":len(data)})
+                attrs.append(len(js["accessors"])-1)
+            js["meshes"][0]["primitives"].append({"material":material,"attributes":{"POSITION":attrs[0]},"indices":attrs[1]})
+        js["buffers"] = [{"byteLength":len(blob)}]
+        return js,{0:bytes(blob)}
+
+    def check(label, assertion):
+        if not assertion:
+            failures.append(label)
+        print(f"  {'ok   ' if assertion else 'FAIL '}: {label}")
+
+    def rejects(label, edit, expected=4):
+        js, bins = fixture()
+        edit(js,bins)
+        try:
+            local_stack_clearances(js,bins,expected)
+        except (ValueError, KeyError, IndexError, TypeError, struct.error):
+            check(label, True)
+        else:
+            check(label, False)
+
+    js,bins = fixture()
+    rows = local_stack_clearances(js,bins,4)
+    check("four shafts/caps recovered from split-face triangle vertices", len(rows)==4)
+    check("whole-cap highest roof gives exact conservative clearance", all(abs(r['above']-.785)<1e-5 for r in rows))
+    check("all four locally compliant offset stacks pass", not offenders(rows))
+    low = local_stack_clearances(*fixture((.8,.2,.8,.8)),4)
+    check("one short offset stack fails while three taller stacks remain compliant",
+          len(offenders(low))==1 and sum(r['above']>=MINIMUM_M for r in low)==3)
+    distant = local_stack_clearances(*fixture(distant_roof=True),4)
+    check("a distant higher roof does not replace each stack's actual roof",
+          distant == rows)
+    near_floor = local_stack_clearances(*fixture(
+        (MINIMUM_M+.015-.001,.8,.8,.8), distant_roof=True),4)
+    check("a stack one millimetre below the local floor still fails beside a higher roof",
+          len(offenders(near_floor))==1 and abs(near_floor[0]['above']-(MINIMUM_M-.001))<1e-5)
+    ridge = local_stack_clearances(*fixture(ridge=True),4)
+    check("clipped triangles catch off-centre ridge missed by five point samples",
+          all(abs(r['roof_top']-5.31)<1e-5 and r['roof_top']>max(r['roof_samples'])+.009 for r in ridge))
+    rejects("missing roof fails closed", lambda j,b:j['meshes'][0]['primitives'].pop(0))
+    rejects("missing roof coverage at a cap corner fails closed", lambda j,b:j['accessors'][1].update(count=3))
+    rejects("record/mesh chimney count disagreement fails closed", lambda j,b:None,3)
+    rejects("truncated binary fails closed", lambda j,b:b.update({0:b[0][:-20]}))
+    rejects("out-of-range indices fail closed", lambda j,b:b.update({0:b[0][:72]+struct.pack('<I',999999)+b[0][76:]}))
+    rejects("normalized POSITION fails closed", lambda j,b:j['accessors'][0].update(normalized=True))
+    rejects("sparse POSITION fails closed", lambda j,b:j['accessors'][0].update(sparse={'count':1}))
+    rejects("nonfinite POSITION fails closed", lambda j,b:b.update({0:struct.pack('<f',math.nan)+b[0][4:]}))
+    rejects("nonidentity node transforms fail closed", lambda j,b:j['nodes'][0].update(translation=[0,1,0]))
+    rejects("wrong scene roots fail closed", lambda j,b:j['scenes'][0].update(nodes=[]))
+    return failures
+
+
 def self_test():
     """The four ways this could pass something it should refuse, fired."""
     cases = [
@@ -238,6 +582,8 @@ def self_test():
     if abs(MINIMUM_M - 0.4572) > 1e-9:
         failures.append("MINIMUM_M is not eighteen inches")
     print(f"  ok   : the floor is eighteen inches exactly ({MINIMUM_M:.4f} m)")
+
+    failures.extend(local_stack_self_test())
 
     if failures:
         print("SELF-TEST FAIL: " + "; ".join(failures))

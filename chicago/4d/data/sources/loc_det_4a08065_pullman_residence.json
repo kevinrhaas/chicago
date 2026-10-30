@@ -1,0 +1,26 @@
+{
+  "id": "loc_det_4a08065_pullman_residence",
+  "type": "photograph",
+  "citation": "Detroit Publishing Co. The Pullman residence, Chicago. Between1890 and1901. Library of Congress Prints and Photographs Division, LC-D4-12551; LC-DIG-det-4a08065; item2016801921.",
+  "author": "Detroit Publishing Co., publisher",
+  "date": "between 1890 and 1901",
+  "describes_date": "between 1890 and 1901; local lower bound 1893 inferred from the visible monument",
+  "locator": "Carriage at18thStreet kerb; institutional item2016801921/resource det.4a08065",
+  "url": "https://www.loc.gov/pictures/item/2016801921/",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "Live institutional catalog retrieved22Oct2026: No known restrictions on publication. This is the institution statement, not proof that every depicted object has identified ownership.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Catalog and resource JSON returned200 on22Oct2026. Official20,855,150-byte4a08065u.tif CDN attempt returnedHTTP520; officialtile URL did not complete within198seconds and was stopped. No higher-resolution pixels acquired.166,586,278-byte4a08065a.tif is catalogued but not downloaded. Original18Oct proxy403 note is historical, not current catalog-access status. T-1880 (25 Oct 2026) committed the image store's copy of the same 1024 x 804 derivative (sha256 60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c) at data/sources/assets/pullman_1729_photo_t1880/ for the image gate, unaltered, with its attribution.",
+  "note": "Actual1024x804 derivative was visually inspected in18Oct carriage audit. Small rear/oblique carriage lead; class/maker/owner unresolved. A carriage by the Pullman residence does not establish Pullman ownership. No source-derived carriage asset is approved by this inventory-only record. T-1880 solved its camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json) and read the Pullman house off it: its Prairie front and 18th Street flank in dressed stone, two storeys over a raised basement under a slated mansard with dormers and iron cresting, a columned portico with a balustraded balcony on the front's north part, rusticated piers, round-arched windows, and an arcade on the flank. Forms, counts, places and proportions are read from it; nothing is derived from the image as an asset.",
+  "what_it_does_not_supply": [
+    "Vehicle manufacturer, model, ownership or a carriage inventory",
+    "Full running gear, measured dimensions, or proof of vehicle survival/presence in1904",
+    "The house's colour (a monochrome print), its north flank, its rear, or the porte-cochere's depth"
+  ],
+  "what_it_supplies": [
+    "the Pullman house's Prairie front and 18th Street flank from the south-west corner of the crossing, with a solved camera (T-1880)",
+    "the portico, the balcony over it, the stoop's place, the cornice and mansard heights, the dormers and the cresting, read through that camera"
+  ]
+}

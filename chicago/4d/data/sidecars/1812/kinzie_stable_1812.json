@@ -1,0 +1,259 @@
+{
+  "id": "kinzie_stable_1812",
+  "phase": "kinzie_1804",
+  "name": "The Kinzie stable, east of the house",
+  "aka": [
+    "the 'stables' of Wau-Bun's list of the Kinzie establishment (1831)",
+    "the log building with the horses before it in Eastman's view of 1820"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/kinzie_stable_1812__kinzie_1804.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "eastman_schoolcraft_chicago_1820_engraving"
+    ]
+  },
+  "documented_range": {
+    "from": "1804-10-01",
+    "to": "1833-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "currey_1912_story_of_old_fort_dearborn",
+      "eastman_schoolcraft_chicago_1820_engraving"
+    ],
+    "note": "THE KINZIE YEARS, AS THE HOUSE'S OWN RANGE, AND BOTH ENDS INFERRED FOR THIS BUILDING. No source dates this building. Wau-Bun ch. XVII names the establishment's buildings as Juliette Kinzie found them in 1831 (dairy, bake-house, lodging-house for the Frenchmen, stables), and Eastman's 1820 view and the three pictures of about 1831-1833 draw draws this one; neither is a sighting of 1812. It is taken to stand from the Kinzies' purchase in the fall of 1804 (kinzie_house_1812's opening, Currey ch. II) through the 1812 scene dates (1 and 14 August) to the end of 1833 with the house it served: Currey says the house 'escaped the general destruction at the time of the massacre', nothing read says the yard behind it burned, and the family was away from 1812 to 1816, so the 1820 and 1831 pictures show a yard that was either standing in 1812 or rebuilt on its ground after the return; this record takes the first. It closes with the house (data/exclusions.json kinzie_house: derelict from 1832, gone by 1835), so it stands in no 1835 view. L420."
+  },
+  "change_note": "Built T-2485 (2026-10-21): the stable of the Kinzie establishment, one of the buildings Wau-Bun names behind the house.",
+  "placement": {
+    "local_e": 1183.583,
+    "local_n": 357.718,
+    "rotation_deg": 168.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "eastman_schoolcraft_chicago_1820_engraving",
+      "sarony_kinzie_residence_currey_1912_plate"
+    ],
+    "position_note": "PLACED WHERE TWO PICTURES' LINES OF SIGHT CROSS, NOT MEASURED. Eastman's view of 1820, taken from up the bank to the east-north-east, draws a low gabled log building between the eye and the Kinzie house's east end, horses before it; Sarony's lithograph of Juliette Kinzie's sketch, taken from across the river to the south-west, draws a small gabled building east of the house behind the poplar row, and the Cram plate and the Teich painting draw it in the same place. Cast through the solved cameras of the house (data/reference_views/kinzie_house_1812/), the two lines cross about 21 m east and 14 m north of the house's north-east corner, and the building stands there. The later pictures fix the place only, not the form: the whitewashed building they draw end-on, with a window in its west gable, will not take one heading with Eastman's log stable (no heading shows both as drawn), so it is this building altered by about 1831 or another on its site, and Eastman's view, drawn on the spot in 1820, governs the form. Pictures are tier 5, form only, so the place is this record's and is graded so (docs/LIBERTIES.md L420).",
+    "symbolic_location": "Behind and east of the Kinzie house on the north bank, centred on local E +1181.0, N +354.0, its long front facing south-south-east (168 degrees) and its gables to the east and west. This record's origin is the footprint's (0, 0) corner, at local E +1183.583, N +357.718.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.6,
+        0
+      ],
+      [
+        6.6,
+        6.2
+      ],
+      [
+        0,
+        6.2
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "6.6 x 6.2 m (22 x 20 ft). No source measures it. Eastman draws its gable about as wide as the house's own east end, and the long side holds a row of stalls. DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. Whatever it gives a barn is not this figure."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ],
+      "note": "Eastman draws one low storey under the eaves."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "sources": [
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ],
+      "note": "Eastman draws its gable end in horizontal courses with the log ends out at the corners. The building Sarony, Cram and Teich draw on this site about 1831 is light and smooth; the earliest picture governs, as for the house."
+    },
+    "wall_height_m": {
+      "value": 1.95,
+      "confidence": "reconstructed",
+      "note": "Read off Eastman's gable: the wall stands about 0.31 of the gable's width (24 px on 76 px), which on this record's 6.2 m gable is 1.95 m. No figure is given."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "sources": [
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ],
+      "note": "Eastman, from the east-north-east, draws a gable end toward the eye with the back slope receding to the right, so the ridge runs about east and west."
+    },
+    "roof_pitch_deg": {
+      "value": 27.0,
+      "confidence": "reconstructed",
+      "note": "Read off Eastman's gable: the apex rises about a quarter of the gable's width over the eaves (19 px on 76 px), which is 27 degrees. The plate is small and loose; no figure is given."
+    },
+    "chimneys": {
+      "value": 0,
+      "confidence": "inferred",
+      "sources": [
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ],
+      "note": "Eastman draws no stack on it; a stable keeps no fire."
+    },
+    "front_set_out": {
+      "value": [
+        [
+          "window",
+          1.32
+        ],
+        [
+          "door",
+          3.3
+        ]
+      ],
+      "confidence": "reconstructed",
+      "note": "One door wide enough to lead a horse through, in the middle of the long south front, toward the river and the yard, and one small window to light the stalls west of it. No picture sees this front."
+    },
+    "door_w_m": {
+      "value": 1.3,
+      "confidence": "reconstructed",
+      "note": "A horse led in hand, as the town's stables are built (outbuilding's 'stable' door, 1.35 m)."
+    },
+    "door_h_m": {
+      "value": 1.75,
+      "confidence": "reconstructed",
+      "note": "Under the 1.95 m eave."
+    },
+    "end_openings": {
+      "value": [
+        {
+          "end": "-x",
+          "kind": "light",
+          "at": 0.69,
+          "z": 1.45
+        },
+        {
+          "end": "-x",
+          "kind": "light",
+          "at": 0.3,
+          "z": 1.45
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ],
+      "note": "-x is the east gable at this record's facing and +x the west one; `at` runs from the back (north) wall. EAST: Eastman draws two small openings side by side just under the eave, a square one toward the front and one with a round head toward the back (x 1440-1446 and 1469-1475 px, y 733-741 px on a gable 1420-1494 px). Both are built as the archetype's small light; the plate does not measure them. The west gable, which Eastman does not see, is built blank."
+    },
+    "function": {
+      "value": "stable",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ],
+      "note": "Wau-Bun ch. XVII, describing 1831: 'A fine, well-cultivated garden extended to the north of the dwelling, and surrounding it were various buildings appertaining to the establishment—dairy, bake-house, lodging-house for the Frenchmen, and stables.' WHICH PICTURED BUILDING IS THE STABLE IS OURS: Eastman draws two horses before this one and a picket yard beside it, and no other building in any picture has a functional sign. L420."
+    },
+    "land_owner": {
+      "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 43 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+        "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+        "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+        "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+        "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'",
+        "the lake shore south of the river mouth before 1812, in the same chapter: 'mostly devoid of trees, a scanty growth of cottonwoods and pines, however, maintaining a precarious existence among the sand-dunes', the low sand-hills 'the predominant feature of the landscape' a mile or two south of the mouth (used by T-2768 for the pines on the south sand hills)"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension of the house, the piazza or the green",
+        "the number of the house's rooms, windows or chimneys",
+        "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+        "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+      ]
+    },
+    {
+      "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+      "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+      "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+        "two stacks through the ridge, one just behind the east gable",
+        "two windows in the east end under the gable, and light, smooth walls",
+        "a log building, a whitewashed house and a yard fence round it in 1820",
+        "the second Fort Dearborn across the river to the left"
+      ],
+      "what_it_does_not_supply": [
+        "the house in 1812: it shows it eight years later, after the family's return in 1816",
+        "any dimension or position"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "sarony_kinzie_residence_currey_1912_plate",
+      "citation": "\"Residence of John Kinzie.\" — lithograph by Napoleon Sarony from a sketch by Mrs. John H. Kinzie, reproduced as a plate in J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg & Co., 1912), ch. II.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the house long and low under a gable roof along the river, the east end toward the eye's right, a piazza across the front on posts with a rail",
+        "a picket fence round the green before the house down toward the water, a landing at the water's edge",
+        "four columnar Lombardy poplars in a row east of the house running toward the river, and a great broad-crowned tree behind it",
+        "two stacks through the ridge, and outbuildings and a two-storey house up the road to the west, behind the house"
+      ],
+      "what_it_does_not_supply": [
+        "the house in 1812 as distinct from the 1820s: the caption covers both",
+        "any dimension or position"
+      ]
+    }
+  ],
+  "research_note": "THE STABLE (T-2485). Wau-Bun names 'stables' among the buildings surrounding the Kinzie house in 1831. DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. RULING ON THE BILL'S TWO BARNS: one is taken to stand in 1812 as this stable, because Wau-Bun's establishment of 1831 still keeps stables and Eastman's view of 1820 draws one log building of a barn's kind with horses before it; whether it is du Sable's barn, Le Mai's or Kinzie's is not known. The second barn is ruled not to stand (data/exclusions.json kinzie_second_barn_1812): no source after 1800 names two, and the 1820 view draws one. The building is matched to Eastman's view in data/reference_views/kinzie_stable_1812/eastman_1820.json; the later pictures fix only its place (position note). The horses and the picket yard Eastman draws before it are not built. Nobody is drawn (L1).",
+  "research_doc": "",
+  "review_required": false
+}

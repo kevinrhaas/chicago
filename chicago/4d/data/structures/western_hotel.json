@@ -16,7 +16,8 @@
           "chicagology_prefire278",
           "drloih_hotels"
         ],
-        "note": "THE BUILD DATE IS DISPUTED, 1834 AGAINST 1835, AND THE DISPUTE IS RESOLVED HERE RATHER THAN LEFT OPEN — but the reasoning matters, because the two dates mean different things for this scene. chicagology reports W. H. Stow, who 'came to Chicago about 1833', saying of his own hotel that 'it was built in 1834'. The hotel chronology says it 'opened in 1835'. 1834 is adopted because it is the BUILDER'S OWN STATEMENT about his own building, recorded with the same detail that gives the 40 ft front, the 60 ft wing and the yard, against an undated one-line entry in a chronology that also mis-sizes the building. THE PHASE MECHANISM WAS CONSIDERED AND DELIBERATELY NOT USED. If the 1835 date were right, the hotel might have been unfinished or brand new on 1835-07-01, and a construction phase would be the honest way to show that. But a construction phase would have to invent a start month, a duration and a state of completeness, none of which any source gives, and it would silently adopt the weaker date to do it. One completed phase on the better-attested date, with the alternative recorded here and in the dossier, claims less. If the 1835 date is ever confirmed, split this phase then. The end of the range is set at the end of 1840, past the last account reached that describes the house in operation; it is not a demolition date and no source reached gives one."
+        "note": "THE BUILD DATE IS DISPUTED, 1834 AGAINST 1835, AND THE DISPUTE IS RESOLVED HERE RATHER THAN LEFT OPEN — but the reasoning matters, because the two dates mean different things for this scene. chicagology reports W. H. Stow, who 'came to Chicago about 1833', saying of his own hotel that 'it was built in 1834'. The hotel chronology says it 'opened in 1835'. 1834 is adopted because it is the BUILDER'S OWN STATEMENT about his own building, recorded with the same detail that gives the 40 ft front, the 60 ft wing and the yard, against an undated one-line entry in a chronology that also mis-sizes the building. THE PHASE MECHANISM WAS CONSIDERED AND DELIBERATELY NOT USED. If the 1835 date were right, the hotel might have been unfinished or brand new on 1835-07-01, and a construction phase would be the honest way to show that. But a construction phase would have to invent a start month, a duration and a state of completeness, none of which any source gives, and it would silently adopt the weaker date to do it. One completed phase on the better-attested date, with the alternative recorded here and in the dossier, claims less. If the 1835 date is ever confirmed, split this phase then. The end of the range is set at the end of 1840, past the last account reached that describes the house in operation; it is not a demolition date and no source reached gives one.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 446929.65,
@@ -167,6 +168,14 @@
       "chicagology_prefire278"
     ],
     "note": "'the stopping place for all the farmers town from the west', accommodating 'farmers and teamsters, who constituted the traveling public' — the west-side wagon-trade house, distinct in clientele from the Green Tree a block north and from the Sauganash across the river. chicagology also calls it one of the best hotels in the town."
+  },
+  "built": {
+    "value": 1834,
+    "confidence": "attested",
+    "sources": [
+      "chicagology_prefire278"
+    ],
+    "note": "Its builder, W. H. Stow, says 'it was built in 1834'; the hotel chronology has it opening in 1835."
   },
   "occupants": {
     "value": "W. H. Stow, builder and proprietor",

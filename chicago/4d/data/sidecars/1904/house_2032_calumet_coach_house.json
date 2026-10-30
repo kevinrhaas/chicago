@@ -1,0 +1,211 @@
+{
+  "id": "house_2032_calumet_coach_house",
+  "phase": "draft_1904",
+  "name": "2032 S. Calumet Avenue — the alley building of the house at 2032 (district draft; refined by T-1946)",
+  "aka": [
+    "2032 S. Calumet Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/house_2032_calumet_coach_house__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-3018 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1477.315,
+    "local_n": -3592.998,
+    "rotation_deg": -0.636,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 1.000, v -15.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.636 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "2032 S. Calumet Avenue, parcel calumet_2032 (data/street_grid/1904.json), west side of Calumet Avenue, the background behind Prairie Avenue: Calumet Avenue's west frontage, 20th to 22nd Street, beside the named Hanford and Wheeler-Kohn houses (Sanborn 1911 vol. 3 sheet 35).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        8.75,
+        0.0
+      ],
+      [
+        8.75,
+        18.25
+      ],
+      [
+        0.0,
+        18.25
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The census reading '2-storey brick building on the alley lettered GARAGE with a canted east side, a one-storey frame piece at its north end': 2 storeys."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The trace's fabric colour on the main part: brick."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 2,
+            "roof": "gable",
+            "rect": [
+              0.0,
+              0.0,
+              8.75,
+              18.25
+            ],
+            "from": "s35efp-calumet_2032-b3 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 83% of its fill"
+          },
+          {
+            "id": "r2",
+            "role": "wing",
+            "storeys": 2,
+            "roof": "flat",
+            "rect": [
+              0.0,
+              18.25,
+              4.5,
+              23.25
+            ],
+            "from": "s35efp-calumet_2032-b3 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 83% of its fill"
+          }
+        ],
+        "lot_v": [
+          -3.19,
+          34.69
+        ],
+        "street_u": 53.603
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35efp-calumet_2032-b3 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 83% of its fill; s35efp-calumet_2032-b3 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 83% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "service",
+        "seed": 3725653920,
+        "principal_floor_m": 0.0,
+        "storey_heights_m": [
+          3.4,
+          2.8,
+          2.6
+        ],
+        "roof_pitch_deg": 40,
+        "mansard_lower_m": 3.0,
+        "front_bays": 6,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "chimneys": 0,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-3018",
+          "refined_by": [
+            "T-1946"
+          ]
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3S.B. on the 21st Street corner, the largest house of the face, its 3B rear part as printed; the frame porches round it are the refining ticket's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3725653920 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3018."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-3018",
+        "liberty": "L-draft-district-background-3018",
+        "register_row": "frontage-35e-2032",
+        "census_ids": [
+          "s35e-2032-rear"
+        ],
+        "trace_building": "s35efp-calumet_2032-b3",
+        "seed": 3725653920,
+        "replaceable_by": [
+          "T-1946"
+        ],
+        "card": "District draft — refined by T-1946."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "barn_or_carriage_shed",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The 1911 sheet reads '2-storey brick building on the alley lettered GARAGE with a canted east side, a one-storey frame piece at its north end'. A 1911 garage label is a 1911 use (study ruling 11): backcast as the lot's stable."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_35",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Footprints, lots and street widths from 20th to 22nd Street between Indiana and Calumet, as of 1911, at the copy's coarser resolution",
+        "The position of Twentieth Street, which is vacated between Indiana and Calumet today"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "Any lake edge: the sheet ends at Calumet Avenue"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-3018, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35e trace (s35efp-calumet_2032-b3), the T-3018 census (s35e-2032-rear) and the T-1837 register row frontage-35e-2032; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3018).",
+  "research_doc": "",
+  "review_required": false,
+  "called": "2032 S. Calumet Avenue — the alley building of the house at 2032"
+}

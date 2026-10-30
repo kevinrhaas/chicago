@@ -1,0 +1,30 @@
+{
+ "structure_id": "pullman_house_1729_prairie",
+ "source_id": "aic_taylor_1445_pullman_from_sw",
+ "library_image": "a16-aic-taylor-album-pullman-p69",
+ "photo": "../../sources/assets/pullman_1729_taylor_t3161/taylor_1445_album_p69.jpg",
+ "image_px": [
+  1200,
+  923
+ ],
+ "principal_px": [
+  600,
+  603.0
+ ],
+ "focal_px": 1610.5,
+ "near_m": 10,
+ "scene": "1904",
+ "flora": {"front_yards": ["prairie_1729"], "street_trees_m": 70, "season": "spring"},
+ "eye": [
+  69.18,
+  61.35,
+  1.6
+ ],
+ "yaw_deg": 229.07,
+ "solve": "Fitted by T-3161 (the camera written up in docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor-1445-camera.md while the print waited on the owner's rights ruling, which came on 2026-10-27) to J. W. Taylor's photograph no. 1445, the album print (1200 x 923 px). The frame is the Detroit camera's: u toward Prairie Avenue (west), v SOUTH from the main block's north wall; the main block is u 0-27.75, v 0-17.93. LEVEL: the house's verticals stand vertical in the print; the eye 1.6 m over the walk; the principal point's x ASSUMED at the print's centre (x 600). FITTED to the main cornice's top (12.9 m, the GLB's) at three points: the south-west corner, where it peaks at x 447, y 299 and falls in a straight line both ways; the Prairie front's north end at x 152, y 349 (the north-west block's corner, u 27.75, v -1.2); and the 18th Street flank's east end at x 850, y 379 (u 0, v 17.93). A least-squares fit of eye, yaw, focal length and the principal point's height leaves residuals of 0.4-2.2 px. The eye stands in 18th Street's far half west of Prairie Avenue's line, about 59 m from the corner, looking north-east: further south and less west than the Detroit print's (88.3, 42.9), so the flank is seen far more squarely (about 18 px a metre along it at the corner, 9 at its east end, against Detroit's 5-6). UNCERTAINTY: with the principal point's x assumed, the fit has one spare measurement, and what it does not pin is the perspective along each face between its fitted ends. The Prairie front's interior shows it: its rusticated piers and second-storey lights (x 237-262, 276-291, 312-324 and 357-380 px) fall 20-37 px (2-4 m) nearer the corner than the Detroit-built front's through this camera, and no level pinhole with a free principal point fits both the front's ends and those (10.8 px rms). Either the Detroit print's front or this camera's perspective is that far off. The flank, seen squarely, is far less sensitive to it: the two refits that honour the front's piers and lights (principal point free, or held at the centre) move the flank's readings by about 0.5 m (the porte-cochere's west end from s 10.25 to 9.6-9.7, the single window from 5.85 to 5.0, the flank's east end 27.72-27.78 against 27.75). The gaps between the pictures that come from this are written into the match records as camera disagreements. Heights read through it along the flank are about 8-10 % over the GLB's except where the build was raised to the photograph (the flank's second storey). LIGHT: the front and flank both lit, the porte-cochere's west arch and its reveals in shade, the shadows of the street trees falling toward the camera's right: a low sun in the south-west (sun_uvy), as in the Detroit print. Print 16399 is the same negative (1.015 x this print, offset (-6, +29) px): principal_px [603, 641], focal_px 1634.7, the rest the same; it is not given a camera of its own.",
+ "sun_uvy": [
+  1.0,
+  0.8,
+  1.0
+ ]
+}

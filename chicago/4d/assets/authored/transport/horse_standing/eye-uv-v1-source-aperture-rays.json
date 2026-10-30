@@ -1,0 +1,3385 @@
+{
+  "status": "CLOSED_SOURCE_FIRST_HIT_INSPECTION_COMPLETE",
+  "source_sha256": "6f2a8a322afdd9702d127ee7d3b3cc45deb9327ed785a53ea2698f49ac83da64",
+  "asset": "/workspace/chicago-waistcoat/chicago/4d/renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb",
+  "expected_asset_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "ray_count_planned": 20,
+  "hits": [
+    {
+      "side": "positive_X",
+      "view": "lateral",
+      "sample": "center",
+      "target": [
+        0.08116701945301986,
+        1.519635937540762,
+        1.3421654828709941
+      ],
+      "origin": [
+        0.41183923482894896,
+        1.519635937540762,
+        1.3421654828709941
+      ],
+      "direction": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.361839234828949,
+        "origin_projection": 0.41183923482894896,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3306722153759291,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3673,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2344,
+          2346,
+          2347
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.29331489286181467,
+        "barycentric": [
+          0.20267542973294664,
+          0.7739467901383001,
+          0.02337778012875322
+        ],
+        "source_rest_position": [
+          0.11852434196713434,
+          1.519635937540762,
+          1.3421654828709941
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17864844035047903,
+          0.45283284368693444
+        ],
+        "geometric_source_rest_normal": [
+          0.8079452079299874,
+          -0.5892402086806028,
+          -0.004529619963012767
+        ],
+        "normal_dot_toward_viewer": 0.8079452079299874,
+        "outward_depth_from_eye_center_m": 0.03735732251411447,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2344,
+            "raw_POSITION": [
+              0.10975838452577591,
+              1.5075632333755493,
+              1.3490800857543945
+            ],
+            "source_rest_POSITION": [
+              0.10975838452577591,
+              1.507563214302063,
+              1.349080114364624
+            ],
+            "raw_NORMAL": [
+              0.4029906392097473,
+              -0.9005448818206787,
+              -0.1631486713886261
+            ],
+            "TEXCOORD_0": [
+              0.1771100014448166,
+              0.45451000332832336
+            ]
+          },
+          {
+            "vertex": 2346,
+            "raw_POSITION": [
+              0.12079320847988129,
+              1.5227638483047485,
+              1.3399666547775269
+            ],
+            "source_rest_POSITION": [
+              0.12079320847988129,
+              1.5227638292312622,
+              1.3399666833877564
+            ],
+            "raw_NORMAL": [
+              0.9858438372612,
+              -0.13495515286922455,
+              -0.09949382394552231
+            ],
+            "TEXCOORD_0": [
+              0.17906999588012695,
+              0.45232999324798584
+            ]
+          },
+          {
+            "vertex": 2347,
+            "raw_POSITION": [
+              0.11940818279981613,
+              1.5207490921020508,
+              1.3550121784210205
+            ],
+            "source_rest_POSITION": [
+              0.11940818279981613,
+              1.5207490730285644,
+              1.35501220703125
+            ],
+            "raw_NORMAL": [
+              0.9673945903778076,
+              -0.15986472368240356,
+              0.19644585251808167
+            ],
+            "TEXCOORD_0": [
+              0.17802999913692474,
+              0.45493999123573303
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.2960563058482191,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1327,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.36528809598989176,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1757,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.45908272236599396,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 290,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "lateral",
+      "sample": "horizontal_plus",
+      "target": [
+        0.08116701945301986,
+        1.519635937540762,
+        1.356071222655235
+      ],
+      "origin": [
+        0.41183923482894896,
+        1.519635937540762,
+        1.356071222655235
+      ],
+      "direction": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.361839234828949,
+        "origin_projection": 0.41183923482894896,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3306722153759291,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3700,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2347,
+          2362,
+          2363
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.29356465876929777,
+        "barycentric": [
+          0.8808196065452122,
+          0.06433885344365539,
+          0.054841540011132416
+        ],
+        "source_rest_position": [
+          0.11827457605965125,
+          1.519635937540762,
+          1.356071222655235
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17780837824364687,
+          0.45511694069295155
+        ],
+        "geometric_source_rest_normal": [
+          0.7076026651710016,
+          -0.7064537333856438,
+          0.014885927192519405
+        ],
+        "normal_dot_toward_viewer": 0.7076026651710016,
+        "outward_depth_from_eye_center_m": 0.037107556606631384,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2347,
+            "raw_POSITION": [
+              0.11940818279981613,
+              1.5207490921020508,
+              1.3550121784210205
+            ],
+            "source_rest_POSITION": [
+              0.11940818279981613,
+              1.5207490730285644,
+              1.35501220703125
+            ],
+            "raw_NORMAL": [
+              0.9673945903778076,
+              -0.15986472368240356,
+              0.19644585251808167
+            ],
+            "TEXCOORD_0": [
+              0.17802999913692474,
+              0.45493999123573303
+            ]
+          },
+          {
+            "vertex": 2362,
+            "raw_POSITION": [
+              0.11449256539344788,
+              1.5160653591156006,
+              1.3663963079452515
+            ],
+            "source_rest_POSITION": [
+              0.11449256539344788,
+              1.5160653400421142,
+              1.366396336555481
+            ],
+            "raw_NORMAL": [
+              0.8113245368003845,
+              -0.28694650530815125,
+              0.5093271732330322
+            ],
+            "TEXCOORD_0": [
+              0.17657999694347382,
+              0.45671001076698303
+            ]
+          },
+          {
+            "vertex": 2363,
+            "raw_POSITION": [
+              0.10450448840856552,
+              1.5059466361999512,
+              1.3609670400619507
+            ],
+            "source_rest_POSITION": [
+              0.10450448840856552,
+              1.5059466171264648,
+              1.3609670686721802
+            ],
+            "raw_NORMAL": [
+              0.3285703659057617,
+              -0.9442572593688965,
+              0.020488454028964043
+            ],
+            "TEXCOORD_0": [
+              0.17568999528884888,
+              0.4560900032520294
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.2987848787477697,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1388,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.3624344238985916,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1743,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.46191218000717643,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 304,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "lateral",
+      "sample": "horizontal_minus",
+      "target": [
+        0.08116701945301986,
+        1.519635937540762,
+        1.3282597430867533
+      ],
+      "origin": [
+        0.41183923482894896,
+        1.519635937540762,
+        1.3282597430867533
+      ],
+      "direction": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.361839234828949,
+        "origin_projection": 0.41183923482894896,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3306722153759291,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3676,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2345,
+          2350,
+          2351
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.2966166753726626,
+        "barycentric": [
+          0.14683282322102154,
+          0.32198539416283817,
+          0.5311817826161404
+        ],
+        "source_rest_position": [
+          0.1152225594562864,
+          1.519635937540762,
+          1.3282597430867533
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.1784222641006071,
+          0.45042078249416784
+        ],
+        "geometric_source_rest_normal": [
+          0.41790981754550954,
+          -0.8188786082630976,
+          -0.39343259820224735
+        ],
+        "normal_dot_toward_viewer": 0.41790981754550954,
+        "outward_depth_from_eye_center_m": 0.034055540003266535,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2345,
+            "raw_POSITION": [
+              0.11088921129703522,
+              1.5139009952545166,
+              1.335593342781067
+            ],
+            "source_rest_POSITION": [
+              0.11088921129703522,
+              1.5139009761810303,
+              1.3355933713912964
+            ],
+            "raw_NORMAL": [
+              0.3569197952747345,
+              -0.8934427499771118,
+              -0.2727054953575134
+            ],
+            "TEXCOORD_0": [
+              0.1778700053691864,
+              0.4523000121116638
+            ]
+          },
+          {
+            "vertex": 2350,
+            "raw_POSITION": [
+              0.10917723178863525,
+              1.518201470375061,
+              1.3248239755630493
+            ],
+            "source_rest_POSITION": [
+              0.10917723178863525,
+              1.518201451301575,
+              1.3248240041732788
+            ],
+            "raw_NORMAL": [
+              0.2166624367237091,
+              -0.8866860866546631,
+              -0.4084668457508087
+            ],
+            "TEXCOORD_0": [
+              0.17781999707221985,
+              0.45006000995635986
+            ]
+          },
+          {
+            "vertex": 2351,
+            "raw_POSITION": [
+              0.12008489668369293,
+              1.5220907926559448,
+              1.3283151388168335
+            ],
+            "source_rest_POSITION": [
+              0.12008489668369293,
+              1.5220907735824585,
+              1.328315167427063
+            ],
+            "raw_NORMAL": [
+              0.9240797162055969,
+              -0.29957568645477295,
+              -0.23734167218208313
+            ],
+            "TEXCOORD_0": [
+              0.17893999814987183,
+              0.4501200020313263
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.29891028072079656,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1285,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.3625599192495284,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1863,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.4619534943069904,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 185,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "lateral",
+      "sample": "vertical_plus",
+      "target": [
+        0.08116701945301986,
+        1.5335416773250028,
+        1.3421654828709941
+      ],
+      "origin": [
+        0.41183923482894896,
+        1.5335416773250028,
+        1.3421654828709941
+      ],
+      "direction": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.361839234828949,
+        "origin_projection": 0.41183923482894896,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3306722153759291,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3725,
+        "indices_accessor": 7,
+        "index_triplet": [
+          1464,
+          2356,
+          1486
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.29589417580866006,
+        "barycentric": [
+          0.14290884385482927,
+          0.5632815299072254,
+          0.2938096262379454
+        ],
+        "source_rest_position": [
+          0.1159450590202889,
+          1.5335416773250028,
+          1.3421654828709941
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.1811898663451484,
+          0.45262729858176765
+        ],
+        "geometric_source_rest_normal": [
+          0.9114536411826875,
+          0.3900108017300873,
+          0.13093446646576845
+        ],
+        "normal_dot_toward_viewer": 0.9114536411826875,
+        "outward_depth_from_eye_center_m": 0.034778039567269034,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 1464,
+            "raw_POSITION": [
+              0.11261426657438278,
+              1.536958932876587,
+              1.3551727533340454
+            ],
+            "source_rest_POSITION": [
+              0.11261426657438278,
+              1.5369589138031006,
+              1.355172781944275
+            ],
+            "raw_NORMAL": [
+              0.8310420513153076,
+              0.44209298491477966,
+              0.3375245928764343
+            ],
+            "TEXCOORD_0": [
+              0.18151000142097473,
+              0.4556199908256531
+            ]
+          },
+          {
+            "vertex": 2356,
+            "raw_POSITION": [
+              0.11736728996038437,
+              1.530796766281128,
+              1.340441346168518
+            ],
+            "source_rest_POSITION": [
+              0.11736728996038437,
+              1.5307967472076416,
+              1.3404413747787478
+            ],
+            "raw_NORMAL": [
+              0.9255937337875366,
+              0.3785184919834137,
+              -1.0034638762590475e-05
+            ],
+            "TEXCOORD_0": [
+              0.18065999448299408,
+              0.45219001173973083
+            ]
+          },
+          {
+            "vertex": 1486,
+            "raw_POSITION": [
+              0.11483850330114365,
+              1.537142038345337,
+              1.3391441106796265
+            ],
+            "source_rest_POSITION": [
+              0.11483850330114365,
+              1.5371420192718506,
+              1.339144139289856
+            ],
+            "raw_NORMAL": [
+              0.9562592506408691,
+              0.2666965126991272,
+              0.12017177045345306
+            ],
+            "TEXCOORD_0": [
+              0.18205000460147858,
+              0.45201000571250916
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.2989484599838613,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1380,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.3625053667989117,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1643,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.46199959371518784,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 405,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "lateral",
+      "sample": "vertical_minus",
+      "target": [
+        0.08116701945301986,
+        1.5057301977565212,
+        1.3421654828709941
+      ],
+      "origin": [
+        0.41183923482894896,
+        1.5057301977565212,
+        1.3421654828709941
+      ],
+      "direction": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.361839234828949,
+        "origin_projection": 0.41183923482894896,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3306722153759291,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 2,
+        "node": 28,
+        "mesh": 2,
+        "primitive": 0,
+        "material_index": 2,
+        "material_name": "Eye_brown",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 1216,
+        "indices_accessor": 11,
+        "index_triplet": [
+          2407,
+          2408,
+          2409
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 209,
+          "NORMAL": 208,
+          "POSITION": 207,
+          "TEXCOORD_0": 10,
+          "WEIGHTS_0": 210
+        },
+        "distance_from_exterior_origin_m": 0.29883917687047146,
+        "barycentric": [
+          0.2660930772373509,
+          0.6463303738195638,
+          0.08757654894308531
+        ],
+        "source_rest_position": [
+          0.1130000579584775,
+          1.5057301977565212,
+          1.3421654828709941
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.7339069227626491,
+          0.08757654894308531
+        ],
+        "geometric_source_rest_normal": [
+          0.9057424822351395,
+          -0.4165833077035521,
+          0.07803142711302631
+        ],
+        "normal_dot_toward_viewer": 0.9057424822351395,
+        "outward_depth_from_eye_center_m": 0.03183303850545764,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2407,
+            "raw_POSITION": [
+              0.11187604814767838,
+              1.5032063722610474,
+              1.3417383432388306
+            ],
+            "source_rest_POSITION": [
+              0.11187604814767838,
+              1.503206353187561,
+              1.34173837184906
+            ],
+            "raw_NORMAL": [
+              0.9056925773620605,
+              -0.41667959094047546,
+              0.0780969187617302
+            ],
+            "TEXCOORD_0": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "vertex": 2408,
+            "raw_POSITION": [
+              0.1134740561246872,
+              1.506637692451477,
+              1.3415082693099976
+            ],
+            "source_rest_POSITION": [
+              0.1134740561246872,
+              1.5066376733779907,
+              1.341508297920227
+            ],
+            "raw_NORMAL": [
+              0.9056925773620605,
+              -0.41667959094047546,
+              0.0780969113111496
+            ],
+            "TEXCOORD_0": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "vertex": 2409,
+            "raw_POSITION": [
+              0.11291706562042236,
+              1.5067013502120972,
+              1.348313331604004
+            ],
+            "source_rest_POSITION": [
+              0.11291706562042236,
+              1.5067013311386108,
+              1.3483133602142334
+            ],
+            "raw_NORMAL": [
+              0.9056925773620605,
+              -0.41667959094047546,
+              0.0780969187617302
+            ],
+            "TEXCOORD_0": [
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 4
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.3031305291679739,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3809,
+          "material_name": "Material_HorseMain4k00.png"
+        },
+        {
+          "distance_m": 0.36239603021164274,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1815,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.4620803083766678,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 233,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "forward_quarter",
+      "sample": "center",
+      "target": [
+        0.08116701945301986,
+        1.519635937540762,
+        1.3421654828709941
+      ],
+      "origin": [
+        0.19688601055712263,
+        1.519635937540762,
+        1.457884473975097
+      ],
+      "direction": [
+        -0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1200994309200814,
+        "origin_projection": 1.1700994309200812,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999982,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.16365136664355368,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3709,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2339,
+          2365,
+          2353
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.12404485421915,
+        "barycentric": [
+          0.3934081366462381,
+          0.5274987444725311,
+          0.07909311888123084
+        ],
+        "source_rest_position": [
+          0.10917305296746493,
+          1.519635937540762,
+          1.3701715163854393
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17624760386997398,
+          0.45775047906804706
+        ],
+        "geometric_source_rest_normal": [
+          0.47623610047408954,
+          0.2568086680823149,
+          0.8409806683884119
+        ],
+        "normal_dot_toward_viewer": 0.9314129095553079,
+        "outward_depth_from_eye_center_m": 0.03960651242440374,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2339,
+            "raw_POSITION": [
+              0.10703697055578232,
+              1.5130751132965088,
+              1.3733845949172974
+            ],
+            "source_rest_POSITION": [
+              0.10703697055578232,
+              1.5130750942230224,
+              1.3733846235275269
+            ],
+            "raw_NORMAL": [
+              0.5881066918373108,
+              -0.39491555094718933,
+              0.7058131694793701
+            ],
+            "TEXCOORD_0": [
+              0.17484000325202942,
+              0.4578799903392792
+            ]
+          },
+          {
+            "vertex": 2365,
+            "raw_POSITION": [
+              0.11128343641757965,
+              1.5245599746704102,
+              1.367472767829895
+            ],
+            "source_rest_POSITION": [
+              0.11128343641757965,
+              1.5245599555969238,
+              1.3674727964401245
+            ],
+            "raw_NORMAL": [
+              0.7258822917938232,
+              0.2647283971309662,
+              0.6348336338996887
+            ],
+            "TEXCOORD_0": [
+              0.177389994263649,
+              0.45754000544548035
+            ]
+          },
+          {
+            "vertex": 2353,
+            "raw_POSITION": [
+              0.10572303831577301,
+              1.5194295644760132,
+              1.3721882104873657
+            ],
+            "source_rest_POSITION": [
+              0.10572303831577301,
+              1.5194295454025268,
+              1.3721882390975952
+            ],
+            "raw_NORMAL": [
+              0.588450014591217,
+              0.14060503244400024,
+              0.7962140440940857
+            ],
+            "TEXCOORD_0": [
+              0.17563000321388245,
+              0.45851001143455505
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.12889449306854453,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1554,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.19840784601947645,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1081,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.4878540716698718,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3346,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "forward_quarter",
+      "sample": "horizontal_plus",
+      "target": [
+        0.0713341765541677,
+        1.519635937540762,
+        1.3519983257698462
+      ],
+      "origin": [
+        0.18705316765827046,
+        1.519635937540762,
+        1.467717316873949
+      ],
+      "direction": [
+        -0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1200994309200814,
+        "origin_projection": 1.1700994309200814,
+        "clearance_beyond_all_source_vertices_m": 0.050000000000000044,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.16365136664355368,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3621,
+        "indices_accessor": 7,
+        "index_triplet": [
+          418,
+          2319,
+          1470
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.12413568429083865,
+        "barycentric": [
+          0.15819691226887655,
+          0.2535798551073161,
+          0.5882232326238074
+        ],
+        "source_rest_position": [
+          0.09927598350898606,
+          1.519635937540762,
+          1.3799401327246648
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17390862574870722,
+          0.46125925955021146
+        ],
+        "geometric_source_rest_normal": [
+          0.8428391753624512,
+          -0.5176079045681633,
+          0.1473233912279315
+        ],
+        "normal_dot_toward_viewer": 0.700150665313136,
+        "outward_depth_from_eye_center_m": 0.03951568235271506,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 418,
+            "raw_POSITION": [
+              0.10056442022323608,
+              1.523754596710205,
+              1.3870394229888916
+            ],
+            "source_rest_POSITION": [
+              0.10056442022323608,
+              1.5237545776367187,
+              1.3870394515991211
+            ],
+            "raw_NORMAL": [
+              0.7856359481811523,
+              -0.2752266824245453,
+              0.5540996193885803
+            ],
+            "TEXCOORD_0": [
+              0.17499999701976776,
+              0.4628100097179413
+            ]
+          },
+          {
+            "vertex": 2319,
+            "raw_POSITION": [
+              0.0949760377407074,
+              1.5128451585769653,
+              1.3806812763214111
+            ],
+            "source_rest_POSITION": [
+              0.0949760377407074,
+              1.512845139503479,
+              1.3806813049316407
+            ],
+            "raw_NORMAL": [
+              0.7889025211334229,
+              -0.5258170962333679,
+              0.31803959608078003
+            ],
+            "TEXCOORD_0": [
+              0.17173999547958374,
+              0.46086999773979187
+            ]
+          },
+          {
+            "vertex": 1470,
+            "raw_POSITION": [
+              0.10078315436840057,
+              1.5214557647705078,
+              1.377711296081543
+            ],
+            "source_rest_POSITION": [
+              0.10078315436840057,
+              1.5214557456970215,
+              1.3777113246917725
+            ],
+            "raw_NORMAL": [
+              0.8653756976127625,
+              -0.30711761116981506,
+              0.3959845006465912
+            ],
+            "TEXCOORD_0": [
+              0.17454999685287476,
+              0.46101000905036926
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.13195443130678033,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1616,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.19552604043334906,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1810,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.47050169421593874,
+          "source_primitive_ordinal": 0,
+          "triangle_id": 4370,
+          "material_name": "Material.003_Hair12Main2k.png"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "forward_quarter",
+      "sample": "horizontal_minus",
+      "target": [
+        0.09099986235187203,
+        1.519635937540762,
+        1.332332639972142
+      ],
+      "origin": [
+        0.2067188534559748,
+        1.519635937540762,
+        1.4480516310762448
+      ],
+      "direction": [
+        -0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1200994309200814,
+        "origin_projection": 1.1700994309200814,
+        "clearance_beyond_all_source_vertices_m": 0.050000000000000044,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.16365136664355368,
+      "total_positive_intersections": 8,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3712,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2362,
+          2347,
+          2357
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.12606886775587714,
+        "barycentric": [
+          0.3392132813113818,
+          0.6129222189266111,
+          0.04786449976200706
+        ],
+        "source_rest_position": [
+          0.11757470216928397,
+          1.519635937540762,
+          1.358907479789554
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17761950873550028,
+          0.4555581150343475
+        ],
+        "geometric_source_rest_normal": [
+          0.8426087311805076,
+          0.2608284570968227,
+          0.4711465187251902
+        ],
+        "normal_dot_toward_viewer": 0.9289652460277462,
+        "outward_depth_from_eye_center_m": 0.037582498887676535,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2362,
+            "raw_POSITION": [
+              0.11449256539344788,
+              1.5160653591156006,
+              1.3663963079452515
+            ],
+            "source_rest_POSITION": [
+              0.11449256539344788,
+              1.5160653400421142,
+              1.366396336555481
+            ],
+            "raw_NORMAL": [
+              0.8113245368003845,
+              -0.28694650530815125,
+              0.5093271732330322
+            ],
+            "TEXCOORD_0": [
+              0.17657999694347382,
+              0.45671001076698303
+            ]
+          },
+          {
+            "vertex": 2347,
+            "raw_POSITION": [
+              0.11940818279981613,
+              1.5207490921020508,
+              1.3550121784210205
+            ],
+            "source_rest_POSITION": [
+              0.11940818279981613,
+              1.5207490730285644,
+              1.35501220703125
+            ],
+            "raw_NORMAL": [
+              0.9673945903778076,
+              -0.15986472368240356,
+              0.19644585251808167
+            ],
+            "TEXCOORD_0": [
+              0.17802999913692474,
+              0.45493999123573303
+            ]
+          },
+          {
+            "vertex": 2357,
+            "raw_POSITION": [
+              0.11593926697969437,
+              1.5306864976882935,
+              1.3557146787643433
+            ],
+            "source_rest_POSITION": [
+              0.11593926697969437,
+              1.5306864786148071,
+              1.3557147073745728
+            ],
+            "raw_NORMAL": [
+              0.8682540059089661,
+              0.38325661420822144,
+              0.3150385916233063
+            ],
+            "TEXCOORD_0": [
+              0.17972999811172485,
+              0.45530998706817627
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.13177710936140571,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1385,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.17613462160873622,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3741,
+          "material_name": "Material_HorseMain4k00.png"
+        },
+        {
+          "distance_m": 0.18120267779486018,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3773,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "forward_quarter",
+      "sample": "vertical_plus",
+      "target": [
+        0.08116701945301986,
+        1.5335416773250028,
+        1.3421654828709941
+      ],
+      "origin": [
+        0.19688601055712263,
+        1.5335416773250028,
+        1.457884473975097
+      ],
+      "direction": [
+        -0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1200994309200814,
+        "origin_projection": 1.1700994309200812,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999982,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.16365136664355368,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 2084,
+        "indices_accessor": 7,
+        "index_triplet": [
+          1464,
+          1465,
+          1466
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.12765590194159976,
+        "barycentric": [
+          0.010468520807619619,
+          0.09052687397242347,
+          0.899004605219957
+        ],
+        "source_rest_position": [
+          0.10661965663573249,
+          1.533541677325003,
+          1.367618120053707
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.1796948265217643,
+          0.4592035216466282
+        ],
+        "geometric_source_rest_normal": [
+          0.6317895418263676,
+          0.614136337811304,
+          0.47294664965358246
+        ],
+        "normal_dot_toward_viewer": 0.7811664524176728,
+        "outward_depth_from_eye_center_m": 0.03599546470195407,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 1464,
+            "raw_POSITION": [
+              0.11261426657438278,
+              1.536958932876587,
+              1.3551727533340454
+            ],
+            "source_rest_POSITION": [
+              0.11261426657438278,
+              1.5369589138031006,
+              1.355172781944275
+            ],
+            "raw_NORMAL": [
+              0.8310420513153076,
+              0.44209298491477966,
+              0.3375245928764343
+            ],
+            "TEXCOORD_0": [
+              0.18151000142097473,
+              0.4556199908256531
+            ]
+          },
+          {
+            "vertex": 1465,
+            "raw_POSITION": [
+              0.11046863347291946,
+              1.540155053138733,
+              1.353888750076294
+            ],
+            "source_rest_POSITION": [
+              0.11046863347291945,
+              1.5401550340652466,
+              1.3538887786865235
+            ],
+            "raw_NORMAL": [
+              0.9677773118019104,
+              0.062377266585826874,
+              0.24395930767059326
+            ],
+            "TEXCOORD_0": [
+              0.1828099936246872,
+              0.4557799994945526
+            ]
+          },
+          {
+            "vertex": 1466,
+            "raw_POSITION": [
+              0.10616227239370346,
+              1.5328359603881836,
+              1.3691455125808716
+            ],
+            "source_rest_POSITION": [
+              0.10616227239370346,
+              1.5328359413146972,
+              1.369145541191101
+            ],
+            "raw_NORMAL": [
+              0.9401129484176636,
+              -0.02237371727824211,
+              0.3401280641555786
+            ],
+            "TEXCOORD_0": [
+              0.17936000227928162,
+              0.45958998799324036
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.13184297762123803,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1504,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.19553859980012653,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 84,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.48087651343318344,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3347,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    },
+    {
+      "side": "positive_X",
+      "view": "forward_quarter",
+      "sample": "vertical_minus",
+      "target": [
+        0.08116701945301986,
+        1.5057301977565212,
+        1.3421654828709941
+      ],
+      "origin": [
+        0.19688601055712263,
+        1.5057301977565212,
+        1.457884473975097
+      ],
+      "direction": [
+        -0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1200994309200814,
+        "origin_projection": 1.1700994309200812,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999982,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.16365136664355368,
+      "total_positive_intersections": 4,
+      "first_hit": {
+        "source_primitive_ordinal": 2,
+        "node": 28,
+        "mesh": 2,
+        "primitive": 0,
+        "material_index": 2,
+        "material_name": "Eye_brown",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 117,
+        "indices_accessor": 11,
+        "index_triplet": [
+          3655,
+          3656,
+          3657
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 209,
+          "NORMAL": 208,
+          "POSITION": 207,
+          "TEXCOORD_0": 10,
+          "WEIGHTS_0": 210
+        },
+        "distance_from_exterior_origin_m": 0.13176374826410903,
+        "barycentric": [
+          0.41248599393382757,
+          0.059478895751526525,
+          0.5280351103146459
+        ],
+        "source_rest_position": [
+          0.10371497064501396,
+          1.5057301977565212,
+          1.364713434062988
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.5875140060661724,
+          0.5280351103146459
+        ],
+        "geometric_source_rest_normal": [
+          0.7107164062460254,
+          -0.36798669042728,
+          0.5995564907171902
+        ],
+        "normal_dot_toward_viewer": 0.926502850647632,
+        "outward_depth_from_eye_center_m": 0.031887618379444524,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 3655,
+            "raw_POSITION": [
+              0.10345595329999924,
+              1.5049446821212769,
+              1.364538311958313
+            ],
+            "source_rest_POSITION": [
+              0.10345595329999924,
+              1.5049446630477905,
+              1.3645383405685425
+            ],
+            "raw_NORMAL": [
+              0.7106269598007202,
+              -0.36779966950416565,
+              0.5997772216796875
+            ],
+            "TEXCOORD_0": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "vertex": 3656,
+            "raw_POSITION": [
+              0.10820891708135605,
+              1.5082956552505493,
+              1.360960841178894
+            ],
+            "source_rest_POSITION": [
+              0.10820891708135605,
+              1.508295636177063,
+              1.3609608697891236
+            ],
+            "raw_NORMAL": [
+              0.7106269598007202,
+              -0.36779966950416565,
+              0.5997772216796875
+            ],
+            "TEXCOORD_0": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "vertex": 3657,
+            "raw_POSITION": [
+              0.10341110080480576,
+              1.5060548782348633,
+              1.365272879600525
+            ],
+            "source_rest_POSITION": [
+              0.10341110080480576,
+              1.506054859161377,
+              1.3652729082107544
+            ],
+            "raw_NORMAL": [
+              0.7106269598007202,
+              -0.36779966950416565,
+              0.5997772216796875
+            ],
+            "TEXCOORD_0": [
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 4
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.13748817489690657,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3801,
+          "material_name": "Material_HorseMain4k00.png"
+        },
+        {
+          "distance_m": 0.19546010744676506,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1075,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.49157588610568104,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3346,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "lateral",
+      "sample": "center",
+      "target": [
+        -0.08190009839862826,
+        1.5196372190406247,
+        1.3421663829491985
+      ],
+      "origin": [
+        -0.41283543705940245,
+        1.5196372190406247,
+        1.3421663829491985
+      ],
+      "direction": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.36283543705940247,
+        "origin_projection": 0.41283543705940245,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3309353386607742,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3671,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2340,
+          2342,
+          2343
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.29324481907261707,
+        "barycentric": [
+          0.77521069858446,
+          0.19954088460743238,
+          0.0252484168081076
+        ],
+        "source_rest_position": [
+          -0.11959061798678547,
+          1.5196372190406247,
+          1.3421663829491985
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17996314441294947,
+          0.5522945701900908
+        ],
+        "geometric_source_rest_normal": [
+          -0.8112114451046395,
+          -0.5847376676772339,
+          -0.0042250835057786335
+        ],
+        "normal_dot_toward_viewer": 0.8112114451046395,
+        "outward_depth_from_eye_center_m": 0.03769051958815721,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2340,
+            "raw_POSITION": [
+              -0.12181873619556427,
+              1.5227441787719727,
+              1.3399722576141357
+            ],
+            "source_rest_POSITION": [
+              -0.12181873619556427,
+              1.5227441596984863,
+              1.3399722862243653
+            ],
+            "raw_NORMAL": [
+              -0.9849907159805298,
+              -0.14047373831272125,
+              -0.100301593542099
+            ],
+            "TEXCOORD_0": [
+              0.18039000034332275,
+              0.5527799725532532
+            ]
+          },
+          {
+            "vertex": 2342,
+            "raw_POSITION": [
+              -0.11082703620195389,
+              1.507429599761963,
+              1.3490651845932007
+            ],
+            "source_rest_POSITION": [
+              -0.11082703620195389,
+              1.5074295806884765,
+              1.3490652132034302
+            ],
+            "raw_NORMAL": [
+              -0.4007507562637329,
+              -0.9013402462005615,
+              -0.1642700433731079
+            ],
+            "TEXCOORD_0": [
+              0.1783899962902069,
+              0.5506700277328491
+            ]
+          },
+          {
+            "vertex": 2343,
+            "raw_POSITION": [
+              -0.12043945491313934,
+              1.5207220315933228,
+              1.3550102710723877
+            ],
+            "source_rest_POSITION": [
+              -0.12043945491313934,
+              1.5207220125198364,
+              1.3550102996826172
+            ],
+            "raw_NORMAL": [
+              -0.9671222567558289,
+              -0.1637236773967743,
+              0.19459980726242065
+            ],
+            "TEXCOORD_0": [
+              0.17928999662399292,
+              0.5502300262451172
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.2962790918995525,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 721,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.3655919770710648,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 290,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.4593865241101224,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1757,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "lateral",
+      "sample": "horizontal_plus",
+      "target": [
+        -0.08190009839862826,
+        1.5196372190406247,
+        1.3560556480096233
+      ],
+      "origin": [
+        -0.41283543705940245,
+        1.5196372190406247,
+        1.3560556480096233
+      ],
+      "direction": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.36283543705940247,
+        "origin_projection": 0.41283543705940245,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3309353386607742,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3698,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2360,
+          2361,
+          2343
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.29352818694268373,
+        "barycentric": [
+          0.05382803045291462,
+          0.06370049474115275,
+          0.8824714748059326
+        ],
+        "source_rest_position": [
+          -0.11930725011671872,
+          1.5196372190406247,
+          1.3560556480096233
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17906922399686584,
+          0.5500617854477364
+        ],
+        "geometric_source_rest_normal": [
+          -0.6861536796375294,
+          -0.7273634116747371,
+          -0.011644538495184308
+        ],
+        "normal_dot_toward_viewer": 0.6861536796375294,
+        "outward_depth_from_eye_center_m": 0.03740715171809046,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2360,
+            "raw_POSITION": [
+              -0.10518074780702591,
+              1.5062334537506104,
+              1.3609051704406738
+            ],
+            "source_rest_POSITION": [
+              -0.10518074780702591,
+              1.506233434677124,
+              1.3609051990509033
+            ],
+            "raw_NORMAL": [
+              -0.30805978178977966,
+              -0.950813353061676,
+              0.0324527733027935
+            ],
+            "TEXCOORD_0": [
+              0.17693999409675598,
+              0.5491399765014648
+            ]
+          },
+          {
+            "vertex": 2361,
+            "raw_POSITION": [
+              -0.11555945128202438,
+              1.5159355401992798,
+              1.3664393424987793
+            ],
+            "source_rest_POSITION": [
+              -0.11555945128202438,
+              1.5159355211257934,
+              1.3664393711090088
+            ],
+            "raw_NORMAL": [
+              -0.8005781769752502,
+              -0.30234310030937195,
+              0.5173618197441101
+            ],
+            "TEXCOORD_0": [
+              0.17780999839305878,
+              0.5485100150108337
+            ]
+          },
+          {
+            "vertex": 2343,
+            "raw_POSITION": [
+              -0.12043945491313934,
+              1.5207220315933228,
+              1.3550102710723877
+            ],
+            "source_rest_POSITION": [
+              -0.12043945491313934,
+              1.5207220125198364,
+              1.3550102996826172
+            ],
+            "raw_NORMAL": [
+              -0.9671222567558289,
+              -0.1637236773967743,
+              0.19459980726242065
+            ],
+            "TEXCOORD_0": [
+              0.17928999662399292,
+              0.5502300262451172
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.29914076584087373,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 658,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.3627702370610909,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 304,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.46223343927491417,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1743,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "lateral",
+      "sample": "horizontal_minus",
+      "target": [
+        -0.08190009839862826,
+        1.5196372190406247,
+        1.3282771178887738
+      ],
+      "origin": [
+        -0.41283543705940245,
+        1.5196372190406247,
+        1.3282771178887738
+      ],
+      "direction": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.36283543705940247,
+        "origin_projection": 0.41283543705940245,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3309353386607742,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3674,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2348,
+          2349,
+          2341
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.2965322325983943,
+        "barycentric": [
+          0.5361821333155949,
+          0.3174608659961671,
+          0.14635700068823798
+        ],
+        "source_rest_position": [
+          -0.11630320446100822,
+          1.5196372190406247,
+          1.3282771178887738
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.1798036970973941,
+          0.5546868534166252
+        ],
+        "geometric_source_rest_normal": [
+          -0.4343177809978092,
+          -0.8359036247822191,
+          -0.33560869354813494
+        ],
+        "normal_dot_toward_viewer": 0.4343177809978092,
+        "outward_depth_from_eye_center_m": 0.034403106062379965,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2348,
+            "raw_POSITION": [
+              -0.12108417600393295,
+              1.522099256515503,
+              1.3283320665359497
+            ],
+            "source_rest_POSITION": [
+              -0.12108417600393295,
+              1.5220992374420166,
+              1.3283320951461792
+            ],
+            "raw_NORMAL": [
+              -0.9253908395767212,
+              -0.3033844530582428,
+              -0.22717756032943726
+            ],
+            "TEXCOORD_0": [
+              0.18031999468803406,
+              0.5549700260162354
+            ]
+          },
+          {
+            "vertex": 2349,
+            "raw_POSITION": [
+              -0.11040827631950378,
+              1.517981767654419,
+              1.3247716426849365
+            ],
+            "source_rest_POSITION": [
+              -0.1104082763195038,
+              1.5179817485809328,
+              1.324771671295166
+            ],
+            "raw_NORMAL": [
+              -0.2228880226612091,
+              -0.888445258140564,
+              -0.40123051404953003
+            ],
+            "TEXCOORD_0": [
+              0.17921000719070435,
+              0.5550600290298462
+            ]
+          },
+          {
+            "vertex": 2341,
+            "raw_POSITION": [
+              -0.11157461255788803,
+              1.514208436012268,
+              1.335679292678833
+            ],
+            "source_rest_POSITION": [
+              -0.11157461255788803,
+              1.5142084169387817,
+              1.3356793212890625
+            ],
+            "raw_NORMAL": [
+              -0.3480796813964844,
+              -0.8978890180587769,
+              -0.2695103585720062
+            ],
+            "TEXCOORD_0": [
+              0.17919999361038208,
+              0.552839994430542
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.29909985561064,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 762,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.3627289016247834,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 185,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.46210605038686986,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1863,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "lateral",
+      "sample": "vertical_plus",
+      "target": [
+        -0.08190009839862826,
+        1.5335264841010494,
+        1.3421663829491985
+      ],
+      "origin": [
+        -0.41283543705940245,
+        1.5335264841010494,
+        1.3421663829491985
+      ],
+      "direction": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.36283543705940247,
+        "origin_projection": 0.41283543705940245,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3309353386607742,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3723,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2354,
+          1462,
+          1485
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.29586530723853083,
+        "barycentric": [
+          0.5658236386182827,
+          0.14263072789733625,
+          0.2915456334843812
+        ],
+        "source_rest_position": [
+          -0.11697012982087163,
+          1.5335264841010496,
+          1.3421663829491988
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.1824707334657302,
+          0.5524330124132492
+        ],
+        "geometric_source_rest_normal": [
+          -0.911459905302865,
+          0.39000425392271804,
+          0.13091036226164937
+        ],
+        "normal_dot_toward_viewer": 0.911459905302865,
+        "outward_depth_from_eye_center_m": 0.03507003142224337,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2354,
+            "raw_POSITION": [
+              -0.11838530004024506,
+              1.5307976007461548,
+              1.3404431343078613
+            ],
+            "source_rest_POSITION": [
+              -0.11838530004024504,
+              1.5307975816726682,
+              1.3404431629180908
+            ],
+            "raw_NORMAL": [
+              -0.9256762862205505,
+              0.37831658124923706,
+              -5.784713721368462e-05
+            ],
+            "TEXCOORD_0": [
+              0.18196000158786774,
+              0.5528799891471863
+            ]
+          },
+          {
+            "vertex": 1462,
+            "raw_POSITION": [
+              -0.11363241821527481,
+              1.5369598865509033,
+              1.3551764488220215
+            ],
+            "source_rest_POSITION": [
+              -0.1136324182152748,
+              1.536959867477417,
+              1.3551764774322508
+            ],
+            "raw_NORMAL": [
+              -0.8310359120368958,
+              0.44206833839416504,
+              0.33757200837135315
+            ],
+            "TEXCOORD_0": [
+              0.18272000551223755,
+              0.5494599938392639
+            ]
+          },
+          {
+            "vertex": 1485,
+            "raw_POSITION": [
+              -0.11585649102926254,
+              1.5371429920196533,
+              1.3391458988189697
+            ],
+            "source_rest_POSITION": [
+              -0.11585649102926254,
+              1.537142972946167,
+              1.3391459274291992
+            ],
+            "raw_NORMAL": [
+              -0.9562702178955078,
+              0.2666509747505188,
+              0.12018557637929916
+            ],
+            "TEXCOORD_0": [
+              0.18333999812602997,
+              0.5530200004577637
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.2992686642277307,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 666,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.3626818066293145,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 405,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.46216223986610977,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1643,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "lateral",
+      "sample": "vertical_minus",
+      "target": [
+        -0.08190009839862826,
+        1.5057479539802,
+        1.3421663829491985
+      ],
+      "origin": [
+        -0.41283543705940245,
+        1.5057479539802,
+        1.3421663829491985
+      ],
+      "direction": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 0.36283543705940247,
+        "origin_projection": 0.41283543705940245,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999999,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.3309353386607742,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 2,
+        "node": 28,
+        "mesh": 2,
+        "primitive": 0,
+        "material_index": 2,
+        "material_name": "Eye_brown",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 830,
+        "indices_accessor": 11,
+        "index_triplet": [
+          1557,
+          1558,
+          1559
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 209,
+          "NORMAL": 208,
+          "POSITION": 207,
+          "TEXCOORD_0": 10,
+          "WEIGHTS_0": 210
+        },
+        "distance_from_exterior_origin_m": 0.29918905028612747,
+        "barycentric": [
+          0.5103292208123569,
+          0.2051046602947676,
+          0.2845661188928755
+        ],
+        "source_rest_position": [
+          -0.11364638677327504,
+          1.5057479539802,
+          1.3421663829491985
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.48967077918764307,
+          0.2845661188928755
+        ],
+        "geometric_source_rest_normal": [
+          -0.9143207061094982,
+          -0.4031494039516428,
+          0.038577253308961536
+        ],
+        "normal_dot_toward_viewer": 0.9143207061094982,
+        "outward_depth_from_eye_center_m": 0.03174628837464678,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 1557,
+            "raw_POSITION": [
+              -0.1143290102481842,
+              1.5070973634719849,
+              1.340089201927185
+            ],
+            "source_rest_POSITION": [
+              -0.1143290102481842,
+              1.5070973443984985,
+              1.3400892305374146
+            ],
+            "raw_NORMAL": [
+              -0.9144489169120789,
+              -0.40284964442253113,
+              0.03867034241557121
+            ],
+            "TEXCOORD_0": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "vertex": 1558,
+            "raw_POSITION": [
+              -0.11279267817735672,
+              1.503645420074463,
+              1.3404275178909302
+            ],
+            "source_rest_POSITION": [
+              -0.11279267817735672,
+              1.5036454010009765,
+              1.3404275465011597
+            ],
+            "raw_NORMAL": [
+              -0.9144489169120789,
+              -0.40284964442253113,
+              0.03867034241557121
+            ],
+            "TEXCOORD_0": [
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "vertex": 1559,
+            "raw_POSITION": [
+              -0.11303751915693283,
+              1.5048434734344482,
+              1.3471447229385376
+            ],
+            "source_rest_POSITION": [
+              -0.11303751915693283,
+              1.504843454360962,
+              1.3471447515487671
+            ],
+            "raw_NORMAL": [
+              -0.9144489169120789,
+              -0.40284964442253113,
+              0.03867034241557121
+            ],
+            "TEXCOORD_0": [
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 4
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.3024009649376033,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3806,
+          "material_name": "Material_HorseMain4k00.png"
+        },
+        {
+          "distance_m": 0.3626015247701795,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 233,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.462271730361838,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 1815,
+          "material_name": "Eye_brown"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "forward_quarter",
+      "sample": "center",
+      "target": [
+        -0.08190009839862826,
+        1.5196372190406247,
+        1.3421663829491985
+      ],
+      "origin": [
+        -0.1977636009752693,
+        1.5196372190406247,
+        1.4580298855258396
+      ],
+      "direction": [
+        0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1208228025494502,
+        "origin_projection": 1.17082280254945,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999982,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.1638557367279358,
+      "total_positive_intersections": 4,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3707,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2364,
+          2336,
+          2352
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.12409794024850088,
+        "barycentric": [
+          0.49778687090420576,
+          0.3565740602744858,
+          0.14563906882130845
+        ],
+        "source_rest_position": [
+          -0.11001310589427137,
+          1.5196372190406247,
+          1.3702793904448416
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.1774265224705644,
+          0.5474397409248173
+        ],
+        "geometric_source_rest_normal": [
+          -0.47496600472475736,
+          0.25842269523830874,
+          0.8412044965057962
+        ],
+        "normal_dot_toward_viewer": 0.9306730866178214,
+        "outward_depth_from_eye_center_m": 0.03975779647943492,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2364,
+            "raw_POSITION": [
+              -0.11230173707008362,
+              1.5245609283447266,
+              1.3674745559692383
+            ],
+            "source_rest_POSITION": [
+              -0.11230173707008362,
+              1.5245609092712402,
+              1.3674745845794678
+            ],
+            "raw_NORMAL": [
+              -0.7255759835243225,
+              0.2661632299423218,
+              0.6345837712287903
+            ],
+            "TEXCOORD_0": [
+              0.17858999967575073,
+              0.5476700067520142
+            ]
+          },
+          {
+            "vertex": 2336,
+            "raw_POSITION": [
+              -0.10815440863370895,
+              1.5128480195999146,
+              1.3734145164489746
+            ],
+            "source_rest_POSITION": [
+              -0.10815440863370895,
+              1.5128480005264282,
+              1.3734145450592041
+            ],
+            "raw_NORMAL": [
+              -0.5743898153305054,
+              -0.4318157732486725,
+              0.6954218149185181
+            ],
+            "TEXCOORD_0": [
+              0.17605000734329224,
+              0.5473999977111816
+            ]
+          },
+          {
+            "vertex": 2352,
+            "raw_POSITION": [
+              -0.10674140602350235,
+              1.5194306373596191,
+              1.3721901178359985
+            ],
+            "source_rest_POSITION": [
+              -0.10674140602350235,
+              1.5194306182861328,
+              1.372190146446228
+            ],
+            "raw_NORMAL": [
+              -0.5880757570266724,
+              0.14457973837852478,
+              0.7957786321640015
+            ],
+            "TEXCOORD_0": [
+              0.17681999504566193,
+              0.546750009059906
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.12906599676127584,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 490,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.19864550559649805,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 913,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.48780364839318446,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3348,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "forward_quarter",
+      "sample": "horizontal_plus",
+      "target": [
+        -0.0720789048887045,
+        1.5196372190406247,
+        1.3519875764591223
+      ],
+      "origin": [
+        -0.18794240746534552,
+        1.5196372190406247,
+        1.4678510790357633
+      ],
+      "direction": [
+        0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1208228025494502,
+        "origin_projection": 1.1708228025494503,
+        "clearance_beyond_all_source_vertices_m": 0.050000000000000044,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.1638557367279358,
+      "total_positive_intersections": 4,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3619,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2318,
+          417,
+          1468
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.12399616988493777,
+        "barycentric": [
+          0.2589781557145292,
+          0.1809751974816749,
+          0.5600466468037959
+        ],
+        "source_rest_position": [
+          -0.10026387489854682,
+          1.5196372190406247,
+          1.3801725464689647
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17503062160547486,
+          0.5440286463531157
+        ],
+        "geometric_source_rest_normal": [
+          -0.8444615986099274,
+          -0.515052838734282,
+          0.14698701230014613
+        ],
+        "normal_dot_toward_viewer": 0.7010600359724958,
+        "outward_depth_from_eye_center_m": 0.03985956684299801,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2318,
+            "raw_POSITION": [
+              -0.09602072089910507,
+              1.5128291845321655,
+              1.3806941509246826
+            ],
+            "source_rest_POSITION": [
+              -0.09602072089910507,
+              1.5128291654586792,
+              1.3806941795349121
+            ],
+            "raw_NORMAL": [
+              -0.7878180146217346,
+              -0.5329762101173401,
+              0.30867326259613037
+            ],
+            "TEXCOORD_0": [
+              0.1729000061750412,
+              0.544510006904602
+            ]
+          },
+          {
+            "vertex": 417,
+            "raw_POSITION": [
+              -0.10157731920480728,
+              1.523749828338623,
+              1.3870373964309692
+            ],
+            "source_rest_POSITION": [
+              -0.10157731920480728,
+              1.5237498092651367,
+              1.3870374250411988
+            ],
+            "raw_NORMAL": [
+              -0.7854730486869812,
+              -0.27487456798553467,
+              0.5545052289962769
+            ],
+            "TEXCOORD_0": [
+              0.17607000470161438,
+              0.5425000190734863
+            ]
+          },
+          {
+            "vertex": 1468,
+            "raw_POSITION": [
+              -0.10180157423019409,
+              1.5214564800262451,
+              1.3777129650115967
+            ],
+            "source_rest_POSITION": [
+              -0.10180157423019409,
+              1.5214564609527588,
+              1.3777129936218262
+            ],
+            "raw_NORMAL": [
+              -0.8646288514137268,
+              -0.3019503057003021,
+              0.4015507400035858
+            ],
+            "TEXCOORD_0": [
+              0.1756799966096878,
+              0.5443000197410583
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.13209730245914744,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 431,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.19569063657146837,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 185,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.4839922209692485,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3348,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "forward_quarter",
+      "sample": "horizontal_minus",
+      "target": [
+        -0.09172129190855202,
+        1.5196372190406247,
+        1.3323451894392748
+      ],
+      "origin": [
+        -0.20758479448519304,
+        1.5196372190406247,
+        1.4482086920159158
+      ],
+      "direction": [
+        0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1208228025494502,
+        "origin_projection": 1.1708228025494503,
+        "clearance_beyond_all_source_vertices_m": 0.050000000000000044,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.1638557367279358,
+      "total_positive_intersections": 6,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 3710,
+        "indices_accessor": 7,
+        "index_triplet": [
+          2355,
+          2343,
+          2361
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.12599829816728067,
+        "barycentric": [
+          0.06178892373725925,
+          0.5829323270627084,
+          0.3552787492000324
+        ],
+        "source_rest_position": [
+          -0.11849054343314436,
+          1.5196372190406247,
+          1.3591144409638671
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.17886737238782324,
+          0.549593608088967
+        ],
+        "geometric_source_rest_normal": [
+          -0.8433221208954984,
+          0.26139321813717387,
+          0.46955445469105095
+        ],
+        "normal_dot_toward_viewer": 0.9283439294582219,
+        "outward_depth_from_eye_center_m": 0.03785743856065514,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 2355,
+            "raw_POSITION": [
+              -0.11695744097232819,
+              1.5306873321533203,
+              1.3557164669036865
+            ],
+            "source_rest_POSITION": [
+              -0.11695744097232819,
+              1.530687313079834,
+              1.355716495513916
+            ],
+            "raw_NORMAL": [
+              -0.8681454658508301,
+              0.38359785079956055,
+              0.31492242217063904
+            ],
+            "TEXCOORD_0": [
+              0.18095999956130981,
+              0.5498200058937073
+            ]
+          },
+          {
+            "vertex": 2343,
+            "raw_POSITION": [
+              -0.12043945491313934,
+              1.5207220315933228,
+              1.3550102710723877
+            ],
+            "source_rest_POSITION": [
+              -0.12043945491313934,
+              1.5207220125198364,
+              1.3550102996826172
+            ],
+            "raw_NORMAL": [
+              -0.9671222567558289,
+              -0.1637236773967743,
+              0.19459980726242065
+            ],
+            "TEXCOORD_0": [
+              0.17928999662399292,
+              0.5502300262451172
+            ]
+          },
+          {
+            "vertex": 2361,
+            "raw_POSITION": [
+              -0.11555945128202438,
+              1.5159355401992798,
+              1.3664393424987793
+            ],
+            "source_rest_POSITION": [
+              -0.11555945128202438,
+              1.5159355211257934,
+              1.3664393711090088
+            ],
+            "raw_NORMAL": [
+              -0.8005781769752502,
+              -0.30234310030937195,
+              0.5173618197441101
+            ],
+            "TEXCOORD_0": [
+              0.17780999839305878,
+              0.5485100150108337
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.1320201657066749,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 658,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.17641263505750024,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3739,
+          "material_name": "Material_HorseMain4k00.png"
+        },
+        {
+          "distance_m": 0.18100647355514135,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3771,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "forward_quarter",
+      "sample": "vertical_plus",
+      "target": [
+        -0.08190009839862826,
+        1.5335264841010494,
+        1.3421663829491985
+      ],
+      "origin": [
+        -0.1977636009752693,
+        1.5335264841010494,
+        1.4580298855258396
+      ],
+      "direction": [
+        0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1208228025494502,
+        "origin_projection": 1.17082280254945,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999982,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.1638557367279358,
+      "total_positive_intersections": 4,
+      "first_hit": {
+        "source_primitive_ordinal": 1,
+        "node": 27,
+        "mesh": 1,
+        "primitive": 0,
+        "material_index": 1,
+        "material_name": "Material_HorseMain4k00.png",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 2087,
+        "indices_accessor": 7,
+        "index_triplet": [
+          413,
+          1461,
+          1460
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 205,
+          "NORMAL": 204,
+          "POSITION": 203,
+          "TEXCOORD_0": 6,
+          "TEXCOORD_1": 6,
+          "WEIGHTS_0": 206
+        },
+        "distance_from_exterior_origin_m": 0.12755411981916565,
+        "barycentric": [
+          0.00634975259093451,
+          0.08785173015611489,
+          0.9057985172529506
+        ],
+        "source_rest_position": [
+          -0.10756921788285588,
+          1.5335264841010492,
+          1.367835502433426
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.1808088914419071,
+          0.5459064830190586
+        ],
+        "geometric_source_rest_normal": [
+          -0.948560741053697,
+          -0.2891050672381272,
+          0.12903790384572647
+        ],
+        "normal_dot_toward_viewer": 0.7619773092058167,
+        "outward_depth_from_eye_center_m": 0.036301616908770123,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 413,
+            "raw_POSITION": [
+              -0.10880663990974426,
+              1.540176510810852,
+              1.3736382722854614
+            ],
+            "source_rest_POSITION": [
+              -0.10880663990974425,
+              1.5401764917373655,
+              1.3736383008956907
+            ],
+            "raw_NORMAL": [
+              -0.9211047887802124,
+              -0.14825332164764404,
+              0.35998183488845825
+            ],
+            "TEXCOORD_0": [
+              0.1820099949836731,
+              0.5445200204849243
+            ]
+          },
+          {
+            "vertex": 1461,
+            "raw_POSITION": [
+              -0.1114867627620697,
+              1.5401558876037598,
+              1.3538904190063477
+            ],
+            "source_rest_POSITION": [
+              -0.1114867627620697,
+              1.5401558685302734,
+              1.353890447616577
+            ],
+            "raw_NORMAL": [
+              -0.9677881598472595,
+              0.06229786202311516,
+              0.243936687707901
+            ],
+            "TEXCOORD_0": [
+              0.18400999903678894,
+              0.54926997423172
+            ]
+          },
+          {
+            "vertex": 1460,
+            "raw_POSITION": [
+              -0.10718058794736862,
+              1.5328369140625,
+              1.3691473007202148
+            ],
+            "source_rest_POSITION": [
+              -0.10718058794736862,
+              1.5328368949890137,
+              1.3691473293304444
+            ],
+            "raw_NORMAL": [
+              -0.9400957822799683,
+              -0.02239232324063778,
+              0.34017422795295715
+            ],
+            "TEXCOORD_0": [
+              0.18049000203609467,
+              0.5455899834632874
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 2
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.13207928761398746,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 542,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.19567622073869415,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 742,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.4808860089705073,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3349,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    },
+    {
+      "side": "negative_X",
+      "view": "forward_quarter",
+      "sample": "vertical_minus",
+      "target": [
+        -0.08190009839862826,
+        1.5057479539802,
+        1.3421663829491985
+      ],
+      "origin": [
+        -0.1977636009752693,
+        1.5057479539802,
+        1.4580298855258396
+      ],
+      "direction": [
+        0.7071067811865475,
+        -0.0,
+        -0.7071067811865475
+      ],
+      "exterior_origin_proof": {
+        "all_source_vertices_max_projection": 1.1208228025494502,
+        "origin_projection": 1.17082280254945,
+        "clearance_beyond_all_source_vertices_m": 0.04999999999999982,
+        "basis": "All source-rest vertices lie inside a projection slab; origin is50mm beyond maximum along viewer direction"
+      },
+      "target_distance_m": 0.1638557367279358,
+      "total_positive_intersections": 4,
+      "first_hit": {
+        "source_primitive_ordinal": 2,
+        "node": 28,
+        "mesh": 2,
+        "primitive": 0,
+        "material_index": 2,
+        "material_name": "Eye_brown",
+        "material_alphaMode": "OPAQUE",
+        "material_doubleSided": true,
+        "triangle_id_within_primitive": 269,
+        "indices_accessor": 11,
+        "index_triplet": [
+          313,
+          315,
+          316
+        ],
+        "attribute_accessors": {
+          "JOINTS_0": 209,
+          "NORMAL": 208,
+          "POSITION": 207,
+          "TEXCOORD_0": 10,
+          "WEIGHTS_0": 210
+        },
+        "distance_from_exterior_origin_m": 0.13203477544035655,
+        "barycentric": [
+          0.1884777108033598,
+          0.7093939742352431,
+          0.10212831496139714
+        ],
+        "source_rest_position": [
+          -0.10440091590895015,
+          1.5057479539802,
+          1.3646672004595204
+        ],
+        "interpolated_TEXCOORD_0": [
+          0.7093939742352431,
+          0.8115222891966403
+        ],
+        "geometric_source_rest_normal": [
+          -0.5983349681470613,
+          -0.42690113182110107,
+          0.678049179294775
+        ],
+        "normal_dot_toward_viewer": 0.9025398860551326,
+        "outward_depth_from_eye_center_m": 0.031820961287579205,
+        "triangle_corner_evidence": [
+          {
+            "vertex": 313,
+            "raw_POSITION": [
+              -0.10001043230295181,
+              1.5026510953903198,
+              1.3665916919708252
+            ],
+            "source_rest_POSITION": [
+              -0.10001043230295181,
+              1.5026510763168335,
+              1.3665917205810547
+            ],
+            "raw_NORMAL": [
+              -0.5983678698539734,
+              -0.42630743980407715,
+              0.6783936023712158
+            ],
+            "TEXCOORD_0": [
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "vertex": 315,
+            "raw_POSITION": [
+              -0.10541755706071854,
+              1.5066078901290894,
+              1.3643114566802979
+            ],
+            "source_rest_POSITION": [
+              -0.10541755706071854,
+              1.506607871055603,
+              1.3643114852905274
+            ],
+            "raw_NORMAL": [
+              -0.5983678698539734,
+              -0.42630743980407715,
+              0.6783936023712158
+            ],
+            "TEXCOORD_0": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "vertex": 316,
+            "raw_POSITION": [
+              -0.1054418534040451,
+              1.5054901838302612,
+              1.3635863065719604
+            ],
+            "source_rest_POSITION": [
+              -0.1054418534040451,
+              1.5054901647567749,
+              1.36358633518219
+            ],
+            "raw_NORMAL": [
+              -0.5983678698539734,
+              -0.42630743980407715,
+              0.6783936023712158
+            ],
+            "TEXCOORD_0": [
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "source_texture": {
+          "index": 4
+        }
+      },
+      "next_intersections": [
+        {
+          "distance_m": 0.13861287207447825,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3799,
+          "material_name": "Material_HorseMain4k00.png"
+        },
+        {
+          "distance_m": 0.19563237262299543,
+          "source_primitive_ordinal": 2,
+          "triangle_id": 973,
+          "material_name": "Eye_brown"
+        },
+        {
+          "distance_m": 0.491511942064234,
+          "source_primitive_ordinal": 1,
+          "triangle_id": 3348,
+          "material_name": "Material_HorseMain4k00.png"
+        }
+      ]
+    }
+  ],
+  "scope": "One finite source-neutral opaque exterior first-hit diagnostic; no render/model edit/photo acceptance",
+  "asset_before_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "decoder_dependency": {
+    "file": "/workspace/shared/HORSE-B479-EYE-UV-APERTURE-SOURCE-INSPECTION-20261023/ACTUAL-CORRECTED-READER.py",
+    "sha256": "3f7e06fe4c1e0a91e142e0adc4358a8b277662e9335228269ed5d156e6630729",
+    "fragment_start": "fmt=",
+    "fragment_end_exclusive": "eye=[p for p in prims",
+    "fragment_sha256": "ee6400d013391e194e9ad9955ec9a2858508fad2256074565c1f65d7407d8efd"
+  },
+  "eye_bounds": {
+    "positive_X": {
+      "vertex_count": 1984,
+      "center": [
+        0.08116701945301986,
+        1.519635937540762,
+        1.3421654828709941
+      ],
+      "min": [
+        0.04649914428591728,
+        1.4848716068267822,
+        1.3073505449295044
+      ],
+      "max": [
+        0.11583463102579117,
+        1.5544003057479858,
+        1.376980333328247
+      ],
+      "diagnostic_offset_m": 0.013905739784240723,
+      "offset_rule": "20% of smaller native eye Y/Z extent; diagnostic ray layout, no geometry modification"
+    },
+    "negative_X": {
+      "vertex_count": 1984,
+      "center": [
+        -0.08190009839862826,
+        1.5196372190406247,
+        1.3421663829491985
+      ],
+      "min": [
+        -0.11667092144489288,
+        1.4849140453338623,
+        1.3073982286453247
+      ],
+      "max": [
+        -0.04712795838713646,
+        1.5543603706359863,
+        1.37693443775177
+      ],
+      "diagnostic_offset_m": 0.013889265060424805,
+      "offset_rule": "20% of smaller native eye Y/Z extent; diagnostic ray layout, no geometry modification"
+    }
+  },
+  "asset_after_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "limits": [
+    "Neutral glTF rest/source geometry only; no current animated/GPU/world visibility qualification",
+    "Exterior origins are source-model projection proofs, not original saved camera positions",
+    "Material and UV identity locate the visible source surface; they do not prove that its tissue is cornea rather than closed eyelid",
+    "OPAQUE/doubleSided material assumptions are recorded per actual first hit; no shader overrides or holes",
+    "Ray hits preserve exact original primitive/face/vertex/accessor IDs; no automatic ocular patch selection or edits"
+  ],
+  "elapsed_seconds": 0.9896933560085017
+}

@@ -1,0 +1,266 @@
+{
+ "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 20 for the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (T-3019, piece 2 of T-3010, which tools/census_prairie_1904_background.py ranks: 12 of the block's 17 Indiana lots and the 16th Street lot are seen from Prairie's walks, 1623 from 13 stands). The T-1840 census (chicago/prairie_1904_v1/data/sheet_census/sheet-20.json) counts Prairie frontages only, so these rows are read here, in the same frontage contract, for tools/trace_prairie_1904_footprints.py (sheet '20w') and tools/draft_prairie_1904.py. Every lot is checked against Robinson 1886 plate 10, which covers this block. Where the two plans agree (209-217 E. 16th, 1615-1617, 1623, 1703, 1713, and the stables on 1637 and 1641) the 1911 outline is drafted for 1904. Where they disagree the frontage is ruled phase_unresolved and not drafted: the corner office and tin shop at 1601-1603, the ice-cream factory at 1605-1613, the photographic-supply factory at 1727-1737 (1886 houses, 1911 works), and 1619 (an 1886 frame house, a 1911 brick one). The 1886 brick houses on 1637 and 1641, gone by 1911, are not drafted either. T-3068 reads all of them. The six unnumbered strips (indiana_1623_1637_a and _b, indiana_1713_1727_a to _d) are open on both plans and are not traced. T-3068 read the seven lots the two plans disagree on against dated sources between them (the 1902 Lakeside directory, the Blue Book 1890-1911, the Chicago Tribune, the Abendpost and Engineering News): 1601-1603, 1637, 1641 and 1727-1737 stand for 1904 from Robinson 1886 (backcast_1886, or a plate house beside a 1911 stable), 1619 stands as the 1911 sheet draws it, and 1605-1613 was the ice-cream plant's building site.",
+ "ticket": "T-3019",
+ "sheet": "20w",
+ "target_date": "1904-07-01",
+ "source": {
+  "source_id": "sanborn_1911_chicago_v3_sheet_20",
+  "file": "chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_20.jpg",
+  "observation_year": 1911
+ },
+ "comparison": {
+  "source_id": "robinson_1886_chicago_plate_10",
+  "file": "chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/robinson_1886_plate_10.jpg",
+  "observation_year": 1886,
+  "how": "The 1904 grid's parcel lines drawn over the plate through data/traces/gcp/robinson_1886_plate_10_gcps.json and read by eye at 3x; the plate is read for presence and material only, never for an outline."
+ },
+ "reading": {
+  "by": "Read by eye from the committed sheet 20 scan (5879 x 7323 px), the 1904 grid's parcel lines drawn over each crop, 2026-10-23.",
+  "conventions": "Sanborn colour: pink brick, yellow frame, blue stone. A crossed square marks a stable. D = dwelling. Storey figures as printed (B = basement).",
+  "limits": "A 1911 label is a 1911 observation (study ruling 11): the office, the factories and the sheds' 1911 use are not carried back to 1904. Robinson 1886 is read for what stood on a lot and in what material, never for its outline. No dimension is claimed beyond the trace."
+ },
+ "frontages": [
+  {
+   "frontage_id": "frontage-20w-1601–1603",
+   "printed_number_1911": "1601–1603",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1601"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1601-front",
+     "kind": "front",
+     "reading_1911": "5-storey brick building, 70 ft, across both numbers at the 16th Street corner, lettered OFFICE and TIN SHOP 5TH, an elevator inside; 201 E. 16th St. is printed on its cross-street side"
+    }
+   ],
+   "decision_1904": "backcast_1886",
+   "why": "Robinson 1886 plate 10 draws the corner as the west end of the brick row along 16th Street; the 1911 sheet draws a five-storey office and tin shop in its place, the ice-cream works' own building. The works came later than 1904: in September 1903 Collins Bros. and Thompson-Reid bought the ground 'sixty-four feet south of Sixteenth street' for their plant (chicago_tribune_1903_09_04_ice_cream_plant), so the corner was not in that sale, and the first record of the corner in the works' hands is Collins Bros.' transfer of '1601-1609 Indiana Ave.' to Thompson-Reid in December 1906 (Abendpost, 8 December 1906). Nothing dated shows the row's corner houses gone by 1 July 1904, so the frontage is backcast: the draft stands the 1886 row's west end on the corner lot from the plate (r1886-1601-f, T-3068) and never the 1911 office. No household at 1601-1603 is in the 1902 directory or the 1904 Blue Book.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-209–217",
+   "printed_number_1911": "209–217",
+   "side": "south",
+   "parcel_ids": [
+    "e16th_209"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-209-front",
+     "kind": "front",
+     "reading_1911": "A row of five 3½B brick dwellings (D), 209 to 217 E. 16th St., its four party walls carried to the row's rear wall, an open yard behind it to 1605's wall"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "No named record or 1904 directory row for this lot is in the T-1837 study. Robinson 1886 plate 10 and the 1911 sheet draw the same building on it, the brick row along East Sixteenth Street, its party walls at the same spacing, so it stood across the years either side of 1904: the draft stands the 1911 sheet's outline for 1904 as background, its presence inferred from the two plans (study ruling 11) under the block's single liberty. The row is drafted as one building, the sheet's one outline.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1605–1613",
+   "printed_number_1911": "1605–1613",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1605"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1605-front",
+     "kind": "front",
+     "reading_1911": "4-storey brick factory from Indiana Avenue to the alley, lettered THOMPSON-REID & COLLINS BROS. ICE CREAM CO., 'STABLE 2nd', an engine and a generator at its alley end"
+    }
+   ],
+   "decision_1904": "phase_unresolved",
+   "why": "Robinson 1886 plate 10 draws a brick house (1605) and a frame house (1609) on these lots, with the 51 ft lot south of them open; the 1911 sheet draws the Thompson-Reid & Collins Bros. ice-cream factory across all of them. Read by T-3068, the change falls across the scene date: the 1902 directory still has homes at 1605 and 1609 (lakeside_directory_chicago_1902; the Blue Book lists Henry Sayers at 1609 from 1890 to 1901), the two firms bought '1605-1613 Indiana Ave., 101 by 170 feet' in September 1903 for a plant to cover the whole ground (chicago_tribune_1903_09_04_ice_cream_plant), and on 22 March 1904 the plant's foundation was being dug there (abendpost_1904_03_22_indiana_1605_foundation). So on 1 July 1904 the houses were gone and the four-storey factory was rising on its foundation, how far is not read. The phase stays open in the census's own word (a building site, as sheet 35's 2126 was). T-3130 declares the working phase the way 2126's is declared: the works' brick shell rising on the 1911 outline, which the Tribune's November 1903 report of a four-storey brick building 100 by 177 feet (chicago_tribune_1903_11_08_ice_cream_works_begun) agrees with. Its walls stand three storeys up, a height reconstructed between the March excavation and the firm's letting of its old premises from 1 September 1904 (chicago_tribune_1904_09_11_thompson_reid_lease). The 1886 houses are not stood, and the finished 1911 factory is not carried back.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1615–1617",
+   "printed_number_1911": "1615–1617",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1615"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1615-front",
+     "kind": "front",
+     "reading_1911": "Two 3B brick dwellings (D), 1615 and 1617, behind a stone (blue) strip along their Indiana front, small one-storey frame pieces at their rear"
+    },
+    {
+     "id": "s20w-1615-rear",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick building on the alley lettered SHED",
+     "note_1904": "Robinson 1886 draws a stable here, so the 1911 shed is read as the lot's stable."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "No named record or 1904 directory row for this lot is in the T-1837 study. Robinson 1886 plate 10 and the 1911 sheet draw the same building on it, a brick house with a stone front at the street and a stable on the alley, so it stood across the years either side of 1904: the draft stands the 1911 sheet's outline for 1904 as background, its presence inferred from the two plans (study ruling 11) under the block's single liberty. The pair is drafted as one building, the sheet's one outline.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1619",
+   "printed_number_1911": "1619",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1619"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1619-front",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D) with canted front corners, a 1B brick rear piece and a one-storey frame piece behind it"
+    },
+    {
+     "id": "s20w-1619-rear",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey frame building on the alley lettered SHED",
+     "note_1904": "Robinson 1886 draws the same frame building on the alley, so the 1911 shed is read as the lot's stable."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Robinson 1886 plate 10 draws a frame house on this lot, where the 1911 sheet draws a 2½B brick one, so the brick house was built between the two plans; the frame building on the alley is on both. Read by T-3068: the same household lived at 1619 without a break from 1888 to 1908 (Dr. Emilius C. Dudley's; the Blue Book lists it every edition 1890-1908, 1904 included (chicago_blue_book_1904), and an 1888 gynaecological paper, his field, is dated from 1619 Indiana Avenue), so the brick house is read as built for it soon after the 1886 survey, not rebuilt under it, and the 1911 outline is carried to 1904 (inferred, never attested: no building date is in hand).",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1623",
+   "printed_number_1911": "1623",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1623"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1623-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D) on a cross plan, its walls drawn with a dashed line, a small frame porch at its south side"
+    },
+    {
+     "id": "s20w-1623-rear",
+     "kind": "detached_service",
+     "reading_1911": "A 2½-storey brick stable (crossed) on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "No named record or 1904 directory row for this lot is in the T-1837 study. Robinson 1886 plate 10 and the 1911 sheet draw the same building on it, a brick house of the same cross plan and a stable on the alley, so it stood across the years either side of 1904: the draft stands the 1911 sheet's outline for 1904 as background, its presence inferred from the two plans (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1637",
+   "printed_number_1911": "1637",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1623_1637_c",
+    "indiana_1637"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1637-rear",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick stable (crossed) on the alley, astride the line between 1637 and the unnumbered strip north of it",
+     "note_1904": "Robinson 1886 draws a stable at this place on the alley."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1911 sheet draws no house on 1637, only the stable on the alley; Robinson 1886 plate 10 draws a brick house at the street and a stable on the alley. The stable is on both plans, so the draft stands it for 1904 as background (study ruling 11) under the block's single liberty. The house is read by T-3068: the U.S. Engineer Office (the Corps of Engineers' Chicago district) used 1637 Indiana Avenue from 1896, and its contract notices are dated from there on 20 and 25 June 1904 (engineering_news_1904_06_30_supplement; lakeside_directory_chicago_1902), so a building stood on the lot on 1 July 1904. It is read as the 1886 house turned office (the Blue Book lists households at 1637 in 1890 and 1894 and none after), and the draft stands it from the plate (r1886-1637-f). Why the 1911 sheet shows no house where the office still was is not read.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1641",
+   "printed_number_1911": "1641",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1641"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1641-rear",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick stable (crossed) on the alley, a dashed line along its west side",
+     "note_1904": "Robinson 1886 draws a stable at this place on the alley."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1911 sheet draws no house on 1641, only the stable on the alley; Robinson 1886 plate 10 draws a brick house with a stone front at the street and a stable on the alley. The stable is on both plans, so the draft stands it for 1904 as background (study ruling 11) under the block's single liberty. The house is read by T-3068: the Blue Book lists the Cummings household at 1641 in every edition from 1890 to 1908, 1904 included (chicago_blue_book_1904), so the 1886 house stood on 1 July 1904 and the draft stands it from the plate (r1886-1641-f).",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1703",
+   "printed_number_1911": "1703",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1703"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1703-front",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D) behind a stone (blue) strip along its Indiana front, a 3B part and a 1B piece behind it, a one-storey frame piece at its south-west corner"
+    },
+    {
+     "id": "s20w-1703-rear",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick building on the alley lettered SHED at its south end, 1-storey ('1') at its north end",
+     "note_1904": "Robinson 1886 draws a stable on the alley here, so the 1911 building is read as the lot's stable."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "No named record or 1904 directory row for this lot is in the T-1837 study. Robinson 1886 plate 10 and the 1911 sheet draw the same building on it, a brick house with a stone front and a stable on the alley, so it stood across the years either side of 1904: the draft stands the 1911 sheet's outline for 1904 as background, its presence inferred from the two plans (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1713",
+   "printed_number_1911": "1713",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1713"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1713-front",
+     "kind": "front",
+     "reading_1911": "2B brick dwelling (D) with shallow bays on both side walls"
+    },
+    {
+     "id": "s20w-1713-rear",
+     "kind": "detached_service",
+     "reading_1911": "A 2-storey brick building on the alley lettered SHED",
+     "note_1904": "Robinson 1886 draws a stable on the alley here, so the 1911 shed is read as the lot's stable."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "No named record or 1904 directory row for this lot is in the T-1837 study. Robinson 1886 plate 10 and the 1911 sheet draw the same building on it, a brick house and a stable on the alley, so it stood across the years either side of 1904: the draft stands the 1911 sheet's outline for 1904 as background, its presence inferred from the two plans (study ruling 11) under the block's single liberty.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  },
+  {
+   "frontage_id": "frontage-20w-1727–1737",
+   "printed_number_1911": "1727–1737",
+   "side": "east",
+   "parcel_ids": [
+    "indiana_1727"
+   ],
+   "polygons": [
+    {
+     "id": "s20w-1727-front",
+     "kind": "front",
+     "reading_1911": "4B brick factory of mill construction across the lots to the 18th Street corner, lettered EASTMAN KODAK CO. 2nd and TAPRELL, LOOMIS & CO., MFG. OF PHOTOGRAPHIC SUPPLIES, 200 and 216 E. 18th St. on its cross-street side"
+    }
+   ],
+   "decision_1904": "backcast_1886",
+   "why": "Robinson 1886 plate 10 draws two frame houses and frame outbuildings on these lots; the 1911 sheet draws the photographic-supply factory across them. Read by T-3068, the factory is later than the scene: Taprell, Loomis & Co. were at 418 Dearborn Street in 1902, and the permit for their four-storey brick building at '1727 bis 1737 Indiana Ave.' was issued in August 1905 (abendpost_1905_08_09_building_permits). So the frontage is backcast and the draft stands the plate's two frame houses (r1886-1727-f and r1886-1735-f), never the 1911 factory. Their survival to 1904 is inferred, not attested: the last dated sign of them is 1893 (the Tribune's 'To rent' notices at 1735), the 1902 directory finds no home at an odd number from 1727 to 1737, and nothing says they were taken down before the permit. The outbuildings are not drafted.",
+   "named_record_ids": [],
+   "front_package": "T-1946"
+  }
+ ],
+ "vacant_ground": []
+}

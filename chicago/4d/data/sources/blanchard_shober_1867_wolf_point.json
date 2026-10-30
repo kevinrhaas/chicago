@@ -1,0 +1,29 @@
+{
+  "id": "blanchard_shober_1867_wolf_point",
+  "type": "illustration",
+  "citation": "Wolf's Point in 1833. Hand-coloured lithograph, published by Rufus Blanchard, lithographed by Chas. Shober & Co., Chicago, 1867. Issued under the auspices of the Chicago Historical Society.",
+  "author": "Rufus Blanchard (publisher); Chas. Shober & Co. (lithographer)",
+  "date": "1867",
+  "describes_date": "1833",
+  "repository": "New York Public Library, I. N. Phelps Stokes Collection; local surrogate through Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:Wolf%27s_Point_in_1833_(NYPL_Hades-118496-54620).tif",
+  "locator": "Local surrogate chicago/reference/images/chicago/chicago_wolf_point_1833_nypl.jpg (1920 x 1697 pixels). Title and publisher below the picture, lithographer at the lower right of the picture, 1867 copyright-deposit line below the publisher.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "The actual sheet was inspected: its copyright-deposit line dates the United States publication to 1867, now out of copyright by age. This record describes the existing NYPL/Commons local surrogate, not a separately licensed commercial scan.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "The committed local image was opened at original resolution and read. Holding institution and Commons URL follow chicago/reference/images/IMAGE_SOURCES.md; the Commons landing page was not freshly readable (HTTP 403). The publication date also appears on the actual sheet and does not depend on that failed request.",
+  "note": "A retrospective lithograph of a scene labelled 1833, published 34 years later. The left bank's tavern is identified by the wolf sign on a tall sapling pole. Two low gable-front volumes stand together, with a broad chimney head emerging above the rear part of the left roof and a separate slender pipe on or beside the adjacent roof. Neither visible head is drawn as a full-height stack standing against a gable wall. The print supports a roof-penetrating stack as inferred form; it does not supply an exact ridge fraction, stack dimension, surveyed footprint or location. The 1833 depiction is applied cautiously as an inferred pre-1835 form, not as proof that nothing changed by 1 July 1835. The pre-refinement inline model did not reproduce these two gable fronts. Neither the earlier parallel-gable trial nor the new L hypothesis warrants a matches verdict without actual rendered review. The same sheet shows Miller House at the right: its tall main block has a horizontal-log ground storey and vertical boards above, continuing into the gable, with three small upper windows over window-door-window. That appearance is a tier-5 form reading; board width, relief, floor-level height and plan dimensions are not measured by this record. T-2386 L re-reading corrects the earlier parallel-gable interpretation: the NYPL left gable roof recedes rightward, the right one leftward, and their inside walls meet at an apparent corner. An orthogonalL is a supported form hypothesis, not an attested plan or scale. The physical polygon and all metric choices remain reconstructed; alternate views/chronology and actual render remain open. The1892-labelled poster is corroborative inspection only: fresh Newberry Poole27 metadata instead says1935/Copyright Not Evaluated, so its reproduction is not a new cleared modelling source. Source credit,1867 rights basis and Miller reading are unchanged. T-2386 actual-render continuation reads horizontal coursing through both facing gables, a markedly screen-left-leaning sapling and rising cross-arm with a tilted suspended board. These visible categories can guide inferred form; no exact timber section, colour, texture, sign drawing, height, local station, overhang or metric/world coordinate is attested by the sheet. The new proposal retains the existing source credit/rights/date limits and requires another actual rendered comparison. T-2386 door/log-relief re-reading: the two entry apertures are dark/open-looking and the course faces show rounded/irregular shading with narrow dark recesses. These guide appearance categories only; no interior, literal measured cross-section, authentic colour/texture or original sign-device likeness is established.",
+  "what_it_supplies": [
+    "A pictured roof-penetrating chimney head over the Wolf Point tavern, identified by its wolf pole sign.",
+    "Two low gable-front volumes and a separate slender roof pipe, which remain open modelling differences.",
+    "A depicted date of 1833 and printed United States publication/deposit year of 1867.",
+    "At right, Miller House with an exposed-log lower storey and vertically boarded upper storey/gable; its exact dimensions and unchanged 1835 appearance remain unproved."
+  ],
+  "what_it_does_not_supply": [
+    "Coordinates, footprint dimensions, an exact stack position along the ridge, or stack width and height.",
+    "Direct evidence of the building's appearance on 1 July 1835.",
+    "A single camera that reconciles this drawing with every retrospective picture of Wolf Point."
+  ]
+}

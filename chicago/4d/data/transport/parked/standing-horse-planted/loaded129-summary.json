@@ -1,0 +1,98 @@
+{
+  "status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
+  "key_count": 65,
+  "midpoint_count": 64,
+  "normalization": [
+    {
+      "mesh": 0,
+      "changed_rows": 28,
+      "changed_components": 34,
+      "maximum_delta": 5.960464477539063e-08,
+      "protected_compared_to_accepted_phase_a": true,
+      "protected_non_tail_rows": 2306,
+      "original_standard_loader_vector_differences_measured_only": 2
+    },
+    {
+      "mesh": 1,
+      "changed_rows": 8,
+      "changed_components": 8,
+      "maximum_delta": 1.4901161193847656e-08,
+      "protected_compared_to_accepted_phase_a": true,
+      "protected_non_tail_rows": 3173,
+      "original_standard_loader_vector_differences_measured_only": 133
+    },
+    {
+      "mesh": 2,
+      "changed_rows": 0,
+      "changed_components": 0,
+      "maximum_delta": 0,
+      "protected_compared_to_accepted_phase_a": true,
+      "protected_non_tail_rows": 3968,
+      "original_standard_loader_vector_differences_measured_only": 0
+    }
+  ],
+  "failures": [],
+  "positions": {
+    "tolerance_m": 1e-05,
+    "maximum_delta_m": 1.3646619141056235e-07,
+    "evaluations": 751140
+  },
+  "normals": {
+    "tolerance_degrees": 0.01,
+    "maximum_angle_degrees": 1.6246314097839457e-06,
+    "evaluations": 751140
+  },
+  "joint_world": {
+    "maximum_translation_error_m": 5.6459639084447026e-08,
+    "maximum_matrix_component_error": 5.645758471839457e-08
+  },
+  "physical": {
+    "maximum_segment_length_error_m": 1.6653345369377348e-16,
+    "maximum_parent_residual_m": 0,
+    "maximum_seam_gap_m": 0,
+    "maximum_contact_error_m": 8.652373712111605e-06
+  },
+  "WebGL_contexts_created": 0,
+  "renderers_created": 0,
+  "walking_enabled": false,
+  "head_tail_composed": false,
+  "shader_normal_algebra": "normalMatrix(meshWorld) * bindInverse * weighted Float32 boneMatrices * bind * normal; no inverse-transpose of weighted blend",
+  "protected_baseline": {
+    "source": "accepted PhaseA declared_known_vectors, one f32 cast; original raw-tail separate",
+    "phase_a_arrays_sha256": "869fdff5ca774f48554d1c762539946084246f9d03f413c5067a79d46827d2f1",
+    "known_vectors_raw_sha256": "bdd44e7ecdecb29fc4ff7e9aee80b4f0a387516d176746380a84ce2c588a85b9",
+    "known_vectors_once_f32_sha256": "d6666edced77e2d45d2590b76774ba7b28020ca53a4a4725c16536fdd241f10f"
+  },
+  "decoded_maps_equal": true,
+  "protected_source_classes": 6506,
+  "tail_vertices": 969,
+  "negative_controls": {
+    "wrong_world_as_local_contact_error_m": 0.0464351979144592,
+    "three_mm_hoof_contact_error_m": 0.0030000046671828785,
+    "three_mm_segment_error_m": 0.0029031427887960537
+  },
+  "loop": {
+    "loopP": 0,
+    "loopR": 0,
+    "loopSkin": 0
+  },
+  "neutral_residual_m": 1.5933575216839742e-07,
+  "original_physical_limits": {
+    "stance_patch_drift_m": 1e-05,
+    "segment_length_error_m": 1e-09,
+    "loop_position_m": 1e-09,
+    "loop_rotation_matrix_abs": 1e-09,
+    "negative_control_min_detected_m": 0.001,
+    "minimum_triangle_edge_ratio": 0.9,
+    "maximum_triangle_edge_ratio": 1.1,
+    "minimum_triangle_area_ratio": 0.8,
+    "maximum_triangle_area_ratio": 1.2,
+    "allowed_rest_relative_triangle_normal_dot_negative": 0,
+    "minimum_all_surface_y_m": -1e-05,
+    "minimum_seam_gap_tolerance_m": 1e-06
+  },
+  "elapsed_ms": 4051.0999999940395,
+  "scope": "Actual standard-loader/Mixer imported13track standing clip at65keys+64midpoints. No renderer/GPUfloat-arithmetic/continuous collision/photographic/app/independentheadtail/walking acceptance.",
+  "raw_result_sha256": "52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997",
+  "summary_scope": "Exact top-level results copied from actual root-run loaded129 V2, excluding large pose/matrix list; no new evaluation."
+}

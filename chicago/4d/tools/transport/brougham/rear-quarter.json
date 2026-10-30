@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "enabled": true,
+  "interpretation": "Recessed dark opaque quarter appearance study; glass/curtain/lining not adjudicated from illustration",
+  "inner_profile_scale": 0.94,
+  "recess_m": 0.008,
+  "material": {
+    "name": "unidentified_dark_quarter_surface_reconstruction",
+    "pbrMetallicRoughness": {
+      "baseColorFactor": [
+        0.006,
+        0.007,
+        0.006,
+        1
+      ],
+      "metallicFactor": 0,
+      "roughnessFactor": 0.46
+    }
+  },
+  "production_accepted": false
+}

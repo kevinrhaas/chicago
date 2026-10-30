@@ -28,7 +28,16 @@ def lintel_outline(o, s):
     a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']
     if not s:return [(a,z0),(c,z0),(c,z1),(a,z1)]
     shoulder=z1-s['lintel_crown_rise_m'];inset=s['lintel_end_inset_m']
-    return [(a+inset,z0),(c-inset,z0),(c,shoulder),((a+c)/2,z1),(a,shoulder)]
+    w=s.get('lintel_crown_width_m')
+    if not w:
+        return [(a+inset,z0),(c-inset,z0),(c,shoulder),((a+c)/2,z1),(a,shoulder)]
+    # T-2972: sheet 5 draws the top flat to the shoulders and raised only under
+    # the tympanum, a shallow segment of this chord and rise; the outline stays convex.
+    m,h,rise=(a+c)/2,w/2,z1-shoulder
+    r=(h*h+rise*rise)/(2*rise);zc=z1-r
+    arc=[(m+r*math.sin(t),zc+r*math.cos(t)) for t in
+         (math.asin(h/r)*(1-2*i/16) for i in range(17))]
+    return [(a+inset,z0),(c-inset,z0),(c,shoulder)]+arc+[(a,shoulder)]
 
 
 def relief_profile(s, cx, cz, radius, stilt=0.):

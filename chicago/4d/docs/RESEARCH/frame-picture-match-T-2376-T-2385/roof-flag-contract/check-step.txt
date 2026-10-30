@@ -1,0 +1,7 @@
+# Phase-specific roof staffs must never hang cloth from a whole building box.
+step "explicit flag anchors preserve fort defaults and reject stale roof mounts" \
+  node tools/test_flag_anchors.mjs
+
+# App consumption must agree with the compiler and the card's geometry claims.
+step "flag form values have an actual renderer and honest geometry labels" \
+  python3 tools/test_flag_form_contract.py

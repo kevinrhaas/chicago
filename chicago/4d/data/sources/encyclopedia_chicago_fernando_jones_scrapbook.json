@@ -1,0 +1,23 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "encyclopedia_chicago_fernando_jones_scrapbook",
+  "type": "website",
+  "citation": "'Clippings on Illinois Women Suffrage Association (Fernando Jones Scrapbook), 1875', The Electronic Encyclopedia of Chicago, entry 10410 (a document from the Chicago History Museum's collection with the encyclopedia's caption).",
+  "author": "The Electronic Encyclopedia of Chicago",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1875",
+  "url": "https://encyclopedia.chicagohistory.org/pages/10410.html",
+  "locator": "The caption under the document image.",
+  "rights_note": "Modern caption text, cited in words only.",
+  "access_notes": "Read 2026-10-30 (T-3250) through a fetch that returned the caption in a short quoted fragment.",
+  "note": "Fragment read: 'Prairie Avenue resident Jane G. Jones was a longtime and outspoken activist for women suffrage'. The scrapbook is her husband Fernando Jones's.",
+  "what_it_supplies": [
+    "Jane G. Jones, a Prairie Avenue resident, as a longtime and outspoken activist for woman suffrage, with clippings of 1875"
+  ],
+  "what_it_does_not_supply": [
+    "her house number, which the Worlds of Prairie Avenue essay gives as 1834"
+  ]
+}

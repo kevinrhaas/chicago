@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-26T18:13:47.909273+00:00",
+  "head": "6b72454ea24960a69c473be630580cdeff274802",
+  "merge_head": "ecfff9f56ce359b70aa520e97d1923c12a6dafb2",
+  "actual_uncommitted_staged_tree": "d0c6566d73e33c3e6dda0f48e1600ab0325f1d6b",
+  "native_generation_tree": "4f91417a72d1fec96418945be6f9ab93fb359656",
+  "only_nongeometry_policy_and_regression_paths": [
+    "chicago/4d/renderers/web/js/buildings.js",
+    "chicago/4d/renderers/web/js/ktx2.js",
+    "chicago/4d/tools/check.sh",
+    "chicago/4d/tools/step_isolation.json",
+    "chicago/4d/tools/test_ktx2_texture_policy.mjs"
+  ],
+  "working_bytes_exact_staged": true,
+  "measurement_header_head_is_parent_not_newcommit": true,
+  "native_generation_publish_actualPASS": true,
+  "mode": "ACTUAL_CURRENT_AFTER_LIGHT_GLB_POLICY_AND_SCALAR_LIFETIME_FIX",
+  "all4CPUs": [
+    0,
+    1,
+    3,
+    4
+  ],
+  "actual_tmp_free": 1857462272,
+  "orchestration_startup_floor": 1000000000,
+  "command": [
+    "node",
+    "tools/measure_memory.mjs",
+    "--gate",
+    "--year",
+    "1904",
+    "--only",
+    "mobile",
+    "--json",
+    "/tmp/jail-currentdev-ending-20261026/memory-after-mip-scalar-mobile/current-1904-mobile.json"
+  ],
+  "held_light_ceiling_MiB": 400,
+  "no_ceiling_changes": true,
+  "purpose": "Measure actual same400MiBLightceiling after boundedinitial+reloadpolicyfix; boundedscalarandconfidencefactoryadopted; noassetorcapchanges"
+}

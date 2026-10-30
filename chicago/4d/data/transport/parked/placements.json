@@ -1,0 +1,261 @@
+{
+  "_doc": "Parked type reconstructions. Five distinct1835wagon placements remain. The obsolete1904C02prototype display is replaced by the Brougham at its existing qualified stand; C02model/assets remain for compatibility. The Brougham follows an evidenced1893catalogue design; its individual presence, owner and stop are reconstructed. L-parked-vehicles-2979; L-covered-wagons-2980; L-brougham-parked-2794.",
+  "models": {
+    "wagon_w01": {
+      "file": "transport/parked-wagon-fine-wood/wagon-w01.glb",
+      "type": "Farm-box wagon",
+      "basis": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified.",
+      "wheel_contacts_m": [
+        [
+          -0.605,
+          -1.175
+        ],
+        [
+          -0.605,
+          1.175
+        ],
+        [
+          0.605,
+          -1.175
+        ],
+        [
+          0.605,
+          1.175
+        ]
+      ]
+    },
+    "carriage_c02": {
+      "file": "transport/parked-carriage/carriage-c02.glb",
+      "type": "Enclosed town carriage",
+      "basis": "Original enclosed-carriage reconstruction for1904, with a dark cabin, painted running gear and glazed openings. It is not identified as a particular maker, catalog model or person's carriage.",
+      "wheel_contacts_m": [
+        [
+          -0.7,
+          -0.95
+        ],
+        [
+          -0.7,
+          0.95
+        ],
+        [
+          0.7,
+          -0.95
+        ],
+        [
+          0.7,
+          0.95
+        ]
+      ],
+      "support_file": "transport/parked-carriage/shaft-rest.glb"
+    },
+    "covered_w01_western_blue": {
+      "file": "transport/covered-wagon/covered_w01_western_blue/covered-w01.glb",
+      "type": "Covered wagon",
+      "basis": "Original empty covered-wagon reconstruction with faded blue body and oxide running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "wheel_contacts_m": [
+        [
+          -0.605,
+          -1.175
+        ],
+        [
+          -0.605,
+          1.175
+        ],
+        [
+          0.605,
+          -1.175
+        ],
+        [
+          0.605,
+          1.175
+        ]
+      ]
+    },
+    "covered_w01_wolfpoint_oak": {
+      "file": "transport/covered-wagon/covered_w01_wolfpoint_oak/covered-w01.glb",
+      "type": "Covered wagon",
+      "basis": "Original empty covered-wagon reconstruction with aged oak body and dark oak running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "wheel_contacts_m": [
+        [
+          -0.605,
+          -1.175
+        ],
+        [
+          -0.605,
+          1.175
+        ],
+        [
+          0.605,
+          -1.175
+        ],
+        [
+          0.605,
+          1.175
+        ]
+      ]
+    },
+    "studebaker_brougham_1893": {
+      "file": "transport/parked-brougham/brougham-near-delivery-v1.glb",
+      "type": "Brougham \u2014 after the 1893 Studebaker catalogue",
+      "basis": "Original empty, unhitched Brougham reconstruction guided by Studebaker's 1893 catalogue illustration, leaf 0095. The shaped roof, curved door, separate footplates, fine step supports and dark rear quarters follow the depicted design. Metric dimensions, unseen construction, paint and surface materials, and this particular vehicle's presence, ownership and stop in 1904 are reconstructed. The catalogue does not identify the dark rear surface as glass or a curtain. Photographic refinement continues.",
+      "design_reference": {
+        "value": "Studebaker Brothers Manufacturing Company \u2014 Brougham, 1893 catalogue",
+        "confidence": "attested",
+        "sources": [
+          "studebaker_1893_illustrated_souvenir"
+        ],
+        "note": "The 1893 catalogue documents this maker and carriage type before the scene date. It does not document this reconstructed individual vehicle, its presence in Chicago or its ownership."
+      },
+      "wheel_contacts_m": [
+        [
+          -0.67,
+          -1.15
+        ],
+        [
+          0.67,
+          -1.15
+        ],
+        [
+          -0.67,
+          1.15
+        ],
+        [
+          0.67,
+          1.15
+        ]
+      ],
+      "static_support_contacts_m": [
+        [
+          -0.0325,
+          0,
+          3.725
+        ],
+        [
+          0.0325,
+          0,
+          3.725
+        ],
+        [
+          -0.0325,
+          0,
+          3.825
+        ],
+        [
+          0.0325,
+          0,
+          3.825
+        ]
+      ],
+      "delivery_lods": {
+        "near": "transport/parked-brougham/brougham-near-delivery-v1.glb",
+        "mid": "transport/parked-brougham/brougham-mid-delivery-v1.glb",
+        "runtime_distance_selection_enabled": true
+      }
+    }
+  },
+  "scenes": {
+    "1835": [
+      {
+        "id": "parked_western_hotel_wagon_yard_wagon",
+        "model": "wagon_w01",
+        "name": "Farm-box wagon",
+        "replaces": "western_hotel_wagon_yard_wagon",
+        "belongs_to": "western_hotel",
+        "location": "Existing 1835 wagon stand",
+        "at_local_enu_m": [
+          -133.05,
+          -289.5
+        ],
+        "bearing_deg": 0.0,
+        "source_ids": [
+          "chicagology_prefire278"
+        ],
+        "liberty": "L-parked-vehicles-2979",
+        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+      },
+      {
+        "id": "parked_town_wagon_western_hotel_wagon_yard_2",
+        "model": "wagon_w01",
+        "name": "Farm-box wagon",
+        "replaces": "town_wagon_western_hotel_wagon_yard_2",
+        "belongs_to": null,
+        "location": "Existing 1835 wagon stand",
+        "at_local_enu_m": [
+          -130.05,
+          -290.0
+        ],
+        "bearing_deg": 176.2,
+        "source_ids": [],
+        "liberty": "L-parked-vehicles-2979",
+        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+      },
+      {
+        "id": "parked_town_wagon_wolf_point_tavern_yard_2",
+        "model": "wagon_w01",
+        "name": "Farm-box wagon",
+        "replaces": "town_wagon_wolf_point_tavern_yard_2",
+        "belongs_to": null,
+        "location": "Existing 1835 wagon stand",
+        "at_local_enu_m": [
+          -86.5,
+          -39.0
+        ],
+        "bearing_deg": 191.2,
+        "source_ids": [],
+        "liberty": "L-parked-vehicles-2979",
+        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+      },
+      {
+        "id": "parked_town_wagon_western_hotel_wagon_yard_1",
+        "model": "covered_w01_western_blue",
+        "name": "Covered wagon \u2014 blue and oxide",
+        "replaces": "town_wagon_western_hotel_wagon_yard_1",
+        "belongs_to": null,
+        "location": "Existing 1835 covered-wagon stand",
+        "at_local_enu_m": [
+          -136.05,
+          -291
+        ],
+        "bearing_deg": 356.2,
+        "source_ids": [],
+        "liberty": "L-covered-wagons-2980",
+        "note": "An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable."
+      },
+      {
+        "id": "parked_town_wagon_wolf_point_tavern_yard_1",
+        "model": "covered_w01_wolfpoint_oak",
+        "name": "Covered wagon \u2014 oak and dark oak",
+        "replaces": "town_wagon_wolf_point_tavern_yard_1",
+        "belongs_to": null,
+        "location": "Existing 1835 covered-wagon stand",
+        "at_local_enu_m": [
+          -90.5,
+          -39.5
+        ],
+        "bearing_deg": 356.2,
+        "source_ids": [],
+        "liberty": "L-covered-wagons-2980",
+        "note": "An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable."
+      }
+    ],
+    "1904": [
+      {
+        "id": "prairie_parked_studebaker_brougham",
+        "model": "studebaker_brougham_1893",
+        "name": "Brougham \u2014 after Studebaker\u2019s 1893 catalogue",
+        "belongs_to": null,
+        "location": "Prairie Avenue carriageway south of Eighteenth Street",
+        "at_local_enu_m": [
+          1397.9,
+          -3240.0
+        ],
+        "bearing_deg": 178.99,
+        "source_ids": [
+          "studebaker_1893_illustrated_souvenir"
+        ],
+        "liberty": "L-brougham-parked-2794",
+        "note": "Reconstructed empty, unhitched parked individual using the 1893 catalogue design reference. The catalogue establishes the maker/type before 1904; neither this particular vehicle, its owner, a household connection nor this curbside stop is documented. Closed doors, no occupant, horse, boarding, traffic or driving."
+      }
+    ]
+  }
+}

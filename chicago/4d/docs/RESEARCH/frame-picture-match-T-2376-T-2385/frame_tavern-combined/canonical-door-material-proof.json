@@ -1,0 +1,14 @@
+{
+  "producer": "emit.emit_structure",
+  "seed": "structure_id__phase_id",
+  "unchanged_existing_door_materials_equal_committed_before": {
+    "green-tree": {
+      "door": true,
+      "door_panel": true
+    },
+    "sauganash": {
+      "door": true,
+      "door_panel": true
+    }
+  }
+}

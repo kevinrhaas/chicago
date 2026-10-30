@@ -76,6 +76,10 @@ PIPE_SIDE = 0.16            # a 6-in pipe, drawn square at this LOD
 BRICK = materials.chimney_finish("interior")
 BRICK_RGBA = BRICK.rgba
 ROOF_MOSS_RGBA = (0.20, 0.26, 0.17, 1.0)   # the Petford view's dark green/moss shingle
+# T-2385: source-specific reconstructed contrast, never a shared stock retune.
+# The actual native roof-only trial selected one quarter of the stock linear RGB;
+# alpha, roughness, roof geometry and every unselected record remain unchanged.
+ROOF_DEEP_BROWN_RGBA = tuple(c * 0.25 for c in materials.roof_finish("darkened").rgba[:3]) + (1.0,)
 
 # The exposed face per course is `params.siding_exposure_m` — a record's own mill
 # stock since T-0049, defaulting to 0.14 m (~5.5 in), which was a constant here.
@@ -131,11 +135,17 @@ def build(params: FrameTavernParams, name: str):
     lines = materials.course_lines(0.0, wall_z, params.siding_exposure_m,
                                    params.siding_lay_m, params.siding_seed)
     _clapboard(b, w, d, lines, c_clad)
-    if params.elevation_scheme == "gable_front":
+    if params.elevation_scheme in ("gable_front", "corner_gable"):
         _clapboard_eaves(b, w, d, lines, c_clad)
 
-    ridge_z = b.add_gable_roof(0, 0, w, d, wall_z, params.roof_pitch_deg, c_roof,
-                               M_ROOF, ridge_along_x=(w >= d))
+    if params.elevation_scheme == "corner_gable":
+        ridge_z = _corner_gable_roof(b, params, w, d, wall_z, c_roof)
+    elif params.gable_wall_cladding:
+        ridge_z = _wall_clad_gable_roof(
+            b, params, w, d, wall_z, c_roof, ridge_along_x=(w >= d))
+    else:
+        ridge_z = b.add_gable_roof(0, 0, w, d, wall_z, params.roof_pitch_deg, c_roof,
+                                   M_ROOF, ridge_along_x=(w >= d))
 
     # windows. "frontage": five bays upper, four plus a centred door below — the
     # arrangement both Sauganash depictions show. "gable_front": even bays along
@@ -143,12 +153,24 @@ def build(params: FrameTavernParams, name: str):
     # "11" draws for the Green Tree (T-0083). Fenestration is not separately
     # attested, so it inherits the record's scheme confidence at best.
     c_fen = params.conf("fenestration", "reconstructed")
-    if params.elevation_scheme == "gable_front":
+    if params.elevation_scheme == "corner_gable":
+        _fenestration_corner_gable(
+            b, params, w, d, wall_z,
+            max(c_fen, params.conf("elevation_scheme")))
+        if params.gable_lunette:
+            _corner_lunettes(b, params, w, d, wall_z)
+        if params.gable_arch_text:
+            _corner_arch_letters(b, params, d, wall_z)
+        if params.flagstaff:
+            _corner_roof_staff(b, params, w, d, ridge_z)
+    elif params.elevation_scheme == "gable_front":
         _fenestration_gable_front(
             b, params, w, d, wall_z, ridge_z,
             max(c_fen, params.conf("elevation_scheme")))
     else:
         _fenestration(b, params, w, d, wall_z, c_fen)
+        if params.end_windows:
+            _end_windows(b, params, w, d, wall_z)
 
     if params.log_wing:
         _log_wing(b, params, d)
@@ -177,7 +199,9 @@ def build(params: FrameTavernParams, name: str):
     if params.stovepipes:
         _stovepipes(b, params, w, d, wall_z, m_pipe)
 
-    if params.chimney_placement == "gable_ends":
+    if params.chimney_placement == "slope_offsets":
+        _corner_slope_stacks(b, params, w, d, wall_z, m_ch)
+    elif params.chimney_placement == "gable_ends":
         c_ch = params.worst_conf(*ch_attrs, "chimney_placement")
         inset = 0.6
         spots = ([(inset, d / 2), (w - inset, d / 2)] if w >= d
@@ -197,8 +221,23 @@ def build(params: FrameTavernParams, name: str):
     # these roofs, and only the building it paints wears its tone (T-0092). Failing
     # that it takes the sheet's weathering CONDITION where the record deals one, and
     # the town's default tone where it does not; neither claims a covering.
-    roof_rgba = (ROOF_MOSS_RGBA if params.roof_colour == "moss_green"
+    # The explicit reconstructed dark_brown option reuses stock solely for
+    # monochrome contrast, without extending the watercolour's colour evidence.
+    roof_rgba = (ROOF_DEEP_BROWN_RGBA if params.roof_colour == "deep_brown"
+                 else ROOF_MOSS_RGBA if params.roof_colour == "moss_green"
+                 else materials.roof_finish("darkened").rgba
+                 if params.roof_colour == "dark_brown"
                  else materials.roof_finish(params.roof_condition).rgba)
+    # A named roof can consciously choose an existing dark stock colour without
+    # becoming infill or claiming a weathering history. The new colour's own
+    # uncertainty reaches EVERY face using that material, including appendages.
+    # Legacy/absent colours retain their exact previous confidence treatment.
+    if params.roof_colour in ("dark_brown", "deep_brown"):
+        c_colour = params.worst_conf("roof_colour")
+        for face, material in zip(b.faces, b.mat_index):
+            if material == M_ROOF:
+                for vertex in face:
+                    b.conf[vertex] = max(b.conf[vertex], c_colour)
 
     # The wall, off the sheet (T-0007). The Sauganash's `paint: white` is the one
     # ATTESTED paint in the whole dataset and it still wins here — what changes is
@@ -362,6 +401,308 @@ def _door(b: MeshBuilder, params: FrameTavernParams, axis: str, plane: float,
                              seed=f"{b.name}|{plane:.2f}|{u0:.2f}", cap=kind != "cabin")
 
 
+def _corner_shutters(b: MeshBuilder, params: FrameTavernParams, axis: str,
+                     plane: float, outward: int, u0: float, u1: float,
+                     z0: float, z1: float) -> None:
+    """Open leaves on either wall axis; every section/detail is reconstructed.
+
+    Gifford supplies shutter occurrence, not its colour, thickness or joinery.
+    Closed boxes keep a visible outward face on both positive/negative walls.
+    Existing frontage shutters retain their original geometry below.
+    """
+    if not params.shutters:
+        return
+    conf = 1.0  # leaf sections/placement are reconstructed, even when occurrence is known
+    leaf_w = (u1 - u0) * 0.42
+    for side in (-1, 1):
+        inner = (u0 if side < 0 else u1) + side * (openings.CASING_W_M + 0.01)
+        outer = inner + side * leaf_w
+        lo, hi = sorted((inner, outer))
+        n0, n1 = sorted((plane + outward * (LIP_M + 0.010),
+                         plane + outward * (LIP_M + 0.035)))
+        if axis == "x":
+            b.add_box(n0, lo, z0, n1, hi, z1, conf, M_SHUTTER)
+        else:
+            b.add_box(lo, n0, z0, hi, n1, z1, conf, M_SHUTTER)
+
+
+def _fenestration_corner_gable(b: MeshBuilder, params: FrameTavernParams,
+                              w: float, d: float, wall_z: float,
+                              conf: float) -> None:
+    """T-2385: three-bay short gables and five-bay long walls, any storey count.
+
+    The pictured pair in Gifford's first Tremont has centred ground entrances
+    and evenly spaced upper sashes. The unseen pair repeats them as an explicit
+    reconstruction, not evidence for four historical doors. Opening sizes,
+    equal stations and floor divisions are the kit's choices. Separate opt-in
+    helpers supply raised landings, the arched gable feature and roof staff;
+    neither this pattern nor those additions claims an image match.
+    """
+    story_h = wall_z / params.stories
+    win_w, win_h = 0.85, 1.35
+    faces = (("x", 0.0, -1, d, 3), ("x", w, 1, d, 3),
+             ("y", 0.0, -1, w, 5), ("y", d, 1, w, 5))
+    for axis, plane, outward, span, bays in faces:
+        for story in range(params.stories):
+            if params.first_story_height_m is None:
+                base, height = story * story_h, story_h
+            elif story == 0:
+                base, height = 0.0, params.first_story_height_m
+            else:
+                height = (wall_z - params.first_story_height_m) / (params.stories - 1)
+                base = params.first_story_height_m + (story - 1) * height
+            z0 = base + height * 0.30
+            for i in range(bays):
+                centre = span * (i + 0.5) / bays
+                if story == 0 and i == bays // 2:
+                    _door(b, params, axis, plane, outward,
+                          centre - 0.6, centre + 0.6, params.entry_raise_m,
+                          params.entry_raise_m + 2.1, conf)
+                    if params.corner_entry_surround:
+                        _corner_entry_surround(b, params, axis, plane, outward,
+                                               centre, params.entry_raise_m)
+                    if params.entry_raise_m > 0:
+                        _corner_landing(b, axis, plane, outward, centre,
+                                        params.entry_raise_m)
+                    continue
+                u0, u1 = centre - win_w / 2, centre + win_w / 2
+                _win(b, params, axis, plane, outward, u0, u1,
+                     z0, z0 + win_h, conf)
+                _corner_shutters(b, params, axis, plane, outward,
+                                 u0, u1, z0, z0 + win_h)
+
+
+def _corner_gable_roof(b: MeshBuilder, params: FrameTavernParams,
+                       w: float, d: float, wall_z: float, conf: float) -> float:
+    """Keep Tremont's existing wide-axis treatment byte-for-byte in geometry."""
+    return _wall_clad_gable_roof(b, params, w, d, wall_z, conf,
+                                ridge_along_x=True)
+
+
+def _wall_clad_gable_roof(b: MeshBuilder, params: FrameTavernParams,
+                         w: float, d: float, wall_z: float, conf: float,
+                         ridge_along_x: bool) -> float:
+    """Main roof planes unchanged; wall finish/course relief on end triangles.
+
+    Pictured clapboard informs the opt-in, while course dimensions and unseen
+    opposite triangles remain reconstructed. Subsidiary roofs are separate.
+    """
+    # Work in ridge/run coordinates, swapping only for a deep-axis ridge.
+    if not ridge_along_x:
+        w, d = d, w
+
+    def poly(points, confidence, material):
+        if not ridge_along_x:
+            # Swapping x/y reverses handedness; reverse winding back outward.
+            points = [(y, x, z) for x, y, z in reversed(points)]
+        b.add_poly(points, confidence, material)
+
+    x0,x1,y0,y1 = -ROOF_OVERHANG,w+ROOF_OVERHANG,-ROOF_OVERHANG,d+ROOF_OVERHANG
+    mid = d/2
+    ridge = wall_z + (d/2+ROOF_OVERHANG)*math.tan(math.radians(params.roof_pitch_deg))
+    poly([(x0,y0,wall_z),(x1,y0,wall_z),(x1,mid,ridge),(x0,mid,ridge)],conf,M_ROOF)
+    poly([(x1,y1,wall_z),(x0,y1,wall_z),(x0,mid,ridge),(x1,mid,ridge)],conf,M_ROOF)
+    for x,outward in ((x0,-1),(x1,1)):
+        pts=[(x,y0,wall_z),(x,mid,ridge),(x,y1,wall_z)]
+        if outward>0: pts.reverse()
+        poly(pts,1.0,M_WALL)
+        lines=materials.course_lines(wall_z,ridge,params.siding_exposure_m,
+                                     params.siding_lay_m,params.siding_seed)
+        for z in lines:
+            if z-wall_z<0.02 or z>=ridge: continue
+            half=(d/2+ROOF_OVERHANG)*(ridge-z)/(ridge-wall_z)
+            lower=(d/2+ROOF_OVERHANG)*(ridge-(z-0.02))/(ridge-wall_z)
+            pts=[(x,mid-half,z),(x,mid+half,z),
+                 (x+outward*0.018,mid+lower,z-0.02),
+                 (x+outward*0.018,mid-lower,z-0.02)]
+            if outward>0: pts.reverse()
+            poly(pts,1.0,M_WALL)
+    return ridge
+
+
+def _corner_wall_box(b: MeshBuilder, axis: str, plane: float, outward: int,
+                     u0: float, u1: float, n0: float, n1: float,
+                     z0: float, z1: float, mat: int = M_WALL) -> None:
+    """A solid box outside either wall normal; sections are reconstructed."""
+    lo, hi = sorted((plane + outward * n0, plane + outward * n1))
+    if axis == "x":
+        b.add_box(lo, u0, z0, hi, u1, z1, 1.0, mat)
+    else:
+        b.add_box(u0, lo, z0, u1, hi, z1, 1.0, mat)
+
+
+def _corner_entry_surround(b: MeshBuilder, params: FrameTavernParams,
+                           axis: str, plane: float, outward: int,
+                           centre: float, raised: float) -> None:
+    """Plain broad jamb/header outline; stock and hidden repeats reconstructed.
+
+    Gifford shows an outlined entry, not a measured order of columns. Keep the
+    existing door opening/leaf and add neither a pediment nor decorative text.
+    """
+    trim = _kit(b, params).casing
+    half, stock, top = 0.60, 0.14, raised + 2.10
+    for side in (-1, 1):
+        lo, hi = sorted((centre + side*half, centre + side*(half+stock)))
+        _corner_wall_box(b, axis, plane, outward, lo, hi,
+                         LIP_M+0.035, LIP_M+0.10, raised, top, trim)
+    _corner_wall_box(b, axis, plane, outward, centre-half-stock,
+                     centre+half+stock, LIP_M+0.035, LIP_M+0.10,
+                     top, top+stock, trim)
+
+
+def _corner_landing(b: MeshBuilder, axis: str, plane: float, outward: int,
+                    centre: float, rise: float) -> None:
+    """Raised plank platform, four-step working profile and simple side guards.
+
+    Only occurrence is pictured. Width/depth, risers, stock and the mirrored
+    unseen entries are reconstruction. Projections do not enlarge footprint.
+    """
+    wide, deep = 2.2, 1.2
+    lo, hi = centre - wide / 2, centre + wide / 2
+    _corner_wall_box(b, axis, plane, outward, lo, hi, 0.025, deep,
+                     rise - 0.08, rise)
+    for u in (lo + 0.08, hi - 0.08):
+        _corner_wall_box(b, axis, plane, outward, u - 0.045, u + 0.045,
+                         deep - 0.14, deep - 0.05, 0.0, rise - 0.08)
+    count = max(1, math.ceil(rise / 0.18))
+    for step in range(1, count + 1):
+        top = rise * step / count
+        near = deep + (count - step) * 0.28
+        _corner_wall_box(b, axis, plane, outward, centre - 0.70, centre + 0.70,
+                         near, near + 0.28, 0.0, top)
+    for u in (lo + 0.06, hi - 0.06):
+        for n in (0.08, deep - 0.08):
+            _corner_wall_box(b, axis, plane, outward, u - 0.035, u + 0.035,
+                             n - 0.035, n + 0.035, rise, rise + 0.85)
+        for z in (rise + 0.40, rise + 0.80):
+            _corner_wall_box(b, axis, plane, outward, u - 0.025, u + 0.025,
+                             0.08, deep - 0.08, z, z + 0.045)
+
+
+def _corner_lunettes(b: MeshBuilder, params: FrameTavernParams,
+                     w: float, d: float, wall_z: float) -> None:
+    """Shallow arched gable feature; glazing/radial bars are reconstruction.
+
+    Gifford's dark arch is clear but its fine lettering/pane interpretation
+    is not. Draw the visible arched outline without claiming a legible sign.
+    """
+    opaque = params.gable_arch_treatment == "opaque_panel"
+    # Matte warm charcoal is a reconstructed tonal choice, not an original
+    # pigment identification from the monochrome reproduction.
+    field_mat = (b.named_mat("gable_panel", (0.11, 0.10, 0.09, 1.0), 0.95)
+                 if opaque else M_GLASS)
+    half, rise, base = d * 0.20, 0.74, wall_z + 0.55
+    rim, samples = 0.09, 16
+    for plane, outward in ((-ROOF_OVERHANG, -1), (w + ROOF_OVERHANG, 1)):
+        def point(u, z, off=0.025):
+            return (plane + outward * off, u, z)
+        def face(pts, mat):
+            a,c,e=pts[:3]
+            normal=(c[1]-a[1])*(e[2]-a[2])-(c[2]-a[2])*(e[1]-a[1])
+            if normal*outward<0: pts.reverse()
+            b.add_poly(pts,1.0,mat)
+        mid = d / 2
+        outer = [(mid + half * math.cos(math.pi * i / samples),
+                  base + rise * math.sin(math.pi * i / samples))
+                 for i in range(samples + 1)]
+        inner = [(mid + (half-rim) * math.cos(math.pi * i / samples),
+                  base + rim + (rise-2*rim) * math.sin(math.pi * i / samples))
+                 for i in range(samples + 1)]
+        # Opening field as triangles, front/back facing handled explicitly.
+        for i in range(samples):
+            pts = [point(mid, base + rim), point(*inner[i]), point(*inner[i+1])]
+            face(pts,field_mat)
+            pts = [point(*outer[i],off=0.045), point(*outer[i+1],off=0.045),
+                   point(*inner[i+1],off=0.045), point(*inner[i],off=0.045)]
+            face(pts,M_WALL)
+        _corner_wall_box(b, "x", plane, outward, mid-half, mid+half,
+                         0.025, 0.070, base-0.06, base+rim)
+        # Preserve the old fanlight only by default. The opaque-panel opt-in
+        # removes unsupported glazing bars; source lettering remains unresolved.
+        for angle in (() if opaque else (math.pi/4, math.pi/2, 3*math.pi/4)):
+            u, z = mid + (half-rim) * math.cos(angle), base+rim+(rise-2*rim)*math.sin(angle)
+            du, dz = u-mid, z-(base+rim); length = math.hypot(du,dz)
+            nx, nz = -dz/length*0.018, du/length*0.018
+            pts=[point(mid+nx,base+rim+nz,0.055),point(u+nx,z+nz,0.055),
+                 point(u-nx,z-nz,0.055),point(mid-nx,base+rim-nz,0.055)]
+            face(pts,M_WALL)
+
+
+
+# The six needed stroke-capital shapes are copied from this project's existing
+# prairie_draft.GLYPHS (T-2399), adapted to MeshBuilder. No font/source pixels.
+_ARCH_NAME_GLYPHS = {'T': ([(0, 6, 4, 6), (2, 6, 2, 0)], 5.6), 'R': ([(0, 0, 0, 6), (0, 6, 4, 6), (4, 6, 4, 3), (4, 3, 0, 3), (1.5, 3, 4, 0)], 5.6), 'E': ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0), (0, 3, 3, 3)], 5.6), 'M': ([(0, 0, 0, 6), (0, 6, 2.5, 3), (2.5, 3, 5, 6), (5, 6, 5, 0)], 6.6), 'O': ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0)], 5.6), 'N': ([(0, 0, 0, 6), (0, 6, 4, 0), (4, 0, 4, 6)], 5.6)}
+
+
+def _corner_arch_letters(b: MeshBuilder, params: FrameTavernParams,
+                         d: float, wall_z: float) -> None:
+    """Known house-name reconstruction on the pictured x_min opaque panel only.
+
+    Gifford's native inscription is unresolved. These are invented light paint
+    strokes with reconstructed confidence, not an attested glyph transcription.
+    """
+    if not params.gable_arch_text:
+        return
+    quads, cursor = [], 0.0
+    for char in params.gable_arch_text:
+        strokes, advance = _ARCH_NAME_GLYPHS[char]
+        for x0, y0, x1, y1 in strokes:
+            ax, ay = cursor + x0 + .45, y0 + .45
+            bx, by = cursor + x1 + .45, y1 + .45
+            length = math.hypot(bx-ax, by-ay)
+            dx, dy = (bx-ax)/length, (by-ay)/length
+            ax, ay, bx, by = ax-dx*.45, ay-dy*.45, bx+dx*.45, by+dy*.45
+            px, py = -dy*.45, dx*.45
+            quads.append([(ax-px,ay-py),(bx-px,by-py),(bx+px,by+py),(ax+px,ay+py)])
+        cursor += advance
+    xs=[p[0] for q in quads for p in q];ys=[p[1] for q in quads for p in q]
+    xmin,xmax,ymin,ymax=min(xs),max(xs),min(ys),max(ys)
+    width=d*(2.68/9.14)
+    mat=b.named_mat("gable_letter_paint",(.65,.62,.55,1.0),.95)
+    for quad in quads:
+        # Five millimetres in front of the existing .025m opaque field plane.
+        pts=[(-ROOF_OVERHANG-.030,
+              d/2+width/2-(x-xmin)/(xmax-xmin)*width,
+              wall_z+.65+(y-ymin)/(ymax-ymin)*.32) for x,y in quad]
+        # All strokes face x_min; every new vertex stays reconstructed.
+        a,c,e=pts[:3]
+        nx=(c[1]-a[1])*(e[2]-a[2])-(c[2]-a[2])*(e[1]-a[1])
+        if nx>0:pts.reverse()
+        b.add_poly(pts,1.0,mat)
+
+
+def _corner_slope_stacks(b: MeshBuilder, params: FrameTavernParams,
+                         w: float, d: float, wall_z: float, mat: int) -> None:
+    """Four offset stacks read as occurrences, with reconstructed plan/stature.
+
+    A provisional picture camera bounds these fractional positions; no source
+    supplies metres or hidden roof penetrations. Keep old ridge layouts intact.
+    """
+    stations = ((0.04,0.86,1.75), (0.23,0.40,0.60),
+                (0.525,0.23,1.00), (0.82,0.08,1.20))
+    t = math.tan(math.radians(params.roof_pitch_deg))
+    for fu,fv,rise in stations:
+        u,v = w*fu,d*fv
+        roof = wall_z + (min(v,d-v)+ROOF_OVERHANG)*t
+        b.add_box(u-0.225,v-0.25,roof-0.30,u+0.225,v+0.25,roof+rise,
+                  1.0,mat,skip=("bottom",))
+        b.add_box(u-0.275,v-0.30,roof+rise,u+0.275,v+0.30,roof+rise+0.075,
+                  1.0,mat,skip=("bottom",))
+
+
+def _corner_roof_staff(b: MeshBuilder, params: FrameTavernParams,
+                       w: float, d: float, ridge_z: float) -> None:
+    """The pictured roof spar only; cloth belongs to the app's flag layer.
+
+    flags.js currently anchors at a standalone staff's whole-mesh bounds.
+    It needs an explicit roof-staff anchor before this hotel may fly its cloth;
+    do not turn on form.flag on the hotel and hang it at the wrong point.
+    """
+    u,v = w*0.37,d/2
+    b.add_box(u-0.035,v-0.035,ridge_z-0.15,
+              u+0.035,v+0.035,ridge_z+params.flagstaff_height_m,1.0,M_WALL)
+
+
 def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: float,
                               d: float, wall_z: float, ridge_z: float,
                               conf: float) -> None:
@@ -369,8 +710,9 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
     (data/sources/assets/prefire_views_kevin_2026_08/p6_0.png, T-0083): even
     sash bays along both eaves elevations, the front gable carrying a centred
     door with flanking windows, and a small attic light in each gable peak —
-    the one John Gray attests. The BAY COUNT is the archetype's arithmetic on
-    the footprint, not a record's; docs/LIBERTIES.md L149 owns the arrangement.
+    the one John Gray attests. The default bay count is the archetype's
+    footprint arithmetic; a sparse eaves_bays override changes only the pictured
+    face named by the record (T-2376). Unnamed faces keep their existing layout.
 
     Windows are recesses rather than holes, same as _fenestration; the scheme
     draws no shutters (validate refuses the combination rather than guessing).
@@ -379,8 +721,10 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
     win_w, win_h, depth = 0.85, 1.35, 0.06
 
     # ---- even bays along the two eaves elevations (the x faces) ----------- #
-    bays = max(3, min(7, round(d / 2.2)))
+    default_bays = max(3, min(7, round(d / 2.2)))
     for face, x_wall, sgn in (("x_min", 0.0, -1.0), ("x_max", w, 1.0)):
+        bays = params.eaves_bays.get(face, default_bays)
+        side_conf = max(conf, params.conf("eaves_bays")) if face in params.eaves_bays else conf
         for story in range(params.stories):
             z0 = story * story_h + story_h * 0.30
             for i in range(bays):
@@ -389,18 +733,23 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
                 # elevation the record names — a door instead of that bay
                 if story == 0 and face == params.side_entrance_face and i == bays // 2:
                     _door(b, params, "x", x_wall, int(sgn), cy - 0.6, cy + 0.6, 0.0,
-                          2.1, conf)
+                          2.1, side_conf)
                     continue
                 _win(b, params, "x", x_wall, int(sgn), cy - win_w / 2, cy + win_w / 2,
-                     z0, z0 + win_h, conf)
+                     z0, z0 + win_h, side_conf)
 
-    # ---- the front gable: centred door, flanking bays ---------------------- #
-    _door(b, params, "y", d, 1, w / 2 - 0.6, w / 2 + 0.6, 0.0, 2.1, conf)
+    # ---- front gable: legacy centre door, optional ground-only layout ----- #
+    layout = params.front_ground_layout
+    door_cx, ground_sash_centres = params.resolved_front_ground_stations
+    ground_conf = conf if layout is None else max(conf, params.conf("front_ground_layout"))
+    _door(b, params, "y", d, 1, door_cx - 0.6, door_cx + 0.6, 0.0, 2.1, ground_conf)
     for story in range(params.stories):
         z0 = story * story_h + story_h * 0.30
-        for cx in (w * 0.22, w * 0.78):
+        centres = (w * .22, w * .78) if story else ground_sash_centres
+        window_conf = ground_conf if story == 0 else conf
+        for cx in centres:
             _win(b, params, "y", d, 1, cx - win_w / 2, cx + win_w / 2, z0, z0 + win_h,
-                 conf)
+                 window_conf)
 
     # ---- the rear gable ---------------------------------------------------- #
     # With a rear ell the storey windows would open into the ell's roof space;
@@ -575,6 +924,25 @@ def _fenestration(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
                                    c_shut, M_SHUTTER)
                         if params.shutter_type == "louvred":
                             _louvres(b, params, lo, hi, yl, sgn, z0, win_h)
+
+
+def _end_windows(b: MeshBuilder, params: FrameTavernParams, w: float,
+                 d: float, wall_z: float) -> None:
+    """Only the record's sash on the main gables; no openings invented by default."""
+    c = params.conf("end_windows", "reconstructed")
+    for end, at, z, width, height in params.end_windows:
+        out = 1 if end == "+x" else -1
+        plane = w if out == 1 else 0.0
+        bottom, top = z - height / 2, z + height / 2
+        # add_gable_roof closes its triangle at the overhanging rake's plane.
+        # A sash placed on the wall plane would disappear behind that triangle.
+        attic = bottom >= wall_z
+        if attic:
+            plane += out * ROOF_OVERHANG
+        uc = at * d
+        _win(b, params, "x", plane, out, uc - width / 2, uc + width / 2,
+             bottom, top, c, skin=0.0 if attic else LIP_M)
+
 
 
 def _frontispiece(b: MeshBuilder, params: FrameTavernParams, cx: float,

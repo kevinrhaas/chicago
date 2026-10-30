@@ -1,0 +1,73 @@
+{
+  "structure_id": "house_1708_prairie",
+  "view": "ghm_christmas",
+  "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
+  "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a",
+  "camera_sha256": "4893b771de1fcf78fddee6fc5dbaa01fb16b33750e37c58a8956117510cefc7f",
+  "photo_sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1708_prairie/ghm_christmas-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: a flat-topped brick front of three storeys, taller than 1706's cornice, its north wall standing clear above the townhouses",
+      "status": "fixed",
+      "how": "T-3188: the 1911 sheet's front block (7.5 m along the street) on K01 under a flat deck, its north corner rendering at x 185 where the print has it at 182, its brick north wall rising over 1706's cornice line"
+    },
+    {
+      "what": "the canted bay on the south part of the front, through the lower two storeys to a flat top about 8.85 m over grade",
+      "status": "fixed",
+      "how": "T-3188: K08's canted bay in the front's brick, 3.65 m at the wall and 0.9 m out (the sheet's), its two storeys 5.0 and 3.6 m under a nearly flat tin top; its top renders on the print's line; a 0.7 m light in each splay a storey, the print's second-storey light in the north splay rendering on it"
+    },
+    {
+      "what": "the third storey's two windows and the second storey's one north of the bay, each under a hood whose ends drop past the head",
+      "status": "fixed",
+      "how": "T-3188: K09's restrained surround (an architrave under a cornice hood on consoles) on both upper storeys, on columns s 3.2 and 5.9 m; sills 5.74 and 9.19 m and glass to 7.43 and 10.81 m, each within about 5 px"
+    },
+    {
+      "what": "the string course across the front closing the frieze under the cornice",
+      "status": "fixed",
+      "how": "T-3188: one named stone belt at 11.95-12.2 m (stone_front.belts), on the print's line; no belt at the floors, where the print shows none"
+    },
+    {
+      "what": "the cornice: the print's deep plain crown about 13.0-13.55 m over grade",
+      "status": "within tolerance",
+      "how": "T-3188: K10's moulded stone cornice, its box and the blocking course K05 lays over every flat K01 front stand 12.64-13.87 m: the same crown, its foot about 0.35 m lower and the blocking course's top about 0.3 m over the print's, both about a foot and inside what the camera's eye-height scale carries"
+    },
+    {
+      "what": "the third storey's south window's place along the front",
+      "status": "within tolerance",
+      "how": "T-3188: read through the camera at about s 3.2 m and built there; the bay's north edge reads about 0.7 m further north than the sheet draws it, so places along the front hold to about half a metre"
+    },
+    {
+      "what": "the frieze's panels between the string course and the cornice",
+      "status": "within tolerance",
+      "how": "T-3188: faint upright divisions in the print's frieze, not built: under a foot proud and only a few pixels wide"
+    },
+    {
+      "what": "the hood's ears",
+      "status": "within tolerance",
+      "how": "T-3188: K09's consoles drop below the hood's ends a little shorter than the print's ears; a few pixels"
+    },
+    {
+      "what": "the ground storey at the north end: the entrance and its hood",
+      "status": "not shown",
+      "how": "T-3188: hidden here behind 1706's porch and a street lamp; built from the Chicagology photograph"
+    },
+    {
+      "what": "colour: the brick's and the stone's",
+      "status": "fixed",
+      "how": "T-3244: the front's brick prints as dark as the pair's next door, darker than its own stone, here and in the 1901 photograph: laid in K03's red-brown panel over the light stone basement and belt; the side walls, not shown, stay the common brick (docs/RESEARCH/colour-1700-block-T-3244/README.md)"
+    },
+    {
+      "what": "the bay's south end, the south wall, the rear range and the roof deck",
+      "status": "not shown",
+      "how": "T-3188: outside the frame or turned away from the camera"
+    },
+    {
+      "what": "the iron fence and posts along the street line in the foreground, the walk in to the stair",
+      "status": "not shown",
+      "how": "T-3205: this frame holds 1708's stair only at its left edge and its fence falls outside it; the fence, gate and walk are compared in chicagology_townhouses and the street stills (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

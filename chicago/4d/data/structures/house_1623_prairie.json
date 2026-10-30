@@ -25,7 +25,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448505.693,
@@ -566,6 +567,43 @@
             "building_budget_1886_06_hamline_farwell_houses"
           ],
           "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille let into its reveal 0.05 m behind the face, as the drawing draws it (T-2818): eight close uprights from the sill to a bar at 0.57 m, a bar across them 0.25 m over the sill, and over the bar a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing draws a row of about six C-scrolls over its uprights at about 0.58-0.9 m and a bar across them at about 0.25 m. Read from the drawing: the rails, the grille's place, its band of scrolls and the number of them; reconstructed (the value's grade): every bar's count and section, and each scroll's curl (L-k01-1623-farwell-entrance-2728). T-2817: the landing's guard, which the drawing draws at the stoop's head running south along the landing before the porch's south jamb (x 277-335, v about 3.9-6.15 at the landing's edge), an ornamental panel at its south end (about x 302-327, v 5.45-6.0): built from the stoop rail's head newel to a newel at v 6.15, at the stoop rail's height, with its handrail, a foot bar and the rail's baluster pitch, and in the panel a lozenge of flat bar on a ring between two posts, where the drawing's ornament is too small to read (reconstructed, L-k01-1623-farwell-entrance-2728). The drawing's guard rail stands lower than the kit's 0.86 m over the landing (about 0.25-0.6 m, the plate's heights at the stoop's head being loose); it is built at the stoop rail's height, which a landing's guard needs. T-2819: the carved band at the arches' springing, which the drawing draws as a band of carving across the front on the north pier, between the arches and south of the porch's mouth, level with the window's transom, between y 534 and 556: through the solved camera (46 px/m at the front, its eye 1.6 m up at y 618) about 2.95-3.4 m, its top the drawn springing (y 535, the ticket's 3.4 m). Built as a dressed belt course from 2.95 to 3.4 m (`carved_band`), cut by the window's and the porch's openings, and on each run of it the oriel's frieze carving, a guilloche of interlaced rings 0.34 m across, where the drawing's carving is foliage too small to read (reconstructed, L-k01-1623-farwell-entrance-2728). Both arches spring a little over it (the window's at 3.6 m, the porch's at 3.525 m), their jambs rising past the band, as the drawing's arches are stilted over theirs."
+        },
+        "boundary": {
+          "value": {
+            "layout": "open",
+            "lot_s_m": [
+              -1.16,
+              6.161
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3215: no boundary across the front. Treat & Foltz's 1886 drawing of the Farwell house (data/reference_views/house_1623_prairie/building_budget_front.json) draws the stoop climbing straight up from the walk between its iron rails and the low railed terrace beside it, and no fence, wall, coping or gate across the front yard. Carried to 1904 on that drawing alone (the house as designed, eighteen years before the scene; no later picture of the front is held), so INFERRED. The stoop's rails, newels and the terrace's railing are the house's own and stay as built. The lot's sides are parcel prairie_1623's street corners (data/street_grid/1904.json) in this frame, s -1.16 and 6.161."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.75,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.7
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3215 (the owner, 2026-10-27). The drawing's stoop rises from the ground in front of the house with no fence before it, so the walk is laid in flags from the stoop's foot, its width (1.7 m), straight out to the inner edge of the public walk, 3.8 m before the street front; the lawn covers the rest of the front yard. The drawing hatches the ground and does not show a walk's line or material. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
         }
       }
     }

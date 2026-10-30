@@ -1,0 +1,235 @@
+{
+  "id": "pullman_glasshouse_1800_calumet_east_end",
+  "phase": "as_standing_1904",
+  "name": "Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13",
+  "aka": [
+    "1800 S. Calumet Avenue",
+    "Pullman greenhouses"
+  ],
+  "archetype": "k13_conservatories",
+  "asset": "gltf/pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves.",
+    "to_is": "seen"
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1487.476,
+    "local_n": -3280.504,
+    "rotation_deg": -1.014,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "position_note": "The north-west corner, read off the committed sheet 28 raster at pixel (3519, 2480) where the drawn wall lines cross, and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json; 1.47 m RMS on independent standing houses): local E 1487.48, N -3280.50. The bearing turns the plan onto the sheet's own ruled lines (1.014 degrees off east in that fit), so the building runs square to the lot as drawn.",
+    "symbolic_location": "1800 S. Calumet Avenue, parcel calumet_1800 (data/street_grid/1904.json): the Pullman estate's glasshouse ground across 18th Street from the house, west side of Calumet Avenue between 18th and 20th Streets; the narrower rounded end of the east range, nearest Calumet Avenue.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.932,
+        0.0
+      ],
+      [
+        4.128,
+        -0.273
+      ],
+      [
+        5.086,
+        -1.037
+      ],
+      [
+        5.618,
+        -2.142
+      ],
+      [
+        5.618,
+        -3.369
+      ],
+      [
+        5.086,
+        -4.473
+      ],
+      [
+        4.128,
+        -5.238
+      ],
+      [
+        2.932,
+        -5.511
+      ],
+      [
+        0.0,
+        -5.511
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "From the corner at the origin, u along the range and v across it (v = -z of the kit's plan, so north on an east-west range and east on a north-south one). The drawn wall lines' centres on the sheet (x 3519-3632, y 2480-2589) at 0.0506 m a pixel: 2.93 by 5.51 m. The straight part runs 2.93 m to the centre of the semicircle drawn at the east end (pixel x 3577)."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The sheet prints '1' on the glasshouse: one storey.",
+      "geometry": "simplified"
+    },
+    "construction": {
+      "value": "glass",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "Lettered 'GLASS R'F' / 'GLASS ROOF' on the sheet, over the blue wash this copy gives the whole glasshouse ground. The kit stands the glass on a brick plinth.",
+      "geometry": "simplified"
+    },
+    "conservatory": {
+      "value": {
+        "id": "k13.house.pullman_1800_east_end",
+        "form": "span_apse",
+        "length_m": 2.932,
+        "eave_m": 5.5,
+        "pitch_deg": 14,
+        "facets": 7,
+        "bays": 2,
+        "door": null,
+        "gutters": [
+          {
+            "eave": "round",
+            "outlet": "both"
+          }
+        ],
+        "ridge_vent": false,
+        "planting": [
+          "bench_front",
+          "bench_back"
+        ],
+        "abuts": [
+          "end_left"
+        ],
+        "width_m": 5.511,
+        "rotunda": {
+          "podium_m": 1.6,
+          "podium_out_m": 0.1,
+          "column_radius_m": 0.22,
+          "entablature": {
+            "from_m": 4.65,
+            "height_m": 0.55,
+            "out_m": 0.15
+          },
+          "dome": {
+            "radius_m": 1.5,
+            "segments": 24,
+            "rings": 4,
+            "rise_m": 1.45,
+            "rib_m": 0.06
+          },
+          "straight_columns": 1
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "inland_1894_pullman_conservatory",
+        "aic_lowe_pullman_conservatory_c1897"
+      ],
+      "note": "The plan is the sheet's (inferred): the rounded east end the sheet draws and the short straight part joining it to the range. T-3179: the plate and the Lowe photograph show the whole of it as a glazed colonnade, stone columns on a low podium with the glass between them, under an entablature level with the range's coping (about 6.0 m), and a low ribbed dome over the curve whose crown stands about 7.3 m up. RECONSTRUCTED: a column at every joint of the kit's seven-sided curve and one midway along each side of the straight part, the podium's height and the dome's profile (L-pullman-conservatory-3179). T-3164: measured against the range's own windows in the Inland plate (about 25 px to the metre there), the podium stands about 1.6 m and the entablature runs about 1.4 m deep from about 4.65 m, so the podium's top and the entablature's underside carry on the range's two string courses (1.6 m and 4.65 m), and the columns, about 0.45 m thick in both pictures, stand about 3.0 m between them; the podium was 1.0 m and the columns ran to 5.35 m under a 0.7 m entablature."
+    },
+    "function": {
+      "value": "glasshouse",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The 1911 sheet letters the range 'GREEN HO.' with a glass roof ('GLASS R'F' / 'GLASS ROOF'), and the sheet-28 census allocates it to the Pullman estate (s28-pullman-service-garden), on the placement of Beman's conservatory 'across 18th Street from the house (toward Calumet)' in the image research; no deed has been read. The census row s28-pullman-greenhouse-east names the range 'with its rounded east end, joined to the north range'."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "aic_lowe_pullman_conservatory_c1897",
+      "citation": "Unknown photographer. Pullman, George M., Residence [the conservatory from 18th Street]. Photograph, c. 1897 (holder's view date). Chicago History Museum original; copy in the David Garrard Lowe Historic Chicago Photograph Collection, Art Institute of Chicago, Ryerson and Burnham Archives, 201602_170420-1229.",
+      "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/76204",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a cross-check of the plate's heights and forms a few years later",
+        "that nothing in the view changed between 1894 and c. 1897"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 state",
+        "colour",
+        "its own camera distance: the print is cropped, so its fit is diagnostic"
+      ]
+    },
+    {
+      "source_id": "inland_1894_pullman_conservatory",
+      "citation": "Inland Architect Press. Conservatory of Geo. M. Pullman, Chicago. S. S. Beman, Architect. Photographic plate in The Inland Architect and News Record, vol. 24, no. 4 (1894). Art Institute of Chicago, Ryerson and Burnham Archives, Archival Image Collection (Inland Architect plates), IA2404_1676.",
+      "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/8465",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the conservatory's sections, heights and openings through its camera (49.5 px/m on the north front)",
+        "the east range's masonry face, windows and coping height, and its round end's colonnade and dome",
+        "the north range's north end as a low curved glass roof"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 state: the plate is 1892-94, and the 1911 sheet draws a longer north range than it shows",
+        "colour: the plate is monochrome",
+        "the south and west sides, and the ranges' roofs behind their parapets"
+      ]
+    },
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+        "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+        "Its own printed Scale of Feet"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    }
+  ],
+  "research_note": "T-3164 (piece 1 of T-1934): Pullman's glasshouse ground across 18th Street, which the district draft left empty because the sheet-28 trace never drew it (T-2335, L-draft-prairie-16-18-east-2335). Read off sheet 28 by hand at the pixels named in each note, as T-2306 read the house's own bay off sheet 20, because the colour trace cannot separate these ranges: the lodge's pink wash spills diagonally across the east range on this copy. Every size above the plan is the K13 kit's reconstruction (L-pullman-glasshouses-1800-calumet-3164). T-3165 works the glasshouses to the 1894 plates and the photographs and replaces what they contradict.",
+  "research_doc": "",
+  "review_required": false,
+  "called": "Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range"
+}

@@ -17,11 +17,11 @@
   {
    "id": "west_water",
    "name_1835": "West Water Street",
-   "mean_east_local_m": -14.59,
+   "mean_east_local_m": -14.63,
    "measured_over_the_band": {
     "from_northing_m": -506.86,
     "to_northing_m": 1.34,
-    "samples_reached": 321,
+    "samples_reached": 323,
     "of_samples": 401,
     "why": "the northing range of the committed West Division plat blocks — the blocks this line bounds. A trace extended beyond it does not move this figure (T-1549)."
    },
@@ -180,11 +180,11 @@
   {
    "east": "west_water",
    "west": "canal",
-   "committed_m": 141.01,
-   "committed_ft": 462.6,
+   "committed_m": 140.97,
+   "committed_ft": 462.5,
    "the_plat_asks_ft": 458.0,
-   "short_by_ft": -4.6,
-   "short_by_m": -1.41,
+   "short_by_ft": -4.5,
+   "short_by_m": -1.37,
    "the_datum_residual_m": 17.5,
    "inside_the_datum_residual": true,
    "blocks_cut_between_these_lines": [
@@ -251,14 +251,14 @@
   "from": "west_water",
   "to": "des_plaines",
   "intervals": 4,
-  "committed_m": 503.91,
-  "committed_ft": 1653.2,
+  "committed_m": 503.87,
+  "committed_ft": 1653.1,
   "the_plat_asks_m": 558.39,
   "the_plat_asks_ft": 1832.0,
-  "short_by_m": 54.48,
-  "short_by_ft": 178.8,
+  "short_by_m": 54.52,
+  "short_by_ft": 178.9,
   "as_a_share_of_the_plat": 0.0976,
-  "times_the_datum_residual": 3.11,
+  "times_the_datum_residual": 3.12,
   "so": "the whole division is narrower than the plat draws it, by more than the datum's own uncertainty, so the difference is not the georeferencing alone even where a single interval's share of it is.",
   "the_grid_proper": {
    "from": "canal",
@@ -274,10 +274,10 @@
  },
  "is_the_committed_grid_the_plat_module_rescaled": {
   "all_intervals": {
-   "the_widest_ft": 462.6,
+   "the_widest_ft": 462.5,
    "the_narrowest_ft": 376.1,
-   "spread_ft": 86.5,
-   "spread_m": 26.37,
+   "spread_ft": 86.4,
+   "spread_m": 26.33,
    "spread_exceeds_the_residual": true
   },
   "the_grid_proper": {
@@ -304,8 +304,8 @@
    "lines": [
     {
      "id": "west_water",
-     "committed_east_local_m": -14.59,
-     "the_plat_wants_east_local_m": -14.59,
+     "committed_east_local_m": -14.63,
+     "the_plat_wants_east_local_m": -14.63,
      "moves_m": 0.0,
      "moves_ft": 0.0,
      "direction": "held"
@@ -313,38 +313,38 @@
     {
      "id": "canal",
      "committed_east_local_m": -155.6,
-     "the_plat_wants_east_local_m": -154.19,
-     "moves_m": 1.41,
-     "moves_ft": 4.6,
+     "the_plat_wants_east_local_m": -154.23,
+     "moves_m": 1.37,
+     "moves_ft": 4.5,
      "direction": "east"
     },
     {
      "id": "clinton",
      "committed_east_local_m": -280.03,
-     "the_plat_wants_east_local_m": -293.79,
-     "moves_m": -13.76,
-     "moves_ft": -45.1,
+     "the_plat_wants_east_local_m": -293.83,
+     "moves_m": -13.8,
+     "moves_ft": -45.3,
      "direction": "west"
     },
     {
      "id": "jefferson",
      "committed_east_local_m": -394.67,
-     "the_plat_wants_east_local_m": -433.39,
-     "moves_m": -38.72,
-     "moves_ft": -127.0,
+     "the_plat_wants_east_local_m": -433.43,
+     "moves_m": -38.76,
+     "moves_ft": -127.1,
      "direction": "west"
     },
     {
      "id": "des_plaines",
      "committed_east_local_m": -518.5,
-     "the_plat_wants_east_local_m": -572.98,
-     "moves_m": -54.48,
-     "moves_ft": -178.8,
+     "the_plat_wants_east_local_m": -573.02,
+     "moves_m": -54.52,
+     "moves_ft": -178.9,
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 108.37,
-   "the_largest_single_move_m": 54.48
+   "total_absolute_movement_m": 108.45,
+   "the_largest_single_move_m": 54.52
   },
   {
    "anchor": "canal",
@@ -352,10 +352,10 @@
    "lines": [
     {
      "id": "west_water",
-     "committed_east_local_m": -14.59,
+     "committed_east_local_m": -14.63,
      "the_plat_wants_east_local_m": -16.0,
-     "moves_m": -1.41,
-     "moves_ft": -4.6,
+     "moves_m": -1.37,
+     "moves_ft": -4.5,
      "direction": "west"
     },
     {
@@ -391,17 +391,17 @@
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 112.6,
+   "total_absolute_movement_m": 112.56,
    "the_largest_single_move_m": 55.9
   }
  ],
  "what_is_seated_on_the_short_spacing_today": {
   "structures_seated_by_block_id": 55,
-  "structures_named_on_those_lots": 72,
-  "lots_reached_by_a_committed_record": 49,
+  "structures_named_on_those_lots": 73,
+  "lots_reached_by_a_committed_record": 50,
   "rows_seated_on_those_lots": {
-   "data/enclosures/town_lot_line_rails.json": 186,
-   "data/enclosures/town_lot_line_pickets.json": 19
+   "data/enclosures/town_lot_line_rails.json": 167,
+   "data/enclosures/town_lot_line_pickets.json": 17
   },
   "blocks_cut_between_these_lines": 15,
   "blocks_by_grid": {

@@ -43,9 +43,12 @@ in prose is what rotted the first time.
 half of the old opening, and nothing in the committed tree supports it: the
 nightly gate's legs (`chicago-4d-bake.yml` § `smoke`), the full-body run
 (`chicago-4d-smoke.yml` § `smoke`), the dev gate (`chicago-4d-check.yml`) and the
-steward improve runner (`polecat-platform` § `steward-improve.yml`) are all
-`runs-on: ubuntu-latest` with node 22, and the first two install the same
-`playwright@1.56.1` and chromium alone. `smoke_renderer.mjs` launches that
+steward improve runner (`polecat-platform` § `steward-improve.yml`) all run
+node 22, and the first two install the same `playwright@1.56.1` and chromium
+alone. The two smoke workflows are pinned to `runs-on: ubuntu-24.04` (T-3169):
+`ubuntu-latest` became ubuntu-26.04 on 2026-10-26, where Playwright 1.56.1 will
+not install chromium, and 24.04 is the image every reading below was taken on.
+`tools/check_runner_images.py` keeps every Playwright-installing job pinned. `smoke_renderer.mjs` launches that
 chromium with `--enable-unsafe-swiftshader` wherever it runs, so the software
 rasteriser is a property of the suite, not of one runner.
 

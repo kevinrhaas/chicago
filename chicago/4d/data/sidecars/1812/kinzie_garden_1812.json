@@ -1,0 +1,189 @@
+{
+  "id": "kinzie_garden_1812",
+  "phase": "kinzie_1804",
+  "name": "The Kinzie garden, north of the house",
+  "aka": [
+    "'a fine, well-cultivated garden' (Wau-Bun, of 1831)",
+    "Mr Kinzie's kitchen garden, lettered on Whistler's draught (1808)"
+  ],
+  "archetype": "palisade",
+  "asset": "gltf/kinzie_garden_1812__kinzie_1804.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1804-10-01",
+    "to": "1833-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "currey_1912_story_of_old_fort_dearborn",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "THE KINZIE YEARS, AS THE HOUSE'S OWN RANGE, AND BOTH ENDS INFERRED FOR THIS BUILDING. No source dates this building. Wau-Bun ch. XVII names the establishment's buildings as Juliette Kinzie found them in 1831 (dairy, bake-house, lodging-house for the Frenchmen, stables), and Whistler's 1808 draught letters its kitchen garden and no picture draws this one; neither is a sighting of 1812. It is taken to stand from the Kinzies' purchase in the fall of 1804 (kinzie_house_1812's opening, Currey ch. II) through the 1812 scene dates (1 and 14 August) to the end of 1833 with the house it served: Currey says the house 'escaped the general destruction at the time of the massacre', nothing read says the yard behind it burned, and the family was away from 1812 to 1816, so the 1820 and 1831 pictures show a yard that was either standing in 1812 or rebuilt on its ground after the return; this record takes the first. It closes with the house (data/exclusions.json kinzie_house: derelict from 1832, gone by 1835), so it stands in no 1835 view. L420."
+  },
+  "change_note": "Built T-2485 (2026-10-21): the fence of the Kinzie garden. Only the paling is built; the beds inside are the ground's own cover.",
+  "placement": {
+    "local_e": 1136.0,
+    "local_n": 360.5,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "kinzie_waubun_1856",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "position_note": "Wau-Bun: the garden 'extended to the north of the dwelling'. Whistler's draught of 1808 draws the Kinzie house in a fenced yard lettered as Mr Kinzie's kitchen garden (the register's no. 30, read at T-2048), with the old horse mill outside it to the west. So the garden lies north of the house and its yard of outbuildings, its west side east of the mill. Its corners are this record's (docs/LIBERTIES.md L420).",
+    "symbolic_location": "North of the Kinzie house and its yard, local E +1136.0 to +1182.0, N +360.5 to +376.0. The origin is the fence's south-west corner.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        46.0,
+        0
+      ],
+      [
+        46.0,
+        15.5
+      ],
+      [
+        0,
+        15.5
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "The fence line, 46 m east-west by 16 m north-south, about a sixth of an acre: a kitchen garden for a household and its hired men."
+  },
+  "attributes": {
+    "wall_kind": {
+      "value": "picket_stockade",
+      "confidence": "reconstructed",
+      "note": "A paling to keep stock out of a kitchen garden. The one fence the draught letters on this bank is 'Picket of 5 feet high' (T-2504's reading)."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "note": "Split pales, the archetype's light-post kind."
+    },
+    "picket_height_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "Five feet, the height the draught letters on the picket along this bank."
+    },
+    "picket_width_m": {
+      "value": 0.1,
+      "confidence": "reconstructed",
+      "note": "Unattested. A split paling."
+    },
+    "picket_spacing_m": {
+      "value": 0.2,
+      "confidence": "reconstructed",
+      "note": "Unattested; close enough to turn a pig."
+    },
+    "gate_sides": {
+      "value": [
+        "s"
+      ],
+      "confidence": "reconstructed",
+      "note": "Toward the house and its yard."
+    },
+    "gate_width_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "A barrow's width."
+    },
+    "function": {
+      "value": "kitchen_garden",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "note": "Wau-Bun ch. XVII, describing 1831: 'A fine, well-cultivated garden extended to the north of the dwelling, and surrounding it were various buildings appertaining to the establishment—dairy, bake-house, lodging-house for the Frenchmen, and stables.' The draught letters Mr Kinzie's kitchen garden in 1808."
+    },
+    "land_owner": {
+      "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 58 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+        "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+        "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+        "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+        "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'",
+        "the lake shore south of the river mouth before 1812, in the same chapter: 'mostly devoid of trees, a scanty growth of cottonwoods and pines, however, maintaining a precarious existence among the sand-dunes', the low sand-hills 'the predominant feature of the landscape' a mile or two south of the mouth (used by T-2768 for the pines on the south sand hills)"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension of the house, the piazza or the green",
+        "the number of the house's rooms, windows or chimneys",
+        "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+        "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+        "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+        "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+      ],
+      "what_it_does_not_supply": [
+        "any building height: the folded elevations disagree with each other",
+        "the fort's bearing to true north: no north arrow was found on the reproduction",
+        "the covered way to the river and the gutters, which the index itself says are omitted",
+        "anything about the second fort of 1816"
+      ]
+    }
+  ],
+  "research_note": "THE KINZIE GARDEN (T-2485). Only its paling is built; the planting inside is the 1812 ground's own cover. No picture shows it whole: Sarony's lithograph draws a paling along the road west of the house, which may be this garden's or a yard's, and is not built as either. Nobody is drawn (L1).",
+  "research_doc": "",
+  "review_required": false
+}

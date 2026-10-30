@@ -39,16 +39,16 @@ It reads no source. It measures committed structure records and apportions figur
 | Reconstructed H2 medium boarding house #045 | boarding house | reconstructed | 190 m² | 8 | 20 | reconstructed |
 | Reconstructed H1 small boarding house #005 | boarding house | reconstructed | 123 m² | 5 | 13 | reconstructed |
 | Reconstructed H2 medium boarding house #035 | boarding house | reconstructed | 198 m² | 9 | 20 | reconstructed |
-| Exchange Coffee House | inn tavern | named | 252 m² | 11 | 35 | reconstructed · clamped |
+| Exchange Coffee House | inn tavern | named | 252 m² | 10 | 35 | reconstructed · clamped |
 | Green Tree Tavern | inn tavern | named | 186 m² | 8 | 35 | inferred · clamped |
-| Mansion House | inn tavern | named | 108 m² | 5 | 35 | reconstructed · clamped |
+| Mansion House | inn tavern | named | 108 m² | 4 | 35 | reconstructed · clamped |
 | New York House | inn tavern | named | 186 m² | 8 | 35 | reconstructed · clamped |
 | Reconstructed T1 small inn or tavern #061 | inn tavern | reconstructed | 212 m² | 9 | 35 | reconstructed · clamped |
 | Sauganash Hotel | inn tavern | named | 159 m² | 7 | 35 | reconstructed · clamped |
-| Steamboat Hotel | inn tavern | named | 240 m² | 11 | 35 | reconstructed · clamped |
-| Tremont House (the first) | inn tavern | named | 279 m² | 12 | 35 | reconstructed · clamped |
-| Western Hotel | inn tavern | named | 329 m² | 15 | 35 | inferred · clamped |
-| Wolf Point Tavern | inn tavern | named | 84 m² | 4 | 35 | reconstructed |
+| Steamboat Hotel | inn tavern | named | 240 m² | 10 | 35 | reconstructed · clamped |
+| Tremont House (the first) | inn tavern | named | 418 m² | 17 | 35 | reconstructed · clamped |
+| Western Hotel | inn tavern | named | 329 m² | 14 | 35 | inferred · clamped |
+| Wolf Point Tavern | inn tavern | named | 62 m² | 3 | 35 | reconstructed |
 
 `floor` is the footprint times the storeys. `grade` is the weakest of the footprint and storey claims the capacity rests on — a bed count read off a reconstructed outline is reconstructed, whatever the building is called. `clamped` means a proportional share asked for more than the largest household the 1840 enumerator recorded (35) and was held to it.
 

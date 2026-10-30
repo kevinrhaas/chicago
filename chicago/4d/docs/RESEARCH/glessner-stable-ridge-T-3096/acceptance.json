@@ -1,0 +1,101 @@
+{
+ "ticket": "T-3096",
+ "rows": [
+  {
+   "view": "cornell-northwest-west-windows",
+   "camera": "committed",
+   "rms_px": 18.31,
+   "model_courses_at_5in": 43.1,
+   "print_over_model_roll_foot_m": [
+    1.37,
+    1.47,
+    1.58
+   ],
+   "print_eave_over_model_eave_m": [
+    0.51,
+    0.47,
+    0.52
+   ]
+  },
+  {
+   "view": "cornell-northwest-west-windows",
+   "camera": "roof_pitched",
+   "rms_px": 3.65,
+   "model_courses_at_5in": 43.8,
+   "print_over_model_roll_foot_m": [
+    0.21,
+    0.35,
+    0.44
+   ],
+   "print_eave_over_model_eave_m": [
+    0.03,
+    0.01,
+    0.08
+   ]
+  },
+  {
+   "view": "cornell-northwest-west-windows",
+   "camera": "roof_level",
+   "rms_px": 4.76,
+   "model_courses_at_5in": 43.8,
+   "print_over_model_roll_foot_m": [
+    -0.25,
+    -0.13,
+    -0.05
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.22,
+    -0.25,
+    -0.19
+   ]
+  },
+  {
+   "view": "habs-01-northwest",
+   "camera": "doorway",
+   "rms_px": 3.92,
+   "model_courses_at_5in": 43.9,
+   "print_over_model_roll_foot_m": [
+    -0.03,
+    0.08,
+    0.09
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.2,
+    -0.22,
+    -0.23
+   ]
+  },
+  {
+   "view": "habs-01-northwest",
+   "camera": "doorway_eye_height",
+   "rms_px": 3.09,
+   "model_courses_at_5in": 43.8,
+   "print_over_model_roll_foot_m": [
+    -0.26,
+    -0.2,
+    -0.15
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.39,
+    -0.41,
+    -0.42
+   ]
+  },
+  {
+   "view": "habs-01-northwest",
+   "camera": "doorway_lean",
+   "rms_px": 3.13,
+   "model_courses_at_5in": 41.8,
+   "print_over_model_roll_foot_m": [
+    0.11,
+    0.12,
+    0.1
+   ],
+   "print_eave_over_model_eave_m": [
+    -0.4,
+    -0.44,
+    -0.45
+   ]
+  }
+ ]
+}

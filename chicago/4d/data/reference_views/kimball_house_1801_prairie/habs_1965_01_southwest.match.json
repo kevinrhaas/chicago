@@ -1,0 +1,140 @@
+{
+  "structure_id": "kimball_house_1801_prairie",
+  "view": "habs_1965_01_southwest",
+  "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
+  "glb_sha256": "aae6a7d5f0f78d032aa53a771196ba304ead57b7afcdc9e22626be469ce8f015",
+  "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
+  "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
+  "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the south wall's two tall stacks: the print's rise from the main cornice over the wall line in pale ashlar the walls' tone, the front one at about u 14.45 (shaft x 870-945 px) and the rear one at about u 3.2 (x 1122-1190); the build had one small reconstructed brick stack at u 3.0, v 10.0 (T-3107)",
+      "status": "fixed"
+    },
+    {
+      "what": "the stacks' heights, re-read through T-3108's re-solved camera (T-3109): the front one's cap top at y 125 px reads about 17.8 m, so its 18.0 m, the most the c. 1895 Taylor print allows, now fits this picture within about 0.2 m; the rear one's (y 225) reads about 18.5 m, where T-3107 read 20.1 m through the earlier camera, and it is lowered to 18.5 m (L-kimball-1801-stack-heads-3109)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stacks' heads: a moulded collar under a stage of diamond lattice and a moulded cap with a dentil course. T-3109 dresses both (a new `head` on a stone mansard stack): the collar 0.1 m proud, 0.35 and 0.45 m deep; the stage 0.06 m proud, 1.0 and 1.2 m deep, two whole diamonds of crossed raised ribs a face; the cap 0.2 m proud, 0.5 and 0.55 m deep. The dentils and the moulding's round profile are not modelled (under the bar)",
+      "status": "fixed"
+    },
+    {
+      "what": "the stacks' lower stages: each shaft stands on a broader base carried down to the cornice (the front one's splay at y 450 px, the rear one's at about 505, both about 11.8 m). T-3109 builds it 0.08 m proud each side, from the cornice to 11.85 m and weathered back to the shaft over 0.25 m",
+      "status": "fixed"
+    },
+    {
+      "what": "the south-west corner: a two-storey round bay (x 620-757 px) between the gabled face and the south wall, a single window a storey, under a pierced lattice balcony at the cornice (y 510-550) with a light in the roof behind it. T-3108 builds it: the pavilion's chamfer now cuts the corner 1.3 m along the front and 1.4 m behind it, and a K08 bow stands on the cut (`on_chamfer`), chord 1.68 m, rising 0.5 m, two storeys to 8.7 m under the moulded stone cornice, one transomed sash a storey and a stone balustrade of pierced lattice panels on its top. Through the re-solved camera its junction with the south wall renders at x 737 against the print's 757 and its second-storey light at x 684 against 686",
+      "status": "fixed"
+    },
+    {
+      "what": "the gabled pavilion's face: the print's spans x 465-620 px with its paired lights (x 487-600) and the gable's apex (x 543) on its axis. T-3108 narrows the face to 2.85 m (v 6.85-9.7), the pairs to 1.5 m clear on its middle and the gable onto the whole face (its inset off, pitch 2.49 so the apex holds T-3015's height); through the re-solved camera the face renders x 480-613 and the pairs' axis at x 546-550, the face about 20 px narrower than the print's (about 0.3 m)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the south cornice, re-measured on the rebuilt corner through the re-solved camera (T-3108; it read about 85 px under the print's at the corner): the round's wall top renders about 19 px under the print's (y 614 against 595) and its balustrade's rail about 50 px under (y 560 against 510), and the main cornice at the south-east corner about 23 px over (y 632 against 655). The pavilion's window rows fit within about 13 px; the round's rows read about 20 px under the print's, so through this camera the round's storeys stand about 0.3 m higher than the build's against the pavilion's, which the Taylor print (it sees only the round's cornice end) cannot check",
+      "status": "open",
+      "how": "T-1890: the main moulded stone course now runs this wall from the south pavilion's chamfer to the south-east corner, wrapping the south bay; the heights measured above are unchanged by it"
+    },
+    {
+      "what": "the light behind the corner balcony: a small window on the canted face over the round bay (x 640-680, y 445-500); the build's chamfer face is blank there (T-3108 tried K08's sash on the cant and its recess rendered occluded, so it was taken out)",
+      "status": "fixed",
+      "how": "T-1890: p_south's third storey carries a two-over-two sash on the canted face (at 0.72 of its runs, 0.65 by 1.45 m on a 9.4 m sill): it renders about 40 by 70 px standing on the round's balustrade, against the print's 40 by 70, about 0.3 m further from the pavilion's corner pilaster than the print's. T-3108's sash had been hidden by the chamfer cut's closing face, which lay in the cant's own plane over the opening; K01 now cuts the main roof away inside a lit cant as deep as the recess reaches, up to the light's head (L-kimball-1801-cant-light-1890)"
+    },
+    {
+      "what": "the canted face's top over that light: the print stops the cant's wall at a cornice just over the light's head (about y 430-445 px), with the mansard's slate over it from there; the build carries the cant's wall on up to the pavilion's gable shoulder at 13.6 m, a tall blank face beside the gable (seen by T-1890)",
+      "status": "fixed",
+      "how": "T-1890: the cant's wall now stops at 11.65 m under a cornice course (K08 chamfer top_m), 0.8 m over the light's opening, and the house's mansard is no longer cut over the cant from there, so its slate comes down onto the cornice with the hip meeting it at the cant's middle; the front's end is carried on up as a stone cheek beside it. The cornice renders at about y 427 px against the print's y 405-420 over the light. The print's cornice falls about 40 px toward the cant's far end where the build's is level (the hip line against a level course, about 0.6 m across 1.3 m of cant): within tolerance"
+    },
+    {
+      "what": "the gable's height: through the re-solved camera the finial's top renders about 69 px over the print's (y 83 against 152), about 1.2 m, while the Taylor print holds it within 10 px (y 230 against 220); the two pictures disagree about the gable's height against the pavilion's rows, and the build keeps the period print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the front north of the pavilion: the camera re-solved on the rebuilt corner (T-3108) cannot also fit the loggia: its arch's crown renders about 117 px north of the print's (x 278 against 395) and the bow between them wider than the print's, where T-3107's camera, fitted with the pavilion's face free to stand 2.1 m proud, held the arch within 10 px. The front's layout between the loggia and the pavilion and this picture's do not agree; the Taylor camera holds that stretch",
+      "status": "open"
+    },
+    {
+      "what": "the south bay: the print's lit face with its column of lights (x 1037-1150 px) stands proud of the wall with a shaded face beyond it to x 1222; the build's south wall was flat. T-3109 builds it on K08 to the 1911 sheet's trace: a canted bay from u 13.15 to 6.87, 0.85 m proud with cants 0.87 m along the wall, two storeys to 8.7 m, one transomed light a storey on its front (L-kimball-1801-south-bay-3109)",
+      "status": "fixed"
+    },
+    {
+      "what": "the south wall's openings: the print shows one column at x 850-905 px near the round bay and one on the bay's front (x 1060-1125, second-storey transom at y 750), the tree hiding the wall between and nothing in the shaded face east of the bay. T-3109 keeps the wall's column at u 16.5, builds the bay's own, and takes out the reconstructed columns at u 11.5 (behind the bay) and u 6.5",
+      "status": "fixed"
+    },
+    {
+      "what": "the south mansard's hooded dormer between the stacks: its light at x 1072-1120 px, sill y 587 and head y 532, under a tall slated hood to y 420. T-3109 builds a hooded dormer on the south face at u 5.4, its face at the eave, a 0.75 by 1.2 m light and a 2.2 m hood (L-kimball-1801-south-dormer-3109). The small light behind the corner balcony is the item above",
+      "status": "fixed"
+    },
+    {
+      "what": "the roof's south-east corner (T-3109): what the print shows there (x 1186-1247 px, y 478-700) is a WALL GABLE, not a pinnacle: a steep coped stone gable rising from the main cornice at the south wall's rear corner, behind the rear stack (its west rake comes out from behind the stack's shaft at about y 540), its apex about 4.4 m over the cornice, its east cheek carried down the corner as a plain pier, no finial and no kneeler pinnacle, and a pair of small dark lights on a mullion at its foot just over the cornice (x 1200-1237, y 598-645). Built (T-1890, bays.p_se_gable): a shallow pavilion 2.3 m wide, 0.1 m proud, flush with the rear corner, carried up past the mansard's eave to a 10.1 m wall top under a coped gable of pitch 2.85 (apex about 13.0 m) with the mullioned pair (1.6 x 0.75 m, sill 9.1 m); against the stack's cap, which both read, its apex renders within about 1 px of the print's, its east foot within 2 px of the print's distance from the apex (26 px against 28) and its lights within about 3 px of the print's rows",
+      "status": "fixed"
+    },
+    {
+      "what": "the main cornice under the wall gable's lights: the print carries it on under the pair to the corner (y 617-663, to x 1238); the build stops the mansard's eave box square at the gable's west cheek (k01_frontage.shallow_bay_cutters, as at the front's south pavilion), so the cornice is missing across the gable's 2.3 m, under its lights (T-1890). Built (T-1890): the gable carries `cornice_across`, so K10's moulded course and the mansard's eave box run on in front of its face under the pair to the corner, the course capped there, only the slate over the box cut away and the gutter stopped at the gable's west cheek; re-rendered, the cornice runs under the lights to the corner as the print's does, its top at about y 617 under the pair",
+      "status": "fixed"
+    },
+    {
+      "what": "the recessed range behind the south-east corner: set back from the wall, tall glazed openings under a carved head at about the cornice (x 1225-1300 px, y 610-770); the build's rear wings stand there plain (T-3109). The 1911 sheet steps the wall back to about v 9.8 east of u 6.87 (the bay's east end), where the build's rectangle holds v 11.0 to the corner",
+      "status": "open"
+    },
+    {
+      "what": "the rear range beyond the court: a lower two-storey white range with a gable and a hooded dormer facing the court (x 1300-1640 px); the build's wings stand there with hipped roofs (T-3110)",
+      "status": "open"
+    },
+    {
+      "what": "the south bay through this camera: its front renders about three times as foreshortened as the print's (its light about 20 px across against 65), and about 95 px west of the print's, and the print's courses fall more steeply on the shaded face beyond than on the lit one, as if the lit face were turned toward the camera. The camera is fitted to the front and the two south corners and foreshortens the whole south wall harder than the print does, so the bay's plan stands on the 1911 sheet; a camera re-solved on the south wall's own courses decides the cants (T-3109)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the bay's top: the print carries the main cornice round the bay and the mansard's slate down over it; the build stands a low slated hip on the bay under the cornice's line, with no cornice of its own (T-3109)",
+      "status": "fixed",
+      "how": "T-1890: the bay carries K10's moulded stone cornice swept round its three faces at the main cornice's height, the main course now run along the south wall into it, and over it a slated mansard rising 4.4 m at 60 degrees into the main roof's lower face, so the slate comes down over the bay to its cornice as the print's does; the hooded dormer still stands in the main face beside it, where the camera's foreshortening of this face (within tolerance above) keeps the bay about 95 px west of the print's"
+    },
+    {
+      "what": "the south dormer's hood: the print's is wider than the face under it, where the build's hood stands as wide as its face",
+      "status": "fixed",
+      "how": "T-1890: the hood's foot flares 0.2 m wider than the face each side and 0.2 m out in front of it, its shelf with it (hood.flare_m), and sweeps in to a top 0.81 m across (taper 0.17, where the print's top reads about 0.8 m on the face's 1.15 m): the print's foot reads about 80 px on the face's 60, the build's 1.55 m on its 1.15 m. The camera foreshortens this face about twice as hard as the print's courses do, so the widths are read on the print against the face's own (L-kimball-1801-hood-flare-1890)"
+    },
+    {
+      "what": "the south dormer's face: the print's is slated with a pale frame round the light, the build's was stone",
+      "status": "fixed",
+      "how": "T-1890: slated as its hood is, its 0.75 by 1.2 m light in a pale stone frame 0.1 m wide (hood.face slate, frame_m 0.1), as the street and 18th Street dormers' in the Taylor record; it renders a dark face with the pale frame round the light, as the print's (L-kimball-1801-dormer-faces-1890)"
+    },
+    {
+      "what": "colour: the stone's tone and the slate's",
+      "status": "not shown"
+    },
+    {
+      "what": "the east side and the 18th Street front",
+      "status": "not shown"
+    },
+    {
+      "what": "the neighbours: 1811's brownstone north wall at the right edge, the fence, the lawn and the trees (the review renders 1801 alone)",
+      "status": "not shown"
+    },
+    {
+      "what": "the east range's frontispiece over the side door (T-3110, HABS photograph 2) stands on the 18th Street wall, which this camera cannot see; nothing it shows changed",
+      "status": "not shown"
+    },
+    {
+      "what": "the 18th Street tower, rebuilt on its corbelled stage by T-1890 from the Taylor print and HABS photograph 2: it stands on the north wall, which this camera cannot see; nor the east turret, whose finial and eaves it also sized; nothing this picture shows changed",
+      "status": "not shown"
+    },
+    {
+      "what": "the coping and walk T-3206 lays for 1904",
+      "status": "not shown",
+      "how": "the 1965 photograph shows the house after the lawn's coping was gone; the 1904 boundary is read off the Taylor print"
+    },
+    {
+      "what": "the cant's far end: right of the light the print carries the cant's wall to a sloped edge where the side slope's slate comes down to the main cornice (about x 735-745 px, y 445-510); the build stands a block of stone there to the cornice, the closing face K01 lays in the south wall's plane over the cut behind the cant (about x 705-745 px, y 425-550), with no slate in front of it (seen by T-1890); fixed (T-1890): K01 no longer cuts the roof behind a cant stopped under its cornice (only over the pavilion's square part; the light's recess has its own cut), so there is no slot at the side wall to close and the closing face is gone. The cant's wall now ends at about x 738 px against the print's sloped edge at x 742 under its cornice, and the side slope's slate stands beyond it from the cornice down to the balustrade, as the print's does",
+      "status": "fixed"
+    },
+    {
+      "what": "the cant's far edge: the print's leans, its foot at the balustrade about x 720 px against x 742 under the cornice; the build's stands upright at about x 738, so its foot is about 18 px (about 0.3 m on the light's 40 px for 0.65 m) further out than the print's, tapering to nothing at the cornice (seen by T-1890)",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

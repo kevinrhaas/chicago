@@ -63,6 +63,20 @@
       "finding": "Reproduces: two --write runs on a clean tree rewrote its one output, data/comparisons/glessner/stable-roof-heights.json, byte for byte and moved nothing else; a deliberately perturbed report failed --check and was restored by --write. Before the fix in this measurement's commit it did NOT reproduce: its pixel-aspect fit has no minimum (the aspect trades exactly against focal length and distance, RMS 3.9229 px at every aspect from 1.00 to 1.06), so the solver stopped at a machine-dependent point (cupola S11.3 in CI, S11.77 on the steward runner) and --check went red on an unchanged tree. That fit is now walked at pinned aspects, each well posed (T-2758).",
       "placed": "not yet — measured to reproduce. It reads data/reference_views/glessner_house/habs-01-northwest.json, cornell-northwest-west-windows.json and data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its report, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2758)."
     },
+    "glessner_cupola_read.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-10-22",
+      "finding": "Reproduces: two --write runs on a clean tree rewrote its one output, data/comparisons/glessner/stable-cupola.json, byte for byte and moved nothing else, and a perturbed report failed --check. Its fits are well posed (five cupola numbers over 19 residuals from two prints, every one-sigma under 0.3 ft), and every fit starts from the fixed pre-T-3031 numbers, never from the record, so a record edit cannot move where the solver lands (T-3031).",
+      "placed": "not yet — measured to reproduce. It reads T-2758's re-solved cameras (tools/glessner_stable_roof_read.py), data/reference_views/glessner_house/habs-01-northwest.json, cornell-northwest-west-windows.json and data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its report, so it has no ordering hazard on either side (T-3031)."
+    },
+    "glessner_stable_end_read.py": {
+      "placement": "pending",
+      "write_mode": "--write; --camera",
+      "measured": "2026-10-25",
+      "finding": "Reproduces: two --write and --camera passes on a clean tree rewrote its two outputs, data/comparisons/glessner/stable-end.json and data/reference_views/glessner_house/habs-15-stable-detail.json, byte for byte and moved nothing else; a perturbed report (habs15.stable_level.rms_px 9.99) failed --check and --write restored it byte for byte. Before the fix in this measurement's commit it read its own output: the 'committed' row and every fit's start came from HABS 15's camera file, which --camera rewrites with the stable_level fit, so the report showed the refit under T-2200's name (3.26 px, where T-2200's camera reads 17.87). T-2200's frozen camera is now pinned in the tool, so no fit starts from the record (T-3147).",
+      "placed": "not yet — measured to reproduce. It reads T-2758's cameras and projection (tools/glessner_stable_roof_read.py), data/reference_views/glessner_house/habs-01-northwest.json and data/structures/glessner_house.json, which no reconstruction stage writes; nothing in the manifest reads its report, and its --camera output is HABS 15's reference camera, which only the photo-match render reads, so it has no ordering hazard against the manifest's stages; the manifest's order is its own measured pass, so it is not appended blind (T-3147)."
+    },
     "check_stone_occlusion_atlas.py": {
       "placement": "not_a_writer",
       "write_mode": null,
@@ -161,6 +175,12 @@
       "write_mode": null,
       "measured": "2026-10-10",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K11 variant in memory from data/components/prairie_1904/k11_ironwork.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k11_ironwork.py run bare, which no gate step runs (T-2318)."
+    },
+    "check_house_walks.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-27",
+      "finding": "Run bare it prints its usage, exits 2 and writes nothing (git status --porcelain identical before and after); --check, --report and --self-test read the committed 1904 sidecars and the K01/K16 GLBs' node extras and write nothing (the self-test's cases are built in memory). It declares no write mode: the walks and boundaries it gates are written by generators/k01_emit.py from the records' yard and boundary (T-3206)."
     },
     "check_condition_kit.py": {
       "placement": "not_a_writer",
@@ -298,6 +318,13 @@
       "finding": "Reproduces: run bare on a clean tree it rewrote its one output, data/context/1904.json, byte for byte and moved nothing else; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
       "placed": "not yet \u2014 measured to reproduce. It reads the committed Sanborn rasters, Robinson's 1886 plate 10 (T-2491) and their GCP fits, the school section's corner GCPs, data/street_grid/1904.json (tools/trace_prairie_1904_grid.py) and the e1871 heightfield, and nothing reads its output but the renderer, so it belongs after the grid; the manifest's order is its own measured pass, so it is not appended blind (T-2477)."
     },
+    "census_prairie_1904_background.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-22",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/components/prairie_1904/background_census.json byte for byte, changed no committed byte; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "pending, 2026-10-22 (T-3008): a reader of the street grid, the sheet censuses and the footprint traces tools/trace_prairie_1904_footprints.py writes, so it must follow that step; its place in the manifest's order is settled when the manifest is next derived"
+    },
     "trace_prairie_1904_footprints.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -318,6 +345,20 @@
       "measured": "2026-10-13",
       "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_trees/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
       "placed": "by layer, 2026-10-13 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose parkway bands it plants along (T-2473), and tools/lay_prairie_1904_street_section.py, whose carriage walks it keeps clear of (T-2474); see the manifest step"
+    },
+    "plant_prairie_1904_front_yards.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-27",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/front_yards/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-10-27 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose lots it plants, and of the committed 1904 sidecars and baked models, whose stoops, walks, fences and doors it keeps clear of (T-3203); see the manifest step"
+    },
+    "lay_prairie_1904_street_furniture.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-27",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_furniture/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-10-27 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose faces it lays on, tools/lay_prairie_1904_street_section.py, whose carriage walks it keeps clear of, and tools/plant_prairie_1904_street_trees.py, whose elms it keeps clear of (T-3199); see the manifest step"
     },
     "trace_prairie_1904_grid.py": {
       "placement": "manifest",
@@ -877,11 +918,11 @@
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
     "generate_entrances.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "(bare)",
       "measured": "2026-10-02",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 3s, rewrote data/enclosures/town_entrance_aprons.json byte for byte, changed no committed byte.",
-      "placed": "not yet placed: it reads data/sidecars/1835/ and data/streets/1835.json, and tools/generate_yard_goods.py reads its output (wagon stands on the trodden ground are refused), so its slot is after the sidecar and street writers and before generate_yard_goods.py — to be measured in its own ordering pass (T-1453), not appended blind (T-1984)"
+      "placed": "T-3081: immediately after compile_scene.py, following the sidecar and street writers and before the jaunt, frontage and yard consumers. The ordered native tail rederived 653 doors on 651 buildings and converged without changing the final lap; generate_yard_goods.py consumes the resulting entrance aprons. The earlier clean-tree measurement remains historical."
     },
     "generate_alley_lanes.py": {
       "placement": "pending",
@@ -1043,11 +1084,11 @@
       "placed": "by layer, 2026-10-09 \u2014 reasoned, not derived; beside generate_north_freight.py in the manifest"
     },
     "generate_woodpiles.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "(bare)",
       "measured": "2026-10-02",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 5s, wrote its outputs, changed no committed byte.",
-      "placed": "not yet ordered (T-1959): it reads data/enclosures/town_dooryard_pickets.json, data/flora/plantings/*.json and data/yard/*.json, so its slot is after generate_dooryard_pickets, generate_dooryard_plantings and generate_yard_goods; the manifest's own ordering pass places it"
+      "placed": "T-3081: after generate_yard_outbuildings and before generate_kept_ground, after every current physical obstacle input. The writer uses compiled footprints, exact-phase doorway zones, pickets/plantings, frontage walks, trade goods, wagons and outbuildings, and excludes its own output. The pre-existing repeated scene tail settles wider upstream record changes; no woodpile-to-goods/outbuilding feedback read was found. The measured/finding fields retain the historical clean-tree result."
     },
     "generate_kept_ground.py": {
       "placement": "manifest",

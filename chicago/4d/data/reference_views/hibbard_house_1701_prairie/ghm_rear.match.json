@@ -1,0 +1,73 @@
+{
+  "structure_id": "hibbard_house_1701_prairie",
+  "view": "ghm_rear",
+  "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
+  "glb_sha256": "3f73ef678cad54cfa880f8e4b88bde0c6aa857298bb9001f349dbf07d7c5c896",
+  "camera_sha256": "7a4c200fcf71886e84da386ff9f8ce670e971d522f9ade33567ca4faba7eae58",
+  "photo_sha256": "6ca5124a0a6b3134e7b98e817edb87622a98aada87b89d01f00497d10f8caeca",
+  "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/ghm_rear-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the 1874 rear range: brick, as tall as the main block's wall head, behind the main block's north half, its south face long and its east face short",
+      "status": "fixed",
+      "how": "T-3240: a K01 rear wing 17.7 x 6.8 m to a 10.0 m wall head; its south-east corner renders on the photograph's (x 545), its east face's north end on its edge"
+    },
+    {
+      "what": "round-headed lights on the range's south and east faces, two a storey on the east face",
+      "status": "fixed",
+      "how": "T-3240: the wing's round heads, the east face's two a storey rendering over the photograph's"
+    },
+    {
+      "what": "the corbelled oriel on the range's south face at the upper storey",
+      "status": "fixed",
+      "how": "T-3242: a K08 canted oriel on the range's south face (range_oriel), its front rendering over the photograph's (x 439-487), its floor at the range's second floor on seven corbel courses down to about 4.9 m (the photograph's brackets reach about 4.6 m), a pair of round-headed lights in its front and a square-headed one in each cheek; the wall under it now stands (a wing no longer cuts it from grade under an oriel). Its carved brackets and cresting are drawn as plain corbel courses and a low hip"
+    },
+    {
+      "what": "the range's heavy bracketed cornice and the low roof over it",
+      "status": "open",
+      "how": "T-3240 builds the range under K01's flat wing deck on a plain fascia, about 0.8 m lower than the fit reads the cornice's bed; T-3242 left it so (a K01 wing has no K10 cornice yet): the range's own cornice, not the oriel's; T-3257"
+    },
+    {
+      "what": "the high stone basement exposed at the range's east end over the falling lawn",
+      "status": "not shown",
+      "how": "the review renders on one flat plane (the camera's solve); the ground's fall to the lake is the terrain's, not the house's"
+    },
+    {
+      "what": "the two-level columned veranda with its balustrades and the steps down to the lawn, against the main block's rear wall",
+      "status": "fixed",
+      "how": "T-3242: k01_rear_veranda's two decks (1.85 and 5.2 m) on five stations of paired posts, the spindle frieze under the upper deck and a balustrade round both, render over the photograph's between the range and the main block's corner; the flight comes down off the lower deck's north bay where the photograph's does (its foot at about x 340)"
+    },
+    {
+      "what": "the main block's railed deck over its roof, seen above the rear",
+      "status": "fixed",
+      "how": "T-3241: the deck's rail (k01_hip_deck) stands over the hip where the photograph shows it, above the rear wall's cornice"
+    },
+    {
+      "what": "the main block's south end at the left of the picture, a two-storey bay on its south face",
+      "status": "within tolerance",
+      "how": "T-3241: the lower south range now stands at the picture's left edge where the photograph's low block does; the rear copy (675 px) reads the mass over it as a two-storey bay, while the front photograph shows the flank over the range plain, its single light and its pair: two pictures that disagree, so the front's reading is followed"
+    },
+    {
+      "what": "the veranda's south end: the photograph's runs on past where the model's main block turns its corner, about 40 px further left (x 137 against 179)",
+      "status": "open",
+      "how": "the camera reads the main block's rear wall about 2 m wider than T-3240's footprint (its south corner at about x 137, the model's at 177); the veranda stands to the model's corner, so this is the block's width, not the veranda's; T-3257"
+    },
+    {
+      "what": "the range's south face: the photograph's upper storey has one light west of the oriel (x 413), its lower two (x 390 and 425)",
+      "status": "open",
+      "how": "T-3242 cut the three lights the lower storey shows (s 2.6, 7.2, 10.0); a K01 wing cuts one list of lights through every storey, so the upper storey also has the light at 7.2 the photograph does not; T-3257"
+    },
+    {
+      "what": "the veranda's turned posts and balusters and the brackets at its posts' heads",
+      "status": "within tolerance",
+      "how": "T-3242 draws them square at the photograph's sizes: at this picture's scale (a post is about 2 px) a visitor reads the paired posts, the spindle band and the rails, which stand where the photograph's do"
+    },
+    {
+      "what": "the main block's south flank lights at the left of the picture, under their light hoods",
+      "status": "within tolerance",
+      "how": "T-3255: the flank's lights now carry the eared and crested hoods the front photograph shows (eared_round_heads); at this distance they read as the photograph's pale heads. Nothing else in this view moved."
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

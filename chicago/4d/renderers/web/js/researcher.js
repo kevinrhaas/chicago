@@ -2,9 +2,9 @@
  * Researcher mode (T-2657, NAV-S03; design doc "Field Navigator Mk II" §12, owner ruling
  * 2026-10-16: no /research page, the internal views are hidden behind a toggle).
  *
- * A switch in Settings › About, OFF by default and remembered per device. While it is on,
- * <html> carries `data-researcher-mode`, a small RESEARCHER label sits in the HUD's top row,
- * and what the visitor pages hold back comes back where it was cut:
+ * A switch in Settings › Research ("Expert research", T-3022), OFF by default and remembered
+ * per device. While it is on, <html> carries `data-researcher-mode`, a small RESEARCHER label
+ * sits in the HUD's top row, and what the visitor pages hold back comes back where it was cut:
  *
  *   - every element marked `data-researcher` (css/skins.css hides them until the root has
  *     the attribute): the full "Why this default" essays, and anything another app marks —
@@ -70,7 +70,8 @@ export function applyMode(on, doc = globalThis.document) {
 }
 
 /**
- * Wire the switch (#s-researcher in Settings › About) to the page and to this device.
+ * Wire the switch (#s-researcher: Settings › Research › Expert research, T-3022) to the page
+ * and to this device.
  * @returns {{ readonly on: boolean, set(on: boolean): boolean, toggle(): boolean, onChange(fn): () => void }}
  */
 export function createResearcherMode({ doc = globalThis.document, storage = null } = {}) {

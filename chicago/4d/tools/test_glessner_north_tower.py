@@ -15,7 +15,7 @@ e=next(r for r in p.ranges if r['name']=='east_wing')
 
 class Traced(d.DetailBuilder):
     joints=[]
-    def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
+    def block(self,polygon,point,normal,confidence,mat,rng,holes=None,course=None):
         if self.name=='north_tower_unwrapped':
             self.joints.append(d.bounds(polygon))
         return super().block(polygon,point,normal,confidence,mat,rng,holes)

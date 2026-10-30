@@ -29,9 +29,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 66,
-      "runs_bounding_structures_only": 602,
+      "runs_bounding_structures_only": 580,
       "households_that_gained_a_fence": 28,
-      "lots_named": 251,
+      "lots_named": 252,
       "households": [
         "hh_bates_john_jr",
         "hh_beaubien_madore",
@@ -946,7 +946,7 @@
       "path_local_enu_m": [
         [
           464.15,
-          -84.82
+          -85.07
         ],
         [
           464.32,
@@ -1114,32 +1114,8 @@
           -117.75
         ],
         [
-          -496.29,
-          -117.86
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_west_lake_des_plaines_lot0",
-          "structures": [
-            "recon_1835_west_042"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the north side of blk_west_lake_des_plaines_lot0 — and the fence on it is built ONCE: blk_west_lake_des_plaines_lot0 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_west_lake_des_plaines_lot0_n_1",
-      "path_local_enu_m": [
-        [
-          -478.79,
-          -118.01
-        ],
-        [
-          -464.3,
-          -118.13
+          -462.55,
+          -118.14
         ]
       ],
       "belongs_to": [
@@ -1158,33 +1134,8 @@
       "id": "side_blk_west_lake_des_plaines_lot5_n",
       "path_local_enu_m": [
         [
-          -455.56,
-          -118.19
-        ],
-        [
-          -423.82,
-          -118.45
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_west_lake_des_plaines_lot5",
-          "structures": [
-            "recon_1835_west_030",
-            "recon_1835_west_031"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the north side of blk_west_lake_des_plaines_lot5 — and the fence on it is built ONCE: blk_west_lake_des_plaines_lot5 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_west_lake_des_plaines_lot5_n_1",
-      "path_local_enu_m": [
-        [
-          -417.33,
-          -118.5
+          -447.06,
+          -118.26
         ],
         [
           -410.08,
@@ -1256,8 +1207,8 @@
       "id": "rear_blk_west_lake_des_plaines_lot0",
       "path_local_enu_m": [
         [
-          -462.54,
-          -118.39
+          -462.55,
+          -118.14
         ],
         [
           -461.98,
@@ -1284,8 +1235,8 @@
           -141.87
         ],
         [
-          -457.05,
-          -118.43
+          -457.06,
+          -118.18
         ]
       ],
       "belongs_to": [
@@ -1366,7 +1317,7 @@
       "path_local_enu_m": [
         [
           513.26,
-          -153.03
+          -152.78
         ],
         [
           513.43,
@@ -1572,7 +1523,7 @@
         ],
         [
           513.21,
-          -162.02
+          -162.27
         ]
       ],
       "belongs_to": [
@@ -1606,7 +1557,7 @@
         ],
         [
           -455.22,
-          -195.22
+          -194.98
         ]
       ],
       "belongs_to": [
@@ -1625,8 +1576,8 @@
       "id": "side_blk_west_lake_des_plaines_lot8_n",
       "path_local_enu_m": [
         [
-          -452.11,
-          -189.27
+          -452.61,
+          -189.26
         ],
         [
           -408.38,
@@ -1849,7 +1800,7 @@
           -186.0
         ],
         [
-          282.31,
+          282.56,
           -186.11
         ]
       ],
@@ -1870,7 +1821,7 @@
       "id": "rear_blk_lake_franklin_lot5_1",
       "path_local_enu_m": [
         [
-          289.28,
+          289.53,
           -186.16
         ],
         [
@@ -2024,7 +1975,7 @@
           -187.59
         ],
         [
-          473.19,
+          472.94,
           -187.67
         ]
       ],
@@ -2069,7 +2020,7 @@
       "id": "rear_blk_lake_lasalle_lot1_1",
       "path_local_enu_m": [
         [
-          478.64,
+          478.39,
           -187.71
         ],
         [
@@ -2278,7 +2229,7 @@
       "path_local_enu_m": [
         [
           611.38,
-          -220.27
+          -220.52
         ],
         [
           611.58,
@@ -2757,8 +2708,8 @@
           -244.25
         ],
         [
-          488.03,
-          -231.76
+          488.04,
+          -231.26
         ]
       ],
       "belongs_to": [
@@ -2808,7 +2759,7 @@
         ],
         [
           537.63,
-          -215.67
+          -215.92
         ]
       ],
       "belongs_to": [
@@ -2892,7 +2843,7 @@
         ],
         [
           611.31,
-          -231.26
+          -231.51
         ]
       ],
       "belongs_to": [
@@ -5792,8 +5743,8 @@
       "id": "rear_blk_lake_lasalle_lot1_gate",
       "on": "alley",
       "at_local_enu_m": [
-        468.37,
-        -187.63
+        483.34,
+        -187.75
       ],
       "width_m": 3.048,
       "gate": {
@@ -7596,21 +7547,20 @@
       "blk_west_lake_des_plaines_lot5",
       "blk_west_lake_des_plaines_lot8"
     ],
-    "runs": 207,
-    "note": "251 of the 262 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 11 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 65 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "runs": 205,
+    "note": "252 of the 262 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 10 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 65 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
-    "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.58 m past the lot's own rear line",
-    "blk_lake_clark_lot5 (recon_1835_south_d1_032): the committed buildings reach 1.87 m past the lot's own rear line",
-    "blk_lake_dearborn_lot3 (recon_1835_south_d5_034): the committed buildings reach 6.49 m past the lot's own rear line",
+    "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.69 m past the lot's own rear line",
+    "blk_lake_clark_lot5 (recon_1835_south_d1_032): the committed buildings reach 1.86 m past the lot's own rear line",
+    "blk_lake_dearborn_lot3 (recon_1835_south_d5_034): the committed buildings reach 6.44 m past the lot's own rear line",
     "blk_lake_franklin_lot3 (recon_1835_south_d3_022): only 0.00 m of lot is left behind them",
-    "blk_lake_lasalle_lot3 (recon_1835_south_d5_028): the committed buildings reach 2.25 m past the lot's own rear line",
-    "blk_lake_wells_lot3 (recon_1835_south_d4_025): the committed buildings reach 0.38 m past the lot's own rear line",
-    "blk_lake_wells_lot5 (recon_1835_south_d4_026): the committed buildings reach 0.97 m past the lot's own rear line",
+    "blk_lake_lasalle_lot3 (recon_1835_south_d5_028): the committed buildings reach 2.07 m past the lot's own rear line",
+    "blk_lake_wells_lot3 (recon_1835_south_d4_025): the committed buildings reach 0.56 m past the lot's own rear line",
+    "blk_lake_wells_lot5 (recon_1835_south_d4_026): the committed buildings reach 0.85 m past the lot's own rear line",
     "blk_south_water_clark_lot7 (tremont_house_1_stable): only 0.00 m of lot is left behind them",
     "blk_south_water_market_lot0 (inf_sawpit_shed): the committed buildings reach 2.82 m past the lot's own rear line",
-    "blk_south_water_market_lot3 (newberry_dole_warehouse): the committed buildings reach 5.05 m past the lot's own rear line",
-    "blk_west_washington_canal_lot5 (recon_1835_branch_freight_f2_001): only 0.18 m of lot is left behind them"
+    "blk_south_water_market_lot3 (newberry_dole_warehouse): the committed buildings reach 5.05 m past the lot's own rear line"
   ],
   "research_note": "THE EVIDENCE HERE IS A NORM AND NOT A LOCATION, which is why this record is generated from a rule instead of authored lot by lot. Read the rule in tools/generate_lot_line_fences.py — it is the answer to 'why this lot and why this fence', and it is enforced on every commit, because tools/check.sh re-derives this file byte for byte. In short: a platted lot, improved by at least one committed building, with room behind those buildings for a yard, on a line no fence already stands on; and the TYPE follows the traffic class the project already grades its own streets with — board and picket where the town's made streets meet, split rail where a light-worn lane runs. WHAT WOULD CHANGE IT: a Chicago or Cook County fence ordinance of the 1830s, which would settle the heights and probably the rhythms; any tax, insurance or sale description of a town lot naming a fence; and the North Division street control docs/ROADMAP.md S9 still records as owed, which is what keeps two thirds of the plat off this grid."
 }

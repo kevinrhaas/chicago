@@ -16,7 +16,8 @@
           "whistler_1808_fort_dearborn_draught",
           "andreas_1884_v1"
         ],
-        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS BUILDING. It opens on 25 January 1808, the date Whistler's draught carries, which is the one day on which a source shows it standing. It may well be older: the factory and the agency were set up at the post in the years after 1803, and nothing in the corpus dates either house. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). No source in the corpus says these houses burned with it. Closing them with the fort is the conservative reading: it keeps them out of every later scene and adds nothing to one."
+        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS BUILDING. It opens on 25 January 1808, the date Whistler's draught carries, which is the one day on which a source shows it standing. It may well be older: the factory and the agency were set up at the post in the years after 1803, and nothing in the corpus dates either house. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). No source in the corpus says these houses burned with it. Closing them with the fort is the conservative reading: it keeps them out of every later scene and adds nothing to one.",
+        "from_is": "seen"
       },
       "position": {
         "utm_e": 448133.6,

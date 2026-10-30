@@ -17,9 +17,10 @@
  * `onFinish`, which awards the Navigator License keepsake (T-2665, js/license.js); Skip
  * ends it without.
  *
- * `probe()` returns { yawDeg, e, n, opens, selected, apps, touch, level, scene, front }:
+ * `probe()` returns { yawDeg, e, n, opens, selected, card, apps, touch, level, scene, front }:
  * the camera's bearing, where the visitor stands, how many times Inspect or a building
- * card has opened on a structure, whether one is open now, how many times each Navigator
+ * card has opened on a structure, whether one is open now (and whether it is the floating
+ * card, T-3022), how many times each Navigator
  * app has been opened, whether the visitor is on touch, how far the Navigator is open
  * (0 docked), the scene id, and the name of the building in front of the visitor (or
  * null). The counters are what make a step wait for an action taken DURING it: a card
@@ -53,9 +54,12 @@ export const STEPS = [
     // Section 11: in 1904 the Glessner House; in 1835 and 1812 the building in front of you.
     bubble: (p) => `${press(p)} the ${String(p.scene) === '1904' ? 'Glessner House' : (p.front || 'building in front of you')}. Its file opens.`,
     target: null, done: (p, base) => (p.opens ?? 0) > base.opens },
+  // T-3022: a building opened by hand opens in Inspect, let go by its Back key; the floating
+  // card (`p.card`), where one is open, by its Close.
   { task: 'Release it',
-    bubble: (p) => (p.touch ? 'Release it. Tap Close, or tap the street.' : 'Release it. Press Esc, click Close, or click the street.'),
-    target: '#popup:not([hidden]) .pop-close', done: (p) => !p.selected },
+    bubble: (p) => { const key = p.card ? 'Close' : 'Back';
+      return p.touch ? `Release it. Tap ${key}, or tap the street.` : `Release it. Press Esc, click ${key}, or click the street.`; },
+    target: (p) => (p.card ? '#popup:not([hidden]) .pop-close' : '#nav-app-inspect .insp-back'), done: (p) => !p.selected },
   { task: 'Move', bubble: menuOpen('Move', 'walk, run, ride or fly'),
     target: railKey('move'), done: opened('move') },
   { task: 'Settings', bubble: menuOpen('Settings', 'light, text, map, labels, season'),
@@ -103,7 +107,7 @@ export function createTour({ probe = () => ({}), render = () => {}, onFinish = (
     return was;
   }
   return {
-    /** Start from step 01 (Guide's "Take the field check", and a replay). */
+    /** Start from step 01 (Guide's "Take the tour", and a replay). */
     start() { enter(0); return true; },
     /** A reload: pick the tour up where it was left, if it was running. */
     resume() {

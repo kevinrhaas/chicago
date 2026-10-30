@@ -12,8 +12,9 @@
   "target_date": "1835-07-01",
   "grade": {
     "value": "attested",
-    "why": "Pictured: a picture on the Images tab shows it.",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
     "pictures": [
+      "andreas_1884_green_tree_hotel_plate",
       "chm_green_tree_1859"
     ]
   },
@@ -26,11 +27,13 @@
       "drloih_hotels",
       "drloih_wolf_point"
     ],
-    "note": "Built 1833 by James Kinzie — 'the first structure ever erected in the place for hotel purposes' — and standing at the north-east corner of Lake and Canal until it was moved in 1880 to 35 and 37 Milwaukee Avenue to clear the site for the Jones & Laughlin works. Both ends are attested, which is why a forty-seven-year span is tagged documented rather than being a research gap in disguise. IT IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation: John Gray, landlord 1838-41, recalls 'a low one-story addition to the right, the same as on the left', so the building demonstrably grew, and nothing dates those additions. The phase should be split the moment they can be dated. A second, smaller conflict: chicagology's Green Tree page dates the move to 1880, while its Town of Chicago page, written in 1883, says the building was 'removed two years ago', i.e. 1881. Immaterial to the 1835 scene. The carpenter is disputed too — chicagology names 'Philo Cobb', DRLOIH names Silas B. Cobb, who is the historically real person and is almost certainly correct."
+    "note": "Built 1833 by James Kinzie — 'the first structure ever erected in the place for hotel purposes' — and standing at the north-east corner of Lake and Canal until it was moved in 1880 to 35 and 37 Milwaukee Avenue to clear the site for the Jones & Laughlin works. Both ends are attested, which is why a forty-seven-year span is tagged documented rather than being a research gap in disguise. IT IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation: John Gray, landlord 1838-41, recalls 'a low one-story addition to the right, the same as on the left', so the building demonstrably grew, and nothing dates those additions. The phase should be split the moment they can be dated. A second, smaller conflict: chicagology's Green Tree page dates the move to 1880, while its Town of Chicago page, written in 1883, says the building was 'removed two years ago', i.e. 1881. Immaterial to the 1835 scene. The carpenter is disputed too — chicagology names 'Philo Cobb', DRLOIH names Silas B. Cobb, who is the historically real person and is almost certainly correct.",
+    "from_is": "began",
+    "to_is": "ended"
   },
   "change_note": "Built 1833 as the first building in Chicago put up specifically to be a hotel. The phase carries the two-storey core as built; the low one-storey side additions attested by 1838-41 are recorded on the record but not in the geometry, because nothing dates them.",
   "placement": {
-    "local_e": -18.9,
+    "local_e": -24.7,
     "local_n": -96.19,
     "rotation_deg": 270.0,
     "position_confidence": "inferred",
@@ -41,7 +44,7 @@
       "wright_1834",
       "osm_streets_2026"
     ],
-    "position_note": "MOVED 2026-09-24 ON THE OWNER'S RULING OF 2026-09-21 (T-0141): from the north-east corner of Lake and Canal to the north-east corner of Lake and West Water, 116.40 m east, measured between the old east face and the new one. The northing did not change at all. THE MOVE IS ARGUED FROM THE SOURCE AND NOT FROM A PICTURE'S FRAMING. DRLOIH's article on this tavern gives the corner as 'Lake and West Water Streets'; West Water was the street that ran along the west bank while Canal lay a full plat module further west, and the owner ruled that statement preferred over the same article's gloss 'now Canal Street'. The ship masts that read beside and beyond the inn rather than above its own roofline from the `green_tree` stand (T-0122, T-0140) are the SYMPTOM that sent somebody to look at the placement; they are not a reason to move a building.\n\nWHAT THE OLD PLACEMENT WAS, because a committed building that moves without its previous reading surviving is a town quietly rewriting itself. PLACED 2026-08-09 at EPSG:26916 E 446937.4, N 4637299.6, facade bearing 270: the west face on Canal Street's east frontage and the south face on Lake's north frontage, each half an 80 ft platted street from the modern Lake-and-Canal intersection centre read from OpenStreetMap (E 446913.0, N 4637287.4). That reading rested on chicagology's 'Northeast Corner of Lake and Canal Streets' and on DRLOIH's own body text, 'the N.E. corner of what is now Lake and Canal Streets' — both name Canal in modern terms and one says 'what is now', which is why Canal was adopted at the time. The residual was recorded then and is the thing the ruling settled: modern Canal at Lake stands about 146 m back from the modern west-bank line, so the two readings are a full plat module apart. The check that would settle it from paper is still the lot geometry on Wright 1834 or Hathaway 1834, which nobody has read.\n\nHOW THE NEW COORDINATE IS ARRIVED AT — two constraints, one of them recomputed by tools/validate.py. (1) NORTH OF LAKE, unchanged: the south face stands 12.192 m north of the Lake-and-Canal control's northing, half the 80 ft platted module, which is the `platted_corner` derivation below and keeps the building out of Lake's platted corridor. (2) THE RIVER END: the footprint's north-east corner stands 3.01 m from the 1834 traced west bank of the South Branch (data/terrain/epochs/e1834_harbor_cut/river.geojson) — 5.71 m measured due east at that corner's own northing — and the standoff is the MODELLED GROUND'S OWN LIMIT rather than a chosen setback. The bank falls away toward the water, and a 12.19 m sill plate cannot sit level across that fall: seated hard on the bank the footprint's perimeter stands 0.88 m off the terrain beneath it, which is a building arriving nowhere and would owe a liberty. Walked west a tenth of a metre at a time, the first seat whose whole perimeter comes within the walker's 0.35 m step-up of the modelled ground is this one, at 0.294 m, with the footprint dry at all 425 samples of a 24-by-16 grid over it. So the tavern comes forward to the bank as far as the committed ground carries it, which is what 'forward to the bank' can mean here. Facade bearing is UNCHANGED at 270, due west onto West Water: F. H. Taylor's 'The fornt was on Canal street and this side was on Lake' is a claim about the street the front faced, and on the ruling's reading that street is West Water; the long elevation still runs east-west along Lake, and John Gray's second entrance is still 'on the Lake street front about the middle of the long side'. Working uncertainty about 20 m, which is the georeference's and the traced bank's and not an additional guess.\n\nWHAT THE MOVE DISPLACED, AND ON WHOSE RULE. The committed `west_water` centreline ran through this footprint. T-0768 carried the bank offset 37.12 m past the Wolf Point turn under a stated rule — carry it until the riverward corridor reaches a committed footprint that stands ACROSS the roadway rather than beside it, and cut the line there — and the Green Tree is now the first such footprint, its nearest corner 3.01 m from the bank and its furthest 15.90 m, so it stands across the roadway exactly as James Kinzie's house does. So the line is cut at local [-20.32, -98.49]: 22.53 m shorter, ending 2.30 m south of Lake's own north platted kerb. The owner's ruling anticipated a collision and named T-0251 to settle it — the loser re-seated on its own evidence before it is withdrawn — and this line's own evidence is the rule above. The cost is written where the street is, in data/streets/1835.json: Fergus 1839's 'W. Water st north of West Lake st' again attests a street this reconstruction gives no modelled length north of Lake. Nothing already placed was displaced; the nearest committed footprint is James Kinzie's house, whose nearest corner stands 9.14 m north-west of this one.\n\nAND THE PLATE'S COMPOSITION NOW READS, which is what T-0122 asked for and what the old placement could not give. Plate \"11\" of the 2026-08-11 prefire views hangs ship masts over this tavern's roofline; from the old stand the nearest water on that bearing was 157 m out and a 14.5 m mast on a 1.1 m deck needed to be inside 83 m, so the masts read beside and beyond the inn instead. The schooner moored in the reach below the forks (data/boats/era_boats.json, boat_schooner_wolf_point_2, whose own note already called this reach 'the one open water on the Green Tree Tavern's own eastward sight line') now lies 29.16 m beyond the ridge. The ridge stands 7.98 m above the building's base — 5.0 m of wall and a 38 degree gable over a 7.62 m width — which is 8.96 m on the committed heightfield, and the masthead is 15.6 m above the water. A viewer has to stand at least 0.93 of the ridge-to-mast distance back from the ridge before the masthead clears it, so the `green_tree` stand moved with the building, to Lake Street's own south platted frontage 34.85 m from the ridge on the schooner's bearing (local [-44.11, -121.52], yaw 33.3). The masthead reads 1.44 m above the roofline there, and between 1.36 m and 1.52 m for an eye anywhere from 1.6 m to 1.8 m. From the old standoff — 12.2 m off the front wall — it still does not clear, and that is geometry rather than a placement question: an 8 m ridge seen from 12 m subtends more than a 15.6 m masthead seen from 41 m, wherever the building stands.",
+    "position_note": "RE-SEATED 2026-10-22 ON THE OWNER'S REPORT (T-3029): 5.80 m WEST, the northing and bearing unchanged. The owner, in the 1835 scene: \"green tree tavern in 1835 is sunken, it needs to be on the ground\". It was: the renderer beds a building on the lowest ground under it, and the T-0141 seat below was measured on the footprint polygon alone, while the rear ell (form.rear_ell, built since T-0083 off the east gable) runs 4.5 m further down the bank, its far corner 1.54 m from the traced waterline. Bedded to the ell's foot, the inn stood 0.58 m under its own front door; bedded to its bounding box, as the renderer then did, 0.88 m. The rule is the T-0141 rule with the whole building in it: walked west a tenth of a metre at a time, this is the first seat at which every wall foot the mesh puts on the ground, ell included, meets the modelled ground within 0.10 m, the relief 95% of the 1835 town's structures stand on. Here it is 0.099 m, and the ell's far corner stands 4.59 m from the bank. The move is inside the 20 m working uncertainty below and argues nothing new about the corner: the source still puts the inn at Lake and West Water, and the bank still decides how close to it the inn can come. The paragraphs below are the T-0141 seat as it was measured, kept as the reading this one corrects.\n\nMOVED 2026-09-24 ON THE OWNER'S RULING OF 2026-09-21 (T-0141): from the north-east corner of Lake and Canal to the north-east corner of Lake and West Water, 116.40 m east, measured between the old east face and the new one. The northing did not change at all. THE MOVE IS ARGUED FROM THE SOURCE AND NOT FROM A PICTURE'S FRAMING. DRLOIH's article on this tavern gives the corner as 'Lake and West Water Streets'; West Water was the street that ran along the west bank while Canal lay a full plat module further west, and the owner ruled that statement preferred over the same article's gloss 'now Canal Street'. The ship masts that read beside and beyond the inn rather than above its own roofline from the `green_tree` stand (T-0122, T-0140) are the SYMPTOM that sent somebody to look at the placement; they are not a reason to move a building.\n\nWHAT THE OLD PLACEMENT WAS, because a committed building that moves without its previous reading surviving is a town quietly rewriting itself. PLACED 2026-08-09 at EPSG:26916 E 446937.4, N 4637299.6, facade bearing 270: the west face on Canal Street's east frontage and the south face on Lake's north frontage, each half an 80 ft platted street from the modern Lake-and-Canal intersection centre read from OpenStreetMap (E 446913.0, N 4637287.4). That reading rested on chicagology's 'Northeast Corner of Lake and Canal Streets' and on DRLOIH's own body text, 'the N.E. corner of what is now Lake and Canal Streets' — both name Canal in modern terms and one says 'what is now', which is why Canal was adopted at the time. The residual was recorded then and is the thing the ruling settled: modern Canal at Lake stands about 146 m back from the modern west-bank line, so the two readings are a full plat module apart. The check that would settle it from paper is still the lot geometry on Wright 1834 or Hathaway 1834, which nobody has read.\n\nHOW THE NEW COORDINATE IS ARRIVED AT — two constraints, one of them recomputed by tools/validate.py. (1) NORTH OF LAKE, unchanged: the south face stands 12.192 m north of the Lake-and-Canal control's northing, half the 80 ft platted module, which is the `platted_corner` derivation below and keeps the building out of Lake's platted corridor. (2) THE RIVER END: the footprint's north-east corner stands 3.01 m from the 1834 traced west bank of the South Branch (data/terrain/epochs/e1834_harbor_cut/river.geojson) — 5.71 m measured due east at that corner's own northing — and the standoff is the MODELLED GROUND'S OWN LIMIT rather than a chosen setback. The bank falls away toward the water, and a 12.19 m sill plate cannot sit level across that fall: seated hard on the bank the footprint's perimeter stands 0.88 m off the terrain beneath it, which is a building arriving nowhere and would owe a liberty. Walked west a tenth of a metre at a time, the first seat whose whole perimeter comes within the walker's 0.35 m step-up of the modelled ground is this one, at 0.294 m, with the footprint dry at all 425 samples of a 24-by-16 grid over it. So the tavern comes forward to the bank as far as the committed ground carries it, which is what 'forward to the bank' can mean here. Facade bearing is UNCHANGED at 270, due west onto West Water: F. H. Taylor's 'The fornt was on Canal street and this side was on Lake' is a claim about the street the front faced, and on the ruling's reading that street is West Water; the long elevation still runs east-west along Lake, and John Gray's second entrance is still 'on the Lake street front about the middle of the long side'. Working uncertainty about 20 m, which is the georeference's and the traced bank's and not an additional guess.\n\nWHAT THE MOVE DISPLACED, AND ON WHOSE RULE. The committed `west_water` centreline ran through this footprint. T-0768 carried the bank offset 37.12 m past the Wolf Point turn under a stated rule — carry it until the riverward corridor reaches a committed footprint that stands ACROSS the roadway rather than beside it, and cut the line there — and the Green Tree is now the first such footprint, its nearest corner 3.01 m from the bank and its furthest 15.90 m, so it stands across the roadway exactly as James Kinzie's house does. So the line is cut at local [-20.32, -98.49]: 22.53 m shorter, ending 2.30 m south of Lake's own north platted kerb. The owner's ruling anticipated a collision and named T-0251 to settle it — the loser re-seated on its own evidence before it is withdrawn — and this line's own evidence is the rule above. The cost is written where the street is, in data/streets/1835.json: Fergus 1839's 'W. Water st north of West Lake st' again attests a street this reconstruction gives no modelled length north of Lake. Nothing already placed was displaced; the nearest committed footprint is James Kinzie's house, whose nearest corner stands 9.14 m north-west of this one.\n\nAND THE PLATE'S COMPOSITION NOW READS, which is what T-0122 asked for and what the old placement could not give. Plate \"11\" of the 2026-08-11 prefire views hangs ship masts over this tavern's roofline; from the old stand the nearest water on that bearing was 157 m out and a 14.5 m mast on a 1.1 m deck needed to be inside 83 m, so the masts read beside and beyond the inn instead. The schooner moored in the reach below the forks (data/boats/era_boats.json, boat_schooner_wolf_point_2, whose own note already called this reach 'the one open water on the Green Tree Tavern's own eastward sight line') now lies 29.16 m beyond the ridge. The ridge stands 7.98 m above the building's base — 5.0 m of wall and a 38 degree gable over a 7.62 m width — which is 8.96 m on the committed heightfield, and the masthead is 15.6 m above the water. A viewer has to stand at least 0.93 of the ridge-to-mast distance back from the ridge before the masthead clears it, so the `green_tree` stand moved with the building, to Lake Street's own south platted frontage 34.85 m from the ridge on the schooner's bearing (local [-44.11, -121.52], yaw 33.3). The masthead reads 1.44 m above the roofline there, and between 1.36 m and 1.52 m for an eye anywhere from 1.6 m to 1.8 m. From the old standoff — 12.2 m off the front wall — it still does not clear, and that is geometry rather than a placement question: an 8 m ridge seen from 12 m subtends more than a 15.6 m masthead seen from 41 m, wherever the building stands.",
     "symbolic_location": "North-east corner of Lake Street and West Water Street, on the west bank of the South Branch; the long elevation on Lake, the front west onto West Water, the river end on the bank as far as the modelled ground carries it.",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -152,15 +155,16 @@
       "sources": [
         "chicagology_prefire127"
       ],
-      "note": "THE BUILDING FRONTS ON A GABLE END, AND ITS EVEN BAYS RUN ALONG THE EAVES ELEVATIONS. Two halves, separately grounded. That the front is a gable end is a join of attested facts already in this record: the front on Canal (F. H. Taylor), the long side on Lake, and the gable ends facing east and west (John Gray's attic window note, and the roof_type note's own reading). The bay ARRANGEMENT — even 6-over-6 sash in regular bays along the long elevation, doors and attic lights on the gable faces — is read off plate '11' of the owner's 2026-08-11 reference set, committed at data/sources/assets/prefire_views_kevin_2026_08/p6_0.png: a tier-5 retrospective view, which may drive fenestration rhythm as inferred and may never drive a coordinate. The plate is not yet held as a source record (T-0075 owns that), so the citation is a committed path. The BAY COUNT is the archetype's arithmetic on the footprint, not the plate's — the plate draws a longer building than the footprint's attested room-module can carry (its note admits ±20%), and the count follows the footprint: docs/LIBERTIES.md L152."
+      "note": "THE BUILDING FRONTS ON A GABLE END, AND ITS EVEN BAYS RUN ALONG THE EAVES ELEVATIONS. Two halves, separately grounded. That the front is a gable end is a join of attested facts already in this record: the front on Canal (F. H. Taylor), the long side on Lake, and the gable ends facing east and west (John Gray's attic window note, and the roof_type note's own reading). The bay ARRANGEMENT — even 6-over-6 sash in regular bays along the long elevation, doors and attic lights on the gable faces — is read off plate '11' of the owner's 2026-08-11 reference set, committed at data/sources/assets/prefire_views_kevin_2026_08/p6_0.png: a tier-5 retrospective view, which may drive fenestration rhythm as inferred and may never drive a coordinate. The plate is not yet held as a source record (T-0075 owns that), so the citation is a committed path. The pictured south eaves elevation's bay count is now stated separately by eaves_bays on T-2376; the opposite elevation keeps the archetype's footprint arithmetic as a reconstruction under docs/LIBERTIES.md L152. No dimension or geographic placement is taken from the plate."
     },
     "side_entrance": {
-      "value": "south",
+      "value": null,
       "confidence": "inferred",
       "sources": [
-        "chicagology_prefire127"
+        "andreas_1884_green_tree_hotel_plate",
+        "trowbridge_green_tree_1902"
       ],
-      "note": "THE DOOR IS ATTESTED; THE COMPASS READING IS DERIVED. John Gray describes a second entrance 'on the Lake street front about the middle of the long side', with the hall and stairway behind it. Lake Street lies along this record's south face by the same placement derivation the position note argues, so the attested door resolves to the south eaves elevation — the tag follows the weaker (derived) half, the same rule the position itself uses."
+      "note": "PICTURE-LED SOUTH EAVES OPENING PATTERN FOR THE 1835 MODEL, not a finding that this inn never had a side door. The held Andreas/Braunhold reproduction shows seven sash on the south long elevation on each floor, with a sash at the middle ground-floor station. The independently held original Trowbridge plate in Gale 1902, facing p.35 / scan n55, captioned 'The Green Tree Tavern in 1835', shows the same seven-bay window rhythm and no middle ground-floor door; its frontmost lower sash is partly obscured by the hanging board and people, while the middle station is visible. Setting this existing attribute to null selects the archetype's normal sash at all seven existing south-wall stations instead of substituting a door at the fourth station. The earlier John Gray testimony is retained here verbatim: 'on the Lake street front about the middle of the long side', with the hall and stairway behind it (chicagology_prefire127, transcribing the Inter Ocean, 1 July 1883; Gray kept the inn in 1838-41). That later recollection may describe a changed or schematic form, but it does not date the door to 1 July 1835, and the drawings do not prove its historical absence on that date. The choice follows the two pictured opening patterns as inferred form; exact July-1835 appearance remains uncertain. The original undated Andreas plate is not dated by the local reproduction's 1838 caption, and Trowbridge is retrospective, not an independent contemporary 1835 survey. Existing south-wall seven-bay count, even spacing, stock sash dimensions and height bands, north-wall rhythm, primary front entrance, footprint, geographic placement and all other form values stay unchanged. No c.1859 check_required photograph or Gray-derived new geometry supplies this correction; the two public-domain picture records supply the visible sash pattern."
     },
     "chimney_placement": {
       "value": "gable_ends",
@@ -199,6 +203,38 @@
       "confidence": "reconstructed",
       "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
     },
+    "eaves_bays": {
+      "value": {
+        "x_min": 7
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_green_tree_hotel_plate"
+      ],
+      "note": "Seven opening stations are drawn on the visible long elevation in the public-domain Andreas/Braunhold plate, held locally as chicago/reference/images/chicago/chicago_green_tree_inn_1838.jpg; the seven upper sash centres are approximately x 822, 928, 1041, 1146, 1243, 1347 and 1443 in its 1600-pixel-wide reproduction. This is tier-5 retrospective form evidence, not a dimension, coordinate or demonstrated 1835 elevation. The existing west-facing gable and Lake Street south-side reading assign that pictured long wall to local x_min; no position or footprint changes. The opposite x_max face is not overridden and retains its six-bay reconstruction. Seven bays fit the existing 12.19 m length at about 1.74 m per bay, keeping the archetype's existing 0.85 m sash and 1.35 m height. Their equal spacing, vertical bands and hidden treatment remain reconstructed. The earlier form replaced the middle lower sash with Gray's textually described south-side entrance. The current T-2376 picture-priority choice uses the existing side_entrance:null option to retain that seventh sash. Gray's later entrance recollection remains explicit counterevidence: no alteration date or absence of that door on 1 July 1835 is established. Other gable, wing and attic-light differences are classified in the individual picture match records."
+    },
+    "gable_wall_cladding": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_green_tree_hotel_plate"
+      ],
+      "note": "The pictured main gable continues the framed wall’s horizontal clapboard above the eaves; it is not roof covering. The main-block end triangles now use the existing wall finish and existing reconstructed siding course stock. This switch covers both main gables for a closed model: continuing the pictured finish around the unseen/opposite end is reconstructed, not independently attested. Existing footprint, placement, eave/ridge geometry, roof pitch and covering, course stock and all subsidiary roofs remain unchanged. It does not settle the provisional camera or any remaining opening, roof, wing or grouped-annex differences."
+    },
+    "front_ground_layout": {
+      "value": [
+        0.2,
+        0.5,
+        0.78
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_green_tree_hotel_plate",
+        "trowbridge_green_tree_1902",
+        "kurz_allison_1893"
+      ],
+      "note": "Two sash left of a rightmost front-gable entrance agree in the actually viewed Andreas 1884 p634/n1301 plate, Trowbridge/Gale 1902 plate facing p35/n55, and Kurz & Allison 1893 panel11. This is retrospective form agreement, not independent contemporaneous proof of 1 July 1835; Kurz may derive from Andreas and Trowbridge may rely on later material. The ascending LOCAL-u fractions are door .20, sash .50, sash .78: exterior +y viewers see higher u toward screen left, so this yields two screen-left sash and a screen-right entrance. Exact centre fractions .20/.50/.78 across the existing 7.62 m wall, equal existing .85x1.35 m sash and 1.20x2.10 m door stock, sill bands, sections and hidden joinery are RECONSTRUCTED, not measured or attested by those pictures. Only the +y front ground floor opts in. The current two upper sash versus Trowbridge's three, attic light, text-attested south-side door, disputed additions, roof, geographic placement and all existing source/camera uncertainties stay unresolved. The held-rights/unverified 1859 source is excluded as a geometry witness. Original T-2376 remains open/differs; this is not a solved camera or picture match. The same pure resolved_front_ground_stations dataclass property (whose actual values are covered by the existing native mesh recipe) is consumed by the mesh and the native entrance/apron/clearance reader after resolving exactly the sidecar-selected source phase; no renderer facade API or bearing is changed."
+    },
     "function": {
       "value": "tavern_inn",
       "confidence": "attested",
@@ -215,6 +251,15 @@
         "chicagology_prefire127"
       ],
       "note": "Ingersoll's tenancy is given as 1834-1837, which covers 1835-07-01, with Martin M. Ford associated. DRLOIH's list — 'initially by David Clark and then by Edward Parsons' — carries no dates and is compatible rather than contradictory: Clark (or Clock) is named elsewhere as the landlord who opened the house in 1833, before Ingersoll."
+    },
+    "built": {
+      "value": 1833,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "note": "Built 1833 by James Kinzie."
     }
   },
   "residents": [
@@ -292,6 +337,27 @@
   ],
   "citations": [
     {
+      "source_id": "andreas_1884_green_tree_hotel_plate",
+      "citation": "\"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 634, in the chapter \"Wolf Point and Early Hotels\".",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n1301/mode/1up",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the Green Tree's signboard hanging from a tall post set clear of the wall at the corner — a second, older witness to the post-mounted sign",
+        "a lower gabled wing attached at the left of the main block with a wide, wagon-sized opening in its end",
+        "the two-storey clapboard block with an even rhythm of sash on both floors and a chimney on the ridge",
+        "ship's masts and rigging standing directly behind the roofline, which is a statement about how close the water was",
+        "figures standing on a walk along the frontage"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension",
+        "the year 1838, or any year: Andreas captions the plate with no date at all",
+        "the engraver's name: no signature is legible, so the brief's Braunhold attribution stands unverified",
+        "the 6-over-6 pane count the brief reads: the sash are drawn as openings and the glazing bars are not resolvable in this scan"
+      ]
+    },
+    {
       "source_id": "andreas_1884_v1",
       "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
       "url": "https://archive.org/details/historyofchicago01andr",
@@ -367,12 +433,63 @@
       "tier_label": "later scholarship"
     },
     {
+      "source_id": "kurz_allison_1893",
+      "citation": "Kurz & Allison. Chicago In Early Days, 1779-1857. Chicago: Kurz & Allison, 76 & 78 Wabash Avenue, 1893. Chromolithograph, fifteen numbered vignettes with printed key.",
+      "url": "https://www.loc.gov/pictures/item/2003656685/",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "panel 1: Old Fort Dearborn of 1803 from across the river - the palisade under a ruled cap line, the barracks ranges, the blockhouses and the bare trodden ground outside the walls that data/enclosures/fort_dearborn_apron.json is built on",
+        "panel 8: the town from the lake in 1830, population 96 - the low far bank, a lodge and bark canoes on the shore, and trees round the buildings on both banks; a scene-adjacent TOWN view, five years early, not a second view of the fort",
+        "panel 12: the long low Kinzie house with a full-width piazza on its front, a red roof, and outbuildings up the rise behind it",
+        "panel 12: a row of four Lombardy poplars standing between the house and the river — the count and rhythm tools/generate_planted_rows.py measures across seven plates",
+        "panel 12: PICKET-FENCED garden plots at the house — close-set vertical pales, the treatment data/enclosures/town_dooryard_pickets.json deals to the town's house lots",
+        "panel 12: the fenced green between house and water that Wau-Bun describes in words, drawn",
+        "panel 11: the Green Tree Hotel as a two-storey clapboard block with end chimneys and even sash, with ship masts behind it",
+        "panel 5: Fort Dearborn as rebuilt 1835 — picket palisade, galleried barracks range, blockhouse",
+        "panel 14: the Sauganash Hotel as a two-storey clapboard block with an attached single-storey log wing and no full-width gallery",
+        "the sheet's printed key, which names each panel and dates several of the buildings"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — tier 5, and a perspective vignette cannot be asked for a metre",
+        "a date for anything it draws that can be relied on: its own key puts the Kinzie Mansion at 1832, which contradicts every documentary source this project holds",
+        "independent testimony for panel 14, which follows the F. Braunhold engraving in Andreas (1884) closely enough to be probably derived from it",
+        "any evidence that a garden fence stood on a lot in the town: panel 12 is the north bank, and the house it draws is excluded from the 1835 scene (data/exclusions.json, kinzie_house)",
+        "a height, a pale width or a bay for the fence it draws — every dimension on the fence layer is invented, and docs/LIBERTIES.md L129 says so",
+        "a Lombardy poplar anywhere in Chicago but this one group",
+        "a view of the 1835 fort in panel 8: that panel is dated 1830 by the sheet's own key and was mistaken for a fort plate for a month (T-1107)"
+      ]
+    },
+    {
       "source_id": "osm_streets_2026",
       "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
       "url": "https://www.openstreetmap.org/",
       "archived_url": "https://overpass-api.de/",
       "tier": 4,
       "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "trowbridge_green_tree_1902",
+      "citation": "The Green Tree Tavern in 1835 (published 1902). W. E. S. Trowbridge, in Edwin O. Gale, Reminiscences of Early Chicago and Vicinity. Chicago: Fleming H. Revell Company, 1902; plate facing printed p. 35.",
+      "url": "https://archive.org/details/reminiscencesofe00ingale/page/n55/mode/1up",
+      "archived_url": "https://archive.org/download/reminiscencesofe00ingale/page/n55_large.jpg",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the Green Tree's hanging signboard, lettered GREEN TREE, swinging from a post set at the street edge rather than fixed to the wall",
+        "a bench against the front wall between the door and the corner",
+        "an open-sided, shed-roofed wagon bay attached at the left gable, with a covered wagon standing under it",
+        "farm wagons standing on the yard and on the road",
+        "two brick chimneys, one at each end of the ridge, and an even rhythm of sash on both floors",
+        "a dirt road with grass verges and brush at the field edges rather than a made street"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — a retrospective drawing may drive form and setting and may never move a building an inch",
+        "the state of the inn on 1 July 1835: the drawing is dated 1902 and titled to 1835, and nothing on it records what was checked",
+        "independent testimony — the building it draws is the building in the 1859 photograph on the same page, so it is very probably that photograph's descendant rather than a second witness",
+        "the wolf, lettering or colour of any sign but the Green Tree's own"
+      ]
     },
     {
       "source_id": "wright_1834",
@@ -394,7 +511,7 @@
       ]
     }
   ],
-  "research_note": "THE BEST-DOCUMENTED BUILDING IN THIS DATASET, and it is documented from the inside out — which is the opposite of the usual situation here and is worth understanding. The Green Tree survived until 1902, long enough for people who had slept in it to be asked what it was like in print: John Gray, who kept it 1838-41, Edwin O. Gale, who was put up in a chamber 'about 12x12, with two windows 6x8', and F. H. Taylor, who fixed which street the front was on. From them come the room module, the 7 1/2 ft ceilings, the board partitions, the interior whitewash, the dividing hall and its stairway, the bar-room at one end, the attic used for lodging, the gable-end attic window and the low one-storey additions at each end. What none of them gives is an overall dimension, so even here the footprint is a derivation from the room module rather than a measurement. IT ALSO SURVIVED LONG ENOUGH TO BE PHOTOGRAPHED, about 1859, at its original corner — the closest thing to direct visual evidence for any Wolf Point building. Note the caveat carefully, because the version in circulation is wrong: the 1859 plate PREDATES the 1880 move and shows the tavern where it was built, so what stands between it and the scene date is twenty-six years of alteration, not forty-seven years and a move. That plate has not been seen for this record and it is the single highest-value open lead in the parcel: it would settle the overall dimensions, the exterior finish and the gallery in one look. CONFLICTS RECORDED: frame throughout versus a log core weatherboarded later, a claim attributable to W. H. Stow personally; the carpenter, Philo Cobb versus Silas B. Cobb; the move dated 1880 versus 1881; and, the largest in metres, whether 'Lake and Canal' or 'Lake and West Water' names the corner, which are a full block apart. See docs/RESEARCH/green_tree_tavern.md.",
+  "research_note": "VERIFIED 1902 PICTURE SOURCE: trowbridge_green_tree_1902 is W. E. S. Trowbridge’s \"The Green Tree Tavern in 1835\", independently verified in Edwin O. Gale’s 1902 book, facing printed p. 35. The artwork’s earlier rights hold is superseded by the actual title/copyright publication evidence. Its 1835 caption is retrospective and does not date every feature to 1 July 1835. Original picture comparisons remain open; no dimensions, placement, geometry or confidence values change with this source verification.\n\nPRIOR RESEARCH RECORD:\nTHE BEST-DOCUMENTED BUILDING IN THIS DATASET, and it is documented from the inside out — which is the opposite of the usual situation here and is worth understanding. The Green Tree survived until 1902, long enough for people who had slept in it to be asked what it was like in print: John Gray, who kept it 1838-41, Edwin O. Gale, who was put up in a chamber 'about 12x12, with two windows 6x8', and F. H. Taylor, who fixed which street the front was on. From them come the room module, the 7 1/2 ft ceilings, the board partitions, the interior whitewash, the dividing hall and its stairway, the bar-room at one end, the attic used for lodging, the gable-end attic window and the low one-storey additions at each end. What none of them gives is an overall dimension, so even here the footprint is a derivation from the room module rather than a measurement. IT ALSO SURVIVED LONG ENOUGH TO BE PHOTOGRAPHED, about 1859, at its original corner — the closest thing to direct visual evidence for any Wolf Point building. Note the caveat carefully, because the version in circulation is wrong: the 1859 plate PREDATES the 1880 move and shows the tavern where it was built, so what stands between it and the scene date is twenty-six years of alteration, not forty-seven years and a move. That plate has not been seen for this record and it is the single highest-value open lead in the parcel: it would settle the overall dimensions, the exterior finish and the gallery in one look. CONFLICTS RECORDED: frame throughout versus a log core weatherboarded later, a claim attributable to W. H. Stow personally; the carpenter, Philo Cobb versus Silas B. Cobb; the move dated 1880 versus 1881; and, the largest in metres, whether 'Lake and Canal' or 'Lake and West Water' names the corner, which are a full block apart. See docs/RESEARCH/green_tree_tavern.md.",
   "research_doc": "docs/RESEARCH/green_tree_tavern.md",
   "review_required": false,
   "lodging": {

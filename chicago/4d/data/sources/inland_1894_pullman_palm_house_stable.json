@@ -1,0 +1,27 @@
+{
+ "id": "inland_1894_pullman_palm_house_stable",
+ "type": "photograph",
+ "citation": "Inland Architect Press. Palm House and Stable of George M. Pullman, Chicago. S. S. Beman, Architect. Photographic plate in The Inland Architect and News Record, vol. 24, no. 1 (1894). Art Institute of Chicago, Ryerson and Burnham Archives, Archival Image Collection (Inland Architect plates).",
+ "author": "Inland Architect Press (photographic plate); Solon S. Beman, architect",
+ "date": "1894 (publication)",
+ "describes_date": "1892 to 1894: the palm house and stable as built for George M. Pullman",
+ "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (https://digital-libraries.artic.edu/digital/collection/mqc/id/8429). Prairie library image a16-inland-1894-pullman-palm-house-stable; the image store's copy is kevinrhaas/chicago-images, prairie-1904/files/a16-inland-1894-pullman-palm-house-stable.jpg.",
+ "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/8429",
+ "locator": "The whole plate: from above 18th Street, looking north-east across the 18th Street wall at the palm house's drum and dome (left), the square belvedere behind the range's parapet (centre) and the stable's south front (right): its arcade, its polygonal bay, its upper storey and its hipped roof with the deck's cresting and the lantern at top right.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1894 (pre-1931); the Prairie library's ruling is public domain. Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh).",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3178/T-3192) from the image store's copy, 2000 x 1384 px (the plate with its mount and caption), sha256 4cd3f1eef5e267d8e2769c48d0fbfc79fb4ed256303efca48a9274d2bf9c5580. T-3193 brought an unaltered copy in for the image gate (data/sources/assets/pullman_1729_stable_t3193/) and solved its camera (data/reference_views/pullman_house_1729_prairie_conservatory/inland_1894_plate.json): from the yard across 18th Street, about 2.4 m up, looking 24 degrees east of north.",
+ "note": "The closest published view of Beman's 1892 palm house and the Pullman stable. The stable is a two-storey stone building: a three-arch arcade (a broad open arch between two narrower lights over low railings) and a polygonal bay of round-headed lights under its own cornice on the ground storey; the steep hipped roof springs from the first-floor cornice at the west end, and the upper storey on the 18th Street front rises through it as one long wall with small square lights under its own cornice; the roof stops at a deck inside iron cresting, with a round lantern under a ribbed dome and finial. Between the stable and the drum a square belvedere stands over the range's balustraded parapet with its own cornice and balustrade. The plate's horizon lies on the range's parapet, so the photographer stood about 8 m up; T-3192 read forms and proportions from it and left its camera to T-3193, because the plate's corner-to-bay stretch of the stable reads about twice what Taylor's frontal photograph does through its solved camera.",
+ "what_it_supplies": [
+  "the stable's forms: the arcade's three arches, the polygonal bay and its round-headed lights, the upper storey's wall and lights, the roof's west end springing from the first-floor cornice, the deck's cresting and the lantern",
+  "the belvedere's form: a square tower with a cornice and balustrade over the range's parapet"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 state: the plate is 1892-94",
+  "colour: the plate is monochrome",
+  "a solved camera yet (T-3193)"
+ ]
+}

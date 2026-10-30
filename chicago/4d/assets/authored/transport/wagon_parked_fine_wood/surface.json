@@ -1,0 +1,2349 @@
+{
+  "schema": "w01_fine_wood_surface_append_v1",
+  "parent_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+  "expected_glb_sha256": "e1e5b4f1d7dfe6bf08cca21e8cfae2e88748a3f6e6c6959753334ae2b0c84dd8",
+  "payload_sha256": "cd92b487e3165add3a4f5bd020c875b051757a91b4293e5f30023d0629e62693",
+  "parent_binary_bytes": 1883588,
+  "append_buffer_views": [
+    {
+      "buffer": 0,
+      "byteOffset": 1883588,
+      "byteLength": 12672,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1896260,
+      "byteLength": 25344,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1921604,
+      "byteLength": 5760,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1927364,
+      "byteLength": 576,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1927940,
+      "byteLength": 12672,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1940612,
+      "byteLength": 25344,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1965956,
+      "byteLength": 5760,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1971716,
+      "byteLength": 576,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1972292,
+      "byteLength": 17280,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1989572,
+      "byteLength": 34560,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2024132,
+      "byteLength": 6912,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2031044,
+      "byteLength": 1728,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2032772,
+      "byteLength": 17280,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2050052,
+      "byteLength": 34560,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2084612,
+      "byteLength": 6912,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2091524,
+      "byteLength": 1728,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2093252,
+      "byteLength": 17280,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2110532,
+      "byteLength": 34560,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2145092,
+      "byteLength": 6912,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2152004,
+      "byteLength": 1728,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2153732,
+      "byteLength": 17280,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2171012,
+      "byteLength": 34560,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2205572,
+      "byteLength": 6912,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2212484,
+      "byteLength": 1728,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2214212,
+      "byteLength": 288,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2214500,
+      "byteLength": 576,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2215076,
+      "byteLength": 96,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2215172,
+      "byteLength": 48,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2215220,
+      "byteLength": 2304,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2217524,
+      "byteLength": 4608,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2222132,
+      "byteLength": 768,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2222900,
+      "byteLength": 384,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2223284,
+      "byteLength": 347318
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2570604,
+      "byteLength": 204977
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2775584,
+      "byteLength": 150342
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2925928,
+      "byteLength": 5012
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2930940,
+      "byteLength": 1655
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2932596,
+      "byteLength": 4232
+    }
+  ],
+  "append_accessors": [
+    {
+      "bufferView": 110,
+      "componentType": 5126,
+      "count": 1584,
+      "type": "VEC2",
+      "min": [
+        -1.3325108289718628,
+        -0.14517857134342194
+      ],
+      "max": [
+        3.3157777786254883,
+        0.6114285588264465
+      ]
+    },
+    {
+      "bufferView": 111,
+      "componentType": 5126,
+      "count": 1584,
+      "type": "VEC4",
+      "min": [
+        -0.7071067690849304,
+        -0.7071067690849304,
+        -0.7071067690849304,
+        -1.0
+      ],
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 112,
+      "componentType": 5125,
+      "count": 1440,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 113,
+      "componentType": 5125,
+      "count": 144,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 114,
+      "componentType": 5126,
+      "count": 1584,
+      "type": "VEC2",
+      "min": [
+        -1.4188324213027954,
+        -0.14517857134342194
+      ],
+      "max": [
+        3.2565665245056152,
+        0.6114285588264465
+      ]
+    },
+    {
+      "bufferView": 115,
+      "componentType": 5126,
+      "count": 1584,
+      "type": "VEC4",
+      "min": [
+        -0.7071067690849304,
+        -0.7071067690849304,
+        -0.7071067690849304,
+        -1.0
+      ],
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 116,
+      "componentType": 5125,
+      "count": 1440,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 117,
+      "componentType": 5125,
+      "count": 144,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 118,
+      "componentType": 5126,
+      "count": 2160,
+      "type": "VEC2",
+      "min": [
+        -0.5626391172409058,
+        -0.11071428656578064
+      ],
+      "max": [
+        4.138915061950684,
+        2.3821427822113037
+      ]
+    },
+    {
+      "bufferView": 119,
+      "componentType": 5126,
+      "count": 2160,
+      "type": "VEC4",
+      "min": [
+        -0.01596759259700775,
+        -0.9978589415550232,
+        -0.9978589415550232,
+        -1.0
+      ],
+      "max": [
+        0.9950639009475708,
+        0.9999563097953796,
+        0.9999563097953796,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 120,
+      "componentType": 5125,
+      "count": 1728,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 121,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 122,
+      "componentType": 5126,
+      "count": 2160,
+      "type": "VEC2",
+      "min": [
+        -0.5137852430343628,
+        -0.11071428656578064
+      ],
+      "max": [
+        3.5526814460754395,
+        2.3821427822113037
+      ]
+    },
+    {
+      "bufferView": 123,
+      "componentType": 5126,
+      "count": 2160,
+      "type": "VEC4",
+      "min": [
+        -0.01596759259700775,
+        -0.9978589415550232,
+        -0.9978589415550232,
+        -1.0
+      ],
+      "max": [
+        0.9950639009475708,
+        0.9999563097953796,
+        0.9999563097953796,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 124,
+      "componentType": 5125,
+      "count": 1728,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 125,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 126,
+      "componentType": 5126,
+      "count": 2160,
+      "type": "VEC2",
+      "min": [
+        -0.59156733751297,
+        -0.11071428656578064
+      ],
+      "max": [
+        2.5270049571990967,
+        1.8464285135269165
+      ]
+    },
+    {
+      "bufferView": 127,
+      "componentType": 5126,
+      "count": 2160,
+      "type": "VEC4",
+      "min": [
+        -0.022188400849699974,
+        -0.9978589415550232,
+        -0.9978589415550232,
+        -1.0
+      ],
+      "max": [
+        0.995064377784729,
+        0.9999156594276428,
+        0.9999156594276428,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 128,
+      "componentType": 5125,
+      "count": 1728,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 129,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 130,
+      "componentType": 5126,
+      "count": 2160,
+      "type": "VEC2",
+      "min": [
+        -0.12630553543567657,
+        -0.11071428656578064
+      ],
+      "max": [
+        3.6097021102905273,
+        1.8464285135269165
+      ]
+    },
+    {
+      "bufferView": 131,
+      "componentType": 5126,
+      "count": 2160,
+      "type": "VEC4",
+      "min": [
+        -0.022188400849699974,
+        -0.9978589415550232,
+        -0.9978589415550232,
+        -1.0
+      ],
+      "max": [
+        0.995064377784729,
+        0.9999156594276428,
+        0.9999156594276428,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 132,
+      "componentType": 5125,
+      "count": 1728,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 133,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 134,
+      "componentType": 5126,
+      "count": 36,
+      "type": "VEC2",
+      "min": [
+        -0.42814770340919495,
+        -0.059334807097911835
+      ],
+      "max": [
+        2.2814393043518066,
+        0.6477919220924377
+      ]
+    },
+    {
+      "bufferView": 135,
+      "componentType": 5126,
+      "count": 36,
+      "type": "VEC4",
+      "min": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max": [
+        0.7071067690849304,
+        0.7071067690849304,
+        0.9999901056289673,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 136,
+      "componentType": 5125,
+      "count": 24,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 137,
+      "componentType": 5125,
+      "count": 12,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 138,
+      "componentType": 5126,
+      "count": 288,
+      "type": "VEC2",
+      "min": [
+        -0.5736128091812134,
+        -0.5089893937110901
+      ],
+      "max": [
+        2.474191188812256,
+        0.7235534191131592
+      ]
+    },
+    {
+      "bufferView": 139,
+      "componentType": 5126,
+      "count": 288,
+      "type": "VEC4",
+      "min": [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max": [
+        0.9999910593032837,
+        0.9852206110954285,
+        0.9999079704284668,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 140,
+      "componentType": 5125,
+      "count": 192,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 141,
+      "componentType": 5125,
+      "count": 96,
+      "type": "SCALAR"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "vehicle_body_plank_a",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 92,
+            "TANGENT": 93
+          },
+          "material": 2,
+          "indices": 94
+        },
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 92,
+            "TANGENT": 93
+          },
+          "material": 7,
+          "indices": 95
+        }
+      ]
+    },
+    {
+      "name": "vehicle_body_plank_b",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 2,
+            "NORMAL": 3,
+            "TEXCOORD_0": 96,
+            "TANGENT": 97
+          },
+          "material": 3,
+          "indices": 98
+        },
+        {
+          "attributes": {
+            "POSITION": 2,
+            "NORMAL": 3,
+            "TEXCOORD_0": 96,
+            "TANGENT": 97
+          },
+          "material": 8,
+          "indices": 99
+        }
+      ]
+    },
+    {
+      "name": "vehicle_body_paint",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 50,
+            "TANGENT": 51
+          },
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "vehicle_body_iron",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 6,
+            "NORMAL": 7,
+            "TEXCOORD_0": 52,
+            "TANGENT": 53
+          },
+          "material": 4
+        }
+      ]
+    },
+    {
+      "name": "vehicle_running_gear_rear_paint",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 8,
+            "NORMAL": 9,
+            "TEXCOORD_0": 54,
+            "TANGENT": 55
+          },
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "vehicle_root_paint",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 10,
+            "NORMAL": 11,
+            "TEXCOORD_0": 56,
+            "TANGENT": 57
+          },
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "vehicle_steer_front_paint",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 12,
+            "NORMAL": 13,
+            "TEXCOORD_0": 58,
+            "TANGENT": 59
+          },
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "vehicle_steer_front_iron",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 14,
+            "NORMAL": 15,
+            "TEXCOORD_0": 60,
+            "TANGENT": 61
+          },
+          "material": 4
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_rear_left_iron",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 16,
+            "NORMAL": 17,
+            "TEXCOORD_0": 62,
+            "TANGENT": 63
+          },
+          "material": 4
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_rear_left_timber",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 18,
+            "NORMAL": 19,
+            "TEXCOORD_0": 100,
+            "TANGENT": 101
+          },
+          "material": 1,
+          "indices": 102
+        },
+        {
+          "attributes": {
+            "POSITION": 18,
+            "NORMAL": 19,
+            "TEXCOORD_0": 100,
+            "TANGENT": 101
+          },
+          "material": 6,
+          "indices": 103
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_rear_left_paint",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 20,
+            "NORMAL": 21,
+            "TEXCOORD_0": 66,
+            "TANGENT": 67
+          },
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_rear_right_iron",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 22,
+            "NORMAL": 23,
+            "TEXCOORD_0": 68,
+            "TANGENT": 69
+          },
+          "material": 4
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_rear_right_timber",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 24,
+            "NORMAL": 25,
+            "TEXCOORD_0": 104,
+            "TANGENT": 105
+          },
+          "material": 1,
+          "indices": 106
+        },
+        {
+          "attributes": {
+            "POSITION": 24,
+            "NORMAL": 25,
+            "TEXCOORD_0": 104,
+            "TANGENT": 105
+          },
+          "material": 6,
+          "indices": 107
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_rear_right_paint",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 26,
+            "NORMAL": 27,
+            "TEXCOORD_0": 72,
+            "TANGENT": 73
+          },
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_front_left_iron",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 28,
+            "NORMAL": 29,
+            "TEXCOORD_0": 74,
+            "TANGENT": 75
+          },
+          "material": 4
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_front_left_timber",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 30,
+            "NORMAL": 31,
+            "TEXCOORD_0": 108,
+            "TANGENT": 109
+          },
+          "material": 1,
+          "indices": 110
+        },
+        {
+          "attributes": {
+            "POSITION": 30,
+            "NORMAL": 31,
+            "TEXCOORD_0": 108,
+            "TANGENT": 109
+          },
+          "material": 6,
+          "indices": 111
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_front_left_paint",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 32,
+            "NORMAL": 33,
+            "TEXCOORD_0": 78,
+            "TANGENT": 79
+          },
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_front_right_iron",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 34,
+            "NORMAL": 35,
+            "TEXCOORD_0": 80,
+            "TANGENT": 81
+          },
+          "material": 4
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_front_right_timber",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 36,
+            "NORMAL": 37,
+            "TEXCOORD_0": 112,
+            "TANGENT": 113
+          },
+          "material": 1,
+          "indices": 114
+        },
+        {
+          "attributes": {
+            "POSITION": 36,
+            "NORMAL": 37,
+            "TEXCOORD_0": 112,
+            "TANGENT": 113
+          },
+          "material": 6,
+          "indices": 115
+        }
+      ]
+    },
+    {
+      "name": "vehicle_wheel_front_right_paint",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 38,
+            "NORMAL": 39,
+            "TEXCOORD_0": 84,
+            "TANGENT": 85
+          },
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "vehicle_tongue_timber",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 40,
+            "NORMAL": 41,
+            "TEXCOORD_0": 116,
+            "TANGENT": 117
+          },
+          "material": 1,
+          "indices": 118
+        },
+        {
+          "attributes": {
+            "POSITION": 40,
+            "NORMAL": 41,
+            "TEXCOORD_0": 116,
+            "TANGENT": 117
+          },
+          "material": 6,
+          "indices": 119
+        }
+      ]
+    },
+    {
+      "name": "vehicle_tongue_iron",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 42,
+            "NORMAL": 43,
+            "TEXCOORD_0": 88,
+            "TANGENT": 89
+          },
+          "material": 4
+        }
+      ]
+    },
+    {
+      "name": "vehicle_body_timber",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 44,
+            "NORMAL": 45,
+            "TEXCOORD_0": 120,
+            "TANGENT": 121
+          },
+          "material": 1,
+          "indices": 122
+        },
+        {
+          "attributes": {
+            "POSITION": 44,
+            "NORMAL": 45,
+            "TEXCOORD_0": 120,
+            "TANGENT": 121
+          },
+          "material": 6,
+          "indices": 123
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0,
+      "sampler": 0
+    },
+    {
+      "source": 1,
+      "sampler": 0
+    },
+    {
+      "source": 2,
+      "sampler": 0
+    },
+    {
+      "source": 3,
+      "sampler": 0
+    },
+    {
+      "source": 4,
+      "sampler": 0
+    },
+    {
+      "source": 5,
+      "sampler": 0
+    },
+    {
+      "source": 6,
+      "sampler": 0
+    },
+    {
+      "source": 7,
+      "sampler": 0
+    },
+    {
+      "source": 8,
+      "sampler": 0
+    },
+    {
+      "source": 9,
+      "sampler": 0
+    },
+    {
+      "source": 10,
+      "sampler": 0
+    },
+    {
+      "source": 11,
+      "sampler": 0
+    }
+  ],
+  "materials": [
+    {
+      "name": "paint",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.24,
+          0.31,
+          0.19,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1,
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicRoughnessTexture": {
+          "index": 5
+        }
+      },
+      "normalTexture": {
+        "index": 4
+      },
+      "extras": {
+        "grade": "original unmeasured reconstructed optical study; not photographs or periodfinish attestation",
+        "original_source": "generate_tiles.py analytic dimensional surfaces; no photographs",
+        "cut_end_chart": "constant neutral sample; no claimed endgrain anatomy",
+        "finish_grade": "Original reconstructed weathering/color; no identified Chicago specimen or measured finish",
+        "finish_variant": "parked_weathered_v1"
+      }
+    },
+    {
+      "name": "timber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8337386043291185,
+          0.8337386043291185,
+          0.8337386043291185,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1,
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 2
+        }
+      },
+      "normalTexture": {
+        "index": 1,
+        "scale": 0.35
+      },
+      "extras": {
+        "scope": "Reconstructed dark brown timber finish; modern optical analogy, no species/date/coating/maker attestation",
+        "active_source": "Poly Haven fine_grained_wood by Rob Tuytel, CC0-1.0",
+        "changes": "Native crop/2x linear box reduction/90CCW, no reflection, eight-pixel periodic edge blend; bounded direct exposure and source roughness; neutral factors preserve only relative original board brightness",
+        "normal_scale": 0.35
+      }
+    },
+    {
+      "name": "plank_a",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1,
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 2
+        }
+      },
+      "normalTexture": {
+        "index": 1,
+        "scale": 0.35
+      },
+      "extras": {
+        "scope": "Reconstructed dark brown timber finish; modern optical analogy, no species/date/coating/maker attestation",
+        "active_source": "Poly Haven fine_grained_wood by Rob Tuytel, CC0-1.0",
+        "changes": "Native crop/2x linear box reduction/90CCW, no reflection, eight-pixel periodic edge blend; bounded direct exposure and source roughness; neutral factors preserve only relative original board brightness",
+        "normal_scale": 0.35
+      }
+    },
+    {
+      "name": "plank_b",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7573690631233616,
+          0.7573690631233616,
+          0.7573690631233616,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1,
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 2
+        }
+      },
+      "normalTexture": {
+        "index": 1,
+        "scale": 0.35
+      },
+      "extras": {
+        "scope": "Reconstructed dark brown timber finish; modern optical analogy, no species/date/coating/maker attestation",
+        "active_source": "Poly Haven fine_grained_wood by Rob Tuytel, CC0-1.0",
+        "changes": "Native crop/2x linear box reduction/90CCW, no reflection, eight-pixel periodic edge blend; bounded direct exposure and source roughness; neutral factors preserve only relative original board brightness",
+        "normal_scale": 0.35
+      }
+    },
+    {
+      "name": "iron",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.24,
+          0.25,
+          0.23,
+          1
+        ],
+        "metallicFactor": 1,
+        "roughnessFactor": 1,
+        "baseColorTexture": {
+          "index": 6
+        },
+        "metallicRoughnessTexture": {
+          "index": 8
+        }
+      },
+      "normalTexture": {
+        "index": 7
+      },
+      "extras": {
+        "grade": "original unmeasured reconstructed optical study; not photographs or periodfinish attestation",
+        "original_source": "generate_tiles.py analytic dimensional surfaces; no photographs",
+        "cut_end_chart": "constant neutral sample; no claimed endgrain anatomy",
+        "finish_grade": "Original reconstructed weathering/color; no identified Chicago specimen or measured finish",
+        "finish_variant": "parked_weathered_v1"
+      }
+    },
+    {
+      "name": "end_grain",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.24,
+          0.14,
+          0.065,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.92
+      },
+      "extras": {
+        "finish_grade": "Original reconstructed weathering/color; no identified Chicago specimen or measured finish",
+        "finish_variant": "parked_weathered_v1"
+      }
+    },
+    {
+      "name": "timber_cut_end",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.13994207964863412,
+          0.07754609136957079,
+          0.04005936434420791,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1,
+        "baseColorTexture": {
+          "index": 9
+        },
+        "metallicRoughnessTexture": {
+          "index": 11
+        }
+      },
+      "normalTexture": {
+        "index": 10,
+        "scale": 0.35
+      },
+      "extras": {
+        "scope": "Existing original CC0 cut-end pixels; material color matches actual modern source mean. Reconstructed finish, no identified wood species/coating/date."
+      }
+    },
+    {
+      "name": "plank_a_cut_end",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.1678488664456659,
+          0.09301007649989955,
+          0.048047870323148036,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1,
+        "baseColorTexture": {
+          "index": 9
+        },
+        "metallicRoughnessTexture": {
+          "index": 11
+        }
+      },
+      "normalTexture": {
+        "index": 10,
+        "scale": 0.35
+      },
+      "extras": {
+        "scope": "Existing original CC0 cut-end pixels; material color matches actual modern source mean. Reconstructed finish, no identified wood species/coating/date."
+      }
+    },
+    {
+      "name": "plank_b_cut_end",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12712353872627224,
+          0.07044295449976111,
+          0.036389970531715395,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1,
+        "baseColorTexture": {
+          "index": 9
+        },
+        "metallicRoughnessTexture": {
+          "index": 11
+        }
+      },
+      "normalTexture": {
+        "index": 10,
+        "scale": 0.35
+      },
+      "extras": {
+        "scope": "Existing original CC0 cut-end pixels; material color matches actual modern source mean. Reconstructed finish, no identified wood species/coating/date."
+      }
+    }
+  ],
+  "images": [
+    {
+      "bufferView": 142,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 143,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 144,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 104,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 105,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 106,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 107,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 108,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 109,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 145,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 146,
+      "mimeType": "image/png"
+    },
+    {
+      "bufferView": 147,
+      "mimeType": "image/png"
+    }
+  ],
+  "asset_copyright": "Original project W01 geometry/UV/index charts and generator GPL-3.0-or-later. Active side timber adapted from Fine Grained Wood by Rob Tuytel / Poly Haven, https://polyhaven.com/a/fine_grained_wood , CC0-1.0 https://creativecommons.org/publicdomain/zero/1.0/ . Changes: native2K crop,2x box reduction,90CCW spatial/tangent-normal rotation with +U-to-+V mapping, no reflection, eight-pixel periodic edge blend; bounded direct exposure and source roughness; neutral board factors and color-matched original CC0 cut ends. Original paint/iron/cut-end pixels CC0-1.0. No third-party geometry, OldCart pixels, measured1835finish/species/date/coating/maker/Chicago specimen.",
+  "extras": {
+    "asset_id": "wagon_w01_driver_bench_study",
+    "status": "engineering prototype; not photographically matched",
+    "units": "m",
+    "forward_axis": "+Z",
+    "up_axis": "+Y",
+    "parameters": {
+      "body_m": [
+        3.05,
+        1.07,
+        0.55
+      ],
+      "bed_top_m": 0.95,
+      "wheel_diameter_front_m": 1.07,
+      "wheel_diameter_rear_m": 1.37,
+      "axle_stations_z_m": [
+        -1.175,
+        1.175
+      ],
+      "wheel_center_track_m": 1.21,
+      "tongue_length_m": 2.75,
+      "tier": "reconstructed",
+      "historical_match": false,
+      "wheel_refinement": true,
+      "driver_furniture": {
+        "variant": "removable_bench_study",
+        "seat_width_m": 1.18,
+        "seat_depth_m": 0.3,
+        "seat_thickness_m": 0.05,
+        "seat_z_m": 0.65,
+        "footboard_width_m": 0.85,
+        "footboard_depth_m": 0.3,
+        "footboard_thickness_m": 0.04,
+        "footboard_top_m": 1.12,
+        "footboard_z_m": 1.27,
+        "grade": "reconstructed",
+        "source_ids": []
+      },
+      "hardware_refinement": true
+    },
+    "wheel_radius_m": {
+      "rear": 0.685,
+      "front": 0.535
+    },
+    "steering_limit_deg": 8,
+    "socket_policy": "Bench study driver seat and foot surface sockets reflect physical reconstructed furniture; remaining sockets retain proposed semantics",
+    "license": "GPL-3.0-or-later",
+    "liberties": [
+      "All geometry and colors reconstructed, original procedural surfaces; no reference-photo pixels or tracing",
+      "No brake, suspension, horse, harness, seated humans, historical load or named owner",
+      "Steering limited to \u00b18 degrees for this box clearance; not historical limit",
+      "Tongue resting pitch optional; no hitch or load physics",
+      "Floor, bolsters, hounds, reach and kingbolt are engineering visual approximations"
+    ],
+    "provenance": {
+      "basis": "Existing declared reconstruction: kevinrhaas/chicago chicago/4d/renderers/web/js/yard.js and data/yard/town_trade_goods.json; vehicle-master-spec.md 2026-10-18",
+      "source_ids": []
+    },
+    "statistics": {
+      "triangles": 12104,
+      "meshes": 23,
+      "nodes": 50
+    },
+    "wheel_refinement": {
+      "grade": "reconstructed",
+      "historical_match": false,
+      "spoke_sections_m": {
+        "hub": [
+          0.035,
+          0.032
+        ],
+        "felloe": [
+          0.022,
+          0.022
+        ]
+      },
+      "spoke_radial_stations": "original .08m to radius-.07m unchanged",
+      "board_chamfer_m": 0.0012,
+      "note": "Original octagonal taper and restrained edge/material response study; no source-attested joinery or photographic match"
+    },
+    "driver_furniture": {
+      "variant": "removable_bench_study",
+      "grade": "reconstructed",
+      "historical_attestation": false,
+      "note": "Original engineering study; no source-attested1835 bench dimensions or strength/occupant acceptance",
+      "parts": [
+        {
+          "name": "driver_bench_plank",
+          "role": "timber",
+          "size_m": [
+            1.18,
+            0.05,
+            0.3
+          ],
+          "center_m": [
+            0,
+            1.555,
+            0.65
+          ],
+          "min_m": [
+            -0.59,
+            1.53,
+            0.5
+          ],
+          "max_m": [
+            0.59,
+            1.5799999999999998,
+            0.8
+          ]
+        },
+        {
+          "name": "driver_bench_cleat_-1",
+          "role": "timber",
+          "size_m": [
+            0.045,
+            0.045,
+            0.3
+          ],
+          "center_m": [
+            -0.48500000000000004,
+            1.5075,
+            0.65
+          ],
+          "min_m": [
+            -0.5075000000000001,
+            1.485,
+            0.5
+          ],
+          "max_m": [
+            -0.4625,
+            1.53,
+            0.8
+          ]
+        },
+        {
+          "name": "driver_bench_bolt_-1_0.56",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.012,
+            0.10500000000000001,
+            0.012
+          ],
+          "center_m": [
+            -0.535,
+            1.5275,
+            0.56
+          ],
+          "min_m": [
+            -0.541,
+            1.475,
+            0.554
+          ],
+          "max_m": [
+            -0.529,
+            1.58,
+            0.5660000000000001
+          ]
+        },
+        {
+          "name": "driver_bench_plate_-1_0.56_1.583",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.045,
+            0.006,
+            0.035
+          ],
+          "center_m": [
+            -0.535,
+            1.583,
+            0.56
+          ],
+          "min_m": [
+            -0.5575,
+            1.58,
+            0.5425000000000001
+          ],
+          "max_m": [
+            -0.5125000000000001,
+            1.5859999999999999,
+            0.5775
+          ]
+        },
+        {
+          "name": "driver_bench_plate_-1_0.56_1.487",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.045,
+            0.006,
+            0.035
+          ],
+          "center_m": [
+            -0.535,
+            1.487,
+            0.56
+          ],
+          "min_m": [
+            -0.5575,
+            1.4840000000000002,
+            0.5425000000000001
+          ],
+          "max_m": [
+            -0.5125000000000001,
+            1.49,
+            0.5775
+          ]
+        },
+        {
+          "name": "driver_bench_bolt_-1_0.74",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.012,
+            0.10500000000000001,
+            0.012
+          ],
+          "center_m": [
+            -0.535,
+            1.5275,
+            0.74
+          ],
+          "min_m": [
+            -0.541,
+            1.475,
+            0.734
+          ],
+          "max_m": [
+            -0.529,
+            1.58,
+            0.746
+          ]
+        },
+        {
+          "name": "driver_bench_plate_-1_0.74_1.583",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.045,
+            0.006,
+            0.035
+          ],
+          "center_m": [
+            -0.535,
+            1.583,
+            0.74
+          ],
+          "min_m": [
+            -0.5575,
+            1.58,
+            0.7225
+          ],
+          "max_m": [
+            -0.5125000000000001,
+            1.5859999999999999,
+            0.7575
+          ]
+        },
+        {
+          "name": "driver_bench_plate_-1_0.74_1.487",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.045,
+            0.006,
+            0.035
+          ],
+          "center_m": [
+            -0.535,
+            1.487,
+            0.74
+          ],
+          "min_m": [
+            -0.5575,
+            1.4840000000000002,
+            0.7225
+          ],
+          "max_m": [
+            -0.5125000000000001,
+            1.49,
+            0.7575
+          ]
+        },
+        {
+          "name": "driver_bench_cleat_1",
+          "role": "timber",
+          "size_m": [
+            0.045,
+            0.045,
+            0.3
+          ],
+          "center_m": [
+            0.48500000000000004,
+            1.5075,
+            0.65
+          ],
+          "min_m": [
+            0.4625,
+            1.485,
+            0.5
+          ],
+          "max_m": [
+            0.5075000000000001,
+            1.53,
+            0.8
+          ]
+        },
+        {
+          "name": "driver_bench_bolt_1_0.56",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.012,
+            0.10500000000000001,
+            0.012
+          ],
+          "center_m": [
+            0.535,
+            1.5275,
+            0.56
+          ],
+          "min_m": [
+            0.529,
+            1.475,
+            0.554
+          ],
+          "max_m": [
+            0.541,
+            1.58,
+            0.5660000000000001
+          ]
+        },
+        {
+          "name": "driver_bench_plate_1_0.56_1.583",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.045,
+            0.006,
+            0.035
+          ],
+          "center_m": [
+            0.535,
+            1.583,
+            0.56
+          ],
+          "min_m": [
+            0.5125000000000001,
+            1.58,
+            0.5425000000000001
+          ],
+          "max_m": [
+            0.5575,
+            1.5859999999999999,
+            0.5775
+          ]
+        },
+        {
+          "name": "driver_bench_plate_1_0.56_1.487",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.045,
+            0.006,
+            0.035
+          ],
+          "center_m": [
+            0.535,
+            1.487,
+            0.56
+          ],
+          "min_m": [
+            0.5125000000000001,
+            1.4840000000000002,
+            0.5425000000000001
+          ],
+          "max_m": [
+            0.5575,
+            1.49,
+            0.5775
+          ]
+        },
+        {
+          "name": "driver_bench_bolt_1_0.74",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.012,
+            0.10500000000000001,
+            0.012
+          ],
+          "center_m": [
+            0.535,
+            1.5275,
+            0.74
+          ],
+          "min_m": [
+            0.529,
+            1.475,
+            0.734
+          ],
+          "max_m": [
+            0.541,
+            1.58,
+            0.746
+          ]
+        },
+        {
+          "name": "driver_bench_plate_1_0.74_1.583",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.045,
+            0.006,
+            0.035
+          ],
+          "center_m": [
+            0.535,
+            1.583,
+            0.74
+          ],
+          "min_m": [
+            0.5125000000000001,
+            1.58,
+            0.7225
+          ],
+          "max_m": [
+            0.5575,
+            1.5859999999999999,
+            0.7575
+          ]
+        },
+        {
+          "name": "driver_bench_plate_1_0.74_1.487",
+          "role": "fastener_intentional_intersection",
+          "size_m": [
+            0.045,
+            0.006,
+            0.035
+          ],
+          "center_m": [
+            0.535,
+            1.487,
+            0.74
+          ],
+          "min_m": [
+            0.5125000000000001,
+            1.4840000000000002,
+            0.7225
+          ],
+          "max_m": [
+            0.5575,
+            1.49,
+            0.7575
+          ]
+        },
+        {
+          "name": "driver_footboard",
+          "role": "timber",
+          "size_m": [
+            0.85,
+            0.04,
+            0.3
+          ],
+          "center_m": [
+            0,
+            1.1,
+            1.27
+          ],
+          "min_m": [
+            -0.425,
+            1.08,
+            1.12
+          ],
+          "max_m": [
+            0.425,
+            1.12,
+            1.42
+          ]
+        },
+        {
+          "name": "driver_footboard_block_-1_1.201",
+          "role": "timber",
+          "size_m": [
+            0.07,
+            0.13000000000000012,
+            0.07
+          ],
+          "center_m": [
+            -0.32499999999999996,
+            1.0150000000000001,
+            1.201
+          ],
+          "min_m": [
+            -0.36,
+            0.9500000000000001,
+            1.1660000000000001
+          ],
+          "max_m": [
+            -0.2899999999999999,
+            1.08,
+            1.236
+          ]
+        },
+        {
+          "name": "driver_footboard_block_-1_1.339",
+          "role": "timber",
+          "size_m": [
+            0.07,
+            0.13000000000000012,
+            0.07
+          ],
+          "center_m": [
+            -0.32499999999999996,
+            1.0150000000000001,
+            1.339
+          ],
+          "min_m": [
+            -0.36,
+            0.9500000000000001,
+            1.304
+          ],
+          "max_m": [
+            -0.2899999999999999,
+            1.08,
+            1.3739999999999999
+          ]
+        },
+        {
+          "name": "driver_footboard_block_1_1.201",
+          "role": "timber",
+          "size_m": [
+            0.07,
+            0.13000000000000012,
+            0.07
+          ],
+          "center_m": [
+            0.32499999999999996,
+            1.0150000000000001,
+            1.201
+          ],
+          "min_m": [
+            0.2899999999999999,
+            0.9500000000000001,
+            1.1660000000000001
+          ],
+          "max_m": [
+            0.36,
+            1.08,
+            1.236
+          ]
+        },
+        {
+          "name": "driver_footboard_block_1_1.339",
+          "role": "timber",
+          "size_m": [
+            0.07,
+            0.13000000000000012,
+            0.07
+          ],
+          "center_m": [
+            0.32499999999999996,
+            1.0150000000000001,
+            1.339
+          ],
+          "min_m": [
+            0.2899999999999999,
+            0.9500000000000001,
+            1.304
+          ],
+          "max_m": [
+            0.36,
+            1.08,
+            1.3739999999999999
+          ]
+        }
+      ],
+      "seat_surface_m": [
+        0,
+        1.58,
+        0.65
+      ],
+      "footboard_top_m": 1.12,
+      "footboard_bounds_xz_m": [
+        -0.425,
+        0.425,
+        1.12,
+        1.42
+      ],
+      "contacts": "Bench bottom rests on existing rail tops; blocks connect floor to board underside. Fasteners intentionally intersect timber; no strength simulation."
+    },
+    "hardware_refinement": {
+      "grade": "original reconstructed engineering",
+      "historical_attestation": false,
+      "retired_and_replacements": [
+        {
+          "retired_name": "stake_bolt_-1_0_1.04",
+          "new_parts": [
+            "stake_bolt_-1_0_1.04"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5970000000000001,
+              1.0315,
+              -1.4084999999999999
+            ],
+            "max_m": [
+              -0.5870000000000001,
+              1.0485,
+              -1.3915
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_-1_0_1.4",
+          "new_parts": [
+            "stake_bolt_-1_0_1.4"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5970000000000001,
+              1.3915,
+              -1.4084999999999999
+            ],
+            "max_m": [
+              -0.5870000000000001,
+              1.4084999999999999,
+              -1.3915
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_-1_1_1.04",
+          "new_parts": [
+            "stake_bolt_-1_1_1.04"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5970000000000001,
+              1.0315,
+              -0.5085
+            ],
+            "max_m": [
+              -0.5870000000000001,
+              1.0485,
+              -0.4915
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_-1_1_1.4",
+          "new_parts": [
+            "stake_bolt_-1_1_1.4"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5970000000000001,
+              1.3915,
+              -0.5085
+            ],
+            "max_m": [
+              -0.5870000000000001,
+              1.4084999999999999,
+              -0.4915
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_-1_2_1.04",
+          "new_parts": [
+            "stake_bolt_-1_2_1.04"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5970000000000001,
+              1.0315,
+              0.4915
+            ],
+            "max_m": [
+              -0.5870000000000001,
+              1.0485,
+              0.5085
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_-1_2_1.4",
+          "new_parts": [
+            "stake_bolt_-1_2_1.4"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5970000000000001,
+              1.3915,
+              0.4915
+            ],
+            "max_m": [
+              -0.5870000000000001,
+              1.4084999999999999,
+              0.5085
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_-1_3_1.04",
+          "new_parts": [
+            "stake_bolt_-1_3_1.04"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5970000000000001,
+              1.0315,
+              1.3915
+            ],
+            "max_m": [
+              -0.5870000000000001,
+              1.0485,
+              1.4084999999999999
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_-1_3_1.4",
+          "new_parts": [
+            "stake_bolt_-1_3_1.4"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5970000000000001,
+              1.3915,
+              1.3915
+            ],
+            "max_m": [
+              -0.5870000000000001,
+              1.4084999999999999,
+              1.4084999999999999
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_1_0_1.04",
+          "new_parts": [
+            "stake_bolt_1_0_1.04"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5870000000000001,
+              1.0315,
+              -1.4084999999999999
+            ],
+            "max_m": [
+              0.5970000000000001,
+              1.0485,
+              -1.3915
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_1_0_1.4",
+          "new_parts": [
+            "stake_bolt_1_0_1.4"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5870000000000001,
+              1.3915,
+              -1.4084999999999999
+            ],
+            "max_m": [
+              0.5970000000000001,
+              1.4084999999999999,
+              -1.3915
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_1_1_1.04",
+          "new_parts": [
+            "stake_bolt_1_1_1.04"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5870000000000001,
+              1.0315,
+              -0.5085
+            ],
+            "max_m": [
+              0.5970000000000001,
+              1.0485,
+              -0.4915
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_1_1_1.4",
+          "new_parts": [
+            "stake_bolt_1_1_1.4"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5870000000000001,
+              1.3915,
+              -0.5085
+            ],
+            "max_m": [
+              0.5970000000000001,
+              1.4084999999999999,
+              -0.4915
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_1_2_1.04",
+          "new_parts": [
+            "stake_bolt_1_2_1.04"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5870000000000001,
+              1.0315,
+              0.4915
+            ],
+            "max_m": [
+              0.5970000000000001,
+              1.0485,
+              0.5085
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_1_2_1.4",
+          "new_parts": [
+            "stake_bolt_1_2_1.4"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5870000000000001,
+              1.3915,
+              0.4915
+            ],
+            "max_m": [
+              0.5970000000000001,
+              1.4084999999999999,
+              0.5085
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_1_3_1.04",
+          "new_parts": [
+            "stake_bolt_1_3_1.04"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5870000000000001,
+              1.0315,
+              1.3915
+            ],
+            "max_m": [
+              0.5970000000000001,
+              1.0485,
+              1.4084999999999999
+            ]
+          }
+        },
+        {
+          "retired_name": "stake_bolt_1_3_1.4",
+          "new_parts": [
+            "stake_bolt_1_3_1.4"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5870000000000001,
+              1.3915,
+              1.3915
+            ],
+            "max_m": [
+              0.5970000000000001,
+              1.4084999999999999,
+              1.4084999999999999
+            ]
+          }
+        },
+        {
+          "retired_name": "driver_bench_plate_-1_0.56_1.583",
+          "new_parts": [
+            "driver_bench_plate_-1_0.56_1.583_washer",
+            "driver_bench_plate_-1_0.56_1.583_stem",
+            "driver_bench_plate_-1_0.56_1.583_square_head"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5575,
+              1.58,
+              0.5425000000000001
+            ],
+            "max_m": [
+              -0.5125000000000001,
+              1.5859999999999999,
+              0.5775
+            ]
+          }
+        },
+        {
+          "retired_name": "driver_bench_plate_-1_0.74_1.583",
+          "new_parts": [
+            "driver_bench_plate_-1_0.74_1.583_washer",
+            "driver_bench_plate_-1_0.74_1.583_stem",
+            "driver_bench_plate_-1_0.74_1.583_square_head"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              -0.5575,
+              1.58,
+              0.7225
+            ],
+            "max_m": [
+              -0.5125000000000001,
+              1.5859999999999999,
+              0.7575
+            ]
+          }
+        },
+        {
+          "retired_name": "driver_bench_plate_1_0.56_1.583",
+          "new_parts": [
+            "driver_bench_plate_1_0.56_1.583_washer",
+            "driver_bench_plate_1_0.56_1.583_stem",
+            "driver_bench_plate_1_0.56_1.583_square_head"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5125000000000001,
+              1.58,
+              0.5425000000000001
+            ],
+            "max_m": [
+              0.5575,
+              1.5859999999999999,
+              0.5775
+            ]
+          }
+        },
+        {
+          "retired_name": "driver_bench_plate_1_0.74_1.583",
+          "new_parts": [
+            "driver_bench_plate_1_0.74_1.583_washer",
+            "driver_bench_plate_1_0.74_1.583_stem",
+            "driver_bench_plate_1_0.74_1.583_square_head"
+          ],
+          "old_envelope_m": {
+            "min_m": [
+              0.5125000000000001,
+              1.58,
+              0.7225
+            ],
+            "max_m": [
+              0.5575,
+              1.5859999999999999,
+              0.7575
+            ]
+          }
+        }
+      ],
+      "scope": "16squarehead bevels and4bench washer/stem/head assemblies; oldenvelopes retained",
+      "triangle_delta_predicted": 1072,
+      "period_source": "No registeredperiodfastenerform/dimension attestation; originalgeometry only"
+    },
+    "material_study": {
+      "grade": "original unmeasured reconstructed optical study; not photographs or periodfinish attestation",
+      "endfaces": "intentional constant neutralUV; flat unresolvedendgrain/hubs; no falsefiberchart",
+      "images": "CC0 Poly Haven direct-tone side timber plus original CC0 paint/iron/cut ends; geometry/charts project GPL; reconstructed finish, not attested period materials.",
+      "draw_batches_unchanged": 23
+    },
+    "finish_variant": {
+      "id": "parked_weathered_v1",
+      "scope": "Original optical reconstruction; no photographic or period-finish acceptance",
+      "parent_sha256": "0138ad2565f3e8b08029ef788c5196c65c80c79643313e944c726b993ff31ee4",
+      "recipe_sha256": "c031c39210925129b153b7d00e745ced17e4c0824c8652f497c3b6e7699eff3a"
+    },
+    "timber_surface_candidate": {
+      "scope": "HELD material-only candidate; actual photographic/app/world acceptance OPEN",
+      "source_family": "fine_grained_wood",
+      "source_author": "Rob Tuytel",
+      "source_license": "CC0-1.0",
+      "native_input_pixels": [
+        2048,
+        2048
+      ],
+      "rotated_crop": [
+        0,
+        784,
+        2048,
+        1264
+      ],
+      "linear_box_reduction": 2,
+      "unique_output_pixels": [
+        1024,
+        240
+      ],
+      "output_pixels": [
+        1024,
+        240
+      ],
+      "periodic_edge_blend_pixels": 8,
+      "reflection": false,
+      "linear_source_exposure": 1.5,
+      "GL_normal_rotation": "[-ny,nx,nz] for image90CCW",
+      "albedo_original_mean_std_matching": false,
+      "normal_scale": 0.35,
+      "normal_from_albedo": false,
+      "finish": "Reconstructed brown finish; no attested1835species/coating/date/maker",
+      "original_geometry_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+      "project_authored_chart_source_sha256": "30af3da5d0ad40854b30ece08317f3b81ff0ceff76908062cb0fd01be24f37b7",
+      "project_authored_chart_license": "GPL-3.0-or-later original project work, no external GPL asset",
+      "OldCart_pixels_included": false
+    }
+  },
+  "scope": "Project-authored GPL UV/tangent/index charts plus CC0 pixels only; no new POSITION/NORMAL geometry or third-party GPL input. Exact original geometry prefix preserved."
+}

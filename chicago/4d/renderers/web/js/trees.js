@@ -3225,7 +3225,13 @@ export async function createTrees({
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;
   const cellArea = step * step;
-  const keep = stems.keep;
+  // T-3106: 1812 has more uncleared ground than 1835. Its Light and Full
+  // sweeps reached their unchanged 2100/4700-tree backstops and lost the wood's
+  // north end. Thin the existing acceptance rolls everywhere in these tiers
+  // by a further 25%, before any stem is chosen; caps, source densities and
+  // stated plantings remain unchanged. Balanced and other scenes retain keep.
+  const keep = stems.keep * (String(sceneId) === '1812'
+    && (level === 'light' || level === 'full') ? 0.75 : 1);
   const maxTrees = stems.trees;
   const maxThickets = stems.thickets;
   const maxShrubs = stems.shrubs;
@@ -4757,8 +4763,20 @@ uniform float uBandUp;
   let lastN = Infinity;
   let lastY = Infinity;
 
+  /** T-3263 — the grown trees' trunks as { e, n, r } (r at breast height, from the
+   *  species' dbh at the stem's grown height), for the stand-off rule to see past. Not
+   *  the shrubs, vines or thickets: a step along the street does not clear those. */
+  let trunkList = null;
+  const trunks = () => trunkList ??= grown.stems
+    .filter((s) => s.kind.spec.dbh && s.kind.spec.form !== 'edge_shrub' && !s.kind.spec.habit)
+    .map((s) => {
+      const [d0, d1] = s.kind.spec.dbh, [h0, h1] = s.kind.spec.h;
+      return { e: s.x, n: -s.z, r: ((d0 + d1) / 4) * (s.h / ((h0 + h1) / 2 || 1)) };
+    });
+
   return {
     group,
+    trunks,
     /** The far-timber table, so a test can assert what is on the horizon. */
     farTimber: FAR_TIMBER,
 

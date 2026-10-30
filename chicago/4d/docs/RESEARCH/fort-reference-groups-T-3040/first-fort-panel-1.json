@@ -1,0 +1,54 @@
+{
+  "structure_id": "first_fort_dearborn_blockhouse_nw",
+  "scene": "1812",
+  "source_id": "kurz_allison_1893",
+  "photo": "../../../data/sources/assets/prefire_views_kevin_2026_08/p4_0.png",
+  "image_px": [
+    1538,
+    859
+  ],
+  "principal_px": [
+    748,
+    210
+  ],
+  "focal_px": 2656,
+  "eye": [
+    17.41,
+    105,
+    10
+  ],
+  "yaw_deg": 180,
+  "sky": "overcast",
+  "also_render": [
+    "first_fort_covered_way_bank_lower",
+    "first_fort_covered_way_bank_middle",
+    "first_fort_covered_way_bank_upper",
+    "first_fort_covered_way_terrace",
+    "first_fort_dearborn_blockhouse_se",
+    "first_fort_dearborn_commanding_officers_barracks",
+    "first_fort_dearborn_flagstaff",
+    "first_fort_dearborn_magazine",
+    "first_fort_dearborn_north_range",
+    "first_fort_dearborn_officers_barracks",
+    "first_fort_dearborn_parade",
+    "first_fort_dearborn_pickets_inner",
+    "first_fort_dearborn_pickets_outer",
+    "first_fort_dearborn_small_house_ne",
+    "first_fort_dearborn_small_house_sw",
+    "first_fort_dearborn_soldiers_barracks_se",
+    "first_fort_dearborn_soldiers_barracks_sw",
+    "first_fort_outer_agents_house",
+    "first_fort_outer_armourers_shop",
+    "first_fort_outer_bake_house",
+    "first_fort_outer_factory",
+    "first_fort_outer_interpreters_house",
+    "first_fort_outer_merchants_shop",
+    "first_fort_outer_officers_garden",
+    "first_fort_outer_stable_middle",
+    "first_fort_outer_stable_north",
+    "first_fort_outer_stable_south",
+    "first_fort_outer_sutlers_garden",
+    "first_fort_wharf"
+  ],
+  "solve": "INITIAL CURTAIN CALIBRATION ONLY, not a solved photographic camera. The north curtain crest endpoints approximately [312,377] and [1184,377] are scaled by the committed 32.92 m curtain width at distance 100.28 m, about 26.486 px/m. Eye height 10 m is a declared review choice. The committed 75 ft flagstaff predicts a top near y=-81 while the retrospective panel places it near y=156: about 237 px disagreement, not an error to fix by moving surveyed buildings or shortening the staff. The panel places towers near the middle of its wall, conflicting with the documented corner arrangement (measure_fort_works_plate.py). All meshes share the review ground plane; terrain sampling is not reproduced. The softly lit drawing is reviewed under overcast light; no directional shadow calibration is asserted. Context does not attest hidden buildings."
+}

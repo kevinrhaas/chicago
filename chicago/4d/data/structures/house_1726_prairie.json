@@ -25,7 +25,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448432.973,
@@ -681,6 +682,65 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "The sheet's rear (s20fp-1726-b1): a brick piece printed '2B' behind the north part of the rear wall (v -1.2 to 2.5 in the lot frame, record v 3.7-7.4), standing 1.9 m out of the main body's rear wall (u 22.4-24.3), two storeys under a flat deck; and a one-storey frame porch ('1', yellow) behind its south part (v -4.4 to -1.2), built closed in painted timber as 1613's frame porch is. The second frame porch the sheet draws north of the rear piece, past the main body's north wall, is not built: a K01 wing stands inside its host wall's length. Heights, decks and windows RECONSTRUCTED."
+        },
+        "boundary": {
+          "value": {
+            "layout": "stone_coping_wall",
+            "street_line_m": 9.27,
+            "lot_s_m": [
+              -4.38,
+              14.18
+            ],
+            "thickness_m": 0.35,
+            "chamfer_m": 0.05,
+            "runs": [
+              {
+                "to_s_m": 5.7,
+                "height_m": 0.35
+              },
+              {
+                "to_s_m": 7.5,
+                "opening": true
+              },
+              {
+                "to_s_m": 14.18,
+                "height_m": 0.35
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "chicago_tribune_1898_01_09_prairie_widows",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The Tribune's 1898 vignette of 1726 draws the stair coming down to the walk under its arched porch and no fence or gate before it; it is cut off at the stair's foot, so what stood on the street line is not shown. Built as the block's own boundary, a low squared stone coping on the street line (the 1904 parcel's, data/street_grid/1904.json, at the public walk's inner edge), 0.35 m, as 1700's (Chicagology's photograph), 1721's (the 1891 plate) and 1736's (the c. 1890 photograph and its curbstone, still in place in 2015) stand; cut 1.8 m for the walk square to the stair. RECONSTRUCTED: kind, height and cut are the block's (liberty L-k14-walks-1700-block-3205)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.5
+            },
+            "grade_m": {
+              "front": 0.038,
+              "street": 0.038,
+              "per_m_s": -0.0047,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot through the coping's cut to the public walk, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget."
         }
       }
     }

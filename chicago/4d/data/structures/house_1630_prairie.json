@@ -25,7 +25,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). The register's 'Civil War era' is a chronology no source here states for 1630, so no building date is claimed."
+        "note": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). The register's 'Civil War era' is a chronology no source here states for 1630, so no building date is claimed.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448441.201,
@@ -387,6 +388,66 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "No roof covering has been read for 1630. A Civil War era frame house of this size was commonly shingled, and the weathered grey-brown of cedar is RECONSTRUCTED, the colour 1638's K16 front uses; the shingles themselves are not modelled. The wing's flat deck takes the same colour."
+        },
+        "boundary": {
+          "value": {
+            "layout": "stone_coping_wall",
+            "street_u_m": 21.37,
+            "lot_s_m": [
+              -2.535,
+              6.035
+            ],
+            "thickness_m": 0.35,
+            "runs": [
+              {
+                "to_s_m": 3.25,
+                "height_m": 0.32,
+                "rail_m": 0.83
+              },
+              {
+                "to_s_m": 3.6,
+                "post": true,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 5.1,
+                "opening": true
+              },
+              {
+                "to_s_m": 5.45,
+                "post": true,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 6.035,
+                "height_m": 0.32,
+                "rail_m": 0.83
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3230 (piece 2 of T-3216; the owner, 2026-10-27: every worked house's walk to its door and its front boundaries, and where no picture shows them a stated reconstruction consistent with the block). No picture of this front is held. Every pictured west front of the 1600 block closes its street line and opens it only at the walk: 1612's photograph (an iron spear fence), 1620's 1874 engraving and 1898 sketch (iron lattice), 1616's 1874 view (boards), and 1638's photograph, the block's other timber house (iron bars on a pale stone base, 0.32 m, the bars to 0.83 m, an open gateway between two piers with no leaf in it); the seven unpictured K01 houses of the west side were closed on that reading (T-3229). So this front is closed the way the K16 kit closes a frame house's (archetypes/k16_yard.py, as 1720's): a squared stone kerb 0.35 m through on the street line, its top 0.32 m up, with an iron railing on it to 0.83 m (1638's base and bar heights), from the south lot line to the north, and an opening 1.5 m clear on the porch stair's axis (s 4.35) between two stone posts 0.35 m square and 1.2 m high (1720's posts), with no leaf in it, as at 1638. The street line and lot lines are parcel prairie_1630's (data/street_grid/1904.json, read off the 1911 sheet) carried into the house's plan frame by the placement its sidecar holds (the transform that puts 1720's recorded street line, u 31.2, back on its parcel to the centimetre): the street line u 21.36-21.37, the lot lines s -2.535 and 6.035, the lines 1634's and 1628's fronts meet. RECONSTRUCTED: the kind of boundary, its heights and materials, the posts and the opening's width and place (liberty L-k16-walks-1600-block-3230)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k16_yard",
+            "built": 1904,
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.2
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3230. A front walk in flags straight out from the porch stair's foot (read off the built steps) through the kerb's opening between the posts to the street line, the public walk's inner edge, 1.2 m wide in 0.9 m flags 0.06 m over the ground, the district's K14 walk sizes. RECONSTRUCTED: the walk's line, width and surface; no picture shows them (liberty L-k16-walks-1600-block-3230). No lawn is laid: the yard's ground is the app's own (generators/archetypes/k16_yard.py)."
         }
       }
     }

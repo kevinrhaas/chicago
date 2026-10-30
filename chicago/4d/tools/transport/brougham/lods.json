@@ -1,0 +1,33 @@
+{
+  "_doc": "Source-derived original tessellation alternatives;near must reproduce actualrawV13 two-join repair exactly. Mid/far are delivery candidates,not automatically scene/photoqualified.",
+  "source_sha256": "469ff52b2166a41e3aa1ee0a0d49ca91f86d7f108d0f743893098ca74c2f8fee",
+  "details": {
+    "near": {},
+    "mid": {
+      "tube_sides": 6,
+      "ring_segments": 40,
+      "ring_cross_sides": 6,
+      "hub_segments": 16,
+      "rear_rows": 8,
+      "rear_columns": 12,
+      "roof_longitudinal_steps": 3,
+      "roof_cross_steps": 10,
+      "cushion_sections": 24,
+      "spring_steps": 7,
+      "mudguard_steps": 24
+    },
+    "far": {
+      "tube_sides": 4,
+      "ring_segments": 20,
+      "ring_cross_sides": 4,
+      "hub_segments": 8,
+      "rear_rows": 4,
+      "rear_columns": 6,
+      "roof_longitudinal_steps": 2,
+      "roof_cross_steps": 6,
+      "cushion_sections": 12,
+      "spring_steps": 5,
+      "mudguard_steps": 12
+    }
+  }
+}

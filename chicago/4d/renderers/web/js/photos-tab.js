@@ -274,7 +274,16 @@ export function renderPhotos(pane, { doc: pics, id, sceneYear, onSpot = null }) 
         a.rel = 'noopener';
         li.append(a);
       } else li.append(el(doc, 'span', null, label));
+      // A linked picture has no local viewer exposing its catalogue title. Keep
+      // the templated caption, but retain the source's identity/date qualifiers.
+      if (String(p.title ?? '').trim()) li.append(el(doc, 'span', 'nav-sub', p.title));
       li.append(el(doc, 'span', 'nav-sub', creditOf(p) || t('photos.credit.none')));
+      // Creator and holder answer different questions. Show the holder as well
+      // when a creator exists; its first clause avoids local-copy locators.
+      const holder = String(p.holder ?? '').split(' — ')[0].trim();
+      if (String(p.creator ?? '').trim() && holder && holder !== creditOf(p)) {
+        li.append(el(doc, 'span', 'nav-sub', holder));
+      }
       ol.append(li);
     }
     det.append(ol);

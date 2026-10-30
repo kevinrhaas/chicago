@@ -27,6 +27,11 @@ const sections = sectionScreen('guide');
 const state = { sheet: null, view: null, ctx: null, on: false };
 const screen = {
   mount(el, ctx) {
+    // T-3021 (the owner, 2026-10-22: "there should be an option to take the tour anytime
+    // even if you skip it"): the tour's block leads the screen, lifted out of the Guide
+    // section it was written into, so its key keeps the id and listener main.js gave it.
+    const tour = el.ownerDocument.getElementById('guide-tour');
+    if (tour) el.append(tour);
     const sheet = el.ownerDocument.createElement('div');
     sheet.className = 'nav-guide-sheet';
     el.append(sheet);

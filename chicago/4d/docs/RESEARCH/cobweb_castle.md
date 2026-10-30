@@ -95,3 +95,14 @@ This is the administrative seat of the United States Indian Agency at Chicago â€
 ran the 1833 Treaty of Chicago and the removal of August 1835, six weeks after the scene date.
 `AGENTS.md` places that subject under a standing constraint. The record describes a building and
 nothing else; the flag holds the scene short of `released` until someone qualified has read it.
+
+
+
+
+## Future log picture-controls increment
+
+Compound parts build the already reconstructed centre/wings/tails polygon rather
+than its bounding box. Wau-Bun supports composition, not the exact plan/roof.
+Dimensions, openings, intersections and stack positions remain reconstructed;
+partial siding, 1835 survival and the tiny panorama subject remain unresolved.
+The original T-2374 image match remains open.

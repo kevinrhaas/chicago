@@ -1,0 +1,63 @@
+{
+  "method": "Actual published /1904/ app at 1280x800, `full`; animation paused after readiness; each stand renders the same held frame with the sun-pass test off (setCastersTowardView(false)), off again (the control) and on, reads triangles from renderer.info and every pixel with gl.readPixels in the same task. glessner-* stands are offsets in metres from Glessner's footprint centre. Software GL on this machine.",
+  "result": {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "detail": "full",
+    "boot": {
+      "scene": "1904",
+      "detail": "full",
+      "budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "build": "0.1.0"
+    },
+    "errors": [],
+    "bad": [],
+    "stands": [
+      {
+        "name": "glessner-18th-ne",
+        "tierHasItOn": true,
+        "off": {
+          "triangles": 4285583,
+          "drawCalls": 6636
+        },
+        "on": {
+          "triangles": 4146354,
+          "drawCalls": 6387,
+          "withinBudget": true
+        },
+        "piecesLeftOutOfSunPass": 1105,
+        "pixels": 1024000,
+        "pixelsDiffering": 0,
+        "maxChannelDelta": 0,
+        "controlOffOffPixelsDiffering": null,
+        "controlPixelsDifferingWithNoShadows": 335672,
+        "problems": 0
+      },
+      {
+        "name": "glessner-elevated-ne",
+        "tierHasItOn": true,
+        "off": {
+          "triangles": 4390788,
+          "drawCalls": 6215
+        },
+        "on": {
+          "triangles": 4325810,
+          "drawCalls": 5975,
+          "withinBudget": true
+        },
+        "piecesLeftOutOfSunPass": 1256,
+        "pixels": 1024000,
+        "pixelsDiffering": 0,
+        "maxChannelDelta": 0,
+        "controlOffOffPixelsDiffering": null,
+        "controlPixelsDifferingWithNoShadows": 314511,
+        "problems": 0
+      }
+    ]
+  }
+}

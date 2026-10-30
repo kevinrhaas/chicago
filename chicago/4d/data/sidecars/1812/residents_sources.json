@@ -664,7 +664,11 @@
       "url": "https://www.potawatomiheritage.com/encyclopedia/beaubien-family/",
       "archived_url": "",
       "tier": 4,
-      "tier_label": "later scholarship"
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Francois LaFramboise, who moved near Lake Michigan in the late 1700s and married a Potawatomi woman named Shawenoqua",
+        "Jean Baptiste Beaubien's marriage to Josette LaFromboise, daughter of Francis"
+      ]
     },
     "cpn_madore_beaubien": {
       "source_id": "cpn_madore_beaubien",
@@ -673,6 +677,29 @@
       "archived_url": "",
       "tier": 4,
       "tier_label": "later scholarship"
+    },
+    "currey_1912_story_of_old_fort_dearborn": {
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+        "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+        "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+        "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+        "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'",
+        "the lake shore south of the river mouth before 1812, in the same chapter: 'mostly devoid of trees, a scanty growth of cottonwoods and pines, however, maintaining a precarious existence among the sand-dunes', the low sand-hills 'the predominant feature of the landscape' a mile or two south of the mouth (used by T-2768 for the pines on the south sand hills)"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension of the house, the piazza or the green",
+        "the number of the house's rooms, windows or chimneys",
+        "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+        "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+      ]
     },
     "dalton_1840_chicago_census_index": {
       "source_id": "dalton_1840_chicago_census_index",
@@ -1146,7 +1173,11 @@
       "url": "https://map.indigenous-chicago.org/pr/indigenous-chicago/post/12396165-bc1e-4edf-9198-b8588839bc9f",
       "archived_url": "",
       "tier": 4,
-      "tier_label": "later scholarship"
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Alexander Robinson's 1826 marriage to Catherine Chevalier (Potawatomi), sister of Archange Ouilmette; Catherine as daughter of Marianne (Potawatomi) and François Chevalier and granddaughter of the Potawatomi leader Naunongee",
+        "the section of land on the Des Plaines he received by the 1833 treaty, where he and Catherine lived the rest of his life and his family lived until the middle of the twentieth century"
+      ]
     },
     "ingale_early_chicago_reminiscence": {
       "source_id": "ingale_early_chicago_reminiscence",

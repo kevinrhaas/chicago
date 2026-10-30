@@ -86,6 +86,90 @@ def occupied(params):
     return result
 
 
+def fall_quads(params):
+    """T-2978: the court ground's fall to the passage mouth, as sheet 4 draws it.
+
+    Each piece is a convex plan quad and the fall's depth (metres, <= 0) at its four
+    corners, read as the triangles (0, 1, 2) and (0, 2, 3) the way passage-ground.js
+    reads them. A bank from the lawn down to the mouth's level across S (sheet 4's
+    drawn fall), full depth over the drive and the lawn beside it from the face to the
+    section plane, then rising back to the court's level westward (reconstructed).
+    The strip south of the drive keeps the court's level behind the drive's edge.
+    [] when the record draws no fall.
+    """
+    spec=(params.detail.get('court_ground') or {}).get('mouth_fall')
+    drive=next((g for g in params.ground if g['kind']=='drive'),None)
+    if not spec or not drive or len(drive['pts'])!=4:return []
+    x_face,x_low,x_end=spec['x'];y_top,y_low=spec['y'];d=-spec['depth_m']
+    _,_,b1,m1=drive['pts']        # mouth north, far north, far south, mouth south
+    def south(x):
+        t=(m1[0]-x)/(m1[0]-b1[0]);return m1[1]+(b1[1]-m1[1])*t
+    return [
+        ([(x_face,y_top),(x_low,y_top),(x_low,y_low),(x_face,y_low)],[0.,0.,d,d]),
+        ([(x_face,y_low),(x_low,y_low),(x_low,south(x_low)),(x_face,south(x_face))],[d]*4),
+        ([(x_low,y_top),(x_end,y_top),(x_end,y_low),(x_low,y_low)],[0.,0.,0.,d]),
+        ([(x_low,y_low),(x_end,y_low),(x_end,south(x_end)),(x_low,south(x_low))],[d,0.,0.,d]),
+    ]
+
+
+def fall_triangles(params):
+    """The fall's quads as counter-clockwise (x, y, depth) triangles (no bpy needed:
+    compile_scene and the renderer's declared pieces read these too)."""
+    def area(t):return sum(p[0]*q[1]-q[0]*p[1] for p,q in zip(t,t[1:]+t[:1]))/2
+    result=[]
+    for pts,zs in fall_quads(params):
+        for i,j,k in ((0,1,2),(0,2,3)):
+            tri=[(*pts[n],zs[n]) for n in (i,j,k)]
+            if area(tri)<0:tri.reverse()
+            result.append(tri)
+    return result
+
+
+def _weights(tri,x,y):
+    (x0,y0,_),(x1,y1,_),(x2,y2,_)=tri
+    den=(y1-y2)*(x0-x2)+(x2-x1)*(y0-y2)
+    w0=((y1-y2)*(x-x2)+(x2-x1)*(y-y2))/den
+    w1=((y2-y0)*(x-x2)+(x0-x2)*(y-y2))/den
+    return w0,w1,1-w0-w1
+
+
+def _plane(tri,x,y):
+    w=_weights(tri,x,y);return sum(wi*t[2] for wi,t in zip(w,tri))
+
+
+def _depth_in(tri,x,y):
+    if min(_weights(tri,x,y))<-1e-9:return None
+    return _plane(tri,x,y)
+
+
+def fall_height(params,tris=None):
+    """h(x, y): how far the court ground is sunk at a plan point (0 off the fall)."""
+    tris=fall_triangles(params) if tris is None else tris
+    def h(x,y):
+        for tri in tris:
+            z=_depth_in(tri,x,y)
+            if z is not None:return z
+        return 0.
+    return h
+
+
+def _sink(poly,tris):
+    """Split a ground polygon by the fall's triangles; lower each piece by the fall."""
+    from archetypes.masonry_house_v4_detail import clip,remove_hole
+    out=[];rest=[poly]
+    for tri in tris:
+        nxt=[]
+        for p in rest:
+            inside=p
+            for a,c in zip(tri,tri[1:]+tri[:1]):
+                inside=clip(inside,a,c,True)
+            if inside:
+                out.append([(v[0],v[1],v[2]+_plane(tri,v[0],v[1])) for v in inside])
+            nxt.extend(remove_hole(p,[t[:2] for t in tri]))
+        rest=nxt
+    return out+rest
+
+
 def layout(params):
     """Return disjoint visible faces and physical masks for grass sampling."""
     from archetypes.masonry_house_v4_detail import subtract
@@ -129,6 +213,15 @@ def layout(params):
         for tri in parts([(x,y,spec['turf_lift_m']) for x,y in g['pts']]):
             for poly in subtract(tri,solids+accepted):
                 faces.append({'kind':'lawn','id':'lawn','points':poly,'conf':g['conf']})
+    # T-2978: the court ground falls to the passage mouth (sheet 4). The ramp out of
+    # the passage already carries its own heights; every other surface sinks by it.
+    tris=fall_triangles(params)
+    if tris:
+        sunk=[]
+        for f in faces:
+            if f['id']=='passage-ramp':sunk.append(f);continue
+            sunk.extend({**f,'points':poly} for poly in _sink(f['points'],tris))
+        faces=sunk
     # Rough footing relief projects beyond its base cylinder. Keep blades clear
     # without widening the ground cut and exposing a ring of bare terrain.
     # Inscribed floor cuts may extend a little beneath solid masonry. That is
@@ -140,7 +233,8 @@ def layout(params):
         if t['name']=='stair':
             grass_only.append([(t['cx']+(t['r']+.05)*math.cos(i*math.tau/32),
                                 t['cy']+(t['r']+.05)*math.sin(i*math.tau/32)) for i in range(32)])
-    return {'faces':faces,'hard':hard,'solids':solids,'grass_masks':hard_masks+solids+grass_only}
+    return {'faces':faces,'hard':hard,'solids':solids,'grass_masks':hard_masks+solids+grass_only,
+            'fall':tris}
 
 
 def _edge_parts(a,b,polygons):
@@ -158,10 +252,27 @@ def _edge_parts(a,b,polygons):
         yield tuple(a[k]+t*(b[k]-a[k]) for k in range(3)),tuple(a[k]+u*(b[k]-a[k]) for k in range(3))
 
 
+def _footing(b,params,fall):
+    """T-2978: where the fall sinks the ground at the east wing's court face, between
+    the stair tower and the passage mouth, the wall's rough stone footing runs down to
+    it (the tower's own footing does the same, masonry_house_v4_foundation)."""
+    from archetypes.masonry_house_v4_foundation import ROUGH_STONE
+    spec=params.detail['court_ground']['mouth_fall']
+    ys=spec.get('footing_y') or []
+    if len(ys)!=2:return
+    x=spec['x'][0]-.012;y0,y1=ys;n=6
+    conf=params.detail['court_ground']['conf']
+    for i in range(n):
+        a=y0+(y1-y0)*i/n;c=y0+(y1-y0)*(i+1)/n
+        za,zc=fall(x-.05,a)-.03,fall(x-.05,c)-.03
+        if za>-.03+1e-6 and zc>-.03+1e-6:continue
+        b.raw([(x,c,zc),(x,a,za),(x,a,.02),(x,c,.02)],conf,ROUGH_STONE,(-1,0,0))
+
+
 def build(b,params):
     """Emit shared ground; return a shallow parameter copy for blade sampling."""
     from archetypes import masonry_house as legacy
-    from archetypes.masonry_house_v4_detail import LAWN,DRIVE,area
+    from archetypes.masonry_house_v4_detail import LAWN,DRIVE,TRIM,area
     from archetypes.masonry_house_v4_landscape import _inside
     data=layout(params)
     if data is None:
@@ -173,26 +284,49 @@ def build(b,params):
     # triangulation and path joins never acquire doubled vertical skirt faces.
     lawns=[g['pts'] for g in params.ground if g['kind']=='lawn']
     masks=[g['pts'] for g in data['hard']]+data['solids']
+    fall=fall_height(params,data['fall']);fall_on=bool(data['fall'])
+    lawn_lift=params.detail['court_ground']['turf_lift_m']
     for g in data['hard']:
         if g['id']=='passage-ramp':
             # Sunk below the court: a stone retaining edge up to the drive along both sides.
             from archetypes.masonry_house_v4_frontage import _edge
             v=g['vertices'];mid=tuple(sum(p[k] for p in v)/4 for k in range(2))
-            top=v[1][2]
             for a,c in ((v[0],v[1]),(v[3],v[2])):
+                # T-2978: each side retains up to the ground beside it, which the fall
+                # has sunk on the lawn side but not on the strip behind the drive's edge.
+                out=((a[0]+c[0])/2-mid[0],(a[1]+c[1])/2-mid[1]);k=.05/max(math.hypot(*out),1e-9)
+                side=fall((a[0]+c[0])/2+out[0]*k,(a[1]+c[1])/2+out[1]*k)
+                top=max(v[1][2],side+lawn_lift) if fall_on else v[1][2]
                 _edge(b,a[:2],c[:2],a[2],c[2],mid,g['conf'],DRIVE,top=top)
             continue
         pts=g['vertices']
         if area(pts)<0:pts=list(reversed(pts))
         for a,c in zip(pts,pts[1:]+pts[:1]):
-            for p,q in _edge_parts(a,c,masks+lawns):
+            for p,q in _edge_parts(a,c,masks+lawns+[t[:3] for t in data['fall']]):
                 length=math.dist(p[:2],q[:2])
                 if length<1e-7:continue
                 n=((q[1]-p[1])/length,-(q[0]-p[0])/length)
                 mid=((p[0]+q[0])/2+n[0]*1e-5,(p[1]+q[1])/2+n[1]*1e-5)
                 if not any(_inside(mid,l) for l in lawns) or any(_inside(mid,m) for m in masks):continue
-                b.raw([(p[0],p[1],0),(q[0],q[1],0),q,p],g['conf'],DRIVE,(*n,0))
+                # T-2978: the surface and the ground beside it both follow the fall; where
+                # the drive is sunk below the strip behind its edge the skirt retains it.
+                inner=((p[0]+q[0])/2-n[0]*1e-3,(p[1]+q[1])/2-n[1]*1e-3)
+                outer=((p[0]+q[0])/2+n[0]*1e-3,(p[1]+q[1])/2+n[1]*1e-3)
+                t0,t1=fall(*inner),fall(*outer)
+                if abs(t0)<1e-9 and abs(t1)<1e-9:
+                    b.raw([(p[0],p[1],0),(q[0],q[1],0),q,p],g['conf'],DRIVE,(*n,0))
+                    continue
+                def lo(r):return fall(r[0]+n[0]*1e-3,r[1]+n[1]*1e-3)
+                def hi(r):return r[2]+fall(r[0]-n[0]*1e-3,r[1]-n[1]*1e-3)
+                pb,qb,pt,qt=(p[0],p[1],lo(p)),(q[0],q[1],lo(q)),(p[0],p[1],hi(p)),(q[0],q[1],hi(q))
+                if (pb[2]+qb[2])/2<=(pt[2]+qt[2])/2:
+                    b.raw([pb,qb,qt,pt],g['conf'],DRIVE,(*n,0))
+                else:
+                    b.raw([pt,qt,qb,pb],g['conf'],TRIM,(-n[0],-n[1],0))
+    if fall_on:
+        _footing(b,params,fall)
     sample=copy.copy(params)
+    sample.court_fall=fall if fall_on else None
     sample.ground=[g for g in params.ground if g['kind']=='lawn']+[
         {'kind':'occupied','pts':p} for p in data['grass_masks']]
     b.court_ground_faces=len(data['faces'])

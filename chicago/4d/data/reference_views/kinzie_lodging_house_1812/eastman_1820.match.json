@@ -1,0 +1,36 @@
+{
+  "structure_id": "kinzie_lodging_house_1812",
+  "view": "eastman_1820",
+  "glb": "assets/gltf/kinzie_lodging_house_1812__kinzie_1804.glb",
+  "glb_sha256": "aa611997a755bddd21b0798c505f2cff7451e09bee50b80e0bbeaf57d13dbd92",
+  "camera_sha256": "549a6ddf42114fe66a110c88e0e5a6a4af56dbb08959d9e59b895025ac4400a3",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_lodging_house_1812/eastman_1820-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Front: a low whitewashed wall, eave 731-733 px and grade 752, one window left (x 1525-1531, y 736-748) and a door right (1547-1552, 736-751), heads level. Built at the same heights and places: window 0.7 x 1.4 m without shutters and the door, their heads level, whitewashed log; the render's window and door fall within 1-2 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "Roof and stack: the ridge at about 713 px and one stack a little left of the middle (x 1531-1537, head about 708). Built at 40 degrees with a stack at 0.55 of the ridge from the right-hand end; the render's ridge is at about 713 and its stack about 3 px left of the drawn one.",
+      "status": "fixed"
+    },
+    {
+      "what": "Far end: the plate stops the ridge over the front's right-hand corner (x 1561) and draws the end's roof plane falling from there to the back eave corner (about 1575, 731), the way a hipped end looks. The gable first built put its apex at about 1570 px. Built hipped on the owner's ruling (2026-10-22, T-2485): log_dwelling's `hip_end`, with the ridge stopped 0.9 m in from the end wall (`hip_inset_m`, fitted). The render puts the ridge's end at 1561 and the end plane's outer edge at the back eave corner at 1578, within 3 px of the plate.",
+      "status": "fixed"
+    },
+    {
+      "what": "Its left end: hidden behind the stable's roof, as in the render with the stable in front.",
+      "status": "not shown"
+    },
+    {
+      "what": "A paling before its far end hides the end wall below the eave; the paling is not this record and is not built.",
+      "status": "not shown"
+    },
+    {
+      "what": "Tone: monochrome engraving; the whitewash is read from the white the plate leaves.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

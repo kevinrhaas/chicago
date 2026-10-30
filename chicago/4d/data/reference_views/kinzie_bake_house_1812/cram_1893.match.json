@@ -1,0 +1,28 @@
+{
+  "structure_id": "kinzie_bake_house_1812",
+  "view": "cram_1893",
+  "glb": "assets/gltf/kinzie_bake_house_1812__kinzie_1804.glb",
+  "glb_sha256": "ca5233eb148cf8eb89e7c5f98a71f1e948e820c7429837a1c9e4af4a87415f55",
+  "camera_sha256": "f6f7c2cffb581c7cb52e1ed7b31b55c706ff33b39a23b16bf9379613979e43ab",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_bake_house_1812/cram_1893-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Gable end and roof: the west gable's back eave corner at about (572, 351) and apex (578, 343); the render's within 3-5 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "Stack: a small stack at the west apex (head about 338 px); the render's 0.6 m stack within 4 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "The west end's wall, its opening and its foot, and the front: behind the shrubs and the house's west gable in the plate.",
+      "status": "not shown"
+    },
+    {
+      "what": "Tone: monochrome engraving.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

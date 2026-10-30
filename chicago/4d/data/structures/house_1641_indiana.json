@@ -1,0 +1,180 @@
+{
+  "id": "house_1641_indiana",
+  "name": "1641 Indiana Avenue — Stone-front brick dwelling (district draft; refined by T-1946)",
+  "aka": [
+    "1641 S. Indiana Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The 1911 sheet draws no house at 1641. T-3068 stands the 1886 house for 1904 because the Blue Book lists the Cummings household at 1641 in every edition from 1890 to 1908, the 1904 edition included; residence is attested by that listing and the house's form is the plate's."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-3068, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the Robinson 1886 plate 10 reading (r1886-1641-f: the outline in the plate's pixels, carried by its T-1250 fit) (r1886-1641-f), the T-3019 census (r1886-1641-f) and the T-1837 register row frontage-20w-1641 (Stone-front brick dwelling); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-indiana-1904-lots-3068).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1904-07-01",
+        "confidence": "inferred",
+        "sources": [
+          "robinson_1886_chicago_plate_10"
+        ],
+        "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house and the 1904 Blue Book lists its household. The 1911 sheet shows it gone; when it went is not read."
+      },
+      "position": {
+        "utm_e": 448375.036,
+        "utm_n": 4634323.641,
+        "rotation_deg": 179.446,
+        "symbolic_location": "1641 S. Indiana Avenue, parcel indiana_1641 (data/street_grid/1904.json), east side of Indiana Avenue, the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (Sanborn 1911 vol. 3 sheet 20, checked lot by lot against Robinson 1886 plate 10).",
+        "confidence": "inferred",
+        "sources": [
+          "robinson_1886_chicago_plate_10"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 26.250, v -6.750 m from the middle of the rear lot line), through the T-1250 fit of the plate: the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading. Rotation 179.446 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            15.0,
+            0.0
+          ],
+          [
+            15.0,
+            15.25
+          ],
+          [
+            0.0,
+            15.25
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "robinson_1886_chicago_plate_10"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it."
+        },
+        "construction": {
+          "value": "brick_with_stone_front",
+          "confidence": "inferred",
+          "sources": [
+            "robinson_1886_chicago_plate_10"
+          ],
+          "note": "Robinson 1886 colours the house pink, the plate's brick, with a darker strip along its Indiana face, the plate's mark for a stone front, as on 1615 and 1703."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 3,
+                "roof": "flat",
+                "rect": [
+                  0.0,
+                  0.0,
+                  15.0,
+                  15.25
+                ],
+                "from": "r1886-1641-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 97% of its fill"
+              },
+              {
+                "id": "r2",
+                "role": "wing",
+                "storeys": 3,
+                "roof": "hip",
+                "rect": [
+                  -5.75,
+                  5.25,
+                  0.5,
+                  11.75
+                ],
+                "from": "r1886-1641-f p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 97% of its fill"
+              }
+            ],
+            "lot_v": [
+              -2.33,
+              15.83
+            ],
+            "street_u": 28.095
+          },
+          "confidence": "inferred",
+          "sources": [
+            "robinson_1886_chicago_plate_10"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1641-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 97% of its fill; r1886-1641-f p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 97% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "house",
+            "seed": 536827097,
+            "principal_floor_m": 1.4,
+            "storey_heights_m": [
+              3.9,
+              3.5,
+              3.3,
+              3.1
+            ],
+            "roof_pitch_deg": 25,
+            "mansard_lower_m": 3.0,
+            "front_bays": 6,
+            "entrance": "north",
+            "side_spacing_m": 2.6,
+            "chimneys": 2,
+            "brackets": false,
+            "attic_dormers": false,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-3068",
+              "refined_by": [
+                "T-1946"
+              ]
+            },
+            "v_toward": "south"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row 'Stone-front' overlaid with the frontage row: The 1886 stone-front brick house at 1641: the brick family's hip over three storeys behind a stone face, every face closed; its stable on the alley is the T-3019 draft's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 536827097 only tints the fabric inside +-6 %. Liberty L-draft-indiana-1904-lots-3068."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "register_row": "frontage-20w-1641",
+            "census_ids": [
+              "r1886-1641-f"
+            ],
+            "trace_building": "r1886-1641-f",
+            "seed": 536827097,
+            "replaceable_by": [
+              "T-1946"
+            ],
+            "card": "District draft — refined by T-1946."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

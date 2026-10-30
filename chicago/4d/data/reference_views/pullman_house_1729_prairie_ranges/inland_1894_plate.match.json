@@ -1,0 +1,253 @@
+{
+  "structure_id": "pullman_house_1729_prairie_ranges",
+  "view": "inland_1894_plate",
+  "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+  "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d",
+  "camera_sha256": "01eddcdd24e2bfd4f02ddd7ec7f5b8bc3be1e0d2d56f22e1eff529f03ae0b152",
+  "photo_sha256": "4cd3f1eef5e267d8e2769c48d0fbfc79fb4ed256303efca48a9274d2bf9c5580",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_house_1729_prairie_ranges",
+      "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+      "placement": {
+        "local_e": 1456.387,
+        "local_n": -3169.972,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_conservatory",
+      "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1467.58,
+        "local_n": -3167.464,
+        "rotation_deg": -0.815,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        -11.209769541060389,
+        0,
+        2.4319498013560494
+      ],
+      "rotation_y": 3.1490277562032887,
+      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -0.0004983158329692067,
+        0,
+        2.430052623233238
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "1f5c76e419c00f5419202a2c377f34a5bd44a45c0db224edcceb4888747d7dab"
+    }
+  ],
+  "group_sha256": "9af74d0a78b46be474b751cbc37be6ab56ae8d75d7fb6a6635768e1ae196adc3",
+  "rendered_flora": {
+    "season": "summer",
+    "lots": [
+      {
+        "parcel": "prairie_1729",
+        "shrubs": 13,
+        "trees": 3,
+        "beds": 0,
+        "creeper": 7
+      }
+    ],
+    "street_trees": 35,
+    "street_trees_m": 70,
+    "street_furniture": [
+      "hydrant.pictured.pullman",
+      "lamp.corner.prairie.e18th.ne",
+      "lamp.corner.prairie.e18th.nw",
+      "lamp.corner.prairie.e18th.se",
+      "lamp.pictured.opposite_1721",
+      "lamp.pictured.pullman_court",
+      "lamp.rule.calumet__prairie_ic_16_18#00",
+      "lamp.rule.prairie__prairie_ic_16_18#04"
+    ],
+    "street_furniture_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1456.387,
+    "local_n": -3169.972,
+    "rotation_deg": 179.611,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "draft_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+    },
+    {
+      "file": "renderers/web/js/street-furniture.js",
+      "sha256": "42f06bf6a41414601648724575930f58658620585e3398316e5d8a176bb8b268"
+    }
+  ],
+  "flora_sha256": "a40787ff86b9c7bdc1787ceb17ea9d2c05e6216c56d5427e9ddb6138abd9303a",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the deck's cresting: a dense ring of open ironwork round the deck, where the build stood four posts and a rail",
+      "status": "fixed",
+      "how": "T-1934: three rails, a bar every 0.16 m and a spear on every third, 0.75 m high, round both decks (open_cresting)"
+    },
+    {
+      "what": "a tall tapered spire at the deck's corners, rising well over the cresting",
+      "status": "fixed",
+      "how": "T-1934: a post at each deck corner carrying a 1.2 m tapered spire over the cresting; the corners the pictures do not show carry one too (reconstructed)"
+    },
+    {
+      "what": "the moulded stone belt course the upper storey stands on, where the build showed the lower roof's slope as a band of slate under the upper sash (the owner named the belt course, 2026-10-28)",
+      "status": "fixed",
+      "how": "T-1934: a two-member stone course, about 0.36 m deep, its top where the lower slope meets the wall (4.41 m on the 18th Street front, 4.60 m on the west face, whose slope is steeper), and the upper sash raised onto it from 4.3 m; the lower roof's eave cut on the diagonal where the upper storey turns the corner, so its square hip no longer stands in front of the corner wall"
+    },
+    {
+      "what": "the stable's cornices, belt course and the belvedere's cornice in the walls' light stone, where the build drew them in the dark cornice tone",
+      "status": "fixed",
+      "how": "T-1934: the stable's stone mouldings drawn in the light trim stone"
+    },
+    {
+      "what": "the belvedere's balustrade: open balusters between plain dies, a die at each corner and at each side's middle, over a frieze and cornice (x 780-1150 px); the build had a solid rail (the owner named the open belvedere, 2026-10-28)",
+      "status": "fixed",
+      "how": "T-1934: a 0.9 m balustrade on a plinth under a rail, dies at the corners and the middles, balusters at 0.24 m; a frieze band under the cornice"
+    },
+    {
+      "what": "the corner bay's cap: a low weathered slope from its cornice back onto the corner, where the build brought it to a point over the corner",
+      "status": "fixed",
+      "how": "T-1934: a slope rising 0.6 m over 0.45 m from the cornice onto a flat lead top that runs back to the corner wall"
+    },
+    {
+      "what": "the north block's lower roof: the plate shows its cresting about 1.5 m further north and 0.5 m lower than the build's deck",
+      "status": "fixed",
+      "how": "carried from the conservatory record; seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by T-1934, 2026-10-30: the north block's deck lowered to 8.2 m (4.25 m over the eave, was 8.55 m) and its west edge carried from v 0.3 north to 0.6 m inside the north eave (was v -1.6 to -2.9, a strip 1.3 m long), read off the plate through this camera: the cresting's foot along the deck's west edge (x 1060-1250 px, y 478-502 px), back-projected onto the 53-degree west slope, stands at 8.1-8.4 m from v 0.3 to past the 1911 sheet's north wall. In the side-by-side the build's cresting now runs from behind the belvedere to the deck's south-west spire at x 1265, its foot within about 10 px (0.15 m) of the plate's at x 1200, where it stood as a short crested box at x 1180-1360 about 25-40 px higher. Left as they read: the plate shows the run on under the belvedere's cornice to x 1065, where the build's belvedere body covers it (the belvedere's own place), and the plate's run meets the main roof at x 1250 where the build's main roof's north-west hip stands about 50 px further right, so about 80 px of the deck's south edge shows there; both follow the main deck's place, which the plate and Taylor's 16555 disagree on (the deck's south-west corner, within tolerance). The north end's steep face is reconstructed: no picture sees it (L-pullman-north-block-deck-1934)."
+    },
+    {
+      "what": "the deck's south-west corner: the plate puts its spire almost in line with the lantern, about 1 m further west than the build; Taylor's 16555, which T-3192 fitted the deck's west edge to, puts it where the build has it",
+      "status": "within tolerance",
+      "how": "two pictures disagree"
+    },
+    {
+      "what": "the deck's height: the plate reads it about 0.4 m lower than the build, Taylor's 16554 about 0.3 m higher",
+      "status": "within tolerance",
+      "how": "two pictures disagree; the build stands between"
+    },
+    {
+      "what": "the bay's place along the corner: the plate puts its lights about 0.6-0.9 m further east than the build, Taylor's 16554 about 1.4 m further west",
+      "status": "within tolerance",
+      "how": "two pictures disagree; the build stands between them"
+    },
+    {
+      "what": "the main roof's corner over the bay: the plate draws one hip line; the build's eave, cut on the diagonal, carries a narrow facet up to the deck's corner",
+      "status": "within tolerance",
+      "how": "the roof's outline and its eave line are unchanged; the facet shows as a change of shade about 1.5 m wide at the cornice, narrowing to nothing at the deck"
+    },
+    {
+      "what": "the lantern: the plate draws its drum as open ironwork under a broad, flat cap; the build has a glazed octagonal drum under a flat dome",
+      "status": "within tolerance",
+      "how": "its size and height agree within about 0.3 m here; Taylor's 16554 reads its dome taller, so the pictures disagree on its height"
+    },
+    {
+      "what": "the belvedere's corners banded in rusticated courses, and the upper sash of two lights each in moulded frames",
+      "status": "within tolerance",
+      "how": "relief and glazing bars under the bar; the openings' number, place and size agree"
+    },
+    {
+      "what": "the 18th Street wall across the foreground, its square piers and coping, the curved low walls by the steps, the lamps on the piers, the shrubs and the trees",
+      "status": "fixed",
+      "how": "the 18th Street wall built (T-1934): on the lot line from the house's east end to the stable's east wall, through the plate's camera rays from five pier bases put it, the 0.9 m wall with its chamfered coping, square piers 1.7-1.8 m high, the opening onto the terrace's west flight, the low wall falling steeply from the third pier and curving up again to the fourth, the opening onto the east flight, and the wall on low along the stable's front (pullman_house_1729_prairie form.boundary); its lamps, the planting and the trees are judged in their own lines below"
+    },
+    {
+      "what": "the 18th Street wall's piers in the plate: the five piers, from x 205 to 1875, within about 30 px of the plate's (0.25 m) after T-1934 carried the plate's readings into the house's frame through the two records' 1904 placements",
+      "status": "within tolerance",
+      "how": "T-1934 render"
+    },
+    {
+      "what": "the piers' moulded caps (the plate's about 0.25 m deep, the build's 0.08 m slab) and the sunk panel on each pier's face",
+      "status": "within tolerance",
+      "how": "under the 0.3 m bar; the pier stands where and as tall as the plate shows it"
+    },
+    {
+      "what": "the globe lamp on the fifth pier and the urn on the terrace pier behind it are not built",
+      "status": "fixed",
+      "how": "T-1934: read again at the plate's full size it is one object, not a lamp with an urn behind it: a squat turned urn under a flat lid on the fifth pier's cap (x 1805-1842 px, 52 px high, about 0.4 m by 0.5 m against the cap's 1.06 m); the four piers before it carry plain caps. Built: the K11 kit's urn stretched to 0.4 m by 0.5 m on that cap (data/structures/pullman_house_1729_prairie.json, boundary); the render's urn stands within about 5 px of the plate's in width and height"
+    },
+    {
+      "what": "the plate's two parkway trees before the palm house: the street-tree layer stood none where the plate's stand and one far nearer the camera, on 18th Street's south parkway. T-1934 planted them where the plate puts them (data/street_trees/pictured_1904.json, read through this camera at x 550 and 1487 of the plate's 2000 px, 50.9 and 58.8 m along the north parkway; the first planted 0.4 m east of the plate's reading, between it and Taylor's 16555) and withdrew the south parkway's trees this plate's foreground sees no trunk of: they now render at x 591 and 1475",
+      "status": "fixed"
+    },
+    {
+      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. T-1934, 2026-10-30: the slim column behind the balustrade against the drum's west side (x 212-240 px, its top at y 697) and the cone in its tub before the wing's arched door east of the drum (x 727-782 px) now stand where this camera's pixel columns cross Taylor's 16555's (data/front_yards/1904.json, the 1729 lot's tubs) and render within about 15 px of the plate's; 16555's palm in its tub before the drum renders left of the elm trunk (x 470-560) where the plate shows the drum's columns bare above the balustrade (two summers' arrangements: within tolerance). Still open: the tall evergreen mass and the potted conifer west of the plate's flight, and the clipped heads read looser than the plate's shears. T-1934, 2026-10-30: the plate and Taylor's 16555 triangulated put no second flight there: they stand in the ground between the terrace's flight and the house's raised porch toward 18th Street (the conservatory's plate record).] [T-1934, 2026-10-30, for the next look: the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the nearest picture to 1904 that sees this stretch, shows a dense, continuous border of shrubs inside the 18th Street coping from the house's porch past the palm house, the front yard's attested 'border' the render draws; the plate's 1894 planting there is the earlier of the two, so how much of the plate's arrangement still stood in 1904 is a question between dated pictures, not yet ruled.]",
+      "status": "open",
+      "how": "T-1934 render with the scene's street trees and front yards (camera flora)"
+    },
+    {
+      "what": "the urn's lid: the plate's is flat and broad over the body, the kit's profile rises to a small point about 0.1 m high",
+      "status": "within tolerance",
+      "how": "T-1934: under 0.1 m, the kit's turned profile kept"
+    },
+    {
+      "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
+      "status": "fixed",
+      "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

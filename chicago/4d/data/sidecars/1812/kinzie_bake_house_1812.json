@@ -1,0 +1,291 @@
+{
+  "id": "kinzie_bake_house_1812",
+  "phase": "kinzie_1804",
+  "name": "The Kinzie bake-house, behind the house's west end",
+  "aka": [
+    "the 'bake-house' of Wau-Bun's list of the Kinzie establishment (1831)",
+    "the bakehouse of du Sable's bill of sale (1800), as T-2484 reported it",
+    "the low building with a stack behind the house's west end in Sarony's lithograph, the Cram plate and the Teich painting"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/kinzie_bake_house_1812__kinzie_1804.glb",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 3 of the pictures on the Images tab show it.",
+    "pictures": [
+      "cram_1893_old_kinzie_mansion_1832_engraving",
+      "sarony_kinzie_residence_currey_1912_plate",
+      "teich_old_kinzie_house_postcard"
+    ]
+  },
+  "documented_range": {
+    "from": "1804-10-01",
+    "to": "1833-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "currey_1912_story_of_old_fort_dearborn",
+      "sarony_kinzie_residence_currey_1912_plate"
+    ],
+    "note": "THE KINZIE YEARS, AS THE HOUSE'S OWN RANGE, AND BOTH ENDS INFERRED FOR THIS BUILDING. No source dates this building. Wau-Bun ch. XVII names the establishment's buildings as Juliette Kinzie found them in 1831 (dairy, bake-house, lodging-house for the Frenchmen, stables), and Sarony's lithograph, the Cram plate and the Teich painting draw draws this one; neither is a sighting of 1812. It is taken to stand from the Kinzies' purchase in the fall of 1804 (kinzie_house_1812's opening, Currey ch. II) through the 1812 scene dates (1 and 14 August) to the end of 1833 with the house it served: Currey says the house 'escaped the general destruction at the time of the massacre', nothing read says the yard behind it burned, and the family was away from 1812 to 1816, so the 1820 and 1831 pictures show a yard that was either standing in 1812 or rebuilt on its ground after the return; this record takes the first. It closes with the house (data/exclusions.json kinzie_house: derelict from 1832, gone by 1835), so it stands in no 1835 view. L420."
+  },
+  "change_note": "Built T-2485 (2026-10-21): the bake-house of the Kinzie establishment.",
+  "placement": {
+    "local_e": 1150.1,
+    "local_n": 347.4,
+    "rotation_deg": 180.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "sarony_kinzie_residence_currey_1912_plate",
+      "cram_1893_old_kinzie_mansion_1832_engraving",
+      "teich_old_kinzie_house_postcard"
+    ],
+    "position_note": "PLACED BEHIND THE WEST END, AS THREE PICTURES DRAW IT, NOT MEASURED. Sarony, the Cram plate and the Teich painting, all from across the river to the south-west, draw a low building with a stack immediately behind the house's west gable, its west end standing a little beyond the gable's line. Cast through the house's solved cameras at this depth, the west end's back eave corner falls 0.0 m (Sarony), 1.2 m (Cram) and 2.7 m (Teich) west of the house's west wall line, and it is set at their mean, 1.3 m; its depth behind the house no picture can give, and it is set just clear of the house's back eave; the west cottonwood (kinzie_house_1812_trees), whose place is that record's own, was moved 3.5 m north to stand clear of it (docs/LIBERTIES.md L420).",
+    "symbolic_location": "Close behind the Kinzie house's west end, between its back wall and the west cottonwood; front wall at local N +343.6, west end at E +1144.6; facing south. This record's origin is the footprint's north-east corner, which a 180-degree facing puts at the frame's (0, 0).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        5.5,
+        0
+      ],
+      [
+        5.5,
+        3.8
+      ],
+      [
+        0,
+        3.8
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "5.5 x 3.8 m (18 x 12 ft). DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. The size is this record's: room for an oven and a working floor, low enough to sit under the house's west gable as the pictures draw it."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate"
+      ],
+      "note": "Drawn low, its ridge below the house's eave line from across the river."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate"
+      ],
+      "note": "Sarony draws its end wall dark and hatched in courses, as he draws no other wall in the plate; the Teich painting draws it dark red-brown, as weathered logs read."
+    },
+    "wall_height_m": {
+      "value": 2.1,
+      "confidence": "reconstructed",
+      "note": "Unattested: under seven feet to the plate, a low building as drawn."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate",
+        "cram_1893_old_kinzie_mansion_1832_engraving"
+      ],
+      "note": "Both draw a ridge running along the house's and the west end's slope."
+    },
+    "roof_pitch_deg": {
+      "value": 33.0,
+      "confidence": "reconstructed",
+      "note": "Read by eye off Sarony."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate",
+        "cram_1893_old_kinzie_mansion_1832_engraving"
+      ],
+      "note": "Sarony and the Cram plate draw one stack through its ridge toward the west end: the oven's flue."
+    },
+    "chimney_ridge_at": {
+      "value": [
+        0.88
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate",
+        "cram_1893_old_kinzie_mansion_1832_engraving"
+      ],
+      "note": "Fraction of the ridge from its east end (the frame's -x end at this facing): Sarony and the Cram plate draw the stack just inside the west gable's apex. Fitted on their re-aimed cameras, 0.88 leaves the stack head within 2-7 px of both (0.62 left it 11-15 px off)."
+    },
+    "ridge_stack_w_m": {
+      "value": 0.6,
+      "confidence": "reconstructed",
+      "note": "Sarony and the Cram plate draw the stack narrow, about a third of the west gable's drawn width (7 px on 22 px in Sarony): an oven's flue, not a dwelling's chimney. No figure is given."
+    },
+    "ridge_stack_head_m": {
+      "value": 0.46,
+      "confidence": "reconstructed",
+      "note": "Sarony and the Cram plate draw the stack's head a little over the west apex (about 4 px in Sarony, 0.3-0.4 m at that distance), not the builder's 0.95 m. Set at 0.46 m, the eighteen inches every stack here is held to (the town by-law of 5 August 1835, the gate's figure), which is within the plate's reading at this size."
+    },
+    "front_set_out": {
+      "value": [
+        [
+          "door",
+          2.31
+        ],
+        [
+          "window",
+          4.12
+        ]
+      ],
+      "confidence": "reconstructed",
+      "note": "One door in the south front, facing the house's back door across the yard, and one small window west of it; the pictures see only the west end and the roof."
+    },
+    "end_openings": {
+      "value": [
+        {
+          "end": "+x",
+          "kind": "light",
+          "at": 0.5,
+          "z": 1.2
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sarony_kinzie_residence_currey_1912_plate"
+      ],
+      "note": "+x is the west end at this record's facing. Sarony draws one small dark opening in the middle of the west end below the eave (x 252-256, y 217-224 px); built as the archetype's small light."
+    },
+    "function": {
+      "value": "bakery",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "sarony_kinzie_residence_currey_1912_plate"
+      ],
+      "note": "Wau-Bun ch. XVII, describing 1831: 'A fine, well-cultivated garden extended to the north of the dwelling, and surrounding it were various buildings appertaining to the establishment—dairy, bake-house, lodging-house for the Frenchmen, and stables.' WHICH PICTURED BUILDING IS THE BAKE-HOUSE IS OURS: it is the one behind the house that the pictures draw with a stack. L420."
+    },
+    "land_owner": {
+      "value": "The ground was entered by Robert A Kenzie, 7 May 1831",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "KINZIE'S ADDITION. The north fraction of section 10 is the section north of the river, which is why the register prints 102.29 acres and not a quarter's 160. It is resolved as the section's own grid box clipped to the committed north bank of the main stem (`e1834_harbor_cut/shoreline.geojson`), so no boundary here is authored. The two rows the register carries for it — one plain, one with the school-section marker — are the same entry printed twice. THE REGISTER SPELLS THE PURCHASER MORE THAN ONE WAY for this same tract — Robert A Kenzie; Robert A Kinzie — and the spellings are carried rather than merged, which is the land_sales crosswalk's standing rule: tract agreement is where two spellings MIGHT be one man and is never proof that they are. THE MARGIN IS 42 m: this footprint stands that far inside the tract's nearest boundary, which is more than twice the working horizontal uncertainty of anything traced off the 1834 sheets (about 20 m), so the assignment survives the error the construction carries. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "cram_1893_old_kinzie_mansion_1832_engraving",
+      "citation": "\"The Old Kinzie Mansion in 1832.\" — wood engraving, the upper panel of a plate with \"Chicago in 1845, from the West\", in George F. Cram, Cram's Standard American Railway System Atlas of the World / Columbian World's Fair Atlas (Chicago: George F. Cram, 1893).",
+      "url": "https://archive.org/details/dr_the-old-kinzie-mansion-in-1832-with-chicago-in-1845-from-the-west-wit-1773025",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the house long and low under a gable roof along the river, its west gable toward the eye",
+        "two stacks through the ridge, about 0.44 and 0.92 of it from the west gable",
+        "a piazza across the whole front, its roof drawn as the main roof carried down in one plane",
+        "a central door with two sash either side under the piazza",
+        "a picket fence round the green before the house, four columnar poplars in a row east of it, and a great tree behind",
+        "a two-storey house and a shed behind it to the north-west, in 1832"
+      ],
+      "what_it_does_not_supply": [
+        "the house in 1812: it dates itself to 1832",
+        "any dimension, position or colour"
+      ]
+    },
+    {
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the house's builder, Jean Baptiste Point de Saible, 'a native of San Domingo and a negro', and that he built it 'some time before 1779' near the present foot of Pine Street",
+        "its sale in 1797 to Le Mai, and Le Mai's sale to John Kinzie in 1804, Kinzie arriving 'in the fall of that year'",
+        "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
+        "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
+        "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
+        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'",
+        "the lake shore south of the river mouth before 1812, in the same chapter: 'mostly devoid of trees, a scanty growth of cottonwoods and pines, however, maintaining a precarious existence among the sand-dunes', the low sand-hills 'the predominant feature of the landscape' a mile or two south of the mouth (used by T-2768 for the pines on the south sand hills)"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension of the house, the piazza or the green",
+        "the number of the house's rooms, windows or chimneys",
+        "a date for the veranda or the poplars more exact than 'after the house came into the possession of John Kinzie'",
+        "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
+      ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "sarony_kinzie_residence_currey_1912_plate",
+      "citation": "\"Residence of John Kinzie.\" — lithograph by Napoleon Sarony from a sketch by Mrs. John H. Kinzie, reproduced as a plate in J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg & Co., 1912), ch. II.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the house long and low under a gable roof along the river, the east end toward the eye's right, a piazza across the front on posts with a rail",
+        "a picket fence round the green before the house down toward the water, a landing at the water's edge",
+        "four columnar Lombardy poplars in a row east of the house running toward the river, and a great broad-crowned tree behind it",
+        "two stacks through the ridge, and outbuildings and a two-storey house up the road to the west, behind the house"
+      ],
+      "what_it_does_not_supply": [
+        "the house in 1812 as distinct from the 1820s: the caption covers both",
+        "any dimension or position"
+      ]
+    },
+    {
+      "source_id": "teich_old_kinzie_house_postcard",
+      "citation": "\"The Old Kinzie House (First House Built in Chicago)\" — colour postcard after a painting, \"By Courtesy of John H. Kinzie\", Curt Teich & Co., Chicago, about 1910.",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Old_Kinzie_House_-First_House_Built_In_Chicago-_(NBY_416153).jpg",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the only picture of the house in colour: a red-brown roof and cream walls under the piazza",
+        "the west gable broad, with a small square light high in it",
+        "two stacks through the ridge, the second toward the east end",
+        "the piazza across the front, its roof carried down from the main roof, with a low paling along it",
+        "a central door with openings either side",
+        "four poplars in a row east of the house running down toward the river, a fenced green, and a great tree behind"
+      ],
+      "what_it_does_not_supply": [
+        "a date: the card's file name here says 1804 and the card itself says no year",
+        "any dimension or position; its colours are a painter's and a printer's, not evidence of 1812"
+      ]
+    }
+  ],
+  "research_note": "THE BAKE-HOUSE (T-2485). DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. RULING: the bakehouse STANDS in 1812, inferred: the bill names one in 1800 and Wau-Bun's establishment of 1831 still has one, so a bake-house is taken to stand between the two dates; whether it is du Sable's own or a successor on the same yard is not known. Matched to the three pictures that draw it (data/reference_views/kinzie_bake_house_1812/: sarony_1912, cram_1893, teich_postcard). Nobody is drawn (L1).",
+  "research_doc": "",
+  "review_required": false
+}

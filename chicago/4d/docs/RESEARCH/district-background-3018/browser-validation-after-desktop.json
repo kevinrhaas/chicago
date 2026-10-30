@@ -1,0 +1,277 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of 3 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 86245,
+      "js_heap_used_bytes": 61361200,
+      "js_heap_total_bytes": 62107648,
+      "draft_records_in_registry": 190,
+      "placed": [
+        "house_2000_calumet",
+        "house_2000_calumet_coach_house",
+        "house_2004_calumet",
+        "house_2004_calumet_coach_house",
+        "house_2016_calumet",
+        "house_2016_calumet_coach_house",
+        "house_2032_calumet",
+        "house_2032_calumet_coach_house",
+        "house_2032_calumet_shed",
+        "house_2100_calumet",
+        "house_2100_calumet_coach_house",
+        "house_2106_calumet",
+        "house_2106_calumet_coach_house",
+        "house_2114_calumet",
+        "house_2114_calumet_coach_house",
+        "house_2124_calumet",
+        "house_2128_calumet",
+        "house_2128_calumet_coach_house",
+        "house_2140_calumet",
+        "house_2140_calumet_coach_house",
+        "house_2140_calumet_shed"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 163,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "east-down-21st",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 2109,
+            "rendererCalls": 85,
+            "multiDraw": true,
+            "triangles": 912865,
+            "programs": 76,
+            "geometries": 291,
+            "textures": 625,
+            "batches": 218,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 195,
+            "structuresExpected": 195,
+            "structuresStanding": 195,
+            "bytes": 115816400,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 10642.8,
+          "camera": [
+            1418,
+            -3606,
+            6.2
+          ],
+          "target": [
+            1505,
+            -3640,
+            10.46
+          ]
+        },
+        {
+          "name": "between-prairie-east-houses",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1882,
+            "rendererCalls": 65,
+            "multiDraw": true,
+            "triangles": 749459,
+            "programs": 76,
+            "geometries": 293,
+            "textures": 629,
+            "batches": 218,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 195,
+            "structuresExpected": 195,
+            "structuresStanding": 195,
+            "bytes": 115816400,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 8561.8,
+          "camera": [
+            1392,
+            -3680,
+            6.17
+          ],
+          "target": [
+            1505,
+            -3690,
+            11.45
+          ]
+        },
+        {
+          "name": "calumet-east-walk-22nd",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 4920,
+            "rendererCalls": 322,
+            "multiDraw": true,
+            "triangles": 3618614,
+            "programs": 76,
+            "geometries": 347,
+            "textures": 1223,
+            "batches": 218,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 195,
+            "structuresExpected": 195,
+            "structuresStanding": 195,
+            "bytes": 115816400,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 18025.8,
+          "camera": [
+            1541,
+            -3752,
+            6.11
+          ],
+          "target": [
+            1505,
+            -3640,
+            11.46
+          ]
+        },
+        {
+          "name": "air",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 2339,
+            "rendererCalls": 49,
+            "multiDraw": true,
+            "triangles": 800634,
+            "programs": 77,
+            "geometries": 352,
+            "textures": 1229,
+            "batches": 218,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 195,
+            "structuresExpected": 195,
+            "structuresStanding": 195,
+            "bytes": 115816400,
+            "fps": 0,
+            "cameraNear": 3.6,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 7032.1,
+          "camera": [
+            1600,
+            -3620,
+            94.42
+          ],
+          "target": [
+            1500,
+            -3620,
+            4.47
+          ]
+        }
+      ]
+    }
+  ]
+}

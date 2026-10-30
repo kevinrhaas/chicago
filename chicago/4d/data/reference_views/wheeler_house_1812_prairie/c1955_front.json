@@ -1,0 +1,31 @@
+{
+  "structure_id": "wheeler_house_1812_prairie",
+  "source_id": "chicagology_1812_wheeler_c1955_photo",
+  "library_image": "a18-cgy-1812-wheeler-c1955",
+  "photo": "../../sources/assets/wheeler_1812_c1955_t3034/1812_prairie_c1955.jpg",
+  "image_px": [
+    554,
+    900
+  ],
+  "principal_px": [
+    -538,
+    803
+  ],
+  "focal_px": 1597,
+  "eye": [
+    49.9,
+    -13.4,
+    1.6
+  ],
+  "yaw_deg": 270.0,
+  "scene": "1904",
+  "also_render": [
+    "henderson_house_1816_prairie"
+  ],
+  "solve": "Fitted by T-3034 to the image store's copy of the c. 1955 photograph (554 x 900 px greyscale, committed at data/sources/assets/wheeler_1812_c1955_t3034/), from the front's own control as Levy's print built it (levy_front.json) and the 1911 sheet's plan. The camera is LEVEL and SQUARE to the front: its verticals are vertical and the front's horizontals level (the sill shelf at y 791 px from x 125 to 330, the projection's cornice at y 430-433), so yaw 270 in the footprint frame (u east toward Prairie Avenue, v north), looking west; yet it sees the projection's south cheek (x 77-99 px) and the south wall beyond it, so the eye stands south of the house and the copy is a crop of a wider picture, its principal point far off to the left (x -538 px). HORIZONTAL: the projection's front, 5.05 m between its south corner (x 100) and its north corner (x 340), gives 47.5 px a metre 1.2 m before the main front; the main front's north corner (v 8.5, x 468) against the cheek's back (v 0 on the main front's line, x 78) gives 45.9 px a metre there; their ratio puts the projection 33.6 m from the eye (u 49.9, f = 1597 px), and the cheek's 22 px puts the eye 13.4 m south of the south wall (v -13.4), which also draws 1816's north-east corner (u 15.08, v -1.41) at x 12, just outside the crop's edge at x 22, where the print shows the south wall running on in the gap. HEIGHT: the eye assumed 1.6 m over the walk, the horizon then at y 803 px; the front's heights built from Levy's print land on this one's within about 5 px (the third storey's large arch at y 315 against 318, the grid window's head and sill at 205 and 265 against 205 and 265, the projection's cornice at 430). Residuals, rendered with 1816 beside it (docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg): the front's two ends and the cheek within 2 px; the gable's north half within about 5 px, its south half and head not (the match record says how). The weakest numbers are the eye's distance and its offset south: a 2 px error in the cheek moves the eye about 1.2 m along v, and the ratio that gives the distance rests on two widths read to a pixel or two, so a stack's place read through this camera alone is good to about a metre; with Levy's camera beside it, to a few tenths.",
+  "sun_uvy": [
+    0.6,
+    -1.0,
+    1.4
+  ]
+}

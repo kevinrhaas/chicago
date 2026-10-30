@@ -1,0 +1,180 @@
+{
+  "id": "house_1727_indiana",
+  "name": "1727 Indiana Avenue — Frame house, mansard roof (district draft; refined by T-1946)",
+  "aka": [
+    "1727 S. Indiana Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The 1911 sheet draws a photographic-supply factory at 1727-1737, permitted in August 1905. T-3068 stands the plate's frame house for 1904 (frontage-20w-1727–1737, backcast_1886); the Tribune let it in 1883 as '1729 and 1731 Indiana-av., 2-story, basement, and mansard-roof frame', so it was a house let as two. Its survival to 1904 is inferred: no dated sign of it after 1893 is in hand, and none of its removal before the 1905 permit."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-3068, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the Robinson 1886 plate 10 reading (r1886-1727-f: the outline in the plate's pixels, carried by its T-1250 fit) (r1886-1727-f), the T-3019 census (r1886-1727-f) and the T-1837 register row frontage-20w-1727–1737 (Frame house, mansard roof); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-indiana-1904-lots-3068).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1904-07-01",
+        "confidence": "inferred",
+        "sources": [
+          "robinson_1886_chicago_plate_10"
+        ],
+        "note": "The draft claims the 1904 target and no more, on the plate and the 1905 permit; the house's survival to 1904 is inferred, not attested."
+      },
+      "position": {
+        "utm_e": 448379.384,
+        "utm_n": 4634233.06,
+        "rotation_deg": 179.391,
+        "symbolic_location": "1727 S. Indiana Avenue, parcel indiana_1727 (data/street_grid/1904.json), east side of Indiana Avenue, the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (Sanborn 1911 vol. 3 sheet 20, checked lot by lot against Robinson 1886 plate 10).",
+        "confidence": "inferred",
+        "sources": [
+          "robinson_1886_chicago_plate_10"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 23.000, v -16.250 m from the middle of the rear lot line), through the T-1250 fit of the plate: the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading. Rotation 179.391 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            21.5,
+            0.0
+          ],
+          [
+            21.5,
+            6.25
+          ],
+          [
+            0.0,
+            6.25
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "robinson_1886_chicago_plate_10"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED on a reading: the Chicago Tribune's 1883 notice lets the house as '2-story, basement, and mansard-roof frame' (chicago_tribune_1883_04_15_indiana_1729_1731), three years before the plate, so the draft builds two storeys under the mansard; it keeps the draft's word for a plate house's storeys because the notice is twenty-one years before the scene."
+        },
+        "construction": {
+          "value": "frame",
+          "confidence": "inferred",
+          "sources": [
+            "robinson_1886_chicago_plate_10"
+          ],
+          "note": "Robinson 1886 colours the building yellow, the plate's frame (its brick buildings are pink)."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 2,
+                "roof": "mansard",
+                "rect": [
+                  0.0,
+                  0.0,
+                  21.5,
+                  6.25
+                ],
+                "from": "r1886-1727-f p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 93% of its fill"
+              },
+              {
+                "id": "r2",
+                "role": "wing",
+                "storeys": 1,
+                "roof": "flat",
+                "rect": [
+                  10.75,
+                  -2.0,
+                  17.0,
+                  0.0
+                ],
+                "from": "r1886-1727-f p1 (main, frame), rectangle 2 of that part; the part's rectangles cover 93% of its fill"
+              }
+            ],
+            "lot_v": [
+              -2.596,
+              35.096
+            ],
+            "street_u": 31.558
+          },
+          "confidence": "inferred",
+          "sources": [
+            "robinson_1886_chicago_plate_10"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1727-f p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 93% of its fill; r1886-1727-f p1 (main, frame), rectangle 2 of that part; the part's rectangles cover 93% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "house",
+            "seed": 3887525668,
+            "principal_floor_m": 1.4,
+            "storey_heights_m": [
+              3.9,
+              3.5,
+              3.3,
+              3.1
+            ],
+            "roof_pitch_deg": 18,
+            "mansard_lower_m": 3.0,
+            "front_bays": 2,
+            "entrance": "north",
+            "side_spacing_m": 2.6,
+            "chimneys": 2,
+            "brackets": false,
+            "attic_dormers": false,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-3068",
+              "refined_by": [
+                "T-1946"
+              ]
+            },
+            "v_toward": "south"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row 'mansard' overlaid with the frontage row: The 1886 frame house at 1727-1731, let in 1883 as two storeys over a basement under a mansard: the mansard family's roof over two storeys, every face closed. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3887525668 only tints the fabric inside +-6 %. Liberty L-draft-indiana-1904-lots-3068."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "register_row": "frontage-20w-1727–1737",
+            "census_ids": [
+              "r1886-1727-f"
+            ],
+            "trace_building": "r1886-1727-f",
+            "seed": 3887525668,
+            "replaceable_by": [
+              "T-1946"
+            ],
+            "card": "District draft — refined by T-1946."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "id": "house_217_e20th",
+  "phase": "draft_1904",
+  "name": "217 East Twentieth Street — Queen Anne corner rowhouse with gable (district draft; refined by T-1939)",
+  "aka": [
+    "217 E. Twentieth Street"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/house_217_e20th__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-2982 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1333.049,
+    "local_n": -3489.572,
+    "rotation_deg": -90.599,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 23.500, v -3.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -90.599 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "217 E. Twentieth Street, parcel e20th_217 (data/street_grid/1904.json), south side of East Twentieth Street, the district's named context buildings off Prairie Avenue: East Twentieth Street between Indiana and Prairie, and Calumet Avenue between 20th and 21st Street (Sanborn 1911 vol. 3 sheet 35).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        6.75,
+        0.0
+      ],
+      [
+        6.75,
+        6.5
+      ],
+      [
+        0.0,
+        6.5
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 3,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "'3½; rear3' printed on the 1911 sheet: 3 full storeys and a half storey in the roof."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The register reads the map's colours as 'brick'."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 3,
+            "roof": "shaped_gable",
+            "rect": [
+              0.0,
+              0.0,
+              6.75,
+              6.5
+            ],
+            "from": "s35xfp-e20th_217-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
+          },
+          {
+            "id": "r2",
+            "role": "range",
+            "storeys": 3,
+            "roof": "flat",
+            "rect": [
+              -11.5,
+              0.5,
+              0.0,
+              6.25
+            ],
+            "from": "s35xfp-e20th_217-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 74% of its fill"
+          }
+        ],
+        "lot_v": [
+          -0.325,
+          6.825
+        ],
+        "street_u": 6.654
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35xfp-e20th_217-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s35xfp-e20th_217-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 74% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "house",
+        "seed": 3612866606,
+        "principal_floor_m": 1.4,
+        "storey_heights_m": [
+          3.9,
+          3.5,
+          3.3,
+          3.1
+        ],
+        "roof_pitch_deg": 52,
+        "mansard_lower_m": 3.0,
+        "front_bays": 2,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "chimneys": 1,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [
+          {
+            "kind": "corner_tower",
+            "radius_m": 1.5,
+            "above_eave_m": 2.0,
+            "cap_m": 3.4,
+            "at": [
+              6.225,
+              0.525
+            ]
+          }
+        ],
+        "draft_label": {
+          "pass": "T-2982",
+          "refined_by": [
+            "T-1939"
+          ]
+        },
+        "v_toward": "south"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row 'gable' overlaid with the frontage row: The corner house, its body the sheet's front part (p1) and its rear range the 3-storey part behind the frame strip: its photographs' gable over the street front, which the sheet's 3½ is, and the copper oriel rising at its Prairie corner to a turret, drawn as the draft's corner turret; the oriel's copper and its corbelled start at the first floor are T-1939's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3612866606 only tints the fabric inside +-6 %. Liberty L-draft-district-edges-2982."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-2982",
+        "liberty": "L-draft-district-edges-2982",
+        "register_row": "frontage-35x-217",
+        "census_ids": [
+          "s35x-217-front"
+        ],
+        "trace_building": "s35xfp-e20th_217-b1",
+        "seed": 3612866606,
+        "replaceable_by": [
+          "T-1939"
+        ],
+        "card": "District draft — refined by T-1939."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The 1911 sheet marks the building 'D' (dwelling): '3½ brick dwelling (D) with a rounded bay at its street corner, a frame strip across the middle of its plan and a 3-storey rear range with a cut corner'. Carried to 1904 on the T-2982 census ruling (present_as_mapped)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_35",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Footprints, lots and street widths from 20th to 22nd Street between Indiana and Calumet, as of 1911, at the copy's coarser resolution",
+        "The position of Twentieth Street, which is vacated between Indiana and Calumet today"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "Any lake edge: the sheet ends at Calumet Avenue"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-2982, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1939 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35x trace (s35xfp-e20th_217-b1), the T-2982 census (s35x-217-front) and the T-1837 register row frontage-35x-217 (Queen Anne corner rowhouse with gable); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-edges-2982).",
+  "research_doc": "",
+  "review_required": false,
+  "called": "217 East Twentieth Street — Queen Anne corner rowhouse with gable"
+}

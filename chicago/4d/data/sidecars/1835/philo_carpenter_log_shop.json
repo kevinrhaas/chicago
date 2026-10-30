@@ -13,9 +13,11 @@
   "scene": "1835",
   "target_date": "1835-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "early-andreas-1884-sauganash"
+    ]
   },
   "documented_range": {
     "from": "1832-07-18",
@@ -100,10 +102,92 @@
       "confidence": "inferred",
       "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
     },
+    "front_door_state": {
+      "value": "recess",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "T-2382 bounded exterior choice: the public-domain Andreas 1884 Sauganash plate draws a dark doorway in this separately recorded log annex, with a person interrupting its opening. The existing log builder's 0.30 m blind recess replaces the generic closed board-and-batten leaf as a reconstructed shadow proxy. It supplies no real interior, passable opening, person, swung leaf or historical hinge position. Existing doorway station and size, wall/roof/stack, footprint, placement, dates and former-use/current-use qualifications remain unchanged. Petford and the dependent Trowbridge 1902 depiction also retain a dark annex doorway, but do not independently attest an open door on 1 July 1835; no July fitting/state or grade is promoted. The source-camera/group fit and all other visible differences remain open."
+    },
+    "front_set_out": {
+      "value": [
+        [
+          "window",
+          1.341
+        ],
+        [
+          "door",
+          3.048
+        ],
+        [
+          "window",
+          4.755
+        ]
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "Braunhold's public-domain Andreas 1884 Sauganash engraving shows this attached log cabin with one doorway between two tall sash, their heads approximately on the doorway's head line. The identity is the existing the Illinois History Journal's Beaubien caption caption ruling in this record, not a new independent witness. These centres preserve the archetype's former symmetric stations on the attested 6.096 m frontage (centre 3.048 m, flanks at centre plus or minus 28 percent of the frontage), rounded to millimetres. They are reconstructed rather than measured from a solved camera. Stating the set-out lets the existing archetype align the tall sash heads with the retained 1.95 m door head; no historical door or window station is claimed."
+    },
+    "window_w_m": {
+      "value": 0.7,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "Reconstructed first comparison size for the annex's narrow upright sash in Braunhold's engraving, replacing the generic 0.62 m-wide light. The picture bounds the upright proportion and supplies no metric width; 0.70 m is a provisional choice within the retained 6.096 m frontage, pending a joint Sauganash/annex camera and paired render. Not an attested dimension."
+    },
+    "window_h_m": {
+      "value": 1.4,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "Reconstructed first comparison height for the annex's tall sash in Braunhold's engraving, replacing the generic 0.72 m-high light. At the retained 1.95 m door head this places the sill at 0.55 m, producing a 2:1 upright sash rather than the former almost-square light. The plate shows the taller proportion but gives no metric sash height. The existing archetype also gives its unseen rear window the same vertical band; that hidden elevation remains reconstructed, and neither glazing divisions nor a completed picture match are claimed."
+    },
+    "front_shutters": {
+      "value": false,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "Braunhold's engraving draws the annex's two front sash bare, with log wall alongside their casings rather than open shutter leaves. The main hotel's shutters in the later Trowbridge copy are a different building's treatment and do not license shutters on this cabin. This governs the front only; no claim is made about the unseen rear face."
+    },
+    "chimney_ridge_at": {
+      "value": [
+        0.8
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "Braunhold's 1884 engraving shows one small stack rising through the annex roof near its exposed outer gable, rather than a full-height exterior stack against the hotel junction. This cabin is already placed east of the hotel, so that free end is local +x. Station 0.80 is a reconstructed first comparison choice along the retained 6.096 m ridge: 4.8768 m from local minimum-u and 1.2192 m in from the exposed gable. It follows the pictured roof-piercing disposition; no solved camera, exact historic station or new geographic coordinate is claimed. The actual paired render must refine it."
+    },
+    "ridge_stack_w_m": {
+      "value": 0.55,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "Reconstructed square shaft width for the annex's small roof-piercing stack in Braunhold's engraving, replacing the generic 0.96 m-wide exterior-stack proxy. The picture bounds a narrow stack against this single-pen roof, not a measured shaft section. 0.55 m is a provisional model choice; a square section, plain sides and absence of brick-course detail are existing archetype simplifications, not claims that the picture has been fully reproduced."
+    },
+    "ridge_stack_head_m": {
+      "value": 0.65,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "Reconstructed 0.65 m rise over the annex ridge, replacing the ridge-stack default of 0.95 m. Braunhold draws a short but visible stack above the small roof; the exact head height is a first comparison choice, not a historical measurement. The bottom remains embedded through the roof by the existing ridge-stack builder. A grouped paired review remains necessary."
+    },
     "chimneys": {
       "value": 1,
       "confidence": "inferred",
-      "note": "Not attested, and nothing describes a stack on this building. One is the minimum for a shop kept through Chicago winters, and a druggist compounding in an unheated room in January is not a thing. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "Braunhold's public-domain Andreas 1884 engraving draws one chimney on this attached log cabin, which the existing the Illinois History Journal's Beaubien caption caption ruling identifies as Carpenter's former shop. This replaces the earlier count inferred only from a winter-heating need. The roof-piercing placement is pictured; its exact station/shaft/head dimensions are reconstructed in the three ridge-stack attributes. The engraving's masonry detail and Petford's red rendition still differ from the archetype's hardcoded stick-and-clay material; that unresolved material is not claimed as a match."
     },
     "function": {
       "value": "log_cabin_former_store_and_school_use_unattested",
@@ -129,6 +213,27 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "andreas_1884_sauganash_hotel_plate",
+      "citation": "\"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 632, in the chapter \"Wolf Point and Early Hotels\". A copyright line reading \"A. T. Andreas, 188-\" is lettered inside the plate border at the lower left.",
+      "url": "https://archive.org/details/historyofchicago01andr/page/n1297/mode/1up",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the Sauganash's two-storey clapboard block with a chimney at each end of the ridge",
+        "the log wing running back at the left, lower, with its door direct to grade under a shed roof",
+        "a wide entrance surround at the centre of the front elevation",
+        "a plank walk along the front, returning round the corner of the block",
+        "the even two-storey rhythm of sash across the clapboard front"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension",
+        "the hitching posts or the right-hand board fence the brief lists — not resolvable in this scan, and not claimed here",
+        "a resolved given name or independently identified biography for the engraver; the held reproduction supplies a signed surname, Braunhold",
+        "a date for the scene, and a date for the plate only by way of the volume's 1884 imprint"
+      ]
+    },
     {
       "source_id": "andreas_1884_v1",
       "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",

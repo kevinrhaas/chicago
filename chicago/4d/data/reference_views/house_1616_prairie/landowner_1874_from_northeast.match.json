@@ -2,8 +2,9 @@
   "structure_id": "house_1616_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/house_1616_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6e7bc798d93986441e7691648a6f17272624c6048e98ef1a8cc86ee77aa7b5a2",
+  "glb_sha256": "4f243e3ca81173cb79d20539aabe1e3783de2520bfc071b8808e32216127c495",
   "camera_sha256": "5240253f87b7879c92dd5432858bd7a506e71ebd45b8d1a4442132f524c697d4",
+  "photo_sha256": "ece6ea5d877f60e649e7e2cdbac51101ec8a9d29db76f38d410d97ad573ede19",
   "side_by_side": "docs/RESEARCH/photo-match/house_1616_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -18,7 +19,12 @@
     {
       "what": "the house: the build's front shows from x 961 px (its south wall) to the frame's edge, where the plate draws a tree's branches against the sky and, further off, the frame building beyond 1620's yard. The plate is of May 1874 and the record is of 1904, when the 1911 sheet's '2½B' brick house stands here; whether that house postdates the boards or the engraver left it out the plate cannot say, so the house is not taken down to the plate. A picture of 1616 after 1874 settles it",
       "status": "open"
+    },
+    {
+      "what": "the walk and the gate: 1616's walk gate and the ground inside its boards are past the plate's edge",
+      "status": "not shown",
+      "how": "T-3221: a flagged walk laid from the stoop's foot through the boards' walk gate, whose leaves are now drawn open as 1612's and 1620's are, to the public walk; a stated reconstruction on 1612's photograph (L-k14-walks-1600-block-3215). The plate's boards on the street line, which it does draw, are unchanged"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

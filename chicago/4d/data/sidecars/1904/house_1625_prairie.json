@@ -25,7 +25,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -773,6 +774,43 @@
         "inland_architect_1890_01_mcbirney_residence"
       ],
       "note": "T-2866: the dormer on the main roof's south slope (K01's north, high v), over the side wall's eave, read off the McBirney photograph through the camera T-2846 re-solved (inland_architect_front.json). The print shows its west cheek square to the plate (its hood's lines run level, x 441-490 px, not down the wall's steep vanishing line) and its south face end-on beside it (x 490-500), lit by one sash (x 491-498, y 370-430), under a hipped roof whose ridge stops about 15 px short of the face's corner and whose eave returns level over the face (fascia y 353-360). The eave's cornice runs unbroken under the face, so the face stands on the slope, not in the wall: set 0.1 m inside the wall line (0.15 m in from the fascia's face), the corner at x 490 is s 6.53 and the face runs to s 7.90, 1.4 m along the wall, centred 7.22 m behind the front (u 12.23); the sash 0.9 m wide at 11.52-13.47 m; the face's head, the soffit, 13.72 m (y 362), so the surround 0.25 m all round; the hip's rise from the fascia to the ridge (y 340 at the ridge's depth) reads about 38-42 degrees, built 40 to a 14.55 m ridge. The setback is the one free number: each 0.1 m of it moves every height by about 0.15 m and s by 0.4 m, and it is held at 0.1 m by the main hip, whose 14.7 m ridge a face further up the slope would carry the dormer's ridge past (the print's, about 14.6-14.75 m on this setback, already stands at it). The kind of sash, its panes, the face's and cheeks' finish, and the run of the dormer back into the hip are reconstructed: the kit's two-over-two sash (the print shows a meeting rail and cannot count panes), the K01 dormer's stone face and slated cheeks, the body carried back until its ridge dies into the near slope (L-k01-1625-south-dormer-2866)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "open",
+        "lot_s_m": [
+          -0.15,
+          8.89
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1890_01_mcbirney_residence",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3215: no boundary across the front. The Inland Architect's January 1890 photograph of the McBirney house (data/reference_views/house_1625_prairie/inland_architect_front.json) shows the front yard open from the public walk to the stone front, with no fence, wall, coping or gate across it; the paling fence it shows past the house's corner stands along the open ground next door, which the match record rules the lot's and not the house's (status 'not shown'), so it is not built. Carried to 1904 on that photograph, fourteen years before the scene, so INFERRED. The lot's sides are parcel prairie_1625's street corners (data/street_grid/1904.json) in this frame, s -0.15 and 8.89."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.6
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "inland_architect_1890_01_mcbirney_residence",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3215 (the owner, 2026-10-27). The photograph shows the ground before the doorway paved up to its step, lighter than the yard either side of it, and nothing across the front, so the walk is laid in flags from the stoop's foot, its width (1.6 m), straight out to the inner edge of the public walk, 3.78 m before the street front; the lawn covers the rest. The print's paving is too worn and too far off to read as flags or a width; both are the kit's. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",

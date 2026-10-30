@@ -825,8 +825,8 @@ def main() -> int:
              if "outside_the_stockade" in doc else "")
           + (f"; the wharf and the covered way's {len(doc['index'][32]['seat']['records'])} runs "
              f"on the 1812 river (T-2508)" if "seat" in doc["index"][32] else "")
-          + (f"; {sum(1 for p in doc['north_bank']['parts'] if p.get('record'))} no. 31 houses "
-             f"across the river (T-2504)" if "north_bank" in doc else ""))
+          + (f"; {sum(1 for p in doc['north_bank']['parts'] if p.get('record'))} records across "
+             f"the river by the north-bank rule (T-2504, T-2513, T-2485)" if "north_bank" in doc else ""))
     return 0
 
 

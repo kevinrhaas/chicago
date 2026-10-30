@@ -13,21 +13,26 @@
   "stream-chicagology-north.json",
   "stream-chicagology-south.json",
   "stream-drawings.json",
+  "stream-early-chicago-lighthouse-reference.json",
+  "stream-early-chicago-miller-hogan-references.json",
+  "stream-early-chicago-reference.json",
   "stream-glessner-courtyard-2024.json",
   "stream-glessner-recovery.json",
   "stream-newspapers-north-owners.json",
   "stream-newspapers-north.json",
   "stream-newspapers-south.json",
-  "stream-streetscape.json"
+  "stream-st-mary-reference.json",
+  "stream-streetscape.json",
+  "stream-tremont-reference.json"
  ],
  "counts": {
-  "images": 943,
-  "local": 679,
-  "in_period": 602,
+  "images": 952,
+  "local": 688,
+  "in_period": 607,
   "buildings_with_images": 62,
   "buildings": 63,
-  "lots_with_images": 137,
-  "lots": 156
+  "lots_with_images": 160,
+  "lots": 182
  },
  "by_building": {
   "pa-1720-55": [
@@ -277,7 +282,6 @@
    "cgn-1736-text",
    "a16-ghm-blog-1736-mcbirney-c1890",
    "cgn-1736-robinson-1886",
-   "dw-aabn-1889-mcbirney-1736-permit",
    "cgn-1736-randmcnally-1893-strip",
    "a16-ghm-blog-1736-mcbirney-curbstone-2015"
   ],
@@ -664,6 +668,9 @@
    "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
    "st-nrhp-1972-photo4-prairie-south-from-18th",
    "st-ghm-1800-block-restored-streetscape-1981",
+   "a18-ghm-blog-capital-1-2013",
+   "a18-ghm-blog-capital-2-2013",
+   "a18-ghm-blog-capital-hhr-2013",
    "a18-commons-wlemay-glessner-dining-copper-2024",
    "a18-commons-wlemay-glessner-east-court-2024",
    "a18-commons-wlemay-glessner-hall-bow-2024",
@@ -1569,6 +1576,7 @@
    "a16-inland-1890-hj-mcbirney-residence",
    "cgn-1625-mcbirney-inland-1890-copy",
    "cgn-1625-text",
+   "dw-aabn-1889-mcbirney-1736-permit",
    "dw-inland-1890-01-mcbirney-plate-listing",
    "dw-aabn-1896-springer-flats-1625-1635"
   ],
@@ -1903,10 +1911,8 @@
    "cgn-1736-text",
    "a16-ghm-blog-1736-mcbirney-c1890",
    "cgn-1736-robinson-1886",
-   "dw-aabn-1889-mcbirney-1736-permit",
    "cgn-1736-randmcnally-1893-strip",
-   "a16-ghm-blog-1736-mcbirney-curbstone-2015",
-   "a16-inland-1890-hj-mcbirney-residence"
+   "a16-ghm-blog-1736-mcbirney-curbstone-2015"
   ],
   "prairie_1905": [
    "st-picturesque-chicago-1892-prairie-avenue-text",
@@ -2288,6 +2294,9 @@
    "a18-gh-nickel-west-roof-dormer",
    "a18-gh-nickel-prairie-nw-after-1968",
    "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-ghm-blog-capital-1-2013",
+   "a18-ghm-blog-capital-2-2013",
+   "a18-ghm-blog-capital-hhr-2013",
    "a18-commons-wlemay-glessner-dining-copper-2024",
    "a18-commons-wlemay-glessner-east-court-2024",
    "a18-commons-wlemay-glessner-hall-bow-2024",
@@ -2411,6 +2420,322 @@
    "a20-chicagology-robinson-1886-crops",
    "a20-aic-ryerson-building-index-monographs",
    "cgs-2010-robinson-1886"
+  ],
+  "indiana_1801": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-kimball-lot-c1888",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-kimball-habs-photo-03",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-inland-architect-1890-10-kimball-notice",
+   "a18-cgy-1801-kimball-early",
+   "a18-chicago-and-its-makers-1929-kimball",
+   "a18-rba-taylor-1801-kimball-c1895",
+   "dw-rb-inland-kimball-1801-entrance-plate",
+   "cgn-1801-randmcnally-1893-strip",
+   "dw-inland-1893-01-kimball-entrance-plate-listing",
+   "cgn-1801-tribune-1904-kimball-headline",
+   "cgn-1801-tribune-1924-kimball-auction-ad",
+   "dw-rb-architects-club-house-kimball-1801",
+   "a18-cgy-1801-kimball-1945",
+   "a18-cgy-1801-kimball-doorway-1961",
+   "cgn-1801-tribune-1961-kimball-headline",
+   "cgn-1801-tribune-1961-kimball-subheadline",
+   "a18-kimball-habs-photo-01",
+   "a18-kimball-habs-photo-02",
+   "a18-kimball-habs-data",
+   "a18-gho-simmerling-kimball-1994",
+   "a18-cgy-1801-1811-modern",
+   "a18-gh-kimball-exterior-2013",
+   "a18-gh-kimball-porch-north-2013"
+  ],
+  "indiana_1803": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1805": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-landowner-1874-plate",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a18-gh-1812-first-house-1874",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-gh-hitchcock-galloway-1874-sketch"
+  ],
+  "indiana_1807": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-landowner-1874-plate",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a18-gh-1812-first-house-1874",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-gh-hitchcock-galloway-1874-sketch"
+  ],
+  "indiana_1809": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1813": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "a18-gh-1911-map-west-1800-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1815": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "a18-gh-1911-map-west-1800-block",
+   "dw-tribune-1898-12-31-sears-1815-lowden-1912-sales",
+   "a19-gh-prairie-1800-1900-elevations",
+   "dw-aabn-1879-sears-1815-burnham-root-plans",
+   "a18-cgy-1815-sears-two-views",
+   "a18-gh-sears-house-exterior",
+   "a18-gh-sears-house-interior",
+   "cgn-1815-sears-dining-room",
+   "cgn-1815-robinson-1886",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "cgn-1815-sears-log-cabin-playhouse",
+   "cgn-1815-text",
+   "a18-cgy-1815-meeker-sold-1915",
+   "cgn-1815-tribune-1949-among-the-authors",
+   "a18-gh-sears-interpretive-panel",
+   "a18-gh-1815-office-building-1981",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1819": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1821": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1825": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1829": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1833": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1837": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1839": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1901": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "dw-inland-1883-03-moulton-keith-interiors",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "dw-aabn-1881-keith-1901-permit",
+   "a19-rebj-1886-ream-purchase",
+   "cgs-1901-robinson-1886",
+   "a19-moore-1921-burnham-works-ream",
+   "dw-inland-1887-05-ream-1901-interior-contract",
+   "a19-pictorial-1893-ream",
+   "a19-pictorial-1896-ream",
+   "a19-cgy-1923-randmcnally-1893",
+   "a19-cgy-1901-ream-1898",
+   "nps-1901-tribune-1929-10-27-crerar-mansion-torn-down",
+   "a19-cgy-1901-exterior"
+  ],
+  "indiana_1909": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1913": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1915": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1917": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893",
+   "dw-aabn-1882-03-murray-1919-barn-permit",
+   "a19-cgy-1919-before-1902",
+   "a19-rebj-1884-murray-permit",
+   "dw-aabn-1884-murray-1919-beman-permit",
+   "dw-inland-1884-06-murray-beman-plans",
+   "dw-inland-1885-06-murray-1919-beman-report",
+   "cgs-1919-robinson-1886",
+   "dw-aabn-1887-schwartz-1919-added-storey",
+   "cgs-1919-text",
+   "cgs-1919-inter-ocean-1905-field-jr-headline",
+   "cgs-1919-inter-ocean-1905-field-jr-portrait",
+   "a19-bluebook-1912-gatlin-1919",
+   "a19-cdnalmanac-1913-gatlin-1919",
+   "nps-1919-tribune-1910-12-18-field-residence-lot-60x177",
+   "cgs-1919-gatlin-program-1919",
+   "a19-cgy-1919-later",
+   "a19-gh-1981-fieldjr-1919",
+   "a19-commons-fieldjr-2004",
+   "cgs-1919-tribune-2004-1",
+   "cgs-1919-tribune-2004-2",
+   "cgs-1919-tribune-2004-3",
+   "cgs-1919-tribune-2004-4"
+  ],
+  "indiana_1921": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893",
+   "cgs-tribune-1898-01-09-death-strip",
+   "cgs-1923-robinson-1886"
+  ],
+  "indiana_1925": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1931": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1935": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
   ],
   "indiana_2007": [
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
@@ -2605,6 +2930,9 @@
    "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
    "st-nrhp-1972-photo4-prairie-south-from-18th",
    "st-ghm-1800-block-restored-streetscape-1981",
+   "a18-ghm-blog-capital-1-2013",
+   "a18-ghm-blog-capital-2-2013",
+   "a18-ghm-blog-capital-hhr-2013",
    "a18-commons-wlemay-glessner-dining-copper-2024",
    "a18-commons-wlemay-glessner-east-court-2024",
    "a18-commons-wlemay-glessner-hall-bow-2024",
@@ -4175,6 +4503,29 @@
     "indiana_1703",
     "indiana_1713",
     "indiana_1727",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "indiana_2001",
     "indiana_2007",
     "indiana_2009",
@@ -4474,6 +4825,29 @@
     "indiana_1703",
     "indiana_1713",
     "indiana_1727",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "indiana_2001",
     "indiana_2007",
     "indiana_2009",
@@ -5566,6 +5940,13 @@
     "indiana_1703",
     "indiana_1713",
     "indiana_1727",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
     "prairie_1700",
     "prairie_1701",
     "prairie_1708",
@@ -6783,6 +7164,8 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1805",
+    "indiana_1807",
     "prairie_1729",
     "prairie_1808",
     "prairie_1816",
@@ -7352,8 +7735,8 @@
    "call_number": "U525730.jpg",
    "catalog_url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/38973",
    "image_url": "https://digital-libraries.artic.edu/iiif/2/mqc:38973/full/1200,/0/default.jpg",
-   "rights": "unknown — link only",
-   "rights_basis": "AIC: contact the Art Institute of Chicago Archives for publication information",
+   "rights": "public domain",
+   "rights_basis": "Commercial photograph of the 1890s (J. W. Taylor no. 1445), public domain by age: the owner's ruling of 2026-10-27 on T-3161, as with Taylor's 1801 Kimball print. Holder's statement: AIC: contact the Art Institute of Chicago Archives for publication information",
    "local": {
     "display": "research/images/files/a16-aic-taylor-album-pullman-p69.jpg",
     "display_bytes": 171701,
@@ -7380,7 +7763,7 @@
      "creator": "J. W. Taylor (Chicago) [photo album #1, p. 69 of 100]",
      "date": "c.1880s (holder); album c.1890s",
      "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (Architecture Photograph Collection; purchased 2012)",
-     "rights": "unknown — link only",
+     "rights": "public domain",
      "title": "Pullman, George M., Residence"
     }
    },
@@ -7537,6 +7920,7 @@
    "rights_request": "research/images/rights-requests/ghm-george-glessner-2026-10.md",
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1729",
     "prairie_1801"
    ]
@@ -7614,8 +7998,8 @@
    "call_number": "16399 (ref. CIM 184; Burnham Index)",
    "catalog_url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/29304",
    "image_url": "https://digital-libraries.artic.edu/iiif/2/mqc:29304/full/1200,/0/default.jpg",
-   "rights": "unknown — link only",
-   "rights_basis": "AIC: 'For publication information please contact the Art Institute of Chicago Archives'",
+   "rights": "public domain",
+   "rights_basis": "Commercial photograph of the 1890s (J. W. Taylor no. 1445), public domain by age: the owner's ruling of 2026-10-27 on T-3161, as with Taylor's 1801 Kimball print. Holder's statement: AIC: 'For publication information please contact the Art Institute of Chicago Archives'",
    "local": {
     "display": "research/images/files/a16-aic-taylor-pullman-from-nw.jpg",
     "display_bytes": 189584,
@@ -7642,7 +8026,7 @@
      "creator": "J. W. Taylor (Chicago)",
      "date": "c.1890s (view date)",
      "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (Architecture Photograph Collection)",
-     "rights": "unknown — link only",
+     "rights": "public domain",
      "title": "Pullman, George M., Residence"
     }
    },
@@ -10230,6 +10614,13 @@
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -11441,6 +11832,13 @@
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -11632,6 +12030,11 @@
     "indiana_1703",
     "indiana_1713",
     "indiana_1727",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
     "prairie_1700",
     "prairie_1708",
     "prairie_1709",
@@ -11809,6 +12212,18 @@
     "calumet_1830",
     "calumet_1832",
     "calumet_1900",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -12459,8 +12874,8 @@
    ],
    "streetscape": true,
    "view": "street view",
-   "facing": "southwest",
-   "camera_position": "east side of Prairie Avenue roadway, north-east of 1808",
+   "facing": "northwest",
+   "camera_position": "east side of Prairie Avenue roadway, south-east of 1808; 1812 is foreground left and Glessner recedes right (T-1883 photographic review)",
    "date": "mid-1950s",
    "date_earliest": 1953,
    "date_latest": 1958,
@@ -12922,6 +13337,8 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1805",
+    "indiana_1807",
     "prairie_1808",
     "prairie_1812"
    ]
@@ -13614,6 +14031,20 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1816",
     "prairie_1823",
     "prairie_1824",
@@ -14757,6 +15188,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901",
     "prairie_1912"
    ]
@@ -14819,6 +15251,15 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1900",
     "prairie_1901",
     "prairie_1905",
@@ -14980,6 +15421,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815",
     "prairie_1912"
    ]
@@ -15301,6 +15743,29 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -15870,6 +16335,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -15931,6 +16397,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -15992,6 +16459,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16053,6 +16521,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16114,6 +16583,7 @@
    },
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16163,6 +16633,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16203,6 +16674,16 @@
    "measurements": [],
    "stream": "streetscape",
    "parcel_ids": [
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
     "prairie_1801",
     "prairie_1808",
     "prairie_1811",
@@ -16272,6 +16753,7 @@
    },
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16319,6 +16801,7 @@
    ],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16368,6 +16851,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16404,6 +16888,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16596,6 +17081,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16657,6 +17143,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -17024,6 +17511,20 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1823",
     "prairie_1824",
     "prairie_1827",
@@ -18114,6 +18615,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18156,6 +18658,7 @@
    ],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18205,6 +18708,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18241,6 +18745,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18290,6 +18795,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18339,6 +18845,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18388,6 +18895,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18444,6 +18952,15 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1901",
     "prairie_1905",
     "prairie_1906",
@@ -18513,6 +19030,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18555,6 +19073,7 @@
    "period": "near-period",
    "stream": "newspapers-south",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18616,6 +19135,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -19402,6 +19922,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1921",
     "indiana_2029",
     "prairie_1905",
     "prairie_1906",
@@ -22601,6 +23122,10 @@
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808"
@@ -27604,8 +28129,8 @@
    "call_number": null,
    "catalog_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
    "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0W8l_hxJ6n-OD0Pm1I3no0LL8nG6Wc5cuPM8tFyfjCgwZFhqNKqJ1V9mA8aM0nMrH9VLEY_e63y-eARCWVNYNWF1ZuDZIKoTWPlqlf-ROIec_L44cPx6NAyLJwU_Gk8w9-VxYPAIWMQAPxR83FXJF-ca7gNHUnDwQFnpfx6W16n2M07UcFqnIBOUo/s1800/Cornell%20rear.jpg",
-   "rights": "unknown — link only",
-   "rights_basis": "Albumen print c. 1887 (public domain by age); reproduced by Glessner House Museum",
+   "rights": "public domain",
+   "rights_basis": "Cornell catalog ss:3874294, accession15/5/3090.00156, explicitly places collection images in the public domain; direct catalog-linked scan viewed2026-10-15 and confirmed the same exposure as this museum reproduction.",
    "local": {
     "display": "research/images/files/a18-gh-cornell-glessner-rear-c1887.jpg",
     "display_bytes": 294513,
@@ -27622,7 +28147,7 @@
    },
    "verified": "viewed",
    "found_via": "glessnerhouse.blogspot.com Blogger feed search (q=owner name) 2026-10-01",
-   "notes": "The west (alley) end of the 18th Street front: the stable gable with hay door and small ventilator cupola, carriage doors, arched opening, utility pole; dirt street. Shows the service wing that bounds the courtyard on the west — essential for the 1904 alley/stable massing.",
+   "notes": "The west (alley) end of the 18th Street front: the stable gable with hay door and small ventilator cupola, carriage doors, arched opening, utility pole; dirt street. Shows the service wing that bounds the courtyard on the west — essential for the 1904 alley/stable massing. T-2228: official Cornell catalog https://digital.library.cornell.edu/catalog/ss:3874294 recovered2026-10-15 (Detail, Glessner House, ca.1887; accession15/5/3090.00156). Direct scan is the same exposure, with Cornell stamp and number352. Rights statement now independently checked. West upper/lower openings are used for the owner-requested positioning comparison; no new audit number or independent-witness count.",
    "measurements": [],
    "evidence_review": {
     "ticket": "T-2198",
@@ -27647,7 +28172,7 @@
      "creator": "Unknown photographer",
      "date": "c. 1887",
      "repository": "Glessner House Museum (reproduced on its blog \"The Story of a House\")",
-     "rights": "unknown — link only",
+     "rights": "public domain",
      "title": "Glessner House stable/coach-house end on 18th Street, c. 1887 (Cornell A. D. White collection; as reproduced by the museum)"
     }
    },
@@ -28594,7 +29119,7 @@
     "1800 S. Prairie Avenue"
    ],
    "streetscape": false,
-   "view": "interior",
+   "view": "rear",
    "facing": "north",
    "camera_position": "inside the south courtyard",
    "date": "c. 1923 (copied for HABS)",
@@ -28616,19 +29141,19 @@
    },
    "verified": "viewed",
    "found_via": "existing acquisition (data/sources.csv pa-glessner-habs-photo-05); LoC record re-confirmed via loc.gov/pictures search \"Glessner house chicago\" 2026-10-01",
-   "notes": "HABS IL-1015 photograph 5 of 17. LOC caption: “5. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House INTERIOR COURT - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--5. Master TIFF 060907pu.tif (5000×3999 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views.",
+   "notes": "HABS IL-1015 photograph 5 of 17. LOC caption: “5. Historic American Buildings Survey Photocopy c. 1923 from J. J. Glessner, The Story of a House INTERIOR COURT - John J. Glessner House, 1800 South Prairie Avenue, Chicago, Cook County, IL”. HABS photocopy of a c. 1923 photograph published in J. J. Glessner, The Story of a House (1923). Call number HABS ILL,16-CHIG,17--5. Master TIFF 060907pu.tif (5000×3999 px, 8-bit grayscale) held in Internet Archive item master-pnp-habshaer-il-il0100-il0118-photos; the web copy here is 1800 px. Evidence limit: Shows the house under Glessner family occupancy about 19 years after the 1904 target. Rooms, finishes and furnishings may have changed since 1904; corroborate before modelling a detail as 1904. Period note: a c. 1923 view of the house as the Glessners kept it; exterior fabric is essentially the 1887 build, so it is close evidence for 1904, but furnishings, fixtures and planting must be checked against earlier views. T-2228 correction,2026-10-15: this is the exterior courtyard, not a furnished interior. The HABS bibliography identifies The Story of a House as an unpublished typescript; the earlier wording published in1923 is not evidence of publication or a basis for clearing the copied photograph rights.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2228",
     "audit_number": 118,
-    "reviewed_on": "2026-10-08",
+    "reviewed_on": "2026-10-15",
     "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "after target year",
     "date_basis": "c. 1923 (copied for HABS); distinguish design date from reproduction date; neither proves construction.",
-    "evidence_role": "interior context",
-    "geometry_use": "excluded",
-    "reason": "Interior reference excluded from exterior/courtyard geometry.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "context only",
+    "reason": "Actual courtyard photograph re-viewed. Supersedes T-2198 interior exclusion: courtyard is within the exterior audit. Copied-photograph rights remain unresolved; use cleared HABS measured sheets and separately licensed photographs for geometry, with chronology stated. No new rights clearance or1904dating is asserted.",
     "source_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060907p",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
@@ -31219,6 +31744,7 @@
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
+    "indiana_1801",
     "prairie_1800",
     "prairie_1801"
    ]
@@ -31637,6 +32163,18 @@
     "calumet_1800",
     "calumet_1830",
     "calumet_1832",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -31756,6 +32294,20 @@
     "calumet_1836",
     "calumet_1840",
     "calumet_1900",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -32134,6 +32686,231 @@
    "parcel_ids": [
     "prairie_1800",
     "prairie_1801"
+   ]
+  },
+  {
+   "id": "a18-ghm-blog-capital-1-2013",
+   "kind": "photograph",
+   "title": "Glessner House second-floor capital, 1 (2013)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "detail",
+   "facing": "west",
+   "camera_position": "From the Prairie Avenue walk below, looking up at the second-floor capital.",
+   "date": "February 2013 (post date)",
+   "date_earliest": 2013,
+   "date_latest": 2013,
+   "period": "later",
+   "creator": "Glessner House Museum (blog 'The Story of a House')",
+   "repository": "Glessner House Museum",
+   "collection": "The stone capitals on Glessner House (2013-02-11)",
+   "catalog_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYxEoNK8XqYNbF1_OOy4eJAAKbu2KDG2BM0pGCWD5KLelV4z82Hz8Rhk7Azk-LfaLCU2-B2ZMk77zLuXbrHz0tHdufWx2cXrAJRny58gHz3ZPnepM1vHtiO7p2XW39-sYdvEnrN2BMntY/s1600/13-02-11+capital+1.JPG",
+   "rights": "unknown — link only",
+   "rights_basis": "Museum blog post; no licence stated.",
+   "local": {
+    "display": "research/images/files/a18-ghm-blog-capital-1-2013.jpg",
+    "display_bytes": 88530,
+    "fetched": "2026-10-20",
+    "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYxEoNK8XqYNbF1_OOy4eJAAKbu2KDG2BM0pGCWD5KLelV4z82Hz8Rhk7Azk-LfaLCU2-B2ZMk77zLuXbrHz0tHdufWx2cXrAJRny58gHz3ZPnepM1vHtiO7p2XW39-sYdvEnrN2BMntY/s1600/13-02-11+capital+1.JPG",
+    "original_bytes": 123559,
+    "original_px": [
+     600,
+     676
+    ],
+    "original_sha256": "ad39d05401b7404059a572b6c22ab477d0967f670beb29577f2e399ce81c16d3",
+    "thumb": "research/images/files/a18-ghm-blog-capital-1-2013-thumb.jpg",
+    "thumb_bytes": 35272
+   },
+   "verified": "viewed",
+   "evidence_review": {
+    "ticket": "T-3020",
+    "reviewed_on": "2026-10-22",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "after target year",
+    "date_basis": "The Glessner House Museum post of 2013-02-11 shows the stone as it stood in 2013; the same post dates the carving to 1887 (carved in place from August 1887 by John Evans of Evans & Tomb).",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "Close-up of a second-floor Prairie capital: a band of discs, two stems crossing in a V to corner volutes with a lozenge between, drilled leaf tips. Matched to the northern capital of the group of four on HABS sheet 6, which controls its size and place. The post dates the carving to 1887 and nothing records a change, so the 2013 stone stands for the 1904 pattern; its weathering and light are not 1904 evidence.",
+    "source_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+    "family": null,
+    "family_relationship": "One of three close-ups in the same 2013 post, each a different capital; the HABS sheets draw the same capitals."
+   },
+   "found_via": "T-2965 (owner, 2026-10-20: 'use modern photos as needed'); fetched by kevinrhaas/chicago-images fetch-references.",
+   "measurements": [],
+   "notes": "Close-up of a second-floor Prairie capital: a band of discs with small lozenges, two stems crossing in a V up to corner volutes, a lozenge between, leaf tips with drilled eyes below. Matched to the northern capital of the group of four on HABS sheet 6. The post: nine capitals, front and north, carved in place from August 1887 by John Evans of Evans & Tomb (paid $1,086.50 for the carving), each different. The 2013 stone is evidence of the 1904 carving, which was finished in 1887 and is unaltered.",
+   "reference_copy": {
+    "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+    "credit": {
+     "title": "Glessner House second-floor capital, 1 (2013)",
+     "creator": "Glessner House Museum (blog 'The Story of a House')",
+     "date": "February 2013 (post date)",
+     "repository": "Glessner House Museum",
+     "collection": "The stone capitals on Glessner House (2013-02-11)",
+     "catalog_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+     "rights": "unknown — link only"
+    }
+   },
+   "stream": "glessner-recovery",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-ghm-blog-capital-2-2013",
+   "kind": "photograph",
+   "title": "Glessner House second-floor capital, 2 (2013)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "detail",
+   "facing": "west",
+   "camera_position": "From the Prairie Avenue walk below, looking up at the second-floor capital.",
+   "date": "February 2013 (post date)",
+   "date_earliest": 2013,
+   "date_latest": 2013,
+   "period": "later",
+   "creator": "Glessner House Museum (blog 'The Story of a House')",
+   "repository": "Glessner House Museum",
+   "collection": "The stone capitals on Glessner House (2013-02-11)",
+   "catalog_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH-K8kDDA-gUZ3kkVvj6nI9D7nY8z5kfIxpYcScGfFNo8R3z5xlfDHJMYvdlyzb2u5kHxuCdrPzRJlcduPW_sh5GIOscDxnJMt3SugnyU1uOxXNnaKezrN18WuUCISe890ms5YX7ZNi2Q/s1600/13-02-11+capital+2.JPG",
+   "rights": "unknown — link only",
+   "rights_basis": "Museum blog post; no licence stated.",
+   "local": {
+    "display": "research/images/files/a18-ghm-blog-capital-2-2013.jpg",
+    "display_bytes": 99860,
+    "fetched": "2026-10-20",
+    "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH-K8kDDA-gUZ3kkVvj6nI9D7nY8z5kfIxpYcScGfFNo8R3z5xlfDHJMYvdlyzb2u5kHxuCdrPzRJlcduPW_sh5GIOscDxnJMt3SugnyU1uOxXNnaKezrN18WuUCISe890ms5YX7ZNi2Q/s1600/13-02-11+capital+2.JPG",
+    "original_bytes": 141044,
+    "original_px": [
+     600,
+     677
+    ],
+    "original_sha256": "6adb8c7e60d90911b3201ca629d2b1276bb918423dff0a0c8c32ac7ecf3b3875",
+    "thumb": "research/images/files/a18-ghm-blog-capital-2-2013-thumb.jpg",
+    "thumb_bytes": 38535
+   },
+   "verified": "viewed",
+   "evidence_review": {
+    "ticket": "T-3020",
+    "reviewed_on": "2026-10-22",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "after target year",
+    "date_basis": "The Glessner House Museum post of 2013-02-11 shows the stone as it stood in 2013; the same post dates the carving to 1887 (carved in place from August 1887 by John Evans of Evans & Tomb).",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "Close-up of a second-floor Prairie capital: a band of diamonds over a square block, corner volutes, a basket-weave body and drilled leaf tips. Matched to the southern capital of the group of four on HABS sheet 6, which controls its size and place. The post dates the carving to 1887 and nothing records a change, so the 2013 stone stands for the 1904 pattern; its weathering and light are not 1904 evidence.",
+    "source_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+    "family": null,
+    "family_relationship": "One of three close-ups in the same 2013 post, each a different capital; the HABS sheets draw the same capitals."
+   },
+   "found_via": "T-2965 (owner, 2026-10-20: 'use modern photos as needed'); fetched by kevinrhaas/chicago-images fetch-references.",
+   "measurements": [],
+   "notes": "Close-up of a second-floor Prairie capital: a band of diamonds over a square block, corner volutes, a basket-weave body and leaf tips with drilled eyes. Matched to the southern capital of the group of four on HABS sheet 6. The post: nine capitals, front and north, carved in place from August 1887 by John Evans of Evans & Tomb (paid $1,086.50 for the carving), each different. The 2013 stone is evidence of the 1904 carving, which was finished in 1887 and is unaltered.",
+   "reference_copy": {
+    "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+    "credit": {
+     "title": "Glessner House second-floor capital, 2 (2013)",
+     "creator": "Glessner House Museum (blog 'The Story of a House')",
+     "date": "February 2013 (post date)",
+     "repository": "Glessner House Museum",
+     "collection": "The stone capitals on Glessner House (2013-02-11)",
+     "catalog_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+     "rights": "unknown — link only"
+    }
+   },
+   "stream": "glessner-recovery",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-ghm-blog-capital-hhr-2013",
+   "kind": "photograph",
+   "title": "Glessner House second-floor capital with Richardson's monogram (2013)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "detail",
+   "facing": "west",
+   "camera_position": "From the Prairie Avenue walk below, looking up at the second-floor capital.",
+   "date": "February 2013 (post date)",
+   "date_earliest": 2013,
+   "date_latest": 2013,
+   "period": "later",
+   "creator": "Glessner House Museum (blog 'The Story of a House')",
+   "repository": "Glessner House Museum",
+   "collection": "The stone capitals on Glessner House (2013-02-11)",
+   "catalog_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDIC2Kb7IR-eePBEtEy5rvXe33tKYDYM0W6dXNCyokToh6ATakxSXQHsK630Qc79HFRxI-kaZ87kQfVN2pSeip7jcfCso3svKMZwbAddH8ZFxeK64dKhBheJrl6RZJ3x7NS6U1DZtK3kY/s1600/13-02-11+capital+HHR.JPG",
+   "rights": "unknown — link only",
+   "rights_basis": "Museum blog post; no licence stated.",
+   "local": {
+    "display": "research/images/files/a18-ghm-blog-capital-hhr-2013.jpg",
+    "display_bytes": 112899,
+    "fetched": "2026-10-20",
+    "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDIC2Kb7IR-eePBEtEy5rvXe33tKYDYM0W6dXNCyokToh6ATakxSXQHsK630Qc79HFRxI-kaZ87kQfVN2pSeip7jcfCso3svKMZwbAddH8ZFxeK64dKhBheJrl6RZJ3x7NS6U1DZtK3kY/s1600/13-02-11+capital+HHR.JPG",
+    "original_bytes": 158545,
+    "original_px": [
+     600,
+     822
+    ],
+    "original_sha256": "4f1a85f1f6083077e85e206c07ab4eeb2085156633ad27bf9ecc6aa80d2ff00d",
+    "thumb": "research/images/files/a18-ghm-blog-capital-hhr-2013-thumb.jpg",
+    "thumb_bytes": 31410
+   },
+   "verified": "viewed",
+   "evidence_review": {
+    "ticket": "T-3020",
+    "reviewed_on": "2026-10-22",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "after target year",
+    "date_basis": "The Glessner House Museum post of 2013-02-11 shows the stone as it stood in 2013; the same post dates the carving to 1887 (carved in place from August 1887 by John Evans of Evans & Tomb).",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "Close-up from the walk of the second-floor capital over the Prairie Avenue entrance: checkerboard band, Richardson's monogram in a ring, curling stems and drilled leaf tips over the dressed granite shaft. The post dates the carving to 1887 (carved in place by John Evans); nothing records a change to it, so the 2013 stone stands for the 1904 carving's pattern. The 2013 weathering, pointing and light are not evidence of their 1904 state, and no dimensions are taken from this oblique close-up; HABS sheets 3 and 6 control the sizes.",
+    "source_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+    "family": null,
+    "family_relationship": "One of three close-ups in the same 2013 post, each a different capital; the HABS sheets draw the same capitals."
+   },
+   "found_via": "T-2965 (owner, 2026-10-20: 'use modern photos as needed'); fetched by kevinrhaas/chicago-images fetch-references.",
+   "measurements": [],
+   "notes": "Close-up of the second-floor capital over the Prairie Avenue door: a cushion block under a checkerboard band, Richardson's monogram (mirrored R's on an H, boxed) in a large ring, curling stems at the sides and a row of drilled leaf tips below; the shaft's smooth dressed granite under it. The post says this is the capital over the front entrance. The post: nine capitals, front and north, carved in place from August 1887 by John Evans of Evans & Tomb (paid $1,086.50 for the carving), each different. The 2013 stone is evidence of the 1904 carving, which was finished in 1887 and is unaltered.",
+   "reference_copy": {
+    "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+    "credit": {
+     "title": "Glessner House second-floor capital with Richardson's monogram (2013)",
+     "creator": "Glessner House Museum (blog 'The Story of a House')",
+     "date": "February 2013 (post date)",
+     "repository": "Glessner House Museum",
+     "collection": "The stone capitals on Glessner House (2013-02-11)",
+     "catalog_url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+     "rights": "unknown — link only"
+    }
+   },
+   "stream": "glessner-recovery",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
    ]
   },
   {
@@ -33260,6 +34037,7 @@
    ],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33321,6 +34099,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33370,6 +34149,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33419,6 +34199,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33468,6 +34249,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33517,6 +34299,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33566,6 +34349,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33615,6 +34399,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33664,6 +34449,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33713,6 +34499,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33774,6 +34561,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33810,6 +34598,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33846,6 +34635,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33882,6 +34672,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33933,6 +34724,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801",
     "prairie_1811"
    ]
@@ -33983,6 +34775,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34029,6 +34822,7 @@
    ],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34090,6 +34884,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34152,6 +34947,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801",
     "prairie_1811"
    ]
@@ -34225,6 +35021,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34286,6 +35083,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -35699,6 +36497,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -35811,6 +36610,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -35866,6 +36666,7 @@
    ],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -35921,6 +36722,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -35981,6 +36783,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36051,6 +36854,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36100,6 +36904,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36160,6 +36965,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36202,6 +37008,7 @@
    ],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36251,6 +37058,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36300,6 +37108,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36349,6 +37158,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36398,6 +37208,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36440,6 +37251,7 @@
    "period": "in-period",
    "stream": "newspapers-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36489,6 +37301,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36550,6 +37363,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36617,6 +37431,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36678,6 +37493,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36714,6 +37530,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36750,6 +37567,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36786,6 +37604,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36822,6 +37641,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -43924,6 +44744,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1921",
     "prairie_1923"
    ]
   },
@@ -45819,6 +46640,8 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1805",
+    "indiana_1807",
     "prairie_1808"
    ]
   },
@@ -47096,55 +47919,6 @@
    "notes": "Chicagology's per-address crop of the hand-coloured plate of Robinson's Atlas of the City of Chicago (E. Robinson, 1886) covering Prairie Avenue from 16th to 22nd Street (north at right; Indiana Avenue at top; the Illinois Central / Michigan Central tracks along the lake at lower right), with a black arrow added by Chicagology at the address. Plate conventions: pink = brick, yellow = frame, buff/brown = stone (a brown band at a pink front = stone front); X-crossed squares = rear stables on the alleys; frontage figures (ft) along the street line with the house numbers in small type below. All crops in this series are the same plate in two crop variants (3841×1482 and 3698×1400 px) and differ only by the arrow; the atlas itself is held by the Newberry (st-newberry-robinson-1886-atlas). Footprints are 1886 evidence — combine with the 1911 Sanborn for 1904. Rights: an 1886 atlas is public domain; the first-pass streams (a19/a20 Robinson crop records) treated these crops as link-only — this stream follows the pass instructions (dated published atlas → PD). Arrow points to sublot 9 (27.11-ft frontage), the NW corner of 18th Street and Prairie: a long narrow brick house — matching the Tribune (25 Dec 1880) transfer of \"Prairie av. nw cor of Eighteenth st, e f, 27 11-12×177 ft, improved\" from Henry Strong to Hugh McBirney for $25,000. The page notes the Kodak building later took this corner (1905 factory faces Indiana; 1939 plant at 1712).",
    "measurements": [],
    "stream": "chicagology-north",
-   "parcel_ids": [
-    "prairie_1736"
-   ]
-  },
-  {
-   "id": "dw-aabn-1889-mcbirney-1736-permit",
-   "kind": "permit record",
-   "title": "Building Intelligence: 'H. J. McBirney, three-st'y dwell., Prairie Ave.; … architects, Burling & Whitehouse.'",
-   "building_ids": [
-    "pa-1736-49"
-   ],
-   "addresses": [
-    "1736 S. Prairie Avenue"
-   ],
-   "streetscape": false,
-   "view": "text",
-   "facing": null,
-   "camera_position": null,
-   "date": "June 1, 1889 (vol. XXV, suppl. p. xv)",
-   "date_earliest": 1889,
-   "date_latest": 1889,
-   "period": "in-period",
-   "creator": "The American Architect and Building News (Boston)",
-   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
-   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
-   "call_number": "AABN June 1, 1889, suppl. p. xv",
-   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1889-06-29_25_705/page/n618/mode/1up",
-   "image_url": null,
-   "rights": "public domain",
-   "rights_basis": "Published in the United States before 1929",
-   "local": {
-    "display": "research/images/files/dw-aabn-1889-mcbirney-1736-permit.jpg",
-    "display_bytes": 261690,
-    "thumb": "research/images/files/dw-aabn-1889-mcbirney-1736-permit-thumb.jpg",
-    "thumb_bytes": 28598,
-    "original_px": [
-     1750,
-     2592
-    ],
-    "original_sha256": "6bc5eda3a589c2fa3f599efd64f772c871a38309faaf5644a9a173ebdfcc9e10",
-    "original_bytes": 677507,
-    "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1889-06-29_25_705/page/n618_w1600.jpg",
-    "fetched": "2026-10-02"
-   },
-   "verified": "viewed",
-   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 618)",
-   "notes": "Permit notice for the McBirney house; OCR columns are interleaved so the cost is not reliably attributable — read from the page image.",
-   "measurements": [],
-   "stream": "drawings",
    "parcel_ids": [
     "prairie_1736"
    ]
@@ -50328,6 +51102,49 @@
    ]
   },
   {
+   "id": "early-castelnau-1842-chicago-harbor",
+   "kind": "lithograph",
+   "title": "Chicago harbour entrance, with the 1832 lighthouse",
+   "building_ids": [],
+   "addresses": [],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "1842 publication; circa 1838 depicted harbour",
+   "date_earliest": 1842,
+   "date_latest": 1842,
+   "period": "in-period",
+   "creator": "After Francis de Castelnau; exact panel artist not newly adjudicated",
+   "repository": "Castelnau, published by Arthus Bertrand, Paris (1842); Commons reproduction",
+   "collection": "Vues et souvenirs de l’Amérique du Nord, plate 18, Chicago panel 4",
+   "call_number": null,
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Chicago1838.jpg",
+   "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/e5b9a0fbb145545c95079ccc7e7a3e08ffa050a5/chicago/reference/images/chicago/chicago_harbor_lighthouse_1838.jpg",
+   "rights": "public domain",
+   "rights_basis": "The actual plate was located and visually inspected in the 1842 edition's scanned microfiche surrogate. IA identifies the book as Castelnau, Paris:A.Bertrand, 1842; title-page OCR independently reads M D CCC XLII. The 1842 illustration is public domain in the US by publication age. Commons also marks its reproduction public domain. No modern editorial image is substituted as historic evidence.",
+   "local": {
+    "display": "research/images/files/early-castelnau-1842-chicago-harbor.jpg",
+    "display_bytes": 59854,
+    "thumb": "research/images/files/early-castelnau-1842-chicago-harbor-thumb.jpg",
+    "thumb_bytes": 20576,
+    "original_px": [
+     640,
+     361
+    ],
+    "original_sha256": "6db98a8dc196525c353e0520012a451c14ea4480a6aa173eb4f11bb2a1a178bd",
+    "original_bytes": 83341,
+    "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/e5b9a0fbb145545c95079ccc7e7a3e08ffa050a5/chicago/reference/images/chicago/chicago_harbor_lighthouse_1838.jpg",
+    "fetched": "2026-10-27"
+   },
+   "verified": "viewed",
+   "found_via": "Existing public-domain source castelnau_1842_chicago_harbor and exact held project reproduction; original image SHA256 6db98a8dc196525c353e0520012a451c14ea4480a6aa173eb4f11bb2a1a178bd",
+   "notes": "The whole existing held harbour reproduction is shown with its existing source credit; this is not a newly recovered original. The actual source identifies the 1842 publication and an attributed circa1838 harbour setting, after the July1835 scene; transfer of broad lighthouse form is inferred continuity. Plate18 visibly numbers Chicago panel4 while the explanatory prose calls itFig1. The exact panel draughtsman/lithographer, historic40ft height datum, metric camera, paint and hidden toe are not newly established. The canonical model is unchanged: no new geometry, source trace, texture or dated alteration is derived here. This early-Chicago image is joined only through the lighthouse reference camera, with no invented Prairie parcel or building identity. The diagnostic camera is not offered as a historical From this spot. Other source pictures and their explicit tiny-view/conflicting-drawing/rights limits are reviewed in the original case dossier.",
+   "measurements": [],
+   "stream": "early-chicago-lighthouse-reference",
+   "parcel_ids": []
+  },
+  {
    "id": "cgn-1804-1853-map-prairie-old-to-cross",
    "kind": "atlas plate",
    "title": "Prairie Avenue, Old (18th street) to Cross (19th street), 1853 [map]",
@@ -50589,6 +51406,61 @@
     }
    ],
    "stream": "drawings",
+   "parcel_ids": []
+  },
+  {
+   "id": "early-blanchard-shober-1867-wolf-point",
+   "kind": "lithograph",
+   "title": "Wolf’s Point in 1833, including Miller House",
+   "building_ids": [],
+   "addresses": [],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "1867 publication; depicted1833",
+   "date_earliest": 1867,
+   "date_latest": 1867,
+   "period": "in-period",
+   "creator": "Rufus Blanchard (publisher); Chas. Shober & Co. (lithographer)",
+   "repository": "New York Public Library, I. N. Phelps Stokes Collection; local surrogate through Wikimedia Commons",
+   "collection": "I. N. Phelps Stokes Collection",
+   "call_number": null,
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Wolf%27s_Point_in_1833_(NYPL_Hades-118496-54620).tif",
+   "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/03b027ba6bed8d8ebf1a20e716462ea2b8b54739/chicago/reference/images/chicago/chicago_wolf_point_1833_nypl.jpg",
+   "rights": "public domain",
+   "rights_basis": "The actual sheet was inspected: its copyright-deposit line dates the United States publication to 1867, now out of copyright by age. This record describes the existing NYPL/Commons local surrogate, not a separately licensed commercial scan. This retains the existing source rights metadata and its stated limits; no new original-publication or remote-rights finding is asserted.",
+   "reference_copy": {
+    "basis": "Owner2026-10-11: bring building reference pictures into our repo with attribution, retained for comparison and removed if holder asks.",
+    "credit": {
+     "title": "Wolf’s Point in 1833, including Miller House",
+     "date": "1867 publication; depicted1833",
+     "creator": "Rufus Blanchard (publisher); Chas. Shober & Co. (lithographer)",
+     "repository": "New York Public Library, I. N. Phelps Stokes Collection; local surrogate through Wikimedia Commons",
+     "collection": "I. N. Phelps Stokes Collection",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Wolf%27s_Point_in_1833_(NYPL_Hades-118496-54620).tif"
+    },
+    "credit_statement": "Rufus Blanchard (publisher); Chas. Shober & Co. (lithographer); New York Public Library, I. N. Phelps Stokes Collection; local surrogate through Wikimedia Commons"
+   },
+   "local": {
+    "display": "research/images/files/early-blanchard-shober-1867-wolf-point.jpg",
+    "display_bytes": 384631,
+    "thumb": "research/images/files/early-blanchard-shober-1867-wolf-point-thumb.jpg",
+    "thumb_bytes": 16471,
+    "original_px": [
+     1920,
+     1697
+    ],
+    "original_sha256": "d53dfb2f7110484d488f4c5329aad60cd53b5f408df44e273cc87406c5a58b50",
+    "original_bytes": 536898,
+    "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/03b027ba6bed8d8ebf1a20e716462ea2b8b54739/chicago/reference/images/chicago/chicago_wolf_point_1833_nypl.jpg",
+    "fetched": "2026-10-29"
+   },
+   "verified": "viewed",
+   "found_via": "Existing held source blanchard_shober_1867_wolf_point; immutable exact project surrogate, originalSHA256 d53dfb2f7110484d488f4c5329aad60cd53b5f408df44e273cc87406c5a58b50",
+   "notes": "A retrospective lithograph of a scene labelled 1833, published 34 years later. The left bank's tavern is identified by the wolf sign on a tall sapling pole. Two low gable-front volumes stand together, with a broad chimney head emerging above the rear part of the left roof and a separate slender pipe on or beside the adjacent roof. Neither visible head is drawn as a full-height stack standing against a gable wall. The print supports a roof-penetrating stack as inferred form; it does not supply an exact ridge fraction, stack dimension, surveyed footprint or location. The 1833 depiction is applied cautiously as an inferred pre-1835 form, not as proof that nothing changed by 1 July 1835. The pre-refinement inline model did not reproduce these two gable fronts. Neither the earlier parallel-gable trial nor the new L hypothesis warrants a matches verdict without actual rendered review. The same sheet shows Miller House at the right: its tall main block has a horizontal-log ground storey and vertical boards above, continuing into the gable, with three small upper windows over window-door-window. That appearance is a tier-5 form reading; board width, relief, floor-level height and plan dimensions are not measured by this record. T-2386 L re-reading corrects the earlier parallel-gable interpretation: the NYPL left gable roof recedes rightward, the right one leftward, and their inside walls meet at an apparent corner. An orthogonalL is a supported form hypothesis, not an attested plan or scale. The physical polygon and all metric choices remain reconstructed; alternate views/chronology and actual render remain open. The1892-labelled poster is corroborative inspection only: fresh Newberry Poole27 metadata instead says1935/Copyright Not Evaluated, so its reproduction is not a new cleared modelling source. Source credit,1867 rights basis and Miller reading are unchanged. T-2386 actual-render continuation reads horizontal coursing through both facing gables, a markedly screen-left-leaning sapling and rising cross-arm with a tilted suspended board. These visible categories can guide inferred form; no exact timber section, colour, texture, sign drawing, height, local station, overhang or metric/world coordinate is attested by the sheet. The new proposal retains the existing source credit/rights/date limits and requires another actual rendered comparison. T-2386 door/log-relief re-reading: the two entry apertures are dark/open-looking and the course faces show rounded/irregular shading with narrow dark recesses. These guide appearance categories only; no interior, literal measured cross-section, authentic colour/texture or original sign-device likeness is established. The whole held reproduction is displayed as a credited reference copy. No image-pixel texture, source trace, original color or new historical camera is derived here. The diagnostic camera is not a historical From this spot. This early Chicago record joins through the existing reference-view library_image field, with no invented Prairie address or parcel.",
+   "measurements": [],
+   "stream": "early-chicago-miller-hogan-references",
    "parcel_ids": []
   },
   {
@@ -51830,6 +52702,92 @@
    "parcel_ids": [
     "prairie_1608"
    ]
+  },
+  {
+   "id": "early-andreas-1884-sauganash",
+   "kind": "engraving",
+   "title": "THE SAUGANASH HOTEL.",
+   "building_ids": [],
+   "addresses": [],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "1884 publication; retrospective depiction before 1834",
+   "date_earliest": 1884,
+   "date_latest": 1884,
+   "period": "in-period",
+   "creator": "Braunhold (signed surname; initial unresolved); published by A. T. Andreas",
+   "repository": "A. T. Andreas, History of Chicago, volume 1; digitized at Internet Archive",
+   "collection": "History of Chicago, volume 1 (1884), printed page 632",
+   "call_number": null,
+   "catalog_url": "https://archive.org/details/historyofchicago01andr/page/n1297/mode/1up",
+   "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/1290a23271b2771c77201fd17fed7cfa857ade14/chicago/reference/images/chicago/chicago_sauganash_hotel_1831.jpg",
+   "rights": "public domain",
+   "rights_basis": "Published 1884 in the United States, so the volume and its plates are out of copyright by age; the parent record `andreas_1884_v1` is already graded `public_domain` on the same ground. The Sauganash plate carries an in-plate copyright line naming A. T. Andreas — a claim made in 1884 and long expired, and it is recorded because it is on the plate, not because it bites. This is what going to the volume buys over an aggregator: the rights question is settled by the imprint instead of left open.",
+   "local": {
+    "display": "research/images/files/early-andreas-1884-sauganash.jpg",
+    "display_bytes": 398547,
+    "thumb": "research/images/files/early-andreas-1884-sauganash-thumb.jpg",
+    "thumb_bytes": 24718,
+    "original_px": [
+     2017,
+     1296
+    ],
+    "original_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+    "original_bytes": 542712,
+    "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/1290a23271b2771c77201fd17fed7cfa857ade14/chicago/reference/images/chicago/chicago_sauganash_hotel_1831.jpg",
+    "fetched": "2026-10-26"
+   },
+   "verified": "viewed",
+   "found_via": "Existing project-held reproduction, source andreas_1884_sauganash_hotel_plate; held file SHA256 3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+   "notes": "Early-Chicago reference image for the separately recorded log annex beside the Sauganash (T-2382), linked through its reference camera; no Prairie building identity is invented. Publication date1884 is not a July1835 observation: the existing source identifies a retrospective scene before1834. This copy is the unchanged project-held reproduction at its immutable Git URL, not a newly recovered original scan. The source documents the printed-page identity and its archive derivative mirroring hazard; no new scan manipulation or attribution is made here. The held reproduction was viewed at full size: the lower-left surname BRAUNHOLD is legible, while its given-name initial remains unresolved. This updates the earlier archive-derivative legibility limit without inventing a full identity. The annex identity/date, compound camera and broader geometry fit remain qualified in the structure and match records. The provisional camera is diagnostic_only and offers no invented historical From this spot.",
+   "measurements": [],
+   "stream": "early-chicago-reference",
+   "parcel_ids": []
+  },
+  {
+   "id": "early-moss-1884-st-marys",
+   "kind": "engraving",
+   "title": "Saint Mary's Church.",
+   "building_ids": [],
+   "addresses": [],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "1884 publication; depicted year undated",
+   "date_earliest": 1884,
+   "date_latest": 1884,
+   "period": "in-period",
+   "creator": "Moss Engraving Co., New York (engraver); A. T. Andreas (publisher)",
+   "repository": "A. T. Andreas, History of Chicago, volume 1; digitized at Internet Archive",
+   "collection": "History of Chicago, volume 1 (1884), printed page 291",
+   "call_number": null,
+   "catalog_url": "https://archive.org/details/historyofchicago01andr",
+   "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/bffc4cff33670bde34e718751ea8712e087eef8b/chicago/reference/images/chicago/chicago_st_marys_church_1843.jpg",
+   "rights": "public domain",
+   "rights_basis": "Exact engraving located in the 1884 US publication, not inferred solely from the modern reproduction's label. The 1884 printed illustration is public domain in the United States; no modern editorial text is reused as an asset.",
+   "local": {
+    "display": "research/images/files/early-moss-1884-st-marys.jpg",
+    "display_bytes": 570620,
+    "thumb": "research/images/files/early-moss-1884-st-marys-thumb.jpg",
+    "thumb_bytes": 22068,
+    "original_px": [
+     2671,
+     3110
+    ],
+    "original_sha256": "e0c28e377dce83fe936cf74a2fd76186269ce6e6ec864182f5f49f37d0f7a1f2",
+    "original_bytes": 1974915,
+    "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/bffc4cff33670bde34e718751ea8712e087eef8b/chicago/reference/images/chicago/chicago_st_marys_church_1843.jpg",
+    "fetched": "2026-10-26"
+   },
+   "verified": "viewed",
+   "found_via": "Existing project-held reproduction, source andreas_1884_st_marys_engraving; held SHA256 e0c28e377dce83fe936cf74a2fd76186269ce6e6ec864182f5f49f37d0f7a1f2",
+   "notes": "The whole engraving shows the long low wooden St Mary's with five long-wall sash, an end door, open belfry/cross and one far stack. This is the existing held reproduction of the independently verified Andreas 1884 printed p.291, not a newly recovered original scan. The file's 1843 suffix is not a printed depiction date. Publication 1884 does not establish its appearance, tower installation or location in July 1835. Andreas p.290 dates initial tower absence to 1833 and a low open tower only to some time afterwards. The existing 1835 belfry choice remains reconstructed. The provisional solved camera is diagnostic_only, so the undated engraving offers no invented historical From this spot. The five front sash now sit high below the eaves as the engraving shows. The modeled 1.40 m sill is a reconstructed fit, not a documented historical dimension.",
+   "measurements": [],
+   "stream": "st-mary-reference",
+   "parcel_ids": []
   },
   {
    "id": "dw-aabn-1885-hamlin-1621-farwell-1626-treat-foltz",
@@ -53702,8 +54660,7 @@
    "title": "Residence for Hugh J McBirney, Chicago. Burling & Whitehouse, Architects.",
    "building_ids": [],
    "addresses": [
-    "1625 S. Prairie Avenue (inferred; Hugh J. McBirney household per 1904 Blue Book)",
-    "1736 S. Prairie Avenue (AIC catalogue attribution — probably wrong)"
+    "1625 S. Prairie Avenue (inferred; Hugh J. McBirney household per 1904 Blue Book)"
    ],
    "streetscape": true,
    "view": "front elevation",
@@ -53737,7 +54694,7 @@
    },
    "verified": "viewed",
    "found_via": "AIC CONTENTdm API search 'mcbirney'; plate list confirmed in archive.org sim_inland-architect-and-news-record_1890-01_14_8",
-   "notes": "New house for Hugh J. (Johnston) McBirney, the son of Hugh McBirney of 1736: a narrow three-storey rock-faced stone front with a steep front gable (oculus), Tudor-style mullioned and transomed windows with stone quoined surrounds, a carved panel over a plain square-headed entrance, brick side wall with a mansard-roofed rear wing and dormers; attached at left to a neighbour with a corner turret, carved bay and Romanesque arched entrance; at right an open side yard with picket fence; building materials on the unfinished walk. ADDRESS: AIC catalogues this as 1736 S. Prairie, but 1736 (NW corner of 18th) was the elder McBirney's Second Empire house (blog c.1890 photo; Rand McNally 1893 strip), while the 1904 Blue Book lists the Hugh J. McBirney household at 1625 Prairie, and the 'Hibbardville' map places McBirney on the east side of the 1600 block between Farwell and Forsyth. The 1911 Sanborn shows 1625 as the end of an attached group 1621–1625 ('3B; section 4'), matching the attached-left/open-right siting here. Treat as 1625 (not in the building index) pending directory confirmation; it stood in 1904. Supporting context: Inland Architect Nov. 1885 (vol. 6 no. 5, building news) reports 'Architects Treat & Foltz: For Granger Farwell, at 1625 Prairie avenue, residence, cost $11,000' and the Conzen/Knox 1886 map places Farwell at 1623 — so the turreted, Romanesque-arched house attached at the LEFT (north) of the McBirney front is probably the 1885 Farwell house, and the McBirney house the next lot south (1625 by 1904), with the open lots toward 1637 at right.",
+   "notes": "New house for Hugh J. (Johnston) McBirney, the son of Hugh McBirney of 1736: a narrow three-storey rock-faced stone front with a steep front gable (oculus), Tudor-style mullioned and transomed windows with stone quoined surrounds, a carved panel over a plain square-headed entrance, brick side wall with a mansard-roofed rear wing and dormers; attached at left to a neighbour with a corner turret, carved bay and Romanesque arched entrance; at right an open side yard with picket fence; building materials on the unfinished walk. ADDRESS: AIC catalogues this as 1736 S. Prairie, but 1736 (NW corner of 18th) was the elder McBirney's Second Empire house (blog c.1890 photo; Rand McNally 1893 strip), while the 1904 Blue Book lists the Hugh J. McBirney household at 1625 Prairie, and the 'Hibbardville' map places McBirney on the east side of the 1600 block between Farwell and Forsyth. The 1911 Sanborn shows 1625 as the end of an attached group 1621–1625 ('3B; section 4'), matching the attached-left/open-right siting here. Treat as 1625 (not in the building index) pending directory confirmation; it stood in 1904. Supporting context: Inland Architect Nov. 1885 (vol. 6 no. 5, building news) reports 'Architects Treat & Foltz: For Granger Farwell, at 1625 Prairie avenue, residence, cost $11,000' and the Conzen/Knox 1886 map places Farwell at 1623 — so the turreted, Romanesque-arched house attached at the LEFT (north) of the McBirney front is probably the 1885 Farwell house, and the McBirney house the next lot south (1625 by 1904), with the open lots toward 1637 at right. T-3020 (2026-10-22): the AIC's '1736' is no longer listed under addresses. The library places a record on every lot its addresses name, so that wrong catalogue address put this plate on 1736's lot, at the top of 1736's card, where the owner saw the son's house standing in for the father's. The plate is 1625's: Chicagology prints the same photograph on its 1625 page (cgn-1625-mcbirney-inland-1890-copy) and the sheet 20 census (T-1840) seats it there.",
    "measurements": [
     {
      "what": "neighbouring Granger Farwell residence (Inland Architect, Nov. 1885, building news)",
@@ -53747,8 +54704,7 @@
    ],
    "stream": "1600-1700",
    "parcel_ids": [
-    "prairie_1625",
-    "prairie_1736"
+    "prairie_1625"
    ]
   },
   {
@@ -53834,6 +54790,53 @@
     }
    ],
    "stream": "chicagology-north",
+   "parcel_ids": [
+    "prairie_1625"
+   ]
+  },
+  {
+   "id": "dw-aabn-1889-mcbirney-1736-permit",
+   "kind": "permit record",
+   "title": "Building Intelligence: 'H. J. McBirney, three-st'y dwell., Prairie Ave.; … architects, Burling & Whitehouse.'",
+   "building_ids": [],
+   "addresses": [
+    "1625 S. Prairie Avenue"
+   ],
+   "streetscape": true,
+   "view": "text",
+   "facing": null,
+   "camera_position": null,
+   "date": "June 1, 1889 (vol. XXV, suppl. p. xv)",
+   "date_earliest": 1889,
+   "date_latest": 1889,
+   "period": "in-period",
+   "creator": "The American Architect and Building News (Boston)",
+   "repository": "Internet Archive (digitized periodical, sim_microfilm)",
+   "collection": "The American Architect and Building News — 'Building Intelligence' (Chicago building permits / architects' reports)",
+   "call_number": "AABN June 1, 1889, suppl. p. xv",
+   "catalog_url": "https://archive.org/details/sim_american-architect-and-architecture_1889-06-29_25_705/page/n618/mode/1up",
+   "image_url": null,
+   "rights": "public domain",
+   "rights_basis": "Published in the United States before 1929",
+   "local": {
+    "display": "research/images/files/dw-aabn-1889-mcbirney-1736-permit.jpg",
+    "display_bytes": 261690,
+    "thumb": "research/images/files/dw-aabn-1889-mcbirney-1736-permit-thumb.jpg",
+    "thumb_bytes": 28598,
+    "original_px": [
+     1750,
+     2592
+    ],
+    "original_sha256": "6bc5eda3a589c2fa3f599efd64f772c871a38309faaf5644a9a173ebdfcc9e10",
+    "original_bytes": 677507,
+    "fetched_from": "https://archive.org/download/sim_american-architect-and-architecture_1889-06-29_25_705/page/n618_w1600.jpg",
+    "fetched": "2026-10-02"
+   },
+   "verified": "viewed",
+   "found_via": "IA text of 1,000 American Architect items scanned for owner names / Prairie addresses; OCR of the page read (IA item sim_american-architect-and-architecture_1889-06-29_25_705, page index 618)",
+   "notes": "Permit notice for Hugh J. McBirney's new house; OCR columns are interleaved so the cost is not reliably attributable — read from the page image. ADDRESS (T-3020, 2026-10-22): the notice names only 'Prairie Ave.', and it was first filed under 1736, the elder Hugh McBirney's 1864 house. It is the son's house at 1625: H. J. McBirney, a three-storey dwelling, Burling & Whitehouse, in spring 1889, as the Tribune's 6 May 1889 permit ('No. 1627 (sic) Prairie avenue', $9,000) and 9 June 1889 report of the Burling & Whitehouse Tudor house say (cgn-1625-text), and as the January 1890 Inland Architect plate of the finished house shows (a16-inland-1890-hj-mcbirney-residence). The id keeps its old '1736' because the image store holds the page under it.",
+   "measurements": [],
+   "stream": "drawings",
    "parcel_ids": [
     "prairie_1625"
    ]
@@ -56182,6 +57185,116 @@
     "indiana_2017",
     "prairie_2017"
    ]
+  },
+  {
+   "id": "early-cameron-first-post-office-1833",
+   "kind": "painting",
+   "title": "Chicago’s First Postoffice in 1833",
+   "building_ids": [],
+   "addresses": [],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "Undated reproduction, inventory circa1900; depicted1833",
+   "date_earliest": null,
+   "date_latest": null,
+   "period": "in-period",
+   "creator": "Edgar S. Cameron (painter); halftone publisher not established",
+   "repository": "Chicago Historical Society, via Wikimedia Commons; local surrogate in chicago/reference/images/chicago/",
+   "collection": "Chicago Historical Society reproduction",
+   "call_number": null,
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Chicago%27s_first_post_office,_1833.jpg",
+   "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/03b027ba6bed8d8ebf1a20e716462ea2b8b54739/chicago/reference/images/chicago/chicago_first_post_office_1833.jpg",
+   "rights": "public domain",
+   "rights_basis": "chicago/reference/images/IMAGE_SOURCES.md lists this halftone as public domain by pre-1930 publication. This describes the existing local surrogate, not the separately advertised Alamy licensed copy. The original painting's holding and the reproduction's publication have not been independently established here. This retains the existing source rights metadata and its stated limits; no new original-publication or remote-rights finding is asserted.",
+   "reference_copy": {
+    "basis": "Owner2026-10-11: bring building reference pictures into our repo with attribution, retained for comparison and removed if holder asks.",
+    "credit": {
+     "title": "Chicago’s First Postoffice in 1833",
+     "date": "Undated reproduction, inventory circa1900; depicted1833",
+     "creator": "Edgar S. Cameron (painter); halftone publisher not established",
+     "repository": "Chicago Historical Society, via Wikimedia Commons; local surrogate in chicago/reference/images/chicago/",
+     "collection": "Chicago Historical Society reproduction",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Chicago%27s_first_post_office,_1833.jpg"
+    },
+    "credit_statement": "Edgar S. Cameron (painter); halftone publisher not established; Chicago Historical Society, via Wikimedia Commons; local surrogate in chicago/reference/images/chicago/"
+   },
+   "local": {
+    "display": "research/images/files/early-cameron-first-post-office-1833.jpg",
+    "display_bytes": 352506,
+    "thumb": "research/images/files/early-cameron-first-post-office-1833-thumb.jpg",
+    "thumb_bytes": 23767,
+    "original_px": [
+     2062,
+     1507
+    ],
+    "original_sha256": "bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+    "original_bytes": 715908,
+    "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/03b027ba6bed8d8ebf1a20e716462ea2b8b54739/chicago/reference/images/chicago/chicago_first_post_office_1833.jpg",
+    "fetched": "2026-10-29"
+   },
+   "verified": "viewed",
+   "found_via": "Existing held source cameron_c1900_first_post_office; immutable exact project surrogate, originalSHA256 bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+   "notes": "A retrospective painting of a scene labelled 1833, not a photograph or an eyewitness record. The building at left has a gable roof over horizontal log courses, a single visible sash and an off-centre doorway in the long elevation, a small framed opening in the visible gable, and one chimney rising through the roof. The caption places it near the east end of the later Lake Street bridge. This picture informs an inferred elevation for Hogan's store; it supplies neither a surveyed location nor a dimension and cannot establish the building's survival or use on 1 July 1835. The whole held reproduction is displayed as a credited reference copy. No image-pixel texture, source trace, original color or new historical camera is derived here. The diagnostic camera is not a historical From this spot. This early Chicago record joins through the existing reference-view library_image field, with no invented Prairie address or parcel.",
+   "measurements": [],
+   "stream": "early-chicago-miller-hogan-references",
+   "parcel_ids": []
+  },
+  {
+   "id": "early-gifford-first-tremont",
+   "kind": "illustration",
+   "title": "First Tremont House and street-front row — wash drawing signed N. Roswell Gifford",
+   "building_ids": [],
+   "addresses": [],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "undated; depicts the first Tremont, which stood 1833–1839",
+   "date_earliest": null,
+   "date_latest": null,
+   "creator": "N. Roswell Gifford",
+   "repository": "Chicagology reproduction; original holding institution unrecorded",
+   "collection": "Chicagology, \"Tremont House\", first-hotel reproduction",
+   "call_number": null,
+   "catalog_url": "https://chicagology.com/prefire/prefire021/",
+   "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/1290a23271b2771c77201fd17fed7cfa857ade14/chicago/reference/images/chicago/chicago_first_tremont_house_1833.jpg",
+   "rights": "unknown — link only",
+   "rights_basis": "Owner-approved project reference/display use, 2026-10-22: \"ok i think those images are ok to use as public resources and just make sure you include things like that in sources\". Preserve Gifford/Chicagology attribution. Original publication, holding institution, copyright status and general reuse licence remain unresolved; no public-domain finding.",
+   "reference_copy": {
+    "basis": "Owner-approved project reference/display use, 2026-10-22: \"ok i think those images are ok to use as public resources and just make sure you include things like that in sources\". Preserve Gifford/Chicagology attribution. Original publication, holding institution, copyright status and general reuse licence remain unresolved; no public-domain finding.",
+    "credit": {
+     "catalog_url": "https://chicagology.com/prefire/prefire021/",
+     "collection": "Chicagology, \"Tremont House\", first-hotel reproduction",
+     "creator": "N. Roswell Gifford",
+     "date": "undated drawing; first house stood 1833–1839",
+     "repository": "Chicagology reproduction; original holding institution unrecorded",
+     "rights": "unknown — link only",
+     "title": "First Tremont House and street-front row — wash drawing signed N. Roswell Gifford"
+    }
+   },
+   "verified": "viewed",
+   "found_via": "Existing project-held Gifford reproduction and source gifford_tremont_house_no_1; original held SHA256 b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+   "notes": "This is a reference copy of the already held wash drawing, fetched from its immutable public project object. It remains an attributed owner-approved reference/display copy with unresolved original rights, not a public-domain claim or texture. The actual medium is a wash drawing/illustration, not an architectural plan or evidence that Gifford was an architect. Publication date is unknown; the house lifetime describes the subject, not a dated July1835 state. The retained numerical camera is only diagnostic comparison framing and must not offer an invented historical From this spot. Gale1902 is textual contrary evidence, not another picture.",
+   "measurements": [],
+   "local": {
+    "display": "research/images/files/early-gifford-first-tremont.jpg",
+    "display_bytes": 229586,
+    "thumb": "research/images/files/early-gifford-first-tremont-thumb.jpg",
+    "thumb_bytes": 16397,
+    "original_px": [
+     1637,
+     796
+    ],
+    "original_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+    "original_bytes": 803994,
+    "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/1290a23271b2771c77201fd17fed7cfa857ade14/chicago/reference/images/chicago/chicago_first_tremont_house_1833.jpg",
+    "fetched": "2026-10-26"
+   },
+   "stream": "tremont-reference",
+   "period": "later",
+   "parcel_ids": []
   },
   {
    "id": "st-chicagology-prairie-elevation-strips",

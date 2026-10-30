@@ -16,7 +16,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "THE BUILD YEAR IS DOCUMENTED AND THE MONTH IS NOT, so the range opens at the start of 1827: Andreas, in the packing-house chapter, 'The site of the original log slaughter-house, built by Archibald Clybourne in 1827, for the killing of such cattle as were required by the garrison at Fort Dearborn' (scan p. 1149). THE SURVIVAL TO THE SCENE DATE IS UNUSUALLY WELL SUPPORTED for this dataset: the same building is working six years later — 'The following year [1833] Archibald Clybourne, the Government butcher for the Pottawatomies, engaged in the packing business, at his log slaughter-house on the east side of the North Branch, where he packed some two hundred and fifty head of cattle and about two thousand hogs' (scan p. 1151) — which puts it in full operation nineteen months before 1835-07-01. The range closes at the end of 1835 as the last date this record needs to claim; Andreas writing in 1883 says the site was BY THEN occupied by a later frame slaughter-house of Clybourne's 'now falling into pieces from sheer old age', so the log building came down at some point between 1835 and 1883 and nothing reached dates that."
+        "note": "THE BUILD YEAR IS DOCUMENTED AND THE MONTH IS NOT, so the range opens at the start of 1827: Andreas, in the packing-house chapter, 'The site of the original log slaughter-house, built by Archibald Clybourne in 1827, for the killing of such cattle as were required by the garrison at Fort Dearborn' (scan p. 1149). THE SURVIVAL TO THE SCENE DATE IS UNUSUALLY WELL SUPPORTED for this dataset: the same building is working six years later — 'The following year [1833] Archibald Clybourne, the Government butcher for the Pottawatomies, engaged in the packing business, at his log slaughter-house on the east side of the North Branch, where he packed some two hundred and fifty head of cattle and about two thousand hogs' (scan p. 1151) — which puts it in full operation nineteen months before 1835-07-01. The range closes at the end of 1835 as the last date this record needs to claim; Andreas writing in 1883 says the site was BY THEN occupied by a later frame slaughter-house of Clybourne's 'now falling into pieces from sheer old age', so the log building came down at some point between 1835 and 1883 and nothing reached dates that.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 447042.0,
@@ -87,6 +88,14 @@
       "andreas_1884_v1"
     ],
     "note": "Built 'for the killing of such cattle as were required by the garrison at Fort Dearborn' (scan p. 1149) and working as a commercial packing house from 1833, when Clybourne 'packed some two hundred and fifty head of cattle and about two thousand hogs' and George W. Dole packed a further 250 cattle and 1,000 hogs at the same place; Andreas gives the prices, $2.80 a head average for the cattle and $3 per hundred pounds net for the hogs (scan p. 1151). THIS IS THE FIRST SLAUGHTER-HOUSE IN CHICAGO and the head of the trade that the city was later built on. Andreas elsewhere calls Archibald Clybourne 'the Government butcher for the Pottawatomies' (scan p. 253), a treaty-provision post — recorded here because it is what the man was, and flagged for review with the rest of this record's Indigenous content rather than paraphrased away."
+  },
+  "built": {
+    "value": 1827,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: 'the original log slaughter-house, built by Archibald Clybourne in 1827'."
   },
   "occupants": {
     "value": "Archibald Clybourne",

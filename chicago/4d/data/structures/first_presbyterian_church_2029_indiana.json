@@ -1,0 +1,967 @@
+{
+  "id": "first_presbyterian_church_2029_indiana",
+  "name": "2029-2035 Indiana Avenue — First Presbyterian Church (district draft; refined by T-3014)",
+  "aka": [
+    "2029-2035 S. Indiana Avenue",
+    "216 E. 21st Street",
+    "First Presbyterian Church"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "church",
+    "confidence": "attested",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "otis_1913_first_presbyterian_21st_indiana_1887",
+      "otis_1913_first_presbyterian_21st_indiana_1912"
+    ],
+    "note": "The Otis history of 1913 dates the building and its use: Calvary Presbyterian Church laid its corner stone in November 1870, the united First Presbyterian Church finished it after October 1871, and the final service in it was held on 29 December 1912 (otis_1913_first_presbyterian_21st_indiana_1887, pp. 52-56 and 291-292); the 1911 sheet letters it '1st PRESBYN. CHURCH'. So it was the First Presbyterian Church on 1 July 1904."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-3009, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-3014, T-3103, T-3104 refines in place under this same id. Written by tools/draft_prairie_1904.py from the rules' site row (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3009). The church fills the 2029-2035 lot on Indiana Avenue at 21st Street: J. C. Cochrane's building for Calvary Church, begun in 1870 and finished by the united First Church about 1872-1873, used until December 1912 (Otis 1913). Sanborn 1911 vol. 3 sheet 35 prints it 48 ft to its eaves with a slated spire marked 90 ft on its south-west tower. The Otis plate of 1887 (otis_1913_first_presbyterian_21st_indiana_1887) shows the west front and the tower whole, and its camera is solved in data/reference_views/first_presbyterian_church_2029_indiana/ (T-3066): the gable, the tower's stages and the spire stand to its heights. It is drafted as a site so that its walls, roof and tower are the church's heights and not a house's; T-3103 dresses the front, the tower and the spire to the plate until it matches; T-3104 reads the book's 1912 plate (otis_1913_first_presbyterian_21st_indiana_1912), whose second camera adds the roof's ventilators, the east gable's stack and the cross's height, and which shows the tower and roof but not the 21st Street flank.",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35",
+          "otis_1913_first_presbyterian_21st_indiana_1887",
+          "otis_1913_first_presbyterian_21st_indiana_1912"
+        ],
+        "note": "Otis 1913 dates the building 1870-1873 and its last service 29 December 1912, so it stands across the 1904 target; the draft's phase keeps the study's 1904-1911 window (study ruling 11).",
+        "to_is": "seen"
+      },
+      "position": {
+        "utm_e": 448398.857,
+        "utm_n": 4633825.797,
+        "rotation_deg": 179.497,
+        "symbolic_location": "2029-2035 S. Indiana Avenue, the north-east corner of Indiana Avenue and East Twenty-first Street, on sheet 35's Indiana frontage.",
+        "confidence": "reconstructed",
+        "note": "The rear corner of the main body (u -43.700, v -27.890 m from the building's front and southernmost faces), set from the corner at local (1282.70, -3598.28): Indiana Avenue's measured east line (data/street_grid/1904.json) with its centre 10.06 m (66 ft) west of it; the church's front stands 2.97 m behind that line and its south face 0.14 m behind 21st Street's north line, the trace's own readings. Good to about the trace's 0.19 m pixel and the sheet's fit. Rotation 179.497 degrees squares the plan to the avenue.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the 1904 street grid's faces and the rules' site row by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            36.66,
+            27.89
+          ],
+          [
+            43.16,
+            27.89
+          ],
+          [
+            43.16,
+            23.11
+          ],
+          [
+            43.7,
+            23.11
+          ],
+          [
+            43.7,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            23.11
+          ],
+          [
+            36.66,
+            23.11
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35",
+          "otis_1913_first_presbyterian_21st_indiana_1887",
+          "otis_1913_first_presbyterian_21st_indiana_1912"
+        ],
+        "note": "The building's whole plan as the trace outlines it: the body with its buttresses, and the tower and porch block that steps south of it at the 21st Street corner; the main body (43.7 x 23.1 m) is draft_plan's first rectangle."
+      },
+      "form": {
+        "stories": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "note": "Three draft storeys of 4.6 m over a 0.9 m floor stand the walls to 14.7 m, the sheet's printed 48 ft to the eaves; a church has no storeys, and the count only sets the wall height and the rows of openings."
+        },
+        "construction": {
+          "value": "brick",
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35",
+            "otis_1913_first_presbyterian_21st_indiana_1887",
+            "otis_1913_first_presbyterian_21st_indiana_1912"
+          ],
+          "note": "Brick: the sheet colours it pink."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 3,
+                "roof": "gable",
+                "pitch_deg": 56.5,
+                "rect": [
+                  0.0,
+                  0.0,
+                  43.7,
+                  23.11
+                ],
+                "from": "the church's body, buttresses included, under one gable to Indiana Avenue, as the Otis 1887 plate shows it (sheet 35 draws dashed hips; the T-3009 trace of sheet 35 (s35wfp-indiana_2029-b1), read in metres from Indiana Avenue's east line and East 21st Street's north line)"
+              }
+            ],
+            "lot_v": [
+              -0.14,
+              23.25
+            ],
+            "street_u": 46.67
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35",
+            "otis_1913_first_presbyterian_21st_indiana_1887",
+            "otis_1913_first_presbyterian_21st_indiana_1912"
+          ],
+          "note": "One rectangle, the body read off the trace in metres from Indiana's line and 21st Street's; the buttresses fold into it and the tower stands as a feature."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "house",
+            "seed": 72272670,
+            "principal_floor_m": 0.9,
+            "storey_heights_m": [
+              4.6,
+              4.6,
+              4.6
+            ],
+            "roof_pitch_deg": 56.5,
+            "mansard_lower_m": 3.0,
+            "front_bays": 3,
+            "entrance": "centre",
+            "side_spacing_m": 4.0,
+            "chimneys": 0,
+            "brackets": false,
+            "attic_dormers": false,
+            "stone": "stone",
+            "features": [
+              {
+                "kind": "corner_tower",
+                "sides": 4,
+                "radius_m": 4.24,
+                "above_eave_m": 24.8,
+                "cap_m": 3.8,
+                "window_rows_m": [],
+                "at": [
+                  40.16,
+                  24.14
+                ]
+              },
+              {
+                "kind": "corner_tower",
+                "sides": 8,
+                "radius_m": 2.45,
+                "above_eave_m": 27.3,
+                "cap_m": 29.8,
+                "window_rows_m": [],
+                "cap_top_r_m": 0.55,
+                "at": [
+                  40.16,
+                  24.14
+                ]
+              },
+              {
+                "kind": "gothic_church",
+                "_doc": "T-3103: the church's Gothic dressing, every place read off the Otis 1887 plate through T-3066's camera (18.7 px/m on the front, grade at y 1478). Offsets from `at` (the front's plane, the body's north face): u from the front (negative behind it), v southward from the north face; heights over grade. A plane is [axis, offset, out]; the front's board lies on the gable end, a verge (0.12 m) proud of the wall, and every opening seats 0.15 m back into the wall.",
+                "planes": {
+                  "front": [
+                    "u",
+                    0.13,
+                    1
+                  ],
+                  "porch": [
+                    "u",
+                    2.06,
+                    1
+                  ],
+                  "tower_w": [
+                    "u",
+                    -0.54,
+                    1
+                  ],
+                  "tower_e": [
+                    "u",
+                    -6.54,
+                    -1
+                  ],
+                  "tower_s": [
+                    "v",
+                    27.14,
+                    1
+                  ],
+                  "tower_n": [
+                    "v",
+                    21.14,
+                    -1
+                  ],
+                  "gablet_w": [
+                    "u",
+                    -0.28,
+                    1
+                  ],
+                  "gablet_s": [
+                    "v",
+                    27.4,
+                    1
+                  ]
+                },
+                "gable_inset_v0_m": 2.0,
+                "openings": [
+                  {
+                    "plane": "front",
+                    "s": 13.1,
+                    "w": 3.3,
+                    "sill": 11.5,
+                    "head": 22.2,
+                    "lights": 2,
+                    "rose": true
+                  },
+                  {
+                    "plane": "front",
+                    "s": 10.2,
+                    "w": 1.4,
+                    "sill": 11.1,
+                    "head": 18.2
+                  },
+                  {
+                    "plane": "front",
+                    "s": 16.25,
+                    "w": 1.4,
+                    "sill": 11.1,
+                    "head": 18.2
+                  },
+                  {
+                    "plane": "front",
+                    "s": 5.95,
+                    "w": 2.0,
+                    "sill": 5.8,
+                    "head": 12.7,
+                    "lights": 2,
+                    "rose": true
+                  },
+                  {
+                    "plane": "front",
+                    "s": 5.2,
+                    "w": 0.8,
+                    "sill": 2.2,
+                    "head": 3.6
+                  },
+                  {
+                    "plane": "front",
+                    "s": 6.8,
+                    "w": 0.8,
+                    "sill": 2.2,
+                    "head": 3.6
+                  },
+                  {
+                    "plane": "porch",
+                    "s": 13.2,
+                    "w": 3.2,
+                    "sill": 0.0,
+                    "head": 8.0,
+                    "lights": 2,
+                    "rose": true,
+                    "door_to": 5.2,
+                    "frame": 0.5
+                  },
+                  {
+                    "plane": "tower_w",
+                    "s": 24.14,
+                    "w": 2.2,
+                    "sill": 0.0,
+                    "head": 7.2,
+                    "fill": "door",
+                    "frame": 0.3
+                  },
+                  {
+                    "plane": "tower_w",
+                    "s": 24.14,
+                    "w": 2.9,
+                    "sill": 12.2,
+                    "head": 20.8,
+                    "lights": 2,
+                    "rose": true
+                  },
+                  {
+                    "plane": "tower_s",
+                    "s": -3.54,
+                    "w": 2.9,
+                    "sill": 12.2,
+                    "head": 20.8,
+                    "lights": 2,
+                    "rose": true
+                  },
+                  {
+                    "plane": "tower_w",
+                    "s": 24.14,
+                    "w": 2.9,
+                    "sill": 27.7,
+                    "head": 36.8,
+                    "lights": 2,
+                    "rose": true,
+                    "fill": "louvre"
+                  },
+                  {
+                    "plane": "tower_s",
+                    "s": -3.54,
+                    "w": 2.9,
+                    "sill": 27.7,
+                    "head": 36.8,
+                    "lights": 2,
+                    "rose": true,
+                    "fill": "louvre"
+                  },
+                  {
+                    "plane": "tower_n",
+                    "s": -3.54,
+                    "w": 2.9,
+                    "sill": 27.7,
+                    "head": 36.8,
+                    "lights": 2,
+                    "rose": true,
+                    "fill": "louvre"
+                  },
+                  {
+                    "plane": "tower_e",
+                    "s": 24.14,
+                    "w": 2.9,
+                    "sill": 27.7,
+                    "head": 36.8,
+                    "lights": 2,
+                    "rose": true,
+                    "fill": "louvre"
+                  }
+                ],
+                "roses": [
+                  {
+                    "plane": "front",
+                    "c_r": [
+                      12.96,
+                      25.0,
+                      1.07
+                    ]
+                  }
+                ],
+                "courses": [
+                  [
+                    "front",
+                    1.0,
+                    9.3,
+                    4.2,
+                    0.1
+                  ],
+                  [
+                    "front",
+                    17.1,
+                    20.0,
+                    4.2,
+                    0.1
+                  ],
+                  [
+                    "front",
+                    8.4,
+                    18.0,
+                    10.9,
+                    0.12
+                  ],
+                  [
+                    "tower_w",
+                    21.14,
+                    27.14,
+                    10.7,
+                    0.15
+                  ],
+                  [
+                    "tower_w",
+                    21.14,
+                    27.14,
+                    23.4,
+                    0.25
+                  ],
+                  [
+                    "tower_w",
+                    21.14,
+                    27.14,
+                    25.4,
+                    0.15
+                  ],
+                  [
+                    "tower_e",
+                    21.14,
+                    27.14,
+                    10.7,
+                    0.15
+                  ],
+                  [
+                    "tower_e",
+                    21.14,
+                    27.14,
+                    23.4,
+                    0.25
+                  ],
+                  [
+                    "tower_e",
+                    21.14,
+                    27.14,
+                    25.4,
+                    0.15
+                  ],
+                  [
+                    "tower_s",
+                    -6.54,
+                    -0.54,
+                    10.7,
+                    0.15
+                  ],
+                  [
+                    "tower_s",
+                    -6.54,
+                    -0.54,
+                    23.4,
+                    0.25
+                  ],
+                  [
+                    "tower_s",
+                    -6.54,
+                    -0.54,
+                    25.4,
+                    0.15
+                  ],
+                  [
+                    "tower_n",
+                    -6.54,
+                    -0.54,
+                    10.7,
+                    0.15
+                  ],
+                  [
+                    "tower_n",
+                    -6.54,
+                    -0.54,
+                    23.4,
+                    0.25
+                  ],
+                  [
+                    "tower_n",
+                    -6.54,
+                    -0.54,
+                    25.4,
+                    0.15
+                  ]
+                ],
+                "panels": [
+                  {
+                    "plane": "tower_w",
+                    "s": [
+                      22.9,
+                      25.4
+                    ],
+                    "h": [
+                      8.4,
+                      9.6
+                    ]
+                  }
+                ],
+                "porch": {
+                  "u": [
+                    0.0,
+                    2.0
+                  ],
+                  "v": [
+                    9.4,
+                    17.0
+                  ],
+                  "shoulder_m": 7.0,
+                  "apex_m": 12.4,
+                  "finial_m": 0.8
+                },
+                "verge": {
+                  "u": 0.0,
+                  "v": [
+                    2.0,
+                    23.11
+                  ],
+                  "eave_m": 14.9,
+                  "apex_m": 30.85,
+                  "cross_m": 3.8,
+                  "cross_span_m": 2.8,
+                  "cross_ring_m": 0.75,
+                  "corbel_step_m": 0.7
+                },
+                "buttresses": [
+                  {
+                    "stages": [
+                      [
+                        -0.54,
+                        0.66,
+                        21.14,
+                        22.34,
+                        0.0,
+                        10.7
+                      ],
+                      [
+                        -0.54,
+                        0.36,
+                        21.14,
+                        22.34,
+                        10.7,
+                        25.4
+                      ],
+                      [
+                        -0.54,
+                        0.06,
+                        21.14,
+                        22.34,
+                        25.4,
+                        37.5
+                      ]
+                    ]
+                  },
+                  {
+                    "stages": [
+                      [
+                        -1.0,
+                        0.9,
+                        19.5,
+                        21.14,
+                        0.0,
+                        10.7
+                      ],
+                      [
+                        -1.0,
+                        0.6,
+                        19.8,
+                        21.14,
+                        10.7,
+                        25.4
+                      ],
+                      [
+                        -1.0,
+                        0.3,
+                        20.1,
+                        21.14,
+                        25.4,
+                        37.5
+                      ]
+                    ],
+                    "pinnacle": [
+                      -1.04,
+                      -0.04,
+                      20.64,
+                      21.64,
+                      37.5,
+                      41.0,
+                      44.0
+                    ]
+                  },
+                  {
+                    "stages": [
+                      [
+                        -0.54,
+                        0.66,
+                        25.94,
+                        27.14,
+                        0.0,
+                        10.7
+                      ],
+                      [
+                        -0.54,
+                        0.36,
+                        25.94,
+                        27.14,
+                        10.7,
+                        25.4
+                      ],
+                      [
+                        -0.54,
+                        0.06,
+                        25.94,
+                        27.14,
+                        25.4,
+                        37.5
+                      ]
+                    ]
+                  },
+                  {
+                    "stages": [
+                      [
+                        -1.74,
+                        -0.54,
+                        27.14,
+                        28.34,
+                        0.0,
+                        10.7
+                      ],
+                      [
+                        -1.74,
+                        -0.54,
+                        27.14,
+                        28.04,
+                        10.7,
+                        25.4
+                      ],
+                      [
+                        -1.74,
+                        -0.54,
+                        27.14,
+                        27.74,
+                        25.4,
+                        37.5
+                      ]
+                    ],
+                    "pinnacle": [
+                      -1.04,
+                      -0.04,
+                      26.64,
+                      27.64,
+                      37.5,
+                      41.0,
+                      44.0
+                    ]
+                  },
+                  {
+                    "stages": [
+                      [
+                        -7.74,
+                        -6.54,
+                        21.14,
+                        22.34,
+                        0.0,
+                        10.7
+                      ],
+                      [
+                        -7.44,
+                        -6.54,
+                        21.14,
+                        22.34,
+                        10.7,
+                        25.4
+                      ],
+                      [
+                        -7.14,
+                        -6.54,
+                        21.14,
+                        22.34,
+                        25.4,
+                        37.5
+                      ]
+                    ]
+                  },
+                  {
+                    "stages": [
+                      [
+                        -6.54,
+                        -5.34,
+                        19.94,
+                        21.14,
+                        0.0,
+                        10.7
+                      ],
+                      [
+                        -6.54,
+                        -5.34,
+                        20.24,
+                        21.14,
+                        10.7,
+                        25.4
+                      ],
+                      [
+                        -6.54,
+                        -5.34,
+                        20.54,
+                        21.14,
+                        25.4,
+                        37.5
+                      ]
+                    ],
+                    "pinnacle": [
+                      -7.04,
+                      -6.04,
+                      20.64,
+                      21.64,
+                      37.5,
+                      41.0,
+                      44.0
+                    ]
+                  },
+                  {
+                    "stages": [
+                      [
+                        -7.74,
+                        -6.54,
+                        25.94,
+                        27.14,
+                        0.0,
+                        10.7
+                      ],
+                      [
+                        -7.44,
+                        -6.54,
+                        25.94,
+                        27.14,
+                        10.7,
+                        25.4
+                      ],
+                      [
+                        -7.14,
+                        -6.54,
+                        25.94,
+                        27.14,
+                        25.4,
+                        37.5
+                      ]
+                    ]
+                  },
+                  {
+                    "stages": [
+                      [
+                        -6.54,
+                        -5.34,
+                        27.14,
+                        28.34,
+                        0.0,
+                        10.7
+                      ],
+                      [
+                        -6.54,
+                        -5.34,
+                        27.14,
+                        28.04,
+                        10.7,
+                        25.4
+                      ],
+                      [
+                        -6.54,
+                        -5.34,
+                        27.14,
+                        27.74,
+                        25.4,
+                        37.5
+                      ]
+                    ],
+                    "pinnacle": [
+                      -7.04,
+                      -6.04,
+                      26.64,
+                      27.64,
+                      37.5,
+                      41.0,
+                      44.0
+                    ]
+                  },
+                  {
+                    "stages": [
+                      [
+                        0.0,
+                        0.7,
+                        1.6,
+                        2.9,
+                        0.0,
+                        8.3
+                      ],
+                      [
+                        0.0,
+                        0.5,
+                        1.6,
+                        2.9,
+                        8.3,
+                        12.7
+                      ]
+                    ],
+                    "pinnacle": [
+                      0.0,
+                      0.45,
+                      1.75,
+                      2.75,
+                      12.7,
+                      15.0,
+                      16.6
+                    ]
+                  }
+                ],
+                "gablets": [
+                  {
+                    "rect": [
+                      -3.54,
+                      -0.39,
+                      21.54,
+                      26.74
+                    ],
+                    "along": "u",
+                    "spring_m": 39.5,
+                    "apex_m": 43.3,
+                    "rose": [
+                      "gablet_w",
+                      24.14,
+                      41.0,
+                      0.6
+                    ]
+                  },
+                  {
+                    "rect": [
+                      -6.69,
+                      -3.54,
+                      21.54,
+                      26.74
+                    ],
+                    "along": "u",
+                    "spring_m": 39.5,
+                    "apex_m": 43.3
+                  },
+                  {
+                    "rect": [
+                      -6.14,
+                      -0.94,
+                      24.14,
+                      27.29
+                    ],
+                    "along": "v",
+                    "spring_m": 39.5,
+                    "apex_m": 43.3,
+                    "rose": [
+                      "gablet_s",
+                      -3.54,
+                      41.0,
+                      0.6
+                    ]
+                  },
+                  {
+                    "rect": [
+                      -6.14,
+                      -0.94,
+                      20.99,
+                      24.14
+                    ],
+                    "along": "v",
+                    "spring_m": 39.5,
+                    "apex_m": 43.3
+                  },
+                  {
+                    "rect": [
+                      -23.26,
+                      -19.66,
+                      14.5,
+                      17.65
+                    ],
+                    "along": "v",
+                    "spring_m": 23.15,
+                    "apex_m": 26.3
+                  },
+                  {
+                    "rect": [
+                      -34.03,
+                      -30.43,
+                      14.5,
+                      17.65
+                    ],
+                    "along": "v",
+                    "spring_m": 23.15,
+                    "apex_m": 26.3
+                  }
+                ],
+                "stacks": [
+                  [
+                    -3.2,
+                    -2.2,
+                    0.45,
+                    1.35,
+                    12.0,
+                    18.1
+                  ],
+                  [
+                    -44.15,
+                    -43.25,
+                    12.05,
+                    13.05,
+                    29.0,
+                    32.2
+                  ]
+                ],
+                "spire": {
+                  "at": [
+                    -3.54,
+                    24.14
+                  ],
+                  "band_m": [
+                    57.4,
+                    59.5
+                  ],
+                  "band_r_m": 1.75,
+                  "lucarne_w_m": 0.8,
+                  "lucarne_out_m": 1.85,
+                  "lucarne_h_m": 1.4,
+                  "finial_m": [
+                    71.8,
+                    78.1
+                  ],
+                  "knob_m": [
+                    0.9,
+                    2.0
+                  ],
+                  "fleur_m": 74.7,
+                  "fleur_w_m": 1.3
+                },
+                "at": [
+                  43.7,
+                  0.0
+                ]
+              }
+            ],
+            "draft_label": {
+              "pass": "T-3009",
+              "refined_by": [
+                "T-3014",
+                "T-3103",
+                "T-3104"
+              ]
+            },
+            "v_toward": "south"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the site row: One gable over the body, ridge east-west with its gable to Indiana Avenue, as the Otis 1887 plate shows it (sheet 35 draws dashed hips, which the photograph does not bear out). Through T-3066's camera the gable springs at the north kneeler, 2.0 m in from the body's north wall over a narrow bay with its own flat roof and stack (T-3103), and rises 16.0 m over its 10.6 m half-width to its coping's apex at about 30.9 m, so it stands at 56.5 degrees. The tower is the trace's square at the south-west corner, 6.0 m across its faces, its brick to 39.5 m where the photograph's gablets spring, with the slated octagonal spire out of them. The sheet's printed 90 ft (27.4 m) cannot be the spire's height over grade: the photograph puts the tip at five times the eave's height, the sheet's own 48 ft. T-3103 dresses the front and the tower to the plate (the gothic_church feature; every place, width and height is read off the photograph at 18.7 px/m on the front and 18.2 on the tower, and the match record names each): the coping on its corbel table with kneelers and the cross; the gable's rose, the centre window under a rose head, the two side lancets, the north window and the two small lancets at the north foot, the sill and base courses; the gabled stone porch and its pointed doorway; the tower's pointed door and panel, its two-light window with a rose head, its louvred belfry, its courses, its angle buttresses with their gabled offsets and corner pinnacles, and four gablets; and the spire's taper (5.5 m across at its foot, 3.0 m at the band, 1.1 m at its flat top at 71.8 m), its band of lucarnes at 57.4-59.5 m and the finial's knob, fleur and rod to 78.1 m. What the frontal plate cannot give is reconstructed: the porch's 2.0 m depth, the buttresses' projections, the openings and gablets on the tower's east and north faces (the belfry on all four, the second stage's window on the west and south only, as seen), and the north-west buttress's depth, set 1.5 m proud of the front because its shadow falls on the front wall. The book's 1912 plate (otis_1913_first_presbyterian_21st_indiana_1912; T-3104), taken from Indiana Avenue's roadway about 66 m south of 21st Street looking north-north-east with the camera tilted up, shows the tower's south and west faces, the west gable edge-on with its cross, and the nave's south roof slope to the east gable; it does not show the 21st Street flank, which the low buildings across 21st Street and a streetcar screen below the eaves. Read through its camera it adds: two gabled ventilators on the south slope, about 3.6 m wide, their faces standing on the slope at 23.15 m and rising to about 26.3 m, centred 21.5 m and 32.2 m behind the front; a short stack on the east gable's apex to about 32.4 m; and the cross over the west gable to 34.65 m, where both plates put its top (the 1887 plate's crossbar is the 33.0 m first read as its top). The ventilators' depth into the roof and their faces' material are reconstructed, and the north slope, which neither plate sees, is given none. The 21st Street flank and the rear keep the draft's sash: no picture read so far shows them. The seed 72272670 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3009."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-3009",
+            "liberty": "L-draft-district-background-3009",
+            "register_row": null,
+            "census_ids": [],
+            "trace_building": null,
+            "seed": 72272670,
+            "replaceable_by": [
+              "T-3014",
+              "T-3103",
+              "T-3104"
+            ],
+            "card": "District draft — refined by T-3014, T-3103, T-3104."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

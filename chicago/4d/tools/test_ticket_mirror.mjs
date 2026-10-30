@@ -47,9 +47,10 @@ const APP = path.join(tmp, 'chicago', '4d');
 const SITE = path.join(tmp, 'site', '4d');
 mkdirSync(path.join(APP, 'tools'), { recursive: true });
 mkdirSync(SITE, { recursive: true });
-// The three tools under test, and the ticket files they read. Nothing else: the
+// The three tools under test (and the sheet gate check_published imports, T-3232), and
+// the ticket files they read. Nothing else: the
 // sandbox site holds one file, so check_published has exactly one thing to say.
-for (const f of ['ticket.mjs', 'check_published.mjs', 'publish.sh']) {
+for (const f of ['ticket.mjs', 'check_published.mjs', 'share_glb_sheets.mjs', 'publish.sh']) {
   cpSync(path.join(REPO, 'tools', f), path.join(APP, 'tools', f));
 }
 // The ticket FILES, never a clone's .git: since 2026-09-23 tickets/ is a clone of
@@ -63,13 +64,26 @@ for (const f of ['ticket.mjs', 'check_published.mjs', 'publish.sh']) {
 // link into the real clone and PUSHED to kevinrhaas/chicago-tickets main (T-1502's pr
 // became 9999). So the copy dereferences, and the test refuses to go on unless the
 // sandbox's tickets/ is a real directory inside the sandbox with no .git anywhere in it.
-cpSync(path.join(REPO, 'tickets'), path.join(APP, 'tickets'),
-  { recursive: true, dereference: true, filter: (src) => path.basename(src) !== '.git' });
+// Recovery evidence is not a ticket input. Copying its archived models made the
+// standing-horse preflight exhaust /tmp before the mirror assertions could run.
+// Keep every ticket and metadata file; leave only evidence and Git internals out.
+const ticketsRoot = path.join(REPO, 'tickets');
+try {
+  cpSync(ticketsRoot, path.join(APP, 'tickets'), {
+    recursive: true, dereference: true,
+    filter: (src) => path.basename(src) !== '.git'
+      && path.relative(ticketsRoot, src).split(path.sep)[0] !== 'evidence',
+  });
+} catch (error) {
+  rmSync(tmp, { recursive: true, force: true });
+  throw error;
+}
 {
   const own = path.join(APP, 'tickets');
   const real = realpathSync(own);
   const inside = real === own || real.startsWith(realpathSync(tmp) + path.sep);
-  if (lstatSync(own).isSymbolicLink() || !inside || existsSync(path.join(own, '.git'))) {
+  if (lstatSync(own).isSymbolicLink() || !inside || existsSync(path.join(own, '.git'))
+      || existsSync(path.join(own, 'evidence'))) {
     console.error(`ticket mirror — REFUSED: the sandbox's tickets/ resolves to ${real}, ` +
       'not to a plain copy inside the sandbox; running on would write to the real tickets repo');
     rmSync(tmp, { recursive: true, force: true });

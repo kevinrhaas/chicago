@@ -1,0 +1,78 @@
+{
+  "structure_id": "marsh_house_1824_prairie",
+  "view": "chicagology_automobile",
+  "glb": "assets/gltf/marsh_house_1824_prairie__as_mapped_1904.glb",
+  "glb_sha256": "8f4b0524f399f95c2bf818427d6929c5c6b4c38ea111089a5efaebb0d40b5094",
+  "camera_sha256": "e77f48605f00878ec01bfab6e225d92ea34c01a141a18abe2a5955a0c78bec36",
+  "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
+  "side_by_side": "docs/RESEARCH/photo-match/marsh_house_1824_prairie/chicagology_automobile-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "where the house stands against 1828: through T-3166's camera carried over by the 1904 scene's placements, 1824's front lands off the print's right edge and its brick south flank fills x 650-1100, where the print has the stone front's bay",
+      "status": "open",
+      "how": "the print puts the bay where this camera (fitted to 1824 alone) renders it, 5.8 m further from the street and 3.5 m further south than the 1911 sheet's traces place 1824 against 1828 (the gap between the two houses about 5 m, not the sheet's 8.8 m, and 1824's front about 7 m behind 1828's, not 1.6 m). Built to the sheet (the plan's documented basis); the print alone cannot say which house's plan or which fit is off, and moving a house off its sheet trace is a placement ruling this record does not make"
+    },
+    {
+      "what": "the canted bay through two storeys: its place, width and heights; the front window (x 875-915) and the north cheek's (950-975), each storey's sills and heads (y 450/294, 225/95)",
+      "status": "fixed",
+      "how": "T-3167's K08 canted bay, 5.0 m at the wall, 1.0 m out, its lights 1.1 x 3.3 and 2.4 m; through this camera within about 10-20 px"
+    },
+    {
+      "what": "the deep belt between the storeys and the bay's cornice",
+      "status": "fixed",
+      "how": "T-3167: K08's storey band and K10's moulded stone cornice, within about 10 px"
+    },
+    {
+      "what": "the porch at the north end under its balustraded balcony (x 1005-1120, y 230-265), in deep shade",
+      "status": "fixed",
+      "how": "T-3167: K01's door hood on columns with its railing as the balcony; the balcony renders within about 15 px, the porch below it is too dark in the print to read further"
+    },
+    {
+      "what": "the bay's panelled pilasters with incised blocks between its faces",
+      "status": "within tolerance",
+      "how": "built as plain ashlar on the bay's angles at the print's places; the panels and incised blocks are surface relief of a few centimetres, under the T-3153 bar (T-3168, as 1828's bay)"
+    },
+    {
+      "what": "the windows' transom bars",
+      "status": "within tolerance",
+      "how": "built as K06's two-over-two sash, whose meeting rail stands about 0.4 m under the print's transom: a glazing bar's place"
+    },
+    {
+      "what": "south of the bay, a light street-facing wall about 4 m across (x 580-770) to a cornice about 11 m up (y 40-90) carrying a frieze of small panels between brackets, the street trees' shadows on it",
+      "status": "open",
+      "how": "nothing of 1824 stands there through this camera: the sheet's main block starts the bay 0.3 m inside its south corner, so the build shows the south flank's brick obliquely at x 550-755. Whether the wall is 1824's own front run south of the bay (as 1828's print shows front wall south of its bay, which the sheet does not draw either) or its rear range's street face is the placement question above"
+    },
+    {
+      "what": "the flanks' finish: light, painted or stuccoed",
+      "status": "open",
+      "how": "K01 lays the flanks in brick (T-3167's open list)"
+    },
+    {
+      "what": "the roof, the cupola question and the upper storey's head",
+      "status": "not shown",
+      "how": "the frame's top cuts the bay's cornice"
+    },
+    {
+      "what": "the front's colour",
+      "status": "not shown",
+      "how": "the print is monochrome; built as K02's Lemont limestone"
+    },
+    {
+      "what": "the stone posts and iron fence before the house",
+      "status": "within tolerance",
+      "how": "K11's spear fence on its curb with the walk gate on piers; the posts' tops are cut by the car and the tree"
+    },
+    {
+      "what": "the Pomeroy photograph (glessner_blog_1824_pomeroy_italianate, before about 1880)",
+      "status": "not shown",
+      "how": "it shows the villa before the stone front of about 1880, so it is not a picture of the 1904 house's front; no copy is committed and no camera is solved on it (its source record says what it is read for)"
+    },
+    {
+      "what": "the walk, the open entrance gate and the side gate",
+      "status": "fixed",
+      "how": "T-3206 adds the K14 walk, stands the entrance gate open and narrows the 5.45 m single side leaf no picture shows to a 1.6 m gate, with a cinder walk down the passage"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

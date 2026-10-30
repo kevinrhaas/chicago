@@ -15,7 +15,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "THE START IS A DEDICATION DATE AND IT IS THE FIRMEST DATE ON ANY OF THE THREE WORSHIP BUILDINGS IN THIS PARCEL: the church was dedicated 4 January 1834, which is eighteen months before the scene date, and the Temple Building record carries the same date from the other side - the shared denominational use of that building ended when 'the Presbyterian church was dedicated January 4. 1834' (baptisthistoryhomepage). The building was therefore complete and in use on 1835-07-01. THE END IS SOFTER. This project's own dossier (docs/research/04-structures-south.md, section 6) says the congregation 'Remained here until 1837-38' and no source reached fixes a month, so 1837-12-31 is the late end of that window rather than a date anybody recorded. The range is tagged inferred because its second half is a reading of a range, not a reading of a record. NOTHING IN THE RANGE IS AT RISK FOR THIS SCENE: any reading of the end that has been proposed is at least eighteen months after 1835-07-01."
+        "note": "THE START IS A DEDICATION DATE AND IT IS THE FIRMEST DATE ON ANY OF THE THREE WORSHIP BUILDINGS IN THIS PARCEL: the church was dedicated 4 January 1834, which is eighteen months before the scene date, and the Temple Building record carries the same date from the other side - the shared denominational use of that building ended when 'the Presbyterian church was dedicated January 4. 1834' (baptisthistoryhomepage). The building was therefore complete and in use on 1835-07-01. THE END IS SOFTER. This project's own dossier (docs/research/04-structures-south.md, section 6) says the congregation 'Remained here until 1837-38' and no source reached fixes a month, so 1837-12-31 is the late end of that window rather than a date anybody recorded. The range is tagged inferred because its second half is a reading of a range, not a reading of a record. NOTHING IN THE RANGE IS AT RISK FOR THIS SCENE: any reading of the end that has been proposed is at least eighteen months after 1835-07-01.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 447625.312,
@@ -134,7 +135,6 @@
           "sources": [
             "andreas_1884_v1"
           ],
-          "geometry": "record_only",
           "note": "A NEGATIVE FINDING, RECORDED SO IT CANNOT BE UNDONE BY INFERENCE. The church had no tower. This is the same trap St Mary's carries in a sharper form - see that record, where a low open tower is attested at an undated 'some time afterwards' and would age the building forward if it were built - and it is recorded here because a visitor's expectation of what a church looks like is the strongest force acting on this model."
         },
         "cost_usd": {

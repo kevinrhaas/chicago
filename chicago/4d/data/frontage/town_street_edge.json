@@ -41,14 +41,14 @@
       "state"
     ],
     "faces_laid": 99,
-    "walk_m": 9067.9,
+    "walk_m": 9067.7,
     "crossing_m": 2430.7,
-    "fence_m": 1953.5,
+    "fence_m": 1929.1,
     "walking_decks": 856,
     "hitching_posts": 51,
     "fittings": {
       "mounting_block": 6,
-      "stoop": 37,
+      "stoop": 38,
       "tie_rail": 1,
       "wagon_apron": 7
     },
@@ -57,7 +57,7 @@
     "bare_fronts": 7,
     "fronts_only_faces": 5,
     "fronts_only_runs": 5,
-    "fronts_only_walk_m": 83.1
+    "fronts_only_walk_m": 82.9
   },
   "card": {
     "id": "town_street_edge",
@@ -72,13 +72,13 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 9067.9,
+        "value": 9067.7,
         "confidence": "reconstructed",
         "sources": [],
         "note": "111 run(s) of sidewalk on 99 platted block face(s), plus 2430.7 m of board crossing at 103 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
-        "value": 1953.5,
+        "value": 1929.1,
         "confidence": "reconstructed",
         "sources": [],
         "note": "39 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
@@ -90,10 +90,10 @@
         "note": "51 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
       },
       "fittings": {
-        "value": 51,
+        "value": 52,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 37 stoop(s), 1 tie rail(s), 7 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
+        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 38 stoop(s), 1 tie rail(s), 7 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
       },
       "width_m": {
         "value": 1.83,
@@ -25385,12 +25385,12 @@
       "business_class": "forwarding",
       "centreline_local_enu_m": [
         [
-          -23.51,
-          -130.15
+          -26.04,
+          -130.11
         ],
         [
-          -23.35,
-          -123.22
+          -25.95,
+          -123.18
         ]
       ],
       "width_m": 1.22,
@@ -25401,32 +25401,32 @@
       "plank_underside": false,
       "stringer_pitch_m": 2.08,
       "lot_line_offset_m": 2.69,
-      "verge_to_track_m": 19.09,
+      "verge_to_track_m": 20.74,
       "footway_decks": [
         {
-          "y": 1.138,
+          "y": 1.143,
           "pts": [
             [
-              -24.12,
-              -130.22
+              -26.65,
+              -130.18
             ],
             [
-              -23.96,
-              -123.12
+              -26.56,
+              -123.09
             ],
             [
-              -22.74,
-              -123.15
+              -25.34,
+              -123.1
             ],
             [
-              -22.9,
-              -130.24
+              -25.43,
+              -130.2
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.007
         }
       ],
-      "note": "THE DECKED WALK IN FRONT OF RECONSTRUCTED F2 NARROW TWO-STORY WAREHOUSE #001, a `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_west_lake_canal's east face, 110.0 m to 116.9 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.00 m and leaving 19.09 m to the West Water Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
+      "note": "THE DECKED WALK IN FRONT OF RECONSTRUCTED F2 NARROW TWO-STORY WAREHOUSE #001, a `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_west_lake_canal's east face, 110.0 m to 116.9 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.01 m and leaving 20.74 m to the West Water Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
     },
     {
       "id": "blk_west_lake_canal_east_walk_1",
@@ -25438,12 +25438,12 @@
       "chunk": "blk_west_lake_canal_east_1",
       "centreline_local_enu_m": [
         [
-          -25.19,
-          -137.13
+          -27.66,
+          -137.1
         ],
         [
-          -24.85,
-          -121.69
+          -27.46,
+          -121.66
         ]
       ],
       "width_m": 1.83,
@@ -25454,32 +25454,32 @@
       "plank_underside": false,
       "stringer_pitch_m": 2.08,
       "lot_line_offset_m": 1.17,
-      "verge_to_track_m": 13.39,
+      "verge_to_track_m": 15.21,
       "footway_decks": [
         {
-          "y": 1.142,
+          "y": 1.145,
           "pts": [
             [
-              -26.11,
-              -137.19
+              -28.58,
+              -137.16
             ],
             [
-              -25.76,
+              -28.37,
+              -121.56
+            ],
+            [
+              -26.54,
               -121.59
             ],
             [
-              -23.93,
-              -121.63
-            ],
-            [
-              -24.28,
-              -137.23
+              -26.75,
+              -137.19
             ]
           ],
-          "ground_roll_m": 0.009
+          "ground_roll_m": 0.011
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE WEST WATER STREET FRONTAGE of blk_west_lake_canal's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 13.39 m of verge between its outer edge and the West Water Street track. This run is the stretch from 103.0 m to 118.4 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed F2 narrow two-story warehouse #001 (narrow_two_story_warehouse, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
+      "note": "THE PLANK SIDEWALK ON THE WEST WATER STREET FRONTAGE of blk_west_lake_canal's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 15.21 m of verge between its outer edge and the West Water Street track. This run is the stretch from 102.9 m to 118.4 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed F2 narrow two-story warehouse #001 (narrow_two_story_warehouse, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
     },
     {
       "id": "blk_west_randolph_canal_north_walk_1",
@@ -25495,8 +25495,8 @@
           -262.31
         ],
         [
-          -124.04,
-          -262.48
+          -124.27,
+          -262.47
         ]
       ],
       "width_m": 1.83,
@@ -25517,11 +25517,11 @@
               -263.22
             ],
             [
-              -129.23,
+              -129.41,
               -263.35
             ],
             [
-              -129.22,
+              -129.39,
               -261.52
             ],
             [
@@ -25529,32 +25529,32 @@
               -261.39
             ]
           ],
-          "ground_roll_m": 0.023
+          "ground_roll_m": 0.022
         },
         {
           "y": 1.219,
           "pts": [
             [
-              -129.39,
+              -129.57,
               -263.35
             ],
             [
-              -123.97,
+              -124.2,
               -263.39
             ],
             [
-              -123.95,
+              -124.18,
               -261.56
             ],
             [
-              -129.38,
+              -129.55,
               -261.52
             ]
           ],
           "ground_roll_m": 0.009
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_west_randolph_canal's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 21.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Western Hotel (tavern_inn, held `attested`) — and half a march step past each end of its frontage, and nowhere else on the face."
+      "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_west_randolph_canal's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 20.8 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Western Hotel (tavern_inn, held `attested`) — and half a march step past each end of its frontage, and nowhere else on the face."
     },
     {
       "id": "blk_west_randolph_jefferson_east_walk_1",
@@ -27844,8 +27844,8 @@
           -99.47
         ],
         [
-          293.28,
-          -99.87
+          268.88,
+          -99.67
         ]
       ],
       "height_m": 1.37,
@@ -27855,10 +27855,9 @@
       "post_square_m": 0.12,
       "rail_courses": 2,
       "lots": [
-        3,
-        5
+        3
       ],
-      "least_setback_m": 5.5,
+      "least_setback_m": 5.99,
       "openings": [
         {
           "id": "blk_south_water_franklin_south_fence_2_gate_1",
@@ -27882,32 +27881,9 @@
           ],
           "confidence": "reconstructed",
           "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_blk_south_water_franklin_d2_05, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
-        },
-        {
-          "id": "blk_south_water_franklin_south_fence_2_gate_2",
-          "on": "street",
-          "serves": "recon_1835_blk_south_water_franklin_d3_03",
-          "at_local_enu_m": [
-            282.56,
-            -99.78
-          ],
-          "width_m": 1.067,
-          "gate": {
-            "kind": "foot_gate",
-            "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "a",
-            "swing_deg": 0.0
-          },
-          "opens_into_local_enu_m": [
-            282.59,
-            -95.78
-          ],
-          "confidence": "reconstructed",
-          "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_blk_south_water_franklin_d3_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         }
       ],
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_franklin's own platted frontage line from 24.3 m to 73.2 m along the south face, covering lot(s) 3, 5 — every one of them improved by a committed building whose nearest wall stands 5.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_franklin's own platted frontage line from 24.3 m to 48.8 m along the south face, covering lot(s) 3 — every one of them improved by a committed building whose nearest wall stands 5.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_lasalle_south_fence_4",
@@ -29832,8 +29808,8 @@
       "trade": "tavern_inn",
       "trade_confidence": "attested",
       "at_local_enu_m": [
-        302.77,
-        -102.93
+        294.77,
+        -102.86
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -29843,8 +29819,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "inn",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.8,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE New York House, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `tavern_inn`, which the street edge's table of businesses reads as an inn (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands 2 posts, at the thirds of the front as the Sauganash's own two do, and this is post 1. The trade is held `attested` — on evidence. WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE New York House, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `tavern_inn`, which the street edge's table of businesses reads as an inn (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands 2 posts, at the thirds of the front as the Sauganash's own two do, and this is post 1. The trade is held `attested` — on evidence. WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_franklin_south_hitching_new_york_house_2",
@@ -29858,8 +29834,8 @@
       "trade": "tavern_inn",
       "trade_confidence": "attested",
       "at_local_enu_m": [
-        308.14,
-        -102.97
+        300.14,
+        -102.91
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -32262,8 +32238,8 @@
       "trade_confidence": "attested",
       "business_class": "inn",
       "at_local_enu_m": [
-        305.46,
-        -102.95
+        297.46,
+        -102.88
       ],
       "facade_bearing_deg": 180.5,
       "along_frontage_frac": 0.5,
@@ -32271,8 +32247,8 @@
         {
           "part": "low_step",
           "at_local_enu_m": [
-            305.46,
-            -102.8
+            297.46,
+            -102.73
           ],
           "len_m": 0.91,
           "depth_m": 0.305,
@@ -32281,8 +32257,8 @@
         {
           "part": "high_step",
           "at_local_enu_m": [
-            305.45,
-            -103.1
+            297.46,
+            -103.04
           ],
           "len_m": 0.91,
           "depth_m": 0.305,
@@ -32333,6 +32309,59 @@
         }
       ],
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Exchange Coffee House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — at the door its front elevation states (T-1984) — its front wall stands 0.36 m back of the lot line at the door, so the stoop spans 0.61 m to the walk: a 0.31 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
+      "id": "blk_south_water_franklin_south_stoop_new_york_house",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_franklin_south_1",
+      "serves": "new_york_house",
+      "serves_name": "New York House",
+      "trade": "tavern_inn",
+      "trade_confidence": "attested",
+      "business_class": "inn",
+      "at_local_enu_m": [
+        297.48,
+        -99.56
+      ],
+      "facade_bearing_deg": 180.5,
+      "along_frontage_frac": 0.5,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            297.49,
+            -99.0
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            297.48,
+            -99.69
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            297.48,
+            -100.0
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.315,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at New York House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — at the door its front elevation states (T-1984) — its front wall stands 1.43 m back of the lot line at the door, so the stoop spans 1.68 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.31 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_lasalle_north_stoop_chicago_democrat_office",
@@ -32991,17 +33020,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "forwarding",
       "at_local_enu_m": [
-        -21.32,
-        -126.73
+        -23.89,
+        -126.67
       ],
-      "facade_bearing_deg": 91.3,
+      "facade_bearing_deg": 90.8,
       "along_frontage_frac": 0.5,
       "parts": [
         {
           "part": "plank_1",
           "at_local_enu_m": [
-            -22.67,
-            -126.7
+            -25.24,
+            -126.65
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33010,8 +33039,8 @@
         {
           "part": "plank_2",
           "at_local_enu_m": [
-            -22.37,
-            -126.71
+            -24.94,
+            -126.66
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33020,8 +33049,8 @@
         {
           "part": "plank_3",
           "at_local_enu_m": [
-            -22.07,
-            -126.71
+            -24.64,
+            -126.66
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33030,8 +33059,8 @@
         {
           "part": "plank_4",
           "at_local_enu_m": [
-            -21.77,
-            -126.72
+            -24.34,
+            -126.66
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33040,8 +33069,8 @@
         {
           "part": "plank_5",
           "at_local_enu_m": [
-            -21.47,
-            -126.73
+            -24.04,
+            -126.67
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33050,8 +33079,8 @@
         {
           "part": "plank_6",
           "at_local_enu_m": [
-            -21.17,
-            -126.73
+            -23.74,
+            -126.67
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33060,8 +33089,8 @@
         {
           "part": "plank_7",
           "at_local_enu_m": [
-            -20.87,
-            -126.74
+            -23.44,
+            -126.68
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33070,8 +33099,8 @@
         {
           "part": "plank_8",
           "at_local_enu_m": [
-            -20.57,
-            -126.75
+            -23.14,
+            -126.68
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33080,8 +33109,8 @@
         {
           "part": "plank_9",
           "at_local_enu_m": [
-            -20.27,
-            -126.75
+            -22.84,
+            -126.68
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33090,15 +33119,15 @@
         {
           "part": "plank_10",
           "at_local_enu_m": [
-            -19.97,
-            -126.76
+            -22.54,
+            -126.69
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #001. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_lake_canal's east face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 17.26 m to the West Water Street track, on committed ground at +1.02 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #001. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_lake_canal's east face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 19.32 m to the West Water Street track, on committed ground at +1.03 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
       "standing_chunk": "town_street_edge__fronts_only__standing"
     },
     {
@@ -33433,23 +33462,23 @@
       "business_class": "works",
       "pts_local_enu_m": [
         [
-          -146.68,
-          -120.69
+          -136.52,
+          -120.77
         ],
         [
-          -136.19,
-          -120.78
+          -126.24,
+          -120.86
         ],
         [
-          -136.16,
-          -117.5
+          -126.21,
+          -117.58
         ],
         [
-          -146.66,
-          -117.41
+          -136.49,
+          -117.49
         ]
       ],
-      "note": "THE BARE FRONT OF ASAHEL PIERCE'S BLACKSMITH SHOP: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 5.2 m to 15.7 m along blk_west_lake_canal's north face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
+      "note": "THE BARE FRONT OF ASAHEL PIERCE'S BLACKSMITH SHOP: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 15.4 m to 25.7 m along blk_west_lake_canal's north face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
     },
     {
       "id": "blk_west_randolph_des_plaines_north_bare_ground_recon_1835_blk_west_randolph_des_plaines_w2_01",
@@ -33924,6 +33953,11 @@
       "why": "recon_1835_blk_south_water_franklin_d3_13 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
+      "structure_id": "blk_south_water_franklin_lot5",
+      "wall": "blk_south_water_franklin south face, lot 5",
+      "why": "new_york_house stands 1.43 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+    },
+    {
       "structure_id": "blk_south_water_franklin_lot6",
       "wall": "blk_south_water_franklin north face, lot 6",
       "why": "recon_1835_blk_south_water_franklin_d4_02 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
@@ -34131,7 +34165,7 @@
     {
       "structure_id": "blk_west_randolph_canal_north_crossing_blk_randolph_market_north",
       "wall": "corner crossing",
-      "why": "the two walks stop 221.2 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+      "why": "the two walks stop 221.5 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
     },
     {
       "structure_id": "blk_west_randolph_des_plaines_north",
@@ -34189,11 +34223,6 @@
       "why": "no plank walk in front of mason_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_lake_dearborn's north face stops either side of it, from 20.7 m to 25.9 m along the face (5.2 m, the march steps whose middle lies in front of its 6.2 m frontage)."
     },
     {
-      "structure_id": "new_york_house",
-      "wall": "blk_south_water_franklin south face, lot 7",
-      "why": "no stoop at new_york_house: exchange_coffee_house stands on the ground it would occupy."
-    },
-    {
       "structure_id": "newberry_dole_warehouse",
       "wall": "blk_south_water_market north face, lot 3",
       "why": "newberry_dole_warehouse is a forwarding_commission_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
@@ -34206,7 +34235,7 @@
     {
       "structure_id": "pierce_blacksmith_shop_walk",
       "wall": "blk_west_lake_canal north face, at its door",
-      "why": "no plank walk in front of pierce_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_lake_canal's north face stops either side of it, from 5.2 m to 15.7 m along the face (10.5 m, the march steps whose middle lies in front of its 9.1 m frontage)."
+      "why": "no plank walk in front of pierce_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_lake_canal's north face stops either side of it, from 15.4 m to 25.7 m along the face (10.3 m, the march steps whose middle lies in front of its 9.1 m frontage)."
     },
     {
       "structure_id": "recon_1835_blk_randolph_clark_w1_10",

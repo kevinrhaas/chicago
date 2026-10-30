@@ -1,10 +1,10 @@
 {
   "id": "pullman_house_1729_prairie",
-  "name": "1729 Prairie Avenue — Pullman Second Empire estate (district draft; refined by T-1880, T-1881)",
+  "name": "1729 Prairie Avenue — the George M. Pullman house (K01; refined by T-1881)",
   "aka": [
     "1729 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -13,11 +13,19 @@
     ],
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B stone (blue) dwelling (D), large and irregular'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
+  "built": {
+    "value": "between 1870 and 1876",
+    "confidence": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1600_1700"
+    ],
+    "note": "The marker: 'George M. Pullman Residence. Built 1870-1876'."
+  },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1880, T-1881 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1729-b1), the T-1840 census (s20-1729-f, s20-1729-a1, s20-1729-a2) and the T-1837 register row frontage-20-035 (Pullman Second Empire estate); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_note": "The George M. Pullman house at the north-east corner of Prairie Avenue and 18th Street, moved off the district draft onto K01 by T-1880 under the draft's own id: the 1911 sheet's main block in brownstone, two storeys over a raised basement under a slated mansard with cresting, its north-west and 18th Street pavilions, the Prairie portico and the south-east block, read through the solved camera of the Detroit Publishing photograph (LC-D4-12551, between 1890 and 1901). The sheet's ranges and stable east of the house stay at the draft's massing as pullman_house_1729_prairie_ranges until T-1934; the conservatory is its own K13 record. docs/RESEARCH/k01-1729-pullman-1880/README.md.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -25,18 +33,19 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The 1904 target to the 1911 sheet that draws the house: the T-1840 census rules it present in 1904 (present_as_mapped), and the Detroit Publishing photograph (between 1890 and 1901; after 1893 by the monument it shows) shows the same main block. Its building and loss dates are not read here.",
+        "to_is": "seen"
       },
       "position": {
-        "utm_e": 448529.087,
-        "utm_n": 4634225.828,
+        "utm_e": 448529.071,
+        "utm_n": 4634228.258,
         "rotation_deg": 179.611,
         "symbolic_location": "1729 S. Prairie Avenue, parcel prairie_1729 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 43.750, v -3.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear north corner of the K01 main body: the draft's origin moved 2.43 m north along its own v axis, to the conservatory's south wall (lot frame u 43.750, v -5.930 m from the middle of the rear lot line), through the T-1250 fit of the sheet, whose own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line; v runs SOUTH, from the north wall toward 18th Street.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -54,158 +63,1518 @@
           ],
           [
             27.75,
-            15.5
+            17.93
           ],
           [
             0.0,
-            15.5
+            17.93
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main block read off the 1911 sheet's trace (s20fp-1729-b1 p3) in the house's frame: its west (Prairie) front at u 27.8, its north wall at v 0, where the trace runs at v -2.3 to -3.3 (in the draft's frame) behind the conservatory's south wall (pullman_house_1729_prairie_conservatory, at the draft's v -2.43, which the block stops against), its south (18th Street) wall at v 17.7-18.1 and its east wall at u 0. The north-west pavilion, the 18th Street pavilion and the portico stand on it as K08 projections and the door's porch; the one-storey block at the south-east corner is a K01 rear wing; the ranges and stable east of it are pullman_house_1729_prairie_ranges."
       },
       "form": {
         "stories": {
-          "value": 3,
-          "confidence": "attested",
+          "value": 2,
+          "confidence": "inferred",
           "sources": [
+            "loc_det_4a08065_pullman_residence",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+          "note": "Two full storeys over a raised basement under a mansard, as the photograph shows on both street faces; the sheet's '3B' counts the mansard storey (as it does at 1801 and 1816)."
         },
         "construction": {
           "value": "stone",
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
+            "sanborn_1911_chicago_v3_sheet_20",
+            "loc_det_4a08065_pullman_residence"
           ],
-          "note": "The register reads the map's colours as 'stone'."
+          "note": "'3B stone (blue) dwelling' on the 1911 sheet; the photograph shows dressed ashlar on the Prairie front and the 18th Street flank alike."
         },
-        "draft_plan": {
+        "stone_front": {
           "value": {
-            "parts": [
+            "fabric": "sandstone_fawn",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.23,
+            "corner_bond": [],
+            "trim_in_walling": true
+          },
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "Brownstone, the register's material for 1729 (frontage register row pa-1729-5), laid in smooth courses as the photograph shows on both street faces, over a two-course base to the basement lights' heads. The rusticated quoins of the photograph's pavilions are not laid (open in the match record). T-1881: trim_in_walling: the street faces' dressed trim is cut from the same brownstone as the walling, as both photographs show it (one tone), not the paler dressed_trim stone. T-1881 (owner, 2026-10-29: the walls read as red brick): laid in K02's sandstone_fawn, not sandstone_brown. Both photographs print the walls lighter than the house's own slate mansard (the Detroit print's master scan: walls 115-135, slate 73-101, sky 226; Taylor's no. 1445: walls 193-204 against the mansard's 165-175 and the stone coping wall's 197), where sandstone_brown's red-brown reflects 0.75-0.85 of a neutral slate's light on a blue or orthochromatic plate and so must print darker than it; the fawn stone, at about twice the brown's plate reflectance, sits inside both readings. The joints are the photograph's hairlines (3 mm rubbed flush, where the brown profile's 6 mm struck joint drew dark lines that read as brick); its courses of about 0.44 m and blocks of 0.9-1.3 m are inside the profile's ranges as before. The stone stays the register's brownstone; its shade is reconstructed (docs/RESEARCH/pullman-stone-1881/, L-k01-1729-pullman-stone-tone-1881)."
+        },
+        "principal_floor_m": {
+          "value": 2.0,
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "Read through the photograph's camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json): the portico's balcony floor, at the second floor, stands about 6.6 m over grade and the stoop rises about 2 m from the walk."
+        },
+        "storey_heights_m": {
+          "value": [
+            4.6,
+            6.0
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "Through the photograph's camera: the balcony floor (the second floor) about 6.6 m over grade and the cornice's top about 12.0 m at the south-west corner (y 300 px against grade at y 500, 16.7 px/m there), over a deep frieze above the second-storey windows' heads (10.5 m)."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a dressed-stone front's thickness inside the contract's masonry range (0.23-0.45 m), taken at its top for a three-storey stone house; no source gives it."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: as the front's; no source gives it."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the common brick K01 lays where a stone house's service walls are not seen (the rear wing); the photograph does not see the rear."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k01.flat_lintel",
+              "k01.flat_lintel"
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "K09 dresses none of the Prairie front's windows (T-3157): each is named off the Detroit print (street_front_windows), round-arched, the second storey's under their rings. The side walls keep K01's plain stone lintels, the photograph's arched heads on the 18th Street flank being T-3160's."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.moulded_stone",
+            "walls": [
+              "k01.wall.side.south",
+              "k01.wall.street_front",
+              "k01.wall.side.north",
+              "k01.wall.rear_service"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "The photograph's deep stone cornice, run round both street faces and on round the walls it does not see; its modillions are not laid (open in the match record)."
+        },
+        "roof_form": {
+          "value": "mansard",
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "The photograph's steep slated faces round both street fronts under a deck ringed with cresting: a mansard."
+        },
+        "roof_pitch_deg": {
+          "value": 15,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the deck behind the cresting, which no picture sees, inside K05's mansard_upper range."
+        },
+        "eave_overhang_m": {
+          "value": 0.6,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the cornice's projection, taken at K01's ordinary value; the photograph shows a deep cornice but its depth is not measured through the camera."
+        },
+        "mansard": {
+          "value": {
+            "variant": "k05.roof.mansard_convex",
+            "lower_rise_m": 4.0,
+            "lower_pitch_deg": 75,
+            "bulge": 0.0,
+            "dormers": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "mansard",
-                "rect": [
-                  0.0,
-                  0.0,
-                  27.75,
-                  15.5
-                ],
-                "from": "s20fp-1729-b1 p3 (main, stone), rectangle 1 of that part; the part's rectangles cover 76% of its fill"
+                "face": "street",
+                "along_m": 11.45,
+                "head": "round",
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 1.1,
+                  "height_m": 1.9,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.4,
+                "face_setback_m": 0.1,
+                "eared_hood": {
+                  "band_m": 0.15,
+                  "proud_m": 0.08,
+                  "ear_m": 0.2,
+                  "drop_m": 0.25,
+                  "rise_m": 0.55,
+                  "pediment": {
+                    "pitch_deg": 18,
+                    "reach_m": 1.5,
+                    "foot_m": 0.25,
+                    "depth_m": 0.25,
+                    "proud_m": 0.15
+                  }
+                }
               },
               {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "mansard",
-                "rect": [
-                  -32.25,
-                  -6.0,
-                  -21.5,
-                  14.25
-                ],
-                "from": "s20fp-1729-b1 p3 (main, stone), rectangle 2 of that part; the part's rectangles cover 76% of its fill"
+                "face": "street",
+                "along_m": 14.8,
+                "head": "round",
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.6,
+                  "height_m": 1.5,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.2,
+                "face_setback_m": 0.1,
+                "eared_hood": {
+                  "band_m": 0.15,
+                  "proud_m": 0.08,
+                  "ear_m": 0.2,
+                  "drop_m": 0.25,
+                  "rise_m": 0.39
+                }
               },
               {
-                "id": "r3",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "mansard",
-                "rect": [
-                  1.0,
-                  -6.75,
-                  9.5,
-                  0.0
-                ],
-                "from": "s20fp-1729-b1 p3 (main, stone), rectangle 3 of that part; the part's rectangles cover 76% of its fill"
-              },
-              {
-                "id": "r4",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  15.25,
-                  15.5,
-                  19.75,
-                  20.25
-                ],
-                "from": "s20fp-1729-b1 p4 (range, stone), rectangle 1 of that part; the part's rectangles cover 70% of its fill"
+                "face": "north",
+                "along_m": 5.2,
+                "head": "round",
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.8,
+                  "height_m": 1.6,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.1,
+                "eared_hood": {
+                  "band_m": 0.15,
+                  "proud_m": 0.08,
+                  "ear_m": 0.2,
+                  "drop_m": 0.25,
+                  "rise_m": 0.477
+                }
               }
             ],
-            "lot_v": [
-              -18.621,
-              25.621
-            ],
-            "street_u": 44.832
+            "storeys": 1,
+            "deck": {
+              "cresting": {
+                "height_m": 0.8,
+                "inset_m": 0.08
+              }
+            },
+            "dormer_fabric": "front_stone"
           },
+          "confidence": "inferred",
+          "sources": [
+            "aic_taylor_1445_pullman_from_sw",
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "Through the photograph's camera: the lower faces rise from the cornice (about 12.0 m) to the curb under the cresting (about 16.8 m at y 240 px), steep and straight; iron cresting about 0.8 m high round the deck (y 222-235 px). T-3157: four round-arched dormers, read on the dormers' own plane (0.1 m in from the cornice's face): on the Prairie face the centre one's light at x 455-468 px (v 11.0-11.9) between pilasters at x 449-477, its crown at about 14.8 m (y 266) and its sill on the cornice (y 299), built as a 0.9 x 1.7 m arched light in a 0.35 m surround at v 11.45; the south pavilion's narrower one at x 502-518 (v 14.3-15.3), built 0.6 m in a 0.2 m surround at v 14.8; on the 18th Street face two at x 592-604 and 618-630 px, which this oblique view puts at u 21.7-23.8 and 16.5-19.0 to within about 2 m (built at u 22.75 and 17.7). The print draws the Prairie dormers arched and the flank ones too small to read their heads, so the flank's are taken arched like the front's; the Prairie ones' segmental hoods and ears over the arch are not laid (L-k01-1729-pullman-heads-3157). T-3158: the north-west pavilion's own dormer, at x 322-338 px on its section of the mansard (v 0.8-2.0 through the camera), built as the flank's: a 0.8 x 1.6 m arched light in a 0.3 m surround at v 1.5 (0.1 m off the print's centre, the nearest the hip lets a face stand), its crown read at about 15.3 m (y 273), within the reading of the others'. T-3161, through Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json), which sees the 18th Street face at about 18 px a metre against the Detroit print's 5-6: THREE dormers on that face, each standing over a group of the flank's windows, their lights at x 656-673, 740-751 and 791-804 px, fitted by rendering them through the camera onto the mansard's face where they stand: u 15.3, 9.45 and 5.2 (s 12.45, 18.3 and 22.55 from the Prairie corner, about 0.5 m each way), each a little west of the window group under it; the two the Detroit print placed at u 22.75 and 17.7 move there and the third is added, each the flank's 0.8 x 1.6 m arched light in a 0.3 m surround as before. The two cameras disagree by about 5-8 m along the flank, which the Detroit print's grazing view cannot resolve; Taylor's governs. T-1881: the Prairie front's centre dormer widened to a 1.1 x 1.9 m light in a 0.4 m surround (2.0 m across), toward the Detroit print's x 447-482 px (about 2.3 m at 15 px a metre); its segmental hood is still not laid. T-1881: the 18th Street dormers at u 15.3 and 9.45 are taken off the main mansard: the 18th Street pavilion (bays.p_18th, u 9.2-19.45) now stands forward under its own mansard over their places, burying them, and the bay kit lays no dormer on a bay's mansard yet; Taylor's two dormers there are an open difference on its match record. The one at u 5.2 stays. T-1881: every dormer's face framed in an eared architrave and hood (`eared_hood`), as the 1890 Albertype plate, the Detroit print and Taylor's photograph no. 1445 draw them: a band up each jamb and round the arch, standing out of the face, with an ear out at each side about six tenths of the way up the arch; the band's 0.15 m, its 0.08 m proud and the ears' 0.2 x 0.25 m are reconstructed at the pictures' 15-25 px a metre, and the broken pediment the plate draws over the large Prairie dormer is not built. T-1881: the large Prairie dormer's broken pediment built (`eared_hood.pediment`), read off the 1890 Albertype plate and Taylor's photograph no. 1445, the Detroit print agreeing: two raking cornice arms at 18 degrees, each 0.25 m deep and 0.15 m out of the face, rising inward from 1.5 m out of the arch's centre with their feet on the ears' (0.25 m over the springing) and dying into the hood's band about 0.77 m over it, so the arch's crown (1.1 m) rises through the gap between them; the arms' section, pitch and reach are reconstructed at the pictures' 15-25 px a metre (L-k01-1729-pullman-belt-hoods-1881). The dormers' faces are the front's brownstone (`dormer_fabric`), where K01's are a pale dressed stone: every photograph shows them in the walls' tone (L-k01-1729-pullman-belt-hoods-1881). T-1881: the north-west dormer (v 1.5), hidden behind the forward block since it was built, is taken off this mansard and stands on the block's own (bays.p_forward.mansard_dormers)."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll",
+            "lower_faces": "slate_pennsylvania"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "Slate on the lower faces, as the photograph's coursed grey faces read; the deck behind the cresting is not seen and is reconstructed as tin."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: inside the contract's stair range; no source gives the treads."
+        },
+        "stair_landing_depth_m": {
+          "value": 3.0,
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1729-b1 p3 (main, stone), rectangle 1 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p3 (main, stone), rectangle 2 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p3 (main, stone), rectangle 3 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p4 (range, stone), rectangle 1 of that part; the part's rectangles cover 70% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "The sheet's portico, 3 m deep in front of the west wall, its floor the landing the columns stand on."
         },
-        "draft_elevation": {
+        "stoop_width_m": {
+          "value": 2.6,
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3159: the sheet's stoop (s20fp-1729-b1 p1-p2, 2.6 x 3.4 m), which the Detroit print shows rising between the portico's two northern columns; the portico's floor carries on either side of it as the entrance's terraces (entrance_kit). T-1881: the flight now rises between the two inner columns at v 3.3 and 7.2, on the door's axis (v 5.25)."
+        },
+        "entrance_bay": {
+          "value": "south",
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The door stands in the Prairie front's north bay (K01's 'south' end is v 0, the north wall, in this house's frame), under the portico, which the sheet draws over v 1.6 to 10.6."
+        },
+        "front_bays": {
+          "value": [
+            5.25,
+            11.23,
+            15.83
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "Through the photograph's camera, along the Prairie front from the north wall: the door's bay between the rusticated piers at x 380 and 413 px (v 5.2-7.8), the centre bay's tall window at x 450-472 (v 10.4-11.9) and the south bay's window at x 520-528 (v 15.5-15.8). T-1881: the door's bay at v 4.6, inside the forward block (bays.p_forward, v 2.0-8.5). T-1881 (the owner, 2026-10-29: \"the entry is not straight\"): the door's bay moved to v 5.25, the forward block's centre and the portico hood's, so the door stands centred between the portico's two inner columns as the Detroit print draws it (its pale leaves at x 355-371 px between the columns read at v 3.05 and 6.9, whose midpoint is v 5.0), with the stair, the walk and the gate on the same line; at v 4.6 it stood 0.65 m north of the hood's centre, half over the block's ground-storey window. (L-pullman-1729-entry-axis-1881)"
+        },
+        "side_bays": {
+          "value": [
+            3.0,
+            7.0,
+            11.5,
+            19.5
+          ],
+          "confidence": "reconstructed",
+          "note": "The north flank's windows, which no picture read here shows."
+        },
+        "north_bays": {
+          "value": [
+            {
+              "s_m": 5.85,
+              "sill_m": 2.6,
+              "width_m": 1.1,
+              "height_m": 2.9,
+              "head": "round"
+            },
+            {
+              "s_m": 5.85,
+              "sill_m": 8.3,
+              "width_m": 1.1,
+              "height_m": 2.7,
+              "head": "round"
+            },
+            {
+              "s_m": 21.5,
+              "sill_m": 2.6,
+              "width_m": 1.1,
+              "height_m": 2.9,
+              "head": "round"
+            },
+            {
+              "s_m": 22.78,
+              "sill_m": 8.3,
+              "width_m": 0.7,
+              "height_m": 2.7,
+              "head": "round",
+              "why_not_ordinary": "a narrow light of a pair or a triple, as Taylor's photograph no. 1445 draws them (about 0.7 m between the jambs)"
+            },
+            {
+              "s_m": 23.92,
+              "sill_m": 8.3,
+              "width_m": 0.7,
+              "height_m": 2.7,
+              "head": "round",
+              "why_not_ordinary": "a narrow light of a pair or a triple, as Taylor's photograph no. 1445 draws them (about 0.7 m between the jambs)"
+            },
+            {
+              "s_m": 24.5,
+              "sill_m": 2.6,
+              "width_m": 1.1,
+              "height_m": 2.9,
+              "head": "round"
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "aic_taylor_1445_pullman_from_sw",
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "The 18th Street flank's windows either side of its porte-cochere and pavilion, counted from the Prairie corner; the photograph sees this face too obliquely to place them. T-3160: round-headed, as the print's flank windows read (their arched heads at y 355-365 px over the arcade's balustrade, x 600-660, under 5 px a metre along the face), each storey's laid once at the sash contract's sill and height; the window at s 6.0 moved to 5.0, clear of the porte-cochere's west end. Their moulded hoods are under a pixel in this picture and are left to the closer views (T-3161). T-3161, through Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json; the flank's plane at about 18 px a metre near the corner, 9 at its east end), the flank read bay by bay: east of the corner pier ONE round-arched window on each storey at x 546-561 px (s 5.4-6.3), built at s 5.85 in place of the pair at s 3.0 and 5.0, which neither this photograph nor the 1890 Albertype plate shows; on the second storey over the porte-cochere a PAIR of narrow round-headed lights at x 653-681 (s 12.1-14.0), a pier with an oculus (x 699-716, s 15.3-16.6, the oculus not built), and a TRIPLE at x 728-764 (s 17.5-20.3); on the principal storey a pair seen through the porte-cochere's arches at x 745-768 (s 18.8-20.6); at the east end's second storey another pair at x 789-809 (s 22.4-24.1), in place of the single lights at s 21.5 and 24.5 there. The second storey's lights stand higher on this flank than the Prairie front's: rendered through the camera at the front's 7.7 m sill they fall 15-20 px (about 0.8 m) under the photograph's, whose heads stand about 1 m under the cornice's soffit, while the cornice (the fit), the porte-cochere's footings and the principal storey's lights land within 5-10 px, so the second storey's sills are raised to 8.3 m here (heads 11.0 m); the principal storey's keep 2.6 m over 2.9 m. The principal storey's lights at s 21.5 and 24.5 remain reconstructed: the trees and the coping wall hide them. T-1881: the pair and the triple over the porte-cochere and the pair seen through its arches are on the 18th Street pavilion's front (bays.p_18th), not this wall; the lights at s 12.48-17.6 and 19.99-20.25 here are taken off. The east end's second-storey pair (s 22.78, 23.92; Taylor x 789-809 px on the main wall's plane) and the principal storey's reconstructed lights at s 21.5 and 24.5 stay."
+        },
+        "rear_bays": {
+          "value": [
+            3.0,
+            7.0
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the east wall's windows, which no picture read here sees, two across the part beside the south-east block."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.1,
+              "height_m": 2.9
+            },
+            {
+              "sill_above_floor_m": 1.1,
+              "width_m": 1.1,
+              "height_m": 2.7
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "Through the photograph's camera: the centre bay's second-storey window from about 7.8 to 10.5 m over grade (y 378 and 335 px at 16.0 px/m); the principal storey's, behind the ivy, are taken as tall."
+        },
+        "chimneys": {
           "value": {
-            "kind": "house",
-            "seed": 3054461091,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
+            "plan_m": [
+              1.0,
+              0.8
             ],
-            "roof_pitch_deg": 18,
-            "mansard_lower_m": 3.0,
-            "front_bays": 6,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2335",
-              "refined_by": [
-                "T-1880",
-                "T-1881"
+            "top_above_ridge_m": 1.2,
+            "cap_proud_m": 0.1,
+            "cap_depth_m": 0.3,
+            "stacks": [
+              {
+                "u_m": 10.0,
+                "v_m": 5.5,
+                "fabric": "stone"
+              },
+              {
+                "u_m": 20.0,
+                "v_m": 13.3,
+                "fabric": "stone",
+                "top_m": 19.5
+              },
+              {
+                "u_m": 24.8,
+                "v_m": 18.0,
+                "plan_m": [
+                  1.1,
+                  0.8
+                ],
+                "on_cornice": true,
+                "top_m": 18.7,
+                "cap_proud_m": 0.15,
+                "cap_depth_m": 0.4,
+                "fabric": "stone"
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED as a whole, its third stack read off a photograph (T-3161): the 18th Street flank's great stack is read off J. W. Taylor's photograph no. 1445 (the album print a16-aic-taylor-album-pullman-p69 and the print a16-aic-taylor-pullman-from-nw, one negative) through its solved camera (docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor-1445-camera.md; the prints are link-only in the library, so the camera waits on the rights question on T-3161 before it joins the image gate): a stone stack standing on the flank's cornice and carried up the mansard's face, x 487-522 px at its base on the cornice (y 272-292) against the corner pier at x 447: its west side and south face together 35 px, at 18 px a metre along the flank there and 19 px a metre across it, so a 1.1 m face on the flank's line at u 24.25-25.35 with its 0.8 m west side seen beside it; its moulded cap at y 160, 18.7 m through the camera (the curb at about 16.9 m), a band under the cap. The 1890 Albertype plate shows the same stack rising behind the tree just east of the corner pier. Its depth across the wall line is not measured: 0.8 m, standing on the cornice in front of the mansard's face (its inner face 0.14 m clear of the deck's curb at v 17.46, so the cresting runs behind it) with its outer face 0.47 m out, inside the 0.6 m cornice, as the photograph shows it standing proud of the slope. The deck stack at (20, 13.3) is read from the same three pictures: the Detroit print and the Albertype plate, both from the crossing's south-west corner, show a tall stack rising behind the cresting just WEST of the south-west corner pier (Detroit x 528-545 px, top y 222, against the corner at x 557-560; the plate x about 1293, top y 213, against its corner at 1312), which no stack on the flank's line can do from there; their common line of sight passes the deck at about u 20, v 13.3, where Taylor's camera hides a stack wholly behind the flank stack, as that photograph shows (it shows only cresting either side of it). Its top through the two cameras is 19.05 and 19.9 m, taken at 19.5 (top_m); its place along the line of sight is good to about 1.5 m. It was a reconstructed stack at (18, 12.5) until T-3161. The flank stack is not in the 1890 plate, which is earlier than Taylor's photograph (1890s, after the 1892 additions it shows east of the flank): it is read as later work and stands in 1904. The stack at (10, 5.5) remains RECONSTRUCTED: through all three cameras it stands under the deck's edge, so no picture shows or excludes it. L-pullman-1729-flank-stack-3161."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: one copper downpipe on the rear wall; none is read off the photograph."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            },
+            "k01.opening.street_sash_round_fanlight": "k06.opening.sash_round_fanlight",
+            "k01.opening.street_sash_round_fanlight_wide": "k06.opening.sash_round_fanlight_wide",
+            "k01.opening.sash_round_plain": "k06.opening.sash_round_fanlight"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: two-over-two sash, the kit's ordinary pattern; the photograph does not resolve the glazing bars. T-3157: the street front's round-arched lights glazed as K06's round fanlight sash (its wide two-light one at the second storey's centre); the print does not resolve their bars either."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 17.08,
+              "hood": {
+                "soffit_m": 6.0,
+                "width_m": 6.3,
+                "out_m": 1.2,
+                "fascia_m": 0.6,
+                "cornice": {
+                  "height_m": 0.25,
+                  "proud_m": 0.15
+                },
+                "brackets": "k08.bay.canted_hooded",
+                "railing": {
+                  "height_m": 0.7,
+                  "post_m": 0.3,
+                  "baluster_m": 0.1,
+                  "pitch_m": 0.2,
+                  "rail_m": [
+                    0.25,
+                    0.15
+                  ]
+                },
+                "columns": {
+                  "diameter_m": 0.36,
+                  "plinth_m": [
+                    0.5,
+                    0.35
+                  ],
+                  "capital_m": 0.35,
+                  "respond_m": 0.12,
+                  "at_v_m": [
+                    2.4,
+                    3.3,
+                    7.2,
+                    8.1
+                  ]
+                },
+                "railing_fabric": "stone",
+                "fabric": "stone",
+                "centre_v_m": 5.25
+              },
+              "terrace": [
+                {
+                  "side": "left",
+                  "to_v_m": 2.1
+                },
+                {
+                  "side": "right",
+                  "to_v_m": 8.4
+                }
+              ],
+              "balustrade": {
+                "height_m": 0.9,
+                "pitch_m": 0.2,
+                "newel_m": 0.36,
+                "newel_cap_m": 0.1,
+                "rail_m": [
+                  0.2,
+                  0.12
+                ],
+                "segments": 8,
+                "profile": [
+                  [
+                    0.06,
+                    0.0
+                  ],
+                  [
+                    0.06,
+                    0.06
+                  ],
+                  [
+                    0.045,
+                    0.1
+                  ],
+                  [
+                    0.04,
+                    0.18
+                  ],
+                  [
+                    0.06,
+                    0.35
+                  ],
+                  [
+                    0.065,
+                    0.45
+                  ],
+                  [
+                    0.045,
+                    0.65
+                  ],
+                  [
+                    0.032,
+                    0.78
+                  ],
+                  [
+                    0.045,
+                    0.86
+                  ],
+                  [
+                    0.055,
+                    0.94
+                  ],
+                  [
+                    0.055,
+                    1.0
+                  ]
+                ]
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The portico the sheet draws 3 m deep in front of the Prairie front (v 1.6 to 10.6), built as the door's hood on columns: the photograph's columned portico carrying a balustraded balcony at the second floor (y 380-395 px). T-3159, through the Detroit print's solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json; the portico's front at u 30.6, 13-14 px a metre): the portico is the front's brownstone, not painted joinery (fabric stone), its balcony railed by a stone balustrade (the print's posts and balusters at y 380-390 over the entablature at 390-400, x 343-395; railing_fabric stone, 0.7 m, its rail clear under the second-storey sills). Its columns: the print shows two clear of the ivy and the trees, a lit round shaft at x 374-381 (v 6.9) and one at x 322-330 (v 3.05), both standing on the portico's floor at y 470; the south half is lost in the ivy, so the row is carried on at the print's pitch, a column at the hood's south end (v 10.03) and one between (v 8.5), four in all (the count is the match record's 'four or more'; the two south positions are a bounded design, L-pullman-1729-portico-3159). The flight: the sheet's stoop (s20fp-1729-b1 p1-p2) is 2.6 x 3.4 m, and the print's steps (x 300-370, y 465-490) rise between the two read columns, its north cheek's raked top running from x 335 y 465 down to x 298 y 488 (v about 3.7): a 2.6 m flight centred at v 5.0 (stoop_v_m), and the rest of the portico's floor terraces at the landing's height either side of it out to the hood's ends. T-1881: the portico re-laid in front of the forward block (bays.p_forward): its hood 6.3 m wide centred at v 5.25, 1.2 m out from the block's face, its four columns at v 2.4, 4.25, 6.25 and 8.1, the flight centred at v 4.0 and the terrace from v 2.1 to 8.4. Through the Detroit print's camera the steps (x 300-370 px) read v 2.0-7.1 on the hood's front line, which the flight and its landing fill; the columns' places in the hood are reconstructed, evenly spaced (L-pullman-1729-portico-3159). T-1881 (the owner, 2026-10-29: the stair off the door's axis, its cheeks into the columns, a plain stone block beside it): the flight re-centred on the door at v 5.25 (stoop_v_m taken off; the stoop is the door's), and the two inner columns stood where the print reads its two, 3.9 m apart, re-centred on that axis (v 3.3 and 7.2, each within 0.3 m of the reading at 3.05 and 6.9), so the 2.6 m flight and its cheeks rise between their plinths with 0.35 m to spare each side; the outer two stand at the hood's ends (v 2.4 and 8.1) before the forward block's banded corner piers. A turned stone balustrade (balustrade, 0.9 m) runs on the cheeks, raked down the flight, and on the terraces' fronts either side, where the print draws a railing raked beside the steps (x 298-335 px on the north cheek, and its fellow on the south); its section is reconstructed. (L-pullman-1729-entry-axis-1881)"
+        },
+        "boundary": {
+          "value": {
+            "layout": "stone_coping_wall",
+            "street_line_m": 17.08,
+            "lot_s_m": [
+              -16.191,
+              28.051
+            ],
+            "thickness_m": 0.4,
+            "chamfer_m": 0.06,
+            "runs": [
+              {
+                "to_s_m": 3.85,
+                "height_m": 0.9
+              },
+              {
+                "to_s_m": 4.45,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 6.05,
+                "opening": true
+              },
+              {
+                "to_s_m": 6.65,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 28.051,
+                "height_m": 0.9
+              }
+            ],
+            "side_return": {
+              "to_x_m": -36.4,
+              "height_m": 0.9,
+              "runs": [
+                {
+                  "to_x_m": 34.05,
+                  "height_m": 0.9
+                },
+                {
+                  "to_x_m": 27.95,
+                  "height_m": 0.5
+                },
+                {
+                  "to_x_m": 16.4,
+                  "height_m": 1.0
+                },
+                {
+                  "to_x_m": 8.6,
+                  "height_m": 1.0,
+                  "balustrade": {
+                    "height_m": 0.8,
+                    "pitch_m": 0.3,
+                    "newel_m": 0.4,
+                    "plinth_m": [
+                      0.36,
+                      0.08
+                    ],
+                    "rail_m": [
+                      0.42,
+                      0.14
+                    ],
+                    "segments": 8,
+                    "profile": [
+                      [
+                        0.06,
+                        0.0
+                      ],
+                      [
+                        0.06,
+                        0.06
+                      ],
+                      [
+                        0.045,
+                        0.1
+                      ],
+                      [
+                        0.04,
+                        0.18
+                      ],
+                      [
+                        0.06,
+                        0.35
+                      ],
+                      [
+                        0.065,
+                        0.45
+                      ],
+                      [
+                        0.045,
+                        0.65
+                      ],
+                      [
+                        0.032,
+                        0.78
+                      ],
+                      [
+                        0.045,
+                        0.86
+                      ],
+                      [
+                        0.055,
+                        0.94
+                      ],
+                      [
+                        0.055,
+                        1.0
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "to_x_m": 5.6,
+                  "opening": true
+                },
+                {
+                  "to_x_m": -8.0,
+                  "height_m": 0.9
+                },
+                {
+                  "to_x_m": -9.35,
+                  "opening": true
+                },
+                {
+                  "to_x_m": -10.25,
+                  "height_m": 0.9
+                },
+                {
+                  "to_x_m": -11.7,
+                  "height_m": 0.85,
+                  "from_height_m": 1.4
+                },
+                {
+                  "to_x_m": -12.7,
+                  "height_m": 0.85
+                },
+                {
+                  "to_x_m": -14.3,
+                  "height_m": 1.45,
+                  "from_height_m": 0.85
+                },
+                {
+                  "to_x_m": -15.2,
+                  "height_m": 0.9
+                },
+                {
+                  "to_x_m": -16.15,
+                  "opening": true
+                },
+                {
+                  "to_x_m": -17.05,
+                  "height_m": 0.9
+                },
+                {
+                  "to_x_m": -20.4,
+                  "opening": true
+                },
+                {
+                  "to_x_m": -21.2,
+                  "height_m": 1.4,
+                  "from_height_m": 0.3
+                },
+                {
+                  "to_x_m": -36.4,
+                  "height_m": 0.9
+                }
+              ],
+              "piers": [
+                {
+                  "x_m": [
+                    33.6,
+                    34.5
+                  ],
+                  "height_m": 1.6,
+                  "cap_m": 0.08
+                },
+                {
+                  "x_m": [
+                    27.5,
+                    28.4
+                  ],
+                  "height_m": 1.7,
+                  "cap_m": 0.08
+                },
+                {
+                  "x_m": [
+                    16.4,
+                    17.3
+                  ],
+                  "height_m": 1.8,
+                  "cap_m": 0.08
+                },
+                {
+                  "x_m": [
+                    4.7,
+                    5.6
+                  ],
+                  "height_m": 1.8,
+                  "cap_m": 0.08
+                },
+                {
+                  "x_m": [
+                    -2.0,
+                    -1.1
+                  ],
+                  "height_m": 1.7,
+                  "cap_m": 0.08
+                },
+                {
+                  "x_m": [
+                    -8.0,
+                    -7.1
+                  ],
+                  "height_m": 1.8,
+                  "cap_m": 0.08
+                },
+                {
+                  "x_m": [
+                    -10.25,
+                    -9.35
+                  ],
+                  "height_m": 1.8,
+                  "cap_m": 0.08
+                },
+                {
+                  "x_m": [
+                    -15.2,
+                    -14.3
+                  ],
+                  "height_m": 1.8,
+                  "cap_m": 0.08
+                },
+                {
+                  "x_m": [
+                    -17.05,
+                    -16.15
+                  ],
+                  "height_m": 1.8,
+                  "cap_m": 0.08,
+                  "urn": {
+                    "width_m": 0.4,
+                    "height_m": 0.5
+                  }
+                },
+                {
+                  "x_m": [
+                    -22.1,
+                    -21.2
+                  ],
+                  "height_m": 1.8,
+                  "cap_m": 0.08
+                }
+              ],
+              "lot_rear_x_m": -50.23
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence",
+            "inland_1894_pullman_palm_house_stable",
+            "aic_taylor_1445_pullman_from_sw"
+          ],
+          "note": "The photograph's low stone wall along the Prairie Avenue line, on piers at the walk. T-3160: and on round the corner along 18th Street on the lot's south line (side_return), the print's low stone wall at x 640-685 px, 0.9 m as the Prairie run, from the corner back to x 35.0 (the print's x 693, u 35.0), where the print's run of posts on a lower curb begins (not built: its posts and rail are too fine to read here). T-3205: the walk's way through it. Through the print's camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json) the wall stops either side of a gap at x 195-225 px between two square piers standing over its top (x 180-195 and 225-237), on the street line at s 4.9-6.5 and 3.9-4.9, 6.5-7.6: square before the stair (its axis s 5.0), which the print shows behind the wall at x 300-370. Built as an opening s 4.9-6.5 between 0.6 m piers 1.2 m high (the print's piers stand about 0.6 m over the 0.9 m wall, 1.5 m; 1.2 m is the kit's ceiling for a coping run, within the 0.3 m bar). RECONSTRUCTED: the piers' section (liberty L-k14-walks-1700-block-3205). T-1881 (the owner, 2026-10-28: \"the surrounding wall/fence around the property also should be included in the match\"): the 18th Street return carried on past the house, as Taylor's photograph no. 1445 draws it (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json, on the lot's 18th Street line, v 28.05): the 0.9 m wall from the corner to a square pier at x 535-565 px (u 33.1-34.4, about 1.6 m high; the Detroit print's x 693, u 35, is the same pier), then a lower course about 0.5 m high (x 565-643, u 31.5-28.3) to a second pier at x 643-668 (u 28.6-27.4, about 1.7 m), then a wall about 1.0 m high past the porte-cochere to a third pier at about x 847 (u 16.8), and on as the same wall to x 957 (u 8.6), where it carries a balustrade (x 847-957, its top about 1.8 m) that is not laid. Built: runs of 0.9, 0.5 and 1.0 m to x 34.05, 27.95 and 8.6, with piers 0.9 m square at 33.6-34.5, 27.5-28.4 and 16.4-17.3 under 0.08 m caps. The piers' section and the walls' heights past the second pier are read to about 0.2 m; the balustrade and the posts the Detroit print shows on the low course are open in the match record. T-1934 (the owner, 2026-10-28, on the estate: \"the surrounding wall/fence around the property also should be included in the match\"): the 18th Street wall carried on past the house's rear (x 0) before the palm house and the stable, to the stable's east wall (x -36.4; the lot's rear is x -50.23, the parcel's 95.06 m depth behind its Prairie Avenue line). READ: through the 1894 Inland plate's solved camera (data/reference_views/pullman_house_1729_prairie_conservatory/inland_1894_plate.json, fitted on two of these piers' bases on the lot line), rays cast from five pier bases onto the ground land on the line (v -27.8 to -28.2) at the palm house frame's u -10.3 to -9.4 (the plate's x 205-322 px), -4.2 to -3.6 (x 925-1005), -2.1 to -1.2 (x 1128-1240), 2.9 to 3.8 (x 1605-1710) and 4.7 to 5.6 (x 1775-1875), which this frame's x = -11.42 - u carries (the 1904 placements of the two records: turned 180.43 degrees, offset 11.21 m, read on the lot line) to x -1.1 to -2.0, -7.1 to -8.0, -9.35 to -10.25, -14.3 to -15.2 and -16.15 to -17.05, each square pier about 0.9-1.0 m and 1.7-1.8 m high to its cap's top; the wall between the first two 0.9 m high (x 500-700, its top y 1005, its foot y 1115); between the second and third an opening onto the terrace's west flight (its steps seen behind it); between the third and fourth a low wall whose top falls steeply from about 1.37 m against the third pier to about 0.83 m (x 1350-1400) and rises again in a long curve to about 1.42 m against the fourth; between the fourth and fifth a second opening, onto the east flight. Taylor's photograph no. 16554 (its camera solved on the stable's sash; read as a check only and not cited, its rights being unresolved) puts the third and fifth piers within 0.6 m of the plate and the fourth 1.3 m west of it, and shows the wall running on unbroken and low (about 0.9 m) along the stable's front to about x -34, a lamp post standing behind it near x -21 (not built here). Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json) shows, east of the balustraded run that ends at x 8.6, an open gap of about 3 m (its x 958-980 px: the carriage way to the porte-cochere, which passes through east-west) and then a pier (x 980-996, about x 5.6-4.7) and the wall on toward the plate's first pier, which it draws about 1 m further west than the plate does (x 0.6 to -0.9; within the two camera fits' disagreement). Built: an opening x 8.6-5.6; the 0.9 m wall on to x -8.0; an opening -8.0 to -9.35; the wall under the third pier; a sweep from 1.4 m to 0.85 m (-10.25 to -11.7), 0.85 m level to -12.7, a sweep up to 1.45 m at the fourth pier (-14.3); the wall under it; an opening -15.2 to -16.15; the 0.9 m wall on to -36.4; piers 0.9 m square, 1.7-1.8 m high under 0.08 m caps, at 4.7-5.6, -1.1 to -2.0, -7.1 to -8.0, -9.35 to -10.25, -14.3 to -15.2 and -16.15 to -17.05. The piers' recessed panels and moulded caps, the lamps and the wall east of the stable's east wall are not built (the pictures do not reach past it); the openings' widths are read to about 0.3 m. T-1934 (the urn): read at the plate's full size (x 1805-1840 px over the fifth pier's cap at x 1775-1875, y 855-905), the fifth pier carries one turned urn, a squat swelling body under a flat lid, about 0.4 m across and 0.5 m high (x 1805-1842 px and 52 px tall, against its pier's 1.06 m cap at x 1773-1877); the other four piers the plate shows carry plain caps (an earlier reading of this pier as a globe lamp with an urn behind it is one object, the urn). Built: the K11 kit's turned urn, stretched from its own 0.32 m by 0.62 m to the plate's 0.4 m by 0.5 m, on the fifth pier's cap at its centre; its profile (foot, body, lid) is the kit's and RECONSTRUCTED, its size is read to about 0.1 m. T-1881 (the owner, 2026-10-29: the walk bends between the gate piers and the stair): the gate's opening and its two piers moved 0.45 m north onto the door's and the stair's axis, v 5.25 (the opening s 4.45-6.05 between 0.6 m piers at 3.85-4.45 and 6.05-6.65), as the print stands the gap square before the stair; the reading's s 4.9-6.5 is 0.45 m off that line, within the 0.3-0.5 m the print's 13-14 px a metre reads the wall to. (L-pullman-1729-entry-axis-1881) T-1934 (the owner, 2026-10-30: \"a pathway for the horses to enter the stable ... no plants blocking it\"): the stable court's carriage way off 18th Street, as Taylor's 16555 (aic_taylor_16555_pullman_west_front, through its solved camera data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json, rays from the print's pier feet onto the lot line) shows it: a pier at x 580-600 px (x -15.6 to -16.1, the plate's fifth pier, built at -16.15 to -17.05) and a second at x 775-800 px (x -21.2 to -21.9) with the paved way between them, a low wall sweeping up to the second pier from about x 745 px (x -20.4). Built: the 0.9 m wall under the fifth pier, an opening x -17.05 to -20.4 (3.35 m), a sweep from 0.3 m to 1.4 m (-20.4 to -21.2) and a pier 0.9 m square and 1.8 m high at -21.2 to -22.1, before the stable's west wall (x -21.0). The plate's frame ends at the fifth pier and Taylor's 16554 shows the wall low and unbroken only from the stable's front on, so no picture contradicts the way; the sweep's curve and the pier's section are the kit's (L-pullman-carriage-ways-1934). T-1881 (the 18th Street wall's balustrade, open in Taylor's no. 1445's match record): read at the print's full size through its solved camera (rays from the line v 28.05: u 16.4 at x 846, u 12 at x 905, u 8.6 at x 946), the 1.0 m wall east of the third pier carries a stone balustrade from the pier's east face (x 856) to the carriage way (x 957): a moulded rail whose top stands level with the pier's cap (y 597-600, about 1.8 m), a row of turned balusters under it (y 600-608, their dark gaps about 4 px apart, about 0.3 m at the print's 12-13 px a metre there) on a plinth over the wall's top, and a solid block at the east end before the opening (x 942-957). Built: the run split at the pier (27.95-16.4 plain, 16.4-8.6 balustraded), its balustrade 0.8 m over the wall's 1.0 m top: a 0.08 m plinth, balusters 0.3 m apart on the house's own stair-balustrade profile, a 0.14 m rail 0.42 m wide, and 0.4 m solid blocks at each end. The baluster's profile, the rail's and plinth's sections and the end blocks' length are RECONSTRUCTED (the print draws each baluster about 2 px wide); the pitch is read to about 0.1 m and the heights to about 0.15 m (L-pullman-1729-18th-balustrade-1881). The Detroit print's run of posts and panels along this wall (x 695-780, about u 34.5 to 13), which Taylor's squarer view of the same stretch west of the third pier does not show, stays open in its match record."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "p_northwest",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.side.south",
+              "s_m": 25.275,
+              "flush_corner": "right",
+              "fabric": "front_stone",
+              "plan": {
+                "width_m": 4.95,
+                "proud_m": 1.2
+              },
+              "storeys": [
+                {
+                  "height_m": 6.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 2.4,
+                      "sill_m": 2.6,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 6.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 2.4,
+                      "sill_m": 1.1,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 1.4,
+                "covering": "slate_pennsylvania"
+              }
+            },
+            {
+              "id": "p_forward",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.street_front",
+              "s_m": 5.25,
+              "fabric": "front_stone",
+              "plan": {
+                "width_m": 6.5,
+                "proud_m": 2.95,
+                "block": true
+              },
+              "storeys": [
+                {
+                  "height_m": 6.6,
+                  "windows": []
+                },
+                {
+                  "height_m": 6.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.4,
+                      "sill_m": 1.1,
+                      "at": [
+                        0.3794,
+                        0.6206
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.1,
+                "covering": "slate_pennsylvania",
+                "mansard": {
+                  "rise_m": 4.0,
+                  "lower_pitch_deg": 75,
+                  "cresting": {
+                    "height_m": 0.8,
+                    "inset_m": 0.1
+                  }
+                },
+                "slated_as_house": true
+              },
+              "entrance": true,
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
+              },
+              "pilasters": {
+                "at": [
+                  {
+                    "run": 1,
+                    "at": "both"
+                  }
+                ],
+                "width_m": 0.9,
+                "proud_m": 0.12,
+                "base_m": 0.1,
+                "capital_m": 0.2,
+                "bands": {
+                  "course_m": 0.4,
+                  "channel_m": 0.1
+                }
+              },
+              "mansard_dormers": [
+                {
+                  "at_m": -1.05,
+                  "head": "round",
+                  "sash": {
+                    "variant": "k06.opening.sash_round_fanlight",
+                    "width_m": 0.8,
+                    "height_m": 1.6,
+                    "sill_m": 0.1
+                  },
+                  "surround_m": 0.3,
+                  "face_setback_m": 0.1,
+                  "eared_hood": {
+                    "band_m": 0.15,
+                    "proud_m": 0.08,
+                    "ear_m": 0.2,
+                    "drop_m": 0.25,
+                    "rise_m": 0.477
+                  }
+                }
               ]
             },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Second Empire' overlaid with the frontage row: The Pullman house, the register's 'brownstone main block, mansard/dormers/cresting, Prairie portico': the Second Empire family's mansard over the 3B stone body, the entrance central on the Prairie front. The east wing's conservatory bay is the K13 record already standing (pullman_house_1729_prairie_conservatory, T-2306), and the porte-cochere, 1892 east addition, stable and glasshouses are T-1880, T-1881 and T-1934's. The draft keeps that record's footprint out of the traced fabric (`keep_out`), so the wing is drawn once; the sheet's two-storey building at the wing's east end (lettered GARAGE, a 1911 use) stands at two storeys (`wing_storeys`), not the house's three. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3054461091 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
+            {
+              "id": "p_18th",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.side.north",
+              "s_m": 13.425,
+              "fabric": "front_stone",
+              "plan": {
+                "width_m": 10.25,
+                "proud_m": 2.47,
+                "step": true
+              },
+              "storeys": [
+                {
+                  "height_m": 6.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.75,
+                      "clear_height_m": 2.4,
+                      "sill_m": 2.6,
+                      "at": [
+                        0.6557,
+                        0.7294
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 6.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_paired_round",
+                      "clear_width_m": 1.66,
+                      "clear_height_m": 2.2,
+                      "sill_m": 1.7,
+                      "at": [
+                        0.2745
+                      ],
+                      "why_not_ordinary": "the pair of narrow round-headed lights J. W. Taylor's photograph no. 1445 draws over the porte-cochere (x 653-681 px through its solved camera), built as one K06 paired round-headed sash 1.66 m across the pair, wider than one ordinary light because it is two (T-1881)"
+                    },
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.75,
+                      "clear_height_m": 2.4,
+                      "sill_m": 1.7,
+                      "at": [
+                        0.5563,
+                        0.63,
+                        0.7037
+                      ]
+                    }
+                  ],
+                  "pier": {
+                    "run": 1,
+                    "at": 0.4459,
+                    "width_m": 1.1,
+                    "proud_m": 0.12,
+                    "from_m": 1.1,
+                    "block_m": 3.6,
+                    "bands": {
+                      "course_m": 0.4,
+                      "channel_m": 0.1
+                    },
+                    "oculus": {
+                      "centre_m": 4.05,
+                      "radius_m": 0.18,
+                      "ring_m": 0.08,
+                      "proud_m": 0.04,
+                      "segments": 16
+                    }
+                  }
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.1,
+                "covering": "slate_pennsylvania",
+                "mansard": {
+                  "rise_m": 4.0,
+                  "lower_pitch_deg": 75,
+                  "cresting": {
+                    "height_m": 0.8,
+                    "inset_m": 0.1
+                  }
+                },
+                "slated_as_house": true
+              },
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
+              },
+              "mansard_dormers": [
+                {
+                  "at_m": -3.425,
+                  "head": "round",
+                  "sash": {
+                    "variant": "k06.opening.sash_round_fanlight",
+                    "width_m": 0.7,
+                    "height_m": 1.6,
+                    "sill_m": 0.1
+                  },
+                  "surround_m": 0.2,
+                  "face_setback_m": 0.1,
+                  "eared_hood": {
+                    "band_m": 0.15,
+                    "proud_m": 0.08,
+                    "ear_m": 0.2,
+                    "drop_m": 0.25,
+                    "rise_m": 0.43
+                  }
+                },
+                {
+                  "at_m": 1.975,
+                  "head": "round",
+                  "sash": {
+                    "variant": "k06.opening.sash_round_fanlight",
+                    "width_m": 0.7,
+                    "height_m": 1.6,
+                    "sill_m": 0.1
+                  },
+                  "surround_m": 0.2,
+                  "face_setback_m": 0.1,
+                  "eared_hood": {
+                    "band_m": 0.15,
+                    "proud_m": 0.08,
+                    "ear_m": 0.2,
+                    "drop_m": 0.25,
+                    "rise_m": 0.43
+                  }
+                }
+              ]
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "aic_taylor_1445_pullman_from_sw",
+            "loc_det_4a08065_pullman_residence",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The sheet's north-west block (u 22.8-27.8, flush with the Prairie front, out to v -1.53: built 1.2 m out, a pavilion's most, 0.33 m short) and the 18th Street pavilion (u 9.5-19.75, 2 m out on the sheet; built 6.0 m wide and 1.2 m out, a pavilion's most, centred on the sheet's, the rest open in the match record), both carried full height under the main cornice as the photograph shows them; the round bay on the north flank (u 15.8-19.7) is not built. T-3160: the 18th Street pavilion moved 1.375 m east (centred at s 14.5, 11.5-17.5) so it stands clear of the porte-cochere (porte_cochere, s 6.35-11.48), still inside the sheet's u 9.5-19.75; its lights round-headed as the print's flank windows are (K06's round fanlight sash). T-3161: the 18th Street pavilion (p_south, s 11.5-17.5, 1.2 m out under its own hip) is taken off. Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json) shows the flank's cornice running unbroken from the corner pier past the porte-cochere, the mansard carried over it with its dormers, and no hipped roof standing out of it; the second storey there is a flat wall with a pair, an oculus pier and a triple (north_bays). The sheet's 2 m line at u 9.5-19.75 is not a wall in the photograph; the photograph, the nearer witness, governs and the sheet's line is left in the match record. The section at the flank's east end whose cornice breaks forward (x 784-850 px, s about 22-27.75) is not built: how far it stands out is not read. T-1881 (the owner, 2026-10-28: the stepped front and the south face still far off the photographs): both projections are built again, each carried full height under its own mansard and cornice as the three pictures show them. p_forward is the Prairie front's forward block over the door: the 1911 sheet's u 22.8-27.8 line read again as a block 6.5 m wide and 2.95 m proud (v 2.0-8.5), which the Detroit print shows standing in front of the main front with its own mansard and the portico before it, and Taylor's no. 1445 shows breaking the cornice forward at the north-west (x 152-260 px); its door is cut through its front (entrance), its corners turned by banded piers 0.9 m wide in 0.4 m courses (pilasters.bands), the print's rusticated stone at the block's south edge (x 412-428 px), and its second storey has two round-arched lights, as the Detroit print draws them either side of a tree (x 327-335 and 390-403 px; their places on the block are reconstructed, symmetric). p_18th is the 18th Street pavilion, s 8.3-18.55, 2.47 m out: the sheet's 2 m line at u 9.5-19.75 together with Taylor's cornice, which breaks forward over the porte-cochere (x 590-610 px) and runs on at the pavilion's line to x 785, read through the camera on the 20.4 m plane. Its second storey's pair (x 655-680 px, built at s 10.0 as K06's paired round sash) and triple (x 727-765, s 14.45-16.35) and the principal storey's pair seen through the porte-cochere's arches (x 745-768, s 15.9 and 16.8) are on its front, not the flank's, which T-3161 read them on; T-3161's flat flank is withdrawn. T-1881: each carries its own dormers on its mansard (mansard_dormers, the main mansard's round-headed dormer with its eared hood): the forward block one at v 4.2 (at_m -1.05), centred on its section as the Detroit print draws it (x 322-353 px), which until now stood on the main mansard at v 1.5 behind the block; the pavilion two, over its pair and its triple (s 10.0 and 15.4) as Taylor's photograph no. 1445 draws them (lights at x 657-670 and 739-750 px), 0.7 m lights in 0.2 m surrounds so the first clears the pavilion's west hip (L-k01-1729-pullman-bay-dormers-1881). T-1881: the forward block's ground-storey window at its centre (a 1.1 m two-over-two light, sill 2.6 m) is taken off: the door stands there now, under the portico, as the Detroit print shows only the door between the columns (L-pullman-1729-entry-axis-1881). T-1881: the rusticated pier between the second storey's pair and triple and the round oculus in its head (Taylor's photograph no. 1445, x 699-716 px), read through its solved camera on the pavilion's 20.4 m plane: the pier's banded face at x 702-718 px puts it at s 12.31-13.43 (built 1.1 m broad, centred at s 12.87, 0.12 m proud as the forward block's banded corners are), its channels under the oculus and a plain block round it; the oculus's dark glass about 8.5 px high at 23.7 px a metre (0.36 m across, built 0.18 m in radius), its centre at x 712.5, y 388.5 px, s 13.04 and 10.65 m over grade (built at s 12.87, 4.05 m over the storey's floor, centred in the pier). Its ring's breadth and proud and the courses' rhythm are reconstructed, below what the print resolves at 14 px a metre along the face (L-pullman-1729-oculus-pier-1881)."
         },
-        "draft": {
+        "rear_wings": {
+          "value": [
+            {
+              "id": "se_block",
+              "rect": [
+                -2.0,
+                0.0,
+                11.63,
+                18.83
+              ],
+              "floor_m": 0.75,
+              "storey_heights_m": [
+                4.0
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.8,
+                  "width_m": 1.0,
+                  "height_m": 2.2
+                }
+              ],
+              "windows": {
+                "rear": [
+                  3.6
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              },
+              "past_host": true
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The sheet's one-storey 'B' block at the south-east corner (u -2.0 to 0, v 11.6-18.8), laid in brick behind the stone house."
+        },
+        "street_front_windows": {
           "value": {
-            "pass": "T-2335",
-            "liberty": "L-draft-prairie-16-18-east-2335",
-            "register_row": "frontage-20-035",
-            "census_ids": [
-              "s20-1729-f",
-              "s20-1729-a1",
-              "s20-1729-a2"
+            "windows": [
+              {
+                "component": "k01.opening.street_sash_round_fanlight",
+                "storey": 0,
+                "s_m": 11.3,
+                "width_m": 1.2,
+                "sill_m": 2.5,
+                "height_m": 3.25
+              },
+              {
+                "component": "k01.opening.street_sash_round_fanlight",
+                "storey": 0,
+                "s_m": 15.45,
+                "width_m": 0.9,
+                "sill_m": 2.5,
+                "height_m": 2.75
+              },
+              {
+                "component": "k01.opening.street_sash_round_fanlight",
+                "storey": 1,
+                "s_m": 6.45,
+                "width_m": 1.0,
+                "sill_m": 7.7,
+                "height_m": 2.65,
+                "voussoirs": {
+                  "ring_m": 0.25,
+                  "stones": 13,
+                  "proud_m": 0.05,
+                  "key_m": [
+                    0.22,
+                    0.3
+                  ]
+                }
+              },
+              {
+                "component": "k01.opening.street_sash_round_fanlight_wide",
+                "storey": 1,
+                "s_m": 11.26,
+                "width_m": 1.45,
+                "sill_m": 7.7,
+                "height_m": 2.65,
+                "voussoirs": {
+                  "ring_m": 0.25,
+                  "stones": 13,
+                  "proud_m": 0.05,
+                  "key_m": [
+                    0.22,
+                    0.3
+                  ]
+                }
+              },
+              {
+                "component": "k01.opening.street_sash_round_fanlight",
+                "storey": 1,
+                "s_m": 15.45,
+                "width_m": 0.8,
+                "sill_m": 7.7,
+                "height_m": 2.65,
+                "voussoirs": {
+                  "ring_m": 0.25,
+                  "stones": 13,
+                  "proud_m": 0.05,
+                  "key_m": [
+                    0.22,
+                    0.3
+                  ]
+                }
+              }
             ],
-            "trace_building": "s20fp-1729-b1",
-            "seed": 3054461091,
-            "replaceable_by": [
-              "T-1880",
-              "T-1881"
+            "base_top_m": 0.9
+          },
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "T-3157: the Prairie front's street windows read off the Detroit print through its camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json; the front's plane u 27.75, v along it from the north wall, 14-16 px a metre), each on 5-6x crops. Second storey: three round-arched lights between the rusticated piers, the north one over the portico at x 390-402 px (v 6.0-6.9), the centre one the widest at x 452-472 (v 10.6-12.0) and the south one narrow at x 519-528 (v 15.2-15.7); their sills at about 7.5-7.8 m (y 380-382) and their crowns at about 10.1-10.3 m (y 339), each arch under a moulded ring (x 447-473 at the centre, about 0.25 m out from the light), laid as K02 voussoirs flush but for 0.05 m, with a keystone barely larger, since the print's 15 px a metre does not part a moulding from a ring of stones (L-k01-1729-pullman-heads-3157). Principal storey, behind the ivy: the centre light's arched head at y 411 (5.8 m) over a sill hidden at about y 468, and the south one's at y 418 (5.3 m); the ivy hides their surrounds, so their arches carry none, and the centre one is held 1.2 m wide so its head stands clear of the portico's south end (v 10.6). The north bay's principal storey is the door under the portico. Widths are the lights between the jambs' dark edges plus a sash frame each side."
+        },
+        "basement_lights": {
+          "value": {},
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the raised basement's lights are not laid on the Prairie front (T-3157): the Detroit print shows none, the street wall and the ivy standing in front of the basement, and the front's windows are named one by one off the print (street_front_windows), which takes no area lights."
+        },
+        "street_front_pavilions": {
+          "value": {
+            "piers": [
+              {
+                "s_m": [
+                  13.6,
+                  14.74
+                ]
+              },
+              {
+                "s_m": [
+                  16.8,
+                  17.93
+                ],
+                "corner": true,
+                "return_m": 1.1
+              },
+              {
+                "s_m": [
+                  26.55,
+                  27.75
+                ],
+                "corner": true,
+                "return_m": 0.0,
+                "wall": "k01.wall.side.north"
+              }
             ],
-            "card": "District draft — refined by T-1880, T-1881."
+            "proud_m": 0.15,
+            "from_m": 0.9,
+            "course_m": 0.4,
+            "channel_m": 0.1,
+            "quoin_step_m": 0.15,
+            "frieze": {
+              "from_s_m": -1.2,
+              "bed_m": [
+                10.7,
+                10.86
+              ],
+              "bed_proud_m": 0.1,
+              "panel_m": [
+                10.98,
+                11.62
+              ],
+              "panel_max_m": 2.6,
+              "panel_inset_m": 0.2,
+              "frame_m": 0.1,
+              "frame_proud_m": 0.08
+            },
+            "modillions": {
+              "pitch_m": 0.5,
+              "width_m": 0.15,
+              "out_m": 0.25,
+              "drop_m": 0.25,
+              "end_clear_m": 0.3
+            },
+            "belt": {
+              "bed_m": 6.72,
+              "profile": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0.08,
+                  0
+                ],
+                [
+                  0.08,
+                  0.03
+                ],
+                [
+                  0.12,
+                  0.06
+                ],
+                [
+                  0.15,
+                  0.12
+                ],
+                [
+                  0.17,
+                  0.2
+                ],
+                [
+                  0.17,
+                  0.32
+                ],
+                [
+                  0.12,
+                  0.34
+                ],
+                [
+                  0.07,
+                  0.36
+                ],
+                [
+                  0.07,
+                  0.8
+                ],
+                [
+                  0.1,
+                  0.82
+                ],
+                [
+                  0.1,
+                  0.95
+                ],
+                [
+                  0,
+                  0.95
+                ]
+              ],
+              "runs": [
+                {
+                  "wall": "k01.wall.side.south",
+                  "s_m": [
+                    21.8,
+                    27.75
+                  ]
+                },
+                {
+                  "wall": "k01.wall.street_front",
+                  "s_m": [
+                    0.0,
+                    17.93
+                  ]
+                },
+                {
+                  "wall": "k01.wall.side.north",
+                  "s_m": [
+                    0.0,
+                    27.75
+                  ]
+                }
+              ]
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "aic_taylor_1445_pullman_from_sw",
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "T-3158, through the Detroit print's solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json): rusticated piers divide the Prairie front into pavilions at x 363-380, 412-428 and 497-515 px, which put them at v 3.96-5.26, 7.65-8.82 and 13.67-14.89 on the front's plane; the third is built to 14.74, 0.15 m short of the reading, where the south windows' voussoir rings stand. The south-west corner is turned by the same banded stone (x 545-560, v 16.9-17.9), built as a corner pier returned 1.1 m onto the 18th Street flank. The piers rise from the base's coping to the cornice's bed, banded in channelled courses that step in and out (the print's long-and-short banding; its rhythm here is reconstructed at 0.5 m courses, 0.05 m channels, a 0.1 m step and 0.12 m proud, below what the print's 16 px a metre resolves), and break the deep frieze between the second storey's heads (about 10.6 m) and the cornice (about 12.0 m): its bed course at 10.72-10.84 m and a framed panel in it between each pair of piers (the panels' number and framing reconstructed: the print reads the frieze as a band of shadowed panels). A row of modillions under the cornice's corona (x 435-520 px, y 309-313, read as a dotted band), laid all round the cornice at a reconstructed 0.5 m pitch, 0.12 m wide and 0.22 m out. Raised ribs on the mansard's Prairie face over the first two piers (x 369-379 and 413-423 px), so the roof reads in sections over the bays; their 0.45 m section and stone colour reconstructed. The curb's step between the sections (2-3 px, about 0.15 m) is under the good-enough bar and not built (L-pullman-1729-pavilions-3158). T-1881: the first two piers (v 3.96-5.26 and 7.65-8.82) and the mansard ribs over them are the forward block's corners now (bays.p_forward, its banded pilasters); the third pier and the corner stay. T-1881: the belt course between the principal and second storeys (`belt`), which Taylor's photograph no. 1445 and the 1890 Albertype plate (Prairie library a16-albertype-1890-pullman-residence) draw as a deep, shadowed band under the second storey's sills round the front, its pavilions and the 18th Street flank: through Taylor's camera, on the flank at u 24, the sill line at y 446-450 px and the shadow under the string at 462-470, so a band from about 6.7 m to 7.7 m; the plate's at y 443-463 on the front. Built as one moulded section 0.95 m high from a 6.72 m bed, a string 0.17 m out at its foot under a plain fascia 0.07 m out and a sill nosing at its top, swept round the north-west pavilion, the Prairie front, the forward block, the corner pier (broken forward over it, as the cornice is) and the whole 18th Street flank and pavilion; its section and its run on to the faces no picture shows are reconstructed (L-k01-1729-pullman-belt-hoods-1881). T-1881: the 18th Street flank's east end turned by a banded corner pier under the cornice broken forward over it (Taylor's photograph no. 1445, x 830-845 px under modillions running on to x 850-856), read through its solved camera on the flank's 17.93 m plane: its banded face from s 25.9 to the corner; its west edge is behind a tree's trunk (x 816-830 px), so it is built 1.2 m broad (s 26.55-27.75), as the south-west corner pier is. It does not return onto the rear, where the 1911 sheet's one-storey brick block (rear_wings se_block) is built against the corner and no picture sees the face over it (L-pullman-1729-oculus-pier-1881)."
+        },
+        "porte_cochere": {
+          "value": {
+            "wall": "k01.wall.side.north",
+            "s_m": [
+              8.25,
+              12.75
+            ],
+            "out_m": 5.97,
+            "thickness_m": 0.45,
+            "spring_m": 4.85,
+            "head_m": 6.85,
+            "arches": [
+              {
+                "face": "low_end",
+                "centre_m": 4.0,
+                "span_m": 2.2
+              },
+              {
+                "face": "front",
+                "centre_m": 10.8,
+                "span_m": 2.2
+              },
+              {
+                "face": "high_end",
+                "centre_m": 4.0,
+                "span_m": 2.2
+              }
+            ],
+            "entablature": {
+              "height_m": 0.35,
+              "proud_m": 0.15
+            },
+            "balustrade": {
+              "height_m": 0.7,
+              "post_m": 0.3,
+              "baluster_m": 0.1,
+              "pitch_m": 0.2,
+              "rail_m": [
+                0.25,
+                0.15
+              ]
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "aic_taylor_1445_pullman_from_sw",
+            "loc_det_4a08065_pullman_residence",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3160, through the Detroit print's solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json): the arcade on the 18th Street flank (x 598-685 px) is a one-storey block standing out from the flank, not arches in its wall. Its west end is seen nearly square to the camera (its round arch is as wide as it is high, about 15 px a metre either way), its south front edge-on past the corner pier (about 5 px a metre along it). Its west face meets the flank at x 598 (u 21.4, s 6.35); the west arch's jambs at x 610 and 645 put it 0.81-3.18 m out (span 2.37 m), its crown at y 410 and springing at about 428 (6.0 and 4.85 m); the corner pier at x 645-668 and the south front's arch at x 668-678 put the front 4.27 m out and its arch at s 7.78-10.05 (span 2.27 m); the pier at x 678-685 ends where the tree and the building beyond take over (s 11.7). The entablature's soffit at y 402 (6.5 m), the balustrade's base at y 397 and its top at 389 (about 6.85 and 7.4 m). The block's east end is a bounded design: closed at s 11.48 by a corner pier the size of the west one, with an arch mirroring the west end's, so the carriage passes through (L-pullman-1729-porte-cochere-3160). The 1911 sheet draws the one-storey 'porte-cochere' (s20fp-1729-b1 p4) at u 15-20, 2-5.4 m out (s 7.75-12.75), 1.4 m east of and 1.1 m further out than the print's; the print, the nearer witness to what stood, governs the build, and the disagreement is written into the match record. T-3161, through Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json), which sees this block at 18-20 px a metre: its deck's balustrade turns its corner at x 730 px, rising to the left over the west end and falling to the right along the front, so the large arch (x 660-715, the side door seen through it) is in the WEST end and the narrower one (x 745-780, the flank's windows seen through it) in the south front. The west end meets the flank at x 625 (s 10.25) and its corner stands 5.45 m out; the west arch's jambs at 1.9 and 4.7 m out (built 1.85-4.6, the least corner pier the kit lays); the front's arch at s 11.25-13.7 (centre 12.48, span 2.46), and the front ends at x 800-805 (s 15.2-15.6, built 15.4). So the block stands at s 10.25-15.4, 5.45 m out, with walls 0.45 m thick; refitting the camera to honour the Detroit-built Prairie front's piers and lights (which this camera alone reads 2-4 m off) moves its west end only to s 9.6-9.7, so the reading stands against the camera's one weakness: 3.9 m east of and 1.2 m further out than the Detroit print's reading, which sees this face at 5-6 px a metre. The 1890 Albertype plate's arch stands 20-30 px east of the old build through its own camera, which is where this one puts it, and the 1911 sheet's outer line is 5.4 m out (its s 7.75-12.75 is 2.5 m west of this). The east end's arch is not seen (trees) and mirrors the west's (reconstructed). Heights: the crown reads 6.2 m (built 6.23 on the 4.85 m springing), the entablature's soffit 6.9 (built 6.85, was 6.5) and the deck's balustrade stands level with the second storey's sills over it, as built (its height 0.7 m, was 0.55, its top 7.9 m under the 8.3 m sills). T-1881: moved to the 1911 sheet's footprint, s 8.25-12.75 and 5.97 m out (u 15.0-19.5 to v 23.9), between Taylor's reading (s 10.25-15.4) and the Detroit print's (s 6.35-11.48), so it stands in front of the 18th Street pavilion (bays.p_18th) as both photographs show it. The west end's arch is read in Taylor at x 660-715 px, 3.5-5.8 m out on the s 8.25 plane; it is built 2.9-5.1 m out (centre 4.0, span 2.2), the outermost the kit lays with a 0.4 m pier inside the 0.45 m front wall, 0.5 m short of the reading. The front's arch at s 9.7-11.9 (centre 10.8, span 2.2), the furthest east the front's 4.5 m allows; Taylor's x 745-780 px reads 10.5-12.95. The east end mirrors the west (reconstructed)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.5
+            },
+            "drives": [
+              {
+                "to": "porte_cochere",
+                "surface": "gravel",
+                "width_m": 2.4,
+                "wear_tone": 0.82,
+                "centre_m": [
+                  [
+                    7.1,
+                    28.05,
+                    0.1
+                  ],
+                  [
+                    7.1,
+                    21.93,
+                    0.091
+                  ],
+                  [
+                    19.6,
+                    21.93,
+                    0.109
+                  ]
+                ],
+                "aprons_m": [
+                  [
+                    19.6,
+                    26.2,
+                    18.4,
+                    27.2,
+                    0.12
+                  ]
+                ]
+              },
+              {
+                "to": "stable",
+                "surface": "gravel",
+                "width_m": 2.6,
+                "wear_tone": 0.82,
+                "centre_m": [
+                  [
+                    -18.7,
+                    28.05,
+                    0.081
+                  ],
+                  [
+                    -18.5,
+                    24.0,
+                    0.073
+                  ],
+                  [
+                    -17.7,
+                    18.0,
+                    0.061
+                  ],
+                  [
+                    -17.7,
+                    12.4,
+                    0.05
+                  ]
+                ],
+                "aprons_m": [
+                  [
+                    -20.95,
+                    -16.6,
+                    7.2,
+                    12.5,
+                    0.045
+                  ]
+                ]
+              }
+            ],
+            "grade_m": {
+              "front": 0.083,
+              "street": 0.108,
+              "per_m_s": 0.0035,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "sources": [
+            "loc_det_4a08065_pullman_residence",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot out to the wall's opening, where it jogs 0.7 m south behind the wall to pass between the piers (the opening reads 0.7 m south of the stair's axis), and on to the public walk; the lawn across the front. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget. T-1881: the gate now stands on the stair's axis (boundary), so the walk runs straight from the gate to the stair's foot with no jog. T-1934 (the owner, 2026-10-30: a way for the horses into the stable and to the side entry, \"no plants blocking it\"): two carriage drives in gravel, worn in two wheel tracks (the K14 kit's drive wear). One from the 18th Street wall's gap east of the house (x 5.6-8.6, Taylor's 1445) north and west under the porte-cochere, through its end arches on their axis (4.0 m out), to a turning apron past its west end; one from the stable court's carriage way (boundary, Taylor's 16555, which shows the way paved) up the court to an apron before the stable's arcade and its broad arch. The 1445 and 16555 prints show the ways; the drives' lines, widths, the aprons and the gravel are RECONSTRUCTED (L-pullman-carriage-ways-1934). The front-yard plants keep clear of both (tools/plant_prairie_1904_front_yards.py)."
         }
       }
     }

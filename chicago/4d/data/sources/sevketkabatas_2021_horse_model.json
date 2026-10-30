@@ -1,0 +1,29 @@
+{
+  "id": "sevketkabatas_2021_horse_model",
+  "type": "website",
+  "citation": "sevketkabatas, \u201cHorse\u201d, published 29 March 2021, CC BY 4.0, retrieved via AllenAI Objaverse by ordinary public HTTP200 on 22 October 2026.",
+  "author": "sevketkabatas",
+  "date": "2021-03-29",
+  "describes_date": "2021-03-29",
+  "repository": "Sketchfab / AllenAI Objaverse individual model",
+  "url": "https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "archived_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-124/53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
+  "tier": 5,
+  "rights_status": "cleared",
+  "rights_note": "Current public author API, archived individual Objaverse metadata and actual embedded GLB asset.extras all identify CC BY4.0. Original source/texture bytes retained; dataset-wide ODC-By1.0 notice and individual credit retained separately.",
+  "rights_checked": {
+    "date": "2026-10-22",
+    "method": "Three agreeing individual rights records plus normal unauthenticated public acquisition; actual source mesh, textures, rig/default pose and four native views inspected.",
+    "outcome": "Cleared source redistribution/adaptation with author/source/license credit and change notice under CC BY4.0."
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Modern development-base geometry/coat/rights only, not historical evidence. All1835 individual, phenotype, size, grooming and placement choices remain reconstructed. The current canonical26 derivative b479442c uses project-reconstructed rig/V16 skin and planted body-shift clip; original source remains unchanged in preserved acquisition/recovery records. No source motion is relabelled walk or composed with this clip. Photographic, tack, riding and hitching remain open. Eye-UV-v1 d4544c28 separately supersedes the selected b479 appearance with reconstructed dark pupil/gaze through existing UV10 only; all six source image payloads remain exact. Fresh d454 production clone/Mixer129 CPU passed without inheriting b479 historical qualification. Native browser, mobile, world, tack, routes and photographic completion remain open.",
+  "what_it_supplies": [
+    "Redistributable textured modern source mesh/maps under CC BY4.0, used in an explicitly reconstructed canonical26 planted-standing derivative."
+  ],
+  "what_it_does_not_supply": [
+    "Historical Chicago animal identity/breed/coat/ownership/date, verified metric size, approved locomotion, fitted harness or photographic-master acceptance."
+  ],
+  "access_notes": "Ordinary public Objaverse redistribution returned HTTP200 without authentication on2026-10-22. Model publication2021-03-29 and acquisition2026-10-22 describe the MODERN asset, not the target1835scene. Current individual API, archived object metadata and embedded GLB asset.extras agree on CC BY4.0."
+}

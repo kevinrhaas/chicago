@@ -37,8 +37,8 @@
       "id": "agency_striker_log_house_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        724.4,
-        130.28
+        755.5,
+        131.78
       ],
       "height_m": 16.8,
       "confidence": "reconstructed",
@@ -48,8 +48,8 @@
       "id": "agency_striker_log_house_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        721.22,
-        103.14
+        757.38,
+        123.53
       ],
       "height_m": 1.27,
       "confidence": "reconstructed",
@@ -741,8 +741,8 @@
       "id": "recon_1835_blk_randolph_clinton_d4_02_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -191.63,
-        -343.31
+        -192.21,
+        -338.89
       ],
       "height_m": 16.1,
       "confidence": "reconstructed",
@@ -1401,8 +1401,8 @@
       "id": "recon_1835_blk_west_lake_canal_d4_02_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -119.4,
-        -200.64
+        -118.81,
+        -205.14
       ],
       "height_m": 17.9,
       "confidence": "reconstructed",
@@ -1445,8 +1445,8 @@
       "id": "recon_1835_blk_west_randolph_canal_d5_01_tree_1",
       "species": "populus_deltoides",
       "at_local_enu_m": [
-        -113.94,
-        -315.37
+        -113.32,
+        -320.06
       ],
       "height_m": 18.1,
       "confidence": "reconstructed",
@@ -1478,8 +1478,8 @@
       "id": "recon_1835_blk_west_randolph_canal_d6_04_tree_1",
       "species": "populus_deltoides",
       "at_local_enu_m": [
-        -56.3,
-        -345.09
+        -57.47,
+        -340.5
       ],
       "height_m": 19.5,
       "confidence": "reconstructed",
@@ -1489,8 +1489,8 @@
       "id": "recon_1835_blk_west_randolph_canal_d6_04_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        -48.47,
-        -345.87
+        -30.42,
+        -335.12
       ],
       "height_m": 1.48,
       "confidence": "reconstructed",
@@ -1555,8 +1555,8 @@
       "id": "recon_1835_blk_west_randolph_des_plaines_d6_03_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -431.9,
-        -320.29
+        -432.5,
+        -315.78
       ],
       "height_m": 16.4,
       "confidence": "reconstructed",
@@ -1621,8 +1621,8 @@
       "id": "recon_1835_blk_west_washington_canal_d4_03_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -109.15,
-        -449.03
+        -108.57,
+        -453.41
       ],
       "height_m": 17.3,
       "confidence": "reconstructed",
@@ -1666,7 +1666,7 @@
       "species": "ulmus_americana",
       "at_local_enu_m": [
         -111.34,
-        -425.21
+        -434.42
       ],
       "height_m": 17.7,
       "confidence": "reconstructed",
@@ -1698,8 +1698,8 @@
       "id": "recon_1835_blk_west_washington_canal_d6_01_tree_2",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -117.57,
-        -420.42
+        -118.98,
+        -419.01
       ],
       "height_m": 17.3,
       "confidence": "reconstructed",
@@ -1720,8 +1720,8 @@
       "id": "recon_1835_blk_west_washington_canal_d7_05_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -112.16,
-        -484.88
+        -114.28,
+        -487.0
       ],
       "height_m": 16.6,
       "confidence": "reconstructed",
@@ -3381,8 +3381,8 @@
       "id": "recon_1835_west_019_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        -250.76,
-        -283.33
+        -269.24,
+        -272.66
       ],
       "height_m": 1.09,
       "confidence": "reconstructed",
@@ -3392,8 +3392,8 @@
       "id": "recon_1835_west_019_bush_2",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        -269.24,
-        -272.66
+        -262.24,
+        -269.63
       ],
       "height_m": 0.84,
       "confidence": "reconstructed",
@@ -3656,8 +3656,8 @@
       "id": "recon_1835_west_042_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        -492.6,
-        -132.6
+        -479.4,
+        -119.4
       ],
       "height_m": 1.18,
       "confidence": "reconstructed",

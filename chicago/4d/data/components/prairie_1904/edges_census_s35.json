@@ -1,0 +1,82 @@
+{
+  "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 35 for the district draft's named context buildings off Prairie Avenue (T-2982, piece 1 of T-2162): 213, 215 and 217 East Twentieth Street and 2008 and 2018 Calumet Avenue. The T-1842 census (chicago/prairie_1904_v1/data/sheet_census/sheet-35.json) counts Prairie frontages only and says so ('The Indiana and Calumet frontages of the sheet are not Prairie frontages and are not counted here'; its ruling r35-2018-calumet leaves the Calumet house unplaced), so these five rows are read here, in the same frontage contract, for tools/trace_prairie_1904_footprints.py (sheet '35x') and tools/draft_prairie_1904.py to read. It sits beside the draft rules, not in the Prairie census directory, because tools/sheet_census.py holds that directory to Prairie ranges.",
+  "ticket": "T-2982",
+  "sheet": "35x",
+  "target_date": "1904-07-01",
+  "source": {"source_id": "sanborn_1911_chicago_v3_sheet_35", "file": "chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_35.jpg", "observation_year": 1911},
+  "reading": {
+    "by": "Read by eye from the committed sheet 35 scan (1602 x 2000 px) at 3x over the Calumet lots and 4x and 8x over the 20th Street lots, 2026-10-22.",
+    "conventions": "Sanborn colour: pink brick, blue stone, yellow frame. D = dwelling. Storey figures as printed (B = basement).",
+    "limits": "A 1911 label is a 1911 observation (study ruling 11): the two Calumet 'GARAGE' buildings are backcast as stables. 213's storey figure is blurred on this scan and reads 3 or 4; the draft takes 3 and says so. No dimension is claimed beyond the trace."
+  },
+  "frontages": [
+    {
+      "frontage_id": "frontage-35x-213",
+      "printed_number_1911": "213",
+      "side": "south",
+      "parcel_ids": ["e20th_213"],
+      "polygons": [
+        {"id": "s35x-213-front", "kind": "front", "reading_1911": "3 brick dwelling (D) running nearly the lot's depth, its east wall stepped at the rear (the figure is blurred: 3 or 4)"}
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "One of the three rowhouses the study register splits out of pa-213–217-e.-cullerton-street-27 (built c. 1870-1900, standing today); the 1911 sheet draws three separate brick dwellings on the three lots.",
+      "named_record_ids": ["pa-213–217-e.-cullerton-street-27"],
+      "front_package": "T-1939"
+    },
+    {
+      "frontage_id": "frontage-35x-215",
+      "printed_number_1911": "215",
+      "side": "south",
+      "parcel_ids": ["e20th_215"],
+      "polygons": [
+        {"id": "s35x-215-front", "kind": "front", "reading_1911": "3 brick dwelling (D) set back behind a front yard closed by a dashed line, a shorter body than its neighbours"}
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "The middle house of pa-213–217-e.-cullerton-street-27, which the register says is separately dated; the sheet draws it standing in 1911 and nothing removes it before.",
+      "named_record_ids": ["pa-213–217-e.-cullerton-street-27"],
+      "front_package": "T-1939"
+    },
+    {
+      "frontage_id": "frontage-35x-217",
+      "printed_number_1911": "217",
+      "side": "south",
+      "parcel_ids": ["e20th_217"],
+      "polygons": [
+        {"id": "s35x-217-front", "kind": "front", "reading_1911": "3½ brick dwelling (D) with a rounded bay at its street corner, a frame strip across the middle of its plan and a 3-storey rear range with a cut corner"}
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "The corner house of pa-213–217-e.-cullerton-street-27, with the copper oriel and turreted gable its photographs show; the sheet's 3½ and corner bay are that house.",
+      "named_record_ids": ["pa-213–217-e.-cullerton-street-27"],
+      "front_package": "T-1939"
+    },
+    {
+      "frontage_id": "frontage-35x-2008",
+      "printed_number_1911": "2008",
+      "side": "west",
+      "parcel_ids": ["calumet_2008"],
+      "polygons": [
+        {"id": "s35x-2008-front", "kind": "front", "reading_1911": "3B brick dwelling (D) faced in stone (blue) along its Calumet front and its south side, with a canted corner projection and a small frame porch at the south-west"},
+        {"id": "s35x-2008-rear", "kind": "detached_service", "reading_1911": "2-storey brick building on the alley lettered GARAGE, with a 1-storey piece at its south end", "note_1904": "The Hanford barn: 'P. C. Hanford, two-st'y barn, 2010 Calumet Ave.' (American Architect, 13 September 1884); a garage only by 1911."}
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "Philander C. Hanford house (Jaffray & Scott, 1883; razed 1953): the 1883 permit for 'two-st'y dwell., 2008 Calumet Ave.' and the December 1883 Inland Architect plate; the 1920 sale notice reads '3 story residence ... also 2 sty. brick garage, 75x30', the sheet's two buildings.",
+      "named_record_ids": ["pa-2008-s.-calumet-avenue-56"],
+      "front_package": "T-1940"
+    },
+    {
+      "frontage_id": "frontage-35x-2018",
+      "printed_number_1911": "2018",
+      "side": "west",
+      "parcel_ids": ["calumet_2018"],
+      "polygons": [
+        {"id": "s35x-2018-front", "kind": "front", "reading_1911": "3B brick dwelling (D) with a 3B rear range, a frame porch on the Calumet front and another on the south side; dashed lines inside the outline"},
+        {"id": "s35x-2018-rear", "kind": "detached_service", "reading_1911": "2-storey brick building on the alley lettered GARAGE, with a 1-storey piece at its south end", "note_1904": "The Wheeler-Kohn barn: 'To Rent — 2018 Calumet-av., large brick barn, suitable for garage' (Tribune, 24 May 1911)."}
+      ],
+      "decision_1904": "present_as_mapped",
+      "why": "Calvin T. Wheeler / Joseph A. Kohn house (Otis L. Wheelock, 1870), standing today; not 2018 Prairie (sheet-35.json ruling r35-2018-calumet).",
+      "named_record_ids": ["pa-2018-s.-calumet-avenue-31"],
+      "front_package": "T-1941"
+    }
+  ],
+  "vacant_ground": []
+}

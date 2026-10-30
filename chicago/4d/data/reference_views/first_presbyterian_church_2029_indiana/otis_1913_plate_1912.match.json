@@ -1,0 +1,53 @@
+{
+  "structure_id": "first_presbyterian_church_2029_indiana",
+  "view": "otis_1913_plate_1912",
+  "glb": "assets/gltf/first_presbyterian_church_2029_indiana__draft_1904.glb",
+  "glb_sha256": "5007a5be41acb7a36265919dbc8777535806d03fc841db1bd79be8364ad41287",
+  "camera_sha256": "cb8db10fd1c4f2aec7a1abe84b91dcde388a6ecc75818af75fdb5ad552f1cfe5",
+  "photo_sha256": "e35e3f2061603a891a354efa58d6e563c104aa3051995ac048aa4c4d38bcadd4",
+  "side_by_side": "docs/RESEARCH/photo-match/first_presbyterian_church_2029_indiana/otis_1913_plate_1912-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "tower and spire: the tower's three stages between angle buttresses, its south-face window under a pointed head in the second stage and its belfry, the gablets and corner pinnacles at its head and the plain octagonal slated spire to its knob and rod, all as T-3103 built them from the 1887 plate; they stand on the 1912 plate's outline within the camera's residuals (the finial 1 px, the spire's foot 11 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the west gable seen edge-on beyond the tower, its coping and the cross on its apex: the plate's cross is about 55 px tall, its top at 35.0 m, where the render's stopped at 32.95 m; the cross is raised to 34.65 m (cross_m 3.8), the height both plates give it",
+      "status": "fixed"
+    },
+    {
+      "what": "the nave's south roof slope from the tower to the east gable, slated, its ridge level at about 30.9 m and the east gable's verge falling to the south-east corner: the render's ridge and verge lie on the plate's",
+      "status": "fixed"
+    },
+    {
+      "what": "two gabled ventilators on the south slope, dark triangles about 3.6 m across standing on the slope at about 23.15 m and rising to about 26.3 m, 21.5 m and 32.2 m behind the front; the render's roof was plain. Built as two gablets on the slope (gablets 5 and 6), within 5 px of the plate's",
+      "status": "fixed"
+    },
+    {
+      "what": "what fills the ventilators' faces: the plate shows each face dark, as the shadowed recess of an open or louvred vent would read, and does not resolve louvres; the render shows the gablets' brick ends. Left as brick rather than invent a fill (the draft renders louvre fills pale, so a louvre would read further from the plate than the brick does)",
+      "status": "not shown"
+    },
+    {
+      "what": "a short stack on the east gable's apex, at the ridge's east end, to about 32.4 m; the render had none. Built (stacks[1])",
+      "status": "fixed"
+    },
+    {
+      "what": "the 21st Street flank, its walls, buttresses, corbel table and openings: below the eaves it is screened by the two-storey building with a billboard and the small gabled house on 21st Street's south side and by the streetcar on Indiana Avenue, so the plate cannot show it",
+      "status": "not shown"
+    },
+    {
+      "what": "a tall stack rising beyond the east gable at x 862-893 px: its foot is hidden, and it lines up with the left end of the frame building in the right foreground, on Indiana Avenue's east side south of 21st Street; one view cannot place it on the church, so it is not built",
+      "status": "not shown"
+    },
+    {
+      "what": "the spire's band of lucarnes, which projects about 0.2 m past the spire (3 px here), under the halftone's screen",
+      "status": "not shown"
+    },
+    {
+      "what": "the north slope, the north and east walls, and colour: the plate does not see the first three and is monochrome",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -109,15 +109,28 @@
     },
     {
       "id": "green_tree",
-      "local_e": -44.11,
+      "local_e": -49.91,
       "local_n": -121.52,
       "aerial": false,
       "inside": true,
-      "ground_m": 1.035,
+      "ground_m": 1.038,
       "dry": true,
       "stands_on": null,
       "deck_m": null,
-      "margin_m": 45,
+      "margin_m": 47.5,
+      "inside_a_roof": null
+    },
+    {
+      "id": "western_hotel_yard",
+      "local_e": -124,
+      "local_n": -292,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 1.105,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 125,
       "inside_a_roof": null
     },
     {
@@ -252,7 +265,7 @@
     }
   ],
   "totals": {
-    "anchors": 18,
+    "anchors": 19,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,

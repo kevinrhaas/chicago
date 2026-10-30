@@ -1,0 +1,210 @@
+{
+  "id": "house_1703_indiana",
+  "name": "1703 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+  "aka": [
+    "1703 S. Indiana Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D) behind a stone (blue) strip along its Indiana front, a 3B part and a 1B piece behind it, a one-storey frame piece at its south-west corner'. Carried to 1904 on the T-3019 census ruling (present_as_mapped)."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-3019, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20w trace (s20wfp-indiana_1703-b1), the T-3019 census (s20w-1703-front) and the T-1837 register row frontage-20w-1703 (Brick dwelling); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3019).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-3019 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
+      },
+      "position": {
+        "utm_e": 448384.503,
+        "utm_n": 4634306.77,
+        "rotation_deg": 179.447,
+        "symbolic_location": "1703 S. Indiana Avenue, parcel indiana_1703 (data/street_grid/1904.json), east side of Indiana Avenue, the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (Sanborn 1911 vol. 3 sheet 20, checked lot by lot against Robinson 1886 plate 10).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 17.000, v -12.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.447 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            24.5,
+            0.0
+          ],
+          [
+            24.5,
+            8.25
+          ],
+          [
+            0.0,
+            8.25
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "'2½B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
+        },
+        "construction": {
+          "value": "brick_with_stone_front",
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The register reads the map's colours as 'brick, stone front'."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 2,
+                "roof": "hip",
+                "rect": [
+                  0.0,
+                  0.0,
+                  24.5,
+                  8.25
+                ],
+                "from": "s20wfp-indiana_1703-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r2",
+                "role": "wing",
+                "storeys": 2,
+                "roof": "flat",
+                "rect": [
+                  8.75,
+                  8.25,
+                  15.5,
+                  10.75
+                ],
+                "from": "s20wfp-indiana_1703-b1 p3 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r3",
+                "role": "bay",
+                "storeys": 2,
+                "roof": "flat",
+                "rect": [
+                  24.5,
+                  2.0,
+                  27.0,
+                  8.0
+                ],
+                "from": "s20wfp-indiana_1703-b1 p3 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r4",
+                "role": "range",
+                "storeys": 1,
+                "roof": "flat",
+                "rect": [
+                  22.25,
+                  8.25,
+                  28.0,
+                  10.75
+                ],
+                "from": "s20wfp-indiana_1703-b1 p1 (range, frame), rectangle 1 of that part; the part's rectangles cover 92% of its fill"
+              }
+            ],
+            "lot_v": [
+              -1.136,
+              26.636
+            ],
+            "street_u": 37.394
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20wfp-indiana_1703-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s20wfp-indiana_1703-b1 p3 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s20wfp-indiana_1703-b1 p3 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill; s20wfp-indiana_1703-b1 p1 (range, frame), rectangle 1 of that part; the part's rectangles cover 92% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "house",
+            "seed": 774882884,
+            "principal_floor_m": 1.4,
+            "storey_heights_m": [
+              3.9,
+              3.5,
+              3.3,
+              3.1
+            ],
+            "roof_pitch_deg": 38,
+            "mansard_lower_m": 3.0,
+            "front_bays": 3,
+            "entrance": "north",
+            "side_spacing_m": 2.6,
+            "chimneys": 2,
+            "brackets": false,
+            "attic_dormers": true,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-3019",
+              "refined_by": [
+                "T-1946"
+              ]
+            },
+            "v_toward": "south"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B behind the stone strip along its Indiana front; the trace reads the 3B part at its rear into the main body, so it stands at the body's storeys until T-1946 reads it apart, and the one-storey frame piece at its south-west corner stands one storey, as the sheet prints it. Robinson 1886 draws a stone-front brick house here. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 774882884 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3019."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-3019",
+            "liberty": "L-draft-district-background-3019",
+            "register_row": "frontage-20w-1703",
+            "census_ids": [
+              "s20w-1703-front"
+            ],
+            "trace_building": "s20wfp-indiana_1703-b1",
+            "seed": 774882884,
+            "replaceable_by": [
+              "T-1946"
+            ],
+            "card": "District draft — refined by T-1946."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

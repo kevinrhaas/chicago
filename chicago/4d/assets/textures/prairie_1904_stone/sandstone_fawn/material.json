@@ -1,0 +1,85 @@
+{
+  "id": "sandstone_fawn",
+  "package": "K02",
+  "dressing": "tooled",
+  "tile_m": [
+    1.2,
+    1.2
+  ],
+  "resolution_px": {
+    "basecolor": 1024,
+    "normal_gl": 1024,
+    "orm": 512,
+    "height16": 512
+  },
+  "px_per_m": 853.33,
+  "height16_range_m": 0.0009,
+  "mean_roughness": 0.82,
+  "measured": {
+    "relief_m": 0.0009,
+    "mean_roughness_measured": 0.82,
+    "mean_basecolor_srgb": [
+      146,
+      131,
+      110
+    ],
+    "seam_to_interior_step": 1.015
+  },
+  "colors_srgb": [
+    [
+      163,
+      148,
+      125
+    ],
+    [
+      129,
+      115,
+      96
+    ]
+  ],
+  "note": "A light fawn-brown sandstone, rubbed nearly smooth: the same fine sand grain and horizontal bedding as sandstone_brown, paler and less red, its iron mottles faint. The shade is reconstructed, bounded by the print values of 1729 Prairie's photographs (docs/RESEARCH/pullman-stone-1881/).",
+  "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+  "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+  "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "files": {
+    "basecolor.png": "sandstone_fawn_basecolor.png",
+    "normal_gl.png": "sandstone_fawn_normal_gl.png",
+    "orm.png": "sandstone_fawn_orm.png",
+    "height16.png": "sandstone_fawn_height16.png",
+    "basecolor_web.jpg": "sandstone_fawn_basecolor_web.jpg",
+    "normal_gl_web.jpg": "sandstone_fawn_normal_gl_web.jpg",
+    "orm_web.jpg": "sandstone_fawn_orm_web.jpg"
+  },
+  "web": {
+    "basecolor": "sandstone_fawn_basecolor_web.jpg",
+    "normal_gl": "sandstone_fawn_normal_gl_web.jpg",
+    "orm": "sandstone_fawn_orm_web.jpg"
+  },
+  "bytes": {
+    "basecolor.png": 1150153,
+    "normal_gl.png": 1690657,
+    "orm.png": 362123,
+    "height16.png": 496946,
+    "basecolor_web.jpg": 84678,
+    "normal_gl_web.jpg": 266463,
+    "orm_web.jpg": 67878
+  },
+  "sha256": {
+    "basecolor.png": "f71a7623ace3a4e2c93d7ccab585a49fe52c889d97ba1fd618f4c492120b3d5b",
+    "normal_gl.png": "209e42d6aa299a0a7fbdd1d0dc0a3b1e688dc509d53905267fece81b616f8cc8",
+    "orm.png": "083a6655e1a3e63d93e9f77d822ac547886c55a7779f98bbfd0c3c7d94ec6267",
+    "height16.png": "23fe3939eff008fbe3bd062ffab6846850271b24f1fbfdcf9ccf12bfd72a364d",
+    "basecolor_web.jpg": "601c08ef00dc0f770ad489f306ebbc351f303df096f8b6ecd4c1877b0e233f90",
+    "normal_gl_web.jpg": "d515a237c746aaf935643e0369f05c75896f4d39ee11347f300ada6ddf39f9ba",
+    "orm_web.jpg": "361e1fa450ee9a52bb8908cc25306f459371a43ff8ea01894890d604a16f08e2"
+  },
+  "seamless": true,
+  "generator_seed": 19040807,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+}

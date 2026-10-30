@@ -1,0 +1,76 @@
+{
+  "id": "wheeler_house_1812_prairie",
+  "scene": "1904",
+  "name": "George H. Wheeler House",
+  "address": "1812 S. Prairie Ave.",
+  "status": {
+    "text": "Gone",
+    "today": "No longer standing",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1800_1900_west"
+    ],
+    "note": "The district's marker lists it among the lost houses of Prairie Avenue and gives no year."
+  },
+  "built": {
+    "year": 1884,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1800_1900_west"
+    ]
+  },
+  "use": "Home",
+  "summary": "A brick row house in the Dutch style, built in 1884 for George H. Wheeler. He owned grain elevators. Burnham and Root designed it.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "Burnham & Root",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    },
+    {
+      "label": "Built for",
+      "value": "George H. Wheeler",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    },
+    {
+      "label": "Style",
+      "value": "Dutch vernacular",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The district's marker calls it a picturesque row house in the Dutch style.",
+      "about": "structure",
+      "surprising": true,
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "The marker calls it 'a picturesque brick row house in the Dutch vernacular style'."
+    },
+    {
+      "text": "George Wheeler made his money in grain elevators, where Chicago stored grain from the farms.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "The marker: 'built for George Wheeler, a grain elevator owner'. What an elevator did is plain description, not a claim about Wheeler's own."
+    }
+  ],
+  "style": null,
+  "story": []
+}

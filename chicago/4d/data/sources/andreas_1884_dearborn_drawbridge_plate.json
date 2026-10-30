@@ -1,30 +1,31 @@
 {
   "id": "andreas_1884_dearborn_drawbridge_plate",
   "type": "illustration",
-  "citation": "\"DEARBORN STREET DRAWBRIDGE, BUILT IN 1834.\" — wood engraving, in A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 631, in the chapter \"Wolf Point and Early Hotels\".",
-  "author": "unsigned; no engraver's mark or draughtsman's signature is legible at the resolution the scan publishes",
+  "citation": "\"DEARBORN STREET DRAWBRIDGE, BUILT IN 1834.\" — wood engraving, in A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 631, in the chapter \"Wolf Point and Early Hotels\". Drawing signed \"L. Braunhold, del.\" at lower right (draughtsman); engraver not separately identified.",
+  "author": "L. Braunhold (draughtsman; signed 'L. Braunhold, del.' at lower right); engraver not separately identified",
   "date": "1884",
   "describes_date": "1834-1839",
   "repository": "reproduced in Andreas 1884 vol. 1; scanned copy at archive.org",
   "url": "https://archive.org/details/historyofchicago01andr/page/n1295/mode/1up",
-  "locator": "Printed page 631, scan leaf index n1295. The plate fills the upper half of the page; its caption is lettered across the foot of the block.",
+  "locator": "Printed page 631, scan leaf n1295. The illustration lies between the upper and lower prose blocks, captioned DEARBORN STREET DRAWBRIDGE, BUILT IN 1834. The downloaded page derivative is mirrored; the historical plate reference is correctly oriented.",
   "tier": 5,
   "rights_status": "public_domain",
   "rights_note": "Published 1884 in the United States, so the volume and its plates are out of copyright by age; the parent record `andreas_1884_v1` is already graded `public_domain` on the same ground. The Sauganash plate carries an in-plate copyright line naming A. T. Andreas — a claim made in 1884 and long expired, and it is recorded because it is on the plate, not because it bites. This is what going to the volume buys over an aggregator: the rights question is settled by the imprint instead of left open.",
   "asset_use": "cross_check",
   "verified": true,
   "access_notes": "archive.org item `historyofchicago01andr`. The plate leaves were found from the volume's own LIST OF ILLUSTRATIONS (§ VIEWS), read at the page image, which gives the printed page of every plate in the volume. Two things about the scan, both measured on 2026-09-13 and neither of them obvious: the derivative served by `/download/historyofchicago01andr/page/n<leaf>_large.jpg` is MIRRORED — flip it horizontally before reading anything — and in this stretch of the volume the leaf index is 2 x the printed page + 33, verified at printed pages 629, 630, 631, 632, 634 and 636. That arithmetic is LOCAL: leaf 361 is not printed page 164, so re-derive the offset from a known plate rather than extrapolating across the volume. The `_page_numbers.json` derivative carries no page numbers at all for this item and `_scandata.xml`'s `<pageNumber>` disagrees with the BookReader leaf index; neither is usable here.",
-  "note": "IMAGE 2 OF THE OWNER'S BRIEF OF 2026-08-18, identified — the closer of the brief's two Dearborn drawbridge engravings, which `dearborn_street_bridge_1834_engraving` explicitly declined to claim when it identified image 3.\n\nThe brief describes image 2 as \"the 1834 gallows-frame drawbridge: twin timber A-frames/gallows posts above the deck, chains to the leaves, timber approaches. Sailing vessels (schooner rig) moored close by; small boats on the water.\" The plate was retrieved and read at the page image on 2026-09-13 and carries all of it: two braced timber gallows frames standing above the deck with chains falling from their heads, a railed deck on timber cribbing, an approach on trestle at the left, a schooner under sail immediately alongside at the right with her rigging drawn stroke by stroke, and a small boat on the water below the draw.\n\nWHY IT IS NOT IMAGE 3. Image 3's three distinguishing features — masts crowding the reach BELOW the bridge, a tapering light structure on the far shore near the mouth, and a run of low warehouses along the bank — are absent here. This plate holds one vessel, close, and open water behind it. The two records now hold the two views and neither claims the other's.\n\nRETROSPECTIVE. The bridge stood from 1834 until it was cut up in 1839 and the plate was cut for a volume of 1884, so it is a drawing of a thing fifty years gone. Tier 5, and the standing rule for the whole brief applies: form and setting as `inferred`, never a coordinate and never a footprint.",
+  "note": "THE EXACT CAPTIONED ANDREAS PLATE, independently re-read on 23 October 2026. The actual IA page derivative at historyofchicago01andr/page/n1295_large.jpg shows this same composition at printed p. 631: the two gallows frames, rising closed-draw boarded parapets, bearing cribs, large schooner alongside, small open boat in the foreground, additional background masts, lighthouse and bank buildings. The clearer correctly oriented reference carries the lower-right signature L. Braunhold, del. Existing image inventory credits L. Braunhold for this plate.\n\nThe former note wrongly excluded the lighthouse, bank buildings and other masts from this plate, and its unsigned author statement overlooked the visible signature. Those absences cannot distinguish this illustration from the separate Baker-Co engraving captioned Old Dearborn Street (Old Point) Bridge. That second artwork keeps its own check_required source record; no publication or reproduction rights for it are established by this page-level verification.\n\nRETROSPECTIVE: the bridge stood 1834–1839 and this plate was published 1884. The caption dates the bridge, not the precise depicted moment or every background feature. Tier 5 pictorial form/setting may be inferred; no geographic coordinate, footprint, measured rise, width, scantling, construction specification or accepted image match follows. Any proposed metric rise and parapet sections remain explicitly reconstructed; this board-only increment keeps the deck flat.",
   "what_it_supplies": [
     "the gallows frames drawn close: two braced timber A-frames standing above the deck, with a chain from each head",
     "the deck as a railed timber way carried on cribbing, and the approach at one end on trestle",
     "a schooner lying immediately alongside the crossing, rigged and drawn in detail",
-    "a small open boat on the water below the draw"
+    "a small open boat on the water below the draw",
+    "boarded parapets rising towards the closed draw centre, without a metric rise",
+    "additional background masts, a lighthouse and bank buildings as drawn retrospective setting"
   ],
   "what_it_does_not_supply": [
     "any coordinate, footprint outline or dimension",
     "a leaf raised — the draw is drawn closed here as in the other view",
-    "the beacon, the crowded reach or the bank warehouses, which belong to image 3 and this plate does not draw",
     "a date for the scene: the caption dates the BRIDGE to 1834, not the moment shown"
   ]
 }

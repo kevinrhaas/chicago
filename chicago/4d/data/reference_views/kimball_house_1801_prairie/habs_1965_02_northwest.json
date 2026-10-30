@@ -1,0 +1,27 @@
+{
+  "structure_id": "kimball_house_1801_prairie",
+  "source_id": "habs_kimball_photo_02_nw_1965",
+  "library_image": "a18-kimball-habs-photo-02",
+  "photo": "../../../../prairie_1904_v1/research/public/kimball-habs-photo-02.jpg",
+  "image_px": [
+    1800,
+    1364
+  ],
+  "principal_px": [
+    1053.3,
+    1152.9
+  ],
+  "focal_px": 1582.8,
+  "eye": [
+    32.93,
+    -20.89,
+    0.19
+  ],
+  "yaw_deg": 320.37,
+  "sun_uvy": [
+    1.0,
+    -0.45,
+    0.55
+  ],
+  "solve": "Fitted by T-3110 to Harold Allen's HABS photograph 2 of June 1965 (the LOC master TIFF 580873pu.tif reduced to 1800 x 1364 px; the copy reads true: the plate's 'HABS No. ILL-1077' runs the right way up its left edge, and the 18th Street flank recedes east to the left of the corner, as it must from the north-west). In the footprint frame u runs toward Prairie Avenue (west) and v runs SOUTH from the 18th Street wall. A view camera: the corner arris and the pilasters stand vertical, so it is level and unrolled, and its lens is shifted. HORIZON: the principal storey's sill course along the flank (y 1098-1100 from x 560 to 1040) is nearly level on the print and the wall's foot under it (y 1172 at x 250, 1192 at x 850) falls only gently toward the corner, while the main cornice's lip falls steeply away from the corner on both faces (y 533 at the corner, x 1303; y 618 at x 980 on the flank; y 599 at x 1400 on the front): the eye stands low, a little over the walk, with the horizon between the two (the fit puts it at y 1153). BEARINGS (x, y on the 1800 px copy) against the build's own points: the flank's two round-headed lights between the tower and the corner (u 14.93 and 16.03, sills 6.08 m, crowns 7.77 m; the print's inner jambs at x 1003-1036 and 1063-1094, sills y 807 and 801, crowns y 718 and 712); the loggia's flank arch's crown (u 18.9, about 3.6 m) at x 1228, y 940; the front's north-west arris (u 20.5, v 0) at x 1300; the cornice's corner lip (u 21.04, v -0.54, 9.41 m) at y 533 and its run along both faces; the south pavilion's gable's axis (u 20.45, v 8.27) at x 1527; the round tower's finial's axis (u 12.62, v -0.1) at x 886; the gabled section's gable finial (u -1.8, 15.36 m) at x 497, y 540; and the north-east turret's axis (u -16.5, v 0.3) at x 250. The main block's flank stack (u 5.0, built) was left out: the print's stands at x 611, about 90 px east of where the build's renders (the Taylor print puts it east of the build's too), a difference in the match record. RESULT the eye at u 32.93, v -20.89, 0.19 m over the lot's grade (the walk at the corner stands about 0.25 m under it), in the intersection about 12 m west of the front and 21 m north of the 18th Street wall; yaw 320.37 (looking south-east, down the flank); f 1583 px (about 59 degrees across the plate); the principal point at x 1053, y 1153 (the rising front lifts the subject up the plate). RESIDUALS (render minus print): rms 6.2 px over the bearings; the round-headed lights within about 2-8 px, the loggia arch's crown 16 px east, the corner arris and lip within 13 px, the front's cornice line about 17 px over the print's 90 px along the front (the front recedes a little more steeply on the print), the pavilion's gable axis 6 px east, the gabled section's finial 2 px west and 14 px high, the turret 9 px west, and the tower's axis 37 px west of the print's (about 1 m along the flank; the Taylor print holds it within 16 px, so the two pictures disagree about it). Heights read through it on the east range, at its wall's depth: the eaves about 5.9 m at the turret end (built 6.35, T-3076 read 6.2-6.4 m off the Taylor print), the frontispiece's gable apex about 8.65 m, its paired light about 4.7-5.9 m and its round-arched light about 2.4-3.1 m, the door's head about 1.8 m over the walk. LIGHT: a June evening sun from the west-north-west and low: the avenue front and the 18th Street flank are both lit, the dormers throw their shadows east across the slate, and the pole's shadow falls east along the walk."
+}

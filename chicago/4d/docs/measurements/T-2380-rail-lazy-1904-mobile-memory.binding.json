@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-26T19:39:45.002865+00:00",
+  "head": "b3fb939f510a4ffe009a7c45f104ddadc76d3761",
+  "uncommitted_exact_two_file_patch_sha256": "f0485d4ac6d4a0c5dc0ca0e525d92a008da3bee7351f62ac6880b8f3a8b8e409",
+  "files": {
+    "railway.js": "88defa3acd81750d3ad4118ab510cef2997eea8e0497f17688bf67d49ef119dc",
+    "main.js": "c303aa15788205c5d1dbbf546e5c5c6be72d5d7f0cf148e5bd100d5a0611eebd"
+  },
+  "published_walk_bytes_exact": true,
+  "all4CPU": [
+    0,
+    1,
+    3,
+    4
+  ],
+  "held_mobile_light_ceiling_MiB": 400,
+  "no_cap_asset_geometry_or_visibility_change": true,
+  "command": [
+    "node",
+    "tools/measure_memory.mjs",
+    "--gate",
+    "--year",
+    "1904",
+    "--only",
+    "mobile",
+    "--json",
+    "/tmp/jail-currentdev-ending-20261026/rail-lazy-headroom/actual-mobile/memory.json"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "reason": "T-2793/T-3084/T-3088: preserve canonical and historical transport source meshes in the repository without duplicating unused masters in every visitor download. The standing horse's live model is anatomy-v2 (standing-horses.json); the two v16 files are its preserved parents. The Brougham's live models are the near and mid deliveries; its two sources are read only by tools/transport/brougham/check_*.py from the source tree.",
+  "files": [
+    "transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb",
+    "transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb",
+    "transport/parked-brougham/brougham-source.glb",
+    "transport/parked-brougham/brougham-mid-source.glb"
+  ]
+}

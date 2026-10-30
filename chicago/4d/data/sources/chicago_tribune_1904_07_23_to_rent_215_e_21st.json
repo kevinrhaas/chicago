@@ -1,0 +1,25 @@
+{
+  "id": "chicago_tribune_1904_07_23_to_rent_215_e_21st",
+  "type": "newspaper",
+  "citation": "Classified advertisement, 'To rent—215 E. 21st-st., ... furnished, large, light room'. Chicago Daily Tribune, 23 July 1904 (vol. 63 no. 176).",
+  "author": "Chicago Daily Tribune",
+  "date": "1904-07-23",
+  "describes_date": "1904-07-23",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "url": "https://archive.org/details/per_chicago-daily-tribune_1904-07-23_63_176",
+  "locator": "The issue's OCR text (per_chicago-daily-tribune_1904-07-23_63_176), the classified columns; the OCR runs neighbouring advertisements together, so only the words quoted in the note are read from it.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States newspaper of 1904; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Found by the Internet Archive's full-text search for the street address and read in the issue's OCR text for T-3013 on 2026-10-23; the page image was not consulted.",
+  "note": "A furnished room to let at 215 East 21st Street three weeks after the scene's date: the lot held a dwelling in July 1904. In 1910 the trade directories put the Security Demountable Rim Co. at 215-217 East 21st Street.",
+  "what_it_supplies": [
+    "that 215 East 21st Street was a dwelling letting rooms in July 1904"
+  ],
+  "what_it_does_not_supply": [
+    "the building's form, storeys, material or outline",
+    "a construction or demolition date"
+  ]
+}

@@ -47,17 +47,46 @@ if g.get('level_courtyard_gable'):
     south=profile(r,'south')
     assert len(south)==3 and abs(south[1][0]-r['ridge_at'])<1e-4
     assert abs(south[1][1]-zng(38.6))<1e-4
-    # North section control S14.6 must continue across the west crossing.
-    # The older S18.4 cross-gable can be watertight yet visibly kink in plan.
-    assert abs(g['cross_y']-(74-14.6)*.3048)<1e-4
-    assert abs(g['cross_y']-n['ridge_at'])<1e-4
-    assert abs((p.turrets[0]['y0']+p.turrets[0]['y1'])/2-n['ridge_at'])<1e-4
+    # T-3096 (T-3095's ruling A): the alley cross ridge comes down its own north
+    # plane, its pitch kept, to S12.31 at 36.5 ft (its own plane, within 1 mm), where the prints' course count and
+    # the measured-control cameras put it. It no longer shares the north range's
+    # S14.6 line; the cupola stays on that line (T-2228) and the lowered ridge still
+    # runs into the cupola's west face rather than past its north side.
+    assert abs(g['cross_y']-(74-12.31)*.3048)<1e-4
+    assert abs(g['cross_z']-zng(36.17))<1e-4
+    # T-3148: its north foot is the 18th Street eave, level either side of the stable's
+    # gable (HABS 01's tiles draw one straight line from W 60 to W 160), so with the
+    # plane kept on the alley gable's north rake the cross ridge stands at S12.31 at 36.17 ft
+    # (0.10 m under T-3096's, inside its cameras' 0.3 m) and the plane at 46.7 degrees, not 42.5.
+    assert abs(g['north_west_eave']-g['north_eave'])<1e-6
+    pitch=math.degrees(math.atan2(g['cross_z']-g['north_west_eave'],r['y1']-g['cross_y']))
+    assert abs(pitch-46.7)<.2,pitch
+    t=p.turrets[0]
+    assert abs((t['y0']+t['y1'])/2-n['ridge_at'])<1e-4
+    assert t['y0']<g['cross_y']<t['y1']
     from archetypes.masonry_house_v4_west_roof import ridge_ranges
     east_west=[(run,a,b) for run,a,b in ridge_ranges(r) if run['axis']=='x' and abs(run['ridge_z']-p.detail['west_dormer']['apex_z'])>.01]
     assert east_west
     for run,a,b in east_west:
-        assert abs(run['ridge_at']-n['ridge_at'])<1e-4
+        assert abs(run['ridge_at']-n['ridge_at'])<1e-4 or abs(run['ridge_at']-g['cross_y'])<1e-4
         assert abs(run.get('ridge_skew',0))<1e-10
+    cross_runs=[(a,b) for run,a,b in east_west if abs(run['ridge_at']-g['cross_y'])<1e-4]
+    assert len(cross_runs)==1 and t['x0']<cross_runs[0][1]<t['x1'],cross_runs
+    # The alley gable keeps its apex and stands proud of the lowered roof: its
+    # wall line is never under the roof at the alley face, and its coping clears
+    # the tiles (0.245 m over this envelope) along both rakes.
+    ap=g['alley_parapet']
+    assert abs(ap['apex_y']-(74-14.6)*.3048)<1e-4 and abs(ap['apex_z']-zng(38.6))<1e-4
+    for i in range(1,100):
+        y=g['south_foot_y']+(r['y1']-g['south_foot_y'])*i/100
+        a,c=(g['south_foot_y'],g['cross_foot_eave']),(ap['apex_y'],ap['apex_z'])
+        if y>ap['apex_y']:a,c=c,(r['y1'],g['north_west_eave'])
+        line=a[1]+(c[1]-a[1])*(y-a[0])/(c[0]-a[0])
+        assert line>=height(r,r['x0'],y)-1e-3,(y,line)
+        assert line+ap['lift']>height(r,r['x0'],y)+.245+.04,(y,line)
+    # No roof oversails the alley wall over the gable; the alley eave south of it does.
+    assert height(r,r['x0']-.1,(g['south_foot_y']+r['y1'])/2)==0
+    assert height(r,r['x0']-.1,g['south_foot_y']-1)>0
     # Matching 2.36-ft awning, continuous at the 24-ft north courtyard edge.
     edge=r['x1']+2.36*.3048
     ny=n['y0']-n['eave_lo_overhang']
@@ -81,7 +110,9 @@ if g.get('level_courtyard_gable'):
                 assert height(r,r['x1'],y)>o['z1']+.27,(o,y)
     # The 2026-10-15 owner aerial priority supersedes the west-study peak
     # at S18.4. Preserve end eaves and the full-height north-south ridge.
-    for station,roof_z in ((0,25.2),(14.6,38.6),(35,16.5),(59.75,16.5)):
+    # T-3096 lowers the cross ridge at the alley to S12.31/36.5 ft on its own
+    # north plane; T-3148 brings its north end down to the 18th Street eave.
+    for station,roof_z in ((0,23.1),(12.31,36.17),(35,16.5),(59.75,16.5)):
         assert abs(height(r,r['x0'],(74-station)*.3048)-zng(roof_z))<1e-4
     for _,pts in patches(r,False):
         for a,b in zip(pts,pts[1:]+pts[:1]):
@@ -91,6 +122,15 @@ if g.get('level_courtyard_gable'):
                 x=a[0]+dx*t;y=a[1]+dy*t
                 if not(r['x0']-.15+1e-5<x<edge-1e-5 and r['y0']-.20+1e-5<y<r['y1']-1e-5):continue
                 xx,yy=-dy/length*1e-6,dx/length*1e-6
+                # the roof's outline at the alley parapet is no internal edge
+                if min(height(r,x+xx,y+yy),height(r,x-xx,y-yy))==0:continue
+                # T-3096: east of where the lowered cross ridge dies into the stable's
+                # west slope, the 18th Street gable's west plane meets the slope behind
+                # it in a seam of at most 4 cm, wholly under the cupola, whose body
+                # stands down into the roof there (z0 below the slope).
+                tu=p.turrets[0]
+                if tu['x0']<x<tu['x1'] and tu['y0']<y<tu['y1'] and tu['z0']<height(r,x,y)-.1:
+                    assert abs(height(r,x+xx,y+yy)-height(r,x-xx,y-yy))<.05,(x,y);continue
                 assert abs(height(r,x+xx,y+yy)-height(r,x-xx,y-yy))<1e-4,(x,y)
 elif g.get('connected_roof_plan'):
     assert not g.get('lower_rear_gable') and not g.get('continuous_south_gable')

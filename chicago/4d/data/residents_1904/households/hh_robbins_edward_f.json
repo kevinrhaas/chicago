@@ -1,0 +1,64 @@
+{
+  "id": "hh_robbins_edward_f",
+  "scene": "1904",
+  "name": "The Robbins household at 2126 Prairie Avenue",
+  "head": "pa1904_robbins_edward_f",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2126 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 2126 Mr. & Mrs. Edward F. Robbins."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "robbins_house_2126_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905",
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2126, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 a widow, Jessie Doane as the surname is best read, and her children lived here, not the Robbinses. The census says nothing about this household's staff. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_robbins_edward_f",
+      "name": "Edward F. Robbins",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2126 Mr. & Mrs. Edward F. Robbins"
+    },
+    {
+      "id": "pa1904_robbins_mrs_edward_f",
+      "name": "Mrs. Edward F. Robbins",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2126 Mr. & Mrs. Edward F. Robbins"
+    }
+  ],
+  "research_note": "The Prairie Avenue marker dates this house 'Built 1904' for Edward F. Robbins, and the 1904 Blue Book (canvassed from September 1903) already lists the Robbinses at 2126; whether they had moved into the new house by 1 July 1904 is not documented."
+}

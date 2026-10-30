@@ -1,0 +1,2102 @@
+{
+  "batches": [
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 25344,
+          "byte_offset": 12672,
+          "componentType": 5126,
+          "count": 1584,
+          "max": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "min": [
+            -0.7071067690849304,
+            -0.7071067690849304,
+            -0.7071067690849304,
+            -1.0
+          ],
+          "sha256": "5fa873ad90dee0596cdce3b9579e02a09035ed03852942fe8593a899a246b265",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 12672,
+          "byte_offset": 0,
+          "componentType": 5126,
+          "count": 1584,
+          "max": [
+            1.5024617910385132,
+            0.6703571677207947
+          ],
+          "min": [
+            -0.6037939786911011,
+            -0.29035714268684387
+          ],
+          "sha256": "46172d9361567222b715be1f3344a8e641c9c9bcfab88b8433e389dd99bf86c0",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "2eccce4a8fdb0022f6adae5eeef8d46b682cce9a50b86d3f315d673d80e732fa",
+        "POSITION": "e118d388d18428b54e62566818a93bf862850ca105ed74758627736fe58da5e1"
+      },
+      "material": 2,
+      "name": "vehicle_body_plank_a",
+      "parts": [
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "floor_plank_00",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "floor_plank_02",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "floor_plank_04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "floor_plank_06",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "side_-1_course_0",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "side_-1_course_2",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "side_1_course_0",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "side_1_course_2",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "end_-1.525_course_0",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "end_-1.525_course_2",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "end_1.525_course_0",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 2,
+          "name": "end_1.525_course_2",
+          "vertices": 132
+        }
+      ],
+      "vertex_count": 1584
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 25344,
+          "byte_offset": 50688,
+          "componentType": 5126,
+          "count": 1584,
+          "max": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "min": [
+            -0.7071067690849304,
+            -0.7071067690849304,
+            -0.7071067690849304,
+            -1.0
+          ],
+          "sha256": "3241d68fa7fba579688a3aac42681060bdc61ade3965d257e70577e30f9a7dc2",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 12672,
+          "byte_offset": 38016,
+          "componentType": 5126,
+          "count": 1584,
+          "max": [
+            1.4756317138671875,
+            0.6703571677207947
+          ],
+          "min": [
+            -0.6429084539413452,
+            -0.29035714268684387
+          ],
+          "sha256": "12941a876aff81de8d6c86347b0e1790e4fb16c4e9a761096e406c9dab2c8468",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "2eccce4a8fdb0022f6adae5eeef8d46b682cce9a50b86d3f315d673d80e732fa",
+        "POSITION": "a0ef5efa3f5fb8d6b6f5bdabb86640c6de3b96666a98e7f7fadee2db67f535ea"
+      },
+      "material": 3,
+      "name": "vehicle_body_plank_b",
+      "parts": [
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "floor_plank_01",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "floor_plank_03",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "floor_plank_05",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "floor_plank_07",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "side_-1_course_1",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "side_-1_course_3",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "side_1_course_1",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "side_1_course_3",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "end_-1.525_course_1",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "end_-1.525_course_3",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "end_1.525_course_1",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 3,
+          "name": "end_1.525_course_3",
+          "vertices": 132
+        }
+      ],
+      "vertex_count": 1584
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 18048,
+          "byte_offset": 85056,
+          "componentType": 5126,
+          "count": 1128,
+          "max": [
+            1.0,
+            1.0,
+            0.9999993443489075,
+            1.0
+          ],
+          "min": [
+            -0.7071067690849304,
+            0.0,
+            -0.7071067690849304,
+            -1.0
+          ],
+          "sha256": "88f9e8088e5c114f4a1a09284615c7d204035e9f24bc328cca33d6b0c3e51324",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 9024,
+          "byte_offset": 76032,
+          "componentType": 5126,
+          "count": 1128,
+          "max": [
+            1.336034893989563,
+            0.4294978678226471
+          ],
+          "min": [
+            -0.25141382217407227,
+            -0.04949786886572838
+          ],
+          "sha256": "5e5ceee34a77a8fa3346c5da3b153578b730fad7584fd3acbf275cadd2b71dae",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "a3101c4079a32b401c800b195a11a703453553952a383ee72dcf540d30f493cb",
+        "POSITION": "dcd674c6b98b9110bdce695b08bdf4c8a286d10aae3634ae7ff85fbef187ef52"
+      },
+      "material": 0,
+      "name": "vehicle_body_paint",
+      "parts": [
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "stake_-1_0",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "stake_-1_1",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "stake_-1_2",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "stake_-1_3",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "top_rail_-1",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "stake_1_0",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "stake_1_1",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "stake_1_2",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "stake_1_3",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 0,
+          "name": "top_rail_1",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 1128
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 67584,
+          "byte_offset": 136896,
+          "componentType": 5126,
+          "count": 4224,
+          "max": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "min": [
+            -0.7249316573143005,
+            -0.7071067690849304,
+            -0.7071067690849304,
+            -1.0
+          ],
+          "sha256": "92a38df9acb493c959450b2d48343afbf2689b8ce86adea6778251f57c201b3d",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 33792,
+          "byte_offset": 103104,
+          "componentType": 5126,
+          "count": 4224,
+          "max": [
+            1.0900607109069824,
+            0.26781293749809265
+          ],
+          "min": [
+            -0.08806471526622772,
+            0.0078125
+          ],
+          "sha256": "a70a50ec4772fec180b11897d9e15742bab0c7c3e192250f41451c21c17f4bec",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "f15c1ca7ed1e28f1a15ecf7439eb8eb1e636166eda207d09a871cea671f5a36c",
+        "POSITION": "8c7b974a3d644a1dd3c7cf5482247bfea264bdb604a7a54aeef6a56f5b781404"
+      },
+      "material": 4,
+      "name": "vehicle_body_iron",
+      "parts": [
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_-1_0_1.04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_-1_0_1.4",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_-1_1_1.04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_-1_1_1.4",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_-1_2_1.04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_-1_2_1.4",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_-1_3_1.04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_-1_3_1.4",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_1_0_1.04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_1_0_1.4",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_1_1_1.04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_1_1_1.4",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_1_2_1.04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_1_2_1.4",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_1_3_1.04",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "stake_bolt_1_3_1.4",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_bolt_-1_0.56",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_-1_0.56_1.583_washer",
+          "vertices": 288
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_-1_0.56_1.583_stem",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_-1_0.56_1.583_square_head",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_-1_0.56_1.487",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_bolt_-1_0.74",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_-1_0.74_1.583_washer",
+          "vertices": 288
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_-1_0.74_1.583_stem",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_-1_0.74_1.583_square_head",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_-1_0.74_1.487",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_bolt_1_0.56",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_1_0.56_1.583_washer",
+          "vertices": 288
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_1_0.56_1.583_stem",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_1_0.56_1.583_square_head",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_1_0.56_1.487",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_bolt_1_0.74",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_1_0.74_1.583_washer",
+          "vertices": 288
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_1_0.74_1.583_stem",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_1_0.74_1.583_square_head",
+          "vertices": 132
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 4,
+          "name": "driver_bench_plate_1_0.74_1.487",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 4224
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 576,
+          "byte_offset": 204768,
+          "componentType": 5126,
+          "count": 36,
+          "max": [
+            0.999966025352478,
+            1.0,
+            0.008242456242442131,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "sha256": "83b9d422c8c678a55107ca3557cb18b78a550e2b0bee56294312235814478de1",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 288,
+          "byte_offset": 204480,
+          "componentType": 5126,
+          "count": 36,
+          "max": [
+            1.0750641822814941,
+            0.4706350266933441
+          ],
+          "min": [
+            0.001953125,
+            -0.0906350389122963
+          ],
+          "sha256": "294fb1c8f600476b785c6429492ff37a9d25501dfe54c210f9e31f6b2a1b0bfa",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "97dd3d3c0e90946039b1c540e716add9bbaa0aa7d28e9d56aa3d24657cc94caa",
+        "POSITION": "3815ede298a964b7c3aa66affd3d0ddbb275ce644d973f945b24380219bd03bd"
+      },
+      "material": 0,
+      "name": "vehicle_running_gear_rear_paint",
+      "parts": [
+        {
+          "frame": "vehicle_running_gear_rear",
+          "material": 0,
+          "name": "rear_axle",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 36
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 1728,
+          "byte_offset": 206208,
+          "componentType": 5126,
+          "count": 108,
+          "max": [
+            1.0,
+            1.0,
+            0.9999975562095642,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "sha256": "60678a4434cb565096a2334b48e820c71e66f2971e2425489e6bd66eb2f927dc",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 864,
+          "byte_offset": 205344,
+          "componentType": 5126,
+          "count": 108,
+          "max": [
+            1.4917398691177368,
+            1.036120891571045
+          ],
+          "min": [
+            0.001953125,
+            -0.6561208367347717
+          ],
+          "sha256": "71a9a8e8c2eb9a0f044c9641309b9347d7529fba1062785ae2e6e4c4babd2881",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "04a0e144a1f3c596e57cf042a34181208deb0365039b6da6737b28dacc360b3a",
+        "POSITION": "799c483155cc24a6f197af5977469655a9e7f67380b3be55ca153f711016846c"
+      },
+      "material": 0,
+      "name": "vehicle_root_paint",
+      "parts": [
+        {
+          "frame": "vehicle_root",
+          "material": 0,
+          "name": "bolster_rear",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_root",
+          "material": 0,
+          "name": "bolster_front_fixed",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_root",
+          "material": 0,
+          "name": "reach",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 108
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 1728,
+          "byte_offset": 208800,
+          "componentType": 5126,
+          "count": 108,
+          "max": [
+            1.0,
+            1.0,
+            0.9999684691429138,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "sha256": "a0c3af722d61228bef3a7f1171419cb05cc44bf1aeac21b27bfb29d68b6d213a",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 864,
+          "byte_offset": 207936,
+          "componentType": 5126,
+          "count": 108,
+          "max": [
+            0.9685701131820679,
+            0.8023911118507385
+          ],
+          "min": [
+            -0.22927561402320862,
+            -0.4223911166191101
+          ],
+          "sha256": "49d1aed32f20b1262e4b4e321fb706fa481ff91a6fa1743ce5fbadaa9018af78",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "04a0e144a1f3c596e57cf042a34181208deb0365039b6da6737b28dacc360b3a",
+        "POSITION": "0ee2be23b54de811fa254370e199d83bbaf510bafff094c88f84b9d126d9ba94"
+      },
+      "material": 0,
+      "name": "vehicle_steer_front_paint",
+      "parts": [
+        {
+          "frame": "vehicle_steer_front",
+          "material": 0,
+          "name": "front_axle",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_steer_front",
+          "material": 0,
+          "name": "hound_-1",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_steer_front",
+          "material": 0,
+          "name": "hound_1",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 108
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 576,
+          "byte_offset": 210816,
+          "componentType": 5126,
+          "count": 36,
+          "max": [
+            1.0,
+            0.9998416304588318,
+            0.017796285450458527,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "sha256": "1862e71d60f371c1f9647ced19b8e2d84f4904485785470b4b008072872d65d3",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 288,
+          "byte_offset": 210528,
+          "componentType": 5126,
+          "count": 36,
+          "max": [
+            1.3410935401916504,
+            0.2882694602012634
+          ],
+          "min": [
+            -0.23243533074855804,
+            0.0078125
+          ],
+          "sha256": "b21a81ca89daa4ff7ea96f733af10c72a83e26b9a191eda34b70aff4e50a007b",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "97dd3d3c0e90946039b1c540e716add9bbaa0aa7d28e9d56aa3d24657cc94caa",
+        "POSITION": "047f213b9466bce18645ac718ac57e4e01e0bfc7574d1371ba059afe6b807dc9"
+      },
+      "material": 4,
+      "name": "vehicle_steer_front_iron",
+      "parts": [
+        {
+          "frame": "vehicle_steer_front",
+          "material": 4,
+          "name": "kingbolt",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 36
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 55296,
+          "byte_offset": 239040,
+          "componentType": 5126,
+          "count": 3456,
+          "max": [
+            1.0,
+            1.0,
+            0.9978589415550232,
+            1.0
+          ],
+          "min": [
+            0.0,
+            -0.9978589415550232,
+            -0.9978589415550232,
+            -1.0
+          ],
+          "sha256": "dc33c6962bcf9893e94163202544219e6190ebe6ed4cb7816eee2eca302d0e9a",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 27648,
+          "byte_offset": 211392,
+          "componentType": 5126,
+          "count": 3456,
+          "max": [
+            8.555015563964844,
+            2.4464285373687744
+          ],
+          "min": [
+            -6.930418491363525,
+            -0.125
+          ],
+          "sha256": "06d47f37a0bb1d7cc4c29cfa4f595026a6b43d2676bb80bc16a71f0f50b79fbe",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "82d1dfddb38038006ed3d88a30bb5f017ad19913e0f314a8c9f4b2d7ffc4e50d",
+        "POSITION": "758c2feb0fb5245f83eff0b0599ae8fc0e5d777218eca391fc4912423f7a3388"
+      },
+      "material": 4,
+      "name": "vehicle_wheel_rear_left_iron",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 4,
+          "name": "iron_tyre_rearleft",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 4,
+          "name": "band",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 4,
+          "name": "band",
+          "vertices": 1152
+        }
+      ],
+      "vertex_count": 3456
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 34560,
+          "byte_offset": 311616,
+          "componentType": 5126,
+          "count": 2160,
+          "max": [
+            1.0,
+            0.9999563097953796,
+            0.9999563097953796,
+            1.0
+          ],
+          "min": [
+            -0.01596759259700775,
+            -0.9978589415550232,
+            -0.9978589415550232,
+            -1.0
+          ],
+          "sha256": "e2763fdae7127386ad2af433a6f9a6da211557d82e69065ff06333172ea2e254",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 17280,
+          "byte_offset": 294336,
+          "componentType": 5126,
+          "count": 2160,
+          "max": [
+            1.87544584274292,
+            4.764285564422607
+          ],
+          "min": [
+            -0.25494584441185,
+            -0.22142857313156128
+          ],
+          "sha256": "ae1ea9769ef712ab7e43500781114d07528fdb4c9738ec71f013916ad5feccf8",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "6253e363e3a4976cba9ab9f91602425ae9a087bab455bb8f6012e1e510a86dfd",
+        "POSITION": "057abca08bf20de17c15ce498d6a3958f6cde66bc1f184c4dc193414de1c988d"
+      },
+      "material": 1,
+      "name": "vehicle_wheel_rear_left_timber",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "wood_felloe_rearleft",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_0",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_1",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_2",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_3",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_4",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_5",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_6",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_7",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_8",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_9",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_10",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 1,
+          "name": "spoke_rear_left_11",
+          "vertices": 84
+        }
+      ],
+      "vertex_count": 2160
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 18432,
+          "byte_offset": 355392,
+          "componentType": 5126,
+          "count": 1152,
+          "max": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "sha256": "69994cb7d89b856ec9062f30aa9677d3ae017d0837618b01816cd5ee13215520",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 9216,
+          "byte_offset": 346176,
+          "componentType": 5126,
+          "count": 1152,
+          "max": [
+            0.001953125,
+            0.03125
+          ],
+          "min": [
+            0.001953125,
+            0.03125
+          ],
+          "sha256": "9819de46b72321501c3f68816551cad3922372b1386534bb655aaddacd5c6c58",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "2232009c902c8e816b70b9b8b7477bd40b686bdfa851c0cbbb8f81cdb37a300a",
+        "POSITION": "3a292f86f4485a6be457850c2a35b2c06b26d863f10917939470fcfc0d078737"
+      },
+      "material": 0,
+      "name": "vehicle_wheel_rear_left_paint",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_rear_left",
+          "material": 0,
+          "name": "hub_rearleft",
+          "vertices": 1152
+        }
+      ],
+      "vertex_count": 1152
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 55296,
+          "byte_offset": 401472,
+          "componentType": 5126,
+          "count": 3456,
+          "max": [
+            1.0,
+            1.0,
+            0.9978589415550232,
+            1.0
+          ],
+          "min": [
+            0.0,
+            -0.9978589415550232,
+            -0.9978589415550232,
+            -1.0
+          ],
+          "sha256": "dbc31a511a0ff38f0172d6c768b2e7e491cd6f8107ea19c57980a15079e8fbe4",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 27648,
+          "byte_offset": 373824,
+          "componentType": 5126,
+          "count": 3456,
+          "max": [
+            8.417169570922852,
+            2.4464285373687744
+          ],
+          "min": [
+            -7.068264484405518,
+            -0.125
+          ],
+          "sha256": "c61583b37f202d22025cd868e748e02c304e142fbd5a8145db37bd6f213b2fca",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "82d1dfddb38038006ed3d88a30bb5f017ad19913e0f314a8c9f4b2d7ffc4e50d",
+        "POSITION": "758c2feb0fb5245f83eff0b0599ae8fc0e5d777218eca391fc4912423f7a3388"
+      },
+      "material": 4,
+      "name": "vehicle_wheel_rear_right_iron",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 4,
+          "name": "iron_tyre_rearright",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 4,
+          "name": "band",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 4,
+          "name": "band",
+          "vertices": 1152
+        }
+      ],
+      "vertex_count": 3456
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 34560,
+          "byte_offset": 474048,
+          "componentType": 5126,
+          "count": 2160,
+          "max": [
+            1.0,
+            0.9999563097953796,
+            0.9999563097953796,
+            1.0
+          ],
+          "min": [
+            -0.01596759259700775,
+            -0.9978589415550232,
+            -0.9978589415550232,
+            -1.0
+          ],
+          "sha256": "f7b6c0ccbd1089a3424a47ba8d970dac2f9be5217e3e3d5cecceabad81fc7f0e",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 17280,
+          "byte_offset": 456768,
+          "componentType": 5126,
+          "count": 2160,
+          "max": [
+            1.6098088026046753,
+            4.764285564422607
+          ],
+          "min": [
+            -0.2328089326620102,
+            -0.22142857313156128
+          ],
+          "sha256": "f4b0d824d3dab22544f79c7eb0b2bfc1f51d1c0cc505d4dd79d3c72afec62107",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "6253e363e3a4976cba9ab9f91602425ae9a087bab455bb8f6012e1e510a86dfd",
+        "POSITION": "057abca08bf20de17c15ce498d6a3958f6cde66bc1f184c4dc193414de1c988d"
+      },
+      "material": 1,
+      "name": "vehicle_wheel_rear_right_timber",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "wood_felloe_rearright",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_0",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_1",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_2",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_3",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_4",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_5",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_6",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_7",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_8",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_9",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_10",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 1,
+          "name": "spoke_rear_right_11",
+          "vertices": 84
+        }
+      ],
+      "vertex_count": 2160
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 18432,
+          "byte_offset": 517824,
+          "componentType": 5126,
+          "count": 1152,
+          "max": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "sha256": "69994cb7d89b856ec9062f30aa9677d3ae017d0837618b01816cd5ee13215520",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 9216,
+          "byte_offset": 508608,
+          "componentType": 5126,
+          "count": 1152,
+          "max": [
+            0.001953125,
+            0.03125
+          ],
+          "min": [
+            0.001953125,
+            0.03125
+          ],
+          "sha256": "9819de46b72321501c3f68816551cad3922372b1386534bb655aaddacd5c6c58",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "2232009c902c8e816b70b9b8b7477bd40b686bdfa851c0cbbb8f81cdb37a300a",
+        "POSITION": "3a292f86f4485a6be457850c2a35b2c06b26d863f10917939470fcfc0d078737"
+      },
+      "material": 0,
+      "name": "vehicle_wheel_rear_right_paint",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_rear_right",
+          "material": 0,
+          "name": "hub_rearright",
+          "vertices": 1152
+        }
+      ],
+      "vertex_count": 1152
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 55296,
+          "byte_offset": 563904,
+          "componentType": 5126,
+          "count": 3456,
+          "max": [
+            1.0,
+            1.0,
+            0.9978589415550232,
+            1.0
+          ],
+          "min": [
+            0.0,
+            -0.9978589415550232,
+            -0.9978589415550232,
+            -1.0
+          ],
+          "sha256": "77a655ddb2a37ff3b7ff6ab0b1e09d212d5fe99ca7467dab1bd8a22296b95ec3",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 27648,
+          "byte_offset": 536256,
+          "componentType": 5126,
+          "count": 3456,
+          "max": [
+            7.043193817138672,
+            1.9107142686843872
+          ],
+          "min": [
+            -5.006123065948486,
+            -0.125
+          ],
+          "sha256": "9a83f760b1e1f4953b4aafa7672df3259a31696de49e2ceed20795de3e8da976",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "82d1dfddb38038006ed3d88a30bb5f017ad19913e0f314a8c9f4b2d7ffc4e50d",
+        "POSITION": "8cb65e0bfa07b17abca108614a2333007afdb2b6adc942982125c6008b78326c"
+      },
+      "material": 4,
+      "name": "vehicle_wheel_front_left_iron",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 4,
+          "name": "iron_tyre_frontleft",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 4,
+          "name": "band",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 4,
+          "name": "band",
+          "vertices": 1152
+        }
+      ],
+      "vertex_count": 3456
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 34560,
+          "byte_offset": 636480,
+          "componentType": 5126,
+          "count": 2160,
+          "max": [
+            1.0,
+            0.9999156594276428,
+            0.9999156594276428,
+            1.0
+          ],
+          "min": [
+            -0.022188400849699974,
+            -0.9978589415550232,
+            -0.9978589415550232,
+            -1.0
+          ],
+          "sha256": "1a60c96067300dedc465252e8cfd811da5138aebc818bf88efe374a57085a167",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 17280,
+          "byte_offset": 619200,
+          "componentType": 5126,
+          "count": 2160,
+          "max": [
+            1.1450490951538086,
+            3.692857027053833
+          ],
+          "min": [
+            -0.26805394887924194,
+            -0.22142857313156128
+          ],
+          "sha256": "f40e814e9fdc2164dd8bf8884bfd85d62ac08dcc2fe490ba0f8d1faaf4f4fea2",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "a22bcc5341fae3e6bc34c472904b075ebe3f1223b27740f0a2a010a390f6eb78",
+        "POSITION": "cb2fa22ea936cf4ccaeed89409e8c799aeb5a4dd1e16f5af0819aea1ead819e0"
+      },
+      "material": 1,
+      "name": "vehicle_wheel_front_left_timber",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "wood_felloe_frontleft",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_0",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_1",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_2",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_3",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_4",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_5",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_6",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_7",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_8",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_9",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_10",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 1,
+          "name": "spoke_front_left_11",
+          "vertices": 84
+        }
+      ],
+      "vertex_count": 2160
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 18432,
+          "byte_offset": 680256,
+          "componentType": 5126,
+          "count": 1152,
+          "max": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "sha256": "69994cb7d89b856ec9062f30aa9677d3ae017d0837618b01816cd5ee13215520",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 9216,
+          "byte_offset": 671040,
+          "componentType": 5126,
+          "count": 1152,
+          "max": [
+            0.001953125,
+            0.03125
+          ],
+          "min": [
+            0.001953125,
+            0.03125
+          ],
+          "sha256": "9819de46b72321501c3f68816551cad3922372b1386534bb655aaddacd5c6c58",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "2232009c902c8e816b70b9b8b7477bd40b686bdfa851c0cbbb8f81cdb37a300a",
+        "POSITION": "3a292f86f4485a6be457850c2a35b2c06b26d863f10917939470fcfc0d078737"
+      },
+      "material": 0,
+      "name": "vehicle_wheel_front_left_paint",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_front_left",
+          "material": 0,
+          "name": "hub_frontleft",
+          "vertices": 1152
+        }
+      ],
+      "vertex_count": 1152
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 55296,
+          "byte_offset": 726336,
+          "componentType": 5126,
+          "count": 3456,
+          "max": [
+            1.0,
+            1.0,
+            0.9978589415550232,
+            1.0
+          ],
+          "min": [
+            0.0,
+            -0.9978589415550232,
+            -0.9978589415550232,
+            -1.0
+          ],
+          "sha256": "eec06956245f1e6afd9f7feb5e03f68addf771a386775b8f0c0c31b8573f41ad",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 27648,
+          "byte_offset": 698688,
+          "componentType": 5126,
+          "count": 3456,
+          "max": [
+            6.537219524383545,
+            1.9107142686843872
+          ],
+          "min": [
+            -5.512097358703613,
+            -0.125
+          ],
+          "sha256": "2270fd9ef3b3025f926c41077354c5a294bcad24522e066b943aa68b7c3739eb",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "82d1dfddb38038006ed3d88a30bb5f017ad19913e0f314a8c9f4b2d7ffc4e50d",
+        "POSITION": "8cb65e0bfa07b17abca108614a2333007afdb2b6adc942982125c6008b78326c"
+      },
+      "material": 4,
+      "name": "vehicle_wheel_front_right_iron",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 4,
+          "name": "iron_tyre_frontright",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 4,
+          "name": "band",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 4,
+          "name": "band",
+          "vertices": 1152
+        }
+      ],
+      "vertex_count": 3456
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 34560,
+          "byte_offset": 798912,
+          "componentType": 5126,
+          "count": 2160,
+          "max": [
+            1.0,
+            0.9999156594276428,
+            0.9999156594276428,
+            1.0
+          ],
+          "min": [
+            -0.022188400849699974,
+            -0.9978589415550232,
+            -0.9978589415550232,
+            -1.0
+          ],
+          "sha256": "d58ae6b19038c4710374e932861f9d3d3e104b9ec84ee83e70b5fc7d5ef3a2f9",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 17280,
+          "byte_offset": 781632,
+          "componentType": 5126,
+          "count": 2160,
+          "max": [
+            1.6356462240219116,
+            3.692857027053833
+          ],
+          "min": [
+            -0.057232193648815155,
+            -0.22142857313156128
+          ],
+          "sha256": "163d37c7644362f3550cf4b8092454f0616595f6c958726b664ae6da6cfad4e6",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "a22bcc5341fae3e6bc34c472904b075ebe3f1223b27740f0a2a010a390f6eb78",
+        "POSITION": "cb2fa22ea936cf4ccaeed89409e8c799aeb5a4dd1e16f5af0819aea1ead819e0"
+      },
+      "material": 1,
+      "name": "vehicle_wheel_front_right_timber",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "wood_felloe_frontright",
+          "vertices": 1152
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_0",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_1",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_2",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_3",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_4",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_5",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_6",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_7",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_8",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_9",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_10",
+          "vertices": 84
+        },
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 1,
+          "name": "spoke_front_right_11",
+          "vertices": 84
+        }
+      ],
+      "vertex_count": 2160
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 18432,
+          "byte_offset": 842688,
+          "componentType": 5126,
+          "count": 1152,
+          "max": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "sha256": "69994cb7d89b856ec9062f30aa9677d3ae017d0837618b01816cd5ee13215520",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 9216,
+          "byte_offset": 833472,
+          "componentType": 5126,
+          "count": 1152,
+          "max": [
+            0.001953125,
+            0.03125
+          ],
+          "min": [
+            0.001953125,
+            0.03125
+          ],
+          "sha256": "9819de46b72321501c3f68816551cad3922372b1386534bb655aaddacd5c6c58",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "2232009c902c8e816b70b9b8b7477bd40b686bdfa851c0cbbb8f81cdb37a300a",
+        "POSITION": "3a292f86f4485a6be457850c2a35b2c06b26d863f10917939470fcfc0d078737"
+      },
+      "material": 0,
+      "name": "vehicle_wheel_front_right_paint",
+      "parts": [
+        {
+          "frame": "vehicle_wheel_front_right",
+          "material": 0,
+          "name": "hub_frontright",
+          "vertices": 1152
+        }
+      ],
+      "vertex_count": 1152
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 576,
+          "byte_offset": 861408,
+          "componentType": 5126,
+          "count": 36,
+          "max": [
+            1.0,
+            0.004446332808583975,
+            0.9999901056289673,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "sha256": "526d5f369b0513e18514613f5b7dbf7bbdccb96e77163e24ffe9f19cc51e4c94",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 288,
+          "byte_offset": 861120,
+          "componentType": 5126,
+          "count": 36,
+          "max": [
+            1.0337772369384766,
+            0.4986696243286133
+          ],
+          "min": [
+            -0.19400443136692047,
+            -0.11866961419582367
+          ],
+          "sha256": "4611b2d15c8bb6a96fe167a1a399ac9fd55786ba7823fe7c9bd26f99a63c39fa",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "97dd3d3c0e90946039b1c540e716add9bbaa0aa7d28e9d56aa3d24657cc94caa",
+        "POSITION": "6f9f9dbae918f8c7b6ec7906ac00b33adafba74ff4f0880b01ec83304d013576"
+      },
+      "material": 1,
+      "name": "vehicle_tongue_timber",
+      "parts": [
+        {
+          "frame": "vehicle_tongue",
+          "material": 1,
+          "name": "tongue_timber",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 36
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 1728,
+          "byte_offset": 862848,
+          "componentType": 5126,
+          "count": 108,
+          "max": [
+            0.9988943338394165,
+            0.998943567276001,
+            0.04701131582260132,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "sha256": "a6cf34c5620e0415cd38b9cb2dfb4a277088b11aa34cfffa0a36c9a5dfc0f5d1",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 864,
+          "byte_offset": 861984,
+          "componentType": 5126,
+          "count": 108,
+          "max": [
+            1.1514829397201538,
+            0.34759795665740967
+          ],
+          "min": [
+            0.09826009720563889,
+            0.03240204602479935
+          ],
+          "sha256": "50b32a24d9f5ee7ec214f25436adf318ef96bb3624a3787d7e2a831022e6cb2b",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "04a0e144a1f3c596e57cf042a34181208deb0365039b6da6737b28dacc360b3a",
+        "POSITION": "dd768a6bfcfefb08f9340f343912a379ed7cd2cf86a50c7831b924aea20ab547"
+      },
+      "material": 4,
+      "name": "vehicle_tongue_iron",
+      "parts": [
+        {
+          "frame": "vehicle_tongue",
+          "material": 4,
+          "name": "tongue_strap_0.1",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_tongue",
+          "material": 4,
+          "name": "tongue_strap_0.3",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_tongue",
+          "material": 4,
+          "name": "tongue_strap_2.65",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 108
+    },
+    {
+      "attributes": {
+        "TANGENT": {
+          "byte_length": 4608,
+          "byte_offset": 866880,
+          "componentType": 5126,
+          "count": 288,
+          "max": [
+            1.0,
+            1.0,
+            0.9994167685508728,
+            1.0
+          ],
+          "min": [
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "sha256": "a0747873feded425b7c3367031c24d387c99f7aed40e3edf1aadb88df9cea1b6",
+          "type": "VEC4"
+        },
+        "TEXCOORD_0": {
+          "byte_length": 2304,
+          "byte_offset": 864576,
+          "componentType": 5126,
+          "count": 288,
+          "max": [
+            1.1211178302764893,
+            1.3979787826538086
+          ],
+          "min": [
+            -0.028914034366607666,
+            -1.0179787874221802
+          ],
+          "sha256": "c4c9b7242a005004652373493f0e0b393c608b19b772492b76bb4da774634d84",
+          "type": "VEC2"
+        }
+      },
+      "geometry_sha256": {
+        "NORMAL": "ef0971271d9a1ec3282305c6d28f82cea7b98cc33e21dd6676f84271322842f0",
+        "POSITION": "0fdfb187e7f67ee20d37b2c8a6f1b92b59193ecea7bfe7b5f0b4bec112c5a25f"
+      },
+      "material": 1,
+      "name": "vehicle_body_timber",
+      "parts": [
+        {
+          "frame": "vehicle_body",
+          "material": 1,
+          "name": "driver_bench_plank",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 1,
+          "name": "driver_bench_cleat_-1",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 1,
+          "name": "driver_bench_cleat_1",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 1,
+          "name": "driver_footboard",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 1,
+          "name": "driver_footboard_block_-1_1.201",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 1,
+          "name": "driver_footboard_block_-1_1.339",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 1,
+          "name": "driver_footboard_block_1_1.201",
+          "vertices": 36
+        },
+        {
+          "frame": "vehicle_body",
+          "material": 1,
+          "name": "driver_footboard_block_1_1.339",
+          "vertices": 36
+        }
+      ],
+      "vertex_count": 288
+    }
+  ],
+  "mapping": {
+    "bytes": 58546,
+    "file": "original-w01-charts.mapping.json",
+    "sha256": "e2b47d3062d9a7eb07e9b60bf5e557b5db7100f9207a472ec98fa446152cedc2"
+  },
+  "payload": {
+    "bytes": 871488,
+    "file": "original-w01-charts.bin",
+    "sha256": "cc0b97144be8ff3a3764c583bac907ad010d1d06237aeaa8c7526a1a5a7f7e9a"
+  },
+  "reference": {
+    "grade": "original reconstructed authoring; no photographic or period-finish acceptance",
+    "license": "GPL-3.0-or-later original project geometry and UV/tangent chart source",
+    "material_glb_sha256": "0138ad2565f3e8b08029ef788c5196c65c80c79643313e944c726b993ff31ee4",
+    "original_apply_materials_sha256": "0aaac1a3cbbfa9a6130722094b7fa9c29580db8da074b9bef24defadfc6da578",
+    "original_generate_tiles_sha256": "f7bcef9103a12dcd02d68396699d487cb7163fe266f5eba06dec074ff3d65df0"
+  },
+  "schema": "original_w01_authored_charts_v1",
+  "source_inputs": {
+    "authored_parts_sha256": "2fb3709d233e896280c50342618c28f9e340029e52c67b328100e05a125e2c27",
+    "hardware_glb_sha256": "04820fc15b16c6f1b9b12487c2d6ceb3500d03c94094d84c73554f2b2d1f5709",
+    "material_recipe_sha256": "45b3d15ddf15bf28a38dbc6d2c788354d83eafecc8914278db6e17d9bcf4a0bf"
+  }
+}

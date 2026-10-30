@@ -16,34 +16,56 @@
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 96512,
-      "inputs_sha256": "7ae2d51a57ee3cf767b710cb332c3b605ac5ff090e5ec1fe1fac5d0443057675",
+      "inputs_sha256": "45fcd96c9ba136218d58812e465d21df2eda6d4022b04110108cb3ab66985697",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "pre-v4",
-      "web_master_sha256": "352f187c0879b3188ff3f63bd78fb046a7cfdc89d9c980343fcaa29d25167410"
+      "web_master_sha256": "918937c8d7bbe568c5a444dd664bdc80fec45de5710d7daa7f92b2b24f5eabd8"
     },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 98844,
-      "inputs_sha256": "ac1d9252aebfdb58c383baa0205d9bf7ff5617895d6cf938dd7d2c43d467e392",
+      "inputs_sha256": "c875e2c7a3ba888a7d9fd5a1f2f99b31e1ed342f394542d3998403562aefd0ae",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v2",
-      "web_master_sha256": "951b64e0914b57c79db7386a534bf501aea9da586deceb43f639b7112c43d39e"
+      "web_master_sha256": "4efd9b2ca60cdcddc10ba7664475cf3e31141b8d31f298ac043a1ae05c68d2e3"
     },
     "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 95740,
-      "inputs_sha256": "4c6799eff3d2b4200bc067e1d93d211347e8273d7fbe764fb0dc223634ccb628",
+      "inputs_sha256": "4101a91b2c0b6e3bdc2dd764801b1f2949c6812644bbbb83d579b20ce4225e3a",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v3",
-      "web_master_sha256": "f1b011b292bf59eed7ed5ba789051fcacefedd05f439bf8832dd0679b27da2d2"
+      "web_master_sha256": "b7ca4637959ce45ee3104bdb80d442c9d0b3687fcc957e23b5d39a10a0c598c2"
+    },
+    "versions/tremont_house_1/gale-reading/tremont_house_1__frame_1833.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 276104,
+      "inputs_sha256": "717398e00f8c2d31353e07b3afbae89cd2679969283210b5572ef6f1f35ba70f",
+      "kind": "generated",
+      "phase_id": "frame_1833",
+      "structure_id": "tremont_house_1",
+      "version_label": "gale-reading",
+      "web_master_sha256": "5621bb14b76916ce1cb7bdef3a0ff3973d73ac1e062390bf886bc4c8af180ef7"
+    },
+    "versions/tremont_house_1/gifford-reading/tremont_house_1__frame_1833.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 445040,
+      "inputs_sha256": "16ddd5768fc6eece0ce64469f5e7183d0e393f50da52b6c8275d9de8d6f0fa5b",
+      "kind": "generated",
+      "phase_id": "frame_1833",
+      "structure_id": "tremont_house_1",
+      "version_label": "gifford-reading",
+      "web_master_sha256": "35976a58a4b5911cf663df9d95efc0ad751ebda49ec3390eb43442800e5d09f9"
     }
   },
   "inputs_scheme": "resolved-params-v4"

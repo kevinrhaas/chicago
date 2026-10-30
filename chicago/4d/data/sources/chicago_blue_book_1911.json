@@ -1,0 +1,26 @@
+{
+  "id": "chicago_blue_book_1911",
+  "type": "book",
+  "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1911. Chicago: The Chicago Directory Company.",
+  "author": "The Chicago Directory Company",
+  "date": "1911",
+  "describes_date": "1911 (the edition 'for the year ending 1911', compiled the winter before)",
+  "repository": "Internet Archive",
+  "url": "https://archive.org/details/chicagobluebooko1911chic",
+  "locator": "The classified business list, 'Automobile Livery and Garage': 'WEST MOTOR LIVERY CO. 2127-2129 Indiana av. tels. Calumet-405 and 406'; and a display advertisement, 'West Motor Livery Co., High Grade Auto Service, First Class Garage ... 2127-2129 Indiana Ave. Call Calumet 405'. For 216 E. 20th (T-3154): 'Kavanagh Marcus Judge, 216 E. 2oth', 'Kellar Murray P. 216 E. 20th.' and 'Willing E. A. Miss, 216 E 2oth'.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1911; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read for T-3013 on 2026-10-23 from the item's OCR text (chicagobluebooko1911chic_djvu.txt), found by the Internet Archive's full-text search; the OCR is clean in these lines.",
+  "note": "By 1911 the 2127-2129 half of the livery was a motor livery and garage under the West name, on the 405 and 406 lines the West horse livery used in 1910: the GARAGE the 1911 sheet draws on 2129-2131 is the address the livery had held since Bane Brothers' day.",
+  "what_it_supplies": [
+    "that the 1911 garage at 2127-2129 Indiana Avenue was the West livery's motor branch",
+    "households at 216 East 20th Street in 1911"
+  ],
+  "what_it_does_not_supply": [
+    "the building's form, storeys, material or outline",
+    "a construction or demolition date"
+  ]
+}

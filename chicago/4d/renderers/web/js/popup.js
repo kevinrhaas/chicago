@@ -112,6 +112,7 @@ import { claimValueText } from './claim-value.js';
 // The card's opening when no summary has been written: the address once, other names
 // that do not restate it, and a templated lead — never a raw field (T-2636).
 import { cardTitle, clean, fallbackAddress, fallbackSummary, otherNames } from './fallback-summary.js';
+import { builtPhrase, rangeWords } from './range-words.js';
 
 const CONF_ORDER = { attested: 0, inferred: 1, reconstructed: 2 };
 
@@ -795,19 +796,14 @@ function archetypeWords(archetype) {
   return ARCHETYPE_WORDS[archetype] ?? String(archetype).replace(/_/g, ' ');
 }
 
-const ISO_DATE = /^(\d{4})-\d{2}-\d{2}$/;
-
-/** The standing span as years, when — and only when — both ends are ISO dates.
- *  `1831-01-01 → 1851-03-04` reads as "1831 – 1851"; a bound that is the end of a
- *  continuity argument (`1835-12-31`) reads as the year it bounds, which is what a
- *  year means. Anything odd is shown raw, because a renderer that tidies an odd
- *  date is guessing what it meant. The "Was it here" row keeps the raw pair. */
+/** The standing span in words, from the ends the record dates (T-3037, range-words.js):
+ *  "1831 – 1851" where a source dates both, "by 1890, still standing in 1911" for
+ *  sightings. An end the record only bounds — the scene's own year, most often — is not
+ *  a date and is not printed as one; with neither end dated the row says so. The "Was it
+ *  here" row keeps the raw pair and the record's reasoning. */
 function standingWords(range) {
   if (!range || !(range.from || range.to)) return '';
-  const f = ISO_DATE.exec(range.from ?? '');
-  const t = ISO_DATE.exec(range.to ?? '');
-  if (f && t) return f[1] === t[1] ? f[1] : `${f[1]} – ${t[1]}`;
-  return `${range.from || '?'} → ${range.to || '?'}`;
+  return rangeWords(range) || 'Dates not recorded';
 }
 
 /** Heads of the households the residents layer places here, by name. */
@@ -852,13 +848,9 @@ function roofWords(attrs) {
  * flags that qualify the whole card. The flags are the same five sentences the
  * old `.pop-meta` block carried (provisional position, anonymous reconstruction,
  * no recorded household, placeholder mesh) plus one that had no surface at all:
- * `review_required` (T-0268). Nine records are held under AGENTS.md's standing
- * constraint and until now the flag reached a browser once, as a console line
- * about the scene. The sentence is standing text keyed on the boolean — the
- * record's own reasoning is in its notes below, verbatim, as the ticket says —
- * and it names what the record is held for, because "held" alone tells a reader
- * that a decision was made and nothing about what it rests on. The record's own
- * sentence follows it, from `review_reason` on the sidecar.
+ * `review_required` (T-0268). The review flag remains visible with the record's
+ * own `review_reason`, verbatim. AGENTS.md's 2026-10-16 owner ruling retains
+ * these annotations while lifting the consultation prerequisite for release.
  */
 /**
  * T-2636. What the head and the lead print, as plain strings, so the test
@@ -897,19 +889,17 @@ export function cardOpening(s, called) {
   return { title, address, aka, kind: kindParts, lead, composed: !account };
 }
 
-/** The held-pending-consultation flag (T-0268), one renderer for the card's head and for
+/** The retained review annotation (T-0268), one renderer for the card's head and for
  *  Inspect's People tab (T-2639), so a review note reads the same in both. */
 function heldFlagHtml(s) {
   const reason = typeof s.review_reason === 'string' ? s.review_reason.trim() : '';
-  return `<span class="pop-flag pop-flag-held"><strong>Held pending consultation.</strong>
-      This record touches the standing constraint on depicting Indigenous history in
-      1835: the project depicts the built fabric and stops there until the people
-      whose history it is have been consulted.${
+  return `<span class="pop-flag pop-flag-held"><strong>Historical review context.</strong>
+      The reason for review is recorded below. Sources remain available with this record.${
         reason ? `<em class="pop-held-why">${escapeHtml(reason)}</em>` : ''
       }</span>`;
 }
 
-function headHtml(s, record, called, p, place) {
+function headHtml(s, record, called, p, place, { titleRow = true } = {}) {
   const opening = cardOpening(s, called);
   const aka = opening.aka.length
     ? `<p class="pop-aka">also ${opening.aka.map(escapeHtml).join(' · ')}</p>` : '';
@@ -963,12 +953,12 @@ function headHtml(s, record, called, p, place) {
     flags.push('<span class="pop-flag">This shape is a placeholder massing, not a bake from the record.</span>');
   }
   // The one flag on this card that is not about how well the building is known.
-  // The four above qualify a reconstruction; this one says the project has stopped
-  // short of a claim on purpose, and it outranks them — so it is rendered last, in
+  // The four above qualify a reconstruction; this one carries the record's review
+  // annotation and its own explanation — so it is rendered last, in
   // its own treatment, and it is the only flag that quotes the record.
   //
-  // The quote is the point. Standing text can say a building is HELD; only the
-  // record can say what it is held FOR, and the sentence is the one
+  // The quote is the point. Standing text names the review annotation; only the
+  // record can say why it is flagged, and the sentence is the one
   // `measure_review_constraint.py` assertion 6 judges, carried here by the
   // compiler through the module the two of them share (T-0268). Before this the
   // reason lived in a 400-word `research_note` the card shows verbatim and folded
@@ -978,10 +968,11 @@ function headHtml(s, record, called, p, place) {
 
   // The title row sits outside .pop-head so it can stay pinned for the card's whole
   // scroll (T-2954): a sticky box only sticks inside its own parent.
-  return `<div class="pop-title-row">
+  // T-3022: Inspect's Research tab shows the head under its own name, without this row.
+  return `${titleRow ? `<div class="pop-title-row">
       <h2>${escapeHtml(opening.title)}</h2>
       <button class="pop-close" type="button" data-close aria-label="Close" title="Close (Esc)"><span class="pop-close-x" aria-hidden="true">×</span><span class="pop-close-label">Close</span><kbd class="pop-close-key" aria-hidden="true">Esc</kbd></button>
-    </div>
+    </div>` : ''}
     <div class="pop-head">
     ${s.id === 'glessner_house' ? `<p><a href="${new URL('../glessner-baseline.html', import.meta.url).href}" target="_blank" rel="noopener">Photographic comparison baseline ↗</a></p>` : ''}
     ${aka}
@@ -1113,6 +1104,8 @@ function factsHtml(s, firms = [], fromSign = false) {
     row('Today', prettyValue(attrs.present_status.value),
       attrs.present_status.confidence, 'present status');
   }
+  // T-3037: the build date as the sources give it ("1864 or 1875" where they disagree).
+  row('Year built', builtPhrase(attrs.built?.value).replace(/^in /, ''), attrs.built?.confidence, 'year built');
   row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
     firmChipsHtml(firms, fromSign));
   // T-1980. A building of an establishment — the fort's barn, the tannery's bark
@@ -1349,6 +1342,63 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     return saidCache.get(doc);
   };
 
+  /**
+   * The card's three research panes for one record — Sources (the evidence), Liberties (with
+   * the open questions) and Record — and the counts their tabs carry. One builder for the
+   * card and for Inspect's Research tab (T-3022), so the two can never say a building two ways.
+   */
+  function researchPanes(record, s, p, place, called) {
+    const spec = called.spec
+      ? `<p class="pop-spec">Reconstruction reference
+           <code>${escapeHtml(called.spec)}</code></p>`
+      : '';
+    // Empty when no dossier has been WRITTEN for this record — the compiler
+    // resolves the path against the repository rather than naming one by
+    // convention and hoping (ROADMAP K26). Offering a link that breaks taught a
+    // visitor to distrust the ones that do not, so the sentence says which it is.
+    // T-2825: the dossier is a link in plain words, like any source; its path is not
+    // something a reader is handed.
+    const doc = s.research_doc
+      ? `<a href="${escapeHtml(docBase + s.research_doc)}" target="_blank" rel="noopener">
+           the research notes on this building</a>`
+      : 'no dossier written for this building yet';
+
+    // The liberties count on its tab, so a visitor can see there is something
+    // to read before opening it. Null lists (not loaded) count as nothing, which
+    // is the same "claim nothing" rule `libertySection` applies.
+    const libertyCount = Array.isArray(liberties)
+      ? libertiesFor(liberties, record.id).length : 0;
+    const questionCount = Array.isArray(openQuestions)
+      ? openQuestionsFor(openQuestions, record.id).length : 0;
+
+    const evidencePane = `
+      ${basisSection(s, place)}
+      ${whereSection(p, place)}
+      ${ordinanceSection(ordinanceLimits, p)}
+      ${presenceSection(s)}
+      ${shapeSection(s)}
+      <section class="pop-sec">
+        <h3>Attributes and evidence</h3>
+        <table class="attrs"><tbody>${attributeRows(s.attributes)}</tbody></table>
+      </section>
+      <section class="pop-sec">
+        <h3>Sources</h3>
+        <ol class="cites">${citationItems(s.citations)}</ol>
+      </section>`;
+
+    const libertiesPane = `
+      ${libertySection(liberties, record.id)}
+      ${openQuestionSection(openQuestions, record.id)}`;
+
+    const recordPane = `
+      ${researchSection(s)}
+      ${spec}
+      <p class="pop-foot">Full dossier: ${doc}<br>
+        Phase: ${escapeHtml(s.phase ? String(s.phase).replace(/_/g, ' ') : '—')}${record.version
+          ? ` · version: ${escapeHtml(clean(String(record.version.label ?? '')) || 'a version other than the default')}` : ''}</p>`;
+    return { evidencePane, libertiesPane, recordPane, libertyCount, questionCount };
+  }
+
   function close() {
     closePictureViewer();
     currentId = null;
@@ -1542,6 +1592,23 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         liberties: Array.isArray(liberties) ? libertiesFor(liberties, record.id) : null,
         questions: Array.isArray(openQuestions) ? openQuestionsFor(openQuestions, record.id) : null,
         dossier: s.research_doc ? docBase + s.research_doc : null,
+        // T-3022: everything the card holds beyond Inspect's own tabs, for its Research tab
+        // (Expert research): the head's flags, the facts block, and the three research panes.
+        // Built when read, so the tabs that do not show it do not pay for it.
+        get research() {
+          const place = { confidence: p.position_confidence, sources: p.position_sources, note: p.position_note };
+          const called = displayName(s, record.id);
+          const firms = businessesByStructure?.get?.(record.id) ?? [];
+          const panes = researchPanes(record, s, p, place, called);
+          return {
+            head: headHtml(s, record, called, p, place, { titleRow: false }),
+            facts: factsHtml(s, firms, false),
+            evidence: panes.evidencePane,
+            liberties: panes.libertiesPane,
+            record: panes.recordPane,
+            libertyCount: panes.libertyCount + panes.questionCount,
+          };
+        },
       };
     },
 
@@ -1578,56 +1645,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       // #017` is what the parcel re-derives, what the GLB is named for, and what
       // somebody reading the dataset has in hand.
       const called = displayName(s, record.id);
-      const spec = called.spec
-        ? `<p class="pop-spec">Reconstruction reference
-             <code>${escapeHtml(called.spec)}</code></p>`
-        : '';
-
-      // Empty when no dossier has been WRITTEN for this record — the compiler
-      // resolves the path against the repository rather than naming one by
-      // convention and hoping (ROADMAP K26). Offering a link that breaks taught a
-      // visitor to distrust the ones that do not, so the sentence says which it is.
-      // T-2825: the dossier is a link in plain words, like any source; its path is not
-      // something a reader is handed.
-      const doc = s.research_doc
-        ? `<a href="${escapeHtml(docBase + s.research_doc)}" target="_blank" rel="noopener">
-             the research notes on this building</a>`
-        : 'no dossier written for this building yet';
-
-      // The liberties count on its tab, so a visitor can see there is something
-      // to read before opening it. Null lists (not loaded) count as nothing, which
-      // is the same "claim nothing" rule `libertySection` applies.
-      const libertyCount = Array.isArray(liberties)
-        ? libertiesFor(liberties, record.id).length : 0;
-      const questionCount = Array.isArray(openQuestions)
-        ? openQuestionsFor(openQuestions, record.id).length : 0;
+      const { evidencePane, libertiesPane, recordPane, libertyCount, questionCount } = researchPanes(record, s, p, place, called);
       const pictureCount = picturesFor(pictures, record.id)?.length ?? 0;
-
-      const evidencePane = `
-        ${basisSection(s, place)}
-        ${whereSection(p, place)}
-        ${ordinanceSection(ordinanceLimits, p)}
-        ${presenceSection(s)}
-        ${shapeSection(s)}
-        <section class="pop-sec">
-          <h3>Attributes and evidence</h3>
-          <table class="attrs"><tbody>${attributeRows(s.attributes)}</tbody></table>
-        </section>
-        <section class="pop-sec">
-          <h3>Sources</h3>
-          <ol class="cites">${citationItems(s.citations)}</ol>
-        </section>`;
-
-      const libertiesPane = `
-        ${libertySection(liberties, record.id)}
-        ${openQuestionSection(openQuestions, record.id)}`;
-
-      const recordPane = `
-        ${researchSection(s)}
-        ${spec}
-        <p class="pop-foot">Full dossier: ${doc}<br>
-          Phase: ${escapeHtml(s.phase ? String(s.phase).replace(/_/g, ' ') : '—')}${record.version
-            ? ` · version: ${escapeHtml(clean(String(record.version.label ?? '')) || 'a version other than the default')}` : ''}</p>`;
 
       root.innerHTML = `
         ${headHtml(s, record, called, p, place)}

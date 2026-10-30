@@ -1,0 +1,57 @@
+{
+  "prototype_only": true,
+  "animation_time": 0,
+  "drawn": [
+    {
+      "id": "tremont_house_1",
+      "pattern": "us_flag_24_star",
+      "fly_m": 1.85,
+      "hoist_m": 1.3,
+      "confidence": 1
+    }
+  ],
+  "problems": [],
+  "model_bounds": {
+    "min": [
+      -2.319999933242798,
+      0,
+      -11.460000038146973
+    ],
+    "max": [
+      17.559999465942383,
+      15.061870574951172,
+      2.319999933242798
+    ]
+  },
+  "anchor": {
+    "confidence": "reconstructed",
+    "sources": [
+      "gifford_tremont_house_no_1"
+    ],
+    "value": {
+      "phase": "frame_1833",
+      "frame": "footprint_enu_m",
+      "valid_from": "1833-01-01",
+      "valid_to": "1836-07-03",
+      "foot": [
+        5.6388,
+        4.57,
+        10.661870276202958
+      ],
+      "head": [
+        5.6388,
+        4.57,
+        15.061870276202958
+      ],
+      "radius_m": 0.035,
+      "fly_m": 1.85,
+      "hoist_m": 1.3
+    },
+    "note": "Explicit anchor on the separately modelled roof spar, not the hotel bounding box. Coordinates are footprint metres[east,north,up] mapped to glTF[east,up,south] before the existing placement matrix. Head/foot agree with the reconstructed32degree/7.8m envelope and4.25m spar; all are reconstructed. Source picks stafftop(1034,192),base(1034,279); approximate flag outline x1000..1034,y197..224 gives projected fly/staff~0.39 and hoist/staff~0.31. Perspective/folds do not yield metres: working fly1.85m/hoist1.30m sit within broad0.35..0.50/0.25..0.40 staff-height ratios. Both dimensions,0.035m square-spar half-width, pattern, date use and orientation/pose are reconstructed; opposite wind/image fit remain open. Phase/date mismatch or invalid/stale/out-of-bounds anchor refuses cloth and reports why. This interval prevents carrying the24-star reconstruction into later patterns without review."
+  },
+  "flag_mesh": [
+    0.035,
+    0,
+    0
+  ]
+}

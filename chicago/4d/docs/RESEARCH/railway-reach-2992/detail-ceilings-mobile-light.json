@@ -1,0 +1,58 @@
+[
+  {
+    "tree": "this tree",
+    "root": "/home/runner/work/polecat-platform/polecat-platform/chicago/site/4d",
+    "renderLoop": "two production steps and GPU finish",
+    "passes": [
+      {
+        "viewport": "mobile 390x780",
+        "seen": [
+          {
+            "level": "light",
+            "ceiling": 1270000,
+            "atStands": [
+              {
+                "id": "district_air",
+                "label": "1904: the air over 20th St, looking north",
+                "tris": 1195907,
+                "calls": 1911,
+                "flora": null,
+                "structures": null
+              }
+            ]
+          }
+        ],
+        "errors": [],
+        "heap": 1095429216
+      }
+    ]
+  },
+  {
+    "tree": "against",
+    "root": "/tmp/t2992/dev-site/4d",
+    "renderLoop": "two production steps and GPU finish",
+    "passes": [
+      {
+        "viewport": "mobile 390x780",
+        "seen": [
+          {
+            "level": "light",
+            "ceiling": 1270000,
+            "atStands": [
+              {
+                "id": "district_air",
+                "label": "1904: the air over 20th St, looking north",
+                "tris": 1266335,
+                "calls": 1937,
+                "flora": null,
+                "structures": null
+              }
+            ]
+          }
+        ],
+        "errors": [],
+        "heap": 1101132592
+      }
+    ]
+  }
+]

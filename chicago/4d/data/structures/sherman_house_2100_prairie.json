@@ -13,6 +13,14 @@
     ],
     "note": "The 1911 sheet labels the building with a 1911 use, '3S.B. brick building lettered McCORMICK MEDICAL COLLEGE, on the 21st Street corner', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Sherman Victorian Gothic', names it a house, so the 1904 function is inferred residence on that row and the T-1842 census ruling (present_as_mapped)."
   },
+  "built": {
+    "value": 1874,
+    "confidence": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_2000_2100"
+    ],
+    "note": "The marker: 'John B. Sherman Residence. Built 1874'."
+  },
   "review_required": false,
   "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1919, T-1920 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2100-b1), the T-1842 census (s35-2100-front, s35-2100-wing, s35-2100-walls) and the T-1837 register row frontage-35-064 (Sherman Victorian Gothic); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
   "phases": [
@@ -25,7 +33,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448435.018,

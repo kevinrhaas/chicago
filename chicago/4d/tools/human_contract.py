@@ -457,6 +457,48 @@ def check_glb(path: Path, c: dict, sources: set[str] | None = None,
 
 # --------------------------------------------------------------------------- instances
 
+def discover_instances(root: Path) -> tuple[list[Path], list[Finding]]:
+    """Validate the browser's index separately; every instance still gets its full checks."""
+    paths = sorted(root.glob("*/*.json")) if root.exists() else []
+    instances = [p for p in paths if p.name != "index.json"]
+    out = []
+    for directory in sorted({p.parent for p in paths}):
+        index = directory / "index.json"
+        if not index.is_file():
+            out.append(Finding("instance.index_missing", f"{directory.name} has instances but no browser index"))
+            continue
+        try:
+            record = load_json(index)
+        except (ValueError, OSError) as error:
+            out.append(Finding("instance.index_schema", f"{index}: {error}"))
+            continue
+        if (not isinstance(record, dict) or set(record) != {"scene", "instances"}
+                or record["scene"] != directory.name or not re.fullmatch(r"[0-9]{4}", directory.name)
+                or not isinstance(record["instances"], list)
+                or any(not isinstance(i, str) or not re.fullmatch(r"hi_[a-z0-9_]+", i)
+                       for i in record["instances"])):
+            out.append(Finding("instance.index_schema", f"{index}: exact scene and safe instance-id list required"))
+            continue
+        ids = record["instances"]
+        if len(ids) != len(set(ids)):
+            out.append(Finding("instance.index_duplicate", f"{index}: repeated instance id"))
+        for ident in set(ids):
+            path = directory / f"{ident}.json"
+            if not path.is_file() or path.is_symlink():
+                out.append(Finding("instance.index_missing_file", f"{index}: {ident} has no regular record file"))
+                continue
+            try:
+                instance = load_json(path)
+            except (ValueError, OSError) as error:
+                out.append(Finding("instance.index_record", f"{path}: {error}"))
+                continue
+            if not isinstance(instance, dict) or instance.get("id") != ident or instance.get("scene") != directory.name:
+                out.append(Finding("instance.index_record", f"{path}: index, filename, id and scene must agree"))
+        if {p.stem for p in instances if p.parent == directory} != set(ids):
+            out.append(Finding("instance.index_inventory", f"{index}: listed ids and instance files differ"))
+    return instances, out
+
+
 def known_sources() -> set[str]:
     return {p.stem for p in SOURCES.glob("*.json")}
 
@@ -879,6 +921,50 @@ def self_test() -> int:
     expect("the same person standing twice in one scene",
            check_instance(inst(id=f"hi_{plain}_1835_b"), c, schema, ctx=ctx), "instance.duplicate_person")
 
+    print("instance browser indexes")
+    with tempfile.TemporaryDirectory() as td:
+        directory = Path(td) / "1835"
+        directory.mkdir()
+        ident = "hi_existing_resident_1835"
+        path = directory / f"{ident}.json"
+        index = directory / "index.json"
+        original_record = {"id": ident, "scene": "1835"}
+        def reset_index():
+            path.write_text(json.dumps(original_record))
+            index.write_text(json.dumps({"scene": "1835", "instances": [ident]}))
+        reset_index()
+        found, findings = discover_instances(Path(td))
+        expect("browser manifest is not treated as an instance", findings, None)
+        expect("every listed instance is still discovered", [] if found == [path] else
+               [Finding("instance.index_discovery", "instance was skipped")], None)
+        index.unlink()
+        expect("records without a browser index refuse", discover_instances(Path(td))[1], "instance.index_missing")
+        for label, record, code in [
+            ("repeated ids", {"scene": "1835", "instances": [ident, ident]}, "instance.index_duplicate"),
+            ("missing listed file", {"scene": "1835", "instances": ["hi_absent_1835"]}, "instance.index_missing_file"),
+            ("unlisted record", {"scene": "1835", "instances": []}, "instance.index_inventory"),
+            ("index scene mismatch", {"scene": "1904", "instances": [ident]}, "instance.index_schema"),
+            ("unsafe id", {"scene": "1835", "instances": ["../outside"]}, "instance.index_schema"),
+            ("non-list ids", {"scene": "1835", "instances": ident}, "instance.index_schema"),
+        ]:
+            reset_index()
+            index.write_text(json.dumps(record))
+            expect(label, discover_instances(Path(td))[1], code)
+        for label, record in [
+            ("record id differs from filename", {"id": "hi_other_1835", "scene": "1835"}),
+            ("record scene differs from directory", {"id": ident, "scene": "1904"}),
+        ]:
+            reset_index()
+            path.write_text(json.dumps(record))
+            expect(label, discover_instances(Path(td))[1], "instance.index_record")
+        reset_index()
+        index.write_text("{")
+        expect("malformed index", discover_instances(Path(td))[1], "instance.index_schema")
+        reset_index()
+        path.unlink()
+        path.symlink_to(index)
+        expect("symlink record", discover_instances(Path(td))[1], "instance.index_missing_file")
+
     anonymous_test = subprocess.run([sys.executable, str(ROOT / "tools/test_human_anonymous.py")], check=False)
     if anonymous_test.returncode:
         fails += 1
@@ -912,7 +998,10 @@ def main(argv: list[str]) -> int:
               f"{len(c['morphs']['required'])}+{len(c['morphs']['optional'])} morphs, "
               f"{len(c['clips']['verbs'])} clip verbs, L1 in force: {c['l1']['in_force']}")
         glbs = (sorted(ASSETS.glob("*.glb")) + sorted(ASSETS.glob("web/*.glb"))) if ASSETS.exists() else []
-        insts = sorted(INSTANCES.glob("*/*.json")) if INSTANCES.exists() else []
+        insts, index_findings = discover_instances(INSTANCES)
+        for finding in index_findings:
+            print(f"FAIL instance index: {finding}")
+        bad += len(index_findings)
     else:
         glbs = [Path(a) for a in argv[1:]] if argv[0] == "--glb" else []
         insts = [Path(a) for a in argv[1:]] if argv[0] == "--instance" else []

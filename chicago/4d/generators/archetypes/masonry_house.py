@@ -405,12 +405,34 @@ def _stable_reworked(b, r):
                 (g["front_x0"],west_eave+lift),(r["ridge_at"],r["ridge_z"]+lift),
                 (g["front_x1"],east_eave+lift),(g["front_x1"],east_eave)]
             _parapet(b,pl,gp,lift,r["conf_ends"][face],WALL_MAT[kind])
+        if face == "west" and g.get("alley_parapet"):
+            # T-3096: the alley gable keeps its apex and stands proud of the cross
+            # roof, which comes down behind it. South of its foot the wall still
+            # follows the alley eave.
+            ap = g["alley_parapet"]; lift = ap["lift"]; foot = g["south_foot_y"]
+            gp = [(foot, g["cross_foot_eave"]), (ap["apex_y"], ap["apex_z"]),
+                  (r["y1"], g["north_west_eave"])]
+            prof = [q for q in prof if q[0] < foot - 1e-9] + [(foot, g["cross_foot_eave"])] + \
+                [(u, z + lift) for u, z in gp]
+            _parapet(b, pl, gp, lift, r["conf_ends"][face], WALL_MAT[kind])
+            # Its inner face below the parapet's, down under the roof it rises from.
+            inner = [_plane_point(pl, u, z, -WALL_T) for u, z in
+                     [(foot, g["cross_foot_eave"]), (r["y1"], g["cross_foot_eave"]),
+                      *reversed(gp[1:])]]
+            _poly_facing(b, inner, r["conf_ends"][face], WALL_MAT[kind], (1.0, 0.0, 0.0))
+            # Each foot's end, where the parapet and its coping stand over the eave.
+            for u, z, way in ((foot, g["cross_foot_eave"], -1.0), (r["y1"], g["north_west_eave"], 1.0)):
+                # listed from the lip's inner corner, so a fan of it stays inside the L
+                end = [(0.0, z + lift), (0.0, z), (-WALL_T, z), (-WALL_T, z + lift + COPING_H),
+                       (0.08, z + lift + COPING_H), (0.08, z + lift)]
+                _poly_facing(b, [_plane_point(pl, u, h, off) for off, h in end],
+                             r["conf_ends"][face], WALL_MAT[kind], (0.0, way, 0.0))
         spans=_kept(prof[0][0],prof[-1][0],r["wall_skip"].get(face,[]))
         _profile_wall(b,pl,prof,spans,r["conf_plan"],WALL_MAT[kind])
     for _,pts in patches(r):
         _two_sided_roof(b,pts,r["conf_roof"],ROOF)
     # A short ordinary eave beyond the north wall at the alley return only.
-    a,c=r["x0"]-.15,g["front_x0"]
+    a,c=r["x0"]-(0 if g.get("alley_parapet") else .15),g["front_x0"]
     if c>a:
         ze=g.get('north_west_eave', g['north_eave']);y=r["y1"]
         _two_sided_roof(b,[(a,y,ze),(c,y,ze),(c,y+.15,ze-.1),(a,y+.15,ze-.1)],r["conf_roof"],ROOF)

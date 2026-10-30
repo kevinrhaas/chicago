@@ -30,6 +30,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { checkSheets } from './share_glb_sheets.mjs';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const REPO = path.resolve(HERE, '..');
@@ -76,9 +77,14 @@ const COPIES = [
   // the source, and the Guide reads faq.json the first time it opens.
   ['data/guide/', 'data/guide/'],
   ['data/residents/', 'data/residents/'],
+  // T-3265: a later scene's own household cards, which a person's card in Inspect › People reads;
+  // copied verbatim (690 KB together) by publish.sh's loop over data/residents_<scene>/.
+  ['data/residents_1812/', 'data/residents_1812/'],
+  ['data/residents_1904/', 'data/residents_1904/'],
   ['data/enclosures/', 'data/enclosures/'],
   ['data/signage/', 'data/signage/'],
   ['data/yard/', 'data/yard/'],
+  ['data/transport/parked/', 'data/transport/parked/'],
   ['data/wharves/', 'data/wharves/'],
   ['data/boats/', 'data/boats/'],
   ['data/wells/', 'data/wells/'],
@@ -87,6 +93,8 @@ const COPIES = [
   ['data/street_surfaces/', 'data/street_surfaces/'],
   ['data/street_section/', 'data/street_section/'],
   ['data/street_trees/', 'data/street_trees/'],
+  ['data/street_furniture/', 'data/street_furniture/'],
+  ['data/front_yards/', 'data/front_yards/'],
   ['data/railway/', 'data/railway/'],
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
@@ -235,7 +243,15 @@ const TRANSFORMED = [
         + 'rungs and fails if it is coarser than tools/web_derivatives.sh asks for, because the '
         + 'derivative gate next door compares triangles, node identity, materials and a bounding box '
         + 'within four rungs and a bit-depth change moves none of them. This is the entry that cost '
-        + 'three parcels — read #145 before adding another.' },
+        + 'three parcels — read #145 before adding another. T-3232: a GLB that shares a texture '
+        + 'sheet is also rewritten by tools/share_glb_sheets.mjs, its sheet moved to an external '
+        + 'buffer; that rewrite is gated below and by check.sh, view for view against assets/web.' },
+  { re: /^data\/gltf\/sheets\/[0-9a-f]{16}\.(?:ktx2|png|jpg|webp)$/,
+    what: 'tools/share_glb_sheets.mjs (run by publish.sh) writes each image two or more published GLBs '
+        + 'embed once, named by its hash, and points those GLBs at it as an external buffer (T-3232)',
+    gate: 'share_glb_sheets.mjs --check (here and in check.sh) reads every rewritten GLB back through its '
+        + 'sheets and asserts its JSON, bufferViews and meshopt streams are its assets/web source\'s, each '
+        + 'sheet is named by its own hash, and each is held by two or more GLBs.' },
 ];
 
 const walk = (dir, base = '') => {
@@ -255,6 +271,56 @@ const problems = [];
 const transformed = [];
 let identical = 0;
 const unmapped = [];
+
+// T-2793: omit only declared source masters, never a live vehicle or public
+// demo. Partial mirror fixtures have no transport manifest; a complete app
+// must carry its policy and retain the authoring originals in the source tree.
+const transportPolicyFile = path.join(REPO, 'tools/transport-source-only.json');
+const transportManifestFiles = [
+  'data/transport/parked/placements.json',
+  'data/transport/parked/standing-horses.json',
+];
+if (!existsSync(transportPolicyFile) && transportManifestFiles.some((f) => existsSync(path.join(REPO, f)))) {
+  problems.push('The transport source-only publication policy is missing.');
+}
+if (existsSync(transportPolicyFile)) {
+  const policy = JSON.parse(readFileSync(transportPolicyFile, 'utf8'));
+  const files = policy.files;
+  if (policy.schema !== 1 || !policy.reason || !Array.isArray(files) || new Set(files).size !== files.length) {
+    problems.push('The transport source-only publication policy is invalid.');
+  } else {
+    const strings = (value) => typeof value === 'string' ? [value]
+      : Array.isArray(value) ? value.flatMap(strings)
+      : value && typeof value === 'object' ? Object.values(value).flatMap(strings) : [];
+    const liveModels = transportManifestFiles.filter((f) => existsSync(path.join(REPO, f)))
+      .flatMap((f) => strings(JSON.parse(readFileSync(path.join(REPO, f), 'utf8')).models));
+    const rendererSource = path.join(REPO, 'renderers/web');
+    const scripts = walk(rendererSource).filter((f) => !f.startsWith('vendor/') && /\.(?:html|m?js)$/.test(f))
+      .map((f) => [f, readFileSync(path.join(rendererSource, f), 'utf8')]);
+    for (const file of files) {
+      if (typeof file !== 'string' || !file.startsWith('transport/') || !file.endsWith('.glb')
+          || file.split('/').some((part) => part === '..' || part === '.' || !part)) {
+        problems.push(`Invalid transport source-only path: ${file}`);
+        continue;
+      }
+      if (!existsSync(path.join(rendererSource, file))) problems.push(`Authoring source is missing: ${file}`);
+      if (existsSync(path.join(SITE, 'walk', file))) problems.push(`Source-only master is still published: walk/${file}`);
+      if (liveModels.includes(file)) problems.push(`Source-only master is a live transport model: ${file}`);
+      for (const [script, text] of scripts) {
+        // Demos in wagon/ and wagon-driver/ each have their OWN wagon-w01.glb.
+        // Resolve relative literals; an identical basename is not the same URL.
+        const relativeReferences = [...text.matchAll(/(['"`])([^'"`\r\n]*\.glb(?:[?#][^'"`\r\n]*)?)\1/g)]
+          .map((match) => match[2].split(/[?#]/)[0])
+          .filter((value) => !value.includes('${') && !/^(?:[a-z]+:|\/)/i.test(value))
+          .map((value) => path.posix.normalize(path.posix.join(path.posix.dirname(script), value)));
+        if (text.includes(file) || relativeReferences.includes(file)) {
+          problems.push(`Source-only master is referenced by renderer ${script}: ${file}`);
+        }
+      }
+    }
+    console.log(`transport publication: ${files.length} declared source masters retained outside the mirror`);
+  }
+}
 
 for (const rel of walk(SITE)) {
   const t = TRANSFORMED.find((x) => x.re.test(rel));
@@ -332,6 +398,13 @@ if (existsSync(path.join(SITE, 'data/prebuilt'))) {
       problems.push(`data/prebuilt/index.json lists ${sorted(list.layers ?? {})} and the mirror holds ${sorted(onDisk)}.`);
     }
   }
+}
+// T-3232: the GLBs above are declared transformed, so their sheet rewrite is read back
+// here: each one, its shared sheets read in, must be its assets/web source view for view.
+if (existsSync(path.join(SITE, 'data/gltf'))) {
+  const shared = checkSheets(SITE);
+  problems.push(...shared.problems);
+  console.log(`shared sheets: ${shared.rewritten} GLB(s) read back to their sources through ${shared.sheets} sheet(s)`);
 }
 if (problems.length) {
   console.error('published mirror FAILED:');

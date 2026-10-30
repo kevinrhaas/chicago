@@ -4,8 +4,9 @@
 import { register } from './index.js';
 
 export default register('research', {
-  switch: 'Researcher mode',
-  'switch.note': 'Shows the full reasoning and the working records we keep for researchers, in place. This device remembers it.',
+  // T-3022: the owner's words for it, "expert research".
+  switch: 'Expert research',
+  'switch.note': 'Adds a Research tab to every building: its evidence, liberties and full record. This device remembers it.',
   badge: 'RESEARCHER',
   // The three "Why this default" essays, each cut to the reason and what it changes (§12:
   // 40 words at most): the bubble a setting's "Why?" opens (T-2658, js/why-tips.js).

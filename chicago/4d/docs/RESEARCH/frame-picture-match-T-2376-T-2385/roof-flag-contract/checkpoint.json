@@ -1,0 +1,26 @@
+{
+  "state": "isolated pinned exports and actual previous/third/held-runtime-flag comparisons completed and reviewed; all differ; no official writes or original ticket closure",
+  "all_common_module_edits": false,
+  "blender_browser_run": true,
+  "patches": {
+    "T-2385-flag-opt-in.patch": "6499522647a7acb29b8244d3c27ee9db0d2c31a20cc9a5d5b5cb22ea928778eb",
+    "flag-layer.patch": "165c104141d36c405696e109a58c62fe9544c02d33e22e6afe8d9fe6d742157a"
+  },
+  "reference_baseline": "immutable frame-gable-cladding/proposed, not parent live Hogan branch",
+  "source": "Gifford/Chicagology owner-approved attributed use; no public-domain assertion",
+  "pending": [
+    "Parent central adoption, source/grade/licence/sidecar and23-family official freshness work",
+    "Source flag pose/wind alignment and remaining arch/text/entry/stack/roof/material/context/multi-view differences",
+    "Actual full app/mobile/held-confidence QA for the runtime layer",
+    "Required full gates/preflight/PR policy"
+  ],
+  "renderer_contract": "exact3 fields declared/read; compiler+validator shared bounded contract; no false geometry marker on new app fields; existing forts unchanged",
+  "light_tests": {
+    "node_contract_groups": 5,
+    "python_consumer_contract_tests": 6,
+    "schema": true,
+    "exact_reconstructed_covers": 3
+  },
+  "all_cpu_browser_closed": true,
+  "actual_receipt": "/tmp/chicago-next-model/T-2385-third/preview-root/reviewed-preview-receipt.json"
+}

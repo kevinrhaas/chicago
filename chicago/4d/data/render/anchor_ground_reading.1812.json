@@ -80,6 +80,19 @@
       "inside_a_roof": null
     },
     {
+      "id": "kinzie_yard",
+      "local_e": 1214,
+      "local_n": 367,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 1.624,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 47.5,
+      "inside_a_roof": null
+    },
+    {
       "id": "eighteenth_street_shore",
       "local_e": 1495,
       "local_n": -3185,
@@ -133,7 +146,7 @@
     }
   ],
   "totals": {
-    "anchors": 8,
+    "anchors": 9,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,

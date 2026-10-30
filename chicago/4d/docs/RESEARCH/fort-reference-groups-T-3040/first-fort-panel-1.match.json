@@ -1,0 +1,602 @@
+{
+  "structure_id": "first_fort_dearborn_blockhouse_nw",
+  "view": "first-fort-panel-1",
+  "glb": "assets/gltf/first_fort_dearborn_blockhouse_nw__first_fort_1803.glb",
+  "glb_sha256": "b27af16855d1e3d7749bc4443e89b74e9e5c1d6e282d25f35af4f7097c3a8a30",
+  "camera_sha256": "da670a020bc4f553ab91666b629cf528d61f9d791da855260452b7869b3dfe27",
+  "photo_sha256": "fafa8793588f24b403e7f8ede60cc7cfd03647d31691e06320cd340c1869b49e",
+  "rendered_members": [
+    {
+      "structure_id": "first_fort_dearborn_blockhouse_nw",
+      "glb": "assets/gltf/first_fort_dearborn_blockhouse_nw__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1134.99,
+        "local_n": 233.28,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "b27af16855d1e3d7749bc4443e89b74e9e5c1d6e282d25f35af4f7097c3a8a30"
+    },
+    {
+      "structure_id": "first_fort_covered_way_bank_lower",
+      "glb": "assets/gltf/first_fort_covered_way_bank_lower__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1165.86,
+        "local_n": 262.2,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        30.86999999999989,
+        0,
+        -28.919999999999987
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "7c0f5e9d255ec3fbe668873df9e1aabcc24ecc8cb70db9815668e405d80574bf"
+    },
+    {
+      "structure_id": "first_fort_covered_way_bank_middle",
+      "glb": "assets/gltf/first_fort_covered_way_bank_middle__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1165.86,
+        "local_n": 259.8,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        30.86999999999989,
+        0,
+        -26.52000000000001
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "215e5287e456e2b152e5e90596eb51fc059fce4cf0d5d5c12850bcbfcdc349c1"
+    },
+    {
+      "structure_id": "first_fort_covered_way_bank_upper",
+      "glb": "assets/gltf/first_fort_covered_way_bank_upper__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1165.86,
+        "local_n": 257.5,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        30.86999999999989,
+        0,
+        -24.22
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "8ac5f5b137f0e262e3d6b5aec27b2c932d6074c4b81e6ed93969aa9cfd93dfae"
+    },
+    {
+      "structure_id": "first_fort_covered_way_terrace",
+      "glb": "assets/gltf/first_fort_covered_way_terrace__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1165.86,
+        "local_n": 238.3,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        30.86999999999989,
+        0,
+        -5.02000000000001
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "288e0f16691619ade458499d2a046932c55750ed0119c3ab02e531467624ac04"
+    },
+    {
+      "structure_id": "first_fort_dearborn_blockhouse_se",
+      "glb": "assets/gltf/first_fort_dearborn_blockhouse_se__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1164.34,
+        "local_n": 203.08,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        29.34999999999991,
+        0,
+        30.19999999999999
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "46fe0b419411ac6cb3905c21270a0d48c649d79c25c930bf19d3feb8d53360cb"
+    },
+    {
+      "structure_id": "first_fort_dearborn_commanding_officers_barracks",
+      "glb": "assets/gltf/first_fort_dearborn_commanding_officers_barracks__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1165.84,
+        "local_n": 218.23,
+        "rotation_deg": 270,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        30.84999999999991,
+        0,
+        15.050000000000011
+      ],
+      "rotation_y": -4.71238898038469,
+      "glb_sha256": "d4fd5e93bbab0593849e656510ec444f2c745fc9735e094d655f11be95b450c5"
+    },
+    {
+      "structure_id": "first_fort_dearborn_flagstaff",
+      "glb": "assets/gltf/first_fort_dearborn_flagstaff__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1152,
+        "local_n": 221,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        17.00999999999999,
+        0,
+        12.280000000000001
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "c357d3b79c954102b992399cd8e72406a97a3c71b8f1c4d7fe001c6e8a354025"
+    },
+    {
+      "structure_id": "first_fort_dearborn_magazine",
+      "glb": "assets/gltf/first_fort_dearborn_magazine__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1149.32,
+        "local_n": 233.62,
+        "rotation_deg": 180,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        14.329999999999927,
+        0,
+        -0.3400000000000034
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "8af2a21fd3c87b5ab7f38452def94788c67c8341ffbdb4ad636dea9a7dd7d655"
+    },
+    {
+      "structure_id": "first_fort_dearborn_north_range",
+      "glb": "assets/gltf/first_fort_dearborn_north_range__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1159.56,
+        "local_n": 234.9,
+        "rotation_deg": 180,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        24.569999999999936,
+        0,
+        -1.6200000000000045
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "66c031297d3de1daf6162c49932857feac27767b9e0c685ed824700180b486a4"
+    },
+    {
+      "structure_id": "first_fort_dearborn_officers_barracks",
+      "glb": "assets/gltf/first_fort_dearborn_officers_barracks__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1138.53,
+        "local_n": 227,
+        "rotation_deg": 90,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        3.5399999999999636,
+        0,
+        6.280000000000001
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "e1ad65c5d5f71145dd6d7fc7bf84284cdc920ab6a1b6e78f025a69263029ee96"
+    },
+    {
+      "structure_id": "first_fort_dearborn_parade",
+      "glb": "assets/gltf/first_fort_dearborn_parade__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1144.11,
+        "local_n": 213.04,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        9.11999999999989,
+        0,
+        20.24000000000001
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "85a49f66d032d59f1e780e5de77db590608b207948865bfb520ad4e891d74e57"
+    },
+    {
+      "structure_id": "first_fort_dearborn_pickets_inner",
+      "glb": "assets/gltf/first_fort_dearborn_pickets_inner__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1138.53,
+        "local_n": 207.1,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        3.5399999999999636,
+        0,
+        26.180000000000007
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "eda2a6c1110bdb46074c77dff0f6f9ca6d93f1d6f93308076b8e111b3258e2f1"
+    },
+    {
+      "structure_id": "first_fort_dearborn_pickets_outer",
+      "glb": "assets/gltf/first_fort_dearborn_pickets_outer__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1135.94,
+        "local_n": 204.08,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        0.9500000000000455,
+        0,
+        29.19999999999999
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "506d2b3a926503d8e32cbaec66c84a257d224dd108da1191bb8009be7b497313"
+    },
+    {
+      "structure_id": "first_fort_dearborn_small_house_ne",
+      "glb": "assets/gltf/first_fort_dearborn_small_house_ne__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1165.84,
+        "local_n": 234.78,
+        "rotation_deg": 180,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        30.84999999999991,
+        0,
+        -1.5
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "1b8b3a40b3f5da3f355bd8e91b3fe56410cac25ebd1c15d5d45b0c909b378441"
+    },
+    {
+      "structure_id": "first_fort_dearborn_small_house_sw",
+      "glb": "assets/gltf/first_fort_dearborn_small_house_sw__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1139.72,
+        "local_n": 208.44,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        4.730000000000018,
+        0,
+        24.840000000000003
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "3a90ae5849854a8b2b99ef654a03e992f6f0ce556940e78057688b0fa9ce4c97"
+    },
+    {
+      "structure_id": "first_fort_dearborn_soldiers_barracks_se",
+      "glb": "assets/gltf/first_fort_dearborn_soldiers_barracks_se__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1150.51,
+        "local_n": 207.1,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        15.519999999999982,
+        0,
+        26.180000000000007
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "086a7c9d66e427f6056c50c7357ba0170e3ac3db9fa2c38ca042de8143f4c79b"
+    },
+    {
+      "structure_id": "first_fort_dearborn_soldiers_barracks_sw",
+      "glb": "assets/gltf/first_fort_dearborn_soldiers_barracks_sw__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1141.88,
+        "local_n": 207.1,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        6.8900000000001,
+        0,
+        26.180000000000007
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "3d3354a42fbbae074bcddbd0cc6e8496e363a094f09bf8126fad3f7cafd7477d"
+    },
+    {
+      "structure_id": "first_fort_outer_agents_house",
+      "glb": "assets/gltf/first_fort_outer_agents_house__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1060.9,
+        "local_n": 175.71,
+        "rotation_deg": 90,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -74.08999999999992,
+        0,
+        57.56999999999999
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "dd794b8bae5923ede6fabf1da05b22afd61ee1b0f07845b565add376985e1b95"
+    },
+    {
+      "structure_id": "first_fort_outer_armourers_shop",
+      "glb": "assets/gltf/first_fort_outer_armourers_shop__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1227.68,
+        "local_n": 82.1,
+        "rotation_deg": 270,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        92.69000000000005,
+        0,
+        151.18
+      ],
+      "rotation_y": -4.71238898038469,
+      "glb_sha256": "9e82bcbb7b18d9baf86d533f4522d92462e101876d43567e111151845006aea4"
+    },
+    {
+      "structure_id": "first_fort_outer_bake_house",
+      "glb": "assets/gltf/first_fort_outer_bake_house__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1061.44,
+        "local_n": 187.99,
+        "rotation_deg": 90,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -73.54999999999995,
+        0,
+        45.28999999999999
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "b490a61ed03948abb648e98e0d70aec69088891643ce26e87b5c67635cb08570"
+    },
+    {
+      "structure_id": "first_fort_outer_factory",
+      "glb": "assets/gltf/first_fort_outer_factory__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1062.33,
+        "local_n": 224.72,
+        "rotation_deg": 90,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -72.66000000000008,
+        0,
+        8.560000000000002
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "90f8de3ddbae5fc253ec4457f36f6ee120801699fecffad23d305f9cc3d0e49a"
+    },
+    {
+      "structure_id": "first_fort_outer_interpreters_house",
+      "glb": "assets/gltf/first_fort_outer_interpreters_house__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1037.55,
+        "local_n": 188.57,
+        "rotation_deg": 148,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -97.44000000000005,
+        0,
+        44.71000000000001
+      ],
+      "rotation_y": -2.5830872929516078,
+      "glb_sha256": "8786ee5f63adf0efce3fe4bbfdb7eaa6d4d7d52a5cdfe404c58a0f0e12e73a9d"
+    },
+    {
+      "structure_id": "first_fort_outer_merchants_shop",
+      "glb": "assets/gltf/first_fort_outer_merchants_shop__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1211.74,
+        "local_n": 147.45,
+        "rotation_deg": 270,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        76.75,
+        0,
+        85.83000000000001
+      ],
+      "rotation_y": -4.71238898038469,
+      "glb_sha256": "07c82c64560a5d4457e2622e32150728b5230b927a50a3470b0713d6153da053"
+    },
+    {
+      "structure_id": "first_fort_outer_officers_garden",
+      "glb": "assets/gltf/first_fort_outer_officers_garden__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1113.84,
+        "local_n": 107.31,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -21.15000000000009,
+        0,
+        125.97
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "ccf19f832694edf158f20ef70d161e8d5b067c2610ee56cd47bd1315318562eb"
+    },
+    {
+      "structure_id": "first_fort_outer_stable_middle",
+      "glb": "assets/gltf/first_fort_outer_stable_middle__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1058.67,
+        "local_n": 130.63,
+        "rotation_deg": 90,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -76.31999999999994,
+        0,
+        102.65
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "e184c496dcb60574c2c2451780e8129c1b5f10ec5bd05353407f51a21d8430ed"
+    },
+    {
+      "structure_id": "first_fort_outer_stable_north",
+      "glb": "assets/gltf/first_fort_outer_stable_north__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1058.7,
+        "local_n": 145.14,
+        "rotation_deg": 90,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -76.28999999999996,
+        0,
+        88.14000000000001
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "5d770734467f4599fe43e49ed80784718b4cec57e16442d0d304674275141bda"
+    },
+    {
+      "structure_id": "first_fort_outer_stable_south",
+      "glb": "assets/gltf/first_fort_outer_stable_south__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1058.43,
+        "local_n": 111.18,
+        "rotation_deg": 90,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -76.55999999999995,
+        0,
+        122.1
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "fb223fb9e3d385d70087bbdb0be5e7b2583cd458f9886b4a7e2624a9ce40b558"
+    },
+    {
+      "structure_id": "first_fort_outer_sutlers_garden",
+      "glb": "assets/gltf/first_fort_outer_sutlers_garden__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1210.43,
+        "local_n": 104.26,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        75.44000000000005,
+        0,
+        129.01999999999998
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "a7e29fc72ca229e876622916279db237bfa419987bdfd083c9b945ac2bac2479"
+    },
+    {
+      "structure_id": "first_fort_wharf",
+      "glb": "assets/gltf/first_fort_wharf__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1095.99,
+        "local_n": 247.91,
+        "rotation_deg": 338.76,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -39,
+        0,
+        -14.629999999999995
+      ],
+      "rotation_y": -5.912477374055991,
+      "glb_sha256": "52964e2c5c4bd7c75bb8208cb1afae470f59b749470bebf33a06d1ad5d06d1ed"
+    }
+  ],
+  "group_sha256": "3484a767d3a36b765a5dcbe3f9963746d3f561fdf4173c0c23c62d366900cb60",
+  "side_by_side": "docs/RESEARCH/fort-reference-groups-T-3040/comparisons/first-fort-panel-1-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The camera is only curtain-scaled. The documented 75 ft staff projects above the frame while the print places its top inside it; the retrospective tower/curtain arrangement differs from the measured plan. Do not move surveyed coordinates or shorten the staff to hide this disagreement.",
+      "status": "open"
+    },
+    {
+      "what": "Blockhouses lack the cupolas drawn in panel 1 and retain invented separate chimneys. Whistler explicitly says cupolas were not yet built in 1808; resolving the 1812 condition needs a dated ruling.",
+      "status": "open"
+    },
+    {
+      "what": "Ranges, facade openings, roof/chimney silhouettes and external compound context have not been matched. Many of the 30 rendered members are occluded or outside this panel; rendering them does not attest them.",
+      "status": "open"
+    },
+    {
+      "what": "The review common grade plane excludes river, bank, trees, people and varying terrain.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

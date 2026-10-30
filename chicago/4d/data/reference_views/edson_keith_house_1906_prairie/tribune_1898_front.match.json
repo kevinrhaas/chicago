@@ -1,0 +1,53 @@
+{
+ "structure_id": "edson_keith_house_1906_prairie",
+ "view": "tribune_1898_front",
+ "glb": "assets/gltf/edson_keith_house_1906_prairie__as_mapped_1904.glb",
+ "glb_sha256": "fc70e7c04fd38618de02765c91acef939960560be8b6dda4d3044841bc00af48",
+ "camera_sha256": "2e81e03f73556e52ae377b79f76a6e555a62aa5eb2a8506ff111f368c21f14bc",
+ "photo_sha256": "7fb85835c9299b2373dcf431333e8d368e54eb42310e47a787cfe6c15e163279",
+ "side_by_side": "docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/tribune_1898_front-side-by-side.jpg",
+ "verdict": "matches",
+ "differences": [
+  {
+   "what": "composition: the front square-on, a canted tower at its south end standing on grade through the basement, the door under a portico on its middle column, one window column north of it; built so",
+   "status": "fixed"
+  },
+  {
+   "what": "the tower: the panel draws it about 5.5 m across against the door-to-window spacing and three tiers of round-headed lights over the basement, its cap just over the main cornice; T-3239 broadens the ring from 2.0 to 2.6 m and lowers its wall head from 15.54 to 13.24 m, 1.1 m over the main wall (K01's least). Its upper two tiers render about 20 px higher than drawn: the sketch's principal storey is about 20% shorter than the engraving-fitted record's (the camera's 12 px residuals there), under the bar",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the portico: drawn about 4.7 m wide; T-3239 widens the porch from 4.0 to 5.0 m",
+   "status": "fixed"
+  },
+  {
+   "what": "the terrace's turned balustrade on both sides of the stoop and the rails down the stoop's cheeks: built by T-3239 (the stone balustrade 1620's terrace carries)",
+   "status": "fixed"
+  },
+  {
+   "what": "the portico's top: the panel draws a flat entablature with dentils and the window over the door in a tall framed surround; the build has the engraving's balustraded balcony before an arched window, which the engraving draws plainly. A gap the two pictures disagree about",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the stoop's foot: the panel draws square block newels at the cheeks' foot; the engraving splays curved flights to the walk; built with scrolled cheek ends between the two. A gap the two pictures disagree about",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the north window column's round-headed lights under hoods in both storeys and the arched door; built so",
+   "status": "fixed"
+  },
+  {
+   "what": "the low wall's posts at the walk's opening; built so (K11 coping wall, 0.9 m posts)",
+   "status": "fixed"
+  },
+  {
+   "what": "colour and walling: a pen sketch",
+   "status": "not shown"
+  },
+  {
+   "what": "the roof, the flanks and the rear: the panel is cut at the cornice and sees only the front",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

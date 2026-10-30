@@ -1,0 +1,23 @@
+{
+  "id": "seton_1892_equine_skeleton",
+  "type": "illustration",
+  "citation": "Ernest Thompson Seton, Studies in the Art Anatomy of Animals (1892), The Anatomy of the Horse: The Skeleton; Wikimedia Commons reproduction Horse anatomy Seton.png.",
+  "author": "E. T. Seton (catalog attribution); plate signed Ernest E. Thompson",
+  "date": "1892",
+  "repository": "Wikimedia Commons reproduction",
+  "url": "https://commons.wikimedia.org/wiki/File:Horse_anatomy_Seton.png",
+  "archived_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Horse_anatomy_Seton.png",
+  "locator": "Complete skeletal plate, 1486x1178; note below figure expressly omits far-side jaws, ribs and scapula for simplicity.",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "rights_note": "Saved Commons file page marks public domain by author life+70. Additional US basis: published1892, before1931. This is the original plate, not a modern redraw; exact saved image and page hashes are in the T2799 evidence manifest.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Actually viewed2026-10-22. Later anatomical scholarship used for skeletal chain/topology reasoning only. Does not attest any Chicago horse, breed, coat, 1835 animal dimensions or historical tack; the skeleton itself is not a measured exterior surface.",
+  "what_it_supplies": [
+    "Named equine scapula/humerus/radius/carpus/pastern and pelvis/femur/tibia/hock relationships."
+  ],
+  "what_it_does_not_supply": [
+    "A Chicago animal, measured live conformation, soft-tissue outer surface, or exact early-period gear."
+  ]
+}

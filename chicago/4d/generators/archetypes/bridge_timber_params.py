@@ -124,6 +124,10 @@ PIER_KINDS = ("crib", "bent", "pile")
 # decade and which a later phase of the same archetype could carry.
 DECK_KINDS = ("puncheon", "plank")
 
+# The existing open pole rail remains the default. The horizontal-board
+# parapet is an opt-in reading of the public-domain Andreas drawbridge plate.
+RAILING_KINDS = ("pole", "board")
+
 # WHAT HOISTED THE DRAW. `None` is the state this archetype built from 2026-08-11 to
 # 2026-08-21: gallows frames standing over a closed opening with nothing hung from
 # them, because the two TEXTS this project holds (Andreas, and the chicagology page
@@ -194,7 +198,7 @@ def ground_contact_z(params: "BridgeTimberParams") -> float:
 CONSUMED = frozenset({
     "width_m", "clearance_m", "pier_count", "pier_kind", "deck_kind",
     "stringer_count", "stringer_d_m", "plank_t_m", "abutments", "construction",
-    "railing", "deck_height_m",
+    "railing", "railing_kind", "deck_height_m",
     # The draw, added 2026-08-11. All three reach vertices: the opening clears the
     # supports out of itself and stations the frames, the count sets how many frames
     # there are, and the height is the silhouette.
@@ -252,6 +256,10 @@ class BridgeTimberParams:
     # railing is built at whatever confidence the record gives it and nothing else
     # inherits from it.
     railing: bool = False
+
+    # T-2375: the Andreas 1884 plate shows horizontal-board parapets, not
+    # the open pole rail above. Its boards' dimensions remain reconstructed.
+    railing_kind: str = field(default="pole", kw_only=True)
 
     # THE MOVING PART, added 2026-08-11 for the Dearborn Street drawbridge.
     #
@@ -402,6 +410,11 @@ class BridgeTimberParams:
             raise ParamError(f"pier_kind '{self.pier_kind}' not in {PIER_KINDS}")
         if self.deck_kind not in DECK_KINDS:
             raise ParamError(f"deck_kind '{self.deck_kind}' not in {DECK_KINDS}")
+        if self.railing_kind not in RAILING_KINDS:
+            raise ParamError(
+                f"railing_kind '{self.railing_kind}' not in {RAILING_KINDS}")
+        if self.railing_kind != "pole" and not self.railing:
+            raise ParamError("railing_kind without railing: no parapet to build")
         if self.pier_count is not None and not 0 <= self.pier_count <= 24:
             raise ParamError(f"pier_count {self.pier_count} outside 0-24. Zero is a "
                              f"legitimate value — a short crossing lands abutment to "
@@ -506,6 +519,7 @@ def from_phase(phase: dict, record: dict | None = None) -> BridgeTimberParams:
         abutments=bool(val("abutments", True)),
         construction=str(val("construction", "log")),
         railing=bool(val("railing", False)),
+        railing_kind=str(val("railing_kind", "pole")),
         deck_height_m=(None if val("deck_height_m") is None
                        else float(val("deck_height_m"))),
         draw_span_m=(None if val("draw_span_m") is None

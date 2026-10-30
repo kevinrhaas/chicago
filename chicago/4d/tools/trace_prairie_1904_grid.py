@@ -67,9 +67,10 @@ SHEET_JOIN_TOL_M = 2.5
 # one edge run side by side; it is cut square there instead (T-2691).
 SQUARE_CUT_DEG = 10.0
 
-SHEET_KEY = {"20": "sanborn_1911_v3_sheet_20", "28": "sanborn_1911_v3_sheet_28", "35": "sanborn_1911_v3_sheet_35"}
+SHEET_KEY = {"20": "sanborn_1911_v3_sheet_20", "28": "sanborn_1911_v3_sheet_28", "35": "sanborn_1911_v3_sheet_35",
+             "27": "sanborn_1911_v3_sheet_27"}
 SHEET_SOURCE = {"20": "sanborn_1911_chicago_v3_sheet_20", "28": "sanborn_1911_chicago_v3_sheet_28",
-                "35": "sanborn_1911_chicago_v3_sheet_35"}
+                "35": "sanborn_1911_chicago_v3_sheet_35", "27": "sanborn_1911_chicago_v3_sheet_27"}
 CODE_1905 = "chicago_revised_municipal_code_1905"
 
 # ---------------------------------------------------------------------------
@@ -97,6 +98,14 @@ LINES: dict[str, dict[str, tuple]] = {
         "ind_16_corner_rear": ("v", [[1571.6, 1360], [1571.4, 1465]]),
         "ind_16_l1494": ("h", [[1092, 1492.7], [1825, 1497.4]]),
     },
+    "27": {
+        # T-3150, the 18th Street corner of the Indiana face: the east line of the corner lots
+        # 1801-1807 (the sheds' east wall, drawn unbroken from 18th Street to the 1807/1809
+        # line), column profile peaks across rows 1300-1450 and 1500-1650; and that line, the
+        # first to run from Indiana to the alley (row peaks at columns 3712-3778 and 4690-4740).
+        "ind_18_corner_rear": ("v", [[4315.2, 1375], [4315.5, 1575]]),
+        "ind_18_l1747": ("h", [[3745, 1746.9], [4715, 1751.3]]),
+    },
     "28": {
         # E. 18th Street's two property lines, read WITHIN each block rather than across
         # the sheet: the drawn lines are not one straight line each (the south line drops
@@ -106,9 +115,7 @@ LINES: dict[str, dict[str, tuple]] = {
         "s18_n_b": ("h", [[2100, 780.8], [2500, 784.9], [3000, 790.8], [3400, 794.8]]),
         "s18_s_c": ("h", [[700, 1189.8], [950, 1191.1], [1200, 1192.8], [1400, 1194.0], [1628, 1195.3]]),
         "s18_s_d": ("h", [[2068, 1186.2], [2100, 1186.3], [2500, 1189.8], [3000, 1194.1], [3300, 1196.3]]),
-        # The 24-ft alley behind the Prairie west-face lots (printed "24'"), 146 px wide.
-        "alley_w_w": ("v", [[439.6, 1400], [426.7, 3000], [420.3, 4300], [409.7, 5800]]),
-        "alley_w_e": ("v", [[585.7, 1400], [572.7, 3000], [562.8, 4300], [554.6, 5800]]),
+        # The 24-ft alley behind the Prairie west-face lots is GEOREF's: sheet 27 is tied to it (T-3150).
         # The rear line of 1801 and 1811 Prairie, north of the east alley's head.
         "rear_1801_1811": ("v", [[2959.6, 1300], [2953.9, 1850]]),
         # The east alley's head: the 1811/1815 line carried across the alley.
@@ -252,8 +259,8 @@ FACES = [
 # lines are COLUMNS read at the row given, between its 'west' and 'east' bounds). Where a
 # corner's cross-street numbers stand on a lot no line divides from the Indiana one (the
 # Kodak works at 18th, the church at 21st, the post-office block at 22nd), they are carried
-# on that lot as 'cross_street'. Sheet 27 (Indiana, 18th to 20th) was not supplied, so that
-# face has no lots.
+# on that lot as 'cross_street'. Sheet 27 (Indiana, 18th to 20th) was not supplied with the
+# others; T-3150 fetched it from the Library of Congress and reads that face off it.
 AVENUE_FACES = [
     {"id": "indiana_e_16_18_corner", "street": "indiana", "side": "east", "sheet": "20",
      "block": "blk_indiana_prairie_16_18",
@@ -284,6 +291,49 @@ AVENUE_FACES = [
      "labels": [["1605", 1525], ["1613", 2050], ["1615", 2160], ["1617", 2260], ["1619", 2400], ["1623", 2820],
                 ["1637", 3420], ["1641", 3700], ["1703", 4000], ["1713", 4600], ["1727", 5400], ["1737", 6000]],
      "cross_street": {"last": ["200 E. 18th St.", "216 E. 18th St."]}},
+    {"id": "indiana_e_18_20_corner", "street": "indiana", "side": "east", "sheet": "27",
+     "block": "blk_indiana_prairie_18_20",
+     "front": ("line", "27", "indiana_e"), "rear": ("line", "27", "ind_18_corner_rear"),
+     "north": ("line", "28", "s18_s_c"), "south": ("line", "27", "ind_18_l1747"),
+     "column": 3745, "lot_lines": [1360.7, 1489.9, 1614.9],
+     "labels": [["1801", 1300], ["1803", 1425], ["1805", 1550], ["1807", 1680]],
+     "cross_street": {"first": ["205 E. 18th St.", "207 E. 18th St."]},
+     "note": ("The two-storey stores printed 205 and 207 stand on 1801's lot, behind the house and against it, "
+              "fronting 18th Street; the sheet draws no line between them and the house's lot.")},
+    {"id": "e18th_s_indiana_18_20", "street": "e18th", "side": "south", "sheet": "27", "axis": "col",
+     "block": "blk_indiana_prairie_18_20",
+     "front": ("line", "28", "s18_s_c"), "rear": ("line", "27", "ind_18_l1747"),
+     "west": ("line", "27", "ind_18_corner_rear"), "east": ("line", "28", "alley_w_w"),
+     "column": 1450, "lot_lines": [],
+     "labels": [["213", 4445], ["215", 4545], ["217", 4645]],
+     "note": ("A row of three 3-storey frame flats on basements, printed 213, 215 and 217 with the pre-1909 "
+              "numbers (45) to (41) over them, which are not carried. Its party walls stop at the row's rear "
+              "(column peaks at about 4480 and 4580 across rows 1300-1450, none across 1700-1745), so the sheet "
+              "draws no lot line between them and the row is one lot here. A line behind its rear sheds (row "
+              "1686.5, from the row's west wall to the alley) stops 3 m short of the 1807/1809 line; the strip "
+              "between, and the 3 m between the corner lots' east line and the row's west wall, are the row's "
+              "lot's here, and the sheet does not say whose they are.")},
+    {"id": "indiana_e_18_20", "street": "indiana", "side": "east", "sheet": "27",
+     "block": "blk_indiana_prairie_18_20",
+     "front": ("line", "27", "indiana_e"), "rear": ("line", "28", "alley_w_w"),
+     "north": ("line", "27", "ind_18_l1747"), "south": ("line", "28", "s20_n"),
+     "column": 4125,
+     "lot_lines": [1920.6, 2089.9, 2287.2, 2503.3, 2683.0, 2863.7, 3207.7, 3386.6, 3538.1, 3836.6, 3991.0,
+                   4144.6, 4368.2, 4594.1, 4765.6, 4917.5, 5111.9, 5413.2, 5650.4, 5927.6],
+     "labels": [["1809", 1830], ["1813", 2000], ["1815", 2190], ["1819", 2390], ["1821", 2590], ["1825", 2770],
+                ["1829", 3000], ["1833", 3290], ["1837", 3460], ["1839", 3600], ["1901", 4270], ["1909", 4440],
+                ["1913", 4680], ["1915", 4840], ["1917", 4970], ["1919", 5060], ["1921", 5170], ["1923", 5330],
+                ["1925", 5450], ["1929", 5590], ["1931", 5710], ["1933", 5840], ["1935", 5950], ["1937", 6010]],
+     "cross_street": {"last": ["216 E. 20th St.", "216a E. 20th St."]},
+     "note": ("Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side "
+              "(columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street "
+              "line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party "
+              "walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 "
+              "(row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each "
+              "pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) "
+              "carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from "
+              "Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides "
+              "them.")},
     {"id": "indiana_e_20_21_corner", "street": "indiana", "side": "east", "sheet": "35",
      "block": "blk_indiana_prairie_20_21",
      "front": ("line", "35", "indiana_e"), "rear": ("line", "35", "ind_20_corner_rear"),
@@ -353,7 +403,6 @@ AVENUE_FACES = [
 AVENUES = ("prairie", "indiana", "calumet")
 # The blocks the tiling check leaves out, each with its reason.
 UNTILED_BLOCKS = {
-    "blk_indiana_prairie_18_20": "Indiana Avenue 18th-20th is on sheet 27, not supplied: its east-face lots are not read",
     "blk_prairie_ic_16_18": "T-0474's east-face lots end on the IC right-of-way line and cover 99.4 per cent of the block "
                             "it outlines; why the rest is not reached is not T-2116's to rule",
 }
@@ -530,7 +579,9 @@ STREETS = {
 DERIVED_LINES = {
     "indiana_e_18_20": {
         "how": "the straight line through sheet 20's Indiana east line at its row 6000 and sheet 35's at its row 300",
-        "why": "Indiana Avenue between 18th and 20th is on sheet 27, which was not supplied; the two sheets either side draw the line 2 m apart in easting over 290 m, so it is carried straight between them",
+        "why": ("what Indiana's west line south of 20th Street is offset from: no sheet here draws that line. Between "
+                "18th and 20th it is no longer the east line: sheet 27, fetched for T-3150, draws it there, 0.6-0.8 m "
+                "east of this one"),
         "tier": "inferred",
     },
     "indiana_w_18_22": {
@@ -561,7 +612,7 @@ BLOCKS = [
         {"ref": ("line", "20", "s16_n"), "kind": "unmapped", "street": None,
          "note": "the Illinois Central 16th Street station ground north of the block; E. 16th Street ends at Prairie"}]},
     {"id": "blk_indiana_prairie_18_20", "sheet": "28", "edges": [
-        {"ref": ("local", "indiana_e_18_20"), "kind": "street", "street": "indiana"},
+        {"ref": ("line", "27", "indiana_e"), "kind": "street", "street": "indiana"},
         {"ref": ("line", "28", "s20_n"), "kind": "street", "street": "e20th"},
         {"ref": ("line", "28", "prairie_w"), "kind": "street", "street": "prairie"},
         {"ref": ("line", "28", "s18_s_c"), "kind": "street", "street": "e18th"}]},
@@ -626,8 +677,8 @@ SEGMENTS = [
     {"id": "indiana_16_18", "street": "indiana", "sheet": "20",
      "sides": [("line", "20", "indiana_w"), ("line", "20", "indiana_e")],
      "cuts": [("line", "20", "s16_n"), ("line", "28", "s18_s_c")]},
-    {"id": "indiana_18_20", "street": "indiana", "sheet": "28",
-     "sides": [("local", "indiana_w_18_22"), ("local", "indiana_e_18_20")],
+    {"id": "indiana_18_20", "street": "indiana", "sheet": "27",
+     "sides": [("line", "27", "indiana_w"), ("line", "27", "indiana_e")],
      "cuts": [("line", "28", "s18_n_a"), ("line", "35", "s20_s")]},
     {"id": "indiana_20_22", "street": "indiana", "sheet": "35",
      "sides": [("local", "indiana_w_18_22"), ("line", "35", "indiana_e")],
@@ -866,6 +917,9 @@ class Geo:
         return val
 
     def local(self, name):
+        # Indiana's east line from sheet 20's foot to sheet 35's head: what stood for the 18th-20th
+        # line until sheet 27 was read (T-3150), and still what Indiana's west line south of 20th
+        # (which no sheet here draws) is offset from.
         if name == "indiana_e_18_20":
             l20 = sheet_line("20", "indiana_e")
             l35 = sheet_line("35", "indiana_e")

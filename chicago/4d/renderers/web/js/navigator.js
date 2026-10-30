@@ -15,7 +15,7 @@
  * Home (SCR 01) is its one app so far: YOU ARE AT (the street, the way you face and the
  * scene's clock), RIGHT IN FRONT OF YOU (target.js, within 100 m, with the screen's one
  * signal-red key, Inspect), JAUNT IN PROGRESS when there is one, and MOVE and the
- * Confidence view. The rail is the app registry (nav-rail.js, T-2618): every app,
+ * Confidence view, each a tile that opens its app (T-3021). The rail is the app registry (nav-rail.js, T-2618): every app,
  * Home included, is registered from its own file under js/apps/, and
  * `navigator.register(app)` adds one more.
  *
@@ -171,6 +171,8 @@ export function createNavigator({
     context: ctx, before: collapse ?? null, storage,
     onOpen: (id, by) => {
       if (id !== link?.app) link = null;
+      // T-3021: where Back goes — the app open before this one.
+      if (id !== openNow) { cameFrom = openNow; openNow = id; }
       queueMicrotask(changed);
       paintDock(id);
       if (by === 'quiet') return;
@@ -181,6 +183,7 @@ export function createNavigator({
     onLaunch: () => setLevel(0, { by: 'app' }),
   });
   let api = null; // filled in below; ctx() is only ever called after
+  let openNow = null, cameFrom = null;
   const railShows = () => !isPhone() || level > 0;
   let unNear = null;
   function listenNear() {
@@ -243,10 +246,14 @@ export function createNavigator({
   // head's own "open when docked" tap, which would reopen the device it just closed.
   closeKey?.addEventListener('pointerdown', (e) => e.stopPropagation());
   closeKey?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+  // T-3021: Home's MOVE and CONFIDENCE VIEW tiles open their apps.
+  for (const [tile, app] of [[$('nav-tile-move'), 'move'], [$('nav-tile-confidence'), 'confidence']]) {
+    tile?.addEventListener('click', () => { if (registry.has(app)) void registry.select(app, { by: 'hand' }); });
+  }
   out.inspect?.addEventListener('click', () => {
     const t = shown;
     if (!t) return;
-    if (isPhone()) setLevel(0, { by: 'app' });
+    // T-3022: the building opens in Inspect, in the device, so a phone's sheet stays up.
     onInspect(t.id);
   });
 
@@ -405,6 +412,7 @@ export function createNavigator({
     openLink(next) {
       if (!next?.app || !registry.has(next.app)) return Promise.resolve(false);
       link = { app: next.app, id: next.id ?? null, tab: next.tab ?? null };
+      if (next.person) link.person = next.person; // T-3265: Inspect opens People on this person's card
       return registry.select(next.app, { by: 'link' });
     },
     get link() { return link; },
@@ -416,6 +424,15 @@ export function createNavigator({
     },
     /** T-2621: hear the device change: fn({ app, level }); returns its unsubscribe. */
     onChange(fn) { changeFns.add(fn); return () => changeFns.delete(fn); },
+    /** T-3021: Back from an app — to the one it was opened from, else Home. */
+    backTo() {
+      const id = cameFrom && cameFrom !== openNow && registry.has(cameFrom) ? cameFrom : 'home';
+      return { id, label: appLabel(id) || 'Home' };
+    },
+    back() {
+      const { id } = api.backTo();
+      return registry.has(id) ? registry.select(id, { by: 'hand' }) : Promise.resolve(false);
+    },
     get app() { return registry.current; },
     get apps() { return registry.shown(); },
     rail: () => registry.snapshot(),

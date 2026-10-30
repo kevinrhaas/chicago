@@ -1,0 +1,284 @@
+{
+  "status": "FINITE_ACTUAL_RIG_UPPER_PANEL_FIT_OBSERVATION",
+  "source_GLb_sha256": "8b7d165bedfa5c8f12fd7e9aeb8d51e1cfc3cab816675a7817900f4bd9418198",
+  "baseline_source_arrays_match_actual_exported_positions": true,
+  "actual_frozen_idle_frames": 3,
+  "scope": "Upper source faces with centroid Y>=1.35m only, independently projected to exact original prepared-body triangle after actual frozen canonical rig deformation. This is not a whole-body/dense sweep or complete/continuous fit acceptance. Forty inherited negative projections remain open and are not hidden.",
+  "results": [
+    {
+      "actual_frozen_pose": "profile",
+      "before": {
+        "targeted_upper_triangle_corners": 558,
+        "negative_corners": 0,
+        "minimum_projection_m": 0.009306490871341163,
+        "maximum_projection_m": 0.017110986402635663,
+        "worst": [
+          {
+            "source_face": 15795,
+            "vertex": 764,
+            "projection_m": 0.009306490871341163,
+            "rest_face_Y_m": 1.4307868606679357
+          },
+          {
+            "source_face": 2556,
+            "vertex": 101,
+            "projection_m": 0.009306490871343312,
+            "rest_face_Y_m": 1.4307868606679355
+          },
+          {
+            "source_face": 15794,
+            "vertex": 767,
+            "projection_m": 0.009326443536604407,
+            "rest_face_Y_m": 1.4253900538734463
+          },
+          {
+            "source_face": 2557,
+            "vertex": 102,
+            "projection_m": 0.009326443536606112,
+            "rest_face_Y_m": 1.4253900538734463
+          },
+          {
+            "source_face": 15795,
+            "vertex": 767,
+            "projection_m": 0.009464099456699146,
+            "rest_face_Y_m": 1.4307868606679357
+          },
+          {
+            "source_face": 2556,
+            "vertex": 102,
+            "projection_m": 0.009464099456701283,
+            "rest_face_Y_m": 1.4307868606679355
+          }
+        ]
+      },
+      "after": {
+        "targeted_upper_triangle_corners": 2334,
+        "negative_corners": 0,
+        "minimum_projection_m": 0.001504375774076987,
+        "maximum_projection_m": 0.017142055984175463,
+        "worst": [
+          {
+            "source_face": 2458,
+            "vertex": 192,
+            "projection_m": 0.001504375774076987,
+            "rest_face_Y_m": 1.4427577157760016
+          },
+          {
+            "source_face": 15697,
+            "vertex": 1046,
+            "projection_m": 0.0015043757740779537,
+            "rest_face_Y_m": 1.4427577157760016
+          },
+          {
+            "source_face": 15692,
+            "vertex": 1046,
+            "projection_m": 0.0018688675792931883,
+            "rest_face_Y_m": 1.4364584681365375
+          },
+          {
+            "source_face": 2455,
+            "vertex": 192,
+            "projection_m": 0.0018688675792937746,
+            "rest_face_Y_m": 1.4364584681365375
+          },
+          {
+            "source_face": 2459,
+            "vertex": 192,
+            "projection_m": 0.0019457272103897212,
+            "rest_face_Y_m": 1.4408181200870154
+          },
+          {
+            "source_face": 15696,
+            "vertex": 1046,
+            "projection_m": 0.0019457272103900521,
+            "rest_face_Y_m": 1.4408181200870154
+          }
+        ]
+      }
+    },
+    {
+      "actual_frozen_pose": "front",
+      "before": {
+        "targeted_upper_triangle_corners": 558,
+        "negative_corners": 0,
+        "minimum_projection_m": 0.009306490871348773,
+        "maximum_projection_m": 0.01711098640263927,
+        "worst": [
+          {
+            "source_face": 15795,
+            "vertex": 764,
+            "projection_m": 0.009306490871348773,
+            "rest_face_Y_m": 1.4307868606679357
+          },
+          {
+            "source_face": 2556,
+            "vertex": 101,
+            "projection_m": 0.009306490871350923,
+            "rest_face_Y_m": 1.4307868606679355
+          },
+          {
+            "source_face": 15794,
+            "vertex": 767,
+            "projection_m": 0.00932644353660089,
+            "rest_face_Y_m": 1.4253900538734463
+          },
+          {
+            "source_face": 2557,
+            "vertex": 102,
+            "projection_m": 0.009326443536602589,
+            "rest_face_Y_m": 1.4253900538734463
+          },
+          {
+            "source_face": 15795,
+            "vertex": 767,
+            "projection_m": 0.009464099456702733,
+            "rest_face_Y_m": 1.4307868606679357
+          },
+          {
+            "source_face": 2556,
+            "vertex": 102,
+            "projection_m": 0.00946409945670487,
+            "rest_face_Y_m": 1.4307868606679355
+          }
+        ]
+      },
+      "after": {
+        "targeted_upper_triangle_corners": 2334,
+        "negative_corners": 0,
+        "minimum_projection_m": 0.0015043757740793402,
+        "maximum_projection_m": 0.017142055984176063,
+        "worst": [
+          {
+            "source_face": 2458,
+            "vertex": 192,
+            "projection_m": 0.0015043757740793402,
+            "rest_face_Y_m": 1.4427577157760016
+          },
+          {
+            "source_face": 15697,
+            "vertex": 1046,
+            "projection_m": 0.0015043757740803077,
+            "rest_face_Y_m": 1.4427577157760016
+          },
+          {
+            "source_face": 15692,
+            "vertex": 1046,
+            "projection_m": 0.0018688675792943015,
+            "rest_face_Y_m": 1.4364584681365375
+          },
+          {
+            "source_face": 2455,
+            "vertex": 192,
+            "projection_m": 0.0018688675792948883,
+            "rest_face_Y_m": 1.4364584681365375
+          },
+          {
+            "source_face": 2459,
+            "vertex": 192,
+            "projection_m": 0.0019457272103949033,
+            "rest_face_Y_m": 1.4408181200870154
+          },
+          {
+            "source_face": 15696,
+            "vertex": 1046,
+            "projection_m": 0.001945727210395232,
+            "rest_face_Y_m": 1.4408181200870154
+          }
+        ]
+      }
+    },
+    {
+      "actual_frozen_pose": "quarter",
+      "before": {
+        "targeted_upper_triangle_corners": 558,
+        "negative_corners": 0,
+        "minimum_projection_m": 0.00930649087133417,
+        "maximum_projection_m": 0.017110986402623735,
+        "worst": [
+          {
+            "source_face": 15795,
+            "vertex": 764,
+            "projection_m": 0.00930649087133417,
+            "rest_face_Y_m": 1.4307868606679357
+          },
+          {
+            "source_face": 2556,
+            "vertex": 101,
+            "projection_m": 0.009306490871336316,
+            "rest_face_Y_m": 1.4307868606679355
+          },
+          {
+            "source_face": 15794,
+            "vertex": 767,
+            "projection_m": 0.009326443536597506,
+            "rest_face_Y_m": 1.4253900538734463
+          },
+          {
+            "source_face": 2557,
+            "vertex": 102,
+            "projection_m": 0.00932644353659921,
+            "rest_face_Y_m": 1.4253900538734463
+          },
+          {
+            "source_face": 15795,
+            "vertex": 767,
+            "projection_m": 0.00946409945669174,
+            "rest_face_Y_m": 1.4307868606679357
+          },
+          {
+            "source_face": 2556,
+            "vertex": 102,
+            "projection_m": 0.009464099456693872,
+            "rest_face_Y_m": 1.4307868606679355
+          }
+        ]
+      },
+      "after": {
+        "targeted_upper_triangle_corners": 2334,
+        "negative_corners": 0,
+        "minimum_projection_m": 0.0015043757740777148,
+        "maximum_projection_m": 0.017142055984178117,
+        "worst": [
+          {
+            "source_face": 2458,
+            "vertex": 192,
+            "projection_m": 0.0015043757740777148,
+            "rest_face_Y_m": 1.4427577157760016
+          },
+          {
+            "source_face": 15697,
+            "vertex": 1046,
+            "projection_m": 0.0015043757740781658,
+            "rest_face_Y_m": 1.4427577157760016
+          },
+          {
+            "source_face": 15692,
+            "vertex": 1046,
+            "projection_m": 0.0018688675792927867,
+            "rest_face_Y_m": 1.4364584681365375
+          },
+          {
+            "source_face": 2455,
+            "vertex": 192,
+            "projection_m": 0.0018688675792940864,
+            "rest_face_Y_m": 1.4364584681365375
+          },
+          {
+            "source_face": 2459,
+            "vertex": 192,
+            "projection_m": 0.0019457272103902807,
+            "rest_face_Y_m": 1.4408181200870154
+          },
+          {
+            "source_face": 15696,
+            "vertex": 1046,
+            "projection_m": 0.001945727210391397,
+            "rest_face_Y_m": 1.4408181200870154
+          }
+        ]
+      }
+    }
+  ],
+  "all_targeted_new_panel_projections_nonnegative": true,
+  "new_mesh_or_material_count": 0
+}

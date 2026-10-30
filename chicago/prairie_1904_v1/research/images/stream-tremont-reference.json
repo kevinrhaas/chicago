@@ -1,0 +1,54 @@
+[
+ {
+  "id": "early-gifford-first-tremont",
+  "kind": "illustration",
+  "title": "First Tremont House and street-front row — wash drawing signed N. Roswell Gifford",
+  "building_ids": [],
+  "addresses": [],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "undated; depicts the first Tremont, which stood 1833–1839",
+  "date_earliest": null,
+  "date_latest": null,
+  "creator": "N. Roswell Gifford",
+  "repository": "Chicagology reproduction; original holding institution unrecorded",
+  "collection": "Chicagology, \"Tremont House\", first-hotel reproduction",
+  "call_number": null,
+  "catalog_url": "https://chicagology.com/prefire/prefire021/",
+  "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/1290a23271b2771c77201fd17fed7cfa857ade14/chicago/reference/images/chicago/chicago_first_tremont_house_1833.jpg",
+  "rights": "unknown — link only",
+  "rights_basis": "Owner-approved project reference/display use, 2026-10-22: \"ok i think those images are ok to use as public resources and just make sure you include things like that in sources\". Preserve Gifford/Chicagology attribution. Original publication, holding institution, copyright status and general reuse licence remain unresolved; no public-domain finding.",
+  "reference_copy": {
+   "basis": "Owner-approved project reference/display use, 2026-10-22: \"ok i think those images are ok to use as public resources and just make sure you include things like that in sources\". Preserve Gifford/Chicagology attribution. Original publication, holding institution, copyright status and general reuse licence remain unresolved; no public-domain finding.",
+   "credit": {
+    "catalog_url": "https://chicagology.com/prefire/prefire021/",
+    "collection": "Chicagology, \"Tremont House\", first-hotel reproduction",
+    "creator": "N. Roswell Gifford",
+    "date": "undated drawing; first house stood 1833–1839",
+    "repository": "Chicagology reproduction; original holding institution unrecorded",
+    "rights": "unknown — link only",
+    "title": "First Tremont House and street-front row — wash drawing signed N. Roswell Gifford"
+   }
+  },
+  "verified": "viewed",
+  "found_via": "Existing project-held Gifford reproduction and source gifford_tremont_house_no_1; original held SHA256 b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+  "notes": "This is a reference copy of the already held wash drawing, fetched from its immutable public project object. It remains an attributed owner-approved reference/display copy with unresolved original rights, not a public-domain claim or texture. The actual medium is a wash drawing/illustration, not an architectural plan or evidence that Gifford was an architect. Publication date is unknown; the house lifetime describes the subject, not a dated July1835 state. The retained numerical camera is only diagnostic comparison framing and must not offer an invented historical From this spot. Gale1902 is textual contrary evidence, not another picture.",
+  "measurements": [],
+  "local": {
+   "display": "research/images/files/early-gifford-first-tremont.jpg",
+   "display_bytes": 229586,
+   "thumb": "research/images/files/early-gifford-first-tremont-thumb.jpg",
+   "thumb_bytes": 16397,
+   "original_px": [
+    1637,
+    796
+   ],
+   "original_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+   "original_bytes": 803994,
+   "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/1290a23271b2771c77201fd17fed7cfa857ade14/chicago/reference/images/chicago/chicago_first_tremont_house_1833.jpg",
+   "fetched": "2026-10-26"
+  }
+ }
+]

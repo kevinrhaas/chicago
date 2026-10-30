@@ -16,7 +16,8 @@ or unbounded transparency sorting", and each clause is a rule here:
   recess     every edge of every hole, at the outer face and at the frame, is closed by
              a reveal or sill face, so the opening is a hole with sides, never a panel
   enclosed   every point of every pane has the dark backing's cap behind it: no ray
-             through glass reaches the sky
+             through glass reaches the sky (T-1890: an open opening, a loggia's, has no
+             glass; its void is capped the backing's depth behind its reveal)
   one layer  glass is the only transparent material, and no two panes of an opening
              overlap: one transparency per line of sight, so nothing sorts against
              anything
@@ -111,6 +112,15 @@ def rule_depth(o, data):
         if not zb_ < za - EPS:
             out.append(f"depth: {nb} (z {zb_:.4f}) is not behind {na} (z {za:.4f})")
     glass = [zrange(o, r) for r in ("glass_outer", "glass_inner") if zrange(o, r)]
+    if not glass:
+        # T-1890: an open opening (a loggia's) has no glass; its dark depth is measured
+        # from the reveal's end, and it may hold nothing that stands in front of a pane
+        if o.v.get("operation") != "open":
+            return out + ["depth: no glass — only an open opening (a loggia's) may have none"]
+        for role in ("frame", "sash_outer", "sash_inner", "blind", "curtain"):
+            if role in o.prims:
+                out.append(f"depth: an open opening carries a {role}, which only a glazed one may")
+        glass = [(-rev, -rev)]
     deepest_glass = min(g[0] for g in glass)
     for role in ("blind", "curtain"):
         zr = zrange(o, role)
@@ -222,7 +232,14 @@ def rule_sash(o, v, data):
             continue
         xs = [q[0] for q in p["poly"]]
         by.setdefault((p["sash"], round(min(q[1] for q in p["poly"]), 3)), []).append(max(xs) - min(xs))
+    lr = v.get("light_ratios")
     for (sash, _), widths in by.items():
+        if lr and len(widths) == len(lr):
+            # T-3091: lights a picture draws unequal stand in the variant's own ratios
+            if any(abs(w / sum(widths) - r / sum(lr)) > 1e-3 for w, r in zip(widths, lr)):
+                out.append(f"sash: the {sash} sash's panes ({[round(w, 3) for w in widths]} m) are not in "
+                           f"its light_ratios {lr}")
+            continue
         if max(widths) - min(widths) > 1e-3:
             out.append(f"sash: the {sash} sash's panes are uneven ({[round(w, 3) for w in widths]} m) — "
                        f"the muntins must divide it evenly")
@@ -248,7 +265,12 @@ def rule_sash(o, v, data):
     if v["operation"] == "fixed_leaded":
         res = next(r for r in data["restrictions"] if r["part"] == "leaded")
         area = v["clear_width_m"] * v["clear_height_m"]
-        if v["use"] not in res["allowed_uses"] or area > res["max_area_m2"]:
+        # T-3091: the restriction binds the leaded lights we place; one a photograph shows
+        # (`pictured_by`, a source record) is that photograph's, wherever it stands
+        pic = v.get("pictured_by")
+        if pic is not None and not (ROOT / "data" / "sources" / f"{pic}.json").exists():
+            out.append(f"sash: {v['id']} is pictured_by {pic!r}, which is no source record")
+        elif pic is None and (v["use"] not in res["allowed_uses"] or area > res["max_area_m2"]):
             out.append(f"sash: a leaded light in a {v['use']} position of {area:.2f} m2 breaks the restriction "
                        f"({res['allowed_uses']}, max {res['max_area_m2']} m2)")
     if (v.get("bays", 1) > 1 or v.get("well")) and v["ordinary"]:
@@ -341,6 +363,9 @@ def self_test(data) -> int:
     def m_leaded(d):
         _v(d, "k06.opening.leaded_stair")["use"] = "principal"
 
+    def m_pictured(d):
+        _v(d, "k06.opening.fixed_round_leaded_bordered")["pictured_by"] = "no_such_source"
+
     def m_cost(d):
         d["costs"]["max_triangles"]["ordinary"] = 100
 
@@ -357,6 +382,7 @@ def self_test(data) -> int:
         ("an ordinary sash too wide", m_width, "outside the reconstruction rules' range"),
         ("a segmental arch risen past a semicircle", m_rise, "untrue to its kind"),
         ("a leaded light on a street front", m_leaded, "breaks the restriction"),
+        ("a pictured leaded light whose picture is no source", m_pictured, "which is no source record"),
         ("an opening over budget", m_cost, "over its ordinary budget"),
         ("a grouped window that does not say why", m_why, "must say why"),
         ("a drip groove outside the sill", m_drip, "drip"),
@@ -403,6 +429,14 @@ def self_test(data) -> int:
     x0 = min(q[0] for q in p0["poly"])
     p0["poly"] = [(x0 + (x - x0) * 0.8, y) for x, y in p0["poly"]]
     geo.append(("muntins that divide a sash unevenly", rule_sash(o, v22, data), "uneven"))
+    o = built()
+    for role in ("glass_outer", "glass_inner"):   # T-1890: a glazed window with its glass gone
+        o.prims.pop(role, None)
+    geo.append(("a glazed window with no glass", rule_depth(o, data), "only an open opening"))
+    vo = _v(data, "k06.opening.loggia_open_pair")
+    o = K.build_variant(vo, data, board=False)
+    o.prims["frame"] = o.prims["backing"]          # an open loggia given a frame
+    geo.append(("an open opening that carries a frame", rule_depth(o, data), "only a glazed one may"))
     o = built()
     pr = o.prims["frame"]
     pr.uv = [(u * 2, w * 2) for u, w in pr.uv]

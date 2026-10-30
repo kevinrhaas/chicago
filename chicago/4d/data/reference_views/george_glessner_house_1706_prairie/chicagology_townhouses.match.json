@@ -1,0 +1,178 @@
+{
+  "structure_id": "george_glessner_house_1706_prairie",
+  "view": "chicagology_townhouses",
+  "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
+  "glb_sha256": "5a747ab9e9ad634071b9a69d4f8edc135fffe78cbcd85837ec6c0dddffaeaa57",
+  "camera_sha256": "1b3c45c138977ed0cea9859e6a8cab9c4848f047b491dacc9b2564cd37d30936",
+  "photo_sha256": "56843b92bab0a3581dfa1629949584543d6d12f5e9e556b699e9df6e91275a87",
+  "rendered_members": [
+    {
+      "structure_id": "george_glessner_house_1706_prairie",
+      "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.171,
+        "local_n": -3104.665,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "5a747ab9e9ad634071b9a69d4f8edc135fffe78cbcd85837ec6c0dddffaeaa57"
+    },
+    {
+      "structure_id": "glessner_lee_house_1700_prairie",
+      "glb": "assets/gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.059,
+        "local_n": -3093.615,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0.000054848602107582245,
+        0,
+        -11.05056758709686
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "35207868edd6434300bb3e60832a0577c1935cff74c0cdf78c0d977747b12e63"
+    },
+    {
+      "structure_id": "house_1708_prairie",
+      "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.577,
+        "local_n": -3112.161,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0.32996826827847453,
+        0,
+        7.499731524656778
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
+    }
+  ],
+  "group_sha256": "cec984fb0dcd97598d9a0fc1a4efdad3ee217fb1c973e19da630ecc65ededc02",
+  "side_by_side": "docs/RESEARCH/photo-match/george_glessner_house_1706_prairie/chicagology_townhouses-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: the pair's brick front of two storeys over a low basement, eight windows wide, under one dormered mansard",
+      "status": "fixed",
+      "how": "T-3211: the 1911 sheet's front block (13.1 m deep, 11.05 and 11.2 m along the street) on K01 under a K05 mansard; the front's corners and the party line render on the photograph's within a few pixels, the cornice's soffit on its line at about 8.3 m"
+    },
+    {
+      "what": "the upper storey's eight windows, four to each house, with stone sills",
+      "status": "fixed",
+      "how": "T-3211: on the columns read through the camera (1706 1.65-9.33 m, 1700 1.62-9.2 m), sills about 5.5 m and heads 7.45 m; each renders within about 5 px of the photograph's"
+    },
+    {
+      "what": "the principal storey's round-arched windows outside the porches, a key at each crown",
+      "status": "fixed",
+      "how": "T-3211: K01's round heads in the brick at their crowns about 4.85 m, a key over each; the photograph's carved tympanum over a square sash is built as K06's fanlight light, which reads dark in the arch as the shadowed carving does (within tolerance below)"
+    },
+    {
+      "what": "an iron balconette on a stone shelf before each arched window",
+      "status": "fixed",
+      "how": "T-3211: K01's balconette (1834's kit, laid now on a brick front too) about 1.3-1.95 m over grade, 1.5 m long and 0.3 m out T-3212: the arched lights now run down behind each balconette to a sill about 1.45 m over grade, just over its shelf, as the sashes here show (the 1901 construction photograph's unglazed openings end at about 1.37 m); they had stopped at the guard's top, 2.0 m."
+    },
+    {
+      "what": "each house's porch at its outer end: four columns along its front, a plain entablature and an iron balcony railing on its deck",
+      "status": "fixed",
+      "how": "T-3211: the porch on columns at about 1.15, 2.25, 3.9 and 5.0 m from the outer corner, 1.9 m out (triangulated from both cameras), its soffit 4.05 m and deck about 4.75 m, the railing to 5.35 m; it stands off the door's axis (`centre_v_m`, new for this pair) T-3244: painted timber in the cornice's white, as its columns print whiter than the stone sills and with the cornice and sash (docs/RESEARCH/colour-1700-block-T-3244/README.md)."
+    },
+    {
+      "what": "the dormers: two pedimented dormers to each house, not mirrored between the two",
+      "status": "fixed",
+      "how": "T-3211: each pediment's peak triangulated from both cameras (1706 about 2.2 and 7.4 m from its south corner, 1700 about 3.15 and 8.05 m from its south end) and built there; they render within about 20-40 px of the photograph's"
+    },
+    {
+      "what": "the deep cornice across the pair, painted light",
+      "status": "fixed",
+      "how": "T-3211: K10's bracketed timber cornice painted near-white, its soffit about 8.3 m, 0.6 m out T-3244: white (linear 0.86, 0.85, 0.80), where it had been a light grey-beige."
+    },
+    {
+      "what": "the railing along the deck's street edge",
+      "status": "fixed",
+      "how": "T-3211: K10's cresting pattern along the curb in the eave's painted timber (made paintable for this pair), about 0.9 m high"
+    },
+    {
+      "what": "the party wall rising through the roof between the two houses, and the stacks over the deck",
+      "status": "fixed",
+      "how": "T-3211: 1706's north wall carried up past the curb as K05's side parapet, a stack at the party wall over the deck and one toward each outer wall"
+    },
+    {
+      "what": "the downpipe at the party line",
+      "status": "within tolerance",
+      "how": "T-3211: built 0.55 m south of the party line on 1706 and north of it on 1700 (two pipes about 1.1 m apart, where the photograph shows one): the cornice's corner brackets stand where one pipe would"
+    },
+    {
+      "what": "the upper windows' stone keys and gauged flat arches",
+      "status": "within tolerance",
+      "how": "T-3211: laid as K03's rowlock heads in the front's brick; the keys, about 0.3 m blocks, are not built"
+    },
+    {
+      "what": "the arched heads' carving, the balconettes' diamond panels and the porch columns' Ionic capitals",
+      "status": "within tolerance",
+      "how": "T-3211: ornament under a foot in the photograph: the kit's fanlight, plain bars and square capital blocks stand for them"
+    },
+    {
+      "what": "the cornice's dentils and modillions",
+      "status": "within tolerance",
+      "how": "T-3211: the kit's brackets, made small (0.3 m) and closer than its default, stand for the modillions; the dentil course is not cut"
+    },
+    {
+      "what": "the deck railing's fret",
+      "status": "within tolerance",
+      "how": "T-3211: the kit's openwork pattern in place of the fret's diagonals, at the fret's height and tone"
+    },
+    {
+      "what": "the dormer cases' width",
+      "status": "within tolerance",
+      "how": "T-3211: the kit's widest dormer light is 1.2 m, the photograph's paired sash about 1.45 m: each case stands about 0.25 m narrower"
+    },
+    {
+      "what": "the brick quoins at the pair's corners",
+      "status": "within tolerance",
+      "how": "T-3211: rusticated brick in the front's own brick: a few centimetres of relief, not built"
+    },
+    {
+      "what": "the porches' flights and the front fences",
+      "status": "within tolerance",
+      "how": "T-3211: the two pictures disagree about them (this one fences 1706's front and leaves 1700's open; the Christmas print the reverse), and the front boundaries are T-3205's; each flight is built straight out from the porch's middle bay"
+    },
+    {
+      "what": "colour: the brick's, the stone's and the paint's",
+      "status": "fixed",
+      "how": "T-3244: the brick prints darker than the house's own slate and (here) at 0.05-0.08 of the porches' white paint: a red brick, laid in K03's red-brown panel; the porches, cornice, dormers and sash print white with the columns, and are painted white (linear 0.86, 0.85, 0.80) where they had been beige stone, a light grey-beige and the kit's dark green (docs/RESEARCH/colour-1700-block-T-3244/README.md)"
+    },
+    {
+      "what": "the rear range, the rear and the roof deck",
+      "status": "not shown",
+      "how": "T-3211: turned away from the camera"
+    },
+    {
+      "what": "the front walk, railing and gate: the photograph shows each of the pair's stoops reached by a walk from the public walk through a gate in the spear-headed iron railing that runs on from 1708 before the pair's fronts; the build lays neither 1706's walk nor its railing or gate, so check_house_walks finds no way in (held PENDING on T-3212, the pair's open ticket)",
+      "status": "fixed",
+      "how": "T-3212: each house now has a flagged walk from the foot of its porch's flight to the public walk through a pair of gates, hung on dark iron posts and standing open; the spear railing on its curb runs on from 1708's along 1706's front to 1706's gateway and stops, 1706's front north of it and 1700's south of its flight lie open, and 1700's railing runs from its own gateway past the pair's north corner to the lot line, as this photograph shows (tools/check_house_walks.py: both pass)"
+    },
+    {
+      "what": "the gateways' places along the street line: here 1706's gateway posts stand at about x 390-590, the render's at about x 800-980; this camera was fitted on the townhouses' front alone and its own solve says it trades distance for focal length, so it cannot place anything nine metres before the front to within a few metres (the render's own stair feet, 3.4 m out, already land about 100 px off). The gateway is read instead through the 1901 construction photograph's oblique camera, which places the street line to about 0.15 m; that reading is written, open, in ghm_construction_1901.match.json",
+      "status": "within tolerance",
+      "how": "T-3212: laid square to each flight, K11's rule; see the 1901 record"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

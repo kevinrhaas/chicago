@@ -25,7 +25,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -188,10 +189,32 @@
         "sanborn_1911_chicago_v3_sheet_35"
       ],
       "note": "The 1911 sheet labels the building with a 1911 use, '3S.B. brick building lettered McCORMICK MEDICAL COLLEGE, on the 21st Street corner', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Sherman Victorian Gothic', names it a house, so the 1904 function is inferred residence on that row and the T-1842 census ruling (present_as_mapped)."
+    },
+    "built": {
+      "value": 1874,
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "note": "The marker: 'John B. Sherman Residence. Built 1874'."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "hmdb_prairie_lost_houses_2000_2100",
+      "citation": "'Lost Houses of Prairie Avenue: 2000-2100 Blocks', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308703.",
+      "url": "https://www.hmdb.org/m.asp?m=308703",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "year built, architect, style and owners as the marker states them for 2009, 2100, 2115, 2126 and 2140 Prairie"
+      ],
+      "what_it_does_not_supply": [
+        "measurements or appearance beyond the style named"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_35",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",

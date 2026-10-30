@@ -2,10 +2,11 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "1e6d2ef4a16c3d232cc250d8cf713b97547971b97200d7cd39308c20aaa70f5e",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
+  "photo_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Southern upper west slit moves from S21.8 to S19.8, retaining width/heights. Actual candidate compared with ca.1887 Cornell photograph at the frozen west-plane camera; other seven aperture positions remain.",
@@ -20,8 +21,16 @@
       "status": "fixed"
     },
     {
-      "what": "West/north gable, cupola, portal and framing residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry. T-2849 leaves open here: the hoist projects as a large block well beyond its modelled 1.75 ft; the cupola ledges run unbroken round its corners in the print where the model stops them short; the stone shaft below the band stands taller in the print; the pyramid's covering reads slate against the model's red tile; and the coursing of the cupola's stone is not modelled block by block.",
-      "status": "open"
+      "what": "West/north gable, cupola, portal and framing residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry. Still open after T-3030 (the cupola's dark corner strips are fixed, T-3036): the cupola's coursing, read by T-3044, is T-3046's (the fixed entry below). T-3136 re-read it on the current side-by-side: what this entry carried is now elsewhere. The cupola's strips (T-3036) and its coursing (T-3046) are fixed entries, and the stable's north gable and cupola are fitted by T-3031 through the camera T-2758 re-solved at the stable, whose local offset at the coping's apex (-14.7, +5.4 px) also carries the carriage doorway. East of the stable this camera does not reach: the range's great arch stands about 40 px and its stacks 40-60 px off the print's, the camera and not the building, so the range is judged from HABS 01, 13, 14 and 17, not here. What this view still shows of the stable is the next entry.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3025, ruled: the roofs and the cupola's pyramid read slate-grey in this c. 1887 print, and the record's red tile reads the same slate-grey when the render through this camera is reduced to luminance (docs/RESEARCH/glessner-roof-covering-T-3025/stable-roof-cornell.jpg). A red surface records dark on a dry plate of the period. The covering was red baked, unglazed terracotta tile (Glessner 1923, HABS data p. 13; HABS's 1963 survey finds terracotta, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. The print's course, about 6.4 in against the model's 5 in, is a module question filed separately (README § 3).",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3046 cupola coursing: the stone body is laid in rock-faced courses where the render had smooth plates, as T-3044 read this print. The shaft under the lower pigeon ledge is four courses, of which the part clear of the ridge shows two or three bed joints here; each pigeon-hole tier is one course between its ledges, and the band over the top tier one. The print does not resolve the vertical joints, so block lengths follow the house's own rule (docs/LIBERTIES.md L-glessner-cupola-coursing-3046).",
+      "status": "fixed"
     },
     {
       "what": "The Cornell scan and museum reproduction are one exposure. Monochrome tones do not establish1904 RGB; street poles, temporary pavement and neighbors are not house geometry.",
@@ -30,7 +39,47 @@
     {
       "what": "T-2848 light: the photograph is overcast (both faces lit almost equally, no shadow from the pole or the tree); the render now uses the overcast sky (camera solve.light) instead of the review sun.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3030, reviewed from the rebaked master: the hoist stone now reaches 4.0 ft from the wall as a narrow tapered cantilever (W 140.75-141.5, nose 0.83 ft deep, foot 26.0 ft); its west side face runs from the wall to the nose over the run this print shows (about 62 px), and its end face is the print's narrow block. The cupola's two landing ledges now run unbroken round its corners as the print shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3031, reviewed from the rebaked master: the cupola is read from both northwest prints at once through the cameras T-2758 re-solved on measured controls at the stable, each with its local offset taken out at the north gable's coping apex (tools/glessner_cupola_read.py, data/comparisons/glessner/stable-cupola.json). The two prints agree on the eave (41.9 and 41.75 ft) and jointly fit a 5.5 ft body (half 2.73 +/-0.18), a 0.72 ft eave, the eave at 41.87 and the apex at 48.19 ft, centre S14.76 (5.3 px RMS over 12 picks, against 11.5 and 13.8 px for the build as it stood). Built: body 5.5 ft square with its top at 42.0 ft (was 6.0 ft, 41.0), apex 48.2 (was 47.0), eave 0.75 ft out (was 1.25), the pigeon-hole band raised with it to 39.5-41.6 ft; centre S14.6 kept. The 27-32 px by which this print had seemed to stand the cupola higher than HABS photograph 1 was mostly the committed camera's: through it the render is not a measure of the cupola's height at the stable end (T-2758).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3036, reviewed from the rebaked master: the dark vertical strips down the cupola's near and west corners, under the eave through the pigeon-hole band to the roof, are gone; the corners read as clean stone, as this print shows them. The body's walls no longer lay a 0.08 m end in a neighbour's face (the east and west walls take the corners, the north and south butt inside them) and every edge face of the walls and ledges looks outward. No dimension of the cupola moved.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3072, ruled: the stable roof's course in this print is the model's 5 in. It counts about 43 courses between the west slope's ridge (the foot of the cresting) and its eave, and HABS photograph 1 of 1963 counts about 42 over the same two edges of the same plane, the year HABS measured 5 in. The roof kept one module from 1887 to 1963. T-3025's 6.4 in was this camera's scale on that plane: it puts 22-23 ft of slope between those edges, where HABS 1's camera puts 17-17.5 ft over the same courses. That is filed as T-3080 with this record's open west-plane camera residual. Nothing is rebaked (docs/RESEARCH/glessner-roof-module-T-3072/README.md).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3080, ruled: the 1.3 times long slope T-3072 found was this camera's. Through T-2758's re-solves of this print on measured controls only (3.7 px RMS pitched, 4.8 px level, where this camera is 18.3 px), the stable's alley-end roof reads 4.98-5.32 in to the course, HABS's 5 in, over 17.3-19.5 ft of slope, where HABS photograph 1's fits read 16.9-18.8 ft. This camera puts the print's ridge 0.7-0.9 m and its eave 0.4-0.5 m above the model's on that plane, which stretches the slope. It stays the view's camera for the west windows (T-2758). Nothing is rebaked (docs/RESEARCH/glessner-roof-slope-camera-T-3080/README.md).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3080, found: the alley-end roof's north slope, eave to ridge, is 21.4 ft in the model, about 51 courses at 5 in, where this print counts 41.7-43.9 courses between the eave and the cresting's foot and HABS photograph 1 counts 40.6-42.9. Through T-2758's two roof fits of this print its eave lies on the model's (0.0-0.3 m) and the cresting's foot 0.3-1.0 m below the model's ridge. Filed as T-3094; T-3095 rules it the ridge, not the pitch: put to the count and to T-2758's six measured cameras, only a ridge brought down the same 42.5-degree plane (about 0.65 m lower and 0.7 m north, the record's 36.5 ft at S 12.3) gives the same height both ways, where flattening under the S 14.6 line misses by 0.8-1.4 m and steepening under the present height projects the ridge higher still. The alley gable's coping stays up and stands proud over the lowered roof. Rebuild is T-3096 (docs/RESEARCH/glessner-stable-ridge-T-3095/README.md). T-3096, rebuilt: the cross ridge comes down its own 42.5-degree plane to 36.5 ft at S 12.31, the alley gable keeps its apex as a parapet with its coping standing proud, and the rebaked GLB carries 41.8-43.9 courses at 5 in between eave and roll foot through every measured-control fit of both pictures (was about 51); the print's roll foot now lies -0.26 to +0.12 m from the model's through the HABS 1 doorway fits and the Cornell level fit, +0.21 to +0.44 m through the Cornell pitched fit, which the level fit contradicts by 0.46-0.49 m on the same columns (T-3102); the eave did not move (docs/RESEARCH/glessner-stable-ridge-T-3096/README.md).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3136, read at 2x: the stable's north-gable pigeon holes. The print shows nine round-headed holes (5-3-1) each about a course tall, about 32 px on the 2x crop where the render's read about 15 (built 0.45-0.65 ft), and the print's rows stand about 70 px apart on that crop against the render's 58 (built 31.65, 33.0 and 34.55 ft). HABS 01 shows the same taller holes. T-3143 owns them. T-3143: Built (T-3143): the ledge and all nine holes raised 0.85 ft, the ledge to 32.1-32.4 ft ng on its two corbels; each hole round-headed, 0.4 ft wide and 0.75 ft tall (a course), sills at 32.5, 33.95 and 35.45 ft (1.45 and 1.5 ft pitch), where they stood 0.45-0.65 ft tall at 31.65, 33.0 and 34.55. The holes now render round-headed and about a course tall as this print draws them.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3143: this print's rows read about 1.75 ft apart (70 px against 58 on T-3136's 2x crop), wider than the 1.44-1.52 ft HABS 15 measures square-on through a camera fitted at the stable and the about 1.5 ft HABS 01 shows; this camera is a west-wall homography that stands off at the gable (the render frames the stable about 75 px off the print), so the build keeps HABS 15's pitch. A gap two pictures disagree about (T-3153).",
+      "status": "within tolerance"
+    },
+    {
+      "what": "T-3148, reviewed from the rebaked master: in this print the tiles' edge on the 18th Street front west of the stable gable lies 3-5 px off the straight line the same edge draws east of it (u 230-450), where the build's old step at the gable (23.1 ft east, 25.2 west) would draw about 50 px. The eave west of the gable is rebuilt at the range's 23.1 ft and the cross ridge comes down 0.10 m to stay on the alley gable's rake. T-2758's two roof fits of this print had put the alley-end eave on the old model's (0.0-0.3 m); they now read it about 0.4-0.7 m over the lowered one (T-3096 measured +0.01 to +0.08 and -0.25 to -0.19 m against the old), which is those fits' (T-3102), not the eave's: the camera-free line rules it. docs/RESEARCH/glessner-north-eave-T-3148/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3140, the window over the great arch: this print, taken as the house was finished, shows it as one wide unglazed opening under one lintel, with no stone pier in it, where the build had three lights between two piers. HABS 01 (1963) and HABS 15 (1965) show the same single opening, so the form is attested by three pictures across 78 years. Rebuilt as one opening on its old span (W 97.7-110.1) and heights; re-rendered, it reads as one opening here, standing about 40 px off the print's as the rest of the range east of the stable does through this camera (the stable-end-cameras row). docs/RESEARCH/glessner-signoff-T-3140/.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

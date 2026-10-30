@@ -3036,6 +3036,8 @@ export async function createYardGoods({
   hostMissing = () => false,
   /** A touch device: the mark atlas is uploaded at half size (T-2152). */
   lowSpec = false,
+  /** Authored near replacements keep their exact old vehicle as a light/far/load-failure fallback. */
+  replacementIds = new Set(),
 } = {}) {
   const group = new THREE.Group();
   group.name = 'yard';
@@ -3055,6 +3057,7 @@ export async function createYardGoods({
       woodpiles: 0, woodByKind: {}, woodChunks: 0, relief: null },
     pickAt: () => null,
     dispose: () => {},
+    setReplacementVisible: () => {},
   };
 
   if (!dataBase || !terrain) {
@@ -3193,16 +3196,18 @@ export async function createYardGoods({
    * nobody, so the range each object emitted is still the only honest answer.
    */
   const chunks = new Map();
-  const chunkAt = (e, n) => {
-    const key = `${Math.floor(e / CHUNK_M)},${Math.floor(n / CHUNK_M)}`;
+  const chunkAt = (e, n, fallbackId = null) => {
+    const key = fallbackId ? `parked-fallback:${fallbackId}` : `${Math.floor(e / CHUNK_M)},${Math.floor(n / CHUNK_M)}`;
     let chunk = chunks.get(key);
     if (!chunk) {
       chunk = {
         key,
+        fallbackId,
         buf: { pos: [], nrm: [], conf: [], col: [], uv: [], uv1: [], ...tones,
           tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects },
         spans: [],
         lotItemSpans: [],
+        objectSpans: [],
       };
       chunks.set(key, chunk);
     }
@@ -3234,6 +3239,7 @@ export async function createYardGoods({
           grainOn: false },
         spans: [],
         lotItemSpans: [],
+        objectSpans: [],
       };
       woodChunks.set(key, chunk);
     }
@@ -3248,11 +3254,15 @@ export async function createYardGoods({
     return null;
   };
   /** Emit into one chunk, banking the triangle range under `id` if there is one. */
-  const emit = (chunk, id, draw) => {
+  const emit = (chunk, id, draw, object = null) => {
     const from = chunk.buf.pos.length / 9;
     const drew = draw(chunk.buf);
     if (!drew) return false;
-    if (id) chunk.spans.push({ id, from, to: chunk.buf.pos.length / 9 });
+    const to = chunk.buf.pos.length / 9;
+    if (id) chunk.spans.push({ id, from, to });
+    // Primitive ownership is separate from the building pick target. Nearby
+    // furniture can overlap a diagnostic search radius without sharing vertices.
+    if (object) chunk.objectSpans.push({ id: object.id, from, to });
     return true;
   };
 
@@ -3352,9 +3362,9 @@ export async function createYardGoods({
       // is unpickable and the aim falls through, which is the fences' behaviour —
       // and it is the RIGHT answer for a wagon standing in a public street, which
       // belongs to nobody this record can name.
-      if (!emit(chunkAt(at[0], at[1]), wagon.belongs_to,
+      if (!emit(chunkAt(at[0], at[1], replacementIds.has(wagon.id) ? wagon.id : null), wagon.belongs_to,
         (b) => build(b, wagon, form, terrain, LEVEL[wagon.confidence] ?? level,
-          problems))) continue;
+          problems), wagon)) continue;
       out.wagons.push(wagon);
       out.census.wagons += 1;
       out.census.byKind[wagon.kind ?? 'farm_box'] =
@@ -3368,7 +3378,7 @@ export async function createYardGoods({
       // belongs to that inn, so aiming at it opens the inn's card.
       if (!emit(chunkAt(at[0], at[1]), bench.belongs_to,
         (b) => buildItem(b, bench, form, terrain, LEVEL[bench.confidence] ?? level,
-          problems, bench.belongs_to ?? bench.id))) continue;
+          problems, bench.belongs_to ?? bench.id), bench)) continue;
       out.benches.push(bench);
       out.census.benches += 1;
       out.census.objects += 1;
@@ -3380,7 +3390,7 @@ export async function createYardGoods({
       // yard end belongs to that inn, so aiming at it opens the inn's card.
       if (!emit(chunkAt(at[0], at[1]), shed.belongs_to,
         (b) => buildShed(b, shed, form, terrain, LEVEL[shed.confidence] ?? level,
-          problems))) continue;
+          problems), shed)) continue;
       out.sheds.push(shed);
       out.census.sheds += 1;
       out.census.objects += 1;
@@ -3466,6 +3476,11 @@ export async function createYardGoods({
   patchBoxTable(mat, boxes);
 
   const meshes = [];
+  const replacementMeshes = new Map();
+  out.setReplacementVisible = (id, visible) => {
+    const mesh = replacementMeshes.get(id);
+    if (mesh) mesh.visible = visible;
+  };
   /**
    * THE WOODPILE MESH HANGS IN A GROUP OF ITS OWN, named as this layer is, so the
    * furniture reach and the far merge (both of which find a layer by its group's
@@ -3508,6 +3523,7 @@ export async function createYardGoods({
     mesh.receiveShadow = true;
     mesh.userData.spans = chunk.spans;
     mesh.userData.lotItemSpans = chunk.lotItemSpans;
+    mesh.userData.yardObjectSpans = chunk.objectSpans;
     if (woodChunks.has(chunk.key)) {
       mesh.name = 'yard-woodpile-chunk';
       woodGroup.add(mesh);
@@ -3515,6 +3531,7 @@ export async function createYardGoods({
       group.add(mesh);
     }
     meshes.push(mesh);
+    if (chunk.fallbackId) replacementMeshes.set(chunk.fallbackId, mesh);
   }
   if (woodGroup.children.length) group.add(woodGroup);
   out.census.woodChunks = woodGroup.children.length;
@@ -3528,7 +3545,7 @@ export async function createYardGoods({
    * hidden: a pick draws exactly the list it is handed, as the raycast tested it.
    */
   const pick = layerPick(
-    () => meshes.filter((m) => !m.parent?.userData.woodpiles || m.parent.visible),
+    () => meshes.filter((m) => m.visible && (!m.parent?.userData.woodpiles || m.parent.visible)),
     (hit) => {
       // The span table is the CHUNK's, so a hit resolves against the objects that
       // chunk actually holds and a face index cannot be read against another

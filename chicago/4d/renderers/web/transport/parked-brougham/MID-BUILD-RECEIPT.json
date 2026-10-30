@@ -1,0 +1,78 @@
+{
+  "variant": "V19_catalogue_body_and_finish",
+  "near": {
+    "detail": "near",
+    "raw_file": "brougham-source.glb",
+    "indexed_file": "brougham-near.glb",
+    "triangles": 45338,
+    "parts": 481,
+    "meshes": 26,
+    "nodes": 43,
+    "materials": 8,
+    "bounds_m": {
+      "min": [
+        -0.8600000143051147,
+        0.0,
+        -1.8365528583526611
+      ],
+      "max": [
+        0.8600000143051147,
+        2.1882998943328857,
+        3.825000047683716
+      ]
+    },
+    "protected": {
+      "protected_occurrences": 475,
+      "changed_body_occurrences": 5,
+      "added_piping_occurrences": 1,
+      "accepted_V18_lamps_exact": true,
+      "contacts_frames_proxy_exact": true
+    },
+    "source_bytes": 3353000,
+    "indexed_bytes": 1474296,
+    "expanded_triangle_PN_sha256": "50933aaa12d6536477eb178da48a2d2b21977f62aa91b5c5aff3df646f9950fd",
+    "source_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+    "indexed_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+    "lossless_indexing": true,
+    "meshopt_or_quantization": false
+  },
+  "mid": {
+    "detail": "mid",
+    "raw_file": "brougham-mid-source.glb",
+    "indexed_file": "brougham-mid.glb",
+    "triangles": 23062,
+    "parts": 315,
+    "meshes": 26,
+    "nodes": 43,
+    "materials": 8,
+    "bounds_m": {
+      "min": [
+        -0.8600000143051147,
+        0.0,
+        -1.8365528583526611
+      ],
+      "max": [
+        0.8600000143051147,
+        2.1882998943328857,
+        3.825000047683716
+      ]
+    },
+    "protected": {
+      "protected_occurrences": 309,
+      "changed_body_occurrences": 5,
+      "added_piping_occurrences": 1,
+      "accepted_V18_lamps_exact": true,
+      "contacts_frames_proxy_exact": true
+    },
+    "source_bytes": 1731404,
+    "indexed_bytes": 845700,
+    "expanded_triangle_PN_sha256": "3644ca1f10e2e5ebdf278fd70905de66ab9fd65961d813add5f4cffeff21e33d",
+    "source_sha256": "560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d",
+    "indexed_sha256": "d5cdd34e981d29db41634ac780c22526742f6a20527b5866d2349c727a67400d",
+    "lossless_indexing": true,
+    "meshopt_or_quantization": false
+  },
+  "source_tessellation_only": true,
+  "photographic_accepted": false,
+  "world_budget_accepted": false
+}

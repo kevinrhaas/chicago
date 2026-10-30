@@ -46,6 +46,7 @@ same thing.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field
 
 # Confidence values as they are written into the _CONFIDENCE glTF attribute.
@@ -58,6 +59,7 @@ KINDS = ("quarters", "barracks", "blockhouse", "magazine", "store", "guard",
 ROOF_TYPES = ("gable", "hip", "pyramid", "shed", "flat", "none")
 CONSTRUCTIONS = ("log", "hewn_log", "braced_frame", "brick", "stone", "earth")
 PAINTS = ("unpainted", "whitewash", "white", "brick", "earth", "stone")
+LANTERN_PROFILES = ("legacy", "birdcage_dome")
 
 # The form attributes whose VALUE this archetype reads. See the same set in
 # frame_tavern_params for the argument; the short version is that an attribute
@@ -66,7 +68,9 @@ PAINTS = ("unpainted", "whitewash", "white", "brick", "earth", "stone")
 CONSUMED = frozenset({
     "kind", "stories", "wall_height_m", "roof_type", "roof_pitch_deg",
     "construction", "paint", "chimneys", "gallery", "loopholes", "sun_dial",
-    "upper_overhang_m", "lantern",
+    "upper_overhang_m", "lantern", "gallery_storeys", "face_openings",
+    "lantern_profile", "tower_diameter_m", "tower_openings", "tower_profile",
+    "tower_lantern_detail", "tower_masonry",
 })
 
 # Where this archetype touches the ground: the whole footprint outline, at the
@@ -126,6 +130,20 @@ class FortStructureParams:
     lantern: bool = False
 
     # per-attribute confidence, keyed by the attribute name in the record
+    # Opt-in first-fort details; preserve every legacy positional argument.
+    gallery_storeys: int = field(default=1, kw_only=True)
+    face_openings: list | None = field(default=None, kw_only=True)
+
+    # Lighthouse-only opt-ins. Keep all existing positional and gallery controls.
+    lantern_profile: str = field(default="legacy", kw_only=True)
+    tower_diameter_m: float | None = field(default=None, kw_only=True)
+    footprint_min_u_m: float = field(default=0.0, kw_only=True)
+    footprint_min_v_m: float = field(default=0.0, kw_only=True)
+    tower_openings: list | None = field(default=None, kw_only=True)
+    tower_profile: dict | None = field(default=None, kw_only=True)
+    tower_lantern_detail: dict | None = field(default=None, kw_only=True)
+    tower_masonry: dict | None = field(default=None, kw_only=True)
+
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -182,7 +200,152 @@ class FortStructureParams:
         """And its diameter at the truck: a spar tapers, and this one is ours."""
         return self.mast_butt_m * 0.45
 
+    @property
+    def tower_shaft_height_m(self) -> float:
+        return (self.wall_height_m*.86 if self.tower_profile is None
+                else self.tower_profile["gallery_underside_m"])
+
     def validate(self) -> None:
+        if self.tower_profile is not None:
+            if self.kind != "tower" or not self.lantern or self.lantern_profile != "birdcage_dome":
+                raise ParamError("tower_profile requires a lit birdcage_dome tower")
+            profile = self.tower_profile
+            if not isinstance(profile, dict) or set(profile) != {
+                    "gallery_underside_m", "cap_base_m", "gallery_rail_height_m"}:
+                raise ParamError("tower_profile needs gallery_underside_m/cap_base_m/gallery_rail_height_m")
+            if any(isinstance(v, bool) or not isinstance(v, (float, int))
+                   or not math.isfinite(v) for v in profile.values()):
+                raise ParamError("tower_profile dimensions must be finite numbers")
+            radius = (self.tower_diameter_m if self.tower_diameter_m is not None else self.width_m)/2
+            maximum = self.wall_height_m+radius*self.taper*.7
+            floor, cap, rail = (profile["gallery_underside_m"],profile["cap_base_m"],
+                                profile["gallery_rail_height_m"])
+            if not (1 <= floor < cap-.6 and .3 <= rail <= 1.4
+                    and floor+.09+rail < cap and cap < maximum-.1):
+                raise ParamError("tower_profile gallery/rail/cap do not fit the unchanged overall max")
+        if self.tower_masonry is not None:
+            if self.kind != "tower" or self.construction != "stone":
+                raise ParamError("tower_masonry requires a stone tower")
+            d=self.tower_masonry
+            keys={"course_m","bond_m","joint_m","relief_m","reveal_m","seed"}
+            if not isinstance(d,dict) or set(d)-{'character'}!=keys or any(isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v) for k,v in d.items() if k!='character'):
+                raise ParamError("tower_masonry needs six finite declared controls")
+            if d.get('character','legacy_courses') not in {'legacy_courses','irregular_rubble'}:
+                raise ParamError("tower_masonry needs six finite declared controls")
+            if not (.2<=d['course_m']<=.6 and .3<=d['bond_m']<=1.2 and .01<=d['joint_m']<=.05
+                    and .002<=d['relief_m']<=.025 and d['relief_m']<d['reveal_m']<=.12
+                    and isinstance(d['seed'],int) and 0<=d['seed']<=100000):
+                raise ParamError("tower_masonry controls out of reconstructed bounds")
+        if self.tower_lantern_detail is not None:
+            if (self.kind != "tower" or not self.lantern or
+                    self.lantern_profile != "birdcage_dome" or self.tower_profile is None):
+                raise ParamError("tower_lantern_detail requires a partitioned birdcage tower")
+            d = self.tower_lantern_detail
+            keys = {"pane_opacity", "sill_height_m", "dome_rise_m", "cage_uprights",
+                    "cage_member_m", "gallery_posts", "gallery_member_m", "finial_radius_m"}
+            if not isinstance(d, dict) or set(d) != keys:
+                raise ParamError("tower_lantern_detail needs the eight declared detail controls")
+            if any(isinstance(v, bool) or not isinstance(v, (float, int)) or not math.isfinite(v)
+                   for v in d.values()):
+                raise ParamError("tower_lantern_detail controls must be finite numbers")
+            if any(not isinstance(d[k], int) or not 6 <= d[k] <= 32
+                   for k in ("cage_uprights", "gallery_posts")):
+                raise ParamError("lantern member counts must be integers in6..32")
+            if not (.02 <= d["pane_opacity"] <= .65 and .04 <= d["sill_height_m"] <= .4
+                    and .02 <= d["cage_member_m"] <= .1 and .02 <= d["gallery_member_m"] <= .1
+                    and .01 <= d["finial_radius_m"] <= .04):
+                raise ParamError("lantern detail controls out of reconstructed bounds")
+            r1 = (self.tower_diameter_m if self.tower_diameter_m is not None else self.width_m)/2*self.taper
+            cap_total = self.wall_height_m+r1*.7-self.tower_profile["cap_base_m"]
+            if not (.3 <= d["dome_rise_m"] < cap_total-.2):
+                raise ParamError("dome must leave at least0.2m finial within unchanged maximum")
+        if self.tower_openings is not None:
+            if self.kind != "tower":
+                raise ParamError("tower_openings needs kind tower")
+            if not isinstance(self.tower_openings, list) or len(self.tower_openings) > 24:
+                raise ParamError("tower_openings must be a list of at most 24 windows")
+            radius = (self.tower_diameter_m if self.tower_diameter_m is not None else self.width_m) / 2
+            for o in self.tower_openings:
+                if not isinstance(o, dict) or set(o)-{"offset_m"} != {"facet", "width_m", "z0_fraction", "z1_fraction"}:
+                    raise ParamError("tower aperture needs facet/width_m/z0_fraction/z1_fraction")
+                if isinstance(o["facet"], bool) or not isinstance(o["facet"], int) or not 0 <= o["facet"] < 12:
+                    raise ParamError("tower aperture facet must be an integer 0..11")
+                if any(isinstance(o[k], bool) or not isinstance(o[k], (int, float)) or not math.isfinite(o[k])
+                       for k in ("width_m", "z0_fraction", "z1_fraction")) or ("offset_m" in o and (isinstance(o["offset_m"],bool) or not isinstance(o["offset_m"],(float,int)) or not math.isfinite(o["offset_m"]))):
+                    raise ParamError("tower aperture dimensions must be finite numbers")
+                if not .05 <= o["z0_fraction"] < o["z1_fraction"] <= .97 or o["width_m"] < .12:
+                    raise ParamError("tower aperture fractions/width outside supported range")
+                # Existing window sill horns/casings extend 0.12 m on each side.
+                # Keep every emitted piece on its chosen tapered shaft facet.
+                shaft = self.tower_shaft_height_m
+                if ((o["z1_fraction"]-o["z0_fraction"])*shaft < .30
+                        or o["z1_fraction"]*shaft+.15 >= shaft):
+                    raise ParamError("tower aperture height/trim do not fit the shaft")
+                top_radius = radius * (1-(1-self.taper)*(o["z1_fraction"]+.15/shaft))
+                padding = .025 if self.tower_masonry is not None else .12
+                if o["width_m"]+2*padding+2*abs(o.get("offset_m",0)) > 2*top_radius*math.sin(math.pi/12):
+                    raise ParamError("tower aperture and trim exceed shaft facet")
+            for i, a in enumerate(self.tower_openings):
+                for b in self.tower_openings[i+1:]:
+                    if a["facet"] == b["facet"] and not (
+                            a["z1_fraction"]+.03 <= b["z0_fraction"] or
+                            b["z1_fraction"]+.03 <= a["z0_fraction"]):
+                        raise ParamError("tower apertures overlap on one facet")
+        offsets = (self.footprint_min_u_m, self.footprint_min_v_m)
+        if any(isinstance(v, bool) or not isinstance(v, (int, float)) or
+               not math.isfinite(v) for v in offsets):
+            raise ParamError("footprint offsets must be finite numbers")
+        if self.tower_diameter_m is not None:
+            diameter = self.tower_diameter_m
+            if (isinstance(diameter, bool) or not isinstance(diameter, (int, float))
+                    or not math.isfinite(diameter) or diameter <= 0):
+                raise ParamError("tower_diameter_m must be a positive finite number")
+            if self.kind != "tower":
+                raise ParamError("tower_diameter_m is only valid on a tower")
+            if (abs(diameter - self.width_m) > 1e-6 or
+                    abs(diameter - self.depth_m) > 1e-6):
+                raise ParamError("tower_diameter_m must match both physical footprint spans")
+        elif any(abs(v) > 1e-6 for v in offsets):
+            raise ParamError("offset polygon bounds require explicit tower_diameter_m")
+        if self.lantern_profile not in LANTERN_PROFILES:
+            raise ParamError(
+                f"lantern_profile {self.lantern_profile!r} not in {LANTERN_PROFILES}")
+        if self.lantern_profile != "legacy" and (
+                self.kind != "tower" or not self.lantern):
+            raise ParamError("lantern_profile needs kind tower and lantern true")
+        if self.face_openings is not None:
+            if self.kind not in ("quarters", "barracks") or self.overhang_m:
+                raise ParamError("face_openings currently supports unjettied quarters/barracks")
+            if not isinstance(self.face_openings, list) or len(self.face_openings) > 128:
+                raise ParamError("face_openings must be a list of at most 128 rectangles")
+            for o in self.face_openings:
+                if not isinstance(o, dict) or set(o) != {"face", "kind", "u0", "u1", "z0", "z1"}:
+                    raise ParamError("each face_openings rectangle needs face/kind/u0/u1/z0/z1")
+                if o["face"] not in ("front", "back", "left", "right"):
+                    raise ParamError("face_openings face must be front/back/left/right")
+                if o["kind"] not in ("window", "door"):
+                    raise ParamError("face_openings kind must be window/door")
+                if any(isinstance(o[k], bool) or not isinstance(o[k], (int, float))
+                       or not math.isfinite(o[k]) for k in ("u0", "u1", "z0", "z1")):
+                    raise ParamError("face_openings dimensions must be finite numbers")
+                span = self.width_m if o["face"] in ("front", "back") else self.depth_m
+                if not (0 <= o["u0"] < o["u1"] <= span
+                        and 0 <= o["z0"] < o["z1"] <= self.wall_height_m):
+                    raise ParamError("face_openings rectangle must lie within its wall")
+            for i, a in enumerate(self.face_openings):
+                for b in self.face_openings[i+1:]:
+                    if a["face"] != b["face"] or a["z0"] >= b["z1"] or b["z0"] >= a["z1"]:
+                        continue
+                    if max(b["u0"]-a["u1"], a["u0"]-b["u1"]) < 0.15-1e-9:
+                        raise ParamError("face_openings must leave at least 0.15 m between openings")
+        if (not isinstance(self.gallery_storeys, int) or isinstance(self.gallery_storeys, bool)
+                or self.gallery_storeys not in (1, 2)):
+            raise ParamError("gallery_storeys must be the whole number 1 or 2")
+        if self.gallery_storeys == 2:
+            if not self.gallery or self.kind not in ("quarters", "barracks"):
+                raise ParamError("a double gallery requires gallery=true on quarters or barracks")
+            if self.stories != 2:
+                raise ParamError("a double gallery requires a two-storey range")
         if self.kind not in KINDS:
             raise ParamError(f"kind '{self.kind}' not in {KINDS}")
         if not 0.5 <= self.width_m <= 120.0:
@@ -286,13 +449,17 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
     ys = [p[1] for p in poly]
     width, depth = max(xs) - min(xs), max(ys) - min(ys)
 
-    # The contract pins the mesh origin to polygon coordinate (0, 0); see the same
-    # refusal in frame_tavern_params for the argument.
-    if abs(min(xs)) > 1e-6 or abs(min(ys)) > 1e-6:
+    # GLB-CONTRACT pins the coordinate origin, not necessarily the bbox corner.
+    # Existing builders assume min=0; only an explicitly dimensioned tower
+    # resolves polygon offsets and actually uses them to preserve its centre.
+    min_u, min_v = min(xs), min(ys)
+    diameter = val("tower_diameter_m", None)
+    if (abs(min_u) > 1e-6 or abs(min_v) > 1e-6) and not (
+            str(val("kind", "quarters")) == "tower" and diameter is not None):
         raise ParamError(
-            f"footprint polygon starts at ({min(xs)}, {min(ys)}), not the origin. "
-            f"docs/GLB-CONTRACT.md pins the mesh origin to polygon coordinate (0, 0); "
-            f"re-anchor the polygon and put the offset in position.")
+            f"footprint polygon starts at ({min_u}, {min_v}), not the origin. "
+            f"Only an explicit tower_diameter_m resolves this offset; other "
+            f"builders require a zero-min polygon.")
 
     confidences = {a: conf(a) for a in form}
     confidences["footprint"] = phase.get("footprint", {}).get("confidence", "reconstructed")
@@ -312,11 +479,56 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         paint=str(val("paint", "unpainted")),
         chimneys=int(val("chimneys", 0)),
         gallery=bool(val("gallery", False)),
+        gallery_storeys=val("gallery_storeys", 1),
+        face_openings=val("face_openings", None),
         loopholes=bool(val("loopholes", False)),
         upper_overhang_m=float(val("upper_overhang_m", 0.45)),
         sun_dial=bool(val("sun_dial", False)),
         lantern=bool(val("lantern", False)),
+        lantern_profile=str(val("lantern_profile", "legacy")),
+        tower_diameter_m=diameter,
+        footprint_min_u_m=min_u,
+        footprint_min_v_m=min_v,
+        tower_openings=val("tower_openings", None),
+        tower_profile=val("tower_profile", None),
+        tower_lantern_detail=val("tower_lantern_detail", None),
+        tower_masonry=val("tower_masonry", None),
         confidence=confidences,
     )
     p.validate()
     return p
+
+
+def wall_openings(p: FortStructureParams, face: str) -> list[dict] | None:
+    """The explicit rectangles on one wall; None means this wall is unread.
+
+    Both mesh and front-wall reader consume this exact layout. Legacy procedural
+    layouts remain unread here rather than being falsely declared empty.
+    """
+    if p.face_openings is None:
+        return None
+    return [{k: o[k] for k in ("kind", "u0", "u1", "z0", "z1")}
+            for o in p.face_openings if o["face"] == face]
+
+
+def front_wall(p: FortStructureParams) -> dict | None:
+    openings = wall_openings(p, "front")
+    if openings is None:
+        return None
+    return {"u0": 0.0, "u1": p.width_m, "wall_height_m": p.wall_height_m,
+            "openings": openings}
+
+
+def tower_opening_layout(p: FortStructureParams) -> list[dict] | None:
+    """The actual tower aperture rectangles, distinct from a flat front wall.
+
+    Existing shaft height is0.86*wall_height_m. Fractions preserve source order
+    and move with a future explicitly reconstructed shaft/lantern division.
+    """
+    if p.tower_openings is None:
+        return None
+    shaft = p.tower_shaft_height_m
+    return [{"facet": o["facet"], "azimuth_deg": 15+30*o["facet"],
+             "u0": o.get("offset_m",0)-o["width_m"]/2, "u1": o.get("offset_m",0)+o["width_m"]/2,
+             "z0": shaft*o["z0_fraction"], "z1": shaft*o["z1_fraction"],
+             "kind": "window"} for o in p.tower_openings]

@@ -1,0 +1,102 @@
+{
+  "structure_id": "ream_house_1901_prairie",
+  "view": "chicagology_exterior_southwest",
+  "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
+  "glb_sha256": "8ec22ad318ac1cf14da2aa8de4a4cc88f18eee7afd94a098d414d7b72cb10bb3",
+  "camera_sha256": "60459980b416968efa474862ca399c308541ec8140c165adf1b09d832353cfed",
+  "photo_sha256": "f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3",
+  "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_exterior_southwest-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: the light ashlar block two storeys over a raised basement, its wall head at about 10.75 m under a slated mansard with an iron cresting on its curb; the front's north corner at the cornice's bed lands within 4 px of the print's (x 412, y 515)",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch on paired columns at the stoop's head and its balustraded balcony before the window over the door (x 470-750 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's north window column and the window over the porch, both storeys, under moulded heads (x 485-545 and 620-700 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the two tall stacks on the south flank, laid in the walls' pale stone (the render's had been red brick), one near the front corner (x 1110-1180 px) and one east of the flank's dormer (x 1455-1500 px), both standing on the cornice over the side wall",
+      "status": "fixed"
+    },
+    {
+      "what": "a pedimented dormer on the south flank's mansard face over the canted bay's west end (x 1380-1450 px); the render had none on that face",
+      "status": "fixed"
+    },
+    {
+      "what": "the fence: a band of iron scrolls on a stone curb, with tall square stone posts at the gate; now K11's scroll-band fence on the kit's stone piers (the render's had been spear pickets on iron posts)",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's south-west corner: this photograph cuts it on a canted face square to its camera, about 1.83 m back each way (x 942-1120 px, about 2.6 m across), with its own window column on both storeys, its own pedimented dormer over them, and the cornice and the mansard carried round it; now K01's canted corner (cant_corner): the face laid in the front's ashlar on its beds with a window under a moulded head in each storey and a basement light, the moulded cornice, the gutter, the mansard's faces and the curb's cresting turned round it on two mitres, and a pedimented dormer centred on its lower slope (render x 945-1120 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the stoop's cheeks: the print's sweep down from the porch's column plinths to a roll at the walk (x 340-500 and 545-700 px), their moulded tops straight down the rake; now K07's scrolled stone cheek either side, its head on the landing's edge beside the open terraces, its top straight down the rake (bow 1) to the roll",
+      "status": "fixed",
+      "how": "T-3186: entrance_kit cheek_form {kind scrolled, bow 1.0}"
+    },
+    {
+      "what": "the cheeks' row of small openings under their tops (five or six to a cheek, x 560-690 px on the near one): now five openings through each cheek under its coping, along the upper part of the sweep; the pictures' are rounded, the build's squared, a difference under the 1 ft bar",
+      "status": "fixed",
+      "how": "T-3186: entrance_kit cheek_form.pierced {count 5, hole_m [0.32, 0.2], under_m 0.12, span_m 2.5}, K07's pierced scrolled cheek (k07_entrances._scrolled_holes)"
+    },
+    {
+      "what": "the porch's capitals: Corinthian, a deep bell of leaves under the abacus; now K01's carved hood capital, two tiers of leaves under a 0.1 m abacus",
+      "status": "fixed",
+      "how": "T-3186: entrance_kit.hood.columns.carved"
+    },
+    {
+      "what": "the porch's paired shafts: set closer in the print than the render's 0.75 m centre to centre (about 0.5 m through the 1898 view's camera); under the 1 ft bar",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the cornice: the print's is deep, a course of carved stone blocks (scrolled consoles, single and evenly spaced, dark panels between them) under its corona over a plain frieze, round the front, the canted corner and the flank (x 380-1200 px); now K10's moulded stone cornice over a 0.42 m stone frieze with the scrolled stone blocks about 0.8 m apart under the corona's soffit along the same run, one left out where the flank's front stack stands on the cornice. The band-to-corona depth builds 0.57 m where the print reads about 0.6-0.8 m; under the 1 ft bar",
+      "status": "fixed",
+      "how": "T-3186: wall_head.frieze {height_m 0.42, proud_m 0.025} and wall_head.blocks {spacing_m 0.8, height_m 0.45, projection_m 0.19, width_m 0.18} under the moulded stone cornice round the mansard (k10_frontage._stone_frieze_blocks)"
+    },
+    {
+      "what": "the dormers' pediments: the print's are low triangular pediments with a level cornice across their foot and carved cheeks, the canted corner's the largest, its stone face with its scrolled cheeks about x 950-1115 px; the render's stand at K01's lowest pitch, 30 deg, without the level cornice or the carving, the canted corner's sash at the print's size (about 1.0 by 1.9 m) in a plain face about 0.6 m narrower",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the south flank's canted bay: its west cheek, which faces this camera, reads about 3 m across in the print (x 1340-1522 px) where the 1911 sheet's bay gives it 2.25 m; the camera's largest residuals (16-22 px) are there. Two plans (the sheet and this fit) disagree, so it is not moved here",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the flank's two narrow window columns and the carved cartouche between the canted corner and the bay (x 1200-1330 px); the render's flank windows stand in K01's ordinary widths and there is no cartouche",
+      "status": "within tolerance"
+    },
+    {
+      "what": "colour: the print is monochrome; the stone's buff and the slate's grey are the kit's",
+      "status": "not shown"
+    },
+    {
+      "what": "the rear and the brick rear range, behind the trees",
+      "status": "not shown"
+    },
+    {
+      "what": "the walk and the entrance gate",
+      "status": "within tolerance",
+      "how": "seen from the south-west the open gate and walk T-3206 lays read behind the fence"
+    },
+    {
+      "what": "the stoop's height against its cheeks (the pedestals whole above the cheeks' heads, the flight about two thirds the height the build gave it): now the porch's floor stands at the base course's top, about 1.5 m over grade (entrance_floor_m, nine risers of about 0.17 m), the columns on pedestals 0.8 m tall standing on it (hood columns plinth_m), and the cheeks' heads 0.6 m over the floor (cheek_form head_m), so the pedestals show whole above the cheeks as the pictures draw them; the cheeks' rolls stand on a 0.4 m foot block (cheek_form foot_block_m). T-3186 found the cause enlarging the 1898 print: the line read for the porch's floor at the stoop's head (y about 515 px) was the pedestals, and the floor lies at the stoop's top tread, level with the base course (y about 556 px); the door opens there on a vestibule whose inner flight, not built, climbs to the principal floor",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch's floor and pedestals: this camera reads them about 0.3 m lower than the build's 1.5 m floor (y about 1010 px against the render's about 990), where the 1898 camera and the plate read the floor at the base course's top, 1.5-1.6 m; a gap two camera fits disagree about (this one's eye stands 2.1 m up, 9.2 px RMS)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the cheeks' bulk: the print's are heavier, their coping about 0.4 m across and their rolls about 0.5 m on a block at the walk, where K07's cheek is thinner and its roll 0.4 m; under the 1 ft bar",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

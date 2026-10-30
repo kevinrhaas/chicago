@@ -1,0 +1,257 @@
+{
+  "grade": "reconstructed",
+  "source_ids": [],
+  "scope": "Original EMPTY covered W01 derivatives; no external models or photographic pixels; no maker, historical owner or historical load identified",
+  "geometry_license": "GPL-3.0-or-later",
+  "original_procedural_pixels_license": "CC0-1.0",
+  "recipe": "data/transport/parked/covered-w01.json",
+  "producer": "tools/transport/generate_covered_wagons.py",
+  "core_source": "tools/transport/wagon_covered/build.py",
+  "core_source_sha256": "679fc439a98921b0afcf60b31a437687dd3f243c7d62c1737da3cb215a882e29",
+  "reviewed_parent_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+  "source_commit": "2aebef95f6a5b6fa1bd8353db936c7674a73c32f",
+  "actual_terrain_qualification": {
+    "epoch": "e1834_harbor_cut",
+    "data_sha256": {
+      "chicago/4d/data/terrain/epochs/e1834_harbor_cut/heightfield.bin": "977b86cad237c727432771290560421c687321b05ac5cd0509168d00dfa6ea47",
+      "chicago/4d/data/terrain/epochs/e1834_harbor_cut/heightfield.json": "4ef354f5ef58d1bed0834ee1f587c91bab5dd84955a40dd52df2aeddd615b470"
+    },
+    "scope": "Four finite samples using actual pinned browser Heightfield at exact original stands; no main mesh/yoke/body clearance or shadow acceptance",
+    "stands": [
+      {
+        "id": "town_wagon_western_hotel_wagon_yard_1",
+        "at_local_enu_m": [
+          -136.05,
+          -291
+        ],
+        "bearing_deg": 356.2,
+        "contacts": [
+          {
+            "local": [
+              -0.605,
+              -1.175
+            ],
+            "e": -135.36845827871332,
+            "n": -292.13232101550113,
+            "inside": true,
+            "height": 1.1150000095367432
+          },
+          {
+            "local": [
+              -0.605,
+              1.175
+            ],
+            "e": -135.52420194465333,
+            "n": -289.7874875650148,
+            "inside": true,
+            "height": 1.1150000095367432
+          },
+          {
+            "local": [
+              0.605,
+              -1.175
+            ],
+            "e": -136.5757980553467,
+            "n": -292.2125124349852,
+            "inside": true,
+            "height": 1.1150000095367432
+          },
+          {
+            "local": [
+              0.605,
+              1.175
+            ],
+            "e": -136.7315417212867,
+            "n": -289.86767898449887,
+            "inside": true,
+            "height": 1.1150000095367432
+          }
+        ],
+        "wheel_plane_span_m": 0,
+        "eligible_unchanged_30mm_guard": true,
+        "seedText": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
+        "yoke": true
+      },
+      {
+        "id": "town_wagon_wolf_point_tavern_yard_1",
+        "at_local_enu_m": [
+          -90.5,
+          -39.5
+        ],
+        "bearing_deg": 356.2,
+        "contacts": [
+          {
+            "local": [
+              -0.605,
+              -1.175
+            ],
+            "e": -89.81845827871331,
+            "n": -40.63232101550116,
+            "inside": true,
+            "height": 0.9997287509325579
+          },
+          {
+            "local": [
+              -0.605,
+              1.175
+            ],
+            "e": -89.97420194465332,
+            "n": -38.28748756501484,
+            "inside": true,
+            "height": 0.9965587258936583
+          },
+          {
+            "local": [
+              0.605,
+              -1.175
+            ],
+            "e": -91.02579805534668,
+            "n": -40.71251243498516,
+            "inside": true,
+            "height": 1
+          },
+          {
+            "local": [
+              0.605,
+              1.175
+            ],
+            "e": -91.18154172128669,
+            "n": -38.36767898449884,
+            "inside": true,
+            "height": 0.9982782839168343
+          }
+        ],
+        "wheel_plane_span_m": 0.003441274106341652,
+        "eligible_unchanged_30mm_guard": true,
+        "seedText": "wagon|town_wagon_wolf_point_tavern_yard_1|-90.5|-39.5",
+        "yoke": true
+      }
+    ]
+  },
+  "variants": [
+    {
+      "model": "covered_w01_western_blue",
+      "legacy_id": "town_wagon_western_hotel_wagon_yard_1",
+      "glb_sha256": "aaffa3396778d9ab88153b80480034354b03ac6aa0128aa4a2f4b0a5d839655a",
+      "sidecar_sha256": "feb0acfd8463e693b47e3d239b6c0b3218a2d3565fd9c334e1ece87852c10378",
+      "source_seed_text": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
+      "scheme": {
+        "weight": 3,
+        "body": "blue",
+        "gear": "oxide"
+      },
+      "ageScalar": 1.0226475121639669,
+      "canvasScalar": 0.8676343060377985,
+      "contains_laid_by_yoke": true
+    },
+    {
+      "model": "covered_w01_wolfpoint_oak",
+      "legacy_id": "town_wagon_wolf_point_tavern_yard_1",
+      "glb_sha256": "22072e6fc83f1f73faeb98b583facb8dd9a2cf9498118e6df9c43ffd485f9321",
+      "sidecar_sha256": "e2eb0b7d387fc8f604c2440af57b4852b9bd47e5ffafd17a9b0e33a836bae7dc",
+      "source_seed_text": "wagon|town_wagon_wolf_point_tavern_yard_1|-90.5|-39.5",
+      "scheme": {
+        "weight": 1,
+        "body": "oak",
+        "gear": "darkoak"
+      },
+      "ageScalar": 0.9146393269253895,
+      "canvasScalar": 0.9334987872233614,
+      "contains_laid_by_yoke": true
+    }
+  ],
+  "texture_mapped_RGBA8_plus_mips_bytes_per_variant": 8388608,
+  "limitations": [
+    "No attested textile pattern, bows, seams, hardware, historic paint/wear or identity",
+    "No occupied driver, hitch, horse, boarding, animation or collision interface",
+    "Only two explicit original covered records are proposed; no fleet or LOD expansion",
+    "Historical initial 22-image source/published main inspection and bounded mobile drape comparisons are recorded separately; candidate desktop/current-worktree browser and full photographic acceptance remain open."
+  ],
+  "original_yard_seed_contracts": {
+    "WAGON_PAINT": {
+      "start": "const WAGON_PAINT = ",
+      "end": ";",
+      "sha256": "ed4ba2c0a5df60e284471a5307b7952d3ab8b376f203e86f609d864ac4a17633"
+    },
+    "WAGON_SCHEMES": {
+      "start": "const WAGON_SCHEMES = ",
+      "end": ";",
+      "sha256": "72d687dcf6cc41df5a097da62a62be8ecf83c73591e8aa49b245b54e50212b0f"
+    },
+    "hashOf": {
+      "start": "function hashOf(",
+      "sha256": "6aca8ed5cc40fc0ea9762d9b9b30e5f62536a0c2edd4be6cd9fbed6a9901eeaa"
+    },
+    "streamOf": {
+      "start": "function streamOf(",
+      "sha256": "642a2bade04559a3842fc8225bd1d470e6d56b6fc589d9d57e0e9d371031dcaa"
+    },
+    "wagonCoat": {
+      "start": "function wagonCoat(",
+      "sha256": "30bc545bebe088bd37a8854e74840610e6659d0d863692b2cc825caf570dd590"
+    },
+    "WOODS": {
+      "start": "const WOODS = ",
+      "end": ";",
+      "sha256": "26bbb905a6bb7fe38828d23b58d95005ad5337b493a2171087542c91bdb30626"
+    },
+    "CANVAS_COLOUR": {
+      "start": "const CANVAS_COLOUR = ",
+      "end": ";",
+      "sha256": "8d836262ecd5290d23f6fd8e5a4ae964c16eb2626c899324d8d8291df542fe80"
+    }
+  },
+  "source_commit_scope": "Historical first integration source; current canvas refinement is bound separately below by exact source/product hashes.",
+  "canvas_drape_refinement": {
+    "ticket": "T-2980",
+    "integration_base_commit": "64e83fcd0a4fa48ba4373778af5666ec2c448de8",
+    "original_core_source_sha256": "1a36e3506c9e515c5404d911f30f2c2093b325fe5a6184d931aefa6503d7555d",
+    "original_glb_sha256": {
+      "covered_w01_western_blue": "9b6575d1702ca288b5a66487ef089cc51dd0b86d14a47574f94b6fe6eaf23d23",
+      "covered_w01_wolfpoint_oak": "c6f69830d4ad690125ed703353d429bb8f68d67d29d6f6161b383b8b2d78f191"
+    },
+    "scope": "Original reconstructed maximum inter-bow drape increases from 8\u201310 mm to 20\u201328 mm over 750 mm spans; the 1.2 mm crease amplitude is unchanged. No historic measurement or photographic pattern is asserted.",
+    "preserved": "Both original identities, positions, bearings, seeded blue/oxide versus oak/darkoak finishes, aging, yokes, running gear, materials and procedural textures; recipe and runtime unchanged.",
+    "actual_generation": {
+      "completed_utc": "2026-10-22T05:03:11.770440Z",
+      "scope": "One outside-app generation and bounded source/cloth-versus-bows readback; no full physical or occupied clearance claim",
+      "capsule": "covered-cloth-drape-generation-v1-2026-10-22.tar",
+      "sha256": "5719460a9e8a6e352e76c196871c2b98599f8f568aadbefb7d88566c41699b13"
+    },
+    "actual_mobile_comparison": {
+      "capsule": "covered-cloth-mobile-6PLUS2-proof-20261022.tar",
+      "sha256": "d3d21063871bc039162687dcd148876c7e910d44be770ff161ff7768d2625dce",
+      "scope": "Six PNGs belong to an original deadline failure; the remaining Wolf Point quarter pair and new-page cleanup belong to a separate pass. Root found the drape subtle and coherent; this is not final photographic acceptance.",
+      "caveat": "Camera/wagon state was matched; ordinary asynchronous residents and foliage were not stabilized. Bardwell appears only in the WolfPoint candidate frame. No whole-frame or wagon-only render-cost comparison.",
+      "independent_addendum_sha256": "6262758d63a4dd09d6346495217e4aa0adf2e7168c4706f7d8503fa2b8207d62"
+    },
+    "pending": [
+      "Current-worktree full preflight and current-head CI; existing production reproduction and targeted nonbrowser checks passed",
+      "Current source/published desktop appearance and integration qualification",
+      "Photographic/material/cloth-construction and distinct compressed LOD acceptance"
+    ],
+    "historical_qualification": {
+      "source_commit": "0656467069ee3f8d0a40685ee571ceaaf4b0a2d7",
+      "source_tree": "6593357c4e0f98003ff3169392ce4ca5be4b6e9a",
+      "normal_preflight": "1046 checks /381 self-tests PASS",
+      "postcommit_publication_and_mirror": "PASS, both exact GLB source/published byte equality",
+      "published_stage8": {
+        "desktop": {
+          "run_id": 39839661716,
+          "job_id": 120037021941,
+          "stage": 8,
+          "result": "21 passed, 0 failed; SMOKE PASS",
+          "job_log_sha256": "7b27bfe311cefab1dde278cf98fd9952842e29e826fbab9002b88b68a98aa771"
+        },
+        "mobile": {
+          "run_id": 39839690978,
+          "job_id": 120037117192,
+          "stage": 8,
+          "result": "21 passed, 0 failed; SMOKE PASS",
+          "job_log_sha256": "8843ecd073fac833624fd8401ea2f0e2c87b139599c1cf2c9bbe5fa1e7ae9084"
+        }
+      },
+      "scope": "Historical exact-source qualification only. Current combined integration, full-world budget, photographic, compressed LOD and occupied acceptance remain open."
+    }
+  }
+}

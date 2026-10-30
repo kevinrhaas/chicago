@@ -1,0 +1,68 @@
+{
+  "structure_id": "house_1708_prairie",
+  "view": "chicagology_townhouses",
+  "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
+  "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a",
+  "camera_sha256": "26df234fbaa5611b6507ad11d12ad448c1ed97dc82dc45ef20630fef89fd0752",
+  "photo_sha256": "56843b92bab0a3581dfa1629949584543d6d12f5e9e556b699e9df6e91275a87",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1708_prairie/chicagology_townhouses-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the north end of 1708's front beside 1706's quoins, in the same plane as the townhouses' front",
+      "status": "fixed",
+      "how": "T-3188: the front wall at u 12.79, the townhouses' 12.77; its north corner renders at x 155 against the quoins' edge at 145-155"
+    },
+    {
+      "what": "a window in each of the second and third storeys at the north end under a hood",
+      "status": "fixed",
+      "how": "T-3188: K09's restrained surround on the north column (s 5.9 m): the second storey's head and sill and the third's sill render within about 15 px (0.2 m)"
+    },
+    {
+      "what": "the entrance hood at the north end, about 4.25-4.65 m over grade, a drop under its end",
+      "status": "fixed",
+      "how": "T-3188: K01's bracketed door hood, its soffit 4.25 m, 1.9 m wide and 0.8 m out, on the K08 canted-hooded bay's consoles"
+    },
+    {
+      "what": "the iron railing of spear-headed bars on a low curb along the walk",
+      "status": "fixed",
+      "how": "T-3188: K11's spear-on-curb fence just inside the street line with a walk gate at the stoop; its pickets render about as tall as the print's (about 150 px against 165) and stand about 0.4 m higher on the review's flat grade plane, within tolerance"
+    },
+    {
+      "what": "the hood's drop",
+      "status": "within tolerance",
+      "how": "T-3188: the console renders about 0.5 m south of the print's drop, a few dozen pixels in this near view and under a foot or so on the street"
+    },
+    {
+      "what": "the hood's top",
+      "status": "within tolerance",
+      "how": "T-3188: K01's door hood always rails its flat top; it is laid at its lowest, 0.15 m, which reads as the hood's cresting rather than a balcony, and the print shows its top plain"
+    },
+    {
+      "what": "the stoop's pale cheek",
+      "status": "within tolerance",
+      "how": "T-3188: the print's pale pier at the walk stands where the K07 stoop's cheek wall renders, about 0.3 m apart"
+    },
+    {
+      "what": "the door",
+      "status": "not shown",
+      "how": "T-3188: in deep shadow under the hood"
+    },
+    {
+      "what": "the cornice, the bay and the rest of the front",
+      "status": "not shown",
+      "how": "T-3188: outside the frame"
+    },
+    {
+      "what": "colour",
+      "status": "within tolerance",
+      "how": "T-3244: only the fence and the front's south edge are in this picture; the front's red-brown brick is read from the Christmas print and the 1901 photograph (docs/RESEARCH/colour-1700-block-T-3244/README.md)"
+    },
+    {
+      "what": "the iron fence on a stone curb along the street line, its square posts, and the gate at the stair's foot",
+      "status": "fixed",
+      "how": "T-3205: the K11 spear fence on its curb with the entrance gate drawn open (70 degrees) at the stair and a flagged walk in to the stair; fence, posts and gate stand at the render's left edge where the print's stand before 1708, within about 0.3 m (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

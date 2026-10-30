@@ -614,13 +614,74 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # houses at the forks of 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`),
 # emitted the same way as T-2062's, restaling on the same rows.
 #
+# 891 -> 899 on 2026-10-22 (T-2982): the district's eight named context buildings drafted on
+# `prairie_draft` (213, 215 and 217 East Twentieth, Hanford and Wheeler-Kohn on Calumet, and Second
+# Presbyterian's parts), emitted through generators/draft_emit.py, so restaling on that archetype's
+# own rows and on none of the shared ones above.
+#
+# 899 -> 914 on 2026-10-22 (T-3008): the background behind Prairie Avenue begun, fifteen drafts on
+# Calumet Avenue's west frontage from 18th to 20th Street (nine houses, five stables and one stable's
+# strip) on `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that
+# archetype's own rows and on none of the shared ones above.
+#
+# 914 -> 920, 737 -> 743 and 731 -> 737 on 2026-10-22 (T-2485, landing after T-3008): the Kinzie
+# establishment of 1812, a stable, lodging house and bake-house (`log_dwelling`), a dairy and the
+# horse mill (`outbuilding`) and the garden's picket fence (`palisade`), emitted the same way.
+#
+# 920 -> 947 on 2026-10-22 (T-3009, landing after T-2485): the background behind Prairie Avenue continued, twenty-seven
+# drafts on Indiana Avenue's east frontage from 20th to 22nd Street (thirteen houses, the First
+# Presbyterian Church, a livery and twelve alley buildings) on `prairie_draft`, emitted through
+# generators/draft_emit.py, so restaling on that archetype's own rows and on none of the shared ones above.
+#
+# 947 -> 968 on 2026-10-22 (T-3018, landing after T-3009): the background carried south,
+# twenty-one drafts on Calumet Avenue's west frontage from 20th to 22nd Street (ten houses, nine
+# stables and two sheds) on `prairie_draft`, emitted through generators/draft_emit.py, so restaling
+# on that archetype's own rows and on none of the shared ones above.
+#
+# 968 -> 979 on 2026-10-23 (T-3019): the background carried north, eleven drafts on Indiana
+# Avenue's east frontage from 16th to 18th Street and the row at 209-217 East Sixteenth Street
+# (five houses and six stables) on `prairie_draft`, emitted through generators/draft_emit.py, so
+# restaling on that archetype's own rows and on none of the shared ones above.
+#
+# 979 -> 980, 743 -> 744 and 737 -> 738 on 2026-10-23 (T-2486): Antoine Ouilmette's house,
+# the draught's third no. 31 house on the 1812 north bank, one `log_dwelling` emitted
+# through generators/emit.py like La Lime's and Le Mai's beside it.
+#
+# 980 -> 987 on 2026-10-24 (T-3068): the seven Indiana lots read against dated sources, seven
+# drafts on Indiana Avenue's east frontage from 16th to 18th Street (six houses and 1619's stable)
+# on `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that archetype's
+# own rows and on none of the shared ones above.
+#
+# 988 -> 989 on 2026-10-25 (T-3130): the ice-cream works rising on 1605-1613 Indiana, one
+# draft on `prairie_draft` in its works shell, emitted through generators/draft_emit.py, so
+# restaling on that archetype's own rows and on none of the shared ones above.
+#
+# 989 -> 990 on 2026-10-25 (T-3011): Indiana Avenue's east frontage from 18th to 20th Street,
+# twenty-two background houses as one `site` record on `prairie_draft`, emitted through
+# generators/draft_emit.py, so restaling on that archetype's own rows and on none of the
+# shared ones above.
+#
+# 990 -> 1024 on 2026-10-25 (T-3151): that row retired, and the face drafted off Sanborn sheet 27
+# instead, twenty-two houses and thirteen alley buildings on `prairie_draft` (35 in, 1 out),
+# emitted through generators/draft_emit.py, so restaling on that archetype's own rows and on
+# none of the shared ones above.
+#
+# 1024 -> 1025 on 2026-10-25 (T-1880): the Pullman house at 1729 Prairie moved off its draft onto
+# `k01_frontage` under the same id, and the stable, range and porte-cochere its draft carried
+# kept as one record of their own on `prairie_draft`: one asset in, none out.
+#
+# 1025 -> 1030 on 2026-10-26 (T-3164): Pullman's glasshouse ground across 18th Street at 1800
+# Calumet, four glasshouses on `k13_conservatories` (generators/k13_emit.py) and the lodge between
+# them on `prairie_draft` (generators/draft_emit.py), all pure Python, restaling on none of the
+# shared rows above.
+#
 STATED = {
-    "assets": 891,
+    "assets": 1030,
     "restales": {
-        "generators/common/*.py": 737,
+        "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 731,
+        "generators/emit.py": 738,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

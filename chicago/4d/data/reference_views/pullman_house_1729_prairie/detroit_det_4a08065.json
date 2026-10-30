@@ -1,0 +1,30 @@
+{
+ "structure_id": "pullman_house_1729_prairie",
+ "source_id": "loc_det_4a08065_pullman_residence",
+ "library_image": "a16-pullman-det-4a08065",
+ "photo": "../../sources/assets/pullman_1729_photo_t1880/loc_det_4a08065_pullman_residence.jpg",
+ "image_px": [
+  1024,
+  804
+ ],
+ "principal_px": [
+  512,
+  478
+ ],
+ "focal_px": 1093,
+ "near_m": 10,
+ "scene": "1904",
+ "flora": {"front_yards": ["prairie_1729"], "street_trees_m": 70, "season": "winter"},
+ "eye": [
+  88.3,
+  42.93,
+  1.6
+ ],
+ "yaw_deg": 245.0,
+ "solve": "Fitted by T-1880 to the photograph alone, the Library of Congress's 1024 x 804 px derivative of LC-D4-12551 (the image store's copy), against the 1911 sheet's plan (trace s20fp-1729-b1). The footprint frame's u runs toward Prairie Avenue (west) and v runs SOUTH from the main block's north wall; the main block is u 0-27.75, v 0-17.93. The camera stands at the south-west corner of Prairie Avenue and 18th Street, looking north-east across the crossing (18th Street runs away on the right to the 1893 Fort Dearborn monument). It is LEVEL: the house's verticals stand vertical in the print (a view camera), so the principal point is set on the horizon. FOCAL LENGTH AND HEADING from the two faces' vanishing points: the Prairie front's cornice falls from y 318 at x 300 to y 300 at x 540 px and the 18th Street flank's from y 305 at x 560 to y 350 at x 680; with the horizon taken at y 478 (grade at the house at about y 500, the eye 1.6 m over the walk) they meet it at x -1833 and x 1021, and two perpendicular directions put f = 1093 px and the axis 25 degrees left of the flank's direction (yaw 245 in this frame). POSITION from two bearings: the front's north end (the north-west block's corner, x 293) and its south-west corner (x 557-560) put the eye 65 m from the south-west corner, at u 88.3, v 42.9 (about 43 m west of the Prairie lot line and in the south half of 18th Street). The flank's far end then falls at x 688 against the print's 683-690, a check the fit did not use. HEIGHTS read through it: 16.7 px/m at the south-west corner and 15.2-16.0 along the front; the cornice's top about 12.0 m, the curb under the cresting about 16.8 m, the cresting about 0.8 m, the second-storey windows about 7.8-10.5 m, the portico's balcony about 6.6-7.0 m. UNCERTAINTY: the horizon is not visible in the print (the street's far end on the right stands near y 480), and every height scales with the eye's distance about the eye (a 10% error in f moves the eye about 6 m and the heights about 10%). The 18th Street arcade the print shows at x 598-683 falls on the flank's pavilion (u 10-21) through this camera, not on the sheet's one-storey 'porte-cochere' (p4, u 15-20, 3.4 m further out, which this camera puts at x 690-710); the match record leaves that open. LIGHT: the Prairie front is lit and the flank in shade, and the shadow of something behind the camera lies across the foreground road, so the sun stands low behind the camera's left, in the south-west (sun_uvy).",
+ "sun_uvy": [
+  1.0,
+  0.8,
+  1.0
+ ]
+}

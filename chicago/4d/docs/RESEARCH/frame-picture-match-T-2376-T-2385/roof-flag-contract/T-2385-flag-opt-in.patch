@@ -1,0 +1,51 @@
+--- a/chicago/4d/data/structures/tremont_house_1.json
++++ b/chicago/4d/data/structures/tremont_house_1.json
+@@ -211,6 +211,48 @@
+             "gifford_tremont_house_no_1"
+           ],
+           "note": "The pictured ground-level entries have broad simple outlines. Add plain jambs and a level header around the existing opening without a pediment or invented ornamental order. The working0.14m stock and65mm projection, existing trim palette, exact sections, and repeated concealed entry surrounds are reconstructed, not measured dimensions. Existing opening centres, door leaf,7.8m envelope, platform layout, footprint/placement and source-date uncertainty remain unchanged."
++        },
++        "flag": {
++          "confidence": "reconstructed",
++          "sources": [
++            "gifford_tremont_house_no_1"
++          ],
++          "value": "us_flag_24_star",
++          "note": "The Gifford reproduction shows a striped roof flag with a canton; a United States flag is a working reading, not a recoverable star count. For the1835-07-01 scene the existing24-star/13-stripe library pattern is period-correct under the1818 Flag Act. Pattern identity/layout remain reconstructed for this hotel; no colour or readable stars are claimed from the monochrome picture. Explicit anchor validity ends1836-07-03 before the25-star law takes effect; later scenes require an appropriate supported pattern/anchor update."
++        },
++        "flag_flying": {
++          "confidence": "reconstructed",
++          "sources": [
++            "gifford_tremont_house_no_1"
++          ],
++          "value": true,
++          "note": "The picture shows cloth flying, but the undated retrospective view does not establish that it flew on1835-07-01. Displaying it in this scene and using the existing app breeze/pose/wear are reconstructed; source attribution and owner-approved project use remain controlling. Cloth remains an app layer, not baked hotel geometry."
++        },
++        "flag_anchor": {
++          "confidence": "reconstructed",
++          "sources": [
++            "gifford_tremont_house_no_1"
++          ],
++          "value": {
++            "phase": "frame_1833",
++            "frame": "footprint_enu_m",
++            "valid_from": "1833-01-01",
++            "valid_to": "1836-07-03",
++            "foot": [
++              5.6388,
++              4.57,
++              10.661870276202958
++            ],
++            "head": [
++              5.6388,
++              4.57,
++              15.061870276202958
++            ],
++            "radius_m": 0.035,
++            "fly_m": 1.85,
++            "hoist_m": 1.3
++          },
++          "note": "Explicit anchor on the separately modelled roof spar, not the hotel bounding box. Coordinates are footprint metres[east,north,up] mapped to glTF[east,up,south] before the existing placement matrix. Head/foot agree with the reconstructed32degree/7.8m envelope and4.25m spar; all are reconstructed. Source picks stafftop(1034,192),base(1034,279); approximate flag outline x1000..1034,y197..224 gives projected fly/staff~0.39 and hoist/staff~0.31. Perspective/folds do not yield metres: working fly1.85m/hoist1.30m sit within broad0.35..0.50/0.25..0.40 staff-height ratios. Both dimensions,0.035m square-spar half-width, pattern, date use and orientation/pose are reconstructed; opposite wind/image fit remain open. Phase/date mismatch or invalid/stale/out-of-bounds anchor refuses cloth and reports why. This interval prevents carrying the24-star reconstruction into later patterns without review."
+         }
+       },
+       "change_note": "The house as built in 1833 by Alanson Sweet and kept through the scene date by Ira Couch. No change of fabric is attested inside the phase - Andreas records changes of proprietor (Sweet and a man from Canada named Darwin, then the Couch brothers, then James Couch from 1836) and no alteration - so the whole 1833-1839 span is modelled as one state, which is a limitation of the evidence rather than a claim that nothing changed. T-2385 adopts the owner-approved Gifford picture's three-storey form as a retrospective inference, retaining the existing broad phase. The picture does not establish when each visible fitting was added; no alteration date is invented."

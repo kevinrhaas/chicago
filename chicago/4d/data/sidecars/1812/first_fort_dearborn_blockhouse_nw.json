@@ -24,7 +24,8 @@
       "quaife_1913",
       "andreas_1884_v1"
     ],
-    "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
+    "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together.",
+    "to_is": "ended"
   },
   "change_note": "",
   "placement": {
@@ -125,9 +126,12 @@
       "note": "Unattested, as the second fort's."
     },
     "chimneys": {
-      "value": 1,
+      "value": 0,
       "confidence": "reconstructed",
-      "note": "Unattested. A manned blockhouse in a Chicago winter is heated; the stack is ours."
+      "note": "T-3041 picture refinement. Kurz & Allison (1893), panel 1, draws each first-fort blockhouse with a roof lantern and no separate chimney. The former one-stack value was an unattested heating reconstruction; removing that invented stack follows the pictured silhouette without asserting that a retrospective print proves historical absence. The lantern itself and the panel's conflicting tower locations remain unresolved; no plan, bearing or documented 75 ft flagstaff is changed. The complete 1812 total (including possible hidden fittings or schematic omissions) remains reconstructed; this is a conservative model choice to follow visible evidence, not positive proof of the historical total or absence. Source-visible counts remain explicit.",
+      "sources": [
+        "kurz_allison_1893"
+      ]
     },
     "function": {
       "value": "block_house",
@@ -180,6 +184,35 @@
         "any plan, footprint, orientation or measured survey",
         "the height, roof form or fenestration of any fort building",
         "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+      ]
+    },
+    {
+      "source_id": "kurz_allison_1893",
+      "citation": "Kurz & Allison. Chicago In Early Days, 1779-1857. Chicago: Kurz & Allison, 76 & 78 Wabash Avenue, 1893. Chromolithograph, fifteen numbered vignettes with printed key.",
+      "url": "https://www.loc.gov/pictures/item/2003656685/",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "panel 1: Old Fort Dearborn of 1803 from across the river - the palisade under a ruled cap line, the barracks ranges, the blockhouses and the bare trodden ground outside the walls that data/enclosures/fort_dearborn_apron.json is built on",
+        "panel 8: the town from the lake in 1830, population 96 - the low far bank, a lodge and bark canoes on the shore, and trees round the buildings on both banks; a scene-adjacent TOWN view, five years early, not a second view of the fort",
+        "panel 12: the long low Kinzie house with a full-width piazza on its front, a red roof, and outbuildings up the rise behind it",
+        "panel 12: a row of four Lombardy poplars standing between the house and the river — the count and rhythm tools/generate_planted_rows.py measures across seven plates",
+        "panel 12: PICKET-FENCED garden plots at the house — close-set vertical pales, the treatment data/enclosures/town_dooryard_pickets.json deals to the town's house lots",
+        "panel 12: the fenced green between house and water that Wau-Bun describes in words, drawn",
+        "panel 11: the Green Tree Hotel as a two-storey clapboard block with end chimneys and even sash, with ship masts behind it",
+        "panel 5: Fort Dearborn as rebuilt 1835 — picket palisade, galleried barracks range, blockhouse",
+        "panel 14: the Sauganash Hotel as a two-storey clapboard block with an attached single-storey log wing and no full-width gallery",
+        "the sheet's printed key, which names each panel and dates several of the buildings"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — tier 5, and a perspective vignette cannot be asked for a metre",
+        "a date for anything it draws that can be relied on: its own key puts the Kinzie Mansion at 1832, which contradicts every documentary source this project holds",
+        "independent testimony for panel 14, which follows the F. Braunhold engraving in Andreas (1884) closely enough to be probably derived from it",
+        "any evidence that a garden fence stood on a lot in the town: panel 12 is the north bank, and the house it draws is excluded from the 1835 scene (data/exclusions.json, kinzie_house)",
+        "a height, a pale width or a bay for the fence it draws — every dimension on the fence layer is invented, and docs/LIBERTIES.md L129 says so",
+        "a Lombardy poplar anywhere in Chicago but this one group",
+        "a view of the 1835 fort in panel 8: that panel is dated 1830 by the sheet's own key and was mistaken for a fort plate for a month (T-1107)"
       ]
     },
     {

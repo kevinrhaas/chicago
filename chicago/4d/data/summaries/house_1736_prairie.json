@@ -1,0 +1,73 @@
+{
+  "id": "house_1736_prairie",
+  "scene": "1904",
+  "name": "Hugh McBirney House",
+  "address": "1736 S. Prairie Ave.",
+  "status": {
+    "text": "Gone",
+    "today": "No longer standing",
+    "grade": "inferred",
+    "sources": [
+      "chicagology_1736_prairie_page"
+    ],
+    "note": "The page gives the house's life span as 1875-1912 and does not say where the end date comes from."
+  },
+  "built": {
+    "year": 1864,
+    "phrase": "1864 or 1875",
+    "grade": "inferred",
+    "sources": [
+      "glessner_blog_2020_07_early_history_prairie_iv",
+      "chicago_tribune_1875_08_08_building_permits",
+      "chicagology_1736_prairie_page"
+    ],
+    "note": "The Glessner House Museum's history dates the house to 1864, built for Granville S. Ingraham. An 1875 permit for the lot, and chicagology's 1875 life span, may mean the house here was a newer one. The structure's `built` carries both."
+  },
+  "use": "Home",
+  "summary": "A brick house with a mansard roof, on the corner of 18th Street. Its sources disagree on when it was built: 1864 or 1875. From 1880 it was the home of Hugh McBirney, who made white lead for paint.",
+  "key": [
+    {
+      "label": "Owner from 1880",
+      "value": "Hugh McBirney",
+      "grade": "attested",
+      "sources": [
+        "chicagology_1736_prairie_page"
+      ]
+    },
+    {
+      "label": "His business",
+      "value": "McBirney & Johnston White Lead Co.",
+      "grade": "attested",
+      "sources": [
+        "chicagology_1736_prairie_page"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Hugh McBirney paid $25,000 for the house and its corner lot in December 1880.",
+      "about": "structure",
+      "surprising": false,
+      "visible_from_street": false,
+      "grade": "attested",
+      "sources": [
+        "chicagology_1736_prairie_page"
+      ]
+    },
+    {
+      "text": "Its owner made white lead, which painters mixed into house paint.",
+      "about": "person",
+      "surprising": true,
+      "visible_from_street": false,
+      "grade": "attested",
+      "sources": [
+        "chicagology_1736_prairie_page"
+      ],
+      "note": "The city directories list him as the head of a white lead company. Painters mixed white lead into house paint. This page does not say that part."
+    }
+  ],
+  "style": null,
+  "story": []
+}

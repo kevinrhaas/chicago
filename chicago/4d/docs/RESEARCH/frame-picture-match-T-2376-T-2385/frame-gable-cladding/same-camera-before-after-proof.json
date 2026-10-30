@@ -1,0 +1,108 @@
+{
+  "state": "COMPLETE: both committed-before/proposed-after comparisons use exact same numeric/byte-identical cameras/source/helpers and final panels visually reviewed; verdicts differ",
+  "base_commit": "575b4968569283177e36e92878b2a84c5554068e",
+  "models": [
+    {
+      "target": "green-tree",
+      "structure_id": "green_tree_tavern",
+      "base_commit": "575b4968569283177e36e92878b2a84c5554068e",
+      "baseline_git_path": "chicago/4d/assets/gltf/green_tree_tavern__frame_1833.glb",
+      "baseline_glb": "assets/gltf/before/green_tree_tavern__frame_1833.glb",
+      "baseline_glb_sha256": "dd12ff5e1108d905a0f7816998feba9d03ad75a53ff6ea0b29c50fd4079c97bf",
+      "camera_sha256": "e27c8f754165dd83b052668f10c958787ba96ebea9df66fe7a85c8b5eee58960",
+      "identical_camera_bytes": true,
+      "identical_numeric_camera_intrinsics_and_lighting": true,
+      "before_camera": "review/green-tree/before/andreas_1884_south.provisional.json",
+      "after_camera": "review/green-tree/andreas_1884_south.provisional.json",
+      "after_capture_camera_sha256": "e27c8f754165dd83b052668f10c958787ba96ebea9df66fe7a85c8b5eee58960",
+      "after_capture_glb_sha256": "06502d3176ac43778dcbd8da7de059416db044661a91e2a4df9045c5f9ca9364",
+      "after_capture_photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+      "after_side_by_side": "review/green-tree/andreas_1884_south.provisional-side-by-side.jpg",
+      "after_match_file": "review/green-tree/andreas_1884_south.provisional.match.json",
+      "before_capture_exit_code": 0,
+      "after_capture_exit_code": 0,
+      "before_capture_camera_sha256": "e27c8f754165dd83b052668f10c958787ba96ebea9df66fe7a85c8b5eee58960",
+      "before_capture_photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+      "before_match_file": "review/green-tree/before/andreas_1884_south.provisional.match.json",
+      "before_side_by_side": "review/green-tree/before/andreas_1884_south.provisional-side-by-side.jpg",
+      "review_panel": "review/green-tree/source-before-after.jpg",
+      "review_panel_sha256": "5fa79a2cc488441dba2739cf3d6c86ae4c43df3f5d9e4c75e9189d76fcc3b9aa",
+      "numeric_camera_intrinsics": {
+        "image_px": [
+          1600,
+          1000
+        ],
+        "principal_px": [
+          -3472.8297136919055,
+          682.311321563539
+        ],
+        "focal_px": 6661.424855035462,
+        "eye": [
+          -119.02830380700041,
+          72.37506685114646,
+          1.6395476268613007
+        ],
+        "yaw_deg": 84.47345858188956
+      },
+      "same_camera_hash_verified": true,
+      "same_source_photo_hash_verified": true,
+      "verdict": "differs",
+      "canonical_after_producer": "emit.emit_structure with structure_id__phase_id seed"
+    },
+    {
+      "target": "sauganash",
+      "structure_id": "sauganash_hotel",
+      "base_commit": "575b4968569283177e36e92878b2a84c5554068e",
+      "baseline_git_path": "chicago/4d/assets/gltf/sauganash_hotel__frame_1831.glb",
+      "baseline_glb": "assets/gltf/before/sauganash_hotel__frame_1831.glb",
+      "baseline_glb_sha256": "dd65f73871a65de436cc8025a1497020cfa55d31a5ae5434a46f26e8ef27dc3c",
+      "camera_sha256": "99e2a5f9655402af4307d1616c01874f17b8f48a3fea1ab504e9f60d9f001cac",
+      "identical_camera_bytes": true,
+      "identical_numeric_camera_intrinsics_and_lighting": true,
+      "before_camera": "review/sauganash/before/andreas-main-gable.provisional.json",
+      "after_camera": "review/sauganash/andreas-main-gable.provisional.json",
+      "after_capture_camera_sha256": "99e2a5f9655402af4307d1616c01874f17b8f48a3fea1ab504e9f60d9f001cac",
+      "after_capture_glb_sha256": "287c31dda7f00f78c26dc056d1029e6294dfb12313df897bec5502aef7fcb42b",
+      "after_capture_photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+      "after_side_by_side": "review/sauganash/andreas-main-gable.provisional-side-by-side.jpg",
+      "after_match_file": "review/sauganash/andreas-main-gable.provisional.match.json",
+      "before_capture_exit_code": 0,
+      "after_capture_exit_code": 0,
+      "before_capture_camera_sha256": "99e2a5f9655402af4307d1616c01874f17b8f48a3fea1ab504e9f60d9f001cac",
+      "before_capture_photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+      "before_match_file": "review/sauganash/before/andreas-main-gable.provisional.match.json",
+      "before_side_by_side": "review/sauganash/before/andreas-main-gable.provisional-side-by-side.jpg",
+      "review_panel": "review/sauganash/source-before-after.jpg",
+      "review_panel_sha256": "00d91cdf8ed3f9d2b8afda5c379bf4fa03d9d836f10a8277eaa03c114d630128",
+      "numeric_camera_intrinsics": {
+        "image_px": [
+          2017,
+          1296
+        ],
+        "principal_px": [
+          4129.395927696468,
+          856.404866199997
+        ],
+        "focal_px": 4730.352526721041,
+        "eye": [
+          42.75817160861064,
+          60.68856053185239,
+          1.869951965172664
+        ],
+        "yaw_deg": 246.33520855106465,
+        "sky": "overcast"
+      },
+      "same_camera_hash_verified": true,
+      "same_source_photo_hash_verified": true,
+      "verdict": "differs",
+      "canonical_after_producer": "emit.emit_structure with structure_id__phase_id seed"
+    }
+  ],
+  "review_helpers_sha256": {
+    "tools/photo_match.mjs": "c6299ddb08ab3a81feec0885f6309664d138ccdb2082fca9f7433e633476f968",
+    "tools/photo_match_group.mjs": "12f1f96e154df492e269bc7e4e8f783805e83e8ddcabce5e0f33c1a623a5a930"
+  },
+  "all_cpu_browser_work_finished": true,
+  "canonical_after_producer": "emit.emit_structure with structure_id__phase_id seed",
+  "final_panels_visually_inspected": true
+}

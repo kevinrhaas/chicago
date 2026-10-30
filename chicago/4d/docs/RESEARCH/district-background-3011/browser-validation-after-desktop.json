@@ -1,0 +1,368 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of 3 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "background_records": 84,
+      "filtered_from_index": null,
+      "load_ms_to_ready": 60921,
+      "js_heap_used_bytes": 65532300,
+      "js_heap_total_bytes": 66830336,
+      "draft_records_in_registry": 190,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 210,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "west-between-prairie-houses-at-1900",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 3801,
+            "rendererCalls": 48,
+            "multiDraw": true,
+            "triangles": 1049873,
+            "programs": 69,
+            "geometries": 273,
+            "textures": 647,
+            "batches": 219,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 243,
+            "structuresExpected": 243,
+            "structuresStanding": 243,
+            "bytes": 118925412,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 8218.8,
+          "camera": [
+            1398,
+            -3340,
+            6.29
+          ],
+          "target": [
+            1270,
+            -3345,
+            10.35
+          ]
+        },
+        {
+          "name": "west-down-18th",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 3705,
+            "rendererCalls": 161,
+            "multiDraw": true,
+            "triangles": 3440725,
+            "programs": 69,
+            "geometries": 273,
+            "textures": 652,
+            "batches": 219,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 243,
+            "structuresExpected": 243,
+            "structuresStanding": 243,
+            "bytes": 118925412,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 14845.3,
+          "camera": [
+            1400,
+            -3207,
+            6.04
+          ],
+          "target": [
+            1270,
+            -3209,
+            10.46
+          ]
+        },
+        {
+          "name": "west-down-20th",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 4063,
+            "rendererCalls": 46,
+            "multiDraw": true,
+            "triangles": 1055921,
+            "programs": 69,
+            "geometries": 274,
+            "textures": 614,
+            "batches": 219,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 243,
+            "structuresExpected": 243,
+            "structuresStanding": 243,
+            "bytes": 118925412,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 10447.1,
+          "camera": [
+            1400,
+            -3472,
+            6.23
+          ],
+          "target": [
+            1270,
+            -3474,
+            10.39
+          ]
+        },
+        {
+          "name": "east-down-18th",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1263,
+            "rendererCalls": 106,
+            "multiDraw": true,
+            "triangles": 1253703,
+            "programs": 71,
+            "geometries": 288,
+            "textures": 681,
+            "batches": 219,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 243,
+            "structuresExpected": 243,
+            "structuresStanding": 243,
+            "bytes": 118925412,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 8994.1,
+          "camera": [
+            1395,
+            -3207,
+            6.04
+          ],
+          "target": [
+            1520,
+            -3206,
+            10.25
+          ]
+        },
+        {
+          "name": "indiana-west-walk-at-1900",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 4678,
+            "rendererCalls": 102,
+            "multiDraw": true,
+            "triangles": 1729509,
+            "programs": 71,
+            "geometries": 331,
+            "textures": 776,
+            "batches": 219,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 243,
+            "structuresExpected": 243,
+            "structuresStanding": 243,
+            "bytes": 118925412,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 12018.4,
+          "camera": [
+            1262,
+            -3300,
+            6.03
+          ],
+          "target": [
+            1290,
+            -3345,
+            11.38
+          ]
+        },
+        {
+          "name": "air-over-indiana-18th-20th",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 3042,
+            "rendererCalls": 218,
+            "multiDraw": true,
+            "triangles": 4444857,
+            "programs": 71,
+            "geometries": 333,
+            "textures": 810,
+            "batches": 219,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 243,
+            "structuresExpected": 243,
+            "structuresStanding": 243,
+            "bytes": 118925412,
+            "fps": 0,
+            "cameraNear": 3.6,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 12834.3,
+          "camera": [
+            1200,
+            -3340,
+            94.27
+          ],
+          "target": [
+            1300,
+            -3340,
+            4.39
+          ]
+        }
+      ]
+    }
+  ]
+}

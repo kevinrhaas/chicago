@@ -1,0 +1,35 @@
+{
+  "source_generated_once": true,
+  "near_lossless_PN_exact": true,
+  "rows": [
+    {
+      "detail": "near",
+      "file": "brougham-near.glb",
+      "triangles": 33502,
+      "raw_mesh_batches": 25,
+      "parked_material_groups": 7,
+      "nodes": 42,
+      "bounds_m": {
+        "min": [
+          -0.8600000143051147,
+          0.0,
+          -1.8365528583526611
+        ],
+        "max": [
+          0.8600000143051147,
+          2.1882998943328857,
+          3.825000047683716
+        ]
+      },
+      "source_bytes": 2495128,
+      "indexed_bytes": 1249944,
+      "expanded_triangle_PN_sha256": "05107e950cf3eed0524f381e8867c238bfaa9e0ee1a156b48520d8800403fdc1",
+      "source_sha256": "b74e00937871eef8666fe048501456a8409b18df185c87a0905b083b7a2448fa",
+      "indexed_sha256": "ec2bfc0da49b570429dbcd8db39250aa6f1bbf55587570f0dafad9a42afc4ee5",
+      "lossless_indexing": true,
+      "meshopt_or_quantization": false
+    }
+  ],
+  "not_regenerated_mid_far": true,
+  "originalV13_MASTER_guard_unmodified": true
+}

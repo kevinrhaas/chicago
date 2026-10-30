@@ -1,0 +1,26 @@
+{
+  "id": "chicago_tribune_1904_01_31_brinkman_2105_indiana",
+  "type": "newspaper",
+  "citation": "Classified advertisement, the rental agent 'Brinkman, 2105 Indiana-av.'. Chicago Sunday Tribune, 31 January 1904 (vol. 63 no. 5).",
+  "author": "Chicago Sunday Tribune",
+  "date": "1904-01-31",
+  "describes_date": "1904-01-31",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "url": "https://archive.org/details/per_chicago-daily-tribune_1904-01-31_63_5",
+  "locator": "The issue's OCR text (per_chicago-daily-tribune_1904-01-31_63_5), the classified columns; the OCR runs neighbouring advertisements together, so only the words quoted in the note are read from it.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States newspaper of 1904; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Found by the Internet Archive's full-text search for the street address and read in the issue's OCR text for T-3013 on 2026-10-23; the page image was not consulted.",
+  "note": "A rental agent, Brinkman, giving 2105 Indiana Avenue as the agent's address in January 1904; the same agent signs ads from that address through March 1908.",
+  "what_it_supplies": [
+    "that 2105 Indiana Avenue was occupied, as an agent's office address, from January 1904 to 1908"
+  ],
+  "what_it_does_not_supply": [
+    "the building's form, storeys, material or outline",
+    "a construction or demolition date",
+    "what else stood on 2101-2105"
+  ]
+}

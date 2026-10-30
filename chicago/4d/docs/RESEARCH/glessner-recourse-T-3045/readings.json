@@ -1,0 +1,71 @@
+{
+ "ticket": "T-3045",
+ "method": "docs/RESEARCH/glessner-course-reading-T-3044/read_courses.py --render <the re-coursed render>, unchanged; the render is photo_match.mjs's bare render of taylor-2135-ne through its T-2858 camera, from the T-3045 master",
+ "openings_registration": {
+  "N": {
+   "scale": 1.0246,
+   "offset_ft": 0.186,
+   "rms_ft": 0.197
+  },
+  "S": {
+   "scale": 1.034,
+   "offset_ft": -0.217,
+   "rms_ft": 0.043
+  }
+ },
+ "piers": {
+  "N1": {
+   "ft_from_NE": [
+    4.6,
+    6.8
+   ],
+   "corr_printed": 0.765,
+   "free": {
+    "corr": 0.864,
+    "scale_about_bed7": 0.9975,
+    "offset_ft": 0.07,
+    "bed23_over_door_ft": 21.66
+   }
+  },
+  "N2": {
+   "ft_from_NE": [
+    21.0,
+    25.6
+   ],
+   "corr_printed": 0.692,
+   "free": {
+    "corr": 0.873,
+    "scale_about_bed7": 1.0,
+    "offset_ft": -0.06,
+    "bed23_over_door_ft": 21.57
+   }
+  },
+  "S1": {
+   "ft_from_NE": [
+    39.9,
+    42.3
+   ],
+   "corr_printed": 0.171,
+   "free": {
+    "corr": 0.676,
+    "scale_about_bed7": 0.995,
+    "offset_ft": 0.17,
+    "bed23_over_door_ft": 21.73
+   }
+  }
+ },
+ "corner_faces_uncalibrated": {
+  "north 15-24.5 ft": {
+   "corr": 0.9,
+   "scale_uncalibrated": 1.01
+  },
+  "north 1.5-3.0 ft": {
+   "corr": 0.776,
+   "scale_uncalibrated": 1.0225
+  },
+  "prairie 4.6-6.8 ft": {
+   "corr": 0.834,
+   "scale_uncalibrated": 1.03
+  }
+ }
+}

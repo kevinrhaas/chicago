@@ -10,7 +10,7 @@ export default register('teachers', {
   preview: 'Read the handout here',
   'handout.title': 'Navigator field check',
   'handout.lede': 'Sixty seconds of training in eight steps. Each step waits until the student does it.',
-  'handout.start': 'To begin, open Guide and choose Take the field check. Skip is always there.',
+  'handout.start': 'To begin, open Guide and choose Take the tour. Skip is always there.',
   'handout.steps': 'The eight steps',
   'handout.jaunts': 'Three Jaunts for each destination',
   'handout.rule': 'Suggested: the featured Jaunts first, then the shortest.',

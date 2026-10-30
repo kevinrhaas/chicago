@@ -24,7 +24,7 @@ differently and placed the same building 6 m apart before these were written dow
 | thing | convention |
 |---|---|
 | mesh local origin, in plan | the **footprint polygon's own coordinate origin** — the point the record's `position` refers to, i.e. polygon coordinate `(0, 0)`. NOT the centroid and NOT the bbox corner (they coincide only by accident). |
-| mesh local origin, vertically | `y = 0` at the base of the walls |
+| mesh local origin, vertically | `y = 0` at the base of the walls. The web renderer reads the plane as the building's FEET: it stands a `terrain` structure on the lowest ground under the triangle edges that lie on `y = 0` (within 0.05 m), sampled along their length, not under the mesh's bounding box, whose eaves and empty corners beside a wing reach ground no wall stands on (T-3029, `renderers/web/js/building-feet.js`). Geometry below the plane (a cellar, a sunk floor) is not a foot. |
 | …for a structure over water | `y = 0` at the **design water surface**, not the ground — a bridge's one documented dimension is its clearance above the water, and its piers run to a bed we do not model. The renderer must place such a structure against the water plane rather than sampling the terrain. Declared per archetype; `bridge_timber` is the first. **Wired 2026-08-10** with the first bridge record: the archetype declares `VERTICAL_ANCHOR` in its parameter module, `tools/compile_scene.py` copies it into `placement.vertical_anchor`, and the renderer places `water` at a literal `y = 0` — that plane is zero by the definition of the vertical datum, so no lookup is involved. Anything that declares nothing gets `terrain`, unchanged. |
 | …and what a visitor may STAND on | `placement.walk_surface_m`, metres above that same `y = 0`, or `null` where there is no such surface — which is every structure but the four bridges. **Additive, wired 2026-08-17** (T-0001), by the same route and for the same reason as `vertical_anchor` in the row above: the archetype's parameter module already resolves `deck_height_m`, `tools/compile_scene.py` reads it off the resolved params without Blender, and the renderer's walker uses it as the floor. The deck a boot is on and the deck the mesh draws are therefore ONE number. Nothing about the GLB itself changes, and no generator is asked for anything new. The alternative — the renderer finding the deck primitive by its material name — was rejected: material names are not pinned anywhere in this document, so a renderer keyed on one would be reading a convention nobody promised to keep, and the drawbridge's gallows frames sit five metres above its deck, so the bounding box is not the answer either. |
 | footprint axes → 3D | polygon `u` → **+X**, polygon `v` → **−Z** (so +v is north, matching ENU) |
@@ -235,6 +235,14 @@ is no longer a convention nobody promised to keep.
 chimney, by its material name. Those names have no single writer and no pin, and the
 `walk_surface_m` row's argument still stands for every one of them.
 
+### Joint floors — `mortar` (PROPOSED 2026-10-28, T-3226)
+
+| thing | convention |
+|---|---|
+| a primitive's material named `mortar` | a JOINT FLOOR: laid under coursed stones (K02's `k01_frontage.stone()`, its copings and arches; Glessner's own builder) at the fabric's joint recess, 1 to 6 mm behind the faces that cover it, so that every joint has a floor. It is meant to be seen in the joints only. |
+| what a renderer must do with it | draw it behind whatever face lies in its plane. `buildings.js` gives it a depth offset away from the eye (`JOINT_FLOOR`, polygon offset factor 1, units 4): depth only, no vertex, colour or light moves. Without it, the 14-bit web lattice (2.8 mm a rung on a 46 m house) rounds the recess onto the face, and past about 50 m a 24-bit depth buffer cannot part 5 mm anyway, so floor and face fight: the owner's "speckled" flanks on 1827 and 1801 Prairie. |
+| what it is NOT a licence for | finding any other part of a wall by name. `tools/check_joint_floor.mjs` holds the offset and refuses a `mortar` material in any shipped file but the K02 houses and Glessner. |
+
 ### Wall substrates — read from the record (PROPOSED 2026-10-02, T-1963)
 
 The paragraph above refuses a wall's material name as a licence, and this section does not
@@ -262,6 +270,17 @@ retired. The check is what makes that change safe, because it can compare the tw
 |---|---|---|
 | archival master | uncompressed `.glb` | `assets/gltf/` (committed, not published) |
 | web derivative | `EXT_meshopt_compression`, **or the master passed through where compressing it is bigger** | `assets/web/` → published |
+| published copy | the derivative, with each image two or more published GLBs embed moved to an external buffer, `sheets/<sha256 prefix>.ktx2` (T-3232) | `data/gltf/` on the site only |
+
+**The shared sheets are a publish-time transform, not a change to what a generator emits**
+(T-3232). Neither the master nor the derivative changes: `tools/share_glb_sheets.mjs`, run by
+`publish.sh`, rewrites only the published copies, and `--check` reads each one back to its
+`assets/web/` source view for view. The image keeps its `bufferView` and its `mimeType`; only
+the buffer under it becomes a plain glTF 2.0 external buffer with a `uri`. The one thing it
+asks of a renderer is standard glTF: **parse a GLB with its own directory as the resource
+path** (`GLTFLoader.parse(bytes, new URL('.', glbUrl).href, …)`), because GLTFLoader resolves
+a buffer URI by appending it to that path. A file URL there resolves `sheets/…` against
+`house.glbsheets/…`, the buffer 404s and the house does not load.
 
 The master is the source of truth; derivatives regenerate from it. Meshopt over Draco: it
 decodes far faster with no per-file WASM cold start, which matters more than bytes for ~150

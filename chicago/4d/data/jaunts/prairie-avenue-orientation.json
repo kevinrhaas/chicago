@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "content_version": 3,
+  "content_version": 7,
   "category": "Orientation",
   "featured": true,
   "review_required": false,
   "id": "prairie-avenue-orientation",
   "scene": "1904",
   "title": "Meet the Glessner House",
-  "premise": "Meet the Glessner House from the street in summer 1904.",
+  "premise": "Walk all the way round Richardson's last house in summer 1904, from the street that stared at it to the sunny courtyard it hid, in ten stops on foot.",
   "default_mode": "walk",
   "allowed_modes": [
     "walk",
@@ -15,34 +15,168 @@
     "instantly"
   ],
   "opening": {
-    "text": "Begin at Prairie and Eighteenth. This short exterior orientation distinguishes the reconstructed 1904 scene from the later sources used to build it. The route and keepsake are modern interpretation, not a reenacted historical visit.",
-    "read_s": 15
+    "text": "WALK: THE GLESSNER HOUSE. Summer 1904, 1800 Prairie Avenue. Ten stops on foot, all the way round one house: the corner, the Eighteenth Street side, the alley, the front door, the carriage passage and the courtyard inside. The story is mostly the owner's own, from the account he wrote for his children in 1923. Exteriors only; who is home today is not claimed.",
+    "read_s": 19
   },
   "stops": [
     {
       "id": "corner",
       "destination": {
         "kind": "anchor",
-        "id": "glessner_house"
+        "id": "glessner_tour_corner"
       },
-      "text": "Look across Prairie Avenue toward the Glessner House. The family moved here in December 1887. You are viewing the house in the summer 1904 reconstruction; the street-corner viewpoint is a modern interpretive choice.",
-      "read_s": 18,
+      "text": "An old Chicago saying called Prairie Avenue 'the sunny street that holds the sifted few'. Pullman's mansion stands diagonally across the corner, Kimball's French chateau across the avenue. Then there is this one: rough granite, small deep windows, steep red roofs. It was the last house Henry Hobson Richardson designed, and he never saw it built.",
+      "read_s": 17,
       "evidence": [
-        "move",
+        "sifted-few",
+        "neighbours",
+        "richardson",
+        "never-saw",
+        "roof",
         "outing"
       ],
-      "next": "house"
+      "next": "north-wall"
     },
     {
-      "id": "house",
+      "id": "north-wall",
       "destination": {
-        "kind": "structure",
-        "id": "glessner_house"
+        "kind": "anchor",
+        "id": "glessner_tour_north_wall"
       },
-      "text": "From outside, notice the roof and street-facing walls. Glessner’s later account describes unglazed red roof tiles and granite street walls as features of the original construction. That account is evidence about the building, not a record of today’s imagined visit.",
-      "read_s": 20,
+      "text": "This is the side people talked about when the house was new. Passers-by remarked on the narrow windows, 'just enough to light the narrow corridors'. Richardson held that the windows of a city house were 'not to look out of': people only shroud them in shades and curtains. The house keeps its back to the street.",
+      "read_s": 17,
       "evidence": [
-        "fabric",
+        "sunlight",
+        "not-to-look-out",
+        "outing"
+      ],
+      "next": "arch"
+    },
+    {
+      "id": "arch",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_arch"
+      },
+      "text": "The great arch is the back door: a small corridor through it leads to the kitchen. It is also how the orchestra sneaks in. On New Year's Day 1903 a double quartet of horns slipped in by the Eighteenth Street door and up the back stairs, and at four o'clock began to play in the upper hall.",
+      "read_s": 17,
+      "evidence": [
+        "great-arch",
+        "horns",
+        "outing"
+      ],
+      "next": "stable"
+    },
+    {
+      "id": "stable",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_stable"
+      },
+      "text": "The west wing is the stable and carriage house, with its wide carriage doorway onto Eighteenth Street. Inside, its walls are white glazed brick. The furnace room is underneath it, so the dust, dirt and noise of coal and ashes never come into the house itself.",
+      "read_s": 14,
+      "evidence": [
+        "stable-door",
+        "stable-brick",
+        "outing"
+      ],
+      "next": "gate"
+    },
+    {
+      "id": "gate",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_gate"
+      },
+      "text": "Round the corner, these gates in the alley open into the courtyard, and they let the Glessners pull off a trick. On 1 December 1887 the family moved everything in through here, 'before our neighbors suspected even that we were about to move'. That night they lit the new hearth with live fire carried from the old one.",
+      "read_s": 18,
+      "evidence": [
+        "moving-day",
+        "outing"
+      ],
+      "next": "door"
+    },
+    {
+      "id": "door",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_door"
+      },
+      "text": "The front door: heavy oak strapped with iron, a square window behind an iron grille. Richardson would not have the ironwork painted; it was Bower-Barffed against rust, a process Glessner never saw anywhere else. The wall looks like solid rock, but it is brick faced with granite slabs, with deep stones at every opening to keep up the illusion.",
+      "read_s": 18,
+      "evidence": [
+        "front-door",
+        "bower-barff",
+        "granite-skin",
+        "outing"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "glessner_house",
+          "label": "About this house"
+        }
+      ],
+      "next": "porte"
+    },
+    {
+      "id": "porte",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_porte"
+      },
+      "text": "Not every visitor uses the front door. Here a carriage could leave Prairie Avenue and roll right under the house, through two paneled oak doors hung on heavy iron straps, and out into a private courtyard. Follow it through.",
+      "read_s": 12,
+      "evidence": [
+        "underpass",
+        "porte-doors",
+        "outing"
+      ],
+      "next": "court-north"
+    },
+    {
+      "id": "court-north",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_court_north"
+      },
+      "text": "Inside, the house changes its mind. From the street it looked shut tight; here it opens up. Richardson put generous windows on this sunny courtyard side, letting in, Glessner wrote, 'a flood of sunlight when the sun shines in Chicago'. The family rooms look in on this quiet yard, not out at the street.",
+      "read_s": 16,
+      "evidence": [
+        "sunlight",
+        "inner-yard",
+        "outing"
+      ],
+      "next": "hall-bow"
+    },
+    {
+      "id": "hall-bow",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_hall_bow"
+      },
+      "text": "The rounded bay above the terrace steps is the entrance hall. Its door to this courtyard is glazed with yellow glass under chipped white glass, so the hall feels sunny even on grey days. The vines here came from the family's old house; one was fifty-five feet long and replanted whole. It flourished.",
+      "read_s": 16,
+      "evidence": [
+        "hall-bow",
+        "yellow-glass",
+        "creeper",
+        "outing"
+      ],
+      "next": "family"
+    },
+    {
+      "id": "family",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_family"
+      },
+      "text": "Behind these walls, 1904 is a busy year. Frances Glessner, who has kept a journal since 1879, has set up a silversmith's bench in the basement. Every winter and spring her Monday Morning Reading Class meets in the library. Years ago her son George's friends ran a telegraph company from his school room, wired to seven houses.",
+      "read_s": 17,
+      "evidence": [
+        "journal-silver",
+        "reading-class",
+        "telegraph",
         "outing"
       ],
       "links": [
@@ -55,42 +189,386 @@
       "next": "finish"
     }
   ],
+  "legs": [
+    {
+      "from": "corner",
+      "to": "north-wall",
+      "story": "In March 1885 Glessner paid $50,000 for this corner: two lots and the north 17 feet of a third.",
+      "story_evidence": [
+        "lot"
+      ],
+      "evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "north-wall",
+      "to": "arch",
+      "story": "Norcross Brothers of Worcester, Massachusetts, built the house for the contract price, without a single bill for extras.",
+      "story_evidence": [
+        "contract"
+      ],
+      "evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "arch",
+      "to": "stable",
+      "story": "Three weeks after the horns, the full orchestra came to dinner, and the musicians played a Beethoven movement on pots, pans and dishes.",
+      "story_evidence": [
+        "pots-pans"
+      ],
+      "evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "gate",
+      "to": "door",
+      "story": "Glessner remembered his architect weighing 370 pounds: 'big-minded, big-bodied, big-hearted'.",
+      "story_evidence": [
+        "big"
+      ],
+      "evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "court-north",
+      "to": "hall-bow",
+      "story": "The house has held receptions for more than four hundred and dinners for more than a hundred, all cooked in its own kitchen.",
+      "story_evidence": [
+        "crowds"
+      ],
+      "evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "hall-bow",
+      "to": "family",
+      "story": "By special arrangement the house next door used the same pinkish brick, so every wall of this courtyard matches.",
+      "story_evidence": [
+        "matched-brick"
+      ],
+      "evidence": [
+        "outing"
+      ]
+    }
+  ],
   "endings": [
     {
       "id": "finish",
-      "text": "You have found your bearings at Prairie and Eighteenth. Continue exploring the 1904 scene at your own pace.",
-      "read_s": 8,
+      "text": "Richardson never saw any of this. About three weeks before he died in April 1886, too ill to leave his bedroom, he marked on the drawings where the lights would go and told Glessner: 'There, Mr. Glessner if I were to live five years longer, that is the last thing I would do on your house, my part is finished.' Digging began that June, and George and Frances threw the first soil. Glessner was convinced it was the house Richardson would most have liked to live in himself.",
+      "read_s": 27,
       "completion_eligible": true
     }
   ],
   "keepsake": {
     "family": "Wayfinding",
     "id": "prairie-corner-note",
-    "title": "Prairie Avenue bearings",
-    "text": "An interpretive note marking the corner where you began, not a historical artifact."
+    "title": "Round the Glessner House",
+    "text": "An interpretive route card of the ten stops round 1800 Prairie Avenue, not a historical artifact."
   },
   "evidence": [
     {
-      "id": "move",
-      "text": "The family moved into the house in December 1887.",
+      "id": "sifted-few",
+      "text": "An old Chicago saying described Prairie Avenue as 'the sunny street that holds the sifted few'.",
       "confidence": "attested",
       "sources": [
         "habs_glessner_house_il_1015_data_pages"
       ],
-      "locator": "Data page 1."
+      "locator": "Data page 2, Part I.B, quoting Arthur Meeker, Prairie Avenue (1949), p. 10."
     },
     {
-      "id": "fabric",
-      "text": "Glessner describes unglazed red roof tiles and granite street walls as part of the house’s construction.",
+      "id": "neighbours",
+      "text": "Glessner built at the corner of Eighteenth Street and Prairie Avenue, diagonally opposite Pullman's mansion and across the street from W. W. Kimball's smaller French chateau.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 3, Part I.B."
+    },
+    {
+      "id": "richardson",
+      "text": "Henry Hobson Richardson designed the house; Glessner calls it his last work.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 2 (Part I.A.3, architect); Story of a House, HABS data page 13 ('It was his last work')."
+    },
+    {
+      "id": "never-saw",
+      "text": "Richardson died before construction began, so he never saw the house built.",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_house_richardson_page",
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_story_of_a_house_1923"
+      ],
+      "reasoning": "The house museum gives Richardson's death as 26 April 1886; HABS data page 2 dates construction from 1 June 1886, and Glessner (data page 8) says the digging began that day."
+    },
+    {
+      "id": "roof",
+      "text": "The roofs are of red baked tiles, unglazed.",
       "confidence": "attested",
       "sources": [
         "glessner_story_of_a_house_1923"
       ],
-      "locator": "HABS transcription, data pages 13–15; construction description, not the 1923 garage conversion."
+      "locator": "HABS data page 13: 'The roofs are of red baked tiles, unglazed.' Describes the house as built."
+    },
+    {
+      "id": "front-door",
+      "text": "The front door is heavily paneled oak with iron straps and a large square window behind an iron grille.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 21, Part II.B.3, Openings."
+    },
+    {
+      "id": "bower-barff",
+      "text": "Richardson would not have the front door's grille and the outside ironwork painted; it was Bower-Barffed, a process Glessner did not recall seeing elsewhere, which kept it from rust.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "granite-skin",
+      "text": "The street walls are brick faced with alternately six- and eight-inch sheets of granite, with deeper slabs returned at the openings to imply a wall entirely of stone.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 21, Part II.B.2, Wall construction."
+    },
+    {
+      "id": "underpass",
+      "text": "An underpass on the east (Prairie Avenue) front leads under the house to the courtyard.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "locator": "HABS data page 2 (Part I.A.6: 'the door of the underpass on the east facade'); drawings sheet 2, the first-floor plan."
+    },
+    {
+      "id": "porte-doors",
+      "text": "In 1904 the underpass was closed by two heavily paneled oak leaves with heavy iron straps and latches.",
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "reasoning": "Data page 21 describes these leaves from a 1945 photograph, and data page 2 records the underpass door replaced in the 1946 conversion, so the 1945 door is the earlier one; that it was the door of 1904 is carried back, not dated."
+    },
+    {
+      "id": "sunlight",
+      "text": "Passers-by remarked on the narrow windows in the north side along Eighteenth Street, 'just enough to light the narrow corridors', not realizing that on the courtyard side Richardson had put generous windows that let in 'a flood of sunlight when the sun shines in Chicago'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 15."
+    },
+    {
+      "id": "inner-yard",
+      "text": "The 1958 landmark plaque praised the plan 'which opens the family rooms to the quiet serenity of an inner yard'.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 1, Statement of Significance."
+    },
+    {
+      "id": "hall-bow",
+      "text": "On the courtyard side the entrance hall ends in a rounded bay.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "locator": "Sheet 2, the first-floor plan: the hall's bow on the court face."
+    },
+    {
+      "id": "yellow-glass",
+      "text": "Yellow glass under chipped white glass in the door leading to the courtyard gives the hall a feeling of sunlight even in cloudy weather.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "creeper",
+      "text": "The Virginia creeper on the courtyard walls was carried from the old house; one vine fifty-five feet long was replanted and trained its full length, and it flourished.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 9."
+    },
+    {
+      "id": "matched-brick",
+      "text": "The courtyard walls are common brick of a slightly pinkish colour with grey limestone trim, and by special arrangement the same brick was used in the adjoining house.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 13."
+    },
+    {
+      "id": "journal-silver",
+      "text": "Frances Macbeth Glessner kept a journal from 1879, and in 1904 set up a silversmith's workbench in the basement of the house.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "reading-class",
+      "text": "Frances Glessner's Monday Morning Reading Class met weekly through the winters and springs, in the library.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 10."
+    },
+    {
+      "id": "telegraph",
+      "text": "George's friends ran a telegraph company from the school room, with wires connecting seven residences, all centering in this house.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 12."
+    },
+    {
+      "id": "moving-day",
+      "text": "On 1 December 1887 the family moved all their belongings in through the courtyard entrance from the alley before the neighbours suspected they were moving, and lit the new hearth with fire carried from the old house at Washington and Morgan Streets; they were in 'before our neighbors suspected even that we were about to move'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data pages 8-9."
+    },
+    {
+      "id": "stable-brick",
+      "text": "The carriage house and stables are of white glazed brick, and the house is heated from the furnace room under the stable, keeping the dust, dirt and noise of coal and ashes out of the house.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Story of a House, HABS data page 13 ('the carriage house and stables (now garage) are of white glazed brick'; 'the heating is from the furnace room under the garage'); HABS data page 22 (stable walls of glazed white brick)."
+    },
+    {
+      "id": "stable-door",
+      "text": "The stable's carriage doorway opens on Eighteenth Street.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "locator": "Sheets 2 and 5: the 18th Street carriage doorway."
+    },
+    {
+      "id": "great-arch",
+      "text": "The service entrance is through the great arch on Eighteenth Street to a small corridor and the kitchen.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "locator": "Story of a House, HABS data page 15; drawings sheet 5, the 18th Street entrance arch."
+    },
+    {
+      "id": "horns",
+      "text": "On 1 January 1903 a double quartet of horns slipped in by the Eighteenth Street door and up the back stairs and played in the upper hall at four o'clock.",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "reasoning": "HABS data page 15 tells the surprise. Glessner calls the way in 'the Eighteenth Street door'; the great arch is the one Eighteenth Street entrance he describes leading to the back of the house, so the door is read as the arch's."
+    },
+    {
+      "id": "not-to-look-out",
+      "text": "Richardson held that the windows of a city house were 'not to look out of', since people shroud them in shades and curtains.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "lot",
+      "text": "In March 1885 Glessner bought lots 39, 40 and the north 17 feet of lot 38 for $50,000.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 1, Part I.A.1."
+    },
+    {
+      "id": "contract",
+      "text": "Norcross Brothers of Worcester, Massachusetts, built the house for the contract price, with no bill of extras.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "crowds",
+      "text": "The house has held receptions for more than four hundred and dinners for more than a hundred, cooked in its own kitchen.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 15."
+    },
+    {
+      "id": "big",
+      "text": "Glessner remembered Richardson weighing three hundred and seventy pounds: 'big-minded, big-bodied, big-hearted'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 17."
+    },
+    {
+      "id": "pots-pans",
+      "text": "Three weeks after the horns, about a hundred guests including the full orchestra dined here, and the musicians played the metronome movement of Beethoven's Eighth Symphony on pots, pans and dishes.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 16."
+    },
+    {
+      "id": "last-thing",
+      "text": "Three weeks before his death, too ill to leave his bedroom, Richardson marked the places for the lighting fixtures and said: 'There, Mr. Glessner if I were to live five years longer, that is the last thing I would do on your house, my part is finished.' Glessner was convinced it was the house Richardson would most have liked to live in himself.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 13."
+    },
+    {
+      "id": "first-soil",
+      "text": "Digging began at one o'clock on 1 June 1886, when George and Frances threw the first soil.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 8."
     },
     {
       "id": "outing",
-      "text": "The orientation route, timing and keepsake are modern interpretive narrative.",
+      "text": "The walk, its order and its viewpoints, its reading times, the narration's framing and the keepsake are modern interpretation; no visit on a day in 1904 is asserted.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-prairie"

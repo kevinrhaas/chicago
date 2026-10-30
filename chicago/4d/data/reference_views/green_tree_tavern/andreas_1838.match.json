@@ -1,0 +1,45 @@
+{
+  "structure_id": "green_tree_tavern",
+  "view": "andreas_1838",
+  "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
+  "glb_sha256": "f69934897306e608bad55f6ffecfdcb53adf030675b6df0df9fa1004ba3a4d2c",
+  "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
+  "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+  "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/andreas_1838-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The main gable ground floor now has two viewer-left sash and a rightmost entrance, replacing the centred doorway; the actual door moves2.286m in the unchanged footprint. Native primary entrance and apron follow it.",
+      "status": "fixed"
+    },
+    {
+      "what": "The illustrated left-hand annex roof masses and their relation to the main block are not reproduced by the retained rear-ell/side-addition arrangement; this is a visitor-visible massing discrepancy, not a pixel residual. Its exact July1835 form remains uncertain. The separate Trowbridge open wagon bay is procedural yard geometry; its front-end station does not reproduce these enclosed masses.",
+      "status": "open"
+    },
+    {
+      "what": "The middle south-wall doorway is now the pictured stock sash: the actual new-master comparison at the unchanged Andreas camera shows seven lower sash rather than six sash and a middle door. Independent exported-triangle comparison confines the 56 replaced triangles to that opening; the existing 0.75 m sill, 0.85 m glass width and 2.10 m head are retained model controls, not archival measurements. Gray's later side-door recollection remains explicit counterevidence; the picture-led choice is inferred and proves no exact July-1835 absence of a door. Actualpublishedbothviewportbody/yard/ground/NormalByGrade/entry/creditedsourceandnativeWEBreviewpassed2026-10-29 onthe source-boundc093candidate; the substantialenclosedannexremainsOPEN.",
+      "status": "fixed"
+    },
+    {
+      "what": "Andreas1838 shows two upper gable sash without the small attic light, while Trowbridge1902 captioned1835 shows three upper sash and an attic light; Kurz1893 is retrospective and may depend on Andreas. These conflicting drawing details are within tolerance underT3153, not a new follow-up.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Retained provisional drawing framing hasRMS6.11px/max12.65px corner residuals and an off-image principal point. The picture/camera-fit disagreement is within tolerance; it supplies no measured change to the existing footprint or height.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The monochrome engraving cannot establish literal paint colour. The retained finish remains a declared reconstruction; the later coloured Kurz print is not a contemporaneous paint specification.",
+      "status": "not shown"
+    },
+    {
+      "what": "The isolated asset review omits app terrain, procedural signage and wagon shed, people and neighbouring structures; those layers are checked separately in the actual app and are not inferred from this neutral-plane render.",
+      "status": "not shown"
+    },
+    {
+      "what": "The known c1859 catalogue photograph record chm_green_tree_1859 remains unverified/check_required and cross_check. Its current metadata predates the1880 move but allows intervening alterations; no new geometry or cleared asset is derived from it here, and it is not this governing engraving.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

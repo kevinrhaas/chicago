@@ -12,7 +12,9 @@
  * EVERY FACT LINE CARRIES ITS GRADE DOT (the card's own `fact-dot`), with the grade in
  * words for a screen reader. The address is printed once.
  *
- * THE TABS (T-2639, §08 "Tabs"): Overview · People · Design · Story · Photos · Sources. A new
+ * THE TABS (T-2639, §08 "Tabs"): Overview · People · Design · Story · Photos · Sources, and
+ * Research with Expert research on (T-3022: the floating card's evidence, liberties and
+ * record, folded in; the card itself no longer opens on a building). A new
  * building always opens on Overview; the same building keeps its tab. People and Design are
  * the card's own content for now, rendered by popup.js `sections()` from the same renderers
  * and loaded state as the card, so the two cannot disagree while the card still exists
@@ -30,6 +32,7 @@
 import { cardOpening } from '../popup.js';
 import { displayName } from '../display-name.js';
 import { fallbackSummary } from '../fallback-summary.js';
+import { builtPhrase } from '../range-words.js';
 import { hydratePictures } from '../pictures.js';
 import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
@@ -37,6 +40,8 @@ import { buildingFacts, factCounts, sourcesPaneHtml } from '../inspect-sources.j
 import { storyTimeline, renderStory } from '../inspect-story.js';
 import { count as countField } from '../field-log.js'; // T-2660
 import { designModel, renderDesign } from '../inspect-design.js';
+import { MODE_ATTR } from '../researcher.js';
+import { personModel, renderPersonCard } from '../person-card.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -49,8 +54,13 @@ let host = null;
 let drawnFor = null;
 let lastTab = 'overview';
 let tabFor = null;            // the building the remembered tab belongs to
+let personLinked = null;      // the last link whose person card was opened (T-3265)
 const TABS = [['overview', 'Overview'], ['people', 'People'], ['design', 'Design'],
-  ['story', 'Story'], ['photos', 'Photos'], ['sources', 'Sources']];
+  ['story', 'Story'], ['photos', 'Photos'], ['sources', 'Sources'], ['research', 'Research']];
+/** T-3022: the tabs only Expert research shows (Settings; js/researcher.js). They are drawn
+ *  for every building and marked `data-researcher`, so the switch shows or hides them in place. */
+const EXPERT_TABS = new Set(['research']);
+const expertOn = (doc) => !!doc?.documentElement?.hasAttribute?.(MODE_ATTR);
 
 function el(doc, tag, cls, text) {
   const n = doc.createElement(tag);
@@ -102,6 +112,9 @@ function fallbackChips(s) {
     const v = String(today.value);
     out.push({ text: /^still standing/i.test(v) ? 'Still standing' : v.split(/[—–-]/)[0].trim(), grade: today.confidence });
   }
+  // T-3037: the build date as its sources give it — "Built 1886", "Built 1864 or 1875".
+  const built = builtPhrase(s?.attributes?.built?.value).replace(/^in /, '');
+  if (built) out.push({ text: `Built ${built}`, grade: s.attributes.built.confidence });
   return out;
 }
 
@@ -182,7 +195,7 @@ function render(root, ctx) {
   const useGrade = s?.attributes?.function?.confidence ?? null;
   const chipList = sum
     ? [{ text: sum.status.text, grade: sum.status.grade },
-      { text: `Built ${sum.built.year}`, grade: sum.built.grade },
+      { text: `Built ${sum.built.phrase ?? sum.built.year}`, grade: sum.built.grade },
       { text: sum.use, grade: useGrade }]
     : [...fallbackChips(s), ...(opening.kind[0] ? [{ text: opening.kind[0], grade: useGrade }] : [])];
   for (const c of chipList.filter((x) => x.text)) chips.append(line(doc, 'li', 'insp-chip', c.text, c.grade));
@@ -296,16 +309,25 @@ function render(root, ctx) {
     page.append(meter);
   }
 
-  const full = el(doc, 'button', 'nav-tile insp-full', 'Full record');
+  // T-3022: the full record is Inspect's own Research tab now, shown with Expert research on
+  // (Settings); the floating card no longer opens from here.
+  const full = el(doc, 'button', 'nav-tile insp-full', 'Research');
   full.type = 'button';
-  full.addEventListener('click', () => ctx.actions?.openCard?.(id));
+  full.setAttribute('data-researcher', '');
+  full.setAttribute('aria-label', 'Open the Research tab: the evidence, liberties and record');
+  full.addEventListener('click', () => { selectTab(root, 'research'); root.scrollTop = 0; });
   page.append(full);
 
   // The tabs. A new building opens on Overview; the same building keeps its tab.
   // A deep link (?nav=inspect:<id>&tab=, T-2621) opens its tab the first time this building
   // draws; after that the visitor's own choice is kept.
   const linked = ctx.link?.app === 'inspect' && ctx.link.id === id && TABS.some(([k]) => k === ctx.link.tab) ? ctx.link.tab : null;
-  const tab = tabFor === id ? lastTab : (linked ?? 'overview');
+  let tab = tabFor === id ? lastTab : (linked ?? 'overview');
+  if (EXPERT_TABS.has(tab) && !expertOn(doc)) tab = 'overview';
+  // T-3265: a link to a person (the People app, a map pin) opens People on their card, once.
+  const person = ctx.link?.app === 'inspect' && ctx.link.id === id && ctx.link.person && ctx.link !== personLinked
+    ? ctx.link.person : null;
+  if (person) { personLinked = ctx.link; tab = 'people'; }
   tabFor = id;
   const bar = el(doc, 'nav', 'insp-tabs');
   bar.setAttribute('role', 'tablist');
@@ -318,6 +340,7 @@ function render(root, ctx) {
     b.setAttribute('role', 'tab');
     b.id = `insp-tab-${key}`;
     b.setAttribute('aria-controls', `insp-pane-${key}`);
+    if (EXPERT_TABS.has(key)) b.setAttribute('data-researcher', '');
     bar.append(b);
     const pane = el(doc, 'section', `insp-pane${key === 'overview' ? '' : ' insp-card-pane'}`);
     pane.id = `insp-pane-${key}`;
@@ -327,15 +350,33 @@ function render(root, ctx) {
     if (key === 'overview') pane.append(page);
     panes.append(pane);
   }
-  root.append(bar, panes);
-  root._insp = { id, sum, ctx };
+  // T-3021 (the owner, 2026-10-22: "you cant navigate back from here in the building view"):
+  // Back and the tabs ride one bar pinned to the top of the screen, so neither scrolls away.
+  const head = el(doc, 'div', 'insp-bar');
+  const to = ctx.navigator?.backTo?.() ?? null;
+  if (to) {
+    const back = el(doc, 'button', 'insp-back');
+    back.type = 'button';
+    back.dataset.inspBack = '';
+    back.setAttribute('aria-label', `Back to ${to.label}`);
+    back.title = `Back to ${to.label}`;
+    back.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>';
+    head.append(back);
+  }
+  head.append(bar);
+  root.append(head, panes);
+  root._insp = { id, sum, ctx, person };
   selectTab(root, tab);
   drawnFor = id;
 }
 
+// Who was here: the order a household is listed in (T-3258).
+const RANK = { head: 0, wife: 1, husband: 1, son: 2, daughter: 2, child: 2, servant: 4 };
+
 /** Show one tab; build its pane the first time. */
 function selectTab(root, key) {
   if (!TABS.some(([k]) => k === key)) return;
+  if (EXPERT_TABS.has(key) && !expertOn(root.ownerDocument)) key = 'overview';
   // T-2660: a tab the visitor moved to (the first draw selects one, and is not counted).
   const was = root.querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
   if (was && was !== key) countField('tab');
@@ -396,6 +437,21 @@ async function fillPane(root, pane, key) {
       sceneYear: ctx.inspectDoc?.scene ?? ctx.scene?.id ?? null,
     });
     pane.append(d);
+  } else if (key === 'research') {
+    // T-3022: the floating card's research, folded in — its flags and facts block, then its
+    // Sources, Liberties and Record panes, each built by the card's own renderers (popup.js
+    // `researchPanes`), so the two cannot disagree while the card still serves streets and trees.
+    const r = sec.research;
+    const d = el(doc, 'div', 'insp-card insp-research');
+    if (!r) {
+      d.append(el(doc, 'p', 'nav-sub', 'No research record for this building.'));
+    } else {
+      const fold = (label, count, inner, open) => `<details class="insp-fold"${open ? ' open' : ''}><summary>${label}${
+        count ? ` <span class="pop-count">${count}</span>` : ''}</summary><div class="pop-pane">${inner}</div></details>`;
+      d.innerHTML = `${r.head}${r.facts}${fold('Sources', 0, r.evidence, true)}${
+        fold('Liberties', r.libertyCount, r.liberties, false)}${fold('Record', 0, r.record, false)}`;
+    }
+    pane.append(d);
   } else if (key === 'photos') {
     // T-2645: the Photos tab (photos-tab.js), from the card's own pictures file; the card's
     // Images pane where that file is not in hand.
@@ -444,26 +500,89 @@ async function fillPeople(pane, sec, ctx, id) {
     pane.append(el(doc, 'p', 'nav-sub', 'Nobody in our records lives or works here.'));
     return;
   }
-  const block = el(doc, 'section', 'insp-sec');
+  const block = el(doc, 'section', 'insp-sec insp-people-home');
   block.append(heading(doc, 'Who was here'));
-  const order = (r) => (r.relationship === 'head' ? 0 : 1);
+  // T-3265: a tap opens that person's own card here, in place of this list, with Back to it.
+  pane._people = new Map(here.map((r) => [r.id, r]));
+  // T-3258: the family before its staff — head, spouse, children, kin, then the servants the
+  // 1900 census names — so a house of twelve servants still opens on the people it is named for.
+  const order = (r) => RANK[r.relationship] ?? 3;
   for (const r of [...here].sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))) {
     const b = el(doc, 'button', 'nav-person insp-person-link');
     b.type = 'button';
-    b.dataset.person = r.id;
+    b.dataset.personCard = r.id;
     b.append(line(doc, 'span', 'nav-person-name', r.name, r.grade),
       el(doc, 'span', 'nav-sub', [r.household_name, r.relationship === 'head' ? 'head of the household' : r.relationship].filter(Boolean).join(' · ')));
     block.append(b);
   }
   pane.append(block);
+  const linked = pane.closest('.insp-panes')?.parentElement?._insp?.person;
+  if (linked && pane._people.has(linked)) void openPersonCard(pane, linked, ctx);
+}
+
+/**
+ * T-3265: one person's card in place of the household list (person-card.js). It draws at once
+ * from the directory's row, then again once their household's record and the scene's
+ * citations are read; Back puts the list back, on the row just read.
+ */
+async function openPersonCard(pane, personId, ctx) {
+  const doc = pane.ownerDocument;
+  const row = pane._people?.get(personId);
+  const home = pane.querySelector('.insp-people-home');
+  if (!row || !home) return false;
+  pane.querySelector('.insp-person-card')?.remove();
+  const sceneYear = Number(String(ctx?.scene?.id ?? ctx?.scene?.scene_id ?? '').slice(0, 4)) || null;
+  const draw = (m) => {
+    const card = renderPersonCard(doc, m, { dot });
+    const was = pane.querySelector('.insp-person-card');
+    if (was) was.replaceWith(card); else pane.append(card);
+    return card;
+  };
+  home.hidden = true;
+  pane.dataset.person = personId;
+  const first = draw(personModel({ row, sceneYear }));
+  const scroller = pane.closest('.insp-panes')?.parentElement;
+  if (scroller) scroller.scrollTop = 0;
+  first.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
+  const [household, citations] = await Promise.all([
+    Promise.resolve(ctx?.actions?.householdRecord?.(row.file)).catch(() => null),
+    Promise.resolve(ctx?.actions?.residentCitations?.()).catch(() => null),
+  ]);
+  if (pane.dataset.person !== personId) return false; // Back, or another person, in the meantime
+  const person = (household?.persons ?? []).find((p) => p.id === personId) ?? null;
+  const card = draw(personModel({ row, person, household, citations, sceneYear }));
+  if (!person) card.querySelector('.insp-person-wait')?.replaceWith(el(doc, 'p', 'nav-sub', 'This person\u2019s household record could not be read.'));
+  if (doc.activeElement === doc.body || !doc.activeElement) card.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
+  return true;
+}
+
+/** Back from a person's card to their household's list, on their row. */
+function closePersonCard(pane) {
+  const id = pane.dataset.person;
+  delete pane.dataset.person;
+  pane.querySelector('.insp-person-card')?.remove();
+  const home = pane.querySelector('.insp-people-home');
+  if (home) home.hidden = false;
+  const row = id ? pane.querySelector(`[data-person-card="${CSS.escape(id)}"]`) : null;
+  row?.scrollIntoView?.({ block: 'center' });
+  row?.focus?.({ preventScroll: true });
 }
 
 /** Clicks inside Inspect: tabs, the card's own "why" toggles, a picture, a person. */
 function onClick(e) {
   const root = e.currentTarget;
   const st = root._insp ?? {};
+  if (e.target.closest('[data-insp-back]')) { void st.ctx?.navigator?.back?.(); return; }
+  const card = e.target.closest('[data-person-card]');
+  if (card) { void openPersonCard(card.closest('.insp-pane'), card.dataset.personCard, st.ctx); return; }
+  if (e.target.closest('[data-person-back]')) { closePersonCard(e.target.closest('.insp-pane')); return; }
   const tab = e.target.closest('[data-insp-tab]');
-  if (tab) { selectTab(root, tab.dataset.inspTab); return; }
+  if (tab) {
+    selectTab(root, tab.dataset.inspTab);
+    // A tab opens at its top, under the pinned bar, not where the last one was scrolled to.
+    root.scrollTop = 0;
+    return;
+  }
   if (e.target.closest('[data-insp-full]') && st.id) { st.ctx?.actions?.openCard?.(st.id); return; }
   const toggle = e.target.closest('[data-toggle-note]');
   if (toggle) {

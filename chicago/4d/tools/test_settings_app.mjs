@@ -25,8 +25,9 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
 // ---- the markup: the design's order, and nothing the page or the smoke reads lost -------
 {
   const heads = [...settingsHtml.matchAll(/<h4[^>]*>([^<]*)<\/h4>/g)].map((m) => m[1].replace('&amp;', '&'));
-  assert.deepEqual(heads, ['Display', 'Show', 'Movement', 'Machine', 'Performance', 'Sound', 'Units', "About & What's new"],
-    'Settings reads Display, Show, Movement, Machine, Performance, Sound, Units, About & What\'s new (DESIGN §07)');
+  // T-3022: Research (the Expert research switch) leads, ahead of the design's order.
+  assert.deepEqual(heads, ['Research', 'Display', 'Show', 'Movement', 'Machine', 'Performance', 'Sound', 'Units', "About & What's new"],
+    'Settings reads Research, then Display, Show, Movement, Machine, Performance, Sound, Units, About & What\'s new (DESIGN §07)');
   const kept = ['s-units', 's-fov', 'v-fov', 's-road-aid', 'v-road-aid', 'road-aid-note', 's-brightness', 'v-brightness',
     'brightness-note', 's-detail', 's-quality', 's-governor', 'governor-line', 'device-line', 'pacing-read', 's-pacing-read',
     's-pacing-copy', 'pacing-read-status', 'pacing-read-out', 's-compass', 's-overview-map', 's-street-names',

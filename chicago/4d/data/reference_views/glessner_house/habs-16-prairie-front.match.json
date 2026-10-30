@@ -2,10 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8febcc7455b381caa3599a59a832091d001c32601394143ae6902e1e6bd08b7b",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
+  "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2857 openings and entry: fourteen jambs (the four first-floor windows south of the door, the door, the pair, the single and both second-floor groups in the plate) fit the model's spacing camera-free to 3.30 px rms, and the door, its fan and the basement grilles sit on the photograph's (docs/RESEARCH/glessner-prairie-front-T-2857/).",
@@ -20,12 +21,16 @@
       "status": "fixed"
     },
     {
+      "what": "T-2974 first-floor lights and basement grilles registered on the beds: the lights' sills to bed 8 (8.71 from 9.2) and heads to the sheet's 5.6 ft over them (14.3 from 14.5), the grilles' heads to bed 4 (4.54 from 4.7). Read through this camera, the light's opening is 95 px high against the plate's 94.5 (90 before) and its sill stands 77.5 px over the grille's head against 75.5 (83 before). Every row on the render lies 8-10 px under the plate's alike (head, sill and grille), which is the camera's reconstructed height, not the openings (docs/RESEARCH/glessner-prairie-openings-T-2974/).",
+      "status": "fixed"
+    },
+    {
       "what": "T-2857 roof framing: the plate cuts the roof about 1.5 m above the eave; the eave cornice line and the south leader head are where the model has them. The ridge and stacks are outside the plate.",
       "status": "not shown"
     },
     {
-      "what": "Stone/course relief and the 1965 sash (painted light, two sashes) against the render's dark frames: the sash is the 1965 state and not compared; course relief stays open.",
-      "status": "open"
+      "what": "Stone/course relief and the 1965 sash (painted light, two sashes) against the render's dark frames: the sash is the 1965 state and not compared; course relief stays open. T-3044: this plate is sheet 6's own (T-2986 § 2), so its course heights are sheet 6's, which Taylor 2135 now agrees with (T-3045). It shows relief too flat at this scale to measure, so the relief item closes with Taylor 2135's (T-3046). T-3045 laid the heights (the fixed entry below), and T-3046 the relief, which closes with Taylor 2135's: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "The neighboring house, signs, modern air conditioners, cars and mature1965 vine extent are not1904 house geometry. Roof portions outside the plate cannot be accepted from this crop.",
@@ -42,7 +47,15 @@
     {
       "what": "T-2912, re-rendered after the fan was stilted: the fan and its field read in the plate's place at this scale; the plate is too coarse to measure the stilt or the roundels, which HABS sheet 5 sets.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3045 course heights: this plate's beds are sheet 6's, and the model's beds 7-23 are now laid 4.5 % over the printed inches, as sheet 6 draws them (bed 23 at 22.26 ft door, sheet 6 22.39-22.49); the first-floor sills stay on bed 8, now 8.76 ft door, and bed 19 meets the 19.2 ft second-floor sills.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3136, read on this side-by-side at 2-6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light 37.5 px and its pier 21 px where the render draws 47.5 and 14 (the south light 40 against 41): about 2.2 and 1.25 ft at the plate's 17 px a foot, against the built 2.7 (S 63.5-66.2) and 0.8 (S 66.2-67.0). Taylor 2135 reads the same. Separately, the render's openings stand progressively north (right) of the print's away from the south corner, about 7 px at the pair, 14 at the next first-floor light and 18-20 at the door, where T-2857 fits their spacing camera-free to 3.3 px: this camera's scale against the rebuilt front. T-3141 owns both. T-3140, ruled within tolerance (T-3153): the pair is there with its two lights and pier. The north light reads 0.3-0.5 ft narrower and the pier 0.3-0.45 ft wider than built, both under the 1 ft bar, and the openings' 7-20 px northward drift is this camera's scale, since their spacing fits camera-free to 3.3 px (T-2857). T-3141 was withdrawn on this ground.",
+      "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

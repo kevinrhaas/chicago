@@ -1,172 +1,218 @@
 {
- "structure_id": "wheeler_house_1812_prairie",
- "view": "levy_front",
- "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "01a01ea79a9ace24db716e5f3341763d9a680d02ade79b72dcbb55b2a11c9117",
- "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
- "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
- "verdict": "differs",
- "differences": [
-  {
-   "what": "Massing: three storeys over a raised basement at the photograph's heights (principal floor 1.65 m, the projection's top 9.45 m, the wall head 12.45 m) \u2014 the draft's were the rules' (T-2543)",
-   "status": "fixed"
-  },
-  {
-   "what": "Gable: the front carried up as a shaped Flemish gable over the whole front, swelling from a kneeler each side and drawn in to a pointed head under a finial at 17.0-17.5 m, in place of the draft's stepped boxes (T-2543)",
-   "status": "fixed"
-  },
-  {
-   "what": "Gable: the outline re-read on both sides at a tenth of a metre and redrawn: the swell a convex curve from 2.98 m out at 13.0 m to 1.83 at 14.5 m swinging in to the shoulders, where the draft stood 0.3-0.5 m wide of it, and the head a bell from 1.10 m at 15.3 m to 0.35 at 16.5 m on the finial's square plinth (0.48 m across from 16.65 m), which the draft drew as a point; the print's south side reads about 0.25 m wider than its north all the way up and the build takes the mean (T-2951)",
-   "status": "fixed"
-  },
-  {
-   "what": "Gable: the grid window nine lights, three rows of three about 0.44 by 0.37 m between stone mullions and over stone transoms, in the 1.64 by 1.26 m opening (T-2951)",
-   "status": "fixed"
-  },
-  {
-   "what": "Gable: its face on the wall's own plane, as the print's: the eave under it plain and 0.05 m deep, so the slab stands 0.07 m before the wall below, its foot just over the third storey's arches, with no eave, fascia or gutter across the front (T-2889)",
-   "status": "fixed"
-  },
-  {
-   "what": "Gable: each kneeler a carved scroll console at the front's corner (its roll from about 11.35 m, its body up to a cap under the slab's foot) under a small pinnacle on the ledge 3.85 m out, where the draft stood a plain square pinnacle (T-2951)",
-   "status": "fixed"
-  },
-  {
-   "what": "Gable: the shoulder stones square blocks 0.9-1.62 m out from 14.6 to 15.22 m, standing over the outline through the slab (T-2951)",
-   "status": "fixed"
-  },
-  {
-   "what": "Gable: each shoulder stone carries a sunk panel; built plain",
-   "status": "open"
-  },
-  {
-   "what": "Gable: the grid window stands in quoined side stones under a moulded hood with a wavy upper edge, over a deep moulded shelf; built with K06's own sill and no surround or hood",
-   "status": "open"
-  },
-  {
-   "what": "Gable: the grid window's lights read as dark openings; K06's casement frame reads heavier at 0.44 by 0.37 m",
-   "status": "open"
-  },
-  {
-   "what": "Gable: the kneelers' scrolls are carved; built as a plain roll with a raised eye",
-   "status": "open"
-  },
-  {
-   "what": "South projection: carried through the basement and two storeys to a flat top at the third floor, with the round-arched window, the basement light and the paired window in it (T-2543)",
-   "status": "fixed"
-  },
-  {
-   "what": "South projection: flush with the south corner, as the print's, its south cheek running on in the side wall's plane, and its north face kept on the print's (5.05 m out, the projection 5.05 m across where K08 had stood it 0.3 m in) (T-2953)",
-   "status": "fixed"
-  },
-  {
-   "what": "South projection: the barred basement light from the print's walk line up, over a 0.1 m plinth, the light 0.86 m clear to its head at 1.08 m, where K08 had kept it 0.65 m high over the 0.6 m plinth (T-2953)",
-   "status": "fixed"
-  },
-  {
-   "what": "Balcony: the iron balcony on the projection's top, round its cheeks and front, its rail about 0.5 m over the cornice as the print's (47 px both) and its balusters 0.24 m apart (T-2888)",
-   "status": "fixed"
-  },
-  {
-   "what": "Balcony: the middle of its front run (x 390-680 px) is a solid stone panel rising to a central pedestal, with iron scrolls against it; built as more of the iron rail, its balusters plain square bars without the print's roundels",
-   "status": "open"
-  },
-  {
-   "what": "South projection: its top, K08's 0.2 m fascia over the 9.45 m wall head, renders about 25-30 px over the print's cornice, and the balcony stands on it, about as high again",
-   "status": "open"
-  },
-  {
-   "what": "Third storey: the large window over the balcony under its flat segmental arch (2.78 m across, crown 12.05 m) with its fanlight, and the small round-arched window to its north (1.2 m, crown 12.0 m), each in a ring of voussoirs running up into the gable's face, the large one under its keystone (T-2889)",
-   "status": "fixed"
-  },
-  {
-   "what": "Second storey: the north window one wide window, 1.64 m across on a stone mullion, under a transom (T-2889)",
-   "status": "fixed"
-  },
-  {
-   "what": "Third storey: the large window's middle light is wider than the two beside it and carries an arched head of its own, and its fanlight has a concentric bar as well as radial ones; built as three equal lights under a radial fanlight",
-   "status": "open"
-  },
-  {
-   "what": "Third storey: the small arched window is filled with a patterned light or panel; built as a round fanlight sash",
-   "status": "open"
-  },
-  {
-   "what": "Third storey: the voussoirs alternate long and short into the brick; built as a ring of equal stones standing 0.1 m before the wall",
-   "status": "open"
-  },
-  {
-   "what": "Second storey: the north window's transom lights are glazed in small squares; built as one plate light each",
-   "status": "open"
-  },
-  {
-   "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.55 m) the slab's base runs out square past the side walls, where the print's outline is already drawing in",
-   "status": "open"
-  },
-  {
-   "what": "Entrance: the porch's broad arch, a segment 2.7 m across rising 0.79 m from its spring (4.28 m over the walk) to its crown (5.07 m; its ring's top 5.22 m), the transom at its spring and the segment over it glazed in three lights; under it the double door, a 0.29 m pier and the side light, 1.04 m across from a sill 0.56 m over the floor (T-2952)",
-   "status": "fixed"
-  },
-  {
-   "what": "Stair: the straight stair to the walk between solid stone cheeks, level 0.5 m over the landing and swept down to a block 1.1 m high at the foot, the landing run on north as a terrace behind a stone parapet pierced in two rows of square holes, the print's pierced panel at the landing (T-2952)",
-   "status": "fixed"
-  },
-  {
-   "what": "Entrance: the arch's south jamb and moulding run down the projection's north corner in the print (its outer moulding at about x 740-755 px), so the arch reads about 0.3 m further south and broader; the build stands its 2.7 m mouth clear of the projection, from 5.2 m",
-   "status": "open"
-  },
-  {
-   "what": "Entrance: the arch is turned in a narrow moulded ring of light stone, and its curve is flatter at the crown than a segment (nearer a half ellipse); built as K01's voussoir block on a segmental head with a keystone flush with the ring",
-   "status": "open"
-  },
-  {
-   "what": "Entrance: the transom under the fanlight is a heavy moulded beam about 0.25 m deep, and the fanlight's three lights are divided by narrow columns of small panes; built as K07's 0.07 m bar and three plain lights",
-   "status": "open"
-  },
-  {
-   "what": "Stair: the north cheek flares out as it sweeps down and both end in a carved newel under a cap; built straight, to a plain block",
-   "status": "open"
-  },
-  {
-   "what": "Fabric: a rock-faced stone basement to a smooth water table, the entrance bay's first storey in coursed stone up to the second floor's belt, and brick over it, banded and dressed in stone (the belts, sills, flat arches, voussoirs, the north window's quoined surround); the south projection brick over its rock-faced basement, its bands, sills, heads and reveals stone (T-2914)",
-   "status": "fixed"
-  },
-  {
-   "what": "Fabric: over the second storey's north window, from the projection's north face to the corner, the carved frieze (8.55-8.95 m) under a moulded band and the patterned band of sunk panels (9.15-9.63 m) under a ledge, and the carved bosses under the projection's second-storey jambs (T-2915)",
-   "status": "fixed"
-  },
-  {
-   "what": "Fabric: the projection's windows in quoined stone jambs, short and long in turn, and the band at the arched window's spring running from each corner to the arch (T-2915)",
-   "status": "fixed"
-  },
-  {
-   "what": "Carving: the frieze is an interlace of crossing straps and leaves and the bosses carved shields; built as T-2819's guilloche of rings and plain oval bosses in a moulded ring",
-   "status": "open"
-  },
-  {
-   "what": "South projection: the second storey's jamb stones rise past the window's head to small carved caps under the projection's cornice; built stopping at the head",
-   "status": "open"
-  },
-  {
-   "what": "Tone: the print's stone reads lighter than its brick; the built brown sandstone renders darker than the buff brick beside it (the colours are not shown, the relation is)",
-   "status": "open"
-  },
-  {
-   "what": "Downpipes down both ends of the front: the north one from a head under the north kneeler (10.3 m, the print's pipe top) down the main front's north end to grade; the south one down the projection's south corner from a head under its cornice to grade, and from a head under the south kneeler down the main front to the projection's top (T-2953)",
-   "status": "fixed"
-  },
-  {
-   "what": "Roof: the steep slated slopes the photograph shows behind the gable's shoulders, flat-topped like a mansard's; built as K01's hip (T-2545)",
-   "status": "open"
-  },
-  {
-   "what": "Colour: the print is monochrome, so every stone, brick and paint colour",
-   "status": "not shown"
-  },
-  {
-   "what": "The side and rear walls, which the photograph does not see",
-   "status": "not shown"
-  }
- ],
- "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "structure_id": "wheeler_house_1812_prairie",
+  "view": "levy_front",
+  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+  "glb_sha256": "f614b1cb7aa3b75dae90ce57780bd8dc43d9c36ca0b219f403449c63c5b6045c",
+  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
+  "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
+  "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Massing: three storeys over a raised basement at the photograph's heights (principal floor 1.65 m, the projection's top 9.45 m, the wall head 12.45 m) — the draft's were the rules' (T-2543)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the front carried up as a shaped Flemish gable over the whole front, swelling from a kneeler each side and drawn in to a pointed head under a finial at 17.0-17.5 m, in place of the draft's stepped boxes (T-2543)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the outline re-read on both sides at a tenth of a metre and redrawn: the swell a convex curve from 2.98 m out at 13.0 m to 1.83 at 14.5 m swinging in to the shoulders, where the draft stood 0.3-0.5 m wide of it, and the head a bell from 1.10 m at 15.3 m to 0.35 at 16.5 m on the finial's square plinth (0.48 m across from 16.65 m), which the draft drew as a point; the print's south side reads about 0.25 m wider than its north all the way up and the build takes the mean (T-2951)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the grid window nine lights, three rows of three about 0.44 by 0.37 m between stone mullions and over stone transoms, in the 1.64 by 1.26 m opening (T-2951)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: its face on the wall's own plane, as the print's: the eave under it plain and 0.05 m deep, so the slab stands 0.07 m before the wall below, its foot just over the third storey's arches, with no eave, fascia or gutter across the front (T-2889)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: each kneeler a carved scroll console at the front's corner (its roll from about 11.35 m, its body up to a cap under the slab's foot) under a small pinnacle on the ledge 3.85 m out, where the draft stood a plain square pinnacle (T-2951)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the shoulder stones square blocks 0.9-1.62 m out from 14.6 to 15.22 m, standing over the outline through the slab (T-2951)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: each shoulder stone carries a sunk panel about 0.26 by 0.11 m near its top, the print's slot of shadow; built so, 0.04 m sunk in the block's face (T-3090)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the grid window stands in quoined side stones (about 0.34 m, one a row each side, long and short in turn) under a moulded hood just over its head whose upper edge waves up to a crown at the middle and flicks up at each end (y 245-250 px), over a deep two-step moulded shelf about 1.8 m across from 13.05 to 13.33 m (y 370-395 px); built so, K06's own sill gone (T-3090)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the grid window's lights read as dark openings between the stone mullions and transoms; built with no K06 sash, a dark backing behind glass in a thin frame at the recess's back, where K06's casement frame read heavier (T-3090)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the kneelers' scrolls are carved, a rosette in each roll's eye; built so, eight petals round a boss. The carved block under each scroll in the print, down the front's corner, is the rainwater pipe's head (the downpipes' T-2953 item), not the console's (T-3090)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: carried through the basement and two storeys to a flat top at the third floor, with the round-arched window, the basement light and the paired window in it (T-2543)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: flush with the south corner, as the print's, its south cheek running on in the side wall's plane, and its north face kept on the print's (5.05 m out, the projection 5.05 m across where K08 had stood it 0.3 m in) (T-2953)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: the barred basement light from the print's walk line up, over a 0.1 m plinth, the light 0.86 m clear to its head at 1.08 m, where K08 had kept it 0.65 m high over the 0.6 m plinth (T-2953)",
+      "status": "fixed"
+    },
+    {
+      "what": "Balcony: the iron balcony on the projection's top, round its cheeks and front, its rail about 0.5 m over the cornice as the print's (47 px both) and its balusters 0.24 m apart (T-2888)",
+      "status": "fixed"
+    },
+    {
+      "what": "Balcony: the middle of its front run (x 390-680 px) is a solid stone panel rising to a central pedestal (x 527-557 px), with iron scrolls against it and roundels on the balusters either side; built so, the panel 3.14 m across, 0.09 m high at its ends and swept straight up over 0.8 m to 0.42 m shoulders, the pedestal 0.32 m across and 0.52 m high under a cap at about the rail's top, an iron scroll of about 0.11 m hung from the rail over each sweep and standing before the panel's slope, its tail returning into the rail, a carved scroll beside the pedestal each side, and a roundel under the rail on every baluster; re-rendered, each scroll reads about the print's size over the same part of the sweep (T-3113; L-k08-1812-balcony-panel-3113)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: its top brought down to the print's cornice, the foot at about y 700 px and the top at y 677-693 (the print is warped, lower to the north): the last storey 3.65 m, the wall head at 9.25 m under an eave 0.2 m out and 0.15 m deep to 9.40 m, where K08's 0.28 m fascia over the 9.45 m wall head had stood about 25-30 px over the print's, and the balcony stands on it at the print's height; the render's top reads at about y 679 (T-3113; L-k08-1812-balcony-panel-3113)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: under the cornice the print's face is a stone frieze from the cornice's foot down to the paired window's caps (y 700-740 px, about 8.8-9.25 m), with a block under the balcony's pedestal (x 527-557) and a moulded band at the caps' top; built so (T-3093): the frieze in stone round the front and both cheeks where it had been brick, a band 0.06 m proud at the caps' top and a block 0.34 m across under the pedestal (L-k01-1812-wheeler-carving-3093)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: the cornice's section is moulded in the print and built as the kit's plain soffit and fascia; a profile under 0.3 m on a cornice at its place and height (T-3093)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Third storey: the large window over the balcony under its flat segmental arch (2.78 m across, crown 12.05 m) with its fanlight, and the small round-arched window to its north (1.2 m, crown 12.0 m), each in a ring of voussoirs running up into the gable's face, the large one under its keystone (T-2889)",
+      "status": "fixed"
+    },
+    {
+      "what": "Second storey: the north window one wide window, 1.64 m across on a stone mullion, under a transom (T-2889)",
+      "status": "fixed"
+    },
+    {
+      "what": "Third storey: the large window's middle light is wider than the two beside it (about 120 px against 40-43, between posts about 0.2 m) and carries a low moulded arch of its own whose crown stands about 0.16 m over the side lights' transoms; heavy bars run on from the posts' heads to the head, and the fanlight has a concentric bar about 0.25 m inside its glass as well as radial ones; built so, lights 1 : 2.9 : 1, the middle arch from the posts' heads, the post bars leaning 23 degrees out and the concentric bar over eleven radial ones. The print's middle arch springs from the posts lower than the side transoms, where the build's springs on the transom bar (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Third storey: the small arched window is filled with a patterned light, a border of small round panes round a figured field, set deep; built as a leaded light, a came round the field 0.12 m in, the border cut into short panes, diamond quarries and a roundel in the field standing for the figure, in a 0.2 m reveal. The figure itself is not modelled (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Third storey: the voussoirs alternate long and short into the brick; built so on both arches, the short stones 0.28 and 0.26 m where the long are the rings' 0.43 and 0.40 m, the keystone's neighbours short. The stones' stepped ends are cut on the ring's radii, not squared to the brick courses (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Second storey: the north window's transom lights are glazed in small squares; built as eight by eight lights about 0.05 m square on muntins over one glass (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.55 m) the print's outline is already drawing in, about 3.98 m out on its south side over the scroll (x 344-365 px), where the slab's base ran out square 4.47 m past the side walls; built drawn in from the slab's foot to 4.0 m out at the ledge, the kneeler pinnacles' outer faces (T-3090)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the porch's broad arch, a segment 2.7 m across rising 0.79 m from its spring (4.28 m over the walk) to its crown (5.07 m; its ring's top 5.22 m), the transom at its spring and the segment over it glazed in three lights; under it the double door, a 0.29 m pier and the side light, 1.04 m across from a sill 0.56 m over the floor (T-2952)",
+      "status": "fixed"
+    },
+    {
+      "what": "Stair: the straight stair to the walk between solid stone cheeks, level 0.5 m over the landing and swept down to a block 1.1 m high at the foot, the landing run on north as a terrace behind a stone parapet pierced in two rows of square holes, the print's pierced panel at the landing (T-2952)",
+      "status": "fixed"
+    },
+    {
+      "what": "Owner ruling (T-3236, 2026-10-28, the owner's report from the street: 'the windows are not aligned/centered correctly on the north side ... the door is not centered, and the left edging around the door is not on the face of the north side, like the right edging'): the print runs the porch arch's south jamb and moulding down the projection's north corner (x 740-755 px, south of the corner at 770-777) and sets the second storey's north window (x 818-962 px, centre v 6.44 m), the small arched window over it (6.48 m) and the arch's mouth (about 6.4 m) on one axis about 0.33 m south of the north bay's middle (v 5.05-8.5 m, 6.775 m); built with all three centred on the bay, the arch's mouth 2.65 m (where the print's reads about 3.0 m) standing clear of the projection, its moulding on the bay's own face with an equal 0.25 m rock-faced pier each side, and the projection's corner whole (L-k01-1812-wheeler-bay-3236)",
+      "status": "owner ruling"
+    },
+    {
+      "what": "Entrance: the arch is turned in a narrow moulded ring of light stone, and its curve is flatter at the crown than a segment (nearer a half ellipse); built so (T-3134): a half-elliptical head on the same 0.79 m rise, and a ring of two moulded steps 0.11 m broad round it and down both jambs, unbroken over the crown where the block's keystone stood. The voussoir block outside the ring is still radiating rock-faced stones where the print shows the porch's coursed ashlar run to the moulding",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the transom under the fanlight is a heavy moulded beam about 0.25 m deep, and the fanlight's three lights are divided by narrow columns of small panes; built so (T-3134): a 0.25 m beam (4.03-4.28 m) under a moulded cap and over a bead, and two 0.27 m columns three panes up, over the leaves' meeting and the pier",
+      "status": "fixed"
+    },
+    {
+      "what": "Stair: the north cheek flares out as it sweeps down and both end in a carved newel under a cap; built so (T-3134): the north cheek carried 0.55 m out to its foot, the treads widening under it, and each foot a newel 0.45 m across under a cap at 1.1 m with a turned knob and a carved panel standing for the print's carving",
+      "status": "fixed"
+    },
+    {
+      "what": "Fabric: a rock-faced stone basement to a smooth water table, the entrance bay's first storey in coursed stone up to the second floor's belt, and brick over it, banded and dressed in stone (the belts, sills, flat arches, voussoirs, the north window's quoined surround); the south projection brick over its rock-faced basement, its bands, sills, heads and reveals stone (T-2914)",
+      "status": "fixed"
+    },
+    {
+      "what": "Fabric: over the second storey's north window, from the projection's north face to the corner, the carved frieze (8.55-8.95 m) under a moulded band and the patterned band of sunk panels (9.15-9.63 m) under a ledge, and the carved bosses under the projection's second-storey jambs (T-2915)",
+      "status": "fixed"
+    },
+    {
+      "what": "Fabric: the projection's windows in quoined stone jambs, short and long in turn, and the band at the arched window's spring running from each corner to the arch (T-2915)",
+      "status": "fixed"
+    },
+    {
+      "what": "Stair: the north cheek is pierced in a row of small openings under its coping, and the stair's foot reads about 0.2-0.3 m north of the build's (the south newel at x 768-808 px, the north at 1050-1100, against the build's about 743-788 and 1050-1095 after the flare); built so (T-3144): the south cheek drawn in 0.2 m toward the stair's axis along its sweep to its newel (now x 760-812 against the print's 767-809, the north newel 1052-1105 against 1050-1100), and ten openings 0.11 m along the run and 0.08 m high through the north cheek, 0.35 m under its top and running with it, which the camera lays on the print's dark openings from the landing to the newel. The review render's sun lights their far reveals on the cheek's shaded face, so they read light where the print's read dark on its lit one: the light, not the form (L-k07-1812-stair-foot-3144)",
+      "status": "fixed"
+    },
+    {
+      "what": "Carving: the frieze is an interlace of crossing straps and leaves and the bosses carved shields, where they had been built as T-2819's guilloche of rings and plain oval bosses; built so (T-3093): two straps 0.07 m wide crossing every 0.5 m, over and under in turn, and the bosses shield-shaped, square-headed and pointed; re-rendered, the straps cross about where the print's do along x 767-1042 px (L-k01-1812-wheeler-carving-3093)",
+      "status": "fixed"
+    },
+    {
+      "what": "Carving: the leaves between the interlace's straps, and the shields' carved faces and scrolled heads, are not modelled; carving under 0.3 m inside elements built at their place, size and outline (T-3093)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "South projection: the second storey's jamb stones rise past the window's head to small carved caps under the projection's cornice (8.53-8.80 m), its mullion is a heavy pier (0.24 m) carried up as far, a moulded hood stands over the sashes' heads (8.04 m) and over it a low transom light in each bay glazed in small squares to 8.64 m; built so, the quoins carried to 8.53 m under dressed caps whose carving (a swag) is a raised oval boss (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Tone: the print's stone reads lighter than its brick, where the built brown sandstone had rendered darker than the buff brick beside it; the stone front re-laid in Lemont limestone and the street front's brick toned red-brown (T-3093), so the basement, the first storey beside the porch and every dressing render lighter than the brick, as the print draws them (the colours are not shown, the relation is; L-k01-1812-wheeler-tone-3093)",
+      "status": "fixed"
+    },
+    {
+      "what": "Downpipes down both ends of the front: the north one from a head under the north kneeler (10.3 m, the print's pipe top) down the main front's north end to grade; the south one down the projection's south corner from a head under its cornice to grade, and from a head under the south kneeler down the main front to the projection's top (T-2953)",
+      "status": "fixed"
+    },
+    {
+      "what": "Roof: a mansard behind the gable, in place of K01's 45-degree hip: straight steep slate faces (72 degrees, the north corner's lean, about 0.5 m out over 1.6 m of rise) from the side walls' heads at 12.45 m to a level curb at 14.45 m, the upper hip over it at 10 degrees and out of sight, so each shoulder shows a slate face laid in level courses under a level top; the north top renders at y 294-296 px against the print's cap at 302-313 (T-3033)",
+      "status": "fixed"
+    },
+    {
+      "what": "Roof: at the south the print's slate face ends in a vertical band (x 277-293 px) standing just outside the south wall's line, from the slate's foot up to a heavier level cap at y 257-277 px, about 0.4 m over the north cap, with the tall stack standing on it: the south wall carried up past the curb as a coped parapet (the c. 1955 photograph sees the same coped top from the south, T-3034). T-3061: built so, K01's mansard side parapet, the wall's own 0.33 m from the rear wall to the front, its 0.2 m coping's top at 14.5 m, the print's cap (rendered at y 267-282); the slate face behind it dies into its inner side. Its end renders at x 320-350, the wall line's offset (below)",
+      "status": "fixed"
+    },
+    {
+      "what": "South stack: Levy's shaft (x 262-318 px, top y 127) and the c. 1955 photograph's place it 1.35-2.35 m behind the main front, standing outside the south wall's line, topping 16.8 m; moved there from 6.1 m back at 17.59 m (T-3034), and T-3061 stands it on the south wall's outer face (v -0.55 to 0), carried to the ground as an outside breast, where it rendered about 60 px north of the print's on the wall line: its shaft now renders at x 288-345, 26-27 px north of the print's, the wall line's offset (below; L-k01-1812-wheeler-parapet-3061)",
+      "status": "fixed"
+    },
+    {
+      "what": "South wall line: the print's main front's south corner (its downpipe at x 293-300 px) stands about 23 px south of the build's (x 320), and the parapet's end and the outside stack by the same 26-30 px, about 0.26-0.31 m: sheet 28's traced wall may lie that far inside the wall the print shows (the permit's 30 ft, 9.14 m, is wider than the traced 8.5 m); the footprint is not moved for one reading (T-3075). Within tolerance (T-3093, under the photo-ticket stopping rule): about 0.26-0.31 m, at or under the 1 ft bar, and read off one camera whose solve the c. 1955 view's 14 px only partly bears out; T-3075 was withdrawn on that ground",
+      "status": "within tolerance"
+    },
+    {
+      "what": "South projection: the second storey stands on a smooth stone band from the belt to the paired window's sill (y 1000-1055 px, about 5.6-6.2 m), round the front and cheeks, the shields set in it, where it had been brick between a narrow sill and the belt; found and built in the sign-off (T-3093), re-rendered at y 1000-1052 (L-k01-1812-wheeler-carving-3093)",
+      "status": "fixed"
+    },
+    {
+      "what": "Colour: the print is monochrome, so every stone, brick and paint colour",
+      "status": "not shown"
+    },
+    {
+      "what": "The side and rear walls, which the photograph does not see",
+      "status": "not shown"
+    },
+    {
+      "what": "the low pale coping before the stair, and the walk",
+      "status": "fixed",
+      "how": "T-3206 lays a 0.35 m stone coping on the street line, open across the stair's foot as the Levy print shows nothing across it and the c. 1888 view down the block shows low pale blocks; the K14 walk runs straight from the stair"
+    },
+    {
+      "what": "Entrance: the door's leaves read flat and pale in the render where the print's are dark; built (T-3236) in a dark varnish, each leaf in three raised-and-fielded panels on rails at 0.95 and 1.9 m, the panels sunk 0.035 m with a field 0.06 m in standing 0.02 m before the ground, and the door set 0.55 m back in the arch (it had been 0.32 m); the print's leaves are too dark to read their panels, which are invented (L-k01-1812-wheeler-bay-3236)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the fanlight's two columns of small panes stand at x about 830-855 and 905-929 px, roughly even about the arch's mouth; built at 0.42 m either side of the mouth's axis (T-3236), where T-3134 had put them over the leaves' meeting and the pier, off the arch's middle",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

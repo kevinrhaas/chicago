@@ -1,0 +1,72 @@
+{
+  "structure_id": "sears_meeker_house_1815_prairie",
+  "view": "chicagology_oblique_sw",
+  "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
+  "glb_sha256": "885b7a29381657f0296feca0ac21a66d250d9d92dc96355e551b87b87e9e0f4f",
+  "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
+  "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
+  "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the street front's openings: the attic's paired lights, the pavilion's second-storey window, the door, the narrow light over its south jamb and the principal-storey window past the tree",
+      "status": "fixed",
+      "how": "T-3156: the camera fitted to them (11.7 px rms); the render's openings fall within about 0.5 m of the print's, the attic's the furthest (the pavilion's place, below)"
+    },
+    {
+      "what": "the pavilion carried up an attic storey with its paired transomed lights under its own steep hipped roof, the roof running back into the mansard",
+      "status": "fixed",
+      "how": "T-3156: the shallow pavilion's attic storey and K01's hipped crown raised onto it"
+    },
+    {
+      "what": "the pavilion and its attic stand about 0.5-0.7 m north of the print's, because K01 cannot cut the door through a projection (as on the square-on)",
+      "status": "open"
+    },
+    {
+      "what": "the corner bay runs about 0.75 m south of the main front's south corner: the print's cornice turns onto the flank at x 1605 px and the bay's south face shows at x 1745-1790 px; the build sets the bay flush with the flank (its corner at x 1618 px, the main corner at 1711)",
+      "status": "open"
+    },
+    {
+      "what": "the south flank is rock-faced random ashlar, dark against the smooth front; the build lays it in buff common brick",
+      "status": "open"
+    },
+    {
+      "what": "the south flank's tall stack, carried up from the flank wall past the mansard with a panelled shaft and a corbelled head of flues (x 1740-1820 px)",
+      "status": "open",
+      "how": "the build's two stacks stand inside the main footprint; neither is this one"
+    },
+    {
+      "what": "the mansard's curb and cresting: the print's curb, under its cresting, stands about 0.8 m higher on this view than the build's, and the gabled dormer on the south flank's mansard (x 1820-1880 px) is not built",
+      "status": "open"
+    },
+    {
+      "what": "the main cornice's stone consoles, round the corner onto the flank",
+      "status": "open"
+    },
+    {
+      "what": "the door's pedimented hood, the stoop's stone newels, its arched underside and the basement doorway under the landing (x 1045-1260 px, y 960-1150 px)",
+      "status": "open"
+    },
+    {
+      "what": "the stone balcony's pierced panels on the bay's deck",
+      "status": "within tolerance",
+      "how": "the panels' pattern is K08's, the rail's place and height the print's within a few pixels"
+    },
+    {
+      "what": "the stone's colour and tone",
+      "status": "not shown",
+      "how": "a monochrome print"
+    },
+    {
+      "what": "the street fence, the walk and the parkway's posts",
+      "status": "not shown",
+      "how": "outside the building record"
+    },
+    {
+      "what": "the coping, posts and walk T-3206 lays",
+      "status": "within tolerance",
+      "how": "seen obliquely the low coping and posts read as the print's low line; read square-on in chicagology_square_on"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

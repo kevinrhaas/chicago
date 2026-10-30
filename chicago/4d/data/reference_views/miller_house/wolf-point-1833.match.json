@@ -1,0 +1,61 @@
+{
+  "structure_id": "miller_house",
+  "view": "wolf-point-1833",
+  "glb": "assets/gltf/miller_house__log_frame_1827.glb",
+  "glb_sha256": "6cba8105637c3792125c1fe7c783dbd3c58b08f44e076ebfd9186f6f26cbd4d1",
+  "camera_sha256": "b86193b40dee863b0b112150a2d0d8acf5d0fdfdbbb741578c4b622e70f79185",
+  "photo_sha256": "d53dfb2f7110484d488f4c5329aad60cd53b5f408df44e273cc87406c5a58b50",
+  "side_by_side": "docs/RESEARCH/photo-match/miller_house/wolf-point-1833-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The broad lower log wing now stands alongside the tall range, with its long front visible on screen-right and its own window near the main range and door farther right.",
+      "status": "fixed"
+    },
+    {
+      "what": "The low-wing roof now has the shallower relative rise shown in the clearer held compositions; the main range retains its preceding steeper roof. This is a judged form match, not an image-measured historic pitch.",
+      "status": "fixed"
+    },
+    {
+      "what": "The tall range retains three upper front windows, lower window-door-window, horizontal logs below and vertical boards above, and its short roof-piercing flue. The formerly tall exterior main stack and two-upper-light differences are resolved.",
+      "status": "fixed"
+    },
+    {
+      "what": "The governing opposite gable quarter is now visible. The preceding diagnostic showed the other quarter.",
+      "status": "fixed"
+    },
+    {
+      "what": "Upper-window sill band differs across the held drawings: NYPL/1891 variants put the lights nearer the cladding break, while Hammon leaves a substantial band below them similar to this model. This is picture disagreement under the stopping rule; no further window relocation is required.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The low wing far end is cropped or unresolved in the clearer drawings. They do not establish absence of its retained inferred chimney, nor an independent exact stack section or station.",
+      "status": "not shown"
+    },
+    {
+      "what": "Print/painting palettes and small surface marks vary between the held variants. The model retains the pictured log/vertical-board material division; no authentic historic pigment or exact timber/shingle weathering is derived from a coloured reproduction.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The smaller, distant and opposite-quarter held compositions do not resolve the same roof, low-wing aperture or stack details. Their projection differences do not require another footprint change or a literal match to mutually different compositions.",
+      "status": "not shown"
+    },
+    {
+      "what": "Exact historic camera station, unpictured elevations, footprint metres and proxy section sizes are not independently established by these retrospective pictures. They are not extra open visible discrepancies. River, people, bridge and neighbouring buildings are outside this isolated structure comparison.",
+      "status": "not shown"
+    },
+    {
+      "what": "The reconstructed short main-range stack head is now0.460m above the ridge, correcting the preceding0.450m value to meet the documented eighteen-inch0.4572m minimum. The actual fresh side-by-side preserves the accepted composition; this10mm correction is below the visitor-noticeable picture threshold and is not claimed as picture-measured.",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_actual_review": {
+    "at": "2026-10-29T19:21:04.756101+00:00",
+    "method": "Root direct inspection of genuinely regenerated canonical comparison after actual 82-log production and selected WEB: same accepted adjacent-wing composition; reconstructed stack head alone raised10mm to meet documented minimum. Prior all8-held-source review retained with its limits.",
+    "stopping_rule": "T-3153: visible missing/wrong-form/count/material categories fixed; actual picture disagreement is within tolerance; unresolved/cropped features are not absence evidence.",
+    "not_claimed": "No8independentwitnesses,8literalrenderedcamera matches, precise historic camera/metric solution, surveyed dimensions, authentic pigment, new rights finding or proof of unchanged July1835 appearance.",
+    "canonical_native_hashes_verified": true,
+    "official_original_ticket_done": "Not done here; final fixed/currentdev source gate and PR merge remain pending."
+  }
+}

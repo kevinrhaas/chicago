@@ -2,18 +2,27 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "1e6d2ef4a16c3d232cc250d8cf713b97547971b97200d7cd39308c20aaa70f5e",
-  "camera_sha256": "09789d6f7f1c6e24ff9cae425a4a272b17d6eee58eec7f85df30707277b18c82",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
+  "camera_sha256": "593c7c5e3fcdfd3278fef4c109d799b644e36c0db59f3245b3c9af3a0d8ed2f2",
+  "photo_sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2849, reviewed from the rebaked master in this imported camera, which carries about 1.2 degrees of roll (the render's verticals lean about 12 px between the doorway and the pigeon holes; the print's do not). Gable: it stood centred on W 142.0, a foot off the doorway, loft and pigeon axis the print centres it on within 2 px; now W 127.75-154.25 on W 141. The west foot still reads about 0.6 ft inside the print's (13.25 ft half-width against 13.6-13.9 read), held there by the upper service window's clearance on the east; recorded in the record's note. Pigeon holes: 5-3-1 at 1.53 ft centres, 0.4 ft wide, rows within about 5 px (0.3 ft) of the print, from 2 ft centres and slits up to 1.2 ft tall. Ledge: 7.7 ft long on its two corbels as the print shows, its front edge within 4 px. Hoist stone: rises into the crown voussoir to 28.15 ft as the print's keystone does.",
       "status": "fixed"
     },
     {
-      "what": "Still open at the stable end: the hoist stone's foot reads about 10 px lower and its face narrower in the print than in the render, and the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The roof covering reads slate-grey against the model's red tile (house-wide, not this ticket's).",
-      "status": "open"
+      "what": "T-3147 (piece of T-3139): the camera is refitted at the stable. T-2200's frozen pinhole carried 1.3 degrees of roll and missed this print's own measured controls by 17.9 px RMS (35.7 at worst); re-solved level, at T-2200's focal length and principal point, on sheet 2's doorway jambs, sheet 5's 12.6 ft soffit and the threshold, sheet 3's loft and flanking-light jambs and the north-west arris, it fits all 16 at 3.3 px (5.8 at worst), and the side-by-side now lays the doorway, the lights, the loft, the relieving arch and both gable slopes over the print's. The hoist stone's foot at the wall, where the old camera drew it 19.7 px west, now reads 0.5 px across and 1.6 px up. Its nose's place off the wall is not this print's to read: a face seen square cannot measure the lens's lateral shift (one sigma 253 px when freed) or its focal length, and the nose's parallax rides on both, so its 6-17 px east and 9-13 px high across the fits is the camera's spread, not the stone. HABS 01, which sees the cantilever from the north-west, puts the nose top within 0.0 px across and 4.1 px of its lit end face through T-2758's stable-fitted camera: the 4.0 ft stone stands and is not rebuilt (tools/glessner_stable_end_read.py, data/comparisons/glessner/stable-end.json). The gable apex and cupola stay behind the film holder.",
+      "status": "fixed"
+    },
+    {
+      "what": "Open, found by T-3147 through the refitted camera: the print draws the north-face eave level on both sides of the gable, its tiles ending at v 278 west of the gable (u 1450-1500) and about 278-287 east of it (u 870-890), where the render's ends at v 249 west (about 1.7 ft higher) and 303 east (about 1.1 ft lower): the build steps from 23.1 ft east of the gable to about 26.2 ft west of it. The level camera keeps a level line level, so the step is the roof's, whatever the vertical scale; T-3148 owns it. T-3148, reviewed from the rebaked master: fixed. The eave west of the gable is built at the range's 23.1 ft (it was 25.2), so the build no longer steps at the gable. HABS 01, HABS 15 and the Cornell print each draw the tiles' edge west of the gable on the straight line the edge draws east of it (within 1, 7 and 5 px, where the step would be 32-50 px; docs/RESEARCH/glessner-north-eave-T-3148/). On this re-render the gutter runs past the gable on one line, as the print's does. The cross ridge comes down 0.10 m to stay on the alley gable's rake.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3025, ruled: the roof covering reads slate-grey here because this 1965 print shows the tar HABS recorded over the tiles in 1963 (data p. 21). The roofs were red baked, unglazed terracotta tile, house-wide (Glessner 1923, HABS data p. 13; the 1963 survey finds terracotta under the tar, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. docs/RESEARCH/glessner-roof-covering-T-3025/README.md.",
+      "status": "not shown"
     },
     {
       "what": "The overhead garage leaf and closed loft opening are later alterations; original1904 opening treatments are tested against earlier evidence, not copied from this1965 plate. Cars/signs/street fabric are outside this house-only comparison.",
@@ -26,7 +35,27 @@
     {
       "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3030, reviewed from the rebaked master: what this print shows under the arch is the hoist stone's lit sloping underside, from its foot at the wall up to its nose, about 42 px tall; the render now shows the same sloping underside from a 4.0 ft cantilever (it showed a short block's front face), its foot at 26.0 ft as the print reads it about 10 px lower than before, and its narrow 0.75 ft width.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3031, reviewed from the rebaked master: the cupola was raised about 1 ft, narrowed to 5.5 ft and its eave drawn in to 0.75 ft; this print hides the cupola behind its film holder, so nothing it shows changed and nothing here is judged anew.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3036, reviewed from the rebaked master: only the cupola's corner faces changed (its walls now meet without coplanar ends), and the cupola stands above this print's top edge, so nothing this view compares moved.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3143, reviewed from the rebaked master through T-3147's stable-fitted camera, read at 4-8x with the contrast stretched: the print's ledge front stands at about v 138-141 and its holes each fill one course, the lower row v 126.5-138, the middle v 100-113 and the top hole a faint patch at v 76-86 under the film holder; through the camera that is the ledge at about 32.2-32.4 ft and sills at about 32.5, 34.0 and 35.5 ft, where the build stood 0.85-0.9 ft lower (its ledge read about 19 px under the print's) and its holes were slits. The camera reads the hoist foot (26.0 ft, in the face) within 1.6 px, so its scale holds to the gable. Built (T-3143): the ledge and all nine holes raised 0.85 ft, the ledge to 32.1-32.4 ft ng on its two corbels; each hole round-headed, 0.4 ft wide and 0.75 ft tall (a course), sills at 32.5, 33.95 and 35.45 ft (1.45 and 1.5 ft pitch), where they stood 0.45-0.65 ft tall at 31.65, 33.0 and 34.55. Now each hole sits on the print's course, centres within about 1 px across. What remains is within tolerance: the render as a whole stands about 4 px (0.2-0.25 ft) over the print here and at the doorway soffit alike, which is this camera's frame (fitted on heights above north grade, while the mesh lays them 0.20 ft over it, grade_datum), not the dovecote; the ledge reads level in the print and falls about 5 px westward through the camera (heading, about 0.15 ft); and the corbels read about 0.55 ft deep against the built 0.45.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3140, the window over the great arch: this print shows one long opening of small panes in two rows under one lintel, where the build had three lights between two piers; rebuilt as one opening (HABS 01 and the c. 1887 Cornell print show the same). Through this camera, fitted on sixteen controls at the stable, the great arch and the window over it stand about 12 % nearer the gable than the print's, at the far edge of the frame from every control; HABS 01 lays the same window within about 5 px, so that is the camera, within tolerance. docs/RESEARCH/glessner-signoff-T-3140/.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

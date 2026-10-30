@@ -41,7 +41,7 @@ from common.logwork import (  # noqa: E402
 from common import materials  # noqa: E402
 from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
-from archetypes.fort_structure_params import FortStructureParams  # noqa: E402
+from archetypes.fort_structure_params import FortStructureParams, wall_openings, tower_opening_layout  # noqa: E402
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
 #: `materials.roof_substrate` holds the argument for why it is this one and
@@ -259,7 +259,10 @@ def build(params: FortStructureParams, name: str):
     if params.chimneys > 0:
         stack = materials.chimney_finish("interior")
         mats.append(simple_material("chimney", stack.rgba, roughness=stack.roughness))
-    return b.to_object(mats)
+    ob = b.to_object(mats)
+    if params.tower_lantern_detail is not None:
+        _configure_cage_glass(ob, params)
+    return ob
 
 
 # ------------------------------------------------------------------ buildings
@@ -346,7 +349,9 @@ def _roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1,
     """
     c_wall = conf if c_wall is None else c_wall
     t = math.tan(math.radians(p.roof_pitch_deg))
-    if p.roof_type in ("flat", "none"):
+    if p.roof_type == "none":
+        return eave_z
+    if p.roof_type == "flat":
         b.add_poly([(x0, y0, eave_z), (x0, y1, eave_z), (x1, y1, eave_z),
                     (x1, y0, eave_z)], conf, M_ROOF)
         return eave_z
@@ -640,14 +645,14 @@ def _string_course(b: MeshBuilder, x0, y0, x1, y1, wall_z, conf) -> None:
 
 def _openings(b: MeshBuilder, p: FortStructureParams, lower_z: float,
               over: float) -> None:
-    """Door and windows on the facade and the back.
+    """Use explicit range rectangles when present, otherwise retain legacy layout.
 
-    Bay counts come from the building's own length rather than from a record —
-    nothing describes the fenestration of any building in this fort — so the
-    confidence is the record's `fenestration` value when it has one, and
-    `inferred` otherwise. A range gets a door at its centre and windows spaced
-    along the front; the back gets windows only.
+    The 1808 folded elevations show range bay counts. Their exact metric set-out,
+    doorway identities and unpictured rear layouts remain reconstructed choices.
     """
+    if p.face_openings is not None:
+        _explicit_openings(b, p)
+        return
     conf = p.conf("fenestration", "reconstructed")
     w, d, wz = p.width_m, p.depth_m, p.wall_height_m
     bays = max(2, min(8, int(round(w / 3.4))))
@@ -702,7 +707,10 @@ def _loopholes(b: MeshBuilder, p: FortStructureParams, lower_z: float,
 
 
 def _gallery(b: MeshBuilder, p: FortStructureParams, conf: float) -> None:
-    """A covered gallery along the facade: posts, a plate and a lean-to roof."""
+    """A covered gallery; the opt-in upper walk leaves the original default intact."""
+    if p.gallery_storeys == 2:
+        _gallery_two_storeys(b, p, conf)
+        return
     w, d, wz = p.width_m, p.depth_m, p.wall_height_m
     reach = 2.1
     head = min(wz - 0.25, p.storey_height_m + 0.15)
@@ -836,30 +844,48 @@ def _flagstaff(b: MeshBuilder, p: FortStructureParams) -> None:
 def _tower(b: MeshBuilder, p: FortStructureParams) -> None:
     """A tapering round tower with a gallery and a lantern: the 1832 lighthouse.
 
-    Everything about the PROFILE is the archetype's. The record carries the one
-    documented number — forty feet — and the lantern; no source reached says what
-    shape the 1832 tower was or what it was built of. See
-    docs/RESEARCH/chicago_lighthouse_1832.md and the liberty that owns it.
+    The shaft's dimensions remain the earlier reconstruction. T-2373's
+    opt-in lantern profile reads its dome, cage and gallery rail from the
+    Castelnau harbour lithograph; exact sections/counts remain reconstructed.
+    See docs/LIBERTIES.md L-lighthouse-visible-prototype-2373.
     """
     c = p.worst_conf("kind", "wall_height_m", "construction")
+    if p.tower_diameter_m is not None:
+        c = max(c, p.conf("tower_diameter_m"), p.conf("footprint"))
     n = 12
-    r0 = p.width_m / 2.0
+    r0 = (p.tower_diameter_m if p.tower_diameter_m is not None else p.width_m) / 2.0
     r1 = r0 * p.taper
-    cx, cy = r0, r0
+    # Keep polygon-origin coordinates; narrowing the disk must not move its centre.
+    cx = p.footprint_min_u_m + p.width_m / 2.0
+    cy = p.footprint_min_v_m + p.width_m / 2.0
     h = p.wall_height_m
     shaft = h * 0.86
+    if p.tower_profile is not None:
+        shaft = p.tower_shaft_height_m
 
     def ring(r, z):
         return [(cx + r * math.cos(2 * math.pi * i / n),
                  cy + r * math.sin(2 * math.pi * i / n), z) for i in range(n)]
 
     lo, up = ring(r0, 0.0), ring(r1, shaft)
-    for i in range(n):
-        j = (i + 1) % n
-        b.add_poly([lo[i], lo[j], up[j], up[i]], c, M_WALL)
+    if p.tower_masonry is not None:
+        if p.tower_masonry.get('character','legacy_courses') == 'irregular_rubble':
+            _tower_irregular_stone_shaft(b,p,cx,cy,r0,shaft)
+        else:
+            _tower_stone_shaft(b,p,cx,cy,r0,shaft)
+    else:
+        for i in range(n):
+            j = (i + 1) % n
+            b.add_poly([lo[i], lo[j], up[j], up[i]], c, M_WALL)
+        if p.tower_openings:
+            _tower_apertures(b, p, cx, cy, r0, shaft)
 
     if not p.lantern:
         b.add_poly(list(reversed(up)), c, M_ROOF)
+        return
+
+    if p.lantern_profile == "birdcage_dome":
+        _birdcage_lantern(b, p, cx, cy, r1, shaft, h)
         return
 
     c_l = p.conf("lantern", "reconstructed")
@@ -883,3 +909,638 @@ def _tower(b: MeshBuilder, p: FortStructureParams) -> None:
     for i in range(n):
         j = (i + 1) % n
         b.add_poly([top[i], top[j], apex], c_l, M_ROOF)
+
+
+def _gallery_two_storeys(b: MeshBuilder, p: FortStructureParams, conf: float) -> None:
+    """A covered upper walk over an open ground gallery, after Currey's 1912 plate.
+
+    Occurrence is inferred; the 2.1 m reach (the old gallery's), floor thickness,
+    post sections, 0.95 m rail, 0.18 m baluster pitch and roof fall are reconstructed.
+    All new pieces therefore carry reconstructed geometry confidence. The draught
+    supplies no gallery dimension, and its folded elevations are not height scales.
+    """
+    w, d, wz = p.width_m, p.depth_m, p.wall_height_m
+    reach, post, deck, rail, pitch, baluster = 2.1, 0.14, 0.14, 0.95, 0.18, 0.055
+    upper = p.storey_height_m
+    # The gallery roof meets the wall at its existing eave and falls 0.45 m.
+    # No old ground-level lean-to roof remains underneath the upper walk.
+    head = wz - 0.45
+    c = max(conf, p.conf("gallery_storeys"), 1.0)
+    for x in _gallery_post_centres(p, post):
+        b.add_box(x - post / 2, d + reach - post, 0.0,
+                  x + post / 2, d + reach, head - post, c, M_TRIM,
+                  skip=("bottom",))
+    # The canopy falls across reach + its 0.15 m outer projection. Its height
+    # above the beam is therefore higher than `head`, the outer roof edge.
+    # Keep the beam bottom/posts fixed and meet that same plane with a wedge.
+    y0, y1, z0 = d + reach - post, d + reach, head - post
+    z1 = wz + (head - wz) * ((y0 - d) / (reach + 0.15))
+    z2 = wz + (head - wz) * ((y1 - d) / (reach + 0.15))
+    for face in (
+        [(0.0, y0, z0), (w, y0, z0), (w, y1, z0), (0.0, y1, z0)],
+        [(0.0, y0, z0), (0.0, y0, z1), (w, y0, z1), (w, y0, z0)],
+        [(w, y1, z0), (w, y1, z2), (0.0, y1, z2), (0.0, y1, z0)],
+        [(0.0, y1, z0), (0.0, y1, z2), (0.0, y0, z1), (0.0, y0, z0)],
+        [(w, y0, z0), (w, y0, z1), (w, y1, z2), (w, y1, z0)],
+    ):
+        b.add_poly(face, c, M_TRIM)
+    # The canopy caps the joint. Omit a coplanar timber top: both materials
+    # are double-sided, so duplicating that surface would cause z-fighting.
+    b.add_box(0.0, d, upper - deck, w, d + reach, upper, c, M_TRIM)
+    # Long outer handrail and evenly spaced vertical pales; the two short ends
+    # are closed as a safety reconstruction. No external stair is invented.
+    b.add_box(0.0, d + reach - post, upper + rail - 0.10,
+              w, d + reach, upper + rail, c, M_TRIM)
+    count = max(1, math.ceil(w / pitch))
+    for i in range(count):
+        x = w * (i + 0.5) / count
+        b.add_box(x - baluster / 2, d + reach - post / 2 - baluster / 2, upper,
+                  x + baluster / 2, d + reach - post / 2 + baluster / 2,
+                  upper + rail - 0.10, c, M_TRIM)
+    for x in (0.0, w - post):
+        b.add_box(x, d, upper + rail - 0.10,
+                  x + post, d + reach - post, upper + rail, c, M_TRIM)
+        count = max(1, math.ceil((reach - post) / pitch))
+        for i in range(count):
+            y = d + (reach - post) * (i + 0.5) / count
+            b.add_box(x + (post - baluster) / 2, y - baluster / 2, upper,
+                      x + (post + baluster) / 2, y + baluster / 2,
+                      upper + rail - 0.10, c, M_TRIM)
+    b.add_poly([(0.0, d, wz), (w, d, wz),
+                (w, d + reach + 0.15, head), (0.0, d + reach + 0.15, head)],
+               c, M_ROOF)
+
+
+def _explicit_openings(b: MeshBuilder, p: FortStructureParams) -> None:
+    """The same rectangles returned by the Blender-free facade reader."""
+    planes = {"front": ("y", p.depth_m, 1), "back": ("y", 0.0, -1),
+              "left": ("x", 0.0, -1), "right": ("x", p.width_m, 1)}
+    conf = max(p.conf("face_openings"), 1.0)
+    for face, (axis, plane, outward) in planes.items():
+        for o in wall_openings(p, face):
+            _opening(b, axis, plane, o["u0"], o["u1"], o["z0"], o["z1"],
+                     outward, conf, kind=o["kind"])
+
+
+def _gallery_post_centres(p: FortStructureParams, post: float) -> list[float]:
+    """Keep the old support rhythm, projecting explicit-front posts onto solid piers.
+
+    Only the opt-in two-storey gallery calls this. Missing/empty explicit fronts
+    retain the exact old grid. Where a front is declared, posts clear the union
+    of BOTH storeys' rectangles plus their existing casing/sill horns. Project
+    each old interior centre to the nearest permitted interval, left on ties;
+    reserve one post width between centres. Count/sections and this placement
+    rule remain reconstructed, not joinery measured from Whistler's drawing.
+    """
+    w = p.width_m
+    n = max(2, int(round(w / 3.0)))
+    legacy = [w * i / n for i in range(n + 1)]
+    front = wall_openings(p, "front")
+    if not front:
+        return legacy
+    # The existing window kit's horn extends farther than its cap or door trim.
+    # Include half the actual post section so its whole face clears that kit.
+    margin = post / 2 + openings.CASING_W_M + openings.SILL_HORN_M
+    for o in front:
+        if o["u0"] - margin <= 0 or o["u1"] + margin >= w:
+            raise ValueError("explicit gallery front leaves no clear end support")
+    spans = [(post, w - post)]
+
+    def subtract(spans, lo, hi):
+        out = []
+        for a, b in spans:
+            if hi <= a or lo >= b:
+                out.append((a, b))
+            else:
+                if a < lo:
+                    out.append((a, lo))
+                if hi < b:
+                    out.append((hi, b))
+        return [(a, b) for a, b in out if b >= a]
+
+    for o in front:
+        spans = subtract(spans, o["u0"] - margin, o["u1"] + margin)
+    result = [0.0, w]
+    for wanted in legacy[1:-1]:
+        if not spans:
+            raise ValueError("explicit gallery front has no clear support pier")
+        x = min((min(max(wanted, a), b) for a, b in spans),
+                key=lambda v: (abs(v - wanted), v))
+        result.append(x)
+        spans = subtract(spans, x - post, x + post)
+    return sorted(result)
+
+
+def _birdcage_lantern(b: MeshBuilder, p: FortStructureParams,
+                      cx: float, cy: float, r1: float,
+                      shaft: float, h: float) -> None:
+    """T-2373: a pictured lantern silhouette, with reconstructed scantlings.
+
+    Eight cage uprights, twelve gallery posts, a rounded cap and a finial.
+    All counts and sections are choices within the small retrospective view.
+    No shaft, footprint, paint, coordinate or reflector is derived here.
+    The old upper silhouette limit h + 0.7*r1 is retained: how Andreas's
+    forty feet relates to the existing shaft/lantern split remains open.
+    """
+    if p.tower_profile is not None:
+        _birdcage_partitioned(b, p, cx, cy, r1, shaft, h)
+        return
+    # All emitted members include reconstructed counts, sections and curves.
+    c = 1.0
+    glass = b.named_mat("lantern_glass", *openings.glass_material_spec())
+    n = 12
+    gal_r, lantern_r = r1 * 1.34, r1 * 0.86
+    floor = shaft + 0.09
+
+    def ring(radius, z, count=n):
+        return [(cx + radius * math.cos(2 * math.pi * i / count),
+                 cy + radius * math.sin(2 * math.pi * i / count), z)
+                for i in range(count)]
+
+    def band(inner, outer, bottom, top, mat):
+        li, lo = ring(inner, bottom), ring(outer, bottom)
+        ui, up = ring(inner, top), ring(outer, top)
+        for i in range(n):
+            j = (i + 1) % n
+            b.add_poly([li[i], li[j], lo[j], lo[i]], c, mat)
+            b.add_poly([ui[i], up[i], up[j], ui[j]], c, mat)
+            b.add_poly([lo[i], lo[j], up[j], up[i]], c, mat)
+            b.add_poly([li[j], li[i], ui[i], ui[j]], c, mat)
+
+    # Full gallery floor; its underside meets the existing shaft at shaft.
+    lower, upper = ring(gal_r, shaft), ring(gal_r, floor)
+    b.add_poly(list(reversed(lower)), c, M_TRIM)
+    b.add_poly(upper, c, M_TRIM)
+    for i in range(n):
+        j = (i + 1) % n
+        b.add_poly([lower[i], lower[j], upper[j], upper[i]], c, M_TRIM)
+
+    # The rail's height, 45 mm square posts and 55 by 50 mm ring are
+    # reconstructed. Existing DARK is a neutral frame proxy, not known paint.
+    for i in range(n):
+        a = 2 * math.pi * i / n
+        x, y = cx + (gal_r - 0.035) * math.cos(a), cy + (gal_r - 0.035) * math.sin(a)
+        b.add_box(x - 0.0225, y - 0.0225, floor,
+                  x + 0.0225, y + 0.0225, floor + 0.65, c, M_DARK)
+    band(gal_r - 0.055, gal_r, floor + 0.60, floor + 0.65, M_DARK)
+
+    # Pane surface plus visible cage members, using the town's existing
+    # dark glossy GLASS row. No new optical or transparency claim.
+    bottom, top = ring(lantern_r, floor), ring(lantern_r, h)
+    for i in range(n):
+        j = (i + 1) % n
+        b.add_poly([bottom[i], bottom[j], top[j], top[i]], c, glass)
+    for i in range(8):
+        a = 2 * math.pi * i / 8
+        x, y = cx + (lantern_r + 0.012) * math.cos(a), cy + (lantern_r + 0.012) * math.sin(a)
+        b.add_box(x - 0.0275, y - 0.0275, floor,
+                  x + 0.0275, y + 0.0275, h, c, M_DARK)
+    band(lantern_r - 0.025, lantern_r + 0.04, floor, floor + 0.06, M_DARK)
+    band(lantern_r - 0.025, lantern_r + 0.04, h - 0.06, h, M_DARK)
+
+    # Six latitudinal bands round the cap instead of the old pointed pyramid.
+    # A slight skirt covers the twelve-sided drum below this 24-sided cap.
+    cap_r, rise = lantern_r * 1.06, r1 * 0.55
+    last = ring(cap_r, h, 24)
+    b.add_poly(list(reversed(last)), c, M_ROOF)
+    for k in range(1, 6):
+        angle = (math.pi / 2.0) * k / 6.0
+        current = ring(cap_r * math.cos(angle), h + rise * math.sin(angle), 24)
+        for i in range(24):
+            j = (i + 1) % 24
+            b.add_poly([last[i], last[j], current[j], current[i]], c, M_ROOF)
+        last = current
+    apex = (cx, cy, h + rise)
+    for i in range(24):
+        b.add_poly([last[i], last[(i + 1) % 24], apex], c, M_ROOF)
+
+    # Slender finial, its top at the previous profile's maximum height.
+    fin_r, fin_h = max(0.025, r1 * 0.025), r1 * 0.15
+    lo = ring(fin_r, h + rise, 8)
+    hi = ring(fin_r, h + rise + fin_h * 0.8, 8)
+    for i in range(8):
+        j = (i + 1) % 8
+        b.add_poly([lo[i], lo[j], hi[j], hi[i]], c, M_DARK)
+        b.add_poly([hi[i], hi[j], (cx, cy, h + rise + fin_h)], c, M_DARK)
+
+class _TowerFacetBuilder:
+    """Map the existing openings kit onto one EXISTING tapered shaft facet.
+
+    Local kit y is outward relief; x runs along the facet. Reversing winding
+    compensates for this handedness change. No common kit/API is modified.
+    """
+    def __init__(self, builder, cx, cy, radius, taper, shaft, azimuth_deg):
+        self.builder, self.cx, self.cy = builder, cx, cy
+        self.radius, self.taper, self.shaft = radius, taper, shaft
+        a = math.radians(azimuth_deg)
+        self.normal, self.tangent = (math.cos(a), math.sin(a)), (-math.sin(a), math.cos(a))
+
+    def add_poly(self, points, confidence, mat=0):
+        mapped = []
+        for u, relief, z in points:
+            radius = self.radius*(1-(1-self.taper)*z/self.shaft)*math.cos(math.pi/12)
+            mapped.append((self.cx+(radius+relief)*self.normal[0]+u*self.tangent[0],
+                           self.cy+(radius+relief)*self.normal[1]+u*self.tangent[1], z))
+        return self.builder.add_poly(list(reversed(mapped)), confidence, mat)
+
+def _tower_apertures(b: MeshBuilder, p: FortStructureParams, cx: float, cy: float,
+                     radius: float, shaft: float) -> None:
+    """Three tiny pictured apertures, with reconstructed metric windows/glazing.
+
+    Their trim, one-pane interpretation, facet assignments and vertical fractions
+    are choices; the dark source marks do not attest joinery or a ground door.
+    """
+    mats = openings.Mats(casing=M_TRIM, sash=M_TRIM,
+                         glass=b.named_mat("lantern_glass", *openings.glass_material_spec()))
+    for o in tower_opening_layout(p):
+        mapped = _TowerFacetBuilder(b, cx, cy, radius, p.taper, shaft, o["azimuth_deg"])
+        openings.window(mapped, openings.Wall("y", 0., 1), o["u0"], o["u1"],
+                        o["z0"], o["z1"], 1.0, mats, 1, None)
+
+def _birdcage_partitioned(b: MeshBuilder, p: FortStructureParams, cx: float, cy: float, r1: float, shaft: float, h: float) -> None:
+    """Reconstructed partition from Castelnau controls; same overall envelope.
+
+    Nominal40ft datum remains unresolved. New shaft/cage/cap/rail subdivision
+    changes no ground height, footprint, origin, bearing or overall maximum.
+    """
+    if p.tower_lantern_detail is not None:
+        _birdcage_clear_detail(b, p, cx, cy, r1, shaft, h)
+        return
+    cap_base = p.tower_profile['cap_base_m']
+    rail = p.tower_profile['gallery_rail_height_m']
+    maximum = h + r1 * 0.7
+    cap_total = maximum - cap_base
+    c = 1.0
+    glass = b.named_mat('lantern_glass', *openings.glass_material_spec())
+    n = 12
+    gal_r, lantern_r = (r1 * 1.34, r1 * 0.86)
+    floor = shaft + 0.09
+
+    def ring(radius, z, count=n):
+        return [(cx + radius * math.cos(2 * math.pi * i / count), cy + radius * math.sin(2 * math.pi * i / count), z) for i in range(count)]
+
+    def band(inner, outer, bottom, top, mat):
+        li, lo = (ring(inner, bottom), ring(outer, bottom))
+        ui, up = (ring(inner, top), ring(outer, top))
+        for i in range(n):
+            j = (i + 1) % n
+            b.add_poly([li[i], li[j], lo[j], lo[i]], c, mat)
+            b.add_poly([ui[i], up[i], up[j], ui[j]], c, mat)
+            b.add_poly([lo[i], lo[j], up[j], up[i]], c, mat)
+            b.add_poly([li[j], li[i], ui[i], ui[j]], c, mat)
+    lower, upper = (ring(gal_r, shaft), ring(gal_r, floor))
+    b.add_poly(list(reversed(lower)), c, M_TRIM)
+    b.add_poly(upper, c, M_TRIM)
+    for i in range(n):
+        j = (i + 1) % n
+        b.add_poly([lower[i], lower[j], upper[j], upper[i]], c, M_TRIM)
+    for i in range(n):
+        a = 2 * math.pi * i / n
+        x, y = (cx + (gal_r - 0.035) * math.cos(a), cy + (gal_r - 0.035) * math.sin(a))
+        b.add_box(x - 0.0225, y - 0.0225, floor, x + 0.0225, y + 0.0225, floor + rail, c, M_DARK)
+    band(gal_r - 0.055, gal_r, floor + rail - 0.05, floor + rail, M_DARK)
+    bottom, top = (ring(lantern_r, floor), ring(lantern_r, cap_base))
+    for i in range(n):
+        j = (i + 1) % n
+        b.add_poly([bottom[i], bottom[j], top[j], top[i]], c, glass)
+    for i in range(8):
+        a = 2 * math.pi * i / 8
+        x, y = (cx + (lantern_r + 0.012) * math.cos(a), cy + (lantern_r + 0.012) * math.sin(a))
+        b.add_box(x - 0.0275, y - 0.0275, floor, x + 0.0275, y + 0.0275, cap_base, c, M_DARK)
+    band(lantern_r - 0.025, lantern_r + 0.04, floor, floor + 0.06, M_DARK)
+    band(lantern_r - 0.025, lantern_r + 0.04, cap_base - 0.06, cap_base, M_DARK)
+    cap_r, rise = (lantern_r * 1.06, cap_total * 0.55 / 0.7)
+    last = ring(cap_r, cap_base, 24)
+    b.add_poly(list(reversed(last)), c, M_ROOF)
+    for k in range(1, 6):
+        angle = math.pi / 2.0 * k / 6.0
+        current = ring(cap_r * math.cos(angle), cap_base + rise * math.sin(angle), 24)
+        for i in range(24):
+            j = (i + 1) % 24
+            b.add_poly([last[i], last[j], current[j], current[i]], c, M_ROOF)
+        last = current
+    apex = (cx, cy, cap_base + rise)
+    for i in range(24):
+        b.add_poly([last[i], last[(i + 1) % 24], apex], c, M_ROOF)
+    fin_r, fin_h = (max(0.025, r1 * 0.025), cap_total * 0.15 / 0.7)
+    lo = ring(fin_r, cap_base + rise, 8)
+    hi = ring(fin_r, cap_base + rise + fin_h * 0.8, 8)
+    for i in range(8):
+        j = (i + 1) % 8
+        b.add_poly([lo[i], lo[j], hi[j], hi[i]], c, M_DARK)
+        b.add_poly([hi[i], hi[j], (cx, cy, cap_base + rise + fin_h)], c, M_DARK)
+
+def _birdcage_clear_detail(b: MeshBuilder, p: FortStructureParams, cx: float, cy: float, r1: float, shaft: float, h: float) -> None:
+    """Castelnau light cage, fine rail and shallow crown; reconstructed controls.
+
+    Nominal40ft datum remains unresolved. New shaft/cage/cap/rail subdivision
+    changes no ground height, footprint, origin, bearing or overall maximum.
+    """
+    d = p.tower_lantern_detail
+    cap_base = p.tower_profile['cap_base_m']
+    rail = p.tower_profile['gallery_rail_height_m']
+    maximum = h + r1 * 0.7
+    cap_total = maximum - cap_base
+    c = 1.0
+    glass = b.named_mat('lantern_cage_glass', *openings.glass_material_spec())
+    n = 12
+    gal_r, lantern_r = (r1 * 1.34, r1 * 0.86)
+    floor = shaft + 0.09
+
+    def ring(radius, z, count=n):
+        return [(cx + radius * math.cos(2 * math.pi * i / count), cy + radius * math.sin(2 * math.pi * i / count), z) for i in range(count)]
+
+    def band(inner, outer, bottom, top, mat):
+        li, lo = (ring(inner, bottom), ring(outer, bottom))
+        ui, up = (ring(inner, top), ring(outer, top))
+        for i in range(n):
+            j = (i + 1) % n
+            b.add_poly([li[i], li[j], lo[j], lo[i]], c, mat)
+            b.add_poly([ui[i], up[i], up[j], ui[j]], c, mat)
+            b.add_poly([lo[i], lo[j], up[j], up[i]], c, mat)
+            b.add_poly([li[j], li[i], ui[i], ui[j]], c, mat)
+    lower, upper = (ring(gal_r, shaft), ring(gal_r, floor))
+    b.add_poly(list(reversed(lower)), c, M_TRIM)
+    b.add_poly(upper, c, M_TRIM)
+    for i in range(n):
+        j = (i + 1) % n
+        b.add_poly([lower[i], lower[j], upper[j], upper[i]], c, M_DARK)
+    for i in range(d["gallery_posts"]):
+        a = 2 * math.pi * i / d["gallery_posts"]
+        x, y = (cx + (gal_r - 0.035) * math.cos(a), cy + (gal_r - 0.035) * math.sin(a))
+        b.add_box(x - d["gallery_member_m"]/2, y - d["gallery_member_m"]/2, floor, x + d["gallery_member_m"]/2, y + d["gallery_member_m"]/2, floor + rail, c, M_DARK)
+    band(gal_r - d["gallery_member_m"], gal_r, floor + rail - d["gallery_member_m"], floor + rail, M_DARK)
+    band(gal_r - d["gallery_member_m"], gal_r, floor + .08, floor + .08 + d["gallery_member_m"], M_DARK)
+    bottom, top = (ring(lantern_r, floor + d["sill_height_m"]), ring(lantern_r, cap_base))
+    for i in range(n):
+        j = (i + 1) % n
+        b.add_poly([bottom[i], bottom[j], top[j], top[i]], c, glass)
+    for i in range(d["cage_uprights"]):
+        a = 2 * math.pi * i / d["cage_uprights"]
+        x, y = (cx + (lantern_r + 0.012) * math.cos(a), cy + (lantern_r + 0.012) * math.sin(a))
+        b.add_box(x - d["cage_member_m"]/2, y - d["cage_member_m"]/2, floor, x + d["cage_member_m"]/2, y + d["cage_member_m"]/2, cap_base, c, M_DARK)
+    band(lantern_r - 0.025, lantern_r + 0.04, floor, floor + d["sill_height_m"], M_DARK)
+    band(lantern_r - 0.025, lantern_r + 0.04, cap_base - 0.06, cap_base, M_DARK)
+    cap_r, rise = (lantern_r * 1.06, d["dome_rise_m"])
+    last = ring(cap_r, cap_base, 24)
+    b.add_poly(list(reversed(last)), c, M_DARK)
+    for k in range(1, 6):
+        angle = math.pi / 2.0 * k / 6.0
+        current = ring(cap_r * math.cos(angle), cap_base + rise * math.sin(angle), 24)
+        for i in range(24):
+            j = (i + 1) % 24
+            b.add_poly([last[i], last[j], current[j], current[i]], c, M_DARK)
+        last = current
+    apex = (cx, cy, cap_base + rise)
+    for i in range(24):
+        b.add_poly([last[i], last[(i + 1) % 24], apex], c, M_DARK)
+    fin_r, fin_h = (d["finial_radius_m"], cap_total-rise)
+    lo = ring(fin_r, cap_base + rise, 8)
+    hi = ring(fin_r, cap_base + rise + fin_h * 0.8, 8)
+    for i in range(8):
+        j = (i + 1) % 8
+        b.add_poly([lo[i], lo[j], hi[j], hi[i]], c, M_DARK)
+        b.add_poly([hi[i], hi[j], (cx, cy, cap_base + rise + fin_h)], c, M_DARK)
+
+def _configure_cage_glass(ob, p: FortStructureParams) -> None:
+    """Lantern-only alpha; shaft panes and the common glass sheet stay opaque.
+
+    Alpha is explicitly set on Principled BSDF: Base Color alpha alone is not
+    the glTF exporter alpha input. Blender4.5's exporter reads constant Alpha
+    into baseColorFactor[3]/alphaMode BLEND; actual GLB+GLTFLoader checks follow.
+    No transmission extension or second opaque-scene transmission pass is used.
+    """
+    opacity = p.tower_lantern_detail["pane_opacity"]
+    rows = [m for m in ob.data.materials if m.name == "lantern_cage_glass"]
+    if len(rows) != 1:
+        raise RuntimeError("expected exactly one lantern-only cage glass")
+    m = rows[0]
+    node = m.node_tree.nodes.get("Principled BSDF")
+    if node is None:
+        raise RuntimeError("lantern cage material has no Principled BSDF")
+    node.inputs["Alpha"].default_value = opacity
+    rgba = tuple(m.diffuse_color)
+    m.diffuse_color = (*rgba[:3], opacity)
+    m.surface_render_method = "DITHERED"
+
+def _stone_clip(poly, axis, value, keep_above):
+    """Convex polygon clip in local tangent/height coordinates, no image data."""
+    if not poly:
+        return []
+    out = []
+    for a, b in zip(poly, poly[1:] + poly[:1]):
+        ia = a[axis] >= value if keep_above else a[axis] <= value
+        ib = b[axis] >= value if keep_above else b[axis] <= value
+        if ia:
+            out.append(a)
+        if ia != ib:
+            t = (value-a[axis])/(b[axis]-a[axis])
+            out.append(tuple(a[k]+t*(b[k]-a[k]) for k in range(2)))
+    # Remove repeated boundary points before triangulation.
+    clean = []
+    for q in out:
+        if not clean or math.dist(q, clean[-1]) > 1e-10:
+            clean.append(q)
+    if len(clean)>1 and math.dist(clean[0],clean[-1])<1e-10:
+        clean.pop()
+    return clean if len(clean)>=3 else []
+
+def _stone_without_apertures(poly, openings):
+    """Four disjoint strips subtract each actual aperture rectangle."""
+    parts = [poly]
+    for o in openings:
+        next_parts = []
+        for q in parts:
+            left = _stone_clip(q,0,o['u0'],False)
+            right = _stone_clip(q,0,o['u1'],True)
+            middle = _stone_clip(_stone_clip(q,0,o['u0'],True),0,o['u1'],False)
+            lower = _stone_clip(middle,1,o['z0'],False)
+            upper = _stone_clip(middle,1,o['z1'],True)
+            next_parts.extend(p for p in (left,right,lower,upper) if p)
+        parts = next_parts
+    return parts
+
+def _tower_stone_palette(b, p: FortStructureParams):
+    """Reuse a wall material only when its entire stone PBR descriptor agrees.
+
+    The unit-tone bare stone is already M_WALL; a duplicate name would be lost
+    by native derivative deduplication. Coated walls keep their separate stone.
+    """
+    base = WALL_RGBA['stone']
+    wall = PAINT_OVER.get(p.paint, WALL_RGBA.get(p.construction, WALL_RGBA['log']))
+    substrate = materials.wall_substrate(construction=p.construction, default='hewn_log')
+    _, roughness = materials.resolve(substrate, materials.wall_finish(paint=p.paint))
+    reuse = wall == base and roughness == .93
+    return [M_WALL if t == 1.0 and reuse else b.named_mat(
+        'tower_stone_'+str(i), tuple(min(1, v*t) for v in base[:3])+(1.,), .93)
+        for i, t in enumerate((.78, .91, 1.0, 1.08, 1.16))]
+
+
+def _tower_stone_shaft(b, p: FortStructureParams, cx, cy, radius, shaft):
+    """Reconstructed masonry inside the EXISTING12 taper facets, not a texture.
+
+    Courses, bond, depth and tone are bounded choices. A thin unchanged base
+    band retains every old ground vertex; a top seat retains the gallery joint.
+    All relief points lie on or behind the original planes, never outside them.
+    """
+    d = p.tower_masonry
+    base = WALL_RGBA['stone']
+    mats = _tower_stone_palette(b, p)
+    mortar = b.named_mat('tower_stone_joint',tuple(v*.68 for v in base[:3])+(1.,),.95)
+    openings_by_facet = {i:[] for i in range(12)}
+    for o in tower_opening_layout(p) or []:
+        openings_by_facet[o['facet']].append(o)
+    half = lambda z: radius*(1-(1-p.taper)*z/shaft)*math.sin(math.pi/12)
+    face_radius = lambda z: radius*(1-(1-p.taper)*z/shaft)*math.cos(math.pi/12)
+    for facet in range(12):
+        angle = math.radians(15+30*facet)
+        nx,ny = math.cos(angle),math.sin(angle)
+        tx,ty = -ny,nx
+        def point(u,z,depth=0):
+            r=face_radius(z)+depth
+            return (cx+r*nx+u*tx,cy+r*ny+u*ty,z)
+        def emit(poly,depth,mat):
+            # Tangent crossed with vertical points outward on this facet.
+            b.add_poly([point(u,z,depth) for u,z in poly],1.0,mat)
+        foot, head = .06, shaft-.035
+        # Use original angular vertices explicitly, so ground-contact bytes agree.
+        a=2*math.pi*facet/12;c=2*math.pi*((facet+1)%12)/12
+        def old_ring(z):
+            r=radius*(1-(1-p.taper)*z/shaft)
+            return [(cx+r*math.cos(t),cy+r*math.sin(t),z) for t in (a,c)]
+        for z0,z1 in [(0.,foot),(head,shaft)]:
+            lo,up=old_ring(z0),old_ring(z1)
+            b.add_poly([lo[0],lo[1],up[1],up[0]],1.,M_WALL)
+        field=[(-half(foot),foot),(half(foot),foot),(half(head),head),(-half(head),head)]
+        holes=openings_by_facet[facet]
+        for poly in _stone_without_apertures(field,holes):
+            emit(poly,-d['relief_m'],mortar)
+        z0=foot;row=0
+        while z0<head-1e-9:
+            height=d['course_m']*(.8+.4*_unit('lighthouse-stone',d['seed'],row))
+            z1=min(head,z0+height)
+            if z1-z0<=d['joint_m']*2:
+                for poly in _stone_without_apertures([(-half(z0),z0),(half(z0),z0),(half(z1),z1),(-half(z1),z1)],holes):emit(poly,0.,mats[2])
+                break
+            zlo,zhi=z0+d['joint_m']/2,z1-d['joint_m']/2
+            hw=half(zhi);width=d['bond_m']*(.8+.4*_unit('lighthouse-stone-bond',d['seed'],row,facet))
+            start=-hw-width*(.3+.4*_unit('lighthouse-stone-stagger',d['seed'],row,facet));col=0
+            while start<hw-1e-10:
+                end=start+width
+                u0=max(-hw,start+d['joint_m']/2);u1=min(hw,end-d['joint_m']/2)
+                if u1-u0>.025:
+                    poly=[(u0,zlo),(u1,zlo),(u1,zhi),(u0,zhi)]
+                    # One facet crown per physical unit; clipped pieces retain tone.
+                    tone=min(4,int(_unit('lighthouse-stone-tone',d['seed'],row,facet,col)*5))
+                    for piece in _stone_without_apertures(poly,holes):
+                        center=(sum(q[0] for q in piece)/len(piece),sum(q[1] for q in piece)/len(piece))
+                        distances=[]
+                        for i,q in enumerate(piece):
+                            nxt=piece[(i+1)%len(piece)];du,dz=nxt[0]-q[0],nxt[1]-q[1]
+                            distances.append(abs(du*(center[1]-q[1])-dz*(center[0]-q[0]))/math.hypot(du,dz))
+                        # Tiny pieces at an aperture must not turn into needles.
+                        crown=min(d['relief_m']*(.5+.2*_unit('lighthouse-stone-face',d['seed'],row,facet,col)),min(distances)*.2)
+                        depth=-d['relief_m']*.75+crown
+                        for i,q in enumerate(piece):
+                            nxt=piece[(i+1)%len(piece)]
+                            b.add_poly([point(*center,depth),point(*q,-d['relief_m']*.75),point(*nxt,-d['relief_m']*.75)],1.,mats[tone])
+                start=end;col+=1
+            z0=z1;row+=1
+    _tower_stone_apertures(b,p,cx,cy,radius,shaft)
+
+def _tower_stone_apertures(b,p: FortStructureParams,cx,cy,radius,shaft):
+    """Plain dark recesses, not source claims for white sash/casing or a door."""
+    glass=b.named_mat('lantern_glass',*openings.glass_material_spec())
+    for o in tower_opening_layout(p) or []:
+        mapped=_TowerFacetBuilder(b,cx,cy,radius,p.taper,shaft,o['azimuth_deg'])
+        u0,u1,z0,z1=o['u0'],o['u1'],o['z0'],o['z1'];depth=p.tower_masonry['reveal_m']
+        # This adapter expects the kit's opposite local winding; compensate
+        # for these manually authored outward (tangent,height) polygons.
+        def face(points,mat):
+            mapped.add_poly(list(reversed(points)),1.,mat)
+        face([(u0,-depth,z0),(u1,-depth,z0),(u1,-depth,z1),(u0,-depth,z1)],glass)
+        face([(u0,0,z0),(u1,0,z0),(u1,-depth,z0),(u0,-depth,z0)],M_WALL)
+        face([(u1,0,z1),(u0,0,z1),(u0,-depth,z1),(u1,-depth,z1)],M_WALL)
+        face([(u0,0,z1),(u0,0,z0),(u0,-depth,z0),(u0,-depth,z1)],M_WALL)
+        face([(u1,0,z0),(u1,0,z1),(u1,-depth,z1),(u1,-depth,z0)],M_WALL)
+
+def _tower_irregular_stone_shaft(b, p: FortStructureParams, cx, cy, radius, shaft):
+    """Irregular rubble character inside the same old12 planes; no source pixels.
+
+    Courses, bond, depth and tone are bounded choices. A thin unchanged base
+    band retains every old ground vertex; a top seat retains the gallery joint.
+    All relief points lie on or behind the original planes, never outside them.
+    """
+    d = p.tower_masonry
+    base = WALL_RGBA['stone']
+    mats = _tower_stone_palette(b, p)
+    mortar = b.named_mat('tower_stone_joint',tuple(v*.68 for v in base[:3])+(1.,),.95)
+    openings_by_facet = {i:[] for i in range(12)}
+    for o in tower_opening_layout(p) or []:
+        openings_by_facet[o['facet']].append(o)
+    half = lambda z: radius*(1-(1-p.taper)*z/shaft)*math.sin(math.pi/12)
+    face_radius = lambda z: radius*(1-(1-p.taper)*z/shaft)*math.cos(math.pi/12)
+    for facet in range(12):
+        angle = math.radians(15+30*facet)
+        nx,ny = math.cos(angle),math.sin(angle)
+        tx,ty = -ny,nx
+        def point(u,z,depth=0):
+            r=face_radius(z)+depth
+            return (cx+r*nx+u*tx,cy+r*ny+u*ty,z)
+        def emit(poly,depth,mat):
+            # Tangent crossed with vertical points outward on this facet.
+            b.add_poly([point(u,z,depth) for u,z in poly],1.0,mat)
+        foot, head = .06, shaft-.035
+        # Use original angular vertices explicitly, so ground-contact bytes agree.
+        a=2*math.pi*facet/12;c=2*math.pi*((facet+1)%12)/12
+        def old_ring(z):
+            r=radius*(1-(1-p.taper)*z/shaft)
+            return [(cx+r*math.cos(t),cy+r*math.sin(t),z) for t in (a,c)]
+        for z0,z1 in [(0.,foot),(head,shaft)]:
+            lo,up=old_ring(z0),old_ring(z1)
+            b.add_poly([lo[0],lo[1],up[1],up[0]],1.,M_WALL)
+        field=[(-half(foot),foot),(half(foot),foot),(half(head),head),(-half(head),head)]
+        holes=openings_by_facet[facet]
+        for poly in _stone_without_apertures(field,holes):
+            emit(poly,-d['relief_m'],mortar)
+        z0=foot;row=0
+        while z0<head-1e-9:
+            height=d['course_m']*(.8+.4*_unit('lighthouse-irregular-bed',d['seed'],row,facet))
+            z1=min(head,z0+height)
+            if z1-z0<=d['joint_m']*2:
+                for poly in _stone_without_apertures([(-half(z0),z0),(half(z0),z0),(half(z1),z1),(-half(z1),z1)],holes):emit(poly,0.,mats[2])
+                break
+            zlo,zhi=z0+d['joint_m']/2,z1-d['joint_m']/2
+            hw=half(zhi);width=d['bond_m']*(.8+.4*_unit('lighthouse-stone-bond',d['seed'],row,facet))
+            start=-hw-width*(.3+.4*_unit('lighthouse-stone-stagger',d['seed'],row,facet));col=0
+            while start<hw-1e-10:
+                end=start+width*(.65+.7*_unit('lighthouse-irregular-width',d['seed'],row,facet,col))
+                u0=max(-hw,start+d['joint_m']/2);u1=min(hw,end-d['joint_m']/2)
+                if u1-u0>.025:
+                    # Inset each irregular unit inside its old cell. Bed slopes and
+                    # chipped corners are reconstructed, not engraved hatch copies.
+                    short=min(u1-u0,zhi-zlo)
+                    bevel=min(.06,short*.14)
+                    bed=min(.045,short*.08)
+                    a,b0,c0,d0=[bevel*(.35+.65*_unit('lighthouse-irregular-corner',d['seed'],row,facet,col,k)) for k in range(4)]
+                    bl,br,tr,tl=[bed*_unit('lighthouse-irregular-bededge',d['seed'],row,facet,col,k) for k in range(4)]
+                    poly=[(u0+a,zlo+bl),(u1-b0,zlo+br),(u1,zlo+br+b0),
+                          (u1,zhi-tr-c0),(u1-c0,zhi-tr),(u0+d0,zhi-tl),
+                          (u0,zhi-tl-d0),(u0,zlo+bl+a)]
+                    # One facet crown per physical unit; clipped pieces retain tone.
+                    tone=min(4,int(_unit('lighthouse-stone-tone',d['seed'],row,facet,col)*5))
+                    for piece in _stone_without_apertures(poly,holes):
+                        center=(sum(q[0] for q in piece)/len(piece),sum(q[1] for q in piece)/len(piece))
+                        distances=[]
+                        for i,q in enumerate(piece):
+                            nxt=piece[(i+1)%len(piece)];du,dz=nxt[0]-q[0],nxt[1]-q[1]
+                            distances.append(abs(du*(center[1]-q[1])-dz*(center[0]-q[0]))/math.hypot(du,dz))
+                        # Tiny pieces at an aperture must not turn into needles.
+                        crown=min(d['relief_m']*(.5+.2*_unit('lighthouse-stone-face',d['seed'],row,facet,col)),min(distances)*.2)
+                        depth=-d['relief_m']*.75+crown
+                        for i,q in enumerate(piece):
+                            nxt=piece[(i+1)%len(piece)]
+                            b.add_poly([point(*center,depth),point(*q,-d['relief_m']*.75),point(*nxt,-d['relief_m']*.75)],1.,mats[tone])
+                start=end;col+=1
+            z0=z1;row+=1
+    _tower_stone_apertures(b,p,cx,cy,radius,shaft)

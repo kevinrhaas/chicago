@@ -36,7 +36,9 @@ import * as THREE from 'three';
 import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
 import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
+import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
+import { planarCoverPlanes } from './planar-occluders.js';
 import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
 import { seasonPreservesSurface } from './season.js';
 import { materialKey as inspectionMaterialKey, captureHooks } from './batch-material.js';
@@ -47,11 +49,23 @@ import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
+import { addFeet, feetPoints, packFeet } from './building-feet.js';
+import { buildingBodyBounds } from './building-body-bounds.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { layerPick } from './gpu-pick.js';
 import {
   compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
 } from './compact-attributes.js';
+
+/** Readers own their short-lived closure scopes. A retained occlusion predicate in
+ * the batch loop must not keep a temporary source attribute through that loop's
+ * shared lexical context after the batch has copied it. */
+function packedScalarReader(attribute, toneScale) {
+  return (name, i) => unpackScalar(attribute, name, i, toneScale);
+}
+function packedConfidenceReader(scalar) {
+  return (i) => scalar('_confidence', i);
+}
 
 /** How the confidence view reads this batch's packed channel (T-2574). */
 const PACKED_CONFIDENCE = { read: SCALARS_GLSL.confidence, declare: SCALARS_GLSL.declare };
@@ -394,6 +408,7 @@ function perVertexScalars(material) {
  */
 function materialKey(m) {
   const near = (v) => (typeof v === 'number' ? v.toFixed(3) : '-');
+  const offset = m.polygonOffset ? `${m.polygonOffsetFactor}/${m.polygonOffsetUnits}` : '-';
   return [
     m.type,
     m.emissive?.getHexString() ?? '-',
@@ -402,8 +417,38 @@ function materialKey(m) {
     m.roughnessMap?.uuid ?? '-',
     m.userData.roofFilter ?? '-',
     m.userData.glassPanes ?? '-',
-    m.side, m.transparent ? 't' : 'o', m.alphaTest ?? 0, m.flatShading ? 'f' : 's',
+    m.side, m.transparent ? 't' : 'o', m.alphaTest ?? 0, m.flatShading ? 'f' : 's', offset,
   ].join('|');
+}
+
+/**
+ * THE JOINT FLOOR DRAWS BEHIND THE STONE IT LIES UNDER — T-3226.
+ *
+ * A coursed stone wall (K02, `k01_frontage.stone()`) lays a `mortar` floor under
+ * every stone's whole cell, 1 to 6 mm behind the stone's face (the fabric's
+ * `joint.recess_m`), so every joint has a floor and no stone is open behind. The
+ * floor is meant to be seen only in the joints. But the web derivative stores a
+ * house's positions on a 14-bit lattice over its own box (`web_derivatives.sh`),
+ * 2.8 mm a rung at 1801 Prairie, which rounds a 2 mm recess onto the face itself,
+ * and past about 50 m a 24-bit depth buffer cannot part 5 mm anyway. So the face
+ * and the floor fought for the same pixels: the owner saw it on 2026-10-28 as
+ * 1827 and 1801 Prairie's flanks "speckled" and shimmering as he walked, and the
+ * houses down the street flickering until he came close.
+ *
+ * The floor is drawn a few depth steps behind whatever lies in its plane. That
+ * moves depth only — no vertex, no colour, no light, no draw call (the floor
+ * already batches on its own map) — so a joint looks as it did, and a stone face
+ * wins wherever it covers its floor, at any distance and on any lattice. Keyed on
+ * the material name `mortar`, docs/GLB-CONTRACT.md § Joint floors.
+ * `tools/check_joint_floor.mjs` holds it.
+ */
+export const JOINT_FLOOR = Object.freeze({ names: Object.freeze(['mortar']), factor: 1, units: 4 });
+export function seatJointFloor(material) {
+  if (!JOINT_FLOOR.names.includes(material?.name)) return false;
+  material.polygonOffset = true;
+  material.polygonOffsetFactor = JOINT_FLOOR.factor;
+  material.polygonOffsetUnits = JOINT_FLOOR.units;
+  return true;
 }
 
 /**
@@ -421,7 +466,18 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
 
   // material key -> { material, entries: [{ record, geo, factors }] }
   const groups = new Map();
+  const sourceRoles = new WeakMap();
   const viewOccluders = [];
+  /**
+   * T-3213: what every backing's `active()` compares against — identity is read
+   * and never written, and the scratch is filled and read inside one synchronous
+   * call — so one of each serves them all. Each closure held its own pair: about
+   * 4 MB of a 1904 phone's heap.
+   */
+  const OCCLUDER_IDENTITY = new THREE.Matrix4(), occluderScratch = new THREE.Matrix4();
+  /** T-3152: one row per source mesh with proven planar cover — see the load loop. */
+  const planarSources = [];
+  let planarOn = true;
   /** structure id -> the facade tone applied to every one of its surfaces. */
   const tones = new Map();
   /**
@@ -463,6 +519,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
   const localXZ = new Map();
+  /** structure id -> where its walls meet the ground (building-feet.js, T-3029):
+   *  what groundUnder() samples when the structure has any. */
+  const localFeet = new Map();
   /** T-2600: the building cells being cut on the job pool, awaited after the loop. */
   const partitions = [];
   let totalTris = 0;
@@ -506,6 +565,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     for (const { mesh, matrix } of meshes) {
       const label = `${record.id}/${mesh.name || 'mesh'}`;
       const sourceMaterial = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
+      if (!sourceRoles.has(sourceMaterial)) sourceRoles.set(sourceMaterial, sourceMaterial.name);
+      const bodyRole = sourceRoles.get(sourceMaterial); // before batching whitens/names it
       // A detail replacement rebuilds from the same source records. Never whiten
       // or shader-patch those source materials: each batch owns its own copy.
       let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
@@ -528,6 +589,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // T-2446/T-2469: Glessner's granite to grey-greige; it rides the albedo multiply.
       tintGlessnerGranite(material, record);
       tintKeithStone(material, record);
+      seatJointFloor(material);
       let prepared;
       try {
         prepared = normalizeGeometry(mesh.geometry, matrix, material, confidence, label, tone);
@@ -553,6 +615,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // established in-place material lifecycle and batching policy.
       const stableSurface = [THREE.MeshStandardMaterial, THREE.MeshPhysicalMaterial].includes(material.constructor)
         && !JSON.stringify(captureHooks(material)).includes('opaque-hooks');
+      const boundsRigid = preserveMaterials && spatialCells === null && rigidBoundsMaterial(material, captureHooks(material));
       const key = preserveMaterials ? inspectionMaterialKey(material) : materialKey(material);
       let bucket = groups.get(key);
       if (!bucket) {
@@ -570,10 +633,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         // simply never read once the patch is installed.
         perVertexScalars(material);
         confidence.patch(material, { packed: PACKED_CONFIDENCE });
-        bucket = { material, entries: [] };
+        bucket = { material, entries: [], boundsRigid };
         groups.set(key, bucket);
-      } else if (preserveMaterials) {
-        material.dispose();
+      } else {
+        bucket.boundsRigid = bucket.boundsRigid && boundsRigid;
+        if (preserveMaterials) material.dispose();
       }
       totalTris += prepared.geo.getIndex().count / 3;
 
@@ -586,6 +650,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         minX: Math.min(seen.minX, gb.min.x), maxX: Math.max(seen.maxX, gb.max.x),
         minZ: Math.min(seen.minZ, gb.min.z), maxZ: Math.max(seen.maxZ, gb.max.z),
       } : { minX: gb.min.x, maxX: gb.max.x, minZ: gb.min.z, maxZ: gb.max.z });
+      if (!localFeet.has(record.id)) localFeet.set(record.id, new Map());
+      addFeet(localFeet.get(record.id), prepared.geo);
       // T-2219: a narrow phone courtyard view need not submit an entire
       // building's material primitive. Keep every triangle/attribute, but let
       // the existing BatchedMesh cull smaller pieces in each camera/shadow pass.
@@ -603,7 +669,21 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         && material.colorWrite && !material.wireframe && !material.stencilWrite
         && !material.clippingPlanes?.length;
       const { geo: source, base, factors } = prepared;
-      const entryOf = (geo) => ({ record, geo, base, factors, occludesView });
+      // T-3152: the cells of this mesh's own large flat faces that they are proven to
+      // cover, read before the cells cut it (planar-occluders.js). Only a double-sided
+      // surface: the proof joins a plane's two facings, which a front-only face does not.
+      let planar = null;
+      if (occludesView && record.id === 'glessner_house' && material.side === THREE.DoubleSide) {
+        const corners = source.getAttribute('position'), ix = source.getIndex();
+        const xyz = new Float64Array(corners.count * 3);
+        for (let i = 0; i < corners.count; i += 1) {
+          xyz[3 * i] = corners.getX(i); xyz[3 * i + 1] = corners.getY(i); xyz[3 * i + 2] = corners.getZ(i);
+        }
+        const covers = planarCoverPlanes(xyz, ix ? ix.array : null);
+        if (covers.length) planar = { record, covers, actives: [], range: [Infinity, -Infinity] };
+        if (planar) planarSources.push(planar);
+      }
+      const entryOf = (geo) => ({ record, geo, base, factors, occludesView, bodyRole, planar });
       if (!cells) {
         bucket.entries.push(entryOf(source));
       } else {
@@ -648,6 +728,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * The footprint is sampled in the building's own rotated frame, because a
    * long building across a slope and the same building along it meet quite
    * different ground.
+   *
+   * T-3029: and the footprint is where its WALLS meet the ground, not its
+   * bounding box. The box reaches out to the eaves and fills the empty corners
+   * beside a wing, so on the bank it found ground no wall stands on: the Green
+   * Tree's box corner beside its rear ell sat 0.33 m below the ell's own foot,
+   * and the inn was bedded 0.88 m under its front door. building-feet.js reads
+   * the feet off the y = 0 plane; the box grid stays for a structure with none.
    */
   function groundUnder(record, e, n, rotationDeg) {
     if (!terrain) return 0;
@@ -662,6 +749,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // tents) starts inside its footprint. Otherwise all mesh-bound samples can
     // be uphill of that reference and lift the anchor above its own ground.
     let lowest = terrain.surfaceHeight(e, n);
+    const feet = feetPoints(localFeet.get(record.id));
+    if (feet.length) {
+      for (const [lx, lz] of feet) {
+        lowest = Math.min(lowest, terrain.surfaceHeight(e + lx * cos + lz * sin, n + lx * sin - lz * cos));
+      }
+      return Number.isFinite(lowest) ? lowest : terrain.surfaceHeight(e, n);
+    }
     const STEPS = 4;
     for (let i = 0; i <= STEPS; i += 1) {
       const lx = box.minX + ((box.maxX - box.minX) * i) / STEPS;
@@ -701,6 +795,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         + `${p.symbolic_location ?? 'no coordinates yet'}`);
     }
   }
+  for (const [id, feet] of localFeet) localFeet.set(id, packFeet(feet));
 
   // Shadows have to agree with the view: a wall you can see through should not
   // cast a solid shadow. The same patch on a depth material dithers the shadow
@@ -713,6 +808,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   const batches = [];
   /** structure id -> its union bounding box, in the structure's own frame. */
   const localBoxes = new Map();
+  const bodySamples = new Map();
   /** structure id -> the confidence channel the shader will actually read. */
   const channels = new Map();
   // T-2575. Positions go into the batch as Int16 over one uniform scale per
@@ -746,6 +842,16 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // attribute (T-2568, T-2574; compact-attributes.js). The tone's scale is the
     // batch's: a batch takes its attribute set from its first geometry, and every
     // geometry in it must be packed to the one scale its shader divides by.
+    // T-3213: a batch whose material samples no texture has nothing to read a uv
+    // with — the walls' and roofs' relief derive theirs from the position
+    // (wall-relief.js, roof-relief.js), and no patch on a structures material reads
+    // the attribute — but three uploads every attribute a geometry carries, read or
+    // not. The 1904 town's largest batch is untextured and its uv float32 (the
+    // tiling ones stay float, compact-attributes.js): about 17 MB of a phone's GPU
+    // buffers, drawn by nothing. The key holds every map, so the whole bucket agrees.
+    if (!Object.values(bucket.material).some((v) => v?.isTexture)) {
+      for (const e of bucket.entries) e.geo.deleteAttribute('uv');
+    }
     const plan = compactPlan(bucket.entries.map((e) => e.geo));
     const toneScale = toneScaleOf(bucket.entries.map((e) => e.geo));
     bucket.material.userData.chiToneScale = toneScale;
@@ -762,9 +868,6 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // T-2529: at `light`, a piece whose shadow cannot reach the view is left
     // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
     if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
-    // T-2927: where meshes are cut into cells, the drawn cells of one mesh that
-    // touch are drawn as one (batch-coalesce.js): aloft, every cell is in view.
-    if (cutsCells) coalesceRuns(batch, coalesce);
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -775,7 +878,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.userData.confidenceRanges = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
-    for (const { record, geo, base, factors, occludesView } of bucket.entries) {
+    for (const { record, geo, base, factors, occludesView, bodyRole, planar } of bucket.entries) {
       const pause = checkpoint(); if (pause) await pause;
       compactGeometry(geo, plan);
       const frame = instanceFrames.get(record.id);
@@ -784,7 +887,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // Every reading below is of the bytes the shader decodes, not of the
       // floats they were packed from.
       const scalars = geo.getAttribute(SCALARS);
-      const scalar = (name, i) => unpackScalar(scalars, name, i, toneScale);
+      const scalar = packedScalarReader(scalars, toneScale);
       // The piece tone as the batch stores it, summed for facadeTones' readback.
       let toneSum = 0;
       for (let i = 0; i < scalars.count; i += 1) toneSum += scalar('_tone', i);
@@ -810,8 +913,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // `placement` below is the INSTANCE matrix, dequantize included, which is
       // the one that turns this geometry's positions into the world (T-2575).
       if (occludesView) {
-        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=new THREE.Matrix4();
-        const identity=new THREE.Matrix4(), m=batch.material;
+        // T-3213: `identity` and `current` are the layer's one pair (below the
+        // occluder list), not two more matrices in every backing's closure.
+        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=occluderScratch;
+        const identity=OCCLUDER_IDENTITY, m=batch.material;
         const hooks=[m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey], side=m.side;
         // Only the existing opaque, aperture-cut backing, under its known
         // position-preserving shaders. Visibility/transform changes fail open.
@@ -833,7 +938,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && !m.clippingPlanes?.length;
         };
         const ranges=new Map();
-        for(const triangle of backingTriangles(geo,placement,m.side,(k)=>scalar('_confidence',k))) {
+        for(const triangle of backingTriangles(geo,placement,m.side,packedConfidenceReader(scalar))) {
           // Small distant facade details are expensive candidates with little
           // coverage; the inspected house keeps its finer backing faces.
           if(record.id!=='glessner_house' && triangle.area<4)continue;
@@ -842,6 +947,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && opaqueConfidenceRange(triangle.confidenceRange,confidence));
           viewOccluders.push({...triangle,active:ranges.get(key)});
         }
+        // Every piece of the source mesh has to stand as the backing's does.
+        if (planar) planar.actives.push(active);
       }
       batch.userData.batchIndex[instanceId] = record.id;
       record.instanceId = instanceId;
@@ -857,6 +964,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       let box = localBoxes.get(record.id);
       if (!box) { box = new THREE.Box3(); localBoxes.set(record.id, box); }
       box.union(geo.boundingBox);
+      if (record.sidecar?.attributes?.sign_pole_set_out?.value != null) {
+        let samples = bodySamples.get(record.id);
+        if (!samples) { samples = []; bodySamples.set(record.id, samples); }
+        const storedPosition = geo.getAttribute('position');
+        for (let i = 0; i < storedPosition.count; i++) samples.push({ role: bodyRole,
+          point: [storedPosition.getX(i) * frame.scale, storedPosition.getY(i) * frame.scale, storedPosition.getZ(i) * frame.scale] });
+      }
       // The confidence the SHADER will see, after the existence floor, recorded
       // per structure so a gate can ask the question a visitor asked: does this
       // building dither, and does it dither all over?
@@ -874,14 +988,29 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         seen.min = Math.min(seen.min, lo);
         seen.max = Math.max(seen.max, hi);
         if (count) batch.userData.confidenceRanges[instanceId] = [lo, hi];
+        // The pieces' decoded range, as a whole: a rectangle stands only where all of
+        // its source mesh is opaque, a superset of the triangles that cover it.
+        if (planar && count) { planar.range[0] = Math.min(planar.range[0], lo); planar.range[1] = Math.max(planar.range[1], hi); }
       }
       geo.dispose();
     }
     backingPositionVersion=batch.geometry.attributes.position.version;
     backingIndexVersion=batch.geometry.index.version;
     backingConfidenceVersion=batch.geometry.attributes[SCALARS].version;
+    // Narrow phase sees native whole-instance entries before existing coalescing.
+    const narrow = installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial, seasonPreservesSurface, coalesce, shadowCasters);
+    if (cutsCells) coalesceRuns(batch, coalesce);
+    narrow?.seal();
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
+    // T-3213: every addGeometry above left an update range on each attribute and
+    // the index, and three clears those only after a PARTIAL upload — the first
+    // upload sends the whole array and keeps them. About 12 MB of `{ start, count }`
+    // in a 1904 phone's heap, for buffers that are uploaded whole anyway. An empty
+    // list means "upload all of it", so dropping them changes no byte on the GPU.
+    for (const attribute of [...Object.values(batch.geometry.attributes), batch.geometry.index]) {
+      attribute?.clearUpdateRanges();
+    }
     group.add(batch);
     batches.push(batch);
     // T-2786: every entry's geometry is in the batch now. `dispose()` above frees
@@ -890,6 +1019,25 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // 50 MB of arrays and 25 MB of heap in 1904 on a phone.
     bucket.entries = [];
   }
+
+  // T-3152: each proven planar cover, in the world frame, for the view filter's
+  // `planes`. It stands only while every piece of its source mesh passes the backing's
+  // own test and the whole mesh's confidence is opaque; `setPlanarCovers(false)`
+  // withdraws them all.
+  const planarCovers = [];
+  for (const planar of planarSources) {
+    const place = placements.get(planar.record.id);
+    const range = planar.range, actives = planar.actives;
+    if (!place || !actives.length || !(range[0] <= range[1])) continue;
+    const active = () => planarOn && actives.every((f) => f()) && opaqueConfidenceRange(range, confidence);
+    const turn = new THREE.Matrix3().setFromMatrix4(place);
+    const axis = (a) => new THREE.Vector3(...a).applyMatrix3(turn).normalize();
+    for (const c of planar.covers) {
+      planarCovers.push({ ...c, o: new THREE.Vector3(...c.normal.map((x) => x * c.d)).applyMatrix4(place),
+        n: axis(c.normal), u: axis(c.u), v: axis(c.v), active, structure: planar.record.id });
+    }
+  }
+  planarSources.length = 0;
 
   /**
    * How much of the facade tone is applied, 0..1 — T-0002's runtime handle.
@@ -908,6 +1056,12 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * A visitor never calls it. It is not a setting; the tone is what the town
    * looks like.
    */
+  const bodyDiagnostics = new Map();
+  for (const [id, samples] of bodySamples) {
+    bodyDiagnostics.set(id, buildingBodyBounds(registry.get(id).sidecar, samples,
+      instanceFrames.get(id).scale / 32767));
+  }
+  bodySamples.clear();
   let weathering = 1;
   function setWeathering(value) {
     const t = Math.max(0, Math.min(1, Number(value)));
@@ -982,6 +1136,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batches,
     coalesce,
     viewOccluders,
+    /** T-3152: the proven planar backings on or off, for the on/off pixel proof. */
+    setPlanarCovers(on) { planarOn = !!on; return planarOn; },
+    planarCovers,
     problems,
     triangles: totalTris,
 
@@ -1080,6 +1237,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
           size: [size.x, size.y, size.z],
           min: box.min.toArray(),
           max: box.max.toArray(),
+          ...(bodyDiagnostics.has(id) ? { body: bodyDiagnostics.get(id) } : {}),
           // What the confidence view will show for this building.
           confidence: c ? { min: c.min, max: c.max, ditheredShare: c.dithered / c.total } : null,
         };
@@ -1107,6 +1265,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      *  uniform dequantize scale; a point in the structure's frame goes through
      *  this one, a stored batch position through the instance matrix. */
     matrixOf(id) { return placements.get(id) ?? null; },
+
+    /** Where a structure's walls meet the ground, as [x, z] in its own frame
+     *  (metres; y = 0 there) — the points groundUnder() stood it on, so a gate
+     *  can measure the rendered base where a wall actually is (T-3029). */
+    feetOf(id) { return feetPoints(localFeet.get(id)); },
 
     /** Where a structure stands, in world space — for framing and popups. */
     positionOf(id) {

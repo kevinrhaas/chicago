@@ -120,13 +120,23 @@ def poly_contains(pt, poly) -> bool:
 
 
 def footprint_world(sidecar) -> list[tuple[float, float]]:
-    """The building's footprint in local ENU metres, placed and rotated."""
+    """The building's footprint in local ENU metres, placed and rotated the way the
+    RENDERER seats it: `rotation_deg` is a compass bearing, so it turns the polygon
+    CLOCKWISE (renderers/web/js/angles.js bearingToYaw; the same two lines as
+    generate_dooryard_plantings.footprint_world and validate.world_footprint).
+
+    T-3078: this turned it counter-clockwise until 2026-10-23. At a bearing of 0 or
+    180 the two agree, so nothing looked wrong on the grid-square houses; at 90 or
+    270 the footprint read here stood mirrored across its own corner, and the
+    lot-line fences, dooryard pickets and yard outbuildings that cut themselves
+    clear of it ran through the real house instead (the owner's screenshot,
+    Lake and Canal). tools/check_structure_clearance.py now asks the placed shapes."""
     fp = (sidecar.get("footprint") or {}).get("polygon") or []
     pl = sidecar.get("placement") or {}
     e0, n0 = pl.get("local_e"), pl.get("local_n")
     th = math.radians(pl.get("rotation_deg") or 0.0)
     c, s = math.cos(th), math.sin(th)
-    return [(e0 + x * c - y * s, n0 + x * s + y * c) for x, y in fp]
+    return [(e0 + x * c + y * s, n0 - x * s + y * c) for x, y in fp]
 
 
 def convex_overlap(a, b) -> bool:

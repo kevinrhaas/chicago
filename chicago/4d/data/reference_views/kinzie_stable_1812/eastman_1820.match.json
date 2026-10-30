@@ -1,0 +1,40 @@
+{
+  "structure_id": "kinzie_stable_1812",
+  "view": "eastman_1820",
+  "glb": "assets/gltf/kinzie_stable_1812__kinzie_1804.glb",
+  "glb_sha256": "042938800042ba3ab38d84d52e611c8760461c6c88686ca5d18748037d242f8b",
+  "camera_sha256": "f3b56665feeb0b98c056e13452e49dd3b50573dd978eaae4141e37871449b0bc",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_stable_1812/eastman_1820-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Massing (T-2485): a low log building, gable end to the eye, with the back slope and a short side receding to the right. Drawn gable 1419-1495 px wide with the side to about 1512, eave 731, apex 712, grade about 755; the render's gable 1418-1497 and side to about 1513, eave about 730, apex about 711, grade about 755. Built at 6.2 m across the gable, 1.95 m to the eave and 27 degrees, read off the plate's proportions.",
+      "status": "fixed"
+    },
+    {
+      "what": "Openings: two small openings side by side under the east gable's eave, a square one toward the front and a round-headed one toward the back (x 1440-1446 and 1469-1475, y 733-741 px). Built as two of the archetype's small square lights at the same places; the round head of the back one is not built, at 6 px it is a single dark spot in the render's pixels too.",
+      "status": "fixed"
+    },
+    {
+      "what": "Walls: horizontal log courses with the ends out at the corners, as built.",
+      "status": "fixed"
+    },
+    {
+      "what": "Roof: plain gable, no stack, as built.",
+      "status": "fixed"
+    },
+    {
+      "what": "Tone: the engraving is monochrome, so the log and roof colours are not read from it.",
+      "status": "not shown"
+    },
+    {
+      "what": "The two horses before it and the picket paling behind them at the left: not this record. Animals are not built, and the paling is drawn where the house's green (kinzie_house_1812_green) runs.",
+      "status": "not shown"
+    },
+    {
+      "what": "The west gable and the south front, with the door: the plate does not see them.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

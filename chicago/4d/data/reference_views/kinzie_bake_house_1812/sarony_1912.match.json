@@ -1,0 +1,32 @@
+{
+  "structure_id": "kinzie_bake_house_1812",
+  "view": "sarony_1912",
+  "glb": "assets/gltf/kinzie_bake_house_1812__kinzie_1804.glb",
+  "glb_sha256": "ca5233eb148cf8eb89e7c5f98a71f1e948e820c7429837a1c9e4af4a87415f55",
+  "camera_sha256": "33901c24cb591753f5bb60ef6d1e736c1d60da74828cae59bb4d096c1383c997",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_bake_house_1812/sarony_1912-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Gable end: the west gable seen from the south-west, its apex at about (261, 195) and its back eave corner at (246, 209); the render's within 2-4 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "Stack: a small stack at the west apex, head at about 194 px. Built 0.6 m square, 0.46 m over the ridge at 0.88 of it from the east end (ridge_stack_w_m and ridge_stack_head_m, added to log_dwelling at T-2485 for it); the render's within 2-4 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "A small dark opening in the middle of the west end below the eave (x 252-256, y 217-224); built as the archetype's small light there.",
+      "status": "fixed"
+    },
+    {
+      "what": "Walls dark and hatched in courses, as log; the front and the building's east part are behind the house's west gable, its foot behind the paling.",
+      "status": "fixed"
+    },
+    {
+      "what": "Tone: monochrome lithograph.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

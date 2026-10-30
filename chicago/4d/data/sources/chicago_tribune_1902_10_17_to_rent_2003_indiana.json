@@ -1,0 +1,25 @@
+{
+  "id": "chicago_tribune_1902_10_17_to_rent_2003_indiana",
+  "type": "newspaper",
+  "citation": "Classified advertisement, 'To rent—2003 Indiana-av., stone front ... 12 rooms; recently decorated'. Chicago Daily Tribune, 17 October 1902 (vol. 61 no. 290).",
+  "author": "Chicago Daily Tribune",
+  "date": "1902-10-17",
+  "describes_date": "1902-10-17",
+  "repository": "Internet Archive (Chicago Tribune microfilm, pub_chicago-daily-tribune)",
+  "url": "https://archive.org/details/per_chicago-daily-tribune_1902-10-17_61_290",
+  "locator": "The issue's OCR text (per_chicago-daily-tribune_1902-10-17_61_290), the classified columns; the OCR runs neighbouring advertisements together, so only the words quoted in the note are read from it.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States newspaper of 1902; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Found by the Internet Archive's full-text search for the street address and read in the issue's OCR text for T-3013 on 2026-10-23; the page image was not consulted.",
+  "note": "The house at 2003 Indiana Avenue offered to let in October 1902: a stone-fronted house of twelve rooms. (Ads of 25 May and 31 August 1902 offer the same number.)",
+  "what_it_supplies": [
+    "that 2003 Indiana Avenue was a stone-fronted house of twelve rooms in 1902"
+  ],
+  "what_it_does_not_supply": [
+    "its storeys, depth or outline",
+    "who lived there in 1904"
+  ]
+}

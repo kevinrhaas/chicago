@@ -25,7 +25,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448438.176,
@@ -434,6 +435,47 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "T-2348: the narrow rear part the 1911 sheet draws behind the north side of the main body, whose PLACE and storey count are read from the map and whose form is K01's reconstruction. Read on sheet 20 (trace s20fp-1636-b1 p3, the draft's r1 behind the front body's rear line) in this frame: u -8.25 to 0 and v 2.75 to 7.685 (T-2392: its north wall on the pair's party line; the trace's outline reads u -8.2 to 0 and v 2.45-2.7 to 7.45-7.65), its north wall on the party line flush with the main body's. The sheet draws it inside the same brick main part as the front body, lettered '3B' for the whole, so it is three storeys: K01's wing builds from grade to its deck, with floors at the main body's 1.4 m principal floor and lower back-building storeys (3.6, 3.3 and 3.0 m, its deck under the main wall head). K06 sash, two a storey in its south wall and one in its rear, the flat painted-tin deck on a 0.25 m fascia with a 0.15 m overhang, as 1604's and 1616's wings: all reconstructed. The north wall is blank, the party wall continuing."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 8.91,
+            "lot_s_m": [
+              -0.14,
+              7.64
+            ],
+            "fence": "k11.fence.spear_on_curb",
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 70
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3216: no picture of this front is held, so the boundary is a STATED RECONSTRUCTION on the west side of the block's pictured fronts, every one of which closes its street line and gates its walk: 1612's photograph (an iron spear fence on its curb, a pair of entrance gates at the stoop's foot and a gate across the south passage), 1620's 1874 engraving and 1898 sketch (an iron lattice on its base with gate piers at the walk), 1616's boarded street line in the same 1874 plate, and 1638's photograph (iron bars on a stone base between gate piers). Built as the K11 kit's spear fence on its curb, the plainest of them and the block's photographed iron, with the kit's pair of entrance leaves on stone piers, 1.3 m clear on the stoop's centre, standing open (drawn 70 degrees) as 1612's photograph and both pictures of 1620 show their entrance gates. No side gate: the house stands 0.14 m from its south lot line, less than the kit's gate needs between a pier and the wall (0.9 m clear past a 0.5 m pier), so there is no passage to gate and the iron runs unbroken from the lot line to the entrance (K11's T-3216 rule). The street line is parcel prairie_1636's street corners (data/street_grid/1904.json) carried into this frame, 9.202 m before the front; it is held at 8.910 m, 0.3 m inside the public walk's inner edge (entrance_kit front_yard_m 9.21), as 1616's boards stand inside theirs, because the parcel's line falls on the walk's edge itself. The lot's sides are the same parcel's, s -0.14 and 7.64. RECONSTRUCTED: the fence's kind, height and line, its gates and their set; liberty L-k11-fences-1600-block-3216."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.75,
+              "top_m": 0.06,
+              "wear_tone": 0.9
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3216 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures; where no picture shows them, a stated reconstruction consistent with the block). No picture of 1636's front is held. The walk is laid on the block's pictured fronts (1612's photograph shows a light paved walk from the public walk through its open entrance gateway to the stoop's foot, and 1616's and 1621's walks are built on it): flags from the stoop's foot through the entrance gate, the gate's width, to the inner edge of the public walk; the lawn covers the rest of the front yard inside the iron. RECONSTRUCTED: the walk's line, flags, width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; no service walk is built (no picture shows a side passage's floor); liberty L-k14-walks-1600-block-3216. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
         }
       }
     }

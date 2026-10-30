@@ -1,12 +1,12 @@
 {
   "id": "house_1708_prairie",
-  "phase": "draft_1904",
-  "name": "1708 Prairie Avenue — Thorne-associated map-led brick house (district draft; refined by T-1872)",
+  "phase": "as_mapped_1904",
+  "name": "1708 Prairie Avenue — three-storey brick front with a canted bay (Thorne-associated), K01 frontage assembly",
   "aka": [
     "1708 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_1708_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/house_1708_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -24,24 +24,26 @@
     "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_20"
+      "sanborn_1911_chicago_v3_sheet_20",
+      "glessner_blog_1708_1706_1700_christmas_photo"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The 1911 sheet draws the house and the T-1840 census rules it present in 1904 (present_as_mapped); the Christmas print, after 1902, shows its front as built here. Its building and loss dates are not read.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1359.277,
-    "local_n": -3112.067,
+    "local_e": 1368.577,
+    "local_n": -3112.161,
     "rotation_deg": -0.581,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 24.000, v -3.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.581 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the front block's rectangle on the south wall (lot frame u 33.300, v -3.750 m from the middle of the rear lot line): the draft's origin carried 9.3 m toward the street, to where the 1911 trace (s20fp-1708-b1) narrows behind the front block, its south wall stepping in 1.37 m to a light court. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.581 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1708 S. Prairie Avenue, parcel prairie_1708 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -51,23 +53,23 @@
         0.0
       ],
       [
-        22.0,
+        12.8,
         0.0
       ],
       [
-        22.0,
-        7.25
+        12.8,
+        7.5
       ],
       [
         0.0,
-        7.25
+        7.5
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The front block: from the trace's step behind it (u 0) to the front wall (u 12.8), from the south wall (v 0) to the north party wall with 1706 (v 7.5), the trace's 7.45-7.53 m. The canted bay stands in front of it (bays) and the rear range and wing behind it (rear_wings)."
   },
   "attributes": {
     "stories": {
@@ -76,108 +78,548 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+      "note": "'3B' printed on the 1911 sheet over the front (T-1840 census s20-1708-f, '3B brick dwelling (D), attached by a party wall to 1706'): three full storeys, which the Christmas print shows, its front standing taller than 1706's cornice."
     },
     "construction": {
-      "value": "brick",
+      "value": "brick_with_stone_front",
       "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "glessner_blog_1708_1706_1700_christmas_photo"
       ],
-      "note": "The register reads the map's colours as 'brick'."
+      "note": "The sheet colours the house pink (brick) and the Christmas print shows a coursed brick front; the stone is only its basement and the string course the print shows under the frieze (stone_front), which the sheet does not colour apart."
     },
-    "draft_plan": {
+    "stone_front": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              0.0,
-              0.0,
-              22.0,
-              7.25
-            ],
-            "from": "s20fp-1708-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              -6.0,
-              5.0,
-              -0.25,
-              7.5
-            ],
-            "from": "s20fp-1708-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 89% of its fill"
-          }
-        ],
-        "lot_v": [
-          -0.06,
-          7.56
-        ],
-        "street_u": 31.264
+        "fabric": "limestone_bedford",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 2,
+        "coping_height_m": 0.25,
+        "corner_bond": [],
+        "brick_above_m": 1.2,
+        "belts": [
+          [
+            11.95,
+            12.2
+          ]
+        ]
       },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "note": "The Christmas print's string course across the front about 11.95-12.2 m over grade, closing the frieze under the cornice, laid as K01's one named stone belt across the brick (no belt at the floors, where the print shows none). The smooth Bedford limestone of the basement to the principal floor, and the belt's stone, are reconstructed: no picture shows the foot of the front. Liberty L-k01-1708-thorne-3188."
+    },
+    "principal_floor_m": {
+      "value": 1.2,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a raised principal floor over a basement, four risers at the stoop; the pictures hide the ground storey's foot behind 1706's porch, a lamp and a fence. Liberty L-k01-1708-thorne-3188."
+    },
+    "storey_heights_m": {
+      "value": [
+        3.8,
+        3.45,
+        4.55
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo",
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "note": "Read through T-3188's cameras on the Christmas print (and the Chicagology photograph at the north end, within 0.2 m): the second storey's sills about 5.7 m over grade and the third's about 9.2 m, so its floors stand about 5.0 and 8.45 m up; the third storey runs to the wall head under the cornice's soffit, about 13.0 m, holding the frieze over its windows. The principal storey's 3.8 m is the remainder over the reconstructed 1.2 m floor."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the rules' brick front. Liberty L-k01-1708-thorne-3188."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the rules' brick side wall; the north wall is the party wall with 1706. Liberty L-k01-1708-thorne-3188."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the one K03 panel k03_brick lays on the side and rear walls; the pictures are monochrome. Liberty L-k01-1708-thorne-3188."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k09.trim.lintel_cornice_hood",
+          "k09.surround.rowhouse_restrained",
+          "k09.surround.rowhouse_restrained"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo",
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "note": "The Christmas print shows each upper window under a hood whose ends drop past the head as ears; K09's restrained surround, an architrave under a cornice hood on consoles, is the kit's nearest form and stands on both upper storeys. The principal storey's heads are hidden (the bay covers the south part, 1706's porch the north) and wear the kit's cornice-hood lintel (reconstructed)."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.moulded_stone"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "note": "The Christmas print shows a deep plain cornice with no brackets and no dentils, its soffit about 13.0 m and its top about 13.55 m over grade, turned at the north corner over the north wall: K10's moulded stone cornice."
+    },
+    "roof_form": {
+      "value": "flat",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "note": "The Christmas print shows no roof over the cornice from across the street: a flat deck behind it, as the register's brief ('flat behind a cornice') has it."
+    },
+    "roof_pitch_deg": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the least fall K05 lets a tin deck take, so the blocking course behind the cornice stands as low as the kit lays it: the Christmas print shows nothing over the cornice. Liberty L-k01-1708-thorne-3188."
+    },
+    "eave_overhang_m": {
+      "value": 0.45,
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "note": "The print's cornice stands well out of the wall."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_flat_seam_painted",
+        "flashing": "painted_tin_sheet"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a flat deck's tin. Liberty L-k01-1708-thorne-3188."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K06 two-over-two double-hung sash; the print does not resolve the glazing bars. Liberty L-k01-1708-thorne-3188."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K07 stoop's. Liberty L-k01-1708-thorne-3188."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.2,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K07 stoop's. Liberty L-k01-1708-thorne-3188."
+    },
+    "stoop_width_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a stoop under the entrance hood, narrower than the hood. Liberty L-k01-1708-thorne-3188."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "note": "The Chicagology photograph shows a moulded hood about 4.25-4.65 m over grade at the north end of the front, a drop under its north end: the entrance stands there, beside 1706, as the register's 'separate entry' and the draft rules had it."
+    },
+    "front_bays": {
+      "value": [
+        3.2,
+        5.9
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo",
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "note": "Two opening columns across the 7.5 m front, south to north: over the canted bay's north half (the bay covers the front's openings behind it on the lower two storeys and carries its own), and the entrance with a window a storey over it. The Christmas print shows two windows in the third storey and one in the second north of the bay; their places along the front are read through its camera, the third storey's south window at about s 3.2 m and the north column at 5.9 m, to about 0.5 m."
+    },
+    "side_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: none in the south wall's front block: it stands 0.77 m from 1712's north wall, the slot the sheet leaves between them; the rear range lights itself into the court. Liberty L-k01-1708-thorne-3188."
+    },
+    "north_bays": {
+      "value": [],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1708-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s20fp-1708-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 89% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "none: the north wall is the party wall with 1706 (s20-1708-f, 'attached by a party wall to 1706')."
     },
-    "draft_elevation": {
+    "rear_bays": {
+      "value": [
+        2.0
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a window a storey in the rear wall's south part, beside the rear range. Liberty L-k01-1708-thorne-3188."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.8,
+          "width_m": 1.0,
+          "height_m": 2.3
+        },
+        {
+          "sill_above_floor_m": 0.74,
+          "width_m": 1.0,
+          "height_m": 1.7
+        },
+        {
+          "sill_above_floor_m": 0.74,
+          "width_m": 1.0,
+          "height_m": 1.6
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo",
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "note": "The upper storeys' sills and glass read through the Christmas print's camera: sills 5.74 and 9.19 m over grade, glass to about 7.43 and 10.81 m. The principal storey's sash, which no picture shows, and every width are the kit's (reconstructed)."
+    },
+    "basement_lights": {
       "value": {
-        "kind": "house",
-        "seed": 1362182509,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
+        "sill_m": 0.25,
+        "width_m": 0.9,
+        "height_m": 0.6
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: low basement lights at the walk, as 1721's; the pictures do not show the foot of the front. Liberty L-k01-1708-thorne-3188."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
         ],
-        "roof_pitch_deg": 38,
-        "mansard_lower_m": 3.0,
-        "front_bays": 3,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2334",
-          "refined_by": [
-            "T-1872"
-          ]
+        "top_above_ridge_m": 1.2,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 2.0,
+            "v_m": 0.75
+          },
+          {
+            "u_m": 7.0,
+            "v_m": 0.75
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: two brick stacks in the south wall behind the front rooms; the Christmas print shows no stack over the front block's street half and the sheet draws no flue. Liberty L-k01-1708-thorne-3188."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 9.17,
+          "hood": {
+            "soffit_m": 4.25,
+            "width_m": 1.9,
+            "out_m": 0.8,
+            "fascia_m": 0.4,
+            "cornice": {
+              "height_m": 0.2,
+              "proud_m": 0.15
+            },
+            "brackets": "k08.bay.canted_hooded",
+            "railing": {
+              "height_m": 0.15,
+              "post_m": 0.1,
+              "baluster_m": 0.045,
+              "pitch_m": 0.14,
+              "rail_m": [
+                0.08,
+                0.06
+              ]
+            }
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "note": "The Chicagology photograph's hood at the north end, its foot about 4.25 m and its top about 4.65 m over grade, on a drop at its end: K01's bracketed door hood at those heights. The door, its stoop and the hood's width, reach and low rail are the kits' (reconstructed); the front wall stands 9.17 m from the draft's street line, the sheet's 9.2 m."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 8.9,
+        "lot_s_m": [
+          -1.06,
+          7.56
+        ],
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 70
+        },
+        "side_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "pier_s_m": 0.0,
+          "drawn_deg": 0
+        },
+        "posts": {
+          "section_m": 0.12,
+          "height_m": 1.55
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "note": "The Chicagology photograph shows an iron railing of spear-headed bars on a low curb along the walk before 1708's north end, running on before 1706: K11's spear-on-curb fence just inside the street line (8.9 m before the front, the walk at 9.17 m), a walk gate on piers at the stoop. Its height and gates are the kit's (reconstructed). K11 gates an iron front's side passage at least 0.9 m clear, and the slot between 1708 and 1712 is 0.77 m, shared by the two lots, so the fence runs on 1.06 m past the south corner, 1.0 m of it before 1712's lot, and gates the slot there (liberty L-k01-1708-thorne-3188). T-3205: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1700-block-3205)."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "south_canted_bay",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.125,
+          "fabric": "brick",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -1.825,
+                0.0
+              ],
+              [
+                -1.1,
+                0.9
+              ],
+              [
+                1.1,
+                0.9
+              ],
+              [
+                1.825,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 5.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.7,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.0,
+                  "at": [
+                    0.14,
+                    0.86
+                  ],
+                  "recess_m": 0.34,
+                  "why_not_ordinary": "a splay light narrower than K06's ordinary sash: the sheet's splays run 1.16 m, so a 0.7 m light is what stands on one with a pier either side and its recess clear of the host wall (T-3188)"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.0,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 3.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.7,
+                  "clear_height_m": 1.5,
+                  "sill_m": 0.78,
+                  "at": [
+                    0.14,
+                    0.86
+                  ],
+                  "recess_m": 0.34,
+                  "why_not_ordinary": "a splay light narrower than K06's ordinary sash: the sheet's splays run 1.16 m, so a 0.7 m light is what stands on one with a pier either side and its recess clear of the host wall (T-3188)"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 1.5,
+                  "sill_m": 0.78,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.08,
+            "covering": "tin_flat_seam_painted"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "note": "The sheet's canted bay on the south part of the front (trace s20fp-1708-b1: the front's face stepping out about 0.9 m from the south corner to 4.0 m along, its ends cut on the splay), and the Christmas print's dark bay rising through the lower two storeys to a flat top about 8.85 m over grade, a light in its face on each storey (the second storey's sill about 5.8 m). Built as the kit's canted bay, 3.65 m at the wall and 0.9 m out, centred 2.125 m from the south corner (the kit keeps a 0.3 m pier at the corner, where the sheet runs the splay to it), in the front's brick, under a nearly flat tin top. The print's light on the second storey stands in the north splay, which faces its camera; each splay carries one 0.7 m light a storey on its 1.16 m run. The face's lights, the principal storey's and the bay's top are reconstructed."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_range",
+          "rect": [
+            -9.3,
+            0.0,
+            1.33,
+            7.5
+          ],
+          "floor_m": 1.2,
+          "storey_heights_m": [
+            3.8,
+            3.45,
+            3.35
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.8,
+              "width_m": 1.0,
+              "height_m": 2.2
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 1.9
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 1.7
+            }
+          ],
+          "windows": {
+            "south": [
+              1.6,
+              4.65,
+              7.7
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.2,
+            "fascia_m": 0.35,
+            "covering": "painted_tin_sheet"
+          }
+        },
+        {
+          "id": "alley_wing",
+          "rect": [
+            -16.25,
+            -9.3,
+            4.95,
+            7.5
+          ],
+          "floor_m": 1.2,
+          "storey_heights_m": [
+            3.6,
+            3.3
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.8,
+              "width_m": 0.9,
+              "height_m": 1.9
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 1.7
+            }
+          ],
+          "windows": {
+            "south": [
+              1.2,
+              3.5,
+              5.8
+            ],
+            "rear": [
+              1.25
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The 1911 sheet's outline behind the front block (trace s20fp-1708-b1, read in this frame): the three-storey brick body runs on 9.3 m behind it, its south wall stepped in 1.37 m to a light court, and from it 'a narrow 2-storey brick wing running west toward the alley' (census s20-1708-a1), 2.55 m wide against the north lot line, 7 m long. The range's storeys and every window are reconstructed: no picture shows the rear."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        },
+        "service_walk": {
+          "surface": "stone_flags",
+          "to_u_m": 0.0,
+          "wear_tone": 0.78
+        },
+        "grade_m": {
+          "front": 0.018,
+          "street": 0.007,
+          "per_m_s": -0.0048,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's 'three-storey/basement brick townhouse with separate entry, cornice, regular sash': flat behind a cornice, attached by a party wall to 1706. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1362182509 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
+      "sources": [
+        "chicagology_1700_1706_townhouses_photo",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk, and the cinder service walk from the side gate back down the slot between 1708 and 1712. The Chicagology photograph and the 1901 construction view show 1708's railing and its north end; neither shows the walk, which is the block's. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget. The service walk is laid in flags, not cinder: the cinder sheet (about 190 KB a house) would put the published tree over its 416 MB budget, and no picture shows this walk's surface."
     },
-    "draft": {
+    "street_front_brick": {
       "value": {
-        "pass": "T-2334",
-        "liberty": "L-draft-prairie-16-18-west-2334",
-        "register_row": "frontage-20-016",
-        "census_ids": [
-          "s20-1708-f",
-          "s20-1708-a1"
-        ],
-        "trace_building": "s20fp-1708-b1",
-        "seed": 1362182509,
-        "replaceable_by": [
-          "T-1872"
-        ],
-        "card": "District draft — refined by T-1872."
+        "panel": "rough_red_brown_running"
       },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo",
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ],
+      "note": "T-3244: the front's brick over its stone basement prints as dark as 1700/1706's red brick in the Christmas print and in the 1901 construction photograph (147-157 against their 153-156 in the same light), darker than its own stone; laid in the same K03 red-brown panel. The side walls, which no picture shows, stay the common brick. Write-up: docs/RESEARCH/colour-1700-block-T-3244/README.md."
     },
     "function": {
       "value": "residence",
@@ -190,6 +632,63 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_1700_1706_townhouses_photo",
+      "citation": "[1706 and 1700 S. Prairie Avenue, the townhouses of George Glessner and Frances Glessner Lee.] Photograph from the east side of Prairie Avenue, captioned 'Left: 1706 S. Prairie Avenue / Right: 1700 S. Prairie Avenue'; photographer and original holder not named. Reproduced by Chicagology, '1706 Prairie Avenue' (chicagology.com/chicagostreets/prairieavenue/1706prairie/).",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1706prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the north end of 1708's street front in the plane of the townhouses' front",
+        "the upper storeys' sill heights at the north end, a cross-check on the Christmas print",
+        "the entrance hood at the north end and its height"
+      ],
+      "what_it_does_not_supply": [
+        "the rest of 1708's front, its cornice and its bay, all outside the frame",
+        "colour: the photograph is monochrome",
+        "the south wall, the rear and the roof"
+      ]
+    },
+    {
+      "source_id": "glessner_blog_1700_1706_construction_1901_photo",
+      "citation": "Homes for George Glessner and Frances Glessner Lee, 1700-1706 S. Prairie Avenue, under construction, 1901. Photograph by George Glessner. Reproduced by the Glessner House Museum, 'George Glessner, photographer', The Story of a House (blog), 12 January 2015.",
+      "url": "https://glessnerhouse.blogspot.com/2015/01/george-glessner-photographer.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the pair's street front under construction: the places and heights of its openings, its string course, cornice line and mansard",
+        "the dormers, the chimneys and the party line's downpipe in 1901",
+        "the railing and curb before 1706 in 1901, its gateway and its end, and the builder's yard",
+        "1708 Prairie's north end and 1638 Prairie's gable in 1901"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the photograph is monochrome",
+        "the porches, the balconettes and the glazing, which were not yet built",
+        "1700's north half, hidden behind the street tree",
+        "the 1904 state of the yards"
+      ]
+    },
+    {
+      "source_id": "glessner_blog_1708_1706_1700_christmas_photo",
+      "citation": "[1708, 1706 and 1700 S. Prairie Avenue, the homes of James and Narcissa Thorne, George and Alice Glessner, and Blewett and Frances Lee.] Photograph from the east side of Prairie Avenue, captioned 'Three of the trees from The Rocks were delivered to these Prairie Avenue homes: (L-R) James and Narcissa Thorne (1708), George and Alice Glessner (1706), and Blewett and Frances Lee (1700)'; photographer not named. Reproduced by the Glessner House Museum, 'The Glessner House Christmas Tree', The Story of a House (blog), 14 December 2021.",
+      "url": "https://glessnerhouse.blogspot.com/2021/12/the-glessner-house-christmas-tree.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the front's height: its cornice, frieze and string course",
+        "the upper storeys' windows, their sills, heads and eared hoods",
+        "the south bay through two storeys and its flat top",
+        "the north wall rising above 1706's cornice"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the photograph is monochrome",
+        "the ground storey's openings at the north end, hidden by 1706's porch and a street lamp",
+        "the bay's south end, the south wall, the rear and the roof"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_20",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
@@ -211,8 +710,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1872 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1708-b1), the T-1840 census (s20-1708-f, s20-1708-a1) and the T-1837 register row frontage-20-016 (Thorne-associated map-led brick house); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
+  "research_note": "Refined from the district draft (T-2334) in place under this id by T-3188 (piece 2 of T-1872): a K01 frontage built by generators/k01_emit.py from the 1911 sheet's outline (trace s20fp-1708-b1; census s20-1708-f, s20-1708-a1) and the two photographs that show its front at their left edge, the Glessner House Museum's Christmas print and Chicagology's photograph of 1700-1706, through cameras solved on the townhouses' front (data/reference_views/house_1708_prairie/). The Christmas print names the house the Thornes' (James and Narcissa Thorne, 1708); the 1904 Blue Book's candidate is a Carpenter, so the name is kept off the record's title until a directory settles it.",
   "research_doc": "",
   "review_required": false,
-  "called": "1708 Prairie Avenue — Thorne-associated brick house"
+  "called": "1708 Prairie Avenue — three-storey brick front with a canted bay (Thorne-associated)"
 }

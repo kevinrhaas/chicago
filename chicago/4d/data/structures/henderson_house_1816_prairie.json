@@ -25,7 +25,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here."
+        "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448445.699,
@@ -379,12 +380,12 @@
               -6.586,
               16.026
             ],
-            "fence": "k11.fence.spear_on_curb",
+            "fence": "k11.fence.scroll_band",
             "entrance_gate": {
               "variant": "k11.gate.walk_gate_on_piers",
               "leaves": 2,
               "clear_m": 1.3,
-              "drawn_deg": 0
+              "drawn_deg": 70
             },
             "side_gate": {
               "variant": "k11.gate.walk_gate_on_piers",
@@ -400,7 +401,7 @@
           "sources": [
             "chicagology_1816_henderson_photo"
           ],
-          "note": "The photograph's cast-iron fence on a stone curb along the street line, its gate at the stoop's foot and a side gate onto the south yard, as K11's spear fence (its scrolled panels are the kit's spears: open on the match record). Its line is 7.4 m from the front, its curb just inside the 1904 parcel's street line (7.66 m); the lot's sides are the parcel's (data/street_grid/1904.json prairie_1816)."
+          "note": "The photograph's cast-iron fence on a stone curb along the street line, its gate at the stoop's foot and a side gate onto the south yard, as K11's scroll-band fence (T-2964: the photograph's panels are cast-iron scrollwork the full height of the fence; the kit's band of scrolls under its top rail is the nearest K11 has, the pattern the kit's). Its line is 7.4 m from the front, its curb just inside the 1904 parcel's street line (7.66 m); the lot's sides are the parcel's (data/street_grid/1904.json prairie_1816). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
         },
         "bays": {
           "value": [
@@ -492,8 +493,16 @@
               },
               "roof": {
                 "kind": "hip",
-                "pitch": 0.25,
-                "covering": "slate_pennsylvania"
+                "pitch": 0.1,
+                "covering": "slate_pennsylvania",
+                "mansard": {
+                  "rise_m": 4.4,
+                  "lower_pitch_deg": 76,
+                  "cresting": {
+                    "height_m": 0.6,
+                    "inset_m": 0.1
+                  }
+                }
               }
             },
             {
@@ -552,7 +561,7 @@
                   ]
                 },
                 {
-                  "height_m": 4.5,
+                  "height_m": 5.04,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
@@ -581,8 +590,19 @@
               ],
               "roof": {
                 "kind": "hip",
-                "pitch": 0.25,
-                "covering": "slate_pennsylvania"
+                "pitch": 0.1,
+                "covering": "slate_pennsylvania",
+                "mansard": {
+                  "rise_m": 4.0,
+                  "lower_pitch_deg": 76,
+                  "cresting": {
+                    "height_m": 0.6,
+                    "inset_m": 0.1
+                  }
+                }
+              },
+              "eaves": {
+                "cornice": "k10.cornice.bracketed_timber"
               }
             }
           ],
@@ -591,7 +611,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "chicagology_1816_henderson_photo"
           ],
-          "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. In the photograph both rise past the cornice into the mansard, the front's into a raised crown and the flank's under its own mansard with dormers; here each stops at the wall head under a slated hip (open on the match record for T-2964)."
+          "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. T-2964: in the photograph both are carried up past the cornice, the bracketed cornice run round each, into a mansard of their own: the front's a raised crown whose deck stands over the main curb, the flank's lower; each under its own iron cresting. K08's mansard bay roof (roof.mansard) builds them: 4.4 m of lower face on the front's and 4.0 m on the flank's at 76 degrees, then a deck at a tenth. The rises are read through the photograph's camera as fractions of the wall under them (the front's crown about a third of the corner's height from grade to cornice, the flank's about two-fifths), so the crown's deck stands 0.4 m over the main curb, and are good to about half a metre; the pitch is the main mansard's near enough. The dormers in the bays' own faces are not built (the match record)."
         },
         "mansard": {
           "value": {
@@ -604,45 +624,60 @@
                 "face": "street",
                 "along_m": 9.0,
                 "sash": {
-                  "variant": "k06.opening.sash_round_fanlight",
+                  "variant": "k06.opening.sash_2over2_flat",
                   "width_m": 0.8,
                   "height_m": 1.5,
                   "sill_m": 0.15
                 },
                 "surround_m": 0.15,
-                "face_setback_m": 0.15
+                "face_setback_m": 0.15,
+                "head": "gable",
+                "gable_pitch_deg": 40
               },
               {
                 "face": "street",
                 "along_m": 12.5,
                 "sash": {
-                  "variant": "k06.opening.sash_round_fanlight",
+                  "variant": "k06.opening.sash_2over2_flat",
                   "width_m": 0.8,
                   "height_m": 1.5,
                   "sill_m": 0.15
                 },
                 "surround_m": 0.15,
-                "face_setback_m": 0.15
+                "face_setback_m": 0.15,
+                "head": "gable",
+                "gable_pitch_deg": 40
               },
               {
                 "face": "south",
                 "along_m": 7.4,
                 "sash": {
-                  "variant": "k06.opening.sash_round_fanlight",
+                  "variant": "k06.opening.sash_2over2_flat",
                   "width_m": 0.8,
                   "height_m": 1.5,
                   "sill_m": 0.15
                 },
                 "surround_m": 0.15,
-                "face_setback_m": 0.15
+                "face_setback_m": 0.15,
+                "head": "gable",
+                "gable_pitch_deg": 40
               }
-            ]
+            ],
+            "deck": {
+              "cresting": {
+                "height_m": 0.6,
+                "inset_m": 0.08,
+                "sides": [
+                  "street"
+                ]
+              }
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1816_henderson_photo"
           ],
-          "note": "A slated mansard over the cornice, its lower faces steep and slightly swelling, with dormers in them: two on the street face, over the door and over the north windows, and one on the south face, where the photograph shows them (set 9.0, 12.5 and 7.4 m along their faces). The photograph's dormers are pedimented with carved cheeks; these are K05's round-headed dormers (open on the match record)."
+          "note": "A slated mansard over the cornice, its lower faces steep and slightly swelling, with dormers in them: two on the street face, over the door and over the north windows, and one on the south face, where the photograph shows them (set 9.0, 12.5 and 7.4 m along their faces). T-2964: the photograph's dormers are square-headed under pediments, built as K01's gabled dormer head (head: gable, 40 degrees; their carved cheeks are not modelled), and iron cresting runs along the curb of every deck it shows, as 1801's deck carries it (mansard.deck.cresting, K10's iron ridge cresting, its pattern the kit's): along the main deck's street curb, and round the two bays' crowns (bays). The main deck's south curb, behind the flank bay's crown, shows none in the print, and its north and rear curbs are out of the camera's sight, so none of the three carries it: about 840 triangles a metre of iron are spent only where a picture shows them."
         },
         "rear_wings": {
           "value": [
@@ -694,6 +729,39 @@
             "sanborn_1911_chicago_v3_sheet_28"
           ],
           "note": "The 1911 sheet's rear range behind the main body (s28fp-1816-b1 p2, 'rear2B': u 22.4 to 34.3 m and v 0.3 to 7.9 m in the lot's frame), two storeys under a flat tin deck; no picture shows it, so its storeys, windows and roof are reconstructed. The sheet's small step between it and the south flank (about 2.1 by 3.2 m) is left to T-2964."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.6,
+              "top_m": 0.06,
+              "wear_tone": 0.9
+            },
+            "service_walk": {
+              "surface": "cinder",
+              "to_u_m": 0.0,
+              "wear_tone": 0.78,
+              "band": "gate"
+            },
+            "grade_m": {
+              "front": 0.026,
+              "street": 0.031,
+              "per_m_s": -0.0027,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "chicagology_1816_henderson_photo",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk, the gate's width; the cinder service walk from the side gate back along the south lot line to the house's rear corner, the gate's width (the south yard is 6.6 m wide and the rest of it is left to the ground). RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
         }
       }
     }

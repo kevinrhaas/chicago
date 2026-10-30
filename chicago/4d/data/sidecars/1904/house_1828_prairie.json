@@ -1,12 +1,12 @@
 {
   "id": "house_1828_prairie",
-  "phase": "draft_1904",
-  "name": "1828 Prairie Avenue — Stone-front masonry (district draft; refined by T-1887)",
+  "phase": "as_mapped_1904",
+  "name": "1828 Prairie Avenue — Daniel B. Shipman house",
   "aka": [
     "1828 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_1828_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/house_1828_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -25,22 +25,23 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and Shipman is at 1828 in the 1904 directory (Chicagology's page). The automobile photograph (about 1897-1906) shows the house in or near 1904.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1359.081,
-    "local_n": -3313.428,
+    "local_e": 1365.981,
+    "local_n": -3313.353,
     "rotation_deg": -0.621,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 20.000, v -3.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.621 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The front block's rear south corner: lot frame u 26.90, v -3.00 (the draft's frame point u 6.90, v 0.00 through its own rotation), where the 1911 sheet's trace (s28fp-1828-b1) runs the south wall (v -2.89 to -3.01) and the round flank bay stops. The draft's fit of the sheet stands behind it (its georeference's independent check 1.47 m RMS). Rotation -0.621 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1828 S. Prairie Avenue, parcel prairie_1828 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -50,120 +51,819 @@
         0.0
       ],
       [
-        25.25,
+        19.4,
         0.0
       ],
       [
-        25.25,
-        8.25
+        19.4,
+        8.2
       ],
       [
         0.0,
-        8.25
+        8.2
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The front block read off the 1911 sheet's trace (s28fp-1828-b1) in the lot's frame: its south wall at v -3.0, its north wall at v 5.2 (8.2 m: Shipman's permit's '35x84' is the bay's width with it), the recessed north part of the front at u 46.3, and 19.4 m deep to u 26.9, so the round and canted bays on the south flank stand on it. The front's canted bay, the flank bays and the rear range (to u 19.8) stand on it as K08 bays and a K01 rear wing."
   },
   "attributes": {
     "stories": {
-      "value": 3,
-      "confidence": "attested",
+      "value": 2,
+      "confidence": "inferred",
       "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "'3B; rear2B' printed on the 1911 sheet: 3 full storeys."
+      "note": "Two wall storeys over a raised basement under a mansard: the principal storey and the foot of the second in the automobile photograph (Chicagology, about 1897), both storeys and the mansard over them in the partial view (Glessner House Museum). The 1911 sheet's '3B' counts the mansard storey, as on 1815 and 1816."
     },
     "construction": {
       "value": "brick_with_stone_front",
-      "confidence": "attested",
+      "confidence": "inferred",
       "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The register reads the map's colours as 'brick with stone front'."
+      "note": "The 1911 sheet: '3B; rear2B brick with stone front'; both photographs show a light ashlar street front (the Inter Ocean's tour: 'the light stone-front house, No. 1828'). K01 lays stone on the street front only, so the flanks and rear stand in brick, as the sheet colours them."
     },
-    "draft_plan": {
+    "principal_floor_m": {
+      "value": 2.3,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile"
+      ],
+      "note": "The principal floor about 2.3 m over grade through the automobile photograph's camera (data/reference_views/house_1828_prairie/chicagology_automobile.json, 62 px/m on the bay's front): the principal windows' sills at y 415 px (2.9 m), the sill course under them, and the basement windows below standing about 0.25-1.45 m."
+    },
+    "storey_heights_m": {
+      "value": [
+        5.6,
+        4.4
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "The principal storey about 5.6 m through the automobile photograph's camera: its windows' heads at y 195 px (6.4 m) and the second storey's sills at the top of the frame, about y 60 px (8.5 m); the second storey, about 4.4 m to the main cornice, read off the partial view (Glessner House Museum) in proportion to the principal one (that print is unscaled)."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "A stone front's thickness inside the K01 contract's range; no picture shows a reveal deep enough to read it."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "The K01 brick flank's thickness; no picture shows the flanks."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "K01 lays the flanks and the rear in brick, as the 1911 sheet colours them; buff for the light stone front beside it. No picture shows them."
+    },
+    "stone_front": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              0.0,
-              0.0,
-              25.25,
-              8.25
-            ],
-            "from": "s28fp-1828-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
-          }
+        "fabric": "limestone_lemont",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 2,
+        "coping_height_m": 0.25,
+        "corner_bond": []
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "Smooth light ashlar across the street front in the automobile photograph (Chicagology, about 1897) (it reads mottled in the smaller partial view, a print effect or weathering), its basement storey under a sill course. K02's Lemont limestone stands for the 'light stone' of the Inter Ocean's tour; the quarry is reconstructed."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k09.trim.lintel_cornice_hood",
+          "k09.trim.lintel_cornice_hood"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "Flat-headed windows under small moulded caps in both storeys, in the automobile photograph (Chicagology, about 1897) and the partial view (Glessner House Museum)."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.moulded_stone",
+        "walls": [
+          "k01.wall.side.south",
+          "k01.wall.street_front",
+          "k01.wall.side.north"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "A deep cornice on blocks at the second storey's head under the mansard's curb, in the partial view (Glessner House Museum); K10's moulded stone cornice, its blocks open in the match record."
+    },
+    "roof_form": {
+      "value": "mansard",
+      "confidence": "attested",
+      "sources": [
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "A slated mansard with dormers over the front, in the partial view (Glessner House Museum)."
+    },
+    "roof_pitch_deg": {
+      "value": 10,
+      "confidence": "reconstructed",
+      "note": "The mansard's upper deck, above every view's sight line."
+    },
+    "eave_overhang_m": {
+      "value": 0.6,
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "The cornice's projection past the front in the partial view (Glessner House Museum), about 0.5-0.7 m against the second-storey window's width."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania",
+        "paint": "black"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "Slate on the mansard's faces in the partial view (Glessner House Museum); the deck above the sight line in painted standing-seam tin, and the flashing, are reconstructed."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K06's two-over-two flat sash and area lights; the automobile photograph shows the principal windows' sash with one bar across each (two-over-two or one-over-one), not their glazing pattern."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "The stoop's treads; the photographs show the flight from its sides."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.8,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile"
+      ],
+      "note": "The porch's floor at the stoop's head, about 1.8 m out from the wall: the porch's south side in the automobile photograph (Chicagology, about 1897) holds one arch a little narrower than its front's."
+    },
+    "stoop_width_m": {
+      "value": 2.4,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "The stoop runs the porch's width between its solid stone cheeks in both photographs: about 2.4 m, the porch's front between its columns about 1.7 times the principal window's width in the automobile photograph (x 510-620 px against 300-365) and about two-thirds of the recessed north part in the partial view."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "The door at the north end of the front, in the porch beside the canted bay, in both photographs."
+    },
+    "front_bays": {
+      "value": [
+        6.1
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1828_shipman_partial",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "One opening column on the front beside the bay: the door in the porch and one second-storey window over it (in the partial view (Glessner House Museum)), on the recessed north part of the front a little south of its middle (the porch's columns at x 510 and 620 px in the automobile photograph (Chicagology, about 1897), through its camera), which the 1911 sheet's trace (s28fp-1828-b1) runs from v 1.84 to the north wall at 5.2 in the lot's frame (s 4.84-8.2 here)."
+    },
+    "side_bays": {
+      "value": [
+        13.6,
+        16.6
+      ],
+      "confidence": "reconstructed",
+      "note": "The south flank's windows between and in front of its two bays; no picture shows the flank."
+    },
+    "north_bays": {
+      "value": [
+        5.0,
+        10.0,
+        15.5
+      ],
+      "confidence": "reconstructed",
+      "note": "The north flank's windows; no picture shows the flank (1824 stands far back on its lot, so the flank is open to the street)."
+    },
+    "rear_bays": {
+      "value": [
+        4.1
+      ],
+      "confidence": "reconstructed",
+      "note": "The rear wall's window over the rear range; no picture shows the rear."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.6,
+          "width_m": 1.05,
+          "height_m": 3.5
+        },
+        {
+          "sill_above_floor_m": 0.6,
+          "width_m": 1.0,
+          "height_m": 2.6
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "The principal windows about 1.05 x 3.5 m through the automobile photograph's camera (the bay's front window at x 300-365 px, its sill and head at y 415 and 195 px); the second storey's about 1.0 x 2.6 m under the deep cornice, read off the partial view (Glessner House Museum) in proportion to them."
+    },
+    "basement_lights": {
+      "value": {
+        "sill_m": 0.25,
+        "width_m": 1.0,
+        "height_m": 0.8
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile"
+      ],
+      "note": "Basement windows under the principal ones, about 1.0 m wide, in the automobile photograph (Chicagology, about 1897); built 0.8 m high (the print reads nearer 1.0 m), so their heads meet the top of K02's two Lemont base courses."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
         ],
-        "lot_v": [
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 7.0,
+            "v_m": 1.0
+          },
+          {
+            "u_m": 13.0,
+            "v_m": 7.2
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "Two stacks on the flank walls, a K15 pair; neither photograph shows the roof's stacks."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 18.9
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 0.35
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "K01's copper gutter and two downpipes; no picture shows them."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 7.64,
+          "hood": {
+            "soffit_m": 6.0,
+            "width_m": 2.4,
+            "out_m": 1.8,
+            "fascia_m": 1.0,
+            "cornice": {
+              "height_m": 0.25,
+              "proud_m": 0.2
+            },
+            "brackets": "k08.bay.canted_hooded",
+            "railing": {
+              "height_m": 0.65,
+              "post_m": 0.3,
+              "baluster_m": 0.1,
+              "pitch_m": 0.2,
+              "rail_m": [
+                0.25,
+                0.15
+              ]
+            },
+            "columns": {
+              "diameter_m": 0.3,
+              "plinth_m": [
+                0.45,
+                0.5
+              ],
+              "capital_m": 0.35,
+              "respond_m": 0.15
+            },
+            "railing_fabric": "stone",
+            "fabric": "stone"
+          },
+          "balustrade": {
+            "height_m": 0.9,
+            "pitch_m": 0.2,
+            "newel_m": 0.36,
+            "newel_cap_m": 0.12,
+            "rail_m": [
+              0.2,
+              0.12
+            ],
+            "segments": 8,
+            "profile": [
+              [
+                0.07,
+                0.0
+              ],
+              [
+                0.07,
+                0.06
+              ],
+              [
+                0.05,
+                0.1
+              ],
+              [
+                0.045,
+                0.18
+              ],
+              [
+                0.07,
+                0.35
+              ],
+              [
+                0.075,
+                0.45
+              ],
+              [
+                0.05,
+                0.65
+              ],
+              [
+                0.036,
+                0.78
+              ],
+              [
+                0.05,
+                0.86
+              ],
+              [
+                0.06,
+                0.94
+              ],
+              [
+                0.06,
+                1.0
+              ]
+            ]
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "The porch in both photographs: columns at its front corners on the stoop's head, a deep carved entablature over them (y 140-215 px, about 1.2 m; built 1.0 m) under a cornice, and a balustrade on its flat top (y 100-140 px) under the second-storey window over it; the arches' crowns, taken as the soffit, at y 215 px, about 6.0 m over grade through the automobile photograph's camera. K01's door hood on two columns (T-2963) is the porch, laid columns, entablature and balustrade in the front's stone (T-3159's portico fabric), as both prints show it: its balustrade heavier than the joinery railing it replaced, 0.3 m posts and 0.1 m balusters under a 0.25 m rail, about 0.65 m high (the automobile print's y 100-140 px). T-3168 lays the stoop's cheeks with a turned stone balustrade on their tops, newels 0.36 m square, a little proud of the 0.3 m cheeks, at the landing and at the foot (the automobile print's turned balusters over the solid cheeks and the newel at the foot; the partial view's blocks at the foot), 0.9 m over the nosings, its balusters' turning reconstructed. The porch's round arches and third column are open in the match records; its carving is within tolerance (relief under a foot)."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 7.4,
+        "lot_s_m": [
           -3.59,
           9.59
         ],
-        "street_u": 33.945
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 70
+        },
+        "side_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "pier_s_m": -1.8,
+          "drawn_deg": 0
+        },
+        "posts": {
+          "section_m": 0.12,
+          "height_m": 1.55
+        }
       },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1828_shipman_automobile"
+      ],
+      "note": "An iron fence on a stone curb in front of the house, with turned posts, in the automobile photograph (Chicagology, about 1897). The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates and the side gate across the south passage are reconstructed. T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "front_canted",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.57,
+          "fabric": "front_stone",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -2.27,
+                0.0
+              ],
+              [
+                -0.96,
+                1.25
+              ],
+              [
+                0.96,
+                1.25
+              ],
+              [
+                2.27,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 7.9,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.85,
+                  "clear_height_m": 3.5,
+                  "sill_m": 2.9,
+                  "at": [
+                    0.163,
+                    0.837
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the automobile photograph's tall principal windows, about 3.5 m high (the bay's front window at x 300-365 px, sill y 415 and head y 195), the cheek's narrower"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.05,
+                  "clear_height_m": 3.5,
+                  "sill_m": 2.9,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the automobile photograph's tall principal windows, about 3.5 m high (the bay's front window at x 300-365 px, sill y 415 and head y 195), the cheek's narrower"
+                }
+              ]
+            },
+            {
+              "height_m": 4.14,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.85,
+                  "clear_height_m": 2.6,
+                  "sill_m": 0.6,
+                  "at": [
+                    0.163,
+                    0.837
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the partial view's second-storey windows in the bay, about 2.6 m high, in proportion to the principal ones"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.6,
+                  "sill_m": 0.6,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the partial view's second-storey windows in the bay, about 2.6 m high, in proportion to the principal ones"
+                }
+              ]
+            }
+          ],
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "slate_pennsylvania"
+          }
+        },
+        {
+          "id": "south_round",
+          "variant": "k08.bay.bowed",
+          "wall": "k01.wall.side.south",
+          "s_m": 2.5,
+          "fabric": "brick",
+          "plan": {
+            "kind": "bow",
+            "chord_m": 4.0,
+            "rise_m": 1.2
+          },
+          "storeys": [
+            {
+              "height_m": 7.9,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.9,
+                  "clear_height_m": 3.0,
+                  "sill_m": 2.9,
+                  "at_deg": [
+                    -30,
+                    0,
+                    30
+                  ],
+                  "why_not_ordinary": "a round bay's lights, reconstructed: no picture shows the flank"
+                }
+              ]
+            },
+            {
+              "height_m": 4.14,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.9,
+                  "clear_height_m": 2.5,
+                  "sill_m": 0.6,
+                  "at_deg": [
+                    -30,
+                    0,
+                    30
+                  ],
+                  "why_not_ordinary": "a round bay's lights, reconstructed: no picture shows the flank"
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0,
+            "covering": "tin_flat_seam_painted"
+          }
+        },
+        {
+          "id": "south_canted",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.side.south",
+          "s_m": 8.2,
+          "fabric": "brick",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -2.85,
+                0.0
+              ],
+              [
+                -1.92,
+                0.95
+              ],
+              [
+                1.92,
+                0.95
+              ],
+              [
+                2.85,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 7.9,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.6,
+                  "clear_height_m": 3.0,
+                  "sill_m": 2.9,
+                  "at": [
+                    0.105,
+                    0.895
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "a canted bay's cheek lights, reconstructed: no picture shows the flank"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 3.0,
+                  "sill_m": 2.9,
+                  "at": [
+                    0.35,
+                    0.65
+                  ],
+                  "why_not_ordinary": "the bay's front lights, reconstructed"
+                }
+              ]
+            },
+            {
+              "height_m": 4.14,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.6,
+                  "clear_height_m": 2.5,
+                  "sill_m": 0.6,
+                  "at": [
+                    0.105,
+                    0.895
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "a canted bay's cheek lights, reconstructed"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.5,
+                  "sill_m": 0.6,
+                  "at": [
+                    0.35,
+                    0.65
+                  ],
+                  "why_not_ordinary": "the bay's front lights, reconstructed"
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "slate_pennsylvania"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "Three K08 bays on the 1911 sheet's trace (s28fp-1828-b1), in the lot's frame: the street front's canted bay from v -2.7 to 1.84 (the sheet's from the south corner at -3.0; K01 keeps 0.3 m of pier), 1.25 m out from the recessed north part at u 46.3, its front 1.92 m (the sheet's v -1.59 to 0.33), carried through the basement and both storeys in the automobile photograph (Chicagology, about 1897) and the partial view (Glessner House Museum), with one window per storey in each cheek and in the front; on the south flank, a round bay at u 27.4-31.4 standing 1.6 m out on the sheet (K08's bow 1.2: within its range), and a stone-drawn canted bay at u 32.3-38.0, 0.95 m out. The flank bays' storeys, windows and roofs are reconstructed: no picture shows the flank. The front bay's own mansard and dormer, carried up past the cornice in the partial view, are open in the match record."
+    },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 4.5,
+        "bulge": 0.0,
+        "lower_pitch_deg": 78,
+        "dormers": [
+          {
+            "face": "street",
+            "along_m": 2.4,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 1.0,
+              "height_m": 1.9,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.2,
+            "face_setback_m": 0.15
+          },
+          {
+            "face": "street",
+            "along_m": 6.1,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 1.0,
+              "height_m": 1.9,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.2,
+            "face_setback_m": 0.15
+          }
+        ],
+        "deck": {
+          "cresting": {
+            "height_m": 0.5,
+            "inset_m": 0.08
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1828_shipman_partial"
+      ],
+      "note": "The slated mansard in the partial view (Glessner House Museum), its lower face steep and nearly straight; two street dormers, one over the canted bay and one over the porch; iron cresting along its curb. T-3168 read it through the partial view's solved camera (data/reference_views/house_1828_prairie/glessner_partial.json): the curb stands about 125-145 px over the main cornice where T-3166's 3.6 m face rendered 85, so the face is raised to 4.5 m, the most a one-storey (attic) face takes; the dormers' faces read about 1.4 m across and their lights nearly as tall as the second storey's, so each light is 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15); the cresting, a light iron railing about 0.5 m high (y 48-62 px over the curb), is K01's deck cresting. The print's dormer lights are square-headed under a curved hood; they are built round-headed, the K01 lower-face dormer that carries a curved head (the match record says so)."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_range",
+          "rect": [
+            -7.1,
+            0.0,
+            0.11,
+            8.2
+          ],
+          "floor_m": 2.3,
+          "storey_heights_m": [
+            4.0,
+            3.6
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.9
+            }
+          ],
+          "windows": {
+            "rear": [
+              2.0,
+              6.0
+            ],
+            "south": [
+              3.5
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1828-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The sheet's 'rear2B' range behind the front block, u 19.8-26.9 and v -2.89 to 5.2 in the lot's frame, two storeys under a tin deck; its heights and openings are reconstructed. The sheet's small piece behind it (u 17.8-19.8, v 1.65-4.8) is not built."
     },
-    "draft_elevation": {
+    "yard": {
       "value": {
-        "kind": "house",
-        "seed": 3453969637,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 25,
-        "mansard_lower_m": 3.0,
-        "front_bays": 3,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2329",
-          "refined_by": [
-            "T-1887"
-          ]
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        },
+        "service_walk": {
+          "surface": "cinder",
+          "to_u_m": 0.0,
+          "wear_tone": 0.78,
+          "band": "gate"
+        },
+        "grade_m": {
+          "front": 0.056,
+          "street": 0.061,
+          "per_m_s": -0.0039,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'Stone-front' overlaid with the frontage row: A stone-front house with no named form: the stone-front family's flat roof behind a cornice. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3453969637 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2329",
-        "liberty": "L-draft-prairie-18-20-west-2329",
-        "register_row": "frontage-28-041",
-        "census_ids": [
-          "s28-1828-front",
-          "s28-1828-wing"
-        ],
-        "trace_building": "s28fp-1828-b1",
-        "seed": 3453969637,
-        "replaceable_by": [
-          "T-1887"
-        ],
-        "card": "District draft — refined by T-1887."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk; the cinder service walk from the side gate back along the south lot line, the gate's width. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",
@@ -176,6 +876,41 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_1828_shipman_automobile",
+      "citation": "1828 S. Prairie Ave. About 1897. [Daniel B. Shipman house, with an electric runabout at the curb.] Unknown photographer, undated (Chicagology's caption: 'about 1897'). Reproduced on chicagology.com, Prairie Avenue, 1828 S. Prairie; the Glessner House Museum's blog reproduces the same photograph ('Prairie Avenue in 1874', June 2014).",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1828prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the street front's composition: the canted bay, its windows, the porch and its arches, the balustrade on the porch, the stoop and its cheeks",
+        "the heights of the basement, the principal floor, the principal windows and the porch through the photograph's camera",
+        "the tone of the front: a light smooth stone"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome",
+        "the second storey and the roof, which the top of the frame cuts off (the Glessner House Museum's damaged partial view, a18-gh-shipman-1828-partial, shows them: a slated mansard with dormers over the bay and over the porch; its camera is T-3168's)",
+        "the flanks, the rear and the rear range"
+      ]
+    },
+    {
+      "source_id": "glessner_blog_1828_shipman_partial",
+      "citation": "[Shipman house, 1828 S. Prairie Avenue, partial view.] Unknown photographer, undated; a damaged print. Reproduced on the Glessner House Museum's blog 'The Story of a House' ('Prairie Avenue in 1874', June 2014).",
+      "url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the second storey and the roof the automobile photograph cuts off: the mansard, its dormers, the cornice, the cresting",
+        "the bay carried up into the mansard"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome",
+        "a date",
+        "the south part of the front, the flanks and the rear"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
@@ -197,8 +932,7 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1887 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1828-b1), the T-1841 census (s28-1828-front, s28-1828-wing) and the T-1837 register row frontage-28-041 (Stone-front masonry); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
+  "research_note": "Refined from the district draft (T-2329) in place by T-3166 (piece 1 of T-1887), under the draft's own id, as a K01 stone-front house read off the automobile photograph (chicagology_1828_shipman_automobile, about 1897-1906) and the Glessner House Museum's partial view (glessner_blog_1828_shipman_partial) against the 1911 sheet's plan: the front block with its canted bay through both storeys, the porch on columns at the stoop's head, the round and canted bays on the south flank, the rear range, and the mansard. The automobile photograph's camera and match record are in data/reference_views/house_1828_prairie/; what the pictures show that is not built yet is open there for T-3168.",
   "research_doc": "",
-  "review_required": false,
-  "called": "1828 Prairie Avenue — Stone-front masonry"
+  "review_required": false
 }

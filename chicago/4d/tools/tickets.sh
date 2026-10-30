@@ -15,6 +15,15 @@
 #
 # tickets/ is .gitignored here. The clone is read-only-safe without credentials (the
 # repo is public); pushing needs the same git credentials as any other push.
+#
+# A BLOBLESS CLONE (T-3071, 2026-10-23). The tickets repo's evidence/ folder grew to
+# 2.4 GB of checkpoint archives and smoke transcripts in five days, a 1.9 GB pack that
+# every gate and steward run cloned whole. That evidence now lives in
+# kevinrhaas/chicago-evidence (nothing here clones it), but the history still carries
+# it, so the clone takes `--filter=blob:none`: every commit arrives, and file contents
+# are fetched only for what is checked out or asked for. Commits, pushes and `git log`
+# work as before; an old file's contents are one fetch away. CHICAGO_TICKETS_FULL=1
+# takes a plain full clone.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 REMOTE="${CHICAGO_TICKETS_REMOTE:-https://github.com/kevinrhaas/chicago-tickets.git}"
@@ -45,10 +54,13 @@ fi
 
 rm -rf "$DIR"
 for attempt in 1 2 3 4; do
-  if git clone --quiet "$REMOTE" "$DIR"; then
+  filter=--filter=blob:none
+  [ "${CHICAGO_TICKETS_FULL:-}" = 1 ] && filter=
+  if git clone --quiet $filter "$REMOTE" "$DIR"; then
     echo "tickets: cloned $REMOTE → $DIR/ ($(find "$DIR" -name 'T-[0-9]*.md' | wc -l | tr -d ' ') tickets)"
     exit 0
   fi
+  rm -rf -- "$DIR"   # a clone cut off part-way leaves a folder the next attempt would refuse
   sleep $((2 ** attempt))
 done
 echo "tickets: could not clone $REMOTE" >&2

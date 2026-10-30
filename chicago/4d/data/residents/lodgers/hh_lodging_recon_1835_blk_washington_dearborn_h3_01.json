@@ -21,8 +21,8 @@
    "vaughan_dow_w"
   ],
   "minted_here": 9,
-  "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
-  "withdrawn_if": "a re-cut lodging model that gives this house a smaller ordinary-night figure, or sources naming the people who actually lodged here; the retirement runs through --build, never by hand",
+  "stands_on": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
+  "withdrawn_if": "Dated evidence identifying who lodged here, or reviewed changes to the building's availability, crowding limit or town population model. A revised ordinary-night estimate alone does not name new residents.",
   "note": "BEDS, AND ONE FAMILY. 4 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 1 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper."
  },
  "household_owed": {
@@ -55,11 +55,11 @@
    "undated": true,
    "tier": "reconstructed",
    "source_id": null,
-   "note": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+   "note": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
    "basis": {
     "kind": "model",
     "id": "1835_lodging_model",
-    "note": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+    "note": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation."
    },
    "replaceable_by": {
     "kind": "person",
@@ -126,7 +126,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/10_19/south/lodging/trade",
-    "note": "The book's bucket persons/male/10_19/south/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/male/10_19/south/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:recon_1835_blk_washington_dearborn_h3_01:keeper:001:forename",
    "replaceable_by": {
@@ -201,7 +201,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/40_49/south/lodging/none",
-    "note": "The book's bucket persons/male/40_49/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/male/40_49/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:recon_1835_blk_washington_dearborn_h3_01:male:40_49:001:forename",
    "replaceable_by": {
@@ -220,7 +220,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 12) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_lyman_elisha",
@@ -266,7 +266,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/50_plus/south/lodging/none",
-    "note": "The book's bucket persons/male/50_plus/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/male/50_plus/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:recon_1835_blk_washington_dearborn_h3_01:male:50_plus:002:forename",
    "replaceable_by": {
@@ -285,7 +285,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 12) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_cardinal_antoine",
@@ -331,7 +331,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/50_plus/south/lodging/none",
-    "note": "The book's bucket persons/male/50_plus/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/male/50_plus/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:recon_1835_blk_washington_dearborn_h3_01:male:50_plus:003:forename",
    "replaceable_by": {
@@ -350,7 +350,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 12) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_mccarthy_patrick",
@@ -468,7 +468,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/female/10_19/south/lodging/none",
-    "note": "The book's bucket persons/female/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/female/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:youth_top_up:recon_1835_blk_washington_dearborn_h3_01:female:10_19:001:forename",
    "replaceable_by": {
@@ -487,7 +487,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 12) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
    "dealt_by": {
     "ticket": "T-1536",
     "note": "Dealt by the top-up, after every other draw this stage makes, out of the book's order as it stood when the top-up was recorded — see `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json."
@@ -537,7 +537,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/female/10_19/south/lodging/none",
-    "note": "The book's bucket persons/female/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/female/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:youth_top_up:recon_1835_blk_washington_dearborn_h3_01:female:10_19:002:forename",
    "replaceable_by": {
@@ -556,7 +556,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 12) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
    "dealt_by": {
     "ticket": "T-1536",
     "note": "Dealt by the top-up, after every other draw this stage makes, out of the book's order as it stood when the top-up was recorded — see `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json."
@@ -606,7 +606,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/female/10_19/south/lodging/none",
-    "note": "The book's bucket persons/female/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/female/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:youth_top_up:recon_1835_blk_washington_dearborn_h3_01:female:10_19:003:forename",
    "replaceable_by": {
@@ -625,7 +625,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 12) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
    "dealt_by": {
     "ticket": "T-1536",
     "note": "Dealt by the top-up, after every other draw this stage makes, out of the book's order as it stood when the top-up was recorded — see `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json."
@@ -675,7 +675,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/10_19/south/lodging/none",
-    "note": "The book's bucket persons/male/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/male/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_dearborn_h3_01's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:youth_top_up:recon_1835_blk_washington_dearborn_h3_01:male:10_19:001:forename",
    "replaceable_by": {
@@ -694,7 +694,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 12 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 12) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
    "dealt_by": {
     "ticket": "T-1536",
     "note": "Dealt by the top-up, after every other draw this stage makes, out of the book's order as it stood when the top-up was recorded — see `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json."

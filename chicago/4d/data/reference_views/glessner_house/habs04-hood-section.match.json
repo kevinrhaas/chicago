@@ -2,10 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs04-hood-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "ef60e946008b3242884615f80baea34c35ee832c4b760be6de5ebab8372e4da4",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "1f76d223ece9f5501fd8d70d9e23282213d62971a12fb5efc6c65de2247ba249",
+  "photo_sha256": "eaf3d363e02df67688c6c18cbc3653a9d291246a4c5fdc65bfba4109b088dd46",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Actual master reviewed: raising the bow eave from26.5 to27.33ft removes the former approximately0.25m vertical offset. Low planar copper slopes, attached seams and closed host intersections remain.",
@@ -20,13 +21,13 @@
       "status": "fixed"
     },
     {
-      "what": "Not recorded before T-2861: the court-bow leader at the hood's north end. Sheet 4 draws it dropping from the trough at about S26.95 to 26.56 ft and offsetting north to S26.54 at 25.8 ft, with a ring at S26.45, 26.55 ft; the build's box leader drops about 0.5 ft further north, with no ring. T-2939 owns it.",
-      "status": "open"
+      "what": "Not recorded before T-2861: the court-bow leader at the hood's north end. Sheet 4 draws it dropping from the trough at about S26.95 to 26.56 ft and offsetting north to S26.54 at 25.8 ft, with a ring at S26.45, 26.55 ft; the build's box leader drops about 0.5 ft further north, with no ring. T-2939 owns it. T-2939: read on the native sheet, the line is the front of a head drawn side-on, not the pipe offsetting: its back stays on the north range's court-face line (S26.2) from the trough's floor down, its front runs at S26.95 from 27.04 to 26.56 ft and then steps in to the pipe's front at S26.53 by 25.8 ft, so the pipe stands 0.33 ft (0.10 m) deep on that wall: the 100 mm side of the 160 x 100 mm stock, its broad face looking south. Built so: on the render the head's front runs at S26.95 from about 27.13 to 26.6 ft and meets the pipe at S26.53 by about 25.85 ft, the 0.05-0.1 ft high that is the section/eave datum T-2228 records; the pipe's front is at S26.53, and the old drop's box north of the wall line is gone. The ring (0.37 ft across, centred S26.47, 26.37 ft) and the small stud (0.12 ft, S26.72, 26.71 ft) drawn on the head's side are built as shallow round bosses on its west face; square to this camera and in the head's own finish they do not separate on the render, and what they are stays reconstructed.",
+      "status": "fixed"
     },
     {
       "what": "Exact copper stock, sheet subdivision and1904 patina are reconstructed; the monochrome section cannot establish them.",
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

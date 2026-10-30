@@ -161,6 +161,7 @@ from archetypes.frame_dwelling_params import from_phase as _frame_dwelling_param
 from archetypes.frame_storefront_params import from_phase as _storefront_params  # noqa: E402
 from archetypes.log_dwelling_params import from_phase as _log_dwelling_params  # noqa: E402
 from archetypes.outbuilding_params import from_phase as _outbuilding_params  # noqa: E402
+from archetypes.fort_structure_params import from_phase as _fort_params  # noqa: E402
 
 # The scene, and the phase of each record that stands on it.
 TARGET_DATE = "1835-07-01"
@@ -169,6 +170,7 @@ _RESOLVERS = {
     "frame_storefront": _storefront_params,
     "log_dwelling": _log_dwelling_params,
     "outbuilding": _outbuilding_params,
+    "fort_structure": _fort_params,
 }
 SIDECARS = DATA / "sidecars" / "1835"
 STRUCTURES = DATA / "structures"

@@ -24,6 +24,16 @@ WHAT IS INVENTED, and recorded as liberty L-prairie-parkway-elms-2473: every pos
 the 30-ft spacing and its jitter, the share of young trees and gaps, the elms on every
 face beyond the Prairie Avenue blocks the pictures show, and the setback of 10.5 m from each face's end (the
 parkway runs on to the cross street's curb, so about 6 m past that street's line). Deterministic: one seed per face, so a re-run plants the same trees.
+
+WHERE A PICTURE PLACES THE TREES (T-1934). data/street_trees/pictured_1904.json names stretches
+of a face's parkway that solved pictures see. On a stretch the rule's trees are withdrawn and the
+trees read off the pictures stand in their place, each at its distance along the same planting
+line; a stretch with no tree in it is a reading too. The rule's draws are taken all the same, so
+every tree off a stretch keeps its place. Pictured trees are ids `<face>#pNN`, marked
+`"placed": "pictured"`, their crowns drawn from their own seed. 1729 Prairie's 18th Street
+(L-pullman-18th-street-trees-1934) is the first. A pictured tree may carry a `scale` read off
+its trunk's width in a picture (T-3164: the renderer's elm draws its bole about 0.66 m across at
+scale 1); without one its scale is drawn like any other tree's.
 """
 from __future__ import annotations
 
@@ -38,6 +48,7 @@ ROOT = Path(__file__).resolve().parent.parent
 GRID = ROOT / "data" / "street_grid" / "1904.json"
 SECTION = ROOT / "data" / "street_section" / "1904.json"
 OUT = ROOT / "data" / "street_trees" / "1904.json"
+PICTURED = ROOT / "data" / "street_trees" / "pictured_1904.json"
 
 FT = 0.3048
 SPACING_M = 30 * FT          # about 30 ft between trees, the photograph's rhythm
@@ -133,10 +144,47 @@ def walk_marks(pts, acc, walks):
     return out
 
 
-def plant(grid, walks_by_face=None):
+def pictured_trees(face_id, pts, acc, stretch, views=None, liberty="", first=0):
+    """The trees a picture places on one stretch of a face (T-1934). `first` numbers them on
+    from the face's earlier stretches (T-1881: 18th Street's north parkway has two), so every
+    id stays unique."""
+    views = views or {}
+    out = []
+    for k, t in enumerate(sorted(stretch["trees"], key=lambda t: t["at_m"]), start=first):
+        s = t["at_m"]
+        if not (stretch["from_m"] <= s <= stretch["to_m"] and 0.0 <= s <= acc[-1]):
+            raise ValueError(f"{face_id}: pictured tree at {s} m is off its stretch or its face")
+        r = rng(f"T-1934|{face_id}|{s}")
+        (e, nn), _ = at(pts, acc, s)
+        young = t["kind"] == "young"
+        variant, yaw = int(r() * VARIANTS), round(r() * 360, 1)
+        drawn = (0.42 + r() * 0.16) if young else (0.88 + r() * 0.22)
+        out.append({
+            "id": f"{face_id}#p{k:02d}",
+            "face": face_id,
+            "e": round(e, 2),
+            "n": round(nn, 2),
+            "kind": t["kind"],
+            "variant": variant,
+            "yaw_deg": yaw,
+            # a trunk measured in a picture sets the scale (T-3164); the draw is taken all the same
+            "scale": round(t.get("scale", drawn), 3),
+            "placed": "pictured",
+            "sources": sorted({views[r.split(" ")[0]]["source_id"] for r in t["read"]
+                               if r.split(" ")[0] in views}),
+            "note": " ".join(["Read off " + "; ".join(t["read"]) + "."]
+                             + ([t["note"]] if t.get("note") else []) + ([liberty] if liberty else [])),
+        })
+    return out
+
+
+def plant(grid, walks_by_face=None, pictured=None):
     trees = []
     faces_out = []
     walks_by_face = walks_by_face or {}
+    stretches = {}
+    for st in (pictured or {}).get("stretches", []):
+        stretches.setdefault(st["face"], []).append(st)
     for face in grid["faces"]:
         quads = face["bands"].get("parkway") or []
         if not quads:
@@ -168,7 +216,7 @@ def plant(grid, walks_by_face=None):
                 continue
             (e, nn), bearing = at(pts, acc, s)
             young = pick > 1 - YOUNG_SHARE
-            trees.append({
+            tree = {
                 "id": f"{face['id']}#{i:02d}",
                 "face": face["id"],
                 "e": round(e, 2),
@@ -177,8 +225,20 @@ def plant(grid, walks_by_face=None):
                 "variant": int(r() * VARIANTS),
                 "yaw_deg": round(r() * 360, 1),
                 "scale": round((0.42 + r() * 0.16) if young else (0.88 + r() * 0.22), 3),
-            })
+            }
+            # a pictured stretch withdraws the rule's tree only after its draws, so the
+            # face's other trees keep their places
+            if any(st["from_m"] <= s <= st["to_m"] for st in stretches.get(face["id"], [])):
+                continue
+            trees.append(tree)
             planted += 1
+        first = 0
+        for st in sorted(stretches.get(face["id"], []), key=lambda st: st["from_m"]):
+            got = pictured_trees(face["id"], pts, acc, st, (pictured or {}).get("views"),
+                                 (pictured or {}).get("liberty", ""), first)
+            first += len(got)
+            trees.extend(got)
+            planted += len(got)
         faces_out.append({"face": face["id"], "street": face["street"], "length_m": round(length, 1),
                           "trees": planted,
                           "alley_mouths": [x[2] for x in blocked]})
@@ -191,7 +251,13 @@ def build():
     if SECTION.exists():
         for w in json.loads(SECTION.read_text())["carriage_walks"]["walks"]:
             walks_by_face.setdefault(w["face"], []).append(w)
-    trees, faces = plant(grid, walks_by_face)
+    pictured = json.loads(PICTURED.read_text()) if PICTURED.exists() else None
+    if pictured:
+        known = {f["id"] for f in grid["faces"]}
+        for st in pictured["stretches"]:
+            if st["face"] not in known:
+                raise ValueError(f"pictured_1904.json: no face {st['face']} in the grid")
+    trees, faces = plant(grid, walks_by_face, pictured)
     return {
         "_doc": ("The 1904 Prairie Avenue district's parkway trees (T-2473). GENERATED by "
                  "tools/plant_prairie_1904_street_trees.py from the parkway bands of "
@@ -225,7 +291,10 @@ def build():
             "young_share": YOUNG_SHARE,
             "gap_share": GAP_SHARE,
             "variants": VARIANTS,
-            "note": ("Every position is reconstructed: one file per face at about 30 ft, nearer the "
+            "pictured": ("data/street_trees/pictured_1904.json: stretches whose trees are read off "
+                         "solved pictures and stand in place of the rule's (T-1934, "
+                         "L-pullman-18th-street-trees-1934)."),
+            "note": ("Every position off a pictured stretch is reconstructed: one file per face at about 30 ft, nearer the "
                      "curb than the walk, kept 10.5 m from each face's end (about 6 m past the cross street's line) and 3.5 m of an alley mouth, "
                      "with about one young replacement tree in twelve and one gap in twenty-five, as "
                      "the photographs show such a file. Faces beyond the Prairie Avenue blocks the "

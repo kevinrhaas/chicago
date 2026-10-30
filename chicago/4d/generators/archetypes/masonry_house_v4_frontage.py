@@ -230,6 +230,12 @@ def passage_ground(params):
     ramp = court_ramp(params)
     if ramp:
         pieces.append((ramp['pts'], ramp['z']))
+    # T-2978: the court ground's fall to the mouth, under its lawn, walk and drive. The
+    # ramp is listed first, so where the two overlap the walk reads the ramp's paving.
+    from archetypes.masonry_house_v4_ground import fall_quads
+    turf = (params.detail.get('court_ground') or {}).get('turf_lift_m', 0.0)
+    for pts, zs in fall_quads(params):
+        pieces.append((pts, [turf + z for z in zs]))
     return [{'pts': [tuple(round(v, 4) for v in pt) for pt in pts], 'z': [round(z, 4) for z in zs]}
             for pts, zs in pieces]
 
@@ -251,4 +257,8 @@ def court_ramp(params):
         t = run / math.dist(a, c)
         return (a[0]+(c[0]-a[0])*t, a[1]+(c[1]-a[1])*t)
     zc, zd = f['passage_court_z'], drive['lift_m']
-    return {'pts': [tuple(m0), along(m0, a1), along(m1, b1), tuple(m1)], 'z': [zc, zd, zd, zc]}
+    pts = [tuple(m0), along(m0, a1), along(m1, b1), tuple(m1)]
+    # T-2978: it rises to the drive where the court's fall has sunk the drive.
+    from archetypes.masonry_house_v4_ground import fall_height
+    h = fall_height(params)
+    return {'pts': pts, 'z': [zc, zd + h(*pts[1]), zd + h(*pts[2]), zc]}

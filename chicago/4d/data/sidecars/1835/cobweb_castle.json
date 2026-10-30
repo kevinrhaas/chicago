@@ -24,7 +24,8 @@
       "andreas_1884_v1",
       "kinzie_waubun_1856"
     ],
-    "note": "THE START IS THE COMPLETION OF A BUILDING SOMEBODY ELSE BEGAN. Andreas's chronology enters \"'Cobweb Castle,' completed by Dr. Wolcott\" against 1820, the year Wolcott was appointed agent, and his narrative says Wolcott 'finished and resided in a building commenced during Judge Jouett's incumbency' — Jouett was agent 1816-18. So the fabric is older than 1820 by up to four years and this range does not claim the earlier part. THE FORM THIS RECORD MODELS IS LATER STILL: the centre, two wings and two tails are Wau-Bun's description of 1831, and Wau-Bun says in as many words that the wings and tails were ADDITIONS made when 'there was found no more room for additions at the sides'. A record that split those additions into phases would have to invent their dates; instead the phase runs from 1820 and carries the 1831 form throughout, which overstates the building's size in the 1820s. THE END OF THE RANGE IS THE HONEST MINIMUM AND IT IS THE WEAKEST THING HERE. No source reached gives this building a fate. It is on this project's own watch_list in data/exclusions.json for that reason: standing and in civilian occupation in the autumn of 1832, when Andreas has Colonel Hamilton residing in 'the old Indian agency-house', and nothing after. The agency itself wound down through the 1833 treaty and the 1835 removal, and an agency house whose agency has gone is exactly the kind of building that comes down without anyone writing it down. Presence on 1835-07-01 is an inference from continuity, not a finding. If evidence turns up that it was gone, this record leaves the scene and moves to data/exclusions.json."
+    "note": "THE START IS THE COMPLETION OF A BUILDING SOMEBODY ELSE BEGAN. Andreas's chronology enters \"'Cobweb Castle,' completed by Dr. Wolcott\" against 1820, the year Wolcott was appointed agent, and his narrative says Wolcott 'finished and resided in a building commenced during Judge Jouett's incumbency' — Jouett was agent 1816-18. So the fabric is older than 1820 by up to four years and this range does not claim the earlier part. THE FORM THIS RECORD MODELS IS LATER STILL: the centre, two wings and two tails are Wau-Bun's description of 1831, and Wau-Bun says in as many words that the wings and tails were ADDITIONS made when 'there was found no more room for additions at the sides'. A record that split those additions into phases would have to invent their dates; instead the phase runs from 1820 and carries the 1831 form throughout, which overstates the building's size in the 1820s. THE END OF THE RANGE IS THE HONEST MINIMUM AND IT IS THE WEAKEST THING HERE. No source reached gives this building a fate. It is on this project's own watch_list in data/exclusions.json for that reason: standing and in civilian occupation in the autumn of 1832, when Andreas has Colonel Hamilton residing in 'the old Indian agency-house', and nothing after. The agency itself wound down through the 1833 treaty and the 1835 removal, and an agency house whose agency has gone is exactly the kind of building that comes down without anyone writing it down. Presence on 1835-07-01 is an inference from continuity, not a finding. If evidence turns up that it was gone, this record leaves the scene and moves to data/exclusions.json.",
+    "from_is": "began"
   },
   "change_note": "The United States Indian Agency house on the north bank as Wau-Bun describes it in 1831: hewn squared log, a centre with two wings and two rear tails, clapboarded part way up at some point after 1823, standing at the foot of State Street with its front to the river and — by 1831 — a platted street opened across its back. The changes of occupancy after Wolcott's death in 1830 are changes of USE and do not open new phases.",
   "placement": {
@@ -130,7 +131,7 @@
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "PLACEHOLDER. THE SHAPE CARRIES EVIDENCE AND EVERY NUMBER IN IT IS INVENTED, and the two must not be confused — the same distinction miller_house's footprint note draws. What is attested is the composition, from the only description of this building anybody wrote: 'a substantial, compact little building of logs hewed and squared, with a centre, two wings, and, strictly speaking, two tails, since, when there was found no more room for additions at the sides, they were placed in the rear, whereon a vacant spot could be found. These appendages did not mar the symmetry of the whole, as viewed from the front.' This polygon is that sentence drawn: a centre block projecting one metre forward of two flanking wings, so the front reads symmetrical, and two tails running back from the rear of the centre. The dimensions — a 5 m centre, 4 m wings, 1.5 m tails, a 13 x 9 m envelope — are chosen to suit the words 'compact little building' and are supported by nothing. Mrs. Callis's 'two large rooms' describes the house in 1816, before the wings and tails, and is the only interior evidence of any kind. NOTE WHAT THE MESH DOES WITH THIS: the log_dwelling archetype masses the polygon's BOUNDING BOX, so the visitor sees a plain 13 x 9 m rectangle and the composition this polygon draws is not built — the re-entrant corners beside the tails and beside the wings are filled in. That is admitted in docs/LIBERTIES.md rather than hidden, and it is the same limitation L27 records for Miller's house. To resolve: any plan, any dimension, or the Chicago Democrat's advertisements for the agency's buildings."
+    "note": "PLACEHOLDER. THE SHAPE CARRIES EVIDENCE AND EVERY NUMBER IN IT IS INVENTED, and the two must not be confused — the same distinction miller_house's footprint note draws. What is attested is the composition, from the only description of this building anybody wrote: 'a substantial, compact little building of logs hewed and squared, with a centre, two wings, and, strictly speaking, two tails, since, when there was found no more room for additions at the sides, they were placed in the rear, whereon a vacant spot could be found. These appendages did not mar the symmetry of the whole, as viewed from the front.' This polygon is that sentence drawn: a centre block projecting one metre forward of two flanking wings, so the front reads symmetrical, and two tails running back from the rear of the centre. The dimensions — a 5 m centre, 4 m wings, 1.5 m tails, a 13 x 9 m envelope — are chosen to suit the words 'compact little building' and are supported by nothing. Mrs. Callis's 'two large rooms' describes the house in 1816, before the wings and tails, and is the only interior evidence of any kind. NOTE WHAT THE MESH DOES WITH THIS: the log_dwelling archetype masses the polygon's BOUNDING BOX, so the visitor sees a plain 13 x 9 m rectangle and the composition this polygon draws is not built — the re-entrant corners beside the tails and beside the wings are filled in. That is admitted in docs/LIBERTIES.md rather than hidden, and it is the same limitation L27 records for Miller's house. To resolve: any plan, any dimension, or the Chicago Democrat's advertisements for the agency's buildings. T-2374 SUPERSESSION: the opt-in the connected room layout now builds five rooms whose union is this polygon, rather than its bounding box. The preceding paragraph describes the prior mesh limitation; its dimension and date cautions still apply."
   },
   "attributes": {
     "construction": {
@@ -157,8 +158,8 @@
       "sources": [
         "kinzie_waubun_1856"
       ],
-      "note": "Wau-Bun's phrase, kept verbatim as a value because it is the single best-attested fact about this building and because the footprint polygon that draws it is not what the mesh is built from. The record states the composition; the model shows a rectangle.",
-      "geometry": "absent"
+      "note": "Wau-Bun's phrase, kept verbatim as a value because it is the single best-attested fact about this building and because the footprint polygon that draws it is not what the mesh is built from. The record states the composition; the model shows a rectangle. T-2374: the centre, wings and tails are now represented by the connected room layout; the preceding rectangle limitation is historical. Their exact arrangement and intersecting gables remain reconstructed.",
+      "geometry": "simplified"
     },
     "stories": {
       "value": 1,
@@ -173,17 +174,114 @@
     "roof_type": {
       "value": "gable",
       "confidence": "reconstructed",
-      "note": "THE ONE THING WAU-BUN SAYS ABOUT THIS ROOF IS THAT IT WAS NOT ORDINARY: 'There were pleasant, happy hours passed under its odd-shaped roof.' Odd-shaped is what a centre with two wings and two tails produces — a roof of intersecting ridges, valleys and lean-tos that grew with the additions. The archetype builds one gable over one rectangle, so the model shows the opposite of what the source says, and the value is tagged conjectural because a gable here is a substitution rather than a reading. Left as `gable` rather than `shed` because a gable is the only one of the two forms this archetype offers that a log building of this size would carry."
+      "note": "THE ONE THING WAU-BUN SAYS ABOUT THIS ROOF IS THAT IT WAS NOT ORDINARY: 'There were pleasant, happy hours passed under its odd-shaped roof.' Odd-shaped is what a centre with two wings and two tails produces — a roof of intersecting ridges, valleys and lean-tos that grew with the additions. The archetype builds one gable over one rectangle, so the model shows the opposite of what the source says, and the value is tagged conjectural because a gable here is a substitution rather than a reading. Left as `gable` rather than `shed` because a gable is the only one of the two forms this archetype offers that a log building of this size would carry. T-2374: the connected room layout replaces the former single gable with intersecting gables; no elevation establishes that this reconstructed roof matches the odd-shaped original."
     },
     "roof_pitch_deg": {
       "value": 35.0,
       "confidence": "inferred",
-      "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low log building roofed in riven shakes. Inferred from construction practice, not measured, and inherited by a roof form the record has already said is wrong (see roof_type)."
+      "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low log building roofed in riven shakes. Inferred from construction practice, not measured, and inherited by a roof form the record has already said is wrong (see roof_type). T-2374 retains this pitch for each reconstructed compound roof."
     },
     "chimneys": {
       "value": 2,
       "confidence": "inferred",
-      "note": "Not attested. Two is inferred from the plan the sources give rather than from the building: a centre with two wings, holding the agent's office and household — in 1831 that household was J. H. Kinzie's mother, two sisters and brother as well — is more rooms than one hearth heats through a Chicago winter. The COUNT is the inference; where the stacks stand, how big they are and what they are made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26."
+      "note": "Not attested. Two is inferred from the plan the sources give rather than from the building: a centre with two wings, holding the agent's office and household — in 1831 that household was J. H. Kinzie's mother, two sisters and brother as well — is more rooms than one hearth heats through a Chicago winter. The COUNT is the inference; where the stacks stand, how big they are and what they are made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26. T-2374 retains the inferred count but chooses the outer wing gable ends, with reconstructed positions and inherited sections, rather than the former bbox gable ends."
+    },
+    "compound_parts": {
+      "value": [
+        {
+          "wall_rect": [
+            4,
+            3,
+            9,
+            9
+          ],
+          "roof_rect": [
+            4,
+            3,
+            9,
+            9
+          ],
+          "ridge_axis": "y",
+          "front_opening": "door"
+        },
+        {
+          "wall_rect": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "roof_rect": [
+            0,
+            4,
+            6.5,
+            8
+          ],
+          "ridge_axis": "x",
+          "front_opening": "window"
+        },
+        {
+          "wall_rect": [
+            9,
+            4,
+            13,
+            8
+          ],
+          "roof_rect": [
+            6.5,
+            4,
+            13,
+            8
+          ],
+          "ridge_axis": "x",
+          "front_opening": "window"
+        },
+        {
+          "wall_rect": [
+            4.5,
+            0,
+            6,
+            3
+          ],
+          "roof_rect": [
+            4.5,
+            0,
+            6,
+            3
+          ],
+          "ridge_axis": "y",
+          "front_opening": null
+        },
+        {
+          "wall_rect": [
+            7,
+            0,
+            8.5,
+            3
+          ],
+          "roof_rect": [
+            7,
+            0,
+            8.5,
+            3
+          ],
+          "ridge_axis": "y",
+          "front_opening": null
+        }
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "T-2374 first massing increment: Wau-Bun's centre, two wings and two rear tails now become five connected log rooms. Wall rectangles exactly partition the already reconstructed footprint; every dimension remains invented. Wing roofs extend to the centre ridge to conceal internal gable ends, giving intersecting roof planes. All five eaves inherit the inferred 2.6 m wall height. Roof directions, extensions, junctions, one central front door, one window on each wing, and both outer-wing stack positions are reconstructed, not read from the small retrospective panorama. No pictured opening count, roof pitch, valley detail, finish or 1835 continuation is established. This does not settle the agency-house identification in the panorama or constitute an image match. See L-cobweb-compound-2374."
+    },
+    "chimney_head_m": {
+      "value": 5.05,
+      "confidence": "reconstructed",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "T-3081: both outer-wing chimney heads are reconstructed at 5.05 m above grade. The unchanged 2.6 m eaves, 35-degree pitch and stated roof rectangles put the central ridge at about 4.526 m and each wing ridge at about 4.175 m. The heads therefore stand about 0.524 m above the highest roof and 0.875 m above their own wing roofs. This leaves a margin above the project's eighteen-inch (0.4572 m) clearance floor, drawn from section 18 of the 5 August 1835 by-law printed on 19 August (chicago_democrat_1835_08_19#c005 within the cited newspaper corpus). It is a declared construction choice, not a measured or pictured height or proof that this agency building complied in July 1835. Stack count, outer-wing positions, sections, roofs, occupied footprint and placement remain unchanged; T-2374's image gate remains open."
     },
     "function": {
       "value": "agency_house_residence",
@@ -280,6 +378,34 @@
       "archived_url": "",
       "tier": 3,
       "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
     },
     {
       "source_id": "kinzie_waubun_1856",

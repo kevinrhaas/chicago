@@ -68,6 +68,14 @@
  * branch put the town over?"), and a southern stand that is over is a finding for
  * T-1148 to argue, not a red this tool may declare on a branch that never went there.
  *
+ * `--district` (T-2992) READS 1904 INSTEAD: the scene on Prairie Avenue, at the stand
+ * `tools/qa_draft_t2982.mjs` calls `air` — 110 m over 20th Street, looking north up the
+ * district to Prairie and 18th — where the phone's `light` read 1,323,370 triangles
+ * against its 1,270,000 and nothing in this sweep stood. The 1835 stands are anchors
+ * and poses of the 1835 town and mean nothing in 1904, so `--district` replaces them
+ * rather than adding to them, boots `?year=1904` unless DETAIL_YEAR says otherwise, and
+ * gives the district its own verdict line and its own count at the foot.
+ *
  * `--price` (T-1674) ANSWERS THE OTHER END OF THE PARCEL. Everything above reads a
  * town that has already been built: the reading is taken after the deal, after the
  * generators and after the bake, which is the wrong end of a parcel to discover a
@@ -157,11 +165,12 @@ const wantStepped = process.argv.includes('--stepped');
 const wantSouth = process.argv.includes('--south');
 const wantTown = process.argv.includes('--town');
 const wantFlora = process.argv.includes('--flora');
+const wantDistrict = process.argv.includes('--district');
 const shotsDir = argAt('--shots');
 const jsonOut = argAt('--json');
 const against = argAt('--against');
 const ONLY = argAt('--only') || 'desktop';
-const YEAR = process.env.DETAIL_YEAR || '1835';
+const YEAR = process.env.DETAIL_YEAR || (wantDistrict ? '1904' : '1835');
 // T-1674. `--from` re-prices a reading this tool already wrote, with no browser at
 // all, because the whole point of pricing before a deal is that it has to be cheaper
 // than the deal. It implies `--price`.
@@ -243,6 +252,16 @@ const TOWN = [
     label: 'South Water St store fronts, from the street',
     pose: { local_e: 501, local_n: 12, yaw_deg: 180, pitch_deg: -4 } },
 ];
+// T-2992. 1904, from the air over the district: `tools/qa_draft_t2982.mjs`'s `air`
+// stand (eye 1360,-3620 at 110 m, looking at 1300,-3480 on the ground), turned into
+// the bearing and pitch a walker pose takes. Read through the walker rather than a
+// camera set by hand, so it can differ from that tool's figure by the eye's few
+// centimetres; both are recorded in docs/RESEARCH/railway-reach-2992/.
+const DISTRICT = [
+  { id: 'district_air', kind: 'pose',
+    label: '1904: the air over 20th St, looking north',
+    pose: { local_e: 1360, local_n: -3620, altitude_m: 110, yaw_deg: -23.2, pitch_deg: -35.8 } },
+];
 // `--stands a,b` keeps only the named stands, for a reading that has to fit one
 // 600 s foreground call: on a four-core runner one tier at eight stands with
 // `--flora` is about that long (T-2084). A verdict over a filtered set is printed
@@ -255,7 +274,8 @@ const standFilter = argAt('--stands')?.split(',').filter(Boolean) ?? null;
 const levelFilter = argAt('--levels')?.split(',').filter(Boolean) ?? null;
 const mirrorDir = argAt('--mirror');
 const treeName = argAt('--tree');
-const STANDS = [...DOWNTOWN, ...(wantSouth ? SOUTH : []), ...(wantTown ? TOWN : [])]
+const STANDS = (wantDistrict ? DISTRICT
+  : [...DOWNTOWN, ...(wantSouth ? SOUTH : []), ...(wantTown ? TOWN : [])])
   .filter((st) => !standFilter || standFilter.includes(st.id));
 
 const VIEWPORTS = [
@@ -720,6 +740,7 @@ await browser.close();
 
 let over = 0;
 let southOver = 0;
+let districtOver = 0;
 for (const vp of VIEWPORTS) {
   console.log(`================  ${vp.label}  ================`);
   for (const level of results[0].passes.find((p) => p.viewport === vp.label)
@@ -748,6 +769,12 @@ for (const vp of VIEWPORTS) {
     console.log(`\n${level}  ceiling ${num(mine.ceiling)}  ` + (worst
       ? `worst ${num(worst.tris)} at ${worst.label}  — ${worst.verdict}`
       : 'the downtown stands were filtered out — no verdict'));
+    const d1 = wantDistrict ? groupWorst(DISTRICT) : null;
+    if (d1) {
+      districtOver += d1.tris > mine.ceiling ? 1 : 0;
+      console.log(`${' '.repeat(level.length)}  the 1904 district        `
+        + `worst ${num(d1.tris)} at ${d1.label}  — ${d1.verdict}`);
+    }
     const t3 = wantTown ? groupWorst(TOWN) : null;
     if (t3) {
       console.log(`${' '.repeat(level.length)}  the in-town three        `
@@ -791,6 +818,11 @@ if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify(results, null, 2)}\n`);
 if (wantPrice) priceReport(results, parseDeal(dealArg));
 console.log(`\n${over === 0 ? 'every tier inside its ceiling'
   : `${over} tier(s) OVER — the gate is tools/smoke_renderer.mjs, this only reports`}`);
+if (wantDistrict) {
+  console.log(districtOver === 0
+    ? 'the 1904 district is inside its ceilings'
+    : `the 1904 district is over at ${districtOver} tier(s)`);
+}
 if (wantSouth) {
   console.log(southOver === 0
     ? 'the southern four are inside the same ceilings'

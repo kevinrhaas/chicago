@@ -1,0 +1,1903 @@
+{
+  "reference_material_glb_sha256": "0138ad2565f3e8b08029ef788c5196c65c80c79643313e944c726b993ff31ee4",
+  "schema": "original_w01_chart_mapping_v1",
+  "scope": "Original author-time mapping and numerical metrics retained with the exact authored charts; not newly recomputed production measurements",
+  "source_mapping": [
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "floor_plank_00",
+      "physical_chart_anisotropy": 1.732050807568824,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "floor_plank_02",
+      "physical_chart_anisotropy": 1.7320508075687975,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "floor_plank_04",
+      "physical_chart_anisotropy": 1.7320508075688106,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "floor_plank_06",
+      "physical_chart_anisotropy": 1.7320508075687975,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "side_-1_course_0",
+      "physical_chart_anisotropy": 1.732050807568771,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "side_-1_course_2",
+      "physical_chart_anisotropy": 1.732050807568771,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "side_1_course_0",
+      "physical_chart_anisotropy": 1.732050807568771,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "side_1_course_2",
+      "physical_chart_anisotropy": 1.732050807568771,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "end_-1.525_course_0",
+      "physical_chart_anisotropy": 1.7320508075689307,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "end_-1.525_course_2",
+      "physical_chart_anisotropy": 1.7320508075689307,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "end_1.525_course_0",
+      "physical_chart_anisotropy": 1.7320508075689307,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_a",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "end_1.525_course_2",
+      "physical_chart_anisotropy": 1.7320508075689307,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "floor_plank_01",
+      "physical_chart_anisotropy": 1.7320508075687975,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "floor_plank_03",
+      "physical_chart_anisotropy": 1.7320508075688108,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "floor_plank_05",
+      "physical_chart_anisotropy": 1.7320508075687975,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "floor_plank_07",
+      "physical_chart_anisotropy": 1.732050807568823,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "side_-1_course_1",
+      "physical_chart_anisotropy": 1.732050807568771,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "side_-1_course_3",
+      "physical_chart_anisotropy": 1.732050807568771,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "side_1_course_1",
+      "physical_chart_anisotropy": 1.732050807568771,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "side_1_course_3",
+      "physical_chart_anisotropy": 1.732050807568771,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "end_-1.525_course_1",
+      "physical_chart_anisotropy": 1.732050807568931,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "end_-1.525_course_3",
+      "physical_chart_anisotropy": 1.732050807568931,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "end_1.525_course_1",
+      "physical_chart_anisotropy": 1.7320508075689307,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_plank_b",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "end_1.525_course_3",
+      "physical_chart_anisotropy": 1.7320508075689307,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_-1_0",
+      "physical_chart_anisotropy": 1.7320508075687704,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_-1_1",
+      "physical_chart_anisotropy": 1.732050807568824,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_-1_2",
+      "physical_chart_anisotropy": 1.732050807568824,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_-1_3",
+      "physical_chart_anisotropy": 1.7320508075687704,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "top_rail_-1",
+      "physical_chart_anisotropy": 1.0113187163189326,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_1_0",
+      "physical_chart_anisotropy": 1.7320508075687704,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_1_1",
+      "physical_chart_anisotropy": 1.732050807568824,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_1_2",
+      "physical_chart_anisotropy": 1.732050807568824,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_1_3",
+      "physical_chart_anisotropy": 1.7320508075687704,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "top_rail_1",
+      "physical_chart_anisotropy": 1.0113187163189326,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_-1_0_1.04",
+      "physical_chart_anisotropy": 1.7320508075691152,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_-1_0_1.4",
+      "physical_chart_anisotropy": 1.7320508075690693,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_-1_1_1.04",
+      "physical_chart_anisotropy": 1.7320508075690693,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_-1_1_1.4",
+      "physical_chart_anisotropy": 1.7320508075690924,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_-1_2_1.04",
+      "physical_chart_anisotropy": 1.7320508075690693,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_-1_2_1.4",
+      "physical_chart_anisotropy": 1.7320508075691152,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_-1_3_1.04",
+      "physical_chart_anisotropy": 1.7320508075691152,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_-1_3_1.4",
+      "physical_chart_anisotropy": 1.7320508075690915,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_1_0_1.04",
+      "physical_chart_anisotropy": 1.7320508075690693,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_1_0_1.4",
+      "physical_chart_anisotropy": 1.7320508075691152,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_1_1_1.04",
+      "physical_chart_anisotropy": 1.7320508075690924,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_1_1_1.4",
+      "physical_chart_anisotropy": 1.7320508075690693,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_1_2_1.04",
+      "physical_chart_anisotropy": 1.7320508075691152,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_1_2_1.4",
+      "physical_chart_anisotropy": 1.7320508075690924,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_1_3_1.04",
+      "physical_chart_anisotropy": 1.7320508075690693,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "stake_bolt_1_3_1.4",
+      "physical_chart_anisotropy": 1.7320508075690924,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_bolt_-1_0.56",
+      "physical_chart_anisotropy": 1.4142135623731222,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 16,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_-1_0.56_1.583_washer",
+      "physical_chart_anisotropy": 1.4142135623732515,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 96
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_-1_0.56_1.583_stem",
+      "physical_chart_anisotropy": 1.4142135623732561,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_-1_0.56_1.583_square_head",
+      "physical_chart_anisotropy": 1.7320508075686205,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_-1_0.56_1.487",
+      "physical_chart_anisotropy": 1.0218716457807389,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_bolt_-1_0.74",
+      "physical_chart_anisotropy": 1.4142135623731222,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 16,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_-1_0.74_1.583_washer",
+      "physical_chart_anisotropy": 1.4142135623732515,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 96
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_-1_0.74_1.583_stem",
+      "physical_chart_anisotropy": 1.414213562373256,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_-1_0.74_1.583_square_head",
+      "physical_chart_anisotropy": 1.7320508075686205,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_-1_0.74_1.487",
+      "physical_chart_anisotropy": 1.0218716457807393,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_bolt_1_0.56",
+      "physical_chart_anisotropy": 1.4142135623731222,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 16,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_1_0.56_1.583_washer",
+      "physical_chart_anisotropy": 1.4142135623732515,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 96
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_1_0.56_1.583_stem",
+      "physical_chart_anisotropy": 1.414213562373256,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_1_0.56_1.583_square_head",
+      "physical_chart_anisotropy": 1.7320508075686205,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_1_0.56_1.487",
+      "physical_chart_anisotropy": 1.0218716457807384,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_bolt_1_0.74",
+      "physical_chart_anisotropy": 1.4142135623731225,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 16,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_1_0.74_1.583_washer",
+      "physical_chart_anisotropy": 1.4142135623732515,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 96
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_1_0.74_1.583_stem",
+      "physical_chart_anisotropy": 1.414213562373256,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_1_0.74_1.583_square_head",
+      "physical_chart_anisotropy": 1.7320508075686205,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 44
+    },
+    {
+      "batch": "vehicle_body_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plate_1_0.74_1.487",
+      "physical_chart_anisotropy": 1.0218716457807389,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_running_gear_rear_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "rear_axle",
+      "physical_chart_anisotropy": 1.4142135623730967,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_root_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "bolster_rear",
+      "physical_chart_anisotropy": 1.002994366827414,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_root_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "bolster_front_fixed",
+      "physical_chart_anisotropy": 1.002994366827414,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_root_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "reach",
+      "physical_chart_anisotropy": 1.076463892944781,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_steer_front_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "front_axle",
+      "physical_chart_anisotropy": 1.414213562373096,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_steer_front_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "hound_-1",
+      "physical_chart_anisotropy": 1.001963699860378,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_steer_front_paint",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "hound_1",
+      "physical_chart_anisotropy": 1.001963699860378,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_steer_front_iron",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "kingbolt",
+      "physical_chart_anisotropy": 1.4142135623731402,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "iron_tyre_rearleft",
+      "physical_chart_anisotropy": 1.0692985477221613,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_iron",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "band",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_iron",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "band",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "wood_felloe_rearleft",
+      "physical_chart_anisotropy": 1.0786321031490835,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_0",
+      "physical_chart_anisotropy": 1.3429636258214377,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_1",
+      "physical_chart_anisotropy": 1.3429636258214417,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_2",
+      "physical_chart_anisotropy": 1.3429636258213682,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_3",
+      "physical_chart_anisotropy": 1.3429636258213216,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_4",
+      "physical_chart_anisotropy": 1.3429636258214421,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_5",
+      "physical_chart_anisotropy": 1.3429636258213757,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_6",
+      "physical_chart_anisotropy": 1.3429636258214368,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_7",
+      "physical_chart_anisotropy": 1.3429636258214377,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_8",
+      "physical_chart_anisotropy": 1.3429636258214348,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_9",
+      "physical_chart_anisotropy": 1.3429636258213196,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_10",
+      "physical_chart_anisotropy": 1.3429636258214395,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_left_11",
+      "physical_chart_anisotropy": 1.3429636258213233,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_left_paint",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "hub_rearleft",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "iron_tyre_rearright",
+      "physical_chart_anisotropy": 1.0692985477221613,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_iron",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "band",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_iron",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "band",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "wood_felloe_rearright",
+      "physical_chart_anisotropy": 1.0786321031490835,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_0",
+      "physical_chart_anisotropy": 1.3429636258214377,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_1",
+      "physical_chart_anisotropy": 1.3429636258214428,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_2",
+      "physical_chart_anisotropy": 1.3429636258213682,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_3",
+      "physical_chart_anisotropy": 1.3429636258213216,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_4",
+      "physical_chart_anisotropy": 1.342963625821443,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_5",
+      "physical_chart_anisotropy": 1.3429636258213757,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_6",
+      "physical_chart_anisotropy": 1.3429636258214368,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_7",
+      "physical_chart_anisotropy": 1.3429636258214368,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_8",
+      "physical_chart_anisotropy": 1.3429636258214344,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_9",
+      "physical_chart_anisotropy": 1.3429636258213196,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_10",
+      "physical_chart_anisotropy": 1.3429636258214388,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_rear_right_11",
+      "physical_chart_anisotropy": 1.3429636258213233,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_rear_right_paint",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "hub_rearright",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_left_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "iron_tyre_frontleft",
+      "physical_chart_anisotropy": 1.0702808637210388,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_left_iron",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "band",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_left_iron",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "band",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "wood_felloe_frontleft",
+      "physical_chart_anisotropy": 1.085587944910643,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_0",
+      "physical_chart_anisotropy": 1.343061948471253,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_1",
+      "physical_chart_anisotropy": 1.3430619484711979,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_2",
+      "physical_chart_anisotropy": 1.3430619484713477,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_3",
+      "physical_chart_anisotropy": 1.3430619484712536,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_4",
+      "physical_chart_anisotropy": 1.3430619484711597,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_5",
+      "physical_chart_anisotropy": 1.343061948471293,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_6",
+      "physical_chart_anisotropy": 1.3430619484712527,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_7",
+      "physical_chart_anisotropy": 1.3430619484712183,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_8",
+      "physical_chart_anisotropy": 1.3430619484712991,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_9",
+      "physical_chart_anisotropy": 1.3430619484712862,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_10",
+      "physical_chart_anisotropy": 1.3430619484711972,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_left_11",
+      "physical_chart_anisotropy": 1.3430619484712731,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_left_paint",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "hub_frontleft",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_right_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "iron_tyre_frontright",
+      "physical_chart_anisotropy": 1.0702808637210388,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_right_iron",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "band",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_right_iron",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "band",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "wood_felloe_frontright",
+      "physical_chart_anisotropy": 1.085587944910643,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_0",
+      "physical_chart_anisotropy": 1.343061948471253,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_1",
+      "physical_chart_anisotropy": 1.3430619484711979,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_2",
+      "physical_chart_anisotropy": 1.343061948471349,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_3",
+      "physical_chart_anisotropy": 1.3430619484712532,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_4",
+      "physical_chart_anisotropy": 1.343061948471159,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_5",
+      "physical_chart_anisotropy": 1.3430619484712925,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_6",
+      "physical_chart_anisotropy": 1.3430619484712527,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_7",
+      "physical_chart_anisotropy": 1.3430619484712176,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_8",
+      "physical_chart_anisotropy": 1.3430619484712985,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_9",
+      "physical_chart_anisotropy": 1.3430619484712873,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_10",
+      "physical_chart_anisotropy": 1.3430619484711972,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_timber",
+      "flat_constant_neutral_chart_triangles": 12,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "spoke_front_right_11",
+      "physical_chart_anisotropy": 1.3430619484712736,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 28
+    },
+    {
+      "batch": "vehicle_wheel_front_right_paint",
+      "flat_constant_neutral_chart_triangles": 384,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "hub_frontright",
+      "physical_chart_anisotropy": 1,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 384
+    },
+    {
+      "batch": "vehicle_tongue_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "tongue_timber",
+      "physical_chart_anisotropy": 1.414213562375473,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_tongue_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "tongue_strap_0.1",
+      "physical_chart_anisotropy": 1.5246328983973552,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_tongue_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "tongue_strap_0.3",
+      "physical_chart_anisotropy": 1.5246328983973516,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_tongue_iron",
+      "flat_constant_neutral_chart_triangles": 0,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "tongue_strap_2.65",
+      "physical_chart_anisotropy": 1.5246328983973338,
+      "tile_m": [
+        0.28,
+        0.28
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_plank",
+      "physical_chart_anisotropy": 1.000602238813826,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_cleat_-1",
+      "physical_chart_anisotropy": 1.4142135623731213,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_bench_cleat_1",
+      "physical_chart_anisotropy": 1.4142135623731213,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_footboard",
+      "physical_chart_anisotropy": 1.001091559477615,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_footboard_block_-1_1.201",
+      "physical_chart_anisotropy": 1.4142135623730996,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_footboard_block_-1_1.339",
+      "physical_chart_anisotropy": 1.4142135623730994,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_footboard_block_1_1.201",
+      "physical_chart_anisotropy": 1.4142135623731,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    },
+    {
+      "batch": "vehicle_body_timber",
+      "flat_constant_neutral_chart_triangles": 4,
+      "grain": "authored localmajoraxis; ringscircumferential; hubs/cutends intentionallyflat",
+      "part": "driver_footboard_block_1_1.339",
+      "physical_chart_anisotropy": 1.4142135623731,
+      "tile_m": [
+        2.24,
+        0.14
+      ],
+      "triangles": 12
+    }
+  ]
+}

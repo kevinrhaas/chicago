@@ -1,0 +1,139 @@
+{
+  "structure_id": "wheeler_house_1812_prairie",
+  "view": "c1955_front",
+  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+  "glb_sha256": "f614b1cb7aa3b75dae90ce57780bd8dc43d9c36ca0b219f403449c63c5b6045c",
+  "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
+  "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
+  "rendered_members": [
+    {
+      "structure_id": "wheeler_house_1812_prairie",
+      "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
+      "placement": {
+        "local_e": 1370.097,
+        "local_n": -3260.11,
+        "rotation_deg": -0.616,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_built_1884"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f614b1cb7aa3b75dae90ce57780bd8dc43d9c36ca0b219f403449c63c5b6045c"
+    },
+    {
+      "structure_id": "henderson_house_1816_prairie",
+      "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1372.999,
+        "local_n": -3276.373,
+        "rotation_deg": -0.621,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        2.7269884263999318,
+        0,
+        16.293259561004927
+      ],
+      "rotation_y": 8.726646259971656e-05,
+      "glb_sha256": "59521db4702ef32d0b230441543843ffb88c1af62bd10d423e6cac95cd34a077"
+    }
+  ],
+  "group_sha256": "a954ccb42021878b4665f3fa2bdf4f0f8b735375816364491dbd15545bbd962e",
+  "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Front: the projection's front (x 100-340 px), its south cheek (x 77-99) and the main front's north corner (x 468) land within about 2 px, and the heights Levy's print gave the front (the third storey's large arch, the grid window's head and sill, the projection's cornice) within about 5 px: this photograph and Levy's agree on the front as built (T-2543 to T-3033)",
+      "status": "fixed"
+    },
+    {
+      "what": "South stack: the tall corbelled stack over the south wall stands about 1.35-2.35 m behind the main front (triangulated with Levy's camera from its shaft's north-east corner at x 39 px), not 6.1 m back as it was built; moved along the wall to u 13.25 on K01's on_cornice stack, its top Levy's 16.8 m (T-3034)",
+      "status": "fixed"
+    },
+    {
+      "what": "South stack: the photograph's shaft (x 21-39 px, cut by the print's edge) stood about 30 px south of the render's (x 53-77) on K01's on_cornice stack; T-3061 stands it on the south wall's outer face in the gap to 1816 (v -0.55 to 0), carried to the ground as an outside breast, and its shaft now renders at x 14-53, its north-east corner 14 px (about 0.34 m) north of the photograph's, the wall line's offset Levy's print shows too (T-3075); its top reads about 17 px higher, the camera's distance error off the front's plane (L-k01-1812-wheeler-stacks-3034)",
+      "status": "fixed"
+    },
+    {
+      "what": "South wall: carried up past the mansard's curb to a coped top (y 166-170 px at the print's edge) with the stack on it, the slate face behind the gable's south shoulder rising to meet it, as T-3033 read in Levy's print; T-3061 builds it so, K01's mansard side parapet to Levy's cap at 14.5 m: this camera draws the top about 1 m higher than Levy's does, its distance error (c1955_front.json's solve), so Levy's height is built",
+      "status": "fixed"
+    },
+    {
+      "what": "South wall line: the stack's 14 px and Levy's 23-30 px agree on a south wall about 0.3 m outside sheet 28's traced line (T-3075). Within tolerance (T-3093): about 0.3 m, the 1 ft bar, and two cameras that do not agree on it to the pixel; the footprint stays sheet 28's trace",
+      "status": "within tolerance"
+    },
+    {
+      "what": "South wall: its face in the gap to 1816 (x 22-75 px) reads a paler brick than the front; the front's brick toned red-brown and the side walls left in the K03 common buff (T-3093), so the south wall renders paler than the front as it does here (L-k01-1812-wheeler-tone-3093)",
+      "status": "fixed"
+    },
+    {
+      "what": "South wall: a downpipe close to the front (x 66-71 px, about u 14.5), where the 1904 build has none: the south wall is carried up as a coped parapet (T-3061) with no gutter for it to serve, and the only picture of it is fifty years after the scene, with the later sash, lamp and aerial (item below); taken for later, not built for 1904 (T-3093)",
+      "status": "not shown"
+    },
+    {
+      "what": "North stack: a tall plain brick stack behind the gable's north shoulder (x 383-435 px, top y 128). On 1812's ground it could stand only within 1.2 m behind the front, where Levy's camera draws it against the open sky the print shows, so it was built after Levy's print or stands behind 1812 on 1808's ground; not built for 1904 (L-k01-1812-wheeler-stacks-3034)",
+      "status": "not shown"
+    },
+    {
+      "what": "Gable: the head is narrower and stands about 9 px (0.2 m) north of the build's: the south shoulder stone at x 205-225 px against the render's 182-232, the north at 335-352 against 315-350, the grid window centred at x 283 against 274. Ruled for Levy's print (T-3090): this camera's offset grows with height, about 2 px on the front's features up to the projection's top (10 m), 9 px at the grid window (14 m) and about 17 px at the finial (17 m), where the solve fixed nothing over the front's top, so it is the camera's roll, the same unconstrained height that reads the south wall's top about 1 m high (c1955_front.json's solve), and not the gable standing off the front's centre; Levy's near-frontal print, at about twice this one's scale, reads the head centred within the two sides' 0.25 m, which the build takes",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the finial a tall urn on a carved ball over the moulded plinth, its lid and knob from about y 50 px to the head at y 100 (about 1.2 m); built so, a turned urn 1.1 m over the apex, its top within about 8 px of the photograph's (T-3090; Levy's print shows the carved block 0.55 m across and cuts the urn at its foot)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the grid window in quoined side stones under a moulded hood, the shoulder stones' sunk panels and the kneelers' carved scrolls, as Levy's record held open; built from that print (T-3090), and this camera's render shows the quoins, the waved hood and the dark lights where the photograph does",
+      "status": "fixed"
+    },
+    {
+      "what": "Third storey: the large window's middle light wider than the two beside it and the voussoirs alternating long and short into the brick, as Levy's record held open; built from that print, and this camera's render shows the wide middle light and the long and short stones where the photograph does (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Balcony: a solid carved stone panel in the middle of its front run with iron scrolls each side (x 230-335 px); built so to Levy's print, the panel rising to a pedestal with an iron scroll over each sweep (T-3113; L-k08-1812-balcony-panel-3113)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: the second storey's jambs rise past the window's head to carved caps under the cornice, and the paired window's mullion and hood are heavy dressed stone; built from Levy's print (the caps, the pier, the hood and the transom lights), and this camera's render shows them where the photograph does (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Owner ruling (T-3236, 2026-10-28, the owner's report from the street: 'the windows are not aligned/centered correctly on the north side ... the door is not centered, and the left edging around the door is not on the face of the north side, like the right edging'): this photograph too stands the porch arch's south jamb on the projection's face (the opening's edge at x about 328 px, about 0.25 m south of the corner at 340) and the north bay's windows off its middle; built with the arch, the second storey's north window and the small arched window centred on the bay and the arch clear of the projection (L-k01-1812-wheeler-bay-3236)",
+      "status": "owner ruling"
+    },
+    {
+      "what": "Third storey: the small arched window glazed as a plain sash, where Levy's print shows it filled with a patterned light; the patterned light is built for 1904 from Levy's print, the plain sash taken for later (T-3091)",
+      "status": "not shown"
+    },
+    {
+      "what": "Later than 1904: the first storey's arched window half filled with a panel and its lower sash replaced, the entrance's doors and glazing, the electric lamp on its bracket on the projection, the television aerial over the south stack, and the parked car that hides the stair, the basement and the walk",
+      "status": "not shown"
+    },
+    {
+      "what": "Fabric: the stone band under the projection's second storey with its shields, the projection's stone frieze under the cornice, and the basement and porch storey lighter than the brick; built from Levy's print (T-3093), and this camera's render shows them where the photograph does",
+      "status": "fixed"
+    },
+    {
+      "what": "Colour: the print is monochrome; it shows the stone and the brick close in tone, where the build's brown sandstone renders darker than its buff brick",
+      "status": "not shown"
+    },
+    {
+      "what": "The north wall, the rear and the roof behind the curb, which the photograph does not see",
+      "status": "not shown"
+    },
+    {
+      "what": "the coping and walk T-3206 lays for 1884-1904",
+      "status": "not shown",
+      "how": "the c. 1955 photograph does not reach the lot line clearly; the boundary is read off the Levy print and the c. 1888 view"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

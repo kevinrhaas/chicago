@@ -12,7 +12,8 @@
         "sources": [
           "chicago_democrat_1833_1835"
         ],
-        "note": "The barn is attested on the same day and by the same advertisement as the house it served (data/structures/wabansia_doctors_house.json), and is carried to the scene date by the same inference. Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.'"
+        "note": "The barn is attested on the same day and by the same advertisement as the house it served (data/structures/wabansia_doctors_house.json), and is carried to the scene date by the same inference. Chicago Democrat, issue of 16 July 1834, p. 3 col. 2 (claim chicago_democrat_1834_07_16#c017 in data/research/newspapers/extracted/chicago_democrat_1834_07_16.json): 'To Rent, or Lease. [A] CONVENIENT Dwelling House, in W[a]bansia, now occupied by Doctor Kimberl[y]. It has four rooms, with a kitchen, barn, an[d] garden attached to it. For terms, apply at t[he] office of Col. Hamilton.'",
+        "from_is": "seen"
       },
       "position": {
         "utm_e": 446668.494,

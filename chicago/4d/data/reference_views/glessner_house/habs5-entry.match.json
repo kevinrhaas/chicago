@@ -2,10 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs5-entry",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "2a5292b00b167daee5f9310bca1f83a1b0d29db1e3df476c55c853ef54d9476a",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "8912fa320f417bc61deeba8add0324e7cd2467ee644ef5c2fafef05eaba759a1",
+  "photo_sha256": "1a921a9ac23470bc30223553c657dc50cf0348437e27e7f6fc529e66582c43a3",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Lower surrounding wall slopes outward while doorway stays recessed behind vertical cutback sides.",
@@ -56,9 +57,9 @@
       "status": "fixed"
     },
     {
-      "what": "T-2972, found by T-2971: on the re-solved camera the sheet draws the header one course high, from the door head (7.50) to bed 8 at about 8.75 ft, its top flat, with the fan springing from bed 8; the build springs the fan at 9.0 and raises the header's centre to 9.3, so the header stands about 0.25 ft too tall at its ends and 0.55 at its centre. T-2912's spring, stilt (0.5) and crown were read on the old crop, 3.3 % tall, so all read high (spring about 8.78, stilt about 0.35 unstretched); the raised centre is the owner's close-up's (T-2228) and has to be argued against the flat-topped drawing.",
-      "status": "open"
+      "what": "T-2972, found by T-2971: on the re-solved camera the sheet draws the header one course high, from the door head (7.50) to bed 8 at about 8.75 ft, its top flat, with the fan springing from bed 8; the build springs the fan at 9.0 and raises the header's centre to 9.3, so the header stands about 0.25 ft too tall at its ends and 0.55 at its centre. T-2912's spring, stilt (0.5) and crown were read on the old crop, 3.3 % tall, so all read high (spring about 8.78, stilt about 0.35 unstretched); the raised centre is the owner's close-up's (T-2228) and has to be argued against the flat-topped drawing. T-2972 read it on the square crop at 100 px a foot and built it: the header's top lies flat at 8.73-8.79 ft either side of the tympanum and rises in a shallow segment under it to about 8.89 at the centre; the extrados's outer line fits a radius of 6.49 ft about a centre at 9.16 (its inner line 6.41 at 9.12, the tympanum's ring 2.50 at 9.13), the crown at 15.65, the plumb legs down to the header's top. Built: the header one course, door head to bed 8 (8.71 by the printed string), its top flat to the shoulders with a 0.14 ft segment over the tympanum's 5 ft (the owner's close-up's raised centre at the drawing's height and width; the office's 23A simplifies that edge and the built HABS detail controls it); the fan springing from bed 8, stilted 0.43 ft (centre 9.14) to a crown at 15.64. On the re-render the header's top, the raised segment, the extrados, the crown, the voussoir joints and the tympanum's ring lie on the sheet's lines in an overlay of the two.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

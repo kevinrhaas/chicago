@@ -1,0 +1,28 @@
+{
+ "structure_id": "hibbard_house_1701_prairie",
+ "source_id": "glessner_blog_1701_hibbard_rear_photo",
+ "library_image": "a16-ghm-blog-1701-hibbard-rear",
+ "photo": "../../sources/assets/hibbard_1701_photos_t3240/hibbard_1701_ghm_rear.jpg",
+ "image_px": [
+  675,
+  456
+ ],
+ "principal_px": [
+  337.5,
+  374.0
+ ],
+ "focal_px": 934.8,
+ "eye": [
+  -44.07,
+  32.65,
+  -0.24
+ ],
+ "yaw_deg": 121.92,
+ "sun_uvy": [
+  0.4,
+  0.6,
+  1.0
+ ],
+ "sky": "overcast",
+ "solve": "Fitted by T-3240 to the Glessner House Museum's halftone of the rear of 1701 Prairie, the image store's 675 x 456 px copy. Footprint frame as the front camera's (u from the main block's rear wall toward the street, v from its north wall). The camera stands in the rear yard south-east of the 1874 range, looking west-north-west: the range's near (south-east) corner at x 545 px, its long south face with the oriel receding left to the main block, its short east face to the right. Level, yaw only. Fitted by least squares to five points: the range's south-east corner at the cornice's bed (x 545, y 88) and at its stone base's top (y 316), the same two where its south face meets the main block's rear wall (x 305, y 172; x 320, y 333), and the east face's north end at the cornice (x 662, y 112), the plan places from the 1911 sheet's trace and the stone base's top held at the record's principal floor, 2.0 m. The cornice and the stone line converge on a horizon at about y 374, under the stone's top: the lawn falls toward the lake, and the eye stood about 0.2 m under the house's grade (the review renders on one flat plane, so the range's exposed stone basement over the falling lawn is not drawn). Residuals 1 px at the corner, about 7 px at the junction with the main block, which the veranda and its planting half hide. The fit reads the range's cornice bed at about 10.8 m over the house's grade, against the 10.0 m wall head built. LIGHT: overcast, no cast shadows on the walls."
+}

@@ -45,13 +45,16 @@ const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
  * Open-grown on a 14-ft sidewalk space it carries a clear bole to about a third
  * of its height and a high crown that arches over the walk (the photograph);
  * 17-23 m and 0.45-0.70 m at breast height for trees the 1887-91 print already
- * shows tall, a dozen years on.
+ * shows tall, a dozen years on. T-3017: grown on the open-grown elm's own habit
+ * (tree-model.js ARCH.ulmus_americana_vase: the forked bole, the arching limbs,
+ * the hanging sprays), as wide as about 0.85 of its height, so the two files'
+ * crowns meet over the roadway as they do in the owner's photographs.
  */
 function elmSpec(mode) {
   const base = SPECIES.ulmus_americana;
   const spec = {
-    ...base, speciesId: 'ulmus_americana', conf: CONF.reconstructed, crownW: null,
-    form: 'gallery', h: [17, 23], dbh: [0.45, 0.70], spreadK: 0.70, boleK: 0.48, puffs: 8, lean: 0.05,
+    ...base, speciesId: 'ulmus_americana', arch: 'ulmus_americana_vase', conf: CONF.reconstructed, crownW: null,
+    form: 'gallery', h: [17, 23], dbh: [0.45, 0.70], spreadK: 0.85, boleK: 0.48, puffs: 8, lean: 0.05,
   };
   if (mode === 'spring') {
     // Just leafing: the limbs of a summer tree carry small pale tufts. More
@@ -83,11 +86,14 @@ async function getJSON(url) {
  * in view, so the timber's 42 m near ring holds a dozen full elms here; the
  * spawn's elms were 466k triangles on those rings against the 92k the old crowns
  * drew. Near is the elm a visitor stands under, mid the next few down the walk.
+ * T-3017: the phone's `distant` comes in at 220 m (300 before): the grown elm's
+ * distant level keeps its forked stems under its crown, and at 220 m an elm is
+ * about 70 px tall on a 390-px phone, below what its far sprays resolve.
  */
 const STREET_LEVELS = {
   full: { near: 10, mid: 44, distant: 420 },
   balanced: { near: 10, mid: 40, distant: 380 },
-  light: { near: 0, mid: 32, distant: 300 },
+  light: { near: 0, mid: 32, distant: 220 },
 };
 /**
  * T-2833 — THE CONTEXT CITY'S TREES. The faded city around the district
@@ -127,6 +133,9 @@ function treeCard(t, doc) {
   const sp = doc.species ?? {};
   const pl = doc.placement ?? {};
   const young = t.kind === 'young';
+  // T-1934: a tree a solved picture places carries its reading and sources; its spot is
+  // inferred from the picture, not the rule's reconstruction
+  const pictured = t.placed === 'pictured';
   return {
     id: t.id,
     sidecar: {
@@ -135,13 +144,15 @@ function treeCard(t, doc) {
       change_note: (young
         ? 'A young elm planted in a gap in the parkway file, as the 1901 photograph of 1700 Prairie shows one. '
         : 'One of the elms in the grass parkway between the walk and the curb. ')
-        + 'The 1887-91 photograph from this walk at 18th Street shows a single file of tall elms; '
-        + 'this tree\'s spot is our reconstruction.',
+        + (pictured
+          ? 'It stands where photographs of the 1890s show a tree on this parkway.'
+          : 'The 1887-91 photograph from this walk at 18th Street shows a single file of tall elms; '
+            + 'this tree\'s spot is our reconstruction.'),
       placement: {
         symbolic_location: t.face,
-        position_confidence: pl.tier ?? 'reconstructed',
-        position_sources: [],
-        position_note: pl.note ?? '',
+        position_confidence: pictured ? 'inferred' : pl.tier ?? 'reconstructed',
+        position_sources: pictured ? t.sources ?? [] : [],
+        position_note: pictured ? t.note ?? '' : pl.note ?? '',
       },
       attributes: {
         species: {
@@ -150,13 +161,17 @@ function treeCard(t, doc) {
         },
         position: {
           value: `${Math.round(t.e * 10) / 10} E, ${Math.round(t.n * 10) / 10} N`,
-          confidence: pl.tier ?? 'reconstructed', sources: [],
-          note: `About ${pl.spacing_ft ?? 30} ft from the next tree, nearer the curb than the walk. ${pl.liberty ?? ''}`.trim(),
+          confidence: pictured ? 'inferred' : pl.tier ?? 'reconstructed',
+          sources: pictured ? t.sources ?? [] : [],
+          note: pictured ? t.note ?? ''
+            : `About ${pl.spacing_ft ?? 30} ft from the next tree, nearer the curb than the walk. ${pl.liberty ?? ''}`.trim(),
         },
       },
       citations: [],
       research_doc: 'docs/RESEARCH/prairie_1904_street_trees.md',
-      research_note: `Tree ${t.id} of data/street_trees/1904.json (T-2473). ${pl.liberty ?? ''}`.trim(),
+      research_note: pictured
+        ? `Tree ${t.id} of data/street_trees/1904.json, placed by data/street_trees/pictured_1904.json (T-1934).`
+        : `Tree ${t.id} of data/street_trees/1904.json (T-2473). ${pl.liberty ?? ''}`.trim(),
     },
   };
 }
@@ -202,6 +217,8 @@ export async function createStreetTrees({
     assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
     lowSpec: lowSpec || detail === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems, fade: true,
   });
+  // T-3223: the front yards' shrubs and lawn trees grow on these same atlases.
+  out.materials = mats;
 
   /* ---- where each tree stands ------------------------------------------- */
   const placed = trees.map((t) => {

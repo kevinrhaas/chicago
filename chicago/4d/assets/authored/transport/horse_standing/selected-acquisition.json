@@ -1,0 +1,28 @@
+[
+  {
+    "path": "horse-53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
+    "url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-124/53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
+    "status": 200,
+    "bytes": 3211248,
+    "sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+    "headers": {
+      "content-type": "model/gltf-binary",
+      "etag": "\"9040dd182e8bf8c1d00b03c3d8359d27d539737946c824aa219eca03e4fda341\"",
+      "content-length": "3211248"
+    },
+    "auth_used": false
+  },
+  {
+    "path": "metadata-000-124.json.gz",
+    "url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/metadata/000-124.json.gz",
+    "status": 200,
+    "bytes": 3604134,
+    "sha256": "382d3854cfbfecfc86122931bf81756ef8bf523668537f2b84b4efc1a098e0eb",
+    "headers": {
+      "content-type": "application/gzip",
+      "etag": "\"1f3cbcc37a5ad342c9d87aa2630b15d4b26e63adf1aa9da2942bba4a5dddae5a\"",
+      "content-length": "3604134"
+    },
+    "auth_used": false
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "id": "moulton_lowden_house_1912_prairie",
+  "scene": "1904",
+  "name": "Moulton and Lowden House",
+  "address": "1912 S. Prairie Ave.",
+  "status": {
+    "text": "Gone",
+    "today": "No longer standing",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1800_1900_west"
+    ],
+    "note": "The district's marker lists it among the lost houses of Prairie Avenue and gives no year."
+  },
+  "built": {
+    "year": 1882,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1800_1900_west"
+    ]
+  },
+  "use": "Home",
+  "summary": "A big house in the French château style, built in 1882 for B. P. Moulton. In 1898 Frank O. Lowden moved in. He later became governor of Illinois.",
+  "key": [
+    {
+      "label": "Built for",
+      "value": "B. P. Moulton",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    },
+    {
+      "label": "Style",
+      "value": "Châteauesque",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    },
+    {
+      "label": "Lived here from 1898",
+      "value": "Frank O. Lowden",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "A future governor of Illinois lived here. Frank O. Lowden moved in in 1898.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    }
+  ],
+  "style": null,
+  "story": []
+}

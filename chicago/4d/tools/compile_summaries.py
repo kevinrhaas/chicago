@@ -451,6 +451,13 @@ def gate(stem, rec, world, schema):
 
     for where, f in facts(rec):
         errs += fact_errors(where, f, world)
+    # T-3037: a build date the sources give as a phrase is placed at its earliest year.
+    built = rec.get("built") if isinstance(rec.get("built"), dict) else {}
+    if isinstance(built.get("phrase"), str):
+        years = [int(y) for y in re.findall(r"\d{4}", built["phrase"])]
+        if years and built.get("year") != min(years):
+            errs.append(f"built: year {built.get('year')} is not the earliest year of its phrase "
+                        f"'{built['phrase']}' ({min(years)})")
 
     # T-2641: a hotspot that names a sidecar attribute takes that attribute's own grade.
     if scene in world["scenes"] and rid in world["standing"].get(scene, set()):
@@ -794,6 +801,7 @@ def self_test():
     def bad_era(r): r["story"][0]["era"] = "1700"
     def stray_field(r): r["key"][0]["why"] = "an unknown field"
     def story_ungraded(r): del r["story"][1]["grade"]
+    def phrase_year(r): r["built"]["phrase"] = "1864 or 1875"; r["built"]["year"] = 1875
 
     plant("a fact with no grade", "a fact with no grade", drop_grade)
     plant("an ungraded story entry", "story[1]: a fact with no grade", story_ungraded)
@@ -810,6 +818,7 @@ def self_test():
     plant("a link in a string", "a link", link)
     plant("an unresolved person id", "person `no_such_person` does not resolve", bad_person)
     plant("an Inferred fact with no note", "an Inferred fact with no note", no_note)
+    plant("a built phrase not placed at its earliest year", "is not the earliest year of its phrase", phrase_year)
     plant("a grade outside the ladder", "grade `documented` is not one of", bad_grade)
     plant("an unresolved liberty", "liberty `L-no-such-liberty` does not resolve", bad_liberty)
     plant("a structure that does not stand in its scene", "does not stand in the 1835 scene", not_standing)

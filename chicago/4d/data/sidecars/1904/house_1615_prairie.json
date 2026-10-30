@@ -21,7 +21,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -374,6 +375,41 @@
         "sanborn_1911_chicago_v3_sheet_20"
       ],
       "note": "The small yellow (frame) piece the sheet draws on 1615's south wall, in the passage toward 1619: read off the raster, 1.6-1.65 m long and about 0.6 m out, 1.6-3.3 m from the rear wall (sheet pixels x 3977-4018, y 2087-2099; the trace's outline of the building takes it in, x 1421.4-1423.0, y to -2995.98, but no part and no census row names it). 1613 has nothing on its passage wall, so it is one of the two things the map draws that make the pair's halves differ. Its PLACE, size, one storey (no figure, and the sheet's one-storey yellow) and timber are read from the map; its form is reconstructed: a box bay window on the principal floor, K08's square-cornered projection sized to the sheet's piece in K01's `frame` fabric (T-2356), painted timber with one narrow two-over-two sash in its face (0.75 m clear, the kit's cheek sash: a wider one opens its reveal into the box's 0.6 m body), under a flat tin deck. It could as well be a side entry's vestibule, a closet or a stair hood; liberty L-k01-1615-brick-flat-2418."
+    },
+    "boundary": {
+      "value": {
+        "layout": "open",
+        "lot_s_m": [
+          -0.01,
+          7.65
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3216: no boundary across the front, a STATED RECONSTRUCTION. No picture of this front is held; the east side of the block's pictured fronts are open to the walk: 1621's and 1623's 1886 Building Budget drawings and 1625's 1890 Inland Architect photograph draw no fence, wall, coping or gate across their front yards (T-3221), and only 1637's engraving, at the block's south end, closes a front garden close before its house. So this front is built open, as its three nearer pictured neighbours are. The lot's sides are parcel prairie_1615's street corners (data/street_grid/1904.json) in this frame, s -0.01 and 7.65. RECONSTRUCTED; liberty L-k11-fences-1600-block-3216."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.2
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3216 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures; where no picture shows them, a stated reconstruction consistent with the block). No picture of 1615's front is held. The walk is laid as 1621's, 1623's and 1625's are on their pictures (T-3221): flags from the stoop's foot, 1.2 m wide, straight out across the open front to the inner edge of the public walk; the lawn covers the rest of the front yard. RECONSTRUCTED: the walk's line, flags, width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; no service walk is built (no picture shows a side passage's floor); liberty L-k14-walks-1600-block-3216. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",

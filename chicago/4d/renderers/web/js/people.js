@@ -66,6 +66,7 @@ function n(x) {
 const KNOWN_LABEL = {
   // T-2624: "documented" is a retired word (section 03); the mark says what it means.
   documented: 'named in a source',
+  reconstructed: 'reconstructed identity',
   letter_list: 'letter list',
   civic_mint: 'civic record',
   projected: 'projected',
@@ -106,6 +107,7 @@ const READ_TITLE = 'Not drawn by the reconstruction: a source names this person,
 
 const KNOWN_TITLE = {
   documented: 'Named by a source outside the post-office lists and the civic-list consolidation',
+  reconstructed: 'An invented identity created within the population model; no source names this person',
   letter_list: 'Known only from the post office’s lists of uncalled-for letters — a name, and nothing else',
   civic_mint: 'Minted by the evidence consolidation from a poll, tax or muster list, or a contemporary paper',
   projected: 'A projected resident: named once or twice and placed by nothing',
@@ -114,6 +116,16 @@ const KNOWN_TITLE = {
   // their own for the same reason.
   transient: 'A visitor of the season, in the town on 1 July 1835 and not living in it \u2014 reconstructed within the bracket T-1352 measured, and counted apart from the residents',
 };
+
+/** Explicit trade-head mint semantics, never grade or an id-prefix guess. Preserve source-read categories first. */
+function knownKey(r) {
+  if (r.transient || r.how_known === 'transient') return 'transient';
+  if (r.letter_list_only || r.how_known === 'letter_list') return 'letter_list';
+  if (r.civic_mint || r.how_known === 'civic_mint') return 'civic_mint';
+  if (r.resident_subtype === 'projected_resident' || r.how_known === 'projected') return 'projected';
+  return r.grade === 'reconstructed' && r.resident_subtype === 'reconstructed_trade_head'
+    && r.stage === 'trade_households' ? 'reconstructed' : r.how_known;
+}
 
 /** The "Arrived" row's buckets. `arrival_year` is a bound for 1,318 of the 1,380
  *  households ("here by 1834", not "came 1834"), so the pill is a year and the
@@ -131,7 +143,8 @@ const ARRIVED = [
  *  civic-mint people also carry the projected subtype and a filter that hid
  *  that overlap would be lying about the ladder. */
 const KNOWN = {
-  documented: (r) => !r.letter_list_only && !r.civic_mint && r.resident_subtype !== 'projected_resident',
+  documented: (r) => knownKey(r) === 'documented',
+  reconstructed: (r) => knownKey(r) === 'reconstructed',
   letter_list: (r) => !!r.letter_list_only,
   civic_mint: (r) => !!r.civic_mint,
   projected: (r) => r.resident_subtype === 'projected_resident',
@@ -251,7 +264,7 @@ function filterSpecs(people) {
     },
     {
       key: 'known', label: 'How known',
-      options: [['documented', 'named in a source'], ['letter_list', 'letter list only'],
+      options: [['documented', 'named in a source'], ['reconstructed', 'reconstructed identity'], ['letter_list', 'letter list only'],
         ['civic_mint', 'civic record'], ['projected', 'projected resident'],
         // T-1353. The one pill here that is not about a resident's evidence: it is
         // about whether this person lived in the town at all.
@@ -633,9 +646,10 @@ export async function mountPeople({
       divisionText(r),
       arrivalText(r),
     ].filter(Boolean).join(' · ');
-    const mark = r.how_known !== 'documented'
-      ? `<span class="person-mark mark-${escapeHtml(r.how_known)}" title="${escapeHtml(KNOWN_TITLE[r.how_known] || '')}">${
-        escapeHtml(KNOWN_LABEL[r.how_known] || words(r.how_known))}</span>`
+    const known = knownKey(r);
+    const mark = known !== 'documented'
+      ? `<span class="person-mark mark-${escapeHtml(known)}" title="${escapeHtml(KNOWN_TITLE[known] || '')}">${
+        escapeHtml(KNOWN_LABEL[known] || words(known))}</span>`
       : '';
     return `<button type="button" class="person-row" role="option" data-person-id="${escapeHtml(r.id)}"
         data-household="${escapeHtml(r.household)}" aria-selected="false">
@@ -798,16 +812,22 @@ export async function mountPeople({
     if (!firms.length || typeof onBusiness !== 'function') return '';
     const rows = firms.map((f) => {
       const sub = [f.roles.map(words).join(' and '), f.trade, f.street || '',
-        f.present ? '' : 'not trading on 1 July'].filter(Boolean).join(' \u00b7 ');
+        f.present ? '' : 'not trading on 1 July',
+        f.tier === 'reconstructed' ? 'modelled connection; no source names this link' : ''].filter(Boolean).join(' \u00b7 ');
       return `<li><button type="button" class="people-firm" data-business="${escapeHtml(f.id)}">
         <i class="grade-dot grade-${escapeHtml(f.grade)}" title="${escapeHtml(f.grade)}"></i>
         <span class="person-main"><span class="person-name">${escapeHtml(f.name)}</span>
           <small class="person-sub">${escapeHtml(sub)}</small></span>
         <span class="people-firm-go" aria-hidden="true">\u203a</span></button></li>`;
     }).join('');
+    const allModelled = firms.every(f => f.tier === 'reconstructed');
+    const someModelled = firms.some(f => f.tier === 'reconstructed');
+    const heading = allModelled ? 'Firm connections assigned by the model'
+      : someModelled ? 'Recorded and modelled firm connections'
+      : firms.length === 1 ? 'The firm the register puts them in'
+      : `The ${n(firms.length)} firms the register puts them in`;
     return `<div class="people-firms">
-      <h4 class="people-card-h">${firms.length === 1 ? 'The firm the register puts them in'
-    : `The ${n(firms.length)} firms the register puts them in`}</h4>
+      <h4 class="people-card-h">${heading}</h4>
       <ul class="people-firm-list">${rows}</ul>
     </div>`;
   }
@@ -824,7 +844,8 @@ export async function mountPeople({
     if (!r) return false;
     const seq = ++openSeq;
     state.open = id;
-    const knownTitle = KNOWN_TITLE[r.how_known] || '';
+    const known = knownKey(r);
+    const knownTitle = KNOWN_TITLE[known] || '';
     cardEl.innerHTML = `
       <button type="button" class="people-back" id="people-back">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7"
@@ -833,8 +854,8 @@ export async function mountPeople({
       <h3 class="people-card-name">${escapeHtml(r.name)}</h3>
       <p class="people-card-meta">
         <i class="grade-dot grade-${escapeHtml(r.grade)}"></i>${escapeHtml(gradeTerm(r.grade).label || r.grade)}
-        · <span class="person-mark mark-${escapeHtml(r.how_known)}" title="${escapeHtml(knownTitle)}">${
-          escapeHtml(KNOWN_LABEL[r.how_known] ?? r.how_known)}</span>${
+        · <span class="person-mark mark-${escapeHtml(known)}" title="${escapeHtml(knownTitle)}">${
+          escapeHtml(KNOWN_LABEL[known] ?? known)}</span>${
         r.occupation ? ` · ${escapeHtml(words(r.occupation))}` : ''}
         <br><span class="people-card-hh">${escapeHtml(words(r.relationship))} of <b>${escapeHtml(r.household_name)}</b>${
           r.division && r.division !== 'unplaced'

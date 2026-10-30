@@ -194,6 +194,9 @@ const COVERAGE = [
   // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
   // the tree does not hold is refused as rot.
   ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // T-3037: the structure records' schema. No module fetches it; validate.py holds every
+  // record to it in check.sh, and what a record says reaches the browser through its sidecar.
+  ['data/structures.schema.json', NONE, 'the shape structure records are refused against: validate.py'],
   // T-2662 (prepared): the Guide's glossary and FAQ. No module reads them until the Navigator
   // Guide (T-2661) lands; check_guide.py holds them in check.sh.
   ['data/guide/', NONE, 'the Guide glossary and FAQ, read by no module yet: check_guide.py'],
@@ -229,13 +232,11 @@ const COVERAGE = [
   // per viewport to cover a JSON file nothing reads.
   ['data/render/', NONE, 'committed instrument readings — neither published nor fetched'],
   ['docs/', NONE, 'prose — except docs/LIBERTIES.md, which compiles into the scene'],
-  // T-1786: the portable human contract. No scene reads it yet (L1 stands, nothing
-  // is drawn); tools/human_contract.py holds it in check.sh.
-  ['data/humans/', NONE, 'human contract + instance schema: human_contract.py --check'],
-  // T-1787: the portable-human export path's GLBs. publish.sh copies assets/web/ only, so
-  // these are never served, and no scene loads one (L1); human_contract.py --check and
-  // human_fixture.mjs --check hold them in check.sh, chicago-4d-humans.yml in the browser.
-  ['assets/humans/', NONE, 'portable-human GLBs — unpublished, drawn by no scene'],
+  // Portable human records and compressed deliveries now feed the1835 scene.
+  // Bootstrap/eligibility, resident cards, movement and the existing budget ladder
+  // cover a visible actor; source contracts and canonical CI remain additional checks.
+  ['data/humans/', [1, 3, 4, 5, 13], 'portable human scene/index/identity, resident card and town budgets'],
+  ['assets/humans/', [1, 4, 5], 'actual source/web human assets served by the scene; loader and town budgets'],
   ['README.md', NONE, 'prose'],
   ['AGENTS.md', NONE, 'prose'],
   // The changelog entry file a PR adds (owner, 2026-10-10). Nothing serves or imports
@@ -265,6 +266,11 @@ const COVERAGE = [
   ['renderers/web/index.html', ALL, 'the page itself'],
   ['renderers/web/css/', ALL, 'the chrome every panel check clicks'],
   ['data/reconstruction/', ALL, 'the infill programme the records are expanded from'],
+  // T-3235. The image gate's cameras and match records (AGENTS.md rule 11). No module under
+  // renderers/ fetches them: they reach the browser only through what compile_pictures.py
+  // (a picture's spot) and jaunt_built_so_far.py (the built-so-far walk) derive from them,
+  // and those derived sidecars and jaunts are priced by their own rows.
+  ['data/reference_views/', NONE, 'the image gate\u2019s cameras and match records \u2014 read by the gate\u2019s tools and two compilers, fetched by no renderer'],
   // T-1971. The housing deal's ledger reaches the scene only through the sidecars
   // compile_scene writes from it (`residents[]` on the building card), which are priced
   // by their own rows. No module under renderers/ fetches it.
@@ -419,6 +425,8 @@ const COVERAGE = [
   ['renderers/web/js/popup.js', [3, 4, 14], 'the card a visitor opens, and its sections in Inspect\'s tabs (parts 4, 14; T-2639)'],
   // T-2636: the card's templated head and lead; part 14 reads the 1904 Glessner card's.
   ['renderers/web/js/fallback-summary.js', [3, 14], 'the card\'s opening when no summary is written'],
+  // T-3037: the words a card prints for a record's dates, read by the card, Story and Sources.
+  ['renderers/web/js/range-words.js', [3, 4, 14], 'the dates a card prints, only as the record dates them'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
   ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],
@@ -536,6 +544,14 @@ const COVERAGE = [
   ['data/street_trees/', [14], 'the 1904 parkway elms, generated from the grid'],
   ['tools/lay_prairie_1904_street_section.py', NONE, 'the street section and carriage walk layer — read by no renderer: its own --check in check.sh'],
   ['tools/plant_prairie_1904_street_trees.py', NONE, 'the parkway elm planter — read by no renderer: its own --check in check.sh'],
+  // T-3199. The street furniture on that grid's parkways: the gas lamps.
+  ['renderers/web/js/street-furniture.js', [14], 'the 1904 street furniture: gas lamps (T-3199)'],
+  ['data/street_furniture/', [14], 'the 1904 street furniture, generated from the grid'],
+  ['tools/lay_prairie_1904_street_furniture.py', NONE, 'the street furniture layer — read by no renderer: its own --check in check.sh'],
+  // T-3203. The house lots' front yards: lawns, foundation shrubs, beds and pictured ivy.
+  ['renderers/web/js/front-yards.js', [14], 'the 1904 front yards: grown shrubs, young trees, beds, ivy (T-3203, T-3223)'],
+  ['data/front_yards/', [14], 'the 1904 front yards, generated from the grid and the houses'],
+  ['tools/plant_prairie_1904_front_yards.py', NONE, 'the front-yard planter — read by no renderer: its own --check in check.sh'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_section/', [14], 'the 1904 curb reveal and carriage walks (T-2474)'],
   ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],

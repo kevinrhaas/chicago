@@ -2,8 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs04-terrace-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "ef60e946008b3242884615f80baea34c35ee832c4b760be6de5ebab8372e4da4",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "8a205031625ec1548ebf1cd55c187368c27358532f37ba9c0a000a82e9179dde",
+  "photo_sha256": "21f8cab23de531faf9e47dafc5d13ca4f427d2f517b5ca4870e838284a2169e7",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -30,7 +31,11 @@
     {
       "what": "Iron/frame stock and masonry color/weathering remain bounded reconstructions.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2928: the barred basement light beside the stair tower takes sheet 4's bar pitch (twelve bars drawn at 0.345 ft across the full drawn width; nine at 0.355 ft on the built light, which T-2880 holds short of the plan's drum), where it had six. Its rails and opening are unchanged.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

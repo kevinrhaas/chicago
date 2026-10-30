@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 import audit_confidence
-from compile_source_use import Compiler, compile_outputs, NEWSPAPERS
+from compile_source_use import Compiler, compile_outputs, owned_resolves, MANIFEST, NEWSPAPERS, STEP
 
 
 class SourceUseTests(unittest.TestCase):
@@ -184,6 +184,26 @@ class SourceUseTests(unittest.TestCase):
         self.put('data/sidecars/1835/absent.json', {'citations': [{'source_id': 'map'}]})
         with self.assertRaisesRegex(ValueError, 'cited current structure has no edge'):
             compile_outputs(self.root)
+
+    def test_manifest_lists_exactly_what_the_compiler_writes(self):
+        """T-3131: the step's resolves is set to the written set, and the drift is reported both ways."""
+        other = {'command': ['python3', 'tools/compile_scene.py'], 'resolves': ['chicago/4d/a.json']}
+        manifest = {'steps': [other, {'command': list(STEP), 'resolves': ['chicago/4d/gone.json', 'chicago/4d/kept.json']}]}
+        missing, extra = owned_resolves(manifest, {'chicago/4d/new.json', 'chicago/4d/kept.json'})
+        self.assertEqual((missing, extra), (['chicago/4d/new.json'], ['chicago/4d/gone.json']))
+        self.assertEqual(manifest['steps'][1]['resolves'], ['chicago/4d/kept.json', 'chicago/4d/new.json'])
+        self.assertEqual(other['resolves'], ['chicago/4d/a.json'])
+        self.assertEqual(owned_resolves(manifest, {'chicago/4d/new.json', 'chicago/4d/kept.json'}), ([], []))
+        with self.assertRaises(SystemExit):
+            owned_resolves({'steps': [other]}, set())
+
+    def test_committed_manifest_names_every_source_file(self):
+        """T-3131: the committed list names every committed per-source file (303 of 436 had drifted)."""
+        manifest = json.loads(MANIFEST.read_text())
+        listed = set(next(s for s in manifest['steps'] if s['command'] == STEP)['resolves'])
+        root = MANIFEST.parents[1]
+        on_disk = {'chicago/4d/' + str(p.relative_to(root)) for p in (root / 'data/sidecars/1835/sources').glob('*.json')}
+        self.assertEqual(on_disk - listed, set())
 
 
 if __name__ == '__main__':

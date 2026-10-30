@@ -21,7 +21,10 @@ assert.equal(_test.earliest('1885-05'), '1885-05-01');
 assert.equal(_test.weaker('inferred', 'attested'), 'inferred');
 assert.equal(_test.weaker('inferred', 'reconstructed'), 'reconstructed');
 assert.equal(_test.weaker('inferred', undefined), null, 'no position grade, no grade');
-assert.equal(_test.span({ from: '1887-12-01', to: '1946-08-31' }), '1887\u00a0–\u00a01946');
+assert.equal(_test.span({ from: '1887-12-01', to: '1946-08-31', from_is: 'began', to_is: 'ended' }), '1887\u00a0–\u00a01946');
+// T-3037: an end the record does not date is a bound, and is never printed as a date.
+assert.equal(_test.span({ from: '1904-07-01', to: '1911-12-31' }), '');
+assert.equal(_test.span({ from: '1904-07-01', to: '1911-12-31', to_is: 'seen' }), 'still in 1911');
 assert.equal(visitWords('1904-07-01'), '1 July 1904');
 assert.equal(visitWords('1904'), null, 'a year alone is not dressed up as a day');
 
@@ -56,7 +59,7 @@ for (const r of g.rows.slice(iHere + 1)) assert.equal(r.after, true, `${r.when} 
 assert.deepEqual(g.rows.slice(iHere + 1, -1).map((r) => r.when), ['1924', '1936', '1946', '1966']);
 // The modelled phase moves here as "Stood here", with its claim's grade.
 const stood = g.rows.find((r) => r.mark === 'stood');
-assert.equal(stood.text, 'This scene shows it as it stood 1887\u00a0–\u00a01946.');
+assert.equal(stood.text, 'On record standing 1887\u00a0–\u00a01946.');
 assert.equal(stood.grade, sidecar.documented_range.confidence);
 
 // --- the era filter: another scene's content never renders -----------------------------
@@ -87,8 +90,23 @@ assert.equal(storyTimeline({ sidecar: hogan, scene: S1835, fireLimit: null }).ro
 // --- the sidecar's own present status, where there is no record --------------------------
 const t = storyTimeline({ sidecar, scene: S1904 });
 assert.equal(t.rows.at(-1).text, String(sidecar.attributes.present_status.value));
-assert.equal(t.rows[0].mark, 'built');
-assert.equal(t.rows[0].missing, true, 'the sidecar alone gives no build year');
+const tBuilt = t.rows.find((r) => r.mark === 'built');
+assert.equal(tBuilt.when, '1887', 'T-3037: the sidecar\'s own built attribute dates it');
+assert.equal(tBuilt.grade, sidecar.attributes.built.confidence);
+
+// --- 1736 Prairie (T-3037): the sources disagree, and the card says so ------------------
+const mcb = read('sidecars/1904/house_1736_prairie.json');
+const k = storyTimeline({ sidecar: mcb, scene: S1904 });
+const kBuilt = k.rows.find((r) => r.mark === 'built');
+assert.equal(kBuilt.text, 'Built in 1864 or 1875.');
+assert.equal(kBuilt.when, '1864');
+assert.equal(kBuilt.grade, 'inferred');
+assert.equal(k.rows.find((r) => r.mark === 'stood').text, 'On record standing still in 1911.');
+assert.ok(!k.rows.some((r) => r.mark !== 'here' && /1904/.test(r.text)), 'no row dates it by the scene\'s own year');
+
+// --- a record whose range is all bounds: no Stood here row, and no composed date ---------
+const bare = storyTimeline({ sidecar: { documented_range: { from: '1835-01-01', to: '1835-12-31', confidence: 'reconstructed' } }, scene: S1835 });
+assert.deepEqual(bare.rows.map((r) => r.mark), ['built', 'here', 'today']);
 
 // --- coarse dates and a scene with only a year ----------------------------------------
 const coarse = storyTimeline({ sum: { story: [
@@ -134,5 +152,12 @@ assert.equal(dots.length, g.rows.filter((r) => r.grade).length, 'every graded fa
 const text = block.textContent;
 assert.ok(!/[a-z0-9]+_[a-z0-9]+/i.test(text), 'no snake_case reaches a visitor');
 assert.ok(!/\b(attested|inferred|reconstructed)\b/.test(text), 'grade words appear only as dots, named for a screen reader');
+
+// --- T-3042: a summary record's build date as its sources give it --------------------------
+const pull = read('summaries/pullman_house_1729_prairie.json');
+const pr = storyTimeline({ sum: pull, sidecar: read('sidecars/1904/pullman_house_1729_prairie.json'), scene: S1904 });
+const pBuilt = pr.rows.find((r) => r.mark === 'built');
+assert.equal(pBuilt.when, '1870', 'a phrase is placed at its earliest year');
+assert.equal(pBuilt.text, 'Built between 1870 and 1876.');
 
 console.log('test_nav_story: OK');

@@ -4,6 +4,7 @@
 import { register } from './index.js';
 
 export default register('settings', {
+  'research': 'Research',
   'display': 'Display',
   'theme': 'Light or dark',
   'theme.dark': 'Dark',

@@ -1,0 +1,24 @@
+{
+ "id": "nypl_dennis_tucker_1010_prairie_stereo",
+ "type": "photograph",
+ "citation": "P. B. Greene, 'Residence of William F. Tucker. 1010 Prairie Avenue, Chicago.' Stereograph, c. 1876-1881. New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F175 (digital ID G90F175_004F).",
+ "author": "P. B. Greene, photographer, 315 W. Jackson St., Chicago",
+ "date": "c. 1876-1881 (the title names Tucker and the pre-1881 number)",
+ "describes_date": "c. 1876-1881",
+ "repository": "New York Public Library (via Wikimedia Commons). Prairie library image a20-nypl-dennis-tucker-1010-prairie-stereo (stream-2000-2100.json).",
+ "url": "https://commons.wikimedia.org/wiki/File:Residence_of_William_F._Tucker._1010_Prairie_Avenue,_Chicago,_by_P._B._Greene.jpg",
+ "locator": "Both halves: a cast-iron gas lamp post standing in a curbed grass plot at the curb corner of Prairie Avenue and 22nd Street, in front of the house's corner tower.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Created before 1931; public domain in the US (Wikimedia Commons). Read for arrangement only; no asset is derived.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3199) from the image store's reference copy (kevinrhaas/chicago-images, prairie-1904/files/a20-nypl-dennis-tucker-1010-prairie-stereo.jpg); the original host is not reachable from the build containers.",
+ "note": "Twenty-five years before the scene date; the later photographs of the house (chicagology_2140_photo_b) show the same kind of lamp on its parkway.",
+ "what_it_supplies": [
+  "a gas lamp at the north-west corner of Prairie Avenue and 22nd Street, in a curbed corner plot"
+ ],
+ "what_it_does_not_supply": [
+  "that the lamp still stood in 1904"
+ ]
+}

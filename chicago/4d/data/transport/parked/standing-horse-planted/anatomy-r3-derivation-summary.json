@@ -1,0 +1,35 @@
+{
+  "schema": "standing-horse-anatomy-r3-derivation-summary-v1",
+  "parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "candidate_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+  "candidate_bytes": 4158016,
+  "raw_derivation_receipt_sha256": "f77a676cd9f9b8380d279210c879f9ce474d3ca3d470b444480d068190b7e686",
+  "body_vertices": 5595,
+  "body_triangles": 9794,
+  "whole_animal_triangles": 17390,
+  "source_face_parent_count": 7390,
+  "added_vertices": 1282,
+  "named_anchors_preserved": true,
+  "all_parent_BIN_bytes_preserved": true,
+  "body_topology_changed": true,
+  "fresh_loaded129_summary_sha256": "d2dabd13a5924a6839b9adffce188ad9224f1e72eb9b0abbbc976ac1c5d766aa",
+  "photographic_acceptance": false,
+  "contact_sample_counts": {
+    "fore_l": {
+      "surface": 802,
+      "independent10mm": 385
+    },
+    "fore_r": {
+      "surface": 802,
+      "independent10mm": 385
+    },
+    "hind_l": {
+      "surface": 108,
+      "independent10mm": 188
+    },
+    "hind_r": {
+      "surface": 94,
+      "independent10mm": 188
+    }
+  }
+}

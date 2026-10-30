@@ -2,10 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs-17-habs-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "905a3dd4947991bdd4d4d8c27c45b0b9e1cf4fe320bb4e6682d29a09a2b780e3",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "4d314a4a64d2df0bc559faf6e75b77d808df0137b4efb59ce76bd0f402f63f11",
+  "photo_sha256": "74274df9fcebd442d645f42c6c629ea891f44e33a5fc98e14dea66bb390dcf5f",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-17-habs-ne-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2857 openings and entry: ten first-floor jambs and the door fit the model's spacing camera-free to 1.62 px rms (docs/RESEARCH/glessner-prairie-front-T-2857/).",
@@ -20,8 +21,8 @@
       "status": "not shown"
     },
     {
-      "what": "Stone/course relief: the 1965 soot hides the coursing at this distance; course relief stays open with Taylor 2135.",
-      "status": "open"
+      "what": "Stone/course relief: the 1965 soot hides the coursing at this distance; course relief stays open with Taylor 2135. T-3044 read it on Taylor 2135 (docs/RESEARCH/glessner-course-reading-T-3044/): T-3045 for the heights, T-3046 for the relief. T-3046 laid the relief, closing with Taylor 2135's: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "Neighboring buildings, street poles/cars/signs and1965 vegetation are not copied into the1904 house. Monochrome tones do not determine historical RGB.",
@@ -34,7 +35,23 @@
     {
       "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3024: the 18th Street coping lowered 0.7 ft to sheet 6's junction (parapet 0.5 ft, was 1.2) and the 1886 stone re-set (43.3-44.75 ft ng). Re-rendered from the rebaked master. Read as a proportion (not through the camera), the stack above the coping's junction stands about 1.15 of its seen width in the photograph against 0.95 in the render, so this view reads the junction lower still; that is carried with the stack's depth and width on T-3065. T-3065: the depth is corrected to 2.6 ft, which narrows the stack's seen width here (its east face, about 28 px on the box at the cap's top edge against the photograph's 22, carries most of the change); this camera stands about 8 px off the stack, so the proportion is not re-read through it and stays open with the crest's height on T-3028. T-3138 owns it (T-3136). T-3140, ruled within tolerance (T-3153): the proportion is read through a camera that stands about 8 px off the stack, and HABS 14 and HABS 01 put the coping's junction at 42.5-43.0 ft ng against the built 43.3, 0.3-0.8 ft and inside T-3024's ruled spread. T-3138 was withdrawn on this ground.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "T-3115: the crosses are draped on the stack's rock (they stood 2-4 cm proud of it); this print does not resolve them.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3116: re-read with the gable's light and fan raised 1.0 ft. The fan's crown, which this print resolves, stands 92 px under the crest in the photograph, 101 in the render before and 91 after (docs/RESEARCH/glessner-gable-fan-T-3116/habs17-photo-before-after.jpg). The stack's proportion above the coping is unchanged by this piece (neither the stack nor the coping moved) and stays open with T-3024's item above, for the sign-off (T-3117).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3137: this print is the second picture of the 18th Street gable light's transom. Read between the light's ruled head and sill, its centre stands 0.40 ft under the build's 34.14-34.88 ft ng (HABS 14 reads 0.45), so the transom is rebuilt 0.4 ft lower at 33.74-34.48 and the fan with the seven voussoirs HABS 14 counts. Re-rendered: the transom's centre reads 34.03 ft against the photograph's 34.04 (34.44 before). docs/RESEARCH/glessner-gable-transom-T-3137/.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

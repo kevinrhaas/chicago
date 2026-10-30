@@ -1,0 +1,258 @@
+{
+  "schema": "empty_covered_w01_original_study_v1",
+  "parent_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+  "authoredPartsSha256": "2fb3709d233e896280c50342618c28f9e340029e52c67b328100e05a125e2c27",
+  "variant_audit_sha256": "9163cc7b3fd1bc5a1c310a7996697f88429cf70b494574b76fb2baf7fcaf6780",
+  "variants": [
+    {
+      "id": "town_wagon_western_hotel_wagon_yard_1",
+      "sourceFile": "data/yard/town_trade_goods.json",
+      "kind": "covered",
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        -136.05,
+        -291
+      ],
+      "bearing_deg": 356.2,
+      "belongs_to": null,
+      "in_enclosure": "western_hotel_wagon_yard",
+      "in_yard_of": null,
+      "under_shed": null,
+      "stands_on": null,
+      "yoke": true,
+      "tilt": true,
+      "slew_deg": -3.8,
+      "slew_envelope_deg": 15,
+      "clearance_m": 7,
+      "clear_of_track_m": null,
+      "loadFieldsPresent": [],
+      "geometry": {
+        "body_m": [
+          3.05,
+          1.07,
+          0.55
+        ],
+        "bedHeight_m": 0.95,
+        "rearWheelDiameter_m": 1.37,
+        "frontWheelDiameter_m": 1.07,
+        "tongueLength_m": 2.75,
+        "axleAlongCenters_m": [
+          -1.1749999999999998,
+          1.1749999999999998
+        ],
+        "wheelbase_m": 2.3499999999999996,
+        "wheelCenterTrack_m": 1.21,
+        "outerTireWidth_m": 1.28,
+        "canvasRise_m": 1.1,
+        "canvasOverhangEachEnd_m": 0.12,
+        "canvasLength_m": 3.29,
+        "canvasWidth_m": 1.07,
+        "canvasCrownAboveBase_m": 2.6,
+        "canvasSegments": 8,
+        "canvasEnds": "open",
+        "separateBowGeometry": false,
+        "yoke_m": [
+          1.42,
+          0.12,
+          0.34,
+          0.05
+        ],
+        "yokeSideOffset_m": 1.35
+      },
+      "coat": {
+        "seedParts": [
+          "wagon",
+          "town_wagon_western_hotel_wagon_yard_1",
+          -136.05,
+          -291
+        ],
+        "seedText": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
+        "seedUint32": 1970835735,
+        "firstFourDraws": [
+          0.004941538209095597,
+          0.792486178688705,
+          0.9885709681548178,
+          0.15352392243221402
+        ],
+        "scheme": {
+          "weight": 3,
+          "body": "blue",
+          "gear": "oxide"
+        },
+        "ageScalar": 1.0226475121639669,
+        "gearMultiplier": 1.0188570968154818,
+        "gearScalar": 1.0419316753089543,
+        "canvasScalar": 0.8676343060377985,
+        "baseSrgb": {
+          "body": "#5e7080",
+          "gear": "#7a4536",
+          "canvas": "#bfb49b"
+        },
+        "nominalUncachedLinear": {
+          "body": [
+            0.11446741885788426,
+            0.1656989378948177,
+            0.22074920341594878
+          ],
+          "gear": [
+            0.20277848211698507,
+            0.06200664407886517,
+            0.03843628685764474
+          ],
+          "canvas": [
+            0.45203363260592494,
+            0.39599786136513193,
+            0.28439152264167744
+          ]
+        },
+        "boardVariation": {
+          "floorScalar": 0.9525400533340871,
+          "sideAndEndBoardScalars": [
+            0.9037012053094804,
+            0.8784368097223342,
+            1.0355448286887259,
+            1.035243896897882,
+            0.9484057241957635,
+            1.042562101772055,
+            0.9433803186193108,
+            0.9129732192400842
+          ],
+          "stakeScalars": [
+            0.9007700003217906,
+            0.9686807643715293,
+            0.9821671362407506,
+            0.9494778775703162,
+            0.987197198169306,
+            0.930111564444378
+          ]
+        }
+      },
+      "asset_id": "covered_w01_western_blue"
+    },
+    {
+      "id": "town_wagon_wolf_point_tavern_yard_1",
+      "sourceFile": "data/yard/town_trade_goods.json",
+      "kind": "covered",
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        -90.5,
+        -39.5
+      ],
+      "bearing_deg": 356.2,
+      "belongs_to": null,
+      "in_enclosure": "wolf_point_tavern_yard",
+      "in_yard_of": null,
+      "under_shed": null,
+      "stands_on": null,
+      "yoke": true,
+      "tilt": true,
+      "slew_deg": -3.8,
+      "slew_envelope_deg": 15,
+      "clearance_m": 6.13,
+      "clear_of_track_m": null,
+      "loadFieldsPresent": [],
+      "geometry": {
+        "body_m": [
+          3.05,
+          1.07,
+          0.55
+        ],
+        "bedHeight_m": 0.95,
+        "rearWheelDiameter_m": 1.37,
+        "frontWheelDiameter_m": 1.07,
+        "tongueLength_m": 2.75,
+        "axleAlongCenters_m": [
+          -1.1749999999999998,
+          1.1749999999999998
+        ],
+        "wheelbase_m": 2.3499999999999996,
+        "wheelCenterTrack_m": 1.21,
+        "outerTireWidth_m": 1.28,
+        "canvasRise_m": 1.1,
+        "canvasOverhangEachEnd_m": 0.12,
+        "canvasLength_m": 3.29,
+        "canvasWidth_m": 1.07,
+        "canvasCrownAboveBase_m": 2.6,
+        "canvasSegments": 8,
+        "canvasEnds": "open",
+        "separateBowGeometry": false,
+        "yoke_m": [
+          1.42,
+          0.12,
+          0.34,
+          0.05
+        ],
+        "yokeSideOffset_m": 1.35
+      },
+      "coat": {
+        "seedParts": [
+          "wagon",
+          "town_wagon_wolf_point_tavern_yard_1",
+          -90.5,
+          -39.5
+        ],
+        "seedText": "wagon|town_wagon_wolf_point_tavern_yard_1|-90.5|-39.5",
+        "seedUint32": 1535618531,
+        "firstFourDraws": [
+          0.8806189042516053,
+          0.1924407051410526,
+          0.09990073158405721,
+          0.5194377067964524
+        ],
+        "scheme": {
+          "weight": 1,
+          "body": "oak",
+          "gear": "darkoak"
+        },
+        "ageScalar": 0.9146393269253895,
+        "gearMultiplier": 0.9299900731584058,
+        "gearScalar": 0.850605494560898,
+        "canvasScalar": 0.9334987872233614,
+        "baseSrgb": {
+          "body": "#7b644b",
+          "gear": "#5f4c3b",
+          "canvas": "#bfb49b"
+        },
+        "nominalUncachedLinear": {
+          "body": [
+            0.1811619891268815,
+            0.11655951425859344,
+            0.06435411057034045
+          ],
+          "gear": [
+            0.09733935774935423,
+            0.06147483329246403,
+            0.037201256190763254
+          ],
+          "canvas": [
+            0.48634873573500476,
+            0.42605913661428124,
+            0.30598045701416215
+          ]
+        },
+        "boardVariation": {
+          "floorScalar": 1.0045626197382806,
+          "sideAndEndBoardScalars": [
+            0.9839858647808433,
+            1.0035284736100585,
+            1.0052506716828793,
+            1.025351538406685,
+            0.9934717952180654,
+            0.9216602738387882,
+            0.9612158021330833,
+            0.9057632170524448
+          ],
+          "stakeScalars": [
+            1.0021022409573197,
+            0.9436013947986066,
+            0.9309119719918817,
+            0.9418333199713379,
+            0.9422413511574268,
+            0.9580155475158244
+          ]
+        }
+      },
+      "asset_id": "covered_w01_wolfpoint_oak"
+    }
+  ]
+}

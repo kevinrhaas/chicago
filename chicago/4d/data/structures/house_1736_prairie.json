@@ -13,8 +13,18 @@
     ],
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D) at the 18th Street corner'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
+  "built": {
+    "value": "1864 or 1875",
+    "confidence": "inferred",
+    "sources": [
+      "glessner_blog_2020_07_early_history_prairie_iv",
+      "chicago_tribune_1875_08_08_building_permits",
+      "chicagology_1736_prairie_page"
+    ],
+    "note": "THE SOURCES DISAGREE AND THIS RECORD DOES NOT CHOOSE. The Glessner House Museum's post has the large brick house at 1736 'completed in 1864' for Granville S. Ingraham (glessner_blog_2020_07_early_history_prairie_iv). The Tribune of 8 August 1875, as the Prairie library read it, prints a permit to Gen. Henry Strong for a two-storey-and-basement brick house 23 feet wide at old 882 Prairie, this lot, and chicagology gives the house a life span of 1875-1912; Strong sold the improved lot to Hugh McBirney in December 1880 (chicagology_1736_prairie_page). So the house McBirney lived in may be Ingraham's of 1864 or Strong's of 1875. Inferred, because the permit is not re-read here and neither account names the other. Either way it stood by about 1890, when it was photographed (glessner_blog_1736_mcbirney_c1890_photo), and in 1893, when Rand McNally's bird's-eye guide drew it (Prairie library st-randmcnally-1893-p233-west-1700-1800)."
+  },
   "review_required": false,
-  "research_note": "T-2933 (piece 1 of T-1874) refines the district draft (T-2334) in place under the same id from the c. 1890 photograph of the house the Glessner House Museum reproduces (glessner_blog_1736_mcbirney_c1890_photo), read against the 1911 Sanborn sheet 20, which controls the plan. The draft's 5.5 m strip becomes the sheet's own main body, 23.3 m deep and 6.75 m along the street, on K01: two storeys over a raised basement under a slated mansard with two round-headed dormers on the street face, a bracketed cornice, three arched upper windows, and the photograph's timber veranda the front's whole width (the sheet's frame porch) on K07's terrace, with its stair at the north end. The camera is solved into data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json; what the picture still shows differently is on its match record. T-2960 (piece 1 of T-2935) builds the upper windows' segmental heads under K09 cornice hoods on consoles, and the veranda's deck open beneath on its posts carried to grade, in painted timber with its balustrade. The street wall and the set-back front left of the house are T-2961's; the south flank's two projections and side porch, the service wing, the coach house and the mansard's date are T-2962's. docs/RESEARCH/k01-1736-mcbirney-2933/README.md.",
+  "research_note": "T-2933 (piece 1 of T-1874) refines the district draft (T-2334) in place under the same id from the c. 1890 photograph of the house the Glessner House Museum reproduces (glessner_blog_1736_mcbirney_c1890_photo), read against the 1911 Sanborn sheet 20, which controls the plan. The draft's 5.5 m strip becomes the sheet's own main body, 23.3 m deep and 6.75 m along the street, on K01: two storeys over a raised basement under a slated mansard with two round-headed dormers on the street face, a bracketed cornice, three arched upper windows, and the photograph's timber veranda the front's whole width (the sheet's frame porch) on K07's terrace, with its stair at the north end. The camera is solved into data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json; what the picture still shows differently is on its match record. T-2960 (piece 1 of T-2935) builds the upper windows' segmental heads under K09 cornice hoods on consoles, and the veranda's deck open beneath on its posts carried to grade, in painted timber with its balustrade. The street wall and the set-back front left of the house are T-2961's; T-2962 builds the 18th Street wall's three canted bays off the sheet (a frame bay, the brick bay and a frame bay where the draft read a side porch) and argues the mansard's date (roof_form); T-2995 rules the roof behind the sheet's curb and builds it: the mansard on the street front and the south face forward of the brick bay, the north side, the rear and the south wall behind the bay a straight brick third storey (roof_form, `mansard.straight`), and refines the coach house onto K12. docs/RESEARCH/k01-1736-mcbirney-2933/README.md.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -23,9 +33,12 @@
         "to": "1911-12-31",
         "confidence": "inferred",
         "sources": [
-          "sanborn_1911_chicago_v3_sheet_20"
+          "sanborn_1911_chicago_v3_sheet_20",
+          "glessner_blog_1736_mcbirney_c1890_photo",
+          "glessner_blog_2020_07_early_history_prairie_iv"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). THE HOUSE'S DATE AND ITS MANSARD'S (T-2962): the house was 'completed in 1864' for Granville S. Ingraham (glessner_blog_2020_07_early_history_prairie_iv) — or, as the Prairie library reads an 1875 permit for this lot, built for Gen. Henry Strong in 1875 (T-3037; the structure's `built` carries both) — and that post's author judges the mansard 'may well have been a later addition' to an Italianate house of the Civil War years; nothing read here dates the mansard, and the Keith house at 1900 Prairie had its mansard added in the 1880s (glessner_blog_2014_11_elbridge_keith_house), so a later mansard is the street's own pattern, not a proof for this house. For this phase the question is bounded either way: the c. 1890 photograph (earliest 1885) shows the mansard and the veranda front, and the 1911 sheet draws the mansard's curb and prints the house '3B', so the house as built here stood from at least the late 1880s to 1911. The range keeps to the 1904 target because only the front is seen in c. 1890; the flank's bays are the 1911 sheet's. When the house lost the mansard or was demolished is not read.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448431.805,
@@ -65,7 +78,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The main body read off the 1911 sheet's trace (s20fp-1736-b1 p3) in the draft's lot frame: the rear wall at u -0.05 to 0.10, the front at 23.27 to 23.36, the south wall at v -0.71 to -0.85 and the north at 5.88 to 6.26 (its jogs are the sheet's printed figures, not walls), so 23.3 m deep and 6.75 m along the street. The photograph's front reads 216 px across at 32 px/m through its camera, 6.75 m. The south wall's two small projections (u 3.8-5.6 and 9.9-12.2, about 0.9 m out) and its frame side porch (u 16.3-18.9) are not built here (T-2935); the veranda (the sheet's frame porch p1/p2, 1.8 m deep the front's width) is the entrance kit's."
+        "note": "The main body read off the 1911 sheet's trace (s20fp-1736-b1 p3) in the draft's lot frame: the rear wall at u -0.05 to 0.10, the front at 23.27 to 23.36, the south wall at v -0.71 to -0.85 and the north at 5.88 to 6.26 (its jogs are the sheet's printed figures, not walls), so 23.3 m deep and 6.75 m along the street. The photograph's front reads 216 px across at 32 px/m through its camera, 6.75 m. The south wall's three canted bays (u 3.37-6.01 frame, 9.42-12.75 brick and 15.97-19.17 frame, about 0.85 m out) are K08's, on the wall (T-2962, `bays`); the veranda (the sheet's frame porch p1/p2, 1.8 m deep the front's width) is the entrance kit's."
       },
       "form": {
         "stories": {
@@ -75,7 +88,7 @@
             "glessner_blog_1736_mcbirney_c1890_photo",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "Two storeys over a raised basement under a mansard, the attic storey in the roof: the photograph shows two rows of windows on the front under one cornice and the mansard with its dormers above it. The 1911 sheet's '3B' counts the mansard storey (T-2933)."
+          "note": "Two storeys over a raised basement under a mansard, the attic storey in the roof: the photograph shows two rows of windows on the front under one cornice and the mansard with its dormers above it. The 1911 sheet's '3B' counts the mansard storey (T-2933). T-2995: on the north wall, the rear and the 18th Street wall behind the brick bay the third storey is a straight brick storey, not the mansard's (roof_form), as the sheet's three wall figures to a wall and its curb line say."
         },
         "construction": {
           "value": "brick",
@@ -179,9 +192,10 @@
           "value": "mansard",
           "confidence": "inferred",
           "sources": [
-            "glessner_blog_1736_mcbirney_c1890_photo"
+            "glessner_blog_1736_mcbirney_c1890_photo",
+            "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "A mansard: the photograph shows a steep lower slope from the cornice to a curb with round-headed dormers in it on the street face; the register's 'bounded mansard/attic treatment'. Its date (whether it was the house's first roof) is T-2935's to argue."
+          "note": "A mansard: the photograph shows a steep lower slope from the cornice to a curb with round-headed dormers in it on the street face; the register's 'bounded mansard/attic treatment'. Its date is argued in the phase's documented_range (T-2962): it stood from at least the late 1880s to 1911, its first date unread. THE CURB ON THE SHEET runs along the street front about 1.2 m inside it and along the 18th Street wall about 1.0 m inside it from the front back only to the brick bay (u about 9.9), where it turns down into the bay's rear cheek; no dashed line is drawn along the north wall or over the rear 9.9 m. The sheet prints '12 12 8' against the north wall near u 14-17 and '14 12 12' against the south wall near u 13-15 (wall thicknesses in inches, storey by storey, as T-2934 read '12 12' on 1726 and 1730); whether those figures begin at the basement is not settled here, so they do not yet say whether the north side and the rear rise as a straight brick third storey. THE CURB ON THE SHEET, RULED (T-2995). The sheet's key draws a mansard roof as a dashed line inside the building's outline, and on 1736 that line runs about 1.2 m inside the street front and about 1.0 m inside the 18th Street wall from the front back to the brick bay (u about 9.9), where it turns down into the bay's rear cheek; none is drawn along the north wall or over the rear 9.9 m. The figures against the walls are, by the same key ('Figures 20, 16, 12, 8 indicate thickness of wall in inches'), one wall thickness to a storey, and each wall carries three: '12 12 8' on the north (u about 14-17) and '14 12 12' on the south (u about 13-15), the three storeys of the building's '3B' over its basement. So the north wall stands brick, 8 inches thick, through the third storey, and the rear, which the line leaves out as it leaves out the north, is ruled the same: the mansard stands on the street front and on the 18th Street wall forward of the brick bay, and the north side, the rear and the 18th Street wall behind the bay rise as a straight brick third storey (the service side). Built: K05's mansard on the street front and the south face from u 9.9 (`mansard.straight`), the straight walls carried up from the eave as coped brick parapets 0.45 m over the curb, and where the two mansard faces end (the street front's at the north wall, the south face at u 9.9) their section is closed in the wall's brick."
         },
         "roof_pitch_deg": {
           "value": 10,
@@ -239,11 +253,11 @@
             2.4,
             7.0,
             15.0,
-            19.4,
-            21.6
+            20.2,
+            22.0
           ],
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: five windows a storey along the 23.3 m south wall on 18th Street, rear to front, clear of the sheet's two projections (u 3.8-5.6 and 9.9-12.2) and side porch (u 16.3-18.9), which T-2935 builds; no picture sees the wall."
+          "note": "RECONSTRUCTED: five windows a storey along the 23.3 m south wall on 18th Street, rear to front, clear of the sheet's three canted bays (u 3.37-6.01 frame, 9.42-12.75 brick, 15.97-19.17 frame; T-2962, `bays`); no picture sees the wall. T-2962 moved the two front windows from 19.4 and 21.6 to 20.2 and 22.0, since the front frame bay's junction at 19.17 would have cut the first."
         },
         "rear_bays": {
           "value": [
@@ -331,17 +345,17 @@
             "ends_at": "grade_with_splash_stone",
             "downpipes": [
               {
-                "wall": "k01.wall.rear_service",
-                "s_m": 0.35
+                "wall": "k01.wall.side.south",
+                "s_m": 13.3
               },
               {
-                "wall": "k01.wall.rear_service",
-                "s_m": 6.4
+                "wall": "k01.wall.side.south",
+                "s_m": 22.9
               }
             ]
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: K04 half-round copper gutters and round downpipes at the rear corners; the photograph shows no downpipe on the front."
+          "note": "RECONSTRUCTED: K04 half-round copper gutters along the mansard's eaves (the street front and the 18th Street wall forward of the brick bay; T-2995: the straight walls carry none, and each run stops at the brick that ends the mansard face) and round downpipes on the 18th Street wall at u 13.3 and 22.9, clear of the bays (T-2995 moved them from the rear corners, which now carry no gutter); the photograph shows no downpipe on the front."
         },
         "window_kit": {
           "value": {
@@ -458,19 +472,22 @@
             "chamfer_m": 0.06,
             "runs": [
               {
-                "to_s_m": 4.3,
+                "to_s_m": 5.0,
                 "height_m": 0.74
               },
               {
+                "to_s_m": 6.3,
+                "opening": true
+              },
+              {
                 "to_s_m": 7.79,
-                "height_m": 0.95
+                "height_m": 0.74
               }
             ],
-            "stair_pier": {
-              "side": "left",
-              "section_m": 0.6,
-              "height_m": 1.55,
-              "cap_m": 0.06
+            "side_return": {
+              "to_x_m": 19.5,
+              "height_m": 0.74,
+              "at": "south"
             }
           },
           "confidence": "inferred",
@@ -478,7 +495,7 @@
             "glessner_blog_1736_mcbirney_c1890_photo",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "T-2961: the photograph's low pale wall along the street line, read through its camera (data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json), where the Prairie Avenue street line stands 18.9 m from the eye at 47.4 px/m and grade on it at y 536 px (the walk's own edge reads at y 535-537, which checks the camera). Its top reads at y 501 px from x 212 to 440 (0.74 m) and at y 491 px from x 476 to 628 (0.95 m); the step lies behind the street tree at x 456-472, s 4.2-4.6 m on the line, built at 4.3. The taller run ends at x 628 px, s 7.79, which is where the 1904 parcel's north lot line (data/street_grid/1904.json prairie_1736) meets the street line in this frame: the photograph and the parcel agree there without being fitted to each other. The line is the street grid's: the front stands 9.07 m behind it, and the lot runs s -0.65 to 7.79 along it (the parcel's corners taken into the house's frame). The wall's material is the Glessner House Museum's 2015 photograph of the McBirney curbstone still in place on the lot line (Prairie library a16-ghm-blog-1736-mcbirney-curbstone-2015, read 2026-10-21 from the image store's copy, sha256 e00ecb6a…; link only, so forms only are read): squared limestone blocks with a chamfered top arris, stepping up at one block, as the c. 1890 wall steps up. The wall reads continuous across the stair's line in the print (x 490-540 and 562-600 px), so no opening is cut; whatever gave onto the walk is hidden behind the tree or the ice wagon, and nothing is built for it. Nothing turns the 18th Street corner: no picture shows a return. The pier is the stair's: at the foot of its south cheek, whose top rakes down to it, x 475-507 px, its top at y 462, 1.55 m over grade at the foot's distance (and 1.56 m were it on the street line, so the height does not rest on where it stands); its lower part is hidden behind the street wall. RECONSTRUCTED: the wall's thickness (0.35 m) and the chamfer (0.06 m), the pier's section (0.6 m under a 0.06 m cap; the print's 32 px include its cap's shadow), and that the stone is limestone in c. 1890 as in 2015 (L-k01-1736-mcbirney-veranda-2933)."
+          "note": "T-2961: the photograph's low pale wall along the street line, read through its camera (data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json), where the Prairie Avenue street line stands 18.9 m from the eye at 47.4 px/m and grade on it at y 536 px (the walk's own edge reads at y 535-537, which checks the camera). Its top reads at y 501 px from x 212 to 440 (0.74 m) and at y 491 px from x 476 to 628 (0.95 m); the step lies behind the street tree at x 456-472, s 4.2-4.6 m on the line, built at 4.3. The taller run ends at x 628 px, s 7.79, which is where the 1904 parcel's north lot line (data/street_grid/1904.json prairie_1736) meets the street line in this frame: the photograph and the parcel agree there without being fitted to each other. The line is the street grid's: the front stands 9.07 m behind it, and the lot runs s -0.65 to 7.79 along it (the parcel's corners taken into the house's frame). The wall's material is the Glessner House Museum's 2015 photograph of the McBirney curbstone still in place on the lot line (Prairie library a16-ghm-blog-1736-mcbirney-curbstone-2015, read 2026-10-21 from the image store's copy, sha256 e00ecb6a…; link only, so forms only are read): squared limestone blocks with a chamfered top arris, stepping up at one block, as the c. 1890 wall steps up. The wall reads continuous across the stair's line in the print (x 490-540 and 562-600 px), so no opening is cut; whatever gave onto the walk is hidden behind the tree or the ice wagon, and nothing is built for it. Nothing turns the 18th Street corner: no picture shows a return. The pier is the stair's: at the foot of its south cheek, whose top rakes down to it, x 475-507 px, its top at y 462, 1.55 m over grade at the foot's distance (and 1.56 m were it on the street line, so the height does not rest on where it stands); its lower part is hidden behind the street wall. RECONSTRUCTED: the wall's thickness (0.35 m) and the chamfer (0.06 m), the pier's section (0.6 m under a 0.06 m cap; the print's 32 px include its cap's shadow), and that the stone is limestone in c. 1890 as in 2015 (L-k01-1736-mcbirney-veranda-2933). T-3205 (the owner: some fronts 'cant enter'): the wall is not continuous at the step. Read again, the low run's top ends at the street tree's edge (x 440 px, s 3.86), the taller run starts behind the stair's pier (x 477-490, s 4.6-4.95), and between them, at x 460-477 (s 4.3-4.6), the print shows the stone at grade, not a wall's top (its top line at y 527 against the ground's 536). That gap is the walk's opening; its two edges are hidden by the tree and the pier, so it is built s 3.9-4.9, 1.0 m, the most the print allows, and the low run ends there instead of at 4.3. The ground-level stone in the gap (a sill, or a step's top) is not built. RECONSTRUCTED: the opening's two edges (liberty L-k14-walks-1700-block-3205). T-3234 (the owner, 2026-10-28, of this front: the walk curves where it would run straight, the wall stops at the front instead of coming round the side, an odd column stands by the stair, and the wall's height is irregular; 'whatever is best documented'). Reworked on the owner's call, the print set aside where it disagrees: the opening is moved to the stair's line, s 5.0-6.3 (the stair's 1.2 m flight centred at 5.65 and the 1.0 m walk with 0.15 m each side), so the walk runs straight from the stair's foot to the public walk, as a city front walk ran; the T-3205 gap at s 3.9-4.9 is closed. The wall is one height, 0.74 m, the low run's (the longest the print reads, x 212-440 px), as the 2015 curbstone's blocks stand one course high along the walk; the print's 0.95 m run north of the stair is not built at its own height. The stair's pier is not built: the stoop's cheeks already end in their own newels at the foot, and a second pier free of the wall read as a stray column. The wall comes round the 18th Street corner on the south lot line (side_return at: south) and runs back to x 19.5, 0.3 m clear of the front canted bay (x 15.97-19.17 from the rear), which stands over the lot line; past it the house's own bays are the lot's edge. RECONSTRUCTED: the opening's place and width, the one height, the pier's omission and the return, which no picture shows (L-k11-1736-coping-3234)."
         },
         "mansard": {
           "value": {
@@ -513,18 +530,6 @@
               },
               {
                 "face": "south",
-                "along_m": 8.0,
-                "sash": {
-                  "variant": "k06.opening.sash_round_fanlight",
-                  "width_m": 0.7,
-                  "height_m": 1.4,
-                  "sill_m": 0.15
-                },
-                "surround_m": 0.15,
-                "face_setback_m": 0.15
-              },
-              {
-                "face": "south",
                 "along_m": 15.5,
                 "sash": {
                   "variant": "k06.opening.sash_round_fanlight",
@@ -535,13 +540,221 @@
                 "surround_m": 0.15,
                 "face_setback_m": 0.15
               }
-            ]
+            ],
+            "straight": {
+              "rear": true,
+              "north_to_u_m": 23.3,
+              "south_to_u_m": 9.9,
+              "upstand_m": 0.45
+            }
           },
           "confidence": "inferred",
           "sources": [
-            "glessner_blog_1736_mcbirney_c1890_photo"
+            "glessner_blog_1736_mcbirney_c1890_photo",
+            "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The mansard read off the photograph through the camera: its curb at y 103 px, 12.7 m over grade, 2.7 m over the eave; its lower faces near upright and straight. Two round-headed dormers on the street face, their lights at x 383-398 and 478-493 px (v 2.12 and 5.18 m at the mansard's face), sills at y 178 px and round heads at y 120 px. The two on the south face over 18th Street are RECONSTRUCTED: no picture sees that face."
+          "note": "The mansard read off the photograph through the camera: its curb at y 103 px, 12.7 m over grade, 2.7 m over the eave; its lower faces near upright and straight. Two round-headed dormers on the street face, their lights at x 383-398 and 478-493 px (v 2.12 and 5.18 m at the mansard's face), sills at y 178 px and round heads at y 120 px. The one on the south face over 18th Street (u 15.5) is RECONSTRUCTED: no picture sees that face; T-2995 took away the second, at u 8.0, since the sheet stands no mansard behind the brick bay. The mansard's EXTENT is the 1911 sheet's (roof_form, T-2995): the street front, and the south face from u 9.9 to the front; the north wall, the rear and the south wall behind the bay are straight (`straight`), their parapets 0.45 m over the curb (RECONSTRUCTED: the sheet gives no height; 0.45 m is K05's 0.3 m least upstand over the upper deck's covering at the parapet's inner face, with room). No picture sees those walls, so their third storey is built blank, as the north wall's lower storeys are; a window there is unread, not absent."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "south_rear_frame_bay",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.side.south",
+              "s_m": 4.69,
+              "fabric": "frame",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.32,
+                    0.0
+                  ],
+                  [
+                    -0.71,
+                    0.85
+                  ],
+                  [
+                    0.71,
+                    0.85
+                  ],
+                  [
+                    1.32,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 5.75,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 2.6,
+                      "sill_m": 2.3,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the house's own principal-storey sash (sash_by_storey: 2.9 m tall over a 0.45 m sill on the 1.85 m floor), so the bay's light stands level with the wall's beside it; the frame bays' a little shorter under their lower roofs (T-2994, reconstructed)"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "tin_flat_seam_painted"
+              }
+            },
+            {
+              "id": "south_brick_bay",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.side.south",
+              "s_m": 11.08,
+              "fabric": "brick",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.665,
+                    0.0
+                  ],
+                  [
+                    -1.14,
+                    0.85
+                  ],
+                  [
+                    1.14,
+                    0.85
+                  ],
+                  [
+                    1.665,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 6.05,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.9,
+                      "sill_m": 2.3,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the house's own principal-storey sash (sash_by_storey: 1.0 x 2.9 m over a 0.45 m sill on the 1.85 m floor), so the bay's light stands level with the wall's beside it (T-2994, reconstructed)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.2,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.95,
+                      "clear_height_m": 2.0,
+                      "sill_m": 0.55,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.0,
+                "covering": "tin_flat_seam_painted"
+              }
+            },
+            {
+              "id": "south_front_frame_bay",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.side.south",
+              "s_m": 17.57,
+              "fabric": "frame",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.6,
+                    0.0
+                  ],
+                  [
+                    -1.015,
+                    0.85
+                  ],
+                  [
+                    1.015,
+                    0.85
+                  ],
+                  [
+                    1.6,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 5.75,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.6,
+                      "sill_m": 2.3,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the house's own principal-storey sash (sash_by_storey: 2.9 m tall over a 0.45 m sill on the 1.85 m floor), so the bay's light stands level with the wall's beside it; the frame bays' a little shorter under their lower roofs (T-2994, reconstructed)"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "tin_flat_seam_painted"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-2962: the 18th Street wall's three projections read off the 1911 sheet's raster (trace s20fp-1736-b1's outline, pixels x 2738-3049, y 6045-6062) in the record's frame, the wall at v 0 and each about 0.85 m out, every one drawn CANTED, its face shorter than its foot. REAR: yellow, frame, u 3.37-6.01 at the wall, its face 3.94-5.36. MIDDLE: pink, brick, u 9.42-12.75 at the wall, its face 9.93-12.21; the mansard's dashed curb turns down into its rear cheek, so it rises under the roof. FRONT: yellow, frame, u 15.97-19.17 at the wall, its face 16.48-18.51; the trace's rule read it as a frame porch (p4), but the sheet draws it in solid lines, closed and canted like the rear one, not in a porch's dashes, so it is a frame bay. Neither frame bay carries a storey figure, so each is built one storey, a bay window to the principal floor, as 1730's yellow bay is (T-2934); the brick bay is built two storeys to a flat top 0.65 m under the eave, under its own roof, because K01 cannot carry the mansard's face out over a bay. RECONSTRUCTED: the heights, the one window a storey on each face, the blank cheeks, the sash, the roofs, and the frame bays' boards in K08's dark painted timber against the painted brick (the kit's colour, as 1626's and 1730's frame bays wear it; the sheet gives fabric, not paint). No picture sees this wall (the c. 1890 camera is square to the front)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.0
+            },
+            "grade_m": {
+              "front": 0.017,
+              "street": 0.027,
+              "per_m_s": -0.0018,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "glessner_blog_1736_mcbirney_c1890_photo",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot straight out through the wall's opening at s 5.0-6.3 (T-3234: moved to the stair's line; T-3205 had it turned south behind the wall to a gap at s 3.9-4.9) to the public walk, 1.0 m wide as the opening allows; the lawn across the front. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget."
         }
       }
     }

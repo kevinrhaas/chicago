@@ -25,7 +25,9 @@
     "sources": [
       "andreas_1884_v1"
     ],
-    "note": "THIS PHASE BEGINS AT A CHANGE OF FABRIC, NOT AT A BUILD DATE. Andreas, printed p. 635: 'The Mansion House was built in 1831 by Dexter Graves; it stood on Lake near Dearborn and almost opposite the old Tremont House. As originally built, the Mansion House was situated some little distance back from the street, but TWO YEARS LATER Mr. Graves erected a FRAME ADDITION IN THE FRONT, which came out to a line with the street.' 1831 plus two years is 1833, and 1833-01-01 is the first day that year permits rather than a date anybody gives - the YEAR of the change is attested, the month is not, so the from date is a bound inside a documented year. The 1831 log tavern standing set back from Lake Street is the previous state and is NOT modelled as a separate phase: see the change_note for why. THE END IS THE LAST ATTESTED EVENT IN THE BUILDING'S LIFE, not a demolition and not a guess - Andreas, on the succession of proprietors: 'In 1848 Jacob R. Bates took it. Two years later the greater part of the house was removed to the northwest corner of Lake Street and Michigan Avenue, and was fitted up as a hotel under the name of the Dearborn House.' BOTH ENDS ARE THEREFORE ATTESTED EVENTS IN THE BUILDING'S OWN LIFE - a dated change of fabric and a dated removal - which is why the range is tagged documented despite its width, the same reading data/structures/green_tree_tavern.json takes for a forty-seven-year span. A SEVENTEEN-YEAR PHASE IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation rather than a claim that nothing changed: the house demonstrably grew once already, and nothing dates any alteration between the 1833 frame addition and the 1850 removal. Split it the moment anything does."
+    "note": "THIS PHASE BEGINS AT A CHANGE OF FABRIC, NOT AT A BUILD DATE. Andreas, printed p. 635: 'The Mansion House was built in 1831 by Dexter Graves; it stood on Lake near Dearborn and almost opposite the old Tremont House. As originally built, the Mansion House was situated some little distance back from the street, but TWO YEARS LATER Mr. Graves erected a FRAME ADDITION IN THE FRONT, which came out to a line with the street.' 1831 plus two years is 1833, and 1833-01-01 is the first day that year permits rather than a date anybody gives - the YEAR of the change is attested, the month is not, so the from date is a bound inside a documented year. The 1831 log tavern standing set back from Lake Street is the previous state and is NOT modelled as a separate phase: see the change_note for why. THE END IS THE LAST ATTESTED EVENT IN THE BUILDING'S LIFE, not a demolition and not a guess - Andreas, on the succession of proprietors: 'In 1848 Jacob R. Bates took it. Two years later the greater part of the house was removed to the northwest corner of Lake Street and Michigan Avenue, and was fitted up as a hotel under the name of the Dearborn House.' BOTH ENDS ARE THEREFORE ATTESTED EVENTS IN THE BUILDING'S OWN LIFE - a dated change of fabric and a dated removal - which is why the range is tagged documented despite its width, the same reading data/structures/green_tree_tavern.json takes for a forty-seven-year span. A SEVENTEEN-YEAR PHASE IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation rather than a claim that nothing changed: the house demonstrably grew once already, and nothing dates any alteration between the 1833 frame addition and the 1850 removal. Split it the moment anything does.",
+    "from_is": "began",
+    "to_is": "ended"
   },
   "change_note": "The house as it stood from 1833: Dexter Graves's log tavern of 1831, which had been set back from Lake Street, with the frame addition he built across its front that year and that 'came out to a line with the street'. THE 1831 SET-BACK LOG TAVERN IS NOT MODELLED AS A SEPARATE PHASE. It could be - the change is dated to within a year and the archetype can build the log core alone - but the setback distance is the whole difference between the two states and no source gives it, so an earlier phase would consist of one invented number pretending to be a position. It is recorded here instead. WHAT ALSO DOES NOT OPEN A PHASE: the changes of keeper. Graves sold to his son-in-law Edward Haddock about 1833, Haddock kept it until 1835, and Abram A. Markle took it in 1835 for two years. Those are changes of use, not of fabric.",
   "placement": {
@@ -164,6 +166,14 @@
         "chicago_democrat_1833_1835"
       ],
       "note": "THE HANDOVER FALLS IN THE SCENE YEAR AND NO SOURCE GIVES A MONTH, so on 1835-07-01 the keeper is one of two men and this record declines to choose. Andreas, p. 635: Graves 'sold it to a Mr. Haddock, his son-in-law, who kept it UNTIL 1835 when it passed into the hands of Abram A. Markle, who, for two years thereafter accommodated and entertained many of Chicago's early residents'. A transfer somewhere inside 1835 is, on a flat prior, about as likely to be after 1 July as before it. A SECOND, LOOSER COMPLICATION: Andreas elsewhere quotes a stage-line advertisement of 6 August 1836 in which seats are taken at 'Markle's Exchange Coffee House' - so Markle is attached to two different houses in overlapping years, and either he ran both or one of the two datings is loose. Recorded rather than resolved. APPENDED 2026-08-29, T-0324 — THE PAPER BRACKETS THE HANDOVER ANDREAS DOES NOT DATE. It is the GRAVES-to-HADDOCK one, not the Haddock-to-Markle one this field turns on, so nothing below changes the answer for 1835-07-01; it is recorded here because this is the field that carries the succession. Andreas gives only 'about this time'. The Chicago Democrat gives: the Board of Trustees adopting ordinances 'at the house of Dexter Graves' on 1833-12-04 and on 1834-03-05; an employment notice of 1834-04-01 (c017) reading 'enquire of MR. GRAVES, AT HIS TAVERN'; the ordinances of 1834-06-06 adopted 'at the house of E. Haddock' (1834-06-18 c002, reset as 'E. H. Haddock' on 1834-07-02 c017); and a Fourth of July meeting called at 'H. HADDOCK'S MANSIO[N HOUSE]' on 1834-06-25 (c002). SO THE HOUSE IS GRAVES'S ON 1 APRIL 1834 AND HADDOCK'S BY 25 JUNE 1834, and probably before 6 June. Dexter Graves commences the Baking Business on South Water Street over a copy date of 1834-03-25 (1834-03-25 c003), which is the same spring. THE WEAK LINK, STATED: the trustees' venue is not by itself a tenancy - the same board met at Starr Foot's house, the Presbyterian church, the Tremont House and 'the Exchange' later in 1834, so it tracks convenience. The bracket rests on Graves's own advertisement and on the house being named as Haddock's; the venue agrees with it rather than proving it. WHO KEPT IT ON THE SCENE DATE IS STILL OPEN and this record still declines to choose."
+    },
+    "built": {
+      "value": 1831,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: 'The Mansion House was built in 1831 by Dexter Graves'; the frame front this scene shows was added two years later."
     }
   },
   "residents": [
@@ -283,7 +293,7 @@
   "review_required": false,
   "lodging": {
     "class": "inn_tavern",
-    "beds_ordinary": 5,
+    "beds_ordinary": 4,
     "beds_crowded": 35,
     "ceiling": 35,
     "clamped_at_1840_maximum": true,
@@ -293,9 +303,9 @@
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
       "people": 6,
-      "beds_ordinary": 5,
+      "beds_ordinary": 4,
       "empty": 0,
-      "statement": "6 on this card against an ordinary night's 5 beds: 6 the residents layer already housed here.",
+      "statement": "6 on this card against an ordinary night's 4 beds: 6 the residents layer already housed here.",
       "empty_note": "",
       "keeper_persons": 6,
       "keeper_owed": ""

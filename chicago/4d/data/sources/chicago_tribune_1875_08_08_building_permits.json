@@ -1,0 +1,24 @@
+{
+  "id": "chicago_tribune_1875_08_08_building_permits",
+  "type": "newspaper",
+  "citation": "Chicago Daily Tribune, 8 August 1875, building permits: 'Gen. Strong, two-story and basement brick, 23x32 feet, at 882 Prairie avenue.' Library of Congress, Chronicling America, sn84031492, image 8.",
+  "author": "Chicago Daily Tribune",
+  "date": "1875-08-08",
+  "describes_date": "1875-08",
+  "url": "https://www.loc.gov/resource/sn84031492/1875-08-08/ed-1/?sp=8",
+  "locator": "The day's list of building permits, the line for 882 Prairie avenue (1736 S. Prairie Avenue after the 1909 renumbering).",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A United States newspaper of 1875, long out of copyright.",
+  "asset_use": "text_only",
+  "verified": false,
+  "access_notes": "READ BY THE PRAIRIE LIBRARY, NOT RE-READ HERE. The library's newspapers stream found the line by a Chronicling America search for '\"882 prairie\"' and read it on the page image, the OCR being garbled (prairie_1904_v1/research/images/stream-newspapers-north.json, np-1736-tribune-1875-08-08-strong-permit, 'verified: viewed'). This container cannot reach loc.gov, so `verified` stays false until someone opens the page; the depth's second figure is faint there (32, or possibly 52).",
+  "note": "A permit to General Henry Strong, who owned the corner lot at 18th Street until he sold it to Hugh McBirney in December 1880 (chicagology_1736_prairie_page), for a two-storey-and-basement brick building 23 feet wide. The library reads it as the house McBirney bought, which would make 1736 an 1875 house and not the 1864 Ingraham house of glessner_blog_2020_07_early_history_prairie_iv; nothing read here settles which, so both stand.",
+  "what_it_supplies": [
+    "a brick house of two storeys and basement permitted at old 882 Prairie in August 1875, 23 feet wide"
+  ],
+  "what_it_does_not_supply": [
+    "whether the permit is for the house McBirney bought, or for another building on the lot",
+    "the house's appearance"
+  ]
+}
