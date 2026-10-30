@@ -110,6 +110,33 @@ PICTURED = {
         "trees": {"plant": "linden", "count": 3, "grade": "attested",
                   "note": "Young trees, staked, in the lawn between the coping and the house front "
                           "(LC-D4-4a08065)."},
+        # T-1934: the summer tub plants before the palm house and the stable, each where the 1894
+        # Inland plate stands it, read through the plate's solved camera
+        # (data/reference_views/pullman_house_1729_prairie_conservatory/inland_1894_plate.json) on
+        # the plane named in `read`, and seen again or not contradicted in Taylor's 16555. `on`
+        # "floor" stands the tub on the baked terrace under it, "grade" on the ground; `top_m` is
+        # the plant's top over grade as the plate reads it. Inferred for 1904: the plate is ten
+        # summers before the scene, and tubs are carried in for the winter and set out again.
+        "tubs": {"grade": "inferred",
+                 "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the "
+                         "stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball "
+                         "on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, "
+                         "which Taylor's photograph 16555 shows too). Inferred for 1 July 1904: tub plants "
+                         "were wintered under glass and set out again each summer, and no picture nearer "
+                         "1904 shows the terrace.",
+                 "sources": ["inland_1894_pullman_palm_house_stable", "aic_taylor_16555_pullman_west_front"],
+                 "plants": [
+                     {"plant": "globe", "e": 1472.4, "n": -3173.0, "on": "floor", "top_m": 3.24, "w": 1.13,
+                      "tub_m": 0.5, "read": "plate x 845-925 px, y 763-838 px, a ball as tall as it is wide "
+                      "sitting on its tub east of the plate's flight, on the terrace behind its balustrade "
+                      "(n -3173.0): its top 3.24 m"},
+                     {"plant": "standard", "e": 1475.8, "n": -3181.2, "on": "grade", "top_m": 2.61, "w": 1.28,
+                      "tub_m": 0.55, "read": "plate x 1290-1385 px, before the stable's west arcade "
+                      "(e 1475.8, 1.6 m off its wall): its top 2.61 m, its stem seen to 0.72 m"},
+                     {"plant": "arborvitae", "e": 1474.0, "n": -3193.3, "on": "grade", "top_m": 1.9, "w": 0.55,
+                      "tub_m": 0.0, "read": "plate x 1730-1780 px, its foot at y 1053 px on the ground, "
+                      "inside the wall before its east pier; Taylor's 16555 shows it at x 650 px"},
+                 ]},
     },
     "prairie_1912": {
         "sources": ["chicagology_1912_prairie_exterior_photo"],
@@ -141,6 +168,7 @@ PLANTS = {
     "rose": {"name": "garden rose, in flower", "h": [0.9, 1.3], "w": [0.8, 1.2]},
     "arborvitae": {"name": "American arborvitae, sheared to a cone", "h": [2.0, 3.2], "w": [0.9, 1.3]},
     "globe": {"name": "arborvitae sheared to a ball", "h": [0.8, 1.15], "w": [0.9, 1.25]},
+    "standard": {"name": "evergreen clipped to a ball on a clear stem, in a tub", "h": [1.4, 2.6], "w": [1.1, 1.6]},
     "maple": {"name": "young sugar maple", "h": [5.5, 8.5], "w": [2.6, 4.0]},
     "linden": {"name": "young linden", "h": [5.0, 8.0], "w": [2.6, 4.2]},
 }
@@ -210,6 +238,7 @@ class Plan:
         self.tall = np.zeros((self.h, self.w), bool)
         self.low = np.zeros((self.h, self.w), bool)
         self.paved = np.zeros((self.h, self.w), bool)
+        self.floor = np.zeros((self.h, self.w))   # the highest level floor under LOW_TOP_M (a terrace's)
         self.doors = []   # (e, n, structure id)
 
     def cells(self, en):
@@ -225,8 +254,9 @@ class Plan:
         r, c = self.cells(en)
         mask[r, c] = True
 
-    def lay_triangles(self, mask, tri_en):
-        """Every triangle's plan projection, sampled finer than a cell."""
+    def lay_triangles(self, mask, tri_en, heights=None):
+        """Every triangle's plan projection, sampled finer than a cell; with `heights`, each
+        triangle's height is kept in the float raster `mask` where it is the highest."""
         if not len(tri_en):
             return
         a, b, c = tri_en[:, 0], tri_en[:, 1], tri_en[:, 2]
@@ -241,7 +271,14 @@ class Plan:
             w = 1 - u - v
             pts = (a[sel, None, :] * w[None, :, None] + b[sel, None, :] * u[None, :, None]
                    + c[sel, None, :] * v[None, :, None])
-            self.mark(mask, pts.reshape(-1, 2))
+            if heights is None:
+                self.mark(mask, pts.reshape(-1, 2))
+                continue
+            hh = np.repeat(heights[sel], pts.shape[1])
+            r, c_ = np.floor((pts.reshape(-1, 2)[:, 1] - self.n0) / RES).astype(np.int64), \
+                np.floor((pts.reshape(-1, 2)[:, 0] - self.e0) / RES).astype(np.int64)
+            ok = (c_ >= 0) & (c_ < self.w) & (r >= 0) & (r < self.h)
+            np.maximum.at(mask, (r[ok], c_[ok]), hh[ok])
 
     def lay_structure(self, sid, place, prims):
         d = math.radians(place.get("rotation_deg") or 0.0)
@@ -264,6 +301,9 @@ class Plan:
             stand = (lo < LOW_TOP_M) & ~flat
             self.lay_triangles(self.tall, tri[stand & (hi >= TALL_M)])
             self.lay_triangles(self.low, tri[stand & (hi < TALL_M)])
+            # a level floor raised off the ground (a terrace's), for a tub stood on it (T-1934)
+            level = ~flat & (hi - lo <= 0.02) & (hi < LOW_TOP_M)
+            self.lay_triangles(self.floor, tri[level], heights=hi[level])
             if any(name.startswith(m) for m in DOOR_MATS):
                 # Every leaf whose foot stands below a raised first floor's: the front door at the
                 # top of a high stoop is an entrance as much as a door at grade (T-3223: T-3203's
@@ -413,6 +453,11 @@ class Yard:
     def world(self, i):
         return r2(self.pe.flat[i]), r2(self.pn.flat[i])
 
+    def floor_at(self, e, n, plan):
+        """The level floor's height under a point, metres over grade (0 on the ground)."""
+        r, c = int((n - plan.n0) / RES), int((e - plan.e0) / RES)
+        return float(plan.floor[r, c]) if 0 <= r < plan.h and 0 <= c < plan.w else 0.0
+
     def at(self, e, n):
         r = int((n - (self.pn[0, 0] - RES / 2)) / RES)
         c = int((e - (self.pe[0, 0] - RES / 2)) / RES)
@@ -553,6 +598,15 @@ def plant_lot(p, plan: Plan, house, sids):
                     break
                 put(key, i, None, h, w)
 
+    # pictured tub plants (Pullman's, T-1934): each where its picture stands it, not searched for;
+    # the border and the lawn's trees then keep off them as off any planting
+    if "tubs" in pic:
+        for t in pic["tubs"]["plants"]:
+            stand = r2(y.floor_at(t["e"], t["n"], plan)) if t["on"] == "floor" else 0.0
+            h = r2(t["top_m"] - stand - t["tub_m"])
+            shrubs.append([t["e"], t["n"], t["plant"], h, t["w"], pic["tubs"]["grade"], stand, t["tub_m"]])
+            taken.append((t["e"], t["n"], t["w"] / 2))
+
     # a pictured border (Pullman's along 18th Street), kept off the coping as every plant is
     if "border" in pic:
         bd = pic["border"]
@@ -647,6 +701,8 @@ def plant_lot(p, plan: Plan, house, sids):
         out["pictured_notes"] = {"bare": {"grade": "attested", "note": bare[1]}}
     elif pic:
         out["pictured"] = {k: v for k, v in pic.items() if k in ("sources", "pictures")}
+        if "tubs" in pic:
+            out["pictured"]["sources"] = out["pictured"]["sources"] + pic["tubs"]["sources"]
         out["pictured_notes"] = {k: {"grade": v["grade"], "note": v["note"]} for k, v in pic.items()
                                  if isinstance(v, dict) and "grade" in v}
     return out
@@ -725,7 +781,8 @@ def build(laid=None):
                 "tools/plant_prairie_1904_front_yards.py from data/street_grid/1904.json, the 1904 "
                 "sidecars' baked models and the traced Sanborn footprints -- do not hand-edit; re-run the "
                 "tool. Local ENU metres of data/datum.json. shrubs and trees: [e, n, plant, height_m, "
-                "crown_width_m, (grade if not the lot's)]; beds: [e, n, half_length_m, half_width_m, "
+                "crown_width_m, (grade if not the lot's), (stand_m, tub_m: a tub plant's, what its tub stands on "
+                "over the ground and the tub's height)]; beds: [e, n, half_length_m, half_width_m, "
                 "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m]. The lawn is "
                 "the ground's own sward.",
         "scene": "1904", "target_date": "1904-07-01", "ticket": "T-3223",
@@ -765,7 +822,16 @@ def collisions(data, laid) -> list[str]:
                 out.append(f"{lot['parcel']}: planted, but no house stands on it now")
             continue
         an = lambda w: ("an " if w[0] in "aeiou" else "a ") + w
-        things = [(an(PLANTS[s[2]]["name"]), s[0], s[1], s[4] / 2) for s in lot["shrubs"]] + \
+        # a tub stood up on a floor (Pullman's terrace) stands on what is built, so only the floor
+        # under it is asked: that it is still there, at the height the row says
+        for s in lot["shrubs"]:
+            if len(s) > 6 and s[6] > 0:
+                f = y.floor_at(s[0], s[1], plan)
+                if abs(f - s[6]) > CHECK_SLACK_M:
+                    out.append(f"{lot['parcel']}: {an(PLANTS[s[2]]['name'])} at {s[0]:.2f} E, {s[1]:.2f} N "
+                               f"stands on a floor {s[6]:.2f} m up, and the models put one {f:.2f} m up there")
+        things = [(an(PLANTS[s[2]]["name"]), s[0], s[1], s[4] / 2) for s in lot["shrubs"]
+                  if not (len(s) > 6 and s[6] > 0)] + \
                  [(an(PLANTS[t[2]]["name"]), t[0], t[1], 0.4) for t in lot["trees"]] + \
                  [("a bed", b[0], b[1], max(b[2], b[3])) for b in lot["beds"]]
         # ivy hugs the wall, so only a door and its way bound it: its whole width clear of them
@@ -826,6 +892,12 @@ def self_test() -> int:
             l["creeper"].append([*at(s_, d_), 270.0, 1.5, 5.0])
         return m
     case("ivy on the wall beside a front door", ivy_at(ds + 1.0, dd - 0.3), "ivy at")
+
+    def tub_afloat(d):
+        l = next(x for x in d["lots"] if x["parcel"] == "prairie_1729")
+        s_ = next(s for s in l["shrubs"] if len(s) > 6 and s[6] > 0)
+        s_[6] = r2(s_[6] + 0.6)
+    case("a tub stood on a floor the models do not have", tub_afloat, "stands on a floor")
     return 0 if ok else 1
 
 
