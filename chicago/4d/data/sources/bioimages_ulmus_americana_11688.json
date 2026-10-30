@@ -1,0 +1,32 @@
+{
+  "id": "bioimages_ulmus_americana_11688",
+  "type": "photograph",
+  "citation": "Baskauf, Steven J. Ulmus americana (Ulmaceae) - leaf - whole upper surface. Photograph, 2 June 2002, Great Smoky Mountains. Bioimages, Vanderbilt University, image 11688. CC BY 4.0.",
+  "author": "Steven J. Baskauf",
+  "date": "2002-06-02",
+  "describes_date": "2002-06-02",
+  "repository": "Bioimages, Vanderbilt University",
+  "url": "https://bioimages.vanderbilt.edu/baskauf/11688.htm",
+  "archived_url": "http://bioimages.vanderbilt.edu/gq/baskauf/gulam--lf11688.jpg",
+  "locator": "the full frame, 683x1024, one American elm leaf on a dark ground; committed at data/sources/assets/bioimages_ulmus_americana_11688/ulmus_americana_leaf_11688.jpg (SHA-1 de2841e6d5c59e2736db539cf55f35c255c16f15), the JPEG q80 reference copy kevinrhaas/chicago-images flora-reference/files/bioimages-ulmus-americana-11688.jpg made from the original (186,780 bytes, SHA-256 0cb9e4e39e9dc7105fa72a1239c54c33cf140b51a9e103054966f398860b8fa4) by that repository's fetch-references workflow on 2026-10-29",
+  "tier": 4,
+  "rights_status": "cleared",
+  "rights_note": "CC BY 4.0, attribution required. Adaptation is permitted with attribution, so the leaf atlas may sample it: tools/generate_tree_atlas.py takes the photographed blade's lightness into every elm leaf it paints. The credit is carried here, in assets/LICENSES.md under textures/trees/, and in the generator's header.",
+  "rights_checked": {
+    "date": "2026-10-29",
+    "method": "The image's Bioimages catalogue page (https://bioimages.vanderbilt.edu/baskauf/11688.htm) read on 2026-10-29: '(c) 2002 Steven J. Baskauf Available under Creative Commons Attribution 4.0 International License.' Creator Steven J. Baskauf; created 2002-06-02; title 'Ulmus americana (Ulmaceae) - leaf - whole upper surface'.",
+    "outcome": "cleared for redistribution and for derived textures, with attribution"
+  },
+  "asset_use": "texture",
+  "verified": true,
+  "access_notes": "Bioimages is not reachable from the build containers; the file came through the kevinrhaas/chicago-images fetch-references workflow (flora-reference/fetch-queue.json, T-3247), which records its fetch in flora-reference/fetch-results.json.",
+  "note": "THE ELM LEAF'S SURFACE (T-3247). The owner asked on 2026-10-29 for the elms to be improved from freely licensed elm photographs. The grown trees' leaf blades are painted outlines; this photograph supplies the surface laid inside the elm's: its pinnate veins, its mottle and the light across its fold, as lightness only. The painted outline, twig and placement, and the July colour the zone records give the crown, are unchanged.",
+  "what_it_supplies": [
+    "the upper-surface texture of an American elm leaf (Ulmus americana): its straight, close lateral veins and mottle, sampled as lightness into the elm tiles of assets/textures/trees/leaf_atlas.*"
+  ],
+  "what_it_does_not_supply": [
+    "anything about a tree that stood in Chicago in 1812, 1835 or 1904; it is a modern leaf from the Great Smoky Mountains, a botanical analogue for the species' habit (docs/LIBERTIES.md L-tree-architecture-2743)",
+    "the leaf's colour in the scene: the atlas keeps its near-neutral green and the zone records' July colour stays in charge of the hue",
+    "the leaf's outline: the elm blade's shape is still drawn by tools/generate_tree_atlas.py"
+  ]
+}

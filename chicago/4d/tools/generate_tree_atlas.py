@@ -5,7 +5,10 @@
     python3 tools/generate_tree_atlas.py --masters       also the lossless PNG masters
     python3 tools/generate_tree_atlas.py --sheet PATH    also a contact sheet, at PATH
 
-WHAT IT MAKES. Two atlases, painted from code, no photograph sampled:
+WHAT IT MAKES. Two atlases, painted from code. One photograph is sampled: the
+elm's blades take their surface from a CC BY 4.0 photograph of an American elm
+leaf (T-3247, data/sources/bioimages_ulmus_americana_11688.json; credited in
+assets/LICENSES.md). Every outline, twig and placement is still drawn here:
 
   leaf_atlas.png       2048 x 2560 RGBA, 4 x 5 tiles of 512. Per leaf family two
                        tiles: a SPRAY (one twig and its leaves, for the near
@@ -509,6 +512,12 @@ def draw_leaf(img, draw, cx, cy, length, angle, family, rng, shade, under=False,
     pts = outline(family, rng)
     poly = [tr(x, y) for x, y in pts]
     base = leaf_rgb(shade, rng, under)
+    if family == 'elm' and photo_fill(img, poly, tr, base):
+        # the photograph carries the veins; the midrib is drawn as the painted blades' is
+        if length > 30:
+            vein = tuple(min(255, int(c * 1.18 + 10)) for c in base[:3]) + (255,)
+            draw.line([tr(0, -0.12), tr(0, 0.96)], fill=vein, width=max(1, int(length * 0.014)))
+        return
     draw.polygon(poly, fill=base)
     # The half of the blade turned from the light is darker: a fold along the midrib.
     half = [tr(min(0, x), y) for x, y in pts if x <= 0] + [tr(0, 1), tr(0, 0)]
@@ -524,6 +533,102 @@ def draw_leaf(img, draw, cx, cy, length, angle, family, rng, shade, under=False,
             y = k / 6.5
             for s in (-1, 1):
                 draw.line([tr(0, y), tr(s * 0.30, y + 0.16)], fill=vein, width=max(1, int(length * 0.006)))
+
+
+# T-3247 — THE ELM'S BLADE IS PHOTOGRAPHED. One American elm leaf, its whole upper
+# surface on a dark ground (Steven J. Baskauf, Bioimages, CC BY 4.0), is cut out
+# and laid into each painted elm outline along the blade's own axis, so the
+# blade carries the leaf's real pinnate veins, its fold and its mottle. Only the
+# photograph's LIGHTNESS is taken: each blade keeps the painted near-neutral
+# green leaf_rgb gives it (so the zone records' July colour stays in charge), and
+# the painted blade's random draws are made unchanged, so every other family's
+# tile is byte-identical.
+ELM_LEAF_PHOTO = os.path.join(ROOT, 'data', 'sources', 'assets', 'bioimages_ulmus_americana_11688',
+                              'ulmus_americana_leaf_11688.jpg')
+_photo_blade = {}
+
+
+def photo_blade():
+    """The photograph's lightness as a ratio to its blade's mean, at a pyramid of
+    sizes, with the blade's base, axis and length in each. Outside the blade the
+    nearest blade texel's ratio is carried out, so an outline a little wider than
+    the photographed leaf is still filled with leaf."""
+    if _photo_blade:
+        return _photo_blade
+    from scipy import ndimage as ndi
+    a = np.asarray(Image.open(ELM_LEAF_PHOTO).convert('RGB')).astype(np.float32)
+    r, g, b = a[..., 0], a[..., 1], a[..., 2]
+    # the blade is the one large region clearly greener than it is red or blue
+    m = ndi.binary_opening((g - np.maximum(r, b) * 0.85 > 28) & (g > 85), iterations=2)
+    lab, n = ndi.label(m)
+    blade = lab == 1 + int(np.argmax(ndi.sum(m, lab, range(1, n + 1))))
+    blade = ndi.binary_closing(ndi.binary_fill_holes(blade), iterations=3)
+    lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    _, (iy, ix) = ndi.distance_transform_edt(~blade, return_indices=True)
+    lum = lum[iy, ix] / lum[blade].mean()
+    # The veins and mottle at full strength; the photograph's own light across the
+    # blade (one half lit, one in shade) at half, since each card is lit again in
+    # the renderer and a blade's painted shade already says how deep it sits.
+    broad = gaussian_filter(lum, 18)
+    ratio = np.clip(1 + (broad - 1) * 0.5 + (lum - broad) * 1.6, 0.55, 1.5)
+    # The blade's axis is its long principal axis; the base is the stalk end, at the
+    # top of this frame, and the tip the far end.
+    ys, xs = np.nonzero(blade)
+    c = np.array([xs.mean(), ys.mean()])
+    w, v = np.linalg.eigh(np.cov(np.vstack([xs - c[0], ys - c[1]])))
+    ax = v[:, int(np.argmax(w))]
+    if ax[1] < 0:
+        ax = -ax
+    t = (xs - c[0]) * ax[0] + (ys - c[1]) * ax[1]
+    base = c + ax * t.min()
+    length = float(t.max() - t.min())
+    img = Image.fromarray(np.clip(ratio * 128, 0, 255).astype(np.uint8), 'L')
+    levels = []
+    k = 1.0
+    while True:
+        levels.append((img, base * k, ax, length * k))
+        if length * k < 24:
+            break
+        k *= 0.5
+        img = img.resize((max(1, round(img.width * 0.5)), max(1, round(img.height * 0.5))), Image.LANCZOS)
+    _photo_blade['levels'] = levels
+    return _photo_blade
+
+
+def photo_fill(img, poly, tr, colour):
+    """Fill `poly` with the photographed blade, laid along the leaf space `tr` maps
+    (base (0, 0), tip (0, 1)), in `colour` scaled by the photograph's lightness."""
+    xs = [p[0] for p in poly]
+    ys = [p[1] for p in poly]
+    x0, y0 = int(math.floor(min(xs))), int(math.floor(min(ys)))
+    w, h = int(math.ceil(max(xs))) - x0 + 1, int(math.ceil(max(ys))) - y0 + 1
+    if w < 2 or h < 2:
+        return False
+    d0 = np.array(tr(0, 0))
+    D = np.column_stack([np.array(tr(1, 0)) - d0, np.array(tr(0, 1)) - d0])
+    if abs(np.linalg.det(D)) < 1e-6:
+        return False
+    length = math.hypot(*D[:, 1])
+    levels = photo_blade()['levels']
+    src, base, ax, lp = next((lv for lv in reversed(levels) if lv[3] >= length), levels[0])
+    # the photograph's leaf space: +x to the blade's left as it hangs, +y base to tip
+    S = np.column_stack([np.array([ax[1], -ax[0]]) * lp, ax * lp])
+    M = S @ np.linalg.inv(D)
+    off = base - M @ d0 + M @ np.array([x0, y0])
+    lum = src.transform((w, h), Image.AFFINE, (M[0, 0], M[0, 1], off[0], M[1, 0], M[1, 1], off[1]),
+                        resample=Image.BILINEAR)
+    ratio = np.asarray(lum).astype(np.float32) / 128
+    # The painted blade's fold: the half turned from the light is darker.
+    gx, gy = np.meshgrid(np.arange(w) + x0 + 0.5, np.arange(h) + y0 + 0.5)
+    Di = np.linalg.inv(D)
+    across = Di[0, 0] * (gx - d0[0]) + Di[0, 1] * (gy - d0[1])
+    ratio = np.where(across < 0, ratio * 0.86, ratio)
+    rgb = np.clip(np.array(colour[:3], np.float32) * ratio[..., None], 0, 255).astype(np.uint8)
+    tile = Image.fromarray(np.dstack([rgb, np.full((h, w), 255, np.uint8)]), 'RGBA')
+    mask = Image.new('L', (w, h), 0)
+    ImageDraw.Draw(mask).polygon([(x - x0, y - y0) for x, y in poly], fill=255)
+    img.paste(tile, (x0, y0), mask)
+    return True
 
 
 def leaf_rgb(shade, rng, under=False):
