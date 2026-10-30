@@ -1,0 +1,93 @@
+{
+  "id": "hh_walker_mrs_james_m",
+  "scene": "1904",
+  "name": "The Walker household at 1720 Prairie Avenue",
+  "head": "pa1904_walker_mrs_james_m",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1720 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1720 Mrs. James M. Walker."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "walker_house_1720_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1720, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_walker_mrs_james_m",
+      "name": "Mrs. James M. Walker",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1720 Mrs. James M. Walker",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 36, leaf n794",
+        "as_enumerated": "Walker, J. M. Mrs.",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists J. M. Walker here with the other columns left blank (ED 40, sheet 1A, line 36, leaf n794)."
+    },
+    {
+      "id": "pa1904_walker_mrs_james_m_c1900_winnifred_johnson",
+      "name": "Winnifred Johnson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1867",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives February 1867, age 33 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "housekeeper",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Housekeeper\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 37, leaf n794",
+        "as_enumerated": "Johnson, Winnifred Miss",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (housekeeper); born February 1867, in Ireland, came to the United States in 1866, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "id": "hh_stirling_william_r",
+  "scene": "1904",
+  "name": "The Stirling household at 1616 Prairie Avenue",
+  "head": "pa1904_stirling_william_r",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1616 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1616 Mr. & Mrs. Wm. R. Stirling."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_1616_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1616, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The three children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_stirling_william_r",
+      "name": "William R. Stirling",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1616 Mr. & Mrs. Wm. R. Stirling",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 62, leaf n668",
+        "as_enumerated": "Sterling, William R",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists William R. Sterling here as head, born March 1850, in Scotland, came to the United States in 1878, married, chain mfg (ED 36, sheet 2B, line 62, leaf n668)."
+    },
+    {
+      "id": "pa1904_stirling_mrs_william_r",
+      "name": "Mrs. William R. Stirling",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1616 Mr. & Mrs. Wm. R. Stirling",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 63, leaf n668",
+        "as_enumerated": "Sterling, Alice",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Alice Sterling here as wife, born September 1862, in Illinois, married (ED 36, sheet 2B, line 63, leaf n668)."
+    },
+    {
+      "id": "pa1904_stirling_william_r_c1900_alice_m_sterling",
+      "name": "Alice M. Sterling",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1884",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1884, age 16 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 64, leaf n668",
+        "as_enumerated": "Sterling, Alice M",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born March 1884, in Illinois, single. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_stirling_william_r_c1900_dorothy_sterling",
+      "name": "Dorothy Sterling",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1885",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1885, age 14 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 65, leaf n668",
+        "as_enumerated": "Sterling, Dorothy",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born November 1885, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_stirling_william_r_c1900_jean_w_sterling",
+      "name": "Jean W. Sterling",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1890",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1890, age 9 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 66, leaf n668",
+        "as_enumerated": "Sterling, Jean W",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born November 1890, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    }
+  ]
+}

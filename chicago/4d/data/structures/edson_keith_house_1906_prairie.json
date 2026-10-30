@@ -1,6 +1,6 @@
 {
  "id": "edson_keith_house_1906_prairie",
- "name": "1906 Prairie Avenue \u2014 the Edson Keith house (Italianate stone front; attached 1908)",
+ "name": "1906 Prairie Avenue — the Edson Keith house (Italianate stone front; attached 1908)",
  "aka": [
   "1906 S. Prairie Avenue",
   "1908 Prairie Avenue"
@@ -15,7 +15,7 @@
   "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
  },
  "review_required": false,
- "research_note": "Refined from the district draft (T-2329) in place by T-3238 (piece 1 of T-1898), under the draft's own id, as a K01 stone-front Italianate house read off the Chicagology wood engraving of the Edson Keith residence (chicagology_1906_keith_engraving) and the 1906 vignette of the Chicago Tribune's 9 January 1898 strip (chicago_tribune_1898_01_09_residence_district) against the 1911 sheet's plan (s28fp-1906-b1): two storeys over a raised basement under a low hipped roof and a deep bracketed cornice; a canted bay at the front's south end rising a stage past the cornice as a tower; the round-arched door under a porch on columns whose flat top is a balustraded balcony before the arched window over the door; a high stoop between scrolled cheeks onto a balustraded terrace; arched, hooded windows; the sheet's south-flank range and rear wing in brick. 1908, which the sheet draws attached and the T-1841 census rules one building with 1906, is this record's north end. The Chicagology mansard photograph labelled 1906 is the 1900 house (the census ruling r28-1900-1906-photo; T-3239 weighed it: its mansard, dormers and corner bay are not the hip-roofed, towered front both the engraving and the vignette draw). T-3239 solved the vignette's camera, set aside the Tribune's 1896 item (a lakeshore scene, no view of the house), weighed the c. 1914 elevation drawing (1906 third from the south on the west side), lowered and broadened the tower, widened the porch and set the balustrade on the terraces. What the pictures do not show is reconstructed and listed under liberty L-k01-1906-keith-3238.",
+ "research_note": "Refined from the district draft (T-2329) in place by T-3238 (piece 1 of T-1898), under the draft's own id, as a K01 stone-front Italianate house read off the Chicagology wood engraving of the Edson Keith residence (chicagology_1906_keith_engraving) and the 1906 vignette of the Chicago Tribune's 9 January 1898 strip (chicago_tribune_1898_01_09_residence_district) against the 1911 sheet's plan (s28fp-1906-b1): two storeys over a raised basement under a low hipped roof and a deep bracketed cornice; a canted bay at the front's south end rising a stage past the cornice as a tower; the round-arched door under a porch on columns whose flat top is a balustraded balcony before the arched window over the door; a high stoop between scrolled cheeks onto a balustraded terrace; arched, hooded windows; the sheet's south-flank range and rear wing in brick. 1908, which the sheet draws attached and the T-1841 census rules one building with 1906, is this record's north end. The Chicagology mansard photograph labelled 1906 is the 1900 house (the census ruling r28-1900-1906-photo; T-3239 weighed it: its mansard, dormers and corner bay are not the hip-roofed, towered front both the engraving and the vignette draw). T-3239 solved the vignette's camera, set aside the Tribune's 1896 item (a lakeshore scene, no view of the house), weighed the c. 1914 elevation drawing (1906 third from the south on the west side), lowered and broadened the tower, widened the porch and set the balustrade on the terraces. T-3239 then built the two things it had left open: the hip cut off at a railed deck (k01_hip_deck) with its stacks raised over it, and on the south flank the sheet's stone range stood as the engraving's two-storey wing with a columned porch in the angle before it under a balustraded balcony (side_porch), retiring the 1.5 m brick strip. What the pictures do not show is reconstructed and listed under liberty L-k01-1906-keith-3238.",
  "phases": [
   {
    "id": "as_mapped_1904",
@@ -267,13 +267,41 @@
     },
     "side_bays": {
      "value": [
-      18.6
+      18.6,
+      {
+       "s_m": 10.1,
+       "sill_m": 2.94,
+       "width_m": 1.0,
+       "height_m": 2.4,
+       "head": "round"
+      },
+      {
+       "s_m": 13.1,
+       "sill_m": 2.94,
+       "width_m": 1.0,
+       "height_m": 2.4,
+       "head": "round"
+      },
+      {
+       "s_m": 10.1,
+       "sill_m": 7.49,
+       "width_m": 1.0,
+       "height_m": 2.3,
+       "head": "round"
+      },
+      {
+       "s_m": 13.1,
+       "sill_m": 7.49,
+       "width_m": 1.0,
+       "height_m": 2.3,
+       "head": "round"
+      }
      ],
      "confidence": "inferred",
      "sources": [
       "chicagology_1906_keith_engraving"
      ],
-     "note": "The south flank's front window column, between the south bay and the range the sheet draws along the flank; the range carries the flank's other windows."
+     "note": "The south flank's front window column, between the south bay and the porch. T-3239: two round-headed lights a storey on the flank between the wing and that column, behind the porch's columns and over its balcony, as the engraving draws them (two arched lights over the balcony, arched openings behind the columns); their places between the columns and their sizes the flank's sash (sash_by_storey) are inferred, their heads read."
     },
     "north_bays": {
      "value": [],
@@ -293,7 +321,8 @@
       "k01.opening.arched_basement": {
        "variant": "k06.opening.basement_round",
        "well": false
-      }
+      },
+      "k01.opening.sash_round_plain": "k06.opening.sash_round_fanlight"
      },
      "confidence": "inferred",
      "sources": [
@@ -611,15 +640,15 @@
        }
       },
       {
-       "id": "south_range",
+       "id": "south_wing",
        "variant": "k08.projection.full_height",
        "wall": "k01.wall.side.south",
-       "s_m": 8.0,
+       "s_m": 4.3,
        "flush_corner": "left",
-       "fabric": "brick",
+       "fabric": "front_stone",
        "plan": {
-        "width_m": 16.0,
-        "proud_m": 1.5,
+        "width_m": 8.6,
+        "proud_m": 2.3,
         "block": true
        },
        "storeys": [
@@ -632,9 +661,8 @@
            "clear_height_m": 0.9,
            "sill_m": 0.75,
            "at": [
-            0.2,
-            0.5,
-            0.8
+            0.4,
+            0.6
            ],
            "why_not_ordinary": "a basement light under the parlour floor: basement lights are authored individually (RECONSTRUCTION-RULES.md, Starting ranges: Sash proportions)"
           }
@@ -644,39 +672,65 @@
          "height_m": 4.4,
          "windows": [
           {
-           "opening": "k06.opening.sash_2over2_flat",
+           "opening": "k06.opening.sash_round_fanlight",
            "clear_width_m": 1.0,
-           "clear_height_m": 2.4,
+           "clear_height_m": 3.0,
            "sill_m": 0.6,
            "at": [
-            0.2,
-            0.5,
-            0.8
-           ]
+            0.4,
+            0.6
+           ],
+           "why_not_ordinary": "the south wing's round-headed lights, as the engraving draws them in its south face in both storeys"
           }
          ]
         },
         {
-         "height_m": 2.4,
+         "height_m": 4.79,
          "windows": [
           {
-           "opening": "k06.opening.sash_2over2_flat",
+           "opening": "k06.opening.sash_round_fanlight",
            "clear_width_m": 1.0,
-           "clear_height_m": 1.6,
-           "sill_m": 0.4,
+           "clear_height_m": 2.6,
+           "sill_m": 0.75,
            "at": [
-            0.2,
-            0.5,
-            0.8
-           ]
+            0.4,
+            0.6
+           ],
+           "why_not_ordinary": "the south wing's round-headed lights, as the engraving draws them in its south face in both storeys"
+          },
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 1.0,
+           "clear_height_m": 2.9,
+           "sill_m": 0.3,
+           "at": [
+            0.913
+           ],
+           "why_not_ordinary": "the arched light in the wing's east face over the porch's balcony, the engraving's, standing nearly to the balcony's deck"
           }
          ]
         }
        ],
+       "eaves": {
+        "cornice": "k10.cornice.bracketed_timber"
+       },
        "roof": {
         "kind": "hip",
-        "pitch": 0.25,
+        "pitch": 0.0,
         "covering": "tin_flat_seam_painted"
+       },
+       "balcony": {
+        "fabric": "stone",
+        "height_m": 0.9,
+        "inset_m": 0.05,
+        "post_m": 0.3,
+        "bar_m": 0.1,
+        "pitch_m": 0.22,
+        "rail_m": [
+         0.25,
+         0.15
+        ],
+        "foot_rail_m": 0.12
        }
       }
      ],
@@ -686,7 +740,7 @@
       "chicagology_1906_keith_engraving",
       "chicago_tribune_1898_01_09_residence_district"
      ],
-     "note": "The south bay: canted, standing on grade at the front's south end under its own bracketed cornice and a low cap with cresting, in both the vignette and the engraving; three round-headed lights a stage. T-3239 re-read it on the vignette's solved camera (tribune_1898_front): about 5.5 m across against the door-to-window spacing, so a 2.6 m ring (v 0.4-5.6), and three tiers of lights over the basement with its cap just over the main cornice, as the c. 1914 elevation drawing also stops it; so four stages of 2.34, 4.4, 3.5 and 3.0 m, its wall head 13.24 m, 1.1 m over the main wall's 12.14 m (K01's least is 1.0 m). The stage heights within that are reconstructed. The south range: the sheet's brick strip along the south flank (s28fp-1906-b1, rectangle r2, u -1.5 to 16.5 and 1.5 m out), stood full height with the main body because the sheet draws it inside the 3B main part; its windows are reconstructed. The basement lights under the parlour floor (a light under each of the tower's three faces, as each stage above has, and three along the range) are reconstructed: neither picture reads that low, and the front's own basement lights are the precedent."
+     "note": "The south bay: canted, standing on grade at the front's south end under its own bracketed cornice and a low cap with cresting, in both the vignette and the engraving; three round-headed lights a stage. T-3239 re-read it on the vignette's solved camera (tribune_1898_front): about 5.5 m across against the door-to-window spacing, so a 2.6 m ring (v 0.4-5.6), and three tiers of lights over the basement with its cap just over the main cornice, as the c. 1914 elevation drawing also stops it; so four stages of 2.34, 4.4, 3.5 and 3.0 m, its wall head 13.24 m, 1.1 m over the main wall's 12.14 m (K01's least is 1.0 m). The stage heights within that are reconstructed. The south wing (T-3239): the 1911 sheet's stone range on the flank's rear part (s28fp-1906-b1 p5, about u -1.5 to 8.5 and 2.3 m out from the main wall), stood as the engraving's two-storey block: s 0-8.6 and 2.3 m out in the front's stone, round-headed lights two a storey in its south face and one in its east face over the porch's balcony, the house's bracketed cornice carried round it at the main bed and a stone balustrade round its flat top. It retires the sheet's 1.5 m brick strip T-3238 stood along the whole flank; the strip's front part is where the engraving draws the porch (side_porch). The wing's windows' places and the flat top (the engraving draws a short hip under a railed deck) are reconstructed. The basement lights under the parlour floor (a light under each of the tower's three faces, as each stage above has, and two under the wing) are reconstructed: neither picture reads that low, and the front's own basement lights are the precedent."
     },
     "rear_wings": {
      "value": [
@@ -741,7 +795,7 @@
        0.9,
        0.75
       ],
-      "top_above_ridge_m": 0.9,
+      "top_above_ridge_m": 2.4,
       "cap_proud_m": 0.05,
       "cap_depth_m": 0.15,
       "stacks": [
@@ -760,7 +814,7 @@
       ]
      },
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: three stacks on the flank walls; the engraving draws a tall stack over the south flank, which T-3239 places. Liberty L-k01-1906-keith-3238."
+     "note": "RECONSTRUCTED: three stacks on the flank walls; the engraving draws a tall stack over the south flank, which T-3239 places. Liberty L-k01-1906-keith-3238. T-3239: the hip now stops at its deck (hip_deck), and the engraving's tall stack rises well over the deck's rail, so the stacks' tops stand 2.4 m over the deck."
     },
     "rainwater": {
      "value": {
@@ -843,6 +897,77 @@
       "chicago_tribune_1898_01_09_residence_district"
      ],
      "note": "T-3206's rule (the owner, 2026-10-27: walks, gates and boundaries to the pictures), for the house T-3238 put onto K01. The stoop comes down square to the front wall's opening (s 8.0-10.4); the walk runs from the stoop's foot out through it to the public walk, 1.5 m wide, with the app's own ground either side. RECONSTRUCTED: the walk's flags, their width and wear are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k01-1906-keith-3238."
+    },
+    "side_porch": {
+     "value": {
+      "wall": "k01.wall.side.south",
+      "s_m": [
+       8.6,
+       14.6
+      ],
+      "out_m": 2.3,
+      "floor_m": 2.34,
+      "head_m": 6.24,
+      "closed_end": "low",
+      "columns": {
+       "diameter_m": 0.32,
+       "front": [
+        8.9,
+        11.6,
+        14.3
+       ],
+       "end": [],
+       "plinth_m": [
+        0.45,
+        0.5
+       ],
+       "capital_m": [
+        0.45,
+        0.3
+       ]
+      },
+      "entablature": {
+       "height_m": 0.5,
+       "proud_m": 0.15
+      },
+      "balustrade": {
+       "height_m": 0.9,
+       "post_m": 0.3,
+       "baluster_m": 0.1,
+       "pitch_m": 0.22,
+       "rail_m": [
+        0.25,
+        0.15
+       ]
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The engraving's porch on the south flank, in the angle the south wing makes with the main wall: round columns with square capitals over the terrace's podium, under an entablature whose top is a balcony railed by a balustrade before the wing's arched east light and the flank's upper lights (k01_porte_cochere's side_porch, T-3239). Its place is the angle between the wing (s 0-8.6, the 1911 sheet's stone range) and the flank's front window column; the engraving's flank does not hold the front's perspective (the camera's solve), so its length is not read through the camera: 6 m, three columns as the engraving draws three, its depth the wing's 2.3 m as the balcony's front runs on from the wing's south face. The floor is the terrace's (the principal floor, 2.34 m) and the deck the chamber floor (6.74 m), as the balcony stands under the chamber lights. The 1911 sheet draws a 1.5 m brick strip along this stretch of the flank, which may be the porch enclosed by then; the engraving is followed (liberty L-k01-1906-keith-3238). The columns' and capitals' sizes, the entablature's and the balustrade's sections are reconstructed, the balustrade the front porch's."
+    },
+    "hip_deck": {
+     "value": {
+      "deck_m": 13.3,
+      "rail": {
+       "inset_m": 0.1,
+       "height_m": 0.8,
+       "post_m": 0.28,
+       "posts_every_m": 2.4,
+       "plinth_m": 0.12,
+       "coping_m": 0.1,
+       "thickness_m": 0.12,
+       "roundel_m": 0.36,
+       "pitch_m": 0.5
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "The engraving's railed deck over the main hip, its slopes short from the cornice to a level top railed all round with posts at its corners; the c. 1914 elevation drawing also draws the hip flat-topped. Built by k01_hip_deck (T-3241's kit): the 25 degree hip cut off level at 13.3 m, about 1.5 m over its eave, and a rail 0.8 m high round the deck's edge. The deck's height is read loosely off the engraving's proportions (the roof is foreshortened); the rail is the kit's pierced parapet where the engraving draws a balustrade, a difference under a foot at the street (liberty L-k01-1906-keith-3238)."
     }
    }
   }

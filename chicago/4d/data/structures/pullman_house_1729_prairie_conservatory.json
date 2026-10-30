@@ -125,9 +125,9 @@
             "base_course_m": 0.0,
             "coping_m": 0.3,
             "color": [
-              0.66,
-              0.62,
-              0.54
+              0.332,
+              0.299,
+              0.241
             ],
             "parapet": {
               "height_m": 0.9,
@@ -207,7 +207,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "aic_taylor_16555_pullman_west_front"
           ],
-          "note": "The range the palm house stands in: its plan the sheet's (one storey and a basement, stone, 4.42 m deep), its run, height and dress read off Taylor's photograph through its camera: 7.1 m to the parapet's foot and a 0.9 m parapet, in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown), an arched door 6.8 m east of the drum's centre and an arched window 7.3 m west of it, and a terrace 1.4 m high and 6.0 m deep with a 0.9 m balustrade either side of a central flight of eight risers. T-1934 dressed the south face as the Inland plate and Taylor's 16555 show it: banded rustication from the terrace to a moulded cornice, a broad pilaster 4.4 m either side of the drum's centre, the parapet and the terrace's balustrades open balusters between dies and piers, and an urn on each terrace pier. Their sizes and the baluster's shape are reconstructed (L-pullman-palm-house-1934)."
+          "note": "The range the palm house stands in: its plan the sheet's (one storey and a basement, stone, 4.42 m deep), its run, height and dress read off Taylor's photograph through its camera: 7.1 m to the parapet's foot and a 0.9 m parapet, in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown), an arched door 6.8 m east of the drum's centre and an arched window 7.3 m west of it, and a terrace 1.4 m high and 6.0 m deep with a 0.9 m balustrade either side of a central flight of eight risers. T-1934 dressed the south face as the Inland plate and Taylor's 16555 show it: banded rustication from the terrace to a moulded cornice, a broad pilaster 4.4 m either side of the drum's centre, the parapet and the terrace's balustrades open balusters between dies and piers, and an urn on each terrace pier. Their sizes and the baluster's shape are reconstructed (L-pullman-palm-house-1934). T-1934 (2026-10-30): the range's stone darkened from (0.66, 0.62, 0.54) to the stable's, linear (0.332, 0.299, 0.241), and its rustication, pilasters and cornice with it (K13 `host_stone`): in Taylor's winter print 16554 the range prints 126-143, with the stable (141-148), not lighter (docs/RESEARCH/colour-pullman-stable-T-1934/); the plate's lit walls are clipped at the paper's white and cannot say."
         },
         "conservatory": {
           "value": {

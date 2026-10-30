@@ -1,0 +1,326 @@
+{
+  "id": "hh_ream_norman_b",
+  "scene": "1904",
+  "name": "The Ream household at 1901 Prairie Avenue",
+  "head": "pa1904_ream_norman_b",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1901 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1901 Mr. & Mrs. Norman B. Ream & dr.."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "ream_house_1901_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905",
+        "wikipedia_norman_b_ream"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1901, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_ream_norman_b",
+      "name": "Norman B. Ream",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "wikipedia_norman_b_ream",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1901 Mr. & Mrs. Norman B. Ream & drs.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 21, leaf n800",
+        "as_enumerated": "Ream, N. B.",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists N. B. Ream here as head, born November 1844, in Pennsylvania, married, capitalist (ED 40, sheet 4A, line 21, leaf n800)."
+    },
+    {
+      "id": "pa1904_ream_mrs_norman_b",
+      "name": "Caroline Putnam Ream",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "wikipedia_norman_b_ream",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1901 Mr. & Mrs. Norman B. Ream & drs.",
+      "note": "The Blue Book prints her as Mrs. Norman B. Ream; Wikipedia names her Caroline Thompson Putnam, married to him in 1876, and puts the couple at 1901 Prairie Avenue. The 1900 census lists Caroline P. Ream here as wife, born June 1852, in New York, married (ED 40, sheet 4A, line 22, leaf n800).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 22, leaf n800",
+        "as_enumerated": "Ream, Caroline P.",
+        "relation_as_enumerated": "Wife"
+      }
+    },
+    {
+      "id": "pa1904_ream_daughters",
+      "name": "The Misses Ream",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1901 Mr. & Mrs. Norman B. Ream & drs.",
+      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Ream' is the book's own form of address, not a recorded name. Wikipedia gives the Reams three daughters and names two, Frances and Marion Buckingham Ream, without dates; which of them were the unmarried daughters at home in 1904 is not stated, so no name is put here. The 1905 edition prints '& dr.', one daughter."
+    },
+    {
+      "id": "pa1904_ream_norman_b_c1900_edward_k_ream",
+      "name": "Edward K. Ream",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1885",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives September 1885, age 14 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "at school",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"At school\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 23, leaf n800",
+        "as_enumerated": "Ream, Edward K",
+        "relation_as_enumerated": "Son"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head (at school); born September 1885, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_ream_norman_b_c1900_louis_m_ream",
+      "name": "Louis M. Ream",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1887",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1887, age 12 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "at school",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"At school\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 24, leaf n800",
+        "as_enumerated": "Ream, Louis M",
+        "relation_as_enumerated": "Son"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head (at school); born August 1887, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_ream_norman_b_c1900_harry_walker",
+      "name": "Harry Walker",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1872",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1872, age 27 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "butler",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Butler\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 25, leaf n800",
+        "as_enumerated": "Walker, Harry",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (butler); born November 1872 (the figures are hard to read), in England, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_ream_norman_b_c1900_ashmore",
+      "name": "Ashmore",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1850",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives 1850, age 50 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "housekeeper",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Housekeeper\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 26, leaf n800",
+        "as_enumerated": "Ashmore, (Mrs.)",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (housekeeper); born 1850 (the figures are hard to read), in Ohio, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_ream_norman_b_c1900_emma_nelson",
+      "name": "Emma Nelson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1870",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives July 1870, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "chambermaid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Chambermaid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 27, leaf n800",
+        "as_enumerated": "Nelson, Emma",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (chambermaid); born July 1870 (the figures are hard to read), in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_ream_norman_b_c1900_carrie_louis",
+      "name": "Carrie Louis",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1864",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1864, age 36 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "laundress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Laundress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 28, leaf n800",
+        "as_enumerated": "Louis, Carrie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born January 1864, in France, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_ream_norman_b_c1900_axel_carlson",
+      "name": "Axel Carlson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1864",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1864, age 35 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "coachman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4A, line 29, leaf n800",
+        "as_enumerated": "Carlson, Axel",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born August 1864, in Sweden, married. Living with him: Selma Carlson (wife). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    }
+  ]
+}

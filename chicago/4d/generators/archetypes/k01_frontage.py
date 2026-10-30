@@ -1085,8 +1085,11 @@ class Assembly:
             cid = f"k01.wall.wing.{w['id']}.{side}"
             ops = [o for o in w["openings"] if o.wall == cid]
             # T-2842: and where a K08 tower stands on it, from grade to the wing's wall top
+            # (T-3242: not an oriel: it stands on its corbels before the wall, which runs on
+            # behind it as a main wall does behind its oriel — 1701's range, its rear photograph)
             cover = (on_rear if side == "rear" else on_host if side == "front" else []) \
-                + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays if b["wall"] == cid]
+                + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays
+                   if b["wall"] == cid and b["variant"]["kind"] != "oriel"]
             # T-3133: a round-headed light is cut on its head's curve, as the main walls cut it
             hs = [hole(o) for o in ops] + cover
             if frame_wing:
@@ -2803,7 +2806,9 @@ class Assembly:
                 proud = max(float(q[1]) for q in v["plan"]["points"])
                 deep = -(K8.part(v, K8.load(), "recess")["depth_m"] - proud + 0.05)
                 zc = -ch[2] if ch is not None else 0.0
-                y0, y1 = b.get("eave_m", p.eave_m), wall_top
+                # T-1890: up to a canted face's cornice, over which the house's slate is not cut
+                ct = self.chamfer_top(b) if ch is not None else None
+                y0, y1 = b.get("eave_m", p.eave_m), wall_top if ct is None else min(wall_top, ct)
                 pr.face([W((xs, y0, deep)), W((xs, y0, zc)), W((xs, y1, zc)), W((xs, y1, deep))],
                         R if right else _mul(R, -1), self.basis(body, W((xs, y0, deep)), N, Y, seed), conf)
             if past and not shallow:
@@ -3676,6 +3681,9 @@ class Assembly:
         elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
             from . import k01_gable_roof
             solids, hs, _, self.gable_roof = k01_gable_roof.elements(p, k5, E, o, f)
+        elif p.hip_deck:   # T-3241: the hip cut off level at its railed deck
+            from . import k01_hip_deck
+            hip, hs = k01_hip_deck.hip(k5, 0.0, D, -W, 0.0, E, tp, o, f, p.hip_deck)
         else:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         if not gb:
@@ -3962,6 +3970,17 @@ class Assembly:
                                                          or self.p.cant_corner):
                 raise ValueError(f"{b['id']}: a shallow pavilion on a side wall is square, on a house "
                                  f"with no cant corner")
+            if b.get("cornice_across"):
+                # T-1890: the main cornice carried on across its face, under its lights (1801's
+                # wall gable, HABS photograph 1): no light of it may stand in the cornice's way
+                base = 0.0
+                for st in v["storeys"]:
+                    for w in st.get("windows") or ():
+                        lo = base + float(w["sill_m"])
+                        if lo < self.p.eave_m + 0.05 and lo + float(w["clear_height_m"]) > self.p.eave_m - 1.0:
+                            raise ValueError(f"{b['id']}: a light from {lo:.3f} m meets the cornice carried "
+                                             f"across it under the eave at {self.p.eave_m} m")
+                    base += float(st["height_m"])
             proud = max(float(q[1]) for q in v["plan"]["points"])
             behind = K8.part(v, K8.load(), "recess")["depth_m"] - proud + 0.05
             out.append((b, b["span_m"][0], b["span_m"][1], proud, behind))
@@ -3974,6 +3993,7 @@ class Assembly:
         reach, they are cut on hidden faces (its walls and its back, closed on the plane, stand
         in front of them); in front of its face the eave box stops square at its cheek and, past
         a corner it is flush with, at its face, each end closed in the eave's trim (`return`)."""
+        from . import k08_bays as K8
         out = []
         D, P = self.p.depth_m, lambda a, b_, c: (a, c, -b_)
         cr = (self.p.mansard or {}).get("crown") or {}
@@ -3992,6 +4012,9 @@ class Assembly:
                    if cr.get("eave_m") and cr["over_bay"] == b["id"] else self.p.eave_m + 10.0)
             far = s1 + 1.0 if b.get("flush_corner") == "right" else s1
             near = s0 - 1.0 if b.get("flush_corner") == "left" else s0
+            # T-1890: with the cornice carried across its face the cuts start on the eave box's
+            # top, so the box runs on under its lights and only the slope over it is cut
+            bot, floor = (self.p.eave_m - 0.005, "return") if b.get("cornice_across") else (yf - 0.5, "wall")
             if b["wall"] == "k01.wall.street_front":   # in (u, v) as T-3047 laid them, to the bit
                 inner = [(D - behind, s0 + 0.005), (D + proud + 0.005, s0 + 0.005),
                          (D + proud + 0.005, s1 - 0.005), (D - behind, s1 - 0.005)]
@@ -4008,18 +4031,85 @@ class Assembly:
                 if b.get("flush_corner") == "left":
                     inner[:2] = [(-behind, s0), (proud + 0.005, s0)]
                 inner, outer = Q(inner), Q([(proud, near), (2.0, near), (2.0, far), (proud, far)])
-            out.append(k5.extrude(inner, yf - 0.5, top, P, "wall", "wall", "wall"))
-            out.append(k5.extrude(outer, yf - 0.5, top, P, "return", "wall", "wall"))
+            # T-1890: over a canted face stopped under its cornice (1801's, HABS photograph 1) the
+            # house's slate comes down over the cant: from there up only the pavilion's square
+            # part is cut, out to its front's end, and nothing outside the cant
+            ch = k01_frontage_params.chamfer_of(b)
+            ct = self.chamfer_top(b) if ch is not None else None
+            if ct is not None and b["wall"] == "k01.wall.street_front":
+                sq = [list(q) for q in inner]
+                for q in sq:
+                    if ch[0] == "right" and q[1] > s1 - ch[1]:
+                        q[1] = s1 - ch[1]
+                    if ch[0] == "left" and q[1] < s0 + ch[1]:
+                        q[1] = s0 + ch[1]
+                out.append(k5.extrude(inner, bot, ct, P, "wall", floor, "wall"))
+                out.append(k5.extrude([tuple(q) for q in sq], ct, top, P, "wall", "wall", "wall"))
+            else:
+                out.append(k5.extrude(inner, bot, top, P, "wall", floor, "wall"))
+            out.append(k5.extrude(outer, bot, top, P, "return", floor, "wall"))
             # T-3048: and outside a chamfered corner's canted face, back to the side wall where
             # it meets it, `behind_m` behind the front; the side's eave box stops square there
-            ch = k01_frontage_params.chamfer_of(b)
             if ch is not None:
                 side, along, behind, _ = ch
                 cut = ([(D + proud, s1 - along), (D + 2.0, s1 - along), (D + 2.0, s1 + 1.0), (D - behind, s1 + 1.0),
                         (D - behind, s1)] if side == "right" else
                        [(D - behind, s0 - 1.0), (D + 2.0, s0 - 1.0), (D + 2.0, s0 + along), (D + proud, s0 + along),
                         (D - behind, s0)])
-                out.append(k5.extrude(cut, yf - 0.5, top, P, "return", "wall", "wall"))
+                out.append(k5.extrude(cut, yf - 0.5, top if ct is None else ct, P, "return", "wall", "wall"))
+                # T-1890: and inside the canted face, as deep as a light's recess on it reaches
+                # (1801's over its round bay, HABS photograph 1), on hidden faces as the box's are:
+                # the cut above closes in the cant's own plane, over the light's opening. Up to
+                # the highest light's head, so the slate over the cant's top keeps its face
+                lit = self.cant_lights(b)
+                if lit:
+                    pts = [(D + proud, s1 - along), (D - behind, s1)] if side == "right" else \
+                          [(D - behind, s0), (D + proud, s0 + along)]
+                    (ua, va), (ub, vb) = pts
+                    L = math.hypot(ub - ua, vb - va)
+                    n = ((vb - va) / L, -(ub - ua) / L)      # out of the canted face
+                    if n[0] < 0.0:
+                        n = (-n[0], -n[1])
+                    if min(lo for lo, _, _ in lit) < self.p.eave_m:
+                        raise ValueError(f"{b['id']}: a light on its canted face stands under the eave at "
+                                         f"{self.p.eave_m} m, where the house's own walls stand behind the cant")
+                    deep = max([K8.part(b["variant"], K8.load(), "recess")["depth_m"]]
+                               + [r for _, _, r in lit if r is not None]) + 0.05
+                    at = lambda q, k: (q[0] + n[0] * k, q[1] + n[1] * k)
+                    ring = [at(pts[0], 0.005), at(pts[1], 0.005), at(pts[1], -deep), at(pts[0], -deep)]
+                    if math.fsum(a[0] * c[1] - c[0] * a[1] for a, c in zip(ring, ring[1:] + ring[:1])) < 0.0:
+                        ring.reverse()
+                    head = max(hi for _, hi, _ in lit) + 0.5
+                    out.append(k5.extrude(ring, bot, head if ct is None else min(head, ct), P, "wall", floor, "wall"))
+        return out
+
+    @staticmethod
+    def chamfer_top(b):
+        """T-1890: where a chamfered pavilion's canted face stops under its cornice, in metres
+        over grade (K08's `plan.chamfer_top_m` over the bay's base), or None."""
+        v = b["variant"]
+        ct = v["plan"].get("chamfer_top_m")
+        if ct is None:
+            return None
+        return float(ct) + (0.0 if v.get("base", "grade") == "grade" else float(v["base"]))
+
+    @staticmethod
+    def cant_lights(b) -> list:
+        """T-1890: the lights a chamfered shallow pavilion carries on its canted face (the last
+        of its plan's runs at a right corner, the first at a left), by K08's own `at`: each
+        (sill, head) in metres over grade, and its own recess depth if it names one."""
+        v = b["variant"]
+        pts = v["plan"]["points"]
+        lens = [math.hypot(q[0] - p_[0], q[1] - p_[1]) for p_, q in zip(pts, pts[1:])]
+        total, right = math.fsum(lens), v["plan"].get("side_end") == "right"
+        out, y = [], 0.0 if v.get("base", "grade") == "grade" else float(v["base"])
+        for st in v["storeys"]:
+            for w in st.get("windows") or ():
+                if any(f * total > total - lens[-1] + 1e-9 if right else f * total < lens[0] - 1e-9
+                       for f in w.get("at") or ()):
+                    out.append((y + float(w["sill_m"]), y + float(w["sill_m"]) + float(w["clear_height_m"]),
+                                w.get("recess_m")))
+            y += float(st["height_m"])
         return out
 
     def flat_roof(self):
@@ -4278,7 +4368,9 @@ class Assembly:
             steep = role == "covering" and lower and n[1] < math.cos(math.radians(45))
             if steep:
                 mat = "mansard_slate"
-            if role == "covering":
+            if role == "covering" and abs(n[1]) > 1.0 - 1e-9:   # T-3241: a hip deck's level top
+                b_ = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed)
+            elif role == "covering":
                 key = tuple(round(x, 5) for x in n) + (round(_dot(n, pts[a]), 4),)
                 up = _unit(_sub(Y, _mul(n, n[1])))
                 contour = _unit(_cross(up, n))
@@ -4530,7 +4622,30 @@ class Assembly:
         a, c = sorted((back + sg * self.HOOD_BACK_M, nf + sg * pr))
         P = k5.frame(axis)
         ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
-        return [k5.extrude(outline, a, c, P, "dormer_face", *ends)]
+        out = [k5.extrude(outline, a, c, P, "dormer_face", *ends)]
+        if e.get("pediment"):
+            out += self.dormer_broken_pediment(e, k5, P, ends, sg, nf, back, centre, ro - b / 2, spring)
+        return out
+
+    PEDIMENT_BACK_M = 0.08   # T-1881: a broken pediment's arms stop this far short of the face's
+                             # back, off the hood's own back, buried in the roof as it is
+
+    def dormer_broken_pediment(self, e, k5, P, ends, sg, nf, back, centre, rm, spring):
+        """T-1881: a hooded dormer's broken pediment, as two closed solids for the roof's union
+        (1729's large Prairie dormer, in the 1890 Albertype plate and Taylor's photograph
+        no. 1445): each arm a raking cornice `depth_m` deep, rising at `pitch_deg` inward from
+        `reach_m` out of the arch's centre, its bottom `foot_m` over the springing, standing
+        `proud_m` out of the face, its inner end dying into the hood's band along the band's
+        middle arc `rm` (never into the light), so the arch rises through the gap between them."""
+        pd = e["pediment"]
+        X, f, dp = pd["reach_m"], pd["foot_m"], pd["depth_m"]
+        (xb, yb), (xt, yt) = k01_frontage_params.broken_pediment_meets(pd, rm)
+        ab, at_ = math.atan2(yb, xb), math.atan2(yt, xt)
+        rim = [(rm * math.cos(ab + (at_ - ab) * i / 6), rm * math.sin(ab + (at_ - ab) * i / 6)) for i in range(1, 6)]
+        half = [(X, f), (xb, yb)] + rim + [(xt, yt), (X, f + dp)]
+        a, c = sorted((back + sg * self.PEDIMENT_BACK_M, nf + sg * pd["proud_m"]))
+        return [k5.extrude([(centre + side * x, spring + y) for x, y in half], a, c, P, "dormer_face", *ends)
+                for side in (1.0, -1.0)]
 
     FRAME_PROUD_M = 0.04   # T-1890: a slated face's stone frame stands this far out of it
     FRAME_BED_M = 0.02     # ... and is bedded this far into it
@@ -5651,6 +5766,22 @@ def build(params, structure_id: str):
         # T-3160: the side wall's arcaded porte-cochere under its balustraded deck (1729's)
         from . import k01_porte_cochere
         k01_porte_cochere.dress(a)
+    if p.corner_porch:
+        # T-3241: the street front's corner arcade on its podium under a balustrade (1701's)
+        from . import k01_porte_cochere
+        k01_porte_cochere.dress_porch(a)
+    if p.side_porch:
+        # T-3239: a side wall's columned porch under its balustraded balcony (1906's)
+        from . import k01_porte_cochere
+        k01_porte_cochere.dress_side_porch(a)
+    if p.hip_deck:
+        # T-3241: the rail round the deck the hip is cut off at (1701's)
+        from . import k01_hip_deck
+        k01_hip_deck.dress(a)
+    if p.rear_veranda:
+        # T-3242: the two-level veranda on the rear wall and its garden flight (1701's)
+        from . import k01_rear_veranda
+        k01_rear_veranda.dress(a)
     if (p.mansard or {}).get("deck"):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck

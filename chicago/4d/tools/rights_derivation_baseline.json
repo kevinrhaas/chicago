@@ -489,6 +489,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.hip_deck": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "edson_keith_house_1906_prairie/as_mapped_1904/form.principal_floor_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -519,6 +527,14 @@
         "chicagology_1906_keith_engraving"
       ],
       "sole_support": true,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.side_porch": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
       "confidence": "inferred"
     },
     "edson_keith_house_1906_prairie/as_mapped_1904/form.stair_landing_depth_m": {
@@ -1851,6 +1867,14 @@
       "sole_support": false,
       "confidence": "attested"
     },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.corner_porch": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "hibbard_house_1701_prairie/as_mapped_1904/form.entrance_bay": {
       "kind": "structure",
       "blocked_sources": [
@@ -1867,6 +1891,15 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.hip_deck": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo",
+        "glessner_blog_1701_hibbard_rear_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "hibbard_house_1701_prairie/as_mapped_1904/form.north_bays": {
       "kind": "structure",
       "blocked_sources": [
@@ -1879,6 +1912,14 @@
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.rear_veranda": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1701_hibbard_rear_photo"
       ],
       "sole_support": true,
       "confidence": "inferred"
@@ -1908,6 +1949,22 @@
       "confidence": "inferred"
     },
     "hibbard_house_1701_prairie/as_mapped_1904/form.sash_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.side_base": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.stone_front": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1701_hibbard_photo"

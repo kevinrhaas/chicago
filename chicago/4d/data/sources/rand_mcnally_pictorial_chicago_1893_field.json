@@ -1,0 +1,28 @@
+{
+ "id": "rand_mcnally_pictorial_chicago_1893_field",
+ "type": "photograph",
+ "citation": "'Residence of Mr. Marshall Field, 1905 Prairie Avenue.' Halftone plate, photographer uncredited. Rand, McNally & Co.'s Pictorial Chicago (Chicago: Rand, McNally & Co., 1893).",
+ "author": "Rand, McNally & Co. (publisher); photographer uncredited",
+ "date": "1893 (publication)",
+ "describes_date": "by 1893",
+ "repository": "Internet Archive, randmcnallycospi00rand_0 (the 1893 edition of Pictorial Chicago, the book the Ream plate (rand_mcnally_pictorial_chicago_1893_ream) comes from). Prairie library image a19-pictorial-1893-field; the image store's display copy (kevinrhaas/chicago-images, prairie-1904/files/a19-pictorial-1893-field.jpg).",
+ "url": "https://archive.org/details/randmcnallycospi00rand_0",
+ "locator": "The plate captioned 'Residence of Mr. Marshall Field, 1905 Prairie Avenue': the house from across Prairie Avenue to the south-west, the street front with the door numbered 1905, the canted south-west corner, the south flank's front part with the curved conservatory, the bracketed cornice over a frieze, the slated mansard with its dormers and iron cresting, the raised stone basement and the scroll-pattern iron fence; bare street trees before the corner.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1893, so in the public domain. The reference copy committed for the image gate (data/sources/assets/field_1905_pictures_t3260/pictorial_1893_field_plate.jpg) is the store's display copy of the page cropped to the plate's border and not otherwise altered; nothing is derived from it as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-30 (T-3260) from the image store's display copy of the page, 1600 x 1233 px (sha256 bdee57d5d8c63e85c949b99b9cbe52ea983931b214d23de69aa27aa1dfe18cee). The plate's page number in the Archive's scan was not read: the store's copy carries the caption, not the leaf.",
+ "note": "The earliest dated photograph of the Field house in the Prairie library, and the clearest: the camera is a view camera with a raised front (the verticals stand parallel), from the avenue's far side about 30 m off the corner. Its camera is solved in data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json.",
+ "what_it_supplies": [
+  "the street front's composition by 1893: a blank brick end at the north, a window column, the door bay (the door numbered 1905), a narrow window column and a wide one, then the blank canted corner",
+  "two storeys of brick, dark against its light stone dressings, over a raised light stone basement, a stone belt at the chamber floor, a bracketed cornice over a frieze of roundels, a slated mansard with dormers and an iron cresting",
+  "the south flank's curved one-storey conservatory with a balcony on its roof"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the plate is a monochrome halftone",
+  "the north flank, the rear and the rear ranges",
+  "the house in 1904: it shows it by 1893"
+ ]
+}

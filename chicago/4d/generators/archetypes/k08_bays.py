@@ -1257,14 +1257,20 @@ class Bay:
         y_wall0 = plinth["height_m"] if grade else self._wall_foot(y0)
         if not y_wall0 < levels[1] - 1e-9:
             raise ValueError(f"{v['id']}: its walls start at {y_wall0:.3f} m, over its lowest storey")
+        ct = self._chamfer_top(levels, y_top)
         for i, run in enumerate(self.runs):
             flat = strip(f"{v['id']}|run{i}")
             doors = []   # T-1890: the doors on grade in this run, (from, to) along it
+            cant = ct is not None and "side" in (run.start, run.end)
             for k in range(len(v["storeys"])):
                 holes = []
                 trim_holes = []
                 lo = y_wall0 if k == 0 else levels[k]
                 hi = levels[k + 1]
+                if cant:   # T-1890: a canted face's wall stopped under its cornice
+                    if lo >= ct - 1e-9:
+                        continue
+                    hi = min(hi, ct)
                 dh = v.get("door_hole")
                 if dh and k == 0 and i == 1 and v["plan"].get("kind") == "polyline" and len(self.runs) == 3:
                     # T-1881: the door a forward block carries, cut through its face as K07 cuts it
@@ -1290,7 +1296,11 @@ class Bay:
                             holes.append((sh[0][0], sh[1][0], lo, sh[2][1], sh[2:], len(sh) == 4))
                         else:
                             holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
-                        if v.get("shallow"):
+                        # T-1890: a light on a chamfer's canted face (1801's, over the round bay
+                        # in HABS photograph 1) stands behind the wall's face, past where the host
+                        # was cut under it, so there is no host face to open round it; its recess
+                        # runs into the main roof, which the host cuts behind the cant
+                        if v.get("shallow") and "side" not in (run.start, run.end):
                             xs = sorted(run.world(q[0], 0.0, 0.0)[0] for q in sh)
                             ys = [q[1] for q in sh]
                             self.host_holes.append((xs[0], xs[-1], min(ys), max(ys)))
@@ -1356,6 +1366,8 @@ class Bay:
                 elif 0 < k:
                     yb = levels[k]
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
+            if cant:
+                self._chamfer_cornice(flat, run, ct, band)
             if v.get("pilasters"):
                 self._pilasters(flat, run, i, levels, y_wall0, band["height_m"])
             if grade and doors:
@@ -1408,6 +1420,8 @@ class Bay:
             bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]), join_quads=bool(v.get("masonry")),
                  keep_behind=WINDOW_ROLES if v.get("shallow") else ())
         world = strip(f"{v['id']}|world")
+        if ct is not None:
+            self._chamfer_cheek(world, ct, y_top)
         if not grade and v.get("apron"):
             self._apron_bottom(world, y0, cv)
         elif not grade:
@@ -2255,6 +2269,49 @@ class Bay:
         if self.tier == "light":
             return
         self.meta["frieze"]["rings"] += self._guilloche(flat, s0, s1, lo, hi, fr["guilloche"], pr)
+
+    def _chamfer_top(self, levels, y_top):
+        """T-1890: where a chamfered shallow pavilion's canted face stops under its cornice
+        (`plan.chamfer_top_m`, metres over its base), the house's mansard carried down over
+        it from there (1801's south pavilion over its round bay, HABS photograph 1), or None.
+        Over every light on the cant, with room for its head, and under the wall top."""
+        ct = self.v["plan"].get("chamfer_top_m")
+        if ct is None:
+            return None
+        ct = float(ct)
+        side = self.v["plan"].get("side_end")
+        if not (self.v.get("shallow") and side and self.v.get("roof", {}).get("kind") == "gable"):
+            raise ValueError(f"{self.v['id']}: a canted face stops under a cornice only on a chamfered shallow "
+                             f"pavilion under its gable")
+        heads = [levels[k] + float(w["sill_m"]) + float(w["clear_height_m"])
+                 for k, st in enumerate(self.v["storeys"]) for w in st["windows"]
+                 for i, _ in locate(self.runs, self.plan, w) if "side" in (self.runs[i].start, self.runs[i].end)]
+        if not (max(heads, default=levels[0]) + 0.4 <= ct <= y_top - 1.0):
+            raise ValueError(f"{self.v['id']}: its canted face stops 0.4 m over its lights' heads and a metre "
+                             f"under its wall top at {y_top:.3f} m, not at {ct:.3f}")
+        return ct
+
+    def _chamfer_cornice(self, flat, run, ct, band):
+        """T-1890: the canted face's top, stopped under the house's slate: a cornice course
+        the floor bands' depth proud, its top carried back square over the wall from end to
+        end of the face as deep as a recess reaches, where its host cuts the roof behind the
+        cant, so the cut is closed over and the slate takes over behind it."""
+        h, out = band["height_m"], band["proud_m"]
+        t = part(self.v, self.data, "recess")["depth_m"]
+        proud(flat, "band", run, ct - h, ct, out)
+        flat.face("band", [flat.P(0.0, ct, t), flat.P(run.L, ct, t), flat.P(run.L, ct, 0.0), flat.P(0.0, ct, 0.0)], Y)
+        self.meta["chamfer_top"] = {"top_m": round(ct, 4), "cap_m": round(t, 4)}
+
+    def _chamfer_cheek(self, world, ct, y_top):
+        """T-1890: over a canted face stopped under its cornice, the front's end carried on up
+        as a stone cheek to its wall top, back to the wall plane and on past it as far as the
+        cant runs behind it (inside the house's slate that closes against it)."""
+        pts = self.v["plan"]["points"]
+        right = self.v["plan"].get("side_end") == "right"
+        x, p = (float(pts[2][0]), float(pts[2][1])) if right else (float(pts[1][0]), float(pts[1][1]))
+        zb = float(pts[3][1] if right else pts[0][1])
+        world.face("wall", [(x, ct, p), (x, y_top, p), (x, y_top, zb), (x, ct, zb)],
+                   (1.0 if right else -1.0, 0.0, 0.0))
 
     def _cap_band(self, flat, run, y_top, cb):
         """T-2815: a carved band round the bay under its cap (Keith's bow on the 1888 plate:

@@ -49,8 +49,24 @@
       "rusticated_base": {"channel_width_m": 0.015, "channel_depth_m": 0.012, "courses": [1, 2]},
       "coping": {"fall": 0.125, "overhang_m": 0.05, "drip_groove_m": 0.012},
       "uses": "the brownstone and brown-sandstone fronts, bands, basements and copings the register names",
-      "register_rows": ["pa-1729-5", "pa-1912-10", "pa-2009-17", "pa-2100-18", "pa-1811-24", "pa-213–217-e.-cullerton-street-27", "pa-1936-s.-michigan-avenue-32", "pa-2008-s.-calumet-avenue-56"],
+      "register_rows": ["pa-1912-10", "pa-2009-17", "pa-2100-18", "pa-1811-24", "pa-213–217-e.-cullerton-street-27", "pa-1936-s.-michigan-avenue-32", "pa-2008-s.-calumet-avenue-56"],
       "not_for": "a Bedford or Lemont front; the register's word for each house decides which stone it is"
+    },
+    "sandstone_fawn": {
+      "laid_as": "coursed_ashlar",
+      "pattern_in_map": false,
+      "course_height_m": [0.25, 0.46],
+      "course_rule": "regular courses on a street front, laid smooth; no rock face",
+      "block_length_m": [0.6, 1.5],
+      "joint": {"width_m": 0.003, "recess_m": 0.0015, "finish": "rubbed flush"},
+      "arris": {"bevel_m": 0.004, "chips_per_m": 0.4, "chip_depth_m": [0.002, 0.006], "chip_length_m": [0.01, 0.04]},
+      "rock_face_projection_m": [0.0, 0.0],
+      "corner_bond": {"rule": "ashlar quoins return alternately long and short", "return_m": [0.3, 0.6]},
+      "rusticated_base": {"channel_width_m": 0.015, "channel_depth_m": 0.012, "courses": [1, 2]},
+      "coping": {"fall": 0.125, "overhang_m": 0.05, "drip_groove_m": 0.012},
+      "uses": "T-1881: a brownstone front its photographs print light, in smooth ashlar under hairline joints: 1729 Prairie, whose Detroit print (LoC det 4a08065, master scan) shows courses of about 0.44 m, blocks of 0.9-1.3 m and joints barely darker than the face",
+      "register_rows": ["pa-1729-5"],
+      "not_for": "a red-brown brownstone a picture prints darker than its own slate; that is sandstone_brown"
     },
     "limestone_lemont": {
       "laid_as": "coursed_ashlar",

@@ -14,6 +14,9 @@ record to what the ticket built:
   * a round dormer may name `eared_hood` (band_m, proud_m, ear_m, drop_m, an optional rise_m)
     inside its bounds, and on no other head; its solid is closed, stands proud_m out of the face
     and reaches ear_m past the band each side;
+  * an eared hood may carry a broken `pediment`: two closed raking arms standing further out
+    than the hood, never in the light, under the crown; one that would close over the crown is
+    refused, and on 1729 the large Prairie dormer alone carries one;
   * 1729's record builds a belt with a break over its corner pier and every dormer hooded;
   * a square projection's own mansard may carry `mansard_dormers` (the main mansard's round
     dormer, at_m from the front's centre): one on a projection with no mansard, one crossing the
@@ -114,6 +117,8 @@ refused(lambda: KP._round_dormer({**dorm, "eared_hood": {**eh, "bands": 1}}, "d"
 class _Host:
     EAR_BED_M = K1.Assembly.EAR_BED_M
     HOOD_BACK_M = K1.Assembly.HOOD_BACK_M
+    PEDIMENT_BACK_M = K1.Assembly.PEDIMENT_BACK_M
+    dormer_broken_pediment = K1.Assembly.dormer_broken_pediment
 
 
 solid = K1.Assembly.dormer_eared_hood(_Host(), got, k5, "x", 1.0, 30.0, 28.0, -1.5, 0.7, 13.0, 14.3)[0]
@@ -129,11 +134,40 @@ for pl in solid:
         edges[(a, b)] = edges.get((a, b), 0) + 1
 check(all(edges.get((b, a), 0) == c for (a, b), c in edges.items()), "the hood is one closed solid")
 
+# the broken pediment over an eared hood (1729's large Prairie dormer)
+ped = {"pitch_deg": 18, "reach_m": 1.1, "foot_m": 0.15, "depth_m": 0.15, "proud_m": 0.15}
+got_p = KP._round_dormer({**dorm, "eared_hood": {**eh, "pediment": ped}}, "d", 1.0)
+check(got_p["eared_hood"]["pediment"]["pitch_deg"] == 18.0, "an eared hood takes a broken pediment")
+refused(lambda: KP._round_dormer({**dorm, "eared_hood": {**eh, "pediment": {**ped, "pitch_deg": 35, "depth_m": 0.4}}}, "d", 1.0),
+        "a pediment whose arms meet over the crown is refused: it is not broken")
+refused(lambda: KP._round_dormer({**dorm, "eared_hood": {**eh, "pediment": {**ped, "proud_m": 0.05}}}, "d", 1.0),
+        "a pediment standing no further out than its hood is refused")
+refused(lambda: KP._round_dormer({**dorm, "eared_hood": {**eh, "pediment": {**ped, "tympanum": 1}}}, "d", 1.0),
+        "a pediment's unknown key is refused")
+parts = K1.Assembly.dormer_eared_hood(_Host(), got_p, k5, "x", 1.0, 30.0, 28.0, -1.5, 0.7, 13.0, 14.3)
+check(len(parts) == 3, f"the hood and the pediment's two arms ({len(parts)} solids)")
+ri_p = 0.7 - K1.Assembly.EAR_BED_M
+for arm in parts[1:]:
+    e2 = {}
+    for pl in arm:
+        n = len(pl.v)
+        for i in range(n):
+            a, b = tuple(round(c, 6) for c in pl.v[i]), tuple(round(c, 6) for c in pl.v[(i + 1) % n])
+            e2[(a, b)] = e2.get((a, b), 0) + 1
+    vs = [v for pl in arm for v in pl.v]
+    check(all(e2.get((b, a), 0) == c for (a, b), c in e2.items()), "an arm is one closed solid")
+    check(abs(max(v[0] for v in vs) - 30.15) < 1e-6, "an arm stands its proud_m out of the face")
+    check(min(((v[2] + 1.5) ** 2 + (v[1] - 14.3) ** 2) ** 0.5 for v in vs) > ri_p,
+          "an arm never enters the light inside the hood's band")
+    check(max(v[1] for v in vs) < 14.3 + 0.7 + 0.15, "an arm stays under the arch's crown, so the pediment is broken")
+
 # 1729's record
 st = json.loads((ROOT / "data" / "structures" / f"{SID}.json").read_text())
 p = KP.from_phase(st["phases"][0], st)
 check(bool(p.pavilions.get("belt")) and len(p.pavilions["belt"]["runs"]) == 3, "1729 lays its belt on three walls")
 check(all("eared_hood" in d for d in p.mansard["dormers"]), "every one of 1729's dormers is hooded")
+check(sum(1 for d in p.mansard["dormers"] if d["eared_hood"].get("pediment")) == 1,
+      "1729's large Prairie dormer, and it alone, carries the broken pediment")
 check(p.mansard.get("dormer_fabric") == "front_stone", "1729's dormers are faced in its brownstone")
 
 # a square projection's own mansard dormers

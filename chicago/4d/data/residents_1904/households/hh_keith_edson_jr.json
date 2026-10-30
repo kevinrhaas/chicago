@@ -1,0 +1,262 @@
+{
+  "id": "hh_keith_edson_jr",
+  "scene": "1904",
+  "name": "The Keith household at 2110 Prairie Avenue",
+  "head": "pa1904_keith_edson_jr",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2110 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 2110 Mr. & Mrs. Edson Keith jr.."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "rees_house_2110_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2110, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_keith_edson_jr",
+      "name": "Edson Keith jr.",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "2110 Mr. & Mrs. Edson Keith jr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 37, leaf n822",
+        "as_enumerated": "Keith, Edson Jr.",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists Edson Keith Jr. here as head, born June 1865 (the figures are hard to read), in Illinois, married, dry goods (milliner) (ED 40, sheet 15A, line 37, leaf n822)."
+    },
+    {
+      "id": "pa1904_keith_mrs_edson_jr",
+      "name": "Mrs. Edson Keith jr.",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "2110 Mr. & Mrs. Edson Keith jr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 38, leaf n822",
+        "as_enumerated": "Keith, Nettie",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Nettie Keith here as wife, born July 1870 (the figures are hard to read), in Ohio, married (ED 40, sheet 15A, line 38, leaf n822)."
+    },
+    {
+      "id": "pa1904_keith_edson_jr_c1900_katharine_keith",
+      "name": "Katharine Keith",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1892",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives April 1892, age 8 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 39, leaf n822",
+        "as_enumerated": "Keith, Katharine",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born April 1892 (the figures are hard to read), in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_keith_edson_jr_c1900_frederick_keith",
+      "name": "Frederick Keith",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1895",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1895, age 4 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 40, leaf n822",
+        "as_enumerated": "Keith, Frederick",
+        "relation_as_enumerated": "Son"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born December 1895, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_keith_edson_jr_c1900_katie_gerth",
+      "name": "Katie Gerth",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1870",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1870, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "nurse (children)",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Nurse (children)\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 41, leaf n822",
+        "as_enumerated": "Gerth, Katie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (children)); born August 1870 (the figures are hard to read), in Germany, came to the United States in 1886, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_keith_edson_jr_c1900_tillie_nelson",
+      "name": "Tillie Nelson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1870",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives October 1870, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 42, leaf n822",
+        "as_enumerated": "Nelson, Tillie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born October 1870 (the figures are hard to read), in Sweden, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_keith_edson_jr_c1900_annie_allman",
+      "name": "Annie Allman",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1876",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1876, age 23 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "house maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"House maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 43, leaf n822",
+        "as_enumerated": "Allman, Annie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born August 1876 (the figures are hard to read), in Germany, came to the United States in 1884, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_keith_edson_jr_c1900_george_hauser",
+      "name": "George Hauser",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1864",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives May 1864, age 36 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "horseman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Horseman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 44, leaf n822",
+        "as_enumerated": "Hauser, George",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (horseman); born May 1864, in Scotland, came to the United States in 1890, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    }
+  ]
+}

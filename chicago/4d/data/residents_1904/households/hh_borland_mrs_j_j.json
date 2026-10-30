@@ -1,0 +1,75 @@
+{
+  "id": "hh_borland_mrs_j_j",
+  "scene": "1904",
+  "name": "The Borland household at 2027 Prairie Avenue",
+  "head": "pa1904_borland_mrs_j_j",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2027 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 2027 Mrs. J. J. Borland; Chauncey Blair Borland; Bruce Borland."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_2027_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2027, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 the line at this number is W. B. Walker, at his office, not the Borlands. The census says nothing about this household's staff. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_borland_mrs_j_j",
+      "name": "Mrs. J. J. Borland",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2027 Mrs. J. J. Borland"
+    },
+    {
+      "id": "pa1904_borland_chauncey_blair",
+      "name": "Chauncey Blair Borland",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2027 Chauncey Blair Borland",
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+    },
+    {
+      "id": "pa1904_borland_bruce",
+      "name": "Bruce Borland",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2027 Bruce Borland",
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+    }
+  ]
+}

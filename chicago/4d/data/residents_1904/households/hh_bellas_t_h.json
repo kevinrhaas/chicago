@@ -1,0 +1,211 @@
+{
+  "id": "hh_bellas_t_h",
+  "scene": "1904",
+  "name": "The Bellas household at 1634 Prairie Avenue",
+  "head": "pa1904_bellas_t_h",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "The household is listed at 1634 Prairie Avenue in both the 1904 and 1905 editions of the Blue Book, which bracket 1 July 1904, but not with the same people: the 1905 list prints 1634 Erastus Foote; 1634 Mrs. T. H. Bellas & dr.. Each person's own note says which of them the later list drops or adds."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_1634_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1634, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Emeline C. Bellas (named in the note on \"The Misses Bellas\"); Helen M. Bellas (named in the note on \"The Misses Bellas\"); Edith Bellas (named in the note on \"The Misses Bellas\"). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_bellas_t_h",
+      "name": "T. H. Bellas",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs.",
+      "note": "The 1905 edition lists Mrs. T. H. Bellas & dr. without him, so his presence on 1 July 1904 is not documented. The 1900 census lists Thomas H. Bellas here as head, born November 1846, in Ireland, came to the United States in 1876, married, com. merchant (grain) (ED 36, sheet 2A, line 36, leaf n667).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 36, leaf n667",
+        "as_enumerated": "Bellas, Thomas H",
+        "relation_as_enumerated": "Head"
+      }
+    },
+    {
+      "id": "pa1904_bellas_mrs_t_h",
+      "name": "Mrs. T. H. Bellas",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 37, leaf n667",
+        "as_enumerated": "Bellas, Emma L",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Emma L. Bellas here as wife, born October 1851, in Illinois, married (ED 36, sheet 2A, line 37, leaf n667)."
+    },
+    {
+      "id": "pa1904_bellas_daughters",
+      "name": "The Misses Bellas",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs.",
+      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Bellas' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Emeline C. Bellas (born March 1881, in Illinois, single; ED 36, sheet 2A, line 38, leaf n667); Helen M. Bellas (born July 1884, in Illinois; ED 36, sheet 2A, line 39, leaf n667); Edith Bellas (born October 1887, in Illinois; ED 36, sheet 2A, line 40, leaf n667). Which of them the 1904 line stands for, the book does not say."
+    },
+    {
+      "id": "pa1904_foote_erastus",
+      "name": "Erastus Foote",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1634 Erastus Foote",
+      "note": "Listed first at 1634 in both editions. The Blue Book does not say how he was related to the Bellases, or which of them headed the house; the card is anchored on the couple. The 1900 census lists Erastus Foote here as brother-in-law, born March 1850, in Maine, single, pres. iron works (ED 36, sheet 2A, line 42, leaf n667).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 42, leaf n667",
+        "as_enumerated": "Foote, Erastus",
+        "relation_as_enumerated": "Brother-in-law"
+      }
+    },
+    {
+      "id": "pa1904_bellas_t_h_c1900_margaret_m_smith",
+      "name": "Margaret M. Smith",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1870",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives September 1870, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "governess",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Governess\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 41, leaf n667",
+        "as_enumerated": "Smith, Margaret M",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (governess); born September 1870, in Scotland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_bellas_t_h_c1900_emelia_brandt",
+      "name": "Emelia Brandt",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1866",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives May 1866, age 34 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 43, leaf n667",
+        "as_enumerated": "Brandt, Emelia",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born May 1866, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_bellas_t_h_c1900_anna_carlson",
+      "name": "Anna Carlson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1877",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1877, age 22 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "waitress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Waitress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 44, leaf n667",
+        "as_enumerated": "Carlson, Anna",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born August 1877, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    }
+  ]
+}

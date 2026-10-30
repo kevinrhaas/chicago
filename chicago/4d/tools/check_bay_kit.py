@@ -173,6 +173,42 @@ def _across_inside(b, margin=1e-6):
     return lambda x, z: z < -margin and k * x < -margin
 
 
+def _cant_inside(b):
+    """T-1890: inside a chamfer's canted face, between its ends and as deep as a light's recess
+    on it reaches (1801's light over its round bay, HABS photograph 1): there a recess stands
+    behind the host wall's face by the cant's own depth. K01 stands such a light only over its
+    house's eave, where the roof is cut away inside the cant (k01_frontage.shallow_bay_cutters),
+    so nothing of the host stands there. None if the bay has no chamfer."""
+    deep = max([b.meta["recess_m"]] + [w["recess_m"] for w in b.windows]) + 1e-3
+    strips = []
+    for r in (b.runs[0], b.runs[-1]):
+        if "side" not in (r.start, r.end):
+            continue
+        (x0, _, z0), (x1, _, z1) = r.world(0.0, 0.0, 0.0), r.world(r.L, 0.0, 0.0)
+        _, out = r.frame(0.0)
+        strips.append((x0, z0, (x1 - x0) / r.L, (z1 - z0) / r.L, r.L, out[0], out[2]))
+    if not strips:
+        return None
+    return lambda x, z: any(-1e-6 <= (x - x0) * ex + (z - z0) * ez <= L + 1e-6
+                            and -deep <= (x - x0) * nx + (z - z0) * nz <= 1e-6
+                            for x0, z0, ex, ez, L, nx, nz in strips)
+
+
+def _chamfer_cheek(b, v):
+    """T-1890: over a canted face stopped under its cornice (`plan.chamfer_top_m`, 1801's over
+    its round bay), the front's end carried on up as a stone cheek in its own plane, from the
+    cornice to the wall top and back no further than the cant runs behind the face: K01 lays
+    the house's slate against it there, uncut over the cant. None without one."""
+    ct = v["plan"].get("chamfer_top_m")
+    side = v["plan"].get("side_end")
+    if ct is None or not side:
+        return None
+    pts = v["plan"]["points"]
+    x, zb = (pts[2][0], pts[3][1]) if side == "right" else (pts[1][0], pts[0][1])
+    top = b.meta["wall_top_m"]
+    return lambda p: abs(p[0] - x) < 1e-6 and ct - 1e-6 <= p[1] <= top + 1e-6 and p[2] >= zb - 1e-6
+
+
 def rule_keyed(b, v):
     fails = []
     inside = _across_inside(b)
@@ -231,7 +267,11 @@ def rule_keyed(b, v):
     # T-3047: a shallow projection's window recesses and its gable's parapet run back through
     # the plane (its host opens its face round the recesses), no deeper than a recess reaches
     through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
-    cut = (lambda p: corner[0] <= p[0] <= corner[1] and p[2] >= corner[2]) if corner else (lambda p: False)
+    cant = _cant_inside(b)
+    cheek = _chamfer_cheek(b, v)
+    cut = (lambda p: (corner[0] <= p[0] <= corner[1] and p[2] >= corner[2])
+           or (cant is not None and p[2] < 0.0 and cant(p[0], p[2]))
+           or (cheek is not None and cheek(p))) if corner else (lambda p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
                 if not cut(p)), default=(0.0, None))
@@ -249,9 +289,11 @@ def rule_keyed(b, v):
         far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
         if far > reach + 1e-6:
             fails.append(f"behind: a whole cap reaches {far:.4f} m from its axis, past its eaves' {reach:.4f} m")
-    # the outer wall on the declared plan
+    # the outer wall on the declared plan (T-1890: but a stopped cant's cheek, over it)
     off = 0.0
     for p in b.prims["wall"].pos:
+        if cheek is not None and cheek(p):
+            continue
         off = max(off, min(plan_distance(r, p) for r in b.runs + b.stage_runs))
     if off > 2e-4:
         fails.append(f"footprint: the outer wall stands {off * 1000:.1f} mm off its declared plan")
@@ -280,12 +322,40 @@ def inside_point(b):
     if b.v.get("shallow"):   # T-3047: inside so thin a projection, beside its windows
         (x0, d), (x1, _) = b.v["plan"]["points"][1:3]
         cands = ((x0 + 0.15, d / 2), (x1 - 0.15, d / 2))
-    for cand in cands:
-        if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows):
-            break
+    # T-1881: a forward block's door (`door_hole`) is cut clean through its front for K07's
+    # door to close, so a ray out through it is the doorway, not a gap; with the door on the
+    # block's axis (1729's p_forward) every point above stands behind it, so the points
+    # halfway between its jambs and the block's sides are tried too
+    dh = b.v.get("door_hole")
+    if dh:
+        (xa, _), (xb, _) = b.v["plan"]["points"][1:3]
+        cands = (*cands, ((dh["x_m"][1] + xb) / 2, 0.1), ((dh["x_m"][0] + xa) / 2, 0.1))
     lv = b.meta["levels_m"]
-    return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
-           [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
+
+    def points(cand):
+        return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
+               [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
+
+    for cand in cands:
+        if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows) and \
+                not any(through_door(b, p, dh) for p in points(cand)):
+            break
+    return points(cand)
+
+
+def through_door(b, p, dh):
+    """T-1881: whether a ray of DIRS from p meets the block's front inside its door hole."""
+    if not dh:
+        return False
+    zf = b.v["plan"]["points"][1][1]
+    for d in DIRS:
+        if d[2] <= 0:
+            continue
+        t = (zf - p[2]) / d[2]
+        x, y = p[0] + d[0] * t, p[1] + d[1] * t
+        if dh["x_m"][0] - EPS <= x <= dh["x_m"][1] + EPS and dh["y_m"][0] - EPS <= y <= dh["y_m"][1] + EPS:
+            return True
+    return False
 
 
 def in_hull(p, h, edge=False):
@@ -352,7 +422,10 @@ def rule_recesses(b, v, data):
         if w["recess_m"] < data["parts"]["recess"]["min_m"] - EPS:
             fails.append(f"recess: {w['opening']} recess {w['recess_m']} m is shallower than the kit's minimum")
         inside = _across_inside(b, -m)   # T-3176: across a corner, behind is inside the corner
+        cant = _cant_inside(b)            # T-1890: a chamfer's light, inside its cant
         for p in w["footprint"]:
+            if cant is not None and cant(p[0], p[1]):
+                continue
             if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails

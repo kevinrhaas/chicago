@@ -224,6 +224,17 @@ class K01FrontageParams:
     # T-3160: a one-storey arcaded porte-cochere on a side wall under a balustraded deck
     # (`porte_cochere`, k01_porte_cochere; 1729's on 18th Street, off the Detroit print)
     porte_cochere: dict = field(default_factory=dict)
+    # T-3241: a one-storey stone arcade on the street front's corner under a balustrade, on the
+    # principal floor's podium (`corner_porch`, k01_porte_cochere; 1701's, off its photograph)
+    corner_porch: dict = field(default_factory=dict)
+    # T-3241: a hip cut off level at a railed deck (`hip_deck`, k01_hip_deck; 1701's roof)
+    hip_deck: dict = field(default_factory=dict)
+    # T-3242: a two-level timber veranda against the main rear wall, its garden flight off the
+    # lower deck (`rear_veranda`, k01_rear_veranda; 1701's, off its rear photograph)
+    rear_veranda: dict = field(default_factory=dict)
+    # T-3239: a columned porch on a side wall under a balustraded balcony, on a podium
+    # (`side_porch`, k01_porte_cochere; 1906's on its south flank, off the engraving)
+    side_porch: dict = field(default_factory=dict)
     # T-1879: open louvred shutters folded back beside named walls' lights, by storey
     # (`window_shutters`; 1721's, off the 1891 plate): {"width_m", "louvre_m", "lights":
     # ((wall, s0, s1, sill, head), ...)} — empty for every other house
@@ -278,6 +289,8 @@ class K01FrontageParams:
             return self.mansard["ridge_m"]
         if self.roof_form == "gable":    # T-2459: the ridge parallel to the front
             return self.gable["ridge_m"]
+        if self.hip_deck:                # T-3241: a hip cut off level at its deck
+            return self.hip_deck["deck_m"]
         # T-3240: a hip's ridge stands half the plan's narrower side over the eave, which is the
         # front's half for every hip that runs front to back and the depth's for one along it
         return round(self.eave_m + min(self.width_m, self.depth_m) / 2
@@ -296,7 +309,8 @@ CONSUMED = frozenset({
     "front_bays_by_storey", "gable_roof", "wall_finish", "street_front_brick", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
-    "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint",
+    "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
+    "hip_deck", "rear_veranda", "side_porch",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -1027,6 +1041,49 @@ DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat", "flat": "flat"
 HIPPED_HEADS = ("hip", "flat")
 
 
+
+def broken_pediment_meets(ped, rm):
+    """T-1881: where an eared hood's broken pediment's two raking lines, each rising inward
+    from its arm's outer end at `reach_m` from the arch's centre (the bottom `foot_m` over the
+    springing, the top `depth_m` above it), meet the circle `rm` round the arch's centre: the
+    (x, y) of each meeting nearest the outer end, or None where a line passes over the circle."""
+    t, X = math.tan(math.radians(ped["pitch_deg"])), ped["reach_m"]
+    out = []
+    for y0 in (ped["foot_m"], ped["foot_m"] + ped["depth_m"]):
+        # (y0 + t (X - x))^2 + x^2 = rm^2, the larger root
+        k = y0 + t * X
+        a, b, c = 1 + t * t, -2 * k * t, k * k - rm * rm
+        disc = b * b - 4 * a * c
+        if disc < 0:
+            out.append(None)
+            continue
+        x = (-b + math.sqrt(disc)) / (2 * a)
+        out.append((x, y0 + t * (X - x)) if 0 < x < rm else None)
+    return out
+
+
+def _broken_pediment(ped, eh, ro, what):
+    """T-1881: the broken pediment over a hooded round dormer (1729's large Prairie dormer, in
+    the 1890 Albertype plate and Taylor's photograph no. 1445): two raking cornice arms, each
+    rising inward from past the hood's ear to die against the hood's band below the crown, so
+    the arch rises through the gap between them."""
+    if not isinstance(ped, dict) or set(ped) != {"pitch_deg", "reach_m", "foot_m", "depth_m", "proud_m"}:
+        raise ParamError(f"{what} takes pitch_deg, reach_m, foot_m, depth_m and proud_m")
+    ped = {k: float(v) for k, v in ped.items()}
+    if not (10 <= ped["pitch_deg"] <= 40 and ro < ped["reach_m"] <= ro + eh["ear_m"] + 0.5
+            and 0.1 <= ped["depth_m"] <= 0.5 and eh["proud_m"] < ped["proud_m"] <= 0.3):
+        raise ParamError(f"{what}: a 10-40 degree rake, its arms 0.1-0.5 m deep, reaching past the hood's "
+                         f"band ({ro:.2f} m) up to 0.5 m beyond its ears, and standing out further than the "
+                         f"hood, up to 0.3 m")
+    if not 0.0 <= ped["foot_m"] <= eh["rise_m"]:
+        raise ParamError(f"{what}.foot_m {ped['foot_m']}: an arm stands on the springing up to the ears' top")
+    bot, top = broken_pediment_meets(ped, ro - eh["band_m"] / 2)
+    if bot is None or top is None or top[0] < 0.1:
+        raise ParamError(f"{what}: both of an arm's lines must die into the hood's band short of the crown, "
+                         f"or the pediment is not broken")
+    return ped
+
+
 def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False) -> dict:
     """A lower-face dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones,
     T-2452's gabled ones): a K06 sash in a stone face `surround_m` round it, its face
@@ -1114,9 +1171,11 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         eh = d["eared_hood"]
         if head != "round":
             raise ParamError(f"{what}.eared_hood: on a round head")
-        eh = {k: float(v) for k, v in eh.items()}
-        if set(d["eared_hood"]) - {"rise_m"} != {"band_m", "proud_m", "ear_m", "drop_m"}:
-            raise ParamError(f"{what}.eared_hood takes band_m, proud_m, ear_m, drop_m and an optional rise_m")
+        if set(eh) - {"rise_m", "pediment"} != {"band_m", "proud_m", "ear_m", "drop_m"}:
+            raise ParamError(f"{what}.eared_hood takes band_m, proud_m, ear_m, drop_m and an optional rise_m "
+                             f"and pediment")
+        ped = eh.get("pediment")
+        eh = {k: float(v) for k, v in eh.items() if k != "pediment"}
         eh.setdefault("rise_m", 0.0)
         ro, ri = sw / 2 + ring + eh["band_m"], sw / 2 + ring - 0.05
         if not (0.08 <= eh["band_m"] <= 0.3 and 0.02 <= eh["proud_m"] <= 0.15 and 0.05 <= eh["ear_m"] <= 0.3
@@ -1127,6 +1186,8 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         if not 0.0 <= eh["rise_m"] <= math.sqrt(max(0.0, ro * ro - (ri + 0.05) ** 2)):
             raise ParamError(f"{what}.eared_hood.rise_m {eh['rise_m']}: the ears stand 0 m over the springing up "
                              f"to where the hood's arc meets the face")
+        if ped is not None:
+            eh["pediment"] = _broken_pediment(ped, eh, ro, f"{what}.eared_hood.pediment")
         out["eared_hood"] = eh
     if head == "flat":
         # T-2902: the face's wall head `frieze_m` over the sash (a frieze under the cornice, where
@@ -1960,7 +2021,8 @@ def bracketed_section(k10: dict, overhang: float) -> list:
 
 def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False,
           floors: tuple = (), eave: float = 0.0, overhang: float = 0.0, front_coursed: bool = False,
-          wing_corner: bool = False, eave_front: float | None = None):
+          wing_corner: bool = False, eave_front: float | None = None,
+          basement_top: float | None = None):
     """Resolve the record's `bays` against the K08 kit; drop the host openings each covers.
 
     A bay stands in front of its wall from grade to its own wall top, so every host
@@ -2132,6 +2194,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         or set(q) - {"width_m", "proud_m", "step"}:
                     raise ParamError(f"bays: {e['id']} is a flank's step: a full-height projection on a side "
                                      f"wall, 6-16 m wide and 0.1-2.0 m proud (has {w} m and {d} m)")
+            # T-3241: or a LOWER RANGE (`range`), a low block standing well out from a side wall
+            # under its own flat top (1701's lower south range in the Chicagology photograph: 3.6 m
+            # along the wall, 3.1 m out, one storey over the basement under a railed balcony)
+            elif q.get("range") is not None:
+                if q["range"] is not True or not (2.0 <= w <= 8.0 and 1.2 < d <= 4.0) \
+                        or e.get("variant") != "k08.projection.full_height" \
+                        or e.get("wall") not in ("k01.wall.side.north", "k01.wall.side.south") \
+                        or (e.get("roof") or {}).get("kind") != "hip" or float((e.get("roof") or {}).get("pitch", -1)) != 0.0 \
+                        or set(q) - {"width_m", "proud_m", "range"}:
+                    raise ParamError(f"bays: {e['id']} is a lower range: a flat-topped projection on a side "
+                                     f"wall, 2-8 m along it and 1.2-4.0 m out (has {w} m and {d} m)")
             # T-1890: or a PIER (`pier`), a plain stone strip standing out from a wall from grade to
             # under its cornice (1801's 18th Street wall where the gabled section meets the main
             # block, in the Taylor print and HABS photograph 2): narrower than a pavilion, with no
@@ -2154,7 +2227,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
             if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer", "block", "step",
-                         "pier"}:
+                         "pier", "range"}:
                 raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
                                  f"cant_left_m or cant_right_m, shallow and chamfer, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
@@ -2179,11 +2252,12 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # under it (k01_frontage `chamfer_spans`). width_m stays the pavilion's whole width
             ch = q.get("chamfer")
             if ch is not None:
-                if not isinstance(ch, dict) or set(ch) != {"corner", "along_m", "behind_m"} \
+                if not isinstance(ch, dict) or not {"corner", "along_m", "behind_m"} <= set(ch) \
+                        or set(ch) - {"corner", "along_m", "behind_m", "top_m"} \
                         or ch["corner"] not in ("left", "right") or not v.get("shallow") \
                         or e.get("flush_corner") != ch["corner"]:
                     raise ParamError(f"bays: {e['id']}'s chamfer takes corner (left or right), along_m and "
-                                     f"behind_m, on a shallow pavilion flush with that corner")
+                                     f"behind_m (and top_m), on a shallow pavilion flush with that corner")
                 ca, cb = float(ch["along_m"]), float(ch["behind_m"])
                 # T-3108: further on a chamfer a round bay stands on, which closes the cut in front
                 rb = e["id"] in carried
@@ -2199,6 +2273,10 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 else:
                     pts[0], pts[1] = [-w / 2, -cb], [-w / 2 + ca, d]
                 v["plan"]["side_end"] = ch["corner"]
+                # T-1890: the canted face's wall may stop under a cornice short of the wall top,
+                # the house's mansard carried down over it (1801's, HABS photograph 1); K08 bounds it
+                if "top_m" in ch:
+                    v["plan"]["chamfer_top_m"] = float(ch["top_m"])
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),
@@ -2447,10 +2525,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 w["voussoirs"] = {k: (int(h[k]) if k == "stones" else float(h[k])) for k in sorted(h)}
         # T-2525: a plinth read off a picture: its height only, the kit's proud and stone kept
         # (T-3133: down to 0.05 m, 1811's bay on the Chicagology print, its lights' sills on it)
+        # T-3254: or, on a brick front over a stone basement, the basement's own top
+        # (1701's lower south range, which the photograph carries on the house's stone basement
+        # up to its water table at the principal floor, brick only over it)
         if "plinth_m" in e:
             ph = float(e["plinth_m"])
-            if v["base"] != "grade" or not 0.05 <= ph <= 0.6:
-                raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.05-0.6 m")
+            on_basement = basement_top is not None and abs(ph - basement_top) < 1e-6
+            if v["base"] != "grade" or not (0.05 <= ph <= 0.6 or on_basement):
+                raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.05-0.6 m, or the "
+                                 f"stone basement's top (stone_front.brick_above_m)")
             v.setdefault("overrides", {}).setdefault("plinth", {})["height_m"] = ph
         if "cap_band" in e:
             # T-2815: a carved band round the bay under its cap, read off a picture (Keith's
@@ -2802,6 +2885,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # T-2404: a pavilion may stand flush with its wall's corner — its cheek then runs on in
         # the side wall's own plane, as 1620's north pavilion does in its 1874 engraving. Only
         # a projection, only at the corner it names, and then exactly at it
+        if e.get("cornice_across") is True and not v.get("shallow"):
+            raise ParamError(f"bays: {e['id']}: cornice_across is a shallow pavilion's (T-1890)")
         flush = e.get("flush_corner")
         if flush is not None and cant is None:
             if v["kind"] != "projection" or flush not in ("left", "right"):
@@ -3025,6 +3110,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"corner": corner} if corner else {}),
                     **({"across_corner": across} if across else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
+                    # T-1890: a shallow pavilion the main cornice runs on across (1801's wall gable)
+                    **({"cornice_across": True} if e.get("cornice_across") is True else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
                     # T-3236: or a bay whose cornice overhangs a porch arch's pier (1812's)
                     **({"seat_walls": True} if e.get("seat_walls") is True else {}),
@@ -5680,6 +5767,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         above, cap_p, cap_d = float(ch["top_above_ridge_m"]), float(ch["cap_proud_m"]), float(ch["cap_depth_m"])
         ridge = (flat_roof["deck_high_m"] if flat else mansard_roof["ridge_m"] if mansard
                  else gable_roof["ridge_m"] if gable
+                 else float(val("hip_deck")["deck_m"]) if val("hip_deck")   # T-3241: over its deck
                  else (round(pf + sum(heights), 4) + width / 2 * tp))
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
@@ -5895,7 +5983,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                  openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave,
                  float(val("eave_overhang_m")), bool((val("stone_front") or {}).get("coursing")),
                  eave_front=(eave - float(val("eave_overhang_m")) * math.tan(math.radians(pitch))
-                             if roof_form in ("hip", "gable") else None))
+                             if roof_form in ("hip", "gable") else None),
+                 basement_top=(val("stone_front") or {}).get("brick_above_m"))
     # T-2780: a round-headed window over a bay is cut after the kit was read, so its variant
     # is held here to what the street front's round heads are held to: one round-headed sash
     for o in openings:
@@ -6148,10 +6237,25 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                       wall_head=dict(val("wall_head", {}) or {}), depth=depth, bays=bays)
     except PavilionError as e:
         raise ParamError(str(e)) from None
-    from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte
+    from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte, resolve_porch, \
+        resolve_side_porch
     try:
         porte_cochere = resolve_porte(val("porte_cochere"), depth=depth, width=width, stone=stone, openings=openings)
+        corner_porch = resolve_porch(val("corner_porch"), width=width, openings=openings, bays=bays)
+        side_porch = resolve_side_porch(val("side_porch"), depth=depth, openings=openings)
     except PorteError as e:
+        raise ParamError(str(e)) from None
+    from .k01_hip_deck import ParamError as DeckError, resolve as resolve_hip_deck
+    try:
+        hip_deck = resolve_hip_deck(val("hip_deck"), depth=depth, width=width, eave=pf + sum(heights),
+                                    pitch=pitch, overhang=float(val("eave_overhang_m")), roof_form=roof_form)
+    except DeckError as e:
+        raise ParamError(str(e)) from None
+    from .k01_rear_veranda import ParamError as VerandaError, resolve as resolve_veranda
+    try:
+        rear_veranda = resolve_veranda(val("rear_veranda"), width=width, eave=pf + sum(heights), wings=wings,
+                                       floor=pf)
+    except VerandaError as e:
         raise ParamError(str(e)) from None
     lg_ = (door_kit or {}).get("loggia") or {}
     round_arcade_check(lg_.get("round_arcade"), round_corner, lg_.get("columns"), width)
@@ -6230,7 +6334,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
-        shutters=shutters,
+        corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, side_porch=side_porch, shutters=shutters,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

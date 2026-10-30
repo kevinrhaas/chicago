@@ -65,6 +65,8 @@ def main() -> int:
     # the wall plane, below); the deep gable is held on the same pavilion stood 0.6 m proud
     v = copy.deepcopy(shallow)
     v.pop("shallow", None)
+    # T-1890: 1801's canted face stopped under its cornice is a shallow pavilion's; held below
+    v["plan"].pop("chamfer_top_m", None)
     # T-3073: the deep gable is held square on the front; 1801's own inset is held below
     v["roof"]["gable"].pop("inset_m", None)
     for q in v["plan"]["points"][1:3]:

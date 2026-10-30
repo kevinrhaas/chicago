@@ -655,6 +655,28 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Route note (published, T-2042):** The draw's south end to the brickyard is about 0.12 km over the river, the school-house is about 20 m on, and the Lake House site about 0.5 km east along the bank: about 0.65 km in straight lines. The measured card estimates are in [the acceptance report](measurements/jaunts_acceptance_2026-10.md).
 
+## 27. Women of 1835 Chicago — the owner's ask of 2026-10-30
+
+**ID:** `notable-women-1835` · **Owner ticket:** T-3251 (in kevinrhaas/chicago-tickets)
+
+**Setup/goal:** Ride from Wolf Point to the fort past the places of six women a source names in the town of 1835, and read why each still matters. Added as one JSON file in `data/jaunts/`, compiled by `tools/compile_jaunts.py`, with no renderer change.
+
+**Stops, in story order:**
+
+- `forks` (anchor) — Wolf Point, across the water from [`robinson_caldwell_cabins`](../data/structures/robinson_caldwell_cabins.json): Catherine Chevalier Robinson.
+- [`jh_kinzie_forwarding_store`](../data/structures/jh_kinzie_forwarding_store.json) — Juliette Kinzie.
+- [`exchange_coffee_house`](../data/structures/exchange_coffee_house.json) — Mrs. Murphy.
+- [`brown_boarding_house`](../data/structures/brown_boarding_house.json) — Mrs. Rufus Brown.
+- [`chappel_infant_school`](../data/structures/chappel_infant_school.json) — Eliza Chappel.
+- [`first_presbyterian_church`](../data/structures/first_presbyterian_church.json) — Eliza Chappel Porter.
+- `fort_dearborn` (anchor) — beside [`jb_beaubien_homestead`](../data/structures/jb_beaubien_homestead.json): Josette LaFramboise Beaubien.
+
+**Primary interactions:** Look from the street. No resource, no strip: a quiet outing.
+
+**Keepsake/outcome:** Roll of the women of 1835 (Neighbors); an interpretive list.
+
+**Evidence and route cautions:** The two Native and Métis households are told from public anchors and never called at (audit_jaunt_refusals rule I); the Robinson cabins are Wau-Bun's of 1831 and no one is claimed in them on the scene date. Later lives are told as later history (L-jaunt-women-1835).
+
 ## Initial research anchors
 
 Use the source records already attached to the chosen claims, rather than treating

@@ -1,0 +1,175 @@
+{
+  "id": "hh_longini_a",
+  "scene": "1904",
+  "name": "The Longini household at 1626 Prairie Avenue",
+  "head": "pa1904_longini_a",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1626 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1626 Mr. & Mrs. A. Longini (no '& dr.')."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_1626_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1626, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The one live-in servant and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Adele Longini (the one unmarried daughter in 1900, so very likely the Blue Book's \"& dr.\"; named in that line's note rather than carded twice); Charles LaGrose (heads his own family in the rear building, and the sheet gives him no stable trade that ties him to the house). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_longini_a",
+      "name": "A. Longini",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1626 Mr. & Mrs. A. Longini & dr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 55, leaf n668",
+        "as_enumerated": "Longini, Abraham",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists Abraham Longini here as head, born February 1847, in France, came to the United States in 1865, married, wholesale clothing (ED 36, sheet 2B, line 55, leaf n668)."
+    },
+    {
+      "id": "pa1904_longini_mrs_a",
+      "name": "Mrs. A. Longini",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1626 Mr. & Mrs. A. Longini & dr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 56, leaf n668",
+        "as_enumerated": "Longini, Rose",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Rose Longini here as wife, born July 1860, in Illinois, married (ED 36, sheet 2B, line 56, leaf n668)."
+    },
+    {
+      "id": "pa1904_longini_daughter",
+      "name": "Miss Longini",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1626 Mr. & Mrs. A. Longini & dr.",
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Longini' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Adele Longini (born March 1880, in Illinois, single; ED 36, sheet 2B, line 57, leaf n668). She is very likely the one the book means, but the book does not say."
+    },
+    {
+      "id": "pa1904_longini_a_c1900_jerome_b_longini",
+      "name": "Jerome B. Longini",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1882",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives October 1882, age 17 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "asst. cr. clerk",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Asst. cr. clerk\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 58, leaf n668",
+        "as_enumerated": "Longini, Jerome B",
+        "relation_as_enumerated": "Son"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head (asst. cr. clerk); born October 1882, in Illinois, single. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_longini_a_c1900_marcel_longini",
+      "name": "Marcel Longini",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1890",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1890, age 10 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 59, leaf n668",
+        "as_enumerated": "Longini, Marcel",
+        "relation_as_enumerated": "Son"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born January 1890, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_longini_a_c1900_maggie_breen",
+      "name": "Maggie Breen",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1858",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1858, age 42 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 60, leaf n668",
+        "as_enumerated": "Breen, Maggie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant; born December 1858 (the figures are hard to read), in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    }
+  ]
+}
