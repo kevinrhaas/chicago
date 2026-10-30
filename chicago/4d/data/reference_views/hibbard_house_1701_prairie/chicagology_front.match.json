@@ -2,7 +2,7 @@
   "structure_id": "hibbard_house_1701_prairie",
   "view": "chicagology_front",
   "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fbf3d216d6fc02dfe94689bcfe596fc3ce471fa7cf5f7c3d1f0762d5b5d7cc05",
+  "glb_sha256": "69c42f9f39ab9cefd34fc5ecee2e96428fb502e93157b1314a8ef8f0179f2e34",
   "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
   "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
   "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
@@ -95,8 +95,8 @@
     },
     {
       "what": "the round-headed basement lights showing over the fence under the bay's pair of lights and in the lower south range's south face, and the porch podium's roundels",
-      "status": "fixed",
-      "how": "T-3257: a round-headed basement light under each of the bay's paired lights and one under the lower south range's south light (their storeys' K06 round lights at 0.95 m, 0.5 x 0.8 m), rendering over the fence where the photograph's are; and the porch's podium carries four roundels, a stone ring round a dark sunk disc under each opening of the arcade (corner_porch.roundels). Two of them render; the other two are behind the stoop from this camera (the next difference)"
+      "status": "open",
+      "how": "T-3257 drew the porch podium's roundels, a stone ring round a dark sunk disc under each opening of the arcade (corner_porch.roundels); two render, the other two are behind the stoop from this camera (the stoop's difference). The basement lights under the bay's pair and the lower south range's light are still not built: a K08 storey cannot stack a second light under the first in one column, nor cut one below its plinth (the K08 bay kit's gate), so they wait on a basement storey in those faces"
     },
     {
       "what": "the rear veranda's south end, seen past the south flank's rear corner",

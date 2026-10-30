@@ -543,17 +543,6 @@
             0.6
            ],
            "why_not_ordinary": "the photograph's paired lights in the bay's face, narrower than the wall's sash so two stand in its 2.5 m face"
-          },
-          {
-           "opening": "k06.opening.sash_round_fanlight",
-           "clear_width_m": 0.5,
-           "clear_height_m": 0.8,
-           "sill_m": 0.95,
-           "at": [
-            0.4,
-            0.6
-           ],
-           "why_not_ordinary": "the photograph's round-headed basement lights over the fence, one under each of the bay's paired lights, smaller than the wall's sash"
           }
          ]
         },
@@ -614,16 +603,6 @@
             0.532
            ],
            "why_not_ordinary": "the photograph's narrow round-headed light in the lower south range's south face, narrower than the wall's sash"
-          },
-          {
-           "opening": "k06.opening.sash_round_fanlight",
-           "clear_width_m": 0.5,
-           "clear_height_m": 0.8,
-           "sill_m": 0.95,
-           "at": [
-            0.532
-           ],
-           "why_not_ordinary": "the photograph's round-headed basement light over the fence under the range's south-face light, smaller than the wall's sash"
           }
          ]
         }
@@ -723,7 +702,7 @@
       "sanborn_1911_chicago_v3_sheet_20",
       "chicagology_1701_hibbard_photo"
      ],
-     "note": "The photograph's two-storey bay in light stone on the front's south part, canted, two round-headed lights a storey in its face under a cornice at the second floor and another under the main cornice. The sheet draws a canted bay over v 8.3-11.0 (the K01 frame), 1.3 m out; through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) its junctions read about v 9.1 and 13.7. Laid at 10.4 by T-3240, between the two readings; T-3257 lays it on the photograph's centre, 11.4, 3.6 m at the wall and 1.2 m out (K08 holds a canted bay to 1.2 m), so the entrance arch shows whole with the pier the photograph shows before the bay. Its round-headed basement lights (the photograph's, over the fence under the pair) stand in its lowest storey, as does the one under the lower south range's south light (T-3257). The lower south range (lower_south_range, T-3241): the photograph's one-storey brick block on the south flank, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): set back about 1.1 m from the front corner, 2.9 m along the flank and 3.1 m out from it, its walls to a moulded cornice about 5.2-5.7 m up and a low pierced parapet over it to about 6.1 m, a round-headed light in its west face and a narrower one in its south face. Built as a K08 projection's `range` plan. The 1911 sheet draws a strip only about 1.6 m wide on this side ('2S.B.'); the photograph is followed and the difference is liberty L-k01-hibbard-1701-3241. The parapet's pierced slots are drawn as the kit's stone balustrade. The range's oriel (range_oriel, T-3242): the rear photograph's corbelled oriel on the 1874 range's south face at the upper storey, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/ghm_rear.json): its front about u -12.1 to -15.2 and 0.8 m out, its east cheek meeting the wall at about -15.4, its floor at the range's second floor (6.3 m) on carved brackets reaching down to about 4.6 m, its top under the range's cornice, a pair of round-headed lights in its front and one in its cheek (drawn square-headed). Built as a K08 canted oriel on the wing's wall, s 13.65 from the main block; its stone, its 0.45 m cants, its seven corbel courses for the photograph's brackets and its low hip for the carved cresting are reconstructed (liberty L-k01-hibbard-1701-3242). T-3254: the lower south range stands on the house's stone basement, its plinth carried up to the water table at the principal floor (plinth_m 2.0), as the photograph shows it, brick only over it."
+     "note": "The photograph's two-storey bay in light stone on the front's south part, canted, two round-headed lights a storey in its face under a cornice at the second floor and another under the main cornice. The sheet draws a canted bay over v 8.3-11.0 (the K01 frame), 1.3 m out; through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) its junctions read about v 9.1 and 13.7. Laid at 10.4 by T-3240, between the two readings; T-3257 lays it on the photograph's centre, 11.4, 3.6 m at the wall and 1.2 m out (K08 holds a canted bay to 1.2 m), so the entrance arch shows whole with the pier the photograph shows before the bay. The lower south range (lower_south_range, T-3241): the photograph's one-storey brick block on the south flank, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): set back about 1.1 m from the front corner, 2.9 m along the flank and 3.1 m out from it, its walls to a moulded cornice about 5.2-5.7 m up and a low pierced parapet over it to about 6.1 m, a round-headed light in its west face and a narrower one in its south face. Built as a K08 projection's `range` plan. The 1911 sheet draws a strip only about 1.6 m wide on this side ('2S.B.'); the photograph is followed and the difference is liberty L-k01-hibbard-1701-3241. The parapet's pierced slots are drawn as the kit's stone balustrade. The range's oriel (range_oriel, T-3242): the rear photograph's corbelled oriel on the 1874 range's south face at the upper storey, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/ghm_rear.json): its front about u -12.1 to -15.2 and 0.8 m out, its east cheek meeting the wall at about -15.4, its floor at the range's second floor (6.3 m) on carved brackets reaching down to about 4.6 m, its top under the range's cornice, a pair of round-headed lights in its front and one in its cheek (drawn square-headed). Built as a K08 canted oriel on the wing's wall, s 13.65 from the main block; its stone, its 0.45 m cants, its seven corbel courses for the photograph's brackets and its low hip for the carved cresting are reconstructed (liberty L-k01-hibbard-1701-3242). T-3254: the lower south range stands on the house's stone basement, its plinth carried up to the water table at the principal floor (plinth_m 2.0), as the photograph shows it, brick only over it."
     },
     "rear_wings": {
      "value": [
