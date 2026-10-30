@@ -229,6 +229,9 @@ class K01FrontageParams:
     corner_porch: dict = field(default_factory=dict)
     # T-3241: a hip cut off level at a railed deck (`hip_deck`, k01_hip_deck; 1701's roof)
     hip_deck: dict = field(default_factory=dict)
+    # T-3239: a columned porch on a side wall under a balustraded balcony, on a podium
+    # (`side_porch`, k01_porte_cochere; 1906's on its south flank, off the engraving)
+    side_porch: dict = field(default_factory=dict)
     # T-1879: open louvred shutters folded back beside named walls' lights, by storey
     # (`window_shutters`; 1721's, off the 1891 plate): {"width_m", "louvre_m", "lights":
     # ((wall, s0, s1, sill, head), ...)} — empty for every other house
@@ -304,7 +307,7 @@ CONSUMED = frozenset({
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
-    "hip_deck",
+    "hip_deck", "side_porch",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -6172,10 +6175,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                       wall_head=dict(val("wall_head", {}) or {}), depth=depth, bays=bays)
     except PavilionError as e:
         raise ParamError(str(e)) from None
-    from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte, resolve_porch
+    from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte, resolve_porch, \
+        resolve_side_porch
     try:
         porte_cochere = resolve_porte(val("porte_cochere"), depth=depth, width=width, stone=stone, openings=openings)
         corner_porch = resolve_porch(val("corner_porch"), width=width, openings=openings, bays=bays)
+        side_porch = resolve_side_porch(val("side_porch"), depth=depth, openings=openings)
     except PorteError as e:
         raise ParamError(str(e)) from None
     from .k01_hip_deck import ParamError as DeckError, resolve as resolve_hip_deck
@@ -6261,7 +6266,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
-        corner_porch=corner_porch, hip_deck=hip_deck, shutters=shutters,
+        corner_porch=corner_porch, hip_deck=hip_deck, side_porch=side_porch, shutters=shutters,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
