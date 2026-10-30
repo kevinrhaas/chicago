@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "aae6a7d5f0f78d032aa53a771196ba304ead57b7afcdc9e22626be469ce8f015",
+  "glb_sha256": "e858f98249e4f973ac49d9e24b5c53298746eacdc2e0f0f829d50828c9ea348f",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -121,6 +121,10 @@
       "what": "the round's support: the print carries the section's corbel table round under the round, its carved blocks following the curve (x 625-700, y 700-760); the build's table runs straight along the section's face under the round, the round's own four stepped courses behind it",
       "status": "within tolerance",
       "how": "T-1890: the round's place, size, light, cornice and railed top match the print (above); the table's blocks stand at the same height and depth (about 0.85 m) either way, so whether they turn with the curve is a detail of the dress under the 1 ft bar"
+    },
+    {
+      "what": "the turret's and the tower's cones: the print's are slated as the mansard is, in level courses in the roof's own tone, where the build laid both in the K08 kit's plain slate colour, which rendered as smooth grey cones far paler than the roofs beside them. T-1890 slates both as the house (bays.turret and bays.tower roof.slated_as_house), their courses mapped round each cone and up its slope from its eaves; they now render in the mansard's dark coursed slate (L-kimball-1801-cone-slate-1890)",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
