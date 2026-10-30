@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2470, ts: '2026-10-30T21:46:33.254Z', date: 'Oct 30, 2026, 4:46 PM CT', title: 'The Pullman house\'s Prairie Avenue trees stand where the photograph shows them', kind: 'improve',
+    items: [
+      'Along Prairie Avenue in front of 1729 Prairie, four parkway trees now stand where a c. 1900 photograph of the house puts them: from the house\'s north end to the 18th Street corner, where the last one stands beside the lamp post. The three trees guessed there before stood between them.',
+      'An 1890 printed view of the house shows the portico and corner trees too, as young staked saplings.',
+    ] },
   { v: 2469, ts: '2026-10-30T21:43:03.343Z', date: 'Oct 30, 2026, 4:43 PM CT', title: 'Miller, Hogan\'s store, St Mary\'s and the lighthouse', kind: 'feature',
     items: [
       'The Miller House\'s low log wing stands beside its main range, with a lower roof and its own door and window. The main range has three upper front lights and a short roof chimney.',
