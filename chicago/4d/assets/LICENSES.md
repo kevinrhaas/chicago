@@ -1118,9 +1118,15 @@ textures/trees/leaf_atlas.ktx2
 textures/trees/bark_basecolor.ktx2
 textures/trees/bark_normal.ktx2
 
-These are painted entirely from code (the .ktx2 files are GPU-compressed copies of the same maps) by `tools/generate_tree_atlas.py` (seeded noise, cell patterns and drawn leaf
-outlines). No photograph or third-party image is sampled. They are project-authored under the
-repository licence, and the generator reproduces them. They show what a species' leaf and bark
+These are painted from code (the .ktx2 files are GPU-compressed copies of the same maps) by `tools/generate_tree_atlas.py` (seeded noise, cell patterns and drawn leaf
+outlines), and the generator reproduces them. One photograph is sampled: since T-3247 the elm
+tiles' blades take their surface (lightness only) from Steven J. Baskauf, *Ulmus americana
+(Ulmaceae) - leaf - whole upper surface*, 2 June 2002, [Bioimages, Vanderbilt University
+image 11688](https://bioimages.vanderbilt.edu/baskauf/11688.htm), **CC BY 4.0**
+(https://creativecommons.org/licenses/by/4.0/); source record `bioimages_ulmus_americana_11688`,
+the photograph at `data/sources/assets/bioimages_ulmus_americana_11688/`. The leaf atlas is an
+adaptation of it and carries that attribution; everything else in these files is
+project-authored under the repository licence. They show what a species' leaf and bark
 generally look like; they are not evidence about any tree that stood (docs/LIBERTIES.md
 L-tree-architecture-2743).
 

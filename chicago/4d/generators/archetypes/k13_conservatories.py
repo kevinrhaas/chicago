@@ -2134,6 +2134,92 @@ def _roll(h: House, role, x0, x1, y, z, r, sides=12):
         h.face(role, [(x, yy, zz) for yy, zz in ring], (sx, 0.0, 0.0))
 
 
+def _sunk_face(h: House, role, P, n, width, y0, y1, pn: dict):
+    """T-3164: one upright face of a shaft with a sunk panel in it. `P(s, y, off)` is the point
+    `s` along the face, at height `y`, `off` out along its normal `n`; the panel stands
+    `margin_m` in from each edge over `y_m`, sunk `depth_m`, its four reveals drawn."""
+    m, (p0, p1), d = pn["margin_m"], pn["y_m"], pn["depth_m"]
+    s0, s1 = m, width - m
+    quad = lambda a0, a1, b0, b1, off=0.0: [P(a0, b0, off), P(a1, b0, off), P(a1, b1, off), P(a0, b1, off)]
+    for a0, a1, b0, b1 in ((0.0, s0, y0, y1), (s1, width, y0, y1), (s0, s1, y0, p0), (s0, s1, p1, y1)):
+        h.face(role, quad(a0, a1, b0, b1), n)
+    h.face(role, quad(s0, s1, p0, p1, -d), n)
+    e = _unit(_sub(P(1.0, 0.0, 0.0), P(0.0, 0.0, 0.0)))
+    h.face(role, [P(s0, p0, 0.0), P(s0, p1, 0.0), P(s0, p1, -d), P(s0, p0, -d)], e)
+    h.face(role, [P(s1, p0, 0.0), P(s1, p1, 0.0), P(s1, p1, -d), P(s1, p0, -d)], _mul(e, -1.0))
+    h.face(role, [P(s0, p0, 0.0), P(s1, p0, 0.0), P(s1, p0, -d), P(s0, p0, -d)], Y)
+    h.face(role, [P(s0, p1, 0.0), P(s1, p1, 0.0), P(s1, p1, -d), P(s0, p1, -d)], (0.0, -1.0, 0.0))
+
+
+def _panelled_shaft(h: House, role, x0, x1, za, zb, y0, y1, pn: dict):
+    """T-3164: a gate pier's square shaft from y0 to y1 with a sunk panel in each of its four
+    faces, as both pictures show it on the faces they see (the street face and the drive's)."""
+    faces = (  # (start corner, direction along the face, outward normal, width)
+        ((x0, za), (1.0, 0.0), (0.0, 0.0, -1.0), x1 - x0),
+        ((x1, za), (0.0, 1.0), (1.0, 0.0, 0.0), zb - za),
+        ((x1, zb), (-1.0, 0.0), (0.0, 0.0, 1.0), x1 - x0),
+        ((x0, zb), (0.0, -1.0), (-1.0, 0.0, 0.0), zb - za),
+    )
+    for (cx, cz), (ex, ez), n, width in faces:
+        P = lambda s, y, off, cx=cx, cz=cz, ex=ex, ez=ez, n=n: (cx + ex * s + n[0] * off, y, cz + ez * s + n[2] * off)
+        _sunk_face(h, role, P, n, width, y0, y1, pn)
+
+
+def _relief(h: House, role, P, n, top, bottom, buried_start=False):
+    """T-3164: a strip standing proud of a face: `top` and `bottom` its edges as [(s, y)] in
+    the face's frame, as many points each, drawn as front quads with their reveals and ends
+    (the first end left out when `buried_start`: it lies in the face the strip runs out of)."""
+    for (a, b), (c, d) in zip(zip(top, bottom), zip(top[1:], bottom[1:])):
+        h.face(role, [P(*b, 1.0), P(*d, 1.0), P(*c, 1.0), P(*a, 1.0)], n)
+        h.face(role, [P(*a, 0.0), P(*c, 0.0), P(*c, 1.0), P(*a, 1.0)], Y)
+        h.face(role, [P(*b, 0.0), P(*d, 0.0), P(*d, 1.0), P(*b, 1.0)], (0.0, -1.0, 0.0))
+    _ends(h, role, P, top, bottom, ((-1, -2),) if buried_start else ((0, 1), (-1, -2)))
+
+
+def _ends(h: House, role, P, one, other, which=((0, 1), (-1, -2))):
+    """The end faces of a relief strip between the edges `one` and `other`, each facing off
+    the strip along its own run."""
+    for i, j in which:
+        a, b = one[i], other[i]
+        h.face(role, [P(*a, 0.0), P(*b, 0.0), P(*b, 1.0), P(*a, 1.0)], _sub(P(*a, 0.0), P(*one[j], 0.0)))
+
+
+def _wing_carving(h: House, role, xa, zp, sg, run, r, hi, lo, cv: dict):
+    """T-3164: the carving on a gate wing's street face (x = xa, facing 18th Street), as Lowe's
+    photograph and the 1894 plate show it: a spiral C-scroll by the pier, leafage trailing from
+    it under the sweep toward the roll, and a fillet over the plain base below them. Everything
+    stands `proud_m` off the face; `d` runs along the wing from the pier, `y` up."""
+    t = cv["proud_m"]
+    n = (-1.0, 0.0, 0.0)
+    P = lambda d, y, k: (xa - t * k, y, zp + sg * d)
+    top_y = lambda d: lo + (hi - lo) * (1.0 - min(d, run) / run) ** 2
+    f0, f1 = cv["fillet_m"]
+    end = run - r                               # where the block under the roll begins
+    stop = end - 0.01                           # the fillet stops short of the block's face
+    _relief(h, role, P, n, [(0.0, f1), (stop, f1)], [(0.0, f0), (stop, f0)], buried_start=True)
+    sc = cv["scroll"]
+    dc, yc, (r0, r1), turns, wd, ns = sc["d_m"], sc["y_m"], sc["r_m"], sc["turns"], sc["width_m"], sc["segments"]
+    outer, inner = [], []
+    for k in range(ns + 1):
+        f = k / ns
+        a, rr = math.tau * turns * f, r0 + (r1 - r0) * f
+        c, s_ = math.cos(a), math.sin(a)
+        outer.append((dc + rr * s_, yc + rr * c))
+        inner.append((dc + (rr - wd) * s_, yc + (rr - wd) * c))
+    for (a, b), (c, d) in zip(zip(outer, inner), zip(outer[1:], inner[1:])):
+        h.face(role, [P(*a, 1.0), P(*c, 1.0), P(*d, 1.0), P(*b, 1.0)], n)
+        for e0, e1, inward in ((a, c, False), (b, d, True)):
+            mx, my = (e0[0] + e1[0]) / 2 - dc, (e0[1] + e1[1]) / 2 - yc
+            hint = (0.0, -my if inward else my, sg * (-mx if inward else mx))
+            h.face(role, [P(*e0, 0.0), P(*e1, 0.0), P(*e1, 1.0), P(*e0, 1.0)], hint)
+    _ends(h, role, P, outer, inner)
+    lf = cv["leaf"]
+    d0, d1, nl = dc + r0, end - lf["clear_m"], lf["lobes"]
+    xs = [d0 + (d1 - d0) * k / (2 * nl) for k in range(2 * nl + 1)]
+    top = [(d, top_y(d) - lf["below_top_m"] - (lf["dip_m"] if k % 2 else 0.0)) for k, d in enumerate(xs)]
+    _relief(h, role, P, n, top, [(d, lf["y_m"]) for d in xs])
+
+
 def gate(h: House, gs: dict):
     """T-3164: the estate's gate on 18th Street, as the 1894 Inland plate draws it in its
     foreground: two square stone piers on a plinth under a stepped cap, each with a low wing
@@ -2148,7 +2234,10 @@ def gate(h: House, gs: dict):
         za, zb = sorted((-p["v_m"][0], -p["v_m"][1]))
         po, pl = gs["plinth_out_m"], gs["plinth_m"]
         _prism(h, "stonework", rect(x0 - po, x1 + po, za - po, zb + po), 0.0, pl)
-        _prism(h, "stonework", rect(x0, x1, za, zb), pl, gs["shaft_m"], top=False)
+        if gs.get("panel"):
+            _panelled_shaft(h, "stonework", x0, x1, za, zb, pl, gs["shaft_m"], gs["panel"])
+        else:
+            _prism(h, "stonework", rect(x0, x1, za, zb), pl, gs["shaft_m"], top=False)
         cap = gs["cap"]                         # the cap's courses, bottom up, each `out` past the shaft
         for i, (out, y0, y1) in enumerate(cap):
             below, above = cap[i - 1][0] if i else 0.0, cap[i + 1][0] if i + 1 < len(cap) else -1.0
@@ -2174,6 +2263,8 @@ def gate(h: House, gs: dict):
         eb = w["block_m"]
         zc, zd = sorted((zr - sg * r, zw))
         _prism(h, "stonework", rect(xa - 0.04, xb + 0.04, zc, zd), 0.0, eb)
+        if gs.get("carving"):
+            _wing_carving(h, "stonework", xa, zp, sg, run, r, hi, lo, gs["carving"])
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
