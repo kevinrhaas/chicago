@@ -4763,8 +4763,20 @@ uniform float uBandUp;
   let lastN = Infinity;
   let lastY = Infinity;
 
+  /** T-3263 — the grown trees' trunks as { e, n, r } (r at breast height, from the
+   *  species' dbh at the stem's grown height), for the stand-off rule to see past. Not
+   *  the shrubs, vines or thickets: a step along the street does not clear those. */
+  let trunkList = null;
+  const trunks = () => trunkList ??= grown.stems
+    .filter((s) => s.kind.spec.dbh && s.kind.spec.form !== 'edge_shrub' && !s.kind.spec.habit)
+    .map((s) => {
+      const [d0, d1] = s.kind.spec.dbh, [h0, h1] = s.kind.spec.h;
+      return { e: s.x, n: -s.z, r: ((d0 + d1) / 4) * (s.h / ((h0 + h1) / 2 || 1)) };
+    });
+
   return {
     group,
+    trunks,
     /** The far-timber table, so a test can assert what is on the horizon. */
     farTimber: FAR_TIMBER,
 

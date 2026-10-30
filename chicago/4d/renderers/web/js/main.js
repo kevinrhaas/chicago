@@ -3455,17 +3455,37 @@ async function boot() {
     return { e: pl.local_e, n: pl.local_n };
   }
 
+  /** T-3263 — what a jaunt stop or a Go to must not stand behind, as { e, n, r }. The
+   *  list is rebuilt only when the timber is re-grown; the router drops its stands then. */
+  const STAND_POST_R = { gas_lamp: 0.12, utility_pole: 0.15 };
+  let standOccludersFor = null, standOccluderList = [];
+  function standOccluders() {
+    if (standOccludersFor === trees) return standOccluderList;
+    standOccludersFor = trees;
+    standOccluderList = [
+      ...(streetTrees.records ?? []).map((t) => ({ e: t.e, n: t.n, r: 0.29 * (t.scale ?? 1) })),
+      ...(streetFurniture.records ?? []).filter((f) => STAND_POST_R[f.kind])
+        .map((f) => ({ e: f.e, n: f.n, r: STAND_POST_R[f.kind] })),
+      ...(trees?.trunks?.() ?? []),
+    ];
+    return standOccluderList;
+  }
+
   // The route planner and the travel controller. `travel` is assigned after the
   // HUD exists (it paints through it); the HUD's callbacks below reach it through
   // the binding, which is settled long before the first frame.
   const router = createRouter({
     terrain, streets, footprints, decks, surfaceAt: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
     streetGrid: streetGrid.grid, walks: frontage.walks,
+    // T-3263: the trunks and posts a stand must see past — the parkway elms, the lamps
+    // and poles, and the grown timber's trunks (re-read when a detail change re-grows it).
+    occluders: standOccluders,
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
     radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
   });
   let travel = null;
   api.router = router;
+  api.standOccluders = standOccluders;
   const buildingBounds = buildings.instanceBounds();
 
   /**

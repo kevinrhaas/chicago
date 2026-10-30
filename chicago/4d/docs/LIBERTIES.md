@@ -36571,6 +36571,33 @@ the porch lay no basement light); the match record keeps them open.
 **How to resolve:** a colour view or a description naming the stone; a nearer picture of the fence.
 **Recorded:** 2026-10-30 (T-3254).
 
+### L-k01-hibbard-1701-3255 — 1701 Prairie's eared, crested window hoods and its corner pilaster, read off its photograph
+
+**Decision:** T-3255 (piece 2 of T-1876) dresses the Hibbard house as Chicagology's photograph
+(`chicagology_1701_hibbard_photo`) shows it, read through the camera T-3240 solved
+(`data/reference_views/hibbard_house_1701_prairie/chicagology_front.json`): every round-headed light
+of the front and the south flank under a light stone hood (`eared_round_heads`, a new K01 form built
+by `generators/archetypes/k01_dressings.py`), the front's south-west corner as a tall stone pilaster
+under a capital (`corner_pilasters`). The canted bay's angles, light stone on light stone, are
+left as their arrises (K08's pilasters there would cost its light tier past budget).
+The hood replaces K06's arch band and the key block the front's round heads carried until now.
+**What is read, not invented.** Each hood's shape: a broad pale band round the arch, its feet stepped
+out into ears at the springing and hanging a short way down the jambs, a pointed crest standing up
+off the crown; the flank's paired lights meeting ear to ear. Their size at the scale of the lights
+the record already sizes: the band about 0.2 m, the ears about 0.12 m past it and 0.3 m down, the
+crest about 0.3 m wide and 0.25 m tall. The pilaster on the corner from the basement's top to a
+capital under the cornice's frieze, about 0.45 m broad.
+**What is invented.** All the carving: the hoods' mouldings, the crest's leafage, the pilaster's
+carved bands (the photograph shows it banded at each floor) and its capital's leaves are drawn as
+plain stone, the capital as two stepped blocks (a bell and an abacus); the band's 0.06 m and the
+crest's 0.08 m projection, and the pilaster's 0.1 m, which a frontal photograph does not give. The
+front's north corner stands behind the corner porch and the flank's rear corner reads plain brick, so
+neither is dressed; the north flank, which no picture shows, keeps its plain heads.
+**What is still not built.** The hoods over the bay's paired lights and the lower south range's lights
+keep K08's arch band (they stand in K08 faces); the match record holds them within tolerance.
+**How to resolve:** a nearer photograph of the hoods and the pilaster, or a description of the carving.
+**Recorded:** 2026-10-30 (T-3255).
+
 ### L-pullman-carriage-ways-1934 — Pullman's two carriage drives, the gateways kept clear, and the stable's stone toned from the winter print
 
 **Decision:** the 1729 Prairie yard (`yard.drives` on `pullman_house_1729_prairie`, laid by
@@ -36650,6 +36677,36 @@ elevations, shows the cornice's section and how the cant's far end meets the sid
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+
+### L-pullman-1729-oculus-pier-1881 — 1729 Prairie's oculus pier on the 18th Street pavilion and the flank's banded east corner pier: their places read, their sections reconstructed
+
+**Decision:** the 18th Street pavilion's second storey carries a banded pier between its pair and its
+triple, 1.1 m broad and 0.12 m proud, from over the belt course (7.7 m) in 0.4 m courses parted by
+0.1 m channels to 10.2 m, then a plain block to the wall head; in the block a round light 0.36 m
+across its glass, centred 10.65 m over grade, in a stone ring 0.08 m broad standing 0.04 m past the
+pier (`bays[p_18th].storeys[1].pier`, a new K08 option). The flank's east end is turned by a banded
+corner pier 1.2 m broad (s 26.55-27.75), the cornice and the belt broken forward over it as they are
+over the south-west corner pier (`street_front_pavilions.piers[]` with `wall: k01.wall.side.north`,
+a new K01 option); it does not return onto the rear.
+**What is read, not invented.** J. W. Taylor's photograph no. 1445 (`aic_taylor_1445_pullman_from_sw`)
+through its solved camera. The oculus: its dark glass at x 708-717, y 384-393 px (centre x 712.5, y
+388.5), about 8.5 px high at 23.7 px a metre on the pavilion's 20.4 m plane, so 0.36 m across, its
+centre at s 13.04 and 10.65 m; the pier round it banded below it at x 702-718 px (s 12.31-13.43).
+The east corner: banded stone at x 830-845 px under a cornice whose modillions run on to x 850-856 px
+past the wall's edge, on the flank's 17.93 m plane from s 25.9 to the corner.
+**What is invented.** The ring's breadth and proud (the print draws a light edge about a pixel wide
+round the glass); the courses' height and channels, which are the forward block's banded corners';
+where the courses stop and the plain block starts; the oculus centred in the pier (the print puts
+it about 0.15 m east of the pier's centre, under a pixel and a half); the corner pier's west edge,
+behind a tree's trunk at x 816-830 px, so its 1.2 m breadth is the south-west corner pier's; and that
+it stops at the corner, where the 1911 sheet's one-storey brick block stands against the rear and
+no picture sees the face over it. The oculus's glass is laid on the wall's face behind a reveal cut
+through the pier, not through the wall, since nothing is seen through it.
+**How to resolve:** the CHM 1905 views or the Beman-addition side views, once solved, see the flank
+nearer and squarer and can place the corner pier's west edge and the ring's moulding.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1881).
 
 ### L-pullman-north-block-deck-1934 — Pullman's stable: the north block's deck lowered to the 1894 plate's cresting and carried to the block's north end
 

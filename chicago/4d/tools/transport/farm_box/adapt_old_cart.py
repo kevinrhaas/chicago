@@ -16,7 +16,7 @@ import struct
 
 import numpy as np
 
-from licensed_source import Source, SOURCE_SHA256
+from licensed_source import Source, SOURCE_SHA256, fixed_matmul
 
 ROOT = Path(__file__).resolve().parents[3]
 SOURCE = ROOT/'assets/authored/transport/farm_box_master_v1/old-cart-original.glb'
@@ -32,6 +32,18 @@ def normalized(a):
 def tyre_centre(source, node):
     ring = source.components(node)[0]
     return (ring['min']+ring['max'])/2
+
+
+def canonical_reconstructed_positions(positions):
+    """Emit the reconstructed timber consistently across BLAS kernels.
+
+    A picometre grid removes floating-point accumulation noise before float32
+    storage and the exact bound receipts; it does not relax a reader contract.
+    Normalize signed zero too, since freshness compares the emitted bytes.
+    """
+    positions = np.round(positions, decimals=12)
+    positions[positions == 0] = 0.0
+    return positions
 
 
 def make(recipe):
@@ -181,13 +193,13 @@ def make(recipe):
         positions,jacobian = body_map(source.positions(n))
         emit(n,body,positions,jacobian,ownership='All artist-authored body/frame components; explicit continuous metric adaptation')
 
-    front_rotation = axes @ unsteer
+    front_rotation = fixed_matmul(axes, unsteer)
     # Source-pose neutralisation is separate from dimensional calibration.
     # Radial X/Y source directions have one common scale, so circles stay circles.
     for n in [7,8]:
         radial = front_radius/((source.components(10)[0]['max'][1]-source.components(10)[0]['min'][1])/2)
-        matrix = np.diag([sx,radial,radial]) @ front_rotation
-        positions = (source.positions(n)-front_centre) @ matrix.T
+        matrix = fixed_matmul(np.diag([sx,radial,radial]), front_rotation)
+        positions = fixed_matmul(source.positions(n)-front_centre, matrix.T)
         jacobian = np.repeat(matrix[None,:,:],len(positions),axis=0)
         indices = source.components(7)[0]['indices'] if n == 7 else np.concatenate([p['indices']for i,p in enumerate(source.components(8))if i!=5])
         emit(n,front,positions,jacobian,indices=indices,ownership='Neutralised front gear; original two shaft components excluded from this frame')
@@ -203,11 +215,11 @@ def make(recipe):
         rotation = front_rotation if end == 'front' else axes
         # Use the original tyre section; width is reconstructed to70mm without
         # distorting the wheel's radial plane or changing its eight spokes/UVs.
-        neutral = (source.positions(source_node)-centre) @ rotation.T
+        neutral = fixed_matmul(source.positions(source_node)-centre, rotation.T)
         ring_neutral = neutral[np.unique(ring['indices'])]
         axial_scale = .07/np.ptp(ring_neutral[:,0])
-        matrix = np.diag([axial_scale,radial_scale,radial_scale]) @ rotation
-        positions = (source.positions(source_node)-centre) @ matrix.T
+        matrix = fixed_matmul(np.diag([axial_scale,radial_scale,radial_scale]), rotation)
+        positions = fixed_matmul(source.positions(source_node)-centre, matrix.T)
         emit(source_node,wheels[end,side],positions,np.repeat(matrix[None,:,:],len(positions),axis=0),
              ownership='Original eight-spoke wheel; circular radial calibration, tyre width and axle-centre frame reconstructed')
 
@@ -226,14 +238,15 @@ def make(recipe):
     left /= np.linalg.norm(left)
     up = np.cross(forward,left)
     orientation = np.array([left,up,forward])
-    local = (shaft_points-centre) @ orientation.T
+    local = fixed_matmul(shaft_points-centre, orientation.T)
     bounds = local[np.unique(shaft['indices'])]
     scale = np.array([.055/np.ptp(bounds[:,0]),.055/np.ptp(bounds[:,1]),recipe['tongue_length_m']/np.ptp(bounds[:,2])])
-    matrix = np.diag(scale) @ orientation
-    positions = (shaft_points-centre) @ matrix.T
+    matrix = fixed_matmul(np.diag(scale), orientation)
+    positions = fixed_matmul(shaft_points-centre, matrix.T)
     positions[:,0] -= np.mean([bounds[:,0].min(),bounds[:,0].max()])*scale[0]
     positions[:,1] -= np.mean([bounds[:,1].min(),bounds[:,1].max()])*scale[1]
     positions[:,2] -= bounds[:,2].min()*scale[2]
+    positions = canonical_reconstructed_positions(positions)
     emit(7,tongue,positions,np.repeat(matrix[None,:,:],len(positions),axis=0),indices=shaft['indices'],
          name='single_reconstructed_pole',ownership='Source shaft component1 adapted to existing W01 single-pole envelope; source component2 omitted')
 
@@ -243,11 +256,12 @@ def make(recipe):
     # axle, overlapping the pole at its articulated root. This is reconstructed
     # joinery; neither strength nor a historical hitch is asserted.
     bridge_scale = np.array([.10/np.ptp(bounds[:,0]),.08/np.ptp(bounds[:,1]),.55/np.ptp(bounds[:,2])])
-    bridge_matrix = np.diag(bridge_scale) @ orientation
-    bridge = (shaft_points-centre) @ bridge_matrix.T
+    bridge_matrix = fixed_matmul(np.diag(bridge_scale), orientation)
+    bridge = fixed_matmul(shaft_points-centre, bridge_matrix.T)
     bridge[:,0] -= np.mean([bounds[:,0].min(),bounds[:,0].max()])*bridge_scale[0]
     bridge[:,1] -= np.mean([bounds[:,1].min(),bounds[:,1].max()])*bridge_scale[1]
     bridge[:,2] -= bounds[:,2].min()*bridge_scale[2]+.10
+    bridge = canonical_reconstructed_positions(bridge)
     emit(7,front,bridge,np.repeat(bridge_matrix[None,:,:],len(bridge),axis=0),indices=shaft['indices'],
          name='central_drawbar_bearing',ownership='Reconstructed central axle-to-pole support from reused licensed timber surface; designed joinery overlap at axle and pole root')
 
@@ -264,9 +278,10 @@ def make(recipe):
     reach_left=np.array([1.,0.,0.]);reach_up=np.cross(reach_forward,reach_left)
     target_basis=np.column_stack([reach_left,reach_up,reach_forward])
     reach_scale=np.array([recipe['reach_section_m'][0]/np.ptp(bounds[:,0]),recipe['reach_section_m'][1]/np.ptp(bounds[:,1]),reach_length/np.ptp(bounds[:,2])])
-    reach_matrix=target_basis @ np.diag(reach_scale) @ orientation
+    reach_matrix=fixed_matmul(fixed_matmul(target_basis, np.diag(reach_scale)), orientation)
     local_centre=(bounds.min(axis=0)+bounds.max(axis=0))/2
-    reach_positions=(shaft_points-centre) @ reach_matrix.T-(target_basis @ (local_centre*reach_scale))+(reach_front+reach_rear)/2
+    reach_positions=fixed_matmul(shaft_points-centre, reach_matrix.T)-fixed_matmul(target_basis, local_centre*reach_scale)+(reach_front+reach_rear)/2
+    reach_positions = canonical_reconstructed_positions(reach_positions)
     emit(7,reach,reach_positions,np.repeat(reach_matrix[None,:,:],len(reach_positions),axis=0),indices=shaft['indices'],
          name='central_reconstructed_reach',ownership='New actual longitudinal reach from licensed source timber component; reconstructed90x55mmsection and fixed front-plate/rear-axle fit, no historical orstrengthcertification')
 

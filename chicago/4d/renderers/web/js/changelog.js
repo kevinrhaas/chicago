@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2460, ts: '2026-10-30T17:11:38.459Z', date: 'Oct 30, 2026, 12:11 PM CT', title: 'Jaunt stops no longer stand behind a tree', kind: 'fix',
+    items: [
+      'Arriving at a house on a jaunt, or by Go to, now steps a metre or two along the walk when a parkway elm, gas lamp or pole would stand between you and the front. The Women of Prairie Avenue stop at 1834 Prairie no longer puts a trunk in the middle of the view.',
+      'On foot, 17 of the 57 Prairie Avenue houses the 1904 walks visit had a trunk or lamp right in front of the camera; none do now. In 1835 the grown trees\' trunks are seen the same way.',
+    ] },
+  { v: 2459, ts: '2026-10-30T16:37:39.406Z', date: 'Oct 30, 2026, 11:37 AM CT', title: '1701 Prairie\'s carved window hoods and corner pilaster', kind: 'feature',
+    items: [
+      'Every arched window on the front and south side of the Hibbard house at 1701 Prairie now sits under a light stone hood whose ends step out at the arch\'s foot and whose crown rises to a point, as its old photograph shows; side-by-side windows meet hood to hood.',
+      'A tall stone pilaster now stands on the house\'s front corner, from the stone basement up to a capital under the cornice.',
+    ] },
+  { v: 2458, ts: '2026-10-30T15:59:10.348Z', date: 'Oct 30, 2026, 10:59 AM CT', title: '1729 Prairie\'s oculus and the 18th Street flank\'s corner pier', kind: 'improvement',
+    items: [
+      'The Pullman house\'s 18th Street pavilion now has the small round window its photograph shows, set high in a banded stone pier between the upper pair of windows and the triple.',
+      'The flank\'s far east corner is turned by a banded stone pier, with the cornice and the belt course stepping forward over it, as at the Prairie Avenue corner.',
+      'Both read off J. W. Taylor\'s photograph no. 1445 through its solved camera. The round window renders within a pixel of the photograph\'s. The ring\'s moulding and the pier\'s courses are reconstructed, since the print shows them only a few pixels wide.',
+    ] },
+  { v: 2457, ts: '2026-10-30T15:22:35.338Z', date: 'Oct 30, 2026, 10:22 AM CT', title: '1801 Prairie\'s canted corner ends cleanly against its slate', kind: 'fix',
+    items: [
+      'A block of stone stood at the far end of the Kimball house\'s canted corner, over the round bay, in front of the roof\'s slate. It is gone.',
+      'The canted wall now ends where the 1965 survey photograph shows it ending, with the slate showing beyond it down to the balustrade.',
+    ] },
   { v: 2456, ts: '2026-10-30T15:03:44.646Z', date: 'Oct 30, 2026, 10:03 AM CT', title: 'Pullman\'s stable: the back roof sits lower and runs the full length', kind: 'improvement',
     items: [
       'The 1894 Inland Architect plate of Pullman\'s palm house and stable shows a long run of iron cresting along the back part of the stable\'s roof, lower down and behind the lookout tower. In the 1904 walk that roof had been a short crested box standing too high. Its flat top now sits about a third of a metre lower and runs back to the far end of the building, so from 18th Street the cresting lines up with the plate\'s.',

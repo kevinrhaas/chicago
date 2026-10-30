@@ -126,6 +126,7 @@ import struct
 from pathlib import Path
 
 from . import k01_arched_front
+from . import k01_dressings
 from . import k03_brick
 from . import k09_frontage
 from . import k10_frontage
@@ -1277,6 +1278,14 @@ class Assembly:
         seed = self.instance(op.component, "opening", params,
                              {"sill": P(op.s_m, y0, 0), "head": P(op.s_m, y1, 0),
                               "sash_plane": P(op.s_m, y0, -(recess if door else recess + 0.012))})
+        if op.component in ROUND_CUT and k01_dressings.dresses(p, op):
+            # T-3255: a round head under an eared and crested stone hood, in place of the arch
+            # band and its key or of a plain head (1701's front and south flank, its photograph)
+            self.glaze(op, frame, body_mat, stone_trim, seed,
+                       max(conf, p.conf("street_front_round_heads" if op.wall == "k01.wall.street_front" else
+                                        "north_bays" if op.wall == "k01.wall.side.north" else "side_bays")))
+            k01_dressings.hood(self, op, frame, stone_trim, seed, max(conf, p.conf("eared_round_heads")))
+            return
         if op.component == ROUND_HOODED:
             # T-2410: a round-headed street window keeps K06's arch band as its moulded hood,
             # spring to spring, and stands a key block on the hood's crown
@@ -2806,11 +2815,13 @@ class Assembly:
                 proud = max(float(q[1]) for q in v["plan"]["points"])
                 deep = -(K8.part(v, K8.load(), "recess")["depth_m"] - proud + 0.05)
                 zc = -ch[2] if ch is not None else 0.0
-                # T-1890: up to a canted face's cornice, over which the house's slate is not cut
-                ct = self.chamfer_top(b) if ch is not None else None
-                y0, y1 = b.get("eave_m", p.eave_m), wall_top if ct is None else min(wall_top, ct)
-                pr.face([W((xs, y0, deep)), W((xs, y0, zc)), W((xs, y1, zc)), W((xs, y1, deep))],
-                        R if right else _mul(R, -1), self.basis(body, W((xs, y0, deep)), N, Y, seed), conf)
+                # T-1890: a canted face stopped under its cornice has no slot behind it to close (the
+                # roof is cut there only over the pavilion's square part, shallow_bay_cutters): the
+                # face stood as a block of stone at the cant's far end, over the side slope's slate
+                if self.chamfer_top(b) is None:
+                    y0, y1 = b.get("eave_m", p.eave_m), wall_top
+                    pr.face([W((xs, y0, deep)), W((xs, y0, zc)), W((xs, y1, zc)), W((xs, y1, deep))],
+                            R if right else _mul(R, -1), self.basis(body, W((xs, y0, deep)), N, Y, seed), conf)
             if past and not shallow:
                 cap = sorted({(round(q[0], 6), round(q[1], 6)) for q in built.prims["roof"].pos
                               if abs(q[2]) < 1e-6})
@@ -4033,7 +4044,10 @@ class Assembly:
                 inner, outer = Q(inner), Q([(proud, near), (2.0, near), (2.0, far), (proud, far)])
             # T-1890: over a canted face stopped under its cornice (1801's, HABS photograph 1) the
             # house's slate comes down over the cant: from there up only the pavilion's square
-            # part is cut, out to its front's end, and nothing outside the cant
+            # part is cut, out to its front's end, and nothing outside the cant. Under it too: the
+            # cant's own wall stands in front of the roof behind it, its light's recess is cut by
+            # the ring below, and a cut behind the cant left a slot at the side wall that K01 then
+            # closed with a block of stone standing over the side slope (HABS photograph 1)
             ch = k01_frontage_params.chamfer_of(b)
             ct = self.chamfer_top(b) if ch is not None else None
             if ct is not None and b["wall"] == "k01.wall.street_front":
@@ -4043,8 +4057,7 @@ class Assembly:
                         q[1] = s1 - ch[1]
                     if ch[0] == "left" and q[1] < s0 + ch[1]:
                         q[1] = s0 + ch[1]
-                out.append(k5.extrude(inner, bot, ct, P, "wall", floor, "wall"))
-                out.append(k5.extrude([tuple(q) for q in sq], ct, top, P, "wall", "wall", "wall"))
+                out.append(k5.extrude([tuple(q) for q in sq], bot, top, P, "wall", floor, "wall"))
             else:
                 out.append(k5.extrude(inner, bot, top, P, "wall", floor, "wall"))
             out.append(k5.extrude(outer, bot, top, P, "return", floor, "wall"))
@@ -5774,6 +5787,9 @@ def build(params, structure_id: str):
         # T-3239: a side wall's columned porch under its balustraded balcony (1906's)
         from . import k01_porte_cochere
         k01_porte_cochere.dress_side_porch(a)
+    if p.corner_pilasters:
+        # T-3255: the main block's corners as stone pilasters under capitals (1701's)
+        k01_dressings.corner_pilasters(a, frames)
     if p.hip_deck:
         # T-3241: the rail round the deck the hip is cut off at (1701's)
         from . import k01_hip_deck

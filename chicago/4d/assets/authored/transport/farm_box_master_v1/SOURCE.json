@@ -26,13 +26,13 @@
     },
     {
       "path": "derived/farm-box-source.glb",
-      "bytes": 11984868,
-      "sha256": "110149dcb1e233a28ebe826ce7fe468042dd2cfdbfc1c46ac3a6784b9a15b3da"
+      "bytes": 11984672,
+      "sha256": "fb0c507048ad8a95e19cc0d8a1e57ade5c2937060eeef3adc9e45af96a0e4ee4"
     },
     {
       "path": "derived/farm-box-source.json",
-      "bytes": 14158,
-      "sha256": "ee20cbfaa571ec12dc5c925725c11ac97f3799e002de3ef3dad1e0453bea3d82"
+      "bytes": 13964,
+      "sha256": "d820eec7844146b76099d0633b64c0603f1bc6675e72098b1c3a9e9e37806963"
     }
   ],
   "canonical_original_pngs_preserved": true,
@@ -49,15 +49,15 @@
   ],
   "web_export": {
     "path": "renderers/web/transport/farm-box-master/EXPORT-RECEIPT.json",
-    "sha256": "2eea033d163b5914c26033e3fead81ce19f8a7d7b1368db1293244dc6c912c49",
+    "sha256": "41eaaa990edd0a97ea8c3396accadac76bd6d506651527b3d3f38df16319b7a5",
     "producer_sha256": "d6ad251701bc791897f5cce7621089350cb9395186c52f4173e4d516af34059b",
-    "total_bytes": 8465076,
+    "total_bytes": 8464492,
     "levels": [
       {
         "level": "near",
         "file": "farm-box-near.glb",
-        "bytes": 5105544,
-        "sha256": "93be81968fcd667f17d411ccb1f26d6af0e3255da74568a0ae709961819275aa",
+        "bytes": 5105348,
+        "sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
         "triangles": 17550,
         "vertices": 51727,
         "draw_batches": 12,
@@ -66,8 +66,8 @@
       {
         "level": "mid",
         "file": "farm-box-mid.glb",
-        "bytes": 2169116,
-        "sha256": "c7d7280bb9c02edbdf76ada21b250e90b69ad2b4884a3220feacfe2d6e6ce781",
+        "bytes": 2168924,
+        "sha256": "6a5fa3f484afbed41d05f055858df57a8163b19ff0057e292449c51ccb360b36",
         "triangles": 12996,
         "vertices": 34227,
         "draw_batches": 12,
@@ -76,8 +76,8 @@
       {
         "level": "far",
         "file": "farm-box-far.glb",
-        "bytes": 1190416,
-        "sha256": "ba9682b0cd8018a05649a1d48d534c946bf14961d9ffad4be7e8d389abea6a41",
+        "bytes": 1190220,
+        "sha256": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
         "triangles": 10178,
         "vertices": 27891,
         "draw_batches": 12,

@@ -91,7 +91,7 @@
   "source_floor_y": 74.60684525568885,
   "source_front_axle_centre": [
     -85.63819721645058,
-    41.912904614686454,
+    41.91290461468646,
     -1.3653379263976468
   ],
   "source_rear_axle_centre": [
@@ -151,7 +151,7 @@
       ],
       "local_max_m": [
         0.5571817433477616,
-        1.4423519925349604,
+        1.4423519925349606,
         1.4319315874507235
       ],
       "ownership": "All artist-authored body/frame components; explicit continuous metric adaptation"
@@ -168,13 +168,13 @@
       "source_material_unchanged": true,
       "local_min_m": [
         -0.5410665677770028,
-        -0.03354432133336165,
+        -0.033544321333361736,
         -0.05336336799090678
       ],
       "local_max_m": [
         0.5520956181281546,
-        0.11299022753240553,
-        0.06257951299876342
+        0.11299022753240544,
+        0.0625795129987634
       ],
       "ownership": "Neutralised front gear; original two shaft components excluded from this frame"
     },
@@ -190,13 +190,13 @@
       "source_material_unchanged": true,
       "local_min_m": [
         -0.5410664812991156,
-        -0.04968405361557854,
-        -0.057558240244246404
+        -0.04968405361557862,
+        -0.05755824024424641
       ],
       "local_max_m": [
         0.5520959969128356,
-        0.1158363028798507,
-        0.24109091321939335
+        0.1158363028798506,
+        0.2410909132193933
       ],
       "ownership": "Neutralised front gear; original two shaft components excluded from this frame"
     },
@@ -212,13 +212,13 @@
       "source_material_unchanged": true,
       "local_min_m": [
         -0.008403019089991614,
-        -0.08957329646199542,
+        -0.0895732964619955,
         -0.007849989646845438
       ],
       "local_max_m": [
-        0.012252762838109273,
-        0.2908672224446478,
-        0.017067029832416446
+        0.012252762838109275,
+        0.29086722244464763,
+        0.017067029832416442
       ],
       "ownership": "Actual source kingbolt component5 separately owned; retained4.994mm eccentricity, no exactcoaxial/strengthclaim"
     },
@@ -233,14 +233,14 @@
       "UV_values_sha256": "f11646343bbe45dad956aad49f53476f6fd46a3bd530e3109ad66af4eb5c6a25",
       "source_material_unchanged": true,
       "local_min_m": [
-        -0.19355255612653624,
-        -0.535,
-        -0.5349213261452024
+        -0.1935525561265362,
+        -0.5349999999999999,
+        -0.5349213261452023
       ],
       "local_max_m": [
-        0.12104708931621376,
+        0.12104708931621377,
         0.535,
-        0.5350843723868873
+        0.5350843723868872
       ],
       "ownership": "Original eight-spoke wheel; circular radial calibration, tyre width and axle-centre frame reconstructed"
     },
@@ -256,7 +256,7 @@
       "source_material_unchanged": true,
       "local_min_m": [
         -0.12104887519635997,
-        -0.5350000000000001,
+        -0.535,
         -0.5350846427653807
       ],
       "local_max_m": [
@@ -300,7 +300,7 @@
       "source_material_unchanged": true,
       "local_min_m": [
         -0.1939995609850964,
-        -0.685,
+        -0.6849999999999999,
         -0.6849999946748677
       ],
       "local_max_m": [
@@ -321,14 +321,14 @@
       "UV_values_sha256": "56c05b0983d5a8476c1fe4ecfebc6ca04414c77eb2d75f6ac711f021db5ec998",
       "source_material_unchanged": true,
       "local_min_m": [
-        -0.02749999999999998,
-        -0.02750000000000002,
+        -0.0275,
+        -0.0275,
         0.0
       ],
       "local_max_m": [
-        0.02749999999999996,
-        0.027500000000000017,
-        2.7500000000000004
+        0.0275,
+        0.0275,
+        2.75
       ],
       "ownership": "Source shaft component1 adapted to existing W01 single-pole envelope; source component2 omitted"
     },
@@ -343,14 +343,14 @@
       "UV_values_sha256": "56c05b0983d5a8476c1fe4ecfebc6ca04414c77eb2d75f6ac711f021db5ec998",
       "source_material_unchanged": true,
       "local_min_m": [
-        -0.04999999999999996,
-        -0.039999999999999994,
-        -0.10000000000000006
+        -0.05,
+        -0.04,
+        -0.1
       ],
       "local_max_m": [
-        0.04999999999999995,
-        0.03999999999999999,
-        0.45000000000000007
+        0.05,
+        0.04,
+        0.45
       ],
       "ownership": "Reconstructed central axle-to-pole support from reused licensed timber surface; designed joinery overlap at axle and pole root"
     },
@@ -365,14 +365,14 @@
       "UV_values_sha256": "56c05b0983d5a8476c1fe4ecfebc6ca04414c77eb2d75f6ac711f021db5ec998",
       "source_material_unchanged": true,
       "local_min_m": [
-        -0.04499999999999996,
-        0.6401075043424366,
-        -1.1756062395016598
+        -0.045,
+        0.640107504342,
+        -1.175606239502
       ],
       "local_max_m": [
-        0.04499999999999997,
-        0.7573924986653922,
-        1.1756062403234104
+        0.045,
+        0.757392498665,
+        1.175606240323
       ],
       "ownership": "New actual longitudinal reach from licensed source timber component; reconstructed90x55mmsection and fixed front-plate/rear-axle fit, no historical orstrengthcertification"
     }
@@ -390,5 +390,5 @@
     "No historical owner, load, working hitch, driver, suspension, brakes, traffic or boarding is asserted.",
     "The central90x55mmreach and its front/rear fit are explicit new engineering reconstruction from the licensed shaft surface; originalbodyrails are not mislabeledasreach. The retainedkingbolt is separatelyowned withmeasured4.994mmeccentricity, notperfectcoaxial/loadcertification."
   ],
-  "glb_sha256": "110149dcb1e233a28ebe826ce7fe468042dd2cfdbfc1c46ac3a6784b9a15b3da"
+  "glb_sha256": "fb0c507048ad8a95e19cc0d8a1e57ade5c2937060eeef3adc9e45af96a0e4ee4"
 }
