@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2442, ts: '2026-10-30T06:49:18.434Z', date: 'Oct 30, 2026, 1:49 AM CT', title: 'Clipped evergreens in tubs on Pullman\'s palm-house terrace', kind: 'improvement',
+    items: [
+      'The Pullman estate\'s summer tub plants now stand where the 1894 Inland Architect plate shows them: a clipped ball on its tub on the palm house\'s terrace, and a ball on a clear stem in a painted tub before the stable\'s arches.',
+      'A slim clipped evergreen stands inside the 18th Street wall by its east pier, as the plate and J. W. Taylor\'s photograph both show.',
+      'Switch the Season to winter and the tubs are gone, wintered under glass as they were; the evergreen in the ground stays.',
+      'Click one to read where it comes from: these are inferred for 1904, read from pictures a decade earlier.',
+    ] },
   { v: 2441, ts: '2026-10-30T06:43:54.623Z', date: 'Oct 30, 2026, 1:43 AM CT', title: 'Black-owned businesses of 1835: the search, written down', kind: 'change',
     items: [
       'Searched again for Black residents and businesses named in Chicago before 1840. None turned up: the Encyclopedia of Chicago dates the city\'s first Black community to the 1840s, so there is no tour to build yet.',
