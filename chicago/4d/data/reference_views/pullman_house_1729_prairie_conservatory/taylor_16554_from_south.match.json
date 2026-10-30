@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978",
+  "glb_sha256": "eaa753c79caa122be9b5f911358398cc24f55d7d85ba9dbb7b5c5747a95de271",
   "camera_sha256": "27a680ad9c4ae0fb676438973e74057fdc296788c61f09bbeec3d0274e9a5fb5",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
+      "glb_sha256": "eaa753c79caa122be9b5f911358398cc24f55d7d85ba9dbb7b5c5747a95de271"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
+      "glb_sha256": "0db7d8f97ce8de8f0607120303697777fcba7c2dc7505e1462e29a5a78ad7a81"
     }
   ],
-  "group_sha256": "88f4b370fd6a96b0cac7d11ed02eec84f1f62022369068cb118997bf66bcfd04",
+  "group_sha256": "579ba53e2131bee8e540589a5b82b34fafa97bd9d881c7bb4e0ddc1ff85b46b0",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -76,10 +76,11 @@
         "creeper": 7
       }
     ],
-    "street_trees": 29,
+    "street_trees": 30,
     "street_trees_m": 70,
     "street_furniture": [
       "hydrant.pictured.pullman",
+      "hydrant.pictured.pullman_stable",
       "lamp.corner.prairie.e18th.ne",
       "lamp.pictured.pullman_court",
       "lamp.rule.calumet__prairie_ic_16_18#00",
@@ -137,7 +138,7 @@
       "sha256": "42f06bf6a41414601648724575930f58658620585e3398316e5d8a176bb8b268"
     }
   ],
-  "flora_sha256": "d16303c796746a824411e175a6b7d37ce323f383e7d67951dc2317ed982c73d4",
+  "flora_sha256": "52145f5dd4d5edbb9a0daa8673cdef29c943f72a03c227a20688dbb9b8d6dfc4",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -215,6 +216,21 @@
     {
       "what": "the lamp's post and head: the print's post stands taller than the district's 3.1 m one (102 px from its foot to its head, against the render's 65 px at the same place: about 4.5-5 m through this camera) under a shallow round globe, where the build draws every lamp of the district with one post and its square tapered lantern (T-1934, 2026-10-30) [T-1934, 2026-10-30: built. The lamp is now its own class, the globe post (data/street_furniture/1904.json kinds.gas_lamp.model_by_class.globe_post, drawn by renderers/web/js/street-furniture.js), read off this print's column at x 795: a plain post painted pale (it prints 180-200 against the hedge's 60 and lighter than the sunlit stone's 170), a small dark bar at y 537, a wide shallow globe at y 507-515, 13 px across, lit above and dark beneath, and a small dark cap from y 503. Through this camera the render's post now stands 103 px from its foot (y 557) to its cap (y 454) against the print's 102, its globe 11 px across at y 455-463 and its cap dark above it, and the post renders lighter than the wall behind it, as in the print. Its foot renders 48 px above the print's (y 557 against 605), as the parkway's ground does in this camera (the planting item: y 557-562 against the print's 587-600); the post's 4.9 m is read through the camera as it stands and is re-read if a re-solve moves the walk nearer.]",
       "status": "fixed"
+    },
+    {
+      "what": "the palm house's stone (podium, columns, entablature, balustrade, terrace and flight) in the house's own tone, and its glazing a grid of panes between the columns; the build drew the stone white and the glass as dark slots",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): the stonework takes the stable's dressed-stone shade (0.372, 0.335, 0.27); horizontal bars about 0.55 m apart and a transom at 5.2 m across each bay"
+    },
+    {
+      "what": "the stable's 18th Street front ends at the stack under the hip's own end, with the hedge and open ground past it; the build ran a 4 m east section (r5) on past it under a lower roof, facing the lake",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): r5 taken off (the 1911 sheet draws nothing there either); the front's east end renders at x 1095 against the print's about 1095"
+    },
+    {
+      "what": "a post hydrant on the walk at the foot of the low wall before the stable (x 1060-1070, y 570-588), about 3.7 m short of the stable's east end",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): hydrant.pictured.pullman_stable in data/street_furniture/1904.json, placed on the print's ray (x 1065) at the walk's street edge"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
