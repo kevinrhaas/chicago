@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2469, ts: '2026-10-30T21:43:03.343Z', date: 'Oct 30, 2026, 4:43 PM CT', title: 'Miller, Hogan\'s store, St Mary\'s and the lighthouse', kind: 'feature',
+    items: [
+      'The Miller House\'s low log wing stands beside its main range, with a lower roof and its own door and window. The main range has three upper front lights and a short roof chimney.',
+      'Hogan\'s store has horizontal timber courses on its pictured gable and a projecting chimney cap. Their exact sections and unseen construction remain reconstructed.',
+      'St Mary\'s five front sash sit higher below the eaves, following the credited Moss engraving. The building\'s position and other openings retain their previous form.',
+      'The lighthouse\'s card carries a credited early harbour view. Its picture review distinguishes the governing view from later, tiny and conflicting depictions.',
+    ] },
   { v: 2468, ts: '2026-10-30T20:46:23.397Z', date: 'Oct 30, 2026, 3:46 PM CT', title: 'Pullman\'s 18th Street lamp stands tall with its globe', kind: 'improvement',
     items: [
       'The lamp at the turn of Pullman\'s 18th Street walk now has the form an 1890s photograph shows: a pale post about 4.9 m tall with a shallow globe and a small dark cap, instead of the district\'s shorter iron lantern post.',
