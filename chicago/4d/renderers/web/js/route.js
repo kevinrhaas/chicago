@@ -134,7 +134,7 @@ export function frontBlocked(eye, front, occluders = [], options = {}) {
 /** frontBlocked's two halves: `hidden`, the whole share, and `near`, the share the
  *  trunks and posts within `nearM` of the eye alone take — the "right behind a tree"
  *  the owner reported, which a step along the walk always cures. */
-export function frontView(eye, front, occluders = [], { margin = 0.15, padDeg = 4, nearM = 8, frameDeg = 25 } = {}) {
+export function frontView(eye, front, occluders = [], { margin = 0.15, padDeg = 4, nearM = 8, frameDeg = 32 } = {}) {
   const none = { hidden: 0, near: 0 };
   if (!eye || !front || !occluders.length) return none;
   const ne = Math.sin(front.bearing), nn = Math.cos(front.bearing);
