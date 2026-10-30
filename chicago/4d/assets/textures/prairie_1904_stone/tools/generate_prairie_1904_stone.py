@@ -4,8 +4,8 @@
     python3 generate_prairie_1904_stone.py              # rebuild the library in place
     python3 generate_prairie_1904_stone.py --check      # library and profiles agree, no writes
 
-Six seamless stone fabrics for the 1904 programme's walls, trim and foundations: rock-faced
-granite, warm brown sandstone, Lemont limestone, Bedford limestone, smooth dressed trim and
+Seven seamless stone fabrics for the 1904 programme's walls, trim and foundations: rock-faced
+granite, warm brown sandstone, light fawn sandstone (T-1881), Lemont limestone, Bedford limestone, smooth dressed trim and
 foundation rubble. Each writes an sRGB base colour, an OpenGL (+Y) normal, linear roughness,
 16-bit height and a packed ORM (R = AO, G = roughness, B = metallic), plus web JPEGs of the
 three maps a renderer binds and a material.json.
@@ -63,6 +63,16 @@ FABRICS = [
          note="A warm red-brown sandstone of the Lake Superior or Connecticut kind the register's "
               "brownstone fronts name: fine sand grain, horizontal bedding laminae, sparse darker "
               "iron mottles, and a fine drove-tooled face."),
+    # T-1881: the register's brownstone as 1729 Prairie's two photographs print it — lighter
+    # than its own slate mansard in both, near its stone coping wall in Taylor's — where the
+    # red-brown above prints darker than slate on any plate of the time
+    dict(id="sandstone_fawn", tile_m=1.2, dressing="tooled", seed=19040807,
+         colors=((163, 148, 125), (129, 115, 96)), relief_m=0.0006, mean_roughness=0.82,
+         mottle=(120, 92, 70),
+         note="A light fawn-brown sandstone, rubbed nearly smooth: the same fine sand grain and "
+              "horizontal bedding as sandstone_brown, paler and less red, its iron mottles faint. "
+              "The shade is reconstructed, bounded by the print values of 1729 Prairie's "
+              "photographs (docs/RESEARCH/pullman-stone-1881/)."),
     dict(id="limestone_lemont", tile_m=1.2, dressing="pitched", seed=19040803,
          colors=((184, 174, 148), (142, 132, 110)), relief_m=0.0025, mean_roughness=0.88,
          note="Lemont (Joliet) dolomitic limestone, the local building stone: buff-grey with "
@@ -210,7 +220,7 @@ def sandstone(spec, t: Tile):
     h = ((grain - 0.5) * 0.0004 + (drove - 0.5) * 0.00012 * strokes
          + (t.fbm((0.04, 0.012), (0.6, 0.4)) - 0.5) * 0.0005)
     c = palette(0.5 + 0.14 * (laminae - 0.5) + 0.30 * (bands - 0.5) + 0.40 * (grain - 0.5), *spec["colors"])
-    c = mix(c, (84, 50, 38), mottle * 0.30)
+    c = mix(c, spec.get("mottle", (84, 50, 38)), mottle * 0.30)
     rough = spec["mean_roughness"] + 0.04 * (grain - 0.5) + 0.03 * (laminae - 0.5)
     return h, c, rough
 
