@@ -1,0 +1,29 @@
+{
+  "structure_id": "miller_house",
+  "source_id": "blanchard_shober_1867_wolf_point",
+  "photo": "../../../../reference/images/chicago/chicago_wolf_point_1833_nypl.jpg",
+  "image_px": [
+    1920,
+    1697
+  ],
+  "principal_px": [
+    1390,
+    816
+  ],
+  "focal_px": 2900,
+  "eye": [
+    -20,
+    85,
+    2
+  ],
+  "yaw_deg": 159.9,
+  "sky": "overcast",
+  "solve": {
+    "status": "finite_opposite_quarter_diagnostic_not_solved",
+    "purpose": "Review the pictured adjacent low wing and tall main range. No surveyed historical station or independent metric residual is asserted.",
+    "choices": "The origin-normalized adjacent compound countertranslates the preceding correct-quarter diagnostic eye by(+6,-5)m to[-20,85,2], retaining yaw159.9 and all other numeric camera fields. This preserves main-range framing while the low core moves beside it. The final core roof uses a reconstructed25-degree first fit; the main retains38 degrees. Neither pitch is measured from the drawing.",
+    "limits": "The governing print was published1867 and depicts1833. Eight held files include variants and copies, not eight independent measured witnesses. Hidden faces and the unresolved low-core stack do not establish absence. A final actual native comparison determines the image verdict; no July1835 certainty or historical From this spot is asserted."
+  },
+  "diagnostic_only": true,
+  "library_image": "early-blanchard-shober-1867-wolf-point"
+}

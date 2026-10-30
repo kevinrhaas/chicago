@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 161274724,
+ "bytes": 162132529,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -4788,6 +4788,30 @@
   "early-andreas-1884-sauganash.jpg": {
    "bytes": 398547,
    "sha256": "8ae046d8405a13616fc82316b6afa4e3dfaa67560f8e997e0e2de18922b25808"
+  },
+  "early-blanchard-shober-1867-wolf-point-thumb.jpg": {
+   "bytes": 16471,
+   "sha256": "d8fbf745318f7f2ede8428c90f7a453d5f606c7badbf9b8cda7a271612808be2"
+  },
+  "early-blanchard-shober-1867-wolf-point.jpg": {
+   "bytes": 384631,
+   "sha256": "976241fee67dba2606704a3d66cdbaac0a5dba6dcd6037e04f8e868e454ce25c"
+  },
+  "early-cameron-first-post-office-1833-thumb.jpg": {
+   "bytes": 23767,
+   "sha256": "b906d69e6c647b6b24412b7e23a4e199fe70210629ce28860a5252cdd733414a"
+  },
+  "early-cameron-first-post-office-1833.jpg": {
+   "bytes": 352506,
+   "sha256": "930a6249b928700422249dd831eb4ec1028c94a7549d37e5ad4eaf14a8ff9387"
+  },
+  "early-castelnau-1842-chicago-harbor-thumb.jpg": {
+   "bytes": 20576,
+   "sha256": "37373debd17b6ba48d02dead0fb4699c90cdb696ce5e75ab2515d3c825f49e7c"
+  },
+  "early-castelnau-1842-chicago-harbor.jpg": {
+   "bytes": 59854,
+   "sha256": "eee65adf2a3902a6bae159fddab38292d49017e847ddf9d8df3a048d41d18f12"
   },
   "early-gifford-first-tremont-thumb.jpg": {
    "bytes": 16397,
