@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e858f98249e4f973ac49d9e24b5c53298746eacdc2e0f0f829d50828c9ea348f",
+  "glb_sha256": "c209d45337ba190b8e39595cf1b781920758fc1cc83256eec4ac7536ea4fce08",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -272,6 +272,10 @@
     {
       "what": "the tower's cone: the print's is slated as the mansard is, small slates in level courses in the roof's own tone, where the build laid it in the K08 kit's plain slate colour, which rendered as a smooth grey cone far paler than the mansard beside it. T-1890 slates it as the house (bays.tower roof.slated_as_house), its courses mapped round the cone and up its slope from its eaves; it now renders in the mansard's dark coursed slate (L-kimball-1801-cone-slate-1890)",
       "status": "fixed"
+    },
+    {
+      "what": "the east range's second frontispiece (T-1890, read off HABS photograph 2): on this print it stands behind the tree's trunk and branches at about x 250-280, where a pointed form shows only indistinctly",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

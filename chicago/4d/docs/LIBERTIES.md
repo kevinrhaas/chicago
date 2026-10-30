@@ -36914,3 +36914,28 @@ on the cones they are mapped round the apex so each course closes on itself, the
 toward the apex as a cone's tapered slates do. How the real slates were cut and laid at the apex is
 not read; the pictures show only the courses and the tone.
 **How to resolve:** a nearer photograph of either cone, or a slater's account of the house.
+
+### L-kimball-1801-east-gable-1890 — 1801 Prairie's east range carries a second gabled frontispiece, read off HABS photograph 2
+**Recorded:** 2026-10-30.
+
+**Decision:** the W. W. Kimball house's east range carries a second stone frontispiece on its 18th
+Street wall (`bays.p_east_gable`, T-1890), between the north-east turret and the side-door
+frontispiece (`bays.p_door`): a bay 2.8 m wide and 0.1 m proud between pilaster strips from grade,
+carrying the range's one column of lights, its upper storey standing to 6.7 m and through the eave a
+coped gable between pinnacles in `p_door`'s dressing, its slate roof run back into the range's.
+r2's and r3b's eaves are pulled in to 0.05 m (as r3's already were) so the range's eave box stays
+behind both frontispieces' faces. **What is read, not invented.** HABS photograph 2 (1965, Harold
+Allen for HABS, 'View: exterior - from NW, north (18th St.) and west…') shows the bay at x 272-318 px
+through T-3110's camera, its two lights, the pinnacles at its kneelers, its white-capped slate ridge
+running back at about y 876-888, and the range's cornice stopping at both bays' pilaster strips. The
+match record had read the slate as a hooded dormer on the range's hip; at full size it is this
+bay's roof. **What is invented or held by the kit.** The gable's pitch (1.2) and so its apex
+(about 8.5 m): the print's apex is behind a utility pole. The lights' sash pattern, the pinnacles'
+and coping's sections are `p_door`'s and the kit's. Whether the bay stood in 1904 is argued from
+the 1965 picture alone: the c. 1895 Taylor print has this stretch behind a tree.
+
+**How to resolve:** an earlier photograph of the 18th Street flank's east end, or the 1892
+drawings.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1890).
