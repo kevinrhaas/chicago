@@ -25340,3 +25340,25 @@ T-2793 memory follow-up candidate (2026-10-29): railway upload release now also 
 
 
 T-2793 / T-3173 context-recovery correction (2026-10-29): the desktop railway upload-release candidate measured 1,156,132,447 bytes (1102.57 MiB), inside the original 1125 MiB goal, with the phone at 411,883,801 bytes (392.80 MiB), inside 400 MiB. Its native lifecycle nevertheless failed during graphics-context restoration. A separate actual default-Full desktop diagnostic reproduced a main-loop draw of a released null attribute between context restoration and ordinary reload (403.829 s NONPASS; the restored world and pick worked, but its pageerror was not waived). The main frame loop now stops on context loss and resumes only if retained upload resources permit recovery without a reload; the existing once-per-session reload cap and repeated-loss notice remain. This correction has not yet passed its fresh native context run, full preflight, mobile/far lifecycle or all applicable published smoke. Prior memory measurements and the earlier partial lifecycle do not qualify this changed source; photographic/world acceptance and T-3173 completion remain open.
+
+
+T-2793 / T-3173 bounded phone-memory correction (2026-10-30): candidate tree
+0b59944f7864c8b966b23e9b325890d8bd19bc84 changes only street-grid, railway
+and upload-release runtime files. Finished street/rail scratch is released;
+street picks retain positions and indices, and railway ground normals use the
+existing compact-normal helper (component precision within 1/254, not a claim
+of pixel identity). Actual producer A/B geometry, material, shader, card and
+pick parity passes; the native rail lifecycle keeps its byte-exact golden.
+The actual published 1904 phone measurement is 418,920,057 bytes (399.513299 MiB)
+against the unchanged 400 MiB cap, down from the previous 412.015 MiB failure,
+with only 510,343 bytes of headroom. Main, smoke assertions, workflows and
+assets are unchanged. This measured runtime is preserved through the following
+documentation-only change; its build still identified the uncommitted candidate's
+base 11d9c41405, not a new public commit. Current committed-source publication,
+desktop measurement, lifecycle checks and ordinary CI remain required.
+The desktop 1125 MiB ticket goal stays OPEN: the earlier roughly 1140 MiB
+reading passed the separate native 1300 MiB cap, and no new desktop pass is
+claimed here. All 20 published invocations and 1,701 checks passed on f5609309c2
+only; that complete result is not reassigned to this changed runtime. Full
+current preflight and delivery are pending at this source checkpoint. Broader
+photographic, riding/driving, horse and Otis motion acceptance remains OPEN.

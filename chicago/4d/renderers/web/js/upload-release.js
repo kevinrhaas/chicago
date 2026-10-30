@@ -53,6 +53,8 @@ export const RELEASE_KEEP = {
   trees: [],
   'yard-ground': [],
   streets: [],
+  // Street-grid CPU ray picks keep positions and indices; other uploaded lanes can go.
+  'street-grid': ['position', 'index'],
   // T-2572: picked on the GPU (gpu-pick.js), so their triangles go too.
   frontage: [],
   enclosures: [],

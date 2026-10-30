@@ -60,6 +60,9 @@
 
 import * as THREE from 'three';
 import { spatialBatchAsync } from './spatial-batch.js';
+import { compactStreams } from './compact-streams.js';
+
+const { compactNormals } = compactStreams(THREE);
 
 const LIBRARY = 'textures/prairie_1904_rail/';
 const MAPS = {
@@ -161,6 +164,8 @@ function trackPath(line, terrain) {
     for (let j = Math.max(0, i - k); j <= Math.min(raw.length - 1, i + k); j += 1) { sum += raw[j]; c += 1; }
     return sum / c;
   });
+  // The smoothed grade owns its values; the returned sampler never reads raw.
+  raw.length = 0;
   const gradeAt = (s) => {
     const x = Math.max(0, Math.min(grade.length - 1, s / STEP));
     const i = Math.floor(x); const f = x - i;
@@ -292,6 +297,9 @@ async function groundMesh(name, out, kind, mat) {
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(out.conf, 1));
   geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
   geo.computeVertexNormals();
+  // Unit normals use the existing four-byte normalized format; positions, UVs,
+  // confidence and the ground's RGBA fade stay unchanged through the spatial cut.
+  geo.setAttribute('normal', compactNormals(geo.getAttribute('normal').array));
   geo.computeBoundingSphere();
   // T-2219: a courtyard view was submitting all 74k ballast/cinder triangles
   // whenever any part of the kilometre-long yard entered the frustum. Use the
