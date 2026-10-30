@@ -3,7 +3,7 @@
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
   "glb_sha256": "03d44b56578250454a70f7a6a099110ba42c4fb67bd7a8646232f54c55e187a2",
-  "camera_sha256": "15a0ef34c0c0d27811045bc9741575cc86a50cb7db8d59abaa8cb22180be1736",
+  "camera_sha256": "f72dc5d5006a4cbd513abe0b1afc875d574b75a8fce011cb6e2fe1d1c19dff69",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
     {
@@ -103,7 +103,68 @@
     }
   ],
   "group_sha256": "795938d78d389b7f2cda2b90d30050e240f5f14c6336aea242883cb233729cee",
-  "side_by_side": "../../../../../../../../tmp/pm1/lowe_c1897_conservatory-side-by-side.jpg",
+  "rendered_flora": {
+    "season": "summer",
+    "lots": [
+      {
+        "parcel": "calumet_1800",
+        "shrubs": 6,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      }
+    ],
+    "street_trees": 37,
+    "street_trees_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1468.881,
+    "local_n": -3238.358,
+    "rotation_deg": 88.986,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_standing_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "6ef1a3bc53e2107f72dfa4179d65cc39af0a5d0bfcf27c196f503d4a079dd3f5"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "cdba1657b79088654ea4e920bb6691f97532ac336e331adfc90cee0c3becf183"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+    }
+  ],
+  "flora_sha256": "efcbc7f8452e5386a466352dc0c1075f3330cb742b07e3aa46d2a7bf71cb3849",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
@@ -249,9 +310,19 @@
       "how": "T-3164 (gate pass): the piers and wings are built plain; the carving is a visible element of the gate from the walk, so it stays open T-3164 (gate carving pass): built as both pictures place it: each wing's street face carries a spiral C-scroll about 0.26 m across by the pier, its centre about 0.3 m from the pier and 0.76 m up, three lobes of leafage trailing from it under the sweep toward the roll, and a fillet over the plain base at about 0.5 m, all standing 0.05 m proud; each pier's shaft a sunk panel between 1.24 and 1.8 m, 0.08 m in from its edges. The side-by-side shows the scroll and the leaf lobes in place on both wings; under the review render's even light they read as the relief's edges, where the pictures' shade cuts them darker. The leaves' cutting is under the bar (L-pullman-gate-1800-calumet-3164)"
     },
     {
-      "what": "the walks, the lawns, the standard trees, the shrubs and the street trees",
+      "what": "the planting before the conservatory: two clipped standards on clear stems, each in a square planting box on legs with a dense leafy mass over it, in the lawn east of its front, and the tall shrubs along the drive's far edge before the east range",
+      "status": "fixed",
+      "how": "T-3164 (planting pass): not built before. Read through both solved cameras into data/front_yards/1904.json (lot calumet_1800, tools/plant_prairie_1904_front_yards.py PICTURED): the boxes 0.57 m tall (Lowe 0.58 and 0.56 m), the masses 1.36 and 1.44 m tall (the plate and Lowe agree to 0.01 m), the standards' crowns to 2.9 and 3.05 m, each standard rising out of its mass at the mass's own x in the plate. The gate box's place the two fits agree on within 1.1 m; the near box's they put 3.9 m apart along the line of sight, so it stands between them. In the renders the boxes fall within about 15 px of the plate's (0.3 m) and on Lowe's, and the shrubs before the east range at the plate's x and height. A third tall shrub, before the lodge's loggia, stood where the 1904 record's north range has its base wall and is not drawn (the range is the 1911 sheet's, not the picture's)."
+    },
+    {
+      "what": "the boxed masses and the standards' crowns draw open-leaved, where the pictures show close clipped surfaces",
+      "status": "within tolerance",
+      "how": "T-3164: the silhouettes, sizes and places match; the leaf is the yard renderer's one shrub leaf, which every planted yard in the district draws with (renderers/web/js/front-yards.js), and the darker sheared ball is the nearest form it grows"
+    },
+    {
+      "what": "the drive, the walks and the lawn's edges, and the parkway trees on 18th Street: the plate's and Lowe's big tree left of the gate is not drawn, and the one right of it stands about 1 m east of where they put it",
       "status": "open",
-      "how": "T-3164: the owner asked (2026-10-28) that a property's walls and planting be part of its match; none is built on the 1800 Calumet ground yet, and drawing planting into a K13 view needs a front-yard lot for it"
+      "how": "T-3164: no walk, drive or lawn edge is built on the 1800 Calumet ground. The parkway: the plate puts the left tree's foot at x 744, y 1160 (e 1479.6, n -3212.0) and Lowe at x 394, y 739 (e 1478.9, n -3215.3), where data/street_trees/1904.json has none (its nearest, calumet__prairie_calumet_18_20#27 at e 1486.3, is out of frame); its tree read off Taylor's 16555 (e18th__prairie_calumet_18_20#p00, e 1474.17) stands in front of the plate's right gate pier, where Lowe puts that trunk at e 1472.5. Both live in the street-tree file 1729 Prairie's views draw from (within their 70 m), so moving them re-opens those views and is left to a pass that looks at them again."
     },
     {
       "what": "the owner's report, 2026-10-28: the greenhouse ground south of 18th Street is way off the photograph; the long range renders as a blank wall with square holes and the lodge in red brick, where the print shows a glazed range on a stone base and a stone lodge, and the pavilion's great arched glass front renders as an opaque gable over a black opening",

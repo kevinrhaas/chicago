@@ -27,5 +27,12 @@
  "solve": "T-3164: the lodge's own view of the picture the pavilion's lowe_c1897_conservatory camera was solved on (that camera's solve is the fit: its plan points include this lodge's north-east corner). Carried unchanged into the lodge record's frame (u west, v south, from its north-east corner; the pavilion's frame turned by 90.000 degrees, its origin at u 36.35, v 1.01 there): eye u -9.53, v -71.35, heading 20.76 degrees, the focal length, principal point and eye height as solved. It shows the lodge's north face and roof from the north-east; the conservatory hides the face west of about 5 m along it, and the range hides its east wall. LIGHT: the tree's shade lies under it and the walls throw nothing sharp; rendered overcast.",
  "source_id": "aic_lowe_pullman_conservatory_c1897",
  "sky": "overcast",
- "diagnostic_only": true
+ "diagnostic_only": true,
+ "flora": {
+  "front_yards": [
+   "calumet_1800"
+  ],
+  "street_trees_m": 70,
+  "season": "summer"
+ }
 }
