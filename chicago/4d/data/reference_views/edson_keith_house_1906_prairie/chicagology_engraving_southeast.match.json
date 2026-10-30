@@ -1,65 +1,85 @@
 {
-  "structure_id": "edson_keith_house_1906_prairie",
-  "view": "chicagology_engraving_southeast",
-  "glb": "assets/gltf/edson_keith_house_1906_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0e73a8f4b57efd06911391e630e083343a88c1b6050215b7b85f4ac2e910f640",
-  "camera_sha256": "55d2a027939fbba527a7245284fbf9a4c89504e27c874a9c212a775bde4a5ffd",
-  "photo_sha256": "e844dbb769c4fceaaac2dcd2d950f69cdbb813aee4fe25a653a39f17477da3e3",
-  "side_by_side": "docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg",
-  "verdict": "differs",
-  "differences": [
-    {
-      "what": "massing: the draft's flat-roofed generic block is now the engraving's Italianate house, two storeys over a raised basement under a low hipped roof, the cornice's bed near 11.5 m; front on the right, shaded south flank receding left, as the engraving draws them",
-      "status": "fixed"
-    },
-    {
-      "what": "the deep cornice on paired scrolled brackets over a panelled frieze, carried along the front and the south flank",
-      "status": "fixed"
-    },
-    {
-      "what": "the porch on columns at the stoop's head, its flat top a balcony with a stone balustrade before the arched window over the door",
-      "status": "fixed"
-    },
-    {
-      "what": "the high stoop onto a terrace across the front, its cheeks scrolled at their foot, and the front's round-headed windows under hoods with keystones in both storeys",
-      "status": "fixed"
-    },
-    {
-      "what": "the low stone wall along the walk, with the stoop's opening",
-      "status": "fixed"
-    },
-    {
-      "what": "the porch: the engraving draws its balcony about twice as wide as the window spacing beside it allows (x 740-867 px) and the window over the door at the balcony's north end. T-3239 widens the porch from 4.0 to 5.0 m (v 6.7-11.7), the 1898 vignette's portico (about 4.7 m against the door-to-window spacing, its camera tribune_1898_front); the vignette draws the window over the door on the door's axis, as built, so where it stands is a gap the two pictures disagree about",
-      "status": "within tolerance"
-    },
-    {
-      "what": "the left of the picture: the engraving's large block at the south flank's front, with its own bracketed cornice, a columned porch under a balustraded balcony and round-headed windows, and the terrace's balustrade running before it (x 100-430 px); the render has the sheet's brick range along the flank instead. Neither the vignette nor the c. 1914 elevation drawing sees the flank, so nothing confirms or sizes it, and K01 stands a porch and balcony only at the entrance (k07 door hood) or as a terrace loggia at the stoop: a side porch on a flank pavilion is more than this sign-off's run, so it stays open here under AGENTS.md rule 11",
-      "status": "open"
-    },
-    {
-      "what": "the tower: the render's south bay rose a full 3.4 m stage over the cornice, narrow (a 2.0 m ring); the engraving's is lower and broader, and the vignette and the c. 1914 elevation drawing both stop it at about the main cornice. T-3239 broadens the ring to 2.6 m (v 0.4-5.6, the vignette's tower about 5.5 m across) and lowers it to four stages of 2.34, 4.4, 3.5 and 3.0 m, its wall head 13.24 m, 1.1 m over the main wall's 12.14 m (the least K01 lets a tower clear its host's eave by is 1.0 m) under its hipped cap with cresting",
-      "status": "fixed"
-    },
-    {
-      "what": "the roof's balustraded deck and its tall stack over the south flank, which the render does not have; the c. 1914 elevation drawing agrees, drawing the hip flat-topped with a tall stack at the south end. K01's hip roof takes no railed deck (only a flat roof is a deck, behind parapets), so it stays open here",
-      "status": "open"
-    },
-    {
-      "what": "the curved flights of the stoop's foot: the engraving splays them out to the walk; the 1898 vignette draws the flight straight between its cheeks, ending at block newels, as built (scrolled cheek ends rather than newels): a gap the two pictures disagree about",
-      "status": "within tolerance"
-    },
-    {
-      "what": "the terrace's balustrade: T-3239 sets the turned stone balustrade (1620's, K07) on both terraces and down the stoop's cheeks, as the engraving and the vignette both draw it, from the south tower to the stoop and from the stoop to the stone front's north end; its run before the flank's block is that block's (open above)",
-      "status": "fixed"
-    },
-    {
-      "what": "colour: the engraving is monochrome; the brownstone front and the brick flanks are the census ruling's and the rules'",
-      "status": "not shown"
-    },
-    {
-      "what": "the north flank, the rear wing and the rear, which the engraving does not see",
-      "status": "not shown"
-    }
-  ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+ "structure_id": "edson_keith_house_1906_prairie",
+ "view": "chicagology_engraving_southeast",
+ "glb": "assets/gltf/edson_keith_house_1906_prairie__as_mapped_1904.glb",
+ "glb_sha256": "fc70e7c04fd38618de02765c91acef939960560be8b6dda4d3044841bc00af48",
+ "camera_sha256": "55d2a027939fbba527a7245284fbf9a4c89504e27c874a9c212a775bde4a5ffd",
+ "photo_sha256": "e844dbb769c4fceaaac2dcd2d950f69cdbb813aee4fe25a653a39f17477da3e3",
+ "side_by_side": "docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg",
+ "verdict": "matches",
+ "differences": [
+  {
+   "what": "massing: the draft's flat-roofed generic block is now the engraving's Italianate house, two storeys over a raised basement under a low hipped roof, the cornice's bed near 11.5 m; front on the right, shaded south flank receding left, as the engraving draws them",
+   "status": "fixed"
+  },
+  {
+   "what": "the deep cornice on paired scrolled brackets over a panelled frieze, carried along the front and the south flank",
+   "status": "fixed"
+  },
+  {
+   "what": "the porch on columns at the stoop's head, its flat top a balcony with a stone balustrade before the arched window over the door",
+   "status": "fixed"
+  },
+  {
+   "what": "the high stoop onto a terrace across the front, its cheeks scrolled at their foot, and the front's round-headed windows under hoods with keystones in both storeys",
+   "status": "fixed"
+  },
+  {
+   "what": "the low stone wall along the walk, with the stoop's opening",
+   "status": "fixed"
+  },
+  {
+   "what": "the porch: the engraving draws its balcony about twice as wide as the window spacing beside it allows (x 740-867 px) and the window over the door at the balcony's north end. T-3239 widens the porch from 4.0 to 5.0 m (v 6.7-11.7), the 1898 vignette's portico (about 4.7 m against the door-to-window spacing, its camera tribune_1898_front); the vignette draws the window over the door on the door's axis, as built, so where it stands is a gap the two pictures disagree about",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the left of the picture: the engraving's large block on the south flank, with its own bracketed cornice and round-headed windows, and the porch on columns in the angle before it under a balustraded balcony (x 100-430 px). T-3239 builds both: the wing on the flank's rear part (s 0-8.6, 2.3 m out: the 1911 sheet's stone range, s28fp-1906-b1 p5) in the front's stone with round-headed lights in both storeys, the house's bracketed cornice carried round it and a stone balustrade round its top, an arched light in its east face over the balcony; and k01_porte_cochere's side_porch, three round columns over the terrace's podium under an entablature whose top is the balcony at the chamber floor, railed by the front porch's balustrade, with round-headed lights on the flank behind and over it",
+   "status": "fixed"
+  },
+  {
+   "what": "the tower: the render's south bay rose a full 3.4 m stage over the cornice, narrow (a 2.0 m ring); the engraving's is lower and broader, and the vignette and the c. 1914 elevation drawing both stop it at about the main cornice. T-3239 broadens the ring to 2.6 m (v 0.4-5.6, the vignette's tower about 5.5 m across) and lowers it to four stages of 2.34, 4.4, 3.5 and 3.0 m, its wall head 13.24 m, 1.1 m over the main wall's 12.14 m (the least K01 lets a tower clear its host's eave by is 1.0 m) under its hipped cap with cresting",
+   "status": "fixed"
+  },
+  {
+   "what": "the roof's balustraded deck and its tall stack over the south flank; the c. 1914 elevation drawing agrees, drawing the hip flat-topped with a tall stack at the south end. T-3239 cuts the hip off level at a railed deck at 13.3 m (k01_hip_deck, T-3241's kit), about 1.5 m over its eave, and stands the stacks 2.4 m over it",
+   "status": "fixed"
+  },
+  {
+   "what": "the curved flights of the stoop's foot: the engraving splays them out to the walk; the 1898 vignette draws the flight straight between its cheeks, ending at block newels, as built (scrolled cheek ends rather than newels): a gap the two pictures disagree about",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the terrace's balustrade: T-3239 sets the turned stone balustrade (1620's, K07) on both terraces and down the stoop's cheeks, as the engraving and the vignette both draw it, from the south tower to the stoop and from the stoop to the stone front's north end; its run before the flank's block is that block's (open above)",
+   "status": "fixed"
+  },
+  {
+   "what": "the south wing's and the porch's place and size in the picture: the render stands them further left and smaller than the engraving draws them (the wing's south face about x 40-225 px against the engraving's 100-300). The engraving's flank does not hold its front's perspective (the camera fits the front, 35.8 px RMS, and puts the engraving's porch columns past the front's own corner), so the flank is placed by the 1911 sheet, whose stone range fixes the wing at s 0-8.6 and 2.3 m out: a gap the picture and the sheet disagree about",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the wing's roof: the engraving draws a short hip from its cornice up to a railed deck; the build stands the balustrade on a flat top at the cornice. On the sheet's 2.3 m projection such a hip would rise under half a metre",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the rails: the engraving draws the main deck's rail as a balustrade with urns at its corners; the kit's rail is a parapet pierced with roundels between posts, the same height and line, its openings' shape under a foot",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the flank's round-headed lights stand under arched hood moulds in the engraving; the build cuts the round heads without the mouldings, which stand out about 0.15 m",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the porch's columns: the engraving shows three, with arched openings behind them; the build stands three, the one nearest the wing hidden behind it from this camera",
+   "status": "within tolerance"
+  },
+  {
+   "what": "colour: the engraving is monochrome; the brownstone front and the brick flanks are the census ruling's and the rules'",
+   "status": "not shown"
+  },
+  {
+   "what": "the north flank, the rear wing and the rear, which the engraving does not see",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
