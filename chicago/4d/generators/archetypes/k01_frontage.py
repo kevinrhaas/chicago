@@ -5660,6 +5660,10 @@ def build(params, structure_id: str):
         # T-3241: the street front's corner arcade on its podium under a balustrade (1701's)
         from . import k01_porte_cochere
         k01_porte_cochere.dress_porch(a)
+    if p.side_porch:
+        # T-3239: a side wall's columned porch under its balustraded balcony (1906's)
+        from . import k01_porte_cochere
+        k01_porte_cochere.dress_side_porch(a)
     if p.hip_deck:
         # T-3241: the rail round the deck the hip is cut off at (1701's)
         from . import k01_hip_deck
