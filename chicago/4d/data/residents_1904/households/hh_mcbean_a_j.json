@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -42,9 +43,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "2017 Mr. & Mrs. A. J. McBean"
+      "printed_as": "2017 Mr. & Mrs. A. J. McBean",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 51, leaf n817",
+        "as_enumerated": "McBean, A.",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists A. McBean here as head, born May 1835, in Scotland, came to the United States in 1850, married, cement mfr. (ED 40, sheet 12B, line 51, leaf n817)."
     },
     {
       "id": "pa1904_mcbean_mrs_a_j",
@@ -53,9 +63,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "2017 Mr. & Mrs. A. J. McBean"
+      "printed_as": "2017 Mr. & Mrs. A. J. McBean",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 52, leaf n817",
+        "as_enumerated": "McBean, Georgina",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Georgina McBean here as wife, born January 1852, in Scotland, married (ED 40, sheet 12B, line 52, leaf n817)."
     },
     {
       "id": "pa1904_mcbean_george_b",
@@ -64,10 +83,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "2017 George B. McBean",
-      "note": "Listed at 2017 in both editions; his relation to A. J. McBean is not printed."
+      "note": "Listed at 2017 in both editions; his relation to A. J. McBean is not printed. The 1900 census lists George McBean here as son, born April 1876, in Illinois, single (ED 40, sheet 12B, line 55, leaf n817).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 55, leaf n817",
+        "as_enumerated": "McBean, George",
+        "relation_as_enumerated": "Son"
+      }
     },
     {
       "id": "pa1904_mcbean_a_j_f",
@@ -76,10 +103,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "2017 Mr. & Mrs. A. J. F. McBean",
-      "note": "A second McBean couple listed at 2017 in both editions; the relation to the first is not printed."
+      "note": "A second McBean couple listed at 2017 in both editions; the relation to the first is not printed. The 1900 census lists A. McBean Jr. here as son, born February 1870, in Illinois, married, lawyer (ED 40, sheet 12B, line 53, leaf n817).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 53, leaf n817",
+        "as_enumerated": "McBean, A. Jr.",
+        "relation_as_enumerated": "Son"
+      }
     },
     {
       "id": "pa1904_mcbean_mrs_a_j_f",
@@ -88,10 +123,118 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "2017 Mr. & Mrs. A. J. F. McBean",
-      "note": "Listed with A. J. F. McBean; see his note."
+      "note": "Listed with A. J. F. McBean; see his note. The 1900 census lists Almira McBean here as daughter-in-law, born March 1869, in Illinois, married (ED 40, sheet 12B, line 54, leaf n817).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 54, leaf n817",
+        "as_enumerated": "McBean, Almira",
+        "relation_as_enumerated": "Daughter-in-law"
+      }
+    },
+    {
+      "id": "pa1904_mcbean_a_j_c1900_bertha_parson",
+      "name": "Bertha Parson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1871",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives February 1871, age 29 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 56, leaf n817",
+        "as_enumerated": "Parson, Bertha",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant; born February 1871 (the figures are hard to read), in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_mcbean_a_j_c1900_hilda_olson",
+      "name": "Hilda Olson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1867",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1867, age 32 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 57, leaf n817",
+        "as_enumerated": "Olson, Hilda",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant; born November 1867 (the figures are hard to read), in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_mcbean_a_j_c1900_may_gentz",
+      "name": "May Gentz",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1872",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1872, age 28 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 58, leaf n817",
+        "as_enumerated": "Gentz, May",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant; born March 1872 (the figures are hard to read), in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_mcbean_a_j_c1900_louise_dane",
+      "name": "Louise Dane",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1872",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1872, age 27 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 59, leaf n817",
+        "as_enumerated": "Dane, Louise",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant; born August 1872 (the figures are hard to read), in Germany, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
     }
   ]
 }

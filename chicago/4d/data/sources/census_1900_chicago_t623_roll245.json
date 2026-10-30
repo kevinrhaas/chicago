@@ -1,0 +1,30 @@
+{
+  "id": "census_1900_chicago_t623_roll245",
+  "type": "manuscript",
+  "citation": "Twelfth Census of the United States, 1900: Schedule No. 1, Population. Illinois, Cook County, City of Chicago (South Town). NARA microfilm publication T623, roll 245 (\"Cook County, City of Chicago (cont'd: ED 9, sheet 8--end, EDs 10-35, 1199, 36--42, and ED 43, sheets 1-10)\"), digitised from the film and republished by the Internet Archive as item 12thcensusofpopu245unit, 917 leaves.",
+  "author": "The enumerators of supervisor's district 1, enumeration districts 36 and 40",
+  "date": "1900",
+  "describes_date": "1900-06-01",
+  "repository": "National Archives and Records Administration, Record Group 29, microfilm publication T623, roll 245. The copy read is the Internet Archive's digitisation of that roll.",
+  "url": "https://archive.org/details/12thcensusofpopu245unit",
+  "locator": "Leaves are cited as https://archive.org/download/12thcensusofpopu245unit/page/n<N>.jpg. Prairie Avenue 1600-1638 is ED 36, sheets 1A-3A (leaves n665-n669); Prairie Avenue 1700-2115 is ED 40, sheets 1A-15A (leaves n794-n822), which also walks Calumet and Indiana Avenues. The leaves read for T-3258, with the checksums of the copies read on 2026-10-30:\n  n665 sha256 cbd1074e2f9a42035413a2ed2b988c670d7f3a2542083decc0b6c4897cbd6e72\n  n666 sha256 70b2d33ae2aa875c6421b8a71b7114be2fee23c1b86a62202a94b220ee44ad1e\n  n667 sha256 4bd7e4b98a9646c22250d641e342f974c3c70a412b39e49243cb6514d99541b6\n  n668 sha256 4929e95cdc5778a55268ccfbf8bc0104f676dc51e85a32e296b75856d8c9a0c5\n  n669 sha256 2feb38145fc05244755908e86db7d116337827d09ced5d8ac67a6f864fcfdf10\n  n794 sha256 bd6f3211a3f4b34b8bf8ca8887fa79eed02879c4c21cb64748129e0ee0ea7937\n  n795 sha256 6d0b668dffbf5c4baf059ccbca103380d4ef797a6ac9aa2de1108006a842ac1d\n  n798 sha256 1c59adc99ff3a2b7614573a941724fb015f9e3d783ceb94b8e70a7aaad4717a7\n  n800 sha256 fb02e305322ae1b207932759a6743baa1d4e61c969b6e27cb6d1168bbe8a082c\n  n801 sha256 a142dadf34301a5d659b649f53fa720c3dd8c135d0fb6c56bef0ec6f406a32b4\n  n802 sha256 5820f385522a4b3d627491c9f53cfcb54e47abe7fd75fc14a0560a4171cffa29\n  n803 sha256 f9afa7d34f9c0d5dd249b8f218005b8f720a6af9f4f35c8bd56df4625e95dfcf\n  n810 sha256 a02a5dc4df499015c5042fdd0284e99595594701a178431d6cbc16d2577abdbe\n  n811 sha256 2e8fa0c0e62d93ce77bcaee2deeaa1ebb5f542fde1745fdfea7ac46ba6bdc17e\n  n816 sha256 c23eb999b74942768c438914994969fe181ca01b9af6535a29802632dc108721\n  n817 sha256 2bee626b149f724f9033ac171e3192c6de7db6b5a02120b09fddc7cba41c31b2\n  n820 sha256 949d9445567382a4d5af9aec456e6d93b9ff2e5027f075ae31f05096700c5f64\n  n821 sha256 180431e6332c0f76ef06f085c251783dfd28c4e384edeea3f98de38bdc242cea\n  n822 sha256 380f3a1fdbd88530b52076d484bb09dcb36b05982cafdc97c5f372f1ba110a0f\nThe line-by-line reading is committed at docs/RESEARCH/prairie-households-1900-census-3258/census_1900_prairie_reading.tsv. No image from the roll is committed.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "rights_note": "A US federal census schedule of 1900, in the public domain. Read for who lived at an address; no asset is derived from it.",
+  "verified": true,
+  "access_notes": "Read 2026-10-30 (T-3258) from the Internet Archive's page images; the item has no usable OCR (the schedules are handwritten). The enumeration districts were found by reading the street names written in each sheet's margin, not from an ED finding aid: the Steve Morse one-step ED tool returned nothing for a Prairie Avenue search. Readings marked with '?' in the reading table are the hand at its hardest; the cards say so where a name is affected.",
+  "note": "The census asks for every person whose usual place of abode on 1 June 1900 was the dwelling, including live-in servants, which no society register prints. It is four years before the 1904 scene: what it supplies for 1904 is who kept a house in 1900, and the cards grade the servants and young children it names as inferred for that reason. Several Prairie Avenue families were away on the census day (in New Hampshire, at Highland Park, at Lakeside, in Europe); the enumerator wrote their names with the other columns blank and listed the servants who were in the house.",
+  "what_it_supplies": [
+    "the live-in staff (cooks, maids, laundresses, nurses, butlers, coachmen and grooms) at the Prairie Avenue houses on 1 June 1900, by name, with birth month and year, birthplace, year of immigration and the work they did",
+    "the young children at home, whom the Blue Book never prints",
+    "the given names of wives and of daughters the Blue Book prints only as '& dr.'",
+    "which houses held a different family in 1900 from the one the 1904 Blue Book lists"
+  ],
+  "what_it_does_not_supply": [
+    "anything on 1 July 1904; a servant or child seen in 1900 is placed in the 1904 scene only by inference",
+    "the households the enumerators reached elsewhere (the Glessners at The Rocks, for one); their own entries were not searched",
+    "Prairie Avenue 1637, 1700, 1706, 1708 and 2001-2005, which were not found in the sheets read",
+    "the 1910 census, which was not read"
+  ]
+}
