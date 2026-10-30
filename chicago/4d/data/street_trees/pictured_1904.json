@@ -13,6 +13,19 @@
  },
  "stretches": [
   {
+   "face": "prairie__prairie_ic_16_18",
+   "from_m": 228.5,
+   "to_m": 257.5,
+   "seen_by": ["detroit_4a08065 x 43-570 (the Prairie front, squarely, from 228.5 m to the corner's bed)"],
+   "note": "Prairie Avenue's east parkway before the Pullman house, from its north end to the 18th Street corner's curbed bed (T-1881). The Detroit print sees the Prairie front squarely and governs along it (the large dormer and the stair land within a few px through its camera); each trunk's x is carried to the planting line (u 48.0 in the house's frame) through it. The 1890 Albertype plate (library image a16-albertype-1890-pullman-residence, no source record yet, so a check and not a reading) shows the same two trunks before the portico and at the corner, braced as young trees, at 248.0 and 257.2 m through its camera, 1.6 and 1.2 m south of the Detroit readings (toward 18th Street): the same 1 m or so its camera draws the front's dormer off along this face. Taylor's no. 1445 sees only the corner end, edge-on, and draws no trunk there; it is the earlier picture. The corner itself (257.5 m to the face's end) is not part of this stretch: the Detroit print's trunk at x 630 stands there on neither planting line through its camera, the stretch where it and Taylor's disagree (the corner's tree on 18th Street, T-1881), and the rule plants nothing within 10.5 m of the corner.",
+   "trees": [
+    {"at_m": 232.0, "kind": "mature", "read": ["detroit_4a08065 x 95 (base y 503 against the line's 510, on the walk's inner edge as it reads; a tall trunk rising past the print's top edge): 232.0 m"], "note": "Before the house's north end. Its foot reads 7 px above the planting line, which would put it about 1 m behind the walk; planted on the line, as the print stands no other tree in the walk or the lawn there."},
+    {"at_m": 238.8, "kind": "mature", "read": ["detroit_4a08065 x 204 (base y 510, the line's 512): 238.8 m"], "note": "A full-grown trunk rising past the print's top edge."},
+    {"at_m": 246.4, "kind": "mature", "read": ["detroit_4a08065 x 341 (base y 515, the line's 514): 246.4 m"], "note": "A full-grown trunk. The Albertype plate's trunk at x 1052 reads 248.0 m."},
+    {"at_m": 256.0, "kind": "mature", "read": ["detroit_4a08065 x 541 (base y 522, the line's 518; in a low curbed bed beside the lamp post at x 528): 256.0 m"], "note": "Before the house's south-west corner, in a curbed bed whose foot reads about 0.5 m nearer the curb than the line; planted on the line. The Albertype plate's trunk at x 1312, beside its own lamp post, reads 257.2 m."}
+   ]
+  },
+  {
    "face": "e18th__prairie_ic_16_18",
    "from_m": 0.0,
    "to_m": 46.9,
