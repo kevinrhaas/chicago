@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "625e0addf5a8b9fe3099c950c93476fbdff5560232f97e3c95e31ea00a0786f0",
+  "glb_sha256": "38fc7c48ffa44991d2edcdd420e652685d1a2d6433fc3dc3aa39e80229aa2e16",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 10,
+        "shrubs": 13,
         "trees": 3,
         "beds": 0,
-        "creeper": 0
+        "creeper": 7
       }
     ],
     "street_trees": 31,
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
+      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "6974a35e42ff7fa0f00189b83c1257a1e96ab7be6d1c18edff47595fdf3a9de9",
+  "flora_sha256": "49dd2d8c8f91b5bb175599670f94048dad5a666695d6728f71c2bbac12fc27dd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -177,7 +177,7 @@
     {
       "what": "the run of posts on a lower curb along 18th Street east of x 693 (to x 760 and on behind the trees)",
       "status": "open",
-      "how": "T-1881: the low course is built (0.5 m) at its place; its posts are not"
+      "how": "T-1881: the low course is built (0.5 m) at its place; its posts are not T-1881 (2026-10-30): the balustrade Taylor's no. 1445 shows on the wall's east part (x 16.4-8.6) is built, and through this camera stands at x 770-793, where the print's last panel and post stand behind the carriage; the posts and panels west of it (x 695-770, about u 34.5-17), which Taylor's squarer view of the same stretch does not show, are not"
     },
     {
       "what": "the lamp post and the hydrant",
