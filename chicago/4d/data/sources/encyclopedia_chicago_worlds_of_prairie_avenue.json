@@ -1,0 +1,25 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "encyclopedia_chicago_worlds_of_prairie_avenue",
+  "type": "website",
+  "citation": "'The Worlds of Prairie Avenue', The Electronic Encyclopedia of Chicago (Chicago Historical Society, Newberry Library and Northwestern University, 2005), entry 10431_em.",
+  "author": "The Electronic Encyclopedia of Chicago",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1850s-1930",
+  "url": "https://encyclopedia.chicagohistory.org/pages/10431_em.html",
+  "locator": "The essay's paragraph on the residents' philanthropy and causes, which names women by house number in parentheses.",
+  "rights_note": "Modern encyclopedia text, cited in words only; nothing copied into the scene.",
+  "access_notes": "Read 2026-10-30 (T-3250) through a fetch that returned the essay in summary and short quoted fragments, never a whole paragraph; cited only for what those fragments say.",
+  "note": "Fragments read: Henrietta Greenebaum Frank (1608) and Ella Walker (1720) 'worked steadily for quality nursing education at the Illinois Training School for Nurses'; Jane Grahame Jones (1834) 'fought for woman suffrage.' The essay also says the residents supported the Visiting Nurses Association and helped found the Art Institute, and that after the 1890s many leading families died or moved to suburbs such as Lake Forest.",
+  "what_it_supplies": [
+    "Henrietta Greenebaum Frank of 1608 and Ella Walker of 1720 working for nursing education at the Illinois Training School for Nurses",
+    "Jane Grahame Jones of 1834 fighting for woman suffrage"
+  ],
+  "what_it_does_not_supply": [
+    "dates for any of these women at these houses",
+    "anything about the buildings"
+  ]
+}
