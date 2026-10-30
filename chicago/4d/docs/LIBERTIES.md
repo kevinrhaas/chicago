@@ -36524,3 +36524,24 @@ written specification of the stable's stone.
 **Review:** `docs/RESEARCH/colour-pullman-stable-T-1934/README.md`; the photo-match side-by-sides of
 `pullman_house_1729_prairie`, `_ranges` and `_conservatory`.
 **Recorded:** 2026-10-30 (T-1934).
+
+### L-pullman-1729-18th-balustrade-1881 — 1729 Prairie's balustrade on the 18th Street wall east of the third pier: its place and height read, its balusters' profile and its sections reconstructed
+
+**Decision:** the 18th Street wall's 1.0 m run from the third pier (x 16.4) to the carriage way (x 8.6)
+carries a stone balustrade 0.8 m over its top, its rail about 1.8 m over grade, level with the pier's
+cap (`boundary.side_return.runs[].balustrade`, a new K11 coping-return option): a 0.08 m plinth, turned
+balusters 0.3 m apart, a 0.14 m rail 0.42 m wide, and 0.4 m solid blocks at each end.
+**What is read, not invented.** J. W. Taylor's photograph no. 1445 (`aic_taylor_1445_pullman_from_sw`)
+through its solved camera: the balustrade's run from the pier's east face (x 856 px) to the opening
+(x 957 px), its rail's top level with the pier's cap (y 597-600 px), a row of balusters under it (y
+600-608 px) whose dark gaps stand about 4 px apart, about 0.3 m at the print's 12-13 px a metre there,
+and a solid block at its east end (x 942-957 px).
+**What is invented.** The baluster's profile, which is the house's own stair balustrade's (the print
+draws each baluster about 2 px wide); the plinth's and rail's sections; the end blocks' 0.4 m length,
+where the print's east block reads about 1.2 m and its west end is lost against the pier. The heights
+are read to about 0.15 m and the pitch to about 0.1 m.
+**How to resolve:** a closer picture of the 18th Street wall (the CHM 1905 views, the Beman-addition
+side views), which also settles the Detroit print's run of posts and panels further west.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-10-30 (T-1881).
