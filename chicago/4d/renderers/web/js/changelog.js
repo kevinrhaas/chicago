@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2468, ts: '2026-10-30T20:46:23.397Z', date: 'Oct 30, 2026, 3:46 PM CT', title: 'Pullman\'s 18th Street lamp stands tall with its globe', kind: 'improvement',
+    items: [
+      'The lamp at the turn of Pullman\'s 18th Street walk now has the form an 1890s photograph shows: a pale post about 4.9 m tall with a shallow globe and a small dark cap, instead of the district\'s shorter iron lantern post.',
+    ] },
   { v: 2467, ts: '2026-10-30T19:30:28.880Z', date: 'Oct 30, 2026, 2:30 PM CT', title: '1801 Prairie\'s corner turret gets its turned finial', kind: 'improvement',
     items: [
       'The small round turret at the east end of the Kimball house\'s 18th Street side now ends the way the c. 1895 photograph shows it: the slate stops at a rim, and a smooth sweep rises from it into a slender finial with two knobs and a spike.',
