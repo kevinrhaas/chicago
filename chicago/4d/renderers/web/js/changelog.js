@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2446, ts: '2026-10-30T08:10:43.061Z', date: 'Oct 30, 2026, 3:10 AM CT', title: 'Pullman\'s garden colonnade stands in its pictures\' proportions', kind: 'improvement',
+    items: [
+      'The domed colonnade at the east end of Pullman\'s glasshouse range across 18th Street now rises from a taller stone podium to a deep entablature, with shorter columns between them, as the 1894 Inland Architect plate and Lowe\'s c. 1897 photograph both show it.',
+      'The podium\'s top and the entablature\'s underside now carry on the range\'s own string courses, at about 1.6 m and 4.65 m.',
+    ] },
   { v: 2445, ts: '2026-10-30T08:08:40.389Z', date: 'Oct 30, 2026, 3:08 AM CT', title: 'Prairie Avenue\'s 1904 houses have their staff', kind: 'feature',
     items: [
       'The 1900 census for Prairie Avenue is read: 179 cooks, maids, laundresses, nurses, butlers, coachmen and grooms are on the house cards.',
