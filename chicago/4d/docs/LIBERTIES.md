@@ -36480,3 +36480,35 @@ building notice or a description naming the stone's quarry or colour would repla
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/pullman-stone-1881/README.md`; `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg`, `albertype_1890-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-30 (T-1881).
+
+### L-pullman-carriage-ways-1934 — Pullman's two carriage drives, the gateways kept clear, and the stable's stone toned from the winter print
+
+**Decision:** the 1729 Prairie yard (`yard.drives` on `pullman_house_1729_prairie`, laid by
+`generators/archetypes/k14_yard.py`) takes two gravel carriage drives, each worn in two wheel tracks
+at a carriage's gauge. One comes in off 18th Street through the opening in the Pullman wall that
+J. W. Taylor's 16555 (`aic_taylor_16555_pullman_west_front`) shows at the court's mouth, now 3.35 m
+clear, and runs 2.6 m wide up the court to an apron before the
+stable's broad central arch. The other comes in through the gap in the wall east of the house that
+Taylor's 1445 shows and runs 2.4 m wide north under the porte-cochère's end arches and east to a
+turning apron. `tools/plant_prairie_1904_front_yards.py` now keeps every gateway in any lot's fence
+or wall clear of plantings for 3.5 m inside it (only 1729's planting moved): the 18th Street border
+starts east of the house, where the c. 1900 photograph shows shrubs, and two of the tubs of
+L-pullman-terrace-tubs-1934 move off the drives (the standard 0.6 m east, to 1476.4 E, -3181.2 N;
+the slim arborvitae to 1473.1 E, -3193.4 N, still inside the wall's east pier). The stable
+(`pullman_house_1729_prairie_ranges`, `draft_elevation.tint`) and the palm house range's wall and
+its rusticated, pilastered face (`pullman_house_1729_prairie_conservatory`, `host_wall.color`) take
+one stone, linear (0.332, 0.299, 0.241), its dressed trim a shade lighter.
+**What is read:** the court's opening in the wall and the wall's gap east of the house, from the two
+photographs; that carriages reached the stable through the court, since its arches face it; the stone's value, from Taylor's winter print 16554, where the stable's wall prints 1.4-1.5 times the
+house's own wall in the same light (the house's walls are T-1881's `sandstone_fawn`, L-k01-1729-pullman-stone-tone-1881)
+and the palm house range prints in the same band as the stable (`docs/RESEARCH/colour-pullman-stable-T-1934/`).
+**What is chosen:** the drives' lines, widths, gravel and aprons: no picture shows the court's floor
+or the ground under the porte-cochère, and the second drive is read from the porte-cochère being
+there at all. The stone's hue: a grey level fixes value, not colour, so the draft's warm grey-tan is
+kept. That the gateway rule's 3.5 m is a carriage's turn in.
+**How to resolve:** a picture of the court or the porte-cochère from the ground, a site plan, or a
+written specification of the stable's stone.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/colour-pullman-stable-T-1934/README.md`; the photo-match side-by-sides of
+`pullman_house_1729_prairie`, `_ranges` and `_conservatory`.
+**Recorded:** 2026-10-30 (T-1934).
