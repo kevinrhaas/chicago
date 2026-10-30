@@ -36408,6 +36408,65 @@ gable's width, depth and the cornice's run under it.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).
 
+### L-miller-frame-ridge-stack-2381 — the Miller range's roof flue and upper windows
+
+**Covers:** `miller_house.log_frame_1827.form.frame_addition_ridge_stack`.
+
+**Decision:** Replace only the tall range's previous full-height exterior end stack with a short flue penetrating that range's own ridge. The numeric tuple is reconstructed: fraction 0.40 along the addition's x ridge, 0.45 m square shaft and 0.45 m head above ridge are first-fit choices, not measurements. The new stack renders R; the separate count/form inference and unchanged low log core's existing I stack retain their earlier inference. Chimney count, main and cabin massing, footprint, placement and roof dimensions remain unchanged. The pictured upper front count is now three rather than the generic pair: one middle upper light is added, while both outer upper lights and all lower windows/door retain their existing stations, bands and section. This count is inferred from the retrospective picture. The retained 0.72 m width, 1.05 m height and 0.22/0.50/0.78 stations are reconstructed proxies, not measured sash dimensions; existing opening-face confidence remains reconstructed.
+
+**Source and limits:** `blanchard_shober_1867_wolf_point`, Rufus Blanchard/Chas. Shober & Co., Chicago, 1867, labelled Wolf's Point in 1833; existing cleared NYPL/Commons surrogate. The inspected sheet shows a short roof head over the tall log-and-board range and three upper front lights above window-door-window. Roof penetration is inferred pictured form; the retrospective depiction does not establish exact dimensions or unchanged appearance on 1 July 1835. Other held pictures do not independently establish absence of the low core's inferred stack. No source date, rights status or authentic material/pigment is newly asserted.
+
+**Earlier diagnostic review (2026-10-29, before the adjacent-wing correction):** An independent opposite-quarter diagnostic corrected the old preview's wrong gable quarter. At that stage the remaining visitor-noticeable gap was concrete: the low log cabin's broad long front, doorway and small window are absent beside the tall range, because the equal-width tall range completely abuts that low wall. The cabin is still behind the range. The original T-2381 remained open for that composition at that stage; unknown metric dimensions, camera residuals and reconstructed numeric sections are not independent additional open defects. Eight held files include copies and variants, not eight independent witnesses. The low core's retained stack is not resolved by the governing print and its absence is not inferred. This revision supersedes the earlier generic unresolved camera/proportions list and the former tall-stack/two-upper-light differences, which this increment fixes.
+
+**Ticket:** T-2381.
+
+**Recorded:** 2026-10-27.
+
+
+
+**Revision (2026-10-29):** The three upper windows and their original metric rectangles are retained through the explicit front set-out in L-miller-adjacent-wing-2381. That entry now carries the live opening coverage; the earlier separate count field is removed from the record. The final adjacent-wing and lower-roof comparison now matches under the T-3153 stopping rule, superseding that earlier beside/behind discrepancy. The qualified eight-file dossier records actual drawing disagreements and unresolved hidden details; this image verdict does not attest the numeric proxies or unchanged July1835 form.
+
+### L-st-mary-front-sash-setout-2384 — The chapel's high front windows
+
+**Covers:** `st_marys_church.frame_1833.form.front_window_sill_m`.
+
+**Decision:** Choose a reconstructed front sill of 1.40 m instead of the generic house 0.95 m, raising the five pictured sash 0.45 m without changing their 0.7656 × 1.4322 m dimensions, bay stations or far door. The same-wall base/eave proportions in the undated Moss engraving put their heads close below the eaves and above the door head. At the retained 3.2 m wall, the new 2.8322 m head follows that visible relationship; it is not a calibrated historical dimension or proof of the 1835 state. The prior corner-reading sensitivity supports a bounded approximate translation, not surveyed precision.
+
+**Limits:** Front-only: rear windows, blank gables, footprint, placement, wall, roof, belfry and numeric camera stay unchanged. The finite nullable opt-in is limited to the existing chapel_side mode; all other frame buildings keep their old arithmetic. Publication 1884 is verified and the depicted year remains undated. The existing credited public-domain image and attribution are retained. Actual same-camera comparison and the original T-2384 stopping rule determine acceptance; this entry is not a matches verdict.
+
+**Source:** `andreas_1884_st_marys_engraving`, the credited Moss Engraving Co. illustration published by A. T. Andreas in 1884, with its depicted year undated.
+
+**Ticket:** T-2384.
+
+**Recorded:** 2026-10-27.
+
+
+### L-hogan-gable-courses-cap-2377 — pictured end courses and stack cap
+
+**Covers:** `hogan_store.log_1831.form.ridge_stack_cap_m`.
+
+**Decision:** Cameron's retrospective picture visibly has horizontal courses across the exposed gable and a projecting dark top on its short ridge stack. Those two depicted occurrences guide this reconstruction. The +X end assignment follows the existing diagnostic view; it is not a documented compass bearing. The 0.20 m course rhythm, 8 mm horizontal joints, 12 mm relief, neutral timber treatment and all unseen joinery are reconstructed first fits. The picture does not establish log versus board gable fabric. The cap projects 0.10 m from each shaft face and is 0.12 m thick, chosen as a first visible profile fit rather than a historic measurement; unseen depth and masonry/color remain reconstructed. Its top stays at the existing 0.75 m head height. No roof envelope, footprint, position, doorway/hatch, stack count or ridge station changes. A provisional drawing camera supplies neither independent metric scale nor a surveyed historic camera.
+
+**Source:** `cameron_c1900_first_post_office`, local held image caption crediting Edgar S. Cameron and the Chicago Historical Society; existing source rights/attribution and circa-1900/publication uncertainty remain unchanged. This does not attest survival or use on 1 July 1835.
+
+**Recorded:** 2026-10-29.
+
+**Ticket:** T-2377, the original image-match case. No new photo follow-up.
+
+### L-miller-adjacent-wing-2381 — the pictured lower wing and independent roof
+
+**Covers:** `miller_house.log_frame_1827.footprint`, `miller_house.log_frame_1827.form.front_set_out`, `miller_house.log_frame_1827.form.frame_addition_front_set_out`, `miller_house.log_frame_1827.form.roof_pitch_deg`, `miller_house.log_frame_1827.form.frame_addition_roof_pitch_deg`.
+
+**Decision:** Read the low cabin beside the tall range rather than wholly behind it. Pictured adjacent form and visible opening counts rest on the cleared1867 retrospective1833 lithograph. The15x6 m rectangle,6x6 m core,9x6 m range, low door/window stations and pitches are reconstructed. Declared area changes84→90m2; generated wall-plan area99→90m2. The local-origin countertranslation(-6,+5)m keeps the main wall box and six front apertures at their previous world locations. It does not preserve every main-roof endpoint: the existing END route trims0.26m at the buried joint and shifts the same fractional short-flue station0.156m. Those below-foot changes do not claim exact historic joinery.
+
+The core uses a reconstructed25-degree first fit because the clearer drawings consistently show less relative rise on that lower roof. The main addition retains38 degrees with a separate default-None control; its ridge-flue foot uses that same resolved pitch. Neither angle is measured from the picture. Unknown camera controls or an unresolved low chimney are not independent open differences. The genuine final25-degree-core/38-degree-main comparison matches the qualified depicted structure under the visitor stopping rule. The angles and numeric sections remain reconstructed; the image verdict does not upgrade their provenance.
+
+**Source and limits:** `blanchard_shober_1867_wolf_point`, existing cleared NYPL surrogate. Other held variants are comparative inspection, not independent measured witnesses or new rights grants. The later drawing is not proof of an unchanged July1835 condition, and fronting the river does not attest that one block stood physically ahead of the other. The low core's retained inferred stack is not visibly resolved well enough to establish absence.
+
+**Ticket:** T-2381.
+
+**Recorded:** 2026-10-29.
+
 ### L-kimball-1801-gable-cornice-1890 — 1801 Prairie's main cornice carried on under the wall gable's lights, from HABS photograph 1
 
 **Decision:** HABS photograph 1 (June 1965, `habs_kimball_photo_01_sw_1965`) carries the heavy main

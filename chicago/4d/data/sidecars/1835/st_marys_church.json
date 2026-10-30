@@ -178,6 +178,14 @@
       "confidence": "reconstructed",
       "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
     },
+    "front_window_sill_m": {
+      "value": 1.4,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_st_marys_engraving"
+      ],
+      "note": "T-2384: raise only the five pictured long-wall sash by 0.45 m from the former 0.95 m sill, retaining their glazing, dimensions, horizontal stations, far door, 3.2 m wall and existing footprint/roof. The same-facade base/eave proportions in the undated Moss engraving place the heads close under the eaves and the sills higher than the generic house setout. 1.40 m is a bounded reconstructed choice at the retained wall height, not a calibrated historical dimension or proof of its July 1835 state. Rear windows and blank gables remain unchanged. The fixed-camera native comparison must be reviewed before the original image ticket is signed off."
+    },
     "chimney_placement": {
       "value": "far_gable",
       "confidence": "reconstructed",
