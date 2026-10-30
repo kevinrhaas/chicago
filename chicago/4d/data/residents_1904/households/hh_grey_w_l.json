@@ -1,0 +1,225 @@
+{
+  "id": "hh_grey_w_l",
+  "scene": "1904",
+  "name": "The Grey household at 2010 Prairie Avenue",
+  "head": "pa1904_grey_w_l",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2010 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 2010 Mr. & Mrs. W. L. Grey & dr.."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_2010_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2010, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jessie Grey (one of two unmarried daughters in 1900; which one is the 1904 \"Miss Grey\" is not known, so both are named in that line's note); Walter Grey (a grown son the 1904 Blue Book does not list at the house); Florence Grey (one of two unmarried daughters in 1900; named in the note on \"Miss Grey\"). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_grey_w_l",
+      "name": "W. L. Grey",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "2010 Mr. & Mrs. W. L. Grey & dr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 9A, line 32, leaf n810",
+        "as_enumerated": "Grey, Wm. L.",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists Wm. L. Grey here as head, born January 1840, in Illinois, married, commission (company) (ED 40, sheet 9A, line 32, leaf n810)."
+    },
+    {
+      "id": "pa1904_grey_mrs_w_l",
+      "name": "Mrs. W. L. Grey",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "2010 Mr. & Mrs. W. L. Grey & dr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 9A, line 33, leaf n810",
+        "as_enumerated": "Grey, Sarah",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Sarah Grey here as wife, born February 1850, in Illinois, married (ED 40, sheet 9A, line 33, leaf n810)."
+    },
+    {
+      "id": "pa1904_grey_daughter",
+      "name": "Miss Grey",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "2010 Mr. & Mrs. W. L. Grey & dr.",
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Grey' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Jessie Grey (born May 1875, in Illinois, single; ED 40, sheet 9A, line 34, leaf n810); Florence Grey (born December 1880, in Illinois, single; ED 40, sheet 9A, line 36, leaf n810). Which of them the 1904 line stands for, the book does not say."
+    },
+    {
+      "id": "pa1904_grey_w_l_c1900_margaret_rourke",
+      "name": "Margaret Rourke",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1878",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives April 1878, age 22 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "waitress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Waitress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 9A, line 37, leaf n810",
+        "as_enumerated": "Rourke, Margaret",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born April 1878, in Ireland, came to the United States in 1894, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_grey_w_l_c1900_mary_falkner",
+      "name": "Mary Falkner",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1874",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1874, age 25 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 9A, line 38, leaf n810",
+        "as_enumerated": "Falkner, Mary",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born August 1874 (the figures are hard to read), in Ireland, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_grey_w_l_c1900_ophelia_clougher",
+      "name": "Ophelia Clougher",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1840",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1840, age 60 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "chambermaid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Chambermaid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 9A, line 39, leaf n810",
+        "as_enumerated": "Clougher, Ophelia",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (chambermaid); born March 1840, in England, came to the United States in 1880, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_grey_w_l_c1900_james_mason",
+      "name": "James Mason",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1868",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives July 1868, age 31 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "coachman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 9A, line 40, leaf n810",
+        "as_enumerated": "Mason, James",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born July 1868 (the figures are hard to read), in Ireland, married. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    }
+  ]
+}

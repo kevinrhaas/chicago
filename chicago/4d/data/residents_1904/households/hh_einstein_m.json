@@ -1,0 +1,118 @@
+{
+  "id": "hh_einstein_m",
+  "scene": "1904",
+  "name": "The Einstein household at 1628 Prairie Avenue",
+  "head": "pa1904_einstein_m",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1628 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1628 Mr. & Mrs. M. Einstein & dr.."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_1628_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1628, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. Left off: Benjamin Einstein (a grown son the 1904 Blue Book does not list at the house); Virginia Hoffman (a married daughter, the surname struck over on the sheet; the 1904 Blue Book does not list her); Anna B. Einstein (the one unmarried daughter in 1900, so very likely the Blue Book's \"& dr.\"; named in that line's note). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_einstein_m",
+      "name": "M. Einstein",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1628 Mr. & Mrs. M. Einstein & dr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 49, leaf n667",
+        "as_enumerated": "Einstein, Morris",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists Morris Einstein here as head, born July 1827, in Germany, came to the United States in 1843, married, capitalist (ED 36, sheet 2A, line 49, leaf n667)."
+    },
+    {
+      "id": "pa1904_einstein_mrs_m",
+      "name": "Mrs. M. Einstein",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1628 Mr. & Mrs. M. Einstein & dr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 50, leaf n667",
+        "as_enumerated": "Einstein, Julia",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Julia Einstein here as wife, born August 1831, in Germany, married (ED 36, sheet 2A, line 50, leaf n667)."
+    },
+    {
+      "id": "pa1904_einstein_daughter",
+      "name": "Miss Einstein",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1628 Mr. & Mrs. M. Einstein & dr.",
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Einstein' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Anna B. Einstein (born February 1868, in Illinois, single; ED 36, sheet 2B, line 53, leaf n668). She is very likely the one the book means, but the book does not say."
+    },
+    {
+      "id": "pa1904_einstein_m_c1900_katy_bergin",
+      "name": "Katy Bergin",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1874",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1874, age 25 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2B, line 54, leaf n668",
+        "as_enumerated": "Bergin, Katy",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant; born December 1874, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    }
+  ]
+}

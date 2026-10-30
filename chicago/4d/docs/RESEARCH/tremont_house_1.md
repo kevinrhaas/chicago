@@ -1,3 +1,15 @@
+# Tremont House I — current picture ruling, 2026-10-29
+
+The canonical model follows Gifford's visible **three storeys, open shutters and three-/five-bay corner elevations**, with **yellow** inferred from Gale1902p51. The retained15.24×9.14m footprint and7.8m wall height are reconstruction; the picture has no metric scale. Gale's retrospective20×30ft/two-storey description remains the separate **gale-reading** version. The older **gifford-reading** URL is preserved for compatibility. Neither source proves a dated enlargement, an exactJuly1835section or an original pigment.
+
+PR1337 merged the earlier two-storey default before its corrected source replacement was pushed. This follow-up restores the pictured default within originalT2385 and carries the existing finiteGreenTreeT2376sash/wagonbay corrections. Fresh currentnative, picture/app andcodegates remain required; no originalticket closes from this research note alone.
+
+Gifford credit: **N.Roswell Gifford; reproduced by Chicagology**, https://chicagology.com/prefire/prefire021/. The owner's attributed reference-use approval does not establish public-domain status, original publication/holding collection or a general redistribution licence. The diagnostic camera supplies no historical observer position.
+
+## Earlier dated investigation and amendments, retained
+
+The text below records earlier proposals and their subsequent correction. Its dated descriptions are historical, not a second current default.
+
 # Tremont House I — evidence correction, T-2385
 
 **Current ruling, 2026-10-26:** the default July 1835 model follows Edwin O. Gale's
@@ -186,3 +198,30 @@ change current-capacity reporting, not who lives in the house. No geometry,
 crowding rule, new ratio, dated availability or population allocation is changed.
 The earlier fullFAIL remains preserved; final downstream/gate results are
 reported separately when actually closed.
+
+
+## T-2385: retain the pictured hotel; keep Gale as textual alternative (2026-10-26)
+
+The proposed two-storey primary replacement is withdrawn before landing: the owner asked to match the actual Gifford picture, which shows three full storeys and shutters. Gale1902p51 is text, so this is not a two-picture tolerance case. The existing three-storey/shuttered canonical form,15.24x9.14m rectangle,7.8m wall height and exact N4637304.38 placement are retained. Only compatible yellow colour is added as inferred; the stock pigment/trim shades remain liberties. The old unsupported claim that no dimension was known is superseded by the explicit Gale disagreement.
+
+The smaller9.144x6.096m,5.45m/two-storey Gale reading remains as the optional native `gale-reading` version, with its explicit stock-kit shutter omission and smaller flag anchor. It is not a dated earlier building or proof of an enlargement. The prior source proposal removed duplicate `gifford-reading` files after retaining public1290 evidence; this current follow-up instead preserves that existing URL for compatibility. No promotion tool or new API is used.
+
+Source adoption is not a geometry or acceptance pass. Next is exactly one selected structure bake covering canonical+Gale, with22other frame-tavern assets/rows and unrelated versions protected, then fresh canonical photo and actual both-viewport app review. The prior immutable1290 matrix, still running independently, certifies only the old frozen1290 world. New WIP is not covered by any eventual old pass. Native/global derivation, all44 binary audit and whole preflight remain owed after resource handoff; originalT2385 remains OPEN. Corrected Tremont is independent after Wolf, outside Carpenter/GT's critical path.
+
+
+### T-2385: pictured canonical pair exported and freshly compared (2026-10-26)
+
+The pinned production builder exported exactly the retained three-storey yellow canonical plus the optional smaller Gale version, followed by their canonical WEB derivatives. All22 other frame-tavern assets/rows, unrelated versions and all other asset files remain exact. Independent material-named triangle decoding proves that the canonical's5,552 geometric triangles are exactly the existing pictured three-storey form; the optional Gale geometry exactly preserves the prior3,400-triangle two-storey proposal. The canonical recipe is a3a68fd5ce5684517f12b99dc6874c9de2107f0a6e185f4103ed7d96f4f1365c; Gale remains717398e00f8c2d31353e07b3afbae89cd2679969283210b5572ef6f1f35ba70f.
+
+The fresh actual canonical Gifford side-by-side was directly reviewed. Three full storeys,3/5bays, shutters, raised entries/name arch, four stacks and roof spar are present. No independently established over0.3m shutter/entry pose gap was found. Monochrome pigment and isolated-render street/dynamic-cloth omissions are not invented structural OPEN gaps. The reference verdict remains unreviewed only until the integrated new canonical app is checked in both viewports; the old positive three-storey-version flag evidence is retained as baseline, not relabelled a new app pass. Current global native/preflight and original ticket completion remain owed.
+
+The old immutable1290 full18 matrix passed only its old frozen two-storey world at19:01:33UTC; it certifies none of this corrected candidate. Its public proof remains preserved separately.
+
+
+## Finite canonical Gifford sign-off — 2026-10-26
+
+The fresh yellow canonical master and actual whole Gifford comparison were directly reviewed. The retained pictured three-storey, three-/five-bay shuttered form, raised entries/name arch, four stacks, roof and spar have no independently established remaining visitor-noticeable architectural difference. Fine pose/camera residuals are within T-3153 tolerance; monochrome pigment, isolated street context and absolute metre scale are not shown. The canonical `gifford.match.json` is now `matches`, with nothing open. Gale's smaller two-storey account remains an explicitly contrary textual interpretation in `gale-reading`; it is not a second picture or a dated enlargement sequence.
+
+Fresh actual published reviews at 390×780 and 1280×800 loaded both native versions, verified the exact selected WEB responses and visible flags at their native staff anchors, Normal/ByGrade, grounded wall feet, source/picture credits, version badges, disclosed liberties and live flight/intent/HUD/button/altitude/budget behavior, with zero page/network errors. An initial external review rejected the inherited boot-time `api.flying` snapshot; inspection proved `Object.assign` copied that getter into a false data value while every actual live flight state was true. The raw refusal is retained; the corrected external review additionally proved that descriptor and retained every actual flight assertion without changing production code or properties.
+
+This is the original picture review's finite sign-off, not a new follow-up ticket. Source rights remain the owner's attributed project-use clearance. The previous 18-job proof of the withdrawn two-storey 1290 proposal remains historical; current full preflight, committed ending, applicable published checks and PR #1337's DEV merge are still owed at this source checkpoint.

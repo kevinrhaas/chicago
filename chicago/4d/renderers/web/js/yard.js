@@ -3252,11 +3252,17 @@ export async function createYardGoods({
     return null;
   };
   /** Emit into one chunk, banking the triangle range under `id` if there is one. */
-  const emit = (chunk, id, draw) => {
+  const emit = (chunk, id, draw, objectId = null, objectKind = null) => {
     const from = chunk.buf.pos.length / 9;
     const drew = draw(chunk.buf);
     if (!drew) return false;
-    if (id) chunk.spans.push({ id, from, to: chunk.buf.pos.length / 9 });
+    if (id) {
+      const span = { id, from, to: chunk.buf.pos.length / 9 };
+      // Ownership of the existing pick range, not another geometry or pick target.
+      // Nearby covered wagons must not absorb a bench or shed in measurements.
+      if (objectId) Object.assign(span, { objectId, objectKind });
+      chunk.spans.push(span);
+    }
     return true;
   };
 
@@ -3358,7 +3364,7 @@ export async function createYardGoods({
       // belongs to nobody this record can name.
       if (!emit(chunkAt(at[0], at[1], replacementIds.has(wagon.id) ? wagon.id : null), wagon.belongs_to,
         (b) => build(b, wagon, form, terrain, LEVEL[wagon.confidence] ?? level,
-          problems))) continue;
+          problems), wagon.under_shed ? wagon.id : null, 'wagon')) continue;
       out.wagons.push(wagon);
       out.census.wagons += 1;
       out.census.byKind[wagon.kind ?? 'farm_box'] =
@@ -3372,7 +3378,7 @@ export async function createYardGoods({
       // belongs to that inn, so aiming at it opens the inn's card.
       if (!emit(chunkAt(at[0], at[1]), bench.belongs_to,
         (b) => buildItem(b, bench, form, terrain, LEVEL[bench.confidence] ?? level,
-          problems, bench.belongs_to ?? bench.id))) continue;
+          problems, bench.belongs_to ?? bench.id), bench.id, 'bench')) continue;
       out.benches.push(bench);
       out.census.benches += 1;
       out.census.objects += 1;
@@ -3384,7 +3390,7 @@ export async function createYardGoods({
       // yard end belongs to that inn, so aiming at it opens the inn's card.
       if (!emit(chunkAt(at[0], at[1]), shed.belongs_to,
         (b) => buildShed(b, shed, form, terrain, LEVEL[shed.confidence] ?? level,
-          problems))) continue;
+          problems), shed.id, 'shed')) continue;
       out.sheds.push(shed);
       out.census.sheds += 1;
       out.census.objects += 1;

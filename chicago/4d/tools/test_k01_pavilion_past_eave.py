@@ -14,6 +14,12 @@ up as walls to about 13.9 m, and its wings slated like the main roof. So:
     windows' recesses run through it, its gable's parapet closes its top, and the mansard's
     eave box, covering foot and gutter stop at its cheeks, nothing of them in front of its
     face nor in its recesses behind the plane;
+  * T-1890: a light on a chamfer's canted face sees into its recess past nothing of the
+    house's, the main roof cut away inside the cant as deep as the recess reaches;
+  * T-1890: a canted face stopped under its cornice (`chamfer.top_m`) carries no bay stone over
+    it, the mansard's slate over the cant from there;
+  * T-1890: one the main cornice is carried across (`cornice_across`, 1801's wall gable) keeps
+    the eave box and K10's course running on in front of its face, only the covering cut;
   * a projection that stops at the eave (1812's) gains nothing;
   * a wing slated in the main roof's own slate keeps its own material, so the publish
     path's dedup cannot merge `wing_slate` into `mansard_slate` and lose its name.
@@ -82,8 +88,12 @@ def closed_back(a, plane, back, span, y0, y1):
         if min(q[1] for q in tri) < y0 - 1e-6:
             continue
         (s0, h0), (s1, h1), (s2, h2) = [(q[other], q[1]) for q in tri]
-        top = max(top, max(q[1] for q in tri))
-        clip = min(q[1] for q in tri) < y1 - 1e-6 and span[0] - 1e-3 <= min(s0, s1, s2) and max(s0, s1, s2) <= span[1] + 1e-3
+        within = span[0] - 1e-3 <= min(s0, s1, s2) and max(s0, s1, s2) <= span[1] + 1e-3
+        # T-1890: its own top, not another bay's on the same plane (1801's south bay, beside
+        # the wall gable on the south wall, carries its slate up past the gable's wall top)
+        if within:
+            top = max(top, max(q[1] for q in tri))
+        clip = min(q[1] for q in tri) < y1 - 1e-6 and within
         if clip:
             area += abs((s1 - s0) * (h2 - h0) - (s2 - s0) * (h1 - h0)) / 2
     return area, top
@@ -106,7 +116,13 @@ def main() -> int:
     a = K1.build(p, SID)
     D, W = p.depth_m, p.width_m
     walls = {"k01.wall.street_front": ((0, D - 0.001), (-1.0, 0.0, 0.0), lambda s: (-s, 0.0)),
-             "k01.wall.side.south": ((2, -0.001), (0.0, 0.0, -1.0), lambda s: (s, 0.0))}
+             "k01.wall.side.south": ((2, -0.001), (0.0, 0.0, -1.0), lambda s: (s, 0.0)),
+             # T-1890: the side wall at v = W (1801's south wall, its rear corner's wall gable)
+             "k01.wall.side.north": ((2, -W + 0.001), (0.0, 0.0, 1.0), lambda s: (D - s, 0.0))}
+    # T-1890: a roof point (x, y, -v) as (out of its wall's plane, along it), for each wall
+    frames = {"k01.wall.street_front": lambda q: (q[0] - D, -q[2]),
+              "k01.wall.side.south": lambda q: (q[2], q[0]),
+              "k01.wall.side.north": lambda q: (-q[2] - W, D - q[0])}
     for b in p.bays:
         # T-3001: a pavilion on a rear wing's wall stands past no main eave; test_k01_wing_tower
         # holds it to its wing
@@ -148,15 +164,26 @@ def main() -> int:
             sb = next(x for x in a.shallow_bays() if x[0]["id"] == b["id"])
             _, _, _, proud, behind = sb
             pts, _ = a.roof_shell
-            inside = lambda q: s0 + 0.01 < -q[2] < s1 - 0.01
-            check(not any(inside(q) and q[0] > D + proud + 1e-3 for q in pts),
-                  f"{b['id']}: no eave box or covering in front of its {proud} m face")
+            ns = frames[b["wall"]]
+            inside = lambda q: s0 + 0.01 < ns(q)[1] < s1 - 0.01
+            if b.get("cornice_across"):
+                # T-1890: the main cornice carried across its face (1801's wall gable, HABS
+                # photograph 1): the eave box runs on in front of it, the covering over it is cut,
+                # and K10's course runs on along the wall rather than dying into it
+                check(not any(inside(q) and ns(q)[0] > proud + 1e-3 and q[1] > p.eave_m + 1e-3 for q in pts)
+                      and any(inside(q) and ns(q)[0] > proud + 0.1 and q[1] < p.eave_m - 0.1 for q in pts),
+                      f"{b['id']}: the eave box runs on across its {proud} m face, no covering over it")
+                check(b["id"] not in a.wall_head["dies_into"],
+                      f"{b['id']}: the main cornice runs on across it, not dying into it")
+            else:
+                check(not any(inside(q) and ns(q)[0] > proud + 1e-3 for q in pts),
+                      f"{b['id']}: no eave box or covering in front of its {proud} m face")
             sills = [h for h in holes if h[2] > p.eave_m]
-            check(sills and not any(inside(q) and q[0] > D - behind + 1e-3 and min(h[2] for h in sills) - 0.01 < q[1]
+            check(sills and not any(inside(q) and ns(q)[0] > -behind + 1e-3 and min(h[2] for h in sills) - 0.01 < q[1]
                                     < max(h[3] for h in sills) + 0.01 for q in pts),
                   f"{b['id']}: nor in its recesses' {behind:.2f} m behind the plane")
             gut = [q for name, pr in a.prims.items() if name.startswith("k04_") for q in pr.pos
-                   if inside(q) and abs(q[1] - p.eave_m) < 0.5 and q[0] > D]
+                   if inside(q) and abs(q[1] - p.eave_m) < 0.5 and ns(q)[0] > 0.0]
             check(not gut, f"{b['id']}: and no gutter across it ({len(gut)} vertices)")
 
     # 1812's projection stops at its eave: nothing is added behind it
@@ -200,6 +227,120 @@ def main() -> int:
             and side(q[0], -q[2]) * out > 0 and abs(side(q[0], -q[2])) / Lc > 0.005
             and not in_bay(q[0], -q[2])]
     check(not left, f"no masonry of the house stands outside the canted face under the soffit ({len(left)} vertices)")
+
+    # T-1890: HABS photograph 1's small light on the canted face over the round bay stands
+    # behind the wall's face, where the main roof runs: the roof is cut away inside the cant
+    # as deep as its recess reaches (T-3108's try showed its slate through the opening)
+    lights = a.cant_lights(bs)
+    check(len(lights) == 1 and lights[0][0] > p.eave_m,
+          f"1801's pavilion carries one light on its canted face, over the eave ({lights})")
+    pts = bs["variant"]["plan"]["points"]
+    lens = [math.hypot(q[0] - r[0], q[1] - r[1]) for r, q in zip(pts, pts[1:])]
+    total = math.fsum(lens)
+    on_cant = [f * total - (total - lens[-1]) for st in bs["variant"]["storeys"]
+               for w in st.get("windows") or () for f in w.get("at") or () if f * total > total - lens[-1]]
+    nu, nv = (sn - sb_) / Lc, -(un - ub) / Lc   # out of the canted face
+    if nu < 0.0:
+        nu, nv = -nu, -nv
+    deep = 0.5   # inside the K08 recess (0.55 m) the light's own reveal and glass stand
+    WINDOW_PRIMS = ("sash", "glass", "blind", "curtain", "backing")   # the light's own K06 kit
+
+    def hits(o, d, L):
+        for name, pr in a.prims.items():
+            if name.startswith("bay_") or name in WINDOW_PRIMS:
+                continue
+            for k in range(0, len(pr.idx), 3):
+                p0, p1, p2 = (pr.pos[i] for i in pr.idx[k:k + 3])
+                e1 = [p1[j] - p0[j] for j in range(3)]
+                e2 = [p2[j] - p0[j] for j in range(3)]
+                h = [d[1] * e2[2] - d[2] * e2[1], d[2] * e2[0] - d[0] * e2[2], d[0] * e2[1] - d[1] * e2[0]]
+                det = sum(e1[j] * h[j] for j in range(3))
+                if abs(det) < 1e-12:
+                    continue
+                s_ = [o[j] - p0[j] for j in range(3)]
+                u_ = sum(s_[j] * h[j] for j in range(3)) / det
+                q = [s_[1] * e1[2] - s_[2] * e1[1], s_[2] * e1[0] - s_[0] * e1[2], s_[0] * e1[1] - s_[1] * e1[0]]
+                v_ = sum(d[j] * q[j] for j in range(3)) / det
+                tt = sum(e2[j] * q[j] for j in range(3)) / det
+                if u_ >= 0.0 and v_ >= 0.0 and u_ + v_ <= 1.0 and 0.0 < tt < L:
+                    return name
+        return None
+    # across the opening, from just outside the face: T-3108's try met the chamfer cut's closing
+    # face in the cant's own plane there, over most of the light
+    for t_, (lo, hi, _) in zip(on_cant, lights):
+        seen = []
+        for dt in (-0.2, 0.0, 0.2):
+            cu, cv = un + (ub - un) * (t_ + dt) / Lc, sn + (sb_ - sn) * (t_ + dt) / Lc
+            for y in (lo + 0.15, (lo + hi) / 2, hi - 0.15):
+                hit = hits((cu + 0.05 * nu, y, -(cv + 0.05 * nv)), (-nu, 0.0, nv), deep + 0.05)
+                if hit:
+                    seen.append(f"{hit} at {dt:+.1f} m, {y:.2f} m")
+        check(not seen, f"the cant's light ({lo:.2f}-{hi:.2f} m) sees {deep} m into its recess past nothing "
+                        f"of the house's" + (f" ({'; '.join(seen)})" if seen else ""))
+
+    # ...and only over the eave: under it the house's own walls stand behind the cant
+    st_, ph_ = load(SID)
+    e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
+    lw = e_["storeys"][2]["windows"].pop()
+    e_["storeys"][1]["windows"].append(dict(lw, sill_m=0.6, clear_height_m=1.4))
+    try:
+        K1.build(KP.from_phase(ph_, st_), SID)
+        check(False, "a light on the canted face under the eave: refused")
+    except ValueError as err:
+        check("under the eave" in str(err), f"a light on the canted face under the eave: refused ({str(err)[:80]}...)")
+
+    # T-1890: HABS photograph 1 stops the canted face at a cornice just over that light, the
+    # house's slate over it from there: no bay stone stands on the cant's face over its top, and
+    # the mansard's own slate covers the cant above it, where the build had carried the wall to
+    # the gable's shoulder in front of it (shown to bite with the top taken off)
+    ct = a.chamfer_top(bs)
+    check(ct is not None and lights[0][1] + 0.4 <= ct < sum(float(x["height_m"]) for x in bs["variant"]["storeys"]),
+          f"1801's canted face stops at {ct} m, over its light's head ({lights[0][1]:.2f} m) and under its wall top")
+
+    def over_cant(asm, top):
+        """(bay stone vertices on the cant's face over `top`, whether slate covers the cant over it)."""
+        stone = []
+        for name, pr in asm.prims.items():
+            if not name.startswith("bay_"):
+                continue
+            for q in pr.pos:
+                t_ = ((q[0] - un) * (ub - un) + (-q[2] - sn) * (sb_ - sn)) / Lc
+                if 0.2 < t_ < Lc - 0.2 and abs(side(q[0], -q[2])) / Lc < 0.01 and q[1] > top + 0.01:
+                    stone.append(q)
+        mu, mv = (un + ub) / 2 - 0.3 * nu, (sn + sb_) / 2 - 0.3 * nv   # 0.3 m behind the cant's middle
+        pr = asm.prims["mansard_slate"]
+        slate = False
+        for k in range(0, len(pr.idx), 3):
+            p0, p1, p2 = (pr.pos[i] for i in pr.idx[k:k + 3])
+            x0, z0 = p1[0] - p0[0], p1[2] - p0[2]
+            x1, z1 = p2[0] - p0[0], p2[2] - p0[2]
+            det = x0 * z1 - x1 * z0
+            if abs(det) < 1e-12:
+                continue
+            wx, wz = mu - p0[0], -mv - p0[2]
+            b1, b2 = (wx * z1 - x1 * wz) / det, (x0 * wz - wx * z0) / det
+            if b1 >= 0.0 and b2 >= 0.0 and b1 + b2 <= 1.0 and p0[1] + b1 * (p1[1] - p0[1]) + b2 * (p2[1] - p0[1]) > top:
+                slate = True
+                break
+        return stone, slate
+    stone, slate = over_cant(a, ct)
+    check(not stone and slate, f"over {ct} m the cant carries no bay stone ({len(stone)} vertices) and the "
+                               f"mansard's slate covers it ({slate})")
+    st_, ph_ = load(SID)
+    e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
+    e_["plan"]["chamfer"].pop("top_m")
+    stone, _ = over_cant(K1.build(KP.from_phase(ph_, st_), SID), ct)
+    check(bool(stone), f"without its top the cant's wall stands over {ct} m in front of that slate "
+                       f"({len(stone)} vertices): the check bites")
+    for bad, says in ((lights[0][1] + 0.2, "over its lights' heads"), (13.0, "under its wall top")):
+        st_, ph_ = load(SID)
+        e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
+        e_["plan"]["chamfer"]["top_m"] = round(bad, 3)
+        try:
+            K1.build(KP.from_phase(ph_, st_), SID)
+            check(False, f"a canted face stopped at {bad:.2f} m: refused")
+        except ValueError as err:
+            check(says in str(err), f"a canted face stopped at {bad:.2f} m: refused ({str(err)[:80]}...)")
 
     def chamfer_refused(change, why, says):
         st, phase = load(SID)

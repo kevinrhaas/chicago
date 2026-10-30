@@ -1,0 +1,28 @@
+{
+  "structure_id": "edson_keith_house_1906_prairie",
+  "source_id": "chicago_tribune_1898_01_09_residence_district",
+  "library_image": "cgs-tribune-1898-01-09-death-strip",
+  "photo": "../../sources/assets/keith_1906_pictures_t1898/tribune_1898_1906_panel.jpg",
+  "image_px": [
+    252,
+    307
+  ],
+  "principal_px": [
+    126,
+    217.2
+  ],
+  "focal_px": 252.8,
+  "pixel_aspect": 0.618,
+  "eye": [
+    36.08,
+    8.21,
+    1.6
+  ],
+  "yaw_deg": 270.0,
+  "sun_uvy": [
+    1.0,
+    -0.3,
+    0.9
+  ],
+  "solve": "Fitted by T-3239 (piece 2 of T-1898) to the 1906 panel of the Tribune strip of 9 January 1898 (the strip's pixels x 290-542, y 47-354, its frame lines included, cropped unscaled into tribune_1898_1906_panel.jpg). A freehand pen sketch, not a true perspective, so this camera is approximate and says how far. Its storey lines and cornice are level and its verticals vertical, so the camera is level and square to the front (heading 270, due west in the footprint frame); the principal point's x is the panel's centre. Least squares over eleven readings with the eye held 1.6 m over grade: in plan, the door's axis (x 130 px, v 9.2), the north window column's axis (x 190, v 13.9) and the south tower's axis on its front face (x 59, v 3.0, 2.6 m proud); in height, that column's chamber keystone top (y 58, 11.19 m), principal keystone top (y 133, 6.69 m), principal sill (y 187, 2.64 m) and chamber sill (y 104, 7.64 m), the wall head over the door (y 24, 12.14 m), the terrace's top at its edge (y 210, 2.34 m, 2.2 m out) and the stoop's foot on the walk (y 268, about 6.1 m out). It gives the eye 14.3 m before the front (4.7 m beyond the street line, on the roadway, as 1620's panel of the same strip is) on v 8.2 m, a vertical focal length of 252.8 px, and the horizon at y 217 px. Residual 6.7 px RMS, the largest 12 px (the chamber keystone, drawn lower than the model's heights put it, and the principal sill, drawn higher: the sketch's principal storey is about 20% shorter than the engraving-fitted record's, as 1620's is). PIXEL ASPECT 0.618 IS THE DRAUGHTSMAN'S, NOT A RESAMPLING: the sketch draws the front about 1.6 times taller than it is wide against the 1911 sheet's 16.5 m front and the heights the engraving's camera fixed, and held to 1.0 the fit runs the eye 200 m out (an elevation) and still leaves 16 px RMS, 30 px at the tower. So widths are read from this panel only as proportions of the front (the tower about 5.5 m across against the door-to-window spacing, the portico about 4.7 m), and heights only as which storey a thing stands in, never as metres."
+}

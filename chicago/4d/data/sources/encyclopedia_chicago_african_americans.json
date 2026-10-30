@@ -1,0 +1,24 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "encyclopedia_chicago_african_americans",
+  "type": "website",
+  "citation": "'African Americans', The Electronic Encyclopedia of Chicago (Chicago Historical Society, Newberry Library and Northwestern University, 2005), entry 27.",
+  "author": "The Electronic Encyclopedia of Chicago",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1780-2000",
+  "url": "https://encyclopedia.chicagohistory.org/pages/27.html",
+  "locator": "The entry's opening paragraph.",
+  "rights_note": "Modern encyclopedia text, cited in words only.",
+  "access_notes": "Read 2026-10-30 (T-3252) through a fetch that returned the opening in short quoted fragments.",
+  "note": "Fragments read: 'Beginning with John Baptiste Point DuSable's trading activities in the 1780s, blacks have had a long history in Chicago.' 'Fugitive slaves and freedmen established the city's first black community in the 1840s,' 'with the population nearing 1,000 by 1860.' The opening names no Black resident, trade or house in the 1830s.",
+  "what_it_supplies": [
+    "the dating of Chicago's first Black community to the 1840s, by fugitive slaves and freedmen",
+    "a Black population nearing 1,000 by 1860"
+  ],
+  "what_it_does_not_supply": [
+    "any named Black resident, business or house in Chicago before 1840"
+  ]
+}

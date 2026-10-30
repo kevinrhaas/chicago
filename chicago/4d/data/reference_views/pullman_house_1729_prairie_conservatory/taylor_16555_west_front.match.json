@@ -2,8 +2,8 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
-  "camera_sha256": "d3d76dbbff22c2b16908df9297525e07aaeceb6a984adc477c2922cf0ca86250",
+  "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978",
+  "camera_sha256": "5900f5ed1e51c04bb5271483786beb3b193afee05bbb422f6883656fef5a1f9f",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
     {
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
+      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "1a49c70d2d980a2467aca9d7c8d3096f8cc77dc836be18394fd4f0d21fa6716c"
+      "glb_sha256": "38fc7c48ffa44991d2edcdd420e652685d1a2d6433fc3dc3aa39e80229aa2e16"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,10 +61,71 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
+      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
     }
   ],
-  "group_sha256": "7e7ec462829a05362f7d7b3e80a4f0d35c0bf1e4cb899988370ebfd574a12db3",
+  "group_sha256": "8d31681f79bd126361ae1fd008f8331c60ff73e77bd9b077c3277778b7179693",
+  "rendered_flora": {
+    "season": "summer",
+    "lots": [
+      {
+        "parcel": "prairie_1729",
+        "shrubs": 13,
+        "trees": 3,
+        "beds": 0,
+        "creeper": 7
+      }
+    ],
+    "street_trees": 26,
+    "street_trees_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1467.58,
+    "local_n": -3167.464,
+    "rotation_deg": -0.815,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_standing_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "6ef1a3bc53e2107f72dfa4179d65cc39af0a5d0bfcf27c196f503d4a079dd3f5"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "cdba1657b79088654ea4e920bb6691f97532ac336e331adfc90cee0c3becf183"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+    }
+  ],
+  "flora_sha256": "84c20c1c40087d78f54c0d5b7079a74f720b6479fcedf62bbd0216fe4aeee8c0",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -109,7 +170,7 @@
       "how": "T-3153: drawn as solid parapets, octagonal shafts and a plain wall; heights, places and outlines agree within about 0.3 m, so the difference is in relief and openwork under the bar"
     },
     {
-      "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled",
+      "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled [T-1934, 2026-10-30: the wing, its rustication and pilasters and the stable are now one stone, read from the winter print 16554, where the two print alike; this print's darker wing is left to the trees' shade. Still open here, since this print alone cannot tell stone from shade.]",
       "status": "open",
       "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print)"
     },
@@ -164,8 +225,8 @@
     },
     {
       "what": "in the foreground, the lot's 18th Street line east of the side wall's end (u 35 in the house's frame): square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb; none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
-      "status": "open",
-      "how": "T-3205: looked at again with the house's walks rebaked; the 18th Street side is not this record's building nor the house's way in (the Prairie front's is), and T-3160 left the run of posts unbuilt because the print does not resolve them. Not built; recorded as the lot's remaining gap (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+      "status": "fixed",
+      "how": "the 18th Street wall built (T-1934): on the lot line from the house's east end to the stable's east wall, through the plate's camera rays from five pier bases put it, the 0.9 m wall with its chamfered coping, square piers 1.7-1.8 m high, the opening onto the terrace's west flight, the low wall falling steeply from the third pier and curving up again to the fourth, the opening onto the east flight, and the wall on low along the stable's front (pullman_house_1729_prairie form.boundary); its lamps, the planting and the trees are judged in their own lines below"
     },
     {
       "what": "the glazing between the columns reads dark, the palm house's shaded inside behind it, where the build showed the wing's pale stone through the glass (T-1934)",
@@ -176,12 +237,38 @@
       "status": "fixed"
     },
     {
-      "what": "the terrace's approach: two flights rising from the walk between low curved cheek walls and square piers (x 210-830 px), where the build has one flight from grade to the terrace",
+      "what": "the terrace's approach: two flights rising from the walk between low curved cheek walls and square piers (x 210-830 px), where the build has one flight from grade to the terrace Through T-1934's re-solved camera: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [The pixel positions above were read through the camera before T-1934's second re-solve; through the new one the build's piers either side of the flight render at x 265-300 and 350-380, where the print's stand at x 280-303 and 355-375, and the print's two flights and cheek walls are still one flight in the build.] [T-1934, 2026-10-30: the wall now opens 3.35 m at the court's mouth (the build's 0.95 m opening is gone), and a gravel drive (reconstructed) runs through it up the court to the stable's central arch; in the side-by-side the opening falls about where the print's curving way into the court does, judged by eye, not measured. Still open: the piers' places either side of it and the print's curving cheek walls (L-pullman-carriage-ways-1934).] [T-1934, 2026-10-30, the print read at six times: its 'two flights' are two different stairs. The WEST one (x 224-281) rises five risers from the walk (y 686) to a landing (y 662) and on up to about y 620; through this camera its top stands about 2.0-2.2 m over grade, and it climbs to the house's raised porch on 18th Street, whose balustrade (x 110-225, its foot at y 612) triangulates with the 1894 plate's raised balustrade at u -9.8 to -6.2, v about -22, 2.3 m (see the plate's record): it is the house's, not the terrace's, and it is open on the house. The wide flight behind the curved wall (treads y 637-657, a broad tread at y 660-667 over the wall's top at y 667, x 332-423 to the elm) is the terrace's own flight from grade: the build's renders from y 671 to its top at y 638, within 3 px of the print's top, and the print's west end of it is hidden behind the clipped shrub at x 305-335. So nothing of the terrace's flight is open here. Still open in this item: the house porch's stair and the piers' places either side of the court's mouth with the print's curving cheek walls.]",
       "status": "open"
     },
     {
-      "what": "the planting: the four parkway and yard trees across the front, the clipped shrubs and potted palms on and before the terrace, none of them built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
+      "what": "the parkway trees across the front: the street-tree layer stood a tree 4.1 m before the eye, filling the print's left edge, and none where the print's stand. Through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px, T-1934 read each trunk the print shows onto 18th Street's parkways (data/street_trees/pictured_1904.json) and planted them there: they render at x 79, 618, 824, 860 and 1085 where the print's stand at x 97, 621, 834, 873 (on the near parkway) and 1086",
+      "status": "fixed"
+    },
+    {
+      "what": "two of the print's trees the build does not stand as it shows them: its tree at x 298 (56.3 m along the north parkway) is not planted, and its DEAD trunk in a guard at x 453 (60.0 m) is a living tree 1.2 m west (renders at x 400). The 1894 Inland plate, the later picture, sees both places and shows one full-crowned tree at 58.8 m and none at 56.3 m; ten years on a dead street tree is not standing. Two pictures disagree, and the build is the plate's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. T-1934, 2026-10-30: a palm in its tub now stands on the terrace before the drum (the print's x 393-443 px, its fronds' top at y 587; its crown renders about 0.25 m under the print's), with the slim column against the drum's west side (x 325-342) and the cone before the wing's arched door (x 500-523), each placed where this camera's pixel columns cross the 1894 plate's; the print reads the column about 0.6 m and the cone about 1.2 m taller than the plate does (two pictures: within tolerance). Still open: the shrubs the build stands before the terrace, where the print shows its flights open from the walk, cross the palm's tub and the cone's foot from this camera.]",
       "status": "open"
+    },
+    {
+      "what": "through this camera the new 18th Street wall renders about twice as near and as wide as the print shows it: the camera's eye stands 9.9 m from the lot line (v -37.9), but the print's road and its far parkway put the wall about 20 m off, and the gate piers at the print's right and left edge stand on 18th Street's SOUTH side, not on this lot's line as the T-3193 solve took them. The plate's camera, fitted on this wall's own pier bases, puts the build within 30 px; so this camera wants re-solving with the wall's piers in its fit before the wall can be judged from it",
+      "status": "fixed",
+      "how": "T-1934 re-solved this camera with the wall in its fit (the wall's foot at five places on the lot line and its second pier west of the drum): the eye about 21 m south of the lot line, across 18th Street, at focal 976 px. The wall's foot now renders within 12 px of the print's from x 507 to 1100, its pier tops within 7 px and the pier at x 280-303 on the print's; what the wall then shows is judged in the lines on the terrace's approach and the court's way"
+    },
+    {
+      "what": "the wing's length: through the camera before this one the print's wing read about 1 m longer than the build. Through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px, the wing's two ends render within 4 px (about 0.2 m) of the print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the terrace's tub plants (T-1934, 2026-10-29): the 1894 plate sets a ball clipped on its tub just east of its flight, where this print has the urn on the pier and slim cones; tubs were carried in each winter and set out again, so the two summers' arrangements are not one building's difference. Built to the plate",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
+      "status": "fixed",
+      "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

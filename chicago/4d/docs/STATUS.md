@@ -25314,6 +25314,19 @@ far-walk census retains exact111510 derived top triangles. Fresh final-head
 renderer validation is still required; originalT-2385 remains OPEN/DIF.
 
 
+## T2385/T2376 current corrective source, 2026-10-29
+
+Restores Gifford's three-storey shuttered first Tremont as the canonical model, with Gale's yellow finish and the smaller two-storey account available separately. Adds the credited diagnostic Gifford card. Green Tree keeps the pictured seventh lower sash and places its existing open wagon bay/covered wagon beside the front gable; its substantial enclosed annex remains OPEN/DIFFERS. Current native/picture/app/full preflight and code merge remain pending; no earlier two-storey pass certifies this correction.
+
+
+## T2385/T2376 completed picture and app checks, 2026-10-29
+
+The first Tremont canonical picture and image gate pass. Actual published phone and desktop reviews passed for canonical/Gale versions, flags, ground, the attributed full Gifford viewer and its reference-copy/source links. Green Tree's seventh lower sash and front-end wagon bay/covered wagon passed both viewport body, yard, ground and source checks. The enclosed-annex picture discrepancy remains OPEN on T-2376. All person identities, assignments and facts survive the necessary native lodging-capacity refresh; only explanatory notes and model metadata change. Dated c093 phone:392.0/400 MiB PASS. Incoming2d2f is integrated by a real pending merge; final current defaults/metadata/phone/preflight and code merge remain pending at this checkpoint.
+
+
+Actual current integration qualification, 2026-10-29: incoming 2d2f native K01/K13 defaults and metadata checks pass; all 44 current binary data artifacts retain exact incoming bytes. The new current 1904 phone reading is 394.8 MiB against the unchanged 400 MiB ceiling. Earlier actual both-viewport target app reviews retain their dated c093 inputs, with exact model, camera, source and renderer-consumer bindings carried into this integration. Final code preflight and merge remain the next step at this dated source checkpoint.
+
+
 ### T-2793 — source-guided farm-box master in preparation (2026-10-26)
 
 A separately versioned wagon master now adapts the recovered licensed Old Cart geometry/UVs/maps instead of rebuilding a weaker flat surface. It has explicit metric/articulation controls, separately circular front/rear wheels, a neutralised front axle and reconstructed single pole with a real central bearing. The original source and Lyskilde/longtail CC BY4.0 credit remain intact. Native matched appearance, turn/contact clearances, portable LODs and current phone/world qualification are pending. Existing80 static wagons and the three fine-wood placement identities/selections are preserved; this does not close T-2793 or infer traffic, teams, drivers or riding.
@@ -25459,3 +25472,9 @@ absent until fresh publication, never an inherited publishedPASS.
 ### Quiet standing head/neck idle — local integration, 30 October 2026
 
 T-2803/T-3088 remain open. The selected quiet15 runtime has fresh canonical source controls, static proof, actual native physical129/runtime-master parity, separate paired925 posed socket129 and recorded finite qualification. All129 samples meet original14mm BODY/7mm contact/zero new crossings. The exact helper also passed a real GLTFLoader/clone/Mixer CPU mechanical test, with154056 vertex comparisons and zero reference vertex/bone delta; six texture dependencies were explicitly omitted from that mechanical test, so it grants no bitmap/material/visual acceptance. Local code selects the new quiet head/neck clip and preserves the complete previous bd443 runtime/idle metadata. Desktop/phone unheld near/mid yard views, actual pointer card/video review, whole-app gates, current CI, feature delivery/DEV merge and photographic acceptance remain pending. Tail gestures, gait, riders/drivers and town traffic are not enabled.
+
+
+T-2793 memory follow-up candidate (2026-10-29): railway upload release now also marks desktop static geometry, preserving profiles, materials, reaches and analytic picking. Public baseline 9e14c1388 passed current 1904 native memory caps; its desktop 1,184,409,779-byte estimate exceeded the historical 1125 MiB goal by 4,761,779 bytes. Candidate savings, current-source memory, rendered railway lifecycle/picking/context recovery, full preflight and all applicable published smoke remain unverified. No threshold changes or T-3173 completion; T-2793 photographic/world acceptance remains open.
+
+
+T-2793 / T-3173 context-recovery correction (2026-10-29): the desktop railway upload-release candidate measured 1,156,132,447 bytes (1102.57 MiB), inside the original 1125 MiB goal, with the phone at 411,883,801 bytes (392.80 MiB), inside 400 MiB. Its native lifecycle nevertheless failed during graphics-context restoration. A separate actual default-Full desktop diagnostic reproduced a main-loop draw of a released null attribute between context restoration and ordinary reload (403.829 s NONPASS; the restored world and pick worked, but its pageerror was not waived). The main frame loop now stops on context loss and resumes only if retained upload resources permit recovery without a reload; the existing once-per-session reload cap and repeated-loss notice remain. This correction has not yet passed its fresh native context run, full preflight, mobile/far lifecycle or all applicable published smoke. Prior memory measurements and the earlier partial lifecycle do not qualify this changed source; photographic/world acceptance and T-3173 completion remain open.

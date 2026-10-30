@@ -199,9 +199,9 @@
     },
     {
       "id": "hibbard_house_1701_prairie",
-      "name": "1701 Prairie Avenue — Italianate mansion with rear addition (district draft; refined by T-1875, T-1876)",
+      "name": "1701 Prairie Avenue — the William G. Hibbard house, Italianate, with its 1874 rear range (K01; refined by T-3240, T-3241, T-3242, T-1876)",
       "sidecar": "sidecars/1904/hibbard_house_1701_prairie.json",
-      "asset": "gltf/hibbard_house_1701_prairie__draft_1904.glb"
+      "asset": "gltf/hibbard_house_1701_prairie__as_mapped_1904.glb"
     },
     {
       "id": "hibbard_house_1701_prairie_coach_house",
@@ -1387,9 +1387,9 @@
     },
     {
       "id": "marshall_field_house_1905_prairie",
-      "name": "1905 Prairie Avenue — Field Sr. Second Empire (district draft; refined by T-1904, T-1905)",
+      "name": "1905 Prairie Avenue — the Marshall Field house (Second Empire)",
       "sidecar": "sidecars/1904/marshall_field_house_1905_prairie.json",
-      "asset": "gltf/marshall_field_house_1905_prairie__draft_1904.glb"
+      "asset": "gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb"
     },
     {
       "id": "marshall_field_house_1905_prairie_coach_house",

@@ -1,0 +1,98 @@
+{
+  "id": "hh_smith_byron_l",
+  "scene": "1904",
+  "name": "The Smith household at 2140 Prairie Avenue",
+  "head": "pa1904_smith_byron_l",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2140 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 2140 Mr. & Mrs. Byron L. Smith; Walter B., Harold C. and Bruce D. Smith."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "tucker_smith_house_2140_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2140, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 the line at this number names Byron L. Smith \"at N. Trust Co.\" with the family \"in Lake Forest\", and no household. The census says nothing about this household's staff. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_smith_byron_l",
+      "name": "Byron L. Smith",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2140 Mr. & Mrs. Byron L. Smith"
+    },
+    {
+      "id": "pa1904_smith_mrs_byron_l",
+      "name": "Mrs. Byron L. Smith",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2140 Mr. & Mrs. Byron L. Smith"
+    },
+    {
+      "id": "pa1904_smith_walter_b",
+      "name": "Walter B. Smith",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2140 Walter B. Smith",
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+    },
+    {
+      "id": "pa1904_smith_harold_c",
+      "name": "Harold C. Smith",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2140 Harold C. Smith",
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+    },
+    {
+      "id": "pa1904_smith_bruce_d",
+      "name": "Bruce D. Smith",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2140 Bruce D. Smith",
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+    }
+  ]
+}

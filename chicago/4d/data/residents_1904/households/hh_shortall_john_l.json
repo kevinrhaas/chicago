@@ -1,0 +1,244 @@
+{
+  "id": "hh_shortall_john_l",
+  "scene": "1904",
+  "name": "The Shortall household at 1604 Prairie Avenue",
+  "head": "pa1904_shortall_john_l",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1604 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903); the 1905 edition (canvass begun September 1904) prints 1604 Rev. & Mrs. Wm. Otis Waters. The household left within that year, and whether it was still in the house on 1 July 1904 is not documented."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_1604_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1604. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The two live-in staff and four children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_shortall_john_l",
+      "name": "John L. Shortall",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1604 Mr. & Mrs. John L. Shortall",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 9, leaf n669",
+        "as_enumerated": "Shortall, John L",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists John L. Shortall here as head, born May 1865, in Illinois, married, lawyer (ED 36, sheet 3A, line 9, leaf n669)."
+    },
+    {
+      "id": "pa1904_shortall_mrs_john_l",
+      "name": "Mrs. John L. Shortall",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "printed_as": "1604 Mr. & Mrs. John L. Shortall",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 10, leaf n669",
+        "as_enumerated": "Shortall, Mary C",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Mary C. Shortall here as wife, born February 1867, in Massachusetts, married (ED 36, sheet 3A, line 10, leaf n669)."
+    },
+    {
+      "id": "pa1904_shortall_john_l_c1900_catherine_shortall",
+      "name": "Catherine Shortall",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1890",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives July 1890, age 9 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 11, leaf n669",
+        "as_enumerated": "Shortall, Catherine",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born July 1890, in South Dakota. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_shortall_john_l_c1900_helen_shortall",
+      "name": "Helen Shortall",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1892",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1892, age 8 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 12, leaf n669",
+        "as_enumerated": "Shortall, Helen",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born March 1892, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_shortall_john_l_c1900_harrington_shortall",
+      "name": "Harrington Shortall",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1895",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives February 1895, age 5 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 13, leaf n669",
+        "as_enumerated": "Shortall, Harrington",
+        "relation_as_enumerated": "Son"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born February 1895, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_shortall_john_l_c1900_margaret_shortall",
+      "name": "Margaret Shortall",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1896",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1896, age 3 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 14, leaf n669",
+        "as_enumerated": "Shortall, Margaret",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born December 1896, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_shortall_john_l_c1900_ellen_downey",
+      "name": "Ellen Downey",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1872",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives February 1872, age 28 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "nurse",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Nurse\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 15, leaf n669",
+        "as_enumerated": "Downey, Ellen",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse); born February 1872, in Connecticut, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_shortall_john_l_c1900_harriet_hamilton",
+      "name": "Harriet Hamilton",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1874",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives April 1874, age 26 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "housemaid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Housemaid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 16, leaf n669",
+        "as_enumerated": "Hamilton, Harriet",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (housemaid); born April 1874, in Canada (Eng.), single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    }
+  ]
+}

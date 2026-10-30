@@ -5967,6 +5967,16 @@ with the original case OPEN. Native scene/tail/app/fixed-point/finalgates are st
 pending. The old three-storey version retains exact incoming model bytes; see STATUS.
 
 
+## Original T2385/T2376 continuation, 2026-10-29
+
+Corrective PR after1337: restore pictured three-storey Tremont, keep Gale-reading optional and preserve Gifford-reading compatibility. One grouped current native/app/preflight; onlyT2385 can close after actualmatches and merged code. T2376's enclosed-annex picture gap remains on its original ticket; no photo follow-up ticket.
+
+
+## Original image-case ending, 2026-10-29
+
+T-2385 has genuine current picture acceptance and actual both-viewport app/viewer review; finish only after the qualified corrective code PR merges. T-2376 ships the bounded sash/wagon-bay corrections while its substantial enclosed annex remains on the original discrepancy register. No new photo follow-up is filed.
+
+
 ### T-2793 licensed farm-box master continuation — 2026-10-26
 
 Concrete separate source now preserves the licensed Old Cart's weathered boards, shaped hubs, iron fittings and UV/maps while reconstructing W01 metre scale, independent wheel radii, neutral steering, single-pole attachment and portable interfaces. Finish on actual matched native images, full turn/ground/contact checks, meaningful near/mid/far deliveries and measured current published desktop/mobile qualification. Preserve the original80 wagons and three fine-wood placements until new exact-source acceptance; no photographic or occupied/traffic closure from the development model.
@@ -6073,3 +6083,9 @@ towntraffic program remains open. No failedfield or oldcertificate is retargeted
 #### T-2803/T-3088 quiet standing head/neck continuation, 30 October 2026
 
 Fresh exact quiet15 finite129 static/native/runtime-master/paired925 posed qualification and certified-helper CPU mechanics passed. Local source integration retains the original yard placement/support and preserves prior bd443 metadata/assets. Finish real unheld desktop and phone near/mid observation, actual card interaction and video/image review, then whole-app gates and normal checked feature/DEV delivery. Photographic master, tail flick, gaits, riding, driving and town population remain open; this quiet standing motion does not complete those goals.
+
+
+T-2793 desktop memory follow-up (2026-10-29): qualify the existing railway upload-release path at desktop detail without removing geometry or changing caps. Compare the same native 1904 meter against public 9e14c1388, then verify real rail picks, near/far rebuilds, confidence/season/detail changes and ordinary context recovery. Savings and the historical T-3173 memory goal remain unverified; T-3173 stays OPEN. Complete current-source canonical/preflight and every mapped published smoke before release.
+
+
+T-2793 / T-3173 context-recovery correction (2026-10-29): the desktop railway upload-release candidate measured 1,156,132,447 bytes (1102.57 MiB), inside the original 1125 MiB goal, with the phone at 411,883,801 bytes (392.80 MiB), inside 400 MiB. Its native lifecycle nevertheless failed during graphics-context restoration. A separate actual default-Full desktop diagnostic reproduced a main-loop draw of a released null attribute between context restoration and ordinary reload (403.829 s NONPASS; the restored world and pick worked, but its pageerror was not waived). The main frame loop now stops on context loss and resumes only if retained upload resources permit recovery without a reload; the existing once-per-session reload cap and repeated-loss notice remain. This correction has not yet passed its fresh native context run, full preflight, mobile/far lifecycle or all applicable published smoke. Prior memory measurements and the earlier partial lifecycle do not qualify this changed source; photographic/world acceptance and T-3173 completion remain open.

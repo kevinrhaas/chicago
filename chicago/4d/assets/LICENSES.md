@@ -731,9 +731,9 @@ textures/prairie_1904_brick/tools/generate_prairie_1904_brick.py
 
 ### The Prairie Avenue 1904 stone library (K02) — `textures/prairie_1904_stone/`
 
-T-2288, piece 1 of T-1844. Six procedural stone fabrics for the 1904 programme's walls, trim and
-foundations (rock-faced granite, brown sandstone, Lemont and Bedford limestone, dressed trim,
-foundation rubble), built by the generator that ships inside it
+T-2288, piece 1 of T-1844. Seven procedural stone fabrics for the 1904 programme's walls, trim and
+foundations (rock-faced granite, brown sandstone, light fawn sandstone (T-1881), Lemont and Bedford
+limestone, dressed trim, foundation rubble), built by the generator that ships inside it
 (`tools/generate_prairie_1904_stone.py`, deterministic, seeded per fabric). Which building wears
 which stone is its structure record's to say; the look of every map is reconstructed
 (`docs/LIBERTIES.md` L-k02-stone-library-2288).
@@ -799,6 +799,14 @@ textures/prairie_1904_stone/sandstone_brown/sandstone_brown_normal_gl.png
 textures/prairie_1904_stone/sandstone_brown/sandstone_brown_normal_gl_web.jpg
 textures/prairie_1904_stone/sandstone_brown/sandstone_brown_orm.png
 textures/prairie_1904_stone/sandstone_brown/sandstone_brown_orm_web.jpg
+textures/prairie_1904_stone/sandstone_fawn/material.json
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_basecolor.png
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_basecolor_web.jpg
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_height16.png
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_normal_gl.png
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_normal_gl_web.jpg
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_orm.png
+textures/prairie_1904_stone/sandstone_fawn/sandstone_fawn_orm_web.jpg
 textures/prairie_1904_stone/tools/generate_prairie_1904_stone.py
 ```
 
@@ -1118,9 +1126,15 @@ textures/trees/leaf_atlas.ktx2
 textures/trees/bark_basecolor.ktx2
 textures/trees/bark_normal.ktx2
 
-These are painted entirely from code (the .ktx2 files are GPU-compressed copies of the same maps) by `tools/generate_tree_atlas.py` (seeded noise, cell patterns and drawn leaf
-outlines). No photograph or third-party image is sampled. They are project-authored under the
-repository licence, and the generator reproduces them. They show what a species' leaf and bark
+These are painted from code (the .ktx2 files are GPU-compressed copies of the same maps) by `tools/generate_tree_atlas.py` (seeded noise, cell patterns and drawn leaf
+outlines), and the generator reproduces them. One photograph is sampled: since T-3247 the elm
+tiles' blades take their surface (lightness only) from Steven J. Baskauf, *Ulmus americana
+(Ulmaceae) - leaf - whole upper surface*, 2 June 2002, [Bioimages, Vanderbilt University
+image 11688](https://bioimages.vanderbilt.edu/baskauf/11688.htm), **CC BY 4.0**
+(https://creativecommons.org/licenses/by/4.0/); source record `bioimages_ulmus_americana_11688`,
+the photograph at `data/sources/assets/bioimages_ulmus_americana_11688/`. The leaf atlas is an
+adaptation of it and carries that attribution; everything else in these files is
+project-authored under the repository licence. They show what a species' leaf and bark
 generally look like; they are not evidence about any tree that stood (docs/LIBERTIES.md
 L-tree-architecture-2743).
 

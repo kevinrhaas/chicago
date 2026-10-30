@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "df1f1f6f6f9ece3590a5fbc5d02ca0d4a78a3617dcb01308da8c3cdbda47c756",
+  "glb_sha256": "8e9ac5d79eb27d70acaef4583445b0236e9c417adc8b21d79216dc09a6169925",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -39,7 +39,13 @@
     },
     {
       "what": "the light behind the corner balcony: a small window on the canted face over the round bay (x 640-680, y 445-500); the build's chamfer face is blank there (T-3108 tried K08's sash on the cant and its recess rendered occluded, so it was taken out)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1890: p_south's third storey carries a two-over-two sash on the canted face (at 0.72 of its runs, 0.65 by 1.45 m on a 9.4 m sill): it renders about 40 by 70 px standing on the round's balustrade, against the print's 40 by 70, about 0.3 m further from the pavilion's corner pilaster than the print's. T-3108's sash had been hidden by the chamfer cut's closing face, which lay in the cant's own plane over the opening; K01 now cuts the main roof away inside a lit cant as deep as the recess reaches, up to the light's head (L-kimball-1801-cant-light-1890)"
+    },
+    {
+      "what": "the canted face's top over that light: the print stops the cant's wall at a cornice just over the light's head (about y 430-445 px), with the mansard's slate over it from there; the build carries the cant's wall on up to the pavilion's gable shoulder at 13.6 m, a tall blank face beside the gable (seen by T-1890)",
+      "status": "fixed",
+      "how": "T-1890: the cant's wall now stops at 11.65 m under a cornice course (K08 chamfer top_m), 0.8 m over the light's opening, and the house's mansard is no longer cut over the cant from there, so its slate comes down onto the cornice with the hip meeting it at the cant's middle; the front's end is carried on up as a stone cheek beside it. The cornice renders at about y 427 px against the print's y 405-420 over the light. The print's cornice falls about 40 px toward the cant's far end where the build's is level (the hip line against a level course, about 0.6 m across 1.3 m of cant): within tolerance"
     },
     {
       "what": "the gable's height: through the re-solved camera the finial's top renders about 69 px over the print's (y 83 against 152), about 1.2 m, while the Taylor print holds it within 10 px (y 230 against 220); the two pictures disagree about the gable's height against the pavilion's rows, and the build keeps the period print's",
@@ -62,8 +68,12 @@
       "status": "fixed"
     },
     {
-      "what": "the roof's south-east corner: a tall slender pinnacle or gablet (x 1200-1245 px, y 380-600) where the south slope meets the rear; the build has none (T-3109)",
-      "status": "open"
+      "what": "the roof's south-east corner (T-3109): what the print shows there (x 1186-1247 px, y 478-700) is a WALL GABLE, not a pinnacle: a steep coped stone gable rising from the main cornice at the south wall's rear corner, behind the rear stack (its west rake comes out from behind the stack's shaft at about y 540), its apex about 4.4 m over the cornice, its east cheek carried down the corner as a plain pier, no finial and no kneeler pinnacle, and a pair of small dark lights on a mullion at its foot just over the cornice (x 1200-1237, y 598-645). Built (T-1890, bays.p_se_gable): a shallow pavilion 2.3 m wide, 0.1 m proud, flush with the rear corner, carried up past the mansard's eave to a 10.1 m wall top under a coped gable of pitch 2.85 (apex about 13.0 m) with the mullioned pair (1.6 x 0.75 m, sill 9.1 m); against the stack's cap, which both read, its apex renders within about 1 px of the print's, its east foot within 2 px of the print's distance from the apex (26 px against 28) and its lights within about 3 px of the print's rows",
+      "status": "fixed"
+    },
+    {
+      "what": "the main cornice under the wall gable's lights: the print carries it on under the pair to the corner (y 617-663, to x 1238); the build stops the mansard's eave box square at the gable's west cheek (k01_frontage.shallow_bay_cutters, as at the front's south pavilion), so the cornice is missing across the gable's 2.3 m, under its lights (T-1890). Built (T-1890): the gable carries `cornice_across`, so K10's moulded course and the mansard's eave box run on in front of its face under the pair to the corner, the course capped there, only the slate over the box cut away and the gutter stopped at the gable's west cheek; re-rendered, the cornice runs under the lights to the corner as the print's does, its top at about y 617 under the pair",
+      "status": "fixed"
     },
     {
       "what": "the recessed range behind the south-east corner: set back from the wall, tall glazed openings under a carved head at about the cornice (x 1225-1300 px, y 610-770); the build's rear wings stand there plain (T-3109). The 1911 sheet steps the wall back to about v 9.8 east of u 6.87 (the bay's east end), where the build's rectangle holds v 11.0 to the corner",
@@ -116,6 +126,10 @@
       "what": "the coping and walk T-3206 lays for 1904",
       "status": "not shown",
       "how": "the 1965 photograph shows the house after the lawn's coping was gone; the 1904 boundary is read off the Taylor print"
+    },
+    {
+      "what": "the cant's far end: right of the light the print carries the cant's wall to a sloped edge where the side slope's slate comes down to the main cornice (about x 735-745 px, y 445-510); the build stands a block of stone there to the cornice, the closing face K01 lays in the south wall's plane over the cut behind the cant (about x 705-745 px, y 425-550), with no slate in front of it (seen by T-1890)",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

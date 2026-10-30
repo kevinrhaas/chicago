@@ -71,8 +71,12 @@ ROLE_MATERIAL = {
     "bench": "staging", "plant": "foliage", "floor": "floor",
     "wall": "house_wall", "ground": "ground",
     "host_band": "house_wall",
+    # T-1934: the wing's own dressed face (its rustication, pilasters and cornice) is the wall's
+    # stone, which the record's `host_wall.color` sets; the drum's dress stays the kit's `stone`
+    "host_stone": "house_wall",
     "stonework": "stone", "dome": "glass_substitute", "dome_rib": "frame", "opening": "dark",
     "sky_glass": "glass_sky", "sash": "sash", "interior": "interior_shade",
+    "stone_field": "stone_rough",
 }
 BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
@@ -106,6 +110,9 @@ def materials(data: dict) -> dict:
         "sash": {"color": (0.20, 0.19, 0.16), "roughness": 0.7},
         # T-3164: a conservatory's planted depth seen through its glass, in shade but not a void
         "interior_shade": {"color": (0.10, 0.12, 0.09), "roughness": 1.0},
+        # T-3164: the rusticated field of the Pullman conservatory's podium, which Lowe's print
+        # reads a tone darker than the dressed piers and courses framing it; the tone is reconstructed
+        "stone_rough": {"color": (0.56, 0.53, 0.46), "roughness": 0.95},
     }
 
 
@@ -1540,7 +1547,9 @@ def _wall_dress(h: House, host: dict, x0: float, x1: float):
     """T-1934: the wing's south face as the Inland plate and Taylor's 16555 show it: banded
     rustication (courses standing a few centimetres proud of the wall, so each joint reads as a
     line of the wall's own darker tone), broad pilasters with caps, and a moulded cornice under
-    the parapet. Courses stop at the palm house, at each opening and behind each pilaster."""
+    the parapet. Courses stop at the palm house, at each opening and behind each pilaster. All of it
+    is the wall's own stone (`host_stone`): in the winter print the face prints as dark as the
+    wall, and only the drum's columns print lighter."""
     H = host["height_m"]
     ru, pi_, co = host.get("rustication"), host.get("pilasters"), host.get("cornice")
     if ru:
@@ -1564,22 +1573,22 @@ def _wall_dress(h: House, host: dict, x0: float, x1: float):
                 runs.append((cur, x1))
             for a, b in runs:
                 if b - a > 0.1:
-                    h.face("stonework", [(a, ya, d), (b, ya, d), (b, yb, d), (a, yb, d)], (0, 0, 1))
-                    h.face("stonework", [(a, yb, 0.0), (b, yb, 0.0), (b, yb, d), (a, yb, d)], Y)
-                    h.face("stonework", [(a, ya, d), (b, ya, d), (b, ya, 0.0), (a, ya, 0.0)], (0, -1, 0))
+                    h.face("host_stone", [(a, ya, d), (b, ya, d), (b, yb, d), (a, yb, d)], (0, 0, 1))
+                    h.face("host_stone", [(a, yb, 0.0), (b, yb, 0.0), (b, yb, d), (a, yb, d)], Y)
+                    h.face("host_stone", [(a, ya, d), (b, ya, d), (b, ya, 0.0), (a, ya, 0.0)], (0, -1, 0))
             y += ru["course_m"]
     if pi_:
         w, out, y0 = pi_["width_m"], pi_["out_m"], pi_.get("from_m", 0.0)
         y1 = H - (co["height_m"] if co else 0.0)
         for c in pi_["at_m"]:
-            _prism(h, "stonework", [(c - w / 2, -0.02), (c + w / 2, -0.02), (c + w / 2, out), (c - w / 2, out)],
+            _prism(h, "host_stone", [(c - w / 2, -0.02), (c + w / 2, -0.02), (c + w / 2, out), (c - w / 2, out)],
                    y0, y1 - pi_["cap_m"], top=False)
-            _prism(h, "stonework", [(c - w / 2 - 0.06, -0.02), (c + w / 2 + 0.06, -0.02), (c + w / 2 + 0.06, out + 0.06),
+            _prism(h, "host_stone", [(c - w / 2 - 0.06, -0.02), (c + w / 2 + 0.06, -0.02), (c + w / 2 + 0.06, out + 0.06),
                                     (c - w / 2 - 0.06, out + 0.06)], y1 - pi_["cap_m"], y1, top=False, bottom=True)
     if co:    # stopped either side of the drum, whose own cornice carries it round
         g = co["clear_of_drum_m"]
         for a, b in ((x0, -g), (g, x1)):
-            _prism(h, "stonework", [(a, -0.025), (b, -0.025), (b, co["out_m"]), (a, co["out_m"])],
+            _prism(h, "host_stone", [(a, -0.025), (b, -0.025), (b, co["out_m"]), (a, co["out_m"])],
                    H - co["height_m"], H + 0.02, bottom=True)
 
 
@@ -1755,10 +1764,28 @@ def _dome(h: House, d: dict, cx: float, cz: float, y0: float, role: str = "dome"
                                 (cx + o1 * c + ux * w / 2, yb, cz + o1 * s_ + uz * w / 2),
                                 (cx + o1 * c - ux * w / 2, yb, cz + o1 * s_ - uz * w / 2)], (c, 0.5, s_))
     top = y0 + d["rise_m"]
+    if d.get("finial_profile"):
+        _turned(h, "dome_rib", cx, cz, top, d["finial_profile"])
+        return top + d["finial_profile"][-1][1]
     if d.get("finial_m"):
         _prism(h, "dome_rib", [(cx + 0.08 * math.cos(math.tau * k / 6), cz + 0.08 * math.sin(math.tau * k / 6))
                                for k in range(6)], top - 0.05, top + d["finial_m"])
     return top + d.get("finial_m", 0.0)
+
+
+def _turned(h: House, role, cx: float, cz: float, y0: float, profile, sides: int = 8):
+    """T-3164: a turned ornament on (cx, y0, cz): the profile's [radius, height over y0] pairs,
+    foot to tip, lathed in `sides` flat faces and capped at the tip, as the Pullman dome's
+    finial stands in its pictures (a flared foot, a bulb, a neck, a knob and a spike)."""
+    ring = lambda r, y: [(cx + r * math.cos(math.tau * (k + 0.5) / sides), y, cz + r * math.sin(math.tau * (k + 0.5) / sides))
+                         for k in range(sides)]
+    rings = [ring(r, y0 + dy) for r, dy in profile]
+    for (ra, dya), (rb, dyb), a, b in zip(profile, profile[1:], rings, rings[1:]):
+        for k in range(sides):
+            t = math.tau * (k + 1) / sides
+            q = [a[k], a[(k + 1) % sides], b[(k + 1) % sides], b[k]]
+            h.face(role, q, (math.cos(t) * (dyb - dya), ra - rb, math.sin(t) * (dyb - dya)))
+    h.face(role, rings[-1], Y)
 
 
 def masonry_walls(h: House, ms: dict):
@@ -1881,7 +1908,9 @@ def rotunda(h: House, rs: dict):
     """T-3179: the round east end of the Pullman range as the Inland plate shows it: a column at
     every joint of the span_apse's half-ring and `straight_columns` more along each side of its
     straight part, on a stone podium, the glass between them, an entablature round the whole at
-    the range's coping, and a low ribbed dome over the curve's centre."""
+    the range's coping, and a low ribbed dome over the curve's centre. With the entablature's
+    `from_m`, its underside (and so the columns' heads) stands there rather than just under the
+    eave (T-3164: both pictures put it level with the range's course over the window heads)."""
     v = h.v
     L, W, n, he = v["length_m"], v["width_m"], v["facets"], v["eave_m"]
     R = W / 2
@@ -1890,13 +1919,14 @@ def rotunda(h: House, rs: dict):
     _prism(h, "stonework", ring(ro) + [(0.02, R + ro), (0.02, R - ro)], 0.0, rs["podium_m"])
     col = rs["column_radius_m"]
     k_s = rs.get("straight_columns", 0)
+    e = rs["entablature"]
+    e0 = e.get("from_m", he - 0.15)
     feet = ring(R + col) + [(L * i / (k_s + 1), z) for i in range(1, k_s + 1) for z in (-col, W + col)]
     for x, z in feet:
         _prism(h, "stonework", [(x + col * math.cos(math.tau * k / 8), z + col * math.sin(math.tau * k / 8))
-                                for k in range(8)], rs["podium_m"], he - 0.15, top=False)
-    e = rs["entablature"]
+                                for k in range(8)], rs["podium_m"], e0, top=False)
     eo = R + e["out_m"]
-    _prism(h, "stonework", ring(eo) + [(0.02, R + eo), (0.02, R - eo)], he - 0.15, he + e["height_m"], bottom=True)
+    _prism(h, "stonework", ring(eo) + [(0.02, R + eo), (0.02, R - eo)], e0, he + e["height_m"], bottom=True)
     return _dome(h, rs["dome"], L, R, he + e["height_m"], "sky_glass")
 
 
@@ -2057,6 +2087,9 @@ def pavilion(h: House, ps: dict):
         h.face("stonework", [(so, ya, za), (so, yb, zb), (so, yc, zc_), (so, yd, zd)], (-1.0, 0.0, 0.0))
     for z0, z1 in ((zc - r - sw, zc - r), (zc + r, zc + r + sw)):
         h.face("stonework", [(so, 0.0, z0), (so, 0.0, z1), (so, ht - r, z1), (so, ht - r, z0)], (-1.0, 0.0, 0.0))
+    if ps.get("podium_dress"):
+        _podium_dress(h, ps["podium_dress"], L, W, xa, xb, reach, po, pod,
+                      {"north": [(zc - r - sw + po, zc + r + sw + po)]})
     # the north end's broad arched frame round the glass, and the bar up its middle (the plate's)
     fw, fo = ps.get("arch_frame_m", 0.0), -0.05
     if fw:
@@ -2094,12 +2127,265 @@ def pavilion(h: House, ps: dict):
         # of the arch, with the roof's light over it
         i = ps.get("interior_inset_m", 0.3)
         _prism(h, "interior", [(i, i), (L - i, i), (L - i, W - i), (i, W - i)], pod, ps["interior_dark_m"])
-    # the drum and dome over the crossing
+    # the drum and dome over the crossing, or (T-3164) where the record's `centre_m` stands them
+    # along the nave: both pictures put the Pullman dome north of the transept's middle
     dr = ps["drum"]
-    _prism(h, "sky_glass", [(xc + dr["radius_m"] * math.cos(math.tau * (k + 0.5) / dr["sides"]),
+    xd = dr.get("centre_m", xc)
+    _prism(h, "sky_glass", [(xd + dr["radius_m"] * math.cos(math.tau * (k + 0.5) / dr["sides"]),
                         W / 2 + dr["radius_m"] * math.sin(math.tau * (k + 0.5) / dr["sides"])) for k in range(dr["sides"])],
            dr["base_m"], dr["top_m"])
-    h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xc, W / 2, dr["top_m"], "sky_glass"), 3)}
+    h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xd, W / 2, dr["top_m"], "sky_glass"), 3)}
+    if ps.get("gate"):
+        gate(h, ps["gate"])
+
+
+def _podium_dress(h: House, pd: dict, L, W, xa, xb, reach, po, pod, cuts: dict):
+    """T-3164: the pavilion's stone podium as Lowe's print and the 1894 Inland plate show it:
+    a projecting base course and a moulded cap course under the glass band, a broad pier at each
+    outer corner standing proud of the wall, and between the piers a field of banded rustication
+    (courses standing a few centimetres proud, so each joint reads as a line), the field sunk
+    behind the piers' faces, so each run reads as a panel. Only the runs the record names are
+    dressed; `cuts` are spans along a run (from its start) where an opening breaks it."""
+    ze, zw = -reach - po, W + reach + po
+    runs = {  # start (x, z), direction along, outward normal, length, piers at (start, end)
+        "north": ((-po, -po), (0.0, 1.0), (-1.0, 0.0), W + 2 * po, (True, True)),
+        "east_north": ((-po, -po), (1.0, 0.0), (0.0, -1.0), xa, (True, False)),
+        "east_arm_north": ((xa - po, -po), (0.0, -1.0), (-1.0, 0.0), reach, (False, True)),
+        "east_arm_end": ((xa - po, ze), (1.0, 0.0), (0.0, -1.0), xb - xa + 2 * po, (True, True)),
+        "east_arm_south": ((xb + po, ze), (0.0, 1.0), (1.0, 0.0), reach, (True, False)),
+        "east_south": ((xb + po, -po), (1.0, 0.0), (0.0, -1.0), L - xb, (False, True)),
+        "west_north": ((-po, W + po), (1.0, 0.0), (0.0, 1.0), xa, (True, False)),
+        "west_arm_north": ((xa - po, W + po), (0.0, 1.0), (-1.0, 0.0), reach, (False, True)),
+        "west_arm_end": ((xa - po, zw), (1.0, 0.0), (0.0, 1.0), xb - xa + 2 * po, (True, True)),
+        "west_arm_south": ((xb + po, zw), (0.0, -1.0), (1.0, 0.0), reach, (True, False)),
+        "west_south": ((xb + po, W + po), (1.0, 0.0), (0.0, 1.0), L - xb, (False, True)),
+    }
+    # each convex corner is one run's: it carries its slabs round the corner, and the run it
+    # meets (when that run is dressed too) stops them flush at the corner, so no two faces share
+    # a plane there; `yields` names the ends that stop, and the run each one meets
+    yields = {"east_north": ("north", None), "west_north": ("north", None),
+              "east_arm_north": (None, "east_arm_end"), "east_arm_south": ("east_arm_end", None),
+              "west_arm_north": (None, "west_arm_end"), "west_arm_south": ("west_arm_end", None)}
+    bc, cc, pi_, ru = pd["base"], pd["cap"], pd["piers"], pd.get("rustication")
+    y_b, y_c = bc["height_m"], pod - cc["height_m"]
+
+    def spans(a, b, cut):
+        """[a, b] less every cut span."""
+        out, cur = [], a
+        for c0, c1 in sorted(cut):
+            if c1 > cur and c0 < b:
+                if c0 > cur:
+                    out.append((cur, c0))
+                cur = max(cur, c1)
+        if cur < b:
+            out.append((cur, b))
+        return [(p, q) for p, q in out if q - p > 0.05]
+
+    n_piers = n_courses = 0
+    for name in pd["runs"]:
+        (ox, oz), (tx, tz), (nx, nz), S, (p0, p1) = runs[name]
+        P = lambda s, y, off: (ox + tx * s + nx * off, y, oz + tz * s + nz * off)
+        n = (nx, 0.0, nz)
+        cut = cuts.get(name, [])
+
+        def block(s0, s1, y0, y1, out, top=True, bottom=True, ends=(True, True), role="stonework"):
+            """A slab on the run from s0 to s1, y0 to y1, standing `out` proud of the wall; a face
+            nobody can see (on the ground, under a cap, against a wall) is left out."""
+            h.face(role, [P(s0, y0, out), P(s1, y0, out), P(s1, y1, out), P(s0, y1, out)], n)
+            for s_, sg, e in ((s0, -1.0, ends[0]), (s1, 1.0, ends[1])):
+                if e:
+                    h.face(role, [P(s_, y0, 0.0), P(s_, y0, out), P(s_, y1, out), P(s_, y1, 0.0)],
+                           (tx * sg, 0.0, tz * sg))
+            if top:
+                h.face(role, [P(s0, y1, 0.0), P(s1, y1, 0.0), P(s1, y1, out), P(s0, y1, out)], Y)
+            if bottom:
+                h.face(role, [P(s0, y0, out), P(s1, y0, out), P(s1, y0, 0.0), P(s0, y0, 0.0)], (0.0, -1.0, 0.0))
+
+        y0_, y1_ = yields.get(name, (None, None))
+        stop = (y0_ in pd["runs"], y1_ in pd["runs"])
+        convex = (p0, p1)
+
+        def reach_of(out):
+            """The span a slab standing `out` proud runs: round a corner it owns, flush at one it
+            yields; at an inside corner the run starting there begins flush and the run ending
+            there stops `out` short, against the other's front."""
+            lo = -out if convex[0] and not stop[0] else 0.0
+            hi = S if stop[1] else (S + out if convex[1] else S - out)
+            return lo, hi
+
+        def ends_of(a, b, lo, hi):
+            """End faces for a slab from a to b: none where it stops at a corner or runs into a wall."""
+            return (a > lo + 1e-6 or (convex[0] and not stop[0]), b < hi - 1e-6 or (convex[1] and not stop[1]))
+        lo, hi = reach_of(bc["out_m"])
+        for a, b in spans(lo, hi, cut):
+            block(a, b, 0.0, y_b, bc["out_m"], bottom=False, ends=ends_of(a, b, lo, hi))
+        lo, hi = reach_of(cc["out_m"])
+        for a, b in spans(lo, hi, cut):
+            block(a, b, y_c, pod + 0.02, cc["out_m"], ends=ends_of(a, b, lo, hi))
+        w, pout = pi_["width_m"], pi_["out_m"]
+        lo, hi = reach_of(pout)
+        pier = []
+        if p0:
+            pier.append((lo, w))
+        if p1:
+            pier.append((S - w, hi))
+        for a, b in pier:
+            block(a, b, y_b, y_c, pout, top=False, bottom=False, ends=ends_of(a, b, lo, hi))
+            n_piers += 1
+        if ru:
+            k = max(1, round((y_c - y_b) / ru["course_m"]))
+            ch, j = (y_c - y_b) / k, ru["joint_m"]
+            for i in range(k):
+                ya, yb = y_b + i * ch + (j / 2 if i else 0.0), y_b + (i + 1) * ch - (j / 2 if i < k - 1 else 0.0)
+                for a, b in spans(0.0, S, cut + [(a_ - 0.01, b_ + 0.01) for a_, b_ in pier]):
+                    # a course's 2 cm ledges are left out, and so is an end against the nave's wall
+                    block(a, b, ya, yb, ru["out_m"], top=False, bottom=False,
+                          ends=(a > 1e-6 or p0, b < S - 1e-6 or p1), role="stone_field")
+                    n_courses += 1
+    h.meta["podium_dress"] = {"piers": n_piers, "course_runs": n_courses}
+
+
+def _roll(h: House, role, x0, x1, y, z, r, sides=12):
+    """T-3164: a scroll's roll, a cylinder lying across x from x0 to x1 about (y, z), capped."""
+    ring = [(y + r * math.sin(math.tau * k / sides), z + r * math.cos(math.tau * k / sides)) for k in range(sides)]
+    for k in range(sides):
+        (ya, za), (yb, zb) = ring[k], ring[(k + 1) % sides]
+        h.face(role, [(x0, ya, za), (x1, ya, za), (x1, yb, zb), (x0, yb, zb)], (0.0, (ya + yb) / 2 - y, (za + zb) / 2 - z))
+    for x, sx in ((x0, -1.0), (x1, 1.0)):
+        h.face(role, [(x, yy, zz) for yy, zz in ring], (sx, 0.0, 0.0))
+
+
+def _sunk_face(h: House, role, P, n, width, y0, y1, pn: dict):
+    """T-3164: one upright face of a shaft with a sunk panel in it. `P(s, y, off)` is the point
+    `s` along the face, at height `y`, `off` out along its normal `n`; the panel stands
+    `margin_m` in from each edge over `y_m`, sunk `depth_m`, its four reveals drawn."""
+    m, (p0, p1), d = pn["margin_m"], pn["y_m"], pn["depth_m"]
+    s0, s1 = m, width - m
+    quad = lambda a0, a1, b0, b1, off=0.0: [P(a0, b0, off), P(a1, b0, off), P(a1, b1, off), P(a0, b1, off)]
+    for a0, a1, b0, b1 in ((0.0, s0, y0, y1), (s1, width, y0, y1), (s0, s1, y0, p0), (s0, s1, p1, y1)):
+        h.face(role, quad(a0, a1, b0, b1), n)
+    h.face(role, quad(s0, s1, p0, p1, -d), n)
+    e = _unit(_sub(P(1.0, 0.0, 0.0), P(0.0, 0.0, 0.0)))
+    h.face(role, [P(s0, p0, 0.0), P(s0, p1, 0.0), P(s0, p1, -d), P(s0, p0, -d)], e)
+    h.face(role, [P(s1, p0, 0.0), P(s1, p1, 0.0), P(s1, p1, -d), P(s1, p0, -d)], _mul(e, -1.0))
+    h.face(role, [P(s0, p0, 0.0), P(s1, p0, 0.0), P(s1, p0, -d), P(s0, p0, -d)], Y)
+    h.face(role, [P(s0, p1, 0.0), P(s1, p1, 0.0), P(s1, p1, -d), P(s0, p1, -d)], (0.0, -1.0, 0.0))
+
+
+def _panelled_shaft(h: House, role, x0, x1, za, zb, y0, y1, pn: dict):
+    """T-3164: a gate pier's square shaft from y0 to y1 with a sunk panel in each of its four
+    faces, as both pictures show it on the faces they see (the street face and the drive's)."""
+    faces = (  # (start corner, direction along the face, outward normal, width)
+        ((x0, za), (1.0, 0.0), (0.0, 0.0, -1.0), x1 - x0),
+        ((x1, za), (0.0, 1.0), (1.0, 0.0, 0.0), zb - za),
+        ((x1, zb), (-1.0, 0.0), (0.0, 0.0, 1.0), x1 - x0),
+        ((x0, zb), (0.0, -1.0), (-1.0, 0.0, 0.0), zb - za),
+    )
+    for (cx, cz), (ex, ez), n, width in faces:
+        P = lambda s, y, off, cx=cx, cz=cz, ex=ex, ez=ez, n=n: (cx + ex * s + n[0] * off, y, cz + ez * s + n[2] * off)
+        _sunk_face(h, role, P, n, width, y0, y1, pn)
+
+
+def _relief(h: House, role, P, n, top, bottom, buried_start=False):
+    """T-3164: a strip standing proud of a face: `top` and `bottom` its edges as [(s, y)] in
+    the face's frame, as many points each, drawn as front quads with their reveals and ends
+    (the first end left out when `buried_start`: it lies in the face the strip runs out of)."""
+    for (a, b), (c, d) in zip(zip(top, bottom), zip(top[1:], bottom[1:])):
+        h.face(role, [P(*b, 1.0), P(*d, 1.0), P(*c, 1.0), P(*a, 1.0)], n)
+        h.face(role, [P(*a, 0.0), P(*c, 0.0), P(*c, 1.0), P(*a, 1.0)], Y)
+        h.face(role, [P(*b, 0.0), P(*d, 0.0), P(*d, 1.0), P(*b, 1.0)], (0.0, -1.0, 0.0))
+    _ends(h, role, P, top, bottom, ((-1, -2),) if buried_start else ((0, 1), (-1, -2)))
+
+
+def _ends(h: House, role, P, one, other, which=((0, 1), (-1, -2))):
+    """The end faces of a relief strip between the edges `one` and `other`, each facing off
+    the strip along its own run."""
+    for i, j in which:
+        a, b = one[i], other[i]
+        h.face(role, [P(*a, 0.0), P(*b, 0.0), P(*b, 1.0), P(*a, 1.0)], _sub(P(*a, 0.0), P(*one[j], 0.0)))
+
+
+def _wing_carving(h: House, role, xa, zp, sg, run, r, hi, lo, cv: dict):
+    """T-3164: the carving on a gate wing's street face (x = xa, facing 18th Street), as Lowe's
+    photograph and the 1894 plate show it: a spiral C-scroll by the pier, leafage trailing from
+    it under the sweep toward the roll, and a fillet over the plain base below them. Everything
+    stands `proud_m` off the face; `d` runs along the wing from the pier, `y` up."""
+    t = cv["proud_m"]
+    n = (-1.0, 0.0, 0.0)
+    P = lambda d, y, k: (xa - t * k, y, zp + sg * d)
+    top_y = lambda d: lo + (hi - lo) * (1.0 - min(d, run) / run) ** 2
+    f0, f1 = cv["fillet_m"]
+    end = run - r                               # where the block under the roll begins
+    stop = end - 0.01                           # the fillet stops short of the block's face
+    _relief(h, role, P, n, [(0.0, f1), (stop, f1)], [(0.0, f0), (stop, f0)], buried_start=True)
+    sc = cv["scroll"]
+    dc, yc, (r0, r1), turns, wd, ns = sc["d_m"], sc["y_m"], sc["r_m"], sc["turns"], sc["width_m"], sc["segments"]
+    outer, inner = [], []
+    for k in range(ns + 1):
+        f = k / ns
+        a, rr = math.tau * turns * f, r0 + (r1 - r0) * f
+        c, s_ = math.cos(a), math.sin(a)
+        outer.append((dc + rr * s_, yc + rr * c))
+        inner.append((dc + (rr - wd) * s_, yc + (rr - wd) * c))
+    for (a, b), (c, d) in zip(zip(outer, inner), zip(outer[1:], inner[1:])):
+        h.face(role, [P(*a, 1.0), P(*c, 1.0), P(*d, 1.0), P(*b, 1.0)], n)
+        for e0, e1, inward in ((a, c, False), (b, d, True)):
+            mx, my = (e0[0] + e1[0]) / 2 - dc, (e0[1] + e1[1]) / 2 - yc
+            hint = (0.0, -my if inward else my, sg * (-mx if inward else mx))
+            h.face(role, [P(*e0, 0.0), P(*e1, 0.0), P(*e1, 1.0), P(*e0, 1.0)], hint)
+    _ends(h, role, P, outer, inner)
+    lf = cv["leaf"]
+    d0, d1, nl = dc + r0, end - lf["clear_m"], lf["lobes"]
+    xs = [d0 + (d1 - d0) * k / (2 * nl) for k in range(2 * nl + 1)]
+    top = [(d, top_y(d) - lf["below_top_m"] - (lf["dip_m"] if k % 2 else 0.0)) for k, d in enumerate(xs)]
+    _relief(h, role, P, n, top, [(d, lf["y_m"]) for d in xs])
+
+
+def gate(h: House, gs: dict):
+    """T-3164: the estate's gate on 18th Street, as the 1894 Inland plate draws it in its
+    foreground: two square stone piers on a plinth under a stepped cap, each with a low wing
+    returning toward the drive along the street line, its top sweeping down from the pier to a
+    scroll's roll over a block at the drive's edge. Placed in this record's frame (x = u south
+    from the north-east corner, z = -v) where the plate's camera puts their bases."""
+    xn, s = gs["north_u_m"], gs["pier_m"]
+    x0, x1 = xn, xn + s
+    rect = lambda a, b, c, d: [(a, c), (b, c), (b, d), (a, d)]
+    w = gs["wing"]
+    for p in gs["piers"]:
+        za, zb = sorted((-p["v_m"][0], -p["v_m"][1]))
+        po, pl = gs["plinth_out_m"], gs["plinth_m"]
+        _prism(h, "stonework", rect(x0 - po, x1 + po, za - po, zb + po), 0.0, pl)
+        if gs.get("panel"):
+            _panelled_shaft(h, "stonework", x0, x1, za, zb, pl, gs["shaft_m"], gs["panel"])
+        else:
+            _prism(h, "stonework", rect(x0, x1, za, zb), pl, gs["shaft_m"], top=False)
+        cap = gs["cap"]                         # the cap's courses, bottom up, each `out` past the shaft
+        for i, (out, y0, y1) in enumerate(cap):
+            below, above = cap[i - 1][0] if i else 0.0, cap[i + 1][0] if i + 1 < len(cap) else -1.0
+            # a course's top or underside is drawn only where it shows past its neighbour
+            _prism(h, "stonework", rect(x0 - out, x1 + out, za - out, zb + out), y0, y1,
+                   top=above < out, bottom=out > below)
+        # the wing: from the pier's face toward the drive (z grows with `sg`), centred on the pier
+        zp, zw = -p["wing_v_m"][0], -p["wing_v_m"][1]
+        sg = 1.0 if zw > zp else -1.0
+        L, t, r = abs(zw - zp), w["thickness_m"], w["scroll_r_m"]
+        xa, xb = x0 + (s - t) / 2, x0 + (s + t) / 2
+        hi, lo, n = w["high_m"], w["low_m"], w.get("segments", 8)
+        run = L - w["end_m"]                      # the sweep's run, from the pier to the roll's crown
+        top = [(run * k / n, lo + (hi - lo) * (1.0 - k / n) ** 2) for k in range(n + 1)]
+        for (d0, y0), (d1, y1) in zip(top, top[1:]):
+            z0_, z1_ = zp + sg * d0, zp + sg * d1
+            for x, sx in ((xa, -1.0), (xb, 1.0)):
+                h.face("stonework", [(x, 0.0, z0_), (x, 0.0, z1_), (x, y1, z1_), (x, y0, z0_)], (sx, 0.0, 0.0))
+            h.face("stonework", [(xa, y0, z0_), (xb, y0, z0_), (xb, y1, z1_), (xa, y1, z1_)], (0.0, d1 - d0, sg * (y0 - y1)))
+        # the roll at the sweep's foot, and the block under it out to the drive's edge
+        zr = zp + sg * run
+        _roll(h, "stonework", xa - 0.02, xb + 0.02, lo - r, zr, r)
+        eb = w["block_m"]
+        zc, zd = sorted((zr - sg * r, zw))
+        _prism(h, "stonework", rect(xa - 0.04, xb + 0.04, zc, zd), 0.0, eb)
+        if gs.get("carving"):
+            _wing_carving(h, "stonework", xa, zp, sg, run, r, hi, lo, gs["carving"])
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:

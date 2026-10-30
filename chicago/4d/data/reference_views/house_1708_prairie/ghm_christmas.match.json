@@ -2,7 +2,7 @@
   "structure_id": "house_1708_prairie",
   "view": "ghm_christmas",
   "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
-  "glb_sha256": "91e65e0cffac979c888b3ea32f668aa9a8dc833df116f70c067820e898764db8",
+  "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a",
   "camera_sha256": "4893b771de1fcf78fddee6fc5dbaa01fb16b33750e37c58a8956117510cefc7f",
   "photo_sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63",
   "side_by_side": "docs/RESEARCH/photo-match/house_1708_prairie/ghm_christmas-side-by-side.jpg",
@@ -55,8 +55,8 @@
     },
     {
       "what": "colour: the brick's and the stone's",
-      "status": "not shown",
-      "how": "T-3188: a monochrome print; K03's brick and the light Lemont stone of the belt and the basement are the kits'"
+      "status": "fixed",
+      "how": "T-3244: the front's brick prints as dark as the pair's next door, darker than its own stone, here and in the 1901 photograph: laid in K03's red-brown panel over the light stone basement and belt; the side walls, not shown, stay the common brick (docs/RESEARCH/colour-1700-block-T-3244/README.md)"
     },
     {
       "what": "the bay's south end, the south wall, the rear range and the roof deck",
@@ -69,5 +69,5 @@
       "how": "T-3205: this frame holds 1708's stair only at its left edge and its fence falls outside it; the fence, gate and walk are compared in chicagology_townhouses and the street stills (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

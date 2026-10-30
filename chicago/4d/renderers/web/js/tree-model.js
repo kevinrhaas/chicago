@@ -400,6 +400,25 @@ export const ARCH = {
     clump: 0.26, clumpMin: 0.15, density: 1.8, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
     farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.6,
   },
+  // T-1934: an evergreen sheared to a ball on one clear stem, the tubbed standard of the
+  // Pullman palm house's terrace in the 1894 Inland plate: the stem bare to about half the
+  // plant's height, then a dense clipped head.
+  standard_ball: {
+    crown: 'round', crownBase: 0.42, fork: 'decurrent', stems: [1, 1], scaffolds: [6, 8],
+    limbAngle: 38, rise: 0.04, twist: 0.15, order2: [4, 44], order3: [0, 0], droop: 0.0,
+    clump: 0.26, clumpMin: 0.15, density: 1.9, gaps: 0.02, leaf: 'scale', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5,
+  },
+  // T-1934: a palm house's palm set out in its tub for the summer, as Taylor's 16555 shows
+  // one on the Pullman terrace before the drum: a short stout stem and a head of long
+  // pinnate fronds that leave it steeply and arch over (`rise` < 0 sags each frond), the
+  // leaf carried along the fronds themselves, no twigs and no clipped shell.
+  phoenix_tub: {
+    crown: 'spread', crownBase: 0.04, fork: 'decurrent', stems: [1, 1], scaffolds: [18, 22],
+    limbAngle: 60, rise: -0.42, twist: 0.04, order2: [0, 0], order3: [0, 0], droop: 0.0,
+    clump: 0.09, clumpMin: 0.08, density: 4.2, gaps: 0.02, leaf: 'compound', bark: 'shaggy',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 0, stemK: 0.3,
+  },
   pelargonium_bed: {
     crown: 'round', crownBase: 0.06, fork: 'decurrent', stems: [6, 9], scaffolds: [0, 0],
     stemSplay: 28, limbAngle: 30, rise: 0.02, twist: 0.30, order2: [2, 46], order3: [0, 0],
@@ -457,7 +476,7 @@ const LEAF_GRID = [4, 5];
  */
 export const LEAF_CROP = [
   [0.148, 0.794, 0.002, 1.000], [0.088, 0.858, 0.138, 0.944], [0.224, 0.846, 0.002, 1.000], [0.000, 1.000, 0.124, 0.850],
-  [0.198, 0.838, 0.002, 1.000], [0.010, 1.000, 0.108, 0.838], [0.200, 0.832, 0.002, 1.000], [0.060, 1.000, 0.138, 0.902],
+  [0.198, 0.830, 0.002, 1.000], [0.010, 1.000, 0.108, 0.838], [0.200, 0.832, 0.002, 1.000], [0.060, 1.000, 0.138, 0.902],
   [0.106, 0.782, 0.002, 1.000], [0.000, 1.000, 0.106, 0.920], [0.164, 0.828, 0.002, 1.000], [0.000, 1.000, 0.098, 0.964],
   [0.190, 0.824, 0.002, 1.000], [0.000, 0.930, 0.012, 0.982], [0.204, 0.958, 0.002, 1.000], [0.066, 0.994, 0.084, 0.954],
   [0.378, 0.972, 0.000, 0.902], [0.000, 1.000, 0.100, 0.908], [0.204, 0.808, 0.002, 0.902], [0.102, 0.942, 0.094, 0.816],

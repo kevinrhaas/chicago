@@ -2,8 +2,8 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "inland_1894_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "93940358639523029fcd0c2a5fc5adbc59390eca3618bfdeaf39b5a1a28957b0",
-  "camera_sha256": "8d8d966626799ed10be76b11e0b50622a4fbe0be80a28169fe4f96a950b6ce8d",
+  "glb_sha256": "03d44b56578250454a70f7a6a099110ba42c4fb67bd7a8646232f54c55e187a2",
+  "camera_sha256": "0b98ce75bc0bae6f3756075a436a5eb833f6d0067506a9ab64089862dda8221e",
   "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
   "rendered_members": [
     {
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "93940358639523029fcd0c2a5fc5adbc59390eca3618bfdeaf39b5a1a28957b0"
+      "glb_sha256": "03d44b56578250454a70f7a6a099110ba42c4fb67bd7a8646232f54c55e187a2"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -80,7 +80,7 @@
         -17.846242297674625
       ],
       "rotation_y": 1.5707963267948966,
-      "glb_sha256": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f"
+      "glb_sha256": "1c2a7af790259c15729e46ff417b053c235a96c06536b5d93207ee53531f7729"
     },
     {
       "structure_id": "pullman_lodge_1800_calumet",
@@ -99,10 +99,71 @@
         -1.0108724267342746
       ],
       "rotation_y": -1.5707963267948963,
-      "glb_sha256": "38b61660a451591c087776f23c88754ff6167f211b37a10afcb562e4a1215215"
+      "glb_sha256": "dc1c4e59b8e257d2fd34c2ce925c2ccaa837148bf255939c8ed6a5d3171257ae"
     }
   ],
-  "group_sha256": "5b424f030cbeeaed94297503056769bf1dc03a9ee1b3f90b93c704dad0933dac",
+  "group_sha256": "795938d78d389b7f2cda2b90d30050e240f5f14c6336aea242883cb233729cee",
+  "rendered_flora": {
+    "season": "summer",
+    "lots": [
+      {
+        "parcel": "calumet_1800",
+        "shrubs": 6,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      }
+    ],
+    "street_trees": 37,
+    "street_trees_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1468.881,
+    "local_n": -3238.358,
+    "rotation_deg": 88.986,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_standing_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "6ef1a3bc53e2107f72dfa4179d65cc39af0a5d0bfcf27c196f503d4a079dd3f5"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "cdba1657b79088654ea4e920bb6691f97532ac336e331adfc90cee0c3becf183"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+    }
+  ],
+  "flora_sha256": "fd1387b3064c5eb25aafd705322c162c33bc11c98ed123adcd965354d4f204b3",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -177,9 +238,18 @@
       "how": "T-3164, 2026-10-29: read off both pictures (the plate's east arm, x 1185-1240, and Lowe's, x 760-805: three lights, each a round head over a transom over a tall light); drawn as the north front's lit band with a transom 0.38 m under the head, lights about 0.45 m, the heads in six segments, on both arms' ends and sides"
     },
     {
-      "what": "the podium is rusticated and panelled; the range's pilasters and the colonnade's columns heavier than built",
-      "status": "open",
-      "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-3164: the range's panels, sill and base courses are now built; the band's arched heads and tracery, the podium's rustication and the heavier pilasters and columns are not."
+      "what": "the podium's dress: a moulded cap course under the band, a pale pier at each outer corner, and between the piers a darker field of banded rustication, so each run reads as a sunk panel; the render's podium was one plain block (T-3164: podium_dress, the field in a rock-faced tone a shade darker than the piers)",
+      "status": "fixed"
+    },
+    {
+      "what": "the range's pilasters and the colonnade's columns heavier than built",
+      "status": "within tolerance",
+      "how": "T-3164 (colonnade pass): re-read at the plate's own scale, about 25 px to the metre off the range's 1.95 m window bays: the columns read about 0.45 m thick in both pictures (built 0.44 m) and the range's pilasters about 0.4 m (built 0.4 m). What read heavy was the colonnade's proportion, its columns too tall under too shallow an entablature, which the next entry fixes."
+    },
+    {
+      "what": "the colonnade's columns stood on a 1.0 m podium and ran to 5.35 m under a 0.7 m entablature, where both pictures show a podium about 1.6 m high, columns about 3.0 m tall, and an entablature about 1.4 m deep from about 4.65 m to the range's coping",
+      "status": "fixed",
+      "how": "T-3164 (colonnade pass): read off the plate (podium top about 1.6 m, column heads about 4.65 m, coping about 6.05 m) and checked on the Lowe photograph (entablature 30 px there, 28 px in the render). The podium's top and the entablature's underside carry on the range's own string courses at 1.6 m and 4.65 m, which is how both pictures draw them; built so (the rotunda's podium_m 1.6, entablature from_m 4.65)."
     },
     {
       "what": "a light iron cresting along the transept's level crest from its hipped end to the nave, a finial over the transept's end and a small ornament over the nave's apex (T-3164)",
@@ -212,22 +282,66 @@
     {
       "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope",
       "status": "open",
-      "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open."
+      "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open. T-3164 (west part pass): re-read, and unchanged by it: setting the loggia block 2 m back moves the receding east eave by about 7 px, and both pictures still show sky over the range's coping where any depth over about 1.5 m would stand stone, so this stays open."
     },
     {
-      "what": "the lodge's bowed north-east corner with the flared eave over it, the balcony's curved front and balustrade, round columns in the loggia, finials at the deck's corners, and the lower hipped roof over the front's west part",
-      "status": "open",
-      "how": "T-3164: the draft builder draws the loggia as dark openings between square piers and a flat banded balcony; the bow, the balcony's curve and the second roof are not built"
+      "what": "the lodge's bowed north-east corner: the upper storey turned on an arc standing a little proud of the square corner, with the eave carried round it and belled out and down over it (T-3164)",
+      "status": "fixed",
+      "how": "T-3164: corner_bow on the stable dress (chord 1.2 m along each wall, 0.1 m proud of the corner, 5.3-8.2 m) and a bowed eave chamfer on the hip-deck roof (0.1 m bow, 0.4 m flare); through the plate's camera the rounded corner and the eave's dip read where the plate draws them, at about x 940-950"
+    },
+    {
+      "what": "the lodge's balcony on the loggia's entablature: a stone floor and an open balustrade, its east end turned on a quarter-round back to the wall under the bow (T-3164)",
+      "status": "fixed",
+      "how": "T-3164: a balcony on the north front, s -0.2 to 4.2 m, 0.45 m deep, its floor at 5.3 m and its balustrade 0.75 m high, the plate's band at y 775-795; the plate draws the parapet's face nearly solid, so the balusters' spacing is RECONSTRUCTED"
+    },
+    {
+      "what": "the lodge's loggia: round columns between its three openings, with bases and capitals, where the render had dark openings cut between flat piers (T-3164)",
+      "status": "fixed",
+      "how": "T-3164: two round columns 0.38 m across between the openings at 0.51, 1.65 and 3.35 m; through the plate's camera they stand within a few pixels of the plate's at x 967-977 and 1005-1013"
+    },
+    {
+      "what": "the lodge's deck: open iron cresting with a tall spire at each corner, as the stable's deck carries, where the render had posts and a rail (T-3164)",
+      "status": "fixed",
+      "how": "T-3164: the deck takes the stable's open cresting (T-1934), whose corner spires stand about 1.5 m over it as the plate's do"
+    },
+    {
+      "what": "the lodge's lower hipped roof over the front's west part (plate x 1055-1135), which the render carries on as the one hipped roof",
+      "status": "fixed",
+      "how": "T-3164 (west part): a second part on the plan, 4.85 m wide from u 4.1 (the loggia's west end) to the west wall, its face on the sheet's north wall and its own hipped roof at the main roof's 52 degrees, ridge 11.75 m, under the deck's 11.9 m; the loggia block behind its front now stands 2 m back. Read in both pictures: the part's quoined east return (plate x 1052-1058, Lowe x 660-668), its eave a few px over the loggia block's (plate y 705-712 against 718, Lowe 396-398 against 402) and its north-east hip rising from the return to about the deck's height (plate x 1058,712 to 1118,625; Lowe x 667,397 to 703,345). Through the plate's camera the built hip runs x 1046,716 to 1101,633 and the return x 1044-1053, about 10 px east of the picture's, under the 0.3 m bar at this distance along the line of sight; the picture's part beyond x 1085 is behind the render's transept arm (that arm's east end is the pavilion record's own item)"
+    },
+    {
+      "what": "a dark pointed form over the west part's roof at its ridge, plate x 1116-1142 at its foot rising to a point at about y 562, beside the deck's north-west spire: built as a slated spirelet 0.9 m square on the ridge's middle with an iron spike, its point a little over the spire's, as the plate draws it (T-3164)",
+      "status": "fixed"
     },
     {
       "what": "the dome and its drum stand about 25 px (0.6 m) west of the plate's (Lowe shows the same, about 20 px)",
-      "status": "open",
-      "how": "T-3164: the dome and drum were enlarged to the plate's width (radius 2.2 m, drum 2.25 m); their place is the transept crossing's, and moving the crossing would move the transept the plate fits well, so this waits on a second reading of the crossing"
+      "status": "fixed",
+      "how": "T-3164: re-read on both pictures through their solved cameras: the dome's centre (its finial, x 1370 on the plate, x 896 in Lowe's print) falls at u 4.45 and 4.5 on the nave's axis, 1.8 m north of the transept's middle, which the 1911 sheet and the plate's transept end hold at u 6.3; so the drum and dome stand there (drum.centre_m 4.5) and the transept stays. Read on the same cameras at that depth, the drum's top is 9.7-9.8 m (it was 10.0), the dome's crown 12.3 m on the plate and 12.7 m in Lowe (it was 13.1; built 12.5) and the finial's tip 13.6-13.8 m (it was a 0.5 m stick; built as the turned finial both pictures show, a flared foot, a bulb, a neck, a knob and a spike, to 13.75 m). The render's dome now lies on the plate's within about 5 px across and 10 px in height"
     },
     {
-      "what": "the gate piers with their scroll wings, the walks, the lawns, the standard trees, the shrubs and the street trees",
+      "what": "the estate's gate on 18th Street: two square stone piers under stepped caps, each with a low wing returning toward the drive, its top sweeping down to a scroll's roll over a block",
+      "status": "fixed",
+      "how": "T-3164 (gate pass): built on the conservatory's record (gate), placed and sized through the plate's camera: the piers 0.8 m square to 2.2 m, their fronts about 0.6 m inside the 18th Street line, the wings 1.15 m from 1.1 m down to the roll at 0.76 m, the drive 4.1 m between them; through the plate both piers, their caps and the wings' sweeps land within about 10 px of the picture's"
+    },
+    {
+      "what": "the carved scroll panel on each wing's street face and the sunk panel on each pier's faces",
+      "status": "fixed",
+      "how": "T-3164 (gate pass): the piers and wings are built plain; the carving is a visible element of the gate from the walk, so it stays open T-3164 (gate carving pass): built as both pictures place it: each wing's street face carries a spiral C-scroll about 0.26 m across by the pier, its centre about 0.3 m from the pier and 0.76 m up, three lobes of leafage trailing from it under the sweep toward the roll, and a fillet over the plain base at about 0.5 m, all standing 0.05 m proud; each pier's shaft a sunk panel between 1.24 and 1.8 m, 0.08 m in from its edges. The side-by-side shows the scroll and the leaf lobes in place on both wings; under the review render's even light they read as the relief's edges, where the pictures' shade cuts them darker. The leaves' cutting is under the bar (L-pullman-gate-1800-calumet-3164)"
+    },
+    {
+      "what": "the planting before the conservatory: two clipped standards on clear stems, each in a square planting box on legs with a dense leafy mass over it, in the lawn east of its front, and the tall shrubs along the drive's far edge before the east range",
+      "status": "fixed",
+      "how": "T-3164 (planting pass): not built before. Read through both solved cameras into data/front_yards/1904.json (lot calumet_1800, tools/plant_prairie_1904_front_yards.py PICTURED): the boxes 0.57 m tall (Lowe 0.58 and 0.56 m), the masses 1.36 and 1.44 m tall (the plate and Lowe agree to 0.01 m), the standards' crowns to 2.9 and 3.05 m, each standard rising out of its mass at the mass's own x in the plate. The gate box's place the two fits agree on within 1.1 m; the near box's they put 3.9 m apart along the line of sight, so it stands between them. In the renders the boxes fall within about 15 px of the plate's (0.3 m) and on Lowe's, and the shrubs before the east range at the plate's x and height. A third tall shrub, before the lodge's loggia, stood where the 1904 record's north range has its base wall and is not drawn (the range is the 1911 sheet's, not the picture's)."
+    },
+    {
+      "what": "the boxed masses and the standards' crowns draw open-leaved, where the pictures show close clipped surfaces",
+      "status": "within tolerance",
+      "how": "T-3164: the silhouettes, sizes and places match; the leaf is the yard renderer's one shrub leaf, which every planted yard in the district draws with (renderers/web/js/front-yards.js), and the darker sheared ball is the nearest form it grows"
+    },
+    {
+      "what": "the drive, the walks and the lawn's edges, and the parkway trees on 18th Street: the plate's and Lowe's big tree left of the gate is not drawn, and the one right of it stands about 1 m east of where they put it",
       "status": "open",
-      "how": "T-3164: the owner asked (2026-10-28) that a property's walls and planting be part of its match; none is built on the 1800 Calumet ground yet, and drawing planting into a K13 view needs a front-yard lot for it"
+      "how": "T-3164: no walk, drive or lawn edge is built on the 1800 Calumet ground. The parkway: the plate puts the left tree's foot at x 744, y 1160 (e 1479.6, n -3212.0) and Lowe at x 394, y 739 (e 1478.9, n -3215.3), where data/street_trees/1904.json has none (its nearest, calumet__prairie_calumet_18_20#27 at e 1486.3, is out of frame); its tree read off Taylor's 16555 (e18th__prairie_calumet_18_20#p00, e 1474.17) stands in front of the plate's right gate pier, where Lowe puts that trunk at e 1472.5. Both live in the street-tree file 1729 Prairie's views draw from (within their 70 m), so moving them re-opens those views and is left to a pass that looks at them again."
     },
     {
       "what": "the north front's band: the plate and Lowe draw each light as a short round head over a transom over a tall light, where it is built as one tall pane with a pointed head",

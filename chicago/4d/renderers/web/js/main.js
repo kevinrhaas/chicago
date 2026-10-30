@@ -1920,10 +1920,24 @@ async function boot() {
   // T-2547: a lost context is preventDefault'ed, said on a card, and reloads at most
   // once a session — only when the page has let go of what a restore would need.
   // T-2548: a closed building image is gone from the page as a released array is.
-  crashGuard.watchContext(renderer.domElement, { needsReload: () => {
+  const contextNeedsReload = () => {
     const released = uploadReleaseState();
     return released.attributes > 0 || released.images > 0 || released.compressed > 0;
-  } });
+  };
+  let frameLoop = null;
+  let contextPaused = false;
+  // An ordinary reload is asynchronous. Never submit released arrays in the
+  // old document between context restoration and that navigation, or after a
+  // repeated loss which deliberately waits for the visitor's Reload choice.
+  renderer.domElement.addEventListener('webglcontextlost', () => {
+    contextPaused = true;
+    renderer.setAnimationLoop(null);
+  });
+  renderer.domElement.addEventListener('webglcontextrestored', () => {
+    contextPaused = contextNeedsReload();
+    if (!contextPaused && frameLoop) renderer.setAnimationLoop(frameLoop);
+  });
+  crashGuard.watchContext(renderer.domElement, { needsReload: contextNeedsReload });
   renderer.domElement.addEventListener('webglcontextlost', () => blackbox.log('lost'));
   renderer.domElement.addEventListener('webglcontextrestored', () => blackbox.log('restored'));
   setPickLog((kind, data) => blackbox.log(kind, data));
@@ -2319,7 +2333,7 @@ async function boot() {
     terrain, confidence, problems: layerProblems('railway'), ...detailOpts(),
     // Newly reached rail zones are marked before their next draw. This only
     // installs upload callbacks; it does not render from inside update().
-    onGeometry: coarse ? (group) => releaseAfterUpload(group) : undefined,
+    onGeometry: (group) => releaseAfterUpload(group),
   });
   scene3d.add(railway.group);
   api.railway = railway;
@@ -5229,7 +5243,8 @@ async function boot() {
     if (nav !== seenNav) { if (seenNav !== null || nav !== '0:home') blackbox.log('nav', { level: navigatorUi?.level, app: navigatorUi?.app ?? null }); seenNav = nav; }
     blackbox.tick();
   }
-  renderer.setAnimationLoop((t) => {
+  frameLoop = (t) => {
+    if (contextPaused) return;
     try {
       watchSteps();
       governor.setTier(detailLevel);
@@ -5245,7 +5260,8 @@ async function boot() {
       if (bootController.readyAt === null) rejectFirstFrame(err);
       else throw err;
     }
-  });
+  };
+  if (!contextPaused) renderer.setAnimationLoop(frameLoop);
 
   // ---- harness ---------------------------------------------------------- //
 

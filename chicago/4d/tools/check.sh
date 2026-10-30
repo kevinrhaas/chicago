@@ -1175,6 +1175,13 @@ step "a swept stoop's cheek drawn in to its newel and pierced under its top (T-3
 step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
   python3 tools/test_k01_wing_tower.py
 
+# T-3242. A two-level timber veranda on a K01 house's rear wall (k01_rear_veranda), held on
+# 1701 Prairie's record: its decks, paired posts, balusters, frieze and flight built where
+# the record puts them, nothing inside the main block; a wing's wall left standing behind an
+# oriel; a veranda into a wing, a flight into a post and an over-high lower deck refused.
+step "a K01 house carries a two-level veranda on its rear wall, and a wing's wall stands behind its oriel (T-3242)" \
+  python3 tools/test_k01_rear_veranda.py
+
 # T-2843. ...and what 1801 Prairie's move onto K01 needed, held on its record: a mansard face
 # holding two storeys rises 4.5-7.5 m (one stays the attic's 2.0-4.5 m), a K08 projection
 # carried past the main eave is closed on the wall plane behind it and at its cap's end (one

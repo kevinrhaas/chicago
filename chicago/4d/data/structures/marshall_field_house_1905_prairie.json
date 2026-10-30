@@ -1,10 +1,10 @@
 {
   "id": "marshall_field_house_1905_prairie",
-  "name": "1905 Prairie Avenue — Field Sr. Second Empire (district draft; refined by T-1904, T-1905)",
+  "name": "1905 Prairie Avenue — the Marshall Field house (Second Empire)",
   "aka": [
     "1905 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,18 +14,19 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3S.B. brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1904, T-1905 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1905-b1), the T-1841 census (s28-1905-front) and the T-1837 register row frontage-28-055 (Field Sr. Second Empire); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "Refined from the district draft (T-2330) in place by T-3260 (piece 1 of T-1904), under the draft's own id, as a K01 brick Second Empire house read off the 1893 Pictorial Chicago plate of Marshall Field's residence (rand_mcnally_pictorial_chicago_1893_field) against the 1911 sheet's plan (s28fp-1905-b1): two storeys of brick over a raised stone basement under a bracketed cornice and a tall slated mansard with dormers and an iron cresting; the front's door in its second window column from the north; the south flank's curved conservatory; the sheet's rear wing and north range; the scroll-pattern iron fence. The plate's camera and match record are in data/reference_views/marshall_field_house_1905_prairie/; what is still open (the canted south-west corner, the conservatory's glass roof and balcony, the iron balconies, the carved dormer and window heads) belongs to T-3261. Liberty L-k01-1905-field-3260.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
         "confidence": "inferred",
         "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
+          "sanborn_1911_chicago_v3_sheet_28",
+          "rand_mcnally_pictorial_chicago_1893_field"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the 1893 Pictorial Chicago plate shows the house standing before the target. Its building and loss dates are the register's (1871-1873; lost 1955) and are not read here.",
         "to_is": "seen"
       },
       "position": {
@@ -37,7 +38,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 24.250, v -14.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.444 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the main body's rectangle (lot frame u 24.250, v -14.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.444 degrees turns the plan's u axis onto the lot's own rear-to-street line. Kept from the district draft (T-2330) by T-3260: the plate does not move it.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -66,132 +67,595 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body read off the 1911 sheet's trace (s28fp-1905-b1 p1) in the house's frame (u toward Prairie Avenue, west, from the rear wall; v south from the north wall): the front at u 21.0 and the south wall at v 15.25, the draft's own rectangle kept. The sheet's two rear pieces stand on it as K01 rear wings and its south-flank bulge as the conservatory's bow (bays). The plate cuts the south-west corner on a broad canted face that the sheet draws square: K01 builds the canted corner only on an all-stone house, so the corner stays the sheet's here and the cut is an open difference in the match record (T-3261)."
       },
       "form": {
         "stories": {
-          "value": 3,
-          "confidence": "attested",
+          "value": 2,
+          "confidence": "inferred",
           "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "'3S.B.' printed on the 1911 sheet: 3 full storeys."
+          "note": "Two storeys of brick over a raised stone basement, under a mansard: the plate's walls stop at a bracketed cornice over the second storey and the roof's steep slated faces rise over it with dormers. The 1911 sheet's '3S.B.' counts the mansard's attic as its third storey, as it does at 1816."
         },
         "construction": {
           "value": "brick",
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "rand_mcnally_pictorial_chicago_1893_field"
           ],
-          "note": "The register reads the map's colours as 'brick'."
+          "note": "The sheet colours the house as brick; the plate shows brick walls (dark) dressed in light stone: the basement, the belts, the window surrounds, the frieze and the corner strips."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 2.2,
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The water table under the principal storey stands about 2.2 m over the walk through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json): the stoop's run and the basement's arched lights under it agree."
+        },
+        "storey_heights_m": {
+          "value": [
+            5.2,
+            4.2
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "Read through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json) at the front's south end (about 50 px a metre): the stone belt at the chamber floor about 7.4 m over grade and the frieze's foot about 11.6 m, so a 5.2 m principal storey and a 4.2 m chamber storey to the frieze."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a brick-and-a-half wall, as 1620's."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a brick-and-a-half wall, as 1620's."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the K03 common brick panel 1620 wears; the print is monochrome."
+        },
+        "roof_pitch_deg": {
+          "value": 10,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the mansard's upper deck at 10 degrees, as 1620's; the photograph shows only its cresting."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: 0.3 m treads, as 1620's; the photograph's flight is half hidden by its cheek and the fence."
+        },
+        "rainwater": {
           "value": {
-            "parts": [
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "mansard",
-                "rect": [
-                  0.0,
-                  0.0,
-                  21.0,
-                  15.25
-                ],
-                "from": "s28fp-1905-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
+                "wall": "k01.wall.side.south",
+                "s_m": 9.0
               },
               {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  -2.5,
-                  4.75,
-                  0.0,
-                  15.25
-                ],
-                "from": "s28fp-1905-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill"
+                "wall": "k01.wall.side.south",
+                "s_m": 18.0
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: K04 half-round copper gutters and round pipes to splash stones, as 1620's."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1620 wears; the photograph shows two-over-two sash in the principal windows."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k09.trim.lintel_cornice_hood",
+              "k09.trim.lintel_cornice_hood"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "Every window of the plate's front stands in a light stone surround under a moulded head with a cornice: K09's lintel with a cornice hood on both storeys (the heads' carved crests are not modelled)."
+        },
+        "street_front_iron": {
+          "value": {
+            "balconettes": [
+              {
+                "from_s_m": 1.6,
+                "to_s_m": 4.0,
+                "floor_m": 7.4,
+                "proud_m": 0.7,
+                "height_m": 0.9,
+                "slab_m": 0.2,
+                "consoles": 2,
+                "before_light": true
               },
               {
-                "id": "r3",
-                "role": "range",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  -2.5,
-                  -4.5,
-                  4.25,
-                  0.0
-                ],
-                "from": "s28fp-1905-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill"
+                "from_s_m": 4.9,
+                "to_s_m": 7.9,
+                "floor_m": 7.4,
+                "proud_m": 0.7,
+                "height_m": 0.9,
+                "slab_m": 0.2,
+                "consoles": 2,
+                "before_light": true
+              },
+              {
+                "from_s_m": 9.95,
+                "to_s_m": 12.45,
+                "floor_m": 7.4,
+                "proud_m": 0.7,
+                "height_m": 0.9,
+                "slab_m": 0.2,
+                "consoles": 2,
+                "before_light": true
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "T-3261: the plate's three iron balconies on the front, read against its window columns: one before the chamber window of the north column, one before the door column's (over the door) and one before the wide column's, none before the narrow column's. Each stands on the stone belt at the chamber floor (2.2 + 5.2 = 7.4 m) on two scrolled stone consoles, its guard about 0.9 m high before a chamber light that runs down behind it to a sill 0.3 m over the floor. Lengths from the plate's pixels scaled by the column spacing (47-52 px a metre locally): the north one about 2.3 m, the door column's about 3.5 m, the wide column's about 2.5 m, each centred on its window (their fronts read north of the windows only by the oblique view's parallax); the door column's is built 3.0 m, the kit's longest (open on the match record). About 0.7 m proud and the slab 0.2 m deep, inferred from the plate's consoles. The undated photograph from the west side of the avenue (chicagology_1905_field_photo, cross-check only, not a source of this) shows the same three and the narrow column without one. The pierced panels' scroll pattern is the kit's, RECONSTRUCTED."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber",
+            "pairs": {
+              "spacing_m": 1.6
+            },
+            "frieze": {
+              "height_m": 0.5,
+              "proud_m": 0.025
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The plate's wall head: a deep cornice on paired brackets over a frieze about 0.7 m high, built 0.5 m to leave the chamber heads room under it (its roundels and the carved blocks over the window columns are not modelled), as 1900's K10 bracketed cornice."
+        },
+        "roof_form": {
+          "value": "mansard",
+          "confidence": "attested",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The plate's slated mansard, steep faces over the cornice with dormers in them and an iron cresting along its curb."
+        },
+        "eave_overhang_m": {
+          "value": 0.6,
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The cornice's projection, read against the brackets' depth in the plate."
+        },
+        "mansard": {
+          "value": {
+            "variant": "k05.roof.mansard_convex",
+            "lower_rise_m": 4.5,
+            "bulge": 0.0,
+            "lower_pitch_deg": 78,
+            "dormers": [
+              {
+                "face": "street",
+                "along_m": 2.8,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.8,
+                  "sill_m": 0.2
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.1,
+                "head": "gable",
+                "gable_pitch_deg": 35
+              },
+              {
+                "face": "street",
+                "along_m": 6.4,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.8,
+                  "sill_m": 0.2
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.1,
+                "head": "gable",
+                "gable_pitch_deg": 35
+              },
+              {
+                "face": "street",
+                "along_m": 8.8,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.8,
+                  "sill_m": 0.2
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.1,
+                "head": "gable",
+                "gable_pitch_deg": 35
+              },
+              {
+                "face": "street",
+                "along_m": 13.2,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 1.0,
+                  "height_m": 2.0,
+                  "sill_m": 0.2
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.1,
+                "head": "gable",
+                "gable_pitch_deg": 35
+              },
+              {
+                "face": "north",
+                "along_m": 11.0,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.8,
+                  "sill_m": 0.2
+                },
+                "surround_m": 0.25,
+                "face_setback_m": 0.1,
+                "head": "gable",
+                "gable_pitch_deg": 35
               }
             ],
-            "lot_v": [
+            "deck": {
+              "cresting": {
+                "height_m": 0.6,
+                "inset_m": 0.08,
+                "sides": [
+                  "street",
+                  "north"
+                ]
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "A tall slated mansard over the cornice, its curb about 5 m over the cornice's top through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json), built at 4.5 m, the K05 contract's ceiling for a face holding one storey (the plate's further half metre is an open difference in the match record), its faces steep. Dormers where the plate shows them: three on the street face over the north window column, the door and the narrow column (2.8, 6.4 and 8.8 m along), the large one the plate stands on the canted corner's face carried onto the street face at 13.2 m (the corner is the sheet's square one here), and one on the south face over the conservatory (K01's 'north' face on this east-side house). Their heads are pedimented with carved cheeks in the plate: built as K01's gabled dormer head, the carving not modelled. The iron cresting runs along the street and south curbs, the two the plate shows."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll",
+            "lower_faces": "slate_pennsylvania",
+            "paint": "black"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The plate's mansard faces are slate laid in bands; the deck behind the curb is out of sight and is the kit's painted tin."
+        },
+        "stair_landing_depth_m": {
+          "value": 2.0,
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The stoop's head before the door, read in the plate against the door's width."
+        },
+        "stoop_width_m": {
+          "value": 2.6,
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The plate's stoop between its stone cheeks, about the door bay's width."
+        },
+        "entrance_bay": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The plate's door, numbered 1905, stands in the front's second window column from its north end, not at its middle: K01's bay 2 (K01 counts from the front's left end, which on this east-side front is its north end), its centre 6.4 m from the north corner (front_bays)."
+        },
+        "front_bays": {
+          "value": [
+            2.8,
+            6.4,
+            8.8,
+            11.2
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The front's four window columns, from its north end: the north column, the door's, the narrow column and the wide one, at x 220, 390, 510 and 640 px in the plate. Through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json) the visible front runs about 3 m further north than the sheet's 15.25 m allows, so the columns are placed in proportion between the plate's north end (x 97 px) and the start of its canted corner (x 683 px) laid on the sheet's front between 0 and 12.0 m: a blank brick end about 2 m wide at the north and a blank panel south of the wide column stand where the plate has them."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.5,
+              "width_m": 1.1,
+              "height_m": 3.5
+            },
+            {
+              "sill_above_floor_m": 0.3,
+              "width_m": 1.1,
+              "height_m": 2.8
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The plate's front windows through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json): the principal storey's about 3.5 m tall from a sill about 0.5 m over the floor, the chamber storey's about 3.2 m from a sill about 0.3 m over its floor, their heads just under the frieze, built 2.8 m tall so that K09's head and cornice clear K10's frieze (the 0.4 m is open on the match record); about 1.1 m wide (the columns read 1.0-1.4 m across, the narrow column narrower)."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.5,
+            "width_m": 1.0,
+            "height_m": 1.0
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The plate's basement lights under the principal windows, round-headed and barred behind the fence (their arched heads and bars are not modelled)."
+        },
+        "side_bays": {
+          "value": [
+            6.0,
+            12.0
+          ],
+          "confidence": "reconstructed",
+          "note": "The north flank (K01's 'south' wall on this east-side house) is out of every picture's sight: two window columns, the kit's rule."
+        },
+        "north_bays": {
+          "value": [
+            7.0,
+            17.5
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The south flank (K01's 'north' wall on this east-side house, measured from the front): the plate's window column just behind the canted corner (x 935 px, about 7 m back through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json)) and one behind the conservatory."
+        },
+        "rear_bays": {
+          "value": [
+            3.0,
+            12.0
+          ],
+          "confidence": "reconstructed",
+          "note": "The rear is out of every picture's sight: two window columns, the kit's rule."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
+            ],
+            "top_above_ridge_m": 1.2,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 4.0,
+                "v_m": 1.2
+              },
+              {
+                "u_m": 12.0,
+                "v_m": 14.0
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "Two stacks in the side walls; the plate shows the mansard's deck only from below and no stack clearly."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 9.4
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The plate's door at the stoop's head in its stone surround, with no hood over it: the iron balcony the plate shows over the door stands at the chamber floor on its own consoles, one of the front's three balconettes (street_front_iron, T-3261), so the door hood T-3260 stood in for it at 6.0 m, about 1.4 m low, is withdrawn. The front yard to the street line is the 1904 parcel's (street_u 30.40 - 21.0 m)."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 9.2,
+            "lot_s_m": [
               -11.161,
               39.661
             ],
-            "street_u": 30.401
+            "fence": "k11.fence.scroll_band",
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 70
+            },
+            "side_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "pier_s_m": -4.0,
+              "drawn_deg": 0
+            },
+            "posts": {
+              "section_m": 0.12,
+              "height_m": 1.55
+            }
           },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The plate's cast-iron fence on a stone curb along the street line, spear-topped posts between panels of scrolls the full height of the fence, as K11's scroll-band fence (the nearest K11 has; the pattern the kit's). The 1893 scroll fence is the plate's; the register's taller c. 1905 fence is not taken, so the 1904 state is the 1893 one, an inference (T-3261 weighs the c. 1905 photograph). The line stands 9.2 m before the front, just inside the parcel's street line (9.4 m); the lot's sides are the parcel's (data/street_grid/1904.json prairie_1905)."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "south_conservatory",
+              "variant": "k08.bay.bowed",
+              "wall": "k01.wall.side.north",
+              "s_m": 12.0,
+              "fabric": "brick",
+              "plan": {
+                "kind": "bow",
+                "chord_m": 8.4,
+                "rise_m": 2.7
+              },
+              "storeys": [
+                {
+                  "height_m": 2.2,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 1.0,
+                      "sill_m": 0.5,
+                      "at_deg": [
+                        0
+                      ],
+                      "why_not_ordinary": "the conservatory's basement lights on its stone base, as the front's under the principal windows"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 5.2,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 3.6,
+                      "sill_m": 0.6,
+                      "at_deg": [
+                        -30,
+                        0,
+                        30
+                      ],
+                      "why_not_ordinary": "the plate's conservatory: a ring of tall glazed lights round the bow on its stone base, about 3.6 m high"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "cone",
+                "pitch": 0.05,
+                "covering": "tin_flat_seam_painted"
+              },
+              "plinth_m": 0.1
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The south flank's conservatory: the 1911 sheet's bulge off the south wall between about 7 and 16 m behind the front, 'Greenhouse' written at the front's bay, and the plate's curved glasshouse on a stone base with a balcony over it, at x 955-1180 px. Built as K08's bowed bay a storey high over the basement: 8.4 m on its chord and 2.7 m out (the sheet's bulge reaches about 3.6 m off the wall; K08 holds a bow's facets to its radius), three tall lights round it, as the kit spaces a bow's lights (the plate's ring of glazing is continuous: open for T-3261). Its curved glass roof and the balcony's railing are not the kit's (a flat tin cone stands for the roof) and are open differences for T-3261."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "south_rear_wing",
+              "rect": [
+                -2.5,
+                0.0,
+                4.75,
+                15.25
+              ],
+              "floor_m": 2.2,
+              "storey_heights_m": [
+                4.6,
+                3.6
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.75,
+                  "width_m": 1.0,
+                  "height_m": 2.4
+                },
+                {
+                  "sill_above_floor_m": 0.6,
+                  "width_m": 1.0,
+                  "height_m": 2.2
+                }
+              ],
+              "windows": {
+                "rear": [
+                  3.0,
+                  8.0
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1905-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill; s28fp-1905-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill; s28fp-1905-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "The 1911 sheet's rear rectangle behind the main body's south part (u -2.5 to 0, v 4.75 to 15.25), two storeys under a deck below the main cornice (the bracketed cornice runs on along the main rear wall over it), as the draft fitted its plan. The sheet's two-storey range off the north flank's rear (u -2.5 to 4.25, v -4.5 to 0) stands beside the main body rather than behind it, which K01's rear wings do not take: it is not built here and is open for T-3261. No picture shows the rear: the wing's heights, roof and windows are the kit's (reconstructed inside an inferred plan)."
         },
-        "draft_elevation": {
+        "yard": {
           "value": {
-            "kind": "house",
-            "seed": 1852700053,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 18,
-            "mansard_lower_m": 3.0,
-            "front_bays": 6,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2330",
-              "refined_by": [
-                "T-1904",
-                "T-1905"
-              ]
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.6,
+              "top_m": 0.06,
+              "wear_tone": 0.9
             },
-            "v_toward": "south"
+            "service_walk": {
+              "surface": "cinder",
+              "to_u_m": 0.0,
+              "wear_tone": 0.78,
+              "band": "gate"
+            }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Second Empire' overlaid with the frontage row: Second Empire: the register's 'broad brick/stone mansion, mansard and angular corner bay, dormers' and 'central portico'; the conservatory bay and the 1904 fence are T-1904's and T-1905's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1852700053 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2330",
-            "liberty": "L-draft-prairie-18-20-east-2330",
-            "register_row": "frontage-28-055",
-            "census_ids": [
-              "s28-1905-front"
-            ],
-            "trace_building": "s28fp-1905-b1",
-            "seed": 1852700053,
-            "replaceable_by": [
-              "T-1904",
-              "T-1905"
-            ],
-            "card": "District draft — refined by T-1904, T-1905."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "K14's yard: a flagged walk from the stoop to the street gate and a cinder service walk, the kit's rule; no picture shows the walk's surface."
         }
       }
     }

@@ -1,0 +1,101 @@
+{
+  "id": "hh_field_marshall_jr",
+  "scene": "1904",
+  "name": "The Field household at 1919 Prairie Avenue",
+  "head": "pa1904_field_marshall_jr",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1919 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1919 Mr. & Mrs. Marshall Field jr.."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "marshall_field_jr_house_1919_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905",
+        "wikipedia_marshall_field_iii"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1919, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 Leroy W. Fuller lived here, not Marshall Field jr. The census says nothing about this household's staff. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_field_marshall_jr",
+      "name": "Marshall Field jr.",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1919 Mr. & Mrs. Marshall Field jr."
+    },
+    {
+      "id": "pa1904_field_mrs_marshall_jr",
+      "name": "Albertine Huck Field",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "wikipedia_marshall_field_iii",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1919 Mr. & Mrs. Marshall Field jr.",
+      "note": "The Blue Book prints her as Mrs. Marshall Field jr.; her own name is from Wikipedia's article on her son, which calls her the daughter of Louis Carl Huck."
+    },
+    {
+      "id": "pa1904_field_marshall_iii",
+      "name": "Marshall Field III",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "wikipedia_marshall_field_iii"
+      ],
+      "born": {
+        "value": "1893-09-28",
+        "confidence": "attested",
+        "sources": [
+          "wikipedia_marshall_field_iii"
+        ],
+        "note": "Born in Chicago on 28 September 1893 (Wikipedia)."
+      },
+      "note": "Ten years old on the scene date. Wikipedia names his parents and says he was 'raised primarily in England' (after his father's death in 1905) without giving a Chicago address; his place in his parents' house in 1904 is inferred."
+    },
+    {
+      "id": "pa1904_field_henry",
+      "name": "Henry Field",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "wikipedia_marshall_field_iii"
+      ],
+      "born": {
+        "value": "1895",
+        "confidence": "attested",
+        "sources": [
+          "wikipedia_marshall_field_iii"
+        ],
+        "note": "Born 1895, died 1917 (the lifespan Wikipedia's article on his brother gives him)."
+      },
+      "note": "About nine on the scene date; his place in his parents' house is inferred as his brother's is. A sister, Gwendolyn, is not on this card because the source read for it does not name her."
+    }
+  ]
+}

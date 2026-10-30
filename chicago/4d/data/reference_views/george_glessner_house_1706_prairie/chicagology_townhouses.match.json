@@ -2,7 +2,7 @@
   "structure_id": "george_glessner_house_1706_prairie",
   "view": "chicagology_townhouses",
   "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
-  "glb_sha256": "aea7b7a0672c22c464185cbc4ea7c26f177cb11c1f007a2deb0bdf6982f68bc9",
+  "glb_sha256": "5a747ab9e9ad634071b9a69d4f8edc135fffe78cbcd85837ec6c0dddffaeaa57",
   "camera_sha256": "1b3c45c138977ed0cea9859e6a8cab9c4848f047b491dacc9b2564cd37d30936",
   "photo_sha256": "56843b92bab0a3581dfa1629949584543d6d12f5e9e556b699e9df6e91275a87",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "aea7b7a0672c22c464185cbc4ea7c26f177cb11c1f007a2deb0bdf6982f68bc9"
+      "glb_sha256": "5a747ab9e9ad634071b9a69d4f8edc135fffe78cbcd85837ec6c0dddffaeaa57"
     },
     {
       "structure_id": "glessner_lee_house_1700_prairie",
@@ -37,12 +37,12 @@
         "phase": "as_mapped_1904"
       },
       "position": [
-        5.4848602107582245e-05,
+        0.000054848602107582245,
         0,
         -11.05056758709686
       ],
       "rotation_y": 0,
-      "glb_sha256": "a722b3b81e6e2fc5493b2dffa731433a347723a2d3e9680e67a71a087a9c8583"
+      "glb_sha256": "35207868edd6434300bb3e60832a0577c1935cff74c0cdf78c0d977747b12e63"
     },
     {
       "structure_id": "house_1708_prairie",
@@ -61,10 +61,10 @@
         7.499731524656778
       ],
       "rotation_y": 0,
-      "glb_sha256": "91e65e0cffac979c888b3ea32f668aa9a8dc833df116f70c067820e898764db8"
+      "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
     }
   ],
-  "group_sha256": "3a5b256be8fb71c6de18ee0dd377d00a4013a0ff13ffe4330a48f26b91247c44",
+  "group_sha256": "cec984fb0dcd97598d9a0fc1a4efdad3ee217fb1c973e19da630ecc65ededc02",
   "side_by_side": "docs/RESEARCH/photo-match/george_glessner_house_1706_prairie/chicagology_townhouses-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -89,9 +89,9 @@
       "how": "T-3211: K01's balconette (1834's kit, laid now on a brick front too) about 1.3-1.95 m over grade, 1.5 m long and 0.3 m out T-3212: the arched lights now run down behind each balconette to a sill about 1.45 m over grade, just over its shelf, as the sashes here show (the 1901 construction photograph's unglazed openings end at about 1.37 m); they had stopped at the guard's top, 2.0 m."
     },
     {
-      "what": "each house's stone porch at its outer end: four columns along its front, a plain entablature and an iron balcony railing on its deck",
+      "what": "each house's porch at its outer end: four columns along its front, a plain entablature and an iron balcony railing on its deck",
       "status": "fixed",
-      "how": "T-3211: the porch on columns at about 1.15, 2.25, 3.9 and 5.0 m from the outer corner, 1.9 m out (triangulated from both cameras), its soffit 4.05 m and deck about 4.75 m, the railing to 5.35 m; it stands off the door's axis (`centre_v_m`, new for this pair)"
+      "how": "T-3211: the porch on columns at about 1.15, 2.25, 3.9 and 5.0 m from the outer corner, 1.9 m out (triangulated from both cameras), its soffit 4.05 m and deck about 4.75 m, the railing to 5.35 m; it stands off the door's axis (`centre_v_m`, new for this pair) T-3244: painted timber in the cornice's white, as its columns print whiter than the stone sills and with the cornice and sash (docs/RESEARCH/colour-1700-block-T-3244/README.md)."
     },
     {
       "what": "the dormers: two pedimented dormers to each house, not mirrored between the two",
@@ -101,7 +101,7 @@
     {
       "what": "the deep cornice across the pair, painted light",
       "status": "fixed",
-      "how": "T-3211: K10's bracketed timber cornice painted near-white, its soffit about 8.3 m, 0.6 m out"
+      "how": "T-3211: K10's bracketed timber cornice painted near-white, its soffit about 8.3 m, 0.6 m out T-3244: white (linear 0.86, 0.85, 0.80), where it had been a light grey-beige."
     },
     {
       "what": "the railing along the deck's street edge",
@@ -155,8 +155,8 @@
     },
     {
       "what": "colour: the brick's, the stone's and the paint's",
-      "status": "not shown",
-      "how": "T-3211: a monochrome photograph; K03's brick and the kits' stone stand for them"
+      "status": "fixed",
+      "how": "T-3244: the brick prints darker than the house's own slate and (here) at 0.05-0.08 of the porches' white paint: a red brick, laid in K03's red-brown panel; the porches, cornice, dormers and sash print white with the columns, and are painted white (linear 0.86, 0.85, 0.80) where they had been beige stone, a light grey-beige and the kit's dark green (docs/RESEARCH/colour-1700-block-T-3244/README.md)"
     },
     {
       "what": "the rear range, the rear and the roof deck",
@@ -174,5 +174,5 @@
       "how": "T-3212: laid square to each flight, K11's rule; see the 1901 record"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
