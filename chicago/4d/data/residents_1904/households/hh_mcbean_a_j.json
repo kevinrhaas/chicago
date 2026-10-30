@@ -1,0 +1,97 @@
+{
+  "id": "hh_mcbean_a_j",
+  "scene": "1904",
+  "name": "The McBean household at 2017 Prairie Avenue",
+  "head": "pa1904_mcbean_a_j",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2017 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 2017 Mr. & Mrs. A. J. McBean; George B. McBean; Mr. & Mrs. A. J. F. McBean."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_2017_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2017, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_mcbean_a_j",
+      "name": "A. J. McBean",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2017 Mr. & Mrs. A. J. McBean"
+    },
+    {
+      "id": "pa1904_mcbean_mrs_a_j",
+      "name": "Mrs. A. J. McBean",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2017 Mr. & Mrs. A. J. McBean"
+    },
+    {
+      "id": "pa1904_mcbean_george_b",
+      "name": "George B. McBean",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2017 George B. McBean",
+      "note": "Listed at 2017 in both editions; his relation to A. J. McBean is not printed."
+    },
+    {
+      "id": "pa1904_mcbean_a_j_f",
+      "name": "A. J. F. McBean",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2017 Mr. & Mrs. A. J. F. McBean",
+      "note": "A second McBean couple listed at 2017 in both editions; the relation to the first is not printed."
+    },
+    {
+      "id": "pa1904_mcbean_mrs_a_j_f",
+      "name": "Mrs. A. J. F. McBean",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2017 Mr. & Mrs. A. J. F. McBean",
+      "note": "Listed with A. J. F. McBean; see his note."
+    }
+  ]
+}

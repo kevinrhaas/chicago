@@ -8,13 +8,20 @@
     "value": "1887-12-01",
     "confidence": "attested",
     "precision": "day",
-    "sources": ["glessner_story_of_a_house_1923", "habs_glessner_house_il_1015_data_pages"],
+    "sources": [
+      "glessner_story_of_a_house_1923",
+      "habs_glessner_house_il_1015_data_pages"
+    ],
     "note": "The night the family first slept in the finished house: 'We slept in this house for the first time on the night of December 1, 1887 and never in the old house after that' (The Story of a House, HABS data p. 9). HABS dates the building June 1, 1886 to December 1, 1887. This is the arrival AT THIS HOUSE; John Glessner had come to Chicago from Springfield, Ohio in 1870 (HABS data p. 4)."
   },
   "present_on_scene_date": {
     "value": "present",
     "confidence": "attested",
-    "sources": ["glessner_house_family_page", "habs_glessner_house_il_1015_data_pages", "glessner_story_of_a_house_1923"],
+    "sources": [
+      "glessner_house_family_page",
+      "habs_glessner_house_il_1015_data_pages",
+      "glessner_story_of_a_house_1923"
+    ],
     "note": "Frances Glessner set up a silversmith's workbench in the basement of Glessner House in 1904 (the museum's family page), which puts the household in the house in the scene year. John Glessner owned the house until the deed of gift of 1 December 1924 and he and his wife lived in it until their deaths in 1936 and 1932 (HABS data pp. 1-2); he wrote The Story of a House in it in 1923."
   },
   "associated_with": [
@@ -26,13 +33,21 @@
       "to": null,
       "tier": "attested",
       "source_id": "glessner_story_of_a_house_1923",
-      "also_sources": ["habs_glessner_house_il_1015_data_pages", "glessner_house_family_page"],
+      "also_sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_family_page"
+      ],
       "note": "Their own house, built for them by H. H. Richardson, from the first night in it to their deaths."
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 (glessner_house_family_page). The household staff are not here either: no source read for this record names a servant, coachman or cook in 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. A person goes on this card when a source names them, and not before.",
-    "sources": ["glessner_house_family_page", "glessner_story_of_a_house_1923"]
+    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 and is listed at 1706 in the 1904 Blue Book; both households have cards of their own. Of the household staff only the cook is here. The museum's account of her says she cooked for 'the live-in staff of eight' as well as the family; it names one other, Fanny Tynan, who worked for the Glessners 'on and off' for over twenty years without a date that reaches 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. The 1900 and 1910 censuses would name the rest and were not read for this card. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "glessner_house_family_page",
+      "glessner_story_of_a_house_1923",
+      "glessner_house_blog_mattie_williamson_2020",
+      "chicago_blue_book_1904"
+    ]
   },
   "persons": [
     {
@@ -40,12 +55,25 @@
       "name": "John J. Glessner",
       "relationship": "head",
       "grade": "attested",
-      "sources": ["habs_glessner_house_il_1015_data_pages", "glessner_house_family_page"],
-      "born": {"value": "1843", "confidence": "attested", "sources": ["habs_glessner_house_il_1015_data_pages"], "note": "Born 1843 in Zanesville, Ohio (HABS data p. 4); the museum gives 20 January 1936 for his death, a week before his ninety-third birthday."},
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_family_page"
+      ],
+      "born": {
+        "value": "1843",
+        "confidence": "attested",
+        "sources": [
+          "habs_glessner_house_il_1015_data_pages"
+        ],
+        "note": "Born 1843 in Zanesville, Ohio (HABS data p. 4); the museum gives 20 January 1936 for his death, a week before his ninety-third birthday."
+      },
       "occupation": {
         "value": "farm machinery executive",
         "confidence": "attested",
-        "sources": ["habs_glessner_house_il_1015_data_pages", "glessner_house_family_page"],
+        "sources": [
+          "habs_glessner_house_il_1015_data_pages",
+          "glessner_house_family_page"
+        ],
         "note": "A partner in Warder, Bushnell and Glessner, and in 1902 one of the four vice presidents of the new International Harvester Company (HABS data p. 4), where he also chaired the executive committee (the museum's family page)."
       }
     },
@@ -54,14 +82,44 @@
       "name": "Frances M. Glessner",
       "relationship": "wife",
       "grade": "attested",
-      "sources": ["glessner_house_family_page", "habs_glessner_house_il_1015_data_pages"],
-      "born": {"value": "1848-01-01", "confidence": "attested", "sources": ["glessner_house_family_page"], "note": "Sarah Frances Macbeth, born 1 January 1848 in Urbana, Ohio; married John Glessner on 7 December 1870 (the museum's family page)."},
+      "sources": [
+        "glessner_house_family_page",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "born": {
+        "value": "1848-01-01",
+        "confidence": "attested",
+        "sources": [
+          "glessner_house_family_page"
+        ],
+        "note": "Sarah Frances Macbeth, born 1 January 1848 in Urbana, Ohio; married John Glessner on 7 December 1870 (the museum's family page)."
+      },
       "occupation": {
         "value": "none_recorded",
         "confidence": "attested",
-        "sources": ["glessner_house_family_page"],
+        "sources": [
+          "glessner_house_family_page"
+        ],
         "note": "No paid occupation is recorded. The museum's family page records her journal, kept from 1879 for forty years; her silversmith's workbench in the basement from 1904; her beekeeping; and the Monday Morning Reading Class she held in the library from 1893."
       }
+    },
+    {
+      "id": "glessner_williamson_martha_l",
+      "name": "Martha L. (Mattie) Williamson",
+      "relationship": "servant",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_blog_mattie_williamson_2020"
+      ],
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "glessner_house_blog_mattie_williamson_2020"
+        ],
+        "note": "Hired as a maid, she became the Glessners' cook in early February 1892 and kept the post, apart from a year away from May 1897 to about May 1898, until she left to marry William Prescott in Los Angeles on 26 December 1912 (the museum's account of her, written from Frances Glessner's journal). Her service range covers 1904; the account gives no 1904 date of its own."
+      },
+      "note": "A live-in servant: the museum's account has her cooking for the family and 'the live-in staff of eight'. Her brother Alex and his wife Sarah managed the Glessners' New Hampshire farm, The Rocks, from 1883."
     }
   ]
 }

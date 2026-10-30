@@ -2,7 +2,8 @@
  * People (SCR 04) as its own screen, loaded the first time it opens (T-2618).
  *
  * Used where a scene has a people directory but not the drawer's People section: 1904,
- * whose directory (`sidecars/1904/people.json`, T-2702) is the Glessner household and
+ * whose directory (`sidecars/1904/people.json`, T-2702; the Prairie Avenue households from
+ * the Blue Book since T-3253) is built from its own household cards and
  * which deliberately lists no `residents` layer (T-1740 keeps the drawer's People, City,
  * Population and Order book on 1835's files). The directory is fetched here, on first
  * open, never at boot. Each person names their household, their place in it and the
