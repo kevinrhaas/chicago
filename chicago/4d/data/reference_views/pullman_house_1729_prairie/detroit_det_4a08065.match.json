@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf",
+  "glb_sha256": "5123d7f069e7b4f8e8fd8ecac0de54a744c504bad617a4b951758bd28a5fb8f4",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "6f3eab13c613dd5d75f1753902ceda32002eacae605844e94e196ecbe1da7b77"
+      "sha256": "85538f7bd18f0aa0a349a52e9faa7b4cd11ac4da7929fe278a9efecfba3d37e8"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "e07eb18283fae239a23458fed464db898a75111ccd98ae2c603f6a624729f4cd",
+  "flora_sha256": "08c9997610625ed096b7a7ebfdb5f79bec56f7d1610a086971a8a3b6b54c2df6",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -238,6 +238,10 @@
       "what": "the belt course under the second storey's sills, where the ivy leaves it to be seen (y about 383-395 at the portico's balcony and across the flank)",
       "status": "fixed",
       "how": "T-1881: street_front_pavilions.belt, its bed at 6.72 m and its top at 7.67 m; the render's at y 382-397"
+    },
+    {
+      "what": "the entry off its axis (the owner, 2026-10-29: \"the entry is not straight\"): the print's stair rises straight between the portico's two inner columns to a door centred between them, from a gap in the street wall square before it, where the build stood the stair at v 4.0, the door at v 4.6 over the forward block's window, and the gate at v 5.7, so the walk bent; door, stair, inner columns and gate now stand on v 5.25, the forward block's centre (L-pullman-1729-entry-axis-1881)",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
