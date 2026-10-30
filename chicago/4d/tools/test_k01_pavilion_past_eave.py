@@ -230,7 +230,8 @@ def main() -> int:
     # behind the wall's face, where the main roof runs: the roof is cut away inside the cant
     # as deep as its recess reaches (T-3108's try showed its slate through the opening)
     lights = a.cant_lights(bs)
-    check(len(lights) == 1, f"1801's pavilion carries one light on its canted face ({lights})")
+    check(len(lights) == 1 and lights[0][0] > p.eave_m,
+          f"1801's pavilion carries one light on its canted face, over the eave ({lights})")
     pts = bs["variant"]["plan"]["points"]
     lens = [math.hypot(q[0] - r[0], q[1] - r[1]) for r, q in zip(pts, pts[1:])]
     total = math.fsum(lens)
@@ -264,7 +265,7 @@ def main() -> int:
         return None
     # across the opening, from just outside the face: T-3108's try met the chamfer cut's closing
     # face in the cant's own plane there, over most of the light
-    for t_, (lo, hi) in zip(on_cant, lights):
+    for t_, (lo, hi, _) in zip(on_cant, lights):
         seen = []
         for dt in (-0.2, 0.0, 0.2):
             cu, cv = un + (ub - un) * (t_ + dt) / Lc, sn + (sb_ - sn) * (t_ + dt) / Lc
@@ -274,6 +275,17 @@ def main() -> int:
                     seen.append(f"{hit} at {dt:+.1f} m, {y:.2f} m")
         check(not seen, f"the cant's light ({lo:.2f}-{hi:.2f} m) sees {deep} m into its recess past nothing "
                         f"of the house's" + (f" ({'; '.join(seen)})" if seen else ""))
+
+    # ...and only over the eave: under it the house's own walls stand behind the cant
+    st_, ph_ = load(SID)
+    e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
+    lw = e_["storeys"][2]["windows"].pop()
+    e_["storeys"][1]["windows"].append(dict(lw, sill_m=0.6, clear_height_m=1.4))
+    try:
+        K1.build(KP.from_phase(ph_, st_), SID)
+        check(False, "a light on the canted face under the eave: refused")
+    except ValueError as err:
+        check("under the eave" in str(err), f"a light on the canted face under the eave: refused ({str(err)[:80]}...)")
 
     def chamfer_refused(change, why, says):
         st, phase = load(SID)

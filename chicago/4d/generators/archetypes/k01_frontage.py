@@ -4051,19 +4051,23 @@ class Assembly:
                     n = ((vb - va) / L, -(ub - ua) / L)      # out of the canted face
                     if n[0] < 0.0:
                         n = (-n[0], -n[1])
-                    deep = K8.part(b["variant"], K8.load(), "recess")["depth_m"] + 0.05
+                    if min(lo for lo, _, _ in lit) < self.p.eave_m:
+                        raise ValueError(f"{b['id']}: a light on its canted face stands under the eave at "
+                                         f"{self.p.eave_m} m, where the house's own walls stand behind the cant")
+                    deep = max([K8.part(b["variant"], K8.load(), "recess")["depth_m"]]
+                               + [r for _, _, r in lit if r is not None]) + 0.05
                     at = lambda q, k: (q[0] + n[0] * k, q[1] + n[1] * k)
                     ring = [at(pts[0], 0.005), at(pts[1], 0.005), at(pts[1], -deep), at(pts[0], -deep)]
                     if math.fsum(a[0] * c[1] - c[0] * a[1] for a, c in zip(ring, ring[1:] + ring[:1])) < 0.0:
                         ring.reverse()
-                    out.append(k5.extrude(ring, bot, max(hi for _, hi in lit) + 0.5, P, "wall", floor, "wall"))
+                    out.append(k5.extrude(ring, bot, max(hi for _, hi, _ in lit) + 0.5, P, "wall", floor, "wall"))
         return out
 
     @staticmethod
     def cant_lights(b) -> list:
         """T-1890: the lights a chamfered shallow pavilion carries on its canted face (the last
         of its plan's runs at a right corner, the first at a left), by K08's own `at`: each
-        (sill, head) in metres over grade."""
+        (sill, head) in metres over grade, and its own recess depth if it names one."""
         v = b["variant"]
         pts = v["plan"]["points"]
         lens = [math.hypot(q[0] - p_[0], q[1] - p_[1]) for p_, q in zip(pts, pts[1:])]
@@ -4073,7 +4077,8 @@ class Assembly:
             for w in st.get("windows") or ():
                 if any(f * total > total - lens[-1] + 1e-9 if right else f * total < lens[0] - 1e-9
                        for f in w.get("at") or ()):
-                    out.append((y + float(w["sill_m"]), y + float(w["sill_m"]) + float(w["clear_height_m"])))
+                    out.append((y + float(w["sill_m"]), y + float(w["sill_m"]) + float(w["clear_height_m"]),
+                                w.get("recess_m")))
             y += float(st["height_m"])
         return out
 
