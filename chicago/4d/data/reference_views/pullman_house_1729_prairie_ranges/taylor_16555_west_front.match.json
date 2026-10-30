@@ -76,7 +76,7 @@
         "creeper": 7
       }
     ],
-    "street_trees": 32,
+    "street_trees": 35,
     "street_trees_m": 70,
     "street_furniture": [
       "hydrant.pictured.pullman",
@@ -133,14 +133,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "4be896ee901ef6a12b92f1da8e80c2ffb849121d8b5f9fc760e806b4fec5efdb",
+  "flora_sha256": "a375aef7cf29530fe812fce20afbed7fe75c782778931b934fdee76e4a737f3c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -222,6 +222,11 @@
     {
       "what": "the gas lamp at the turn of 18th Street's walk into Calumet Avenue (data/street_furniture/1904.json, lamp.pictured.pullman_court) renders before the stable's corner bay (x about 640) where this print shows the court's gate pier and no post. Taylor's 16554 shows the post there, and it is the later picture: the dead Fort Dearborn 'massacre tree' this print shows before the wing, felled on 18 May 1894, does not stand in it. So the lamp is taken as set after this print, and stands for 1904 (T-1934, 2026-10-30): two pictures of different dates, the build following the later",
       "status": "within tolerance"
+    },
+    {
+      "what": "the near parkway trunk (the print's x 873, foot y 760) renders at x 750, about 125 px west of it",
+      "status": "within tolerance",
+      "how": "T-3164 (parkway pass, 2026-10-30): moved 1.7 m west, to 3.0 m along 18th Street's south parkway (e 1472.5), because the uncropped 1894 conservatory plate sees its old place clear (it stood before the plate's west gate pier) and Lowe's c. 1897 print puts the trunk there. This camera, solved on the north side's ground (T-1934), stands that west gate pier (placed off the plate by T-3164; not rendered in this view) about 180 px west of the print's own (its west face at x 786, the print's at x 965), so its reading of the south parkway carries that offset: read against the pier, 90 px west of its face, the print's trunk stands 1.7 to 3.5 m along the parkway, and it is planted at 3.0 m (T-3153: two camera fits disagree). Its girth is the print's: scale 0.6 read off the conservatory plate's trunk."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
