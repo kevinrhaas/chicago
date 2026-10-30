@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2471, ts: '2026-10-30T21:48:11.048Z', date: 'Oct 30, 2026, 4:48 PM CT', title: 'Less phone memory for the railway yard', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The railway yard uses less phone memory while retaining its tracks, ground, materials and evidence grades.',
+    ] },
   { v: 2470, ts: '2026-10-30T21:46:33.254Z', date: 'Oct 30, 2026, 4:46 PM CT', title: 'The Pullman house\'s Prairie Avenue trees stand where the photograph shows them', kind: 'improve',
     items: [
       'Along Prairie Avenue in front of 1729 Prairie, four parkway trees now stand where a c. 1900 photograph of the house puts them: from the house\'s north end to the 18th Street corner, where the last one stands beside the lamp post. The three trees guessed there before stood between them.',
