@@ -1,7 +1,0 @@
-{
-  "title": "The moving-frames check runs as two jobs and stops timing out",
-  "kind": "chore",
-  "items": [
-    "The walk-and-flight frame check and the phone's memory check now run side by side, each under a time limit it can meet, so a passing change is no longer cancelled by the clock on a busy day and can merge without a blind merge."
-  ]
-}
