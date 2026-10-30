@@ -30,9 +30,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The twelve live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -44,7 +45,8 @@
       "sources": [
         "chicago_blue_book_1904",
         "wikipedia_frank_orren_lowden",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "1912 Mr. & Mrs. Frank Orren Lowden",
       "occupation": {
@@ -54,7 +56,15 @@
           "wikipedia_frank_orren_lowden"
         ],
         "note": "He 'practiced law in Chicago for about 20 years', and from 1904 to 1912 sat on the Republican National Committee (Wikipedia); later governor of Illinois."
-      }
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 77, leaf n801",
+        "as_enumerated": "Lowden, F. O.",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists F. O. Lowden here as head, born April 1864 (the figures are hard to read), in Iowa (as read), married, lawyer (ED 40, sheet 4B, line 77, leaf n801)."
     },
     {
       "id": "pa1904_lowden_mrs_frank_orren",
@@ -64,10 +74,464 @@
       "sources": [
         "chicago_blue_book_1904",
         "wikipedia_frank_orren_lowden",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "1912 Mr. & Mrs. Frank Orren Lowden",
-      "note": "The Blue Book prints her as Mrs. Frank Orren Lowden; Wikipedia names her Florence, the daughter of George Pullman, whose widow lived across the street at 1729."
+      "note": "The Blue Book prints her as Mrs. Frank Orren Lowden; Wikipedia names her Florence, the daughter of George Pullman, whose widow lived across the street at 1729. The 1900 census lists Florence P. Lowden here as wife, born August 1868 (the figures are hard to read), in Illinois, married (ED 40, sheet 4B, line 78, leaf n801).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 78, leaf n801",
+        "as_enumerated": "Lowden, Florence P.",
+        "relation_as_enumerated": "Wife"
+      }
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_pullman_lowden",
+      "name": "Pullman Lowden",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1897",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1897, age 2 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 79, leaf n801",
+        "as_enumerated": "Lowden, Pullman",
+        "relation_as_enumerated": "Son"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born November 1897, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_florence_lowden",
+      "name": "Florence Lowden",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1898",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1898, age 1 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 80, leaf n801",
+        "as_enumerated": "Lowden, Florence",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born August 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_kate_hurley",
+      "name": "Kate Hurley",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1875",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1875, age 24 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "waitress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Waitress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 81, leaf n801",
+        "as_enumerated": "Hurley, Kate",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born November 1875 (the figures are hard to read), in Ireland, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_robert_grimmond",
+      "name": "Robert Grimmond",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1865",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives October 1865, age 34 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "steward",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Steward\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 82, leaf n801",
+        "as_enumerated": "Grimmond, Robert",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (steward); born October 1865, in England, came to the United States in 1886, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_anna_peterson",
+      "name": "Anna Peterson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1872",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives June 1872, age 27 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "nurse (children)",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Nurse (children's)\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 83, leaf n801",
+        "as_enumerated": "Peterson, Anna",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (children)); born June 1872 (the figures are hard to read), in Sweden, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_may_proot",
+      "name": "May Proot",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1847",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives 1847, age 52 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 84, leaf n801",
+        "as_enumerated": "Proot, May Mrs.",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born 1847 (the figures are hard to read), in France, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_nora_ryan",
+      "name": "Nora Ryan",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1879",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1879, age 21 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 85, leaf n801",
+        "as_enumerated": "Ryan, Nora",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born August 1879, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_kate_arnold",
+      "name": "Kate Arnold",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1864",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1864, age 36 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "laundress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Laundress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 86, leaf n801",
+        "as_enumerated": "Arnold, Kate Mrs.",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born August 1864, in Pennsylvania, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_leonie",
+      "name": "Leonie",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1873",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1873, age 27 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "ladies maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Ladies maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 87, leaf n801",
+        "as_enumerated": "(blotted), Leonie Miss",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born January 1873, in France, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_jennie_walker",
+      "name": "Jennie Walker",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1857",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives September 1857, age 42 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "house maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"House maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 88, leaf n801",
+        "as_enumerated": "Walker, Jennie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born September 1857, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_sophie_olson",
+      "name": "Sophie Olson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1843",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1843, age 37 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "chambermaid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Chambermaid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 89, leaf n801",
+        "as_enumerated": "Olson, Sophie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (chambermaid); born January 1843 (the figures are hard to read), in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_clarence_clough",
+      "name": "Clarence Clough",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1860",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1860, age 40 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "coachman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 90, leaf n801",
+        "as_enumerated": "Clough, Clarence",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born January 1860, in New York, married. Living with him: Clarence Clough (wife), Clarence E. Clough (son). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_hugh_fields",
+      "name": "Hugh Fields",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1855",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives September 1855, age 44 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "groom",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Groom\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 92, leaf n801",
+        "as_enumerated": "Fields, Hugh",
+        "relation_as_enumerated": "Boarder"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a boarder (groom); born September 1855 (the figures are hard to read), in Scotland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_lowden_frank_orren_c1900_john_halloran",
+      "name": "John Halloran",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1876",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives June 1876, age 23 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "footman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Footman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 93, leaf n801",
+        "as_enumerated": "Halloran, John",
+        "relation_as_enumerated": "Boarder"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a boarder (footman); born June 1876 (the figures are hard to read), in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
     }
   ]
 }

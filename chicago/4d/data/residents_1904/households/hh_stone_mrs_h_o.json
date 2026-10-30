@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Robert Stone (a married son the 1904 Blue Book does not list at the house); Ada E. Stone (his wife; not listed in 1904 either). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -42,9 +43,150 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "2035 Mrs. H. O. Stone"
+      "printed_as": "2035 Mrs. H. O. Stone",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 84, leaf n817",
+        "as_enumerated": "Stone, H. O. (Mrs.)",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists H. O. Stone here as head, born October 1845 (the figures are hard to read), in New York, widowed (ED 40, sheet 12B, line 84, leaf n817)."
+    },
+    {
+      "id": "pa1904_stone_mrs_h_o_c1900_alice_green",
+      "name": "Alice Green",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1850",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1850, age 50 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "housekeeper",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Housekeeper\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 85, leaf n817",
+        "as_enumerated": "Green, Alice",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (housekeeper); born March 1850, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_stone_mrs_h_o_c1900_mary_ward",
+      "name": "Mary Ward",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1860",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives February 1860, age 40 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "ladies maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Ladies maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 86, leaf n817",
+        "as_enumerated": "Ward, Mary",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born February 1860, in Ireland, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_stone_mrs_h_o_c1900_margaret_hurley",
+      "name": "Margaret Hurley",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1871",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1871, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "waitress or cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"waitress or cook\" in the occupation column on 1 June 1900 (the column runs a line out of step here, so the trade is uncertain)."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 89, leaf n817",
+        "as_enumerated": "Hurley, Margaret",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress or cook); born January 1871, in Maryland (as read), single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_stone_mrs_h_o_c1900_margaret_lannes",
+      "name": "Margaret Lannes",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1865",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives April 1865, age 35 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "waitress or cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"waitress or cook\" in the occupation column on 1 June 1900 (the column runs a line out of step here, so the trade is uncertain)."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 12B, line 90, leaf n817",
+        "as_enumerated": "Lannes, Margaret",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress or cook); born April 1865, in New York, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
     }
   ]
 }

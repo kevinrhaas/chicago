@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jessie Spaulding (an unmarried daughter of 29 in 1900 whom the 1904 Blue Book does not list (no \"& dr.\")). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -41,10 +42,18 @@
       "relationship": "head",
       "grade": "attested",
       "sources": [
-        "chicago_blue_book_1904"
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "1709 Mr. & Mrs. Jesse Spalding",
-      "note": "The 1905 edition lists Mrs. Jesse Spalding alone at 1709; when he left the household, or died, is not on either page, so his presence on 1 July 1904 is not documented."
+      "note": "The 1905 edition lists Mrs. Jesse Spalding alone at 1709; when he left the household, or died, is not on either page, so his presence on 1 July 1904 is not documented. The 1900 census lists J. Spaulding here as head, born May 1830, in United States, married, lumberman (ED 40, sheet 1A, line 20, leaf n794).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 20, leaf n794",
+        "as_enumerated": "Spaulding, J.",
+        "relation_as_enumerated": "Head"
+      }
     },
     {
       "id": "pa1904_spalding_mrs_jesse",
@@ -53,9 +62,183 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "1709 Mr. & Mrs. Jesse Spalding"
+      "printed_as": "1709 Mr. & Mrs. Jesse Spalding",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 21, leaf n794",
+        "as_enumerated": "Spaulding, Adelia",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Adelia Spaulding here as wife, born May 1830, in United States, married (ED 40, sheet 1A, line 21, leaf n794)."
+    },
+    {
+      "id": "pa1904_spalding_jesse_c1900_hannah_johnson",
+      "name": "Hannah Johnson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1860",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1860, age 40 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 23, leaf n794",
+        "as_enumerated": "Johnson, Hannah",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born March 1860, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_spalding_jesse_c1900_mary_range",
+      "name": "Mary Range",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1870",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives July 1870, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "ladies maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Ladies maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 24, leaf n794",
+        "as_enumerated": "Range, Mary",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born July 1870, in Ireland, came to the United States in 1885, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_spalding_jesse_c1900_mary_flinn",
+      "name": "Mary Flinn",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1864",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives June 1864, age 35 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "parlor maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Parlor maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 25, leaf n794",
+        "as_enumerated": "Flinn, Mary",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (parlor maid); born June 1864, in New York, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_spalding_jesse_c1900_peter_wilson",
+      "name": "Peter Wilson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1867",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1867, age 33 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "coachman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 26, leaf n794",
+        "as_enumerated": "Wilson, Peter",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a servant (coachman); born March 1867, in United States, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_spalding_jesse_c1900_frank_manda",
+      "name": "Frank Manda",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1866",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1866, age 34 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "groom",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Groom\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 1A, line 27, leaf n794",
+        "as_enumerated": "Manda, Frank",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a servant (groom); born August 1866, in Austria, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
     }
   ]
 }

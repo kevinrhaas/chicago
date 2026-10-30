@@ -41,12 +41,13 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 and is listed at 1706 in the 1904 Blue Book; both households have cards of their own. Of the household staff only the cook is here. The museum's account of her says she cooked for 'the live-in staff of eight' as well as the family; it names one other, Fanny Tynan, who worked for the Glessners 'on and off' for over twenty years without a date that reaches 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. The 1900 and 1910 censuses would name the rest and were not read for this card. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 and is listed at 1706 in the 1904 Blue Book; both households have cards of their own. Of the household staff the cook is here, with five more the 1900 census lists. The museum's account of her says she cooked for 'the live-in staff of eight' as well as the family; it names one other, Fanny Tynan, who worked for the Glessners 'on and off' for over twenty years without a date that reaches 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: J. J. Glessner (the family was at The Rocks, their New Hampshire farm; the line points to their own entry elsewhere). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
       "glessner_house_family_page",
       "glessner_story_of_a_house_1923",
       "glessner_house_blog_mattie_williamson_2020",
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -120,6 +121,171 @@
         "note": "Hired as a maid, she became the Glessners' cook in early February 1892 and kept the post, apart from a year away from May 1897 to about May 1898, until she left to marry William Prescott in Los Angeles on 26 December 1912 (the museum's account of her, written from Frances Glessner's journal). Her service range covers 1904; the account gives no 1904 date of its own."
       },
       "note": "A live-in servant: the museum's account has her cooking for the family and 'the live-in staff of eight'. Her brother Alex and his wife Sarah managed the Glessners' New Hampshire farm, The Rocks, from 1883."
+    },
+    {
+      "id": "pa1904_glessner_john_j_c1900_mary_reynolds",
+      "name": "Mary Reynolds",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1871",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives June 1871, age 28 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "house maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"House maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5B, line 54, leaf n803",
+        "as_enumerated": "Reynolds, Mary",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born June 1871 (the figures are hard to read), in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_glessner_john_j_c1900_kate_ryan",
+      "name": "Kate Ryan",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1850",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives April 1850, age 50 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5B, line 55, leaf n803",
+        "as_enumerated": "Ryan, Kate",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born April 1850, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. The family was at their New Hampshire farm on the census day, and the museum's account has Mattie Williamson as their cook in these years, so Kate Ryan may have cooked for the house while they were away."
+    },
+    {
+      "id": "pa1904_glessner_john_j_c1900_christine_nelson",
+      "name": "Christine Nelson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1873",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1873, age 27 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "parlor maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Parlor maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5B, line 56, leaf n803",
+        "as_enumerated": "Nelson, Christine",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (parlor maid); born March 1873 (the figures are hard to read), in Sweden, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_glessner_john_j_c1900_charles_nelson",
+      "name": "Charles Nelson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1848",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives June 1848, age 52 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "coachman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5B, line 57, leaf n803",
+        "as_enumerated": "Nelson, Charles",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born June 1848 (the figures are hard to read), in Sweden, came to the United States in 1871, married. Living with him: Martha Nelson (wife), Norman J. Nelson (son), Albert C. Nelson (son), Richard Nelson (son), Martin Nelson (son), Helen Nelson (daughter). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_glessner_john_j_c1900_august_billings",
+      "name": "August Billings",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1875",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1875, age 25 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "helper",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Helper\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5B, line 64, leaf n803",
+        "as_enumerated": "Billings, August",
+        "relation_as_enumerated": "Helper"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a helper; born January 1875, in Sweden, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
     }
   ]
 }
