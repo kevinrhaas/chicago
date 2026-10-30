@@ -2218,6 +2218,13 @@
       "measured": "2026-10-02",
       "finding": "Reproduces: run bare twice on a clean tree in under a second, it rewrote data/structures/land_sale_camp_shore.json and west_approach_wagon_camp.json with identical bytes. T-1804. PENDING rather than manifest for the reason place_landing_camps_1835.py is: it reads the committed street lines, fences, refused regions, the heightfield and every footprint, and writes two structure records the sidecar compile and the town census then read.",
       "placed": "not yet \u2014 measured to reproduce. T-1804: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those; its slot is the manifest's own measured pass, as T-1803's is."
+    },
+    "build_former_residents_1904.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-30",
+      "finding": "Reproduces: a bare write run on the T-3266 tree rewrote data/residents_1904/former_residents.json with identical bytes and left git status unchanged; three consecutive runs gave the same md5 (the surname spelling choice is sorted, so hash order cannot move it).",
+      "placed": "not yet \u2014 measured to reproduce. It reads data/residents_1904/households/, the two RESEARCH readings and data/structures, and writes data/residents_1904/former_residents.json, which compile_scene.py --scene 1904 reads, so it precedes compile_scene.py; its slot is the manifest's own measured pass (T-3266)."
     }
   }
 }

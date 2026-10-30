@@ -20337,6 +20337,14 @@ for (const [label, viewport, touch] of [
           const out = { people: [...root().querySelectorAll('[data-insp-pane="people"] [data-person] .nav-person-name')].map((n) => n.textContent.trim()),
             story: (await tab('story')).text.includes('1885') };
           await tab('photos');
+          // T-3266: a house's former residents, the family it is named for among them, and a
+          // house nobody is listed in for 1904 saying so instead of "nobody in our records".
+          await open('keith_house_1808_prairie');
+          const keith = await tab('people');
+          out.keith = /Former residents/.test(keith.text) && /Keith/.test(keith.text) && /Stanley Field/.test(keith.text);
+          await open('coleman_ames_house_1811_prairie');
+          const coleman = await tab('people');
+          out.coleman = /Nobody listed in 1904/.test(coleman.text) && /Coleman/.test(coleman.text) && !/Nobody in our records/.test(coleman.text);
           await open('pullman_house_1729_prairie');
           out.newOpensOn = current();
           await tab('design');
@@ -20345,9 +20353,10 @@ for (const [label, viewport, touch] of [
           await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
           return out;
         });
-        check(`${label}: Inspect's People tab lists the Glessner household; a new building opens on Overview and the same keeps its tab (T-2639)`,
+        check(`${label}: Inspect's People tab lists the Glessner household; 1808 lists its former residents and 1811 why nobody is listed (T-3266); a new building opens on Overview and the same keeps its tab (T-2639)`,
           inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
-          && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
+          && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design'
+          && inspectTabs1904.keith && inspectTabs1904.coleman,
           JSON.stringify(inspectTabs1904));
         // >>> T-2644: Glessner's Sources tab groups every fact by grade with real counts (the
         // same count the Overview's Confidence meter shows), a Liberties section with every

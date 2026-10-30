@@ -38,6 +38,7 @@ import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
 import { buildingFacts, factCounts, sourcesPaneHtml } from '../inspect-sources.js';
 import { storyTimeline, renderStory } from '../inspect-story.js';
+import { formerResidentsBlock } from './former-residents.js';
 import { count as countField } from '../field-log.js'; // T-2660
 import { designModel, renderDesign } from '../inspect-design.js';
 import { MODE_ATTR } from '../researcher.js';
@@ -471,6 +472,9 @@ async function fillPeople(pane, sec, ctx, id) {
   let dir = null;
   try { dir = await ctx.actions?.peopleDirectory?.(); } catch { dir = null; }
   const rows = Array.isArray(dir?.people) ? dir.people : [];
+  // T-3266: who lived here before the scene date (and, in a house nobody is listed in, why
+  // not and who came after), drawn under whoever this tab lists.
+  const history = () => formerResidentsBlock(doc, dir?.former_residents?.[id], { el, line, heading });
   if (sec.hasResidents) {
     const d = el(doc, 'div', 'insp-card');
     d.innerHTML = sec.people;
@@ -486,12 +490,15 @@ async function fillPeople(pane, sec, ctx, id) {
       links.append(b);
     }
     if (links.children.length) pane.append(links);
+    const past = history();
+    if (past) pane.append(past);
     return;
   }
   const here = rows.filter((r) => r.lives_at === id || r.works_at === id);
   if (sec.people.includes('pop-flag')) { const f = el(doc, 'div', 'insp-card'); f.innerHTML = sec.people; pane.append(f); }
   if (!here.length) {
-    pane.append(el(doc, 'p', 'nav-sub', 'Nobody in our records lives or works here.'));
+    const past = history();
+    pane.append(past ?? el(doc, 'p', 'nav-sub', 'Nobody in our records lives or works here.'));
     return;
   }
   const block = el(doc, 'section', 'insp-sec');
@@ -508,6 +515,8 @@ async function fillPeople(pane, sec, ctx, id) {
     block.append(b);
   }
   pane.append(block);
+  const past = history();
+  if (past) pane.append(past);
 }
 
 /** Clicks inside Inspect: tabs, the card's own "why" toggles, a picture, a person. */
