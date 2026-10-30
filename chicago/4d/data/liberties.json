@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 879,
+  "count": 880,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -61366,6 +61366,49 @@
       ],
       "work_refs": [
         "T-1881"
+      ]
+    },
+    {
+      "id": "L-pullman-carriage-ways-1934",
+      "title": "Pullman's two carriage drives, the gateways kept clear, and the stable's stone toned from the winter print",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_conservatory",
+        "pullman_house_1729_prairie_ranges"
+      ],
+      "covers": [],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1729 Prairie yard (`yard.drives` on 1729 Prairie Avenue — the George M. Pullman house, laid by the k14 yard generator) takes two gravel carriage drives, each worn in two wheel tracks at a carriage's gauge. One comes in off 18th Street through the opening in the Pullman wall that J. W. Taylor's 16555 (J. W. Taylor (Chicago), photographer) shows at the court's mouth, now 3.35 m clear, and runs 2.6 m wide up the court to an apron before the stable's broad central arch. The other comes in through the gap in the wall east of the house that Taylor's 1445 shows and runs 2.4 m wide north under the porte-cochère's end arches and east to a turning apron. the plant prairie 1904 front yards tool now keeps every gateway in any lot's fence or wall clear of plantings for 3.5 m inside it (only 1729's planting moved): the 18th Street border starts east of the house, where the c. 1900 photograph shows shrubs, and two of the tubs of “The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them” move off the drives (the standard 0.6 m east, to 1476.4 E, -3181.2 N; the slim arborvitae to 1473.1 E, -3193.4 N, still inside the wall's east pier). The stable (1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges, draft elevation tint) and the palm house range's wall and its rusticated, pilastered face (George M. Pullman house (1729 Prairie Avenue): the palm house on its east range, host wall color) take one stone, linear (0.332, 0.299, 0.241), its dressed trim a shade lighter."
+        },
+        {
+          "label": "What is read",
+          "text": "the court's opening in the wall and the wall's gap east of the house, from the two photographs; that carriages reached the stable through the court, since its arches face it; the stone's value, from Taylor's winter print 16554, where the stable's wall prints 1.4-1.5 times the house's own wall in the same light (the house's walls are 's sandstone fawn, “1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs”) and the palm house range prints in the same band as the stable (the research notes on colour pullman stable /)."
+        },
+        {
+          "label": "What is chosen",
+          "text": "the drives' lines, widths, gravel and aprons: no picture shows the court's floor or the ground under the porte-cochère, and the second drive is read from the porte-cochère being there at all. The stone's hue: a grey level fixes value, not colour, so the draft's warm grey-tan is kept. That the gateway rule's 3.5 m is a carriage's turn in."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the court or the porte-cochère from the ground, a site plan, or a written specification of the stable's stone."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on colour pullman stable this work/the project's notes on readme; the photo-match side-by-sides of 1729 Prairie Avenue — the George M. Pullman house, `_ranges` and `_conservatory`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-1934)."
+        }
+      ],
+      "work_refs": [
+        "T-1881",
+        "T-1934"
       ]
     },
     {

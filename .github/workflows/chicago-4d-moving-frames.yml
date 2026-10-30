@@ -11,14 +11,31 @@ name: Chicago 4D — moving frames
 # gate only ran when a steward run thought to run it.
 #
 # It is NOT in check.sh, and NOT in the dev gate's `gate` job, because it is a
-# browser run of about seven minutes: the dev gate is the window in which a PR can
-# be overtaken, and it does not get longer for one family of files. It runs beside
-# it, on the pull requests that can move a moving frame: the renderer's own
-# JavaScript, the flora and tree data it plants from, and this tool.
+# browser run of about seven minutes when written (twenty-odd by 2026-10-30):
+# the dev gate is the window in which a PR can be overtaken, and it does not
+# get longer for one family of files. It runs beside it, on the pull requests
+# that can move a moving frame: the renderer's own JavaScript, the flora and
+# tree data it plants from, and this tool.
 #
 # Desktop only, unthrottled. The phone stand-in reads the same code under a 4x CPU
 # throttle somebody chose; the desktop reading is the one on this runner that is
 # not scaled by a factor, which is why the ceilings are written against it.
+#
+# T-3259. TWO JOBS, EACH UNDER A CEILING IT CAN MEET. Both steps used to share
+# one 30-minute job, and on a busy fleet they no longer fit in it: measured on
+# 2026-10-30, setup (checkout, Playwright, publish) took about 3 min, the walk
+# 14-20 min and the phone 10-12 min, so #1463 and #1470 were cancelled by the
+# timeout on successive heads with zero FAILs — and the merge gate reads a
+# cancel as red, so a green PR could not merge. Split, each job pays its own
+# setup, holds about 1.7x its slowest measured run, and the two run side by
+# side, so the leg's wall time falls from ~33 min to ~23. A newer push to the
+# same PR cancels the run it supersedes (that head is no longer the PR's, and
+# the gate reads the head's own run), so a stack of heads does not queue four
+# browser runs for one verdict.
+
+concurrency:
+  group: chicago-4d-moving-frames-${{ github.ref }}
+  cancel-in-progress: true
 
 on:
   pull_request:
@@ -33,7 +50,8 @@ on:
 jobs:
   moving-frames:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    # ~3 min setup + the walk's 14-20 min (2026-10-30).
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
@@ -58,12 +76,37 @@ jobs:
         working-directory: chicago/4d
         run: node tools/measure_walk_frames.mjs --only desktop --verify --gate
 
+  upload-release:
+    runs-on: ubuntu-24.04
+    # ~3 min setup + the phone's 10-12 min (2026-10-30).
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Installed GLOBALLY, as chicago-4d-smoke.yml does: the tool resolves
+      # Playwright through `npm root -g` when the workspace has none.
+      - name: Install Playwright
+        run: |
+          set -e
+          npm install -g playwright@1.56.1
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+
+      # The mirror is generated (T-0938); the gate reads what ships.
+      - name: Publish the mirror the gate serves (site/4d/ is generated)
+        working-directory: chicago/4d
+        run: bash tools/publish.sh
+
       # T-2158. A phone lets go of its geometry's page arrays once the GPU has
       # them, and the smoke keeps them (its probes read vertices back), so this
       # is the run that holds the release to account: a phone boots 1835, lets
       # go, still answers a tap on every layer that keeps a position for one,
       # walks to a held-back chunk, raises the detail, and a desktop releases
-      # nothing. About three minutes, on the mirror published above.
+      # nothing. Ten to twelve minutes on 2026-10-30 (about three when T-2158 wrote
+      # it), on the mirror published above.
       - name: A phone keeps the town on the GPU, not twice
         working-directory: chicago/4d
         run: node tools/check_upload_release.mjs

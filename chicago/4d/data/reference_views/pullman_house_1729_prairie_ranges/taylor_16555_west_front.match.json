@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_ranges",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
-  "glb_sha256": "b44cc805a7ad26115c6c380faa1a2fcc841d1fe89cb6b18af0d14aa261eef37d",
+  "glb_sha256": "896ce63602b0f92e8d43df39b393c21f0eda3972050770ed52a0ccfe597b5141",
   "camera_sha256": "a5427c29c85ac29b5197a9a9172363fa821752e33a479368275428994764f581",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "b44cc805a7ad26115c6c380faa1a2fcc841d1fe89cb6b18af0d14aa261eef37d"
+      "glb_sha256": "896ce63602b0f92e8d43df39b393c21f0eda3972050770ed52a0ccfe597b5141"
     },
     {
       "structure_id": "pullman_house_1729_prairie_conservatory",
@@ -42,7 +42,7 @@
         2.4319498013560494
       ],
       "rotation_y": 3.1490277562032887,
-      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
+      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -61,19 +61,19 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "d793edc6656cdffeb59a5b164123cc5be6090c2ad145f462edc1ee781a93abcc"
+      "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25"
     }
   ],
-  "group_sha256": "c74a51c94951dc4c1b4292370ff04f5927747150755a3a6199e4f88f36c0dc1c",
+  "group_sha256": "527d29710f4cd9e503a79589dfb53e385f19cf78a87f532fad127cd5d76b50dc",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 27,
+        "shrubs": 10,
         "trees": 3,
         "beds": 0,
-        "creeper": 6
+        "creeper": 0
       }
     ],
     "street_trees": 32,
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "bafc555353a6b9c7301d37e1a66aef195a9764c1309e5ac5abcbed926fade944",
+  "flora_sha256": "72076b27090047db998450b9fc4eda5543521b67d35cf525af94888c9d1b3bfd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -187,7 +187,7 @@
       "status": "open"
     },
     {
-      "what": "the court's way off 18th Street east of the drum: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [Re-read through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px: the build's pier east of the terrace renders at x 535-570 (a second behind the parkway trunk at x 600-620); the print's piers stand at x 500-520, 580-600 (set back) and 775-800, the court's way about 4 m wide between the last two. Still open.]",
+      "what": "the court's way off 18th Street east of the drum: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [Re-read through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px: the build's pier east of the terrace renders at x 535-570 (a second behind the parkway trunk at x 600-620); the print's piers stand at x 500-520, 580-600 (set back) and 775-800, the court's way about 4 m wide between the last two. Still open.] [T-1934, 2026-10-30: the wall now opens 3.35 m at the court's mouth (the build's 0.95 m opening is gone), and a gravel drive (reconstructed) runs through it up the court to the stable's central arch; in the side-by-side the opening falls about where the print's curving way into the court does, judged by eye, not measured. Still open: the piers' places either side of it and the print's curving cheek walls (L-pullman-carriage-ways-1934).]",
       "status": "open",
       "how": null
     },
@@ -198,6 +198,11 @@
     {
       "what": "the terrace's tub plants (T-1934, 2026-10-29): the 1894 plate sets a ball clipped on its tub just east of its flight, where this print has the urn on the pier and slim cones; tubs were carried in each winter and set out again, so the two summers' arrangements are not one building's difference. Built to the plate",
       "status": "within tolerance"
+    },
+    {
+      "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
+      "status": "fixed",
+      "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

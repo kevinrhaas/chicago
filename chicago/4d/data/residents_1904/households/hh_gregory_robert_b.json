@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Mary J. Greatbach (a boarder (a reader by trade), not family or staff, and a boarder in 1900 says little about 1904); Patrick McCullough (heads his own family of six in the rear house, with no stable trade the sheet ties to the house). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -42,9 +43,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "1638 Mr. & Mrs. Robert B. Gregory"
+      "printed_as": "1638 Mr. & Mrs. Robert B. Gregory",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 24, leaf n667",
+        "as_enumerated": "Gregory, Robert D",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists Robert D. Gregory here as head, born August 1849, in Michigan, married, dealer, musical instruments (ED 36, sheet 2A, line 24, leaf n667)."
     },
     {
       "id": "pa1904_gregory_mrs_robert_b",
@@ -53,9 +63,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "1638 Mr. & Mrs. Robert B. Gregory"
+      "printed_as": "1638 Mr. & Mrs. Robert B. Gregory",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 25, leaf n667",
+        "as_enumerated": "Gregory, Ida",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Ida Gregory here as wife, born June 1857, in Illinois, married (ED 36, sheet 2A, line 25, leaf n667)."
     },
     {
       "id": "pa1904_gregory_mrs_elizabeth",
@@ -63,10 +82,18 @@
       "relationship": "household_member",
       "grade": "attested",
       "sources": [
-        "chicago_blue_book_1904"
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "1638 Mrs. Elizabeth Gregory",
-      "note": "Listed at 1638 in the 1904 edition only. The Blue Book does not say how she was related to Robert B. Gregory."
+      "note": "Listed at 1638 in the 1904 edition only. The Blue Book does not say how she was related to Robert B. Gregory. The 1900 census lists Elizabeth Gregory here as mother, born January 1820, in Michigan, widowed (ED 36, sheet 2A, line 29, leaf n667).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 29, leaf n667",
+        "as_enumerated": "Gregory, Elizabeth",
+        "relation_as_enumerated": "Mother"
+      }
     },
     {
       "id": "pa1904_gregory_eleanor",
@@ -75,10 +102,68 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "1638 Miss Gregory",
-      "note": "The 1904 edition prints 'Miss Gregory'; the 1905 edition prints 'Miss Eleanor Gregory' at the same number, which is taken as the same woman. Her relation to the head is not printed."
+      "note": "The 1904 edition prints 'Miss Gregory'; the 1905 edition prints 'Miss Eleanor Gregory' at the same number, which is taken as the same woman. Her relation to the head is not printed. The 1900 census lists Ellener Gregory here as daughter, born June 1882, in Illinois, single (ED 36, sheet 2A, line 26, leaf n667).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 26, leaf n667",
+        "as_enumerated": "Gregory, Ellener",
+        "relation_as_enumerated": "Daughter"
+      }
+    },
+    {
+      "id": "pa1904_gregory_robert_b_c1900_grace_e_gregory",
+      "name": "Grace E. Gregory",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1883",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1883, age 16 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 27, leaf n667",
+        "as_enumerated": "Gregory, Grace E",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born December 1883, in Illinois, single. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_gregory_robert_b_c1900_ruth_gregory",
+      "name": "Ruth Gregory",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1888",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives May 1888, age 12 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 28, leaf n667",
+        "as_enumerated": "Gregory, Ruth",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born May 1888, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
     }
   ]
 }
