@@ -400,6 +400,15 @@ export const ARCH = {
     clump: 0.26, clumpMin: 0.15, density: 1.8, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
     farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.6,
   },
+  // T-1934: an evergreen sheared to a ball on one clear stem, the tubbed standard of the
+  // Pullman palm house's terrace in the 1894 Inland plate: the stem bare to about half the
+  // plant's height, then a dense clipped head.
+  standard_ball: {
+    crown: 'round', crownBase: 0.42, fork: 'decurrent', stems: [1, 1], scaffolds: [6, 8],
+    limbAngle: 38, rise: 0.04, twist: 0.15, order2: [4, 44], order3: [0, 0], droop: 0.0,
+    clump: 0.26, clumpMin: 0.15, density: 1.9, gaps: 0.02, leaf: 'scale', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5,
+  },
   pelargonium_bed: {
     crown: 'round', crownBase: 0.06, fork: 'decurrent', stems: [6, 9], scaffolds: [0, 0],
     stemSplay: 28, limbAngle: 30, rise: 0.02, twist: 0.30, order2: [2, 46], order3: [0, 0],

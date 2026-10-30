@@ -70,7 +70,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 24,
+        "shrubs": 27,
         "trees": 3,
         "beds": 0,
         "creeper": 6
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "daa50d96cfafdff4784a7134bacc7d250c26345a15407efddd29d77d60af2b4c"
+      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "6f3eab13c613dd5d75f1753902ceda32002eacae605844e94e196ecbe1da7b77"
+      "sha256": "5467662832db7a125c39c6e355f7c886b51177fb2eafbec0d10156334e03dcba"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "4c17c9bdecddaf90dc7bc2e483c6ad2056739fdf99f071f0e8d4a25d56de0552",
+  "flora_sha256": "91fd37892d8c6661d207087aeb7b0a49fe9e2639b1b4720fce818c94250d9c83",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -249,7 +249,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the planting: the clipped shrubs and potted palms on and before the terrace",
+      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. Still open: the potted palms and the slim columns on the terrace before the drum.]",
       "status": "open"
     },
     {
@@ -259,6 +259,10 @@
     },
     {
       "what": "the wing's length: through the camera before this one the print's wing read about 1 m longer than the build. Through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px, the wing's two ends render within 4 px (about 0.2 m) of the print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the terrace's tub plants (T-1934, 2026-10-29): the 1894 plate sets a ball clipped on its tub just east of its flight, where this print has the urn on the pier and slim cones; tubs were carried in each winter and set out again, so the two summers' arrangements are not one building's difference. Built to the plate",
       "status": "within tolerance"
     }
   ],

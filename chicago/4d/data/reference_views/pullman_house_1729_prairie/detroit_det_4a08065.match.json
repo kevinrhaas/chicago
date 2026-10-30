@@ -10,7 +10,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 24,
+        "shrubs": 27,
         "trees": 3,
         "beds": 0,
         "creeper": 6
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "daa50d96cfafdff4784a7134bacc7d250c26345a15407efddd29d77d60af2b4c"
+      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "6f3eab13c613dd5d75f1753902ceda32002eacae605844e94e196ecbe1da7b77"
+      "sha256": "5467662832db7a125c39c6e355f7c886b51177fb2eafbec0d10156334e03dcba"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "e07eb18283fae239a23458fed464db898a75111ccd98ae2c603f6a624729f4cd",
+  "flora_sha256": "e5235f795cea7d2877b04625703507a664d529d90a7036e918cb12abafe9ae3d",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

@@ -70,7 +70,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 24,
+        "shrubs": 27,
         "trees": 3,
         "beds": 0,
         "creeper": 6
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "daa50d96cfafdff4784a7134bacc7d250c26345a15407efddd29d77d60af2b4c"
+      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "6f3eab13c613dd5d75f1753902ceda32002eacae605844e94e196ecbe1da7b77"
+      "sha256": "5467662832db7a125c39c6e355f7c886b51177fb2eafbec0d10156334e03dcba"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "7f657a0bbc66e2d3da308d73f0555a8d98d1c207845c4a8e66b34bdb32c89e3b",
+  "flora_sha256": "f89e39a3328e8c43c0a4c73542754a9c516f1190e0c42d20348382861de6d0dc",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -188,6 +188,10 @@
       "what": "the planting: the print's bare yard and parkway trees stand at other places than the street-tree layer's (camera flora, winter), and the clipped shrubs along the wall's back are fewer in the render [T-1934, 2026-10-29: the 18th Street parkway's trees before the estate are now placed off Taylor's 16555 and the 1894 plate (data/street_trees/pictured_1904.json). Through this camera they render at x 439, 571, 675, 791 and 957; the print's trunks along the street's far side stand at about x 387, 417, 532, 550, 660, 711, 815 and 852, their feet at y 587-600 where this camera puts the parkway's at y 557-562, so which of the print's are parkway trees and which the yard's cannot be told through it, and nothing here was placed from it. Still open.]",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards"
+    },
+    {
+      "what": "the tub plants (T-1934, 2026-10-29): this winter print shows the terrace bare, and the render draws no tub in the winter Season (tub plants were wintered under glass); the slim clipped column by the wall's east pier, planted in the ground, is drawn, an evergreen, at x about 736 px of the render, where the print's ground behind the wall is too far and too low to show one or not",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
