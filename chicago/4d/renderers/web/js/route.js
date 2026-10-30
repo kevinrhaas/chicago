@@ -65,6 +65,20 @@ const CLASS_NAME = ['open', 'corridor', 'track', 'deck', 'sidewalk', 'crossing']
  */
 const SHORE_Y = -0.10;
 
+/**
+ * T-3263 — what a blocked view costs a stand, in the stand-off score's metres (a metre
+ * off the wanted distance is 1, a metre along the street from the front's middle 4).
+ * The house's own parkway trees, across the street, hide a tenth of a front from any
+ * stand: that toll is only weighed. A trunk or post near the eye in the middle of the
+ * frame (over VIEW_NEAR_BLOCKED), or more than VIEW_BLOCKED hidden in all, all but
+ * refuses the stand, so a clear one a step or two along the walk wins.
+ * tools/check_jaunt_views.mjs gates every 1904 jaunt stop against both.
+ */
+export const VIEW_BLOCKED = 0.3;
+export const VIEW_NEAR_BLOCKED = 0.05;
+const VIEW_COST = 20;
+const VIEW_REFUSED = 400;
+
 const SQRT2 = Math.SQRT2;
 const DEG = Math.PI / 180;
 
@@ -97,6 +111,77 @@ function boundaryDist(e, n, pts) {
     if (d < best) best = d;
   }
   return best;
+}
+
+/**
+ * T-3263 — how much of a building's street front an eye at `eye` cannot see for the
+ * trunks and posts standing between them: the share (0..1) of the front's angular
+ * width, from that eye, covered by any `occluder` ({ e, n, r }) on the street side of
+ * the front and short of the eye. The owner, 2026-10-30, on a jaunt stop that put the
+ * camera behind a parkway elm: "make sure that the stops are not right behind a tree,
+ * that you can move and find a point that has a view of the house a few feet north or
+ * south and look at it". A trunk two metres from the eye covers a fifth of a house
+ * across the street; the same trunk in the house's own parkway covers a twentieth, and
+ * that one no stand on this street can avoid. An eye inside an occluder sees nothing.
+ *
+ * `front` is `frontage()`'s answer: the middle of the street face, its compass
+ * `bearing` (outward) and its `width`.
+ */
+export function frontBlocked(eye, front, occluders = [], options = {}) {
+  return frontView(eye, front, occluders, options).hidden;
+}
+
+/** frontBlocked's two halves: `hidden`, the whole share, and `near`, the share the
+ *  trunks and posts within `nearM` of the eye alone take — the "right behind a tree"
+ *  the owner reported, which a step along the walk always cures. */
+export function frontView(eye, front, occluders = [], { margin = 0.15, padDeg = 4, nearM = 8, frameDeg = 25 } = {}) {
+  const none = { hidden: 0, near: 0 };
+  if (!eye || !front || !occluders.length) return none;
+  const ne = Math.sin(front.bearing), nn = Math.cos(front.bearing);
+  const eyeOut = (eye.e - front.e) * ne + (eye.n - front.n) * nn;
+  if (!(eyeOut > 0.5)) return none;
+  const half = Math.max(1, front.width ?? 12) / 2;
+  const toward = (e, n) => Math.atan2(e - eye.e, n - eye.n);
+  const mid = toward(front.e, front.n);
+  const rel = (a) => Math.atan2(Math.sin(a - mid), Math.cos(a - mid));
+  const a = rel(toward(front.e + nn * half, front.n - ne * half));
+  const b = rel(toward(front.e - nn * half, front.n + ne * half));
+  // A little air either side of the house is part of seeing it: a trunk that grazes
+  // a corner from a metre off still fills the side of the frame.
+  const pad = padDeg * Math.PI / 180;
+  const lo = Math.min(a, b) - pad, hi = Math.max(a, b) + pad;
+  // And a trunk within `nearM` of the eye is in the way anywhere in the middle of the
+  // frame (±frameDeg), off the house or not: a metre beside one it still fills the
+  // picture. Its share counts three times against the house's, so the stand steps
+  // clear of it rather than edging until it grazes the frame's middle.
+  const frame = frameDeg * Math.PI / 180;
+  const nearLo = Math.min(lo, -frame), nearHi = Math.max(hi, frame);
+  const spans = [], nearSpans = [];
+  for (const o of occluders) {
+    const r = (o.r ?? 0.3) + margin;
+    const d = Math.hypot(o.e - eye.e, o.n - eye.n);
+    if (d <= r) return { hidden: 1, near: 1 };
+    const out = (o.e - front.e) * ne + (o.n - front.n) * nn;
+    if (out <= 0 || out >= eyeOut) continue;
+    const c = rel(toward(o.e, o.n)), w = Math.asin(Math.min(1, r / d));
+    const isNear = d < nearM;
+    const s0 = Math.max(isNear ? nearLo : lo, c - w), s1 = Math.min(isNear ? nearHi : hi, c + w);
+    if (s1 > s0) (isNear ? nearSpans : spans).push([s0, s1]);
+  }
+  const near = 3 * union(nearSpans) / (hi - lo);
+  return { hidden: Math.min(1, union(spans) / (hi - lo) + near), near: Math.min(1, near) };
+}
+
+/** The total length of a set of [from, to] intervals, overlaps counted once. */
+function union(spans) {
+  spans.sort((p, q) => p[0] - q[0]);
+  let covered = 0, end = -Infinity;
+  for (const [s0, s1] of spans) {
+    if (s1 <= end) continue;
+    covered += s1 - Math.max(s0, end);
+    end = s1;
+  }
+  return covered;
 }
 
 function bboxOf(pts) {
@@ -202,7 +287,7 @@ function makeHeap(capacity = 4096) {
  */
 export function createRouter({
   terrain = null, streets = null, footprints = [], decks = [], surfaceAt = null,
-  streetGrid = null, walks = [],
+  streetGrid = null, walks = [], occluders = null,
   cell = 2, radius = 0.34, stepUp = 0.35, inflate = 0.6,
 } = {}) {
   const stats = {
@@ -217,6 +302,15 @@ export function createRouter({
   let grid = null;
   const fronts = new Map();
   const stands = new Map();
+  /** T-3263 — the trunks and posts a stand must see past: `occluders` is an array of
+   *  { e, n, r } or a function answering one (main.js reads the live tree layers). A
+   *  new array is a new street, so the stands chosen against the old one are dropped. */
+  let occludersSeen = null;
+  function occluderList() {
+    const list = (typeof occluders === 'function' ? occluders() : occluders) ?? [];
+    if (list !== occludersSeen) { occludersSeen = list; stands.clear(); }
+    return list;
+  }
 
   // ---------------------------------------------------------------- build
 
@@ -833,10 +927,13 @@ export function createRouter({
     if (!centre || !Number.isFinite(centre.e) || !Number.isFinite(centre.n)) return centre;
     ensure();
     const d = Number.isFinite(distance) && distance > 0 ? distance : Math.max(8, (Number(radiusM) || 0) + 5);
+    const all = occluderList();
     const key = `${id}:${centre.e}:${centre.n}:${d}:${mode}`;
     if (stands.has(key)) return stands.get(key);
     const front = frontage(id, centre);
     const bearing = front.bearing;
+    // Only what stands within the search box can come between a candidate and the front.
+    const near = all.filter(o => Math.abs(o.e - front.e) < 110 && Math.abs(o.n - front.n) < 110);
     // Look from the actual street, never a radius that happens to land on a
     // neighbouring lawn. Prefer the opposite sidewalk for a full facade view.
     const mask = mode === 'horse' || mode === 'wagon' ? 1 : 2;
@@ -863,25 +960,38 @@ export function createRouter({
           const half = (mask === 1 ? road.track_width_m ?? 6 : road.corridor_width_m ?? 24.384) / 2;
           if (!line.some((p, i) => i && segDist(e, n, ...line[i - 1], ...p) <= half)) continue;
         }
-        const v = Math.abs(out - d) + along * 4 + (grid.cls[k] === CLS_WALK ? 0 : mask === 2 ? 1000 : 0);
+        let v = Math.abs(out - d) + along * 4 + (grid.cls[k] === CLS_WALK ? 0 : mask === 2 ? 1000 : 0);
         if (v >= score) continue;
         if (!clearView(e, n, front.e + ne * (radius + 0.1), front.n + nn * (radius + 0.1), id)) continue;
-        score = v; best = { e, n, front };
+        // T-3263: a trunk or post between the eye and the front costs its share of the
+        // front, and a stand it blocks badly loses to any clear one a few metres along
+        // the walk — the house's own parkway trees, which every stand sees past, cost
+        // only their share.
+        const view = near.length ? frontView({ e, n }, front, near) : null;
+        if (view) v += view.hidden * VIEW_COST + (view.near > VIEW_NEAR_BLOCKED || view.hidden > VIEW_BLOCKED ? VIEW_REFUSED : 0);
+        if (v >= score) continue;
+        score = v; best = { e, n, front, blocked: view?.hidden ?? 0 };
       }
     }
     if (best) { stands.set(key, best); return best; }
-    // 0, +30, -30, +60, -60, … 180.
+    // 0, +30, -30, +60, -60, … 180; the first with a clear view of the front, else the
+    // first free one (T-3263).
+    let free = null;
     for (let step = 0; step <= 6; step++) {
       for (const sign of (step === 0 || step === 6) ? [1] : [1, -1]) {
         const th = bearing + sign * step * 30 * DEG;
         const e = centre.e + Math.sin(th) * d;
         const n = centre.n + Math.cos(th) * d;
         const k = indexAt(e, n);
-        if (k >= 0 && grid.cls[k] !== CLS_BLOCKED) return { e, n };
+        if (k < 0 || grid.cls[k] === CLS_BLOCKED) continue;
+        const view = near.length ? frontView({ e, n }, front, near) : null;
+        if (!view || (view.near <= VIEW_NEAR_BLOCKED && view.hidden <= VIEW_BLOCKED)) return { e, n };
+        free ??= { e, n };
       }
     }
-    const free = nearestCell(centre.e, centre.n, Math.ceil(60 / cell));
-    if (free >= 0) return { e: centreE(free % grid.cols), n: centreN((free / grid.cols) | 0) };
+    if (free) return free;
+    const cellFree = nearestCell(centre.e, centre.n, Math.ceil(60 / cell));
+    if (cellFree >= 0) return { e: centreE(cellFree % grid.cols), n: centreN((cellFree / grid.cols) | 0) };
     return { e: centre.e, n: centre.n };
   }
 
