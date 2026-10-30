@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "a86e63d1c220724b5d1fbca642361fedfad15cd99fe4f6ce392e92aa3d20e403",
+  "glb_sha256": "577c68200d3390d3b795642b611f5a3337f4d29aab5b436141f425208c315951",
   "camera_sha256": "15a0ef34c0c0d27811045bc9741575cc86a50cb7db8d59abaa8cb22180be1736",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "a86e63d1c220724b5d1fbca642361fedfad15cd99fe4f6ce392e92aa3d20e403"
+      "glb_sha256": "577c68200d3390d3b795642b611f5a3337f4d29aab5b436141f425208c315951"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "0f96c1c8b25bf4677dfd58d7e8e9d84a4b43ad113f33d902d3d509d0fd3c1007"
     }
   ],
-  "group_sha256": "95b945db0eb98ea8a7262b2d67cd463ebe3618d500d5d4472ed940a7ac776b4e",
+  "group_sha256": "c34a8ea465c40a4bb18fda1111ab2fea44ccdfd224aada21a5416f8cd464166b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -236,8 +236,8 @@
     },
     {
       "what": "the carved scroll panel on each wing's street face and the sunk panel on each pier's faces",
-      "status": "open",
-      "how": "T-3164 (gate pass): the piers and wings are built plain; the carving is a visible element of the gate from the walk, so it stays open"
+      "status": "fixed",
+      "how": "T-3164 (gate pass): the piers and wings are built plain; the carving is a visible element of the gate from the walk, so it stays open T-3164 (gate carving pass): built as both pictures place it: each wing's street face carries a spiral C-scroll about 0.26 m across by the pier, its centre about 0.3 m from the pier and 0.76 m up, three lobes of leafage trailing from it under the sweep toward the roll, and a fillet over the plain base at about 0.5 m, all standing 0.05 m proud; each pier's shaft a sunk panel between 1.24 and 1.8 m, 0.08 m in from its edges. The side-by-side shows the scroll and the leaf lobes in place on both wings; under the review render's even light they read as the relief's edges, where the pictures' shade cuts them darker. The leaves' cutting is under the bar (L-pullman-gate-1800-calumet-3164)"
     },
     {
       "what": "the walks, the lawns, the standard trees, the shrubs and the street trees",
