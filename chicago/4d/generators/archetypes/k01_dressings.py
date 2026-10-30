@@ -106,8 +106,9 @@ def prism(a, mat, frame, pts, d0, d1, seed, conf):
     from .k01_frontage import Y, _add, _mul, _sub
     O, R, N = frame
     P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
-    area = sum(pts[i][0] * pts[(i + 1) % len(pts)][1] - pts[(i + 1) % len(pts)][0] * pts[i][1]
-               for i in range(len(pts)))
+    area = 0.0                               # twice the signed area, added left to right (T-2363)
+    for i in range(len(pts)):
+        area += pts[i][0] * pts[(i + 1) % len(pts)][1] - pts[(i + 1) % len(pts)][0] * pts[i][1]
     if area < 0:
         pts = list(reversed(pts))
     pr = a.prim(mat)
