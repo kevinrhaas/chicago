@@ -34091,6 +34091,33 @@ views) places the southern columns and gives the balusters' profile.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-26 (T-3159).
 
+### L-pullman-1729-entry-axis-1881 — 1729 Prairie's door, stair, inner columns and gate set on one axis, the forward block's centre; the cheeks' balustrade reconstructed
+
+**Decision:** the owner, walking the 1904 scene on 2026-10-29, found the entry "not straight": the stair
+centred at v 4.0, the door at v 4.6 (half over the forward block's ground-storey window), the portico's
+hood and the block at v 5.25 and the gate's opening at v 5.7, so the walk bent between the gate and the
+stair. All four now stand on v 5.25, the forward block's centre (T-1881): the door (`front_bays` 5.25,
+the block's window taken off), the flight (`stoop_v_m` dropped, so the stoop is the door's), the gate
+(`boundary.runs`, the opening s 4.45-6.05) and the two inner columns (`hood.columns.at_v_m` 3.3 and
+7.2), with a turned stone balustrade on the cheeks and the terraces (`entrance_kit…balustrade`).
+**What is read, not invented.** The Detroit print (`loc_det_4a08065_pullman_residence`) through its
+solved camera: the door's pale leaves between two columns (x 355-371 px), the two columns at v 3.05 and
+6.9 (midpoint 5.0), the stair rising between them to the door, a raked rail on each cheek, and the gap in
+the street wall square before the stair.
+**What is invented.** The common axis at v 5.25 rather than the reading's 5.0: the forward block and
+the hood are centred there, and the readings (columns, door, gap) each sit within 0.3-0.5 m of it at the
+print's 13-14 px a metre. The inner columns' 3.9 m spacing is the reading's; their places are moved up to
+0.3 m to be symmetric on the axis. The outer columns at the hood's ends stay a bounded design
+(L-pullman-1729-portico-3159). The balustrade's section (0.9 m, 0.36 m newels, turned balusters every
+0.2 m) is the K07 stone stoop's, its newels 0.03 m proud of the 0.3 m cheek each side so no face
+is drawn twice; the print shows the rails but not their profile.
+**How to resolve:** a closer picture of the portico (the Albertype plate, the CHM 1905 views) fixes
+the columns' places and the balusters; if it puts the door off the block's centre, the axis moves with
+it, door, stair and gate together.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-10-29 (T-1881).
+
 ### L-pullman-1729-porte-cochere-3160 — 1729 Prairie's 18th Street flank off the Detroit print: the porte-cochere's west end and south front read, its east end and the flank's windows' places reconstructed
 
 **Decision:** the Pullman house's 18th Street flank (T-3160, a piece of T-1881) is rebuilt as the
