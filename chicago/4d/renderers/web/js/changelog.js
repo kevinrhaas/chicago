@@ -1,4 +1,42 @@
 export const CHANGELOG = [ // newest first
+  { v: 2458, ts: '2026-10-30T15:59:10.348Z', date: 'Oct 30, 2026, 10:59 AM CT', title: '1729 Prairie\'s oculus and the 18th Street flank\'s corner pier', kind: 'improvement',
+    items: [
+      'The Pullman house\'s 18th Street pavilion now has the small round window its photograph shows, set high in a banded stone pier between the upper pair of windows and the triple.',
+      'The flank\'s far east corner is turned by a banded stone pier, with the cornice and the belt course stepping forward over it, as at the Prairie Avenue corner.',
+      'Both read off J. W. Taylor\'s photograph no. 1445 through its solved camera. The round window renders within a pixel of the photograph\'s. The ring\'s moulding and the pier\'s courses are reconstructed, since the print shows them only a few pixels wide.',
+    ] },
+  { v: 2457, ts: '2026-10-30T15:22:35.338Z', date: 'Oct 30, 2026, 10:22 AM CT', title: '1801 Prairie\'s canted corner ends cleanly against its slate', kind: 'fix',
+    items: [
+      'A block of stone stood at the far end of the Kimball house\'s canted corner, over the round bay, in front of the roof\'s slate. It is gone.',
+      'The canted wall now ends where the 1965 survey photograph shows it ending, with the slate showing beyond it down to the balustrade.',
+    ] },
+  { v: 2456, ts: '2026-10-30T15:03:44.646Z', date: 'Oct 30, 2026, 10:03 AM CT', title: 'Pullman\'s stable: the back roof sits lower and runs the full length', kind: 'improvement',
+    items: [
+      'The 1894 Inland Architect plate of Pullman\'s palm house and stable shows a long run of iron cresting along the back part of the stable\'s roof, lower down and behind the lookout tower. In the 1904 walk that roof had been a short crested box standing too high. Its flat top now sits about a third of a metre lower and runs back to the far end of the building, so from 18th Street the cresting lines up with the plate\'s.',
+    ] },
+  { v: 2455, ts: '2026-10-30T13:56:47.445Z', date: 'Oct 30, 2026, 8:56 AM CT', title: '1905 Prairie\'s iron balconies on the front', kind: 'feature',
+    items: [
+      'Marshall Field\'s house at 1905 Prairie now carries the three iron balconies the 1893 Pictorial Chicago plate shows on its front: before the upper windows of the north, door and south columns, each on scrolled stone consoles at the upper floor\'s belt. The low door hood that stood in for the middle one is gone.',
+    ] },
+  { v: 2454, ts: '2026-10-30T12:41:23.053Z', date: 'Oct 30, 2026, 7:41 AM CT', title: '1905 Prairie: the Marshall Field house stands', kind: 'feature',
+    items: [
+      'Marshall Field\'s house at 1905 Prairie Avenue is no longer a plain draft block: two storeys of brick over a light stone basement, a tall slated mansard with dormers and iron cresting, the door in its second bay, the curved conservatory on the south side and the scroll-pattern iron fence, built from Rand McNally\'s 1893 Pictorial Chicago photograph.',
+      'Still to come: the canted south-west corner the photograph shows, the iron balconies and the conservatory\'s glass roof.',
+    ] },
+  { v: 2453, ts: '2026-10-30T11:54:21.598Z', date: 'Oct 30, 2026, 6:54 AM CT', title: '1801 Prairie\'s canted corner stops under a cornice, slate above', kind: 'improvement',
+    items: [
+      'The canted face over the Kimball house\'s round bay now stops at a cornice just over its small window, as the 1965 survey photograph shows, and the roof\'s slate comes down over it.',
+      'Before, a tall blank stone face stood there up to the gable\'s shoulder.',
+    ] },
+  { v: 2452, ts: '2026-10-30T11:50:40.864Z', date: 'Oct 30, 2026, 6:50 AM CT', title: 'Nothing you can see: Pullman\'s palm-house stairs read from two pictures', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. The 1894 Inland Architect plate and Taylor\'s photograph of Pullman\'s palm house had seemed to disagree about the stairs before it. Read together through their two cameras, they agree. The raised balustrade in the plate and the porch under the awning in the photograph are the same thing: the house\'s own raised porch toward 18th Street. The palm house\'s terrace and its flight of steps match both pictures as already built, so the porch is the next thing to build, as part of the house.',
+    ] },
+  { v: 2451, ts: '2026-10-30T11:09:46.583Z', date: 'Oct 30, 2026, 6:09 AM CT', title: 'A stone balustrade on 1729 Prairie\'s 18th Street wall', kind: 'improvement',
+    items: [
+      'The Pullman house\'s low wall along 18th Street now carries the balustrade its photograph shows past the porte-cochère: a row of turned stone balusters under a moulded rail, level with the tall pier\'s cap, running east to the carriage way.',
+      'Read off J. W. Taylor\'s photograph no. 1445 through its solved camera: where the run starts and stops, how high the rail stands and how far apart the balusters are. The balusters\' shape is borrowed from the house\'s own front stair, since the print draws each one about two pixels wide.',
+    ] },
   { v: 2450, ts: '2026-10-30T10:07:30.156Z', date: 'Oct 30, 2026, 5:07 AM CT', title: '1701 Prairie\'s stone basement and its looped iron fence', kind: 'feature',
     items: [
       'The Hibbard house at 1701 Prairie now stands on a light stone basement up to the principal floor, across the front, round the south side and under the lower south wing, with brick only above it, as its old photograph shows.',

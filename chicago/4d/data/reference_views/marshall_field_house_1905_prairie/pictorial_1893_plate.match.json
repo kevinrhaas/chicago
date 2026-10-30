@@ -1,0 +1,85 @@
+{
+  "structure_id": "marshall_field_house_1905_prairie",
+  "view": "pictorial_1893_plate",
+  "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
+  "glb_sha256": "b42b916f215826876558fc39099799afe6164fbe3fa7ebf71e715816ad707872",
+  "camera_sha256": "f41b5754d650dad29e0e6b1361ba4a03b35b6fd82524b514c9cb5f5115eec945",
+  "photo_sha256": "d49b47b1f31f50b0ce0d4e99b234d0ae9c80f42c57cab75f8338ed0396d397dd",
+  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's generic block is now the plate's house, two storeys of brick over a raised light stone basement under a bracketed cornice and a tall slated mansard, its wall head about 11.6 m; the plate's house fills x 60-860 px of the side-by-side's left half, the render's x 150-750 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's door in its second window column from the north (the door numbered 1905), under an iron balcony on stone brackets, at the head of a stoop between stone cheeks",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's four window columns on both storeys, each in a stone surround under a moulded head with a cornice, a stone belt at the chamber floor, basement lights under the principal windows",
+      "status": "fixed"
+    },
+    {
+      "what": "the slated mansard with three dormers on the street face over the north, door and narrow columns, one on the south face, and an iron cresting along the street and south curbs",
+      "status": "fixed"
+    },
+    {
+      "what": "the south flank's curved one-storey conservatory on a stone base where the sheet draws its bulge and the plate puts it (x 955-1180 px of the plate)",
+      "status": "fixed"
+    },
+    {
+      "what": "the scroll-pattern iron fence on a stone curb along the street line, with its gate before the stoop",
+      "status": "fixed"
+    },
+    {
+      "what": "the south-west corner: the plate cuts it on a broad canted face, blank brick in both storeys between stone strips, with the largest dormer over it (x 683-900 px), about 3.4 m back each way through the camera; the render's corner is the sheet's square one, and that dormer stands on the street face at 13.2 m. K01's canted corner is built only on an all-stone house",
+      "status": "open"
+    },
+    {
+      "what": "the front's length: through the camera the plate's north end lands about 3 m north of the sheet's north wall, so the render's front runs about 120 px short at its north end and its window columns stand up to a column's width off the plate's; the camera holds the eye at 1.6 m and the heights at 2.2 and 11.6 m, and both it and the sheet are to be re-read against the Daily News view (T-3261)",
+      "status": "open"
+    },
+    {
+      "what": "the mansard: the plate's rises about 5 m over the cornice, the render's 4.5 m (K05's ceiling for a face holding one storey); its slate in bands is plain in the render",
+      "status": "open"
+    },
+    {
+      "what": "the front's three iron balconies (T-3261): before the chamber windows of the north, door and wide columns and none before the narrow one, each on the stone belt at the chamber floor on two scrolled consoles, its pierced guard before the foot of the light; the door hood that stood in for the door column's, about 1.4 m low, is withdrawn, so the door stands in its surround with nothing over it, as in the plate",
+      "status": "fixed"
+    },
+    {
+      "what": "the door column's balcony: the plate's runs about 3.5 m (x 240-415 px), the render's 3.0 m, the kit's longest balconette",
+      "status": "open"
+    },
+    {
+      "what": "the balconies' consoles: the plate's door-column pair are tall scrolled consoles running down beside the door's surround, the render's the kit's short ones under the slab",
+      "status": "open"
+    },
+    {
+      "what": "the other two iron balconies: before the window behind the canted south-west corner (waits on the corner itself) and on the conservatory's roof; K01 lays balconettes on the street front only",
+      "status": "open"
+    },
+    {
+      "what": "the conservatory: the plate's has a curved glass roof on fine bars and a continuous ring of tall glazing; the render's stands under a flat tin cone with three tall sashes, K08's spacing for a bow",
+      "status": "open"
+    },
+    {
+      "what": "the carved work: the window heads' crests, the frieze's roundels, the carved blocks over the window columns and the dormers' pedimented and scrolled cheeks; the render's are K09's plain heads and K01's gabled dormers",
+      "status": "open"
+    },
+    {
+      "what": "the chamber windows: the plate's run up to the frieze, about 3.2 m tall; the render's are 2.8 m so K09's heads clear the frieze",
+      "status": "open"
+    },
+    {
+      "what": "the brick's colour: the plate is a monochrome halftone, so the render's red-brown brick is the kit's",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank, the rear and the sheet's two-storey north range at the rear: out of the plate's sight",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

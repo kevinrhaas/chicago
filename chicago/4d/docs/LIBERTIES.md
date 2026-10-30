@@ -24277,7 +24277,7 @@ brings every 1906 match record to `matches`.
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24317,6 +24317,9 @@ read off the Chicagology photograph, under `L-k01-1827-doane-3171`, under the sa
 house stays this draft's.
 **1901 retired from this liberty by T-3185 (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house
 read off the 1898 Chicagology photograph, under `L-k01-1901-ream-1903`, under the same id; its draft attributes are gone. Its coach
+house stays this draft's.
+**1905 retired from this liberty by T-3260 (2026-10-30):** Marshall Field's house now stands as the K01 brick house
+read off the 1893 Pictorial Chicago plate, under `L-k01-1905-field-3260`, under the same id; its draft attributes are gone. Its coach
 house stays this draft's.
 **Ticket:** T-2330 (piece 2 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
@@ -34825,6 +34828,49 @@ every 1900 match record to `matches`.
 **Review:** `docs/RESEARCH/photo-match/elbridge_keith_house_1900_prairie/glessner_oblique-side-by-side.jpg`.
 **Recorded:** 2026-10-27 (T-3207).
 
+### L-k01-1905-field-3260 — 1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate
+
+**Decision:** the house at 1905 Prairie Avenue, Marshall Field's (T-3260, piece 1 of T-1904), is no
+longer a district draft. It stands, under the draft's own id `marshall_field_house_1905_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py`, against the 1893 Pictorial Chicago plate
+(`rand_mcnally_pictorial_chicago_1893_field`, public domain): two storeys of brick over a raised stone
+basement, a bracketed cornice over a frieze, a tall slated mansard with dormers and an iron cresting,
+the door in the front's second window column from the north, the south flank's curved conservatory, the
+1911 sheet's rear rectangle, and the scroll-pattern iron fence.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1905-b1, census
+s28-1905-front): the main body's place and plan (21.0 by 15.25 m), its brick, the rear rectangle and the
+conservatory's bulge off the south flank. From the plate, through its solved camera
+(`data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json`, about 15 px RMS on
+six corner points): the front's four window columns and its door, both storeys' window heights, the
+belt, the frieze and the cornice's height, the mansard's rise and its dormers' places, the
+conservatory's place, the basement lights and the fence.
+**Where the picture and the sheet disagree.** The plate cuts the front's south-west corner on a broad
+canted face, blank in both storeys with a dormer over it, about 3.4 m back each way through its camera;
+the sheet draws the corner square. K01's canted corner is built only on an all-stone house under a
+moulded stone cornice, so the sheet's corner stands here and the cut is open on the match record for
+T-3261. The plate's visible front reads about 3 m longer than the sheet's 15.25 m through its camera;
+the sheet's length is kept and the window columns are placed in proportion.
+**What is invented.** wall_thickness_front_m, wall_thickness_side_m, service_wall_brick, roof_pitch_deg, stair_tread_m, rainwater, window_kit, side_bays, rear_bays, chimneys, yard: the walls' thickness, the north and rear walls' windows (no picture sees them), the
+stacks, the mansard deck's pitch and covering, the treads, the rainwater, the sash pattern and the
+yard's walks; the rear wing's floors, height, windows and deck; the conservatory's height and its roof
+(the plate's curved glass roof is a flat tin cone here).
+**What is not built.** The canted south-west corner and its dormer's place on it; the iron balconies
+before the window behind that corner and on the conservatory's roof; the carved window crests, the frieze's
+roundels and the dormers' carved cheeks; the conservatory's glazing bars and glass roof; the sheet's
+two-storey north range at the rear: open on the match record for T-3261.
+**How to resolve:** T-3261 builds those, solves the c. 1905 Daily News photograph (DN-0003324), the
+undated '923' print and the 1893 engraving, and brings every 1905 match record to `matches`.
+**Covers:** `marshall_field_house_1905_prairie.as_mapped_1904.form.wall_thickness_front_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.wall_thickness_side_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.service_wall_brick`, `marshall_field_house_1905_prairie.as_mapped_1904.form.roof_pitch_deg`, `marshall_field_house_1905_prairie.as_mapped_1904.form.stair_tread_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.rainwater`, `marshall_field_house_1905_prairie.as_mapped_1904.form.window_kit`, `marshall_field_house_1905_prairie.as_mapped_1904.form.side_bays`, `marshall_field_house_1905_prairie.as_mapped_1904.form.rear_bays`, `marshall_field_house_1905_prairie.as_mapped_1904.form.chimneys`, `marshall_field_house_1905_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3260 (piece 1 of T-1904).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg`.
+**Recorded:** 2026-10-30 (T-3260).
+**Revised:** 2026-10-30 (T-3261) — the front's three iron balconies are built: before the chamber windows of the
+north, door and wide columns, on the belt at the chamber floor on two consoles each, read off the plate against its
+window columns (`street_front_iron`). Invented in them: their guards' pierced scroll pattern (K01's balconette band),
+their 0.7 m projection and 0.2 m slab, and the consoles' form (the kit's short scrolled blocks, where the plate's
+door-column pair run down beside the door's surround). The door column's is built 3.0 m, the kit's longest, where the
+plate reads about 3.5 m. The door hood T-3260 stood in for that balcony, about 1.4 m low, is withdrawn.
+
 ### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
 
 **Decision:** the stable at the east end of 1729 Prairie (`pullman_house_1729_prairie_ranges`, its south
@@ -36614,4 +36660,101 @@ written specification of the stable's stone.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/colour-pullman-stable-T-1934/README.md`; the photo-match side-by-sides of
 `pullman_house_1729_prairie`, `_ranges` and `_conservatory`.
+**Recorded:** 2026-10-30 (T-1934).
+
+### L-pullman-1729-18th-balustrade-1881 — 1729 Prairie's balustrade on the 18th Street wall east of the third pier: its place and height read, its balusters' profile and its sections reconstructed
+
+**Decision:** the 18th Street wall's 1.0 m run from the third pier (x 16.4) to the carriage way (x 8.6)
+carries a stone balustrade 0.8 m over its top, its rail about 1.8 m over grade, level with the pier's
+cap (`boundary.side_return.runs[].balustrade`, a new K11 coping-return option): a 0.08 m plinth, turned
+balusters 0.3 m apart, a 0.14 m rail 0.42 m wide, and 0.4 m solid blocks at each end.
+**What is read, not invented.** J. W. Taylor's photograph no. 1445 (`aic_taylor_1445_pullman_from_sw`)
+through its solved camera: the balustrade's run from the pier's east face (x 856 px) to the opening
+(x 957 px), its rail's top level with the pier's cap (y 597-600 px), a row of balusters under it (y
+600-608 px) whose dark gaps stand about 4 px apart, about 0.3 m at the print's 12-13 px a metre there,
+and a solid block at its east end (x 942-957 px).
+**What is invented.** The baluster's profile, which is the house's own stair balustrade's (the print
+draws each baluster about 2 px wide); the plinth's and rail's sections; the end blocks' 0.4 m length,
+where the print's east block reads about 1.2 m and its west end is lost against the pier. The heights
+are read to about 0.15 m and the pitch to about 0.1 m.
+**How to resolve:** a closer picture of the 18th Street wall (the CHM 1905 views, the Beman-addition
+side views), which also settles the Detroit print's run of posts and panels further west.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-10-30 (T-1881).
+
+### L-kimball-1801-cant-top-1890 — 1801 Prairie's canted face stopped under a cornice over its light, the mansard's slate carried down over it, from HABS photograph 1
+
+**Decision:** HABS photograph 1 (June 1965, `habs_kimball_photo_01_sw_1965`) stops the south
+pavilion's canted face, over the round bay, at a cornice just over its small light, with the house's
+slate over it from there (x 640-745 px, y 405-446 at the cornice); the build carried the cant's wall
+on up to the gable's shoulder at 13.6 m, a tall blank face beside the gable, which
+L-kimball-1801-cant-light-1890 left open. p_south's chamfer now takes `top_m` 11.65: K08 stops the
+cant's wall there under a cornice course and carries the course's top back over the wall as deep as
+a recess reaches, and carries the front's end on up from it to the wall top as a stone cheek; K01
+cuts the main roof over the cant only up to it, and from there only over the pavilion's square
+part, so the mansard's own hipped corner comes down onto the cornice. 11.65 m is where the
+mansard's hip crosses the cant's face, so the slate meets the course at the cant's middle and
+stands behind it either side, with no step. **What is read.** The course's height, about 0.8 m over
+the light's opening: it renders at about y 427 px against the print's y 405-420 over the light, and
+the slate over it. **What is invented or held by the kit.** The course's section is the bay's floor
+band (the print's cornice is a few pixels of moulding), the slate's line is the mansard's own pitch
+and hip, and the course runs level where the print's falls about 40 px toward the cant's far end
+(within tolerance, the match record). **What is still open.** Right of the light the print carries
+the cant's wall to a sloped edge with the side slope's slate in front of the rest; the build stands
+the closing face K01 lays in the south wall's plane there, a block of stone to the cornice (in the
+match record).
+**How to resolve:** a nearer view of the south-west corner, or the HABS drawings' west and south
+elevations, shows the cornice's section and how the cant's far end meets the side slope.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1890).
+
+### L-pullman-1729-oculus-pier-1881 — 1729 Prairie's oculus pier on the 18th Street pavilion and the flank's banded east corner pier: their places read, their sections reconstructed
+
+**Decision:** the 18th Street pavilion's second storey carries a banded pier between its pair and its
+triple, 1.1 m broad and 0.12 m proud, from over the belt course (7.7 m) in 0.4 m courses parted by
+0.1 m channels to 10.2 m, then a plain block to the wall head; in the block a round light 0.36 m
+across its glass, centred 10.65 m over grade, in a stone ring 0.08 m broad standing 0.04 m past the
+pier (`bays[p_18th].storeys[1].pier`, a new K08 option). The flank's east end is turned by a banded
+corner pier 1.2 m broad (s 26.55-27.75), the cornice and the belt broken forward over it as they are
+over the south-west corner pier (`street_front_pavilions.piers[]` with `wall: k01.wall.side.north`,
+a new K01 option); it does not return onto the rear.
+**What is read, not invented.** J. W. Taylor's photograph no. 1445 (`aic_taylor_1445_pullman_from_sw`)
+through its solved camera. The oculus: its dark glass at x 708-717, y 384-393 px (centre x 712.5, y
+388.5), about 8.5 px high at 23.7 px a metre on the pavilion's 20.4 m plane, so 0.36 m across, its
+centre at s 13.04 and 10.65 m; the pier round it banded below it at x 702-718 px (s 12.31-13.43).
+The east corner: banded stone at x 830-845 px under a cornice whose modillions run on to x 850-856 px
+past the wall's edge, on the flank's 17.93 m plane from s 25.9 to the corner.
+**What is invented.** The ring's breadth and proud (the print draws a light edge about a pixel wide
+round the glass); the courses' height and channels, which are the forward block's banded corners';
+where the courses stop and the plain block starts; the oculus centred in the pier (the print puts
+it about 0.15 m east of the pier's centre, under a pixel and a half); the corner pier's west edge,
+behind a tree's trunk at x 816-830 px, so its 1.2 m breadth is the south-west corner pier's; and that
+it stops at the corner, where the 1911 sheet's one-storey brick block stands against the rear and
+no picture sees the face over it. The oculus's glass is laid on the wall's face behind a reveal cut
+through the pier, not through the wall, since nothing is seen through it.
+**How to resolve:** the CHM 1905 views or the Beman-addition side views, once solved, see the flank
+nearer and squarer and can place the corner pier's west edge and the ring's moulding.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1881).
+
+### L-pullman-north-block-deck-1934 — Pullman's stable: the north block's deck lowered to the 1894 plate's cresting and carried to the block's north end
+
+**Decision:** the stable's narrower north block (`pullman_house_1729_prairie_ranges`, part r4) kept its
+hipped roof to a crested deck (L-pullman-stable-3193), but its deck stood 8.55 m up as a strip 1.3 m long,
+where the 1894 Inland plate (`inland_1894_pullman_palm_house_stable`) shows a long run of cresting lower
+down behind the belvedere. T-1934 lowers the deck to 8.2 m (4.25 m over the eave) and runs its west edge
+from v 0.3 north to 0.6 m inside the north eave. **What is read.** Through the plate's solved camera, the
+cresting's foot along the deck's west edge (x 1060-1250 px, y 478-502 px), back-projected onto the roof's
+53-degree west slope, stands at 8.1-8.4 m and runs from v 0.3, where it meets the main roof, to past the
+1911 sheet's north wall; the build stops it at the wall. **What is invented.** The north end's steep face
+(about 80 degrees, from the deck's edge 0.6 m inside the eave), which no picture sees; the deck's east edge,
+kept at the west slope's 3.2 m inset; and the steep south face that rises off the main roof's north slope,
+which no picture sees either. **How to resolve:** any view from the north or east of the stable (the 1905-06
+CHM side views of the Beman addition), or a closer copy of the plate.
+**Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg`, with its match record.
 **Recorded:** 2026-10-30 (T-1934).

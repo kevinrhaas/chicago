@@ -1,3 +1,17 @@
+## T-3262 — deferred verge buffers
+
+Unreached railway verge tufts retain their exact final Float32 transforms and colours in a smaller CPU cache. The existing reach installs their full buffers before drawing, while density changes retain the original counts. Unusual transforms or colours keep an exact fallback. The tie cache and the original mesh identities remain intact.
+
+The integrated Field scene measured 400.997 MiB against the unchanged 400 MiB phone limit before this revision. That failure is preserved; a fresh source check, phone measurement and published desktop/mobile validation must qualify this change on PR1486. It supports the four picture tickets on PR1456 and makes no new image-match claim.
+
+## T-3262 — railway tie allocation support
+
+Defer the expanded tie instance buffers until their existing draw reach needs them, keeping exact final Float32 values in a compact cache meanwhile. Preserve the original mesh identities and use a full-layout fallback for noncanonical transforms. The earlier phone failure remains recorded in checkpoint730; the official unchanged 400 MiB reading and published qualification belong to the actual revised head on PR1486. Original picture acceptance remains with PR1456.
+
+## T-3262: phone renderer memory support
+
+Reduce railway storage and dead spatial-upload bookkeeping within the existing phone limit. The original picture matching remains tracked by T-2373, T-2377, T-2381 and T-2384 in PR1456; this support change does not settle their image gates. Normal precision remains bounded; nonuniform evidence grades keep their original stream.
+
 ### Carriage lamps, horse eyes and access — T-3083/T-3086/T-3087, 2026-10-24
 
 The scoped delivery selects the reproducible d4544c28 eye-UV derivative, with

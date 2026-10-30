@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25"
+      "glb_sha256": "38fc7c48ffa44991d2edcdd420e652685d1a2d6433fc3dc3aa39e80229aa2e16"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "896ce63602b0f92e8d43df39b393c21f0eda3972050770ed52a0ccfe597b5141"
+      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
     }
   ],
-  "group_sha256": "4272bb2cf82d1db9ff4fb1dd09e536545b871bf63781b1e22301c518ccd2d01a",
+  "group_sha256": "8d31681f79bd126361ae1fd008f8331c60ff73e77bd9b077c3277778b7179693",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "c9cec82777a37eeb5772298c336cf8032e99db82c250f01944b638ec8f961c57",
+  "flora_sha256": "84c20c1c40087d78f54c0d5b7079a74f720b6479fcedf62bbd0216fe4aeee8c0",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -181,8 +181,8 @@
     },
     {
       "what": "the north block's lower roof: the plate shows its cresting about 1.5 m further north and 0.5 m lower than the build's deck",
-      "status": "open",
-      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof; carried in the stable's own record (data/reference_views/pullman_house_1729_prairie_ranges/inland_1894_plate.match.json)"
+      "status": "fixed",
+      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof; carried in the stable's own record (data/reference_views/pullman_house_1729_prairie_ranges/inland_1894_plate.match.json) T-1934, 2026-10-30: the north block's deck lowered to 8.2 m (4.25 m over the eave, was 8.55 m) and its west edge carried from v 0.3 north to 0.6 m inside the north eave (was v -1.6 to -2.9, a strip 1.3 m long), read off the plate through this camera: the cresting's foot along the deck's west edge (x 1060-1250 px, y 478-502 px), back-projected onto the 53-degree west slope, stands at 8.1-8.4 m from v 0.3 to past the 1911 sheet's north wall. In the side-by-side the build's cresting now runs from behind the belvedere to the deck's south-west spire at x 1265, its foot within about 10 px (0.15 m) of the plate's at x 1200, where it stood as a short crested box at x 1180-1360 about 25-40 px higher. Left as they read: the plate shows the run on under the belvedere's cornice to x 1065, where the build's belvedere body covers it (the belvedere's own place), and the plate's run meets the main roof at x 1250 where the build's main roof's north-west hip stands about 50 px further right, so about 80 px of the deck's south edge shows there; both follow the main deck's place, which the plate and Taylor's 16555 disagree on (the deck's south-west corner, within tolerance). The north end's steep face is reconstructed: no picture sees it (L-pullman-north-block-deck-1934)."
     },
     {
       "what": "the palm house's drum: the plate reads its balustrade about 0.6 m lower than the build; Taylor's 16555 reads it within 0.3 m, so the two camera fits disagree. Its dome the plate reads broader, about 4.7 m: now 4.6 m (T-1934)",
@@ -225,7 +225,7 @@
       "status": "fixed"
     },
     {
-      "what": "the balustrade before the drum at the plate's left stands at the columns' feet, about 1 m higher than the build's terrace balustrade from this camera, over a lower wall with an arched opening in it; Taylor's 16555 reads the terrace within 0.3 m, so the plate may show a raised landing west of the flight that is not built",
+      "what": "the house's raised porch toward 18th Street, its balustrade and urned piers at the plate's left, which stand about 1 m higher than the build's terrace balustrade from this camera, over a lower wall with an arched opening in it, are not built [T-1934, 2026-10-30, triangulated: the plate and Taylor's 16555 were read together through their two solved cameras. The plate's raised balustrade (its right pier's foot at x 505, y 832; its left end at x 115, y 832; the urn's top at x 462, y 740) and 16555's balustrade under the awning on the house's east side (its ends at x 225 and 110, y 612; its rail at y 592) are one object: the rays cross within 0.04 m (0.23 m at the urn), at u -9.8 to -6.2 and v -21.7 to -22.5 in this frame, its rail's foot 2.3 m over grade. That is a raised porch on the house's east side toward 18th Street, about 4 m south of the house's south wall line and 16 m south of the wing, not a landing on the palm house's terrace; the lower wall with the arched opening (x 317-370, y 922-1005) stands before it, its foot reading at grade about v -10 to -24 by camera depth alone. The terrace itself reads as built: the plate's flight (x 740-860) steps down to y 985, grade at v -8.56 through this camera (the build's flight foot renders at y 988). The porch and its lower wall belong to the house's record (pullman_house_1729_prairie, the 1892 east addition, outside this package's detached service and glasshouse geometry) and are not built.]",
       "status": "open"
     },
     {
@@ -248,7 +248,7 @@
       "status": "fixed"
     },
     {
-      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. T-1934, 2026-10-30: the slim column behind the balustrade against the drum's west side (x 212-240 px, its top at y 697) and the cone in its tub before the wing's arched door east of the drum (x 727-782 px) now stand where this camera's pixel columns cross Taylor's 16555's (data/front_yards/1904.json, the 1729 lot's tubs) and render within about 15 px of the plate's; 16555's palm in its tub before the drum renders left of the elm trunk (x 470-560) where the plate shows the drum's columns bare above the balustrade (two summers' arrangements: within tolerance). Still open: the tall evergreen mass and the potted conifer west of the plate's flight, which stand by the second flight the build does not have (the terrace's two-flight approach), and the clipped heads read looser than the plate's shears.]",
+      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. T-1934, 2026-10-30: the slim column behind the balustrade against the drum's west side (x 212-240 px, its top at y 697) and the cone in its tub before the wing's arched door east of the drum (x 727-782 px) now stand where this camera's pixel columns cross Taylor's 16555's (data/front_yards/1904.json, the 1729 lot's tubs) and render within about 15 px of the plate's; 16555's palm in its tub before the drum renders left of the elm trunk (x 470-560) where the plate shows the drum's columns bare above the balustrade (two summers' arrangements: within tolerance). Still open: the tall evergreen mass and the potted conifer west of the plate's flight, and the clipped heads read looser than the plate's shears. T-1934, 2026-10-30: the triangulation in the porch's item puts no second flight there: they stand in the ground between the terrace's flight and the house's porch.]",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards (camera flora)"
     },

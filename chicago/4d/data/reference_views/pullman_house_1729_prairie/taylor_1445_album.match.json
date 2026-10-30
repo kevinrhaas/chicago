@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "625e0addf5a8b9fe3099c950c93476fbdff5560232f97e3c95e31ea00a0786f0",
+  "glb_sha256": "1f5c76e419c00f5419202a2c377f34a5bd44a45c0db224edcceb4888747d7dab",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 10,
+        "shrubs": 13,
         "trees": 3,
         "beds": 0,
-        "creeper": 0
+        "creeper": 7
       }
     ],
     "street_trees": 31,
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
+      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "54694d8582618992eba7d87140fa3f218665612811dcb95ec978ed9eb54f72bb",
+  "flora_sha256": "bbf021b78547153f1a6cc1bc5a5e550c94a105a78163d70a28ab617ed8ea53ed",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -110,8 +110,8 @@
     },
     {
       "what": "the round oculus in the pier between the pair and the triple (x 699-716), about 0.5 m across, not built",
-      "status": "open",
-      "how": "Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "status": "fixed",
+      "how": "Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-1881, 2026-10-30: built as a round light 0.36 m across its glass in a stone ring 0.08 m broad, in the head of a banded pier 1.1 m broad (bays[p_18th].storeys[1].pier, a new K08 option), read through this camera on the pavilion's 20.4 m plane: the print's dark glass at x 712.5, y 388.5 px, the render's at x 712, y 387.5 (seen without the trees, which shade it in this render), so within a pixel."
     },
     {
       "what": "the flank's principal-storey lights east of the porte-cochere seen through its arches (x 745-768): a pair, built at s 19.15 and 20.25 behind the trees and the coping wall's piers",
@@ -129,7 +129,8 @@
     },
     {
       "what": "the rusticated pier with the oculus between the pair and the triple (x 699-716), and the east section of the flank whose cornice breaks forward on a banded corner pier (x 784-850, s about 22-27.75); the flank is built as one plain face there, since how far the east section stands out is not read",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1881, 2026-10-30: read again at 5-8x. The pier between the pair and the triple is built as a banded pier with the oculus in its head (item above); its courses render at x 702-717 px against the print's banding at 702-718. What the cornice breaks forward on at the flank's east end is a banded corner pier at x 830-845 px, under modillions running on past the wall's edge to x 850-856; the stretch between the pavilion's end (x 785) and that pier reads as the flank's own plane, its cornice stepping back at x 786 as the build's does, so no forward section is built. The corner pier is built 1.2 m broad (s 26.55-27.75; its west edge is behind the tree at x 816-830), banded, with the cornice and belt broken forward over it (street_front_pavilions.piers, wall k01.wall.side.north), and renders at x 840-855 px against the print's 830-845, inside this camera's 5-6 px offset at the flank's east end (the build's corner at x 855 where the print's wall edge is at 845) (L-pullman-1729-oculus-pier-1881)."
     },
     {
       "what": "the low stone coping wall on piers along the Prairie Avenue line and round the corner along 18th Street, standing in front of the basement",
@@ -159,9 +160,19 @@
       "how": "T-1881: the belt course (street_front_pavilions.belt) runs round the front, its projections and the 18th Street flank and pavilion, its bed at 6.72 m and its top at 7.67 m under the second storey's sills: on the flank at u 24 (x 510-524) the photograph's sill line at y 446-450 and the shadow under its string at 462-470, the render's at 446-450 and 466-472"
     },
     {
-      "what": "a balustrade on the 18th Street wall's east run (x 847-957) and posts along its low course",
+      "what": "a balustrade on the 18th Street wall's east run (x 847-957): its rail level with the third pier's cap (y 597-600), turned balusters about 4 px apart under it, a solid block at its east end before the carriage way",
+      "status": "fixed",
+      "how": "T-1881: the run split at the pier, its east part (x 16.4-8.6) carrying a K11 coping-return balustrade 0.8 m over the 1.0 m wall: the render's rail at y 598-599 from x 840 to 946 against the print's 597-600 from 856 to 952, its west end 16 px (about 1.2 m) short of the print's against the pier, which stands where T-1934 placed it (L-pullman-1729-18th-balustrade-1881)"
+    },
+    {
+      "what": "the balustrade's run starts about 16 px (about 1.2 m) west of the print's, under the third pier, which the render draws at x 817-840 against the print's 840-856",
+      "status": "within tolerance",
+      "how": "the pier is placed off the 1894 Inland plate and Taylor's 16554 (T-1934); through this camera the whole return west of the corner reads 15-25 px nearer it than the print, the camera's perspective along the flank that its solve leaves unpinned (the same disagreement the Prairie front's piers show), not a 1 m move of the wall"
+    },
+    {
+      "what": "posts along the 18th Street wall's low course (x 565-643)",
       "status": "open",
-      "how": "T-1881: the run is built as a plain coping wall"
+      "how": "T-1881: not built; read again at the print's full size, the low course's top is crossed by a parkway tree (x 615-630) and what stands behind it is the house's area, so the posts' number and height are not read here; the Detroit print's posts and panels along the same wall are open in its own record"
     },
     {
       "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1139-1273 through this camera, far down the street behind the picture's own trees; this item is unchanged.]",

@@ -656,7 +656,10 @@ def coping_spec(params, t):
                     and all(t["chamfer_m"] + 0.2 <= r[k] <= 1.5 for k in ("height_m", "from_height_m")) \
                     and abs(r["height_m"] - r["from_height_m"]) >= 0.1
             else:
-                ok = set(r) == {"to_x_m", "height_m"} and t["chamfer_m"] + 0.2 <= r["height_m"] <= 1.2
+                ok = set(r) <= {"to_x_m", "height_m", "balustrade"} and {"to_x_m", "height_m"} <= set(r) \
+                    and t["chamfer_m"] + 0.2 <= r["height_m"] <= 1.2
+                if ok and "balustrade" in r:
+                    _check_return_balustrade(j, r, t["thickness_m"])
             if not ok or not 0.3 <= x_prev - r["to_x_m"]:
                 raise ValueError(f"stone_coping_wall.side_return.runs[{j}] {r}: to_x_m at least 0.3 m in from the "
                                  f"run before ({x_prev:.2f}), 0.2-1.2 m high, a sweep 0.2-1.5 m, or an opening")
@@ -681,7 +684,65 @@ def coping_spec(params, t):
     return t
 
 
-SWEEP_STEPS = 10        # T-1934: the facets a sweep's curved top is laid in
+RETURN_BALUSTRADE = {"height_m", "pitch_m", "newel_m", "plinth_m", "rail_m", "segments", "profile"}
+
+
+def _check_return_balustrade(j, r, T):
+    """T-1881: a level side-return run may carry a stone balustrade on its top (1729's 18th
+    Street wall east of the third pier, in Taylor's photograph no. 1445): `height_m` from the
+    wall's top to the rail's, a `plinth_m` [width, height] under the balusters and a `rail_m`
+    [width, height] over them, square `newel_m` blocks at each end of every stretch, turned
+    balusters `pitch_m` apart in `segments` facets on `profile` ([r, fraction of height] from
+    0 to 1, as the entrance kit's balustrade)."""
+    b = r["balustrade"]
+    bad = not isinstance(b, dict) or set(b) != RETURN_BALUSTRADE
+    if not bad:
+        (pw, ph), (rw, rh), prof = b["plinth_m"], b["rail_m"], b["profile"]
+        bad = not 0.4 <= b["height_m"] <= 1.2 or r["height_m"] + b["height_m"] > 2.0 \
+            or not 0.1 <= b["pitch_m"] <= 0.5 or not 0.0 <= b["newel_m"] <= 0.8 \
+            or not (0.1 <= pw <= T + 0.1 and 0.1 <= rw <= T + 0.1 and 0.0 <= ph <= 0.3 and 0.05 <= rh <= 0.3) \
+            or b["height_m"] - ph - rh < 0.2 or not 4 <= b["segments"] <= 16 \
+            or prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(q[1] <= p[1] for p, q in zip(prof, prof[1:])) \
+            or 2 * max(p[0] for p in prof) >= b["pitch_m"] or 2 * max(p[0] for p in prof) > min(pw, rw)
+    if bad:
+        raise ValueError(f"stone_coping_wall.side_return.runs[{j}].balustrade {b}: takes {sorted(RETURN_BALUSTRADE)}; "
+                         f"0.4-1.2 m over the wall and its top no more than 2.0 m, balusters at least 0.2 m "
+                         f"between plinth and rail, 0.1-0.5 m apart and narrower than the pitch, plinth and "
+                         f"rail, and a profile [r, fraction] from 0 to 1")
+
+
+def _return_balustrade(side_face, box, turned, xa, xb, h, b, piers, T):
+    """T-1881: lay a run's balustrade along x xa..xb (xa < xb) on its top at `h`, in the
+    stretches the run's piers leave clear, centred on the wall's thickness."""
+    cuts = sorted((min(q["x_m"]), max(q["x_m"])) for q in piers if min(q["x_m"]) < xb and max(q["x_m"]) > xa)
+    spans, lo = [], xa
+    for p0, p1 in cuts:
+        if p0 > lo:
+            spans.append((lo, min(p0, xb)))
+        lo = max(lo, p1)
+    if lo < xb:
+        spans.append((lo, xb))
+    (pw, ph), (rw, rh), n = b["plinth_m"], b["rail_m"], b["newel_m"]
+    top = h + b["height_m"]
+    for s0, s1 in spans:
+        if s1 - s0 < 2 * n + b["pitch_m"]:
+            continue
+        for x0, x1, y0, y1, w in ((s0, s1, h, h + ph, pw), (s0, s1, top - rh, top, rw),
+                                  (s0, s0 + n, h + ph, top - rh, rw), (s1 - n, s1, h + ph, top - rh, rw)):
+            if x1 - x0 > 1e-6 and y1 - y0 > 1e-6:
+                for pts4, nrm in box(x0, x1, y0, y1, -T / 2 - w / 2, -T / 2 + w / 2):
+                    side_face(pts4, nrm)
+        clear = s1 - s0 - 2 * n
+        k = max(1, int(clear / b["pitch_m"]))
+        bh = top - rh - (h + ph)
+        prof = [(rr, h + ph + f * bh) for rr, f in b["profile"]]
+        for i in range(k):
+            for pts, nrm in turned(s0 + n + clear * (i + 0.5) / k, -T / 2, prof,
+                                   segments=b["segments"], cap_bottom=False):
+                side_face(pts, nrm)
+
+
+SWEEP_STEPS = 10       # T-1934: the facets a sweep's curved top is laid in
 
 
 def sweep_profile(xb, xa, hb, ha):
@@ -807,6 +868,9 @@ def coping_wall(a, t):
                 cap = prof if lo is None else [(-T, lo), (-T, h), (-c, h), (0.0, h - c), (0.0, lo - c)]
                 side_face([(x_end, y, z) for z, y in cap], (k, 0.0, 0.0))
         from .k01_stone_finish import box_faces as _box, turned_faces as _turned
+        for r, (xb, xa, hb, _) in zip(sr.get("runs") or (), sruns):
+            if r.get("balustrade"):
+                _return_balustrade(side_face, _box, _turned, xa, xb, hb, r["balustrade"], sr.get("piers") or (), T)
         for q in sr.get("piers") or ():
             x0, x1 = min(q["x_m"]), max(q["x_m"])
             e = (x1 - x0 - T) / 2

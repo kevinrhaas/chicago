@@ -1,3 +1,21 @@
+## T-3262 — deferred verge buffers
+
+Unreached railway verge tufts retain their exact final Float32 transforms and colours in a smaller CPU cache. The existing reach installs their full buffers before drawing, while density changes retain the original counts. Unusual transforms or colours keep an exact fallback. The tie cache and the original mesh identities remain intact.
+
+The integrated Field scene measured 400.997 MiB against the unchanged 400 MiB phone limit before this revision. That failure is preserved; a fresh source check, phone measurement and published desktop/mobile validation must qualify this change on PR1486. It supports the four picture tickets on PR1456 and makes no new image-match claim.
+
+## T-3262 — exact deferred tie buffers
+
+Unreached railway ties retain final Float32 transform and colour records in a smaller CPU cache. Their original mesh identities remain reserved; entering the existing reach installs byte-identical instance buffers and refreshes any bounds cached while empty. Unusual matrix layouts keep the full representation. This changes no shader, geometry precision, draw reach, material or evidence grade.
+
+The earlier 400.199 MiB phone failure is preserved in checkpoint730. Fresh validation of this revision is recorded on PR1486; no GPU saving is inferred from the CPU cache accounting. The four original picture tickets remain on PR1456.
+
+## T-3262: phone renderer memory
+
+The railway yard uses compact bounded-precision normals and omits only an exact shared uniform fine/far evidence grade; mixed grades retain their vertex stream. Initial spatial batches release unused upload bookkeeping. Positions, materials, source evidence, picking and visibility remain covered by the existing contracts.
+
+This performance support change addresses the owner-reported phone memory problem and enables the four picture tickets in PR1456. The four original tickets remain on that PR; this change makes no model or picture-attribution claim. Validation results belong to the PR and its linked evidence checkpoint.
+
 ## T-3232 — each shared texture sheet ships once (2026-10-28)
 
 The published tree carried 92.8 MiB of duplicate KTX2 kit sheets, the same sheet embedded in

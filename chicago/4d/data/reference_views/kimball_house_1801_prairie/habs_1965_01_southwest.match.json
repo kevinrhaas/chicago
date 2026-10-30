@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6f00a6c42b325e9ecbe3d2df09994357b56107b54585acaa2f670831cbda9a45",
+  "glb_sha256": "2be38dd3b8c633c930d6e5a07efe5a53b8ff4be8eb0f26cafed0093e8323dd9c",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -44,7 +44,8 @@
     },
     {
       "what": "the canted face's top over that light: the print stops the cant's wall at a cornice just over the light's head (about y 430-445 px), with the mansard's slate over it from there; the build carries the cant's wall on up to the pavilion's gable shoulder at 13.6 m, a tall blank face beside the gable (seen by T-1890)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1890: the cant's wall now stops at 11.65 m under a cornice course (K08 chamfer top_m), 0.8 m over the light's opening, and the house's mansard is no longer cut over the cant from there, so its slate comes down onto the cornice with the hip meeting it at the cant's middle; the front's end is carried on up as a stone cheek beside it. The cornice renders at about y 427 px against the print's y 405-420 over the light. The print's cornice falls about 40 px toward the cant's far end where the build's is level (the hip line against a level course, about 0.6 m across 1.3 m of cant): within tolerance"
     },
     {
       "what": "the gable's height: through the re-solved camera the finial's top renders about 69 px over the print's (y 83 against 152), about 1.2 m, while the Taylor print holds it within 10 px (y 230 against 220); the two pictures disagree about the gable's height against the pavilion's rows, and the build keeps the period print's",
@@ -125,6 +126,14 @@
       "what": "the coping and walk T-3206 lays for 1904",
       "status": "not shown",
       "how": "the 1965 photograph shows the house after the lawn's coping was gone; the 1904 boundary is read off the Taylor print"
+    },
+    {
+      "what": "the cant's far end: right of the light the print carries the cant's wall to a sloped edge where the side slope's slate comes down to the main cornice (about x 735-745 px, y 445-510); the build stands a block of stone there to the cornice, the closing face K01 lays in the south wall's plane over the cut behind the cant (about x 705-745 px, y 425-550), with no slate in front of it (seen by T-1890); fixed (T-1890): K01 no longer cuts the roof behind a cant stopped under its cornice (only over the pavilion's square part; the light's recess has its own cut), so there is no slot at the side wall to close and the closing face is gone. The cant's wall now ends at about x 738 px against the print's sloped edge at x 742 under its cornice, and the side slope's slate stands beyond it from the cornice down to the balustrade, as the print's does",
+      "status": "fixed"
+    },
+    {
+      "what": "the cant's far edge: the print's leans, its foot at the balustrade about x 720 px against x 742 under the cornice; the build's stands upright at about x 738, so its foot is about 18 px (about 0.3 m on the light's 40 px for 0.65 m) further out than the print's, tapering to nothing at the cornice (seen by T-1890)",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

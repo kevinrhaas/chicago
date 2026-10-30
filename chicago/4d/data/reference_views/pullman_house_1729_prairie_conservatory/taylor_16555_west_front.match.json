@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25"
+      "glb_sha256": "38fc7c48ffa44991d2edcdd420e652685d1a2d6433fc3dc3aa39e80229aa2e16"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "896ce63602b0f92e8d43df39b393c21f0eda3972050770ed52a0ccfe597b5141"
+      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
     }
   ],
-  "group_sha256": "4272bb2cf82d1db9ff4fb1dd09e536545b871bf63781b1e22301c518ccd2d01a",
+  "group_sha256": "8d31681f79bd126361ae1fd008f8331c60ff73e77bd9b077c3277778b7179693",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "c9cec82777a37eeb5772298c336cf8032e99db82c250f01944b638ec8f961c57",
+  "flora_sha256": "84c20c1c40087d78f54c0d5b7079a74f720b6479fcedf62bbd0216fe4aeee8c0",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -237,7 +237,7 @@
       "status": "fixed"
     },
     {
-      "what": "the terrace's approach: two flights rising from the walk between low curved cheek walls and square piers (x 210-830 px), where the build has one flight from grade to the terrace Through T-1934's re-solved camera: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [The pixel positions above were read through the camera before T-1934's second re-solve; through the new one the build's piers either side of the flight render at x 265-300 and 350-380, where the print's stand at x 280-303 and 355-375, and the print's two flights and cheek walls are still one flight in the build.] [T-1934, 2026-10-30: the wall now opens 3.35 m at the court's mouth (the build's 0.95 m opening is gone), and a gravel drive (reconstructed) runs through it up the court to the stable's central arch; in the side-by-side the opening falls about where the print's curving way into the court does, judged by eye, not measured. Still open: the piers' places either side of it and the print's curving cheek walls (L-pullman-carriage-ways-1934).]",
+      "what": "the terrace's approach: two flights rising from the walk between low curved cheek walls and square piers (x 210-830 px), where the build has one flight from grade to the terrace Through T-1934's re-solved camera: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [The pixel positions above were read through the camera before T-1934's second re-solve; through the new one the build's piers either side of the flight render at x 265-300 and 350-380, where the print's stand at x 280-303 and 355-375, and the print's two flights and cheek walls are still one flight in the build.] [T-1934, 2026-10-30: the wall now opens 3.35 m at the court's mouth (the build's 0.95 m opening is gone), and a gravel drive (reconstructed) runs through it up the court to the stable's central arch; in the side-by-side the opening falls about where the print's curving way into the court does, judged by eye, not measured. Still open: the piers' places either side of it and the print's curving cheek walls (L-pullman-carriage-ways-1934).] [T-1934, 2026-10-30, the print read at six times: its 'two flights' are two different stairs. The WEST one (x 224-281) rises five risers from the walk (y 686) to a landing (y 662) and on up to about y 620; through this camera its top stands about 2.0-2.2 m over grade, and it climbs to the house's raised porch on 18th Street, whose balustrade (x 110-225, its foot at y 612) triangulates with the 1894 plate's raised balustrade at u -9.8 to -6.2, v about -22, 2.3 m (see the plate's record): it is the house's, not the terrace's, and it is open on the house. The wide flight behind the curved wall (treads y 637-657, a broad tread at y 660-667 over the wall's top at y 667, x 332-423 to the elm) is the terrace's own flight from grade: the build's renders from y 671 to its top at y 638, within 3 px of the print's top, and the print's west end of it is hidden behind the clipped shrub at x 305-335. So nothing of the terrace's flight is open here. Still open in this item: the house porch's stair and the piers' places either side of the court's mouth with the print's curving cheek walls.]",
       "status": "open"
     },
     {

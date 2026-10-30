@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "625e0addf5a8b9fe3099c950c93476fbdff5560232f97e3c95e31ea00a0786f0",
+  "glb_sha256": "1f5c76e419c00f5419202a2c377f34a5bd44a45c0db224edcceb4888747d7dab",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 10,
+        "shrubs": 13,
         "trees": 3,
         "beds": 0,
-        "creeper": 0
+        "creeper": 7
       }
     ],
     "street_trees": 31,
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
+      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "6974a35e42ff7fa0f00189b83c1257a1e96ab7be6d1c18edff47595fdf3a9de9",
+  "flora_sha256": "2f50a7ec1e40e3c6a0c73077a0d9ed5e5334aadb7f451e4e68ce5888cf287fe1",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -168,6 +168,11 @@
       "what": "the large Prairie dormer as a whole (its light, hood and pediment) draws about 20-30 px left of the plate's (x 1152-1213 against 1183-1233), about 1 m at the vignette's scale",
       "status": "open",
       "how": "T-1881: seen while judging the pediment; the dormer's place on the front (v 11.45) is the Detroit print's, which lands it within a few px there, so this is the plate's camera along the front or the dormer's place, not yet resolved"
+    },
+    {
+      "what": "the 18th Street pavilion's oculus pier between its second storey's pair and triple, and the flank's banded east corner pier (T-1881, read off Taylor's photograph no. 1445)",
+      "status": "not shown",
+      "how": "T-1881, 2026-10-30: through this camera the oculus renders at about x 1455, y 397 px and the east corner pier at x 1488-1491, where the plate's vignette draws the flank in a few engraved strokes behind the trees; neither is resolved there."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
