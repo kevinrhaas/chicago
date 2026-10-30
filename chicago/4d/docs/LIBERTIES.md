@@ -34873,6 +34873,30 @@ their 0.7 m projection and 0.2 m slab, and the consoles' form (the kit's short s
 door-column pair run down beside the door's surround). The door column's is built 3.0 m, the kit's longest, where the
 plate reads about 3.5 m. The door hood T-3260 stood in for that balcony, about 1.4 m low, is withdrawn.
 
+### L-k01-field-1905-cant-3261 — 1905 Prairie's canted south-west corner, cut off the 1893 Pictorial Chicago plate on a brick house
+
+**Decision:** T-3261 cuts the Field house's south-west corner (K01's 'north' on this east-side
+house) on a canted face, as the 1893 plate (`rand_mcnally_pictorial_chicago_1893_field`) shows it
+through the camera T-3260 solved
+(`data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json`). K01's
+`cant_corner` (T-3186, 1901's) was built for an all-stone house under the moulded stone cornice with a
+window column on its face; it now also takes a brick house, a face left `blank`, and the bracketed
+timber cornice, whose paired brackets and bed moulding turn onto the face. The front's stone belt at
+the chamber floor runs across it and the flank's brick string course starts behind it. The largest
+dormer, carried onto the street face until now, stands centred on the face's slope.
+**What is read, not invented.** The cut itself, square to the corner; its face blank brick in both
+storeys; the cornice, the mansard and the large dormer carried round and over it.
+**What is a working figure.** The cut is built 3.2 m back each way where the camera reads about
+3.4 m: the front's wide window column, centred 11.2 m from the north end, needs a 0.2 m pier, and the
+front's own length is still to be re-read against the Daily News view (T-3261). The 1911 Sanborn sheet
+draws the corner square; at its scale a cut could be drawn either way, and the plate, nearer 1904, is
+followed. The wide column's iron balcony stops 0.2 m short of the cut, 1.9 m long where the plate's
+reads about 2.5 m.
+**What is still not built.** The light stone strips framing the face's brick at its two angles; the
+iron balcony on the flank's window just behind the cut. Both stay open on the match record.
+**How to resolve:** the Daily News view's camera (DN-0003324), which sees the corner from the street.
+**Recorded:** 2026-10-30 (T-3261).
+
 ### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
 
 **Decision:** the stable at the east end of 1729 Prairie (`pullman_house_1729_prairie_ranges`, its south

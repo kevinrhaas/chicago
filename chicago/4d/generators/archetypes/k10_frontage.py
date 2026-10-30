@@ -186,6 +186,38 @@ def runs(params):
             K.Run("k01.wall.side.south", (0.0, 0.0), (D, 0.0), (True, True))]
 
 
+def cornice_runs(params):
+    """T-3261: runs(), with a canted corner's face (`cant_corner`, 1905's south-west corner
+    under the 1893 plate's bracketed cornice) as a run of its own between the two walls it
+    cuts, each cut wall's run starting or stopping at the cut. A run carries `s0`, the wall's
+    own s at its start, so the wall's openings, pipes and bays still find it."""
+    rr = runs(params)
+    for r in rr:
+        r.s0 = 0.0
+    cc = getattr(params, "cant_corner", None) or {}
+    if not cc:
+        return rr
+    from .k01_frontage_params import cant_corner_plan, CANT_WALL
+    K = _kit()
+    D, W = params.depth_m, params.width_m
+    plan = cant_corner_plan(cc, D, W)
+    (u0, v0), (u1, v1) = plan["ends"]
+    by = {r.name: r for r in rr}
+    cant = K.Run(CANT_WALL, (u0, -v0), (u1, -v1), (True, True))
+    cant.s0 = 0.0
+    if cc["corner"] == "north":   # the front stops at the cut; the north wall starts there
+        front, north = by["k01.wall.street_front"], by["k01.wall.side.north"]
+        front2 = K.Run(front.name, front.a, (u0, -v0), front.corners)
+        north2 = K.Run(north.name, (u1, -v1), (0.0, -W), north.corners)
+        front2.s0, north2.s0 = 0.0, plan["walls"][north.name][1]
+        return [front2, cant, north2] + rr[2:]
+    south, front = by["k01.wall.side.south"], by["k01.wall.street_front"]
+    front2 = K.Run(front.name, (u1, -v1), (D, -W), front.corners)
+    south2 = K.Run(south.name, south.a, (u0, -v0), south.corners)
+    front2.s0, south2.s0 = plan["walls"][front.name][1], 0.0
+    return [front2] + rr[1:3] + [south2, cant]
+
+
 def _lay(a, pieces, conf, cid):
     """Add kit pieces (already in the assembly's frame) to the assembly's primitives."""
     from .k01_frontage import MATERIALS
@@ -211,7 +243,9 @@ def _lay(a, pieces, conf, cid):
 
 def _blocked(params, run, y_low, bays, half):
     """Where along a run no bracket centre may stand: over a head that reaches y_low, a
-    downpipe, or a bay whose roof does; each widened by the bracket's half width."""
+    downpipe, or a bay whose roof does; each widened by the bracket's half width. `bays` and
+    every s here are the wall's own, moved onto the run by its `s0` (T-3261)."""
+    o0 = getattr(run, "s0", 0.0)
     out = []
     for o in params.openings:
         if o.wall == run.name and o.head_m + HEAD_RISE_M > y_low:
@@ -231,7 +265,7 @@ def _blocked(params, run, y_low, bays, half):
         out += [(s - fr["width_m"] / 2, s + fr["width_m"] / 2) for s in fr["s_m"]]
     # a neighbour's mass the record says stands within the brackets' reach (a party wall)
     out += [tuple(c["s_m"]) for c in spec(params).get("clear_of", []) if c["wall"] == run.name]
-    return sorted((a - half - CLEAR_M, b + half + CLEAR_M) for a, b in out)
+    return sorted((a - o0 - half - CLEAR_M, b - o0 + half + CLEAR_M) for a, b in out)
 
 
 def pair_offsets(B) -> list:
@@ -259,8 +293,9 @@ def bracket_positions(params, run, B, y_low, bays):
     blocked = _blocked(params, run, y_low, bays, half)
     # T-2404: a pavilion standing flush with the corner takes the corner itself, so that
     # corner has no bracket on this face (the pavilion's own eaves turn it)
+    o0 = getattr(run, "s0", 0.0)   # T-3261: a run cut short by a canted corner
     held = [s for s in (c, run.L - c)
-            if any(w == run.name and top > y_low and s0 < s < s1 and (s0 <= 1e-6 or s1 >= run.L - 1e-6)
+            if any(w == run.name and top > y_low and s0 - o0 < s < s1 - o0 and (s0 - o0 <= 1e-6 or s1 - o0 >= run.L - 1e-6)
                    for w, s0, s1, top in bays)]
     for s in (c, run.L - c):
         if s in held:
@@ -427,8 +462,8 @@ def _cornice(a, K, data, bays, conf):
     # dies into its ring, on whichever wall it stands (a cut is perimeter s: the street
     # front's run starts the perimeter, then north, rear and south, as `runs` lays them)
     at_run, acc = {}, 0.0
-    for r in runs(p):
-        at_run[r.name], acc = acc, acc + r.L
+    for r in cornice_runs(p):   # T-3261: a wall's own s at a run's start is its s0
+        at_run[r.name], acc = acc - r.s0, acc + r.L
     for b, (wall, s0, s1, top) in zip(p.bays, bays):
         if b.get("wing"):   # T-2842: a tower on a rear wing's wall is clear of the main wall head
             continue
@@ -468,7 +503,7 @@ def _cornice(a, K, data, bays, conf):
     # brackets and the bed moulding run along that one wall, corner to corner, and stop
     # T-2459: and so under a gable whose side walls are carried up as parapets (1619's)
     flat = getattr(p, "roof_form", "hip") in ("flat", "gable")
-    rr = runs(p)[:1] if flat else runs(p)
+    rr = runs(p)[:1] if flat else cornice_runs(p)
     stations = []                                     # (perimeter s, run index, s)
     start = 0.0
     for i, r in enumerate(rr):
@@ -556,7 +591,8 @@ def _cornice(a, K, data, bays, conf):
                    **({"crown": {"brackets": {r.name: [round(s, 3) for i, s in crown["stations"] if crown["runs"][i] is r]
                                               for r in crown["runs"]},
                                  **({"block": crown["block_box"]} if crown.get("block_box") else {})}} if crown else {}),
-                   "bracket_runs": {r.name: [round(st[2], 3) for st in stations if st[1] == i] for i, r in enumerate(rr)},
+                   "bracket_runs": {r.name: [round(st[2] + getattr(r, "s0", 0.0), 3) for st in stations if st[1] == i]
+                                    for i, r in enumerate(rr)},
                    "bed_mould_m": [round(y_bed, 4), round(y_s, 4)]}
     _lay(a, var.pieces, conf, CORNICE)
 
