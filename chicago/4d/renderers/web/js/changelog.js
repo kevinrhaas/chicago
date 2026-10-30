@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2472, ts: '2026-10-30T22:41:12.981Z', date: 'Oct 30, 2026, 5:41 PM CT', title: '1801 Prairie\'s tower and turret roofed in the house\'s slate', kind: 'fix',
+    items: [
+      'The Kimball house\'s round tower and its little corner turret had smooth, pale grey cones that stood out from the dark slate roof beside them.',
+      'Both cones are now slated like the main roof, in level courses that narrow toward the top, as the c. 1895 photograph and the 1965 survey photographs show them.',
+    ] },
   { v: 2471, ts: '2026-10-30T21:48:11.048Z', date: 'Oct 30, 2026, 4:48 PM CT', title: 'Less phone memory for the railway yard', kind: 'fix',
     items: [
       'Nothing you can see changes. The railway yard uses less phone memory while retaining its tracks, ground, materials and evidence grades.',
