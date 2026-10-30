@@ -154,7 +154,19 @@
    "spacing_ft": 160.0,
    "corner_clear_m": 14.0,
    "tree_clear_m": 1.6,
-   "note": "A lamp at every intersection corner of the district's drawn streets, in the corner square 1.5 ft inside both curbs (the curb-return corner, between where the two crossings land), on the parkway (the Glessner corner's on a stone pad level with the walk, as Taylor 2135 shows); the pictured mid-block lamps at their lots; the rest of every face at about 160 ft, the two sides of a street staggered, on the parkway 0.4 m off the walk, each moved along the parkway clear of an elm, a carriage walk or an alley mouth. A corner where a face meets a curved return (Calumet at 18th) has no corner of its own."
+   "note": "A lamp at every intersection corner of the district's drawn streets, in the corner square 1.5 ft inside both curbs (the curb-return corner, between where the two crossings land), on the parkway (the Glessner corner's on a stone pad level with the walk, as Taylor 2135 shows); the pictured mid-block lamps at their lots; the rest of every face at about 160 ft, the two sides of a street staggered, on the parkway 0.4 m off the walk, each moved along the parkway clear of an elm, a carriage walk or an alley mouth. A corner where a face meets a curved return (Calumet at 18th) has no corner of its own. No rule lamp stands on a stretch the pictures see whole and show empty (pictured_empty).",
+   "pictured_empty": [
+    {
+     "face": "e18th__prairie_ic_16_18",
+     "from_m": 0.0,
+     "to_m": 62.92,
+     "seen_by": [
+      "aic_taylor_16554_pullman_from_sw",
+      "loc_det_4a08066_pullman_residence"
+     ],
+     "why": "Taylor's no. 16554 (1890s) sees 18th Street's north walk whole from the house's 18th Street porch to its turn into Calumet Avenue, and the Detroit Publishing view of c. 1900 sees it from the Prairie Avenue corner past the palm house: neither shows a post on it. The one lamp 16554 shows stands where the walk turns (lamp.pictured.pullman_court); the rule's mid-block lamp would have rendered before the porch's arch (16554 x 206), where the print shows none."
+    }
+   ]
   },
   "fire_hydrant": {
    "liberty": "L-prairie-hydrants-3201",
@@ -281,6 +293,12 @@
   "e22nd": "East Twenty-second Street"
  },
  "sources": {
+  "aic_taylor_16554_pullman_from_sw": {
+   "citation": "J. W. Taylor (Chicago), photographer. Pullman, George M., Residence [from the south-west, showing the palm house and stable]. Photograph, c. 1890-1910 (holder's view date). Art Institute of Chicago, Ryerson and Burnham Archives, Architecture Photograph Collection (Historic Architecture and Landscape Image Collection), no. 16554.",
+   "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/29313",
+   "tier": 1,
+   "date": "c. 1890-1910 (holder's view date)"
+  },
   "chicagology_1811_ames_photo": {
    "citation": "[1811 S. Prairie Ave. (Coleman / Ames house).] Photograph of the house from the west side of Prairie Avenue, south-west of it: its street front, its south flank and the ground to the curb; unknown photographer, undated (after 1886). Reproduced on chicagology.com, Prairie Avenue, 1811 S. Prairie.",
    "url": "https://chicagology.com/chicagostreets/prairieavenue/1811prairie/",
@@ -353,6 +371,12 @@
    "tier": 1,
    "date": "between 1890 and 1901"
   },
+  "loc_det_4a08066_pullman_residence": {
+   "citation": "Detroit Publishing Co. The Pullman residence, Chicago. c. 1900. Library of Congress Prints and Photographs Division, LC-D4-12552; LC-DIG-det-4a08066; item 2016794585.",
+   "url": "https://www.loc.gov/pictures/item/2016794585/",
+   "tier": 1,
+   "date": "c. 1900 (the Prairie library's dating: 1899-1901)"
+  },
   "nypl_dennis_tucker_1010_prairie_stereo": {
    "citation": "P. B. Greene, 'Residence of William F. Tucker. 1010 Prairie Avenue, Chicago.' Stereograph, c. 1876-1881. New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F175 (digital ID G90F175_004F).",
    "url": "https://commons.wikimedia.org/wiki/File:Residence_of_William_F._Tucker._1010_Prairie_Avenue,_Chicago,_by_P._B._Greene.jpg",
@@ -373,9 +397,9 @@
   "utility_poles": 60,
   "wires": 56,
   "corner_lamps": 28,
-  "attested": 14,
+  "attested": 15,
   "inferred": 2,
-  "reconstructed": 163
+  "reconstructed": 162
  },
  "items": [
   {"id": "hydrant.corner.calumet.e20th.nw", "kind": "fire_hydrant", "e": 1533.07, "n": -3457.1, "heading_deg": 359.4, "place": "corner", "streets": ["calumet", "e20th"], "corner": "NW", "face": "calumet__prairie_calumet_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-hydrants-3201"},
@@ -431,6 +455,7 @@
   {"id": "lamp.pictured.2120", "kind": "gas_lamp", "e": 1398.84, "n": -3680.19, "heading_deg": 359.5, "footing": false, "place": "mid-block", "face": "prairie__indiana_prairie_21_22", "parcel": "prairie_2120", "grade": "attested", "sources": ["chicagology_2120_gorton_photo"], "note": "The 2120 photograph shows the lamp on the parkway beside the walk, just south of the stoop.", "moved_m": 0.0},
   {"id": "lamp.pictured.2140", "kind": "gas_lamp", "e": 1399.27, "n": -3726.34, "heading_deg": 359.5, "footing": false, "place": "mid-block", "face": "prairie__indiana_prairie_21_22", "parcel": "prairie_2140", "grade": "attested", "sources": ["chicagology_2140_photo_b"], "note": "The second 2140 photograph shows the lamp on the parkway beside the walk at the Prairie Avenue porch.", "moved_m": 0.0},
   {"id": "lamp.pictured.opposite_1721", "kind": "gas_lamp", "e": 1393.47, "n": -3147.07, "heading_deg": 359.4, "footing": false, "place": "mid-block", "face": "prairie__indiana_prairie_16_18", "parcel": "prairie_1720", "grade": "attested", "sources": ["ghm_blog_1721_dexter_c1888"], "note": "George Glessner's photograph of 1721 (c. 1888), taken from the west walk opposite it, has the lamp in its right foreground, a little south of the camera.", "moved_m": 0.0},
+  {"id": "lamp.pictured.pullman_court", "kind": "gas_lamp", "e": 1476.77, "n": -3197.99, "heading_deg": 89.4, "footing": false, "place": "mid-block", "face": "calumet__prairie_ic_16_18", "parcel": "prairie_1729", "grade": "attested", "sources": ["aic_taylor_16554_pullman_from_sw"], "note": "J. W. Taylor's photograph no. 16554 (1890s), from the yard across 18th Street, shows the post at the street edge of the walk before Pullman's palm-house wing, where the curb turns into Calumet Avenue (x 795, its foot at y 607: u 10.0 m east of the palm house's centre through the print's solved camera, data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16554_from_south.json). Its place only is read; the print's head reads as a shallow globe on a taller post than the district's, which is drawn here as at every other lamp.", "moved_m": 1.25},
   {"id": "lamp.rule.calumet__prairie_calumet_18_20#00", "kind": "gas_lamp", "e": 1531.59, "n": -3408.62, "heading_deg": 359.6, "footing": false, "place": "mid-block", "face": "calumet__prairie_calumet_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.calumet__prairie_calumet_18_20#01", "kind": "gas_lamp", "e": 1531.21, "n": -3355.64, "heading_deg": 359.9, "footing": false, "place": "mid-block", "face": "calumet__prairie_calumet_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.calumet__prairie_calumet_18_20#02", "kind": "gas_lamp", "e": 1521.12, "n": -3303.65, "heading_deg": 342.5, "footing": false, "place": "mid-block", "face": "calumet__prairie_calumet_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
@@ -445,7 +470,6 @@
   {"id": "lamp.rule.e18th__indiana_prairie_16_18#00", "kind": "gas_lamp", "e": 1304.53, "n": -3200.37, "heading_deg": 89.3, "footing": false, "place": "mid-block", "face": "e18th__indiana_prairie_16_18", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.e18th__indiana_prairie_16_18#01", "kind": "gas_lamp", "e": 1362.52, "n": -3199.71, "heading_deg": 89.3, "footing": false, "place": "mid-block", "face": "e18th__indiana_prairie_16_18", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.e18th__indiana_prairie_18_20#00", "kind": "gas_lamp", "e": 1329.1, "n": -3215.44, "heading_deg": 269.3, "footing": false, "place": "mid-block", "face": "e18th__indiana_prairie_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
-  {"id": "lamp.rule.e18th__prairie_ic_16_18#00", "kind": "gas_lamp", "e": 1443.46, "n": -3198.21, "heading_deg": 89.6, "footing": false, "place": "mid-block", "face": "e18th__prairie_ic_16_18", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.e20th__indiana_prairie_18_20#00", "kind": "gas_lamp", "e": 1307.99, "n": -3465.39, "heading_deg": 89.4, "footing": false, "place": "mid-block", "face": "e20th__indiana_prairie_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.e20th__indiana_prairie_18_20#01", "kind": "gas_lamp", "e": 1365.69, "n": -3464.81, "heading_deg": 89.4, "footing": false, "place": "mid-block", "face": "e20th__indiana_prairie_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.e20th__indiana_prairie_20_21#00", "kind": "gas_lamp", "e": 1331.58, "n": -3480.4, "heading_deg": 269.4, "footing": false, "place": "mid-block", "face": "e20th__indiana_prairie_20_21", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
