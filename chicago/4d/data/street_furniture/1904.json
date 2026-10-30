@@ -67,7 +67,55 @@
      "h": 0.02
     }
    },
+   "model_by_class": {
+    "globe_post": {
+     "height_m": 4.9,
+     "base_m": {
+      "r": 0.1,
+      "to": 0.5
+     },
+     "shaft_r_m": [
+      0.075,
+      0.06
+     ],
+     "ladder_bar_m": {
+      "at": 3.3,
+      "w": 0.3
+     },
+     "neck_m": {
+      "from": 3.95,
+      "to": 4.33,
+      "r": 0.04
+     },
+     "globe_m": {
+      "centre": 4.52,
+      "r": 0.29,
+      "ry": 0.19
+     },
+     "cap_m": {
+      "from": 4.7,
+      "r": 0.08
+     }
+    }
+   },
+   "name_by_class": {
+    "globe_post": "globe lamp post"
+   },
+   "form_by_class": {
+    "globe_post": "A plain post about 4.9 m to its cap, painted pale, on a plain base, with a small bar a third of the way down, a slim neck and a wide shallow globe under a small dark cap."
+   },
+   "form_sources_by_class": {
+    "globe_post": [
+     "aic_taylor_16554_pullman_from_sw"
+    ]
+   },
+   "form_note_by_class": {
+    "globe_post": "Read off Taylor's no. 16554 (1890s), the one picture that shows it: its heights from the print's column scaled by the district post at the same place, its paint from its tone (it prints lighter than the sunlit stone behind it; the print is monochrome, so the pale is a tone, not a colour). The print cannot say whether it burned gas or electricity, nor what its base and globe are made of at this size; it is kept with the gas lamps for its place. Not lit: the scene is a July morning."
+   },
    "what": "A cast-iron gas lamp post",
+   "what_by_class": {
+    "globe_post": "A pale-painted lamp post with a globe head"
+   },
    "ticket": "T-3199",
    "rule_note": "The pictures show such lamps at the district's corners and along its parkways"
   },
@@ -455,7 +503,7 @@
   {"id": "lamp.pictured.2120", "kind": "gas_lamp", "e": 1398.84, "n": -3680.19, "heading_deg": 359.5, "footing": false, "place": "mid-block", "face": "prairie__indiana_prairie_21_22", "parcel": "prairie_2120", "grade": "attested", "sources": ["chicagology_2120_gorton_photo"], "note": "The 2120 photograph shows the lamp on the parkway beside the walk, just south of the stoop.", "moved_m": 0.0},
   {"id": "lamp.pictured.2140", "kind": "gas_lamp", "e": 1399.27, "n": -3726.34, "heading_deg": 359.5, "footing": false, "place": "mid-block", "face": "prairie__indiana_prairie_21_22", "parcel": "prairie_2140", "grade": "attested", "sources": ["chicagology_2140_photo_b"], "note": "The second 2140 photograph shows the lamp on the parkway beside the walk at the Prairie Avenue porch.", "moved_m": 0.0},
   {"id": "lamp.pictured.opposite_1721", "kind": "gas_lamp", "e": 1393.47, "n": -3147.07, "heading_deg": 359.4, "footing": false, "place": "mid-block", "face": "prairie__indiana_prairie_16_18", "parcel": "prairie_1720", "grade": "attested", "sources": ["ghm_blog_1721_dexter_c1888"], "note": "George Glessner's photograph of 1721 (c. 1888), taken from the west walk opposite it, has the lamp in its right foreground, a little south of the camera.", "moved_m": 0.0},
-  {"id": "lamp.pictured.pullman_court", "kind": "gas_lamp", "e": 1476.77, "n": -3197.99, "heading_deg": 89.4, "footing": false, "place": "mid-block", "face": "calumet__prairie_ic_16_18", "parcel": "prairie_1729", "grade": "attested", "sources": ["aic_taylor_16554_pullman_from_sw"], "note": "J. W. Taylor's photograph no. 16554 (1890s), from the yard across 18th Street, shows the post at the street edge of the walk before Pullman's palm-house wing, where the curb turns into Calumet Avenue (x 795, its foot at y 607: u 10.0 m east of the palm house's centre through the print's solved camera, data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16554_from_south.json). Its place only is read; the print's head reads as a shallow globe on a taller post than the district's, which is drawn here as at every other lamp.", "moved_m": 1.25},
+  {"id": "lamp.pictured.pullman_court", "kind": "gas_lamp", "e": 1476.77, "n": -3197.99, "heading_deg": 89.4, "footing": false, "place": "mid-block", "face": "calumet__prairie_ic_16_18", "parcel": "prairie_1729", "grade": "attested", "sources": ["aic_taylor_16554_pullman_from_sw"], "note": "J. W. Taylor's photograph no. 16554 (1890s), from the yard across 18th Street, shows the post at the street edge of the walk before Pullman's palm-house wing, where the curb turns into Calumet Avenue (x 795, its foot at y 607: u 10.0 m east of the palm house's centre through the print's solved camera, data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16554_from_south.json). Its form is read from the same print: a pale-painted post about 4.9 m to its cap, taller than the district's, with a shallow globe for its head (the globe_post class, T-1934).", "moved_m": 1.25, "class": "globe_post"},
   {"id": "lamp.rule.calumet__prairie_calumet_18_20#00", "kind": "gas_lamp", "e": 1531.59, "n": -3408.62, "heading_deg": 359.6, "footing": false, "place": "mid-block", "face": "calumet__prairie_calumet_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.calumet__prairie_calumet_18_20#01", "kind": "gas_lamp", "e": 1531.21, "n": -3355.64, "heading_deg": 359.9, "footing": false, "place": "mid-block", "face": "calumet__prairie_calumet_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
   {"id": "lamp.rule.calumet__prairie_calumet_18_20#02", "kind": "gas_lamp", "e": 1521.12, "n": -3303.65, "heading_deg": 342.5, "footing": false, "place": "mid-block", "face": "calumet__prairie_calumet_18_20", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-street-lamps-3199"},
