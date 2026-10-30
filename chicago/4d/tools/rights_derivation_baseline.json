@@ -1899,6 +1899,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "hibbard_house_1701_prairie/as_mapped_1904/form.front_bays": {
       "kind": "structure",
       "blocked_sources": [

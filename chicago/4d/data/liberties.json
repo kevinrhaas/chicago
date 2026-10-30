@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 883,
+  "count": 884,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -59058,7 +59058,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "a cast-iron gas lamp post stands at every intersection corner of the district's drawn streets (28 corners) and along every block face's parkway (the 1904 street furniture data, written by the lay prairie 1904 street furniture tool). A corner lamp stands in the corner square where the two sidewalk spaces meet, 1.5 ft inside both curbs, between the two corner crossings; the Glessner corner's on a stone pad level with the walk, as Taylor 2135 shows it, the rest on the parkway (the owner doubted the raised footings once drawn at every corner, and the Pullman and Tucker pictures show their posts in grass). Seven lamps stand where a photograph shows them in front of a house (1801/1811, 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these eleven are attested. Every other lamp is placed by rule: about one per 160 ft of face, the two sides of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the same, read part by part off the 1811 photograph: a plain round foot on a plinth, a moulded collar, a leafed boss at knee height, a slender shaft, a bell capital, a knobbed ladder bar, four arms bent up into the lantern's foot, a clear four-sided lantern tapering out to an iron waist band, a steep glazed top on iron hips (the 1811 print sees the trees through it), a small cap, a vent and a knob, about 3.1 m. The scene has no night, so none is lit."
+          "text": "a cast-iron gas lamp post stands at every intersection corner of the district's drawn streets (28 corners) and along every block face's parkway (the 1904 street furniture data, written by the lay prairie 1904 street furniture tool). A corner lamp stands in the corner square where the two sidewalk spaces meet, 1.5 ft inside both curbs, between the two corner crossings; the Glessner corner's on a stone pad level with the walk, as Taylor 2135 shows it, the rest on the parkway (the owner doubted the raised footings once drawn at every corner, and the Pullman and Tucker pictures show their posts in grass). Seven lamps stand where a photograph shows them in front of a house (1801/1811, 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these eleven are attested. A twelfth stands where J. W. Taylor's no. 16554 shows it, at the turn of 18th Street's walk into Calumet Avenue before Pullman's palm-house wing, read for its place only (the print's taller globe-headed post is drawn with the district's one post); and the rule stands no lamp on 18th Street's north walk from Prairie Avenue to that turn, which 16554 and the Detroit Publishing view of c. 1900 (Detroit Publishing Co. The Pullman residence, Chicago. c. 1900) see whole and show empty. Every other lamp is placed by rule: about one per 160 ft of face, the two sides of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the same, read part by part off the 1811 photograph: a plain round foot on a plinth, a moulded collar, a leafed boss at knee height, a slender shaft, a bell capital, a knobbed ladder bar, four arms bent up into the lantern's foot, a clear four-sided lantern tapering out to an iron waist band, a steep glazed top on iron hips (the 1811 print sees the trees through it), a small cap, a vent and a knob, about 3.1 m. The scene has no night, so none is lit."
         },
         {
           "label": "What it stands on",
@@ -59066,7 +59066,7 @@
         },
         {
           "label": "What is invented",
-          "text": "every lamp's place but the eleven pictured; the 160-ft spacing and the stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where the pictures show four; one post for the whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn); the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass; the arms' bend and the glazed top's frame drawn as a plain cup and four hips."
+          "text": "every lamp's place but the twelve pictured; the 160-ft spacing and the stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where the pictures show four; one post for the whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn); the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass; the arms' bend and the glazed top's frame drawn as a plain cup and four hips."
         },
         {
           "label": "How to resolve",
@@ -59083,6 +59083,7 @@
       ],
       "work_refs": [
         "T-3231",
+        "T-1934",
         "T-3219",
         "T-3199"
       ]
@@ -60863,12 +60864,6 @@
           "domain": "structure",
           "structure": "hibbard_house_1701_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.entrance_kit"
-        },
-        {
-          "domain": "structure",
-          "structure": "hibbard_house_1701_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.rainwater"
         },
         {
@@ -60943,7 +60938,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_front_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_side_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.service_wall_brick`, `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_tread_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_landing_depth_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stoop_width_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.side_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.rear_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.roof_covering`, `hibbard_house_1701_prairie.as_mapped_1904.form.rainwater`, `hibbard_house_1701_prairie.as_mapped_1904.form.window_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.entrance_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.yard`"
+          "text": "`hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_front_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_side_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.service_wall_brick`, `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_tread_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_landing_depth_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stoop_width_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.side_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.rear_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.roof_covering`, `hibbard_house_1701_prairie.as_mapped_1904.form.rainwater`, `hibbard_house_1701_prairie.as_mapped_1904.form.window_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Decision",
@@ -60960,6 +60955,10 @@
         {
           "label": "Amended by later work (2026-10-29)",
           "text": "the railed deck, the lower south range and the corner porch now stand, and the hip's 35 degrees became 45 with the eave's overhang 0.5 m; see `“1701 Prairie's railed roof deck, lower south range and corner porch, read off its photograph”`."
+        },
+        {
+          "label": "Amended by later work (2026-10-30)",
+          "text": "the entrance is no longer the kit's panelled door under a flat head: it stands in the photograph's tall round arch, read through its camera (entrance kit, now `inferred`), and this entry no longer covers it; see `“1701 Prairie's entrance in its tall round arch, read off its photograph and the engraving”`."
         }
       ],
       "work_refs": [
@@ -60967,7 +60966,8 @@
         "T-1875",
         "T-3241",
         "T-3242",
-        "T-1876"
+        "T-1876",
+        "T-3256"
       ]
     },
     {
@@ -61528,6 +61528,38 @@
       ],
       "work_refs": [
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-k01-hibbard-1701-3256",
+      "title": "1701 Prairie's entrance in its tall round arch, read off its photograph and the engraving",
+      "section": "per_subject",
+      "subjects": [
+        "hibbard_house_1701_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work stands the Hibbard house's entrance as Chicagology's photograph ([1701 S. Prairie Avenue, the William G. Hibbard residence.] Photograph of the…) shows it, read through the camera earlier work solved (the chicagology front data): a tall round arch in the front's middle bay, between the corner porch and the stone bay, its leaves deep in shadow. Built as K07's round-headed pair of leaves (k07.entrance.double door deep arch) in a 0.95 m reveal under K01's door arch, laid over the brick front's stone basement as 1834 Prairie's is, in place of the panelled door under a flat head earlier work stood there. The stoop is widened to the deep-arch entrance's own 2.5 m so it is as broad as the arch it climbs to. **What is read, not invented.** The arch's place and span: its jambs at about v 5.9 and 8.15 along the front (x 513-595 px), centred on the entrance bay the record already places at v 7.0; its crown at y about 710 px, about 3.8 m over the principal floor. The engraving (`a16-cgy-1701-hibbard-engraving`, the image store) draws the same tall arch with a light surround beside the porch. **What is invented.** The crown is built at 3.6 m over the floor and the span at 2.2 m, the kit's tallest round mouth and its widest, about 0.2 m under the reading's crown and within the camera's stated 0.3 m in heights. The ring round the arch (0.25 m of light stone, a curved extrados 0.05 m proud) and the small key at its crown: the photograph shows the arch's face light against the brick, but a tree and the shadow hide its mouldings, and the engraving is too small to give them. The leaves, their panels and the vestibule behind them are the kit's; no picture shows them. The stoop's width; the fence hides the stoop in the photograph. **What is still not built.** From the photograph's camera the bay, laid between the 1911 sheet's place and the photograph's (the record's bays note), hides the arch's south half and the stone pier the picture shows before the bay; the match record holds that open."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the entrance, or a plan of the front's bay."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3256)."
+        }
+      ],
+      "work_refs": [
+        "T-1876",
+        "T-2526",
+        "T-3184",
+        "T-3256",
+        "T-3240"
       ]
     },
     {

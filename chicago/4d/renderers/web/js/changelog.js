@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2461, ts: '2026-10-30T18:12:28.493Z', date: 'Oct 30, 2026, 1:12 PM CT', title: '1701 Prairie\'s tall arched front entrance', kind: 'feature',
+    items: [
+      'The front door of the Hibbard house at 1701 Prairie now stands deep inside a tall round stone-ringed arch between the corner porch and the bay, as its old photograph and an engraving show it, in place of a plain flat-topped door.',
+      'Its front steps are widened to the arch\'s full width.',
+    ] },
   { v: 2460, ts: '2026-10-30T17:11:38.459Z', date: 'Oct 30, 2026, 12:11 PM CT', title: 'Jaunt stops no longer stand behind a tree', kind: 'fix',
     items: [
       'Arriving at a house on a jaunt, or by Go to, now steps a metre or two along the walk when a parkway elm, gas lamp or pole would stand between you and the front. The Women of Prairie Avenue stop at 1834 Prairie no longer puts a trunk in the middle of the view.',
