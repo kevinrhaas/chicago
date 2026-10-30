@@ -21201,6 +21201,18 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 
 **Recorded:** 2026-10-03 (T-2042).
 
+### L-jaunt-women-1835 — Women of 1835 Chicago: an invented ride past six women's places
+
+**Decision:** Women of 1835 Chicago (the owner's ask of 2026-10-30, T-3251) links seven exterior stops, west to east, to six women a source names in the town: Catherine Chevalier Robinson (seen from the forks anchor across the water from the Robinson cabins), Juliette Kinzie at John H. Kinzie's store, Mrs. Murphy at the Exchange Coffee House, Mrs. Rufus Brown's boarding house, Eliza Chappel at her infant school and at First Presbyterian, and Josette LaFramboise Beaubien (seen from the fort anchor beside the Beaubien homestead). The ride, its order, the reading seconds, the ending and the roll keepsake are reconstructed. No visit, meeting or conversation is claimed; nobody speaks; no interior is opened. The two Native and Métis households are told from public anchors, not called at, as audit_jaunt_refusals rule I requires, and every sentence that names a people stands on an attested claim that names it. Each fact is cited at its own grade: Andreas, Wau-Bun, the St Mary's register and the resident cards for the town, and later scholarship (Indigenous Chicago, the Citizen Potawatomi Nation's heritage pages, the Encyclopedia of Chicago, Britannica, Lake Forest College's archive, the National Women's History Museum) for what the women's lives came to.
+
+**Bounds:** The approved 1 July 1835 scene and the five structure records and two anchors. What a woman did after the scene date (Eleanor Kinzie's daughter's Girl Scouts, Eliza Chappel Porter's Civil War work, Wilmette's name) is told as later history, never as the scene.
+
+**How to resolve:** A source placing a woman's own shop or school in the town (the milliners and the young ladies' schools of the 1834-35 papers are unplaced) would add a stop; the route stays interpretation.
+
+**Applies to:** `data/jaunts/notable-women-1835.json`.
+
+**Recorded:** 2026-10-30 (T-3251).
+
 ### L-plankwalk-far-top-retention — retaining existing footways beyond furniture reach
 
 **Decision:** When the selected detail tier hides a distant timber chunk, its emitted walk, crossing and decked-walk top triangles remain in one shared-material batch. Only visible-frustum, tier-eligible, reach-culled chunks contribute. Returning inside the reach removes the replacement before the detailed chunk draws. This is a rendering handover, not another frontage record.

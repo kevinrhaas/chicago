@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "id": "notable-women-1835",
+  "content_version": 1,
+  "title": "Women of 1835 Chicago",
+  "premise": "Ride from Wolf Point to the fort past the places of six women a source names in the town of 1835: an author, two hotel and boarding-house keepers, a teacher and the women of two founding families.",
+  "category": "Residents",
+  "scene": "1835",
+  "featured": false,
+  "opening": {
+    "text": "RIDE: WOMEN OF 1835. Seven stops, west to east, from the forks to the fort. Each names a woman a source puts in this town and why she still matters. Most sources of 1835 record men; these women are the ones they could not leave out. Exteriors only; nobody here speaks.",
+    "read_s": 18
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "stops": [
+    {
+      "id": "robinson",
+      "destination": {
+        "kind": "anchor",
+        "id": "forks"
+      },
+      "text": "Wolf Point. Across the water stand the log cabins Wau-Bun puts here in 1831 as the home of Alexander Robinson and his wife's family. Catherine Chevalier Robinson was Potawatomi, granddaughter of the leader Naunongee. Her sister Archange married Antoine Ouilmette, and the village of Wilmette carries their name. Robinson descendants kept their Des Plaines land into the mid-twentieth century.",
+      "read_s": 24,
+      "evidence": [
+        "robinson-cabins",
+        "robinson-catherine",
+        "ouilmette-sister",
+        "wilmette-name",
+        "robinson-land",
+        "outing"
+      ],
+      "next": "kinzie"
+    },
+    {
+      "id": "kinzie",
+      "destination": {
+        "kind": "structure",
+        "id": "jh_kinzie_forwarding_store"
+      },
+      "text": "John H. Kinzie's store. His wife Juliette Kinzie later wrote Wau-Bun (1856), and its memories of 1831 are the evidence for several buildings in this very scene. On 18 June 1835, thirteen days before this date, she gave birth in Chicago to Eleanor, whose daughter Juliette Gordon Low founded the Girl Scouts in 1912.",
+      "read_s": 22,
+      "evidence": [
+        "kinzie-store",
+        "kinzie-author",
+        "kinzie-eleanor",
+        "kinzie-scouts",
+        "outing"
+      ],
+      "next": "murphy"
+    },
+    {
+      "id": "murphy",
+      "destination": {
+        "kind": "structure",
+        "id": "exchange_coffee_house"
+      },
+      "text": "The Exchange Coffee House, Mark Beaubien's second hotel. Andreas: 'Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House.' Open under the Murphys from August 1834, it was a couple's business, and the history names Mrs. Murphy as its keeper beside her husband.",
+      "read_s": 18,
+      "evidence": [
+        "murphy-keepers",
+        "murphy-dates",
+        "outing"
+      ],
+      "next": "brown"
+    },
+    {
+      "id": "brown",
+      "destination": {
+        "kind": "structure",
+        "id": "brown_boarding_house"
+      },
+      "text": "Mrs. Rufus Brown's boarding house, behind Peck's store. 'Mrs. Rufus Brown kept one of the first-class boarding houses', Andreas writes, in a town whose houses 'were always full; and full meant three in a bed sometimes, with the floor covered besides.' She ran the business; the record keeps only her husband's name.",
+      "read_s": 20,
+      "evidence": [
+        "brown-keeper",
+        "brown-full",
+        "outing"
+      ],
+      "next": "chappel"
+    },
+    {
+      "id": "chappel",
+      "destination": {
+        "kind": "structure",
+        "id": "chappel_infant_school"
+      },
+      "text": "Eliza Chappel's school. She kept Chicago's first infant school, opened in 1833 in a small log house once used as a store; one account has some pupils paddling canoes across the river to class. Andreas wrote that Miss Eliza Chappel 'is entitled to especial distinction in this work.'",
+      "read_s": 18,
+      "evidence": [
+        "chappel-school",
+        "chappel-canoes",
+        "chappel-distinction",
+        "outing"
+      ],
+      "next": "church"
+    },
+    {
+      "id": "church",
+      "destination": {
+        "kind": "structure",
+        "id": "first_presbyterian_church"
+      },
+      "text": "First Presbyterian Church. Eliza Chappel was one of its twenty-six founding members in June 1833, and on 15 June 1835 she married its pastor, Jeremiah Porter. In the Civil War, as Eliza Chappel Porter, she directed the Chicago Sanitary Commission and nursed Union wounded beside Mary Ann Bickerdyke at Chattanooga.",
+      "read_s": 20,
+      "evidence": [
+        "porter-founder",
+        "porter-marriage",
+        "porter-war",
+        "outing"
+      ],
+      "next": "beaubien"
+    },
+    {
+      "id": "beaubien",
+      "destination": {
+        "kind": "anchor",
+        "id": "fort_dearborn"
+      },
+      "text": "Fort Dearborn, from the south-west; the Beaubien homestead stands just south. Josette LaFramboise Beaubien, wife of Jean Baptiste Beaubien, was the daughter of the trader Francois LaFramboise and Shawenoqua, a Potawatomi woman. In July 1834 a Josette Beaubien stood sponsor at a baptism at St Mary's, the town's first Catholic parish.",
+      "read_s": 22,
+      "evidence": [
+        "beaubien-homestead",
+        "beaubien-parents",
+        "beaubien-sponsor",
+        "outing"
+      ],
+      "next": "finish"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "End of the ride at the fort. These are the women whose places this scene holds. Others in the town's papers kept shops and schools of their own and wait for a source that places their rooms.",
+      "read_s": 12,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "women-of-1835-roll",
+    "title": "Roll of the women of 1835",
+    "text": "An interpretive list of the women on the ride, not a historical document."
+  },
+  "evidence": [
+    {
+      "id": "robinson-cabins",
+      "text": "Near him were two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions. The cabins stand in the scene as the record of Alexander Robinson's household of 1831, which makes no claim about who was in them on the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Wau-Bun's description of the west bank in 1831, as data/structures/robinson_caldwell_cabins.json quotes it in documented_range.note."
+    },
+    {
+      "id": "robinson-catherine",
+      "text": "Alexander Robinson married Archange Ouilmette's sister Catherine Chevalier (Potawatomi) in 1826. Catherine was the daughter of Marianne (Potawatomi) and François Chevalier, and the granddaughter of Potawatomi leader Naunongee.",
+      "confidence": "attested",
+      "sources": [
+        "indigenous_chicago_alexander_robinson"
+      ],
+      "locator": "The profile's paragraph on his marriage and family."
+    },
+    {
+      "id": "ouilmette-sister",
+      "text": "Catherine Chevalier was the sister of Archange Ouilmette, wife of Antoine Ouilmette.",
+      "confidence": "attested",
+      "sources": [
+        "indigenous_chicago_alexander_robinson",
+        "encyclopedia_chicago_wilmette"
+      ],
+      "locator": "The Robinson profile's marriage sentence; the Wilmette entry's opening paragraph naming Archange Chevallier as Ouilmette's wife."
+    },
+    {
+      "id": "wilmette-name",
+      "text": "The village of Wilmette is named for Antoine Ouilmette, a French-Canadian fur trader, and his part-Potawatomi wife, Archange Chevallier; after the 1829 treaty the government deeded 1,280 acres, much of present-day Wilmette and part of Evanston, to Archange and her children.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_wilmette"
+      ],
+      "locator": "The entry's opening paragraph."
+    },
+    {
+      "id": "robinson-land",
+      "text": "Alexander Robinson received a section of land on the Desplaines River north of Chicago; he and his wife, Catherine Chevalier, lived the rest of his life there, and his family continued to live on the property until the middle of the twentieth century.",
+      "confidence": "attested",
+      "sources": [
+        "indigenous_chicago_alexander_robinson"
+      ],
+      "locator": "The profile's paragraph on the 1833 treaty and the Des Plaines land."
+    },
+    {
+      "id": "kinzie-store",
+      "text": "The store is the 1834 advertisement's J. H. Kinzie's, John Harris Kinzie's workplace; Juliette Augusta Magill Kinzie is his wife.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "data/residents/households/hh_kinzie_john_h.json seats John H. Kinzie's workplace at jh_kinzie_forwarding_store (inferred, following the 1834 advertisement over Andreas's 'Jim Kinzie's store') and holds Juliette as his wife. No source read puts her in the building; the stop calls it his store."
+    },
+    {
+      "id": "kinzie-author",
+      "text": "Juliette Augusta Magill Kinzie is the author of Wau-Bun, published in 1856; its descriptions of the forks in 1831 are the evidence behind four structure records in this dataset.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "The book's title page; the card note on kinzie_juliette in data/residents/households/hh_kinzie_john_h.json lists the four records."
+    },
+    {
+      "id": "kinzie-eleanor",
+      "text": "Eleanor Lytle Kinzie Gordon was born in Chicago June 18, 1835, daughter of John and Juliette (Magill) Kinzie.",
+      "confidence": "attested",
+      "sources": [
+        "lake_forest_archives_eleanor_kinzie_gordon"
+      ],
+      "locator": "The biographical history."
+    },
+    {
+      "id": "kinzie-scouts",
+      "text": "Another daughter of Mrs. Gordon's, Juliette Gordon Low, was the founder of the Girl Scouts of the U.S.A.; the first Girl Guides troop in America was founded at Savannah on 12 March 1912.",
+      "confidence": "attested",
+      "sources": [
+        "lake_forest_archives_eleanor_kinzie_gordon",
+        "nwhm_juliette_gordon_low"
+      ],
+      "locator": "The archive's biographical history; the museum biography's paragraph on the first troop."
+    },
+    {
+      "id": "murphy-keepers",
+      "text": "Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, the hotels chapter, as data/structures/exchange_coffee_house.json quotes it."
+    },
+    {
+      "id": "murphy-dates",
+      "text": "Mark Beaubien's second hotel; open under the Murphys from August 1834, and they remained there until 1836.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, the hotel chapter and the life of Beaubien, as data/structures/exchange_coffee_house.json reads them."
+    },
+    {
+      "id": "brown-keeper",
+      "text": "Mrs. Rufus Brown kept one of the first-class boarding houses, in a log house that was the first building in the rear of Peck's store.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1 on the houses of 1834, as data/structures/brown_boarding_house.json and the card brown_mrs_rufus quote it."
+    },
+    {
+      "id": "brown-full",
+      "text": "The houses of 1834 were always full; and full meant three in a bed sometimes, with the floor covered besides.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1 on the houses of 1834, quoted on the card brown_mrs_rufus (data/residents/households/hh_brown_rufus.json)."
+    },
+    {
+      "id": "chappel-school",
+      "text": "Eliza Chappel kept Chicago's first infant school; Miss Eliza Chappel is entitled to especial distinction in this work.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, the schools chapter and her biographical notice, as the card porter_eliza_chappel quotes it."
+    },
+    {
+      "id": "chappel-canoes",
+      "text": "The school was established in a small log house formerly used as a store; some pupils paddled canoes across the river to it.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_chappell"
+      ],
+      "reasoning": "An unfootnoted compiled page (its own record says to treat it as leads). Its first-room sequence is corroborated by drloih_beaubien's tenancy chain and Andreas's log drug store; the canoes are carried as the page gives them, which the stop marks as one account."
+    },
+    {
+      "id": "chappel-distinction",
+      "text": "Miss Eliza Chappel is entitled to especial distinction in this work.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, her biographical notice, as the card porter_eliza_chappel quotes it."
+    },
+    {
+      "id": "porter-founder",
+      "text": "Jeremiah Porter organised the First Presbyterian Church of Chicago on 26 June 1833 with twenty-six members and was its pastor; Eliza Chappel was one of the twenty-six founding members.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1 on the First Presbyterian Church, as the cards in data/residents/households/hh_porter_jeremiah.json quote it."
+    },
+    {
+      "id": "porter-marriage",
+      "text": "Chappel married the Rev. Jeremiah Porter on 15 June 1835. In 1835 she married the Reverend Jeremiah Porter.",
+      "confidence": "attested",
+      "sources": [
+        "drloih_chappell",
+        "britannica_eliza_chappell_porter"
+      ],
+      "locator": "The drloih post's closing paragraph (the day); the Britannica biography (the year)."
+    },
+    {
+      "id": "porter-war",
+      "text": "Some years later she became director of the Chicago Sanitary Commission, joining Mother Mary Ann Bickerdyke in Chattanooga, Tennessee, to care for the Union soldiers wounded.",
+      "confidence": "attested",
+      "sources": [
+        "britannica_eliza_chappell_porter"
+      ],
+      "locator": "The biography's paragraph on the Civil War."
+    },
+    {
+      "id": "beaubien-homestead",
+      "text": "The Beaubien homestead stands south of the fort; Josette LaFramboise Beaubien is the wife of Jean Baptiste Beaubien there.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "data/structures/jb_beaubien_homestead.json places the homestead south of the fort (inferred) and data/residents/households/hh_beaubien_jean_baptiste.json seats Josette there as his wife (inferred, from Andreas). The stop stands at the fort anchor beside it."
+    },
+    {
+      "id": "beaubien-parents",
+      "text": "Francois LaFramboise moved near Lake Michigan in the late 1700s and married a Potawatomi woman named Shawenoqua; Jean Baptiste Beaubien then married Josette LaFromboise, daughter of Francis.",
+      "confidence": "attested",
+      "sources": [
+        "cpn_beaubien_family"
+      ],
+      "locator": "The page's paragraphs on the LaFramboise family and on Jean Baptiste Beaubien's marriages."
+    },
+    {
+      "id": "beaubien-sponsor",
+      "text": "Josette Beaubien stood as sponsor at a baptism at Chicago on 16 July 1834, in the register of St Mary's, the first Catholic parish in the town.",
+      "confidence": "inferred",
+      "sources": [
+        "st_marys_baptismal_register_1833_1835"
+      ],
+      "reasoning": "The entry (image S3HT-DHG9-S1C, page 12, entry 18 of the 1834 series) is read off the page; that its sponsor is this Josette is the crosswalk's inference (data/research/church/st_marys_baptisms_crosswalk.json), so the stop says 'a Josette Beaubien'."
+    },
+    {
+      "id": "outing",
+      "text": "The ride, its order from the forks to the fort, its reading times, its ending and the roll keepsake are modern interpretation; no visit, meeting or conversation is asserted, nobody speaks, and no interior is opened. Wolf Point and the fort are seen from public anchors.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-women-1835"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-women-1835"
+  ]
+}
