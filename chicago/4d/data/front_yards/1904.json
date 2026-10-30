@@ -83,6 +83,17 @@
     1.6
    ]
   },
+  "palm": {
+   "name": "palm from the palm house, set out in its tub",
+   "h": [
+    1.4,
+    2.4
+   ],
+   "w": [
+    1.8,
+    2.6
+   ]
+  },
   "maple": {
    "name": "young sugar maple",
    "h": [
@@ -130,11 +141,11 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 145,
+  "shrubs": 148,
   "trees": 14,
   "beds": 11,
-  "creeper_patches": 8,
-  "attested_plants": 30,
+  "creeper_patches": 13,
+  "attested_plants": 33,
   "lots_with_a_door": 111,
   "schemes": {
    "corners": 79,
@@ -4242,10 +4253,10 @@
     ],
     "width_m": 44.23
    },
-   "front_m": 11.5,
+   "front_m": 7.97,
    "doors": [
     [
-     20.87,
+     21.52,
      14.15
     ]
    ],
@@ -4281,6 +4292,36 @@
      "inferred",
      0.0,
      0.0
+    ],
+    [
+     1471.75,
+     -3169.2,
+     "arborvitae",
+     1.59,
+     0.88,
+     "inferred",
+     1.4,
+     0.5
+    ],
+    [
+     1463.17,
+     -3169.79,
+     "arborvitae",
+     2.27,
+     0.45,
+     "inferred",
+     1.4,
+     0.5
+    ],
+    [
+     1467.25,
+     -3172.47,
+     "palm",
+     1.75,
+     2.35,
+     "inferred",
+     1.4,
+     0.58
     ],
     [
      1429.93,
@@ -4478,7 +4519,7 @@
    "trees": [
     [
      1413.68,
-     -3166.59,
+     -3167.34,
      "linden",
      5.06,
      2.65,
@@ -4486,14 +4527,14 @@
     ],
     [
      1413.93,
-     -3184.84,
+     -3185.59,
      "linden",
      5.6,
      2.93,
      "attested"
     ],
     [
-     1419.93,
+     1417.18,
      -3152.59,
      "linden",
      7.91,
@@ -4507,43 +4548,78 @@
      1428.68,
      -3166.34,
      269.29,
-     1.36,
-     4.88
+     1.25,
+     3.55
+    ],
+    [
+     1428.43,
+     -3167.34,
+     269.29,
+     1.42,
+     4.18
     ],
     [
      1428.43,
      -3168.34,
      269.29,
-     1.85,
-     5.38
+     1.2,
+     6.95
+    ],
+    [
+     1426.93,
+     -3177.34,
+     269.29,
+     1.22,
+     4.96
+    ],
+    [
+     1427.43,
+     -3178.34,
+     269.29,
+     1.58,
+     3.73
     ],
     [
      1428.43,
      -3180.34,
      269.29,
-     1.42,
-     7.1
+     1.66,
+     4.06
     ],
     [
      1428.43,
      -3181.34,
      269.29,
-     1.37,
-     4.39
+     1.38,
+     4.74
+    ],
+    [
+     1428.43,
+     -3182.34,
+     269.29,
+     1.85,
+     5.35
     ],
     [
      1428.43,
      -3183.34,
      269.29,
-     1.31,
-     3.86
+     1.73,
+     5.09
     ],
     [
      1428.43,
      -3184.59,
      269.29,
-     1.45,
-     4.61
+     1.86,
+     5.83
+    ],
+    [
+     1428.43,
+     -3185.59,
+     269.29,
+     1.33,
+     5.32
     ]
    ],
    "pictured": {
@@ -4577,7 +4653,7 @@
     },
     "tubs": {
      "grade": "inferred",
-     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too). Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace."
+     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and the slim column beside the drum that both pictures show, and the palm set out before the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace."
     }
    }
   },

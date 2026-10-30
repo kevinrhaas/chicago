@@ -70,10 +70,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 27,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 6
+        "creeper": 11
       }
     ],
     "street_trees": 32,
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
+      "sha256": "304a0b80fb05fff9c0a4110fcefe030ef8b7ea2849ff4e3120ee215e0348a5e0"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "e6bba2013d84a90dbe265f1730a18d2dd3d51c113b244850554072e62d4121ce",
+  "flora_sha256": "81d2b3bfd8cefab4fce20a61aa930711ebc49f5fd46a0f3c3d02133ebe735fbf",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

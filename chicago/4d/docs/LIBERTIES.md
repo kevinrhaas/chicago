@@ -36440,7 +36440,13 @@ baked model has there, 1.55 m up, which `--check` re-measures); an evergreen cli
 clear stem, in a tub 0.55 m high, at grade before the stable's west arcade (1475.8 E, -3181.2 N, its
 top 2.61 m); and a slim clipped arborvitae planted inside the 18th Street wall by its east pier
 (1474.0 E, -3193.3 N, 1.9 m), which Taylor's 16555 (`aic_taylor_16555_pullman_west_front`) shows
-there too. The tubs and what grows in them are not drawn in the winter Season.
+there too. The tubs and what grows in them are not drawn in the winter Season. Three more stood
+on 2026-10-30, each where the plate's pixel column crosses Taylor's 16555's (the two cameras 16
+degrees apart, so the depth is good to about a metre), on the terrace floor the model has there,
+1.4 m up: a slim arborvitae column in a tub against the drum's west side (1463.17 E, -3169.79 N, its
+top 4.17 m), a clipped arborvitae cone in a tub before the wing's arched door east of the drum
+(1471.75 E, -3169.2 N, 3.49 m), both pictured in the plate and the print, and a palm in its tub
+before the drum (1467.25 E, -3172.47 N, 3.73 m), pictured in the print only.
 **What is read:** each plant's place across the picture and its top from the plate's pixels; its
 depth from the plane it is read on (the terrace behind its balustrade, the line 1.6 m off the
 stable's wall, the ground at its visible foot); that the two balls are clipped evergreens, one
@@ -36449,14 +36455,17 @@ sitting on its tub and one on a stem.
 summers on: tub plants were wintered under glass and set out again, and no nearer picture shows the
 terrace, so every one is `inferred`. The species (arborvitae for the sheared ball and the column,
 an unnamed evergreen for the standard), the tubs' shape, size and their dark green paint. The
-plate's cone in its tub and the tall evergreens west of its flight are left out: they stand by the
-second flight the build does not have, and Taylor's print sets the terrace's tubs otherwise
-(an urn on the pier where the plate has the ball), which the match records hold within tolerance.
+palm's kind: a pinnate palm of the date-palm sort the period's palm houses set out for the summer
+(the print shows long arching fronds, not the species), drawn by the `phoenix_tub` habit; the
+plate's elm trunk stands across its place, so the two pictures do not say whether it was out in
+1894 too. The plate's tall evergreens west of its flight are left out: they stand by the second
+flight the build does not have, and Taylor's print sets the terrace's tubs otherwise (an urn on
+the pier where the plate has the ball), which the match records hold within tolerance.
 **How to resolve:** a summer picture of the terrace nearer 1904, or a nursery or household record.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
 and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
-**Recorded:** 2026-10-29 (T-1934).
+**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934).
 
 ### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
 

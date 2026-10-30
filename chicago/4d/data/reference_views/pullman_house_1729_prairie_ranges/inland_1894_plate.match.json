@@ -70,10 +70,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 27,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 6
+        "creeper": 11
       }
     ],
     "street_trees": 32,
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
+      "sha256": "304a0b80fb05fff9c0a4110fcefe030ef8b7ea2849ff4e3120ee215e0348a5e0"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "bafc555353a6b9c7301d37e1a66aef195a9764c1309e5ac5abcbed926fade944",
+  "flora_sha256": "bcf74dcc69475025ed78c922d840ac9487992cdeb5c8608598fe2f647889ae38",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -219,7 +219,7 @@
       "status": "fixed"
     },
     {
-      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. Still open: the tall evergreen mass and the potted conifer west of the plate's flight and the cone in its tub at the flight's head, which stand by the second flight the build does not have (the terrace's two-flight approach), and the clipped heads read looser than the plate's shears.]",
+      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. Still open: the tall evergreen mass and the potted conifer west of the plate's flight, which stand by the second flight the build does not have (the terrace's two-flight approach), and the clipped heads read looser than the plate's shears. T-1934, 2026-10-30: the slim column behind the balustrade against the drum's west side (x 212-240 px, its top at y 697) and the cone in its tub before the wing's arched door east of the drum (x 727-782 px) now stand where this camera's pixel columns cross Taylor's 16555's (data/front_yards/1904.json, the 1729 lot's tubs); the column renders within about 15 px of the plate's, and the cone stands behind the build's 18th Street border shrubs, which rise about 1.4 m over the plate's evergreen mass before the flight and are leafy where the plate shows clipped evergreens: also open.]",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards (camera flora)"
     },
