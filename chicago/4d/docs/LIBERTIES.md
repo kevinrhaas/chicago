@@ -30042,7 +30042,9 @@ planters in `trees.js` and `street-trees.js`.
 that stood in 1812, 1835 or 1904. The habits are the species' ordinary botanical ones (for example the
 cottonwood's few massive rising limbs, the bur oak's low crooked horizontals, the American elm's vase
 and the black willow's leaning stems), set by hand and judged by eye against how living trees of the
-species look. The atlases are painted from code; no photograph is sampled. Repeating a few variants
+species look. The atlases are painted from code; one photograph is sampled, a modern American elm
+leaf (`bioimages_ulmus_americana_11688`, CC BY 4.0), whose veins and mottle fill the elm's painted
+blades since T-3247: it is the species' leaf surface, not evidence about any tree. Repeating a few variants
 makes neighbouring trees of a species siblings, not individuals.
 **How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
 Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
@@ -34090,6 +34092,33 @@ views) places the southern columns and gives the balusters' profile.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-26 (T-3159).
 
+### L-pullman-1729-entry-axis-1881 — 1729 Prairie's door, stair, inner columns and gate set on one axis, the forward block's centre; the cheeks' balustrade reconstructed
+
+**Decision:** the owner, walking the 1904 scene on 2026-10-29, found the entry "not straight": the stair
+centred at v 4.0, the door at v 4.6 (half over the forward block's ground-storey window), the portico's
+hood and the block at v 5.25 and the gate's opening at v 5.7, so the walk bent between the gate and the
+stair. All four now stand on v 5.25, the forward block's centre (T-1881): the door (`front_bays` 5.25,
+the block's window taken off), the flight (`stoop_v_m` dropped, so the stoop is the door's), the gate
+(`boundary.runs`, the opening s 4.45-6.05) and the two inner columns (`hood.columns.at_v_m` 3.3 and
+7.2), with a turned stone balustrade on the cheeks and the terraces (`entrance_kit…balustrade`).
+**What is read, not invented.** The Detroit print (`loc_det_4a08065_pullman_residence`) through its
+solved camera: the door's pale leaves between two columns (x 355-371 px), the two columns at v 3.05 and
+6.9 (midpoint 5.0), the stair rising between them to the door, a raked rail on each cheek, and the gap in
+the street wall square before the stair.
+**What is invented.** The common axis at v 5.25 rather than the reading's 5.0: the forward block and
+the hood are centred there, and the readings (columns, door, gap) each sit within 0.3-0.5 m of it at the
+print's 13-14 px a metre. The inner columns' 3.9 m spacing is the reading's; their places are moved up to
+0.3 m to be symmetric on the axis. The outer columns at the hood's ends stay a bounded design
+(L-pullman-1729-portico-3159). The balustrade's section (0.9 m, 0.36 m newels, turned balusters every
+0.2 m) is the K07 stone stoop's, its newels 0.03 m proud of the 0.3 m cheek each side so no face
+is drawn twice; the print shows the rails but not their profile.
+**How to resolve:** a closer picture of the portico (the Albertype plate, the CHM 1905 views) fixes
+the columns' places and the balusters; if it puts the door off the block's centre, the axis moves with
+it, door, stair and gate together.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-10-29 (T-1881).
+
 ### L-pullman-1729-porte-cochere-3160 — 1729 Prairie's 18th Street flank off the Detroit print: the porte-cochere's west end and south front read, its east end and the flank's windows' places reconstructed
 
 **Decision:** the Pullman house's 18th Street flank (T-3160, a piece of T-1881) is rebuilt as the
@@ -36027,10 +36056,18 @@ their fronts at about 0.6 m inside the lot's 18th Street line, the west pier's e
 the conservatory's east wall line, the drive 4.1 m wide between the wings' ends.
 **What is invented.** The piers' depth (taken as their width: square), the cap's mouldings drawn as plain
 courses, the sweep's curve, the wings' thickness, and the stone, taken as the conservatory podium's
-because the piers' lit faces read its tone; the carving on the wings' faces and the sunk panels on the
-piers are not built.
+because the piers' lit faces read its tone. The carving (built by T-3164's gate carving pass) is
+reduced to what the pictures resolve: each wing's street face a spiral C-scroll 0.26 m across by the
+pier, a band of three lobes for the leafage trailing under the sweep toward the roll, and a fillet
+over the plain base at about 0.5 m, all standing 0.05 m proud; the leaves' cutting, their count and
+the relief's depth are not read (the plate and Lowe's print give the scroll and the leafage's extent at
+about 0.01 m a pixel, not their design); the wings' garden faces, which neither picture sees, are left
+plain. The sunk panel in each pier's shaft, about 0.08 m in from its edges between 1.24 and 1.8 m,
+sunk 0.05 m, is carried round all four faces where the pictures show it on two (the street face and
+the drive's).
 **What is not.** The gate's place, the piers' widths and heights, the wings' lengths, heights and scrolls,
-and the drive's width, which the plate shows and its camera measures.
+the drive's width, which the plate shows and its camera measures, and the carving's and the panels'
+places and extents, read off both pictures through their cameras.
 **How to resolve:** a nearer picture of the gate, or a survey of the estate's grounds, gives the piers'
 depth, the mouldings and the carving.
 **Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
