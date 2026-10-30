@@ -229,6 +229,9 @@ class K01FrontageParams:
     corner_porch: dict = field(default_factory=dict)
     # T-3241: a hip cut off level at a railed deck (`hip_deck`, k01_hip_deck; 1701's roof)
     hip_deck: dict = field(default_factory=dict)
+    # T-3242: a two-level timber veranda against the main rear wall, its garden flight off the
+    # lower deck (`rear_veranda`, k01_rear_veranda; 1701's, off its rear photograph)
+    rear_veranda: dict = field(default_factory=dict)
     # T-1879: open louvred shutters folded back beside named walls' lights, by storey
     # (`window_shutters`; 1721's, off the 1891 plate): {"width_m", "louvre_m", "lights":
     # ((wall, s0, s1, sill, head), ...)} — empty for every other house
@@ -304,7 +307,7 @@ CONSUMED = frozenset({
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
-    "hip_deck",
+    "hip_deck", "rear_veranda",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -6180,6 +6183,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                     pitch=pitch, overhang=float(val("eave_overhang_m")), roof_form=roof_form)
     except DeckError as e:
         raise ParamError(str(e)) from None
+    from .k01_rear_veranda import ParamError as VerandaError, resolve as resolve_veranda
+    try:
+        rear_veranda = resolve_veranda(val("rear_veranda"), width=width, eave=pf + sum(heights), wings=wings,
+                                       floor=pf)
+    except VerandaError as e:
+        raise ParamError(str(e)) from None
     lg_ = (door_kit or {}).get("loggia") or {}
     round_arcade_check(lg_.get("round_arcade"), round_corner, lg_.get("columns"), width)
     # T-2997: a pipe on a return stands on a street projection's square high-s return, at
@@ -6257,7 +6266,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
-        corner_porch=corner_porch, hip_deck=hip_deck, shutters=shutters,
+        corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, shutters=shutters,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

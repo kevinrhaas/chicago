@@ -2,7 +2,7 @@
  "structure_id": "hibbard_house_1701_prairie",
  "view": "chicagology_front",
  "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
- "glb_sha256": "2bf8355779f603c5ca20dd0b14acfd42cc178971f01e59f7e904e42098a428ea",
+ "glb_sha256": "8801d3b4931d75c3db8a43bd8d7abcdb999eb137266dec9b250589d336b82db9",
  "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
  "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
  "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
@@ -77,6 +77,11 @@
    "what": "the stone basement band at the foot of the main block and the lower south range, its round-headed basement lights showing over the fence (and the porch podium's roundels)",
    "status": "open",
    "how": "T-3240 and T-3241 build the walls in brick to grade and the porch's podium plain; the basement lights stand behind the fence"
+  },
+  {
+   "what": "the rear veranda's south end, seen past the south flank's rear corner",
+   "status": "within tolerance",
+   "how": "T-3242: the rear veranda (built off the rear photograph) now shows its end's posts and rails just past the flank's rear corner (render x about 1820-1870); the photograph has a pale upright there behind the tree (x about 805-820), too small and screened to read further. Nothing else in this view moved"
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
