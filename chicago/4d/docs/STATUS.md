@@ -1,3 +1,9 @@
+## T-3262 — exact deferred tie buffers
+
+Unreached railway ties retain final Float32 transform and colour records in a smaller CPU cache. Their original mesh identities remain reserved; entering the existing reach installs byte-identical instance buffers and refreshes any bounds cached while empty. Unusual matrix layouts keep the full representation. This changes no shader, geometry precision, draw reach, material or evidence grade.
+
+The earlier 400.199 MiB phone failure is preserved in checkpoint730. Fresh validation of this revision is recorded on PR1486; no GPU saving is inferred from the CPU cache accounting. The four original picture tickets remain on PR1456.
+
 ## T-3262: phone renderer memory
 
 The railway yard uses compact bounded-precision normals and omits only an exact shared uniform fine/far evidence grade; mixed grades retain their vertex stream. Initial spatial batches release unused upload bookkeeping. Positions, materials, source evidence, picking and visibility remain covered by the existing contracts.

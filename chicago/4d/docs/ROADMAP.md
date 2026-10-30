@@ -1,3 +1,7 @@
+## T-3262 — railway tie allocation support
+
+Defer the expanded tie instance buffers until their existing draw reach needs them, keeping exact final Float32 values in a compact cache meanwhile. Preserve the original mesh identities and use a full-layout fallback for noncanonical transforms. The earlier phone failure remains recorded in checkpoint730; the official unchanged 400 MiB reading and published qualification belong to the actual revised head on PR1486. Original picture acceptance remains with PR1456.
+
 ## T-3262: phone renderer memory support
 
 Reduce railway storage and dead spatial-upload bookkeeping within the existing phone limit. The original picture matching remains tracked by T-2373, T-2377, T-2381 and T-2384 in PR1456; this support change does not settle their image gates. Normal precision remains bounded; nonuniform evidence grades keep their original stream.

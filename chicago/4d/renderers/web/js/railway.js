@@ -388,6 +388,52 @@ function laySection(path, s0, s1, prof, spec, out) {
   }
 }
 
+// Only these eight matrix entries vary for the present upright ties. The other
+// lanes must be canonical +0/+1 after Float32 storage, including zero's sign.
+const TIE_MATRIX_LANES = [0, 2, 5, 8, 10, 12, 13, 14];
+const TIE_MATRIX_FIXED = [[1, 0], [3, 0], [4, 0], [6, 0], [7, 0], [9, 0], [11, 0], [15, 1]];
+function packTieCache(final) {
+  const count = final.length / 19;
+  if (!Number.isInteger(count)) throw new Error('Tie cache needs final matrix/color records');
+  for (let i = 0; i < count; i += 1) {
+    for (const [lane, value] of TIE_MATRIX_FIXED) {
+      // A tilt or a negative zero takes the entire exact 76-byte fallback.
+      if (!Object.is(final[i * 19 + lane], value)) return { count, stride: 19, values: final };
+    }
+  }
+  const values = new Float32Array(count * 11);
+  for (let i = 0; i < count; i += 1) {
+    TIE_MATRIX_LANES.forEach((lane, k) => { values[i * 11 + k] = final[i * 19 + lane]; });
+    values.set(final.subarray(i * 19 + 16, i * 19 + 19), i * 11 + 8);
+  }
+  return { count, stride: 11, values };
+}
+
+function installTieCache(near, far, cache) {
+  const matrix = new Float32Array(cache.count * 16);
+  const color = new Float32Array(cache.count * 3);
+  for (let i = 0; i < cache.count; i += 1) {
+    if (cache.stride === 11) {
+      matrix[i * 16 + 15] = 1;
+      TIE_MATRIX_LANES.forEach((lane, k) => { matrix[i * 16 + lane] = cache.values[i * 11 + k]; });
+      color.set(cache.values.subarray(i * 11 + 8, i * 11 + 11), i * 3);
+    } else if (cache.stride === 19) {
+      matrix.set(cache.values.subarray(i * 19, i * 19 + 16), i * 16);
+      color.set(cache.values.subarray(i * 19 + 16, i * 19 + 19), i * 3);
+    } else throw new Error('Unknown tie cache layout');
+  }
+  near.instanceMatrix = new THREE.InstancedBufferAttribute(matrix, 16);
+  near.instanceColor = new THREE.InstancedBufferAttribute(color, 3);
+  far.instanceMatrix = near.instanceMatrix;
+  far.instanceColor = near.instanceColor;
+  near.count = far.count = cache.count;
+  // A bounds visitor may have cached empty boxes on the count-zero shells.
+  if (near.boundingBox !== null) near.computeBoundingBox();
+  if (far.boundingBox !== null) far.computeBoundingBox();
+  near.computeBoundingSphere();
+  far.boundingSphere = near.boundingSphere;
+}
+
 function railMesh(name, out, level, mat, castShadow) {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
@@ -1014,18 +1060,23 @@ export async function createRailway({
     z.centre = new THREE.Vector3(z.eCount ? z.eSum / z.eCount : (f0[0] + f1[0]) / 2, 0, wz((z.nHi + z.nLo) / 2));
     z.index = zi;
     if (z.ties.length) {
-      const near = new THREE.InstancedMesh(tieGeoNear, tieMat, z.ties.length);
-      const far = new THREE.InstancedMesh(tieGeoFar, tieMat, z.ties.length);
+      // Reserve the original Object3D ids, names and child order, not every
+      // zone's 76-byte instance payload. Unreached count-zero shells draw nothing.
+      const near = new THREE.InstancedMesh(tieGeoNear, tieMat, 0);
+      const far = new THREE.InstancedMesh(tieGeoFar, tieMat, 0);
+      near.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(0), 3);
+      const final = new Float32Array(z.ties.length * 19);
       z.ties.forEach((t, k) => {
         q.setFromAxisAngle(up, t.yaw + Math.PI / 2);
         m4.compose(v3.set(wx(t.e), t.y, wz(t.n)), q, s3.set(t.length, tieDepth, ties.width_m));
-        near.setMatrixAt(k, m4);
+        m4.toArray(final, k * 19);
         c.setRGB(t.tone, t.tone * (0.97 + 0.05 * t.warm), t.tone * (0.92 + 0.06 * t.warm));
-        near.setColorAt(k, c);
+        final.set([c.r, c.g, c.b], k * 19 + 16);
       });
+      // Only final Float32 values survive packing; the full temporary does not.
+      z.tieCache = packTieCache(final);
       far.instanceMatrix = near.instanceMatrix;
       far.instanceColor = near.instanceColor;
-      near.computeBoundingSphere(); far.boundingSphere = near.boundingSphere;
       near.name = `railway-ties-z${zi}`; far.name = `railway-ties-far-z${zi}`;
       near.castShadow = false; far.castShadow = false; near.receiveShadow = true; far.receiveShadow = true;
       group.add(near, far);
@@ -1258,7 +1309,13 @@ export async function createRailway({
       if (far) farRails(z);
       else if (z.railsFar && d > r.ties + ZONE_M) dropFarRails(z);
       if (z.railsFar) z.railsFar.visible = far;
-      if (z.tiesNear) { z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties; }
+      if (z.tiesNear) {
+        if (z.tieCache && (near || d < r.ties)) {
+          installTieCache(z.tiesNear, z.tiesFar, z.tieCache);
+          z.tieCache = null;
+        }
+        z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties;
+      }
       if (z.tuftMesh) z.tuftMesh.visible = d < r.tufts && z.tuftMesh.count > 0;
       if (z.rockMeshes) {
         // the blocks lie along the water, not the yard's middle: measured from their own line
@@ -1337,6 +1394,7 @@ export async function createRailway({
     for (const z of zones) {
       dropNearRails(z);
       dropFarRails(z);
+      z.tieCache = null;
       z.tiesNear?.dispose(); z.tiesFar?.dispose(); z.tuftMesh?.dispose();
       for (const m of z.rockMeshes ?? []) m.dispose();
     }
