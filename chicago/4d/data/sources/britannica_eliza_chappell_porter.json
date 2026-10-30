@@ -1,0 +1,25 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "britannica_eliza_chappell_porter",
+  "type": "website",
+  "citation": "'Eliza Emily Chappell Porter', Encyclopaedia Britannica (online).",
+  "author": "The Editors of Encyclopaedia Britannica",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1807-1888",
+  "url": "https://www.britannica.com/biography/Eliza-Emily-Chappell-Porter",
+  "locator": "The biography as a whole.",
+  "rights_note": "Modern encyclopedia text, cited in words only.",
+  "access_notes": "Read 2026-10-30 (T-3251) through a fetch that returned short quoted fragments.",
+  "note": "Fragments read: 'she established schools at St. Ignace, Michigan (1833), and the small settlement of Chicago'; 'In 1835 she married the Reverend Jeremiah Porter'; 'Some years later she became director of the Chicago Sanitary Commission'; 'joining “Mother” Mary Ann Bickerdyke in Chattanooga, Tennessee, to care for the Union soldiers wounded'; 'Porter reopened the coeducational Rio Grande Seminary that she had founded on an earlier visit.'",
+  "what_it_supplies": [
+    "her 1835 marriage to the Rev. Jeremiah Porter",
+    "her Civil War work as director of the Chicago Sanitary Commission and beside Mary Ann Bickerdyke at Chattanooga",
+    "the coeducational Rio Grande Seminary she founded and reopened"
+  ],
+  "what_it_does_not_supply": [
+    "the site of her Chicago school"
+  ]
+}
