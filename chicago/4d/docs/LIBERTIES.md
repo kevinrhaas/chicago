@@ -36153,6 +36153,47 @@ pilasters and ironwork (T-1876).
 **How to resolve:** T-3241 and T-3242 build what is not built; a measured height anywhere on the
 house fixes both cameras' scale; a picture of the north side places the rear range's north wall.
 **Recorded:** 2026-10-29 (T-3240).
+**Amended by T-3241 (2026-10-29):** the railed deck, the lower south range and the corner porch now
+stand, and the hip's 35 degrees became 45 with the eave's overhang 0.5 m; see
+`L-k01-hibbard-1701-3241`.
+
+### L-k01-hibbard-1701-3241 — 1701 Prairie's railed roof deck, lower south range and corner porch, read off its photograph
+
+**Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`
+
+**Decision:** T-3241 (piece 2 of T-1875) builds three things Chicagology's photograph of the
+Hibbard house shows and T-3240 left out, each read through the camera T-3240 solved
+(`data/reference_views/hibbard_house_1701_prairie/chicagology_front.json`), and each a kit piece
+other houses can use (the deck, the porch, the range, the pitch and the stacks are graded `inferred`
+on the photograph, each note saying what is read and what is not; this entry lists their inventions
+together): the hip cut off level at a railed deck (`hip_deck`, new module
+`generators/archetypes/k01_hip_deck.py`; K05's own hip is untouched), the lower south range (a K08
+projection's new `range` plan, a flat-topped block 1.2-4 m out from a side wall), and the corner
+porch (`corner_porch`, the 1729 porte-cochere's arcade, entablature and balustrade laid on the
+street front from a corner, on a podium, with more than one arch a face).
+**What is read, not invented.** The deck's rail about 13.3-14.1 m over grade and roughly as wide
+as the deck under it; the range set back about 1.1 m from the front corner, 2.9 m along the flank
+and 3.1 m out, its cornice about 5.2-5.7 m up under a low parapet, a round-headed light in its west
+face and a narrower one in its south face; the porch's place and size off the 1911 sheet (the stone
+'1' piece, 5.46 m along the front, 1.24 m before it), its podium at the principal floor, a narrow
+and a wide arch on its front and a narrow one in its south return, its entablature and balustrade's
+heights.
+**What is invented.** The pitch, 45 degrees, chosen so the slopes reach a deck as wide as the
+rail reads (the camera is fitted on the walls below 9.5 m, so the deck is read to about 0.5 m and
+the pitch to about 5 degrees), and the eave's overhang cut to 0.5 m so its soffit clears the upper
+lights' heads under that pitch. The rail's section, the holes' 0.36 m size and 0.5 m pitch and the
+posts' 2.4 m spacing. The range is built 3.1 m out, as the photograph reads it, where the 1911 sheet
+draws a strip only about 1.6 m wide on that side ('2S.B.'): the photograph is older than the sheet
+and is followed. The range's parapet drawn as the kit's balusters for the photograph's pierced
+slots. The porch's columns and carved capitals drawn as plain piers; its back wall left in the
+front's line, where the sheet draws the front recessed 1.85 m behind the porch (K01 lays the main
+block as a rectangle; it shows only through the arches). The stacks' tops 2.8 m over the deck.
+**What is still not built.** The entrance's tall round arch (K07's arched door is laid only in a
+K02 stone front's courses, and this front is brick), the stone basement band at the walls' foot,
+the two-level rear veranda (T-3242), and the carving and ironwork (T-1876).
+**How to resolve:** a measured height on the roof (or a second camera on it) fixes the deck; a K01
+main block with a corner recess would cut the porch's back wall where the sheet draws it.
+**Recorded:** 2026-10-29 (T-3241).
 
 ### L-kimball-1801-se-wall-gable-1890 — 1801 Prairie's wall gable at the south wall's rear corner, from HABS photograph 1
 
@@ -36205,3 +36246,25 @@ rather than a white-painted or white stone.
 showing the bond and the joints.
 **Ticket:** T-3244.
 **Recorded:** 2026-10-29 (T-3244).
+
+### L-pullman-18th-street-trees-1934 — The parkway trees before the Pullman estate, placed off Taylor's 16555 and the 1894 Inland plate
+
+**Decision:** 18th Street's parkway trees before 1729 Prairie's palm house and stable stand where
+the pictures show them, not where the parkway rule (L-prairie-parkway-elms-2473) put them: on the
+north parkway at 51.3, 58.8 and 64.1 m along the face (`e18th__prairie_ic_16_18`), round the
+Calumet corner at 3.3 and 10.3 m (`calumet__prairie_ic_16_18`), and one on the south parkway at
+the corner (`e18th__prairie_calumet_18_20`, 1.3 m); the rule's four trees on those stretches are
+withdrawn (`data/street_trees/pictured_1904.json`, T-1934). Taylor's 16555 camera was re-solved
+with the street's ground in its fit to read them (the eye in the garden across 18th Street).
+**What is read:** each trunk's place along its parkway, from its x in the picture through the
+picture's solved camera; that the stretches hold no other tree the pictures would show.
+**What is chosen:** where the two pictures disagree, the plate's (the later): one living tree at
+58.8 m where Taylor's print has a dead trunk 1.2 m east of it and a second tree at 56.3 m; the
+tree at 51.3 m between the plate's 50.9 and Taylor's 51.7. That the 1890s trees still stand in
+1904. Every tree's size, crown and species are the rule's; each tree's place across the parkway
+is the rule's planting line.
+**How to resolve:** a picture of this stretch nearer 1904, or a city forestry record.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
+`inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
+**Recorded:** 2026-10-29 (T-1934).

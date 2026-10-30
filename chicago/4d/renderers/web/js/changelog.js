@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2427, ts: '2026-10-29T23:19:24.493Z', date: 'Oct 29, 2026, 6:19 PM CT', title: 'Pullman\'s 18th Street trees stand where the photographs put them', kind: 'improvement',
+    items: [
+      'The elms along 18th Street before the Pullman palm house and stable now stand where J. W. Taylor\'s photograph and the 1894 Inland Architect plate show them: three before the palm house, two round the Calumet corner, and one on the far side.',
+      'Three trees the planting rule had placed where the pictures show open parkway are gone, including the one that blocked the view of the palm house from across the street.',
+      'Taylor\'s view is now matched from where he actually stood, in the garden across 18th Street, so the house, palm house and stable line up with his photograph.',
+    ] },
+  { v: 2426, ts: '2026-10-29T22:49:38.416Z', date: 'Oct 29, 2026, 5:49 PM CT', title: '1701 Prairie gains its roof deck, corner porch and south wing', kind: 'feature',
+    items: [
+      'The Hibbard house\'s hipped roof now stops at a flat deck ringed by a pale rail pierced with round holes, as its 1880s photograph shows it, with the tall chimney rising through it.',
+      'A one-storey stone porch stands on the front\'s north corner: arched openings on its raised stone base, under a cornice and a low balustrade.',
+      'On the south side a lower wing stands out from the house, with a round-headed window in each face and a railed balcony on its roof.',
+      'Still to come: the arched front door, the rear veranda and the carved window hoods.',
+    ] },
   { v: 2425, ts: '2026-10-29T21:56:40.388Z', date: 'Oct 29, 2026, 4:56 PM CT', title: 'A gate for Pullman\'s conservatory', kind: 'improvement',
     items: [
       'The drive to Pullman\'s conservatory now opens off 18th Street between two stone gate piers, as the 1894 Inland plate shows them in its foreground. Each pier carries a stepped cap, and a low wing curls down from it toward the drive and ends in a rolled scroll.',
