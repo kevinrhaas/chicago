@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2453, ts: '2026-10-30T11:54:21.598Z', date: 'Oct 30, 2026, 6:54 AM CT', title: '1801 Prairie\'s canted corner stops under a cornice, slate above', kind: 'improvement',
+    items: [
+      'The canted face over the Kimball house\'s round bay now stops at a cornice just over its small window, as the 1965 survey photograph shows, and the roof\'s slate comes down over it.',
+      'Before, a tall blank stone face stood there up to the gable\'s shoulder.',
+    ] },
   { v: 2452, ts: '2026-10-30T11:50:40.864Z', date: 'Oct 30, 2026, 6:50 AM CT', title: 'Nothing you can see: Pullman\'s palm-house stairs read from two pictures', kind: 'fix',
     items: [
       'Nothing you can see changes yet. The 1894 Inland Architect plate and Taylor\'s photograph of Pullman\'s palm house had seemed to disagree about the stairs before it. Read together through their two cameras, they agree. The raised balustrade in the plate and the porch under the awning in the photograph are the same thing: the house\'s own raised porch toward 18th Street. The palm house\'s terrace and its flight of steps match both pictures as already built, so the porch is the next thing to build, as part of the house.',
