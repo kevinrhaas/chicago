@@ -36917,3 +36917,20 @@ fabric.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+
+### L-kimball-1801-cone-slate-1890 — 1801 Prairie's tower and turret cones slated in the mansard's own coursed slate
+**Recorded:** 2026-10-30.
+
+**Decision:** the W. W. Kimball house's round tower on the 18th Street flank and the east range's
+north-east turret (`bays.tower`, `bays.turret`, T-1890) are slated as the house (`roof.slated_as_house`):
+their cones wear the mansard's own textured Pennsylvania slate, laid in courses round each cone and up
+its slope from its eaves, where the K08 kit's plain slate colour had rendered both as smooth grey
+cones far paler than the roof beside them. **What is read, not invented.** J. W. Taylor's photograph
+of c. 1895 (`taylor_c1895_kimball_residence_1801`) shows the tower's cone in small slates in level
+courses, the same tone and texture as the mansard's faces, and HABS photograph 2 (1965,
+`habs_kimball_photo_02_nw_1965`) shows the turret's cone and the tower's the same way.
+**What is invented or held by the kit.** The slates' size and exposure are the house's K04 slate's;
+on the cones they are mapped round the apex so each course closes on itself, the slates narrowing
+toward the apex as a cone's tapered slates do. How the real slates were cut and laid at the apex is
+not read; the pictures show only the courses and the tone.
+**How to resolve:** a nearer photograph of either cone, or a slater's account of the house.
