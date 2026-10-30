@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2460, ts: '2026-10-30T17:11:38.459Z', date: 'Oct 30, 2026, 12:11 PM CT', title: 'Jaunt stops no longer stand behind a tree', kind: 'fix',
+    items: [
+      'Arriving at a house on a jaunt, or by Go to, now steps a metre or two along the walk when a parkway elm, gas lamp or pole would stand between you and the front. The Women of Prairie Avenue stop at 1834 Prairie no longer puts a trunk in the middle of the view.',
+      'On foot, 17 of the 57 Prairie Avenue houses the 1904 walks visit had a trunk or lamp right in front of the camera; none do now. In 1835 the grown trees\' trunks are seen the same way.',
+    ] },
   { v: 2459, ts: '2026-10-30T16:37:39.406Z', date: 'Oct 30, 2026, 11:37 AM CT', title: '1701 Prairie\'s carved window hoods and corner pilaster', kind: 'feature',
     items: [
       'Every arched window on the front and south side of the Hibbard house at 1701 Prairie now sits under a light stone hood whose ends step out at the arch\'s foot and whose crown rises to a point, as its old photograph shows; side-by-side windows meet hood to hood.',
