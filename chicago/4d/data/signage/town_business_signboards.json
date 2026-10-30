@@ -42,10 +42,10 @@
     "counts": {
       "already clear": 2,
       "lettered on the fascia": 7,
-      "moved": 13,
+      "moved": 14,
       "not flat on the wall": 41,
       "reshaped": 8,
-      "shrunk onto clear face": 9
+      "shrunk onto clear face": 8
     },
     "signs": [
       {
@@ -223,9 +223,9 @@
         "mounting": "wall_board",
         "covered_an_opening_before": true,
         "covered_before": [
-          "door"
+          "window"
         ],
-        "done": "shrunk onto clear face"
+        "done": "moved"
       },
       {
         "structure_id": "miller_tannery",
@@ -2791,88 +2791,109 @@
         "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
       },
       "anchor_local_enu_m": [
-        8.19,
+        13.31,
         50.0
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.3,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.33,
-      "board_h_m": 0.56,
+      "board_w_m": 1.66,
+      "board_h_m": 0.7,
       "board_thickness_m": 0.05,
       "geometry": {
         "proud_m": 0.02
       },
-      "reach_m": 0.79,
+      "reach_m": 0.95,
       "wall_height_m": 2.6,
       "wall_height_from": "the record",
-      "frontage_m": 9.0,
+      "frontage_m": 15.0,
       "ground_quad_local_enu_m": [
         [
-          14.0,
-          61.0
+          20.0,
+          56.0
         ],
         [
           5.0,
-          61.0
+          56.0
         ],
         [
           5.0,
           50.0
         ],
         [
-          14.0,
+          20.0,
           50.0
         ]
       ],
       "opening_fit": {
-        "action": "shrunk onto clear face",
+        "action": "moved",
         "covered_before": [
-          "door"
+          "window"
         ],
         "fixed_to": null,
-        "note": "this front has no 1.66 m of blank face — every band is taken by door — so the board is shrunk to 1.33 x 0.56 m and fixed on the clear wall between the openings",
+        "note": "moved 0.81 m along the front, off window, onto blank face",
         "wall_span_local_m": [
           0.0,
-          9.0
+          15.0
         ],
         "board_span_local_m": [
-          5.15,
-          6.48
+          5.86,
+          7.52
         ],
         "openings": [
           {
             "kind": "door",
-            "u0": 3.95,
-            "u1": 5.05,
+            "u0": 1.28,
+            "u1": 2.32,
+            "z0": 0.02,
+            "z1": 1.95
+          },
+          {
+            "kind": "window",
+            "u0": 4.19,
+            "u1": 4.81,
+            "z0": 1.23,
+            "z1": 1.95
+          },
+          {
+            "kind": "door",
+            "u0": 9.95,
+            "u1": 11.05,
             "z0": 0.02,
             "z1": 2.05
           },
           {
             "kind": "window",
-            "u0": 1.62,
-            "u1": 2.34,
+            "u0": 7.62,
+            "u1": 8.34,
             "z0": 0.83,
             "z1": 1.88
           },
           {
             "kind": "window",
-            "u0": 6.66,
-            "u1": 7.38,
+            "u0": 12.66,
+            "u1": 13.38,
             "z0": 0.83,
             "z1": 1.88
           },
           {
             "kind": "window",
-            "u0": 1.62,
-            "u1": 2.34,
+            "u0": 7.62,
+            "u1": 8.34,
             "z0": 3.43,
             "z1": 4.48
           },
           {
             "kind": "window",
-            "u0": 6.66,
-            "u1": 7.38,
+            "u0": 10.14,
+            "u1": 10.86,
+            "z0": 3.43,
+            "z1": 4.48
+          },
+          {
+            "kind": "window",
+            "u0": 12.66,
+            "u1": 13.38,
             "z0": 3.43,
             "z1": 4.48
           }

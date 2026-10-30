@@ -85,6 +85,18 @@ from Prairie Avenue whole and show no post on it, so the rule's mid-block lamp t
 16554 is the later print, the dead 'massacre tree' 16555 shows, felled on 18 May 1894, not standing in
 it, so the lamp is taken as set after 16555.
 
+**Its form (T-1934, 2026-10-30).** Read off 16554's column at x 795, against the hedge in shadow
+behind it: a plain post 3-4 px wide, printing 180-200 where the hedge prints about 60 and the sunlit
+stone about 170, so it is painted pale, not the district's dark iron; a small dark bar to its right
+at y 537; a slim neck; a globe at y 507-515, 13 px across, lit above and dark beneath (milky glass, not
+a clear lantern); a small dark cap from y 503. Scaled by the district post's render at the same place
+(65 px for 3.12 m), the cap's top stands about 4.9 m up, the globe's centre about 4.5 m and the bar
+about 3.3 m. It is drawn as its own class, the globe post (`kinds.gas_lamp.model_by_class.globe_post`),
+and through the same camera the render's post stands 103 px tall against the print's 102. The camera
+puts the walk's ground about 45 px higher than the print does (its foot at y 557 against 605, as the
+parkway's trees), so the height moves with that camera if it is re-solved. Whether it burned gas or
+electricity the print cannot say; it is kept with the gas lamps for its place.
+
 **Lit?** The scene is 10:30 on a July morning and world.js has no night or evening setting, so no
 lamp is lit and no light is added.
 

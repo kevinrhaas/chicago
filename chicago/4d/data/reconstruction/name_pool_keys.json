@@ -202,7 +202,13 @@
       "phases[].form.tower_profile.note",
       "phases[].form.tower_lantern_detail.note",
       "phases[].form.tower_masonry.note",
-      "phases[].form.front_ground_layout.note"
+      "phases[].form.front_ground_layout.note",
+      "phases[].form.end_gable_courses.note",
+      "phases[].form.frame_addition_front_set_out.note",
+      "phases[].form.frame_addition_ridge_stack.note",
+      "phases[].form.frame_addition_roof_pitch_deg.note",
+      "phases[].form.front_window_sill_m.note",
+      "phases[].form.ridge_stack_cap_m.note"
     ],
     "households": [
       "arrival.note",
