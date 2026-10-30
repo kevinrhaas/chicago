@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2454, ts: '2026-10-30T12:41:23.053Z', date: 'Oct 30, 2026, 7:41 AM CT', title: '1905 Prairie: the Marshall Field house stands', kind: 'feature',
+    items: [
+      'Marshall Field\'s house at 1905 Prairie Avenue is no longer a plain draft block: two storeys of brick over a light stone basement, a tall slated mansard with dormers and iron cresting, the door in its second bay, the curved conservatory on the south side and the scroll-pattern iron fence, built from Rand McNally\'s 1893 Pictorial Chicago photograph.',
+      'Still to come: the canted south-west corner the photograph shows, the iron balconies and the conservatory\'s glass roof.',
+    ] },
   { v: 2453, ts: '2026-10-30T11:54:21.598Z', date: 'Oct 30, 2026, 6:54 AM CT', title: '1801 Prairie\'s canted corner stops under a cornice, slate above', kind: 'improvement',
     items: [
       'The canted face over the Kimball house\'s round bay now stops at a cornice just over its small window, as the 1965 survey photograph shows, and the roof\'s slate comes down over it.',
