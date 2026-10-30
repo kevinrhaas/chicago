@@ -67,3 +67,29 @@ Winter draws the same triangles as summer; picking it the first time paints the 
 23 MB of heap, which the summer and spring settings never pay.
 At `balanced`/`light` each crown has fewer leaf sprays and the phone build drops the leaf
 atlas's top mip.
+
+## Where a picture places them (T-1934, 2026-10-29)
+
+The rule above places every tree. Where solved pictures see a stretch of parkway, they now
+place it instead: `data/street_trees/pictured_1904.json` names the stretch, every trunk read on
+it, and the camera it was read through, and `tools/plant_prairie_1904_street_trees.py`
+withdraws the rule's trees there (after their draws, so no other tree moves) and plants the read
+ones (`<face>#pNN`, `"placed": "pictured"`). The first is 18th Street before the Pullman estate:
+
+| stretch | seen by | trees read | rule trees withdrawn |
+|---|---|---|---|
+| `e18th__prairie_ic_16_18` 46.9 m to the corner | the 1894 Inland plate (x 0-2000), Taylor's 16555 (x 0-1200) | 51.3 (both), 58.8 (the plate; Taylor's dead trunk 1.2 m east), 64.1 (Taylor) | `#04` |
+| `calumet__prairie_ic_16_18` 0-13.3 m | Taylor's 16555 | 3.3, 10.3 | `#00` (a young tree at 11.3) |
+| `e18th__prairie_calumet_18_20` 0-21.9 m | Taylor's 16555 (0-12.6), the plate (13.7-21.9, whose foreground a trunk would cross) | 1.3 | `#00`, `#01` |
+
+Each trunk's x in the picture is carried to the face's planting line through the picture's own
+camera, which is reliable along the street (the cameras are fitted on the wall's piers just
+behind it) and the plate's predicts the trunks' feet within 1-7 px. Taylor's 16555 had to be
+re-solved first: its eye stood on the south walk, and the print's near-side ground (the gate
+piers' feet, the walk the man stands on, the near trunk's foot) fell hundreds of pixels from the
+build's; fitted on that ground too, the eye stands 11.7 m further back, in the garden across
+the street, with a 1192 px lens. The two pictures disagree over two trees (Taylor's at 56.3 m and
+his dead one at 60.0 m against the plate's one living tree at 58.8 m), and the build is the
+plate's, the later of the two. Taylor's 16554, the wide winter view from the south-west, sees
+the same street but its camera cannot tell its parkway trunks from the yard's, so nothing was
+read from it. `L-pullman-18th-street-trees-1934` is what is chosen.

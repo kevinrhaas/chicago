@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 868,
+  "count": 871,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60486,6 +60486,49 @@
       ]
     },
     {
+      "id": "L-pullman-gate-1800-calumet-3164",
+      "title": "The Pullman glasshouse ground's gate on 18th Street: two stone piers with scroll wings, placed through the plate's camera",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_pavilion"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1894 Inland plate (Inland Architect Press. Conservatory of Geo) draws in its foreground the gate where the drive to the conservatory leaves 18th Street, and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) shows the same gate with children beside it. No plan draws it: the 1911 sheet shows no gate, and the grounds have no record of their own, so the gate is built on the conservatory's record, whose entrance the drive leads to. Two square stone piers, 0.8 m, on a 0.3 m plinth, under a cap of three plain courses to 2.2 m; from each a wing 0.5 m thick returning 1.15 m along the street line toward the drive, its top sweeping down from 1.1 m at the pier to a scroll's roll at 0.76 m over a 0.55 m block at the drive's edge. Their places and sizes are read through the plate's solved camera, whose eye height was itself set on the walk's back at these piers: their fronts at about 0.6 m inside the lot's 18th Street line, the west pier's east face 4.1 m east of the conservatory's east wall line, the drive 4.1 m wide between the wings' ends. **What is invented.** The piers' depth (taken as their width: square), the cap's mouldings drawn as plain courses, the sweep's curve, the wings' thickness, and the stone, taken as the conservatory podium's because the piers' lit faces read its tone; the carving on the wings' faces and the sunk panels on the piers are not built. **What is not.** The gate's place, the piers' widths and heights, the wings' lengths, heights and scrolls, and the drive's width, which the plate shows and its camera measures."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer picture of the gate, or a survey of the estate's grounds, gives the piers' depth, the mouldings and the carving."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-3164)."
+        }
+      ],
+      "work_refs": [
+        "T-3164"
+      ]
+    },
+    {
       "id": "L-kimball-1801-side-door-1890",
       "title": "1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2",
       "section": "per_subject",
@@ -60692,6 +60735,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-29 (T-3240)."
+        },
+        {
+          "label": "Amended by later work (2026-10-29)",
+          "text": "the railed deck, the lower south range and the corner porch now stand, and the hip's 35 degrees became 45 with the eave's overhang 0.5 m; see `“1701 Prairie's railed roof deck, lower south range and corner porch, read off its photograph”`."
         }
       ],
       "work_refs": [
@@ -60700,6 +60747,49 @@
         "T-3241",
         "T-3242",
         "T-1876"
+      ]
+    },
+    {
+      "id": "L-k01-hibbard-1701-3241",
+      "title": "1701 Prairie's railed roof deck, lower south range and corner porch, read off its photograph",
+      "section": "per_subject",
+      "subjects": [
+        "hibbard_house_1701_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "hibbard_house_1701_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`"
+        },
+        {
+          "label": "Decision",
+          "text": "This work builds three things Chicagology's photograph of the Hibbard house shows and earlier work left out, each read through the camera earlier work solved (the chicagology front data), and each a kit piece other houses can use (the deck, the porch, the range, the pitch and the stacks are graded `inferred` on the photograph, each note saying what is read and what is not; this entry lists their inventions together): the hip cut off level at a railed deck (hip deck, new module the k01 hip deck generator; K05's own hip is untouched), the lower south range (a K08 projection's new `range` plan, a flat-topped block 1.2-4 m out from a side wall), and the corner porch (corner porch, the 1729 porte-cochere's arcade, entablature and balustrade laid on the street front from a corner, on a podium, with more than one arch a face). **What is read, not invented.** The deck's rail about 13.3-14.1 m over grade and roughly as wide as the deck under it; the range set back about 1.1 m from the front corner, 2.9 m along the flank and 3.1 m out, its cornice about 5.2-5.7 m up under a low parapet, a round-headed light in its west face and a narrower one in its south face; the porch's place and size off the 1911 sheet (the stone '1' piece, 5.46 m along the front, 1.24 m before it), its podium at the principal floor, a narrow and a wide arch on its front and a narrow one in its south return, its entablature and balustrade's heights. **What is invented.** The pitch, 45 degrees, chosen so the slopes reach a deck as wide as the rail reads (the camera is fitted on the walls below 9.5 m, so the deck is read to about 0.5 m and the pitch to about 5 degrees), and the eave's overhang cut to 0.5 m so its soffit clears the upper lights' heads under that pitch. The rail's section, the holes' 0.36 m size and 0.5 m pitch and the posts' 2.4 m spacing. The range is built 3.1 m out, as the photograph reads it, where the 1911 sheet draws a strip only about 1.6 m wide on that side ('2S.B.'): the photograph is older than the sheet and is followed. The range's parapet drawn as the kit's balusters for the photograph's pierced slots. The porch's columns and carved capitals drawn as plain piers; its back wall left in the front's line, where the sheet draws the front recessed 1.85 m behind the porch (K01 lays the main block as a rectangle; it shows only through the arches). The stacks' tops 2.8 m over the deck. **What is still not built.** The entrance's tall round arch (K07's arched door is laid only in a K02 stone front's courses, and this front is brick), the stone basement band at the walls' foot, the two-level rear veranda, and the carving and ironwork."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured height on the roof (or a second camera on it) fixes the deck; a K01 main block with a corner recess would cut the porch's back wall where the sheet draws it."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-3241)."
+        }
+      ],
+      "work_refs": [
+        "T-1875",
+        "T-3242",
+        "T-1876",
+        "T-3241",
+        "T-3240"
       ]
     },
     {
@@ -60949,6 +61039,47 @@
       "work_refs": [
         "T-3243",
         "T-3244"
+      ]
+    },
+    {
+      "id": "L-pullman-18th-street-trees-1934",
+      "title": "The parkway trees before the Pullman estate, placed off Taylor's 16555 and the 1894 Inland plate",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_conservatory"
+      ],
+      "covers": [],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "18th Street's parkway trees before 1729 Prairie's palm house and stable stand where the pictures show them, not where the parkway rule (“The 1904 district's parkway elms: one file per block face at about 30 ft, every tree placed by rule”) put them: on the north parkway at 51.3, 58.8 and 64.1 m along the face (e18th__prairie ic 16 18), round the Calumet corner at 3.3 and 10.3 m (calumet__prairie ic 16 18), and one on the south parkway at the corner (e18th__prairie calumet 18 20, 1.3 m); the rule's four trees on those stretches are withdrawn (the pictured 1904 data). Taylor's 16555 camera was re-solved with the street's ground in its fit to read them (the eye in the garden across 18th Street)."
+        },
+        {
+          "label": "What is read",
+          "text": "each trunk's place along its parkway, from its x in the picture through the picture's solved camera; that the stretches hold no other tree the pictures would show."
+        },
+        {
+          "label": "What is chosen",
+          "text": "where the two pictures disagree, the plate's (the later): one living tree at 58.8 m where Taylor's print has a dead trunk 1.2 m east of it and a second tree at 56.3 m; the tree at 51.3 m between the plate's 50.9 and Taylor's 51.7. That the 1890s trees still stand in 1904. Every tree's size, crown and species are the rule's; each tree's place across the parkway is the rule's planting line."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of this stretch nearer 1904, or a city forestry record."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, the inland 1894 plate side by side image and their match records; the research notes on prairie 1904 street trees."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-1934)."
+        }
+      ],
+      "work_refs": [
+        "T-1934"
       ]
     },
     {
