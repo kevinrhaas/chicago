@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2467, ts: '2026-10-30T19:30:28.880Z', date: 'Oct 30, 2026, 2:30 PM CT', title: '1801 Prairie\'s corner turret gets its turned finial', kind: 'improvement',
+    items: [
+      'The small round turret at the east end of the Kimball house\'s 18th Street side now ends the way the c. 1895 photograph shows it: the slate stops at a rim, and a smooth sweep rises from it into a slender finial with two knobs and a spike.',
+      'Until now the cone ran up to a plain point with a bare spike on it.',
+    ] },
+  { v: 2466, ts: '2026-10-30T19:20:12.775Z', date: 'Oct 30, 2026, 2:20 PM CT', title: 'Two parkway trees at the Pullman glasshouse gate, placed from the pictures', kind: 'improvement',
+    items: [
+      'On 18th Street at Calumet Avenue, a tree now stands left of the gate to the Pullman glasshouses, where the 1894 Inland Architect plate and a c. 1897 photograph show it.',
+      'The tree right of the gate has moved 1.7 m west, off the gate pier. That is where the plate leaves the parkway clear and where the photograph puts it.',
+      'Both are drawn at the slimmer size their trunks measure in the pictures, not the full-grown elm used elsewhere on the street.',
+    ] },
   { v: 2465, ts: '2026-10-30T19:12:39.231Z', date: 'Oct 30, 2026, 2:12 PM CT', title: 'Meet the Glessner House is now a ten-stop walk round it', kind: 'feature',
     items: [
       'The tour walks all the way round 1800 Prairie: the corner, Eighteenth Street, the alley, the front door, the carriage passage and the courtyard.',

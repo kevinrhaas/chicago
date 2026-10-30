@@ -36487,11 +36487,26 @@ picture's solved camera; that the stretches hold no other tree the pictures woul
 tree at 51.3 m between the plate's 50.9 and Taylor's 51.7. That the 1890s trees still stand in
 1904. Every tree's size, crown and species are the rule's; each tree's place across the parkway
 is the rule's planting line.
+**The glasshouse ground's gate (T-3164, 2026-10-30):** the 1894 Inland conservatory plate and
+Lowe's c. 1897 print, both looking south through the 1800 Calumet gate, add two readings. The
+plate's tree left of the gate is planted on Calumet Avenue's west parkway where it turns into
+18th Street (`calumet__prairie_calumet_18_20`, 266.9 m, the plate's reading; Lowe's 267.5 m), on a
+stretch the plate sees from 264.0 m to the corner, so the rule's nearest tree (259.9 m) keeps its
+place. The south parkway's corner tree moves from Taylor's 1.3 m to 3.0 m: the plate, the one
+uncropped picture of the three, sees that parkway clear to 2.5 m, Lowe's print puts the trunk at
+3.0 m, and Taylor's camera, which stands the plate-placed west gate pier about 180 px west of the
+print's, puts it at 1.7 to 3.5 m when read against that pier. **Chosen:** 3.0 m, between the
+readings and inside the plate's bound; and both trees' size, scale 0.6 where the rule draws 0.88
+to 1.10, read off their trunks (about 0.31 m across in the plate, 0.26 m in Taylor's print, where
+the renderer's elm draws 0.66 m at scale 1), which puts the first fork at about 4 m, within a
+metre of the pictures'. Their crowns are still the rule's elm, where both pictures show a broad,
+low head (open in the match records).
 **How to resolve:** a picture of this stretch nearer 1904, or a city forestry record.
-**Ticket:** T-1934.
+**Ticket:** T-1934; T-3164 (the gate's two trees).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
-`inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
-**Recorded:** 2026-10-29 (T-1934).
+`inland_1894_plate-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`,
+`lowe_c1897_conservatory-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
+**Recorded:** 2026-10-29 (T-1934); amended 2026-10-30 (T-3164).
 **Extended (T-1881, 2026-10-30):** the same north parkway west of that stretch, beside the house
 itself (0-46.9 m along `e18th__prairie_ic_16_18`), is planted off Taylor's photograph no. 1445
 (`aic_taylor_1445_pullman_from_sw`, 1890s) with the Detroit print (`loc_det_4a08065_pullman_residence`,
@@ -36779,6 +36794,28 @@ and the photograph's (the record's bays note), hides the arch's south half and t
 picture shows before the bay; the match record holds that open.
 **How to resolve:** a nearer photograph of the entrance, or a plan of the front's bay.
 **Recorded:** 2026-10-30 (T-3256).
+
+### L-kimball-1801-turret-finial-1890 — 1801 Prairie's east turret given a turned finial over a plain collar, from the Taylor print
+
+**Decision:** the W. W. Kimball house's north-east turret on its east range (`bays.turret`, T-1890)
+carries a turned finial over a plain collar, where its slate cone ran to a point under the kit's plain
+spike. The finial is the tower's turned profile (L-kimball-1801-tower-finial-1890), 0.1 m in radius and
+2.8 m over the cone's apex, over a collar 0.35 m out on the cone with no crockets (`finial.crockets`
+false). **What is read.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
+read through its solved camera, stops the turret's slate at a pale-lipped rim about 22 px across at
+y 800, and over it a smooth concave sweep narrows to a stem at about y 765, with a knob on the stem at
+about y 733-742, a smaller one at about y 750-755 and a spike to about y 703. Re-rendered, the collar's
+rim falls at about y 800 (x 218-242), the sweep within about 2 px of the print's width, the knobs within
+about 5 px and the tip at about y 706. **What is invented or held by the kit.** The turnings between the
+knobs, the collar's lip and the sweep's exact curve are the kit's (the print gives them at a few pixels
+each), and the sweep is laid in the finial's default dark metal where the print reads it about the
+slate's tone; it may be slate, lead or painted zinc. HABS photograph 2 (June 1965) shows the cone
+stopped at the neck and at most a faint pale shaft over it, which its match record keeps as later
+fabric.
+**How to resolve:** a nearer photograph of the east range from 18th Street before 1904.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1890).
 
 
 ### L-farm-box-licensed-master-2793 — licensed work-wagon development master (2026-10-26)
