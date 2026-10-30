@@ -2,7 +2,7 @@
  "structure_id": "hibbard_house_1701_prairie",
  "view": "chicagology_front",
  "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
- "glb_sha256": "9863586a1ca6a920c9865bdd731291be39466e33aaa12ab82163513f2e92dda5",
+ "glb_sha256": "c6b3d018c6b01acd957c2cc038854773cb6ecd98c15f31bc3bc54e926d1a022e",
  "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
  "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
  "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
@@ -26,12 +26,12 @@
   {
    "what": "the light stone window hoods, eared and crested, over every light",
    "status": "open",
-   "how": "T-1876's carving: built as K01's round head with its key block"
+   "how": "T-3255 (split from T-1876; the hoods' carving): built as K01's round head with its key block"
   },
   {
    "what": "the stone quoin pilasters with carved capitals on the corners and at the bay",
    "status": "open",
-   "how": "T-1876"
+   "how": "T-3255 (split from T-1876)"
   },
   {
    "what": "the deep cornice on paired brackets round the main block",
@@ -60,8 +60,13 @@
   },
   {
    "what": "the cast-iron fence of interlaced loops on a stone curb along the street line, its gate pier",
-   "status": "open",
-   "how": "T-1876's ironwork: built as K11's spear fence on its curb"
+   "status": "fixed",
+   "how": "T-3254: K11's lattice of interlaced round arches on its stone curb along the street line, two 0.25 m bays an arch, their crossings the photograph's rows of pointed loops; the walk gate and the side gate on their piers."
+  },
+  {
+   "what": "the fence's posts: the render's stand a short finial over the top rail every bay of posts, where the photograph's panels run on unbroken between the gate piers",
+   "status": "within tolerance",
+   "how": "T-3254: a finial's foot over a 1.4 m fence, read through the trees; the lattice and its height are the picture's."
   },
   {
    "what": "the brick's and the roof's colours",
@@ -74,9 +79,14 @@
    "how": "the camera sees the front and the south flank"
   },
   {
-   "what": "the stone basement band at the foot of the main block and the lower south range, its round-headed basement lights showing over the fence (and the porch podium's roundels)",
+   "what": "the stone basement band at the foot of the main block, the bay and the lower south range, to a water table at the principal floor",
+   "status": "fixed",
+   "how": "T-3254: the front's K02 smooth stone stopped at the principal floor (stone_front.brick_above_m 2.0), carried round the south flank (side_base) and under the lower south range (its plinth to the water table); the stone is reconstructed, the photograph monochrome."
+  },
+  {
+   "what": "the round-headed basement lights showing over the fence under the bay's pair of lights and in the lower south range's south face, and the porch podium's roundels",
    "status": "open",
-   "how": "T-3240 and T-3241 build the walls in brick to grade and the porch's podium plain; the basement lights stand behind the fence"
+   "how": "T-3254 left these: they stand in K08 faces (the bay, the range) and the porch's podium, which lay no basement light; the front's own basement lights stand behind the porch and the bay. No ticket owns them; they wait in this record (AGENTS.md rule 11)."
   },
   {
    "what": "the rear veranda's south end, seen past the south flank's rear corner",

@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25",
+  "glb_sha256": "625e0addf5a8b9fe3099c950c93476fbdff5560232f97e3c95e31ea00a0786f0",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -124,8 +124,8 @@
     },
     {
       "what": "the large Prairie dormer's hood rises into a broken pediment over its arch, where the build's eared hood follows the arch (L-k01-1729-pullman-belt-hoods-1881) (the photograph's over the front's south bay at x 455-480)",
-      "status": "open",
-      "how": "T-1881: not built"
+      "status": "fixed",
+      "how": "T-1881: built (eared_hood.pediment, the K01 dormer kit's new broken pediment): two raking cornice arms at 18 degrees, each 0.25 m deep and 0.15 m proud, rising inward from 1.5 m out of the arch's centre, their feet on the ears' feet (0.25 m over the springing), dying into the hood's band about 0.77 m over the springing, so the crown (1.1 m) rises through the gap between them. The photograph draws the arms clearest of the three pictures, each a raking cornice over a console, rising from beyond the jamb to die against the arch below its crown; the render's are that shape."
     },
     {
       "what": "the rusticated pier with the oculus between the pair and the triple (x 699-716), and the east section of the flank whose cornice breaks forward on a banded corner pier (x 784-850, s about 22-27.75); the flank is built as one plain face there, since how far the east section stands out is not read",
@@ -182,6 +182,11 @@
       "what": "the walls' tone: the photograph prints the lit walls 193-204, lighter than the mansard (165-175) and near the stone coping wall along Prairie Avenue (197); the build's brownstone rendered a dark red-brown, darker than every stone round it (owner, 2026-10-29: the walls read as red brick)",
       "status": "fixed",
       "how": "T-1881: laid in K02 sandstone_fawn, a light fawn-brown under hairline joints; the walls now render lighter than the mansard and a little under the coping wall, as the photograph draws them"
+    },
+    {
+      "what": "the large Prairie dormer draws about 100 px left of the photograph's through this camera (the render's at x 302-358, the photograph's at x 437-480), and the photograph's stands against a stone face where the render's stands on the slated mansard",
+      "status": "open",
+      "how": "T-1881: seen while judging the pediment; the Detroit print, which sees the front squarely, lands the dormer within a few px, so this belongs with the camera disagreement along the front recorded above, and with the owner's item 4 (the front judged as a whole)"
     },
     {
       "what": "the way under the porte-cochère: the gap in the wall east of the house",

@@ -2,7 +2,7 @@
  "structure_id": "hibbard_house_1701_prairie",
  "view": "ghm_rear",
  "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
- "glb_sha256": "9863586a1ca6a920c9865bdd731291be39466e33aaa12ab82163513f2e92dda5",
+ "glb_sha256": "c6b3d018c6b01acd957c2cc038854773cb6ecd98c15f31bc3bc54e926d1a022e",
  "camera_sha256": "7a4c200fcf71886e84da386ff9f8ce670e971d522f9ade33567ca4faba7eae58",
  "photo_sha256": "6ca5124a0a6b3134e7b98e817edb87622a98aada87b89d01f00497d10f8caeca",
  "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/ghm_rear-side-by-side.jpg",
@@ -26,7 +26,7 @@
   {
    "what": "the range's heavy bracketed cornice and the low roof over it",
    "status": "open",
-   "how": "T-3240 builds the range under K01's flat wing deck on a plain fascia, about 0.8 m lower than the fit reads the cornice's bed; T-3242 left it so (a K01 wing has no K10 cornice yet): the range's own cornice, not the oriel's"
+   "how": "T-3240 builds the range under K01's flat wing deck on a plain fascia, about 0.8 m lower than the fit reads the cornice's bed; T-3242 left it so (a K01 wing has no K10 cornice yet): the range's own cornice, not the oriel's; T-3257"
   },
   {
    "what": "the high stone basement exposed at the range's east end over the falling lawn",
@@ -51,12 +51,12 @@
   {
    "what": "the veranda's south end: the photograph's runs on past where the model's main block turns its corner, about 40 px further left (x 137 against 179)",
    "status": "open",
-   "how": "the camera reads the main block's rear wall about 2 m wider than T-3240's footprint (its south corner at about x 137, the model's at 177); the veranda stands to the model's corner, so this is the block's width, not the veranda's"
+   "how": "the camera reads the main block's rear wall about 2 m wider than T-3240's footprint (its south corner at about x 137, the model's at 177); the veranda stands to the model's corner, so this is the block's width, not the veranda's; T-3257"
   },
   {
    "what": "the range's south face: the photograph's upper storey has one light west of the oriel (x 413), its lower two (x 390 and 425)",
    "status": "open",
-   "how": "T-3242 cut the three lights the lower storey shows (s 2.6, 7.2, 10.0); a K01 wing cuts one list of lights through every storey, so the upper storey also has the light at 7.2 the photograph does not"
+   "how": "T-3242 cut the three lights the lower storey shows (s 2.6, 7.2, 10.0); a K01 wing cuts one list of lights through every storey, so the upper storey also has the light at 7.2 the photograph does not; T-3257"
   },
   {
    "what": "the veranda's turned posts and balusters and the brackets at its posts' heads",
