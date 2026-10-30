@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2442, ts: '2026-10-30T06:49:18.434Z', date: 'Oct 30, 2026, 1:49 AM CT', title: 'Clipped evergreens in tubs on Pullman\'s palm-house terrace', kind: 'improvement',
+    items: [
+      'The Pullman estate\'s summer tub plants now stand where the 1894 Inland Architect plate shows them: a clipped ball on its tub on the palm house\'s terrace, and a ball on a clear stem in a painted tub before the stable\'s arches.',
+      'A slim clipped evergreen stands inside the 18th Street wall by its east pier, as the plate and J. W. Taylor\'s photograph both show.',
+      'Switch the Season to winter and the tubs are gone, wintered under glass as they were; the evergreen in the ground stays.',
+      'Click one to read where it comes from: these are inferred for 1904, read from pictures a decade earlier.',
+    ] },
+  { v: 2441, ts: '2026-10-30T06:43:54.623Z', date: 'Oct 30, 2026, 1:43 AM CT', title: 'Black-owned businesses of 1835: the search, written down', kind: 'change',
+    items: [
+      'Searched again for Black residents and businesses named in Chicago before 1840. None turned up: the Encyclopedia of Chicago dates the city\'s first Black community to the 1840s, so there is no tour to build yet.',
+      'The research file now lists what was read, what could not be reached, and the records most likely to name someone.',
+    ] },
+  { v: 2440, ts: '2026-10-30T06:30:32.288Z', date: 'Oct 30, 2026, 1:30 AM CT', title: 'A small window over 1801 Prairie\'s round corner bay', kind: 'improvement',
+    items: [
+      'On the Kimball house\'s south-west corner, the angled wall above the round bay now has the small window that the 1965 survey photograph shows. It stands on the bay\'s stone balcony beside the corner pilaster, where the wall used to be blank.',
+    ] },
+  { v: 2439, ts: '2026-10-30T05:59:25.030Z', date: 'Oct 30, 2026, 12:59 AM CT', title: 'New 1835 ride: Women of 1835 Chicago', kind: 'feature',
+    items: [
+      'Seven stops from Wolf Point to the fort, each naming a woman a source puts in the town: Catherine Chevalier Robinson, Juliette Kinzie, Mrs. Murphy of the Exchange Coffee House, Mrs. Rufus Brown\'s boarding house, Eliza Chappel at her school and her church, and Josette LaFramboise Beaubien.',
+      'Each stop says why she still matters, from Wilmette\'s name to the Girl Scouts, and every fact is sourced.',
+    ] },
   { v: 2438, ts: '2026-10-30T05:25:14.848Z', date: 'Oct 30, 2026, 12:25 AM CT', title: 'The Pullman conservatory\'s stone podium and the lodge\'s spirelet', kind: 'improvement',
     items: [
       'Pullman\'s conservatory on 18th Street now stands on a dressed stone podium, as the 1894 plate and Lowe\'s photograph show it: pale piers at its corners, darker banded stone between them, and a moulded course under the glass.',
