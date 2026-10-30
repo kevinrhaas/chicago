@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2465, ts: '2026-10-30T19:12:39.231Z', date: 'Oct 30, 2026, 2:12 PM CT', title: 'Meet the Glessner House is now a ten-stop walk round it', kind: 'feature',
+    items: [
+      'The tour walks all the way round 1800 Prairie: the corner, Eighteenth Street, the alley, the front door, the carriage passage and the courtyard.',
+      'It tells the house\'s story as it goes: Richardson\'s last design, the move-in before the neighbours noticed, the horns on New Year\'s Day, the orchestra playing pots and pans.',
+      'Each stop points at something you can see from where you stand, and every stand is clear of trees, lamps and poles.',
+      'Walking routes now go through Glessner\'s carriage passage into the courtyard, and short hops inside the courtyard stay inside it.',
+    ] },
   { v: 2464, ts: '2026-10-30T19:04:09.403Z', date: 'Oct 30, 2026, 2:04 PM CT', title: 'A person on the People tab opens their own card', kind: 'feature',
     items: [
       'A name on the People tab now opens that person\'s card in place, instead of jumping to the whole town\'s list. Back returns to the household, on the person you just read.',
