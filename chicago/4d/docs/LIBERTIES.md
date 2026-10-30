@@ -17976,6 +17976,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-09-29 (T-1767).
 
+**Revised:** 2026-10-30, T-3264. The jaunt is now a ten-stop walk all the way round the house: the corner, three stands on Eighteenth Street, the alley, the front door, the carriage passage and three stands in the courtyard, each its own `glessner_tour_*` scene anchor placed so no tree, lamp or pole stands between the visitor and the part of the house the stop names. The order, the stands, the narration's story framing, the leg lines and the keepsake are the same kind of modern interpretation; every factual line still cites HABS, its drawings, Glessner's 1923 account or the house museum.
+
 ### L-jaunt-outfit-west — Outfit for the West: an invented errand, purse and prices
 
 **Decision:** Outfit for the West links five existing exterior destinations — the Green Tree, Cobb's saddlery, Peck's store, the Jones grocery and Pierce's smithy — in an invented errand to leave town for the road west. The fifteen-dollar purse, every price in the choices ($2–$6), the readiness count, the light and prepared endings and the Ready for the Road memento are reconstructed. No sale, price, customer or conversation is attested; no named person speaks; no interior is opened. Each good is bought from the trade its own source names — harness from the saddler, hardware from the general merchant, provisions from the grocer, ironwork from the smith — and that pairing is the only part of the errand the evidence bounds. The Jones store's South Water position is the structure record's own reconstruction, and the stop says so.
