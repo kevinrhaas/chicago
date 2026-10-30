@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 881,
+  "count": 882,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -61462,6 +61462,38 @@
       ],
       "work_refs": [
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-turret-finial-1890",
+      "title": "1801 Prairie's east turret given a turned finial over a plain collar, from the Taylor print",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the W. W. Kimball house's north-east turret on its east range (`bays.turret`) carries a turned finial over a plain collar, where its slate cone ran to a point under the kit's plain spike. The finial is the tower's turned profile (“1801 Prairie's tower given a turned finial on a crocketed collar, in pale sheet metal”), 0.1 m in radius and 2.8 m over the cone's apex, over a collar 0.35 m out on the cone with no crockets (`finial.crockets` false). **What is read.** J. W. Taylor's photograph of c. 1895 (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through its solved camera, stops the turret's slate at a pale-lipped rim about 22 px across at y 800, and over it a smooth concave sweep narrows to a stem at about y 765, with a knob on the stem at about y 733-742, a smaller one at about y 750-755 and a spike to about y 703. Re-rendered, the collar's rim falls at about y 800 (x 218-242), the sweep within about 2 px of the print's width, the knobs within about 5 px and the tip at about y 706. **What is invented or held by the kit.** The turnings between the knobs, the collar's lip and the sweep's exact curve are the kit's (the print gives them at a few pixels each), and the sweep is laid in the finial's default dark metal where the print reads it about the slate's tone; it may be slate, lead or painted zinc. HABS photograph 2 (June 1965) shows the cone stopped at the neck and at most a faint pale shaft over it, which its match record keeps as later fabric."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the east range from 18th Street before 1904."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and its match record."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890"
       ]
     },
     {

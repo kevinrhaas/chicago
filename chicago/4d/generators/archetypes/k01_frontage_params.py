@@ -2674,7 +2674,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # (1801's tower's, about 2.7 m over its cone's apex in the Taylor print)
             fn = e["finial"]
             if not v["roof"].get("finial") or not isinstance(fn, dict) or not {"height_m", "radius_m"} <= set(fn) \
-                    or not set(fn) <= {"height_m", "radius_m", "form", "collar_m", "fabric"} \
+                    or not set(fn) <= {"height_m", "radius_m", "form", "collar_m", "crockets", "fabric"} \
                     or not 0.3 <= float(fn["height_m"]) <= 3.5 or not 0.03 <= float(fn["radius_m"]) <= 0.3:
                 raise ParamError(f"bays: {e['id']}'s finial sizes its cap's own finial by height_m (0.3-3.5 m) "
                                  f"and radius_m (0.03-0.3 m), not {fn}")
@@ -2691,6 +2691,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s finial.collar_m {cm}: a turned finial's collar, "
                                      f"0.2-0.8 m out on a cone")
                 v["overrides"]["finial"]["collar_m"] = cm
+            if "crockets" in fn:
+                # T-1890: a collar's sweep may run plain, with no crockets on it (1801's east
+                # turret, smooth from its rim to the stem in the Taylor print)
+                if fn["crockets"] is not False or "collar_m" not in fn:
+                    raise ParamError(f"bays: {e['id']}'s finial.crockets {fn['crockets']!r}: false, "
+                                     f"on a collar, takes its crockets off")
+                v["overrides"]["finial"]["crockets"] = False
             if form == "turned":
                 v["overrides"]["finial"]["form"] = form
             if "fabric" in fn and fn["fabric"] not in FINIAL_FABRICS:

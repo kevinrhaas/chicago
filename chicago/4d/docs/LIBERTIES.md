@@ -36669,3 +36669,25 @@ CHM side views of the Beman addition), or a closer copy of the plate.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg`, with its match record.
 **Recorded:** 2026-10-30 (T-1934).
+
+### L-kimball-1801-turret-finial-1890 — 1801 Prairie's east turret given a turned finial over a plain collar, from the Taylor print
+
+**Decision:** the W. W. Kimball house's north-east turret on its east range (`bays.turret`, T-1890)
+carries a turned finial over a plain collar, where its slate cone ran to a point under the kit's plain
+spike. The finial is the tower's turned profile (L-kimball-1801-tower-finial-1890), 0.1 m in radius and
+2.8 m over the cone's apex, over a collar 0.35 m out on the cone with no crockets (`finial.crockets`
+false). **What is read.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
+read through its solved camera, stops the turret's slate at a pale-lipped rim about 22 px across at
+y 800, and over it a smooth concave sweep narrows to a stem at about y 765, with a knob on the stem at
+about y 733-742, a smaller one at about y 750-755 and a spike to about y 703. Re-rendered, the collar's
+rim falls at about y 800 (x 218-242), the sweep within about 2 px of the print's width, the knobs within
+about 5 px and the tip at about y 706. **What is invented or held by the kit.** The turnings between the
+knobs, the collar's lip and the sweep's exact curve are the kit's (the print gives them at a few pixels
+each), and the sweep is laid in the finial's default dark metal where the print reads it about the
+slate's tone; it may be slate, lead or painted zinc. HABS photograph 2 (June 1965) shows the cone
+stopped at the neck and at most a faint pale shaft over it, which its match record keeps as later
+fabric.
+**How to resolve:** a nearer photograph of the east range from 18th Street before 1904.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1890).

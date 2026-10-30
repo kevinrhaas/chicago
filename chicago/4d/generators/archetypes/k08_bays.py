@@ -2596,10 +2596,14 @@ class Bay:
         """T-1890: a cap's TURNED finial (part `finial` with `form: turned`): the TURNED profile
         lathed over the cone's apex up `height_m`, and where the part names a `collar_m`, the
         COLLAR's flare from that far out on the cone up into the finial's foot, ringed with
-        CROCKETS — the pale crocketed collar and knobbed pinnacle of 1801's tower."""
+        CROCKETS (unless the part says `crockets: false`, a plain sweep: 1801's east turret)
+        — the pale crocketed collar and knobbed pinnacle of 1801's tower. A whole cap
+        (`cap_whole`: a corner turret's, its axis maybe behind its wall's face) stands into no
+        wall, so nothing of it is held in front of the wall's plane (1801's east turret)."""
         ax, ay, az = self.meta["roof"]["apex"]
         r0, H, k = f["radius_m"], f["height_m"], self.TURNED_SEGS
-        self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=True)
+        clip = not self.v.get("cap_whole")
+        self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=clip)
         top = {"top_m": round(ay + H, 4), "form": "turned"}
         c = f.get("collar_m")
         if c:
@@ -2607,7 +2611,7 @@ class Bay:
             # its back, where the tower stands into its wall, is closed CLIP_M in front of the
             # wall's plane (z 0), as the cone's is on it, and a crocket that would stand behind
             # that is not laid
-            self._lathe(world, ax, az, [(c * r, ay + D * y) for r, y in self.COLLAR], k, clip=True)
+            self._lathe(world, ax, az, [(c * r, ay + D * y) for r, y in self.COLLAR], k, clip=clip)
             flare = self.COLLAR[3:-1]   # the sweep, rim to neck, y rising
 
             def on(y):   # the flare's r (as a fraction of c) at y, a hair inside it
@@ -2615,15 +2619,16 @@ class Bay:
                     if y1 <= y <= y2:
                         return r1 + (r2 - r1) * (y - y1) / (y2 - y1) - 0.02
                 raise ValueError(f"{self.v['id']}: a crocket's foot off its collar")
-            for t, (y0, y1, reach) in enumerate(self.CROCKET_TIERS):
+            tiers = self.CROCKET_TIERS if f.get("crockets", True) else ()
+            for t, (y0, y1, reach) in enumerate(tiers):
                 e = reach * c
                 lo, hi = (c * on(y0), ay + D * y0), (c * on(y1), ay + D * y1)
                 leaf = [hi, lo, (lo[0] + e, lo[1] + e * 1.4), (lo[0] + e * 0.45, hi[1] + e * 0.5)]
                 for i in range(self.CROCKETS):
                     a = 2 * math.pi * (i + 0.5 * t) / self.CROCKETS
-                    if az + max(q[0] for q in leaf) * math.sin(a) - self.CROCKET_THICK_M >= self.CLIP_M:
+                    if not clip or az + max(q[0] for q in leaf) * math.sin(a) - self.CROCKET_THICK_M >= self.CLIP_M:
                         self._fin(world, ax, az, a, leaf, self.CROCKET_THICK_M)
-            top.update(collar_m=c, crockets=self.CROCKETS * len(self.CROCKET_TIERS))
+            top.update(collar_m=c, crockets=self.CROCKETS * len(tiers))
         self.meta["finial"] = top
 
     @staticmethod
