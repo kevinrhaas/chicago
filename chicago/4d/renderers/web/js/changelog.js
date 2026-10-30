@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2438, ts: '2026-10-30T05:25:14.848Z', date: 'Oct 30, 2026, 12:25 AM CT', title: 'The Pullman conservatory\'s stone podium and the lodge\'s spirelet', kind: 'improvement',
+    items: [
+      'Pullman\'s conservatory on 18th Street now stands on a dressed stone podium, as the 1894 plate and Lowe\'s photograph show it: pale piers at its corners, darker banded stone between them, and a moulded course under the glass.',
+      'The gardener\'s lodge beside it gains the slender slated spirelet the plate draws on its west roof.',
+    ] },
   { v: 2437, ts: '2026-10-30T04:42:53.613Z', date: 'Oct 29, 2026, 11:42 PM CT', title: 'Prairie Avenue\'s 1904 houses have their families', kind: 'feature',
     items: [
       '71 houses from 16th to 22nd Street now list who lived there, 183 people in all, up from the Glessners alone.',

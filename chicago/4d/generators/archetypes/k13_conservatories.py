@@ -76,6 +76,7 @@ ROLE_MATERIAL = {
     "host_stone": "house_wall",
     "stonework": "stone", "dome": "glass_substitute", "dome_rib": "frame", "opening": "dark",
     "sky_glass": "glass_sky", "sash": "sash", "interior": "interior_shade",
+    "stone_field": "stone_rough",
 }
 BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
@@ -109,6 +110,9 @@ def materials(data: dict) -> dict:
         "sash": {"color": (0.20, 0.19, 0.16), "roughness": 0.7},
         # T-3164: a conservatory's planted depth seen through its glass, in shade but not a void
         "interior_shade": {"color": (0.10, 0.12, 0.09), "roughness": 1.0},
+        # T-3164: the rusticated field of the Pullman conservatory's podium, which Lowe's print
+        # reads a tone darker than the dressed piers and courses framing it; the tone is reconstructed
+        "stone_rough": {"color": (0.56, 0.53, 0.46), "roughness": 0.95},
     }
 
 
@@ -2080,6 +2084,9 @@ def pavilion(h: House, ps: dict):
         h.face("stonework", [(so, ya, za), (so, yb, zb), (so, yc, zc_), (so, yd, zd)], (-1.0, 0.0, 0.0))
     for z0, z1 in ((zc - r - sw, zc - r), (zc + r, zc + r + sw)):
         h.face("stonework", [(so, 0.0, z0), (so, 0.0, z1), (so, ht - r, z1), (so, ht - r, z0)], (-1.0, 0.0, 0.0))
+    if ps.get("podium_dress"):
+        _podium_dress(h, ps["podium_dress"], L, W, xa, xb, reach, po, pod,
+                      {"north": [(zc - r - sw + po, zc + r + sw + po)]})
     # the north end's broad arched frame round the glass, and the bar up its middle (the plate's)
     fw, fo = ps.get("arch_frame_m", 0.0), -0.05
     if fw:
@@ -2127,6 +2134,112 @@ def pavilion(h: House, ps: dict):
     h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xd, W / 2, dr["top_m"], "sky_glass"), 3)}
     if ps.get("gate"):
         gate(h, ps["gate"])
+
+
+def _podium_dress(h: House, pd: dict, L, W, xa, xb, reach, po, pod, cuts: dict):
+    """T-3164: the pavilion's stone podium as Lowe's print and the 1894 Inland plate show it:
+    a projecting base course and a moulded cap course under the glass band, a broad pier at each
+    outer corner standing proud of the wall, and between the piers a field of banded rustication
+    (courses standing a few centimetres proud, so each joint reads as a line), the field sunk
+    behind the piers' faces, so each run reads as a panel. Only the runs the record names are
+    dressed; `cuts` are spans along a run (from its start) where an opening breaks it."""
+    ze, zw = -reach - po, W + reach + po
+    runs = {  # start (x, z), direction along, outward normal, length, piers at (start, end)
+        "north": ((-po, -po), (0.0, 1.0), (-1.0, 0.0), W + 2 * po, (True, True)),
+        "east_north": ((-po, -po), (1.0, 0.0), (0.0, -1.0), xa, (True, False)),
+        "east_arm_north": ((xa - po, -po), (0.0, -1.0), (-1.0, 0.0), reach, (False, True)),
+        "east_arm_end": ((xa - po, ze), (1.0, 0.0), (0.0, -1.0), xb - xa + 2 * po, (True, True)),
+        "east_arm_south": ((xb + po, ze), (0.0, 1.0), (1.0, 0.0), reach, (True, False)),
+        "east_south": ((xb + po, -po), (1.0, 0.0), (0.0, -1.0), L - xb, (False, True)),
+        "west_north": ((-po, W + po), (1.0, 0.0), (0.0, 1.0), xa, (True, False)),
+        "west_arm_north": ((xa - po, W + po), (0.0, 1.0), (-1.0, 0.0), reach, (False, True)),
+        "west_arm_end": ((xa - po, zw), (1.0, 0.0), (0.0, 1.0), xb - xa + 2 * po, (True, True)),
+        "west_arm_south": ((xb + po, zw), (0.0, -1.0), (1.0, 0.0), reach, (True, False)),
+        "west_south": ((xb + po, W + po), (1.0, 0.0), (0.0, 1.0), L - xb, (False, True)),
+    }
+    # each convex corner is one run's: it carries its slabs round the corner, and the run it
+    # meets (when that run is dressed too) stops them flush at the corner, so no two faces share
+    # a plane there; `yields` names the ends that stop, and the run each one meets
+    yields = {"east_north": ("north", None), "west_north": ("north", None),
+              "east_arm_north": (None, "east_arm_end"), "east_arm_south": ("east_arm_end", None),
+              "west_arm_north": (None, "west_arm_end"), "west_arm_south": ("west_arm_end", None)}
+    bc, cc, pi_, ru = pd["base"], pd["cap"], pd["piers"], pd.get("rustication")
+    y_b, y_c = bc["height_m"], pod - cc["height_m"]
+
+    def spans(a, b, cut):
+        """[a, b] less every cut span."""
+        out, cur = [], a
+        for c0, c1 in sorted(cut):
+            if c1 > cur and c0 < b:
+                if c0 > cur:
+                    out.append((cur, c0))
+                cur = max(cur, c1)
+        if cur < b:
+            out.append((cur, b))
+        return [(p, q) for p, q in out if q - p > 0.05]
+
+    n_piers = n_courses = 0
+    for name in pd["runs"]:
+        (ox, oz), (tx, tz), (nx, nz), S, (p0, p1) = runs[name]
+        P = lambda s, y, off: (ox + tx * s + nx * off, y, oz + tz * s + nz * off)
+        n = (nx, 0.0, nz)
+        cut = cuts.get(name, [])
+
+        def block(s0, s1, y0, y1, out, top=True, bottom=True, ends=(True, True), role="stonework"):
+            """A slab on the run from s0 to s1, y0 to y1, standing `out` proud of the wall; a face
+            nobody can see (on the ground, under a cap, against a wall) is left out."""
+            h.face(role, [P(s0, y0, out), P(s1, y0, out), P(s1, y1, out), P(s0, y1, out)], n)
+            for s_, sg, e in ((s0, -1.0, ends[0]), (s1, 1.0, ends[1])):
+                if e:
+                    h.face(role, [P(s_, y0, 0.0), P(s_, y0, out), P(s_, y1, out), P(s_, y1, 0.0)],
+                           (tx * sg, 0.0, tz * sg))
+            if top:
+                h.face(role, [P(s0, y1, 0.0), P(s1, y1, 0.0), P(s1, y1, out), P(s0, y1, out)], Y)
+            if bottom:
+                h.face(role, [P(s0, y0, out), P(s1, y0, out), P(s1, y0, 0.0), P(s0, y0, 0.0)], (0.0, -1.0, 0.0))
+
+        y0_, y1_ = yields.get(name, (None, None))
+        stop = (y0_ in pd["runs"], y1_ in pd["runs"])
+        convex = (p0, p1)
+
+        def reach_of(out):
+            """The span a slab standing `out` proud runs: round a corner it owns, flush at one it
+            yields; at an inside corner the run starting there begins flush and the run ending
+            there stops `out` short, against the other's front."""
+            lo = -out if convex[0] and not stop[0] else 0.0
+            hi = S if stop[1] else (S + out if convex[1] else S - out)
+            return lo, hi
+
+        def ends_of(a, b, lo, hi):
+            """End faces for a slab from a to b: none where it stops at a corner or runs into a wall."""
+            return (a > lo + 1e-6 or (convex[0] and not stop[0]), b < hi - 1e-6 or (convex[1] and not stop[1]))
+        lo, hi = reach_of(bc["out_m"])
+        for a, b in spans(lo, hi, cut):
+            block(a, b, 0.0, y_b, bc["out_m"], bottom=False, ends=ends_of(a, b, lo, hi))
+        lo, hi = reach_of(cc["out_m"])
+        for a, b in spans(lo, hi, cut):
+            block(a, b, y_c, pod + 0.02, cc["out_m"], ends=ends_of(a, b, lo, hi))
+        w, pout = pi_["width_m"], pi_["out_m"]
+        lo, hi = reach_of(pout)
+        pier = []
+        if p0:
+            pier.append((lo, w))
+        if p1:
+            pier.append((S - w, hi))
+        for a, b in pier:
+            block(a, b, y_b, y_c, pout, top=False, bottom=False, ends=ends_of(a, b, lo, hi))
+            n_piers += 1
+        if ru:
+            k = max(1, round((y_c - y_b) / ru["course_m"]))
+            ch, j = (y_c - y_b) / k, ru["joint_m"]
+            for i in range(k):
+                ya, yb = y_b + i * ch + (j / 2 if i else 0.0), y_b + (i + 1) * ch - (j / 2 if i < k - 1 else 0.0)
+                for a, b in spans(0.0, S, cut + [(a_ - 0.01, b_ + 0.01) for a_, b_ in pier]):
+                    # a course's 2 cm ledges are left out, and so is an end against the nave's wall
+                    block(a, b, ya, yb, ru["out_m"], top=False, bottom=False,
+                          ends=(a > 1e-6 or p0, b < S - 1e-6 or p1), role="stone_field")
+                    n_courses += 1
+    h.meta["podium_dress"] = {"piers": n_piers, "course_runs": n_courses}
 
 
 def _roll(h: House, role, x0, x1, y, z, r, sides=12):
