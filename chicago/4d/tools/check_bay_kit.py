@@ -173,6 +173,27 @@ def _across_inside(b, margin=1e-6):
     return lambda x, z: z < -margin and k * x < -margin
 
 
+def _cant_inside(b):
+    """T-1890: inside a chamfer's canted face, between its ends and as deep as a light's recess
+    on it reaches (1801's light over its round bay, HABS photograph 1): there a recess stands
+    behind the host wall's face by the cant's own depth. K01 stands such a light only over its
+    house's eave, where the roof is cut away inside the cant (k01_frontage.shallow_bay_cutters),
+    so nothing of the host stands there. None if the bay has no chamfer."""
+    deep = max([b.meta["recess_m"]] + [w["recess_m"] for w in b.windows]) + 1e-3
+    strips = []
+    for r in (b.runs[0], b.runs[-1]):
+        if "side" not in (r.start, r.end):
+            continue
+        (x0, _, z0), (x1, _, z1) = r.world(0.0, 0.0, 0.0), r.world(r.L, 0.0, 0.0)
+        _, out = r.frame(0.0)
+        strips.append((x0, z0, (x1 - x0) / r.L, (z1 - z0) / r.L, r.L, out[0], out[2]))
+    if not strips:
+        return None
+    return lambda x, z: any(-1e-6 <= (x - x0) * ex + (z - z0) * ez <= L + 1e-6
+                            and -deep <= (x - x0) * nx + (z - z0) * nz <= 1e-6
+                            for x0, z0, ex, ez, L, nx, nz in strips)
+
+
 def rule_keyed(b, v):
     fails = []
     inside = _across_inside(b)
@@ -231,7 +252,9 @@ def rule_keyed(b, v):
     # T-3047: a shallow projection's window recesses and its gable's parapet run back through
     # the plane (its host opens its face round the recesses), no deeper than a recess reaches
     through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
-    cut = (lambda p: corner[0] <= p[0] <= corner[1] and p[2] >= corner[2]) if corner else (lambda p: False)
+    cant = _cant_inside(b)
+    cut = (lambda p: (corner[0] <= p[0] <= corner[1] and p[2] >= corner[2])
+           or (cant is not None and p[2] < 0.0 and cant(p[0], p[2]))) if corner else (lambda p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
                 if not cut(p)), default=(0.0, None))
@@ -380,7 +403,10 @@ def rule_recesses(b, v, data):
         if w["recess_m"] < data["parts"]["recess"]["min_m"] - EPS:
             fails.append(f"recess: {w['opening']} recess {w['recess_m']} m is shallower than the kit's minimum")
         inside = _across_inside(b, -m)   # T-3176: across a corner, behind is inside the corner
+        cant = _cant_inside(b)            # T-1890: a chamfer's light, inside its cant
         for p in w["footprint"]:
+            if cant is not None and cant(p[0], p[1]):
+                continue
             if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails

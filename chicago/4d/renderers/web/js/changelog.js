@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2440, ts: '2026-10-30T06:30:32.288Z', date: 'Oct 30, 2026, 1:30 AM CT', title: 'A small window over 1801 Prairie\'s round corner bay', kind: 'improvement',
+    items: [
+      'On the Kimball house\'s south-west corner, the angled wall above the round bay now has the small window that the 1965 survey photograph shows. It stands on the bay\'s stone balcony beside the corner pilaster, where the wall used to be blank.',
+    ] },
   { v: 2439, ts: '2026-10-30T05:59:25.030Z', date: 'Oct 30, 2026, 12:59 AM CT', title: 'New 1835 ride: Women of 1835 Chicago', kind: 'feature',
     items: [
       'Seven stops from Wolf Point to the fort, each naming a woman a source puts in the town: Catherine Chevalier Robinson, Juliette Kinzie, Mrs. Murphy of the Exchange Coffee House, Mrs. Rufus Brown\'s boarding house, Eliza Chappel at her school and her church, and Josette LaFramboise Beaubien.',
