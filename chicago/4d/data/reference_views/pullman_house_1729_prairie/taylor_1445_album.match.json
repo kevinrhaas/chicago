@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "38fc7c48ffa44991d2edcdd420e652685d1a2d6433fc3dc3aa39e80229aa2e16",
+  "glb_sha256": "1f5c76e419c00f5419202a2c377f34a5bd44a45c0db224edcceb4888747d7dab",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "0319da91f819c4f9c21f762ef73868c688a78bc50ecb4180a931053f71b35f98",
+  "flora_sha256": "bbf021b78547153f1a6cc1bc5a5e550c94a105a78163d70a28ab617ed8ea53ed",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -110,8 +110,8 @@
     },
     {
       "what": "the round oculus in the pier between the pair and the triple (x 699-716), about 0.5 m across, not built",
-      "status": "open",
-      "how": "Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "status": "fixed",
+      "how": "Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-1881, 2026-10-30: built as a round light 0.36 m across its glass in a stone ring 0.08 m broad, in the head of a banded pier 1.1 m broad (bays[p_18th].storeys[1].pier, a new K08 option), read through this camera on the pavilion's 20.4 m plane: the print's dark glass at x 712.5, y 388.5 px, the render's at x 712, y 387.5 (seen without the trees, which shade it in this render), so within a pixel."
     },
     {
       "what": "the flank's principal-storey lights east of the porte-cochere seen through its arches (x 745-768): a pair, built at s 19.15 and 20.25 behind the trees and the coping wall's piers",
@@ -129,7 +129,8 @@
     },
     {
       "what": "the rusticated pier with the oculus between the pair and the triple (x 699-716), and the east section of the flank whose cornice breaks forward on a banded corner pier (x 784-850, s about 22-27.75); the flank is built as one plain face there, since how far the east section stands out is not read",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1881, 2026-10-30: read again at 5-8x. The pier between the pair and the triple is built as a banded pier with the oculus in its head (item above); its courses render at x 702-717 px against the print's banding at 702-718. What the cornice breaks forward on at the flank's east end is a banded corner pier at x 830-845 px, under modillions running on past the wall's edge to x 850-856; the stretch between the pavilion's end (x 785) and that pier reads as the flank's own plane, its cornice stepping back at x 786 as the build's does, so no forward section is built. The corner pier is built 1.2 m broad (s 26.55-27.75; its west edge is behind the tree at x 816-830), banded, with the cornice and belt broken forward over it (street_front_pavilions.piers, wall k01.wall.side.north), and renders at x 840-855 px against the print's 830-845, inside this camera's 5-6 px offset at the flank's east end (the build's corner at x 855 where the print's wall edge is at 845) (L-pullman-1729-oculus-pier-1881)."
     },
     {
       "what": "the low stone coping wall on piers along the Prairie Avenue line and round the corner along 18th Street, standing in front of the basement",

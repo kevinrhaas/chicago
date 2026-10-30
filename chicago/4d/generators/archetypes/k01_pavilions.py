@@ -38,6 +38,9 @@ MODILLION_KEYS = {"pitch_m", "width_m", "out_m", "drop_m", "end_clear_m"}
 RIB_KEYS = {"s_m", "width_m", "proud_m"}
 BELT_KEYS = {"bed_m", "profile", "runs"}
 BELT_WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
+# T-1881: a pier stands on the street front (the default) or on the side.north flank, whose
+# high-s corner turns onto the rear wall (1729's 18th Street flank, Taylor's photograph no. 1445)
+PIER_WALLS = ("k01.wall.street_front", "k01.wall.side.north")
 CORE_BACK_M = 0.08      # the pier's core stands this far behind its courses' faces: the channels' floor
 RING_M = 0.25           # a pier stands this far clear of a street opening's jamb (its voussoir ring)
 RIB_BURY_M = 0.02       # a rib's back is let this far into the slate it stands on
@@ -63,27 +66,38 @@ def resolve(spec, *, width, stone, openings, mansard, eave, wall_head, depth=Non
                          "channels, stepping 0-0.2 m in and out")
     if y0 < float(stone.get("coping_top_m", 0.0)) - 1e-6:
         raise ParamError("street_front_pavilions.from_m: the piers stand on the base's coping, not below it")
-    piers, last = [], -1.0
-    street = [o for o in openings if o.wall == "k01.wall.street_front"]
+    piers, last = [], {w: -1.0 for w in PIER_WALLS}
     for j, pr in enumerate(spec["piers"]):
-        if not set(pr) <= {"s_m", "corner", "return_m"}:
-            raise ParamError(f"street_front_pavilions.piers[{j}] takes s_m, corner and return_m")
+        if not set(pr) <= {"s_m", "corner", "return_m", "wall"}:
+            raise ParamError(f"street_front_pavilions.piers[{j}] takes s_m, corner, return_m and wall")
+        wall = pr.get("wall", PIER_WALLS[0])
+        if wall not in PIER_WALLS or (wall != PIER_WALLS[0] and depth is None):
+            raise ParamError(f"street_front_pavilions.piers[{j}].wall is one of {PIER_WALLS}")
+        L = width if wall == PIER_WALLS[0] else float(depth)
         s0, s1 = (float(x) for x in pr["s_m"])
         corner = bool(pr.get("corner"))
-        if not (s0 > last and 0.6 <= s1 - s0 <= 1.6 and s1 <= width + 1e-6):
-            raise ParamError(f"street_front_pavilions.piers[{j}]: 0.6-1.6 m wide, in order along the front, "
-                             f"inside it (0-{width} m)")
-        if corner != (abs(s1 - width) < 1e-6):
-            raise ParamError(f"street_front_pavilions.piers[{j}]: the corner pier, and only it, ends at the "
-                             f"front's high-s corner ({width} m)")
+        if not (s0 > last[wall] and 0.6 <= s1 - s0 <= 1.6 and s1 <= L + 1e-6):
+            raise ParamError(f"street_front_pavilions.piers[{j}]: 0.6-1.6 m wide, in order along its wall, "
+                             f"inside it (0-{L} m)")
+        if corner != (abs(s1 - L) < 1e-6):
+            raise ParamError(f"street_front_pavilions.piers[{j}]: the corner pier, and only it, ends at its "
+                             f"wall's high-s corner ({L} m)")
         ret = float(pr.get("return_m", 0.0))
-        if corner and not 0.5 <= ret <= 1.6:
-            raise ParamError(f"street_front_pavilions.piers[{j}]: the corner pier returns 0.5-1.6 m onto the side")
-        for o in street:
-            if o.s_m + o.width_m / 2 + RING_M > s0 and o.s_m - o.width_m / 2 - RING_M < s1:
+        # the front's corner pier returns onto the flank; a flank's may stop at its corner (return_m
+        # 0), where the rear is built against
+        if corner and not (0.5 <= ret <= 1.6 or (wall != PIER_WALLS[0] and ret == 0.0)):
+            raise ParamError(f"street_front_pavilions.piers[{j}]: the corner pier returns 0.5-1.6 m round its "
+                             f"corner (a flank's may return 0)")
+        for o in openings:
+            if o.wall == wall and o.s_m + o.width_m / 2 + RING_M > s0 and o.s_m - o.width_m / 2 - RING_M < s1:
                 raise ParamError(f"street_front_pavilions.piers[{j}] at s {s0}-{s1} meets the opening at s {o.s_m}")
-        piers.append({"s_m": (s0, s1), "corner": corner, "return_m": ret})
-        last = s1
+        for bay in bays:
+            if wall != PIER_WALLS[0] and bay["wall"] == wall and bay["span_m"][0] < s1 and bay["span_m"][1] > s0:
+                raise ParamError(f"street_front_pavilions.piers[{j}] at s {s0}-{s1} on {wall} meets {bay['id']}")
+        piers.append({"s_m": (s0, s1), "corner": corner, "return_m": ret,
+                      **({"wall": wall} if wall != PIER_WALLS[0] else {})})
+        last[wall] = s1
+    street = [o for o in openings if o.wall == "k01.wall.street_front"]
     out = {"piers": tuple(piers), "proud_m": d, "from_m": y0, "course_m": ch, "channel_m": gap, "quoin_step_m": step}
     fz = spec.get("frieze")
     if fz:
@@ -265,6 +279,9 @@ def dress(a):
     conf = p.worst_conf("footprint", "storey_heights_m", "stone_front", "street_front_pavilions")
     front = ((D, 0.0, 0.0), (0.0, 0.0, -1.0), (1.0, 0.0, 0.0))
     side = ((D, 0.0, -W), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0))
+    rear = ((0.0, 0.0, -W), (0.0, 0.0, 1.0), (-1.0, 0.0, 0.0))
+    # each wall a pier stands on: its frame, its length and the frame its corner returns onto
+    on = {PIER_WALLS[0]: (front, W, side), PIER_WALLS[1]: (side, D, rear)}
     d, gap, step = pv["proud_m"], pv["channel_m"], pv["quoin_step_m"]
     fz = pv.get("frieze") or {}
     top = a.wall_head["cornice_m"][0] if a.wall_head.get("cornice_m") else a.soffit_m
@@ -275,31 +292,36 @@ def dress(a):
     cid = "k01.pavilion.pier"
     for j, pr in enumerate(pv["piers"]):
         s0, s1 = pr["s_m"]
+        front_, Lw, side_ = on[pr.get("wall", PIER_WALLS[0])]
+        ret = pr["corner"] and pr["return_m"] > 0.0
         if pr["corner"]:
-            s1 = W + d      # the corner pier's front runs past the side wall's face by its own proud
+            s1 = Lw + d     # the corner pier's front runs past the next wall's face by its own proud
+        mid = tuple(front_[0][i] + front_[1][i] * (s0 + s1) / 2 for i in range(3))
         seed = a.instance(cid, "pavilion", {"s0_m": s0, "s1_m": pr["s_m"][1], "proud_m": d, "from_m": pv["from_m"],
-                                             "to_m": top, "corner": pr["corner"], "return_m": pr["return_m"]},
-                          {"base": (D, pv["from_m"], -(s0 + s1) / 2), "top": (D, top, -(s0 + s1) / 2)})
+                                             "to_m": top, "corner": pr["corner"], "return_m": pr["return_m"],
+                                             **({"wall": pr["wall"]} if "wall" in pr else {})},
+                          {"base": (mid[0], pv["from_m"], mid[2]), "top": (mid[0], top, mid[2])})
         # the core: the channels' floor, from the coping to the cornice's bed
-        a.proud_box("bay_stone", front, s0 + step, s1 - (0.0 if pr["corner"] else step), pv["from_m"], top,
+        a.proud_box("bay_stone", front_, s0 + step, s1 - (0.0 if pr["corner"] else step), pv["from_m"], top,
                     d - CORE_BACK_M, seed, conf)
-        if pr["corner"]:
-            a.proud_box("bay_stone", side, 0.0, pr["return_m"] - step, pv["from_m"], top, d - CORE_BACK_M, seed + 1, conf)
+        if ret:
+            a.proud_box("bay_stone", side_, 0.0, pr["return_m"] - step, pv["from_m"], top, d - CORE_BACK_M, seed + 1, conf)
         for i, (y0, y1) in enumerate(_courses(pv["from_m"], band, pv["course_m"])):
             long_ = i % 2 == 0
             g0, g1 = y0 + gap / 2, y1 - gap / 2
             if pr["corner"]:
                 # long on the front and short on the return in one course, the other way in the next
-                a.proud_box("bay_stone", front, s0 + (0.0 if long_ else step), s1, g0, g1, d, seed + 2 + i, conf)
-                a.proud_box("bay_stone", side, 0.0, pr["return_m"] - (step if long_ else 0.0), g0, g1, d,
-                            seed + 2 + i, conf)
+                a.proud_box("bay_stone", front_, s0 + (0.0 if long_ else step), s1, g0, g1, d, seed + 2 + i, conf)
+                if ret:
+                    a.proud_box("bay_stone", side_, 0.0, pr["return_m"] - (step if long_ else 0.0), g0, g1, d,
+                                seed + 2 + i, conf)
             else:
                 e = 0.0 if long_ else step
-                a.proud_box("bay_stone", front, s0 + e, s1 - e, g0, g1, d, seed + 2 + i, conf)
+                a.proud_box("bay_stone", front_, s0 + e, s1 - e, g0, g1, d, seed + 2 + i, conf)
         if band < top:   # the plain head through the frieze, the cornice's bed on it
-            a.proud_box("bay_stone", front, s0, s1, band, top, d, seed + 999, conf)
-            if pr["corner"]:
-                a.proud_box("bay_stone", side, 0.0, pr["return_m"], band, top, d, seed + 998, conf)
+            a.proud_box("bay_stone", front_, s0, s1, band, top, d, seed + 999, conf)
+            if ret:
+                a.proud_box("bay_stone", side_, 0.0, pr["return_m"], band, top, d, seed + 998, conf)
     if a.wall_head.get("cornice") == "k10.cornice.moulded_stone" and band < top:
         _cornice_breaks(a, pv, top, conf)
     if pv.get("belt"):
@@ -308,6 +330,8 @@ def dress(a):
         cid = "k01.pavilion.frieze_panel"
         spans, at = [], fz["from_s_m"]
         for pr in pv["piers"]:
+            if "wall" in pr:
+                continue    # the frieze's panels are the street front's
             spans.append((at, pr["s_m"][0]))
             at = pr["s_m"][1]
         if at < W - 0.5:
@@ -337,9 +361,10 @@ def dress(a):
                   "k01.wall.side.south": ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0), _cross((1.0, 0.0, 0.0), Y))}
         runs, start, laid = k10_frontage.runs(p), 0.0, 0
         hw, clear, pitch = md["width_m"] / 2, md["end_clear_m"], md["pitch_m"]
-        broken = [w for pr in pv["piers"] for w in (
-            [("k01.wall.street_front", pr["s_m"][0] - 0.02, W + 1.0), ("k01.wall.side.north", -1.0, pr["return_m"] + 0.02)]
-            if pr["corner"] else [("k01.wall.street_front", pr["s_m"][0] - 0.02, pr["s_m"][1] + 0.02)])]
+        nxt = {PIER_WALLS[0]: "k01.wall.side.north", PIER_WALLS[1]: "k01.wall.rear_service"}
+        broken = [w for pr in pv["piers"] for wl in [pr.get("wall", PIER_WALLS[0])] for w in (
+            [(wl, pr["s_m"][0] - 0.02, pr["s_m"][1] + 1.0), (nxt[wl], -1.0, pr["return_m"] + 0.02)]
+            if pr["corner"] else [(wl, pr["s_m"][0] - 0.02, pr["s_m"][1] + 0.02)])]
         for run in runs:
             L = run.L
             for t0, t1 in a.wall_head["stretches"]:
@@ -403,19 +428,23 @@ def _cornice_breaks(a, pv, y_c, conf):
     if p.wall_head.get("depth_m"):
         ch = max(u for _, u in prof)
         prof = [(n, u * float(p.wall_head["depth_m"]) / ch) for n, u in prof]
-    front, side = k10_frontage.runs(p)[0], k10_frontage.runs(p)[1]
-    d, W = pv["proud_m"], p.width_m
+    rn = k10_frontage.runs(p)
+    d = pv["proud_m"]
     cid = "k01.pavilion.cornice_break"
     var = K.Variant({"id": cid, "kind": "moulded", "material": "stone"}, data)
     for j, pr in enumerate(pv["piers"]):
         s0, s1 = pr["s_m"]
-        seed = a.instance(cid, "pavilion", {"s0_m": s0, "s1_m": s1, "proud_m": d, "corner": pr["corner"]},
+        i = PIER_WALLS.index(pr.get("wall", PIER_WALLS[0]))
+        front, side = rn[i], rn[i + 1]
+        ret = pr["corner"] and pr["return_m"] > 0.0
+        seed = a.instance(cid, "pavilion", {"s0_m": s0, "s1_m": s1, "proud_m": d, "corner": pr["corner"],
+                                            **({"wall": pr["wall"]} if "wall" in pr else {})},
                           {"bed": front.at((s0 + s1) / 2, y_c, d)})
         var.seed, var.rng = seed, __import__("random").Random(seed)
         pc = var.piece(f"cornice break {j + 1}", "stone", "open",
-                       run_names=[front.name] + ([side.name] if pr["corner"] else []))
-        path = [front.at(s0, y_c, d), front.at(W + d, y_c, d), side.at(pr["return_m"], y_c, d)] if pr["corner"] \
-            else [front.at(s0, y_c, d), front.at(s1, y_c, d)]
+                       run_names=[front.name] + ([side.name] if ret else []))
+        path = [front.at(s0, y_c, d), front.at(front.L + d, y_c, d)] + ([side.at(pr["return_m"], y_c, d)] if ret else []) \
+            if pr["corner"] else [front.at(s0, y_c, d), front.at(s1, y_c, d)]
         K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=(True, True))
     k10_frontage._lay(a, var.pieces, conf, cid)
 
@@ -443,17 +472,23 @@ def _belt(a, pv, conf):
     for j, path in enumerate(_join(bt["runs"], paths, lengths)):
         pc = var.piece(f"belt {j + 1}", "stone", "open", run_names=names)
         K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=(True, True))
-    front, side = runs["k01.wall.street_front"], runs["k01.wall.side.north"]
-    d, W = pv["proud_m"], p.width_m
-    on_front = [r["s_m"] for r in bt["runs"] if r["wall"] == front.name]
-    on_side = any(r["wall"] == side.name for r in bt["runs"])
+    d = pv["proud_m"]
+    order = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service")
     for j, pr in enumerate(pv["piers"]):
         s0, s1 = pr["s_m"]
+        i = PIER_WALLS.index(pr.get("wall", PIER_WALLS[0]))
+        front, side = runs[order[i]], runs[order[i + 1]]
+        on_front = [r["s_m"] for r in bt["runs"] if r["wall"] == front.name]
+        on_side = pr["return_m"] > 0.0 and any(r["wall"] == side.name for r in bt["runs"])
         if not any(a0 <= s0 and s1 <= b0 + 1e-6 for a0, b0 in on_front):
             continue
         pc = var.piece(f"belt break {j + 1}", "stone", "open",
                        run_names=[front.name] + ([side.name] if pr["corner"] and on_side else []))
-        path = [front.at(s0, y, d), front.at(W + d, y, d), side.at(pr["return_m"], y, d)] \
-            if pr["corner"] and on_side else [front.at(s0, y, d), front.at(s1, y, d)]
+        if pr["corner"] and on_side:
+            path = [front.at(s0, y, d), front.at(front.L + d, y, d), side.at(pr["return_m"], y, d)]
+        elif pr["corner"] and pr["return_m"] == 0.0:    # a flank's corner pier: to its own end
+            path = [front.at(s0, y, d), front.at(front.L + d, y, d)]
+        else:
+            path = [front.at(s0, y, d), front.at(s1, y, d)]
         K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=(True, True))
     k10_frontage._lay(a, var.pieces, conf, cid)
