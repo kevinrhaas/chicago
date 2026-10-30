@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2463, ts: '2026-10-30T18:37:54.775Z', date: 'Oct 30, 2026, 1:37 PM CT', title: 'The Pullman house\'s 18th Street trees stand where the photographs show them', kind: 'improve',
+    items: [
+      'Along 18th Street beside 1729 Prairie, five parkway trees now stand where an 1890s photograph of the house puts them: one by the corner, then a row past the porte-cochère and either side of the carriage gate. The two trees guessed there before stood between them.',
+      'A second photograph of the same corner was checked against each one.',
+    ] },
   { v: 2462, ts: '2026-10-30T18:18:57.329Z', date: 'Oct 30, 2026, 1:18 PM CT', title: 'A gas lamp where Taylor\'s photograph shows it on 18th Street', kind: 'fix',
     items: [
       'Pullman\'s 18th Street walk has its gas lamp where an 1890s photograph shows it: at the turn into Calumet Avenue, before the palm-house wing.',
