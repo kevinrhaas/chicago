@@ -21201,6 +21201,18 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 
 **Recorded:** 2026-10-03 (T-2042).
 
+### L-jaunt-women-1835 — Women of 1835 Chicago: an invented ride past six women's places
+
+**Decision:** Women of 1835 Chicago (the owner's ask of 2026-10-30, T-3251) links seven exterior stops, west to east, to six women a source names in the town: Catherine Chevalier Robinson (seen from the forks anchor across the water from the Robinson cabins), Juliette Kinzie at John H. Kinzie's store, Mrs. Murphy at the Exchange Coffee House, Mrs. Rufus Brown's boarding house, Eliza Chappel at her infant school and at First Presbyterian, and Josette LaFramboise Beaubien (seen from the fort anchor beside the Beaubien homestead). The ride, its order, the reading seconds, the ending and the roll keepsake are reconstructed. No visit, meeting or conversation is claimed; nobody speaks; no interior is opened. The two Native and Métis households are told from public anchors, not called at, as audit_jaunt_refusals rule I requires, and every sentence that names a people stands on an attested claim that names it. Each fact is cited at its own grade: Andreas, Wau-Bun, the St Mary's register and the resident cards for the town, and later scholarship (Indigenous Chicago, the Citizen Potawatomi Nation's heritage pages, the Encyclopedia of Chicago, Britannica, Lake Forest College's archive, the National Women's History Museum) for what the women's lives came to.
+
+**Bounds:** The approved 1 July 1835 scene and the five structure records and two anchors. What a woman did after the scene date (Eleanor Kinzie's daughter's Girl Scouts, Eliza Chappel Porter's Civil War work, Wilmette's name) is told as later history, never as the scene.
+
+**How to resolve:** A source placing a woman's own shop or school in the town (the milliners and the young ladies' schools of the 1834-35 papers are unplaced) would add a stop; the route stays interpretation.
+
+**Applies to:** `data/jaunts/notable-women-1835.json`.
+
+**Recorded:** 2026-10-30 (T-3251).
+
 ### L-plankwalk-far-top-retention — retaining existing footways beyond furniture reach
 
 **Decision:** When the selected detail tier hides a distant timber chunk, its emitted walk, crossing and decked-walk top triangles remain in one shared-material batch. Only visible-frustum, tier-eligible, reach-culled chunks contribute. Returning inside the reach removes the replacement before the detailed chunk draws. This is a rendering handover, not another frontage record.
@@ -36347,6 +36359,28 @@ cornice ends at the corner.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).
+
+### L-kimball-1801-cant-light-1890 — 1801 Prairie's small light on the canted face over the round bay, from HABS photograph 1
+
+**Decision:** HABS photograph 1 (June 1965, `habs_kimball_photo_01_sw_1965`) shows a small light on
+the south pavilion's canted face over the round bay (x 643-683, y 437-507 px), standing on the bay's
+balustrade close against the pavilion's corner pilaster, where the build's cant stood blank
+(L-kimball-1801-round-bay-3108 left it open: T-3108's sash had been hidden by the chamfer cut's
+closing face, which lay in the cant's own plane over the opening). p_south's third storey now
+carries a K06 two-over-two sash on the cant, 0.65 by 1.45 m on a 9.4 m sill, at 0.72 of its runs;
+K01 cuts the main roof away inside a lit cant as deep as the recess reaches, up to the light's head,
+and K08 no longer opens the front's plane for a light on a cant. **What is read.** The light's
+place on the face, its sill on the balustrade and its size, against the print through its solved
+camera: it renders about 40 by 70 px against the print's 40 by 70, about 0.3 m further from the
+pilaster. **What is invented or held by the kit.** The sash's glazing (the print shows a sash
+with a meeting rail at 1 px a bar), the surround's section and the recess's depth are the kit's.
+**What is still open.** The print stops the cant's wall at a cornice just over the light, with the
+slate over it; the build carries it on to the gable's shoulder (in the match record).
+**How to resolve:** a nearer view of the south-west corner, or the HABS drawings' west elevation,
+shows the light's glazing and how the cant is finished over it.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1890).
 
 ### L-k01-1700-1708-colour-3244 — 1700, 1706 and 1708 Prairie laid in red-brown brick, and the pair's porches, cornice, dormers and sash painted white, read from the tones of three monochrome photographs
 

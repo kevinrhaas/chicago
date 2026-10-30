@@ -1,0 +1,24 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "encyclopedia_chicago_wilmette",
+  "type": "website",
+  "citation": "'Wilmette, IL', The Electronic Encyclopedia of Chicago (Chicago Historical Society, Newberry Library and Northwestern University, 2005), entry 1360.",
+  "author": "The Electronic Encyclopedia of Chicago",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1790-2000",
+  "url": "https://encyclopedia.chicagohistory.org/pages/1360.html",
+  "locator": "The entry's opening paragraph.",
+  "rights_note": "Modern encyclopedia text, cited in words only.",
+  "access_notes": "Read 2026-10-30 (T-3251) through a fetch that returned the opening in short quoted fragments.",
+  "note": "Fragments read: 'The village of Wilmette is named for Antoine Ouilmette, a French-Canadian fur trader' who settled at Chicago in 1790, and 'his part- Potawatomi wife, Archange Chevallier'; after Ouilmette helped secure the 1829 Treaty of Prairie du Chien 'the government deeded 1,280 acres, encompassing much of present-day Wilmette and part of Evanston' to Archange and her children.",
+  "what_it_supplies": [
+    "Wilmette named for Antoine Ouilmette and his part-Potawatomi wife Archange Chevallier",
+    "the 1,280 acres deeded to Archange and her children after the 1829 treaty"
+  ],
+  "what_it_does_not_supply": [
+    "Archange's kinship to Catherine Chevalier Robinson, which the Indigenous Chicago profile of Alexander Robinson gives"
+  ]
+}
