@@ -15,7 +15,7 @@
     "value": "attested",
     "why": "Pictured: a picture on the Images tab shows it.",
     "pictures": [
-      "cameron_c1900_first_post_office"
+      "early-cameron-first-post-office-1833"
     ]
   },
   "documented_range": {
@@ -202,6 +202,25 @@
         "cameron_c1900_first_post_office"
       ],
       "note": "Provisional 0.75 m head rather than the generic 0.95 m, bounded by the short roof-piercing stack silhouette in Cameron. Not a measurement; painting perspective and unknown cap details remain unresolved. Shaft width and ridge station are unchanged."
+    },
+    "end_gable_courses": {
+      "value": "+x",
+      "confidence": "inferred",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Horizontal courses are visible across Cameron's retrospective gable around its framed rectangle; the local +X assignment follows the existing diagnostic view, not a surveyed compass bearing. This replaces the smooth roof-material triangle only on that visible end. The picture does not resolve log versus board fabric. The generator's 0.20m course rhythm, 8mm joints, 12mm relief and neutral timber treatment are reconstructed first fits, not measured historic fabric. Footprint, roof envelope, hidden end and existing hatch remain unchanged."
+    },
+    "ridge_stack_cap_m": {
+      "value": [
+        0.1,
+        0.12
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Cameron depicts a projecting dark top on the short roof-piercing shaft, supporting the cap's occurrence/profile as inferred. Projection0.10m on every shaft side and thickness0.12m are reconstructed first fits, including the unseen depth and masonry treatment; no metric or original color is read from the monochrome surrogate. The cap occupies the existing head's top band, preserving the stated0.75m total head,0.65m shaft, count and ridge station."
     },
     "function": {
       "value": "store",

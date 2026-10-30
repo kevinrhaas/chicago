@@ -208,6 +208,25 @@
             "cameron_c1900_first_post_office"
           ],
           "note": "Provisional 0.75 m head rather than the generic 0.95 m, bounded by the short roof-piercing stack silhouette in Cameron. Not a measurement; painting perspective and unknown cap details remain unresolved. Shaft width and ridge station are unchanged."
+        },
+        "end_gable_courses": {
+          "value": "+x",
+          "confidence": "inferred",
+          "sources": [
+            "cameron_c1900_first_post_office"
+          ],
+          "note": "Horizontal courses are visible across Cameron's retrospective gable around its framed rectangle; the local +X assignment follows the existing diagnostic view, not a surveyed compass bearing. This replaces the smooth roof-material triangle only on that visible end. The picture does not resolve log versus board fabric. The generator's 0.20m course rhythm, 8mm joints, 12mm relief and neutral timber treatment are reconstructed first fits, not measured historic fabric. Footprint, roof envelope, hidden end and existing hatch remain unchanged."
+        },
+        "ridge_stack_cap_m": {
+          "value": [
+            0.1,
+            0.12
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "cameron_c1900_first_post_office"
+          ],
+          "note": "Cameron depicts a projecting dark top on the short roof-piercing shaft, supporting the cap's occurrence/profile as inferred. Projection0.10m on every shaft side and thickness0.12m are reconstructed first fits, including the unseen depth and masonry treatment; no metric or original color is read from the monochrome surrogate. The cap occupies the existing head's top band, preserving the stated0.75m total head,0.65m shaft, count and ridge station."
         }
       },
       "change_note": "The log store standing at the west end of the Lake Street block when the United States established a post office at Chicago on 31 March 1831, and for three years the building that held it: partitioned into a post office on one side and the store of Brewster, Hogan & Co. on the other, with John Bates Jr. sorting the mail from 1833. The post office moved out to Franklin and South Water about July 1834; that is a change of USE and does not open a new phase, and it is why this building is not the post office on the scene date."

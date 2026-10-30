@@ -1712,9 +1712,9 @@
       "family": "C4",
       "street": "market_north",
       "class": "light",
-      "setback_m": 60.66,
+      "setback_m": 54.66,
       "measured": [
-        "stands 60.66 m off the street line (2.71 m), and commercial_front puts it on the line",
+        "stands 54.66 m off the street line (2.71 m), and commercial_front puts it on the line",
         "stands on a light street, which commercial_front avoids"
       ],
       "reason": "on the north bank, at the forks. It is nearest Market Street's north-bank corridor at 60.66 m since T-1191 and was nearest South Water's line at 138 m across the river before it; neither is a face this house takes."

@@ -4355,30 +4355,22 @@ for (const [label, viewport, touch] of [
           else if (v < 1) notReconstructed++;
         }
       }
-      // T-0064. Sixty-eight wagons against a hundred thousand vertices is seven
-      // million distance tests if it is written the obvious way, so the wagons go
-      // into 8 m buckets first and each vertex only asks the nine buckets round it.
-      const BUCKET = 8;
-      const wagonGrid = new Map();
-      wagons.forEach((wg, i) => {
-        const at = wg.at_local_enu_m;
-        const key = `${Math.floor(at[0] / BUCKET)},${Math.floor(at[1] / BUCKET)}`;
-        if (!wagonGrid.has(key)) wagonGrid.set(key, []);
-        wagonGrid.get(key).push(i);
-      });
-      const wagonNear = (e, n) => {
-        const ce = Math.floor(e / BUCKET);
-        const cn = Math.floor(n / BUCKET);
-        for (let de = -1; de <= 1; de++) {
-          for (let dn = -1; dn <= 1; dn++) {
-            for (const i of wagonGrid.get(`${ce + de},${cn + dn}`) ?? []) {
-              const at = wagons[i].at_local_enu_m;
-              if (Math.hypot(e - at[0], n - at[1]) <= 4.6) return wagons[i];
-            }
-          }
-        }
-        return null;
-      };
+      // A bench beside the moved Green Tree shed is within the wagon's old
+      // search radius, and one end enters the shed's diagnostic rectangle. Read
+      // the ranges actually emitted for each object, never a proximity guess.
+      const objects = new Map([
+        ...wagons.map((object) => [object.id, { wagon: object }]),
+        ...benches.map((object) => [object.id, { bench: object }]),
+        ...sheds.map((object) => [object.id, { shed: object }]),
+      ]);
+      const allObjectOwners = new Map(meshes.map((m) => [m.geometry,
+        (m.userData.yardObjectSpans ?? []).map((span) => ({
+          ...span, object: objects.get(span.id),
+        }))]));
+      const objectSpans = [...allObjectOwners.values()].flat();
+      const objectOwnershipExact = objectSpans.length === objects.size
+        && new Set(objectSpans.map((span) => span.id)).size === objects.size
+        && objectSpans.every((span) => span.object && span.to > span.from);
       // Measure the exact vertices emitted for each lot item. The old radius
       // classifier absorbed nearby wagons/trade goods into bridge repair piles.
       // Ownership includes every emitted vertex, so a displaced pile fails its
@@ -4503,6 +4495,8 @@ for (const [label, viewport, touch] of [
         let ownerIndex = 0;
         const objectOwners = exactOwners.get(geo) ?? [];
         let objectIndex = 0;
+        const allObjectRanges = allObjectOwners.get(geo) ?? [];
+        let allObjectIndex = 0;
         for (let i = 0; i < pos.count; i++) {
           while (ownerIndex < owners.length && i >= owners[ownerIndex].to * 3) ownerIndex++;
           const owner = owners[ownerIndex];
@@ -4536,7 +4530,7 @@ for (const [label, viewport, touch] of [
             const sh = sheds.find((s) => s.id === owned.record.under_shed);
             // Preserve the original tongue rule: owned wagon vertices beyond
             // its bay remain wagon geometry rather than inflating the roof.
-            if (sh && inShedBay(sh, shedFrame(sh, e, n))) measureShedPoint(sh, e, n, pos.getY(i));
+            if (sh && Math.abs(shedFrame(sh, e, n).along) <= (sh.length_m ?? 0) / 2 + 0.4) measureShedPoint(sh, e, n, pos.getY(i));
             else wagonVerts++;
             continue;
           }
@@ -4562,6 +4556,23 @@ for (const [label, viewport, touch] of [
             }
             continue;
           }
+          // Retain the tagged-owner checks and controls above, then classify any
+          // remaining primitive through its independently emitted exact range.
+          while (allObjectIndex < allObjectRanges.length && i >= allObjectRanges[allObjectIndex].to * 3) allObjectIndex++;
+          const allObjectRange = allObjectRanges[allObjectIndex];
+          const primitive = allObjectRange && i >= allObjectRange.from * 3
+            && i < allObjectRange.to * 3 ? allObjectRange.object : null;
+          if (primitive?.bench) {
+            const bn = primitive.bench;
+            benchVerts++;
+            benchStray = Math.max(benchStray, Math.hypot(e - bn.at_local_enu_m[0], n - bn.at_local_enu_m[1]));
+            const b = ((bn.bearing_deg ?? 0) * Math.PI) / 180;
+            benchInside = Math.min(benchInside,
+              (e - bn.at_local_enu_m[0]) * Math.sin(b) + (n - bn.at_local_enu_m[1]) * Math.cos(b));
+            continue;
+          }
+          if (primitive?.shed) { measureShedPoint(primitive.shed, e, n, pos.getY(i)); continue; }
+          if (primitive?.wagon) { wagonVerts++; continue; }
           const ob = obAt(e, n);
           if (ob) {
             obVerts++;
@@ -4572,10 +4583,6 @@ for (const [label, viewport, touch] of [
             obHigh = Math.max(obHigh, ob.maxY - ob.minY);
             continue;
           }
-          // A wagon is 3 m of body and a 2.75 m tongue, so it is measured by its
-          // own bound rather than lumped in with the casks.
-          const w = wagonNear(e, n);
-          if (w) { wagonVerts++; continue; }
           let best = null;
           let bestD = Infinity;
           for (const it of items) {
@@ -4643,6 +4650,8 @@ for (const [label, viewport, touch] of [
         worstStray,
         worstInside,
         wagonVerts,
+        objectOwnershipExact,
+        objectSpans: objectSpans.length,
         benchVerts,
         benchStray,
         benchInside,
@@ -4827,6 +4836,9 @@ for (const [label, viewport, touch] of [
         && goods.wagon?.clearance_m >= 1.6,
       `${goods.wagonVerts} wagon vertices, ${goods.wagon?.clearance_m} m clear in `
       + `${goods.wagon?.in_enclosure}`);
+    check(`${label}: every wagon, bench and shed owns its exact emitted triangle range`,
+      goods.objectOwnershipExact,
+      `${goods.objectSpans} primitive ownership range(s)`);
     // T-0080. The Green Tree's two, from the Trowbridge view: they stand square
     // to the inn's rear wall — the bearing is the facade's own plus 180 — and
     // every one of them cleared the committed walls by the margin a parked wagon

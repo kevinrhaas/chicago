@@ -22,6 +22,9 @@
  *   3. a registry conflict beside a REAL one — left alone, the registry step never run.
  *   4. case 1 again with the registry step cut out of the lap — it must be left alone,
  *      so this suite is shown to see the thing it tests.
+ *   5. a full derived rebuild beside the registries survives the later generated-file
+ *      checkout and is pushed from both cleanly merged authored inputs.
+ *   6. a real authored conflict still refuses that rebuild and leaves the branch alone.
  */
 import { mkdtempSync, mkdirSync, writeFileSync, chmodSync, rmSync, readFileSync, copyFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -60,7 +63,7 @@ function writeRegistries(work, assets) {
   writeFileSync(path.join(dir, 'manifest.web.json'), `${JSON.stringify(web, null, 2)}\n`);
 }
 
-function runLap({ ours, theirs, lapSource = null, clash = false }) {
+function runLap({ ours, theirs, lapSource = null, clash = false, derived = false }) {
   const box = mkdtempSync(path.join(tmpdir(), 'prlapreg-'));
   const bare = path.join(box, 'remote.git');
   const work = path.join(box, 'work');
@@ -79,6 +82,33 @@ function runLap({ ours, theirs, lapSource = null, clash = false }) {
   // The derived layer owns nothing here: --resolvable says no, --run and --tail succeed.
   writeFileSync(path.join(tools, 'rederive.mjs'),
     "if (process.argv.includes('--resolvable')) process.exit(1);\nprocess.exit(0);\n");
+  if (derived) {
+    // Only this enumerated output is resolvable. Full regeneration reads the
+    // genuinely merged authored source; the scene tail does not own this file.
+    writeFileSync(path.join(tools, 'rederive.mjs'), `
+import { readFileSync, writeFileSync } from 'node:fs';
+if (process.argv.includes('--resolvable')) {
+  const paths = process.argv.slice(process.argv.indexOf('--resolvable') + 1);
+  process.exit(paths.length && paths.every(p => p === 'chicago/4d/data/liberties.json') ? 0 : 1);
+}
+if (process.argv.includes('--run')) {
+  const source = readFileSync('docs/LIBERTIES.md', 'utf8');
+  writeFileSync('data/liberties.json', JSON.stringify({pr: source.includes('PR: yes'), dev: source.includes('DEV: yes')}) + '\\n');
+}
+`);
+    mkdirSync(path.join(work, 'chicago/4d/docs'), { recursive: true });
+    mkdirSync(path.join(work, 'chicago/4d/data'), { recursive: true });
+  }
+  const derivedSource = (pr, dev) => `# fixture liberties\nPR: ${pr ? 'yes' : 'no'}\n${'unchanged evidence\n'.repeat(12)}DEV: ${dev ? 'yes' : 'no'}\n`;
+  const writeDerived = (pr, dev) => {
+    if (!derived) return;
+    writeFileSync(path.join(work, 'chicago/4d/docs/LIBERTIES.md'), derivedSource(pr, dev));
+    writeFileSync(path.join(work, 'chicago/4d/data/liberties.json'), JSON.stringify({pr, dev}) + '\n');
+    const generated = path.join(work, 'chicago/4d/renderers/web/js');
+    mkdirSync(generated, { recursive: true });
+    writeFileSync(path.join(generated, 'changelog.js'), pr ? 'PR generated\n' : dev ? 'dev generated\n' : 'base generated\n');
+  };
+  writeDerived(false, false);
   writeFileSync(path.join(tools, 'publish.sh'), '#!/usr/bin/env bash\nmkdir -p ../../site/4d\necho published\n');
   writeFileSync(path.join(tools, 'ticket.mjs'), 'process.exit(0);\n');
   writeFileSync(path.join(tools, 'stamp-changelog.mjs'), 'process.exit(0);\n');
@@ -93,6 +123,7 @@ function runLap({ ours, theirs, lapSource = null, clash = false }) {
 
   git(work, 'checkout', '--quiet', '-b', 'steward/t-9999');
   writeRegistries(work, { ...base, ...ours });
+  writeDerived(true, false);
   if (clash) writeFileSync(path.join(work, 'chicago', '4d', 'source.txt'), 'the PR\'s reading\n');
   git(work, 'add', '-A');
   git(work, 'commit', '--quiet', '-m', 'the PR baked its structure');
@@ -101,6 +132,7 @@ function runLap({ ours, theirs, lapSource = null, clash = false }) {
 
   git(work, 'checkout', '--quiet', 'dev');
   writeRegistries(work, { ...base, ...theirs });
+  writeDerived(false, true);
   if (clash) writeFileSync(path.join(work, 'chicago', '4d', 'source.txt'), 'dev\'s reading\n');
   git(work, 'add', '-A');
   git(work, 'commit', '--quiet', '-m', 'dev baked another');
@@ -124,10 +156,13 @@ exit 0
   };
   const manifest = show('chicago/4d/assets/manifest.json');
   const web = show('chicago/4d/assets/manifest.web.json');
+  const rebuilt = show('chicago/4d/data/liberties.json');
+  const authored = show('chicago/4d/docs/LIBERTIES.md');
+  const generated = show('chicago/4d/renderers/web/js/changelog.js');
   rmSync(box, { recursive: true, force: true });
   const out = `${r.stdout || ''}${r.stderr || ''}`;
   return { code: r.status, out, summary: (out.match(/^PR lap: .*$/m) || ['no summary line'])[0],
-           moved: after !== branchHead, manifest, web };
+           moved: after !== branchHead, manifest, web, rebuilt, authored, generated };
 }
 
 console.log('pr-lap.sh — the asset registries merge entry by entry (T-2892)');
@@ -178,6 +213,27 @@ console.log('pr-lap.sh — the asset registries merge entry by entry (T-2892)');
                      lapSource: raw.replace(GUARD, 'false') });
   check('without it the PR is left alone for a REAL CONFLICT', /left-alone=1/.test(r.out) && /REAL CONFLICT/.test(r.out), r.summary);
   check('…and the branch does not move', !r.moved);
+}
+
+/* 5. A derived conflict beside the registries: the full rebuild must survive
+ *    the later generated-conflict checkout. Both authored edits merge cleanly. */
+{
+  const r = runLap({ ours: { 'a.glb': 11, 'b2.glb': 22 }, theirs: { 'b1.glb': 21, 'c.glb': 33 }, derived: true });
+  check('a derived conflict actually runs the full rebuild', /conflict\(s\) in the derived research layer/.test(r.out));
+  check('the real lap pushes its merge', /pushed=1/.test(r.out) && r.moved, r.summary);
+  check('both independent authored edits survive', r.authored && r.authored.includes('PR: yes') && r.authored.includes('DEV: yes'));
+  check('the pushed derived artifact reflects both merged inputs', r.rebuilt === JSON.stringify({pr: true, dev: true}) + '\n', r.rebuilt && r.rebuilt.trim());
+  check('unrelated generated conflicts retain their existing ours-then-regenerate handling', r.generated === 'PR generated\n');
+  const m = JSON.parse(r.manifest);
+  check('the accompanying registry union survives the rebuild', m.assets['b1.glb'].bytes === 21 && m.assets['b2.glb'].bytes === 22);
+}
+
+/* 6. A true conflict still refuses the whole merge before any full rebuild. */
+{
+  const r = runLap({ ours: { 'b.glb': 12 }, theirs: { 'b.glb': 13 }, derived: true, clash: true });
+  check('an authored conflict beside derived outputs is still refused', /left-alone=1/.test(r.out) && /REAL CONFLICT/.test(r.out), r.summary);
+  check('the refused branch stays unchanged', !r.moved);
+  check('the unsafe full rebuild never runs', !/conflict\(s\) in the derived research layer/.test(r.out));
 }
 
 console.log(failures ? `\n${failures} FAILED` : '\nall passed');
