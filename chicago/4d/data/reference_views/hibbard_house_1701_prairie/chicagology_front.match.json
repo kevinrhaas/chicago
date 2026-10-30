@@ -2,7 +2,7 @@
   "structure_id": "hibbard_house_1701_prairie",
   "view": "chicagology_front",
   "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
-  "glb_sha256": "500e4e1d434d74a2cf48c4548f5627ad4a0110fcf8c158609732edd4a788e179",
+  "glb_sha256": "3f73ef678cad54cfa880f8e4b88bde0c6aa857298bb9001f349dbf07d7c5c896",
   "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
   "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
   "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
@@ -55,8 +55,18 @@
     },
     {
       "what": "the entrance: a tall dark round arch between the porch and the bay",
+      "status": "fixed",
+      "how": "T-3256: K07's round-headed pair of leaves (double_door_deep_arch) in a 0.95 m reveal under K01's door arch, 2.2 m across with its crown 3.6 m over the principal floor (about 5.6 m over grade), a 0.25 m light stone ring round it and a small key at the crown, at the head of a stoop widened to the arch. Its north jamb renders at x about 502 px on the photograph's 510, its crown at y about 715 on the photograph's 710; the engraving draws the same tall arch with a light surround beside the porch."
+    },
+    {
+      "what": "the entrance arch's south half and the stone pier between it and the bay: the photograph shows the whole arch and a pier about 1 m broad before the bay, where the render's bay hides the arch south of about v 7.3",
       "status": "open",
-      "how": "the porch now stands beside it (T-3241), but the arch is not built: K07's round-arched door (double_door_deep_arch) is laid only in a K02 stone front's courses, and this front is brick, so the kit's panelled door stands under a flat head at the head of its stoop"
+      "how": "T-3256: the arch is laid where the photograph has it (v about 5.9-8.1); the bay is laid between the 1911 sheet's place (v 8.3-11.0) and the photograph's (v 9.1-13.7), as the record's bays note says (T-3240), so its front face stands about 0.8 m north of the picture's and covers the arch's south half from this camera. Moving the bay is the bay's own question, not the entrance's."
+    },
+    {
+      "what": "the entrance arch's mouth: the photograph's is black, its leaves lost in shadow; the render's reads as the reveal's lit stone",
+      "status": "within tolerance",
+      "how": "T-3256: the leaves stand 1.35 m back in the reveal and vestibule; the viewer's overcast light reaches into every recess in this view alike (the porch's arcade reads the same), so the difference is the render's shadow depth, not the arch's form or fabric."
     },
     {
       "what": "the cast-iron fence of interlaced loops on a stone curb along the street line, its gate pier",
