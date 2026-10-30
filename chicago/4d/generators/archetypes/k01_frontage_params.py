@@ -2252,11 +2252,12 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # under it (k01_frontage `chamfer_spans`). width_m stays the pavilion's whole width
             ch = q.get("chamfer")
             if ch is not None:
-                if not isinstance(ch, dict) or set(ch) != {"corner", "along_m", "behind_m"} \
+                if not isinstance(ch, dict) or not {"corner", "along_m", "behind_m"} <= set(ch) \
+                        or set(ch) - {"corner", "along_m", "behind_m", "top_m"} \
                         or ch["corner"] not in ("left", "right") or not v.get("shallow") \
                         or e.get("flush_corner") != ch["corner"]:
                     raise ParamError(f"bays: {e['id']}'s chamfer takes corner (left or right), along_m and "
-                                     f"behind_m, on a shallow pavilion flush with that corner")
+                                     f"behind_m (and top_m), on a shallow pavilion flush with that corner")
                 ca, cb = float(ch["along_m"]), float(ch["behind_m"])
                 # T-3108: further on a chamfer a round bay stands on, which closes the cut in front
                 rb = e["id"] in carried
@@ -2272,6 +2273,10 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 else:
                     pts[0], pts[1] = [-w / 2, -cb], [-w / 2 + ca, d]
                 v["plan"]["side_end"] = ch["corner"]
+                # T-1890: the canted face's wall may stop under a cornice short of the wall top,
+                # the house's mansard carried down over it (1801's, HABS photograph 1); K08 bounds it
+                if "top_m" in ch:
+                    v["plan"]["chamfer_top_m"] = float(ch["top_m"])
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),

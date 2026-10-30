@@ -194,6 +194,21 @@ def _cant_inside(b):
                             for x0, z0, ex, ez, L, nx, nz in strips)
 
 
+def _chamfer_cheek(b, v):
+    """T-1890: over a canted face stopped under its cornice (`plan.chamfer_top_m`, 1801's over
+    its round bay), the front's end carried on up as a stone cheek in its own plane, from the
+    cornice to the wall top and back no further than the cant runs behind the face: K01 lays
+    the house's slate against it there, uncut over the cant. None without one."""
+    ct = v["plan"].get("chamfer_top_m")
+    side = v["plan"].get("side_end")
+    if ct is None or not side:
+        return None
+    pts = v["plan"]["points"]
+    x, zb = (pts[2][0], pts[3][1]) if side == "right" else (pts[1][0], pts[0][1])
+    top = b.meta["wall_top_m"]
+    return lambda p: abs(p[0] - x) < 1e-6 and ct - 1e-6 <= p[1] <= top + 1e-6 and p[2] >= zb - 1e-6
+
+
 def rule_keyed(b, v):
     fails = []
     inside = _across_inside(b)
@@ -253,8 +268,10 @@ def rule_keyed(b, v):
     # the plane (its host opens its face round the recesses), no deeper than a recess reaches
     through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
     cant = _cant_inside(b)
+    cheek = _chamfer_cheek(b, v)
     cut = (lambda p: (corner[0] <= p[0] <= corner[1] and p[2] >= corner[2])
-           or (cant is not None and p[2] < 0.0 and cant(p[0], p[2]))) if corner else (lambda p: False)
+           or (cant is not None and p[2] < 0.0 and cant(p[0], p[2]))
+           or (cheek is not None and cheek(p))) if corner else (lambda p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
                 if not cut(p)), default=(0.0, None))
@@ -272,9 +289,11 @@ def rule_keyed(b, v):
         far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
         if far > reach + 1e-6:
             fails.append(f"behind: a whole cap reaches {far:.4f} m from its axis, past its eaves' {reach:.4f} m")
-    # the outer wall on the declared plan
+    # the outer wall on the declared plan (T-1890: but a stopped cant's cheek, over it)
     off = 0.0
     for p in b.prims["wall"].pos:
+        if cheek is not None and cheek(p):
+            continue
         off = max(off, min(plan_distance(r, p) for r in b.runs + b.stage_runs))
     if off > 2e-4:
         fails.append(f"footprint: the outer wall stands {off * 1000:.1f} mm off its declared plan")
