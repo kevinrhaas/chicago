@@ -34904,6 +34904,10 @@ roof's form are the photograph's. **How to resolve:** T-3193 solves the Inland p
 8 m up, its horizon on the range's parapet) and the south-west view's, and either confirms or moves the
 arcade's length, the belvedere and the east section; the c. 1905 CHM negative i70232 (`a16-chm-clark-i70232-
 pullman-addition`, not in the image store) would date the east section against 1904.
+**Withdrawn in part, 2026-10-30 (T-1934):** the east section (r5) is taken off. The owner: "you have a side on the
+stable that is facing the lake that i think is not in that pic". Taylor's 16554, which looks at that end from the
+south-east, shows the front ending at the stack under the hip's own end, and the 1911 sheet draws nothing there;
+what 16555 shows past the hip is the east hip's foot seen along the front. The rest of this liberty stands.
 **Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
 **Ticket:** T-3192 (piece 1 of T-3178).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
@@ -35773,6 +35777,13 @@ The place, plan, heights, the openings and the terrace's size stay L-pullman-pal
 supersedes that entry's octagonal shafts, solid balustrades and plain ashlar; the rest of it stands.
 **How to resolve:** a measured drawing of the palm house, or a sharper print of the colonnade and the
 balustrades.
+**Added 2026-10-30 (T-1934, the owner on Taylor's 16554: "the center white area currently is probably more like
+the color of the rest of the house", "a fair amount of detail work to do on the glass atrium").** The palm house's
+stone (podium, columns, entablature, balustrade, collar, terrace and flight) takes the stable's dressed-stone shade
+(0.372, 0.335, 0.27), as every picture prints it in the walls' tone; the hue is the draft's, which no monochrome
+print can test. Each bay of glass between the columns is crossed by horizontal bars about 0.55 m apart and a
+deeper transom at 5.2 m, as 16554 and the 1894 plate show a grid of panes; the spacing and the transom's height are
+invented.
 **Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`
 **Ticket:** T-1934.
 **Recorded:** 2026-10-28 (T-1934).
@@ -35921,6 +35932,15 @@ Street front and 4.60 m on the west face, where the lower slope (steeper there) 
 The plan, the heights of the walls, cornices, deck and belvedere, and the openings' places are T-3192's and
 T-3193's. **How to resolve:** a full-size copy of the c. 1905 CHM negative i70232 would show the cresting and
 the bay's cap at a usable size.
+**Added 2026-10-30 (T-1934, the owner on Taylor's 16554: "the stable is still not have much surface detail",
+"the cupola on the stable also").** The walls are laid as ashlar: a bed joint every 0.45 m and head joints
+breaking joint course over course on stones of 0.8-1.3 m, in a joint a shade under the stone; no picture resolves
+a joint, so the course, the stones' lengths and the joint's tone are invented. The windows stand in raised
+architraves (0.14 m, 0.07 m proud) over projecting sills (0.12 m) under a 0.22 m lintel, each a pair of lights
+divided by a stone mullion with dark sash and a meeting rail: 16554 and the plate show paired lights in plain
+surrounds over deep sills, and their sections are invented. The lantern becomes the cupola 16554 shows: an
+octagonal drum of round-headed lights on a 0.3 m plinth, under a ribbed bell dome and a ball finial; its
+proportions are read off the print at 21.8 px/m, its profile, ribs and lights' shape are invented.
 **Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
@@ -36897,3 +36917,20 @@ fabric.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+
+### L-kimball-1801-cone-slate-1890 — 1801 Prairie's tower and turret cones slated in the mansard's own coursed slate
+**Recorded:** 2026-10-30.
+
+**Decision:** the W. W. Kimball house's round tower on the 18th Street flank and the east range's
+north-east turret (`bays.tower`, `bays.turret`, T-1890) are slated as the house (`roof.slated_as_house`):
+their cones wear the mansard's own textured Pennsylvania slate, laid in courses round each cone and up
+its slope from its eaves, where the K08 kit's plain slate colour had rendered both as smooth grey
+cones far paler than the roof beside them. **What is read, not invented.** J. W. Taylor's photograph
+of c. 1895 (`taylor_c1895_kimball_residence_1801`) shows the tower's cone in small slates in level
+courses, the same tone and texture as the mansard's faces, and HABS photograph 2 (1965,
+`habs_kimball_photo_02_nw_1965`) shows the turret's cone and the tower's the same way.
+**What is invented or held by the kit.** The slates' size and exposure are the house's K04 slate's;
+on the cones they are mapped round the apex so each course closes on itself, the slates narrowing
+toward the apex as a cone's tapered slates do. How the real slates were cut and laid at the apex is
+not read; the pictures show only the courses and the tone.
+**How to resolve:** a nearer photograph of either cone, or a slater's account of the house.
