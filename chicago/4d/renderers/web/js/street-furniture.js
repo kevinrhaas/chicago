@@ -15,9 +15,7 @@
  * levels by distance from the eye: the near set at full detail (foot, collar, leafed
  * boss, shaft, capital, ladder bar, bent arms, tapered lantern, waist band, glazed top
  * and cap; T-3219 and T-3231, read off the 1811 photograph) casting the sun's shadow, and the
- * far set as a plain post and lantern that casts none. A lamp whose class the file gives a
- * model of its own (`model_by_class`: T-1934's globe post, Pullman's on 18th Street) is drawn
- * the same way from that model's parts. Past the far ring a lamp is not
+ * far set as a plain post and lantern that casts none. Past the far ring a lamp is not
  * drawn. The phone's `light` tier pulls both rings in and casts nothing. The sets are
  * re-dealt only when the eye has moved a few metres, from a list of about a hundred.
  * No binary asset: the post is built here, to the measures the data file states.
@@ -227,63 +225,6 @@ function lampGeometry(m) {
   return { near, far };
 }
 
-/**
- * The globe lamp post (T-1934), in the post's own frame: Pullman's at the 18th Street walk's turn
- * into Calumet Avenue, as Taylor's no. 16554 shows it. A plain post on a plain base, painted
- * pale, a small bar a third of the way down, a slim neck into a fitter, a wide shallow globe and
- * a small cap. `m` is the data file's `model_by_class.globe_post`. Returns { paint, iron, opal }
- * for the near level and the far level.
- */
-function globeLampGeometry(m) {
-  const H = m.height_m ?? 4.9;
-  const base = m.base_m ?? { r: 0.1, to: 0.5 };
-  const [rS0, rS1] = m.shaft_r_m ?? [0.075, 0.06];
-  const bar = m.ladder_bar_m ?? { at: 3.3, w: 0.3 };
-  const neck = m.neck_m ?? { from: 3.95, to: 4.33, r: 0.04 };
-  const globe = m.globe_m ?? { centre: 4.52, r: 0.29, ry: 0.19 };
-  const cap = m.cap_m ?? { from: 4.7, r: 0.08 };
-  const gTop = globe.centre + globe.ry;
-  // The globe: a sphere pressed flat, its foot sitting in the fitter on the neck.
-  const ball = (seg, rings) => {
-    const g = new THREE.SphereGeometry(globe.r, seg, rings);
-    g.scale(1, globe.ry / globe.r, 1);
-    g.translate(0, globe.centre, 0);
-    return g;
-  };
-  const post = (seg) => lathe([
-    [0, 0], [base.r + 0.02, 0], [base.r + 0.02, 0.05], [base.r, 0.08], [base.r, base.to - 0.04],
-    [rS0 + 0.015, base.to], [rS0, base.to + 0.03], [rS1, neck.from - 0.04], [rS1 + 0.01, neck.from - 0.02],
-    [rS1 + 0.01, neck.from], [neck.r, neck.from + 0.03], [neck.r, neck.to], [0, neck.to],
-  ], seg);
-  const near = {
-    paint: merge([post(16)]),
-    iron: merge([
-      // The bar, across the post along the street, its ends knobbed.
-      at(new THREE.BoxGeometry(bar.w, 0.022, 0.022), bar.at),
-      ...[1, -1].map((s) => { const g = new THREE.SphereGeometry(0.018, 6, 4); g.translate(s * bar.w / 2, bar.at, 0); return g; }),
-      // The fitter: a cup on the neck that holds the globe's foot.
-      at(new THREE.CylinderGeometry(globe.r * 0.42, neck.r + 0.01, globe.centre - globe.ry * 0.7 - neck.to, 12), (neck.to + globe.centre - globe.ry * 0.7) / 2),
-      // The cap over the globe's crown, and its knob.
-      lathe([[0, cap.from], [cap.r, cap.from], [cap.r * 0.9, cap.from + (H - cap.from) * 0.35],
-        [cap.r * 0.4, H - 0.06], [0.02, H - 0.05], [0, H - 0.05]], 12),
-      at(new THREE.SphereGeometry(0.025, 8, 5), H - 0.025),
-      // The ring under the cap where it closes on the globe's crown.
-      at(new THREE.CylinderGeometry(cap.r * 0.95, cap.r * 0.95, 0.02, 12), Math.max(cap.from, gTop - 0.03)),
-    ]),
-    opal: merge([ball(20, 10)]),
-  };
-  const far = {
-    paint: merge([
-      at(new THREE.CylinderGeometry(rS1, base.r, neck.to, 6), neck.to / 2),
-    ]),
-    iron: merge([
-      at(new THREE.CylinderGeometry(cap.r * 0.4, cap.r, H - cap.from, 6), (H + cap.from) / 2),
-    ]),
-    opal: merge([ball(8, 5)]),
-  };
-  return { near, far };
-}
-
 function footingGeometry(m) {
   const f = m.footing_m ?? { w: 0.8, h: 0.02 };
   // A stone pad level with the walk, not a pedestal (T-3231: Taylor 2135's post stands on
@@ -416,9 +357,6 @@ function itemCard(it, doc) {
   const what = kind.what_by_class?.[it.class] ?? kind.what ?? 'A street lamp';
   const ruleNote = kind.rule_note_by_class?.[it.class] ?? kind.rule_note ?? '';
   const name = kind.name_by_class?.[it.class] ?? kind.name ?? 'street lamp';
-  const form = kind.form_by_class?.[it.class] ?? kind.form ?? '';
-  const formNote = kind.form_note_by_class?.[it.class] ?? kind.form_note ?? '';
-  const formSources = kind.form_sources_by_class?.[it.class] ?? kind.form_sources ?? [];
   const pictures = (it.sources ?? []).map((id) => titleOf(doc, id));
   return {
     id: it.id,
@@ -437,14 +375,14 @@ function itemCard(it, doc) {
       attributes: {
         kind: {
           value: name, confidence: kind.form_grade ?? 'inferred',
-          sources: formSources, note: `${form} ${formNote}`.trim(),
+          sources: kind.form_sources ?? [], note: `${kind.form ?? ''} ${kind.form_note ?? ''}`.trim(),
         },
         position: {
           value: where, confidence: it.grade, sources: it.sources ?? [],
           note: attested ? (it.note ?? '') : `${place.note_by_class?.[it.class] ?? place.note ?? ''} ${it.liberty ?? ''}`.trim(),
         },
       },
-      citations: citationsOf(doc, [...(it.sources ?? []), ...formSources]),
+      citations: citationsOf(doc, [...(it.sources ?? []), ...(kind.form_sources ?? [])]),
       research_doc: 'docs/RESEARCH/prairie_1904_street_furniture.md',
       research_note: `Item ${it.id} of data/street_furniture/1904.json (${kind.ticket ?? 'T-3199'}). ${it.liberty ?? ''}`.trim(),
     },
@@ -493,12 +431,7 @@ export async function createStreetFurniture({
   const footH = model.footing_m?.h ?? 0.02;
   const hydrantModel = doc.kinds?.fire_hydrant?.model_m ?? {};
   const hydrant = hydrantGeometry(hydrantModel);
-  // A lamp whose class has a model of its own (T-1934: the globe post) is drawn with it;
-  // every other lamp is the one post.
-  const lampModels = doc.kinds?.gas_lamp?.model_by_class ?? {};
-  const globes = Object.fromEntries(Object.entries(lampModels).map(([c, m]) => [c, globeLampGeometry(m)]));
   const isLamp = (it) => it.kind === 'gas_lamp';
-  const isPost = (it) => isLamp(it) && !globes[it.class];
   const isHydrant = (it) => it.kind === 'fire_hydrant';
   const isPole = (it) => it.kind === 'utility_pole';
   const poleModels = doc.kinds?.utility_pole?.model_m ?? {};
@@ -522,21 +455,12 @@ export async function createStreetFurniture({
     // Creosoted cedar, weathered; the insulators are the usual green glass.
     wood: new THREE.MeshStandardMaterial({ color: 0x5a4a3a, roughness: 0.95, metalness: 0 }),
     insulator: new THREE.MeshStandardMaterial({ color: 0x7fa596, roughness: 0.2, metalness: 0.05 }),
-    // The globe post's paint: Taylor 16554 prints it lighter than the sunlit stone behind it.
-    paint: new THREE.MeshStandardMaterial({ color: 0xd2cec2, roughness: 0.55, metalness: 0.05 }),
-    // Its globe: lit above and dark beneath in the print, so a milky glass, not a clear one.
-    opal: new THREE.MeshStandardMaterial({ color: 0xeeeeea, roughness: 0.3, metalness: 0, transparent: true, opacity: 0.92 }),
   };
   for (const [k, m] of Object.entries(mats)) { m.name = `street-furniture-${k}`; confidence?.patch(m); }
   const parts = [
-    { name: 'lamp-iron', geo: lamp, key: 'iron', mat: mats.iron, lift: (it) => (it.footing ? footH : 0), on: isPost, body: true },
-    { name: 'lamp-tin', geo: lamp, key: 'tin', mat: mats.tin, lift: (it) => (it.footing ? footH : 0), on: isPost },
-    { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: isPost },
-    ...Object.entries(globes).flatMap(([c, geo]) => [
-      { name: `lamp-${c}-paint`, geo, key: 'paint', mat: mats.paint, lift: (it) => (it.footing ? footH : 0), on: (it) => isLamp(it) && it.class === c, body: true },
-      { name: `lamp-${c}-iron`, geo, key: 'iron', mat: mats.iron, lift: (it) => (it.footing ? footH : 0), on: (it) => isLamp(it) && it.class === c },
-      { name: `lamp-${c}-opal`, geo, key: 'opal', mat: mats.opal, lift: (it) => (it.footing ? footH : 0), on: (it) => isLamp(it) && it.class === c },
-    ]),
+    { name: 'lamp-iron', geo: lamp, key: 'iron', mat: mats.iron, lift: (it) => (it.footing ? footH : 0), on: isLamp },
+    { name: 'lamp-tin', geo: lamp, key: 'tin', mat: mats.tin, lift: (it) => (it.footing ? footH : 0), on: isLamp },
+    { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-footing', geo: footing, key: null, mat: mats.stone, lift: () => 0, on: (it) => !!it.footing },
     { name: 'hydrant', geo: hydrant, key: null, mat: mats.hydrant, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
     ...Object.values(poles).flatMap(({ classes, geo }) => [
@@ -576,7 +500,6 @@ export async function createStreetFurniture({
   }
   for (const g of [lamp.near.iron, lamp.near.tin, lamp.near.glass, lamp.far.iron, lamp.far.tin, lamp.far.glass, footing.near, footing.far,
     hydrant.near, hydrant.far]) g.dispose();
-  for (const g of Object.values(globes)) for (const l of [g.near, g.far]) for (const x of Object.values(l)) x.dispose();
   for (const { geo: g } of Object.values(poles)) for (const l of [g.near, g.far]) for (const x of [l.wood, l.glass]) x?.dispose();
 
   /* ---- the wires (T-3202): one static set of line segments, off on light -- */
@@ -677,7 +600,7 @@ export async function createStreetFurniture({
         mesh.computeBoundingSphere();
         calls += 1;
         triangles += k * (mesh.geometry.attributes.position.count / 3);
-        if (part.body) { if (level === 'near') nearN += k; else farN += k; }
+        if (part.name === 'lamp-iron') { if (level === 'near') nearN = k; else farN = k; }
         if (part.name === 'hydrant') hydN += k;
         if (part.name.startsWith('pole-') && part.name.endsWith('-wood')) poleN += k;
       }
@@ -728,7 +651,7 @@ export async function createStreetFurniture({
       const yy = o.y + d.y * tt;
       // The column is thin; the pick takes a lantern's width so a post can be hit.
       const r = isP ? 0.25 : (hyd ? 0.24 : (yy > p.y + lift + 2.3 ? 0.26 : 0.16));
-      const top = isP ? poleH(p.it.class) : (hyd ? hydrantH : (lampModels[p.it.class]?.height_m ?? height));
+      const top = isP ? poleH(p.it.class) : (hyd ? hydrantH : height);
       if (px * px + pz * pz < r * r && yy > p.y - 0.1 && yy < p.y + lift + top
         && (!best || tt < best.distance)) {
         best = { p, distance: tt, point: new THREE.Vector3(o.x + d.x * tt, yy, o.z + d.z * tt) };
