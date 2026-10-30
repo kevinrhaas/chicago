@@ -76,7 +76,7 @@
         "creeper": 7
       }
     ],
-    "street_trees": 33,
+    "street_trees": 35,
     "street_trees_m": 70,
     "street_furniture": [
       "hydrant.pictured.pullman",
@@ -140,7 +140,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "6f8659b51d0f6a62bf7c90f9ef0c5c884c238cf956e032eda9023b9f4a8acc82",
+  "flora_sha256": "a375aef7cf29530fe812fce20afbed7fe75c782778931b934fdee76e4a737f3c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

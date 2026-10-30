@@ -114,7 +114,7 @@
         "creeper": 0
       }
     ],
-    "street_trees": 38,
+    "street_trees": 40,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -163,7 +163,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "6d00b3955e91ecdb898a9857fd0ab469d3eb3850cdd23cd5d8dd2fdf332fe84e",
+  "flora_sha256": "240af0be21559dcaef3e1eea959af2b61d2d4ad598c0e0fe7d9227282a76fa90",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

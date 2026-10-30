@@ -36505,6 +36505,23 @@ low head (open in the match records).
 `inland_1894_plate-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`,
 `lowe_c1897_conservatory-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
 **Recorded:** 2026-10-29 (T-1934); amended 2026-10-30 (T-3164).
+**Extended (T-1881, 2026-10-30):** the same north parkway west of that stretch, beside the house
+itself (0-46.9 m along `e18th__prairie_ic_16_18`), is planted off Taylor's photograph no. 1445
+(`aic_taylor_1445_pullman_from_sw`, 1890s) with the Detroit print (`loc_det_4a08065_pullman_residence`,
+1897-1901) as its check: five trees at 3.7, 14.25, 24.65, 37.65 and 43.7 m, where the rule had two
+elms (10.5 and 20.9 m) and one past the carriage way (44.6 m). **Read:** each trunk's x in Taylor's
+print carried to the planting line through its solved camera; pairing the two pictures' trunks
+through both cameras puts three of the trees within 0.5 m of that line, which is what ties the
+readings to this parkway and not to the lawn behind the coping wall. **Chosen:** Taylor's reading
+wherever the two disagree, as the house's record already rules for this flank (Taylor sees it at
+20-30 px a metre, the Detroit print at 4-6): its 14.25 m tree, which the Detroit print has at
+19.3 m, and the Detroit print's trunks at 7.85 and 30.8 m, which Taylor's print does not show,
+are not planted. The corner's tree is moved 0.9 m east of Taylor's reading to clear the Prairie
+walk's crossing, where the picture shows it standing in the grass. The slender young trees both
+pictures show behind the 18th Street wall are lawn trees, left to the front-yard layer. That the
+1890s trees still stand in 1904, and every tree's size, crown and species, are the rule's as above.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`,
+`detroit_det_4a08065-side-by-side.jpg` and their match records.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
