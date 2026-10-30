@@ -36586,6 +36586,33 @@ the porch lay no basement light); the match record keeps them open.
 **How to resolve:** a colour view or a description naming the stone; a nearer picture of the fence.
 **Recorded:** 2026-10-30 (T-3254).
 
+### L-k01-hibbard-1701-3255 — 1701 Prairie's eared, crested window hoods and its corner pilaster, read off its photograph
+
+**Decision:** T-3255 (piece 2 of T-1876) dresses the Hibbard house as Chicagology's photograph
+(`chicagology_1701_hibbard_photo`) shows it, read through the camera T-3240 solved
+(`data/reference_views/hibbard_house_1701_prairie/chicagology_front.json`): every round-headed light
+of the front and the south flank under a light stone hood (`eared_round_heads`, a new K01 form built
+by `generators/archetypes/k01_dressings.py`), the front's south-west corner as a tall stone pilaster
+under a capital (`corner_pilasters`). The canted bay's angles, light stone on light stone, are
+left as their arrises (K08's pilasters there would cost its light tier past budget).
+The hood replaces K06's arch band and the key block the front's round heads carried until now.
+**What is read, not invented.** Each hood's shape: a broad pale band round the arch, its feet stepped
+out into ears at the springing and hanging a short way down the jambs, a pointed crest standing up
+off the crown; the flank's paired lights meeting ear to ear. Their size at the scale of the lights
+the record already sizes: the band about 0.2 m, the ears about 0.12 m past it and 0.3 m down, the
+crest about 0.3 m wide and 0.25 m tall. The pilaster on the corner from the basement's top to a
+capital under the cornice's frieze, about 0.45 m broad.
+**What is invented.** All the carving: the hoods' mouldings, the crest's leafage, the pilaster's
+carved bands (the photograph shows it banded at each floor) and its capital's leaves are drawn as
+plain stone, the capital as two stepped blocks (a bell and an abacus); the band's 0.06 m and the
+crest's 0.08 m projection, and the pilaster's 0.1 m, which a frontal photograph does not give. The
+front's north corner stands behind the corner porch and the flank's rear corner reads plain brick, so
+neither is dressed; the north flank, which no picture shows, keeps its plain heads.
+**What is still not built.** The hoods over the bay's paired lights and the lower south range's lights
+keep K08's arch band (they stand in K08 faces); the match record holds them within tolerance.
+**How to resolve:** a nearer photograph of the hoods and the pilaster, or a description of the carving.
+**Recorded:** 2026-10-30 (T-3255).
+
 ### L-pullman-carriage-ways-1934 — Pullman's two carriage drives, the gateways kept clear, and the stable's stone toned from the winter print
 
 **Decision:** the 1729 Prairie yard (`yard.drives` on `pullman_house_1729_prairie`, laid by

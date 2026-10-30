@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 882,
+  "count": 883,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -61321,6 +61321,36 @@
         "T-3254",
         "T-3240",
         "T-3242"
+      ]
+    },
+    {
+      "id": "L-k01-hibbard-1701-3255",
+      "title": "1701 Prairie's eared, crested window hoods and its corner pilaster, read off its photograph",
+      "section": "per_subject",
+      "subjects": [
+        "hibbard_house_1701_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work dresses the Hibbard house as Chicagology's photograph ([1701 S. Prairie Avenue, the William G. Hibbard residence.] Photograph of the…) shows it, read through the camera earlier work solved (the chicagology front data): every round-headed light of the front and the south flank under a light stone hood (eared round heads, a new K01 form built by the k01 dressings generator), the front's south-west corner as a tall stone pilaster under a capital (corner pilasters). The canted bay's angles, light stone on light stone, are left as their arrises (K08's pilasters there would cost its light grade past budget). The hood replaces K06's arch band and the key block the front's round heads carried until now. **What is read, not invented.** Each hood's shape: a broad pale band round the arch, its feet stepped out into ears at the springing and hanging a short way down the jambs, a pointed crest standing up off the crown; the flank's paired lights meeting ear to ear. Their size at the scale of the lights the record already sizes: the band about 0.2 m, the ears about 0.12 m past it and 0.3 m down, the crest about 0.3 m wide and 0.25 m tall. The pilaster on the corner from the basement's top to a capital under the cornice's frieze, about 0.45 m broad. **What is invented.** All the carving: the hoods' mouldings, the crest's leafage, the pilaster's carved bands (the photograph shows it banded at each floor) and its capital's leaves are drawn as plain stone, the capital as two stepped blocks (a bell and an abacus); the band's 0.06 m and the crest's 0.08 m projection, and the pilaster's 0.1 m, which a frontal photograph does not give. The front's north corner stands behind the corner porch and the flank's rear corner reads plain brick, so neither is dressed; the north flank, which no picture shows, keeps its plain heads. **What is still not built.** The hoods over the bay's paired lights and the lower south range's lights keep K08's arch band (they stand in K08 faces); the match record holds them within tolerance."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the hoods and the pilaster, or a description of the carving."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3255)."
+        }
+      ],
+      "work_refs": [
+        "T-1876",
+        "T-3255",
+        "T-3240"
       ]
     },
     {
