@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2464, ts: '2026-10-30T19:04:09.403Z', date: 'Oct 30, 2026, 2:04 PM CT', title: 'A person on the People tab opens their own card', kind: 'feature',
+    items: [
+      'A name on the People tab now opens that person\'s card in place, instead of jumping to the whole town\'s list. Back returns to the household, on the person you just read.',
+      'The card leads with the person: their work, when and where they were born, their age in 1904, the year they came to America, and their story as the record tells it.',
+      'How we know says why each person is attested or inferred. Most live-in staff come from the 1900 census, four years before the scene, so they are inferred; the card shows the census line as written and links to the page itself.',
+      'The People app\'s list opens the same card, on the person\'s own house.',
+    ] },
   { v: 2463, ts: '2026-10-30T18:37:54.775Z', date: 'Oct 30, 2026, 1:37 PM CT', title: 'The Pullman house\'s 18th Street trees stand where the photographs show them', kind: 'improve',
     items: [
       'Along 18th Street beside 1729 Prairie, five parkway trees now stand where an 1890s photograph of the house puts them: one by the corner, then a row past the porte-cochère and either side of the carriage gate. The two trees guessed there before stood between them.',
