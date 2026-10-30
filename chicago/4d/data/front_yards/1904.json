@@ -141,17 +141,17 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 131,
+  "shrubs": 135,
   "trees": 14,
   "beds": 11,
   "creeper_patches": 9,
-  "attested_plants": 16,
+  "attested_plants": 22,
   "lots_with_a_door": 111,
   "schemes": {
-   "corners": 79,
+   "corners": 78,
    "group": 22,
    "lawn": 34,
-   "pictured": 2,
+   "pictured": 3,
    "pictured bare": 7,
    "stoop": 5
   }
@@ -181,27 +181,89 @@
    },
    "front_m": 14.71,
    "doors": [],
-   "scheme": "corners",
+   "scheme": "pictured",
    "grade": "reconstructed",
    "shrubs": [
     [
-     1491.18,
-     -3278.59,
-     "lilac",
-     2.98,
-     2.43
+     1472.48,
+     -3231.49,
+     "standard",
+     2.33,
+     1.0,
+     "inferred",
+     0.0,
+     0.57
     ],
     [
-     1494.68,
-     -3285.34,
+     1472.48,
+     -3231.49,
+     "globe",
+     1.36,
+     1.5,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1472.55,
+     -3221.85,
+     "standard",
+     2.48,
+     1.07,
+     "inferred",
+     0.0,
+     0.57
+    ],
+    [
+     1472.55,
+     -3221.85,
+     "globe",
+     1.44,
+     1.65,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1475.59,
+     -3260.67,
      "lilac",
-     3.19,
-     2.6
+     2.52,
+     2.0,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1473.86,
+     -3260.41,
+     "lilac",
+     2.52,
+     1.8,
+     "inferred",
+     0.0,
+     0.0
     ]
    ],
    "trees": [],
    "beds": [],
-   "creeper": []
+   "creeper": [],
+   "pictured": {
+    "sources": [
+     "inland_1894_pullman_conservatory",
+     "aic_lowe_pullman_conservatory_c1897"
+    ],
+    "pictures": [
+     "a16-inland-1894-pullman-conservatory",
+     "a16-aic-lowe-pullman-conservatory-c1897"
+    ]
+   },
+   "pictured_notes": {
+    "tubs": {
+     "grade": "inferred",
+     "note": "Two clipped standards on clear stems, each in a square planting box with a dense leafy mass spilling over it, in the lawn before the conservatory's front, and tall shrubs along the far edge of the drive, as the 1894 Inland Architect plate and Lowe's c. 1897 photograph show them in summer. Inferred for 1 July 1904: the pictures are seven to ten summers before the scene, and boxed plants were wintered under glass."
+    }
+   }
   },
   {
    "parcel": "calumet_1830",
