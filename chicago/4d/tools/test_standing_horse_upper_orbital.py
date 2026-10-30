@@ -28,8 +28,9 @@ def check_liberty_provenance(spec, source, text):
            'liberty_authored_source_scope')
 
 def check_active_idle_qualification(spec, certificate):
-    """Bind active idle provenance to the actual selected asset and locked record."""
-    idle=spec['idle'];runtime=spec['runtime_asset'];g=boundary.generator
+    """Check genuine e49 idle, selected or explicitly preserved under its child."""
+    preserved=spec['runtime_asset'].get('source_qualification_mode')in('eye_smooth_normals_v1','quiet_head_neck_idle_v6')
+    idle=spec['preserved_upper_orbital_idle']if preserved else spec['idle'];runtime=spec['preserved_upper_orbital_runtime_asset']if preserved else spec['runtime_asset'];g=boundary.generator
     g.need(idle['loaded_qualification_asset_sha256']==runtime['sha256']==certificate['candidate_sha256'],
            'idle_selected_asset')
     g.need(idle['loaded_qualification_file']==runtime['qualification_file'] and
@@ -48,7 +49,7 @@ def check_active_idle_qualification(spec, certificate):
            'idle_preserved_parent_qualification')
 
 def check_source_selection():
-    source=boundary.Sources();source.cheap_tables();spec=json.loads((APP/'data/transport/parked/horse-sevket-sidecar.json').read_bytes());old=json.loads((APP/'tools/fixtures/horse-anatomy-r3-sidecar-v1.json').read_bytes());runtime=spec['runtime_asset']
+    source=boundary.Sources();source.cheap_tables();spec=json.loads((APP/'data/transport/parked/horse-sevket-sidecar.json').read_bytes());old=json.loads((APP/'tools/fixtures/horse-anatomy-r3-sidecar-v1.json').read_bytes());selected=spec['runtime_asset'];preserved=selected.get('source_qualification_mode')in('eye_smooth_normals_v1','quiet_head_neck_idle_v6');runtime=spec['preserved_upper_orbital_runtime_asset']if preserved else selected
     geometry.need(runtime['source_qualification_mode']==boundary.MODE and runtime['sha256']==boundary.generator.CANDIDATE_SHA and runtime['bytes']==4159196,'orbital_selected_source_identity')
     geometry.need(runtime['file']=='transport/standing-horse/horse-sevket-upper-orbital-transition-v1.glb'and runtime['orbital_parent5a_sha256']==boundary.generator.PARENT_SHA,'orbital_selected_parent_path')
     geometry.need(runtime['qualification_sha256']==boundary.CERTIFICATE_SHA and runtime['qualification_file']=='transport/parked/standing-horse-planted/upper-orbital-transition-v1-qualification-summary.json','orbital_selected_certificate')
@@ -56,8 +57,12 @@ def check_source_selection():
     for k in ['source','contacts','contact_mesh','ground_support','proposed_static_support_pose','runtime_scale_m_per_unit','runtime_origin_m','source_inventory']:geometry.need(spec[k]==old[k],'orbital_unchanged_foot_frame_credit',k)
     geometry.need(spec['preserved_anatomy_r3_runtime_asset']==old['runtime_asset'],'orbital_preserved925_contract')
     legacy=spec['preserved_upper_lid_runtime_asset'];geometry.need(legacy['sha256']==boundary.generator.PARENT_SHA and legacy['source_qualification_mode']==boundary.ancestor.MODE and (APP/'renderers/web'/legacy['file']).read_bytes()==source.base.raw[boundary.ancestor.CANDIDATE],'orbital_preserved5a_mode')
-    authored=json.loads((boundary.SOURCE/'SOURCE.json').read_bytes());geometry.need(authored['runtime_derivative']==runtime and authored['preserved_upper_lid_parent_derivative']==legacy,'orbital_authored_provenance')
-    placement=json.loads((APP/'data/transport/parked/standing-horses.json').read_bytes());original=json.loads((APP/'tools/fixtures/horse-anatomy-r3-placements-v1.json').read_bytes());geometry.need(placement['models']['sevket_horse_standing_development_01']['file']==runtime['file'],'orbital_placement_path');placement['models']['sevket_horse_standing_development_01']['file']=original['models']['sevket_horse_standing_development_01']['file'];placement['status']=original['status'];geometry.need(placement==original,'orbital_placement_support_capability')
+    authored=json.loads((boundary.SOURCE/'SOURCE.json').read_bytes());geometry.need(authored['runtime_derivative']==selected and (authored['preserved_upper_orbital_parent_derivative']==runtime if preserved else authored['runtime_derivative']==runtime) and authored['preserved_upper_lid_parent_derivative']==legacy,'orbital_authored_provenance')
+    placement=json.loads((APP/'data/transport/parked/standing-horses.json').read_bytes());original=json.loads((APP/'tools/fixtures/horse-anatomy-r3-placements-v1.json').read_bytes());geometry.need(placement['models']['sevket_horse_standing_development_01']['file']==selected['file'],'orbital_placement_path');placement['models']['sevket_horse_standing_development_01']['file']=original['models']['sevket_horse_standing_development_01']['file'];placement['status']=original['status']
+    if selected.get('source_qualification_mode')=='quiet_head_neck_idle_v6':
+        geometry.need(placement['scenes']['1835'][0]['animation']['clip']=='sevket_reconstructed_quiet_head_neck_idle_v1','quiet_selected_clip')
+        placement['scenes']['1835'][0]['animation']['clip']=original['scenes']['1835'][0]['animation']['clip']
+    geometry.need(placement==original,'orbital_placement_support_capability')
     check_active_idle_qualification(spec,source.certificate)
     check_liberty_provenance(spec,authored,(APP/'docs/LIBERTIES.md').read_text())
     source.unchanged();return source
@@ -91,13 +96,14 @@ def run(source_only=False):
         try:check_liberty_provenance(document,authored,text)
         except boundary.generator.Rejected as e:assert str(e)==reason;checks.append(name)
         else:raise AssertionError('Invalid Liberty provenance accepted: '+name)
-    parent=actual['idle']['historical_upper_lid_qualification']
+    idle_key='preserved_upper_orbital_idle'if actual['runtime_asset'].get('source_qualification_mode')in('eye_smooth_normals_v1','quiet_head_neck_idle_v6')else'idle'
+    parent=actual[idle_key]['historical_upper_lid_qualification']
     for name,key,value,reason in [
         ('stale_parent_idle_asset','loaded_qualification_asset_sha256',parent['asset_sha256'],'idle_selected_asset'),
         ('stale_parent_idle_file','loaded_qualification_file',parent['loaded_qualification_file'],'idle_selected_certificate'),
         ('stale_parent_idle_certificate','loaded_qualification_sha256',parent['loaded_qualification_sha256'],'idle_selected_certificate'),
         ('stale_parent_idle_capture','loaded_raw_result_sha256',parent['loaded_raw_result_sha256'],'idle_selected_capture')]:
-        corrupted=copy.deepcopy(actual);corrupted['idle'][key]=value
+        corrupted=copy.deepcopy(actual);corrupted[idle_key][key]=value
         try:check_active_idle_qualification(corrupted,source.certificate)
         except boundary.generator.Rejected as e:assert str(e)==reason;checks.append(name)
         else:raise AssertionError('Stale parent idle provenance accepted: '+name)

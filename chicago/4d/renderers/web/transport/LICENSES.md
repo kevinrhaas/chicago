@@ -83,3 +83,26 @@ The covered-cloth refinement under T-2980 changes only the reconstructed inter-b
 ## Canonical26 planted-standing horse (T-2800/T-2803)
 
 `standing-horse/horse-sevket-v16-planted-standing-v1.glb`: CC BY4.0 derivative of “Horse” by sevketkabatas, https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe. Exact b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be,3,783,600bytes. Canonical-metre surface, reconstructed26 rig/V16skin and planted12s body shift; no original head/tail or walking playback. Hierarchy analogy only: antemeossa Rigged Mid-Poly Horse, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83. Exact rights/change notices and mirrored authored binary are in assets/authored/transport/horse_standing and assets/LICENSES.md. Selected runtime dielectric metalness0 is explicit. No historical individual/breed/photo/gait/riding approval.
+
+
+## Standing horse eye-normal source child (T-3088, 29 October 2026)
+
+`standing-horse/horse-sevket-eye-smooth-normals-v1.glb` is a CC-BY-4.0 derivative
+of “Horse” by sevketkabatas, published29March2021,
+https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe, via the
+preserved Objaverse/acquisition lineage. Exact SHA256
+`bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6`,
+4,159,196bytes. Only3968 EYE NORMAL rows and truthful accessor extrema change
+from preserved e49. All geometry/indices, rig/skin/standing clip, UVs, six images
+and material records remain exact; the renderer still uses its existing native
+`organic_dielectric_v1` cloned material policy. Original modern author/source
+credit, CC-BY-4.0 license URL and declared adaptation are in authored SOURCE.json
+and assets/LICENSES.md. Fresh exact-child canonical physical/socket129 proof
+is separate from pending native organic published-yard/photo/gait acceptance.
+The e49/5a/925/d454 originals and their exact-byte certificates remain preserved;
+no old proof is transferred to this child.
+
+
+### Unselected quiet head/neck runtime V6
+
+`standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb` is a CC-BY-4.0 derivative of **Horse by sevketkabatas**, published29March2021, via the preserved original SOURCE.json/acquisition lineage. Source URL: https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe . Original model/six image attribution remains intact. Project-authored reconstructed HEAD binding and quiet neck/head motion retain full original curve amplitudes; this runtime exports exactly one15-track clip and has no failed17 fallback. Authored master, paired925 reference and explicit GPL-3.0-or-later project provenance are in assets/authored/transport/horse_standing; source tools/recipe/field are GPL-3.0-or-later. This PhaseA file is unselected pending fresh canonical physical/socket/world qualification. No historical animal/owner/breed, gait, rider/driver or photographic completion is claimed.

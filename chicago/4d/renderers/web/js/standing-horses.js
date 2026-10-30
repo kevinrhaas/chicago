@@ -6,6 +6,11 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 import { createPlantedStandingHorseIdle, validatePlantedStandingHeader } from './standing-horse-planted-idle.js';
 import { standingHorseCard as card } from './standing-horse-card.js';
+import { createQuietHeadNeckStandingContract, QUIET_MODE } from './standing-horse-quiet-head-neck-idle.js';
+// Trusted code pin: exact newly executed finite129 certificate, never sidecar-derived.
+const quietContract = createQuietHeadNeckStandingContract({ qualificationSha256: 'badca71fb2ab7596be9447adaf01b3d035d5a59c7b844bc27b500d0a004d78a6' });
+const idleContract = spec => spec.runtime_asset.source_qualification_mode === QUIET_MODE
+  ? quietContract : { validateHeader: validatePlantedStandingHeader, createIdle: createPlantedStandingHorseIdle };
 
 const REACH = { full: 70, balanced: 40, light: 0 };
 const yawOf = bearing => Math.PI - bearing * Math.PI / 180;
@@ -157,7 +162,7 @@ function instantiate(asset, spec, row, confidence, groundHeight) {
     if (row.animation?.enabled) {
       assert(spec.idle.enabled && row.animation.clip === spec.idle.clip,
         'Explicit qualified horse idle contract required');
-      idle = createPlantedStandingHorseIdle({ T: THREE, root, clips: asset.animations,
+      idle = idleContract(spec).createIdle({ T: THREE, root, clips: asset.animations,
         verifiedDerivedSha256: spec.runtime_asset.sha256, instanceId: row.id,
         sourceQualificationMode: spec.runtime_asset.source_qualification_mode });
     }
@@ -263,7 +268,7 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
         const bytes = await response.arrayBuffer();
         assert(bytes.byteLength <= 4 * 1024 * 1024, 'Horse download cap exceeded');
         assert(await sha256(bytes) === spec.runtime_asset.sha256, 'Horse runtime derivative hash mismatch');
-        validatePlantedStandingHeader(bytes, spec);
+        idleContract(spec).validateHeader(bytes, spec);
         if (mine !== revision || disposed || tier === 'light') return;
         asset = await new GLTFLoader().parseAsync(bytes, new URL('.', file).href);
         const canonicalReceipt = inspectStanding(asset.scene, spec);

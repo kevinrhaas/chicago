@@ -4,11 +4,16 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { register } from 'node:module';
 import { standingHorseCard } from '../renderers/web/js/standing-horse-card.js';
-import { validatePlantedStandingHeader, createPlantedStandingHorseIdle, PLANTED_SHA, PLANTED_CLIP, PLANTED_MODE, LEGACY_PLANTED_SHA, LID_PLANTED_SHA }
+import { validatePlantedStandingHeader, createPlantedStandingHorseIdle, PLANTED_SHA, PLANTED_CLIP, PLANTED_MODE, LEGACY_PLANTED_SHA, LID_PLANTED_SHA, PLANTED_MASTERS, EYE_NORMALS_PLANTED_MODE, EYE_NORMALS_PLANTED_SHA }
   from '../renderers/web/js/standing-horse-planted-idle.js';
 const spec = JSON.parse(readFileSync(new URL('../data/transport/parked/horse-sevket-sidecar.json', import.meta.url)));
+// Historical planted modes retain their exact explicit preserved metadata.
+if (spec.runtime_asset.source_qualification_mode === 'quiet_head_neck_idle_v6') {
+  spec.runtime_asset = spec.preserved_eye_smooth_normals_runtime_asset;
+  spec.idle = spec.preserved_eye_smooth_normals_idle;
+}
 const buffer = readFileSync(new URL('../renderers/web/' + spec.runtime_asset.file, import.meta.url));
-assert.equal(createHash('sha256').update(buffer).digest('hex'), PLANTED_SHA);
+assert.equal(createHash('sha256').update(buffer).digest('hex'), PLANTED_MASTERS[spec.runtime_asset.source_qualification_mode].sha256);
 const bytes = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
 const header = validatePlantedStandingHeader(bytes, spec);
 const legacySpec = JSON.parse(readFileSync(new URL('../tools/fixtures/horse-anatomy-r3-sidecar-v1.json', import.meta.url)));
@@ -93,6 +98,13 @@ legacyPlayer.dispose();
 const lidPlayer = createPlantedStandingHorseIdle({ ...args, verifiedDerivedSha256: LID_PLANTED_SHA, sourceQualificationMode: 'canonical_socket_interface_v1' });
 assert.equal(lidPlayer.status.source_qualification_mode, 'canonical_socket_interface_v1');
 lidPlayer.dispose();
+const normalPlayer = createPlantedStandingHorseIdle({ ...args, verifiedDerivedSha256: EYE_NORMALS_PLANTED_SHA, sourceQualificationMode: EYE_NORMALS_PLANTED_MODE });
+assert.equal(normalPlayer.status.source_qualification_mode, EYE_NORMALS_PLANTED_MODE); normalPlayer.dispose();
+assert.throws(() => validatePlantedStandingHeader(bytes, { ...spec, runtime_asset: { ...spec.runtime_asset, qualification_sha256: PLANTED_MASTERS.upper_orbital_transition_v1.qualification_sha256 } }), /socket qualification/);
+const orbitalSpec = { ...spec, runtime_asset: spec.preserved_upper_orbital_runtime_asset };
+const orbitalBuffer = readFileSync(new URL('../renderers/web/' + orbitalSpec.runtime_asset.file, import.meta.url));
+assert.equal(createHash('sha256').update(orbitalBuffer).digest('hex'), PLANTED_SHA);
+validatePlantedStandingHeader(orbitalBuffer.buffer.slice(orbitalBuffer.byteOffset,orbitalBuffer.byteOffset+orbitalBuffer.byteLength), orbitalSpec);
 
 
 // Modern asset credit never becomes an historically attested animal attribute.

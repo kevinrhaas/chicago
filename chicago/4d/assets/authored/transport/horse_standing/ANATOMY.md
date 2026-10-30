@@ -155,3 +155,66 @@ The original27October source-selection checkpoint was uncommitted and unpublishe
 ### T-3088 exact-source recovery, 29 October 2026
 
 The selected orbital child is byte-identical to the 27 October e49b source backed up in evidence checkpoint15 (commit2c76735371058f52d1e7c275f23dd25c1ffedfda); its 5a ancestor and recipe were recovered byte-for-byte from checkpoint11. Existing925/d454 files, placement, hoof contacts, rig/skin/UVs and gait prototypes remain preserved. The compact pinned129 qualification is historical evidence for these same asset bytes. The original external raw capture arrays are absent after the runtime restart; this recovery does not claim they were reread or that physical129 was rerun. Current source/static controls, canonical owners, published Full-yard views at both widths and full source/CI gates are separate delivery requirements. Broad anatomical, photographic, surface/LOD and occupied-use acceptance remain open.
+
+
+### Pending eye-normal source child, 29 October 2026
+
+The separately versioned `horse-sevket-eye-smooth-normals-v1.glb` candidate is
+SHA`bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6`,
+4,159,196bytes, derived from exact selected e49. Its canonical
+`eye-smooth-normals-v1-recipe.json` and
+`generate_eye_smooth_normals_v1.py` fit each actual source eye's unique POSITION
+rows to its near-sphere and emit outward unit normals. Only3968 EYE NORMAL rows
+and truthful existing NORMAL min/max change. Every position, index, mesh, skin,
+rig, animation, UV, image and material remains exact; anatomy and silhouette are
+not reshaped. The recipe's creation-state notice remains historical.
+
+Eight matched RAW-material source views were personally inspected. Clear
+triangular shading bands recede in the eye close-ups; the change is subtle in
+head views. The angular silhouette, heavy BODY socket/ring, painted appearance
+and mane remain. Raw-material lighting differs from the native
+`organic_dielectric_v1` clone policy, so this observation does not establish
+native-world benefit or photographic acceptance.
+
+The e49 runtime remains selected. This new child's own static source admission,
+actual standard-loader/clone/Mixer65-key+64-midpoint physical and all129 posed
+socket proof, canonical gates and matched native organic yard views are pending.
+The original9176-byte physical loop, physical limits,20-face same-side14/7mm
+policy,4MiB and20,000-triangle bounds must remain unchanged. Old e49/5a proofs
+apply only to their exact old bytes and are never transferred to this child.
+This work does not thin the BODY ring, retopologize the cheek, add hair detail,
+change placement/support, or enable gait, riders, drivers or tack. Broad
+T-3088/T-3089 photographic acceptance remains open.
+
+
+### Selected eye-normal child after fresh canonical qualification, 29 October 2026
+
+The source-selected runtime is now exact
+`bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6`,
+4,159,196bytes/17,390triangles, in explicit `eye_smooth_normals_v1` mode. Exact
+e49 remains preserved as a supported parent with its original runtime/idle
+metadata and certificate. The original source candidate and recipe creation
+notices are preserved as historical records. Only3968 EYE NORMAL rows and
+truthful existing NORMAL accessor extrema change; BODY geometry, silhouette,
+all positions/indices, UVs/images/materials, rig/skin/clip, bounds, hoof contacts,
+placement and support remain unchanged.
+
+Fresh qualification of these exact new bytes actually passed canonical static
+11.384s, native standard-loader/SkeletonUtils clone/Mixer65keys+64midpoints
+73.616s, and all129 posed socket samples225.420s; complete pipeline314.328s,
+with all owned-process cleanup complete and no remaining children. It retained
+the original9176-byte physical loop, every original physical limit,178 source
+scan faces,20 unchanged same-side interface faces and14/7mm locus bounds.
+Each posed sample retained24 contained BODY crossings/82 globe contacts and
+zero new exterior/undeclared/patch-patch crossings. Maximum upper bounds are
+13.770834108mm BODY and6.247168226mm globe contact. No parent certificate
+transfers. The new source summary binds actual raw capture, Float64 arrays,
+posed results and canonical code/input pins.
+
+The eight earlier RAW-material views remain a bounded source observation: clear
+triangular eye shading bands recede; the angular silhouette, heavy BODY
+socket/ring, painted appearance and mane remain. New selected-child native
+organic published-yard comparison, phone/desktop app acceptance, canonical
+Liberty/source-use owners, complete source gates/CI and broad photographic
+acceptance are still PENDING. No walking, rider, driver, tack, identified
+historical individual or whole T-3088/T-3089 completion is claimed.

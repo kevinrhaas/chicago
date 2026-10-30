@@ -404,6 +404,14 @@ step "Selected upper-lid source preserves925/eyeUV/hoof ownership and qualifies 
 step "Selected upper-orbital source preserves frozen5a and qualifies its declared BODY transition (T-3088)" \
   python3 tools/test_standing_horse_upper_orbital.py
 
+# New NORMAL-only child remains pending until its own canonical native129 proof.
+step "Pending horse eye-normal child protects all parent source data and admits no old certificate (T-3088)" \
+  python3 tools/test_standing_horse_eye_smooth_normals.py
+
+# New selected quiet15 has its own finite proof; original qualifier source remains immutable.
+step "Quiet horse head/neck selection binds actual new finite129 proof and preserves prior selected metadata (T-2803)" \
+  python3 tools/test_standing_horse_quiet_head_neck.py
+
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
 # Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.

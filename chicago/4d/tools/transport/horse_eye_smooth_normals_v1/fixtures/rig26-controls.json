@@ -1,0 +1,442 @@
+{
+  "schema": "host_specific_reconstructed_horse_rig_proposal_v2_section_correction",
+  "status": "SOURCE PROPOSAL ONLY; corrected actual section containment evidence, no new export or gait acceptance",
+  "original_host_source_sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+  "measurement_receipt_sha256": "c713b2dfa52539ee5e95f6f79b47bc9838daa8527aab0773caeacfff8ff364ac",
+  "reference_rig_sha256": "51ab71106472321b565a47aabe281235e2c0801804bcee7694f729192913e22c",
+  "reference_rig_native_to_canonical_matrix_rows": [
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      -1,
+      0,
+      0
+    ]
+  ],
+  "source_credit_host": "Horse by sevketkabatas, CC BY4.0. Original mesh/UV/maps retained in declared derivative; source original remains unchanged.",
+  "source_credit_rig_motion_reference": "Rigged Mid-Poly Horse by antemeossa, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83. Four-limb rig/motion reference; not copied body geometry or anatomical certification.",
+  "joint_count": 26,
+  "maximum_weights_per_vertex": 4,
+  "nodes": [
+    {
+      "index": 0,
+      "name": "horse_motion_root",
+      "parent_index": null,
+      "rest_world_pivot_m": [
+        0,
+        0,
+        0
+      ],
+      "basis": "Ground-frame reconstructed datum, +Yup/+Zforward/+Xleft; route owns translation/yaw. Not original native socket."
+    },
+    {
+      "index": 1,
+      "name": "horse_body",
+      "parent_index": 0,
+      "rest_world_pivot_m": [
+        0,
+        1.05,
+        0
+      ],
+      "basis": "Reconstructed internal control, not measured hidden anatomy; original rest surface will be inverse-bound exactly."
+    },
+    {
+      "index": 2,
+      "name": "horse_neck",
+      "parent_index": 1,
+      "rest_world_pivot_m": [
+        0,
+        1.3,
+        0.55
+      ],
+      "basis": "Reconstructed neck-base control constrained to stronger native rest geometry; independent source/visual review required."
+    },
+    {
+      "index": 3,
+      "name": "horse_head",
+      "parent_index": 2,
+      "rest_world_pivot_m": [
+        0,
+        1.48,
+        1.03
+      ],
+      "basis": "Reconstructed skull pivot, anatomical-reference analogy; not original serial nativejoint."
+    },
+    {
+      "index": 4,
+      "name": "horse_tail_base",
+      "parent_index": 1,
+      "rest_world_pivot_m": [
+        0,
+        1.28,
+        -0.85
+      ],
+      "basis": "Reconstructed tail dock; native surface/source references retained."
+    },
+    {
+      "index": 5,
+      "name": "horse_tail_tip",
+      "parent_index": 4,
+      "rest_world_pivot_m": [
+        0,
+        0.6,
+        -1.1
+      ],
+      "basis": "Reconstructed coarse tail-control section; no strand/hair quality acceptance."
+    },
+    {
+      "index": 6,
+      "name": "fore_l_shoulder",
+      "parent_index": 1,
+      "rest_world_pivot_m": [
+        0.1904116919880516,
+        1.04,
+        0.46
+      ],
+      "basis": "Reconstructed internal proximal control; not inferred from an isolated surface contour."
+    },
+    {
+      "index": 7,
+      "name": "fore_l_elbow",
+      "parent_index": 6,
+      "rest_world_pivot_m": [
+        0.2240137552800607,
+        0.76,
+        0.44651222512148303
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.051688430m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 8,
+      "name": "fore_l_carpus",
+      "parent_index": 7,
+      "rest_world_pivot_m": [
+        0.24274562693778284,
+        0.4800000000000002,
+        0.39080850979048876
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.040225838m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 9,
+      "name": "fore_l_fetlock",
+      "parent_index": 8,
+      "rest_world_pivot_m": [
+        0.2562188751955793,
+        0.16000000000000003,
+        0.321551377263569
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.049113001m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 10,
+      "name": "fore_l_hoof",
+      "parent_index": 9,
+      "rest_world_pivot_m": [
+        0.24678225096141654,
+        0.08000000000000003,
+        0.3396855195012524
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.076429227m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 11,
+      "name": "fore_r_shoulder",
+      "parent_index": 1,
+      "rest_world_pivot_m": [
+        -0.1913241124554267,
+        1.04,
+        0.46
+      ],
+      "basis": "Reconstructed internal proximal control; not inferred from an isolated surface contour."
+    },
+    {
+      "index": 12,
+      "name": "fore_r_elbow",
+      "parent_index": 11,
+      "rest_world_pivot_m": [
+        -0.2250871911240314,
+        0.76,
+        0.444143755176701
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.049217529m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 13,
+      "name": "fore_r_carpus",
+      "parent_index": 12,
+      "rest_world_pivot_m": [
+        -0.24371917293534917,
+        0.4800000000000002,
+        0.39165037811809666
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.040359165m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 14,
+      "name": "fore_r_fetlock",
+      "parent_index": 13,
+      "rest_world_pivot_m": [
+        -0.25721564560193194,
+        0.16000000000000003,
+        0.3215515781167862
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.049108618m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 15,
+      "name": "fore_r_hoof",
+      "parent_index": 14,
+      "rest_world_pivot_m": [
+        -0.24777018399423867,
+        0.08000000000000003,
+        0.3396861203950121
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.076437041m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 16,
+      "name": "hind_l_hip",
+      "parent_index": 1,
+      "rest_world_pivot_m": [
+        0.16752163772922538,
+        1.08,
+        -0.7056487792512758
+      ],
+      "basis": "Reconstructed internal proximal control; not inferred from an isolated surface contour."
+    },
+    {
+      "index": 17,
+      "name": "hind_l_stifle",
+      "parent_index": 16,
+      "rest_world_pivot_m": [
+        0.16752163772922538,
+        0.76,
+        -0.5167916256639766
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.058550405m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 18,
+      "name": "hind_l_hock",
+      "parent_index": 17,
+      "rest_world_pivot_m": [
+        0.18380598773408502,
+        0.4800000000000002,
+        -0.5921029995341258
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.023040512m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 19,
+      "name": "hind_l_fetlock",
+      "parent_index": 18,
+      "rest_world_pivot_m": [
+        0.1741495048216758,
+        0.16000000000000003,
+        -0.46493709425718893
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.051254253m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 20,
+      "name": "hind_l_hoof",
+      "parent_index": 19,
+      "rest_world_pivot_m": [
+        0.18270330413751462,
+        0.08,
+        -0.4351869499698494
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.080696633m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 21,
+      "name": "hind_r_hip",
+      "parent_index": 1,
+      "rest_world_pivot_m": [
+        -0.17008190944138377,
+        1.08,
+        -0.7038395235001057
+      ],
+      "basis": "Reconstructed internal proximal control; not inferred from an isolated surface contour."
+    },
+    {
+      "index": 22,
+      "name": "hind_r_stifle",
+      "parent_index": 21,
+      "rest_world_pivot_m": [
+        -0.17008190944138377,
+        0.76,
+        -0.5174661641325269
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.059038079m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 23,
+      "name": "hind_r_hock",
+      "parent_index": 22,
+      "rest_world_pivot_m": [
+        -0.18459465156001686,
+        0.4800000000000002,
+        -0.5884455536955331
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.022337175m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 24,
+      "name": "hind_r_fetlock",
+      "parent_index": 23,
+      "rest_world_pivot_m": [
+        -0.17518307149363882,
+        0.16000000000000003,
+        -0.464924493823302
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.051591044m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    },
+    {
+      "index": 25,
+      "name": "hind_r_hoof",
+      "parent_index": 24,
+      "rest_world_pivot_m": [
+        -0.18337039891838372,
+        0.08,
+        -0.43647272474537996
+      ],
+      "basis": "Reconstructed hidden joint, NOT anatomical measurement. Actual closed triangle-plane contour containment: inside; nearest contour distance 0.081816206m. See SECTION-CONTAINMENT.json. Prior first-artifact metadata only justified section AABB containment."
+    }
+  ],
+  "limbs": {
+    "fore_l": {
+      "joints": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "roles_inferred": [
+        "shoulder",
+        "elbow",
+        "carpus",
+        "fetlock",
+        "hoof"
+      ],
+      "source_native_minimum_vertex_id": 3762,
+      "rest_actual_minimum_hoof_point_m": [
+        0.17750041117996201,
+        0.0052360788777804645,
+        0.3987632487479696
+      ],
+      "basis": "Actual host rest triangle-plane measurements at y.08/.16/.48/.76; proximal controls reconstructed, antemeossa four-limb hierarchy is reference only. New independent bone chains; no source89b socket or old nativeBone.* map."
+    },
+    "fore_r": {
+      "joints": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "roles_inferred": [
+        "shoulder",
+        "elbow",
+        "carpus",
+        "fetlock",
+        "hoof"
+      ],
+      "source_native_minimum_vertex_id": 3761,
+      "rest_actual_minimum_hoof_point_m": [
+        -0.17849510494689683,
+        0.005237669216761922,
+        0.3987651742595068
+      ],
+      "basis": "Actual host rest triangle-plane measurements at y.08/.16/.48/.76; proximal controls reconstructed, antemeossa four-limb hierarchy is reference only. New independent bone chains; no source89b socket or old nativeBone.* map."
+    },
+    "hind_l": {
+      "joints": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "roles_inferred": [
+        "hip",
+        "stifle",
+        "hock",
+        "fetlock",
+        "hoof"
+      ],
+      "source_native_minimum_vertex_id": 3512,
+      "rest_actual_minimum_hoof_point_m": [
+        0.30011738042061264,
+        0.0,
+        -0.4202912449904064
+      ],
+      "basis": "Actual host rest triangle-plane measurements at y.08/.16/.48/.76; proximal controls reconstructed, antemeossa four-limb hierarchy is reference only. New independent bone chains; no source89b socket or old nativeBone.* map."
+    },
+    "hind_r": {
+      "joints": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "roles_inferred": [
+        "hip",
+        "stifle",
+        "hock",
+        "fetlock",
+        "hoof"
+      ],
+      "source_native_minimum_vertex_id": 3511,
+      "rest_actual_minimum_hoof_point_m": [
+        -0.3010923294578537,
+        0.00010489956411195807,
+        -0.42027282468680927
+      ],
+      "basis": "Actual host rest triangle-plane measurements at y.08/.16/.48/.76; proximal controls reconstructed, antemeossa four-limb hierarchy is reference only. New independent bone chains; no source89b socket or old nativeBone.* map."
+    }
+  },
+  "weighting_contract": [
+    "Bake exactly ONE current source default skinned surface into canonical POSITION/NORMAL streams; preserve indices/UVs/materialgroups/maps. Original model bytes remain separate and untouched.",
+    "Build a new independent four-limb26joint hierarchy with inversebinds at these reviewed source-specific pivots; neutral worldjoint\u00d7inversebind=identity preserves the frozen rest surface for any normalized weights.",
+    "Assign matching material seam vertices the same weights using canonicalposition classes; do not create weighted cracks at color/UV boundaries.",
+    "Rigidly bind original annotated lower-hoof regions to their own new hoofbone; blend adjacent fetlock/cannon segments with at most4 normalized influences and explicitly isolate the four limbs.",
+    "Blend proximal regions into body and neck/head/tail by reconstructed capsule control volumes. Do not transfer original malformed serial-chain weights or old89b joint indices.",
+    "Keep default source surface visible. Prove actual decoded neutral surface/UV/indices/material/image parity, weight sums/indices, then loaded skin across extrema before app intake."
+  ],
+  "motion_contract": {
+    "reference_clip": "Armature|Walk",
+    "reference_duration_s": 1.75,
+    "reference_default_pose": "Asymmetric/walking; not neutral skeletal anatomy",
+    "reference_forward": "-X",
+    "canonical_forward": "+Z",
+    "phase_driver": "travelled_distance_m/explicit_authored_stride_m, not free wallclock or staticmesh translation",
+    "planned_foot_targets": "Source-reference cycle footpath shapes retargeted through NEW hostchain IK; all stance targets are fixed in world-space against actual drawn route ground. Donor authored phase/contact must be measured before calibration.",
+    "stride_m": null,
+    "walk_approved": false,
+    "trot_approved": false,
+    "loaded_hitch_approved": false,
+    "start_stop_turning": "Must have explicit new finite entrance/exit/turning target/contact proof; legacy finite-player clock/lifecycle methodology may be reused, not its oldbone clips/sockets."
+  },
+  "capabilities_false": [
+    "photographic_master_complete",
+    "independent_donor_to_host_retarget_proven",
+    "walk",
+    "trot",
+    "weight_shift",
+    "hitch_fit",
+    "riding",
+    "boarding"
+  ]
+}

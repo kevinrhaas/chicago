@@ -25358,3 +25358,104 @@ lower pale ring/fur remain open source-relative limitations.
 ### T-3088 exact-source recovery, 29 October 2026
 
 The selected orbital child is byte-identical to the 27 October e49b source backed up in evidence checkpoint15 (commit2c76735371058f52d1e7c275f23dd25c1ffedfda); its 5a ancestor and recipe were recovered byte-for-byte from checkpoint11. Existing925/d454 files, placement, hoof contacts, rig/skin/UVs and gait prototypes remain preserved. The compact pinned129 qualification is historical evidence for these same asset bytes. The original external raw capture arrays are absent after the runtime restart; this recovery does not claim they were reread or that physical129 was rerun. Current source/static controls, canonical owners, published Full-yard views at both widths and full source/CI gates are separate delivery requirements. Broad anatomical, photographic, surface/LOD and occupied-use acceptance remain open.
+
+
+### T-3088 pending eye-normal child, 29 October 2026
+
+The canonical source now declares a separate pending e49 eye-normal child,
+SHA`bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6`.
+Only EYE shading normals and their accessor min/max change; all geometry,
+rig/skin/clip, UV/images/materials and planted support remain exact. Eight
+inspected RAW-material source views show reduced triangular eye shading, with
+BODY ring, silhouette, paint and mane still unchanged. This is not a native
+organic-world or photographic verdict. Current e49 stays selected while fresh
+exact-child physical/socket129 qualification, canonical gates and matched native
+organic yard comparison are pending. All old exact-source proofs remain
+historical; broader anatomy, surface/LOD, gait and occupied-use acceptance stays
+open. No additional ticket is created.
+
+
+### Selected eye-normal child after fresh canonical qualification, 29 October 2026
+
+The source-selected runtime is now exact
+`bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6`,
+4,159,196bytes/17,390triangles, in explicit `eye_smooth_normals_v1` mode. Exact
+e49 remains preserved as a supported parent with its original runtime/idle
+metadata and certificate. The original source candidate and recipe creation
+notices are preserved as historical records. Only3968 EYE NORMAL rows and
+truthful existing NORMAL accessor extrema change; BODY geometry, silhouette,
+all positions/indices, UVs/images/materials, rig/skin/clip, bounds, hoof contacts,
+placement and support remain unchanged.
+
+Fresh qualification of these exact new bytes actually passed canonical static
+11.384s, native standard-loader/SkeletonUtils clone/Mixer65keys+64midpoints
+73.616s, and all129 posed socket samples225.420s; complete pipeline314.328s,
+with all owned-process cleanup complete and no remaining children. It retained
+the original9176-byte physical loop, every original physical limit,178 source
+scan faces,20 unchanged same-side interface faces and14/7mm locus bounds.
+Each posed sample retained24 contained BODY crossings/82 globe contacts and
+zero new exterior/undeclared/patch-patch crossings. Maximum upper bounds are
+13.770834108mm BODY and6.247168226mm globe contact. No parent certificate
+transfers. The new source summary binds actual raw capture, Float64 arrays,
+posed results and canonical code/input pins.
+
+The eight earlier RAW-material views remain a bounded source observation: clear
+triangular eye shading bands recede; the angular silhouette, heavy BODY
+socket/ring, painted appearance and mane remain. New selected-child native
+organic published-yard comparison, phone/desktop app acceptance, canonical
+Liberty/source-use owners, complete source gates/CI and broad photographic
+acceptance are still PENDING. No walking, rider, driver, tack, identified
+historical individual or whole T-3088/T-3089 completion is claimed.
+
+
+#### T-2803 - natural planted idle source preparation, 29 October 2026
+
+The current horse motion remains the selected small planted body/leg shift. A
+new animation-only source child8ea7748f (4,166,488B) preserves exact bd443
+geometry/skin/rig/oldclip and appends a separate portable17track head/neck/tail
+idle. Root-approved source export and twelve real corruptions passed; direct
+canonical qualification source now lives in tools/transport/horse_natural_idle_v1.
+New expected65 keys are independently derived from the unchanged accepted old65
+body/leg matrices and explicit Euler/hierarchy composition, not exporter readback.
+The entire original9176B physical metric block, fixed limits and old14
+implementation pins remain exact. Native physical129, same-pose925 socket129,
+published desktop/phone motion, application gates and adoption are UNRUN.
+Active runtime remains bd443 with no new mode/clip selection. This is the visible
+idle parcel toward the owner's riders, drivers and interactive town traffic;
+those larger acceptances remain open.
+
+
+### T-2803 anatomical binding repair v2 — prepared, not enabled
+
+Actual8ea new17-track native65keys+64midpoints failed skin edge/area/normal limits
+in8.359s; hoof drift8.650um, seam0 and leg linkage passed. The lower jaw mixed
+body-fixed and head-driven weights. Socket capture was correctly blocked.
+A separately versioned reconstructed skull/cervical/tail binding and matched925
+geometry companion are now source-prepared. All2704BODY+1184HAIR skull-core rows
+are inside the reviewed domain and rigidly HEAD3 without a height taper. Actual
+changes2512HAIR+2647BODY rows/61070BIN bytes; unlisted bytes and all EYE/hoof
+weights are exact. Twelve source-corruption controls passed; both exports remain
+under4MiB. This is static source admission only. Genuine original13/native17
+physical129, paired925socket129, actual desktop/phone town motion, full gates and
+DEV acceptance remain UNRUN for V2. Runtime stillbd443; no old verdict transfers.
+
+
+### T-2803 root-aware mane binding v3 — prepared, not enabled
+
+ActualV2native13.634s/cleanup0: retained13-track clip all129vertices/shadernormals
+parity and originalphysical bounds PASS; new17all129 BODY/EYE/contact PASS, HAIR
+areaMax1.225623>original1.2FAIL. Socketcapture0 and posedUNRUN, oldtrial preserved.
+NewV3 source samples8actualdorsalcrest points so hanging mane tips follow the
+root attachment field rather than choosing a cervical control by tipheight. Only
+1119HAIRrows/8874BINbytes change; BODY/EYE/969tail/geometry/rig/images/UV/bothclips
+stay exactV2. All1184originalskullcore rows remain rigidHEAD3. Exactpaired925
+skin streams and11sourcecorruptions PASS1.8197s; sourcegradients are disclosed, not
+posed evidence. CanonicalV3static/nativeold13/new17/pairedsocket129 and actual
+desktop/phone motion/fullgates remain UNRUN. Runtime stillbd443. Hignoredoldbuild
+mirror was reclaimed after fullSHA/length/sourceguards; future mirror status is
+absent until fresh publication, never an inherited publishedPASS.
+
+
+### Quiet standing head/neck idle — local integration, 30 October 2026
+
+T-2803/T-3088 remain open. The selected quiet15 runtime has fresh canonical source controls, static proof, actual native physical129/runtime-master parity, separate paired925 posed socket129 and recorded finite qualification. All129 samples meet original14mm BODY/7mm contact/zero new crossings. The exact helper also passed a real GLTFLoader/clone/Mixer CPU mechanical test, with154056 vertex comparisons and zero reference vertex/bone delta; six texture dependencies were explicitly omitted from that mechanical test, so it grants no bitmap/material/visual acceptance. Local code selects the new quiet head/neck clip and preserves the complete previous bd443 runtime/idle metadata. Desktop/phone unheld near/mid yard views, actual pointer card/video review, whole-app gates, current CI, feature delivery/DEV merge and photographic acceptance remain pending. Tail gestures, gait, riders/drivers and town traffic are not enabled.

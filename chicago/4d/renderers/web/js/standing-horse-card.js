@@ -18,7 +18,9 @@ export function standingHorseCard(row, spec) {
         note: 'No historical breed, owner, measured stature, coat or grooming is attested for this model.' },
       state: { value: 'Standing, unhitched, untied and unmounted', confidence: 'reconstructed', sources: [],
         note: row.animation?.enabled
-          ? 'Gentle body weight shifts are reconstructed; hooves stay planted. This horse is unhitched and unmounted; walking and riding are not available.'
+          ? (spec.runtime_asset.source_qualification_mode === 'quiet_head_neck_idle_v6'
+            ? 'Gentle weight shifts and quiet head and neck movements are reconstructed; hooves stay planted. This horse is unhitched and unmounted; walking and riding are not available.'
+            : 'Gentle body weight shifts are reconstructed; hooves stay planted. This horse is unhitched and unmounted; walking and riding are not available.')
           : 'Idle activation awaits qualification; no halter, tie rope, harness, rider, driver, boarding, route or physical coupling is enabled.' },
       anatomy: { value: 'Reconstructed working horse', confidence: 'reconstructed',
         sources: spec.anatomy?.source_ids ?? [],

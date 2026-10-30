@@ -1,9 +1,9 @@
 {
   "schema": "standing_horse_placements_v1",
-  "status": "Bounded exact e49b source-selected on unchanged standing yard placement/support; current app-yard/source gates still required; no photo or gait completion.",
+  "status": "Quiet head/neck idle selected for local integration after exact finite129 qualification; actual unheld yard, phone, app and photographic acceptance pending.",
   "models": {
     "sevket_horse_standing_development_01": {
-      "file": "transport/standing-horse/horse-sevket-upper-orbital-transition-v1.glb",
+      "file": "transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb",
       "sidecar": "transport/parked/horse-sevket-sidecar.json"
     }
   },
@@ -68,7 +68,7 @@
         "liberty": "L-standing-horse-development-2800",
         "animation": {
           "enabled": true,
-          "clip": "sevket_reconstructed_planted_posture_v1",
+          "clip": "sevket_reconstructed_quiet_head_neck_idle_v1",
           "confidence": "reconstructed"
         }
       }

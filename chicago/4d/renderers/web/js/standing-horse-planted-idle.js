@@ -5,12 +5,16 @@ export const LID_PLANTED_SHA = '5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920ce
 export const PLANTED_MODE = 'upper_orbital_transition_v1';
 export const PLANTED_SHA = 'e49b6f1c9f7b70f1fcdf19fa7f6dddf54048b32256b4d8030d6238d6dfe79d49';
 export const PLANTED_BYTES = 4159196;
+export const EYE_NORMALS_PLANTED_MODE = 'eye_smooth_normals_v1';
+export const EYE_NORMALS_PLANTED_SHA = 'bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6';
 export const PLANTED_MASTERS = Object.freeze({
   anatomy_r3: Object.freeze({ sha256: LEGACY_PLANTED_SHA, bytes: 4158016 }),
   canonical_socket_interface_v1: Object.freeze({ sha256: LID_PLANTED_SHA, bytes: 4158848,
     qualification_sha256: '5fb50fed07a041c76e2a1300a9040600628f59671b8a27d7f4483bc8dc880ca1' }),
   upper_orbital_transition_v1: Object.freeze({ sha256: PLANTED_SHA, bytes: PLANTED_BYTES,
     qualification_sha256: '72506859017d1f1aea57ad248d877a88bb07e701d4ec82c31e509dbb97e8d7a0' }),
+  eye_smooth_normals_v1: Object.freeze({ sha256: EYE_NORMALS_PLANTED_SHA, bytes: PLANTED_BYTES,
+    qualification_sha256: 'e730f59fdbf32db6a02270b62b96c2f0d75b4f465cdbe1fda4a957cfa8530342' }),
 });
 export const PLANTED_TRIANGLES = 17390;
 export const PLANTED_CLIP = 'sevket_reconstructed_planted_posture_v1';
@@ -43,7 +47,7 @@ export function validatePlantedStandingHeader(bytes, spec) {
   check(json.asset?.extras?.chicago4d_anatomy_master_v2?.parent_sha256
     === 'd4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914',
   'source-bound anatomy parent required');
-  if (mode === PLANTED_MODE || mode === 'canonical_socket_interface_v1') {
+  if (mode === PLANTED_MODE || mode === EYE_NORMALS_PLANTED_MODE || mode === 'canonical_socket_interface_v1') {
     const lid = json.asset?.extras?.chicago4d_upper_lid_strip_v1;
     check(lid?.parent_sha256 === LEGACY_PLANTED_SHA
       && lid.original_d454_sha256 === 'd4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914'
@@ -51,7 +55,7 @@ export function validatePlantedStandingHeader(bytes, spec) {
       && JSON.stringify(lid.internal_BODY_UV_repair_rows) === '[2410,2412]',
     'source-bound upper-lid parent/recipe/UV ownership required');
   }
-  if (mode === PLANTED_MODE) {
+  if (mode === PLANTED_MODE || mode === EYE_NORMALS_PLANTED_MODE) {
     const orbital = json.asset?.extras?.upper_orbital_transition_v1;
     check(orbital?.parent_sha256 === LID_PLANTED_SHA
       && orbital.recipe_sha256 === '23850a915289ac7d73ea6619a7b68d07c9c240e177917f10f4488f996f66db70'

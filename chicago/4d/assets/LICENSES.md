@@ -1636,3 +1636,83 @@ full photographic, historical-individual, gait or occupied-use acceptance.
 |`authored/transport/horse_standing/generate_upper_orbital_transition_v1.py`|GPL-3.0-or-later pure source-table generator and protected-source controls; it does not replace the asset's CC-BY-4.0 attribution or prove photographic likeness.|
 
 The runtime file is `renderers/web/transport/standing-horse/horse-sevket-upper-orbital-transition-v1.glb`, byte-identical to the authored source. All5a/925/d454/raw/canonical26 sources and old modes remain. Cleared PD anatomy/CC0 living-animal references guide the bounded reconstruction with their existing date/identity limits. Exact-source fresh129 and matched source views support this increment; current app/yard/full gates and remaining anatomy/surface concerns are separate.
+
+
+### Pending e49 child: eye smooth normals (T-3088, 29 October 2026)
+
+|File|License and change notice|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-eye-smooth-normals-v1.glb`|CC-BY-4.0 derivative of “Horse” by sevketkabatas, published29March2021, via the preserved Objaverse/acquisition lineage and original source URL in SOURCE.json. Exact e49 parent; only3968 EYE NORMAL rows and their truthful accessor min/max change. Existing model, six images, UVs, rig, clip and material credit remain unchanged.|
+|`authored/transport/horse_standing/eye-smooth-normals-v1-recipe.json`|GPL-3.0-or-later project recipe for deterministic source-derived sphere normals. Its historical unadopted creation-state notice is preserved; it does not grant asset qualification.|
+|`authored/transport/horse_standing/generate_eye_smooth_normals_v1.py`|GPL-3.0-or-later project source-table derivation and protected-byte verifier; the emitted model remains credited to sevketkabatas under CC-BY-4.0.|
+
+This is a separately declared pending source child, not the selected runtime horse.
+SOURCE.json retains the original modern author, source URL, license URL and parent
+lineage. No normal texture, new photograph, reference-image derivative or invented
+historical individual is introduced. Exact-child physical/socket qualification,
+canonical source gates and genuine native organic yard comparison remain pending.
+The e49/5a/925/d454 assets and their exact-byte certificates remain preserved.
+
+
+The separate eye-normal child above is now source-selected under explicit
+`eye_smooth_normals_v1` after fresh29October2026 canonical static/native
+physical129/posed socket129 qualification of exact bd443 bytes. Its runtime copy
+is `renderers/web/transport/standing-horse/horse-sevket-eye-smooth-normals-v1.glb`.
+The preserved e49 parent retains its old exact-byte proof. The new recipe's
+creation notice remains historical; actual qualification is in the separate
+source-bound summary. Native organic published-yard comparison and whole-photo
+acceptance remain pending. Source credits and CC-BY-4.0 license do not change.
+
+
+### Pending natural planted idle source (T-2803, 29 October 2026)
+
+|File|License and change notice|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-natural-planted-idle-v1.glb`|Animation-only CC-BY-4.0 model derivative of sevketkabatas' Horse, via unchanged SOURCE.json/Objaverse acquisition lineage. All geometry, skin, six images, materials and existing clip retain original credit. Project-authored reconstructed neck/head look and tail flick are exported as one additional clip; no source-native donated animation, historical individual/breed or gait is claimed.|
+|`authored/transport/horse_standing/natural-planted-idle-v1-recipe.json`|GPL-3.0-or-later project reconstructed motion parameters, explicit local axes and original standing protections. Historical creation flags remain preserved; qualification is separate.|
+|`authored/transport/horse_standing/generate_natural_planted_idle_v1.py`|GPL-3.0-or-later deterministic portable animation-only source generator and strict parent-byte verifier. Emitted model credit and CC-BY-4.0 attribution remain intact.|
+|`authored/transport/horse_standing/natural-planted-idle-v1-PROVENANCE.json`|GPL-3.0-or-later project change/provenance notice with original licensed asset credit, parent/candidate identities and pending qualification scope.|
+
+Exact source candidate8ea7748f is PREPARED ONLY. Active runtime stays exact bd443
+and its existing one-clip mode. Fresh selected17track native physical/socket129,
+actual published desktop/phone visible motion and full application gates are
+UNRUN. No old certificate transfers. No new photograph or invented archival action.
+
+
+### Prepared anatomical binding repair v2 (T-2803, 29 October 2026)
+
+|File|License and change notice|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-natural-planted-binding-v2.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse through unchanged SOURCE.json credit/acquisition lineage. Project-authored reconstructed skull/neck and tail binding replaces only declared skin rows; original geometry, rig, images and animation are retained. Source preparation only, no native motion acceptance or historical individual likeness.|
+|`authored/transport/horse_standing/horse-sevket-original925-paired-binding-v2.glb`|CC-BY-4.0 separately versioned original925-geometry reference with exactly the same reviewed new skin tuples, retaining original author/credits. Never represented as unchanged original925.|
+|`authored/transport/horse_standing/natural-planted-binding-v2-recipe.json`|GPL-3.0-or-later project anatomical field recipe and explicit row domain; no copied image pixels.|
+|`authored/transport/horse_standing/natural-planted-binding-v2-PROVENANCE.json`|GPL-3.0-or-later project change notice retaining original model credit and CC-BY-4.0 asset attribution.|
+
+The earlier8ea new17-track trial failed physical limits; that verdict is preserved.
+V2 source-byte controls pass, but old13/native17/socket129/world qualification and
+application adoption remain UNRUN. Active runtime stays bd443.
+
+
+### Prepared root-aware mane binding v3 (T-2803, 29 October 2026)
+
+|File|License and change notice|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-natural-planted-root-binding-v3.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse retaining SOURCE.json acquisition/author/source credit and all previous notices. Project-authored reconstructed mane-root binding changes1119declaredHAIR rows only; no donated/source-native motion or historic animal identity is asserted.|
+|`authored/transport/horse_standing/horse-sevket-original925-root-binding-v3.glb`|CC-BY-4.0 separately versioned original925-geometry reference, with the same reviewed root-binding overlay; original model credit remains intact. Not unchanged925.|
+|`authored/transport/horse_standing/root-binding-v3-recipe.json`|GPL-3.0-or-later project source-geometry crest guide, explicit domain and reconstructed attachment rule; no copied image pixels.|
+|`authored/transport/horse_standing/root-binding-v3-PROVENANCE.json`|GPL-3.0-or-later project change/lineage notice retaining original model attribution and CC-BY-4.0 license.|
+
+V2 actualretained13-track parity/physical passed, but new17HAIRarea failed. The V3
+source-only export/11corruption controls pass; all fresh native/posed/world gates
+and adoption remain UNRUN. Runtime remains bd443; no old qualification transfers.
+
+
+### Quiet head/neck first motion V6 — reconstructed, unselected PhaseA
+
+|File|Rights and scope|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-quiet-head-neck-idle-v6.glb`|CC-BY-4.0 derivative of Horse by sevketkabatas (29March2021), retaining SOURCE.json acquisition/source URL and original model/six-image credit. Project-authored exact V4HEAD skin field and separately named quiet head/neck clip; all original source13/failed17 history preserved. Reconstructed first motion, not a historical animal or gait. Unselected pending fresh canonical qualification.|
+|`authored/transport/horse_standing/horse-sevket-original925-head-neck-binding-v6.glb`|Separately versioned CC-BY-4.0 original925-geometry reference with identical new HEAD binding. Same sevketkabatas attribution; never represented as unchanged925.|
+|`authored/transport/horse_standing/quiet-head-neck-v6-PROVENANCE.json`|GPL-3.0-or-later project source/change/scope notice. Original model/images retain CC-BY-4.0 credit and acquired provenance; no qualification or historical likeness is transferred.|
+
+Project-authored V6 code/recipe/HEAD-field fixture are under `tools/transport/horse_quiet_head_neck_idle_v6/`, GPL-3.0-or-later. The one-quiet-clip runtime derivative is `renderers/web/transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb`; its entire BIN/geometry/images/materials/rig and retained motion curves equal the authored master, with old13/failed17 omitted only from playable inventory. Source/projection preparation is not native/socket/world/photo acceptance.

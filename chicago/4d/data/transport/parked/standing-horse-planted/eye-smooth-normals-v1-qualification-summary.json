@@ -1,0 +1,1555 @@
+{
+  "schema": "standing-horse-eye-smooth-normals-qualification-summary-v1",
+  "status": "EXACT_BD443_STATIC_NATIVE_PHYSICAL_SOCKET129_ONLY_PASS",
+  "created_utc": "2026-10-29T18:34:57.468039+00:00",
+  "source_admission": "eye_smooth_normals_v1",
+  "collision_mode": "canonical_socket_interface_v1",
+  "candidate_sha256": "bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6",
+  "candidate_bytes": 4159196,
+  "normal_parent_e49_sha256": "e49b6f1c9f7b70f1fcdf19fa7f6dddf54048b32256b4d8030d6238d6dfe79d49",
+  "parent5a_sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+  "collision_reference925_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+  "original_d454_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "recipe_sha256": "9a6c38e01c81ffd0d5ae262008e80fa3227fc5ab974bbfa66252ca0521717911",
+  "generator_sha256": "b174f165545f3c5eeb98e31dbc7b50637330d4eeeaa5e00ae9e6b9c45de343c8",
+  "source_difference": {
+    "semantic": "Only3968EYE_NORMAL208 rows and truthful NORMALaccessor extrema; positions/topology/UV/materials/images/rig/skin/animation and every other BINbyte exact",
+    "actual_changed_BIN_bytes": 37722,
+    "body_geometry_changed": false,
+    "globe_geometry_changed": false,
+    "socket_scan_faces": 178,
+    "unchanged_source_interface_faces": 20
+  },
+  "physical_loop_bytes": 9176,
+  "physical_loop_sha256": "a8515b35e18a058673fe330a127eba129851f324915858971e3b683bc4d259a1",
+  "limits_m": {
+    "BODY_locus": 0.014,
+    "globe_contact_locus": 0.007,
+    "source_and_parent_displacement": 0.02
+  },
+  "original_physical_limits": {
+    "stance_patch_drift_m": 1e-05,
+    "segment_length_error_m": 1e-09,
+    "loop_position_m": 1e-09,
+    "loop_rotation_matrix_abs": 1e-09,
+    "negative_control_min_detected_m": 0.001,
+    "minimum_triangle_edge_ratio": 0.9,
+    "maximum_triangle_edge_ratio": 1.1,
+    "minimum_triangle_area_ratio": 0.8,
+    "maximum_triangle_area_ratio": 1.2,
+    "allowed_rest_relative_triangle_normal_dot_negative": 0,
+    "minimum_all_surface_y_m": -1e-05,
+    "minimum_seam_gap_tolerance_m": 1e-06
+  },
+  "all129_socket_samples": [
+    {
+      "index": 0,
+      "time_s": 0,
+      "key": 0,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 1,
+      "time_s": 0.09375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 2,
+      "time_s": 0.1875,
+      "key": 1,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059264,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 3,
+      "time_s": 0.28125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059548,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 4,
+      "time_s": 0.375,
+      "key": 2,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059538,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 5,
+      "time_s": 0.46875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059401,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 6,
+      "time_s": 0.5625,
+      "key": 3,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.00624716822505943,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 7,
+      "time_s": 0.65625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250593245,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 8,
+      "time_s": 0.75,
+      "key": 4,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059215,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 9,
+      "time_s": 0.84375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059006,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 10,
+      "time_s": 0.9375,
+      "key": 5,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225058907,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 11,
+      "time_s": 1.03125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250587095,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 12,
+      "time_s": 1.125,
+      "key": 6,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.00624716822505834,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 13,
+      "time_s": 1.21875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225058423,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 14,
+      "time_s": 1.3125,
+      "key": 7,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225057818,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 15,
+      "time_s": 1.40625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225057634,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 16,
+      "time_s": 1.5,
+      "key": 8,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225057221,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 17,
+      "time_s": 1.59375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225057275,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 18,
+      "time_s": 1.6875,
+      "key": 9,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225056839,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 19,
+      "time_s": 1.78125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225056389,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 20,
+      "time_s": 1.875,
+      "key": 10,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225056267,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 21,
+      "time_s": 1.96875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225055826,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 22,
+      "time_s": 2.0625,
+      "key": 11,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225055306,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 23,
+      "time_s": 2.15625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225055292,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 24,
+      "time_s": 2.25,
+      "key": 12,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225054929,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 25,
+      "time_s": 2.34375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225054539,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 26,
+      "time_s": 2.4375,
+      "key": 13,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225054097,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 27,
+      "time_s": 2.53125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225053854,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 28,
+      "time_s": 2.625,
+      "key": 14,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225054001,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 29,
+      "time_s": 2.71875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225053903,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 30,
+      "time_s": 2.8125,
+      "key": 15,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225053591,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 31,
+      "time_s": 2.90625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250536155,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 32,
+      "time_s": 3,
+      "key": 16,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250534784,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 33,
+      "time_s": 3.09375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250536155,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 34,
+      "time_s": 3.1875,
+      "key": 17,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225053591,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 35,
+      "time_s": 3.28125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225053903,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 36,
+      "time_s": 3.375,
+      "key": 18,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225054001,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 37,
+      "time_s": 3.46875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225053854,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 38,
+      "time_s": 3.5625,
+      "key": 19,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225054097,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 39,
+      "time_s": 3.65625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225054539,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 40,
+      "time_s": 3.75,
+      "key": 20,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225054929,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 41,
+      "time_s": 3.84375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225055292,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 42,
+      "time_s": 3.9375,
+      "key": 21,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225055306,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 43,
+      "time_s": 4.03125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225055826,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 44,
+      "time_s": 4.125,
+      "key": 22,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225056267,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 45,
+      "time_s": 4.21875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225056389,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 46,
+      "time_s": 4.3125,
+      "key": 23,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225056839,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 47,
+      "time_s": 4.40625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225057275,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 48,
+      "time_s": 4.5,
+      "key": 24,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225057221,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 49,
+      "time_s": 4.59375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225057634,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 50,
+      "time_s": 4.6875,
+      "key": 25,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225057818,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 51,
+      "time_s": 4.78125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225058423,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 52,
+      "time_s": 4.875,
+      "key": 26,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.00624716822505834,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 53,
+      "time_s": 4.96875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250587095,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 54,
+      "time_s": 5.0625,
+      "key": 27,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225058907,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 55,
+      "time_s": 5.15625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059006,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 56,
+      "time_s": 5.25,
+      "key": 28,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059215,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 57,
+      "time_s": 5.34375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250593245,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 58,
+      "time_s": 5.4375,
+      "key": 29,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.00624716822505943,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 59,
+      "time_s": 5.53125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059401,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 60,
+      "time_s": 5.625,
+      "key": 30,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059538,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 61,
+      "time_s": 5.71875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059548,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 62,
+      "time_s": 5.8125,
+      "key": 31,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059264,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 63,
+      "time_s": 5.90625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 64,
+      "time_s": 6,
+      "key": 32,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 65,
+      "time_s": 6.09375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 66,
+      "time_s": 6.1875,
+      "key": 33,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 67,
+      "time_s": 6.28125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059268,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 68,
+      "time_s": 6.375,
+      "key": 34,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059349,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 69,
+      "time_s": 6.46875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059335,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 70,
+      "time_s": 6.5625,
+      "key": 35,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059344,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 71,
+      "time_s": 6.65625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059349,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 72,
+      "time_s": 6.75,
+      "key": 36,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059344,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 73,
+      "time_s": 6.84375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059396,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 74,
+      "time_s": 6.9375,
+      "key": 37,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059489,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 75,
+      "time_s": 7.03125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059476,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 76,
+      "time_s": 7.125,
+      "key": 38,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250594875,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 77,
+      "time_s": 7.21875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250594875,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 78,
+      "time_s": 7.3125,
+      "key": 39,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059359,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 79,
+      "time_s": 7.40625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059327,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 80,
+      "time_s": 7.5,
+      "key": 40,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059315,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 81,
+      "time_s": 7.59375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059614,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 82,
+      "time_s": 7.6875,
+      "key": 41,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059606,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 83,
+      "time_s": 7.78125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059497,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 84,
+      "time_s": 7.875,
+      "key": 42,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059342,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 85,
+      "time_s": 7.96875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250593505,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 86,
+      "time_s": 8.0625,
+      "key": 43,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059329,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 87,
+      "time_s": 8.15625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250592395,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 88,
+      "time_s": 8.25,
+      "key": 44,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250591475,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 89,
+      "time_s": 8.34375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059362,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 90,
+      "time_s": 8.4375,
+      "key": 45,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250591805,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 91,
+      "time_s": 8.53125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250591,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 92,
+      "time_s": 8.625,
+      "key": 46,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059167,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 93,
+      "time_s": 8.71875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250591675,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 94,
+      "time_s": 8.8125,
+      "key": 47,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059214,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 95,
+      "time_s": 8.90625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059093,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 96,
+      "time_s": 9,
+      "key": 48,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.00624716822505916,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 97,
+      "time_s": 9.09375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059093,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 98,
+      "time_s": 9.1875,
+      "key": 49,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059214,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 99,
+      "time_s": 9.28125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250591675,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 100,
+      "time_s": 9.375,
+      "key": 50,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059167,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 101,
+      "time_s": 9.46875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250591,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 102,
+      "time_s": 9.5625,
+      "key": 51,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250591805,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 103,
+      "time_s": 9.65625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059362,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 104,
+      "time_s": 9.75,
+      "key": 52,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250591475,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 105,
+      "time_s": 9.84375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250592395,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 106,
+      "time_s": 9.9375,
+      "key": 53,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059329,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 107,
+      "time_s": 10.03125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250593505,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 108,
+      "time_s": 10.125,
+      "key": 54,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059342,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 109,
+      "time_s": 10.21875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059497,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 110,
+      "time_s": 10.3125,
+      "key": 55,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059606,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 111,
+      "time_s": 10.40625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059614,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 112,
+      "time_s": 10.5,
+      "key": 56,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059315,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 113,
+      "time_s": 10.59375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059327,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 114,
+      "time_s": 10.6875,
+      "key": 57,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059359,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 115,
+      "time_s": 10.78125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250594875,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 116,
+      "time_s": 10.875,
+      "key": 58,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.0062471682250594875,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 117,
+      "time_s": 10.96875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059476,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 118,
+      "time_s": 11.0625,
+      "key": 59,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059489,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 119,
+      "time_s": 11.15625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059396,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 120,
+      "time_s": 11.25,
+      "key": 60,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059344,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 121,
+      "time_s": 11.34375,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059349,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 122,
+      "time_s": 11.4375,
+      "key": 61,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059344,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 123,
+      "time_s": 11.53125,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059335,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 124,
+      "time_s": 11.625,
+      "key": 62,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059349,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 125,
+      "time_s": 11.71875,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059268,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 126,
+      "time_s": 11.8125,
+      "key": 63,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 127,
+      "time_s": 11.90625,
+      "key": null,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    },
+    {
+      "index": 128,
+      "time_s": 12,
+      "key": 64,
+      "BODY_pairs": 24,
+      "globe_contacts": 82,
+      "BODY_max_upper_m": 0.013770834107239166,
+      "CONTACT_max_upper_m": 0.006247168225059259,
+      "new_exterior_or_undeclared_or_patch_patch_crossings": 0
+    }
+  ],
+  "actual_native_physical": {
+    "status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
+    "key_count": 65,
+    "midpoint_count": 64,
+    "normalization": [
+      {
+        "mesh": 0,
+        "original_protected_rows_checked": 2306,
+        "maximum_loader_component_delta": 5.960464477539063e-08,
+        "new_rows_checked": 0
+      },
+      {
+        "mesh": 1,
+        "original_protected_rows_checked": 3173,
+        "maximum_loader_component_delta": 2.9802322387695312e-08,
+        "new_rows_checked": 1282
+      },
+      {
+        "mesh": 2,
+        "original_protected_rows_checked": 3968,
+        "maximum_loader_component_delta": 0,
+        "new_rows_checked": 0
+      }
+    ],
+    "failures": [],
+    "positions": {
+      "tolerance_m": 1e-05,
+      "maximum_delta_m": 1.3646619141056235e-07,
+      "evaluations": 834470
+    },
+    "normals": {
+      "tolerance_degrees": 0.01,
+      "maximum_angle_degrees": 1.639496572068655e-06,
+      "evaluations": 834470
+    },
+    "joint_world": {
+      "maximum_translation_error_m": 5.6459639084447026e-08,
+      "maximum_matrix_component_error": 5.645758471839457e-08
+    },
+    "physical": {
+      "maximum_segment_length_error_m": 1.6653345369377348e-16,
+      "maximum_parent_residual_m": 0,
+      "maximum_seam_gap_m": 0,
+      "maximum_contact_error_m": 8.649781714186193e-06
+    },
+    "WebGL_contexts_created": 0,
+    "renderers_created": 0,
+    "walking_enabled": false,
+    "head_tail_composed": false,
+    "photographic_acceptance": false,
+    "shader_normal_algebra": "normalMatrix(meshWorld) * bindInverse * weighted Float32 boneMatrices * bind * normal; no inverse-transpose of weighted blend",
+    "decoded_maps_equal": true,
+    "anatomy_lineage": {
+      "original_body_vertices": 4313,
+      "new_body_vertices": 5595,
+      "original_uv_rows_exact_except_two_declared_head_repairs": true,
+      "head_UV_repairs": [
+        2410,
+        2412
+      ],
+      "new_head_faces_claim_no_parent_face_ancestry": true,
+      "maximum_original_body_displacement_m": 0.013809995418021559,
+      "original_edge_rows": 1282,
+      "barycentric_rows": 0,
+      "maximum_new_vertex_displacement_from_ancestral_source_m": 0.0064935430075573385
+    },
+    "original_patch_counts": {
+      "fore_l": 59,
+      "fore_r": 59,
+      "hind_l": 13,
+      "hind_r": 10
+    },
+    "new_patch_counts": {
+      "fore_l": 179,
+      "fore_r": 179,
+      "hind_l": 30,
+      "hind_r": 24
+    },
+    "rest_reference": "New serialized canonical body, independently checked against actual neutral skin; old b479 surface acceptance is not inherited",
+    "negative_controls": {
+      "wrong_world_as_local_contact_error_m": 0.0463537192109398,
+      "three_mm_hoof_contact_error_m": 0.0030000064336239396,
+      "three_mm_segment_error_m": 0.0029031427887960537
+    },
+    "loop": {
+      "loopP": 0,
+      "loopR": 0,
+      "loopSkin": 0
+    },
+    "neutral_residual_m": 1.173776959548432e-07,
+    "original_physical_limits": {
+      "stance_patch_drift_m": 1e-05,
+      "segment_length_error_m": 1e-09,
+      "loop_position_m": 1e-09,
+      "loop_rotation_matrix_abs": 1e-09,
+      "negative_control_min_detected_m": 0.001,
+      "minimum_triangle_edge_ratio": 0.9,
+      "maximum_triangle_edge_ratio": 1.1,
+      "minimum_triangle_area_ratio": 0.8,
+      "maximum_triangle_area_ratio": 1.2,
+      "allowed_rest_relative_triangle_normal_dot_negative": 0,
+      "minimum_all_surface_y_m": -1e-05,
+      "minimum_seam_gap_tolerance_m": 1e-06
+    },
+    "elapsed_ms": 6359.5,
+    "scope": "Actual standard-loader/Mixer imported13track standing clip at65keys+64midpoints. No renderer/GPUfloat-arithmetic/continuous collision/photographic/app/independentheadtail/walking acceptance."
+  },
+  "actual_WebGL_context_requests": 0,
+  "actual_WebGL_contexts_created": 0,
+  "actual_Float64_raw_bytes": 59214096,
+  "actual_Float64_values": 7401762,
+  "physical_capture_manifest_sha256": "1e7a8a135be82958f7bbd8c7ec3d303829f30d180915a95d47edfb3e21a83773",
+  "actual_code_pins": {
+    "socket_geometry.py": "41c4394cbf3f415c2e7cc4c362b3652d736ba2ccb04a920b4cfb0b3c1a3764a8",
+    "socket_sources.py": "8ab010121c057c390aa3acc50a934743b8e8a08bd31990b569a674b12992eee1",
+    "socket_qualification.py": "ce7b708702c61c7f6567a8b47dc58f5c34bc6f9bc88a06ad221fd032397a0d4b",
+    "POLICY-DECLARATION.json": "001df7f2994571a4719a7673518e9fce1eef5c3b71180f895b3c8cebdd02871c",
+    "fixtures/UNCHANGED-PHYSICAL-METRIC-LOOP.mjs.txt": "a8515b35e18a058673fe330a127eba129851f324915858971e3b683bc4d259a1",
+    "PARENT/tools/transport/horse_upper_orbital_transition_v1/upper_orbital_source.py": "4d32bc1d351154af6416d4783289cc063706abfae6220ca29ef850cdbc6d4557",
+    "PARENT/assets/authored/transport/horse_standing/generate_upper_orbital_transition_v1.py": "6fd840e7e10caf18f466dd2486488dc9a2903c9045a87934b348a80d882ab5b9",
+    "PARENT/assets/authored/transport/horse_standing/generate_upper_lid_strip_v1.py": "7e6ed1ca8f03179743d2305dd864769e794ebfa56c2cea082a8da660063bba39",
+    "CHILD/generate_eye_smooth_normals_v1.py": "b174f165545f3c5eeb98e31dbc7b50637330d4eeeaa5e00ae9e6b9c45de343c8",
+    "CHILD/eye-smooth-normals-v1-recipe.json": "9a6c38e01c81ffd0d5ae262008e80fa3227fc5ab974bbfa66252ca0521717911",
+    "NEW/normal_child_source.py": "5284edad55a3509e0270a6b52a6dcf2aa765a186e8bdae1f4f17b218069b0f84",
+    "NEW/qualify_normal_child.py": "170e30e2285912d290c4953f69fe241b2fc8c81abf5053e253bd4a4b864dcec3",
+    "NEW/native_normal_child129.mjs": "85bec4edd85b46ef0e43bf383152cd9484b7ed7f7e7e29af18a7e6aadd444673",
+    "NEW/run_normal_child129.cjs": "27473e004ec375ab7db1626a1a4ff4470a3093fa93dacf915b5f075a9250e592"
+  },
+  "input_audit_sha256": "3ba3a98e6c38b622d6e3fdb434bebb709779ee64f69c94a559164e1ab6bad37f",
+  "source_frozen_candidate_manifest_sha256": "10444ea7b20eda4b98625e1ff6caf8fe2afee76afe4a79f0f68163a03bac6896",
+  "qualified_candidate_TREE": "f77e3b4ad6acaa4cf4ef4bcb9e66f042e422ea61",
+  "qualified_candidate_APP": "67c5ee97d9ee3dbc708b22572958c47434512afc",
+  "actual_receipts": {
+    "static": {
+      "file": "ACTUAL-STATIC.json",
+      "bytes": 957986,
+      "sha256": "9369d3175cc3267ff69aa74ddc38d1a5f70fd85c69acf49c67bf034bdfdd508e"
+    },
+    "capture": {
+      "file": "NATIVE-CAPTURE/RESULT.json",
+      "bytes": 1664226,
+      "sha256": "d55270a3ce96e1cb3a39b709a36077fdb32d4b5423aff5f476dd7a88e098eba9"
+    },
+    "capture_manifest": {
+      "file": "NATIVE-CAPTURE/POSE-MANIFEST.json",
+      "bytes": 14575979,
+      "sha256": "1e7a8a135be82958f7bbd8c7ec3d303829f30d180915a95d47edfb3e21a83773"
+    },
+    "posed129": {
+      "file": "ACTUAL-POSED129.json",
+      "bytes": 21191550,
+      "sha256": "95919c4ccfe74be8f8a21d07e258e45b7541e7a06e2860d67fc90f3f416dcaa1"
+    },
+    "outer_guards": {
+      "file": "PIPELINE-RESULT.json",
+      "bytes": 2028,
+      "sha256": "094793e9863d6c56b29fd4861fec457fed1b8b691a4eb2bf02876cdf3d770d9e"
+    }
+  },
+  "closed_runs": {
+    "static": {
+      "returncode": 0,
+      "seconds": 11.38412302499637,
+      "cleanup_complete": true,
+      "remaining_owned_children": [],
+      "supervisor_result": {
+        "file": "static.result.json",
+        "bytes": 654,
+        "sha256": "92d58f90760476dfa290f03571cc3ce4b0e5beb6673cd0102c952cfabbd3615c"
+      },
+      "supervisor_cleanup": {
+        "file": "static.cleanup.json",
+        "bytes": 99,
+        "sha256": "a77168666772dad0283300c88eac0c613c2042a18164d5d11bf781b1616969b1"
+      }
+    },
+    "native129": {
+      "returncode": 0,
+      "seconds": 73.61594577197684,
+      "cleanup_complete": true,
+      "remaining_owned_children": [],
+      "supervisor_result": {
+        "file": "native129.result.json",
+        "bytes": 731,
+        "sha256": "e02f3a6cdf4d3a5f2586a4620e26279981882af66b42a1d3636d8056428f8271"
+      },
+      "supervisor_cleanup": {
+        "file": "native129.cleanup.json",
+        "bytes": 259,
+        "sha256": "b98c4290c7885457fc4bcd1d69158b96843cb581fb5bff7863726350e4239ea8"
+      }
+    },
+    "posed129": {
+      "returncode": 0,
+      "seconds": 225.42017948700231,
+      "cleanup_complete": true,
+      "remaining_owned_children": [],
+      "supervisor_result": {
+        "file": "posed129.result.json",
+        "bytes": 957,
+        "sha256": "eedad2bbac2df9613fc07bd584eef4b627a40b08de160513f5deaa96241ce636"
+      },
+      "supervisor_cleanup": {
+        "file": "posed129.cleanup.json",
+        "bytes": 99,
+        "sha256": "a77168666772dad0283300c88eac0c613c2042a18164d5d11bf781b1616969b1"
+      }
+    }
+  },
+  "old_e49_and_5a_source_and_proofs_unchanged": true,
+  "old_certificate_transferred": false,
+  "new_bd443_129_actually_executed": true,
+  "source_selection_at_qualification": "exact_e49_parent",
+  "source_app_adopted_at_qualification": false,
+  "native_organic_world_comparison": "UNRUN",
+  "photographic_acceptance": false,
+  "whole_T3088_closed": false,
+  "whole_app_gate_acceptance": false,
+  "scope": "Fresh exact new NORMAL-child standard-loader/clone/Mixer physical129 and unchanged-policy static/posed socket129 qualification only; no renderer/GPUfloat/continuouscollision/photographic/world/whole-app acceptance."
+}

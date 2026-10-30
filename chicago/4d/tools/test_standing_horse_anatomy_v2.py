@@ -86,7 +86,14 @@ class AnatomySourceV2(unittest.TestCase):
         # explicit new socket mode has separate, stronger head ownership proof.
         self.assertEqual((SOURCE / 'horse-sevket-anatomy-v2.glb').read_bytes(), self.candidate)
         mode = spec['runtime_asset'].get('source_qualification_mode', 'anatomy_r3')
-        if mode == 'upper_orbital_transition_v1':
+        if mode == 'quiet_head_neck_idle_v6':
+            from test_standing_horse_quiet_head_neck import check_source_selection
+            check_source_selection()
+        elif mode == 'eye_smooth_normals_v1':
+            sys.path.insert(0,str(APP/'tools/transport/horse_eye_smooth_normals_v1'))
+            from recorded_qualification import check_source_selection
+            check_source_selection()
+        elif mode == 'upper_orbital_transition_v1':
             from test_standing_horse_upper_orbital import check_source_selection
             check_source_selection()
         elif mode == 'canonical_socket_interface_v1':

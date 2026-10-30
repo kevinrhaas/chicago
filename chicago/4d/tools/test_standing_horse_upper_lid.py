@@ -20,7 +20,7 @@ def check_source_selection():
     spec=json.loads((APP/'data/transport/parked/horse-sevket-sidecar.json').read_bytes())
     old=json.loads((APP/'tools/fixtures/horse-anatomy-r3-sidecar-v1.json').read_bytes())
     selected=spec['runtime_asset']
-    runtime=spec['preserved_upper_lid_runtime_asset']if selected.get('source_qualification_mode')=='upper_orbital_transition_v1'else selected
+    runtime=spec['preserved_upper_lid_runtime_asset']if selected.get('source_qualification_mode')in('upper_orbital_transition_v1','eye_smooth_normals_v1','quiet_head_neck_idle_v6')else selected
     geometry.need(runtime['source_qualification_mode']==boundary.MODE and runtime['sha256']==boundary.EXPECTED[boundary.CANDIDATE]and runtime['bytes']==4158848,'selected_socket_mode_identity')
     geometry.need(runtime['file']=='transport/standing-horse/horse-sevket-upper-lid-strip-v1.glb'and runtime['upper_lid_parent_sha256']==boundary.EXPECTED[boundary.PARENT],'selected_socket_parent_or_path')
     geometry.need(runtime['qualification_sha256']==boundary.CERTIFICATE_SHA and runtime['qualification_file']=='transport/parked/standing-horse-planted/upper-lid-strip-v1-qualification-summary.json','selected_socket_qualification_binding')
@@ -33,6 +33,9 @@ def check_source_selection():
     legacy=json.loads((APP/'tools/fixtures/horse-anatomy-r3-placements-v1.json').read_bytes())
     geometry.need(placement['models']['sevket_horse_standing_development_01']['file']==selected['file'],'selected_placement_asset_mismatch')
     placement['models']['sevket_horse_standing_development_01']['file']=legacy['models']['sevket_horse_standing_development_01']['file'];placement['status']=legacy['status']
+    if selected.get('source_qualification_mode')=='quiet_head_neck_idle_v6':
+        geometry.need(placement['scenes']['1835'][0]['animation']['clip']=='sevket_reconstructed_quiet_head_neck_idle_v1','quiet_selected_clip')
+        placement['scenes']['1835'][0]['animation']['clip']=legacy['scenes']['1835'][0]['animation']['clip']
     geometry.need(placement==legacy,'placement_support_material_or_capability_changed')
     source.unchanged();return source
 

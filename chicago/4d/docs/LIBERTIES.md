@@ -35960,3 +35960,107 @@ no gait, rider, driver, breed or historical-individual acceptance is asserted.
 **Explicit upper-orbital transition (27 October 2026):** exact e49b is a reconstructed child of preserved5a. Ten BODY X coordinates and38 normals over44 faces reduce the raised upper-eye ledge; six formerly fixed boundary rows are declared in this new region rather than waived under the old recipe. All eye/UV/image/skin/rig/standing-foot tables and the original source prefix remain exact. Recorded27October2026 e49 source/static and actual65-key+64-midpoint physical/socket129 proof passed under unchanged20mm/4MiB/20ktriangle,20-face same-side14/7mm and original physical-loop limits. Matched source views support a small visible ledge reduction; dark upper-eye appearance, pale ring and pointed forelock remain conspicuous and are not automatically paint-only or wholly assigned to the surface sibling. Stocky unchanged body proportions are retained as plausible generic anatomy. No calibrated plate millimetres, breed/identified individual, Chicago ownership, T3088DONE or broad photo/gait/tack acceptance is claimed. Canonical owners, actual current yard views, full source gate and CI remain required before delivery.
 
 **Recovery limit:** this29October2026 source recovery preserves the exact historical certificate and asset bytes; external raw129 arrays are unavailable and physical129 was not rerun. Current published-yard views and full source/CI gates remain separate.
+
+
+### L-horse-eye-smooth-normals-3088 — source-derived eye shading normals
+
+**Recorded:** 2026-10-29. **Ticket:** T-3088.
+
+**Source:** `sevketkabatas_2021_horse_model`, the existing licensed modern
+“Horse” model by sevketkabatas under CC-BY-4.0, via its preserved acquisition
+lineage. Exact e49 is preserved as the parent;
+`L-horse-upper-eye-contour-3088` and `L-horse-anatomy-master-3088` remain
+unchanged BODY reconstruction records.
+
+**Decision and reconstruction:** derive outward unit shading normals from each
+actual source eye's near-spherical POSITION rows. Only3968 EYE NORMAL rows and
+the existing NORMAL accessor's truthful min/max change. No position, silhouette,
+index, skin, rig, animation, UV, image or material is altered. The fit is a
+rendering choice on a modern generic asset, not a measurement of an1835 Chicago
+animal, breed, individual, owner or coat. Source rights and model credit remain.
+
+**Observed scope:** root personally inspected eight matched fixed-light
+RAW-material parent/candidate source views. Clear triangular shading bands recede
+in the eye close-ups, with a subtle change in head views. The angular silhouette,
+heavy BODY socket/ring, painted appearance and mane remain unchanged. This
+viewer did not use the native organic-dielectric material/world and establishes
+no native-world benefit or photographic acceptance.
+
+**Exact-child source qualification:** canonical static11.384s, actual native
+standard-loader/SkeletonUtils clone/Mixer65keys+64midpoints73.616s and all129
+posed socket samples225.420s passed on exact bd443 bytes; complete
+pipeline314.328s with cleanup complete and no remaining owned children. The
+original9176-byte physical loop, all original physical limits,178 scan faces,
+20 unchanged same-side interface faces and14/7mm locus bounds remain fixed.
+Each posed sample retains24 BODY pairs and82 globe contacts; no new
+exterior/undeclared/patch-patch crossing is admitted. The new source-bound
+summary records actual capture/Float64-array/posed-result hashes. Old e49/5a
+certificates remain exact-parent history, never transferred.
+
+**Remaining qualification:** this child is source-selected, while new native
+organic published-yard comparison, phone/desktop app acceptance, canonical
+Liberty/source-use owners and complete source gates/CI remain pending. No BODY
+ring/topology/hair, placement/support, walking, rider, driver, tack, whole
+T-3088/T-3089 photographic acceptance or historical identification is claimed.
+
+
+### L-horse-natural-planted-idle-2803 - pending reconstructed standing head look and tail flick
+
+**Decision:**
+
+**State: authored source preparation only; no runtime selection.** The owner
+reported that the1835 horse looks motionless. Its selected13track body/leg shift
+remains unchanged. A separately versioned bd443 child adds a slow neck/head look
+and one lateral tail flick on existing joints2/3/4/5, exported as a real second
+17track glTF clip. All original geometry, rig, skin, six images, UVs/materials,
+oldclip and BINprefix remain exact. This motion is a reconstructed general idle,
+not an attested action by a known1835 animal, breed or individual. No donated
+source animation, independent ear joint, route or gait is introduced.
+
+The canonical frame is+Yup/+Zforward/+Xleft. Bounded local neck yaw/pitch2/0.75deg,
+head4/1.5deg and tail-base/tip lateral Zroll4/8deg are project choices. The tail
+points predominantly downward, so Zroll sweeps left/right rather than twisting
+its longaxis. Full original hoof patches179/179/30/24 vertices have zero weight
+on the four new targets; actual native deformation/contact/socket acceptance
+remains REQUIRED. Existing fourteen qualifying files and fixed physical/socket
+limits remain unchanged. A separate fresh native129/posed129 record is mandatory;
+no bd443/e49 certificate transfers. This preparation adds no selected runtime
+master, photographic acceptance, walk/trot, rider/driver or interactive transport.
+
+
+#### 29 October 2026 — prepared horse anatomical binding v2 (T-2803)
+
+The existing Horse model is re-bound by a project-authored reconstructed skull,
+cervical-chain and tail field, without changing its rest shape or movement keys.
+The actual earlier lower-jaw skin tear motivates this repair. Existing public-
+domain Ellenberger/Baum/ Dittrich plate and CC0Joselodos anatomy references guide
+regions only; no copied pixels, calibrated movement measurement, archival animal
+identity or historical breed is claimed. A separate original925-geometry
+reference receives the identical new binding for like-for-like future tests.
+These new prepared assets have no posed, visual, photographic or DEV acceptance
+and are not enabled. All earlier credits, liberties and failed trials stand.
+
+
+#### 29 October 2026 — prepared root-aware mane binding v3 (T-2803)
+
+Long hanging source mane ribbons are assigned to reconstructed dorsal-crest root
+attachments using8actual source-geometry guide points and a continuous rootheight
+profile. This separates root attachment from the falling tip's height; it is a
+project anatomical binding choice, not calibrated hair simulation or attested
+historical grooming. The actual V2hair-area failure is preserved. Only declared
+HAIRskinrows change; original BODY/EYE/tail/shape/textures/rig and both clips stay
+exact. All previous source credit, liberties and failedtrials stand. No motion,
+photographic, rider/driver, towntraffic or DEV acceptance is inferred from source
+export. Fresh native/paired/world qualification remains required before enabling.
+
+
+**Recorded:** 2026-10-30.
+
+
+### L-horse-quiet-head-neck-idle-2803 - reconstructed quiet standing head and neck motion
+
+**Decision:**
+
+The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts are reconstructed animation, not a claim about an identified historical animal. The quiet12s runtime retains the original13 standing tracks plus full neck/head curves; the newly proposed tail flick is omitted because it failed its unchanged deformation limits. The original clip/assets and failures remain preserved. A separately versioned HEAD skin field and paired925 reference were freshly qualified at65keys+64midpoints under original14mm BODY,7mm globe-contact, unchanged physical limits and zero new exterior crossings. The exact new finite certificate is badca71fb2ab7596be9447adaf01b3d035d5a59c7b844bc27b500d0a004d78a6; it is not continuous collision, native-yard/video, photographic, gait, rider, driver or traffic acceptance. Original body/eye geometry, coat/maps/materials, source rig, and actual yard placement/support remain unchanged. Visitors can still inspect the horse card and its reconstructed standing action.
+
+**Recorded:** 2026-10-30.
