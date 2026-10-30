@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2439, ts: '2026-10-30T05:59:25.030Z', date: 'Oct 30, 2026, 12:59 AM CT', title: 'New 1835 ride: Women of 1835 Chicago', kind: 'feature',
+    items: [
+      'Seven stops from Wolf Point to the fort, each naming a woman a source puts in the town: Catherine Chevalier Robinson, Juliette Kinzie, Mrs. Murphy of the Exchange Coffee House, Mrs. Rufus Brown\'s boarding house, Eliza Chappel at her school and her church, and Josette LaFramboise Beaubien.',
+      'Each stop says why she still matters, from Wilmette\'s name to the Girl Scouts, and every fact is sourced.',
+    ] },
   { v: 2438, ts: '2026-10-30T05:25:14.848Z', date: 'Oct 30, 2026, 12:25 AM CT', title: 'The Pullman conservatory\'s stone podium and the lodge\'s spirelet', kind: 'improvement',
     items: [
       'Pullman\'s conservatory on 18th Street now stands on a dressed stone podium, as the 1894 plate and Lowe\'s photograph show it: pale piers at its corners, darker banded stone between them, and a moulded course under the glass.',

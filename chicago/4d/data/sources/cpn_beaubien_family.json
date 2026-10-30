@@ -10,5 +10,10 @@
   "rights_status": "check_required",
   "asset_use": "text_only",
   "verified": true,
-  "note": "Reviewed for T-0462. Used only to the degree described in the resident research review; identity candidates remain unasserted."
+  "note": "Reviewed for T-0462. Used only to the degree described in the resident research review; identity candidates remain unasserted.",
+  "access_notes": "Read again 2026-10-30 (T-3251) through a fetch that returned short quoted fragments; the T-3251 jaunt cites only these.",
+  "what_it_supplies": [
+    "Francois LaFramboise, who moved near Lake Michigan in the late 1700s and married a Potawatomi woman named Shawenoqua",
+    "Jean Baptiste Beaubien's marriage to Josette LaFromboise, daughter of Francis"
+  ]
 }
