@@ -2840,6 +2840,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_jaunt_views.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_joint_floor.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5839,6 +5843,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_cant_corner.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_dressings.py": {
       "wrote": [],
       "wrote_ignored": []
     },

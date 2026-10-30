@@ -327,6 +327,10 @@ step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
   node tools/test_street_travel.mjs
+step "Every 1904 jaunt stop stands clear of parkway trunks and lamp posts, with a view of its house (T-3263)" \
+  node tools/check_jaunt_views.mjs
+selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule is not told of the trees (T-3263)" \
+  node tools/check_jaunt_views.mjs --self-test
 step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
   node tools/test_walker_passage.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
@@ -1164,6 +1168,13 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 # oriel; a veranda into a wing, a flight into a post and an over-high lower deck refused.
 step "a K01 house carries a two-level veranda on its rear wall, and a wing's wall stands behind its oriel (T-3242)" \
   python3 tools/test_k01_rear_veranda.py
+
+# T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
+# block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
+# the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,
+# the pilaster wrapped round its corner; unknown keys, corners and over-high crests refused.
+step "a K01 house's round-headed lights stand under eared, crested hoods and its corner under a pilaster (T-3255)" \
+  python3 tools/test_k01_dressings.py
 
 # T-2843. ...and what 1801 Prairie's move onto K01 needed, held on its record: a mansard face
 # holding two storeys rises 4.5-7.5 m (one stays the attic's 2.0-4.5 m), a K08 projection

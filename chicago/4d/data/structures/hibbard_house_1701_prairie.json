@@ -22,7 +22,7 @@
   "note": "The marker: 'William G. Hibbard Residence. Built 1869'."
  },
  "review_required": false,
- "research_note": "T-3240 (piece 1 of T-1875) refines the district draft (T-2335) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — K03 brick, K06 sash, K07 door and stoop, K08 canted bay, K10 bracketed cornice, K04 hip — instead of the draft builder. What is read: the 1911 Sanborn sheet 20 (the main block, the 1874 range behind it, the bay, the stone porch, the '2S.B.' strip and the open two-storey veranda drawn on its plan, '2½S.B.') through the T-1840 census; Chicagology's photograph of the front and south flank from the south-west (chicagology_1701_hibbard_photo), whose camera is solved in data/reference_views/; and the Glessner House Museum's rear photograph (glessner_blog_1701_hibbard_rear_photo). T-3241 (piece 2) adds the railed roof deck (k01_hip_deck), the lower south range (a K08 projection's range plan) and the corner porch's stone arcade (k01_porte_cochere's corner_porch), from the same photograph. Still to come: the two-level rear veranda and the rear range's oriel (T-3242); the carving, hoods and ironwork (T-1876). Liberty L-k01-hibbard-1701-3240.",
+ "research_note": "T-3240 (piece 1 of T-1875) refines the district draft (T-2335) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — K03 brick, K06 sash, K07 door and stoop, K08 canted bay, K10 bracketed cornice, K04 hip — instead of the draft builder. What is read: the 1911 Sanborn sheet 20 (the main block, the 1874 range behind it, the bay, the stone porch, the '2S.B.' strip and the open two-storey veranda drawn on its plan, '2½S.B.') through the T-1840 census; Chicagology's photograph of the front and south flank from the south-west (chicagology_1701_hibbard_photo), whose camera is solved in data/reference_views/; and the Glessner House Museum's rear photograph (glessner_blog_1701_hibbard_rear_photo). T-3241 (piece 2) adds the railed roof deck (k01_hip_deck), the lower south range (a K08 projection's range plan) and the corner porch's stone arcade (k01_porte_cochere's corner_porch), from the same photograph. Still to come: the two-level rear veranda and the rear range's oriel (T-3242); the carving, hoods and ironwork (T-1876). T-3255 adds the eared, crested window hoods of the front and the south flank and the corner pilaster (k01_dressings). T-3256 stands the entrance in the photograph's tall round arch (K07's deep-arched pair of leaves under K01's door arch). Liberty L-k01-hibbard-1701-3240.",
  "phases": [
   {
    "id": "as_mapped_1904",
@@ -211,9 +211,9 @@
      "note": "RECONSTRUCTED: the K07 stoop's landing."
     },
     "stoop_width_m": {
-     "value": 1.7,
+     "value": 2.5,
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: the K07 stoop's width. The stone porch (corner_porch, T-3241) stands beside the door, not round it; the door is reached by the kit's stoop."
+     "note": "RECONSTRUCTED: the K07 stoop's width, the deep-arch entrance's own 2.5 m (k07_entrances.json), so the stair is as broad as the 2.2 m arch it climbs to (T-3256); it runs v 5.75-8.25, clear of the corner porch (to v 5.46) and the bay. The stone porch (corner_porch, T-3241) stands beside the door, not round it; the fence hides the stoop in the photograph."
     },
     "entrance_bay": {
      "value": "middle",
@@ -424,28 +424,81 @@
       "storeys": [
        0,
        1
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The photograph's lights on the front are round-headed on both storeys, each under a light stone hood; built as K01's round heads, dressed by eared_round_heads (T-3255), whose crest stands where the kit's key block stood."
+    },
+    "eared_round_heads": {
+     "value": {
+      "walls": [
+       "k01.wall.street_front",
+       "k01.wall.side.north"
       ],
-      "key": {
-       "width_m": 0.24,
-       "height_m": 0.3,
-       "proud_m": 0.07
+      "band_m": 0.2,
+      "proud_m": 0.06,
+      "ear_m": 0.12,
+      "drop_m": 0.3,
+      "crest": {
+       "width_m": 0.3,
+       "height_m": 0.25,
+       "proud_m": 0.08
       }
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_1701_hibbard_photo"
      ],
-     "note": "The photograph's lights on the front are round-headed on both storeys, each under a light stone hood; built as K01's round heads with their key blocks. The hoods' eared, crested carving is T-1876's."
+     "note": "T-3255 (piece 2 of T-1876): every round-headed light of the front and of the south flank (K01's north wall) stands under a light stone hood in the photograph: a broad band round the arch whose feet step out into ears at the springing and hang down the jambs, and a pointed crest standing up off its crown. Read through the solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) against the lights the record already sizes: the band about a fifth of a metre broad, the ears about 0.12 m past it and 0.3 m down, the crest about 0.3 m wide rising 0.25 m over the band. The pair toward the rear on the flank meet ear to ear between them, as the photograph's do. The carving on the band and the crest is drawn as plain stone (liberty L-k01-hibbard-1701-3255)."
+    },
+    "corner_pilasters": {
+     "value": {
+      "corners": [
+       "street_south"
+      ],
+      "width_m": 0.45,
+      "proud_m": 0.1,
+      "from_m": 2.0,
+      "to_m": 9.45,
+      "base_m": 0.3,
+      "capital_m": 0.6
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "T-3255: the photograph's tall light stone pilaster on the corner of the front and the south flank, from the stone basement's top to a carved capital under the cornice's frieze (its bed at 9.45 m, K10's 0.55 m frieze under the 10.0 m eave), about 0.45 m broad on each face through the solved camera. Built as a corner pilaster wrapped round both faces: a base, a plain shaft and a two-stage capital; the shaft's carved bands and the capital's leaves are drawn as plain stone (liberty L-k01-hibbard-1701-3255). The front's north corner stands behind the corner porch and the flank's rear corner reads plain brick in the photograph; neither is dressed."
     },
     "entrance_kit": {
      "value": {
       "k01.opening.door_leaf": {
-       "variant": "k07.entrance.panel_door_stoop",
-       "front_yard_m": 7.74
+       "variant": "k07.entrance.double_door_deep_arch",
+       "front_yard_m": 7.74,
+       "reveal_depth_m": 0.95,
+       "opening_m": [
+        2.2,
+        3.6
+       ],
+       "arch": {
+        "ring_m": 0.25,
+        "keystone_top_m": 5.9,
+        "keystone_m": [
+         0.22,
+         0.3
+        ],
+        "extrados": "curved",
+        "ring_proud_m": 0.05
+       }
       }
      },
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: the K07 panelled door at the head of a straight stoop from the walk, the front wall 7.74 m from the lot's street line (the sheet's lot, u 20.24). The photograph's entrance stands in a tall round arch beside the stone porch (T-3241 builds the porch); K07's round-arched door is laid only in a K02 stone front's courses, so this brick front keeps the panelled door under a flat head."
+     "confidence": "inferred",
+     "note": "T-3256 (piece 3 of T-1876): the photograph's entrance is a tall dark round arch in the front's middle bay, between the corner porch and the stone bay. Read through the solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) on the front wall: its jambs at about v 5.9 and 8.15 (x 513-595 px) and its crown at y about 710 px, about 5.8 m over grade, 3.8 m over the principal floor; the leaves stand in shadow deep inside it. Built as K07's round-headed pair of leaves (double_door_deep_arch) in a 0.95 m reveal under K01's door arch (T-2526, laid over a brick front's stone basement as 1834's is, T-3184): opening_m 2.2 x 3.6 m, the kit's widest round mouth and its tallest crown, the crown so about 0.2 m under the reading, inside the camera's stated 0.3 m in heights. A narrow light stone ring round the arch (0.25 m, curved extrados, 0.05 m proud) and a small key at its crown are RECONSTRUCTED: the photograph shows the arch's face light against the brick but the tree and the shadow hide its mouldings (liberty L-k01-hibbard-1701-3256). The stoop is K07's straight stair from the walk, the front wall 7.74 m from the lot's street line (the sheet's lot, u 20.24); the fence hides it in the photograph.",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ]
     },
     "bays": {
      "value": [
