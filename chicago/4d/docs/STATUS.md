@@ -1,3 +1,9 @@
+## T-3262: phone renderer memory
+
+The railway yard uses compact bounded-precision normals and omits only an exact shared uniform fine/far evidence grade; mixed grades retain their vertex stream. Initial spatial batches release unused upload bookkeeping. Positions, materials, source evidence, picking and visibility remain covered by the existing contracts.
+
+This performance support change addresses the owner-reported phone memory problem and enables the four picture tickets in PR1456. The four original tickets remain on that PR; this change makes no model or picture-attribution claim. Validation results belong to the PR and its linked evidence checkpoint.
+
 ## T-3232 — each shared texture sheet ships once (2026-10-28)
 
 The published tree carried 92.8 MiB of duplicate KTX2 kit sheets, the same sheet embedded in

@@ -1,3 +1,7 @@
+## T-3262: phone renderer memory support
+
+Reduce railway storage and dead spatial-upload bookkeeping within the existing phone limit. The original picture matching remains tracked by T-2373, T-2377, T-2381 and T-2384 in PR1456; this support change does not settle their image gates. Normal precision remains bounded; nonuniform evidence grades keep their original stream.
+
 ### Carriage lamps, horse eyes and access — T-3083/T-3086/T-3087, 2026-10-24
 
 The scoped delivery selects the reproducible d4544c28 eye-UV derivative, with
