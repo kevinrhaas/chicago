@@ -1,0 +1,26 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "nlm_visible_proofs_frances_glessner_lee",
+  "type": "website",
+  "citation": "'Frances Glessner Lee (1878-1962)', Visible Proofs: Forensic Views of the Body, biographies gallery, U.S. National Library of Medicine.",
+  "author": "U.S. National Library of Medicine",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1878-1962",
+  "url": "https://www.nlm.nih.gov/visibleproofs/galleries/biographies/lee.html",
+  "locator": "The biography paragraph.",
+  "rights_note": "A U.S. government exhibition page, cited in words only.",
+  "access_notes": "Read 2026-10-30 (T-3250) through a fetch that returned the biography in short quoted fragments.",
+  "note": "Fragments read: she 'helped to establish the Department of Legal Medicine at Harvard' (1931); she built 'a series of eighteen miniature crime-scene dioramas for student analysis', presented to Harvard's department and later passed to the Maryland Chief Medical Examiner's Office; in 1943 she was appointed a captain in the New Hampshire State Police, 'the first woman in the United States to hold such a position.'",
+  "what_it_supplies": [
+    "her part in founding Harvard's Department of Legal Medicine, 1931",
+    "the eighteen miniature crime-scene dioramas and where they went",
+    "her 1943 captaincy in the New Hampshire State Police, the first woman in the US to hold such a rank"
+  ],
+  "what_it_does_not_supply": [
+    "her Chicago addresses",
+    "the name Nutshell Studies, which the Glessner House family page gives"
+  ]
+}
