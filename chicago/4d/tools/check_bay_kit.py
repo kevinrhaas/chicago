@@ -280,12 +280,40 @@ def inside_point(b):
     if b.v.get("shallow"):   # T-3047: inside so thin a projection, beside its windows
         (x0, d), (x1, _) = b.v["plan"]["points"][1:3]
         cands = ((x0 + 0.15, d / 2), (x1 - 0.15, d / 2))
-    for cand in cands:
-        if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows):
-            break
+    # T-1881: a forward block's door (`door_hole`) is cut clean through its front for K07's
+    # door to close, so a ray out through it is the doorway, not a gap; with the door on the
+    # block's axis (1729's p_forward) every point above stands behind it, so the points
+    # halfway between its jambs and the block's sides are tried too
+    dh = b.v.get("door_hole")
+    if dh:
+        (xa, _), (xb, _) = b.v["plan"]["points"][1:3]
+        cands = (*cands, ((dh["x_m"][1] + xb) / 2, 0.1), ((dh["x_m"][0] + xa) / 2, 0.1))
     lv = b.meta["levels_m"]
-    return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
-           [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
+
+    def points(cand):
+        return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
+               [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
+
+    for cand in cands:
+        if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows) and \
+                not any(through_door(b, p, dh) for p in points(cand)):
+            break
+    return points(cand)
+
+
+def through_door(b, p, dh):
+    """T-1881: whether a ray of DIRS from p meets the block's front inside its door hole."""
+    if not dh:
+        return False
+    zf = b.v["plan"]["points"][1][1]
+    for d in DIRS:
+        if d[2] <= 0:
+            continue
+        t = (zf - p[2]) / d[2]
+        x, y = p[0] + d[0] * t, p[1] + d[1] * t
+        if dh["x_m"][0] - EPS <= x <= dh["x_m"][1] + EPS and dh["y_m"][0] - EPS <= y <= dh["y_m"][1] + EPS:
+            return True
+    return False
 
 
 def in_hull(p, h, edge=False):
