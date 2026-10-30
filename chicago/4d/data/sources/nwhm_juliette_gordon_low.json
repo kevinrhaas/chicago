@@ -1,0 +1,23 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "nwhm_juliette_gordon_low",
+  "type": "website",
+  "citation": "National Women's History Museum, 'Juliette Gordon Low', biography by Kelly A. Spring, 2017, expanded by Corina Gonzalez.",
+  "author": "Kelly A. Spring; Corina Gonzalez",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1860-1927",
+  "url": "https://www.womenshistory.org/education-resources/biographies/juliette-gordon-low",
+  "locator": "The biography's paragraphs on her birth and on the first troop.",
+  "rights_note": "A museum biography, cited in words only.",
+  "access_notes": "Read 2026-10-30 (T-3251) through a fetch that returned short quoted fragments.",
+  "note": "Fragments read: born 'in Savannah, Georgia on October 31, 1860'; her mother 'Eleanor “Nellie” Kinzie Gordon'; the first Girl Guides troop in America was founded in Savannah on 12 March 1912; the name changed to Girl Scouts in 1913.",
+  "what_it_supplies": [
+    "Juliette Gordon Low, daughter of Eleanor Kinzie Gordon, founding the first American Girl Guides troop at Savannah on 12 March 1912, renamed Girl Scouts in 1913"
+  ],
+  "what_it_does_not_supply": [
+    "anything about Chicago in 1835"
+  ]
+}
