@@ -3968,6 +3968,17 @@ class Assembly:
                                                          or self.p.cant_corner):
                 raise ValueError(f"{b['id']}: a shallow pavilion on a side wall is square, on a house "
                                  f"with no cant corner")
+            if b.get("cornice_across"):
+                # T-1890: the main cornice carried on across its face, under its lights (1801's
+                # wall gable, HABS photograph 1): no light of it may stand in the cornice's way
+                base = 0.0
+                for st in v["storeys"]:
+                    for w in st.get("windows") or ():
+                        lo = base + float(w["sill_m"])
+                        if lo < self.p.eave_m + 0.05 and lo + float(w["clear_height_m"]) > self.p.eave_m - 1.0:
+                            raise ValueError(f"{b['id']}: a light from {lo:.3f} m meets the cornice carried "
+                                             f"across it under the eave at {self.p.eave_m} m")
+                    base += float(st["height_m"])
             proud = max(float(q[1]) for q in v["plan"]["points"])
             behind = K8.part(v, K8.load(), "recess")["depth_m"] - proud + 0.05
             out.append((b, b["span_m"][0], b["span_m"][1], proud, behind))
@@ -3998,6 +4009,9 @@ class Assembly:
                    if cr.get("eave_m") and cr["over_bay"] == b["id"] else self.p.eave_m + 10.0)
             far = s1 + 1.0 if b.get("flush_corner") == "right" else s1
             near = s0 - 1.0 if b.get("flush_corner") == "left" else s0
+            # T-1890: with the cornice carried across its face the cuts start on the eave box's
+            # top, so the box runs on under its lights and only the slope over it is cut
+            bot, floor = (self.p.eave_m - 0.005, "return") if b.get("cornice_across") else (yf - 0.5, "wall")
             if b["wall"] == "k01.wall.street_front":   # in (u, v) as T-3047 laid them, to the bit
                 inner = [(D - behind, s0 + 0.005), (D + proud + 0.005, s0 + 0.005),
                          (D + proud + 0.005, s1 - 0.005), (D - behind, s1 - 0.005)]
@@ -4014,8 +4028,8 @@ class Assembly:
                 if b.get("flush_corner") == "left":
                     inner[:2] = [(-behind, s0), (proud + 0.005, s0)]
                 inner, outer = Q(inner), Q([(proud, near), (2.0, near), (2.0, far), (proud, far)])
-            out.append(k5.extrude(inner, yf - 0.5, top, P, "wall", "wall", "wall"))
-            out.append(k5.extrude(outer, yf - 0.5, top, P, "return", "wall", "wall"))
+            out.append(k5.extrude(inner, bot, top, P, "wall", floor, "wall"))
+            out.append(k5.extrude(outer, bot, top, P, "return", floor, "wall"))
             # T-3048: and outside a chamfered corner's canted face, back to the side wall where
             # it meets it, `behind_m` behind the front; the side's eave box stops square there
             ch = k01_frontage_params.chamfer_of(b)

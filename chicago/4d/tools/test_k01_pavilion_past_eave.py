@@ -14,6 +14,8 @@ up as walls to about 13.9 m, and its wings slated like the main roof. So:
     windows' recesses run through it, its gable's parapet closes its top, and the mansard's
     eave box, covering foot and gutter stop at its cheeks, nothing of them in front of its
     face nor in its recesses behind the plane;
+  * T-1890: one the main cornice is carried across (`cornice_across`, 1801's wall gable) keeps
+    the eave box and K10's course running on in front of its face, only the covering cut;
   * a projection that stops at the eave (1812's) gains nothing;
   * a wing slated in the main roof's own slate keeps its own material, so the publish
     path's dedup cannot merge `wing_slate` into `mansard_slate` and lose its name.
@@ -160,8 +162,18 @@ def main() -> int:
             pts, _ = a.roof_shell
             ns = frames[b["wall"]]
             inside = lambda q: s0 + 0.01 < ns(q)[1] < s1 - 0.01
-            check(not any(inside(q) and ns(q)[0] > proud + 1e-3 for q in pts),
-                  f"{b['id']}: no eave box or covering in front of its {proud} m face")
+            if b.get("cornice_across"):
+                # T-1890: the main cornice carried across its face (1801's wall gable, HABS
+                # photograph 1): the eave box runs on in front of it, the covering over it is cut,
+                # and K10's course runs on along the wall rather than dying into it
+                check(not any(inside(q) and ns(q)[0] > proud + 1e-3 and q[1] > p.eave_m + 1e-3 for q in pts)
+                      and any(inside(q) and ns(q)[0] > proud + 0.1 and q[1] < p.eave_m - 0.1 for q in pts),
+                      f"{b['id']}: the eave box runs on across its {proud} m face, no covering over it")
+                check(b["id"] not in a.wall_head["dies_into"],
+                      f"{b['id']}: the main cornice runs on across it, not dying into it")
+            else:
+                check(not any(inside(q) and ns(q)[0] > proud + 1e-3 for q in pts),
+                      f"{b['id']}: no eave box or covering in front of its {proud} m face")
             sills = [h for h in holes if h[2] > p.eave_m]
             check(sills and not any(inside(q) and ns(q)[0] > -behind + 1e-3 and min(h[2] for h in sills) - 0.01 < q[1]
                                     < max(h[3] for h in sills) + 0.01 for q in pts),
