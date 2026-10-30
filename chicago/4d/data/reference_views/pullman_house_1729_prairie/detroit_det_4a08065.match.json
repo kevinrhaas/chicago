@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25",
+  "glb_sha256": "625e0addf5a8b9fe3099c950c93476fbdff5560232f97e3c95e31ea00a0786f0",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -247,6 +247,11 @@
       "what": "the walls' tone and joints: the print's walls are a light ashlar (115-135 on the master scan, LoC det 4a08065u) printing lighter than the slate mansard (73-101), under hairline joints; the build's K02 brownstone rendered red-brown at 1.4-1.7 times the slate's light, its dark 6 mm joints reading as brick (owner, 2026-10-29)",
       "status": "fixed",
       "how": "T-1881: the walls, trim and dormer faces laid in K02 sandstone_fawn, a light fawn-brown sandstone with 3 mm joints rubbed flush; the render's wall now gives 2.6-3.4 times its slate's light on a blue or orthochromatic weighting, against 1.7-3.3 read off the print (docs/RESEARCH/pullman-stone-1881/)"
+    },
+    {
+      "what": "the large Prairie dormer's broken pediment: short raking arms at the arch's shoulders, out past the ears",
+      "status": "fixed",
+      "how": "T-1881: built (eared_hood.pediment); through this camera the render's dormer and arms land within a few px of the print's (centre about x 461-462)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
