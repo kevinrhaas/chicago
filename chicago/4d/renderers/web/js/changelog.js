@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2432, ts: '2026-10-30T01:46:36.634Z', date: 'Oct 29, 2026, 8:46 PM CT', title: '1801 Prairie\'s cornice runs on beneath its stone wall gable', kind: 'improvement',
+    items: [
+      'On the Kimball house\'s south wall, the heavy stone cornice now carries on under the small paired windows of the rear corner\'s wall gable to the corner itself, as the 1965 survey photograph shows it, where it used to stop short at the gable\'s edge.',
+    ] },
+  { v: 2431, ts: '2026-10-30T01:31:55.382Z', date: 'Oct 29, 2026, 8:31 PM CT', title: 'Taps answer only what the frame draws', kind: 'fix',
+    items: [
+      'The check that holds the GPU pick to the old raycast now asks both the same question: the raycast starts at the camera\'s near plane, as the frame does, so it no longer answers a woodpile 9 cm from the eye that the frame had already cut away. Dev\'s moving-frames gate is green on all 12 yard taps again.',
+    ] },
   { v: 2430, ts: '2026-10-30T01:03:19.683Z', date: 'Oct 29, 2026, 8:03 PM CT', title: 'The Pullman house\'s front entry straightened, and a stray box removed', kind: 'fix',
     items: [
       'At 1729 Prairie the door, the front steps, the gate and the walk now line up. The door sits in the middle of the portico, between its two inner columns, and the steps rise straight up to it, as the 1900s photograph shows.',
