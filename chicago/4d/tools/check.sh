@@ -384,6 +384,9 @@ step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose
 step "Catalogue Brougham preserves physical masters, exact optical delivery, lamps, contacts and scoped Full/HEAD policy (T-3084)" \
   python3 tools/check_brougham_near.py
 
+step "A person's own card from a building's People tab: their story, why attested or inferred, the census line, Back to the household (T-3265)" \
+  node tools/test_person_card.mjs
+
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
   node tools/test_brougham_card.mjs
 
