@@ -36478,11 +36478,26 @@ picture's solved camera; that the stretches hold no other tree the pictures woul
 tree at 51.3 m between the plate's 50.9 and Taylor's 51.7. That the 1890s trees still stand in
 1904. Every tree's size, crown and species are the rule's; each tree's place across the parkway
 is the rule's planting line.
+**The glasshouse ground's gate (T-3164, 2026-10-30):** the 1894 Inland conservatory plate and
+Lowe's c. 1897 print, both looking south through the 1800 Calumet gate, add two readings. The
+plate's tree left of the gate is planted on Calumet Avenue's west parkway where it turns into
+18th Street (`calumet__prairie_calumet_18_20`, 266.9 m, the plate's reading; Lowe's 267.5 m), on a
+stretch the plate sees from 264.0 m to the corner, so the rule's nearest tree (259.9 m) keeps its
+place. The south parkway's corner tree moves from Taylor's 1.3 m to 3.0 m: the plate, the one
+uncropped picture of the three, sees that parkway clear to 2.5 m, Lowe's print puts the trunk at
+3.0 m, and Taylor's camera, which stands the plate-placed west gate pier about 180 px west of the
+print's, puts it at 1.7 to 3.5 m when read against that pier. **Chosen:** 3.0 m, between the
+readings and inside the plate's bound; and both trees' size, scale 0.6 where the rule draws 0.88
+to 1.10, read off their trunks (about 0.31 m across in the plate, 0.26 m in Taylor's print, where
+the renderer's elm draws 0.66 m at scale 1), which puts the first fork at about 4 m, within a
+metre of the pictures'. Their crowns are still the rule's elm, where both pictures show a broad,
+low head (open in the match records).
 **How to resolve:** a picture of this stretch nearer 1904, or a city forestry record.
-**Ticket:** T-1934.
+**Ticket:** T-1934; T-3164 (the gate's two trees).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
-`inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
-**Recorded:** 2026-10-29 (T-1934).
+`inland_1894_plate-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`,
+`lowe_c1897_conservatory-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
+**Recorded:** 2026-10-29 (T-1934); amended 2026-10-30 (T-3164).
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 

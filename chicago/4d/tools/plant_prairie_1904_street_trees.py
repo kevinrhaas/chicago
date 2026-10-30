@@ -31,7 +31,9 @@ trees read off the pictures stand in their place, each at its distance along the
 line; a stretch with no tree in it is a reading too. The rule's draws are taken all the same, so
 every tree off a stretch keeps its place. Pictured trees are ids `<face>#pNN`, marked
 `"placed": "pictured"`, their crowns drawn from their own seed. 1729 Prairie's 18th Street
-(L-pullman-18th-street-trees-1934) is the first.
+(L-pullman-18th-street-trees-1934) is the first. A pictured tree may carry a `scale` read off
+its trunk's width in a picture (T-3164: the renderer's elm draws its bole about 0.66 m across at
+scale 1); without one its scale is drawn like any other tree's.
 """
 from __future__ import annotations
 
@@ -153,15 +155,18 @@ def pictured_trees(face_id, pts, acc, stretch, views=None, liberty=""):
         r = rng(f"T-1934|{face_id}|{s}")
         (e, nn), _ = at(pts, acc, s)
         young = t["kind"] == "young"
+        variant, yaw = int(r() * VARIANTS), round(r() * 360, 1)
+        drawn = (0.42 + r() * 0.16) if young else (0.88 + r() * 0.22)
         out.append({
             "id": f"{face_id}#p{k:02d}",
             "face": face_id,
             "e": round(e, 2),
             "n": round(nn, 2),
             "kind": t["kind"],
-            "variant": int(r() * VARIANTS),
-            "yaw_deg": round(r() * 360, 1),
-            "scale": round((0.42 + r() * 0.16) if young else (0.88 + r() * 0.22), 3),
+            "variant": variant,
+            "yaw_deg": yaw,
+            # a trunk measured in a picture sets the scale (T-3164); the draw is taken all the same
+            "scale": round(t.get("scale", drawn), 3),
             "placed": "pictured",
             "sources": sorted({views[r.split(" ")[0]]["source_id"] for r in t["read"]
                                if r.split(" ")[0] in views}),

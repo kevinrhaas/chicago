@@ -16,7 +16,7 @@
         "creeper": 7
       }
     ],
-    "street_trees": 31,
+    "street_trees": 32,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "49dd2d8c8f91b5bb175599670f94048dad5a666695d6728f71c2bbac12fc27dd",
+  "flora_sha256": "742b2f0914d0d699830b64760ca5695ea598c044057921aa332c1366c791ba78",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

@@ -114,7 +114,7 @@
         "creeper": 0
       }
     ],
-    "street_trees": 37,
+    "street_trees": 38,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -163,7 +163,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "fd1387b3064c5eb25aafd705322c162c33bc11c98ed123adcd965354d4f204b3",
+  "flora_sha256": "1086cba42423091156ba54570a9f8a7263f415a1035a98ab1216a5428b6b2238",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -339,9 +339,24 @@
       "how": "T-3164: the silhouettes, sizes and places match; the leaf is the yard renderer's one shrub leaf, which every planted yard in the district draws with (renderers/web/js/front-yards.js), and the darker sheared ball is the nearest form it grows"
     },
     {
-      "what": "the drive, the walks and the lawn's edges, and the parkway trees on 18th Street: the plate's and Lowe's big tree left of the gate is not drawn, and the one right of it stands about 1 m east of where they put it",
+      "what": "the drive, the walks and the lawn's edges",
       "status": "open",
-      "how": "T-3164: no walk, drive or lawn edge is built on the 1800 Calumet ground. The parkway: the plate puts the left tree's foot at x 744, y 1160 (e 1479.6, n -3212.0) and Lowe at x 394, y 739 (e 1478.9, n -3215.3), where data/street_trees/1904.json has none (its nearest, calumet__prairie_calumet_18_20#27 at e 1486.3, is out of frame); its tree read off Taylor's 16555 (e18th__prairie_calumet_18_20#p00, e 1474.17) stands in front of the plate's right gate pier, where Lowe puts that trunk at e 1472.5. Both live in the street-tree file 1729 Prairie's views draw from (within their 70 m), so moving them re-opens those views and is left to a pass that looks at them again."
+      "how": "T-3164: no walk, drive or lawn edge is built on the 1800 Calumet ground."
+    },
+    {
+      "what": "the parkway tree left of the gate (the plate's x 744, foot y 1160) is not drawn",
+      "status": "fixed",
+      "how": "T-3164 (parkway pass, 2026-10-30): planted on Calumet Avenue's west parkway where it turns into 18th Street, 266.9 m along it (e 1479.5, n -3212.9; data/street_trees/pictured_1904.json), and renders at x 747, foot y 1143. Its scale, 0.6, is read off its trunk: about 45 px (0.31 m) across at breast height in this plate, against the renderer's elm's 0.66 m at scale 1; at 0.6 the bole draws about 0.39 m and forks at about 4 m, where the plate's limbs leave it at about 3.3 m."
+    },
+    {
+      "what": "the parkway tree right of the gate: the street-tree layer's, read off Taylor's 16555 (e 1474.17), stood before the west gate pier at x 1523, where this plate shows the parkway clear to the photograph's edge",
+      "status": "fixed",
+      "how": "T-3164: moved to 3.0 m along 18th Street's south parkway (e 1472.5), past the photograph's right edge (x 1692; it renders at x 1748), where Lowe's print puts its trunk and where Taylor's 16555 puts it read against the gate pier (pictured_1904.json gives each reading)."
+    },
+    {
+      "what": "the parkway trees' heads: the plate's tree left of the gate carries a broad, low, leafy head from about 3.3 m (y 660), its leaves over the walk across the picture's top left, where the renderer's vase-formed elm shows two bare limbs up to the frame's top",
+      "status": "open",
+      "how": "T-3164 (parkway pass, 2026-10-30): the street-tree layer grows one tree, the American elm (renderers/web/js/street-trees.js, its crown high on arching limbs); this head is not an elm's vase and no other parkway form is drawn, so the shape stays open."
     },
     {
       "what": "the north front's band: the plate and Lowe draw each light as a short round head over a transom over a tall light, where it is built as one tall pane with a pointed head",
