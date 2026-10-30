@@ -344,9 +344,9 @@ export async function createFrontYards({
     }
     const cg = lot.pictured_notes?.creeper?.grade ?? 'reconstructed';
     for (const [i, c] of (lot.creeper ?? []).entries()) {
-      const [e, n, facing, w, h] = c;
+      const [e, n, facing, w, h, form] = c;
       placed.push({ x: e, z: -n, y: groundAt(e, n), h, w, facing, plant: 'ivy', grade: cg, conf: CONF[cg] ?? 1,
-        lot, kind: 'creeper', index: i });
+        lot, kind: 'creeper', index: i, mantle: form === 'mantle' || form === 'mantle_sill' ? form : null });
       stats.creeper += 1;
     }
   }
@@ -428,7 +428,9 @@ export async function createFrontYards({
       if (p.tub && wantMode === 'winter') continue;
       if (p.kind === 'creeper') {
         // Its +x out of the wall: a compass bearing turned into the batches' yaw.
-        const spec = ivySpec(2.4, 6, p.conf);
+        // a pictured stretch wholly clothed keeps its own level-topped variants, and the low
+        // patches under its windows theirs, so neither is grown at the other's height (T-1881)
+        const spec = { ...ivySpec(2.4, 6, p.conf), ...(p.mantle ? { arch: p.mantle } : {}) };
         grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1,
           { yaw: Math.PI / 2 - (p.facing * Math.PI) / 180, crownW: p.w });
         continue;
