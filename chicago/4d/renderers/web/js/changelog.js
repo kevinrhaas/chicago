@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2441, ts: '2026-10-30T06:43:54.623Z', date: 'Oct 30, 2026, 1:43 AM CT', title: 'Black-owned businesses of 1835: the search, written down', kind: 'change',
+    items: [
+      'Searched again for Black residents and businesses named in Chicago before 1840. None turned up: the Encyclopedia of Chicago dates the city\'s first Black community to the 1840s, so there is no tour to build yet.',
+      'The research file now lists what was read, what could not be reached, and the records most likely to name someone.',
+    ] },
   { v: 2440, ts: '2026-10-30T06:30:32.288Z', date: 'Oct 30, 2026, 1:30 AM CT', title: 'A small window over 1801 Prairie\'s round corner bay', kind: 'improvement',
     items: [
       'On the Kimball house\'s south-west corner, the angled wall above the round bay now has the small window that the 1965 survey photograph shows. It stands on the bay\'s stone balcony beside the corner pilaster, where the wall used to be blank.',
