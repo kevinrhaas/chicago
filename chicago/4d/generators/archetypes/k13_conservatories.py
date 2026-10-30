@@ -77,6 +77,7 @@ ROLE_MATERIAL = {
     "stonework": "stone", "dome": "glass_substitute", "dome_rib": "frame", "opening": "dark",
     "sky_glass": "glass_sky", "sash": "sash", "interior": "interior_shade",
     "stone_field": "stone_rough",
+    "gravel": "gravel",
 }
 BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
@@ -113,6 +114,9 @@ def materials(data: dict) -> dict:
         # T-3164: the rusticated field of the Pullman conservatory's podium, which Lowe's print
         # reads a tone darker than the dressed piers and courses framing it; the tone is reconstructed
         "stone_rough": {"color": (0.56, 0.53, 0.46), "roughness": 0.95},
+        # T-3164: the Pullman glasshouse ground's drive and walks, which both pictures read as pale
+        # as the public walk against the lawn; a buff limestone gravel, its tone reconstructed
+        "gravel": {"color": (0.66, 0.62, 0.54), "roughness": 0.95},
     }
 
 
@@ -2137,6 +2141,8 @@ def pavilion(h: House, ps: dict):
     h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xd, W / 2, dr["top_m"], "sky_glass"), 3)}
     if ps.get("gate"):
         gate(h, ps["gate"])
+    if ps.get("grounds"):
+        grounds(h, ps["grounds"])
 
 
 def _podium_dress(h: House, pd: dict, L, W, xa, xb, reach, po, pod, cuts: dict):
@@ -2386,6 +2392,62 @@ def gate(h: House, gs: dict):
         _prism(h, "stonework", rect(xa - 0.04, xb + 0.04, zc, zd), 0.0, eb)
         if gs.get("carving"):
             _wing_carving(h, "stonework", xa, zp, sg, run, r, hi, lo, gs["carving"])
+
+
+GRAVEL_PROUD_M = 0.02   # a drive's gravel over the ground its row measures, as K14's drives stand
+
+
+def grounds(h: House, gr: dict):
+    """T-3164: the ground the gate opens onto, as the 1894 Inland plate and Lowe's print show it
+    from 18th Street: the gravel drive between the gate's wings, the walk that enters east of the
+    east pier and runs to the conservatory's door, the forecourt along the conservatory's north
+    front, and the low stone coping that closes the lawn on the lot line west of the gate.
+
+    Each gravel surface is a run of `rows_m` [u, v_a, v_b, lift] across it, laid as quads from row
+    to row GRAVEL_PROUD_M over its `lift` (the app's ground over the house's bed, measured where
+    the row runs, since the app beds the house on the lowest ground under its feet and the drive
+    runs uphill of it). The coping follows `line_m` [[u, v], ...], its street face on the line
+    and `thick_m` into the lot (the side the line has on its right as it runs), a body to `body_m`
+    under a cap course to `top_m` standing `cap_out_m` past both faces; its first end abuts the
+    west pier and is not drawn. Placed in this record's frame (x = u, z = -v), as the gate is."""
+    for srf in gr["gravel"]:
+        rows = srf["rows_m"]
+        for (u0, a0, b0, l0), (u1, a1, b1, l1) in zip(rows, rows[1:]):
+            y0, y1 = l0 + GRAVEL_PROUD_M, l1 + GRAVEL_PROUD_M
+            h.face("gravel", [(u0, y0, -a0), (u0, y0, -b0), (u1, y1, -b1), (u1, y1, -a1)], Y)
+    cp = gr.get("coping")
+    if not cp:
+        return
+    line = [tuple(map(float, q)) for q in cp["line_m"]]
+    t, hb, ht, co = cp["thick_m"], cp["body_m"], cp["top_m"], cp["cap_out_m"]
+    norms = []
+    for (ua, va), (ub, vb) in zip(line, line[1:]):
+        L = math.hypot(ub - ua, vb - va)
+        norms.append(((vb - va) / L, -(ub - ua) / L))      # into the lot, in (u, v)
+    def offset(k):
+        """The unit-into-the-lot offset at vertex k, mitred where two runs meet."""
+        if k == 0:
+            return norms[0]
+        if k == len(line) - 1:
+            return norms[-1]
+        (a, b), (c, d) = norms[k - 1], norms[k]
+        m = 1.0 + a * c + b * d
+        return ((a + c) / m, (b + d) / m)
+    offs = [offset(k) for k in range(len(line))]
+    at = lambda k, d, y: (line[k][0] + offs[k][0] * d, y, -(line[k][1] + offs[k][1] * d))
+    for k in range(len(line) - 1):
+        nu, nv = norms[k]
+        out, inw = (-nu, 0.0, nv), (nu, 0.0, -nv)
+        for d, y0, y1, hint in ((0.0, 0.0, hb, out), (t, 0.0, hb, inw),
+                                (-co, hb, ht, out), (t + co, hb, ht, inw)):
+            h.face("stonework", [at(k, d, y0), at(k + 1, d, y0), at(k + 1, d, y1), at(k, d, y1)], hint)
+        h.face("stonework", [at(k, -co, ht), at(k + 1, -co, ht), at(k + 1, t + co, ht), at(k, t + co, ht)], Y)
+    # the far end, where the coping stops at the Calumet Avenue line
+    k = len(line) - 1
+    eu, ev = line[k][0] - line[k - 1][0], line[k][1] - line[k - 1][1]
+    end = (eu, 0.0, -ev)
+    h.face("stonework", [at(k, 0.0, 0.0), at(k, t, 0.0), at(k, t, hb), at(k, 0.0, hb)], end)
+    h.face("stonework", [at(k, -co, hb), at(k, t + co, hb), at(k, t + co, ht), at(k, -co, ht)], end)
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:

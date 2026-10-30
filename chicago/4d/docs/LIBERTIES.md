@@ -36822,3 +36822,34 @@ fabric.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+### L-pullman-grounds-1800-calumet-3164 — The Pullman glasshouse ground's drive, walk, forecourt and lot-line coping, read through the plate's and Lowe's cameras
+
+**Decision:** the 1894 Inland plate (`inland_1894_pullman_conservatory`) and Lowe's print
+(`aic_lowe_pullman_conservatory_c1897`) both show the ground the estate's 18th Street gate opens onto
+(T-3164). No plan draws it: the 1911 sheet shows no drive or walk, and the grounds have no record of their
+own, so it is built on the conservatory's record beside the gate (`grounds`). A gravel drive about 4.3 m
+wide from between the wings' ends straight back past the conservatory's west flank; a turf wedge east of
+it, narrowing to the east wing, in which the two boxed standards stand; a walk 1.8 m wide entering the lot
+east of the east pier and running to a forecourt along the conservatory's north front, from 3.2 m out to
+its podium; and west of the gate a stone coping on the lot line, a body 0.32 m high and 0.36 m thick under
+a cap course to 0.4 m standing 0.03 m past both faces. **What is read.** Every edge is read off the two
+pictures through their solved cameras and laid on the ground those cameras put under it: the drive's
+edges, the wedge's edges, the walk's mouth east of the pier and the lawn east of it, the forecourt's
+front, and the coping's height and place (its foot on the line of the piers' fronts). Re-rendered, the
+drive's west edge lands within about 5 px of the plate's, the wedge within about 10, the walk and the lawn
+east of it within about 8, and the coping's top and foot within about 6. **What is invented.** The
+surfaces: gravel in a buff limestone tone, taken from the pictures reading drive and walks as pale as the
+public walk; the coping's stone, taken as the gate's; the coping's thickness and cap course, which the
+pictures give at a few pixels; the drive's run past u 4 (the plate) or u 3 (Lowe's), where it lies too
+near both horizons to fix its depth, carried straight on to u 16, where the planting hides it in both, and
+stopped there; and the coping's run past the frames' edges (about v 13 in Lowe's print, v 16 in the plate),
+carried round the Calumet Avenue corner on the 1911 sheet's lot line to the start of its Calumet straight.
+The pale line along the lawn's far side, a walk or the drive's turn, is read but not built. Each row's
+lift is the app's ground (the 1904 terrain, `e1871_postfire`) over the house's bed, measured where the
+row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate.
+**How to resolve:** a plan of the grounds, or a picture of the lawn's far side and the drive beyond the
+conservatory.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-30 (T-3164).
