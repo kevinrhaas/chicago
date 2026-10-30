@@ -35949,9 +35949,12 @@ invented.** The belt's section (one moulding 0.95 m high from a 6.72 m bed: a st
 fascia 0.07 m out, a sill nosing at its top), its break forward over the corner pier, and its run round the
 north-west pavilion's north return and the whole 18th Street flank, which no picture sees end to end. The hood's
 0.15 m band, its 0.08 m proud, and the ears' 0.2 m by 0.25 m at six tenths of the arch's rise, all under the pictures'
-15-25 px a metre. **What is not built.** The broken pediment the plate draws over the large Prairie dormer, and the
-dormers on the forward block's and the 18th Street pavilion's own mansards (the K08 bay kit lays none yet): both stay
-open on the match records. **How to resolve:** a closer picture of the front (the CHM 1905 views) would give the
+15-25 px a metre. The broken pediment over the large Prairie dormer, built later in T-1881 (`eared_hood.pediment`): the plate,
+Taylor's photograph and the Detroit print draw two raking arms rising from past the ears to die against the arch
+below its crown; their 18 degree rake, 0.25 m depth, 0.15 m projection, 1.5 m reach out of the arch's centre and
+feet 0.25 m over the springing are read at the pictures' 15-25 px a metre and are invented to that precision, and
+the console under each arm that Taylor's photograph shows is not drawn. **What is not built.** The dormers on the
+forward block's and the 18th Street pavilion's own mansards were built later in T-1881 (K08 `mansard_dormers`). **How to resolve:** a closer picture of the front (the CHM 1905 views) would give the
 belt's and the hoods' profiles.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`, `albertype_1890-side-by-side.jpg` and `detroit_det_4a08065-side-by-side.jpg`, with their match records.
