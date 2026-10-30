@@ -108,6 +108,7 @@ ROOT = HERE.parents[1]
 DATA = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
 GENERATOR = "chicago-4d generators/archetypes/k08_bays.py (K08, T-2307)"
 RECONSTRUCTED = 1.0  # k01_frontage_params.CONFIDENCE_VALUE["reconstructed"]
+GLASS_OFF_M = 0.005   # T-1881: a pier's oculus glass stands this far proud of the wall's face behind it
 ROUND_APRON_STEPS = 8   # T-3007: a round apron's quarter round, in facets of 11.25 degrees
 Y = (0.0, 1.0, 0.0)
 
@@ -1361,6 +1362,9 @@ class Bay:
                 hf = v["storeys"][k].get("head_frieze")
                 if hf and i == hf["run"]:
                     self._head_frieze(flat, run, levels[k], hf)
+                sp = v["storeys"][k].get("pier")
+                if sp and i == sp["run"]:
+                    self._pier(flat, run, levels[k], hi, sp)
                 if 0 < k and v["storeys"][k].get("corbel_table"):
                     self._corbel_table(flat, run, levels[k], v["storeys"][k]["corbel_table"])
                 elif 0 < k:
@@ -2404,6 +2408,58 @@ class Bay:
         flat.plane("band", boss, -pr - rp * 0.6)
         flat.tube("band", boss, -pr, -pr - rp * 0.6, inward=False)
         m["roundel"] = {"s_m": round(cs, 4), "y_m": round(yc, 4), "radius_m": R}
+
+    def _pier(self, flat, run, y_floor, y_top, sp):
+        """T-1881: a banded pier standing on a run between its windows, with an oculus in its
+        head (1729's 18th Street pavilion, Taylor's photograph no. 1445: between the pair and
+        the triple of its second storey). `width_m` broad and `proud_m` out, centred `at` along
+        the run, from `from_m` over the storey's floor (clear of a belt laid across it) to the
+        storey's top: courses `bands.course_m` tall parted by channels cut back to the wall up
+        to `block_m`, then one plain block, and in the block a round light `oculus.radius_m`
+        across its glass at `oculus.centre_m`, its reveal running back through the pier to the
+        glass at the wall's face, in a stone ring `ring_m` broad standing `proud_m` past the
+        pier. The light tier lays the pier as one block and keeps the light, dropping the ring."""
+        w, d = sp["width_m"], sp["proud_m"]
+        c = run.L * sp["at"]
+        a0, a1 = c - w / 2, c + w / 2
+        lo, mid, hi = y_floor + sp["from_m"], y_floor + sp["block_m"], y_top
+        bd = sp["bands"] if self.tier == "full" else None
+        if bd:
+            n = max(1, round((mid - lo) / bd["course_m"]))
+            h = (mid - lo) / n
+            for j in range(n):
+                flat.proud("band", rect(a0, a1, lo + h * j + (bd["channel_m"] / 2 if j else 0.0),
+                                        lo + h * (j + 1) - bd["channel_m"] / 2), d)
+        else:
+            mid = lo
+        oc = sp["oculus"]
+        r, yc, k = oc["radius_m"], y_floor + oc["centre_m"], oc["segments"]
+        ang = [2 * math.pi * t_ / k for t_ in range(k)]
+        circ = [(c + r * math.cos(q), yc + r * math.sin(q)) for q in ang]
+        # the square round the light, each of its points on the ray through the circle's (k is a
+        # multiple of 8, so the square's corners are among them)
+        sq = [(c + r * math.cos(q) / max(abs(math.cos(q)), abs(math.sin(q))),
+               yc + r * math.sin(q) / max(abs(math.cos(q)), abs(math.sin(q)))) for q in ang]
+        # the block's face: four strips round the square and the square less the light
+        for poly in (rect(a0, c - r, mid, hi), rect(c + r, a1, mid, hi), rect(c - r, c + r, mid, yc - r),
+                     rect(c - r, c + r, yc + r, hi)):
+            flat.plane("band", poly, -d)
+        for t_ in range(k):
+            flat.plane("band", [circ[t_], sq[t_], sq[(t_ + 1) % k], circ[(t_ + 1) % k]], -d)
+        # the block's sides and foot; its top is the wall head's, under the eaves
+        cm = ((a0 + a1) / 2, (mid + hi) / 2)
+        for e0, e1 in (((a0, mid), (a1, mid)), ((a1, mid), (a1, hi)), ((a0, hi), (a0, mid))):
+            m_ = ((e0[0] + e1[0]) / 2 - cm[0], (e0[1] + e1[1]) / 2 - cm[1], 0.0)
+            flat.face("band", [flat.P(*e0, 0.0), flat.P(*e1, 0.0), flat.P(*e1, -d), flat.P(*e0, -d)], m_)
+        # the reveal from behind the ring's buried back (on the light tier, from the pier's face)
+        flat.tube("band", circ, -d + (0.004 if self.tier == "full" else 0.0), -GLASS_OFF_M, inward=True)
+        flat.plane("glass_outer", circ, -GLASS_OFF_M)
+        if self.tier == "full":
+            self._loop(flat, "band", c, yc, r + oc["ring_m"], oc["ring_m"], k, -d - oc["proud_m"], -d + 0.004,
+                       back=False)
+        self.meta.setdefault("piers", []).append({"run": sp["run"], "s_m": [round(a0, 4), round(a1, 4)],
+                                                  "y_m": [round(lo, 4), round(hi, 4)],
+                                                  "oculus": {"s_m": round(c, 4), "y_m": round(yc, 4), "radius_m": r}})
 
     def _flare_bands(self, reg, Li, d, y_e, pitch, flare):
         """T-2408: one plane of a flared hip. Its slope runs from `eave_pitch` at the eaves up

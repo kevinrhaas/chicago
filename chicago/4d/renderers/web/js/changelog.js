@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2459, ts: '2026-10-30T16:37:39.406Z', date: 'Oct 30, 2026, 11:37 AM CT', title: '1701 Prairie\'s carved window hoods and corner pilaster', kind: 'feature',
+    items: [
+      'Every arched window on the front and south side of the Hibbard house at 1701 Prairie now sits under a light stone hood whose ends step out at the arch\'s foot and whose crown rises to a point, as its old photograph shows; side-by-side windows meet hood to hood.',
+      'A tall stone pilaster now stands on the house\'s front corner, from the stone basement up to a capital under the cornice.',
+    ] },
+  { v: 2458, ts: '2026-10-30T15:59:10.348Z', date: 'Oct 30, 2026, 10:59 AM CT', title: '1729 Prairie\'s oculus and the 18th Street flank\'s corner pier', kind: 'improvement',
+    items: [
+      'The Pullman house\'s 18th Street pavilion now has the small round window its photograph shows, set high in a banded stone pier between the upper pair of windows and the triple.',
+      'The flank\'s far east corner is turned by a banded stone pier, with the cornice and the belt course stepping forward over it, as at the Prairie Avenue corner.',
+      'Both read off J. W. Taylor\'s photograph no. 1445 through its solved camera. The round window renders within a pixel of the photograph\'s. The ring\'s moulding and the pier\'s courses are reconstructed, since the print shows them only a few pixels wide.',
+    ] },
   { v: 2457, ts: '2026-10-30T15:22:35.338Z', date: 'Oct 30, 2026, 10:22 AM CT', title: '1801 Prairie\'s canted corner ends cleanly against its slate', kind: 'fix',
     items: [
       'A block of stone stood at the far end of the Kimball house\'s canted corner, over the round bay, in front of the roof\'s slate. It is gone.',
