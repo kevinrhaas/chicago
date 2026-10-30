@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2452, ts: '2026-10-30T11:50:40.864Z', date: 'Oct 30, 2026, 6:50 AM CT', title: 'Nothing you can see: Pullman\'s palm-house stairs read from two pictures', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. The 1894 Inland Architect plate and Taylor\'s photograph of Pullman\'s palm house had seemed to disagree about the stairs before it. Read together through their two cameras, they agree. The raised balustrade in the plate and the porch under the awning in the photograph are the same thing: the house\'s own raised porch toward 18th Street. The palm house\'s terrace and its flight of steps match both pictures as already built, so the porch is the next thing to build, as part of the house.',
+    ] },
+  { v: 2451, ts: '2026-10-30T11:09:46.583Z', date: 'Oct 30, 2026, 6:09 AM CT', title: 'A stone balustrade on 1729 Prairie\'s 18th Street wall', kind: 'improvement',
+    items: [
+      'The Pullman house\'s low wall along 18th Street now carries the balustrade its photograph shows past the porte-cochère: a row of turned stone balusters under a moulded rail, level with the tall pier\'s cap, running east to the carriage way.',
+      'Read off J. W. Taylor\'s photograph no. 1445 through its solved camera: where the run starts and stops, how high the rail stands and how far apart the balusters are. The balusters\' shape is borrowed from the house\'s own front stair, since the print draws each one about two pixels wide.',
+    ] },
   { v: 2450, ts: '2026-10-30T10:07:30.156Z', date: 'Oct 30, 2026, 5:07 AM CT', title: '1701 Prairie\'s stone basement and its looped iron fence', kind: 'feature',
     items: [
       'The Hibbard house at 1701 Prairie now stands on a light stone basement up to the principal floor, across the front, round the south side and under the lower south wing, with brick only above it, as its old photograph shows.',

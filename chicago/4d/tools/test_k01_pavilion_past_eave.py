@@ -16,6 +16,8 @@ up as walls to about 13.9 m, and its wings slated like the main roof. So:
     face nor in its recesses behind the plane;
   * T-1890: a light on a chamfer's canted face sees into its recess past nothing of the
     house's, the main roof cut away inside the cant as deep as the recess reaches;
+  * T-1890: a canted face stopped under its cornice (`chamfer.top_m`) carries no bay stone over
+    it, the mansard's slate over the cant from there;
   * T-1890: one the main cornice is carried across (`cornice_across`, 1801's wall gable) keeps
     the eave box and K10's course running on in front of its face, only the covering cut;
   * a projection that stops at the eave (1812's) gains nothing;
@@ -286,6 +288,59 @@ def main() -> int:
         check(False, "a light on the canted face under the eave: refused")
     except ValueError as err:
         check("under the eave" in str(err), f"a light on the canted face under the eave: refused ({str(err)[:80]}...)")
+
+    # T-1890: HABS photograph 1 stops the canted face at a cornice just over that light, the
+    # house's slate over it from there: no bay stone stands on the cant's face over its top, and
+    # the mansard's own slate covers the cant above it, where the build had carried the wall to
+    # the gable's shoulder in front of it (shown to bite with the top taken off)
+    ct = a.chamfer_top(bs)
+    check(ct is not None and lights[0][1] + 0.4 <= ct < sum(float(x["height_m"]) for x in bs["variant"]["storeys"]),
+          f"1801's canted face stops at {ct} m, over its light's head ({lights[0][1]:.2f} m) and under its wall top")
+
+    def over_cant(asm, top):
+        """(bay stone vertices on the cant's face over `top`, whether slate covers the cant over it)."""
+        stone = []
+        for name, pr in asm.prims.items():
+            if not name.startswith("bay_"):
+                continue
+            for q in pr.pos:
+                t_ = ((q[0] - un) * (ub - un) + (-q[2] - sn) * (sb_ - sn)) / Lc
+                if 0.2 < t_ < Lc - 0.2 and abs(side(q[0], -q[2])) / Lc < 0.01 and q[1] > top + 0.01:
+                    stone.append(q)
+        mu, mv = (un + ub) / 2 - 0.3 * nu, (sn + sb_) / 2 - 0.3 * nv   # 0.3 m behind the cant's middle
+        pr = asm.prims["mansard_slate"]
+        slate = False
+        for k in range(0, len(pr.idx), 3):
+            p0, p1, p2 = (pr.pos[i] for i in pr.idx[k:k + 3])
+            x0, z0 = p1[0] - p0[0], p1[2] - p0[2]
+            x1, z1 = p2[0] - p0[0], p2[2] - p0[2]
+            det = x0 * z1 - x1 * z0
+            if abs(det) < 1e-12:
+                continue
+            wx, wz = mu - p0[0], -mv - p0[2]
+            b1, b2 = (wx * z1 - x1 * wz) / det, (x0 * wz - wx * z0) / det
+            if b1 >= 0.0 and b2 >= 0.0 and b1 + b2 <= 1.0 and p0[1] + b1 * (p1[1] - p0[1]) + b2 * (p2[1] - p0[1]) > top:
+                slate = True
+                break
+        return stone, slate
+    stone, slate = over_cant(a, ct)
+    check(not stone and slate, f"over {ct} m the cant carries no bay stone ({len(stone)} vertices) and the "
+                               f"mansard's slate covers it ({slate})")
+    st_, ph_ = load(SID)
+    e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
+    e_["plan"]["chamfer"].pop("top_m")
+    stone, _ = over_cant(K1.build(KP.from_phase(ph_, st_), SID), ct)
+    check(bool(stone), f"without its top the cant's wall stands over {ct} m in front of that slate "
+                       f"({len(stone)} vertices): the check bites")
+    for bad, says in ((lights[0][1] + 0.2, "over its lights' heads"), (13.0, "under its wall top")):
+        st_, ph_ = load(SID)
+        e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
+        e_["plan"]["chamfer"]["top_m"] = round(bad, 3)
+        try:
+            K1.build(KP.from_phase(ph_, st_), SID)
+            check(False, f"a canted face stopped at {bad:.2f} m: refused")
+        except ValueError as err:
+            check(says in str(err), f"a canted face stopped at {bad:.2f} m: refused ({str(err)[:80]}...)")
 
     def chamfer_refused(change, why, says):
         st, phase = load(SID)

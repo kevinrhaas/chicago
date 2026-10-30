@@ -36583,3 +36583,51 @@ written specification of the stable's stone.
 **Review:** `docs/RESEARCH/colour-pullman-stable-T-1934/README.md`; the photo-match side-by-sides of
 `pullman_house_1729_prairie`, `_ranges` and `_conservatory`.
 **Recorded:** 2026-10-30 (T-1934).
+
+### L-pullman-1729-18th-balustrade-1881 — 1729 Prairie's balustrade on the 18th Street wall east of the third pier: its place and height read, its balusters' profile and its sections reconstructed
+
+**Decision:** the 18th Street wall's 1.0 m run from the third pier (x 16.4) to the carriage way (x 8.6)
+carries a stone balustrade 0.8 m over its top, its rail about 1.8 m over grade, level with the pier's
+cap (`boundary.side_return.runs[].balustrade`, a new K11 coping-return option): a 0.08 m plinth, turned
+balusters 0.3 m apart, a 0.14 m rail 0.42 m wide, and 0.4 m solid blocks at each end.
+**What is read, not invented.** J. W. Taylor's photograph no. 1445 (`aic_taylor_1445_pullman_from_sw`)
+through its solved camera: the balustrade's run from the pier's east face (x 856 px) to the opening
+(x 957 px), its rail's top level with the pier's cap (y 597-600 px), a row of balusters under it (y
+600-608 px) whose dark gaps stand about 4 px apart, about 0.3 m at the print's 12-13 px a metre there,
+and a solid block at its east end (x 942-957 px).
+**What is invented.** The baluster's profile, which is the house's own stair balustrade's (the print
+draws each baluster about 2 px wide); the plinth's and rail's sections; the end blocks' 0.4 m length,
+where the print's east block reads about 1.2 m and its west end is lost against the pier. The heights
+are read to about 0.15 m and the pitch to about 0.1 m.
+**How to resolve:** a closer picture of the 18th Street wall (the CHM 1905 views, the Beman-addition
+side views), which also settles the Detroit print's run of posts and panels further west.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-10-30 (T-1881).
+
+### L-kimball-1801-cant-top-1890 — 1801 Prairie's canted face stopped under a cornice over its light, the mansard's slate carried down over it, from HABS photograph 1
+
+**Decision:** HABS photograph 1 (June 1965, `habs_kimball_photo_01_sw_1965`) stops the south
+pavilion's canted face, over the round bay, at a cornice just over its small light, with the house's
+slate over it from there (x 640-745 px, y 405-446 at the cornice); the build carried the cant's wall
+on up to the gable's shoulder at 13.6 m, a tall blank face beside the gable, which
+L-kimball-1801-cant-light-1890 left open. p_south's chamfer now takes `top_m` 11.65: K08 stops the
+cant's wall there under a cornice course and carries the course's top back over the wall as deep as
+a recess reaches, and carries the front's end on up from it to the wall top as a stone cheek; K01
+cuts the main roof over the cant only up to it, and from there only over the pavilion's square
+part, so the mansard's own hipped corner comes down onto the cornice. 11.65 m is where the
+mansard's hip crosses the cant's face, so the slate meets the course at the cant's middle and
+stands behind it either side, with no step. **What is read.** The course's height, about 0.8 m over
+the light's opening: it renders at about y 427 px against the print's y 405-420 over the light, and
+the slate over it. **What is invented or held by the kit.** The course's section is the bay's floor
+band (the print's cornice is a few pixels of moulding), the slate's line is the mansard's own pitch
+and hip, and the course runs level where the print's falls about 40 px toward the cant's far end
+(within tolerance, the match record). **What is still open.** Right of the light the print carries
+the cant's wall to a sloped edge with the side slope's slate in front of the rest; the build stands
+the closing face K01 lays in the south wall's plane there, a block of stone to the cornice (in the
+match record).
+**How to resolve:** a nearer view of the south-west corner, or the HABS drawings' west and south
+elevations, shows the cornice's section and how the cant's far end meets the side slope.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1890).
