@@ -1,7 +1,0 @@
-{
-  "title": "Taps answer only what the frame draws",
-  "kind": "fix",
-  "items": [
-    "The check that holds the GPU pick to the old raycast now asks both the same question: the raycast starts at the camera's near plane, as the frame does, so it no longer answers a woodpile 9 cm from the eye that the frame had already cut away. Dev's moving-frames gate is green on all 12 yard taps again."
-  ]
-}
