@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2430, ts: '2026-10-30T01:03:19.683Z', date: 'Oct 29, 2026, 8:03 PM CT', title: 'The Pullman house\'s front entry straightened, and a stray box removed', kind: 'fix',
+    items: [
+      'At 1729 Prairie the door, the front steps, the gate and the walk now line up. The door sits in the middle of the portico, between its two inner columns, and the steps rise straight up to it, as the 1900s photograph shows.',
+      'The steps and the portico floor beside them now have turned stone railings, where the photograph shows rails beside the steps. Before, the floor beside the steps was a plain stone block.',
+      'On 18th Street, a low grey box with one window stood in front of the carriage porch\'s arches. It was a leftover from the first rough draft of the block, and no picture shows it, so it is gone.',
+      'Still to come: the stone\'s colour and coursing, and the front as a whole against the photographs.',
+    ] },
   { v: 2429, ts: '2026-10-30T00:21:40.153Z', date: 'Oct 29, 2026, 7:21 PM CT', title: 'The Pullman conservatory\'s 18th Street gate gets its carving', kind: 'improvement',
     items: [
       'Each stone wing of the gate across 18th Street now carries the carved scroll and trailing leaves the 1894 plate and Lowe\'s photograph show by the pier, over a plain base.',
