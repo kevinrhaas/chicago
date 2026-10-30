@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2448, ts: '2026-10-30T09:24:39.664Z', date: 'Oct 30, 2026, 4:24 AM CT', title: 'A palm and two clipped evergreens on Pullman\'s palm-house terrace', kind: 'improvement',
+    items: [
+      'A palm from the palm house now stands out in its tub on the terrace before the glass drum, as J. W. Taylor\'s photograph shows it in summer.',
+      'A slim clipped evergreen column stands against the drum\'s west side, and a clipped cone in its tub before the arched door east of it, where both the 1894 Inland Architect plate and Taylor\'s photograph place them.',
+      'Pullman\'s ivy is back on the house\'s west front: bringing its porch forward had dropped it from the planting.',
+      'Like the other tub plants, they are wintered under glass: switch the Season to winter and they are gone.',
+    ] },
+  { v: 2447, ts: '2026-10-30T09:24:39.664Z', date: 'Oct 30, 2026, 4:24 AM CT', title: '1729 Prairie\'s big front dormer under its broken pediment', kind: 'improvement',
+    items: [
+      'The large dormer on the Pullman house\'s Prairie front now carries the broken pediment its pictures show: two raking stone arms rise from past the hood\'s ears and stop against the arch, so the arch\'s crown stands up through the gap between them.',
+      'Read off the 1890 Albertype plate and Taylor\'s photograph no. 1445, with the Detroit print agreeing; the arms\' rake, depth and reach are drawn at the precision those pictures allow.',
+    ] },
   { v: 2446, ts: '2026-10-30T08:10:43.061Z', date: 'Oct 30, 2026, 3:10 AM CT', title: 'Pullman\'s garden colonnade stands in its pictures\' proportions', kind: 'improvement',
     items: [
       'The domed colonnade at the east end of Pullman\'s glasshouse range across 18th Street now rises from a taller stone podium to a deep entablature, with shorter columns between them, as the 1894 Inland Architect plate and Lowe\'s c. 1897 photograph both show it.',
