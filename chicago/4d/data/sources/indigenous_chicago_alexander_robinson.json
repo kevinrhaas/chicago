@@ -10,5 +10,10 @@
   "rights_status": "check_required",
   "asset_use": "text_only",
   "verified": true,
-  "note": "Reviewed for T-0462. Used only to the degree described in the resident research review; identity candidates remain unasserted."
+  "note": "Reviewed for T-0462. Used only to the degree described in the resident research review; identity candidates remain unasserted.",
+  "access_notes": "Read again 2026-10-30 (T-3251) through a fetch that returned short quoted fragments; the T-3251 jaunt cites only these.",
+  "what_it_supplies": [
+    "Alexander Robinson's 1826 marriage to Catherine Chevalier (Potawatomi), sister of Archange Ouilmette; Catherine as daughter of Marianne (Potawatomi) and François Chevalier and granddaughter of the Potawatomi leader Naunongee",
+    "the section of land on the Des Plaines he received by the 1833 treaty, where he and Catherine lived the rest of his life and his family lived until the middle of the twentieth century"
+  ]
 }
