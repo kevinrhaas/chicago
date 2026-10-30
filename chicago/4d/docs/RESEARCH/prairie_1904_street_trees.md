@@ -93,3 +93,29 @@ his dead one at 60.0 m against the plate's one living tree at 58.8 m), and the b
 plate's, the later of the two. Taylor's 16554, the wide winter view from the south-west, sees
 the same street but its camera cannot tell its parkway trunks from the yard's, so nothing was
 read from it. `L-pullman-18th-street-trees-1934` is what is chosen.
+
+### The glasshouse ground's gate (T-3164, 2026-10-30)
+
+The 1894 Inland conservatory plate and Lowe's c. 1897 print look south through the gate of the
+estate's glasshouse ground across 18th Street (cameras in
+`data/reference_views/pullman_glasshouse_1800_calumet_pavilion/`). They add a stretch and move a tree:
+
+| stretch | seen by | trees read | rule trees withdrawn |
+|---|---|---|---|
+| `calumet__prairie_calumet_18_20` 264.0 m to the corner | the conservatory plate (x 320-1343), Lowe (x 0-904) | 266.9 (the plate; Lowe 267.5) | none (`#27`, at 259.9 m, is outside it) |
+| `e18th__prairie_calumet_18_20` (above) | now also the conservatory plate (0-2.5 m) and Lowe | 1.3 moved to 3.0 | — |
+
+The south parkway's corner tree was Taylor's alone, read at 1.3 m, which would stand it before
+the gate's west pier; the plate sees that place, and the parkway to its right edge, clear.
+Taylor's camera was solved on the north side's ground, and it stands the gate's west pier (placed
+off the plate, the uncropped picture) about 180 px west of where the print draws it, so its
+readings of the near parkway carry that offset. Read against the pier, the print's trunk stands
+1.7 to 3.5 m along; Lowe reads 3.0 m; the plate rules out anything nearer the corner than about
+2.9 m. It is planted at 3.0 m.
+
+**Size.** These two trunks are slim: about 0.31 m across at breast height in the plate (45 px at
+13.6 m) and 0.26 m in Taylor's print, where the renderer's elm draws about 0.66 m at scale 1. A
+pictured tree may now carry its own `scale`; both carry 0.6, which draws the bole about 0.39 m and
+puts the first fork at about 4 m (the pictures' limbs leave at about 3.3 m in the plate, 4.2 m in
+Taylor's). Lower would match the girth better and the fork worse. The crowns are still the rule's
+elm, where both pictures show a broad, low, leafy head: that stays open in the match records.

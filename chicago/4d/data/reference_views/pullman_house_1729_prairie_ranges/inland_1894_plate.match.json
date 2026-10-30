@@ -76,7 +76,7 @@
         "creeper": 7
       }
     ],
-    "street_trees": 32,
+    "street_trees": 35,
     "street_trees_m": 70,
     "street_furniture": [
       "hydrant.pictured.pullman",
@@ -133,14 +133,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "4be896ee901ef6a12b92f1da8e80c2ffb849121d8b5f9fc760e806b4fec5efdb",
+  "flora_sha256": "a375aef7cf29530fe812fce20afbed7fe75c782778931b934fdee76e4a737f3c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
