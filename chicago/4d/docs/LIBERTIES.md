@@ -36245,6 +36245,46 @@ the two-level rear veranda (T-3242), and the carving and ironwork (T-1876).
 main block with a corner recess would cut the porch's back wall where the sheet draws it.
 **Recorded:** 2026-10-29 (T-3241).
 
+### L-k01-hibbard-1701-3242 — 1701 Prairie's two-level rear veranda and the 1874 range's oriel, read off its rear photograph
+
+**Decision:** T-3242 (piece 3 of T-1875) builds the two things Glessner House Museum's rear
+photograph (`glessner_blog_1701_hibbard_rear_photo`) shows on the rear of the Hibbard house and
+T-3240 and T-3241 left out, each read through the camera T-3240 solved
+(`data/reference_views/hibbard_house_1701_prairie/ghm_rear.json`): the open veranda of two decks
+against the main block's rear wall south of the 1874 range, with its garden steps (`rear_veranda`,
+new module `generators/archetypes/k01_rear_veranda.py`, a kit piece any K01 house can carry), and
+the corbelled oriel on the range's south face at the upper storey (a K08 canted oriel on the wing's
+wall, which K01 already carried; the wing now leaves its wall standing behind an oriel, as a main
+wall does, instead of cutting it from grade as it does for a tower).
+**What is read, not invented.** The veranda's run along the rear wall, v 7.9-14.7 (its north end
+about 1.1 m clear of the range, its south end the main block's corner), and about 2.6 m out; its
+lower deck about 1.7-2.0 m over grade (built 1.85, a step under the principal floor) and its upper
+about 5.1-5.5 m (built 5.2: the rail's top crosses under the upper storey's sills, as the photograph
+shows); five stations of paired posts along its front, a band of spindles under the upper deck, a
+balustrade round both decks; the flight coming down off the lower deck's front in its north bay
+toward the camera. The oriel's place, s 11.9-15.4 along the range's south face (centre 13.65 from
+the main block), its front about 0.8 m out, its floor at the range's second floor (6.3 m), its
+corbelling down to about 4.6 m, its wall top under the range's cornice, a pair of round-headed
+lights in its front and a square-headed one in each cheek; the range's south-face windows moved to the three the
+photograph's lower storey shows (s 2.6, 7.2 and 10.0), none under the oriel.
+**What is invented.** The posts' 0.13 m section and 0.14 m pair gap, the stations evenly spaced
+(the photograph's are not quite), the deck's 0.22 m thickness, the balustrade's 0.85 m height, its
+rails and its square 0.06 m balusters at 0.16 m (the photograph's are turned), the frieze's 0.35 m
+depth and its spindles, the flight's 1.0 m width, 0.3 m treads and stone, its cheeks and rails; the
+whole veranda painted the light trim colour (the photograph is monochrome and reads it pale). The
+posts carried down to grade where the photograph's planting hides what stands under the lower deck.
+The oriel's plan (2.6 m front, 0.45 m cants), its stone and its seven corbel courses for the
+photograph's carved brackets, and its low hip for the carved cresting over it. The range's upper
+storey keeps a light at s 7.2 that the photograph shows only in its lower storey (a K01 wing cuts
+one list of lights through every storey).
+**What is still not built.** The range's heavy bracketed cornice (its deck's fascia stands in for
+it), the veranda's turned posts and balusters and its brackets, and the photograph's veranda
+running on south past the main block's corner as the model's main block is built (the camera reads
+the block about 2 m wider than T-3240's footprint; that is the block's, not the veranda's).
+**How to resolve:** a second picture of the rear, or a measured drawing of the veranda, fixes its
+sections and heights; a K01 wing with storeys of their own lights fixes the range's upper storey.
+**Recorded:** 2026-10-30 (T-3242).
+
 ### L-kimball-1801-se-wall-gable-1890 — 1801 Prairie's wall gable at the south wall's rear corner, from HABS photograph 1
 
 **Decision:** the roof's south-east corner had nothing over the main cornice where HABS photograph 1

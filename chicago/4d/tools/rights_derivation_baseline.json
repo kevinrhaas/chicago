@@ -1916,6 +1916,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.rear_veranda": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1701_hibbard_rear_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "hibbard_house_1701_prairie/as_mapped_1904/form.rear_wings": {
       "kind": "structure",
       "blocked_sources": [

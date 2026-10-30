@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2435, ts: '2026-10-30T03:48:08.203Z', date: 'Oct 29, 2026, 10:48 PM CT', title: '1701 Prairie\'s rear veranda and the back range\'s oriel', kind: 'feature',
+    items: [
+      'Behind the Hibbard house, a two-level veranda now stands against the rear wall: paired posts, a band of spindles, railed decks, and steps down to the lawn, all read off the old rear photograph.',
+      'The 1874 back range has its corbelled oriel at the upper storey, and its windows now sit where the photograph shows them.',
+    ] },
+  { v: 2434, ts: '2026-10-30T03:11:58.329Z', date: 'Oct 29, 2026, 10:11 PM CT', title: 'New 1904 walk: Women of Prairie Avenue', kind: 'feature',
+    items: [
+      'Six houses, 1608 to 2115 Prairie, each tied to a woman who mattered: Henrietta Frank (nursing education), Frances Glessner Lee (forensic science), Frances Glessner (her forty-year journal), Jane Grahame Jones (suffrage), Kate Buckingham (Buckingham Fountain) and Mrs. Philip D. Armour (the street\'s last great household).',
+      'Every fact is sourced on its stop; who was home on 1 July 1904 is not claimed.',
+    ] },
   { v: 2433, ts: '2026-10-30T02:35:19.505Z', date: 'Oct 29, 2026, 9:35 PM CT', title: '1906 Prairie gains its roof deck, south wing and side porch', kind: 'feature',
     items: [
       'The Edson Keith house\'s hipped roof now stops at a flat deck with a rail round it, as its engraving shows, and its chimneys rise well above that rail.',
