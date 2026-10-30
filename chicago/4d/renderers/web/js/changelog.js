@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 2446, ts: '2026-10-30T08:10:43.061Z', date: 'Oct 30, 2026, 3:10 AM CT', title: 'Pullman\'s garden colonnade stands in its pictures\' proportions', kind: 'improvement',
+    items: [
+      'The domed colonnade at the east end of Pullman\'s glasshouse range across 18th Street now rises from a taller stone podium to a deep entablature, with shorter columns between them, as the 1894 Inland Architect plate and Lowe\'s c. 1897 photograph both show it.',
+      'The podium\'s top and the entablature\'s underside now carry on the range\'s own string courses, at about 1.6 m and 4.65 m.',
+    ] },
+  { v: 2445, ts: '2026-10-30T08:08:40.389Z', date: 'Oct 30, 2026, 3:08 AM CT', title: 'Prairie Avenue\'s 1904 houses have their staff', kind: 'feature',
+    items: [
+      'The 1900 census for Prairie Avenue is read: 179 cooks, maids, laundresses, nurses, butlers, coachmen and grooms are on the house cards.',
+      '30 children the society Blue Book never printed join their families, among them the Shortall, Walker, Young and Lowden children.',
+      'Staff and children seen in June 1900 are marked inferred for 1904, since servants changed houses often.',
+      'Wives and unnamed daughters get their given names from the census in the card notes.',
+      'Houses where another family lived in 1900, or where the family was away, say so on the card.',
+    ] },
+  { v: 2444, ts: '2026-10-30T07:27:39.618Z', date: 'Oct 30, 2026, 2:27 AM CT', title: 'The moving-frames check runs as two jobs and stops timing out', kind: 'chore',
+    items: [
+      'The walk-and-flight frame check and the phone\'s memory check now run side by side, each under a time limit it can meet, so a passing change is no longer cancelled by the clock on a busy day and can merge without a blind merge.',
+    ] },
+  { v: 2443, ts: '2026-10-30T07:27:39.618Z', date: 'Oct 30, 2026, 2:27 AM CT', title: 'Pullman\'s carriage ways and stable stone', kind: 'improvement',
+    items: [
+      'A gravel carriage drive now comes in off 18th Street through a gateway in the Pullman wall, as J. W. Taylor\'s photograph shows it, and up the court to the stable\'s big arch.',
+      'A second drive comes in through the wall\'s gap east of the house and runs under the porte-cochère to a turning apron, so a carriage can reach the side door.',
+      'No shrub stands in any gateway or drive now: the 18th Street border starts east of the house, where the c.1900 photograph shows it, and two of the tub plants moved off the drives.',
+      'The stable and the palm house range are one stone now, read from the winter photograph against the house\'s own walls: a little darker than the stable was built, and much darker than the palm house range\'s pale stone.',
+    ] },
   { v: 2442, ts: '2026-10-30T06:49:18.434Z', date: 'Oct 30, 2026, 1:49 AM CT', title: 'Clipped evergreens in tubs on Pullman\'s palm-house terrace', kind: 'improvement',
     items: [
       'The Pullman estate\'s summer tub plants now stand where the 1894 Inland Architect plate shows them: a clipped ball on its tub on the palm house\'s terrace, and a ball on a clear stem in a painted tub before the stable\'s arches.',

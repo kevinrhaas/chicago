@@ -30,9 +30,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 the Lees were not yet here: the census finds Blewett and Frances Lee at 1623 Prairie Avenue (ED 36, sheet 1A, lines 14-19) with their son John, then a year old, and three servants: Margaret Kelly, waitress, Anna Sawtelle, nurse, and Julia Nolan, cook. Those servants kept a different house four years earlier and are not carried to 1700. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [

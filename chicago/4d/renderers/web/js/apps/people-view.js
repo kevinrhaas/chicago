@@ -8,6 +8,7 @@
  * open, never at boot. Each person names their household, their place in it and the
  * grade of the record; a tap takes you to the house they live in.
  */
+const RANK = { head: 0, wife: 1, husband: 1, son: 2, daughter: 2, child: 2, servant: 4 };
 const GRADES = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
 const PLACE = { head: 'Head of the household', wife: 'Wife', husband: 'Husband', son: 'Son', daughter: 'Daughter' };
 const placeIn = (r) => PLACE[r] ?? (r ? r.charAt(0).toUpperCase() + r.slice(1).replace(/_/g, ' ') : '');
@@ -33,7 +34,9 @@ export async function mount(el, ctx = {}) {
     const block = Object.assign(doc.createElement('section'), { className: 'nav-block' });
     block.append(Object.assign(doc.createElement('span'), { className: 'nav-k', textContent: 'Household' }),
       Object.assign(doc.createElement('strong'), { className: 'nav-place', textContent: house }));
-    const order = (p) => (p.relationship === 'head' ? 0 : 1);
+    // T-3258: the family before its staff — head, spouse, children, kin, then the servants the
+    // 1900 census names — so a house of twelve servants still opens on the people it is named for.
+    const order = (p) => RANK[p.relationship] ?? 3;
     for (const p of [...people].sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))) {
       const row = doc.createElement(p.lives_at ? 'button' : 'div');
       row.className = 'nav-person';

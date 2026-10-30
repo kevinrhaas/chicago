@@ -30,9 +30,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The seven live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: P. D. Armour (Philip D. Armour died in January 1901; the 1904 Blue Book lists his widow); Alice Shaw (a widow of 58 with the relation column left blank; no 1904 source puts her here); Kenneth Monroe (heads his own family in the rear building; his trade reads as a horseman but is hard to read). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -44,10 +45,249 @@
       "sources": [
         "chicago_blue_book_1904",
         "hmdb_prairie_lost_houses_2000_2100",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "2115 Mrs. Philip D. Armour",
-      "note": "The meat-packer's widow; the Prairie Avenue marker says the house was 'for nearly 50 years the home' of the Armour family and that his widow died there in 1927."
+      "note": "The meat-packer's widow; the Prairie Avenue marker says the house was 'for nearly 50 years the home' of the Armour family and that his widow died there in 1927. The 1900 census lists Belle O. Armour here as wife, born April 1843 (the figures are hard to read), in Ohio, married (ED 40, sheet 14B, line 69, leaf n821).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 14B, line 69, leaf n821",
+        "as_enumerated": "Armour, Belle O.",
+        "relation_as_enumerated": "Wife"
+      }
+    },
+    {
+      "id": "pa1904_armour_mrs_philip_d_c1900_delia_king",
+      "name": "Delia King",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1874",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives July 1874, age 25 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "parlor maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Parlor maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 14B, line 71, leaf n821",
+        "as_enumerated": "King, Delia",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (parlor maid); born July 1874, in Ireland, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_armour_mrs_philip_d_c1900_frances_jordan",
+      "name": "Frances Jordan",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1859",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1859, age 40 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "ladies maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Ladies maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 14B, line 72, leaf n821",
+        "as_enumerated": "Jordan, Frances",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born November 1859 (the figures are hard to read), in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_armour_mrs_philip_d_c1900_maggie_ronan",
+      "name": "Maggie Ronan",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1860",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives September 1860, age 40 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 14B, line 73, leaf n821",
+        "as_enumerated": "Ronan, Maggie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born September 1860 (the figures are hard to read), in Ireland, came to the United States in 1870, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_armour_mrs_philip_d_c1900_lizzie_ryan",
+      "name": "Lizzie Ryan",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1874",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1874, age 25 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "laundress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Laundress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 14B, line 74, leaf n821",
+        "as_enumerated": "Ryan, Lizzie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born December 1874, in Iowa, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_armour_mrs_philip_d_c1900_helen_mcshane",
+      "name": "Helen McShane",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1883",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1883, age 17 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 14B, line 75, leaf n821",
+        "as_enumerated": "McShane, Helen",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (maid); born November 1883 (the figures are hard to read), in Ireland, came to the United States in 1898, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_armour_mrs_philip_d_c1900_henry_deneke",
+      "name": "Henry Deneke",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1862",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives July 1862, age 37 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "valet",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Valet\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 14B, line 76, leaf n821",
+        "as_enumerated": "Deneke, Henry",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (valet); born July 1862 (the figures are hard to read), in Germany, came to the United States in 1894, married. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_armour_mrs_philip_d_c1900_joseph_daniels",
+      "name": "Joseph Daniels",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1862",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1862, age 37 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "coachman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 14B, line 83, leaf n821",
+        "as_enumerated": "Daniels, Joseph",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born December 1862 (the figures are hard to read), in England, married. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
     }
   ]
 }

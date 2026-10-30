@@ -93,6 +93,10 @@ SIDE_LINE_CLEAR_M = 0.40   # ... or the side lot lines
 SIDE_REACH_M = 6.0         # a corner shrub stands no further back along a side wall than this
 MIN_YARD_M = 1.6           # a house nearer its lot line than this has no front yard to plant
 CHECK_SLACK_M = 0.12       # --check lets a rebake move a stoop or a wall this much under a plant
+GATE_BAND_M = 1.0          # a lot line's fence or wall is read this deep into the lot (T-1934)
+GATE_MIN_M = 0.45          # ... and a gap in it this long to GATE_MAX_M is a gateway (on the raster)
+GATE_MAX_M = 6.0
+GATE_WAY_M = 3.5           # a gateway's way is kept clear this far into the lot
 
 # What the pictures show, lot by lot (see the module doc).
 PICTURED = {
@@ -102,9 +106,13 @@ PICTURED = {
         "creeper": {"faces": ["street"], "cover": 0.7, "height_m": [3.5, 7.5], "grade": "attested",
                     "note": "Ivy over the west front and the porch, to about the second storey's sills and "
                             "past them on the porch's piers (both Detroit Publishing views)."},
-        "border": {"edge": "high_s", "d_m": [18.0, 62.0], "inset_m": 1.1, "grade": "attested",
+        # T-1934 (the owner, 2026-10-30: the carriage ways with "no plants blocking it"): the border
+        # starts at the house's east wall (d 45.5), where the print shows it, not along the house's
+        # flank, where it stood across the porte-cochere's carriage way; and it stops short of the
+        # stable court's way (the drives the house's K14 yard lays are paved to every plant here).
+        "border": {"edge": "high_s", "d_m": [45.5, 60.5], "inset_m": 1.1, "grade": "attested",
                    "note": "A dense border of shrubs inside the coping along 18th Street, east of the house "
-                           "(LC-D4-4a08066, right of the house)."},
+                           "(LC-D4-4a08066, right of the house), clear of the carriage ways."},
         "stoop": {"plant": "spiraea", "grade": "attested",
                   "note": "Low shrubs at the foot of the porch, either side of its steps (LC-D4-4a08065)."},
         "trees": {"plant": "linden", "count": 3, "grade": "attested",
@@ -132,12 +140,16 @@ PICTURED = {
                       "tub_m": 0.5, "read": "plate x 845-925 px, y 763-838 px, a ball as tall as it is wide "
                       "sitting on its tub east of the plate's flight, on the terrace behind its balustrade "
                       "(n -3173.0): its top 3.24 m"},
-                     {"plant": "standard", "e": 1475.8, "n": -3181.2, "on": "grade", "top_m": 2.61, "w": 1.28,
+                     {"plant": "standard", "e": 1476.4, "n": -3181.2, "on": "grade", "top_m": 2.61, "w": 1.28,
                       "tub_m": 0.55, "read": "plate x 1290-1385 px, before the stable's west arcade "
-                      "(e 1475.8, 1.6 m off its wall): its top 2.61 m, its stem seen to 0.72 m"},
-                     {"plant": "arborvitae", "e": 1474.0, "n": -3193.3, "on": "grade", "top_m": 1.9, "w": 0.55,
+                      "(read at e 1475.8, 1.6 m off its wall): its top 2.61 m, its stem seen to 0.72 m. "
+                      "Stood 0.6 m nearer the wall (1.0 m off it, e 1476.4), so the carriage drive "
+                      "into the court passes it clear (T-1934; a tub is moved each summer)"},
+                     {"plant": "arborvitae", "e": 1473.1, "n": -3193.4, "on": "grade", "top_m": 1.9, "w": 0.55,
                       "tub_m": 0.0, "read": "plate x 1730-1780 px, its foot at y 1053 px on the ground, "
-                      "inside the wall before its east pier; Taylor's 16555 shows it at x 650 px"},
+                      "inside the wall before its east pier; Taylor's 16555 shows it at x 650 px. Read at "
+                      "e 1474.0, in the mouth of the court's carriage way that 16555 shows; stood 0.9 m "
+                      "west, behind the pier, within the plate's and 16555's 1 m disagreement (T-1934)"},
                      # T-1934, the second reading: three more both pictures place, each fixed in
                      # plan by crossing the plate's pixel column with 16555's (the two cameras
                      # stand 16 degrees apart, so the depth is good to about a metre), its top
@@ -377,6 +389,44 @@ def inside(pe, pn, poly):
 
 # ---------------------------------------------------------------- one lot
 
+def gate_ways(s, d, width, fence, inlot):
+    """T-1934 (the owner, 2026-10-30, on Pullman's carriage ways: "no plants blocking it"): every
+    gateway in a lot's fence or wall is kept clear. Along each of the lot's three street-side
+    lines (the street line, d 0, and the side lines, s 0 and s = width) the fence, coping or pier
+    raster is read in a band GATE_BAND_M deep; a run along the line with none of it, closed by
+    fence at both ends and GATE_MIN_M to GATE_MAX_M long, is an opening, and a way as wide as it
+    is kept clear GATE_WAY_M into the lot. Returns the mask of those ways."""
+    out = np.zeros(s.shape, bool)
+    for along, depth, lo in ((s, d, 0.0), (d, s, 0.0), (d, width - s, 0.0)):
+        band = inlot & (depth >= lo) & (depth <= GATE_BAND_M)
+        if not band.any():
+            continue
+        a = np.round(along[band] / RES).astype(int)
+        f = fence[band]
+        if not f.any():
+            continue
+        a0, a1 = a.min(), a.max()
+        has = np.zeros(a1 - a0 + 1, bool)
+        np.logical_or.at(has, a[f] - a0, True)
+        seen = np.zeros(a1 - a0 + 1, bool)
+        seen[a - a0] = True
+        k = 0
+        while k < len(has):
+            if has[k] or not seen[k]:
+                k += 1
+                continue
+            j = k
+            while j < len(has) and not has[j] and seen[j]:
+                j += 1
+            closed = k > 0 and has[k - 1] and j < len(has) and has[j]
+            L = (j - k) * RES
+            if closed and GATE_MIN_M <= L <= GATE_MAX_M:
+                t0, t1 = (a0 + k) * RES - RES / 2, (a0 + j) * RES - RES / 2
+                out |= inlot & (along >= t0) & (along <= t1) & (depth >= lo) & (depth <= GATE_WAY_M)
+            k = j
+    return out
+
+
 def lot_frame(p):
     cs = p["corners_local_m"]
     street = [np.array(v, float) for k, v in cs.items() if k.endswith("_street")]
@@ -455,12 +505,14 @@ class Yard:
             self.doors.append((r2(ds), r2(dd), front_door))
         self.keep = keep
         edt = lambda m: ndimage.distance_transform_edt(~m) * RES if m.any() else np.full(m.shape, 99.0)
+        self.gate_way = gate_ways(s, d, width, fence, inlot)
         self.terms = {
             "the house's wall": dh - WALL_GAP_M,
             "a stoop or its steps": edt(stoop) - STOOP_GAP_M,
             "a fence, coping or pier": edt(fence) - LOW_GAP_M,
             "a walk": edt(paved) - PAVED_GAP_M,
             "a door or the way to it": edt(keep),
+            "a gateway in the lot's fence or wall": edt(self.gate_way),
             "the lot's lines": np.minimum(np.minimum(d - LOT_LINE_CLEAR_M, s - SIDE_LINE_CLEAR_M),
                                           width - SIDE_LINE_CLEAR_M - s),
         }
@@ -931,6 +983,12 @@ def self_test() -> int:
         s_ = next(s for s in l["shrubs"] if len(s) > 6 and s[6] > 0)
         s_[6] = r2(s_[6] + 0.6)
     case("a tub stood on a floor the models do not have", tub_afloat, "stands on a floor")
+
+    def in_gateway(d):
+        # T-1934: inside the wall's gateway on 18th Street that Pullman's carriages came through
+        l = next(x for x in d["lots"] if x["parcel"] == "prairie_1729")
+        l["shrubs"].append([1475.3, -3194.2, "globe", 1.0, 1.0])
+    case("a shrub in a gateway", in_gateway, "a gateway")
     return 0 if ok else 1
 
 

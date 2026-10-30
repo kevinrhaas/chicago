@@ -135,10 +135,11 @@
         ],
         "width_m": 5.511,
         "rotunda": {
-          "podium_m": 1.0,
+          "podium_m": 1.6,
           "podium_out_m": 0.1,
           "column_radius_m": 0.22,
           "entablature": {
+            "from_m": 4.65,
             "height_m": 0.55,
             "out_m": 0.15
           },
@@ -158,7 +159,7 @@
         "inland_1894_pullman_conservatory",
         "aic_lowe_pullman_conservatory_c1897"
       ],
-      "note": "The plan is the sheet's (inferred): the rounded east end the sheet draws and the short straight part joining it to the range. T-3179: the plate and the Lowe photograph show the whole of it as a glazed colonnade, stone columns on a low podium with the glass between them, under an entablature level with the range's coping (about 6.0 m), and a low ribbed dome over the curve whose crown stands about 7.3 m up. RECONSTRUCTED: a column at every joint of the kit's seven-sided curve and one midway along each side of the straight part, the podium's height and the dome's profile (L-pullman-conservatory-3179)."
+      "note": "The plan is the sheet's (inferred): the rounded east end the sheet draws and the short straight part joining it to the range. T-3179: the plate and the Lowe photograph show the whole of it as a glazed colonnade, stone columns on a low podium with the glass between them, under an entablature level with the range's coping (about 6.0 m), and a low ribbed dome over the curve whose crown stands about 7.3 m up. RECONSTRUCTED: a column at every joint of the kit's seven-sided curve and one midway along each side of the straight part, the podium's height and the dome's profile (L-pullman-conservatory-3179). T-3164: measured against the range's own windows in the Inland plate (about 25 px to the metre there), the podium stands about 1.6 m and the entablature runs about 1.4 m deep from about 4.65 m, so the podium's top and the entablature's underside carry on the range's two string courses (1.6 m and 4.65 m), and the columns, about 0.45 m thick in both pictures, stand about 3.0 m between them; the podium was 1.0 m and the columns ran to 5.35 m under a 0.7 m entablature."
     },
     "function": {
       "value": "glasshouse",

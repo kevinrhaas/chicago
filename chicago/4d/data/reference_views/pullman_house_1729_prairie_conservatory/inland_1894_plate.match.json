@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "inland_1894_plate",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
+  "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978",
   "camera_sha256": "e4d226571ba997368f5513842a652449bd05e420abe852f509277b134def4d62",
   "photo_sha256": "4cd3f1eef5e267d8e2769c48d0fbfc79fb4ed256303efca48a9274d2bf9c5580",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
+      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "d793edc6656cdffeb59a5b164123cc5be6090c2ad145f462edc1ee781a93abcc"
+      "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,19 +61,19 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "b44cc805a7ad26115c6c380faa1a2fcc841d1fe89cb6b18af0d14aa261eef37d"
+      "glb_sha256": "896ce63602b0f92e8d43df39b393c21f0eda3972050770ed52a0ccfe597b5141"
     }
   ],
-  "group_sha256": "77eb2224170e3fe77fd81466ee1dbb5fa0d772e8782723aa76642d4651787eb2",
+  "group_sha256": "4272bb2cf82d1db9ff4fb1dd09e536545b871bf63781b1e22301c518ccd2d01a",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 30,
+        "shrubs": 13,
         "trees": 3,
         "beds": 0,
-        "creeper": 11
+        "creeper": 7
       }
     ],
     "street_trees": 26,
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "304a0b80fb05fff9c0a4110fcefe030ef8b7ea2849ff4e3120ee215e0348a5e0"
+      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "f975ee2af834364b25a0723e7e8d1ffe2aa1aa6aa0c508685337218d18147363",
+  "flora_sha256": "c9cec82777a37eeb5772298c336cf8032e99db82c250f01944b638ec8f961c57",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -248,7 +248,7 @@
       "status": "fixed"
     },
     {
-      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. Still open: the tall evergreen mass and the potted conifer west of the plate's flight, which stand by the second flight the build does not have (the terrace's two-flight approach), and the clipped heads read looser than the plate's shears. T-1934, 2026-10-30: the slim column behind the balustrade against the drum's west side (x 212-240 px, its top at y 697) and the cone in its tub before the wing's arched door east of the drum (x 727-782 px) now stand where this camera's pixel columns cross Taylor's 16555's (data/front_yards/1904.json, the 1729 lot's tubs); the column renders within about 15 px of the plate's, and the cone stands behind the build's 18th Street border shrubs, which rise about 1.4 m over the plate's evergreen mass before the flight and are leafy where the plate shows clipped evergreens: also open.]",
+      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. T-1934, 2026-10-30: the slim column behind the balustrade against the drum's west side (x 212-240 px, its top at y 697) and the cone in its tub before the wing's arched door east of the drum (x 727-782 px) now stand where this camera's pixel columns cross Taylor's 16555's (data/front_yards/1904.json, the 1729 lot's tubs) and render within about 15 px of the plate's; 16555's palm in its tub before the drum renders left of the elm trunk (x 470-560) where the plate shows the drum's columns bare above the balustrade (two summers' arrangements: within tolerance). Still open: the tall evergreen mass and the potted conifer west of the plate's flight, which stand by the second flight the build does not have (the terrace's two-flight approach), and the clipped heads read looser than the plate's shears.]",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards (camera flora)"
     },
@@ -256,6 +256,11 @@
       "what": "the urn's lid: the plate's is flat and broad over the body, the kit's profile rises to a small point about 0.1 m high",
       "status": "within tolerance",
       "how": "T-1934: under 0.1 m, the kit's turned profile kept"
+    },
+    {
+      "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
+      "status": "fixed",
+      "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

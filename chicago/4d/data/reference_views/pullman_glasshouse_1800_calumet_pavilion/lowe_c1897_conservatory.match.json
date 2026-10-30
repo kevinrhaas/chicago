@@ -80,7 +80,7 @@
         -17.846242297674625
       ],
       "rotation_y": 1.5707963267948966,
-      "glb_sha256": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f"
+      "glb_sha256": "1c2a7af790259c15729e46ff417b053c235a96c06536b5d93207ee53531f7729"
     },
     {
       "structure_id": "pullman_lodge_1800_calumet",
@@ -102,8 +102,8 @@
       "glb_sha256": "dc1c4e59b8e257d2fd34c2ce925c2ccaa837148bf255939c8ed6a5d3171257ae"
     }
   ],
-  "group_sha256": "29be3d087df7bb1f42aa424e679cc16c454859714cb7517b9853f1cb6f32e85c",
-  "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
+  "group_sha256": "795938d78d389b7f2cda2b90d30050e240f5f14c6336aea242883cb233729cee",
+  "side_by_side": "../../../../../../../../tmp/pm1/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
@@ -162,7 +162,13 @@
     },
     {
       "what": "the range's pilasters and the colonnade's columns heavier than built",
-      "status": "open"
+      "status": "within tolerance",
+      "how": "T-3164 (colonnade pass): re-read at the plate's own scale, about 25 px to the metre off the range's 1.95 m window bays: the columns read about 0.45 m thick in both pictures (built 0.44 m) and the range's pilasters about 0.4 m (built 0.4 m). What read heavy was the colonnade's proportion, its columns too tall under too shallow an entablature, which the next entry fixes."
+    },
+    {
+      "what": "the colonnade's columns stood on a 1.0 m podium and ran to 5.35 m under a 0.7 m entablature, where both pictures show a podium about 1.6 m high, columns about 3.0 m tall, and an entablature about 1.4 m deep from about 4.65 m to the range's coping",
+      "status": "fixed",
+      "how": "T-3164 (colonnade pass): read off the plate (podium top about 1.6 m, column heads about 4.65 m, coping about 6.05 m) and checked on the Lowe photograph (entablature 30 px there, 28 px in the render). The podium's top and the entablature's underside carry on the range's own string courses at 1.6 m and 4.65 m, which is how both pictures draw them; built so (the rotunda's podium_m 1.6, entablature from_m 4.65)."
     },
     {
       "what": "a light iron cresting along the transept's level crest from its hipped end to the nave, a finial over the transept's end and a small ornament over the nave's apex (T-3164)",
