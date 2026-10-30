@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2462, ts: '2026-10-30T18:18:57.329Z', date: 'Oct 30, 2026, 1:18 PM CT', title: 'A gas lamp where Taylor\'s photograph shows it on 18th Street', kind: 'fix',
+    items: [
+      'Pullman\'s 18th Street walk has its gas lamp where an 1890s photograph shows it: at the turn into Calumet Avenue, before the palm-house wing.',
+      'The walk from Prairie Avenue loses the lamp the spacing rule had put before the house\'s side porch; two photographs show none there.',
+    ] },
   { v: 2461, ts: '2026-10-30T18:12:28.493Z', date: 'Oct 30, 2026, 1:12 PM CT', title: '1701 Prairie\'s tall arched front entrance', kind: 'feature',
     items: [
       'The front door of the Hibbard house at 1701 Prairie now stands deep inside a tall round stone-ringed arch between the corner porch and the bay, as its old photograph and an engraving show it, in place of a plain flat-topped door.',
