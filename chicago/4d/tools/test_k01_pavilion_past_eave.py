@@ -14,6 +14,8 @@ up as walls to about 13.9 m, and its wings slated like the main roof. So:
     windows' recesses run through it, its gable's parapet closes its top, and the mansard's
     eave box, covering foot and gutter stop at its cheeks, nothing of them in front of its
     face nor in its recesses behind the plane;
+  * T-1890: a light on a chamfer's canted face sees into its recess past nothing of the
+    house's, the main roof cut away inside the cant as deep as the recess reaches;
   * T-1890: one the main cornice is carried across (`cornice_across`, 1801's wall gable) keeps
     the eave box and K10's course running on in front of its face, only the covering cut;
   * a projection that stops at the eave (1812's) gains nothing;
@@ -223,6 +225,67 @@ def main() -> int:
             and side(q[0], -q[2]) * out > 0 and abs(side(q[0], -q[2])) / Lc > 0.005
             and not in_bay(q[0], -q[2])]
     check(not left, f"no masonry of the house stands outside the canted face under the soffit ({len(left)} vertices)")
+
+    # T-1890: HABS photograph 1's small light on the canted face over the round bay stands
+    # behind the wall's face, where the main roof runs: the roof is cut away inside the cant
+    # as deep as its recess reaches (T-3108's try showed its slate through the opening)
+    lights = a.cant_lights(bs)
+    check(len(lights) == 1 and lights[0][0] > p.eave_m,
+          f"1801's pavilion carries one light on its canted face, over the eave ({lights})")
+    pts = bs["variant"]["plan"]["points"]
+    lens = [math.hypot(q[0] - r[0], q[1] - r[1]) for r, q in zip(pts, pts[1:])]
+    total = math.fsum(lens)
+    on_cant = [f * total - (total - lens[-1]) for st in bs["variant"]["storeys"]
+               for w in st.get("windows") or () for f in w.get("at") or () if f * total > total - lens[-1]]
+    nu, nv = (sn - sb_) / Lc, -(un - ub) / Lc   # out of the canted face
+    if nu < 0.0:
+        nu, nv = -nu, -nv
+    deep = 0.5   # inside the K08 recess (0.55 m) the light's own reveal and glass stand
+    WINDOW_PRIMS = ("sash", "glass", "blind", "curtain", "backing")   # the light's own K06 kit
+
+    def hits(o, d, L):
+        for name, pr in a.prims.items():
+            if name.startswith("bay_") or name in WINDOW_PRIMS:
+                continue
+            for k in range(0, len(pr.idx), 3):
+                p0, p1, p2 = (pr.pos[i] for i in pr.idx[k:k + 3])
+                e1 = [p1[j] - p0[j] for j in range(3)]
+                e2 = [p2[j] - p0[j] for j in range(3)]
+                h = [d[1] * e2[2] - d[2] * e2[1], d[2] * e2[0] - d[0] * e2[2], d[0] * e2[1] - d[1] * e2[0]]
+                det = sum(e1[j] * h[j] for j in range(3))
+                if abs(det) < 1e-12:
+                    continue
+                s_ = [o[j] - p0[j] for j in range(3)]
+                u_ = sum(s_[j] * h[j] for j in range(3)) / det
+                q = [s_[1] * e1[2] - s_[2] * e1[1], s_[2] * e1[0] - s_[0] * e1[2], s_[0] * e1[1] - s_[1] * e1[0]]
+                v_ = sum(d[j] * q[j] for j in range(3)) / det
+                tt = sum(e2[j] * q[j] for j in range(3)) / det
+                if u_ >= 0.0 and v_ >= 0.0 and u_ + v_ <= 1.0 and 0.0 < tt < L:
+                    return name
+        return None
+    # across the opening, from just outside the face: T-3108's try met the chamfer cut's closing
+    # face in the cant's own plane there, over most of the light
+    for t_, (lo, hi, _) in zip(on_cant, lights):
+        seen = []
+        for dt in (-0.2, 0.0, 0.2):
+            cu, cv = un + (ub - un) * (t_ + dt) / Lc, sn + (sb_ - sn) * (t_ + dt) / Lc
+            for y in (lo + 0.15, (lo + hi) / 2, hi - 0.15):
+                hit = hits((cu + 0.05 * nu, y, -(cv + 0.05 * nv)), (-nu, 0.0, nv), deep + 0.05)
+                if hit:
+                    seen.append(f"{hit} at {dt:+.1f} m, {y:.2f} m")
+        check(not seen, f"the cant's light ({lo:.2f}-{hi:.2f} m) sees {deep} m into its recess past nothing "
+                        f"of the house's" + (f" ({'; '.join(seen)})" if seen else ""))
+
+    # ...and only over the eave: under it the house's own walls stand behind the cant
+    st_, ph_ = load(SID)
+    e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
+    lw = e_["storeys"][2]["windows"].pop()
+    e_["storeys"][1]["windows"].append(dict(lw, sill_m=0.6, clear_height_m=1.4))
+    try:
+        K1.build(KP.from_phase(ph_, st_), SID)
+        check(False, "a light on the canted face under the eave: refused")
+    except ValueError as err:
+        check("under the eave" in str(err), f"a light on the canted face under the eave: refused ({str(err)[:80]}...)")
 
     def chamfer_refused(change, why, says):
         st, phase = load(SID)
