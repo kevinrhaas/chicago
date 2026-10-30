@@ -5770,6 +5770,8 @@ def build(params, structure_id: str):
     # T-2317: the K10 wall head — brackets and a bed moulding under the soffit, every
     # corner turned and every head, pipe and bay stood clear of; cresting on the ridge
     k10_frontage.dress(a, reach)
+    # T-3257: and round a flat rear wing that names it (1701's 1874 range)
+    k10_frontage.dress_wings(a, reach)
     if p.pavilions:
         # T-3158: the front's pavilions — piers, frieze panels, modillions under the cornice
         # just laid, and the mansard's ribs over the piers (1729's, the Detroit print)

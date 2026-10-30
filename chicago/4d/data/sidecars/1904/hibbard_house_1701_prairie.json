@@ -501,7 +501,7 @@
           "id": "front_bay",
           "variant": "k08.bay.canted",
           "wall": "k01.wall.street_front",
-          "s_m": 10.4,
+          "s_m": 11.4,
           "fabric": "stone",
           "plan": {
             "kind": "polyline",
@@ -538,6 +538,17 @@
                     0.6
                   ],
                   "why_not_ordinary": "the photograph's paired lights in the bay's face, narrower than the wall's sash so two stand in its 2.5 m face"
+                },
+                {
+                  "opening": "k06.opening.sash_round_fanlight",
+                  "clear_width_m": 0.5,
+                  "clear_height_m": 0.8,
+                  "sill_m": 0.95,
+                  "at": [
+                    0.4,
+                    0.6
+                  ],
+                  "why_not_ordinary": "the photograph's round-headed basement lights over the fence, one under each of the bay's paired lights, smaller than the wall's sash"
                 }
               ]
             },
@@ -598,6 +609,16 @@
                     0.532
                   ],
                   "why_not_ordinary": "the photograph's narrow round-headed light in the lower south range's south face, narrower than the wall's sash"
+                },
+                {
+                  "opening": "k06.opening.sash_round_fanlight",
+                  "clear_width_m": 0.5,
+                  "clear_height_m": 0.8,
+                  "sill_m": 0.95,
+                  "at": [
+                    0.532
+                  ],
+                  "why_not_ordinary": "the photograph's round-headed basement light over the fence under the range's south-face light, smaller than the wall's sash"
                 }
               ]
             }
@@ -697,7 +718,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "chicagology_1701_hibbard_photo"
       ],
-      "note": "The photograph's two-storey bay in light stone on the front's south part, canted, two round-headed lights a storey in its face under a cornice at the second floor and another under the main cornice. The sheet draws a canted bay over v 8.3-11.0 (the K01 frame), 1.3 m out; through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) its junctions read about v 9.1 and 13.7. Laid at 10.4, 3.6 m at the wall and 1.2 m out (K08 holds a canted bay to 1.2 m): within both readings' spread, and the difference is written in the match record. The lower south range (lower_south_range, T-3241): the photograph's one-storey brick block on the south flank, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): set back about 1.1 m from the front corner, 2.9 m along the flank and 3.1 m out from it, its walls to a moulded cornice about 5.2-5.7 m up and a low pierced parapet over it to about 6.1 m, a round-headed light in its west face and a narrower one in its south face. Built as a K08 projection's `range` plan. The 1911 sheet draws a strip only about 1.6 m wide on this side ('2S.B.'); the photograph is followed and the difference is liberty L-k01-hibbard-1701-3241. The parapet's pierced slots are drawn as the kit's stone balustrade. The range's oriel (range_oriel, T-3242): the rear photograph's corbelled oriel on the 1874 range's south face at the upper storey, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/ghm_rear.json): its front about u -12.1 to -15.2 and 0.8 m out, its east cheek meeting the wall at about -15.4, its floor at the range's second floor (6.3 m) on carved brackets reaching down to about 4.6 m, its top under the range's cornice, a pair of round-headed lights in its front and one in its cheek (drawn square-headed). Built as a K08 canted oriel on the wing's wall, s 13.65 from the main block; its stone, its 0.45 m cants, its seven corbel courses for the photograph's brackets and its low hip for the carved cresting are reconstructed (liberty L-k01-hibbard-1701-3242). T-3254: the lower south range stands on the house's stone basement, its plinth carried up to the water table at the principal floor (plinth_m 2.0), as the photograph shows it, brick only over it."
+      "note": "The photograph's two-storey bay in light stone on the front's south part, canted, two round-headed lights a storey in its face under a cornice at the second floor and another under the main cornice. The sheet draws a canted bay over v 8.3-11.0 (the K01 frame), 1.3 m out; through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) its junctions read about v 9.1 and 13.7. Laid at 10.4 by T-3240, between the two readings; T-3257 lays it on the photograph's centre, 11.4, 3.6 m at the wall and 1.2 m out (K08 holds a canted bay to 1.2 m), so the entrance arch shows whole with the pier the photograph shows before the bay. Its round-headed basement lights (the photograph's, over the fence under the pair) stand in its lowest storey, as does the one under the lower south range's south light (T-3257). The lower south range (lower_south_range, T-3241): the photograph's one-storey brick block on the south flank, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): set back about 1.1 m from the front corner, 2.9 m along the flank and 3.1 m out from it, its walls to a moulded cornice about 5.2-5.7 m up and a low pierced parapet over it to about 6.1 m, a round-headed light in its west face and a narrower one in its south face. Built as a K08 projection's `range` plan. The 1911 sheet draws a strip only about 1.6 m wide on this side ('2S.B.'); the photograph is followed and the difference is liberty L-k01-hibbard-1701-3241. The parapet's pierced slots are drawn as the kit's stone balustrade. The range's oriel (range_oriel, T-3242): the rear photograph's corbelled oriel on the 1874 range's south face at the upper storey, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/ghm_rear.json): its front about u -12.1 to -15.2 and 0.8 m out, its east cheek meeting the wall at about -15.4, its floor at the range's second floor (6.3 m) on carved brackets reaching down to about 4.6 m, its top under the range's cornice, a pair of round-headed lights in its front and one in its cheek (drawn square-headed). Built as a K08 canted oriel on the wing's wall, s 13.65 from the main block; its stone, its 0.45 m cants, its seven corbel courses for the photograph's brackets and its low hip for the carved cresting are reconstructed (liberty L-k01-hibbard-1701-3242). T-3254: the lower south range stands on the house's stone basement, its plinth carried up to the water table at the principal floor (plinth_m 2.0), as the photograph shows it, brick only over it."
     },
     "rear_wings": {
       "value": [
@@ -752,7 +773,21 @@
             "kind": "flat",
             "overhang_m": 0.5,
             "fascia_m": 0.4,
-            "covering": "painted_tin_sheet"
+            "covering": "painted_tin_sheet",
+            "cornice": "k10.cornice.bracketed_timber"
+          },
+          "windows_by_storey": {
+            "north": [
+              [
+                2.6,
+                7.2,
+                10.0
+              ],
+              [
+                2.6,
+                9.0
+              ]
+            ]
           }
         }
       ],
@@ -761,7 +796,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "glessner_blog_1701_hibbard_rear_photo"
       ],
-      "note": "The 1874 rear range the 1911 sheet traces behind the main block's north half (s20fp-1701-b1, draft frame u about -0.2 to 17.5, v -0.4 to 8.0; here u -17.7 to 0, v 0 to 6.8). The sheet draws its north wall about 1.2-1.6 m north of the main block's; it is built in the main block's north wall line, because K10's cornice cannot yet turn the main block's rear corner inside a wing that buries it (liberty L-k01-hibbard-1701-3240; no picture shows the north side). The rear photograph shows it in brick, as tall as the main block's wall head, its lights round-headed. Its windows' places are reconstructed (the picture is small and oblique), except the south face's (the wing's north wall in this frame), which T-3242 moved to the three lights the photograph's lower storey shows at s 2.6, 7.2 and 10.0, none under the oriel; the upper storey keeps the light at 7.2 the photograph does not show there, since a wing cuts one list of lights through every storey. Its corbelled oriel stands on that face (bays, range_oriel, T-3242); its heavy bracketed cornice is still built as a flat deck's fascia."
+      "note": "The 1874 rear range the 1911 sheet traces behind the main block's north half (s20fp-1701-b1, draft frame u about -0.2 to 17.5, v -0.4 to 8.0; here u -17.7 to 0, v 0 to 6.8). The sheet draws its north wall about 1.2-1.6 m north of the main block's; it is built in the main block's north wall line, because K10's cornice cannot yet turn the main block's rear corner inside a wing that buries it (liberty L-k01-hibbard-1701-3240; no picture shows the north side). The rear photograph shows it in brick, as tall as the main block's wall head, its lights round-headed. Its windows' places are reconstructed (the picture is small and oblique), except the south face's (the wing's north wall in this frame), which T-3242 moved to the three lights the photograph's lower storey shows at s 2.6, 7.2 and 10.0, none under the oriel; T-3257 gives that face's storeys their own lights (windows_by_storey): the upper storey has the photograph's light at s 2.6 and its one between the lower storey's second and third (the photograph's x 413, read at s 9.0 off the lower lights' 390 and 425), and none over 7.2. Its corbelled oriel stands on that face (bays, range_oriel, T-3242). T-3257: its heavy bracketed cornice is the main block's own (roof.cornice, K10's bracketed timber, paired as the house's are at 1.6 m) carried round its three walls under the flat deck's soffit at the main block's wall head, where the photograph shows the range's cornice running level into the main block's; the low roof over it is not seen from the lawn and stays K04's tin deck behind the fascia."
     },
     "boundary": {
       "value": {
@@ -854,6 +889,16 @@
             0.18,
             0.1
           ]
+        },
+        "roundels": {
+          "y_m": 1.4,
+          "d_m": 0.55,
+          "centre_m": [
+            0.8,
+            1.9,
+            3.2,
+            4.3
+          ]
         }
       },
       "confidence": "inferred",
@@ -861,7 +906,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "chicagology_1701_hibbard_photo"
       ],
-      "note": "The corner porch on the front's north end: the 1911 sheet's stone piece ('1', blue; trace s20fp-1701-b1 p2), 5.46 m along the front from the north wall and 1.24 m before the front's line, and Chicagology's photograph, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): a one-storey stone arcade on the principal floor's stone podium (its floor about 2.0 m up), a narrow arched opening at v about 0.9-2.6 and a wide one at about 2.8-5.0 on its front with a sash seen through each, a narrow arch in its south return, the arches springing about 4.35-4.75 m up and crowning about 5.2-5.5 m, an entablature about 5.65-6.3 m and a low balustrade over it to about 6.7 m. Built by k01_porte_cochere's corner_porch (T-3241). The photograph's slender columns and carved capitals are drawn as plain piers, its entablature's brackets and its balusters' turning are the kit's, and the sheet's porch runs back 1.85 m behind the front's line where the front is recessed; K01 lays the main block as a rectangle, so the wall behind the arcade stands in the front's line (liberty L-k01-hibbard-1701-3241)."
+      "note": "The corner porch on the front's north end: the 1911 sheet's stone piece ('1', blue; trace s20fp-1701-b1 p2), 5.46 m along the front from the north wall and 1.24 m before the front's line, and Chicagology's photograph, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): a one-storey stone arcade on the principal floor's stone podium (its floor about 2.0 m up), a narrow arched opening at v about 0.9-2.6 and a wide one at about 2.8-5.0 on its front with a sash seen through each, a narrow arch in its south return, the arches springing about 4.35-4.75 m up and crowning about 5.2-5.5 m, an entablature about 5.65-6.3 m and a low balustrade over it to about 6.7 m. Built by k01_porte_cochere's corner_porch (T-3241). The photograph's slender columns and carved capitals are drawn as plain piers, its entablature's brackets and its balusters' turning are the kit's, and the sheet's porch runs back 1.85 m behind the front's line where the front is recessed; K01 lays the main block as a rectangle, so the wall behind the arcade stands in the front's line (liberty L-k01-hibbard-1701-3241). T-3257: the podium's carved roundels, one under each opening of the arcade's front over the fence in the photograph (the clearest a ringed medallion), read through the same camera at about v 0.8, 1.9, 3.2 and 4.3 and 1.4 m up, about 0.55 m across; drawn as a stone ring round a dark sunk disc, their carving not read."
     },
     "hip_deck": {
       "value": {
