@@ -64,3 +64,18 @@ door, one inside the house) and confirms each is refused.
 ## Before and after
 
 `front-yards-3223/before-after.jpg`: the same stands on dev before T-3223 and with it.
+
+## Pullman's tub plants (T-1934)
+
+The 1894 Inland Architect plate of the palm house and stable is a summer picture, and the terrace
+in it is set out with clipped evergreens: a ball sitting on its tub east of the flight, a ball on a
+clear stem in a tub before the stable's west arcade, a slim clipped column inside the 18th Street
+wall by its east pier, and more by the plate's second flight (a cone in a tub, a potted conifer,
+a tall evergreen mass). Taylor's 16555, a summer or two earlier, shows the column by the pier and
+sets the rest differently (an urn on the flight's east pier, slim cones, potted palms). Tub plants
+were carried under glass for the winter and set out again each summer, so the two arrangements are
+two summers, not a disagreement about a building. The three the build can stand without the plate's
+second flight are planted from the plate (`PICTURED["prairie_1729"]["tubs"]` in the planter), each
+read through the plate's solved camera on a stated plane, and graded `inferred` for 1904; a tub on
+the terrace stands on the terrace floor read off the baked model, which `--check` re-measures. The
+renderer draws the tubs and their plants in every Season but winter (L-pullman-terrace-tubs-1934).
