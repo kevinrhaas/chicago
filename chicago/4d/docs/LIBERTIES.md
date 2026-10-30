@@ -36360,6 +36360,28 @@ cornice ends at the corner.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).
 
+### L-kimball-1801-cant-light-1890 — 1801 Prairie's small light on the canted face over the round bay, from HABS photograph 1
+
+**Decision:** HABS photograph 1 (June 1965, `habs_kimball_photo_01_sw_1965`) shows a small light on
+the south pavilion's canted face over the round bay (x 643-683, y 437-507 px), standing on the bay's
+balustrade close against the pavilion's corner pilaster, where the build's cant stood blank
+(L-kimball-1801-round-bay-3108 left it open: T-3108's sash had been hidden by the chamfer cut's
+closing face, which lay in the cant's own plane over the opening). p_south's third storey now
+carries a K06 two-over-two sash on the cant, 0.65 by 1.45 m on a 9.4 m sill, at 0.72 of its runs;
+K01 cuts the main roof away inside a lit cant as deep as the recess reaches, up to the light's head,
+and K08 no longer opens the front's plane for a light on a cant. **What is read.** The light's
+place on the face, its sill on the balustrade and its size, against the print through its solved
+camera: it renders about 40 by 70 px against the print's 40 by 70, about 0.3 m further from the
+pilaster. **What is invented or held by the kit.** The sash's glazing (the print shows a sash
+with a meeting rail at 1 px a bar), the surround's section and the recess's depth are the kit's.
+**What is still open.** The print stops the cant's wall at a cornice just over the light, with the
+slate over it; the build carries it on to the gable's shoulder (in the match record).
+**How to resolve:** a nearer view of the south-west corner, or the HABS drawings' west elevation,
+shows the light's glazing and how the cant is finished over it.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1890).
+
 ### L-k01-1700-1708-colour-3244 — 1700, 1706 and 1708 Prairie laid in red-brown brick, and the pair's porches, cornice, dormers and sash painted white, read from the tones of three monochrome photographs
 
 **Decision:** the owner, 2026-10-29 (T-3243, T-3244): *"you need to make sure that you picture match
@@ -36407,29 +36429,6 @@ is the rule's planting line.
 `inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
 **Recorded:** 2026-10-29 (T-1934).
 
-### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
-
-**Decision:** T-1881 (the owner, 2026-10-29: "the walls read as red brick ... Every picture shows dressed ashlar,
-light in the prints") lays the Pullman house's walls, dressings and dormer faces (`pullman_house_1729_prairie`)
-in a new K02 fabric, `sandstone_fawn`, where they were the library's red-brown `sandstone_brown`. **What is read.**
-Both photographs print the walls lighter than the house's own slate mansard: the Detroit print's master scan
-(LoC det 4a08065u) at 115-135 against the slate's 73-101 and the sky's 226, and Taylor's no. 1445 at 193-204 against
-the mansard's 165-175 and the stone coping wall's 197. Through a print's tone curve (gamma 1.8-2.2) the Detroit
-reading puts the walls at 1.7-3.3 times the slate's light. The red-brown map, rendered through the same camera,
-gave 1.4-1.7, and on a blue or orthochromatic plate a red-brown stone prints darker than a neutral slate of the
-same light, so it cannot be the stone these plates saw. The master scan also shows the joints as hairlines barely
-darker than the face, on courses of about 0.44 m and blocks of 0.9-1.3 m. **What is invented.** The fawn's hue
-(a B&W plate cannot name a colour; it bounds a value), its light and dark (sRGB 163,148,125 and 129,115,96, mean
-146,131,110), set so the render gives 2.6-3.4 times its slate's light on a blue or orthochromatic weighting, in
-the upper half of the print's range because the model's slate (linear about 0.05) is darker than most slate, and
-the profile's 3 mm joint rubbed flush. **What is not changed.** The register's word for the stone (brownstone;
-the Sanborn sheet's "stone") and the record's tier: the material stays `inferred`, the shade is reconstructed.
-`sandstone_brown` and the seven other register rows it lays are untouched. **How to resolve:** a contract, a
-building notice or a description naming the stone's quarry or colour would replace the shade.
-**Ticket:** T-1881.
-**Review:** `docs/RESEARCH/pullman-stone-1881/README.md`; `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg`, `albertype_1890-side-by-side.jpg` and their match records.
-**Recorded:** 2026-10-30 (T-1881).
-
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
 **Decision:** three plantings on the 1729 Prairie lot are stood where the 1894 Inland Architect
@@ -36458,6 +36457,29 @@ second flight the build does not have, and Taylor's print sets the terrace's tub
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
 and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
 **Recorded:** 2026-10-29 (T-1934).
+
+### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
+
+**Decision:** T-1881 (the owner, 2026-10-29: "the walls read as red brick ... Every picture shows dressed ashlar,
+light in the prints") lays the Pullman house's walls, dressings and dormer faces (`pullman_house_1729_prairie`)
+in a new K02 fabric, `sandstone_fawn`, where they were the library's red-brown `sandstone_brown`. **What is read.**
+Both photographs print the walls lighter than the house's own slate mansard: the Detroit print's master scan
+(LoC det 4a08065u) at 115-135 against the slate's 73-101 and the sky's 226, and Taylor's no. 1445 at 193-204 against
+the mansard's 165-175 and the stone coping wall's 197. Through a print's tone curve (gamma 1.8-2.2) the Detroit
+reading puts the walls at 1.7-3.3 times the slate's light. The red-brown map, rendered through the same camera,
+gave 1.4-1.7, and on a blue or orthochromatic plate a red-brown stone prints darker than a neutral slate of the
+same light, so it cannot be the stone these plates saw. The master scan also shows the joints as hairlines barely
+darker than the face, on courses of about 0.44 m and blocks of 0.9-1.3 m. **What is invented.** The fawn's hue
+(a B&W plate cannot name a colour; it bounds a value), its light and dark (sRGB 163,148,125 and 129,115,96, mean
+146,131,110), set so the render gives 2.6-3.4 times its slate's light on a blue or orthochromatic weighting, in
+the upper half of the print's range because the model's slate (linear about 0.05) is darker than most slate, and
+the profile's 3 mm joint rubbed flush. **What is not changed.** The register's word for the stone (brownstone;
+the Sanborn sheet's "stone") and the record's tier: the material stays `inferred`, the shade is reconstructed.
+`sandstone_brown` and the seven other register rows it lays are untouched. **How to resolve:** a contract, a
+building notice or a description naming the stone's quarry or colour would replace the shade.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/pullman-stone-1881/README.md`; `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg`, `albertype_1890-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-30 (T-1881).
 
 ### L-pullman-carriage-ways-1934 — Pullman's two carriage drives, the gateways kept clear, and the stable's stone toned from the winter print
 

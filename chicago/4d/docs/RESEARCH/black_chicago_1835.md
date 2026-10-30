@@ -239,3 +239,34 @@ the ceiling the 1840 share carries back; that the pool's surnames are still exac
 the roster's rows print; that no drawn name reproduces a printed reading or its key; that
 every card holds as many people as its shape counts; and that every card carries
 `review_required` with its own sentence.
+
+
+## The owner's question of 2026-10-30, and the search it opened (T-3252)
+
+Kevin, 2026-10-30: *"I thought there were black owned business in 1835 you have documented,
+if so I thought there were several and it would be good to have a tour of that as well,
+confirm with research and make sure it is documented"*. He chose **research first, tour if
+found**: a jaunt is built only if at least four Black-owned businesses or homes can be
+placed in the scene from sources.
+
+**The answer is no, and it is the same answer as T-1377's.** This project documents the
+free Black town of 1835 as a COUNT (six or seven men certified free in August 1833; 53
+persons in 1840) and has never found a NAME before 1840. The two Black-owned firms on the
+layer, `rcb_fb_barbers_shop` and `rcb_fb_washing_and_ironing`, are reconstructed, their
+keepers drawn from the 1840 surnames, and unplaceable. There is nothing to tour.
+
+**What was searched on 2026-10-30, and what each gave:**
+
+| where | what it says about Black Chicago before July 1835 |
+|---|---|
+| Encyclopedia of Chicago, "African Americans" (`encyclopedia_chicago_african_americans`) | Point du Sable's trade from the 1780s, then "Fugitive slaves and freedmen established the city's first black community in the 1840s." No name, trade or house in the 1830s. |
+| Web searches for named Black residents, barbers, certificates of freedom, 1833-1835 | Nothing named. The well-attested early Black Chicagoans (John and Mary Jane Richardson Jones, from 1845; Lewis Isbell; Henry O. Wagoner; Abram T. Hall) all arrive in the 1840s. One walking-tour page puts 33 Black people in an 1833 census; no source behind it was found, and it is not carried. |
+
+**Not read, and named for the next researcher.** Christopher Robert Reed, "The Early African
+American Settlement of Chicago, 1833-1870", *Journal of the Illinois State Historical
+Society* 108 (2015): 211-265, and his *Black Chicago's First Century, 1833-1900* (2005), are
+the scholarship most likely to name someone; neither was reachable from this environment
+(paywalled). The Cook County Commissioners' Court record of the August 1833 certificates of
+freedom, which would name Caton's six or seven men, remains the single most valuable unread
+document, as T-1377 said. A name from either retires a reconstructed card and could seat a
+firm; four placeable ones would make the tour the owner asked for.
