@@ -36369,6 +36369,29 @@ is the rule's planting line.
 `inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
 **Recorded:** 2026-10-29 (T-1934).
 
+### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
+
+**Decision:** T-1881 (the owner, 2026-10-29: "the walls read as red brick ... Every picture shows dressed ashlar,
+light in the prints") lays the Pullman house's walls, dressings and dormer faces (`pullman_house_1729_prairie`)
+in a new K02 fabric, `sandstone_fawn`, where they were the library's red-brown `sandstone_brown`. **What is read.**
+Both photographs print the walls lighter than the house's own slate mansard: the Detroit print's master scan
+(LoC det 4a08065u) at 115-135 against the slate's 73-101 and the sky's 226, and Taylor's no. 1445 at 193-204 against
+the mansard's 165-175 and the stone coping wall's 197. Through a print's tone curve (gamma 1.8-2.2) the Detroit
+reading puts the walls at 1.7-3.3 times the slate's light. The red-brown map, rendered through the same camera,
+gave 1.4-1.7, and on a blue or orthochromatic plate a red-brown stone prints darker than a neutral slate of the
+same light, so it cannot be the stone these plates saw. The master scan also shows the joints as hairlines barely
+darker than the face, on courses of about 0.44 m and blocks of 0.9-1.3 m. **What is invented.** The fawn's hue
+(a B&W plate cannot name a colour; it bounds a value), its light and dark (sRGB 163,148,125 and 129,115,96, mean
+146,131,110), set so the render gives 2.6-3.4 times its slate's light on a blue or orthochromatic weighting, in
+the upper half of the print's range because the model's slate (linear about 0.05) is darker than most slate, and
+the profile's 3 mm joint rubbed flush. **What is not changed.** The register's word for the stone (brownstone;
+the Sanborn sheet's "stone") and the record's tier: the material stays `inferred`, the shade is reconstructed.
+`sandstone_brown` and the seven other register rows it lays are untouched. **How to resolve:** a contract, a
+building notice or a description naming the stone's quarry or colour would replace the shade.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/pullman-stone-1881/README.md`; `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg`, `albertype_1890-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-30 (T-1881).
+
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
 **Decision:** three plantings on the 1729 Prairie lot are stood where the 1894 Inland Architect
@@ -36414,11 +36437,11 @@ L-pullman-terrace-tubs-1934 move off the drives (the standard 0.6 m east, to 147
 the slim arborvitae to 1473.1 E, -3193.4 N, still inside the wall's east pier). The stable
 (`pullman_house_1729_prairie_ranges`, `draft_elevation.tint`) and the palm house range's wall and
 its rusticated, pilastered face (`pullman_house_1729_prairie_conservatory`, `host_wall.color`) take
-one mid-toned stone, linear (0.232, 0.209, 0.168), its dressed trim a shade lighter.
+one stone, linear (0.332, 0.299, 0.241), its dressed trim a shade lighter.
 **What is read:** the court's opening in the wall and the wall's gap east of the house, from the two
-photographs; that carriages reached the stable through the court, since its arches face it; the stone's value, from Taylor's winter print 16554, where the stable's
-wall prints 1.4-1.5 times the brownstone's tone and a little over its own slate's, and the palm house
-range prints in the same band (`docs/RESEARCH/colour-pullman-stable-T-1934/`).
+photographs; that carriages reached the stable through the court, since its arches face it; the stone's value, from Taylor's winter print 16554, where the stable's wall prints 1.4-1.5 times the
+house's own wall in the same light (the house's walls are T-1881's `sandstone_fawn`, L-k01-1729-pullman-stone-tone-1881)
+and the palm house range prints in the same band as the stable (`docs/RESEARCH/colour-pullman-stable-T-1934/`).
 **What is chosen:** the drives' lines, widths, gravel and aprons: no picture shows the court's floor
 or the ground under the porte-cochère, and the second drive is read from the porte-cochère being
 there at all. The stone's hue: a grey level fixes value, not colour, so the draft's warm grey-tan is

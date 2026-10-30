@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6d1b13e5ffee5726fa819c988dfc1af83421dc64bb1d1377a72b9a2171f57b72",
+  "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -177,6 +177,11 @@
       "what": "the forward block's own dormer on its mansard (x 190-235), which the build stood on the main mansard behind the block (hidden by it since #1427)",
       "status": "within tolerance",
       "how": "T-1881: built on the block's own mansard (bays.p_forward.mansard_dormers) where the Detroit print places it; it renders at x 145-182, the block it stands on rendering about 30 px nearer the corner than the photograph's with it: the camera disagreement along the Prairie front recorded above (the dormer stands about a third of the way along the block in both)"
+    },
+    {
+      "what": "the walls' tone: the photograph prints the lit walls 193-204, lighter than the mansard (165-175) and near the stone coping wall along Prairie Avenue (197); the build's brownstone rendered a dark red-brown, darker than every stone round it (owner, 2026-10-29: the walls read as red brick)",
+      "status": "fixed",
+      "how": "T-1881: laid in K02 sandstone_fawn, a light fawn-brown under hairline joints; the walls now render lighter than the mansard and a little under the coping wall, as the photograph draws them"
     },
     {
       "what": "the way under the porte-cochère: the gap in the wall east of the house",

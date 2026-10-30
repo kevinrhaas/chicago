@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "e233704a5b133904c8e799e0e55ed60d37fc888855ecc1b5eee25493a7152492",
+  "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978",
   "camera_sha256": "5900f5ed1e51c04bb5271483786beb3b193afee05bbb422f6883656fef5a1f9f",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "e233704a5b133904c8e799e0e55ed60d37fc888855ecc1b5eee25493a7152492"
+      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "6d1b13e5ffee5726fa819c988dfc1af83421dc64bb1d1377a72b9a2171f57b72"
+      "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "bd90124bfae8b9a902b12bf84f0dc5698ba3c80f5cbfd1c57736b5a71c518b8f"
+      "glb_sha256": "896ce63602b0f92e8d43df39b393c21f0eda3972050770ed52a0ccfe597b5141"
     }
   ],
-  "group_sha256": "d68a2c7766f5b2d3b6d49384b060e7e474210db2516b2d5af07127c64344ea2b",
+  "group_sha256": "4272bb2cf82d1db9ff4fb1dd09e536545b871bf63781b1e22301c518ccd2d01a",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -170,7 +170,7 @@
       "how": "T-3153: drawn as solid parapets, octagonal shafts and a plain wall; heights, places and outlines agree within about 0.3 m, so the difference is in relief and openwork under the bar"
     },
     {
-      "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled [T-1934, 2026-10-30: the wing, its rustication and pilasters and the stable are now one mid-toned stone, read from the winter print 16554, where the two print alike; this print's darker wing is left to the trees' shade. Still open here, since this print alone cannot tell stone from shade.]",
+      "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled [T-1934, 2026-10-30: the wing, its rustication and pilasters and the stable are now one stone, read from the winter print 16554, where the two print alike; this print's darker wing is left to the trees' shade. Still open here, since this print alone cannot tell stone from shade.]",
       "status": "open",
       "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print)"
     },
@@ -266,9 +266,9 @@
       "status": "within tolerance"
     },
     {
-      "what": "the stable's and the palm house range's walls: the print sets both in one mid-toned stone, a little over the slate's tone and about 1.5 times the brownstone's, where the build drew the stable in the draft's light stone and the range, its rustication and pilasters lighter still",
+      "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
       "status": "fixed",
-      "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.232, 0.209, 0.168), read off the winter print 16554 (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
+      "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

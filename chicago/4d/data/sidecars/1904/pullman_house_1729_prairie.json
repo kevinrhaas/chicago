@@ -108,7 +108,7 @@
     },
     "stone_front": {
       "value": {
-        "fabric": "sandstone_brown",
+        "fabric": "sandstone_fawn",
         "dressing": "smooth",
         "trim_fabric": "dressed_trim",
         "rusticated_base_courses": 2,
@@ -120,7 +120,7 @@
       "sources": [
         "loc_det_4a08065_pullman_residence"
       ],
-      "note": "Brownstone, the register's material for 1729 (frontage register row pa-1729-5, K02's sandstone_brown), laid in smooth courses as the photograph shows on both street faces, over a two-course base to the basement lights' heads. The rusticated quoins of the photograph's pavilions are not laid (open in the match record). T-1881: trim_in_walling: the street faces' dressed trim is cut from the same brownstone as the walling, as both photographs show it (one tone), not the paler dressed_trim stone."
+      "note": "Brownstone, the register's material for 1729 (frontage register row pa-1729-5), laid in smooth courses as the photograph shows on both street faces, over a two-course base to the basement lights' heads. The rusticated quoins of the photograph's pavilions are not laid (open in the match record). T-1881: trim_in_walling: the street faces' dressed trim is cut from the same brownstone as the walling, as both photographs show it (one tone), not the paler dressed_trim stone. T-1881 (owner, 2026-10-29: the walls read as red brick): laid in K02's sandstone_fawn, not sandstone_brown. Both photographs print the walls lighter than the house's own slate mansard (the Detroit print's master scan: walls 115-135, slate 73-101, sky 226; Taylor's no. 1445: walls 193-204 against the mansard's 165-175 and the stone coping wall's 197), where sandstone_brown's red-brown reflects 0.75-0.85 of a neutral slate's light on a blue or orthochromatic plate and so must print darker than it; the fawn stone, at about twice the brown's plate reflectance, sits inside both readings. The joints are the photograph's hairlines (3 mm rubbed flush, where the brown profile's 6 mm struck joint drew dark lines that read as brick); its courses of about 0.44 m and blocks of 0.9-1.3 m are inside the profile's ranges as before. The stone stays the register's brownstone; its shade is reconstructed (docs/RESEARCH/pullman-stone-1881/, L-k01-1729-pullman-stone-tone-1881)."
     },
     "principal_floor_m": {
       "value": 2.0,

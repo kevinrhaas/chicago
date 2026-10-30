@@ -1,0 +1,73 @@
+{
+  "id": "hh_lowden_frank_orren",
+  "scene": "1904",
+  "name": "The Lowden household at 1912 Prairie Avenue",
+  "head": "pa1904_lowden_frank_orren",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1912 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1912 Mr. & Mrs. Frank Orren Lowden."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "moulton_lowden_house_1912_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905",
+        "wikipedia_frank_orren_lowden"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1912, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_lowden_frank_orren",
+      "name": "Frank Orren Lowden",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "wikipedia_frank_orren_lowden",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1912 Mr. & Mrs. Frank Orren Lowden",
+      "occupation": {
+        "value": "lawyer",
+        "confidence": "attested",
+        "sources": [
+          "wikipedia_frank_orren_lowden"
+        ],
+        "note": "He 'practiced law in Chicago for about 20 years', and from 1904 to 1912 sat on the Republican National Committee (Wikipedia); later governor of Illinois."
+      }
+    },
+    {
+      "id": "pa1904_lowden_mrs_frank_orren",
+      "name": "Florence Pullman Lowden",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "wikipedia_frank_orren_lowden",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1912 Mr. & Mrs. Frank Orren Lowden",
+      "note": "The Blue Book prints her as Mrs. Frank Orren Lowden; Wikipedia names her Florence, the daughter of George Pullman, whose widow lived across the street at 1729."
+    }
+  ]
+}
