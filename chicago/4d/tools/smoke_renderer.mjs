@@ -4355,30 +4355,22 @@ for (const [label, viewport, touch] of [
           else if (v < 1) notReconstructed++;
         }
       }
-      // T-0064. Sixty-eight wagons against a hundred thousand vertices is seven
-      // million distance tests if it is written the obvious way, so the wagons go
-      // into 8 m buckets first and each vertex only asks the nine buckets round it.
-      const BUCKET = 8;
-      const wagonGrid = new Map();
-      wagons.forEach((wg, i) => {
-        const at = wg.at_local_enu_m;
-        const key = `${Math.floor(at[0] / BUCKET)},${Math.floor(at[1] / BUCKET)}`;
-        if (!wagonGrid.has(key)) wagonGrid.set(key, []);
-        wagonGrid.get(key).push(i);
-      });
-      const wagonNear = (e, n) => {
-        const ce = Math.floor(e / BUCKET);
-        const cn = Math.floor(n / BUCKET);
-        for (let de = -1; de <= 1; de++) {
-          for (let dn = -1; dn <= 1; dn++) {
-            for (const i of wagonGrid.get(`${ce + de},${cn + dn}`) ?? []) {
-              const at = wagons[i].at_local_enu_m;
-              if (Math.hypot(e - at[0], n - at[1]) <= 4.6) return wagons[i];
-            }
-          }
-        }
-        return null;
-      };
+      // A bench beside the moved Green Tree shed is within the wagon's old
+      // search radius, and one end enters the shed's diagnostic rectangle. Read
+      // the ranges actually emitted for each object, never a proximity guess.
+      const objects = new Map([
+        ...wagons.map((object) => [object.id, { wagon: object }]),
+        ...benches.map((object) => [object.id, { bench: object }]),
+        ...sheds.map((object) => [object.id, { shed: object }]),
+      ]);
+      const objectOwners = new Map(meshes.map((m) => [m.geometry,
+        (m.userData.yardObjectSpans ?? []).map((span) => ({
+          ...span, object: objects.get(span.id),
+        }))]));
+      const objectSpans = [...objectOwners.values()].flat();
+      const objectOwnershipExact = objectSpans.length === objects.size
+        && new Set(objectSpans.map((span) => span.id)).size === objects.size
+        && objectSpans.every((span) => span.object && span.to > span.from);
       // Measure the exact vertices emitted for each lot item. The old radius
       // classifier absorbed nearby wagons/trade goods into bridge repair piles.
       // Ownership includes every emitted vertex, so a displaced pile fails its
@@ -4402,6 +4394,8 @@ for (const [label, viewport, touch] of [
         const pos = window.__chicago4d.positionsInMetres(geo);
         const owners = lotOwners.get(geo) ?? [];
         let ownerIndex = 0;
+        const objectRanges = objectOwners.get(geo) ?? [];
+        let objectIndex = 0;
         for (let i = 0; i < pos.count; i++) {
           while (ownerIndex < owners.length && i >= owners[ownerIndex].to * 3) ownerIndex++;
           const owner = owners[ownerIndex];
@@ -4433,9 +4427,44 @@ for (const [label, viewport, touch] of [
             }
             continue;
           }
-          // The shed's bay first: along the wall and out of it, in the shed's own
-          // frame. The wagon's tongue reaches past the bay and is left to the
-          // wagon bound below, which is exactly where it belongs.
+          while (objectIndex < objectRanges.length && i >= objectRanges[objectIndex].to * 3) objectIndex++;
+          const objectRange = objectRanges[objectIndex];
+          const object = objectRange && i >= objectRange.from * 3
+            && i < objectRange.to * 3 ? objectRange.object : null;
+          if (object?.bench) {
+            const bench = object.bench;
+            benchVerts++;
+            benchStray = Math.max(benchStray, Math.hypot(e - bench.at_local_enu_m[0],
+              n - bench.at_local_enu_m[1]));
+            const bearing = (bench.bearing_deg ?? 0) * Math.PI / 180;
+            benchInside = Math.min(benchInside,
+              (e - bench.at_local_enu_m[0]) * Math.sin(bearing)
+              + (n - bench.at_local_enu_m[1]) * Math.cos(bearing));
+            continue;
+          }
+          const ownShed = object?.shed;
+          const wagonShed = object?.wagon?.under_shed
+            ? sheds.find((shed) => shed.id === object.wagon.under_shed) : null;
+          const shed = ownShed ?? wagonShed;
+          if (shed) {
+            const bearing = (shed.bearing_deg ?? 0) * Math.PI / 180;
+            const de = e - shed.at_local_enu_m[0];
+            const dn = n - shed.at_local_enu_m[1];
+            const along = de * Math.cos(bearing) - dn * Math.sin(bearing);
+            const out = de * Math.sin(bearing) + dn * Math.cos(bearing);
+            // The wagon tongue deliberately projects beyond the bay's open end.
+            // Every shed vertex is checked; only that wagon's beyond-end vertices
+            // belong to its wagon bound. Never filter a wall/roof violation by out.
+            if (ownShed || Math.abs(along) <= (shed.length_m ?? 0) / 2 + 0.4) {
+              shedVerts++;
+              shedOut = Math.max(shedOut, out);
+              shedIn = Math.min(shedIn, out);
+              shedHigh = Math.max(shedHigh, pos.getY(i));
+              shedLow = Math.min(shedLow, pos.getY(i));
+            } else wagonVerts++;
+            continue;
+          }
+          if (object?.wagon) { wagonVerts++; continue; }
           const ob = obAt(e, n);
           if (ob) {
             obVerts++;
@@ -4444,42 +4473,6 @@ for (const [label, viewport, touch] of [
             ob.minY = Math.min(ob.minY ?? Infinity, pos.getY(i));
             ob.maxY = Math.max(ob.maxY ?? -Infinity, pos.getY(i));
             obHigh = Math.max(obHigh, ob.maxY - ob.minY);
-            continue;
-          }
-          let inBay = false;
-          for (const sh of sheds) {
-            const sb = ((sh.bearing_deg ?? 0) * Math.PI) / 180;
-            const de = e - sh.at_local_enu_m[0];
-            const dn = n - sh.at_local_enu_m[1];
-            const along = de * Math.cos(sb) - dn * Math.sin(sb);
-            const out = de * Math.sin(sb) + dn * Math.cos(sb);
-            if (Math.abs(along) > (sh.length_m ?? 0) / 2 + 0.4) continue;
-            if (Math.abs(out) > (sh.depth_m ?? 0) / 2 + 0.5) continue;
-            shedVerts++;
-            shedOut = Math.max(shedOut, out);
-            shedIn = Math.min(shedIn, out);
-            shedHigh = Math.max(shedHigh, pos.getY(i));
-            shedLow = Math.min(shedLow, pos.getY(i));
-            inBay = true;
-            break;
-          }
-          if (inBay) continue;
-          // A wagon is 3 m of body and a 2.75 m tongue, so it is measured by its
-          // own bound rather than lumped in with the casks.
-          const w = wagonNear(e, n);
-          if (w) { wagonVerts++; continue; }
-          // A bench's furthest corner is hypot(L/2, D/2) = 0.93 m from its
-          // anchor, so 1.1 m catches it and nothing else on the layer.
-          const bh = benches.find((bn) => Math.hypot(e - bn.at_local_enu_m[0],
-            n - bn.at_local_enu_m[1]) <= 1.1);
-          if (bh) {
-            benchVerts++;
-            benchStray = Math.max(benchStray, Math.hypot(e - bh.at_local_enu_m[0],
-              n - bh.at_local_enu_m[1]));
-            const bb = ((bh.bearing_deg ?? 0) * Math.PI) / 180;
-            benchInside = Math.min(benchInside,
-              (e - bh.at_local_enu_m[0]) * Math.sin(bb)
-              + (n - bh.at_local_enu_m[1]) * Math.cos(bb));
             continue;
           }
           let best = null;
@@ -4533,6 +4526,8 @@ for (const [label, viewport, touch] of [
         worstStray,
         worstInside,
         wagonVerts,
+        objectOwnershipExact,
+        objectSpans: objectSpans.length,
         benchVerts,
         benchStray,
         benchInside,
@@ -4709,6 +4704,9 @@ for (const [label, viewport, touch] of [
         && goods.wagon?.clearance_m >= 1.6,
       `${goods.wagonVerts} wagon vertices, ${goods.wagon?.clearance_m} m clear in `
       + `${goods.wagon?.in_enclosure}`);
+    check(`${label}: every wagon, bench and shed owns its exact emitted triangle range`,
+      goods.objectOwnershipExact,
+      `${goods.objectSpans} primitive ownership range(s)`);
     // T-0080. The Green Tree's two, from the Trowbridge view: they stand square
     // to the inn's rear wall — the bearing is the facade's own plus 180 — and
     // every one of them cleared the committed walls by the margin a parked wagon
@@ -6160,11 +6158,11 @@ for (const [label, viewport, touch] of [
           // T-3029 — blk_west_randolph_canal_north_walk_1 shortened from
           // 21.070685798 to 20.840614194 m: 66 to 65 boards at 0.32 m pitch,
           // hence two fewer top faces: 111470.
-          // T-2385 — the native Dearborn street-edge closure lengthens
-          // blk_south_water_clark_east_walk_1 from 30.97058 to 36.13067 m:
-          // 97 to 113 board tops (+32 triangles), 15 to 17 stringer bays
-          // (+8 triangles). check_far_plank_tops independently reads 111510.
-          && m.candidates === 111510
+          // T-2385 retains the pictured 15.24 x 9.14 m canonical Tremont.
+          // Its committed Dearborn walk remains 30.97058 m. The 36.13067 m
+          // walk / 111510 census belonged to the superseded smaller Gale default;
+          // Gale is now optional. Native check_far_plank_tops derives 111470.
+          && m.candidates === 111470
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the

@@ -495,6 +495,20 @@ def _roof(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     if p.hip_end is not None:
         return _hip_end_roof(b, x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf, M_ROOF,
                              at_min=p.hip_end == "min", inset=p.hip_inset_m)
+    if p.end_gable_courses == "+x":
+        # Same two slopes and hidden -X cap as the generic roof. Only the
+        # pictured +X triangular finish changes; no ridge/footprint alteration.
+        ax0, ay0, ax1, ay1 = x0-.25, y0-.25, x1+.25, y1+.25
+        ym = (ay0+ay1)/2
+        ridge_z = eave_z + (ay1-ay0)/2*math.tan(math.radians(p.roof_pitch_deg))
+        b.add_poly([(ax0,ay0,eave_z),(ax1,ay0,eave_z),
+                    (ax1,ym,ridge_z),(ax0,ym,ridge_z)],conf,M_ROOF)
+        b.add_poly([(ax1,ay1,eave_z),(ax0,ay1,eave_z),
+                    (ax0,ym,ridge_z),(ax1,ym,ridge_z)],conf,M_ROOF)
+        b.add_poly([(ax0,ay0,eave_z),(ax0,ym,ridge_z),(ax0,ay1,eave_z)],conf,M_ROOF)
+        _horizontal_end_courses(b, ax1, ay0, ay1, eave_z, ridge_z,
+                                p.conf("end_gable_courses", "inferred"))
+        return ridge_z
     if p.front_gable_cladding == "log_courses":
         # Use precisely the existing generic roof's two slopes and back cap.
         # Replace its front cap with the pictured category of horizontal courses.
@@ -891,7 +905,8 @@ def _frame_addition(b: MeshBuilder, p: LogDwellingParams) -> float:
     # `add_gable_roof` grows uniformly, and 0.25 m of eave driven into the core's roof
     # plane is a z-fighting stripe right down the most visible surface of the building.
     rx0 = ax0 + 0.26 if p.frame_addition_side == "end" else ax0
-    add_ridge_z = b.add_gable_roof(rx0, ay0, ax1, ay1, az, p.roof_pitch_deg, c, M_ROOF,
+    roof_conf = c if p.frame_addition_roof_pitch_deg is None else max(c, p.conf("frame_addition_roof_pitch_deg"))
+    add_ridge_z = b.add_gable_roof(rx0, ay0, ax1, ay1, az, p.resolved_addition_roof_pitch_deg, roof_conf, M_ROOF,
                                    ridge_along_x=True)
     if mixed_cladding:
         _vertical_addition_gables(b, rx0, ay0, ax1, ay1, az, add_ridge_z, c_finish)
@@ -911,7 +926,12 @@ def _frame_addition(b: MeshBuilder, p: LogDwellingParams) -> float:
     if p.frame_addition_side == "end":
         yc = (ay0 + ay1) / 2.0
         for story in range(p.frame_addition_stories):
-            z0, z1 = front_rects[2 * story][3:]
+            if p.frame_addition_front_set_out is None:
+                z0, z1 = front_rects[2 * story][3:]
+            else:
+                lo, hi = story*p.addition_height_m/p.frame_addition_stories, (story+1)*p.addition_height_m/p.frame_addition_stories
+                rect = next(r for r in front_rects if r[0] == "window" and lo <= r[3] < r[4] <= hi)
+                z0, z1 = rect[3:]
             _opening(b, "x", ax1, yc - ADDITION_WIN_HALF_M, yc + ADDITION_WIN_HALF_M,
                      z0, z1, 1, c_fen, relief=rel, frame_wall=True)
     return add_ridge_z
@@ -1036,7 +1056,8 @@ def _chimneys(b: MeshBuilder, p: LogDwellingParams, cx0, cy0, cx1, cy1,
       log cabin behind — would normally carry a stack in each element", and putting
       both on the log core would build a number the record gives while contradicting
       the reasoning it gives for the number. It goes against the addition's outer
-      gable, mirroring the core's. The addition's roof is always built ridge-along-x
+      gable by default, mirroring the core's. A stated frame_addition_ridge_stack
+      instead puts its short flue through the addition's own ridge. That roof is built ridge-along-x
       (`_frame_addition`), so its gable ends are always its +/-x faces.
     - With no addition, a second stack goes against the core's other gable, which is
       the other end of the one element there is. No record in the dataset asks for
@@ -1060,8 +1081,22 @@ def _chimneys(b: MeshBuilder, p: LogDwellingParams, cx0, cy0, cx1, cy1,
         return
     if p.frame_addition and add_ridge_z is not None:
         ax0, ay0, ax1, ay1 = addition_extent(p)
-        _stack(b, ax0, ay0, ax1, ay1, add_ridge_z, conf, mat, at_min=False,
-               gable_axis="x")
+        if p.frame_addition_ridge_stack is None:
+            _stack(b, ax0, ay0, ax1, ay1, add_ridge_z, conf, mat, at_min=False,
+                   gable_axis="x")
+        else:
+            # The addition always runs its ridge along x, independently of the
+            # log core's axis. Only its existing second stack changes disposition.
+            f, width, head = p.frame_addition_ridge_stack
+            half = width / 2.0
+            rx0 = ax0 + 0.26 if p.frame_addition_side == "end" else ax0
+            x = rx0 + f * (ax1 - rx0)
+            y = (ay0 + ay1) / 2.0
+            foot = add_ridge_z - half * math.tan(math.radians(p.resolved_addition_roof_pitch_deg)) - 0.25
+            b.add_box(x - half, y - half, foot, x + half, y + half,
+                      add_ridge_z + head,
+                      p.worst_conf("chimneys", "frame_addition_ridge_stack"), mat,
+                      skip=("bottom",))
     else:
         _stack(b, cx0, cy0, cx1, cy1, ridge_z, conf, mat, at_min=not first_min,
                gable_axis=axis,
@@ -1087,8 +1122,17 @@ def _ridge_stack(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1, ridge_z: 
         bx = (xm - half, c - half, xm + half, c + half)
     run = half * math.tan(math.radians(p.roof_pitch_deg))
     head = 0.95 if p.ridge_stack_head_m is None else p.ridge_stack_head_m
-    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], ridge_z + head, conf, mat,
-              skip=("bottom",))
+    shaft_top = ridge_z + head - (p.ridge_stack_cap_m[1] if p.ridge_stack_cap_m is not None else 0.)
+    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], shaft_top, conf, mat,
+              skip=("bottom", "top") if p.ridge_stack_cap_m is not None else ("bottom",))
+
+    if p.ridge_stack_cap_m is not None:
+        projection, thickness = p.ridge_stack_cap_m
+        # Cap replaces the top band of the shaft: the stated overall head
+        # height stays fixed. All unseen section dimensions are reconstructed.
+        b.add_box(bx[0]-projection, bx[1]-projection, ridge_z+head-thickness,
+                  bx[2]+projection, bx[3]+projection, ridge_z+head,
+                  p.conf("ridge_stack_cap_m", "reconstructed"), mat)
 
 
 def _facade_stack_cross(span: float) -> float:
@@ -1468,6 +1512,27 @@ def _elbow(b,p):
         if p.sign_pole_set_out is not None:_posed_sign_pole(b,p)
         elif p.sign_mount == "sapling_pole":_sign_pole(b,p,ridge,p.worst_conf("sign","sign_mount"),p.conf("sign"),p.conf("sign_device"))
         else:_sign(b,p,p.conf("sign"))
+
+
+def _horizontal_end_courses(b, x, y0, y1, z0, z1, conf):
+    """Pictured horizontal end courses, without asserting log versus board fabric.
+
+    The 200mm rhythm, 8mm shadow joints and 12mm relief are reconstructed first
+    fits. The +X surface remains behind the existing framed hatch at x+40mm.
+    """
+    mid=(y0+y1)/2;half=(y1-y0)/2;rise=z1-z0
+    b.add_poly([(x,y0,z0),(x,y1,z0),(x,mid,z1)],conf,M_FRAME)
+    course=.20;gap=.008;proud=.012
+    for i in range(math.floor(z0/course),math.ceil(z1/course)):
+        low=max(z0,i*course);high=min(z1,(i+1)*course-gap)
+        if high <= low:
+            continue
+        lh=half*(1-(low-z0)/rise);hh=half*(1-(high-z0)/rise)
+        b.add_poly([(x+proud,mid-lh,low),(x+proud,mid+lh,low),
+                    (x+proud,mid+hh,high),(x+proud,mid-hh,high)],1.,M_FRAME)
+        # Bottom return gives each horizontal joint geometric relief.
+        b.add_poly([(x,mid-lh,low),(x,mid+lh,low),
+                    (x+proud,mid+lh,low),(x+proud,mid-lh,low)],1.,M_FRAME)
 
 
 def _log_course_gable(b,axis,plane,u0,u1,z0,z1,outward):

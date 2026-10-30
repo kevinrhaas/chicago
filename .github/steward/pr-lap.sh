@@ -619,6 +619,9 @@ while IFS=$'\t' read -r N BR; do
         say "  the rebuild itself failed — left alone:"; tail -6 /tmp/lap-rederive.log | sed 's/^/    /'
         git merge --abort 2>/dev/null; SKIPPED=$((SKIPPED+1)); continue
       fi
+      # The rebuild owns these paths now. Do not let the generated-conflict
+      # checkout below restore ours over the freshly derived working files.
+      U=$(comm -23 <(echo "$U" | sort -u) <(echo "$REAL" | sort -u))
       REAL=
       REDERIVED=1
     fi
