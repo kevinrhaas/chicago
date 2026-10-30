@@ -1134,9 +1134,9 @@
     "hibbard_house_1701_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 8280604,
+      "bytes": 8251876,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "5fef3d17d3c7347fbc5170119541321b85a8e6169f175f673beed5be96a75aa5",
+      "inputs_sha256": "722555f1b7f9d84ee21aa75e980465cd5d81662f847a74fd3c7d1ec529b57cb1",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "hibbard_house_1701_prairie"

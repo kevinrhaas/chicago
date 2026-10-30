@@ -36532,14 +36532,15 @@ the porch lay no basement light); the match record keeps them open.
 (`data/reference_views/hibbard_house_1701_prairie/chicagology_front.json`): every round-headed light
 of the front and the south flank under a light stone hood (`eared_round_heads`, a new K01 form built
 by `generators/archetypes/k01_dressings.py`), the front's south-west corner as a tall stone pilaster
-under a capital (`corner_pilasters`), and the canted bay's four angles as K08's pilasters (T-2931).
+under a capital (`corner_pilasters`). The canted bay's angles, light stone on light stone, are
+left as their arrises (K08's pilasters there would cost its light tier past budget).
 The hood replaces K06's arch band and the key block the front's round heads carried until now.
 **What is read, not invented.** Each hood's shape: a broad pale band round the arch, its feet stepped
 out into ears at the springing and hanging a short way down the jambs, a pointed crest standing up
 off the crown; the flank's paired lights meeting ear to ear. Their size at the scale of the lights
 the record already sizes: the band about 0.2 m, the ears about 0.12 m past it and 0.3 m down, the
 crest about 0.3 m wide and 0.25 m tall. The pilaster on the corner from the basement's top to a
-capital under the cornice's frieze, about 0.45 m broad, and light shafts at the bay's angles.
+capital under the cornice's frieze, about 0.45 m broad.
 **What is invented.** All the carving: the hoods' mouldings, the crest's leafage, the pilaster's
 carved bands (the photograph shows it banded at each floor) and its capital's leaves are drawn as
 plain stone, the capital as two stepped blocks (a bell and an abacus); the band's 0.06 m and the

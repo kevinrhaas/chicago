@@ -2,7 +2,7 @@
   "structure_id": "hibbard_house_1701_prairie",
   "view": "chicagology_front",
   "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
-  "glb_sha256": "98c92a6e27b64380eae902ed99dd6ca0bab843e203ffbd2809e623e0074453c8",
+  "glb_sha256": "500e4e1d434d74a2cf48c4548f5627ad4a0110fcf8c158609732edd4a788e179",
   "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
   "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
   "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
@@ -31,7 +31,7 @@
     {
       "what": "the stone quoin pilasters with carved capitals on the corners and at the bay",
       "status": "fixed",
-      "how": "T-3255: the front's south-west corner is a 0.45 m stone pilaster wrapped round both faces from the basement's top (2.0 m) to a two-stage capital under the cornice's frieze (9.45 m), rendering on the photograph's pilaster (x 905); the bay's four angles carry K08's pilasters, one a storey under a capital. The shaft's carved bands and the capitals' leaves are drawn as plain stepped stone (L-k01-hibbard-1701-3255)"
+      "how": "T-3255: the front's south-west corner is a 0.45 m stone pilaster wrapped round both faces from the basement's top (2.0 m) to a two-stage capital under the cornice's frieze (9.45 m), rendering on the photograph's pilaster (x 905). The shaft's carved bands and the capitals' leaves are drawn as plain stepped stone (L-k01-hibbard-1701-3255)"
     },
     {
       "what": "the deep cornice on paired brackets round the main block",
@@ -97,6 +97,11 @@
       "what": "the hoods over the bay's paired lights and the lower south range's lights: the photograph's are eared and crested as the walls' are",
       "status": "within tolerance",
       "how": "T-3255: these lights stand in K08 faces, which keep the kit's arch band round each head; the ears and crest they lack stand under 0.3 m past it."
+    },
+    {
+      "what": "the light shafts at the stone bay's angles",
+      "status": "within tolerance",
+      "how": "T-3255: the bay is light stone throughout, so its angles read as the arrises they are; K08's carved pilasters there would cost the bay's light tier past its 0.55 budget (check_bay_kit) for a shaft about 0.05 m proud of the same stone."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
