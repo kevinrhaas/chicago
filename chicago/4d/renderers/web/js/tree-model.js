@@ -409,6 +409,16 @@ export const ARCH = {
     clump: 0.26, clumpMin: 0.15, density: 1.9, gaps: 0.02, leaf: 'scale', bark: 'smooth',
     farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5,
   },
+  // T-1934: a palm house's palm set out in its tub for the summer, as Taylor's 16555 shows
+  // one on the Pullman terrace before the drum: a short stout stem and a head of long
+  // pinnate fronds that leave it steeply and arch over (`rise` < 0 sags each frond), the
+  // leaf carried along the fronds themselves, no twigs and no clipped shell.
+  phoenix_tub: {
+    crown: 'spread', crownBase: 0.04, fork: 'decurrent', stems: [1, 1], scaffolds: [18, 22],
+    limbAngle: 60, rise: -0.42, twist: 0.04, order2: [0, 0], order3: [0, 0], droop: 0.0,
+    clump: 0.09, clumpMin: 0.08, density: 4.2, gaps: 0.02, leaf: 'compound', bark: 'shaggy',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 0, stemK: 0.3,
+  },
   pelargonium_bed: {
     crown: 'round', crownBase: 0.06, fork: 'decurrent', stems: [6, 9], scaffolds: [0, 0],
     stemSplay: 28, limbAngle: 30, rise: 0.02, twist: 0.30, order2: [2, 46], order3: [0, 0],

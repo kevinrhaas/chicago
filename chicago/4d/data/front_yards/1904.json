@@ -83,6 +83,17 @@
     1.6
    ]
   },
+  "palm": {
+   "name": "palm from the palm house, set out in its tub",
+   "h": [
+    1.4,
+    2.4
+   ],
+   "w": [
+    1.8,
+    2.6
+   ]
+  },
   "maple": {
    "name": "young sugar maple",
    "h": [
@@ -130,11 +141,11 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 128,
+  "shrubs": 131,
   "trees": 14,
   "beds": 11,
-  "creeper_patches": 2,
-  "attested_plants": 13,
+  "creeper_patches": 9,
+  "attested_plants": 16,
   "lots_with_a_door": 111,
   "schemes": {
    "corners": 79,
@@ -4283,6 +4294,36 @@
      0.0
     ],
     [
+     1471.75,
+     -3169.2,
+     "arborvitae",
+     1.59,
+     0.88,
+     "inferred",
+     1.4,
+     0.5
+    ],
+    [
+     1463.17,
+     -3169.79,
+     "arborvitae",
+     2.27,
+     0.45,
+     "inferred",
+     1.4,
+     0.5
+    ],
+    [
+     1467.25,
+     -3172.47,
+     "palm",
+     1.75,
+     2.35,
+     "inferred",
+     1.4,
+     0.58
+    ],
+    [
      1457.43,
      -3193.59,
      "spiraea",
@@ -4366,7 +4407,57 @@
     ]
    ],
    "beds": [],
-   "creeper": [],
+   "creeper": [
+    [
+     1428.68,
+     -3166.34,
+     269.29,
+     1.42,
+     5.26
+    ],
+    [
+     1428.43,
+     -3168.34,
+     269.29,
+     1.54,
+     7.09
+    ],
+    [
+     1426.93,
+     -3177.34,
+     269.29,
+     1.26,
+     5.87
+    ],
+    [
+     1427.43,
+     -3178.34,
+     269.29,
+     1.52,
+     6.38
+    ],
+    [
+     1428.43,
+     -3179.34,
+     269.29,
+     1.41,
+     3.59
+    ],
+    [
+     1428.43,
+     -3180.34,
+     269.29,
+     1.54,
+     4.31
+    ],
+    [
+     1428.43,
+     -3185.59,
+     269.29,
+     1.87,
+     7.08
+    ]
+   ],
    "pictured": {
     "sources": [
      "loc_det_4a08065_pullman_residence",
@@ -4398,7 +4489,7 @@
     },
     "tubs": {
      "grade": "inferred",
-     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too). Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace."
+     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and the slim column beside the drum that both pictures show, and the palm set out before the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace."
     }
    }
   },
