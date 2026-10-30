@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "5123d7f069e7b4f8e8fd8ecac0de54a744c504bad617a4b951758bd28a5fb8f4"
+      "glb_sha256": "d793edc6656cdffeb59a5b164123cc5be6090c2ad145f462edc1ee781a93abcc"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,13 +64,13 @@
       "glb_sha256": "b44cc805a7ad26115c6c380faa1a2fcc841d1fe89cb6b18af0d14aa261eef37d"
     }
   ],
-  "group_sha256": "d5a777409ff96cb382351ba5d92335e7f17a6bc47bfc45ef2b74408947734a8a",
+  "group_sha256": "77eb2224170e3fe77fd81466ee1dbb5fa0d772e8782723aa76642d4651787eb2",
   "rendered_flora": {
     "season": "winter",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 24,
+        "shrubs": 27,
         "trees": 3,
         "beds": 0,
         "creeper": 6
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "daa50d96cfafdff4784a7134bacc7d250c26345a15407efddd29d77d60af2b4c"
+      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "85538f7bd18f0aa0a349a52e9faa7b4cd11ac4da7929fe278a9efecfba3d37e8"
+      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "f26af644d7418f4a69c65ac3adad2e9e3ccd255e94bf49edc5a0d4b4ce61230d",
+  "flora_sha256": "5381018096fe58f7c3680787bb9c53f21e48e3c2de88c3999cef2689a00ababa",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -190,6 +190,10 @@
       "what": "the planting: the print's bare yard and parkway trees stand at other places than the street-tree layer's (camera flora, winter), and the clipped shrubs along the wall's back are fewer in the render [T-1934, 2026-10-29: the 18th Street parkway's trees before the estate are now placed off Taylor's 16555 and the 1894 plate (data/street_trees/pictured_1904.json). Through this camera they render at x 439, 571, 675, 791 and 957; the print's trunks along the street's far side stand at about x 387, 417, 532, 550, 660, 711, 815 and 852, their feet at y 587-600 where this camera puts the parkway's at y 557-562, so which of the print's are parkway trees and which the yard's cannot be told through it, and nothing here was placed from it. Still open.]",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards"
+    },
+    {
+      "what": "the tub plants (T-1934, 2026-10-29): this winter print shows the terrace bare, and the render draws no tub in the winter Season (tub plants were wintered under glass); the slim clipped column by the wall's east pier, planted in the ground, is drawn, an evergreen, at x about 736 px of the render, where the print's ground behind the wall is too far and too low to show one or not",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

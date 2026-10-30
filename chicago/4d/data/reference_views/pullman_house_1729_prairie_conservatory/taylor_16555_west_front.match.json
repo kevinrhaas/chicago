@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "5123d7f069e7b4f8e8fd8ecac0de54a744c504bad617a4b951758bd28a5fb8f4"
+      "glb_sha256": "d793edc6656cdffeb59a5b164123cc5be6090c2ad145f462edc1ee781a93abcc"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,13 +64,13 @@
       "glb_sha256": "b44cc805a7ad26115c6c380faa1a2fcc841d1fe89cb6b18af0d14aa261eef37d"
     }
   ],
-  "group_sha256": "d5a777409ff96cb382351ba5d92335e7f17a6bc47bfc45ef2b74408947734a8a",
+  "group_sha256": "77eb2224170e3fe77fd81466ee1dbb5fa0d772e8782723aa76642d4651787eb2",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 24,
+        "shrubs": 27,
         "trees": 3,
         "beds": 0,
         "creeper": 6
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "daa50d96cfafdff4784a7134bacc7d250c26345a15407efddd29d77d60af2b4c"
+      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "85538f7bd18f0aa0a349a52e9faa7b4cd11ac4da7929fe278a9efecfba3d37e8"
+      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "5b3f2dfb8f13cd3633760ff9677ec45c8fec96b0fd7dad745990b162b1fa060a",
+  "flora_sha256": "9f1dc94e5a3c7a6a48e3d38a468a5eb6427de53a28d608709b854d7deb527187",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -249,7 +249,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the planting: the clipped shrubs and potted palms on and before the terrace",
+      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. Still open: the potted palms and the slim columns on the terrace before the drum.]",
       "status": "open"
     },
     {
@@ -259,6 +259,10 @@
     },
     {
       "what": "the wing's length: through the camera before this one the print's wing read about 1 m longer than the build. Through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px, the wing's two ends render within 4 px (about 0.2 m) of the print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the terrace's tub plants (T-1934, 2026-10-29): the 1894 plate sets a ball clipped on its tub just east of its flight, where this print has the urn on the pier and slim cones; tubs were carried in each winter and set out again, so the two summers' arrangements are not one building's difference. Built to the plate",
       "status": "within tolerance"
     }
   ],
