@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2436, ts: '2026-10-30T04:16:32.099Z', date: 'Oct 29, 2026, 11:16 PM CT', title: 'The Pullman house\'s walls no longer look like red brick', kind: 'fix',
+    items: [
+      'At 1729 Prairie the walls are now a light fawn-brown sandstone, where they were a dark red-brown that read as brick. Both old photographs of the house show the walls lighter than the slate roof above them, and a red-brown stone could not photograph that way.',
+      'The joints between the stones are now fine hairlines, as the 1900s photograph shows them. Before, each block had a dark outline that made the wall look like brickwork.',
+      'The stone\'s exact colour is our reconstruction: the photographs are black and white. They limit how light or dark the stone can be, but not its hue.',
+      'Still to come: the front as a whole against the photographs.',
+    ] },
   { v: 2435, ts: '2026-10-30T03:48:08.203Z', date: 'Oct 29, 2026, 10:48 PM CT', title: '1701 Prairie\'s rear veranda and the back range\'s oriel', kind: 'feature',
     items: [
       'Behind the Hibbard house, a two-level veranda now stands against the rear wall: paired posts, a band of spindles, railed decks, and steps down to the lawn, all read off the old rear photograph.',
