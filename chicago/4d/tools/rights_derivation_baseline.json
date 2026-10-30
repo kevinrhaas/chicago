@@ -1956,6 +1956,22 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.side_base": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.stone_front": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "hibbard_house_1701_prairie/as_mapped_1904/form.storey_heights_m": {
       "kind": "structure",
       "blocked_sources": [
