@@ -60,8 +60,8 @@
 
 import * as THREE from 'three';
 import { spatialBatchAsync } from './spatial-batch.js';
-import { compactStreams } from './compact-streams.js';
-const { compactNormals } = compactStreams(THREE);
+import { compactStreams, constantConfidence } from './compact-streams.js';
+const { compactNormals, uniformGrade } = compactStreams(THREE);
 
 const LIBRARY = 'textures/prairie_1904_rail/';
 const MAPS = {
@@ -262,8 +262,14 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = 
   }
 }
 
+/** A fine/far pair may omit its confidence stream only at one exact shared grade. */
+function sharedGroundGrade(fine, far) {
+  const grade = uniformGrade(fine.conf);
+  return grade !== null && (!far || uniformGrade(far.conf) === grade) ? grade : null;
+}
+
 /** A ground surface's material. Its fine cut and its far copy share it (T-3247). */
-function groundMaterial(name, kind, lib, confidence) {
+function groundMaterial(name, kind, lib, confidence, grade = null) {
   const g = GROUND[kind];
   const mat = new THREE.MeshStandardMaterial({
     color: lib ? 0xffffff : g.colour, roughness: 1, metalness: 0, vertexColors: true,
@@ -277,12 +283,12 @@ function groundMaterial(name, kind, lib, confidence) {
     mat.aoMapIntensity = 0.6; mat.normalScale = new THREE.Vector2(0.9, 0.9);
   }
   mat.name = name;
-  confidence?.patch(mat);
-  mat.customProgramCacheKey = () => `chicago4d-railway-ground-${lib ? 'mapped' : 'flat'}`;
+  confidence?.patch(mat, grade === null ? {} : { packed: constantConfidence(grade) });
+  mat.customProgramCacheKey = () => `chicago4d-railway-ground-${lib ? 'mapped' : 'flat'}|confidence:${grade === null ? 'vertex' : grade}`;
   return mat;
 }
 
-async function groundMesh(name, out, kind, mat) {
+async function groundMesh(name, out, kind, mat, grade = null) {
   const g = GROUND[kind];
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
@@ -291,7 +297,8 @@ async function groundMesh(name, out, kind, mat) {
   const col = new Uint8Array(out.col.length);
   for (let i = 0; i < col.length; i += 1) col[i] = Math.round(Math.max(0, Math.min(1, out.col[i])) * 255);
   geo.setAttribute('color', new THREE.BufferAttribute(col, 4, true));
-  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(out.conf, 1));
+  if (grade === null) geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(out.conf, 1));
+  else geo.userData.confidence = grade;
   geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
   geo.computeVertexNormals();
   geo.setAttribute('normal', compactNormals(geo.getAttribute('normal').array));
@@ -301,6 +308,13 @@ async function groundMesh(name, out, kind, mat) {
   // same exact 40-m ground cells as terrain; keep UVs, alpha and pick surfaces.
   // T-2600: the cells are cut on the job pool; the batch is the same one.
   const mesh = await spatialBatchAsync(geo, mat);
+  if (grade !== null) {
+    // Partitioning retains all vertex streams; the omitted uniform travels as metadata.
+    mesh.geometry.userData.confidence = grade;
+    mesh.geometry.userData.confidenceRange = [grade, grade];
+    mesh.userData.confidenceRanges = Array.from(
+      { length: mesh.userData.spatialBatch.pieces }, () => [grade, grade]);
+  }
   mesh.sortObjects = false;
   geo.dispose();
   mesh.name = name;
@@ -695,9 +709,10 @@ export async function createRailway({
       ribbon(stations, { ...opts, out: fine });
       if (far) ribbon(farStations, { ...opts, out: far, edge: FAR_EDGE_M, across: opts.across ?? FAR_EDGE_M });
     }
-    const mat = groundMaterial(name, kind, lib, confidence);
-    if (far) farGround.push(groundMesh(`${name}-far`, far, kind, mat));
-    return groundMesh(name, fine, kind, mat);
+    const grade = sharedGroundGrade(fine, far);
+    const mat = groundMaterial(name, kind, lib, confidence, grade);
+    if (far) farGround.push(groundMesh(`${name}-far`, far, kind, mat, grade));
+    return groundMesh(name, fine, kind, mat, grade);
   };
   const ground = maps.get(spec.ballast?.right_of_way_material ?? 'trodden_cinders');
   const cinders = [[row.cinders ?? [], {

@@ -36032,7 +36032,10 @@ draw it (x 940 on the plate, 576 on Lowe's print).
 **What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m)
 and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and
 the north range's glass end against the loggia block, which no picture shows either (both pictures
-predate the north range).
+predate the north range). The spirelet on the ridge (T-3164's pinnacle pass), the dark pointed form
+the plate draws over this roof, about 1 m across at the ridge and 2.5 m tall: built 0.9 m square with
+an iron spike, on the ridge's middle; its plan, its place along the ridge (the plate looks at the ridge
+nearly end-on) and the spike are invented.
 **What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height
 against the deck, which both pictures show.
 **How to resolve:** a picture of the lodge from the west or the north-west, or a plan from before the north
@@ -36074,6 +36077,29 @@ depth, the mouldings and the carving.
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
+### L-pullman-podium-1800-calumet-3164 — The Pullman conservatory's podium: corner piers, banded rustication and its courses, read off Lowe's print
+
+**Decision:** both pictures of the conservatory (`inland_1894_pullman_conservatory`,
+`aic_lowe_pullman_conservatory_c1897`) show its 2.3 m stone podium dressed, not plain (T-3164): under
+the glass band a moulded cap course standing proud; a pale pier at each outer corner (the north front's
+north-east pier reads x 1240-1268 on the plate and 802-822 on Lowe's print, about 0.6 m at 46 and
+34 px/m through their solved cameras); and between the piers a darker field crossed by faint level
+joints, about four courses in the podium's height. Built: a 0.3 m base course 0.05 m proud, a 0.22 m
+cap course 0.1 m proud, 0.6 m piers 0.06 m proud at every outer corner of the podium and of the
+transept's two arms, and between them four courses of banded rustication 0.02 m proud with 0.04 m
+joints, so each field reads as a panel sunk behind its piers. The courses and the piers stop at the
+north entrance's surround.
+**What is invented.** The courses' profiles (drawn as plain slabs), their projections, the joint count
+(four, from the print's faint lines), and the dress carried round the faces neither picture sees: the
+west arm, the west flank and the faces south of the transept.
+**What is not.** The podium's height and plan, which were already built; the piers' places at the
+corners and their width, and the cap course over the field, read off both pictures through their
+cameras.
+**How to resolve:** a nearer or sharper picture of the podium gives the mouldings and the coursing.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-30 (T-3164).
 ### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
 
 **Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
