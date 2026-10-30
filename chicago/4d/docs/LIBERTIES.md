@@ -36677,3 +36677,22 @@ elevations, shows the cornice's section and how the cant's far end meets the sid
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+
+### L-pullman-north-block-deck-1934 — Pullman's stable: the north block's deck lowered to the 1894 plate's cresting and carried to the block's north end
+
+**Decision:** the stable's narrower north block (`pullman_house_1729_prairie_ranges`, part r4) kept its
+hipped roof to a crested deck (L-pullman-stable-3193), but its deck stood 8.55 m up as a strip 1.3 m long,
+where the 1894 Inland plate (`inland_1894_pullman_palm_house_stable`) shows a long run of cresting lower
+down behind the belvedere. T-1934 lowers the deck to 8.2 m (4.25 m over the eave) and runs its west edge
+from v 0.3 north to 0.6 m inside the north eave. **What is read.** Through the plate's solved camera, the
+cresting's foot along the deck's west edge (x 1060-1250 px, y 478-502 px), back-projected onto the roof's
+53-degree west slope, stands at 8.1-8.4 m and runs from v 0.3, where it meets the main roof, to past the
+1911 sheet's north wall; the build stops it at the wall. **What is invented.** The north end's steep face
+(about 80 degrees, from the deck's edge 0.6 m inside the eave), which no picture sees; the deck's east edge,
+kept at the west slope's 3.2 m inset; and the steep south face that rises off the main roof's north slope,
+which no picture sees either. **How to resolve:** any view from the north or east of the stable (the 1905-06
+CHM side views of the Beman addition), or a closer copy of the plate.
+**Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg`, with its match record.
+**Recorded:** 2026-10-30 (T-1934).

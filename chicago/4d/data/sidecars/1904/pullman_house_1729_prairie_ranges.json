@@ -129,8 +129,14 @@
               -21.0,
               1.5
             ],
-            "from": "s20fp-1729-b1 p3 (main, stone): the east building's narrower north block, from the sheet's offset at v 1.5 to its north wall (T-3178)",
-            "deck_m": 4.6,
+            "from": "s20fp-1729-b1 p3 (main, stone): the east building's narrower north block, from the sheet's offset at v 1.5 to its north wall (T-3178); its deck 4.25 m over the eave (8.2 m), its west edge run from v 0.3, where the plate's cresting meets the south block's roof, north to 0.6 m inside the north eave, as the 1894 Inland plate's cresting reads along the deck's west edge through its solved camera (T-1934: the cresting's foot at x 1060-1250 px, y 478-502 px, on the 53-degree west slope, reads at 8.1-8.4 m from v 0.3 to v -7.6, past the sheet's north wall; the north end's steep face is reconstructed, no picture sees it)",
+            "deck_m": 4.25,
+            "deck_insets_m": [
+              3.2,
+              3.2,
+              0.6,
+              1.55
+            ],
             "cresting": "open",
             "eave_cornice": "stone_band"
           },
@@ -174,7 +180,7 @@
         "aic_taylor_16555_pullman_west_front",
         "inland_1894_pullman_palm_house_stable"
       ],
-      "note": "The sheet's rectangles the K01 house does not carry, in the Pullman house draft's frame. The stable (T-3192): its south block r1 between the sheet's west and east walls, its narrower north block r4 at the sheet's offset, and r5, an east section the 1911 sheet does not draw: Taylor's 18th Street photograph shows the stable's two-storey front running on about 4 m past the hipped roof under a lower roof, with a third bay of sash, so r5 stands there at the photograph's length and the front's height; its 7.3 m depth is reconstructed (liberty L-pullman-stable-3192). The 1B range stays at one storey under a flat roof, as the sheet letters it. Roofs per piece other than the stable's are the draft rules' (reconstructed). T-3193: the north block r4 is one storey to the stable's eave under a hipped roof to a low crested deck, as the 1894 Inland plate's one oblique view of it reads (the west face's eave runs on unbroken from the south block to it; liberty L-pullman-stable-3193). T-1881 (the owner, 2026-10-29: \"there is a big box in there\" on the 18th Street face): the draft's porte-cochere r3 (s20fp-1729-b1 p4, u 15.17-19.84, a flat-roofed one-storey block with one sash) is taken off. The house record has stood the porte-cochere itself since T-3160 (pullman_house_1729_prairie, porte_cochere: an arcaded block on the sheet's footprint, u 15.0-19.5, under a balustraded deck), so the draft's copy stood inside and in front of it, a low grey box across its arches that no picture shows: Taylor's no. 1445 and the Detroit print show the arcade and nothing before it. A draft copy left standing beside the refined build is the defect the district draft's rule names."
+      "note": "The sheet's rectangles the K01 house does not carry, in the Pullman house draft's frame. The stable (T-3192): its south block r1 between the sheet's west and east walls, its narrower north block r4 at the sheet's offset, and r5, an east section the 1911 sheet does not draw: Taylor's 18th Street photograph shows the stable's two-storey front running on about 4 m past the hipped roof under a lower roof, with a third bay of sash, so r5 stands there at the photograph's length and the front's height; its 7.3 m depth is reconstructed (liberty L-pullman-stable-3192). The 1B range stays at one storey under a flat roof, as the sheet letters it. Roofs per piece other than the stable's are the draft rules' (reconstructed). T-3193: the north block r4 is one storey to the stable's eave under a hipped roof to a low crested deck, as the 1894 Inland plate's one oblique view of it reads (the west face's eave runs on unbroken from the south block to it; liberty L-pullman-stable-3193). T-1934 lowers that deck to 8.2 m and carries it north to the block's north end, where the plate's cresting runs along the deck's west edge behind the belvedere (liberty L-pullman-north-block-deck-1934). T-1881 (the owner, 2026-10-29: \"there is a big box in there\" on the 18th Street face): the draft's porte-cochere r3 (s20fp-1729-b1 p4, u 15.17-19.84, a flat-roofed one-storey block with one sash) is taken off. The house record has stood the porte-cochere itself since T-3160 (pullman_house_1729_prairie, porte_cochere: an arcaded block on the sheet's footprint, u 15.0-19.5, under a balustraded deck), so the draft's copy stood inside and in front of it, a low grey box across its arches that no picture shows: Taylor's no. 1445 and the Detroit print show the arcade and nothing before it. A draft copy left standing beside the refined build is the defect the district draft's rule names."
     },
     "draft_elevation": {
       "value": {
