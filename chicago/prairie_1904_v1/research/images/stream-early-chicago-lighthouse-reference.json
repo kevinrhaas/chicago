@@ -1,0 +1,43 @@
+[
+ {
+  "id": "early-castelnau-1842-chicago-harbor",
+  "kind": "lithograph",
+  "title": "Chicago harbour entrance, with the 1832 lighthouse",
+  "building_ids": [],
+  "addresses": [],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1842 publication; circa 1838 depicted harbour",
+  "date_earliest": 1842,
+  "date_latest": 1842,
+  "period": "in-period",
+  "creator": "After Francis de Castelnau; exact panel artist not newly adjudicated",
+  "repository": "Castelnau, published by Arthus Bertrand, Paris (1842); Commons reproduction",
+  "collection": "Vues et souvenirs de l’Amérique du Nord, plate 18, Chicago panel 4",
+  "call_number": null,
+  "catalog_url": "https://commons.wikimedia.org/wiki/File:Chicago1838.jpg",
+  "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/e5b9a0fbb145545c95079ccc7e7a3e08ffa050a5/chicago/reference/images/chicago/chicago_harbor_lighthouse_1838.jpg",
+  "rights": "public domain",
+  "rights_basis": "The actual plate was located and visually inspected in the 1842 edition's scanned microfiche surrogate. IA identifies the book as Castelnau, Paris:A.Bertrand, 1842; title-page OCR independently reads M D CCC XLII. The 1842 illustration is public domain in the US by publication age. Commons also marks its reproduction public domain. No modern editorial image is substituted as historic evidence.",
+  "local": {
+   "display": "research/images/files/early-castelnau-1842-chicago-harbor.jpg",
+   "display_bytes": 59854,
+   "thumb": "research/images/files/early-castelnau-1842-chicago-harbor-thumb.jpg",
+   "thumb_bytes": 20576,
+   "original_px": [
+    640,
+    361
+   ],
+   "original_sha256": "6db98a8dc196525c353e0520012a451c14ea4480a6aa173eb4f11bb2a1a178bd",
+   "original_bytes": 83341,
+   "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/e5b9a0fbb145545c95079ccc7e7a3e08ffa050a5/chicago/reference/images/chicago/chicago_harbor_lighthouse_1838.jpg",
+   "fetched": "2026-10-27"
+  },
+  "verified": "viewed",
+  "found_via": "Existing public-domain source castelnau_1842_chicago_harbor and exact held project reproduction; original image SHA256 6db98a8dc196525c353e0520012a451c14ea4480a6aa173eb4f11bb2a1a178bd",
+  "notes": "The whole existing held harbour reproduction is shown with its existing source credit; this is not a newly recovered original. The actual source identifies the 1842 publication and an attributed circa1838 harbour setting, after the July1835 scene; transfer of broad lighthouse form is inferred continuity. Plate18 visibly numbers Chicago panel4 while the explanatory prose calls itFig1. The exact panel draughtsman/lithographer, historic40ft height datum, metric camera, paint and hidden toe are not newly established. The canonical model is unchanged: no new geometry, source trace, texture or dated alteration is derived here. This early-Chicago image is joined only through the lighthouse reference camera, with no invented Prairie parcel or building identity. The diagnostic camera is not offered as a historical From this spot. Other source pictures and their explicit tiny-view/conflicting-drawing/rights limits are reviewed in the original case dossier.",
+  "measurements": []
+ }
+]

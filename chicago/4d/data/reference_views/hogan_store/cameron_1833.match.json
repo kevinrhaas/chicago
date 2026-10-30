@@ -1,0 +1,49 @@
+{
+  "structure_id": "hogan_store",
+  "view": "cameron_1833",
+  "glb": "assets/gltf/hogan_store__log_1831.glb",
+  "glb_sha256": "0fe873bebed5a3454892ce34673b21188b4f06be12fe0faa4f80f05ef24c378e",
+  "camera_sha256": "cbdb202e5bb83554e470113dcbf56d182cec22ce73472c1f7e4a6843340b3b70",
+  "photo_sha256": "bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+  "side_by_side": "docs/RESEARCH/photo-match/hogan_store/cameron_1833-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The pictured horizontal courses now continue through the visible +X triangular gable around its small framed opening; the earlier smooth roof-material triangle has been replaced. Both roof slopes, the roof envelope and the hidden end retain their prior geometry.",
+      "status": "fixed"
+    },
+    {
+      "what": "The short roof-piercing stack now has the pictured projecting cap instead of an unbroken square-box top. Its one-stack count, ridge station, shaft width and overall head height are retained.",
+      "status": "fixed"
+    },
+    {
+      "what": "The existing dark off-centre doorway corresponds to the pictured opening. Its blind recess/returns remain a declared reconstructed exterior proxy, not an asserted interior or measured depth. No independently supported missing or wrong-shaped building opening remains in this view.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The gable retains one small framed rectangle at the depicted location. Cameron\u2019s halftone does not resolve its glazing versus board infill or precise ledges well enough to establish a further visitor-noticeable wrong material, opening count or shape; the existing hatch proxy and its dimensions remain reconstructed.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The single visible long-wall sash, trim and narrow bars follow the source\u2019s broad opening arrangement. Fine pane/bar and linework readings are not independently established beyond the T3153 visitor bar; no extra opening or count correction is justified from this surrogate.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The source and current model depict horizontal timber wall courses, a simple gabled roof and a short ridge head. Exact log/chink regularity, mottled roof weathering and monochrome tonal variation do not establish a different material category or original paint color. The source does not support tracing its halftone texture into the model.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Remaining drawn convergence and apparent proportion offsets are bounded by the explicitly provisional drawing camera (six-wallpoint RMS16.099px/max26.809px, about5px manual picks) and inconsistent source perspective. No independently supported greater-than-about0.3m architectural displacement, missing element or wrong silhouette category remains after direct review; the attested45x20ft footprint is retained.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The pictured doorway figure, wagon, trees, river, ground and surrounding buildings are contextual subjects outside this isolated Hogan building-geometry comparison. Their omission does not identify a missing Hogan architectural element or require a new building photo follow-up. No whole-scene likeness is asserted.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Hidden elevations, unseen construction details and the building\u2019s survival/use/state on1July1835 cannot be read from this retrospective scene labelled1833. Those provenance limits remain explicit and are not newly attested by this picture-match verdict.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
