@@ -3694,9 +3694,9 @@
     "marshall_field_house_1905_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 9889024,
+      "bytes": 10407272,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "69b686af256889c68b39f4e9d31de72b8b6911ff6ccc6e235282e18de9d2bea1",
+      "inputs_sha256": "def1caab37070871ede49539530bc03bc44728142562adb8e9a2119302b3acb3",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "marshall_field_house_1905_prairie"
