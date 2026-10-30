@@ -223,6 +223,15 @@ ATTESTED_HYDRANTS = [
               "the corner lamp at 18th Street. Read off the owner's crop of the Detroit view: a barrel on a "
               "flared foot, a band under a domed bonnet with an operating nut, side nozzle caps. Not a "
               "hitching post: none is shown at Pullman's.")},
+    {"key": "pullman_stable", "face": "calumet__prairie_ic_16_18", "end": None, "along_m": 14.2, "side": "walk",
+     "sources": ["aic_taylor_16554_pullman_from_sw"],
+     "note": ("Pullman's stable: J. W. Taylor's no. 16554 (1890s) shows a post hydrant on the walk at the foot "
+              "of the low wall before the stable, about 3.7 m short of the stable's east end, where 18th "
+              "Street's north walk turns into Calumet Avenue. Placed along its ray through the print's solved "
+              "camera (x 1065 px), on the walk's street edge (T-1934, the owner, 2026-10-30: 'there is a "
+              "hydrant in that photo'). Its form is the district's post hydrant; the print is too small to "
+              "read its parts. Calumet Avenue curves into 18th Street here, so there is no corner: "
+              "`end: None` measures from the face's own start, where 18th Street's face ends.")},
     {"key": "tucker", "face": "prairie__indiana_prairie_21_22", "end": "e22nd", "along_m": 6.0, "side": "curb",
      "sources": ["chicagology_2140_photo_b"],
      "note": ("Tucker's: the second 2140 photograph has a post hydrant of the same type in its left foreground, "
@@ -612,18 +621,24 @@ def lay_hydrants(grid, section, trees_doc, lamps):
     # 1. The pictured ones.
     for h in ATTESTED_HYDRANTS:
         face = faces[h["face"]]
-        c = next(c for c in cs if face in c["faces"] and h["end"] in c["streets"])
-        s0, sign = face_end_s(face, c)
+        if h["end"] is None:
+            # a face with no corner at this end (a street curving into the next): from its start
+            c, s0, sign = None, 0.0, 1.0
+        else:
+            c = next(c for c in cs if face in c["faces"] and h["end"] in c["streets"])
+            s0, sign = face_end_s(face, c)
         across = (face.walk_to + HYDRANT_WALK_OFFSET_M) if h["side"] == "walk" else (face.park_to - HYDRANT_CURB_INSET_M)
         blocked = blocked_intervals(face, walks, alleys)
         s = clear(face, s0 + sign * h["along_m"], across, blocked, 0.0, face.length)
         if s is None:
             raise SystemExit(f"street furniture: no clear spot for the pictured hydrant {h['key']}")
-        items.append(item(f"hydrant.pictured.{h['key']}", face, s, across, place="corner",
-                          streets=c["streets"], corner=c["quadrant"], face=face.id, grade="attested",
+        where = {"place": "corner", "streets": c["streets"], "corner": c["quadrant"]} if c else \
+            {"place": "mid-block"}
+        items.append(item(f"hydrant.pictured.{h['key']}", face, s, across, **where, face=face.id, grade="attested",
                           sources=h["sources"], note=h["note"],
                           moved_m=r2(abs(s - (s0 + sign * h["along_m"])))))
-        taken.add(frozenset(c["streets"]))
+        if c:
+            taken.add(frozenset(c["streets"]))
     # 2. One per intersection, at a corner taken in turn, along the avenue's face.
     by_x = {}
     for c in cs:
