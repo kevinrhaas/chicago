@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2434, ts: '2026-10-30T03:11:58.329Z', date: 'Oct 29, 2026, 10:11 PM CT', title: 'New 1904 walk: Women of Prairie Avenue', kind: 'feature',
+    items: [
+      'Six houses, 1608 to 2115 Prairie, each tied to a woman who mattered: Henrietta Frank (nursing education), Frances Glessner Lee (forensic science), Frances Glessner (her forty-year journal), Jane Grahame Jones (suffrage), Kate Buckingham (Buckingham Fountain) and Mrs. Philip D. Armour (the street\'s last great household).',
+      'Every fact is sourced on its stop; who was home on 1 July 1904 is not claimed.',
+    ] },
+  { v: 2433, ts: '2026-10-30T02:35:19.505Z', date: 'Oct 29, 2026, 9:35 PM CT', title: '1906 Prairie gains its roof deck, south wing and side porch', kind: 'feature',
+    items: [
+      'The Edson Keith house\'s hipped roof now stops at a flat deck with a rail round it, as its engraving shows, and its chimneys rise well above that rail.',
+      'On the south side a two-storey stone wing stands out from the house. It has round-headed windows, the house\'s bracketed cornice and a balustrade round its roof.',
+      'In the angle beside the wing, a porch on three round columns carries a balustraded balcony under the upper windows, with arched windows behind it.',
+      'Both of the house\'s pictures now match the model.',
+    ] },
+  { v: 2432, ts: '2026-10-30T01:46:36.634Z', date: 'Oct 29, 2026, 8:46 PM CT', title: '1801 Prairie\'s cornice runs on beneath its stone wall gable', kind: 'improvement',
+    items: [
+      'On the Kimball house\'s south wall, the heavy stone cornice now carries on under the small paired windows of the rear corner\'s wall gable to the corner itself, as the 1965 survey photograph shows it, where it used to stop short at the gable\'s edge.',
+    ] },
   { v: 2431, ts: '2026-10-30T01:31:55.382Z', date: 'Oct 29, 2026, 8:31 PM CT', title: 'Taps answer only what the frame draws', kind: 'fix',
     items: [
       'The check that holds the GPU pick to the old raycast now asks both the same question: the raycast starts at the camera\'s near plane, as the frame does, so it no longer answers a woodpile 9 cm from the eye that the frame had already cut away. Dev\'s moving-frames gate is green on all 12 yard taps again.',

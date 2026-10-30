@@ -229,6 +229,9 @@ class K01FrontageParams:
     corner_porch: dict = field(default_factory=dict)
     # T-3241: a hip cut off level at a railed deck (`hip_deck`, k01_hip_deck; 1701's roof)
     hip_deck: dict = field(default_factory=dict)
+    # T-3239: a columned porch on a side wall under a balustraded balcony, on a podium
+    # (`side_porch`, k01_porte_cochere; 1906's on its south flank, off the engraving)
+    side_porch: dict = field(default_factory=dict)
     # T-1879: open louvred shutters folded back beside named walls' lights, by storey
     # (`window_shutters`; 1721's, off the 1891 plate): {"width_m", "louvre_m", "lights":
     # ((wall, s0, s1, sill, head), ...)} — empty for every other house
@@ -304,7 +307,7 @@ CONSUMED = frozenset({
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
-    "hip_deck",
+    "hip_deck", "side_porch",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -2821,6 +2824,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # T-2404: a pavilion may stand flush with its wall's corner — its cheek then runs on in
         # the side wall's own plane, as 1620's north pavilion does in its 1874 engraving. Only
         # a projection, only at the corner it names, and then exactly at it
+        if e.get("cornice_across") is True and not v.get("shallow"):
+            raise ParamError(f"bays: {e['id']}: cornice_across is a shallow pavilion's (T-1890)")
         flush = e.get("flush_corner")
         if flush is not None and cant is None:
             if v["kind"] != "projection" or flush not in ("left", "right"):
@@ -3044,6 +3049,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"corner": corner} if corner else {}),
                     **({"across_corner": across} if across else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
+                    # T-1890: a shallow pavilion the main cornice runs on across (1801's wall gable)
+                    **({"cornice_across": True} if e.get("cornice_across") is True else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
                     # T-3236: or a bay whose cornice overhangs a porch arch's pier (1812's)
                     **({"seat_walls": True} if e.get("seat_walls") is True else {}),
@@ -6168,10 +6175,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                       wall_head=dict(val("wall_head", {}) or {}), depth=depth, bays=bays)
     except PavilionError as e:
         raise ParamError(str(e)) from None
-    from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte, resolve_porch
+    from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte, resolve_porch, \
+        resolve_side_porch
     try:
         porte_cochere = resolve_porte(val("porte_cochere"), depth=depth, width=width, stone=stone, openings=openings)
         corner_porch = resolve_porch(val("corner_porch"), width=width, openings=openings, bays=bays)
+        side_porch = resolve_side_porch(val("side_porch"), depth=depth, openings=openings)
     except PorteError as e:
         raise ParamError(str(e)) from None
     from .k01_hip_deck import ParamError as DeckError, resolve as resolve_hip_deck
@@ -6257,7 +6266,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
-        corner_porch=corner_porch, hip_deck=hip_deck, shutters=shutters,
+        corner_porch=corner_porch, hip_deck=hip_deck, side_porch=side_porch, shutters=shutters,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
