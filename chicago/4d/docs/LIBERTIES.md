@@ -36032,7 +36032,10 @@ draw it (x 940 on the plate, 576 on Lowe's print).
 **What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m)
 and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and
 the north range's glass end against the loggia block, which no picture shows either (both pictures
-predate the north range).
+predate the north range). The spirelet on the ridge (T-3164's pinnacle pass), the dark pointed form
+the plate draws over this roof, about 1 m across at the ridge and 2.5 m tall: built 0.9 m square with
+an iron spike, on the ridge's middle; its plan, its place along the ridge (the plate looks at the ridge
+nearly end-on) and the spike are invented.
 **What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height
 against the deck, which both pictures show.
 **How to resolve:** a picture of the lodge from the west or the north-west, or a plan from before the north
@@ -36074,6 +36077,29 @@ depth, the mouldings and the carving.
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
+### L-pullman-podium-1800-calumet-3164 — The Pullman conservatory's podium: corner piers, banded rustication and its courses, read off Lowe's print
+
+**Decision:** both pictures of the conservatory (`inland_1894_pullman_conservatory`,
+`aic_lowe_pullman_conservatory_c1897`) show its 2.3 m stone podium dressed, not plain (T-3164): under
+the glass band a moulded cap course standing proud; a pale pier at each outer corner (the north front's
+north-east pier reads x 1240-1268 on the plate and 802-822 on Lowe's print, about 0.6 m at 46 and
+34 px/m through their solved cameras); and between the piers a darker field crossed by faint level
+joints, about four courses in the podium's height. Built: a 0.3 m base course 0.05 m proud, a 0.22 m
+cap course 0.1 m proud, 0.6 m piers 0.06 m proud at every outer corner of the podium and of the
+transept's two arms, and between them four courses of banded rustication 0.02 m proud with 0.04 m
+joints, so each field reads as a panel sunk behind its piers. The courses and the piers stop at the
+north entrance's surround.
+**What is invented.** The courses' profiles (drawn as plain slabs), their projections, the joint count
+(four, from the print's faint lines), and the dress carried round the faces neither picture sees: the
+west arm, the west flank and the faces south of the transept.
+**What is not.** The podium's height and plan, which were already built; the piers' places at the
+corners and their width, and the cap course over the field, read off both pictures through their
+cameras.
+**How to resolve:** a nearer or sharper picture of the podium gives the mouldings and the coursing.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-30 (T-3164).
 ### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
 
 **Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
@@ -36233,6 +36259,46 @@ the two-level rear veranda (T-3242), and the carving and ironwork (T-1876).
 main block with a corner recess would cut the porch's back wall where the sheet draws it.
 **Recorded:** 2026-10-29 (T-3241).
 
+### L-k01-hibbard-1701-3242 — 1701 Prairie's two-level rear veranda and the 1874 range's oriel, read off its rear photograph
+
+**Decision:** T-3242 (piece 3 of T-1875) builds the two things Glessner House Museum's rear
+photograph (`glessner_blog_1701_hibbard_rear_photo`) shows on the rear of the Hibbard house and
+T-3240 and T-3241 left out, each read through the camera T-3240 solved
+(`data/reference_views/hibbard_house_1701_prairie/ghm_rear.json`): the open veranda of two decks
+against the main block's rear wall south of the 1874 range, with its garden steps (`rear_veranda`,
+new module `generators/archetypes/k01_rear_veranda.py`, a kit piece any K01 house can carry), and
+the corbelled oriel on the range's south face at the upper storey (a K08 canted oriel on the wing's
+wall, which K01 already carried; the wing now leaves its wall standing behind an oriel, as a main
+wall does, instead of cutting it from grade as it does for a tower).
+**What is read, not invented.** The veranda's run along the rear wall, v 7.9-14.7 (its north end
+about 1.1 m clear of the range, its south end the main block's corner), and about 2.6 m out; its
+lower deck about 1.7-2.0 m over grade (built 1.85, a step under the principal floor) and its upper
+about 5.1-5.5 m (built 5.2: the rail's top crosses under the upper storey's sills, as the photograph
+shows); five stations of paired posts along its front, a band of spindles under the upper deck, a
+balustrade round both decks; the flight coming down off the lower deck's front in its north bay
+toward the camera. The oriel's place, s 11.9-15.4 along the range's south face (centre 13.65 from
+the main block), its front about 0.8 m out, its floor at the range's second floor (6.3 m), its
+corbelling down to about 4.6 m, its wall top under the range's cornice, a pair of round-headed
+lights in its front and a square-headed one in each cheek; the range's south-face windows moved to the three the
+photograph's lower storey shows (s 2.6, 7.2 and 10.0), none under the oriel.
+**What is invented.** The posts' 0.13 m section and 0.14 m pair gap, the stations evenly spaced
+(the photograph's are not quite), the deck's 0.22 m thickness, the balustrade's 0.85 m height, its
+rails and its square 0.06 m balusters at 0.16 m (the photograph's are turned), the frieze's 0.35 m
+depth and its spindles, the flight's 1.0 m width, 0.3 m treads and stone, its cheeks and rails; the
+whole veranda painted the light trim colour (the photograph is monochrome and reads it pale). The
+posts carried down to grade where the photograph's planting hides what stands under the lower deck.
+The oriel's plan (2.6 m front, 0.45 m cants), its stone and its seven corbel courses for the
+photograph's carved brackets, and its low hip for the carved cresting over it. The range's upper
+storey keeps a light at s 7.2 that the photograph shows only in its lower storey (a K01 wing cuts
+one list of lights through every storey).
+**What is still not built.** The range's heavy bracketed cornice (its deck's fascia stands in for
+it), the veranda's turned posts and balusters and its brackets, and the photograph's veranda
+running on south past the main block's corner as the model's main block is built (the camera reads
+the block about 2 m wider than T-3240's footprint; that is the block's, not the veranda's).
+**How to resolve:** a second picture of the rear, or a measured drawing of the veranda, fixes its
+sections and heights; a K01 wing with storeys of their own lights fixes the range's upper storey.
+**Recorded:** 2026-10-30 (T-3242).
+
 ### L-kimball-1801-se-wall-gable-1890 — 1801 Prairie's wall gable at the south wall's rear corner, from HABS photograph 1
 
 **Decision:** the roof's south-east corner had nothing over the main cornice where HABS photograph 1
@@ -36328,3 +36394,26 @@ is the rule's planting line.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
 `inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
 **Recorded:** 2026-10-29 (T-1934).
+
+### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
+
+**Decision:** T-1881 (the owner, 2026-10-29: "the walls read as red brick ... Every picture shows dressed ashlar,
+light in the prints") lays the Pullman house's walls, dressings and dormer faces (`pullman_house_1729_prairie`)
+in a new K02 fabric, `sandstone_fawn`, where they were the library's red-brown `sandstone_brown`. **What is read.**
+Both photographs print the walls lighter than the house's own slate mansard: the Detroit print's master scan
+(LoC det 4a08065u) at 115-135 against the slate's 73-101 and the sky's 226, and Taylor's no. 1445 at 193-204 against
+the mansard's 165-175 and the stone coping wall's 197. Through a print's tone curve (gamma 1.8-2.2) the Detroit
+reading puts the walls at 1.7-3.3 times the slate's light. The red-brown map, rendered through the same camera,
+gave 1.4-1.7, and on a blue or orthochromatic plate a red-brown stone prints darker than a neutral slate of the
+same light, so it cannot be the stone these plates saw. The master scan also shows the joints as hairlines barely
+darker than the face, on courses of about 0.44 m and blocks of 0.9-1.3 m. **What is invented.** The fawn's hue
+(a B&W plate cannot name a colour; it bounds a value), its light and dark (sRGB 163,148,125 and 129,115,96, mean
+146,131,110), set so the render gives 2.6-3.4 times its slate's light on a blue or orthochromatic weighting, in
+the upper half of the print's range because the model's slate (linear about 0.05) is darker than most slate, and
+the profile's 3 mm joint rubbed flush. **What is not changed.** The register's word for the stone (brownstone;
+the Sanborn sheet's "stone") and the record's tier: the material stays `inferred`, the shade is reconstructed.
+`sandstone_brown` and the seven other register rows it lays are untouched. **How to resolve:** a contract, a
+building notice or a description naming the stone's quarry or colour would replace the shade.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/pullman-stone-1881/README.md`; `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg`, `albertype_1890-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-30 (T-1881).

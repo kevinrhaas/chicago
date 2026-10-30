@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 2438, ts: '2026-10-30T05:25:14.848Z', date: 'Oct 30, 2026, 12:25 AM CT', title: 'The Pullman conservatory\'s stone podium and the lodge\'s spirelet', kind: 'improvement',
+    items: [
+      'Pullman\'s conservatory on 18th Street now stands on a dressed stone podium, as the 1894 plate and Lowe\'s photograph show it: pale piers at its corners, darker banded stone between them, and a moulded course under the glass.',
+      'The gardener\'s lodge beside it gains the slender slated spirelet the plate draws on its west roof.',
+    ] },
+  { v: 2437, ts: '2026-10-30T04:42:53.613Z', date: 'Oct 29, 2026, 11:42 PM CT', title: 'Prairie Avenue\'s 1904 houses have their families', kind: 'feature',
+    items: [
+      '71 houses from 16th to 22nd Street now list who lived there, 183 people in all, up from the Glessners alone.',
+      'Families come from the 1904 society Blue Book, checked against the 1905 edition so each one is bracketed across July 1904.',
+      'Children appear where a source names them: the Glessner grandchildren at 1700 and 1706, young Arthur Meeker, the Field boys.',
+      'The Glessners\' cook, Mattie Williamson, joins their card. Other servants wait on the 1900 census, not yet read.',
+      'Unnamed daughters stay unnamed, and anyone listed only in 1905 is marked inferred.',
+    ] },
+  { v: 2436, ts: '2026-10-30T04:16:32.099Z', date: 'Oct 29, 2026, 11:16 PM CT', title: 'The Pullman house\'s walls no longer look like red brick', kind: 'fix',
+    items: [
+      'At 1729 Prairie the walls are now a light fawn-brown sandstone, where they were a dark red-brown that read as brick. Both old photographs of the house show the walls lighter than the slate roof above them, and a red-brown stone could not photograph that way.',
+      'The joints between the stones are now fine hairlines, as the 1900s photograph shows them. Before, each block had a dark outline that made the wall look like brickwork.',
+      'The stone\'s exact colour is our reconstruction: the photographs are black and white. They limit how light or dark the stone can be, but not its hue.',
+      'Still to come: the front as a whole against the photographs.',
+    ] },
+  { v: 2435, ts: '2026-10-30T03:48:08.203Z', date: 'Oct 29, 2026, 10:48 PM CT', title: '1701 Prairie\'s rear veranda and the back range\'s oriel', kind: 'feature',
+    items: [
+      'Behind the Hibbard house, a two-level veranda now stands against the rear wall: paired posts, a band of spindles, railed decks, and steps down to the lawn, all read off the old rear photograph.',
+      'The 1874 back range has its corbelled oriel at the upper storey, and its windows now sit where the photograph shows them.',
+    ] },
   { v: 2434, ts: '2026-10-30T03:11:58.329Z', date: 'Oct 29, 2026, 10:11 PM CT', title: 'New 1904 walk: Women of Prairie Avenue', kind: 'feature',
     items: [
       'Six houses, 1608 to 2115 Prairie, each tied to a woman who mattered: Henrietta Frank (nursing education), Frances Glessner Lee (forensic science), Frances Glessner (her forty-year journal), Jane Grahame Jones (suffrage), Kate Buckingham (Buckingham Fountain) and Mrs. Philip D. Armour (the street\'s last great household).',

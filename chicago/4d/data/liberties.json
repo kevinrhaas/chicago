@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 869,
+  "count": 872,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60500,7 +60500,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the lodge was one rectangle on the 1911 sheet's outline under one hipped roof to a crested deck. The 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both draw its north front in two parts: west of the loggia's west end (plate x 1052, Lowe x 662) a part with a quoined east return, its eave a few pixels over the loggia block's, under a hipped roof of its own whose north-east hip rises from the return to about the deck's height. It is built as a second part, 4.85 m wide from u 4.1 to the west wall, with a hipped roof at the main roof's 52 degrees and its ridge at 11.75 m, just under the deck's 11.9 m. Both pictures put the step at about 2 m (the return's width and the eave's rise through the solved cameras). The part's face is put on the sheet's north wall, where the 1911 north range abuts the lodge, and the loggia block is set 2 m back behind it. The alternative was the part standing 2 m out over the range. The pictures cannot tell the two apart, and this way the block's corner lands where both pictures draw it (x 940 on the plate, 576 on Lowe's print). **What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m) and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and the north range's glass end against the loggia block, which no picture shows either (both pictures predate the north range). **What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height against the deck, which both pictures show."
+          "text": "the lodge was one rectangle on the 1911 sheet's outline under one hipped roof to a crested deck. The 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both draw its north front in two parts: west of the loggia's west end (plate x 1052, Lowe x 662) a part with a quoined east return, its eave a few pixels over the loggia block's, under a hipped roof of its own whose north-east hip rises from the return to about the deck's height. It is built as a second part, 4.85 m wide from u 4.1 to the west wall, with a hipped roof at the main roof's 52 degrees and its ridge at 11.75 m, just under the deck's 11.9 m. Both pictures put the step at about 2 m (the return's width and the eave's rise through the solved cameras). The part's face is put on the sheet's north wall, where the 1911 north range abuts the lodge, and the loggia block is set 2 m back behind it. The alternative was the part standing 2 m out over the range. The pictures cannot tell the two apart, and this way the block's corner lands where both pictures draw it (x 940 on the plate, 576 on Lowe's print). **What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m) and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and the north range's glass end against the loggia block, which no picture shows either (both pictures predate the north range). The spirelet on the ridge ('s pinnacle pass), the dark pointed form the plate draws over this roof, about 1 m across at the ridge and 2.5 m tall: built 0.9 m square with an iron spike, on the ridge's middle; its plan, its place along the ridge (the plate looks at the ridge nearly end-on) and the spike are invented. **What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height against the deck, which both pictures show."
         },
         {
           "label": "How to resolve",
@@ -60560,6 +60560,49 @@
         {
           "label": "Recorded",
           "text": "2026-10-29 (T-3164)."
+        }
+      ],
+      "work_refs": [
+        "T-3164"
+      ]
+    },
+    {
+      "id": "L-pullman-podium-1800-calumet-3164",
+      "title": "The Pullman conservatory's podium: corner piers, banded rustication and its courses, read off Lowe's print",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_pavilion"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "both pictures of the conservatory (Inland Architect Press. Conservatory of Geo, Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) show its 2.3 m stone podium dressed, not plain: under the glass band a moulded cap course standing proud; a pale pier at each outer corner (the north front's north-east pier reads x 1240-1268 on the plate and 802-822 on Lowe's print, about 0.6 m at 46 and 34 px/m through their solved cameras); and between the piers a darker field crossed by faint level joints, about four courses in the podium's height. Built: a 0.3 m base course 0.05 m proud, a 0.22 m cap course 0.1 m proud, 0.6 m piers 0.06 m proud at every outer corner of the podium and of the transept's two arms, and between them four courses of banded rustication 0.02 m proud with 0.04 m joints, so each field reads as a panel sunk behind its piers. The courses and the piers stop at the north entrance's surround. **What is invented.** The courses' profiles (drawn as plain slabs), their projections, the joint count (four, from the print's faint lines), and the dress carried round the faces neither picture sees: the west arm, the west flank and the faces south of the transept. **What is not.** The podium's height and plan, which were already built; the piers' places at the corners and their width, and the cap course over the field, read off both pictures through their cameras."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer or sharper picture of the podium gives the mouldings and the coursing."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3164)."
         }
       ],
       "work_refs": [
@@ -60831,6 +60874,37 @@
       ]
     },
     {
+      "id": "L-k01-hibbard-1701-3242",
+      "title": "1701 Prairie's two-level rear veranda and the 1874 range's oriel, read off its rear photograph",
+      "section": "per_subject",
+      "subjects": [
+        "hibbard_house_1701_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work builds the two things Glessner House Museum's rear photograph ([William G. Hibbard house, 1701 S. Prairie Avenue - rear (east) side with the…) shows on the rear of the Hibbard house and earlier work left out, each read through the camera earlier work solved (the ghm rear data): the open veranda of two decks against the main block's rear wall south of the 1874 range, with its garden steps (rear veranda, new module the k01 rear veranda generator, a kit piece any K01 house can carry), and the corbelled oriel on the range's south face at the upper storey (a K08 canted oriel on the wing's wall, which K01 already carried; the wing now leaves its wall standing behind an oriel, as a main wall does, instead of cutting it from grade as it does for a tower). **What is read, not invented.** The veranda's run along the rear wall, v 7.9-14.7 (its north end about 1.1 m clear of the range, its south end the main block's corner), and about 2.6 m out; its lower deck about 1.7-2.0 m over grade (built 1.85, a step under the principal floor) and its upper about 5.1-5.5 m (built 5.2: the rail's top crosses under the upper storey's sills, as the photograph shows); five stations of paired posts along its front, a band of spindles under the upper deck, a balustrade round both decks; the flight coming down off the lower deck's front in its north bay toward the camera. The oriel's place, s 11.9-15.4 along the range's south face (centre 13.65 from the main block), its front about 0.8 m out, its floor at the range's second floor (6.3 m), its corbelling down to about 4.6 m, its wall top under the range's cornice, a pair of round-headed lights in its front and a square-headed one in each cheek; the range's south-face windows moved to the three the photograph's lower storey shows (s 2.6, 7.2 and 10.0), none under the oriel. **What is invented.** The posts' 0.13 m section and 0.14 m pair gap, the stations evenly spaced (the photograph's are not quite), the deck's 0.22 m thickness, the balustrade's 0.85 m height, its rails and its square 0.06 m balusters at 0.16 m (the photograph's are turned), the frieze's 0.35 m depth and its spindles, the flight's 1.0 m width, 0.3 m treads and stone, its cheeks and rails; the whole veranda painted the light trim colour (the photograph is monochrome and reads it pale). The posts carried down to grade where the photograph's planting hides what stands under the lower deck. The oriel's plan (2.6 m front, 0.45 m cants), its stone and its seven corbel courses for the photograph's carved brackets, and its low hip for the carved cresting over it. The range's upper storey keeps a light at s 7.2 that the photograph shows only in its lower storey (a K01 wing cuts one list of lights through every storey). **What is still not built.** The range's heavy bracketed cornice (its deck's fascia stands in for it), the veranda's turned posts and balusters and its brackets, and the photograph's veranda running on south past the main block's corner as the model's main block is built (the camera reads the block about 2 m wider than 's footprint; that is the block's, not the veranda's)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a second picture of the rear, or a measured drawing of the veranda, fixes its sections and heights; a K01 wing with storeys of their own lights fixes the range's upper storey."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3242)."
+        }
+      ],
+      "work_refs": [
+        "T-1875",
+        "T-3240",
+        "T-3242",
+        "T-3241"
+      ]
+    },
+    {
       "id": "L-kimball-1801-se-wall-gable-1890",
       "title": "1801 Prairie's wall gable at the south wall's rear corner, from HABS photograph 1",
       "section": "per_subject",
@@ -60961,6 +61035,38 @@
       ],
       "work_refs": [
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-k01-1729-pullman-stone-tone-1881",
+      "title": "1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work (the owner, 2026-10-29: \"the walls read as red brick... Every picture shows dressed ashlar, light in the prints\") lays the Pullman house's walls, dressings and dormer faces (1729 Prairie Avenue — the George M. Pullman house) in a new K02 fabric, sandstone fawn, where they were the library's red-brown sandstone brown. **What is read.** Both photographs print the walls lighter than the house's own slate mansard: the Detroit print's master scan (LoC det 4a08065u) at 115-135 against the slate's 73-101 and the sky's 226, and Taylor's no. 1445 at 193-204 against the mansard's 165-175 and the stone coping wall's 197. Through a print's tone curve (gamma 1.8-2.2) the Detroit reading puts the walls at 1.7-3.3 times the slate's light. The red-brown map, rendered through the same camera, gave 1.4-1.7, and on a blue or orthochromatic plate a red-brown stone prints darker than a neutral slate of the same light, so it cannot be the stone these plates saw. The master scan also shows the joints as hairlines barely darker than the face, on courses of about 0.44 m and blocks of 0.9-1.3 m. **What is invented.** The fawn's hue (a B&W plate cannot name a colour; it bounds a value), its light and dark (sRGB 163,148,125 and 129,115,96, mean 146,131,110), set so the render gives 2.6-3.4 times its slate's light on a blue or orthochromatic weighting, in the upper half of the print's range because the model's slate (linear about 0.05) is darker than most slate, and the profile's 3 mm joint rubbed flush. **What is not changed.** The register's word for the stone (brownstone; the Sanborn sheet's \"stone\") and the record's grade: the material stays `inferred`, the shade is reconstructed. sandstone brown and the seven other register rows it lays are untouched."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a contract, a building notice or a description naming the stone's quarry or colour would replace the shade."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on pullman stone; an image in the research notes on photo match, the taylor 1445 album side by side image, the albertype 1890 side by side image and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-1881)."
+        }
+      ],
+      "work_refs": [
+        "T-1881"
       ]
     },
     {
