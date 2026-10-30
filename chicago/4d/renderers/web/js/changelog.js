@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2473, ts: '2026-10-30T23:31:02.453Z', date: 'Oct 30, 2026, 6:31 PM CT', title: 'Pullman\'s stable and palm house closer to Taylor\'s photograph', kind: 'improvement',
+    items: [
+      'Stable cupola rebuilt: arched lights under a ribbed bell dome.',
+      'Stable walls laid as dressed stone; windows paired in stone surrounds with sills.',
+      'Stable\'s extra east section removed: the photograph and the 1911 map show none.',
+      'Palm house stone now matches the house, no longer white; its glass shows a grid of panes.',
+      'Hydrant added on 18th Street by the stable, where the photograph shows it.',
+    ] },
+  { v: 2472, ts: '2026-10-30T22:41:12.981Z', date: 'Oct 30, 2026, 5:41 PM CT', title: '1801 Prairie\'s tower and turret roofed in the house\'s slate', kind: 'fix',
+    items: [
+      'The Kimball house\'s round tower and its little corner turret had smooth, pale grey cones that stood out from the dark slate roof beside them.',
+      'Both cones are now slated like the main roof, in level courses that narrow toward the top, as the c. 1895 photograph and the 1965 survey photographs show them.',
+    ] },
   { v: 2471, ts: '2026-10-30T21:48:11.048Z', date: 'Oct 30, 2026, 4:48 PM CT', title: 'Less phone memory for the railway yard', kind: 'fix',
     items: [
       'Nothing you can see changes. The railway yard uses less phone memory while retaining its tracks, ground, materials and evidence grades.',

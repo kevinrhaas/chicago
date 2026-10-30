@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "aae6a7d5f0f78d032aa53a771196ba304ead57b7afcdc9e22626be469ce8f015",
+  "glb_sha256": "e858f98249e4f973ac49d9e24b5c53298746eacdc2e0f0f829d50828c9ea348f",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -268,6 +268,10 @@
       "what": "the east turret's cap top (seen while reading its finial again through T-3074's camera): the print's slate cone stops at a pale-lipped rim at about y 800 (about 22 px across, x 218-240), and over it a smooth concave sweep narrows to the finial's stem at about y 765, with a knob on the stem at about y 733-742, a smaller one at about y 750-755 and a spike to about y 703; the build's cone ran on to a point at y 783 under a plain spike",
       "status": "fixed",
       "how": "T-1890: the turret's finial is turned as the tower's is (K08 form turned, 0.1 m radius, 2.8 m over the cone's apex) over a collar 0.35 m out on the cone, with no crockets on it (finial.crockets false: the print's sweep is plain from its rim to the stem). The corner turret's cap is whole (cap_whole: its axis stands 0.3 m behind the range's wall), so K08 no longer holds a whole cap's turnings in front of the wall's plane, which had flattened them 0.3 m off the axis. Re-rendered the rim falls at about y 800 and x 218-242, the sweep's width within about 2 px of the print's, its knobs within about 5 px, and the tip at about y 706 against 703. The sweep's tone is the default finial's, a dark metal; the print reads it about the slate's"
+    },
+    {
+      "what": "the tower's cone: the print's is slated as the mansard is, small slates in level courses in the roof's own tone, where the build laid it in the K08 kit's plain slate colour, which rendered as a smooth grey cone far paler than the mansard beside it. T-1890 slates it as the house (bays.tower roof.slated_as_house), its courses mapped round the cone and up its slope from its eaves; it now renders in the mansard's dark coursed slate (L-kimball-1801-cone-slate-1890)",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
