@@ -136,11 +136,11 @@
     {
       "id": "frank-listing",
       "text": "The 1904 Blue Book's Prairie Avenue list prints the Henry L. Frank household at 1608.",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
         "chicago_blue_book_1904"
       ],
-      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
     },
     {
       "id": "frank-nursing",
@@ -163,11 +163,11 @@
     {
       "id": "lee-listing",
       "text": "The 1904 Blue Book's Prairie Avenue list prints the Blewett Lee household at 1700.",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
         "chicago_blue_book_1904"
       ],
-      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
     },
     {
       "id": "lee-house",
@@ -228,11 +228,11 @@
     {
       "id": "jones-listing",
       "text": "The 1904 Blue Book's Prairie Avenue list prints the Fernando Jones household at 1834.",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
         "chicago_blue_book_1904"
       ],
-      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
     },
     {
       "id": "jones-suffrage",
@@ -264,11 +264,11 @@
     {
       "id": "buckingham-listing",
       "text": "The 1904 Blue Book's Prairie Avenue list prints the E. Buckingham household and Clarence Buckingham at 2036.",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
         "chicago_blue_book_1904"
       ],
-      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
     },
     {
       "id": "buckingham-fountain",
@@ -292,11 +292,11 @@
     {
       "id": "armour-listing",
       "text": "The 1904 Blue Book's Prairie Avenue list prints Mrs. Philip D. Armour at 2115.",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
         "chicago_blue_book_1904"
       ],
-      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
     },
     {
       "id": "armour-last",
