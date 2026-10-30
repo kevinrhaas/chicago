@@ -364,6 +364,9 @@ function render(root, ctx) {
   drawnFor = id;
 }
 
+// Who was here: the order a household is listed in (T-3258).
+const RANK = { head: 0, wife: 1, husband: 1, son: 2, daughter: 2, child: 2, servant: 4 };
+
 /** Show one tab; build its pane the first time. */
 function selectTab(root, key) {
   if (!TABS.some(([k]) => k === key)) return;
@@ -493,7 +496,9 @@ async function fillPeople(pane, sec, ctx, id) {
   }
   const block = el(doc, 'section', 'insp-sec');
   block.append(heading(doc, 'Who was here'));
-  const order = (r) => (r.relationship === 'head' ? 0 : 1);
+  // T-3258: the family before its staff — head, spouse, children, kin, then the servants the
+  // 1900 census names — so a house of twelve servants still opens on the people it is named for.
+  const order = (r) => RANK[r.relationship] ?? 3;
   for (const r of [...here].sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))) {
     const b = el(doc, 'button', 'nav-person insp-person-link');
     b.type = 'button';

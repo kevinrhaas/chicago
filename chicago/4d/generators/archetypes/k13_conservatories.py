@@ -1908,7 +1908,9 @@ def rotunda(h: House, rs: dict):
     """T-3179: the round east end of the Pullman range as the Inland plate shows it: a column at
     every joint of the span_apse's half-ring and `straight_columns` more along each side of its
     straight part, on a stone podium, the glass between them, an entablature round the whole at
-    the range's coping, and a low ribbed dome over the curve's centre."""
+    the range's coping, and a low ribbed dome over the curve's centre. With the entablature's
+    `from_m`, its underside (and so the columns' heads) stands there rather than just under the
+    eave (T-3164: both pictures put it level with the range's course over the window heads)."""
     v = h.v
     L, W, n, he = v["length_m"], v["width_m"], v["facets"], v["eave_m"]
     R = W / 2
@@ -1917,13 +1919,14 @@ def rotunda(h: House, rs: dict):
     _prism(h, "stonework", ring(ro) + [(0.02, R + ro), (0.02, R - ro)], 0.0, rs["podium_m"])
     col = rs["column_radius_m"]
     k_s = rs.get("straight_columns", 0)
+    e = rs["entablature"]
+    e0 = e.get("from_m", he - 0.15)
     feet = ring(R + col) + [(L * i / (k_s + 1), z) for i in range(1, k_s + 1) for z in (-col, W + col)]
     for x, z in feet:
         _prism(h, "stonework", [(x + col * math.cos(math.tau * k / 8), z + col * math.sin(math.tau * k / 8))
-                                for k in range(8)], rs["podium_m"], he - 0.15, top=False)
-    e = rs["entablature"]
+                                for k in range(8)], rs["podium_m"], e0, top=False)
     eo = R + e["out_m"]
-    _prism(h, "stonework", ring(eo) + [(0.02, R + eo), (0.02, R - eo)], he - 0.15, he + e["height_m"], bottom=True)
+    _prism(h, "stonework", ring(eo) + [(0.02, R + eo), (0.02, R - eo)], e0, he + e["height_m"], bottom=True)
     return _dome(h, rs["dome"], L, R, he + e["height_m"], "sky_glass")
 
 

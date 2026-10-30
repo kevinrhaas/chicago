@@ -87,7 +87,10 @@ await check('people pins: one per address in the directory, absent people left o
   assert.ok(p04.places.length >= 60, `1904: ${p04.places.length} places`);
   const gl = p04.places.find((pl) => pl.id === 'glessner_house');
   assert.ok(gl, 'the Glessner house carries a pin');
-  assert.equal(gl.people.length, 3);
+  // T-3258: the 1900 census adds the house's live-in staff, so the pin holds whoever the
+  // directory puts there: the family, Mattie Williamson and the staff the census names.
+  assert.equal(gl.people.length, scenes['1904'].people.people.filter((r) => r.lives_at === 'glessner_house').length);
+  assert.ok(gl.people.some((x) => x.id === 'glessner_john_j'), 'John J. Glessner is on his own pin');
   const p12 = O.pinPlaces(scenes['1812'].people.people, scenes['1812'].where);
   assert.equal(p12.people, 1);
   assert.equal(p12.places.length, 1);
