@@ -1,0 +1,22 @@
+{
+  "id": "wikipedia_william_wallace_kimball",
+  "type": "website",
+  "citation": "Wikipedia, 'William Wallace Kimball'. Read 30 October 2026.",
+  "author": "Wikipedia contributors",
+  "url": "https://en.wikipedia.org/wiki/William_Wallace_Kimball",
+  "locator": "The biography: his marriage to Evalyne M. Cove in 1865 and his death 'at his home in Chicago on December 16, 1904'.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-30 (T-3253) through a fetch that returned the article in short quoted segments. No archived snapshot verified.",
+  "note": "Encyclopedia biography of the piano and organ maker of 1801 Prairie Avenue. It names no children and does not give the house's number.",
+  "what_it_supplies": [
+    "his wife's name and his death five months after the scene date"
+  ],
+  "what_it_does_not_supply": [
+    "his address",
+    "any household staff"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "hh_ream_norman_b",
+  "scene": "1904",
+  "name": "The Ream household at 1901 Prairie Avenue",
+  "head": "pa1904_ream_norman_b",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1901 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1901 Mr. & Mrs. Norman B. Ream & dr.."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "ream_house_1901_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905",
+        "wikipedia_norman_b_ream"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1901, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_ream_norman_b",
+      "name": "Norman B. Ream",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "wikipedia_norman_b_ream",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1901 Mr. & Mrs. Norman B. Ream & drs."
+    },
+    {
+      "id": "pa1904_ream_mrs_norman_b",
+      "name": "Caroline Putnam Ream",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "wikipedia_norman_b_ream",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1901 Mr. & Mrs. Norman B. Ream & drs.",
+      "note": "The Blue Book prints her as Mrs. Norman B. Ream; Wikipedia names her Caroline Thompson Putnam, married to him in 1876, and puts the couple at 1901 Prairie Avenue."
+    },
+    {
+      "id": "pa1904_ream_daughters",
+      "name": "The Misses Ream",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1901 Mr. & Mrs. Norman B. Ream & drs.",
+      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Ream' is the book's own form of address, not a recorded name. Wikipedia gives the Reams three daughters and names two, Frances and Marion Buckingham Ream, without dates; which of them were the unmarried daughters at home in 1904 is not stated, so no name is put here. The 1905 edition prints '& dr.', one daughter."
+    }
+  ]
+}

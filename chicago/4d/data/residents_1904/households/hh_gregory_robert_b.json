@@ -1,0 +1,84 @@
+{
+  "id": "hh_gregory_robert_b",
+  "scene": "1904",
+  "name": "The Gregory household at 1638 Prairie Avenue",
+  "head": "pa1904_gregory_robert_b",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "The household is listed at 1638 Prairie Avenue in both the 1904 and 1905 editions of the Blue Book, which bracket 1 July 1904, but not with the same people: the 1905 list prints 1638 Mr. & Mrs. Robert B. Gregory; Miss Eleanor Gregory. Each person's own note says which of them the later list drops or adds."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "shortall_gregory_house_1638_prairie_front",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1638, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_gregory_robert_b",
+      "name": "Robert B. Gregory",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1638 Mr. & Mrs. Robert B. Gregory"
+    },
+    {
+      "id": "pa1904_gregory_mrs_robert_b",
+      "name": "Mrs. Robert B. Gregory",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1638 Mr. & Mrs. Robert B. Gregory"
+    },
+    {
+      "id": "pa1904_gregory_mrs_elizabeth",
+      "name": "Mrs. Elizabeth Gregory",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "1638 Mrs. Elizabeth Gregory",
+      "note": "Listed at 1638 in the 1904 edition only. The Blue Book does not say how she was related to Robert B. Gregory."
+    },
+    {
+      "id": "pa1904_gregory_eleanor",
+      "name": "Eleanor Gregory",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1638 Miss Gregory",
+      "note": "The 1904 edition prints 'Miss Gregory'; the 1905 edition prints 'Miss Eleanor Gregory' at the same number, which is taken as the same woman. Her relation to the head is not printed."
+    }
+  ]
+}

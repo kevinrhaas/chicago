@@ -1,0 +1,74 @@
+{
+  "id": "hh_stettauer_mrs_d",
+  "scene": "1904",
+  "name": "The Stettauer household at 2026 Prairie Avenue",
+  "head": "pa1904_stettauer_mrs_d",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2026 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 2026 Mrs. D. Stettauer & dr.; Charles S. Stettauer."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_2026_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2026, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_stettauer_mrs_d",
+      "name": "Mrs. D. Stettauer",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2026 Mrs. D. Stettauer & dr."
+    },
+    {
+      "id": "pa1904_stettauer_daughter",
+      "name": "Miss Stettauer",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2026 Mrs. D. Stettauer & dr.",
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Stettauer' is the book's own form of address, not a recorded name."
+    },
+    {
+      "id": "pa1904_stettauer_charles_s",
+      "name": "Charles S. Stettauer",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "2026 Charles S. Stettauer",
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+    }
+  ]
+}

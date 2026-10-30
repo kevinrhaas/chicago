@@ -7,17 +7,18 @@
   "describes_date": "1905 (the edition 'for the year ending 1905', compiled the winter before)",
   "repository": "Internet Archive",
   "url": "https://archive.org/details/chicagobluebooko1905chic",
-  "locator": "A display advertisement in the back matter: 'D. H. Bane, Pres. and Treas. ... Ira O. Bane, Secretary ... Telephones South-405, South-338 ... Established 1901, Incorporated 1904. Bane Brothers Livery Company, High Grade Livery, Boarding and Sales Stables, Successors to Bane Bros.' Livery, C. O. Harz Livery, The Lexington Livery, 2123, 2125, 2127, and 2129 Indiana Avenue'.",
+  "locator": "A display advertisement in the back matter: 'D. H. Bane, Pres. and Treas. ... Ira O. Bane, Secretary ... Telephones South-405, South-338 ... Established 1901, Incorporated 1904. Bane Brothers Livery Company, High Grade Livery, Boarding and Sales Stables, Successors to Bane Bros.' Livery, C. O. Harz Livery, The Lexington Livery, 2123, 2125, 2127, and 2129 Indiana Avenue'. Also (T-3253): the PRAIRIE AV. street list, printed pp. 185-187 (scan leaves 187-188), numbers 1600-2140.",
   "tier": 2,
   "rights_status": "public_domain",
   "rights_note": "A United States publication of 1905; public domain.",
   "asset_use": "text_only",
   "verified": true,
-  "access_notes": "Read for T-3013 on 2026-10-23 from the item's OCR text (chicagobluebooko1905chic_djvu.txt), found by the Internet Archive's full-text search; the OCR is clean in these lines.",
-  "note": "The livery that held 2129 Indiana Avenue in 1904, incorporated that year and by this edition spread over all four numbers from 2123 to 2129.",
+  "access_notes": "Read for T-3013 on 2026-10-23 from the item's OCR text (chicagobluebooko1905chic_djvu.txt), found by the Internet Archive's full-text search; the OCR is clean in these lines. Read again 2026-10-30 for T-3253 from the BookReader page text of leaves 187-188 (Prairie Avenue 1600-2140). The reading of the first leaf stops at 2101 Mr. & Mrs. Eugene S. Pike, so the younger Pikes and 2120 were not checked against it; a few numbers are OCR-damaged ('looi' for 1901).",
+  "note": "The livery that held 2129 Indiana Avenue in 1904, incorporated that year and by this edition spread over all four numbers from 2123 to 2129. On Prairie Avenue (T-3253) it is the later bracket of the 1904 household cards: canvassed from September 1904, it and the 1904 edition (canvassed from September 1903) bracket 1 July 1904, so a household in both is taken to be in its house on the scene date; a person first listed here is attested at the address (owner ruling, 2026-10-30), with a note that the scene date itself is not documented for them.",
   "what_it_supplies": [
     "that Bane Brothers' livery was established in 1901 and incorporated in 1904",
-    "that by 1905 it held 2123 through 2129 Indiana Avenue"
+    "that by 1905 it held 2123 through 2129 Indiana Avenue",
+    "who the register listed at each Prairie Avenue number for 1904-05, the later bracket of the 1904 household cards (T-3253)"
   ],
   "what_it_does_not_supply": [
     "the building's form, storeys, material or outline",
