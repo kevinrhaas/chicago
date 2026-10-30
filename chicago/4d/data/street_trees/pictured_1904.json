@@ -5,9 +5,30 @@
  "liberty": "L-pullman-18th-street-trees-1934",
  "views": {
   "taylor_16555": {"camera": "data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json", "source_id": "aic_taylor_16555_pullman_west_front", "date": "1892 to May 1894 (its content)"},
-  "inland_1894": {"camera": "data/reference_views/pullman_house_1729_prairie_conservatory/inland_1894_plate.json", "source_id": "inland_1894_pullman_palm_house_stable", "date": "1894 (published)"}
+  "inland_1894": {"camera": "data/reference_views/pullman_house_1729_prairie_conservatory/inland_1894_plate.json", "source_id": "inland_1894_pullman_palm_house_stable", "date": "1894 (published)"},
+  "taylor_1445": {"camera": "data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json", "source_id": "aic_taylor_1445_pullman_from_sw", "date": "1890s, after the 1892 additions (its content)"},
+  "detroit_4a08065": {"camera": "data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json", "source_id": "loc_det_4a08065_pullman_residence", "date": "1897-1901 (the Detroit Photographic Co. imprint; the holder's 1890-1901)"}
  },
  "stretches": [
+  {
+   "face": "e18th__prairie_ic_16_18",
+   "from_m": 0.0,
+   "to_m": 46.9,
+   "seen_by": ["taylor_1445 x 207-1098 (the Prairie corner to 46.9 m)", "detroit_4a08065 x 686-860 (a grazing view along the flank)"],
+   "note": "18th Street's north parkway beside the Pullman house, from the Prairie Avenue corner to where T-1934's stretch begins (T-1881). Taylor's no. 1445 sees it at 20-30 px a metre, the Detroit print at 4-6, and the house's record already rules that Taylor's governs along this flank (the two cameras disagree there by up to several metres, T-3161), so each tree stands at Taylor's reading and the Detroit print checks it: pairing the two pictures' trunks through both cameras lands the trees at 24.7, 37.7 and 43.7 m within 0.5 m of the planting line (v 31.41 in the house's frame) and the corner's within 0.8 m.",
+   "trees": [
+    {"at_m": 3.7, "kind": "mature", "read": ["taylor_1445 x 308 (a thick trunk on the parkway by the corner, its foot below the walk): 2.8 m", "detroit_4a08065 x 691 (base y 506): 0.6 m"], "note": "The corner's tree. Both readings fall on the Prairie walk's crossing of the parkway (data/street_section/1904.json, its east edge at 3.1 m), where Taylor's print stands the trunk in the grass east of the walk; the two pictures' trunks paired through both cameras meet at 3.45 m, 0.8 m off the planting line, so it is planted at 3.7 m, clear of the walk."},
+    {"at_m": 14.25, "kind": "mature", "read": ["taylor_1445 x 622 (base y 672, in front of the coping wall): 14.25 m", "detroit_4a08065 x 786 (base y 495): 19.3 m"], "note": "The Detroit print's nearest trunk to Taylor's; the 5 m between their readings is the two cameras' disagreement along this flank."},
+    {"at_m": 24.65, "kind": "mature", "read": ["taylor_1445 x 821: 24.65 m", "detroit_4a08065 x 806: 25.3 m"]},
+    {"at_m": 37.65, "kind": "mature", "read": ["taylor_1445 x 1001.5 (base y 632): 37.65 m", "detroit_4a08065 x 838: 37.7 m"], "note": "West of the carriage way's gap in the coping wall."},
+    {"at_m": 43.7, "kind": "mature", "read": ["taylor_1445 x 1067.5 (base y 631): 43.7 m", "detroit_4a08065 x 846: 41.5 m"], "note": "East of the carriage way's gap."}
+   ],
+   "not_planted": [
+    {"read": "detroit_4a08065 x 735.5 (base y 502): 7.85 m", "why": "Taylor's print sees this place (its x 455) at 25 px a metre and shows the coping wall's face clear, no trunk in front of it; Taylor's governs along this flank."},
+    {"read": "detroit_4a08065 x 821.5 (base y 495): 30.8 m", "why": "Taylor's print sees this place (its x 905) clear of any trunk; Taylor's governs along this flank."},
+    {"read": "taylor_1445 x 412-420 and 443-448; detroit_4a08065 x 758-760 and 768-770", "why": "Slender young trees whose trunks stop at the coping wall's top in both pictures: they stand inside the lot, on the lawn between the house and the wall, not in the parkway, so they are the front-yard layer's, not this file's."}
+   ]
+  },
   {
    "face": "e18th__prairie_ic_16_18",
    "from_m": 46.9,
