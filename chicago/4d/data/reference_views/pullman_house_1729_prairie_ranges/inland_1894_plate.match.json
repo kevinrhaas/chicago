@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_ranges",
   "view": "inland_1894_plate",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
-  "glb_sha256": "b44cc805a7ad26115c6c380faa1a2fcc841d1fe89cb6b18af0d14aa261eef37d",
+  "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb",
   "camera_sha256": "7d667dd94c9e1f4c2175f2df7f31b7bfd1390c08fc5b08d25b1b9c2bfd275fa6",
   "photo_sha256": "4cd3f1eef5e267d8e2769c48d0fbfc79fb4ed256303efca48a9274d2bf9c5580",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "b44cc805a7ad26115c6c380faa1a2fcc841d1fe89cb6b18af0d14aa261eef37d"
+      "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
     },
     {
       "structure_id": "pullman_house_1729_prairie_conservatory",
@@ -61,16 +61,16 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "5123d7f069e7b4f8e8fd8ecac0de54a744c504bad617a4b951758bd28a5fb8f4"
+      "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf"
     }
   ],
-  "group_sha256": "a7d3885ffc30d9a47c08007486b04f47eec28aa6c4e96a465f5948cff9282dd8",
+  "group_sha256": "4ad61580b171cbe9ffa124949d0a1736c0d05f0e1255b48d1be748999b5f83f8",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 24,
+        "shrubs": 27,
         "trees": 3,
         "beds": 0,
         "creeper": 6
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "daa50d96cfafdff4784a7134bacc7d250c26345a15407efddd29d77d60af2b4c"
+      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "85538f7bd18f0aa0a349a52e9faa7b4cd11ac4da7929fe278a9efecfba3d37e8"
+      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "71ba7e8bc6600e1cf0ace5780526f8f015877f4b3e558d55ea5497558c4be000",
+  "flora_sha256": "bafc555353a6b9c7301d37e1a66aef195a9764c1309e5ac5abcbed926fade944",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -219,7 +219,7 @@
       "status": "fixed"
     },
     {
-      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate",
+      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. Still open: the tall evergreen mass and the potted conifer west of the plate's flight and the cone in its tub at the flight's head, which stand by the second flight the build does not have (the terrace's two-flight approach), and the clipped heads read looser than the plate's shears.]",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards (camera flora)"
     },

@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5123d7f069e7b4f8e8fd8ecac0de54a744c504bad617a4b951758bd28a5fb8f4",
+  "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -10,7 +10,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 24,
+        "shrubs": 27,
         "trees": 3,
         "beds": 0,
         "creeper": 6
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "daa50d96cfafdff4784a7134bacc7d250c26345a15407efddd29d77d60af2b4c"
+      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "85538f7bd18f0aa0a349a52e9faa7b4cd11ac4da7929fe278a9efecfba3d37e8"
+      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "08c9997610625ed096b7a7ebfdb5f79bec56f7d1610a086971a8a3b6b54c2df6",
+  "flora_sha256": "02bbccccbd042439d667c8507add36e833e76dc7c1640ace5c3934f67e0bc018",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -238,10 +238,6 @@
       "what": "the belt course under the second storey's sills, where the ivy leaves it to be seen (y about 383-395 at the portico's balcony and across the flank)",
       "status": "fixed",
       "how": "T-1881: street_front_pavilions.belt, its bed at 6.72 m and its top at 7.67 m; the render's at y 382-397"
-    },
-    {
-      "what": "the entry off its axis (the owner, 2026-10-29: \"the entry is not straight\"): the print's stair rises straight between the portico's two inner columns to a door centred between them, from a gap in the street wall square before it, where the build stood the stair at v 4.0, the door at v 4.6 over the forward block's window, and the gate at v 5.7, so the walk bent; door, stair, inner columns and gate now stand on v 5.25, the forward block's centre (L-pullman-1729-entry-axis-1881)",
-      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

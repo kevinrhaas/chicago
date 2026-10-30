@@ -36305,3 +36305,32 @@ is the rule's planting line.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
 `inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
 **Recorded:** 2026-10-29 (T-1934).
+
+### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
+
+**Decision:** three plantings on the 1729 Prairie lot are stood where the 1894 Inland Architect
+plate (`inland_1894_pullman_palm_house_stable`) shows them, read through its solved camera, and
+carried into `data/front_yards/1904.json` by `tools/plant_prairie_1904_front_yards.py` (the lot's
+`tubs`): an arborvitae sheared to a ball, on a tub 0.5 m high, on the palm house's terrace east of
+its flight (1472.4 E, -3173.0 N, its top 3.24 m over grade; the tub stands on the terrace floor the
+baked model has there, 1.55 m up, which `--check` re-measures); an evergreen clipped to a ball on a
+clear stem, in a tub 0.55 m high, at grade before the stable's west arcade (1475.8 E, -3181.2 N, its
+top 2.61 m); and a slim clipped arborvitae planted inside the 18th Street wall by its east pier
+(1474.0 E, -3193.3 N, 1.9 m), which Taylor's 16555 (`aic_taylor_16555_pullman_west_front`) shows
+there too. The tubs and what grows in them are not drawn in the winter Season.
+**What is read:** each plant's place across the picture and its top from the plate's pixels; its
+depth from the plane it is read on (the terrace behind its balustrade, the line 1.6 m off the
+stable's wall, the ground at its visible foot); that the two balls are clipped evergreens, one
+sitting on its tub and one on a stem.
+**What is chosen:** that the plate's summer arrangement (1894) still stood on 1 July 1904, ten
+summers on: tub plants were wintered under glass and set out again, and no nearer picture shows the
+terrace, so every one is `inferred`. The species (arborvitae for the sheared ball and the column,
+an unnamed evergreen for the standard), the tubs' shape, size and their dark green paint. The
+plate's cone in its tub and the tall evergreens west of its flight are left out: they stand by the
+second flight the build does not have, and Taylor's print sets the terrace's tubs otherwise
+(an urn on the pier where the plate has the ball), which the match records hold within tolerance.
+**How to resolve:** a summer picture of the terrace nearer 1904, or a nursery or household record.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
+and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
+**Recorded:** 2026-10-29 (T-1934).
