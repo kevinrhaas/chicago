@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2433, ts: '2026-10-30T02:35:19.505Z', date: 'Oct 29, 2026, 9:35 PM CT', title: '1906 Prairie gains its roof deck, south wing and side porch', kind: 'feature',
+    items: [
+      'The Edson Keith house\'s hipped roof now stops at a flat deck with a rail round it, as its engraving shows, and its chimneys rise well above that rail.',
+      'On the south side a two-storey stone wing stands out from the house. It has round-headed windows, the house\'s bracketed cornice and a balustrade round its roof.',
+      'In the angle beside the wing, a porch on three round columns carries a balustraded balcony under the upper windows, with arched windows behind it.',
+      'Both of the house\'s pictures now match the model.',
+    ] },
   { v: 2432, ts: '2026-10-30T01:46:36.634Z', date: 'Oct 29, 2026, 8:46 PM CT', title: '1801 Prairie\'s cornice runs on beneath its stone wall gable', kind: 'improvement',
     items: [
       'On the Kimball house\'s south wall, the heavy stone cornice now carries on under the small paired windows of the rear corner\'s wall gable to the corner itself, as the 1965 survey photograph shows it, where it used to stop short at the gable\'s edge.',
