@@ -866,6 +866,16 @@ step "the 1904 street section and carriage walks re-lay from the street grid (T-
 step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
   python3 tools/plant_prairie_1904_street_trees.py --check
 
+# T-3274. ...and every house walk carried on to the public walk: the code lays the public walk a
+# foot outside the lot line the yards are built to, so each walk's street end, read off its built
+# GLB (or a K13 record's grounds) and its placement, is joined across that foot. A house lane that
+# moves its walk or its placement reruns the tool.
+step "every 1904 house walk meets the public walk: the walk joins re-lay from the built walks (T-3274)" \
+  python3 tools/lay_prairie_1904_walk_joins.py --check
+
+selftest "…and a walk a foot short is joined, one that meets or is no street end is not, at a turned walk's, a gated service walk's, a drive's and a K13 ground's end" \
+  python3 tools/lay_prairie_1904_walk_joins.py --self-test
+
 # T-3199. ...and the street furniture on those parkways (the gas lamps at every corner and along
 # the faces, the pictured ones at their lots; T-3201 the fire hydrants, Pullman's and Tucker's where
 # their pictures put them; T-3202 the poles and wires on 18th Street, the alleys and 22nd Street's
