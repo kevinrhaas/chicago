@@ -71,3 +71,15 @@ left at 4.49 M. What carries all of them is Glessner's inspection detail drawn a
 pixel-identical cut has no more to give there; what remains is a far-field level of detail for
 Glessner in both passes, or a ceiling argued for far views, and either changes what a visitor
 sees or what Full promises. That is T-3285, split off T-3272 beside this piece, not hidden here.
+
+## Mobile proof (390×780, Full), added on the lap
+
+`QA_VIEWPORT=390x780 node tools/qa_t3272_far_relief.mjs`, swap off against on, every pixel read back
+(`browser-validation-mobile-mobile-a.json`, `-b.json`):
+
+| stand | off | on | pixels differing | control (relief hidden) |
+|---|---:|---:|---:|---:|
+| alley from the north | 5,802,925 | 5,555,760 | **0** / 304,200 | 2 |
+| Prairie front 40 m E | 3,761,269 | 3,514,104 | 0 | 837 |
+| Prairie 38 m E / 30 m S | 3,915,870 | 3,668,705 | 0 | 226 |
+| over the roof (too close, no swap) | 3,590,071 | 3,590,071 | 0 | 162 |
