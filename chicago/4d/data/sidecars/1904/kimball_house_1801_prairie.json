@@ -336,7 +336,12 @@
             "rise_m": 1.4
           },
           "cross_roof": {
-            "over_bay": "p_south"
+            "over_bay": "p_south",
+            "hood": {
+              "base_m": 1.2,
+              "rise_m": 0.5,
+              "flashing_m": 0.06
+            }
           }
         }
       },
