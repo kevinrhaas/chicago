@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "be116007f631b47e0f7ee60841ff6a9c15d74c2d62722ba4e4a511ae71cbd04e",
+  "glb_sha256": "a2e37ec93375f33bad61933ab07b64e2c91c7d4bcdbb6e39856aaaecdb4ad99f",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "8130c909259d710b5e03e496f1a6c3f091ebb5a4ea53337250865ad2a54d2f56"
+      "sha256": "51ceebfcbf3aaa887cce350ac152c685d447cc4558e63a173c0b9c3566e67449"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "a1a81086da52dd0d71cac1a073a8e5d6d6ee723e7b7ceeb8e6ab5e1cc49c8eda",
+  "flora_sha256": "85555918469299710ad129dce063c62e8fa036a7eb971404f6d4291c56952b26",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -178,6 +178,11 @@
       "what": "the 18th Street pavilion's oculus pier between its second storey's pair and triple, and the flank's banded east corner pier (T-1881, read off Taylor's photograph no. 1445)",
       "status": "not shown",
       "how": "T-1881, 2026-10-30: through this camera the oculus renders at about x 1455, y 397 px and the east corner pier at x 1488-1491, where the plate's vignette draws the flank in a few engraved strokes behind the trees; neither is resolved there."
+    },
+    {
+      "what": "the porte-cochère's arch through the plate's camera",
+      "status": "within tolerance",
+      "how": "T-1881: the arches centred on their faces moved the front's 0.3 m west (s 10.8 to 10.5) and the ends' 0.22 m out; a move of 0.2-0.3 m, at or under the 0.3 m bar, which the plate draws in a few pixels; the dressing (banded piers, impost, ring and keystone) is read off Taylor's no. 1445"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "be116007f631b47e0f7ee60841ff6a9c15d74c2d62722ba4e4a511ae71cbd04e"
+      "glb_sha256": "a2e37ec93375f33bad61933ab07b64e2c91c7d4bcdbb6e39856aaaecdb4ad99f"
     }
   ],
-  "group_sha256": "018fe1fd63fe0d47616f95a7074e5a74183aecb87b105925e261e01bb3c4f1c4",
+  "group_sha256": "36c0937d0187f2c883af5fb8997eda973294f22db873e8130bde380e6b98185c",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -114,7 +114,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -122,7 +122,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "8130c909259d710b5e03e496f1a6c3f091ebb5a4ea53337250865ad2a54d2f56"
+      "sha256": "51ceebfcbf3aaa887cce350ac152c685d447cc4558e63a173c0b9c3566e67449"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "7e3c9580a1983090ac656f6ade6c8736ab39144a2072fda5076289a0814f8a00",
+  "flora_sha256": "38740e48f24cef208c536c23f4072a6fa81a4d357e40e10e6c7903c74e9beb54",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

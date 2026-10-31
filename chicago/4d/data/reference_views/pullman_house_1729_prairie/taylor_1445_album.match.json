@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "be116007f631b47e0f7ee60841ff6a9c15d74c2d62722ba4e4a511ae71cbd04e",
+  "glb_sha256": "a2e37ec93375f33bad61933ab07b64e2c91c7d4bcdbb6e39856aaaecdb4ad99f",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "8130c909259d710b5e03e496f1a6c3f091ebb5a4ea53337250865ad2a54d2f56"
+      "sha256": "51ceebfcbf3aaa887cce350ac152c685d447cc4558e63a173c0b9c3566e67449"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "4bc28414cb0c1561854c45408010da0f9f03054b194ea8ba17bfa5010417d182",
+  "flora_sha256": "90b39b966281fee697ba75685af686486239936040db15d5f0282d46a99d4b5c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -213,6 +213,11 @@
       "what": "the way under the porte-cochère: the gap in the wall east of the house",
       "status": "fixed",
       "how": "T-1934: a gravel drive (reconstructed) comes in through the gap and runs under the porte-cochère's arches to a turning apron; the 18th Street shrub border starts east of the house, clear of both ways (L-pullman-carriage-ways-1934)"
+    },
+    {
+      "what": "the porte-cochère's arches and their dressing (the owner, 2026-10-30: \"this part of the pullman house would have been balanced not off centered lop sided like that, and there is more detail you need on it on the corners and arches\"): the large round arch in the west end (x 660-715 px) and the narrower one in the south front (x 745-780) each framed by banded piers that run from grade to the entablature, a moulded impost at the springing, and a moulded ring round each head with a keystone at the crown",
+      "status": "fixed",
+      "how": "T-1881: each arch centred on the face it shows, the ends' on the 3.5 m standing out before the 18th Street pavilion (back_m 2.47, the end arches at 4.22 m out, 2.5 m across) and the front's at s 10.5 (2.4 m); porte_cochere.dressing lays the banded piers (0.4 m courses, 0.1 m channels, the corner piers' bands turned round the corner), the 0.25 m impost and an eleven-voussoir ring with its keystone. Through this camera the west arch draws at about x 657-697 against the photograph's 660-715 and the front's about 15 px west of the photograph's, the disagreement between this camera and the Detroit print's along the flank already recorded here (the Detroit print reads the arches 2.37 and 2.27 m across, this photograph 2.8 and 2.46: the built 2.5 and 2.4 stand between them)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

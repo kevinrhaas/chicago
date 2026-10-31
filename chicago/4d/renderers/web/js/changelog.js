@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2484, ts: '2026-10-31T05:15:56.213Z', date: 'Oct 31, 2026, 12:15 AM CT', title: 'The Pullman house\'s carriage porch, balanced', kind: 'improvement',
+    items: [
+      '1729 Prairie\'s porte-cochère on 18th Street now has each arch centred on its face, with banded stone piers, a moulded band where the arches spring, and a ring of voussoirs with a keystone round each arch, as J. W. Taylor\'s photograph shows them.',
+    ] },
   { v: 2483, ts: '2026-10-31T04:55:26.329Z', date: 'Oct 30, 2026, 11:55 PM CT', title: 'The tree at Pullman\'s glasshouse gate gets its young, broad head', kind: 'improvement',
     items: [
       'The parkway tree beside the 18th Street gate to Pullman\'s glasshouses now stands on one straight stem with a broad, low, leafy head from about 3 m, as the 1894 Inland plate and Lowe\'s c. 1897 photograph show it, in place of the grown elm\'s forked fountain.',
