@@ -166,9 +166,40 @@ def _ends_of_glb(sid, extras, world):
     return ends
 
 
+def _path_ends(srf):
+    """A gravel surface laid along a curve (T-3273's `path_m` [[u, v, lift], ...] centreline,
+    `width_m` [start, end], `samples` steps a span): its two ends' edges, in (u, v), exactly as
+    k13_conservatories._gravel_path draws them -- the Catmull-Rom curve through the points with
+    its ends doubled, each end's edge square to the chord to its neighbouring sample, the start
+    `width_m[0]` wide and the end `width_m[1]`. The worn `edge_m` margin is turf, not walk, and
+    is left out."""
+    pts = [tuple(map(float, q[:2])) for q in srf["path_m"]]
+    n = srf.get("samples", 6)
+    w0, w1 = srf["width_m"] if isinstance(srf["width_m"], list) else (srf["width_m"],) * 2
+    ext = [pts[0]] + pts + [pts[-1]]
+
+    def at(i, t):
+        p0, p1, p2, p3 = ext[i - 1], ext[i], ext[i + 1], ext[i + 2]
+        return tuple(0.5 * ((2 * p1[j]) + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t * t
+                            + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t * t * t) for j in range(2))
+    last = len(ext) - 3
+    # the first two samples and the last two, as the generator's own loop lays them
+    first, second = at(1, 0.0), (at(1, 1 / n) if n > 1 else at(min(2, last), 0.0))
+    end, before = at(last, 1.0), at(last, (n - 1) / n)
+
+    def edge(c, a, b, w):
+        du, dv = b[0] - a[0], b[1] - a[1]
+        ln = math.hypot(du, dv) or 1.0
+        nu, nv = -dv / ln, du / ln
+        h = w / 2
+        return [(c[0] - nu * h, c[1] - nv * h), (c[0] + nu * h, c[1] + nv * h)]
+    return edge(first, first, second, w0), edge(end, before, end, w1)
+
+
 def _ends_of_grounds(record, world):
     """A K13 record's `grounds` gravel (T-3164, the Pullman glasshouse ground): each surface's
-    first and last rows [u, v_a, v_b, lift] are its two ends."""
+    first and last rows [u, v_a, v_b, lift] are its two ends, or, for one laid along a curve
+    (`path_m`, T-3273), the edges its first and last sections are drawn on."""
     out = []
     for ph in record.get("phases", []):
         if not H._covers(ph):
@@ -176,9 +207,13 @@ def _ends_of_grounds(record, world):
         v = ((ph.get("form") or {}).get("conservatory") or {}).get("value") or {}
         gr = (v.get("pavilion") or {}).get("grounds") or {}
         for srf in gr.get("gravel", []):
-            rows = srf["rows_m"]
-            for which, r in (("first", rows[0]), ("last", rows[-1])):
-                out.append({"kind": f"grounds_{srf['id']}", "corners": [world(r[0], r[1]), world(r[0], r[2])],
+            if "path_m" in srf:
+                pairs = _path_ends(srf)
+            else:
+                rows = srf["rows_m"]
+                pairs = [[(r[0], r[1]), (r[0], r[2])] for r in (rows[0], rows[-1])]
+            for which, (a, b) in zip(("first", "last"), pairs):
+                out.append({"kind": f"grounds_{srf['id']}", "corners": [world(*a), world(*b)],
                             "n": f"{srf['id']}_{which}"})
     return out
 
@@ -348,13 +383,23 @@ def self_test() -> int:
     js = lay([{"house": "g", **e} for e in _ends_of_grounds(rec, world)], walks)
     case("a K13 ground's walk is joined at the row nearest the street", js[0]["state"] == "joined"
          and abs(js[0]["gap_m"] - 0.8) < 1e-6 and js[1]["state"] == "not a street end", [x["state"] for x in js])
+    curved = {"id": "g", "phases": [{"documented_range": {"from": "1890-01-01", "to": "1910-01-01"}, "form": {
+        "conservatory": {"value": {"pavilion": {"grounds": {"gravel": [{"id": "turn", "path_m": [
+            [10.0, 4.0, 0.0], [14.0, 6.0, 0.0], [17.0, 10.0, 0.0], [18.0, 10.0, 0.0], [19.6, 10.0, 0.0]],
+            "width_m": [3.0, 2.0], "samples": 5, "edge_m": 0.35}]}}}}}}]}
+    js = lay([{"house": "g", **e} for e in _ends_of_grounds(curved, world)], walks)
+    pl = js[1].get("polygon_local_m", [])
+    case("a K13 ground's curved gravel (path_m) is joined at its curve's street end, its end's width wide",
+         js[1]["state"] == "joined" and abs(js[1]["gap_m"] - 0.7) < 1e-6 and abs(js[1]["width_m"] - 2.0) < 1e-3
+         and len(pl) == 4 and abs(min(p[1] for p in pl) - 9.0) < 1e-3 and js[0]["state"] == "not a street end",
+         [(x["state"], x["gap_m"], x.get("width_m")) for x in js])
     turned_world = H.to_world({"local_e": 30.0, "local_n": 0.0, "rotation_deg": 180.0})
     walk["k01"]["components"][0]["instances"][0]["sockets"]["public_walk"] = [7.4, 0.06, -4.0]
     j = lay([{"house": "h", **e} for e in _ends_of_glb("h", walk, turned_world)], walks)[0]
     case("a house facing west across the street is joined from its own side", j["state"] == "joined"
          and abs(j["gap_m"] - 0.5) < 1e-6 and max(p[0] for p in j["polygon_local_m"]) < 22.6 + 2 * TUCK_M
          and min(p[0] for p in j["polygon_local_m"]) > 22.1 - 2 * TUCK_M, j)
-    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {10 - bad} of 10 cases")
+    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {11 - bad} of 11 cases")
     return 1 if bad else 0
 
 
