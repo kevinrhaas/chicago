@@ -37338,3 +37338,32 @@ top (11.65 m), so the light on the cant still looks into its recess past nothing
 **How to resolve:** the 1892 drawings, or a picture of the roof from above or from the south-east.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and `habs_1965_01_southwest-side-by-side.jpg`, with their match records.
+
+### L-field-1905-carving-3270 — 1905 Prairie's carved crests, frieze rings, tall consoles, the conservatory's transom, dark bars and railed roof deck, off the 1893 Pictorial Chicago plate
+
+**Decision:** T-3270 (piece 2 of T-1905) builds the carving, ironwork and glazing details the 1893
+plate (`rand_mcnally_pictorial_chicago_1893_field`) shows on the Field house, through the camera in
+`data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json`. Each chamber
+window's cornice hood gets a carved crest: a palmette between two scroll volutes, 1.3 m across and
+0.3 m high, standing under the frieze. The frieze gets pairs of carved rings (the plate's "1 O O 1")
+in the cornice's bracket bays. The door column's balcony runs the plate's 3.5 m on tall scrolled
+consoles 0.9 m down the wall. The conservatory gets a transom across its lights two thirds of the way
+up and a frame painted dark, and its curved glass roof now stops level at a tin deck with an iron
+railing round its edge. All of this is added to the kits, so every other house's asset is the same
+bytes: K09's frontage gets `crest` and `frieze_roundels` on `street_front_trim`; K01's balconette gets
+`console_drop_m` and a 3.6 m ceiling; K13 gets `transom_m`, `frame_color` and `roof_deck`.
+**What is read, not invented.** Where the crests, the rings, the door column's long balcony and its
+tall consoles stand. The conservatory's transom, its dark bars against pale glass, and its railed
+deck at about the chamber floor.
+**What is a working figure.** The carving's form: the kit's simple palmette, volutes and rings, not
+the plate's leafwork, which its halftone does not resolve. The rings stand in the bracket bays the
+crests leave clear, because the kit spaces its bracket pairs evenly over the piers where the plate puts
+them at the columns' edges, so the door and narrow columns' pier has none. The deck reaches 0.52 of the
+way out from the wall (the plate reads about 0.55-0.6; the kit's triangle budget holds it at 0.52). The
+railing is plain balusters between a top and a foot rail, where the plate draws scroll panels. The
+dark paint, the tin and the iron are reconstructed tones.
+**What is still not built.** The dormers' pedimented and scrolled cheeks. The wide column's balcony
+at its full length, which waits on the front's length being re-read. The balcony behind the canted
+corner. All three stay open on the match record.
+**How to resolve:** the Daily News view's camera (DN-0003324), and a sharper print of the plate for the carving.
+**Recorded:** 2026-10-31 (T-3270).

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2492, ts: '2026-10-31T12:06:03.265Z', date: 'Oct 31, 2026, 7:06 AM CT', title: 'The Field house\'s carving, balconies and conservatory details', kind: 'improvement',
+    items: [
+      '1905 Prairie, Marshall Field\'s house, now has the carved crests the 1893 Pictorial Chicago plate shows over its upper windows, and carved rings in the frieze under its cornice.',
+      'The iron balcony over the front door now runs its full length, on tall scrolled brackets that reach down beside the doorway.',
+      'The glass conservatory on the south side has a crossbar two thirds of the way up its windows and dark-painted bars. Its curved glass roof now rises to a flat deck with an iron railing round it, as in the plate.',
+    ] },
   { v: 2491, ts: '2026-10-31T11:20:53.436Z', date: 'Oct 31, 2026, 6:20 AM CT', title: 'Pullman\'s palm house terrace keeps its four clipped columns all year', kind: 'improvement',
     items: [
       'Four slim clipped evergreens now stand on the palm house\'s terrace at 1729 Prairie: a pair before the wing\'s arched windows and two by the drum. Taylor\'s winter photograph shows all four, and his summer one shows three.',

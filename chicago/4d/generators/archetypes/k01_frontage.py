@@ -1844,6 +1844,8 @@ class Assembly:
             k01_arched_front.lay(self, frame, yf, length, conf, r_wall)
         if beds is None and p.street_iron:   # T-3184: a brick front's balconettes and stoop rails
             k01_arched_front.street_iron(self, frame, p.street_iron, conf)
+        if beds is None:   # T-3270: the frieze's carved roundels, where street_front_trim names them
+            k09_frontage.frieze(self, frame, max(conf, p.conf("street_front_trim")))
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
         # (T-3112: from the pier's side, which stops under the cap)
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
@@ -5749,6 +5751,8 @@ def build(params, structure_id: str):
         # balconettes, Chicagology's photograph), as stone_front lays it on 1834's
         k01_arched_front.street_iron(a, frames["k01.wall.street_front"][0][0], p.street_iron,
                                      p.worst_conf("footprint", "stories", "storey_heights_m", "construction"))
+    if not p.stone:   # T-3270: and its frieze's carved roundels, where street_front_trim names them
+        k09_frontage.frieze(a, frames["k01.wall.street_front"][0][0], p.conf("street_front_trim"))
     # T-2291: a projecting stretcher course at the second-floor line on the south wall
     # and the rear, the south one run out past the quoin so the two meet; the north
     # wall is a blank party wall against the Glessner court and carries none. A windowed

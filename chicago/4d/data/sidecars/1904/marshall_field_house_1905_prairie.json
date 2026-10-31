@@ -182,13 +182,35 @@
         "by_storey": [
           "k09.trim.lintel_cornice_hood",
           "k09.trim.lintel_cornice_hood"
-        ]
+        ],
+        "crest": {
+          "storeys": [
+            1
+          ],
+          "width_m": 1.3,
+          "height_m": 0.3,
+          "proud_m": 0.1
+        },
+        "frieze_roundels": {
+          "s_m": [
+            0.93,
+            3.95,
+            5.22,
+            9.86
+          ],
+          "y_m": 11.12,
+          "radius_m": 0.13,
+          "ring_m": 0.045,
+          "proud_m": 0.06,
+          "gap_m": 0.4,
+          "block_m": 0.0
+        }
       },
       "confidence": "inferred",
       "sources": [
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "Every window of the plate's front stands in a light stone surround under a moulded head with a cornice: K09's lintel with a cornice hood on both storeys (the heads' carved crests are not modelled)."
+      "note": "Every window of the plate's front stands in a light stone surround under a moulded head with a cornice: K09's lintel with a cornice hood on both storeys. T-3270: the chamber windows' heads carry the plate's carved crests, a palmette between two scroll volutes standing on each hood and stopping under the frieze (1.3 m across, 0.3 m high); and the frieze carries the plate's pairs of carved rings (its '1 O O 1', the cornice's paired brackets standing for its upright strokes) in the four bracket bays the crests leave clear: the north end, both sides of the pier between the north and door columns, and the pier between the narrow and wide columns. The kit's evenly spaced bracket pairs stand over the piers where the plate's stand at the columns' edges, so the door and narrow columns' pier has no room for a pair. The principal windows' heads, under the balconies' slabs and consoles, keep the kit's plain hood. RECONSTRUCTED: the crests' and rings' carving is the kit's simple palmette, volutes and rings, not the plate's leafwork, which its halftone does not resolve (L-field-1905-carving-3270)."
     },
     "street_front_iron": {
       "value": {
@@ -204,14 +226,15 @@
             "before_light": true
           },
           {
-            "from_s_m": 4.9,
-            "to_s_m": 7.9,
+            "from_s_m": 4.65,
+            "to_s_m": 8.15,
             "floor_m": 7.4,
             "proud_m": 0.7,
             "height_m": 0.9,
             "slab_m": 0.2,
             "consoles": 2,
-            "before_light": true
+            "before_light": true,
+            "console_drop_m": 0.9
           },
           {
             "from_s_m": 9.95,
@@ -229,7 +252,7 @@
       "sources": [
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "T-3261: the plate's three iron balconies on the front, read against its window columns: one before the chamber window of the north column, one before the door column's (over the door) and one before the wide column's, none before the narrow column's. Each stands on the stone belt at the chamber floor (2.2 + 5.2 = 7.4 m) on two scrolled stone consoles, its guard about 0.9 m high before a chamber light that runs down behind it to a sill 0.3 m over the floor. Lengths from the plate's pixels scaled by the column spacing (47-52 px a metre locally): the north one about 2.3 m, the door column's about 3.5 m, the wide column's about 2.5 m, each centred on its window (their fronts read north of the windows only by the oblique view's parallax); the door column's is built 3.0 m, the kit's longest (open on the match record). About 0.7 m proud and the slab 0.2 m deep, inferred from the plate's consoles. The undated photograph from the west side of the avenue (chicagology_1905_field_photo, cross-check only, not a source of this) shows the same three and the narrow column without one. The pierced panels' scroll pattern is the kit's, RECONSTRUCTED. The wide column's stops at the canted corner (T-3261), 0.2 m short of the cut, so it is built 1.9 m, from 0.65 m south of its window to 1.25 m north."
+      "note": "T-3261: the plate's three iron balconies on the front, read against its window columns: one before the chamber window of the north column, one before the door column's (over the door) and one before the wide column's, none before the narrow column's. Each stands on the stone belt at the chamber floor (2.2 + 5.2 = 7.4 m) on two scrolled stone consoles, its guard about 0.9 m high before a chamber light that runs down behind it to a sill 0.3 m over the floor. Lengths from the plate's pixels scaled by the column spacing (47-52 px a metre locally): the north one about 2.3 m, the door column's about 3.5 m, the wide column's about 2.5 m, each centred on its window (their fronts read north of the windows only by the oblique view's parallax); T-3270: the door column's is built at the plate's 3.5 m, centred on its window (4.65-8.15 m), on the plate's tall scrolled consoles, run 0.9 m down the wall beside the door's surround. About 0.7 m proud and the slab 0.2 m deep, inferred from the plate's consoles. The undated photograph from the west side of the avenue (chicagology_1905_field_photo, cross-check only, not a source of this) shows the same three and the narrow column without one. The pierced panels' scroll pattern is the kit's, RECONSTRUCTED. The wide column's stops at the canted corner (T-3261), 0.2 m short of the cut, so it is built 1.9 m, from 0.65 m south of its window to 1.25 m north."
     },
     "wall_head": {
       "value": {
@@ -579,7 +602,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "The south flank's conservatory: the 1911 sheet's bulge off the south wall between about 7 and 16 m behind the front, 'Greenhouse' written at the front's bay, and the plate's curved glasshouse on a stone base with a balcony over it, at x 955-1180 px. Built as K08's bowed bay over the basement: 8.4 m on its chord and 2.7 m out (the sheet's bulge reaches about 3.6 m off the wall; K08 holds a bow's facets to its radius). T-1905: the bow is the glasshouse's stone base only, a storey high in the house's stone with its basement light, decked flat at 2.4 m over grade; the glass that stands on it, a ring of tall lights under a curved glass roof, is its own record on the K13 kit (data/structures/marshall_field_house_1905_prairie_conservatory.json, L-field-1905-conservatory-1905). The balcony's railing on its roof is still open on the plate's match record."
+      "note": "The south flank's conservatory: the 1911 sheet's bulge off the south wall between about 7 and 16 m behind the front, 'Greenhouse' written at the front's bay, and the plate's curved glasshouse on a stone base with a balcony over it, at x 955-1180 px. Built as K08's bowed bay over the basement: 8.4 m on its chord and 2.7 m out (the sheet's bulge reaches about 3.6 m off the wall; K08 holds a bow's facets to its radius). T-1905: the bow is the glasshouse's stone base only, a storey high in the house's stone with its basement light, decked flat at 2.4 m over grade; the glass that stands on it, a ring of tall lights under a curved glass roof, is its own record on the K13 kit (data/structures/marshall_field_house_1905_prairie_conservatory.json, L-field-1905-conservatory-1905). The railed deck the plate shows on its roof is the conservatory record's (T-3270)."
     },
     "cant_corner": {
       "value": {
