@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2505, ts: '2026-10-31T20:36:25.655Z', date: 'Oct 31, 2026, 3:36 PM CT', title: 'Clipped evergreens before Pullman\'s stable', kind: 'improvement',
+    items: [
+      'The row of clipped evergreens behind the 18th Street wall in front of the Pullman stable is planted now, where a winter photograph shows them over the coping: little cones and sheared balls, a clipped column, and a dense mass at the stable\'s east end.',
+    ] },
+  { v: 2504, ts: '2026-10-31T20:36:25.655Z', date: 'Oct 31, 2026, 3:36 PM CT', title: '1801 Prairie: the east range\'s steep end and its stone chimney', kind: 'feature',
+    items: [
+      'On 18th Street, the Kimball house\'s east range now rises steeply to its peak just behind the side-door bay, with a pale stone chimney on top. Both are read off the 1965 HABS photograph taken from the north-west.',
+    ] },
+  { v: 2503, ts: '2026-10-31T20:36:25.655Z', date: 'Oct 31, 2026, 3:36 PM CT', title: '1729 Prairie\'s front windows framed in moulded stone', kind: 'improvement',
+    items: [
+      'The Pullman house\'s round-arched front windows now stand in moulded stone surrounds, as the 1890 Albertype plate draws them: a band down each side and round the arch, a block at the springing, and a keystone over the principal floor\'s lights.',
+    ] },
+  { v: 2502, ts: '2026-10-31T19:56:23.472Z', date: 'Oct 31, 2026, 2:56 PM CT', title: '1616 Prairie\'s brick stable joins its neighbour on the alley', kind: 'feature',
+    items: [
+      'The house at 1616 Prairie now has its own stable on the alley, standing against 1620\'s: a two-storey brick building 9.9 m along the alley and 11 m deep. Its outline, storeys, brick, alley window and the fire wall rising above its roof at the north end are read off the 1911 Sanborn sheet. Its carriage doors, loft hatch, other windows and gable roof come from the shared coach-house kit and are reconstructed. Robinson\'s 1886 atlas shows the spot still empty, so the stable was built some time after that.',
+    ] },
   { v: 2501, ts: '2026-10-31T17:03:32.896Z', date: 'Oct 31, 2026, 12:03 PM CT', title: 'House walks now run all the way to the sidewalk', kind: 'fix',
     items: [
       'On Prairie Avenue and its cross streets, 51 house walks, side walks and drives stopped on a strip of grass short of the public sidewalk. Each now runs on until it meets it, as the period photographs show.',

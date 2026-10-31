@@ -24332,7 +24332,7 @@ house stays this draft's.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24388,6 +24388,9 @@ outline, storeys, brick and window mark the sheet draws; its draft attributes ar
 now stands as the K12 coach house under `L-k12-1620-stable-1932`, under the same id, on the
 outline, storeys, brick and two window marks the sheet draws, as the brick stable Robinson's 1886
 plate crosses; its draft attributes are gone.
+**1616's stable retired from this liberty by T-1932 (2026-10-31):** `house_1616_prairie_coach_house`
+now stands as the K12 coach house under `L-k12-1616-stable-1932`, under the same id, on the
+outline, storeys, brick, window mark and fire-wall signs the sheet draws; its draft attributes are gone.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -24429,7 +24432,7 @@ which household it served is not read.
 **How to resolve:** each house's per-building ticket (T-1859 to T-1874, named on its card and in
 its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley
 buildings are T-1932's.
-**Retired in part:** 1612 Goodman's front house by T-2344 (piece 1 of T-1860), which refined it in place on the K01 frontage kit under `L-k01-1612-goodman-2344`; its stable is still this draft's. 1620 Law's house by T-1861, which refined it in place on the K01 frontage kit under `L-k01-1620-law-1861`; its stable by T-1932, on the K12 coach-house kit under `L-k12-1620-stable-1932`. 1736's house by T-2933 (piece 1 of T-1874), which refined it in place on the K01 frontage kit under `L-k01-1736-mcbirney-veranda-2933`; its stable is still this draft's.
+**Retired in part:** 1612 Goodman's front house by T-2344 (piece 1 of T-1860), which refined it in place on the K01 frontage kit under `L-k01-1612-goodman-2344`; its stable is still this draft's. 1620 Law's house by T-1861, which refined it in place on the K01 frontage kit under `L-k01-1620-law-1861`; its stable by T-1932, on the K12 coach-house kit under `L-k12-1620-stable-1932`. 1736's house by T-2933 (piece 1 of T-1874), which refined it in place on the K01 frontage kit under `L-k01-1736-mcbirney-veranda-2933`; its stable is still this draft's. 1616's stable by T-1932, on the K12 coach-house kit under `L-k12-1616-stable-1932`.
 **Ticket:** T-2334 (piece 1 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-west-2334/README.md`.
 **Recorded:** 2026-10-11 (T-2334).
@@ -32789,6 +32792,44 @@ would then be built.
 **Review:** `docs/RESEARCH/k12-1620-law-stable-1932/README.md`.
 **Recorded:** 2026-10-31 (T-1932).
 
+### L-k12-1616-stable-1932 — The stable on the alley behind 1616 Prairie, built from the K12 kit on the outline the 1911 sheet draws
+
+**Decision:** the district draft's alley building behind 1616 Prairie Avenue (T-1932) is refined in
+place, under its own id `house_1616_prairie_coach_house`, onto the K12 coach-house kit
+(L-k12-coach-house-kit-2320), the fourth K12 coach house in the scene after 1812's, 1736's and 1620's
+(L-k12-1620-stable-1932), whose north wall it stands against. **What is read.** From sheet 20 of the 1911
+Sanborn: its outline, 11.02 m deep from the alley line by 9.88 m along it, measured between line centres
+on the committed raster (median darkness profiles: columns 2229 and 2446, rows 2124.5 and 2319) and carried
+by the sheet's fitted similarity; its '2' storeys; its brick; the stable's X; the wall figures '12 8'; one
+of the key's window marks, on the alley wall about 5.92 m from the north wall with a dot for each storey;
+the key's fire-wall sign with two ticks (12 inches above the roof) at the alley end of its north wall and of
+the wall line it shares with 1620's stable; and 1612's building drawn with its own wall line about 0.36 m
+north of this one's. Inferred for 1904 as every reading of these sheets is. **The date.** Robinson's 1886
+plate 10 draws the rear of this lot empty between 1620's crossed stable and the building behind 1612, so the
+stable was built after 1886; that it stood by 1904 is the census's carry-back of the 1911 sheet, which the
+district draft already made, and nothing read here narrows it. **What is invented.** Every opening but the
+mark is the kit's laid out for this lot: on the alley, the carriage bay 3.0 m clear at the north end with the
+loft hatch over it, a stable sash and a loft sash where the sheet's mark stands, and a man door with a loft
+sash over it toward the south end; on the yard side a door at the middle between two stable sash and two loft
+sash. The north end is the kit's party wall, its parapet the kit's 0.45 m where the sheet's sign reads 12
+inches (0.30 m). The south end is the kit's open gable, without openings (the sheet marks none on that wall),
+standing against the north face of 1620's party wall: the sheet draws one wall there, and the two records
+build it as 1620's party wall and this building's gable back to back, 0.33 m thicker than one wall, inside
+the fit's 3.08 m. The roof is a gable with its ridge along the alley at 30 degrees, the pitch 1736's and
+1812's deep stables use, about 3.2 m from eave to ridge over the 11.02 m span: no picture of the building is
+known. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m basement, reached by nothing. The
+workyard is paved from the yard door to the house's main rear wall, 12.0 m east. Flat colours. **Left
+out.** The sheet's solid dot inside the building near its south wall, the key's sign for a vertical steam
+boiler: the kit builds no stack and the sheet draws none, so the boiler's flue is not shown. **What is
+not.** The outline, its place on the lot, its two storeys, its brick, the window mark's place, the fire walls
+at both ends and the 1911 use are the sheet's. **How to resolve:** a photograph of the alley behind
+1612-1620 Prairie, or a building permit for the stable (it should fall between 1886 and 1911), entered as a
+source, gives its openings, roof, gable, stack and date their true form.
+**Covers:** `house_1616_prairie_coach_house.as_standing_1904.form.coach_house`, `house_1616_prairie_coach_house.as_standing_1904.form.stories`, `house_1616_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-1932.
+**Review:** `docs/RESEARCH/k12-1616-stable-1932/README.md`.
+**Recorded:** 2026-10-31 (T-1932).
+
 ### L-k01-1736-roof-rear-2995 — 1736 Prairie's mansard taken off the north wall, the rear and the 18th Street wall behind the brick bay, which rise as a straight brick third storey, built blank and coped
 
 **Decision:** 1736 Prairie's mansard (T-2995, piece 2 of T-2962) stands where the 1911 sheet 20 draws
@@ -36857,6 +36898,18 @@ its top 4.79 m, stood 0.8 m off the wing because 16555 shows it only behind the 
 -3168.4 N, 5.02 m). Their tops are 16554's readings, which 16555 puts about 0.5 m higher;
 the widths are the print's (0.7-1.0 m). That they were planted in beds or fixed vases rather
 than in tubs carried in is read from the winter print; what they stood in is hidden in all three.
+Fourteen more stood on 2026-10-31 behind the 18th Street coping before the stable, where 16554
+shows them over the coping (x 727-1090 px), each on its pixel column through that camera: two small
+arborvitae cones and a pair of sheared balls before the corner bay (1478.3-1481.5 E, -3193.5 N, in
+the border line behind the coping that the c. 1900 Detroit view shows nearer the house, east of the
+court's carriage opening, which they keep clear), four sheared balls (1481.88-1484.72 E, -3188 N),
+a clipped column and two cones (1485.54-1487.55 E, -3188 N) and three sheared balls massed at the
+stable's east end (1489.97-1491.98 E, -3187 N). The middle cluster's and the east mass's line,
+about 4 m off the stable's front, is where 16555's leafy masses (x 903-963 and 1050-1100 px) cross
+16554's columns. Each top is its rise over the coping beside it in 16554, set over the built 0.9 m
+coping (1.45-2.24 m): through that camera the coping itself reads about 0.55 m, which the match
+record holds open, and read absolutely the tops are 0.8-1.7 m. 16555, of 1892-94, shows the low
+balls' stretch bare over the coping, so they are taken as planted after it and before 16554.
 **What is read:** each plant's place across the picture and its top from the plate's pixels; its
 depth from the plane it is read on (the terrace behind its balustrade, the line 1.6 m off the
 stable's wall, the ground at its visible foot); that the two balls are clipped evergreens, one
@@ -36875,7 +36928,7 @@ the pier where the plate has the ball), which the match records hold within tole
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
 and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
-**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934).
+**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934); the fourteen behind the coping before the stable 2026-10-31 (T-1934).
 
 ### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
 
@@ -37539,3 +37592,54 @@ knob without a spike; the build keeps the Taylor print's spike.
 **Ticket:** T-1890.
 **Recorded:** 2026-10-31.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and `taylor_c1895_northwest-side-by-side.jpg`, with their match records.
+
+### L-kimball-1801-range-stack-1890 — 1801 Prairie's east range: its 18th Street end pitched steep, and the stone stack on its apex
+
+**Decision:** r2, the east range behind the gabled section, keeps its 45-degree sides and its
+11.05 m ridge, but its 18th Street (south) end is pitched at 60 degrees
+(`rear_wings[].roof.end_pitch_deg`, built by `k01_frontage.Assembly.wing_hip_ends`), so the
+apex stands 2.7 m back from that wall rather than 4.7 m. On it stands a stack in the walls' pale
+stone (`rear_wings[].stacks`, the first stack a K01 wing carries): 0.8 m square at u -13.45,
+v 2.6, under a cap 0.1 m proud and 0.45 m deep, its top at 11.4 m. **What is read.** HABS
+photograph 2 (1965), at full size through T-3110's camera: the range's slate rises steeply from
+the eave to an apex at about x 380, y 797 px, where the build's 45-degree end put it about 55 px
+east; and on the apex a pale shaft under a moulded cap (x 336-387, the cap's top at y 776),
+which sets the stack's place within about 5 px and its height within about 2 px. **What is
+invented.** The end's pitch where the picture gives only the apex: 60 degrees is the steepest a
+K01 slated wing takes, and the print's apex may stand a little further forward still. The
+stack's depth along the range, which no picture sees; it is laid square. The cap is a plain slab
+where the print shows a moulded one, and the shaft's foot on its west face stands about 0.4-0.6 m
+under the print's through this one camera. The Taylor print of c. 1895, the period view, cannot
+see the range's roof behind its tree, so the 1965 stack and end are taken as the 1904 fabric.
+**How to resolve:** the 1892 drawings, or a period picture of the 18th Street range from the
+north-east.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-31.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, with its match record.
+
+### L-pullman-1729-architraves-1881 — 1729 Prairie's front lights framed in moulded architraves off the 1890 Albertype plate: their bands, imposts and keystones read, their profile reconstructed
+
+**Decision:** the four round-arched lights of the Prairie front that the build lays in the K01 wall
+(the principal storey's two and the second storey's centre and south lights) stand in moulded
+architraves (`street_front_windows.windows[].architrave`, a new K01 key): a band down both jambs from
+the sill and on round the arch, an impost block at the springing, and over the principal storey's
+lights a keystone at the crown. The second storey's 0.25 m voussoir rings (L-k01-1729-pullman-heads-3157)
+are replaced by the architraves.
+**What is read, not invented.** The 1890 Albertype plate (`albertype_1890_chicago_residences_plate`)
+at its full size through its solved camera, about 17 px a metre on the front: the bands' breadth (the
+second storey's widest light's glass at x 1194-1219 px against the moulding's outer edge at 1188-1222;
+the principal storey's big light's at 1197-1224 against 1191-1230), the imposts at the springing (y
+496-502 px on the big light) and the big light's keystone (x 1203-1208, y 468-474). Bands of 0.3 and
+0.28 m on the two wide lights; 0.18 m on the two narrow lights at s 15.45, which stand 0.26 m from the
+rusticated pier and whose bands the plate draws no wider than the pier leaves room for. Read to about
+0.1 m.
+**What is invented.** The moulding's profile, laid as two plain fascias (the outer 0.12 m proud, the
+inner 0.06 m) so that the step draws the plate's dark outer line; the imposts' 0.25-0.3 m height and
+0.05-0.1 m step; the narrow lights' keystone (0.22 m, scaled from the big light's). The forward
+block's light over the portico, a K08 bay light, is not framed, and the big light's sill on its two
+blocks is not built: both are open in the plate's match record.
+**How to resolve:** a closer picture of the front (the CHM 1905 views, once solved) gives the
+moulding's profile; a K08 bay-light architrave frames the forward block's light.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`.
+**Recorded:** 2026-10-31 (T-1881).
