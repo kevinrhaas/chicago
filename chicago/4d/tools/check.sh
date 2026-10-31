@@ -1133,6 +1133,13 @@ step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
   python3 tools/test_k01_cross_roof_hood.py
 
+# T-1890. 1801 Prairie's east range (HABS photograph 2): its 18th Street end pitched steeper
+# than its sides to an apex 2.7 m back, and a stone stack standing on that apex — the first a
+# K01 wing carries: bad ends, a stack outside the wall line or under the slate refused; an end
+# at the sides' own pitch builds K05's hip exactly; a wing without either as before.
+step "a K01 wing's hip may pitch its ends steeper, and a wing may carry its own stacks (T-1890)" \
+  python3 tools/test_k01_wing_stack.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
@@ -1193,6 +1200,14 @@ step "a K01 house carries a two-level veranda on its rear wall, and a wing's wal
 # brick block gone; an over-high floor, a low eave, a run past the wall and an unknown key refused.
 step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
   python3 tools/test_k01_rear_terrace.py
+
+# T-1881. A K01 named street window's round head framed by a moulded architrave (jambs, arch,
+# impost and keystone), held on 1729 Prairie's record off the 1890 Albertype plate: the four
+# lights the front shows framed, the one behind the forward block left in its voussoirs, every
+# band springing with its head and clear of the piers; voussoirs with an architrave, a band out
+# of range, a low keystone, an unknown key and two architraves run together refused.
+step "a K01 house's named round-arched street lights stand in moulded architraves (T-1881)" \
+  python3 tools/test_k01_architrave.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on

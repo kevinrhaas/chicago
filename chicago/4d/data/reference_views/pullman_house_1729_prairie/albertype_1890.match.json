@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101",
+  "glb_sha256": "f18763b70c56d9891b02f64291eb05516b24876482dfd380061633bfeca297a4",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -10,7 +10,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 16,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
         "creeper": 22
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "6d12e674f67a5269b91c254ff5ca3d76aa6ced8af08686277f42ae000bdd2ae7",
+  "flora_sha256": "4f89516fdeb3d4947902379b79e075f983c4a765bce6381e0c6ad8d4eb9f65cf",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -86,8 +86,8 @@
     },
     {
       "what": "the Prairie front's round-arched windows on both storeys under moulded heads",
-      "status": "open",
-      "how": "T-3157: the render's arched windows line up with the plate's within 10-20 px (under a metre at the front's scale); the plate's heads read heavier, a profile the vignette cannot measure Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "status": "fixed",
+      "how": "T-3157: the render's arched windows line up with the plate's within 10-20 px (under a metre at the front's scale); the plate's heads read heavier, a profile the vignette cannot measure Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-1881 (2026-10-31): read at the plate's full size (about 17 px a metre on the front, from the render's lights), each round-arched light stands in a moulded architrave: a band down both jambs and round the arch (the second storey's widest light: glass x 1194-1219, the moulding's outer edge x 1188-1222; the principal storey's big light: x 1197-1224 and 1191-1230), a dark line at its outer edge, an impost block stepping out at the springing (y 496-502 on the big light) and, on the principal storey, a keystone at the crown (x 1203-1208, y 468-474). Built (street_front_windows.windows[].architrave): 0.28-0.3 m bands on the two wide lights and 0.18 m on the two narrow ones beside the rusticated pier, in two fascias 0.12 m and 0.06 m proud (the step draws the outer line), imposts 0.25-0.3 m high stepping 0.05-0.1 m out, keystones 0.3 and 0.22 m across rising 0.45 and 0.35 m over the crown; the second storey's voussoir rings (T-3157) replaced. The render's heads now read moulded with their imposts and shadow line, as the plate's do, 15-20 px left of the plate's through this camera as every element of the front does (the camera disagreement already recorded). (L-pullman-1729-architraves-1881)"
     },
     {
       "what": "the tall stack rising behind the tree just west of the corner pier (x about 1293, its top at y 213)",
@@ -187,6 +187,16 @@
     {
       "what": "the owner's report, 2026-10-30: the Prairie front stepped back three times from the north side. Built (T-1881): a 1.95 m middle step 1.65 m out (v 8.45-10.4, the 1911 sheet's u 29.4 line) between the forward block and the wall to the corner, banded under its own mansard section; it renders where the plate draws its banded pier between the narrow second-storey light and the big arched window (x 1137-1163 on the plate, about 20 px left of the render through this camera, the same offset as the corner pier's)",
       "status": "fixed"
+    },
+    {
+      "what": "the forward block's second-storey light over the portico (x 1017-1044) under the same moulded head as the front's other lights: in the build it is a K08 bay light (p_forward) under K06's own arch band, which the K01 architrave does not reach",
+      "status": "open",
+      "how": "T-1881 (2026-10-31): seen when the front's K01 lights were framed; needs the K08 bay window to take an architrave"
+    },
+    {
+      "what": "the principal storey's big light stands on a projecting sill carried on two blocks over a sunk panel (x 1180-1240, y 545-560); the build's light stands on K06's plain sill",
+      "status": "open",
+      "how": "T-1881 (2026-10-31): read with the architraves; not built in that run"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -70,7 +70,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 16,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
         "creeper": 22
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "06f3d5921eee0582c6a740f82e22b44e908adc8d2bb6e539c5c106cad624937a",
+  "flora_sha256": "92a7e43efe0c4391f5f52de471b5be73f17b81e4f1531fe0e40359d7e9afb346",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
