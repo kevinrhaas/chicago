@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -385,7 +385,7 @@
     "mark_kimball_house_2108_prairie_coach_house__draft_1904.glb": "5aeccaebf44c84e4015fa5d0debe3b4fb09d0abc30aaed114c496f48129e0ad9",
     "marsh_house_1824_prairie__as_mapped_1904.glb": "d9a8ea0377aab41ff6e660525064d8309157a5b0bfa8099cd909700da3aa8b0b",
     "marsh_house_1824_prairie_coach_house__draft_1904.glb": "f29062ef62a894bdb24c26b66a3a19969dae41764e46cb8485d2e59a8114be6f",
-    "marshall_field_house_1905_prairie__as_mapped_1904.glb": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5",
+    "marshall_field_house_1905_prairie__as_mapped_1904.glb": "badef2d4fee25212961656ebfc55438ba57b7e79108139c49e9e4ffd41e111a2",
     "marshall_field_house_1905_prairie_coach_house__draft_1904.glb": "9a6c832b1ddba93c63fcfbf347a10c904b7cbc91cfda8a536eaffd3b2c779b1f",
     "marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f",
     "marshall_field_jr_house_1919_prairie__draft_1904.glb": "8a7f53da5422d83cc4ac95ac8e503c0a167c03c321d2ad5a53abcc2e25ea41ca",

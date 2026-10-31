@@ -36,6 +36,8 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             column and basement light, the front and the side wall stopped
                             at it, and the cornice, the mansard's rings, the gutter and the
                             curb's cresting turned round it on two mitres
+  k01.wall.cant_strip       the light stone strips framing a blank canted face's brick at its
+                            two angles (T-3271, `cant_corner.strips`; 1905's)
   k01.wall.round_arcade     the porch's arcade round that corner (T-2991, the loggia's
                             `round_arcade`): round-headed lights cut through the round's
                             courses into the porch's shadow, each over a colonnette
@@ -5844,8 +5846,26 @@ def build(params, structure_id: str):
     if not p.stone and p.street_iron:
         # T-1871: a brick front with no stone front wears its iron too (1700's and 1706's
         # balconettes, Chicagology's photograph), as stone_front lays it on 1834's
-        k01_arched_front.street_iron(a, frames["k01.wall.street_front"][0][0], p.street_iron,
-                                     p.worst_conf("footprint", "stories", "storey_heights_m", "construction"))
+        # T-3271: each balconette on the wall it names (1905's south flank carries two)
+        iconf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
+        bals = p.street_iron.get("balconettes", ())
+        k01_arched_front.street_iron(a, frames["k01.wall.street_front"][0][0],
+                                     {**p.street_iron, "balconettes": tuple(
+                                         b for b in bals if b.get("wall", "k01.wall.street_front") == "k01.wall.street_front")}, iconf)
+        for b in bals:
+            if b.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
+                k01_arched_front.street_iron(a, frames[b["wall"]][0][0], {"balconettes": (b,)}, iconf)
+    if p.cant_corner.get("strips"):
+        # T-3271: the light stone strips framing a blank canted face's brick at its two angles
+        st = p.cant_corner["strips"]
+        frame = frames[k01_frontage_params.CANT_WALL][0][0]
+        L = p.cant_corner["face_m"]
+        sconf = p.conf("cant_corner")
+        for s0, s1 in ((0.0, st["width_m"]), (L - st["width_m"], L)):
+            seed = a.instance("k01.wall.cant_strip", "wall", {"width_m": st["width_m"], "proud_m": st["proud_m"],
+                                                              "height_m": round(st["to_m"] - st["from_m"], 4)},
+                              {"foot": _add(frame[0], _add(_mul(frame[1], (s0 + s1) / 2), _mul(Y, st["from_m"])))})
+            a.proud_box("limestone_trim", frame, s0, s1, st["from_m"], st["to_m"], st["proud_m"], seed, sconf)
     if not p.stone:   # T-3270: and its frieze's carved roundels, where street_front_trim names them
         k09_frontage.frieze(a, frames["k01.wall.street_front"][0][0], p.conf("street_front_trim"))
     # T-2291: a projecting stretcher course at the second-floor line on the south wall
