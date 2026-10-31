@@ -24307,13 +24307,15 @@ first as reversed, it could not be fitted, and as printed its bay falls where th
 source record's "north gable" and the T-3203 ivy reading that follows it are the reversed reading).
 **Where the pictures, the sheet and the kit disagree.** The tower's third stage stands 1.0 m over the
 main cornice where the photograph springs the cone at the cornice's level: K01 stands a tower's wall
-top at least 1.0 m over its host's eave. The tower is built a 1.95 m round centred on the wall line,
-0.55 m further out than the sheet's 1.4 m bulge. The south gable stands 0.35 m proud, the least its
-coped gable is built on, where the sheet draws the front flush (under the sheet's resolution). The
-corner block's dormer stands 0.5 m south of its window column, the nearest the hip lets it. All are
-on the match record.
+top at least 1.0 m over its host's eave. The tower is built a 1.95 m round centred 0.17 m in front
+of the wall line, 0.72 m further out than the sheet's 1.4 m bulge, the least that holds its finial clear
+of the wall's plane. The south gable stands 0.4 m proud, the least that holds its windows' recesses (cut
+to the kit's 0.33 m minimum) in front of the wall, where the sheet draws the front flush (under the
+sheet's resolution). The corner block's dormer stands 0.5 m south of its window
+column, the nearest the hip lets it. All are on the match record.
 **What is invented.** The walls' thickness; the brown sandstone's colour (the register's brownstone;
-the print is monochrome); the roof's deck and covering; the treads; the south and rear walls' windows
+the print is monochrome); the roof's deck and covering; the tower's finial's
+form, built plain where the photograph's is turned (an open difference on the match record); the treads; the south and rear walls' windows
 and the north flank's two rear columns (no picture shows them); the south flank's stack on the
 sheet's chimney breast; the rainwater; the rear ranges' storeys, windows and flat roof; the railing's
 gates and the front walk (K14's flags, width and wear) and the cinder service walk.

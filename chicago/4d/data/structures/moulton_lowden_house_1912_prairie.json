@@ -528,7 +528,7 @@
               "fabric": "front_stone",
               "plan": {
                 "radius_m": 1.95,
-                "centre_proud_m": 0.0
+                "centre_proud_m": 0.17
               },
               "storeys": [
                 {
@@ -595,10 +595,7 @@
               },
               "finial": {
                 "height_m": 2.4,
-                "radius_m": 0.14,
-                "form": "turned",
-                "collar_m": 0.45,
-                "fabric": "zinc_sheet"
+                "radius_m": 0.14
               }
             },
             {
@@ -609,7 +606,7 @@
               "fabric": "front_stone",
               "plan": {
                 "width_m": 3.6,
-                "proud_m": 0.35
+                "proud_m": 0.4
               },
               "storeys": [
                 {
@@ -629,7 +626,8 @@
                         "proud_m": 0.04,
                         "head_m": 0.2,
                         "head_proud_m": 0.08
-                      }
+                      },
+                      "recess_m": 0.33
                     }
                   ]
                 },
@@ -650,7 +648,8 @@
                         "proud_m": 0.04,
                         "head_m": 0.2,
                         "head_proud_m": 0.08
-                      }
+                      },
+                      "recess_m": 0.33
                     }
                   ]
                 },
@@ -660,12 +659,13 @@
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.8,
-                      "clear_height_m": 0.75,
-                      "sill_m": 0.1,
+                      "clear_height_m": 0.6,
+                      "sill_m": 0.2,
                       "at": [
                         0.5
                       ],
-                      "why_not_ordinary": "the attic light at the gable's foot, in the photograph (x 170-240, y 670-820 px; built 0.75 m of its 1.5, the rest standing in the gable's face, where K08 cuts no light)"
+                      "why_not_ordinary": "the attic light at the gable's foot, in the photograph (x 170-240, y 670-820 px; built 0.6 m of its 1.5, inside the gable storey's clear wall, the rest standing in the gable's face, where K08 cuts no light)",
+                      "recess_m": 0.33
                     }
                   ]
                 }
@@ -709,7 +709,7 @@
             "chicagology_1912_prairie_exterior_photo",
             "newberry_new_chicago_album_1883_residences"
           ],
-          "note": "Two K08 pieces on the 1911 sheet's trace (s28fp-1912-b1) in the house's frame, read with the photograph and the 1883 vignette. The round tower on the sheet's front bulge (v 5.85-9.75, about 1.4 m out; built a 1.95 m round centred on the wall line, so 0.55 m further out than the sheet draws it): three stages of bent sashes to a slated cone with a finial, its third stage 1.0 m taller than the photograph's, whose cone springs at the main cornice's level, because K01 stands a tower's wall top at least 1.0 m over its host's eave. The south gable (v 0.5-4.1): a stone projection 0.35 m proud (the least its coped gable stands on; the sheet draws the front flush there, under its resolution) with its arched pair, its chamber pair and its attic light, its coped gable with pinnacles and a finial rising from just over the attic floor (its kneelers at y 720 px, under the main cornice) to an apex near 14 m (y 470 px)."
+          "note": "Two K08 pieces on the 1911 sheet's trace (s28fp-1912-b1) in the house's frame, read with the photograph and the 1883 vignette. The round tower on the sheet's front bulge (v 5.85-9.75, about 1.4 m out; built a 1.95 m round centred 0.17 m in front of the wall line, so 0.72 m further out than the sheet draws it, the least that holds its finial clear of the wall's plane): three stages of bent sashes to a slated cone with a plain finial (the photograph's is turned, with knobs: an open difference on the match record), its third stage 1.0 m taller than the photograph's, whose cone springs at the main cornice's level, because K01 stands a tower's wall top at least 1.0 m over its host's eave. The south gable (v 0.5-4.1): a stone projection 0.4 m proud (the sheet draws the front flush there, under its resolution), the least that holds its windows' recesses, cut to the kit's 0.33 m minimum, in front of the wall with its arched pair, its chamber pair and its attic light, its coped gable with pinnacles and a finial rising from just over the attic floor (its kneelers at y 720 px, under the main cornice) to an apex near 14 m (y 470 px)."
         },
         "rear_wings": {
           "value": [
