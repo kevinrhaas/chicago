@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2497, ts: '2026-10-31T15:15:29.175Z', date: 'Oct 31, 2026, 10:15 AM CT', title: '1801 Prairie: the slated hood on the cross roof\'s end', kind: 'feature',
+    items: [
+      'The Kimball house\'s south cross roof now ends under a small slated hood, its hips rolled in pale zinc, with the turned finial on top. It is read off the 1965 HABS photograph and set to the height of the finial in the c. 1895 Taylor print.',
+    ] },
   { v: 2496, ts: '2026-10-31T15:14:30.796Z', date: 'Oct 31, 2026, 10:14 AM CT', title: 'Three more pictures of the Field house, checked against Hunt\'s own floor plan', kind: 'change',
     items: [
       '1905 Prairie, Marshall Field\'s house, is now compared with three more pictures: an 1880s photograph, the Chicago Daily News photograph of about 1905, and an 1893 engraving. Each has its camera worked out, and the model is drawn from the same viewpoint beside it.',
