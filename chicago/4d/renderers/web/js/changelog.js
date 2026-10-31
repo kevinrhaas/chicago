@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2507, ts: '2026-10-31T22:00:30.918Z', date: 'Oct 31, 2026, 5:00 PM CT', title: 'Glessner\'s roof draws lighter from a distance, with no visible change', kind: 'improvement',
+    items: [
+      'Looking at Glessner House from more than a few dozen metres away now costs about 247,000 fewer triangles a frame. Down the alley behind 1616 Prairie that is 6.06 M to 5.81 M.',
+      'Past that distance the roof\'s carved tile noses are already too small for a single pixel to show, so only the ridge crests and beds under them are drawn. Every pixel was checked against the old frame and none changed.',
+    ] },
   { v: 2506, ts: '2026-10-31T21:59:29.734Z', date: 'Oct 31, 2026, 4:59 PM CT', title: '1905 Prairie rebuilt to Hunt\'s own plan of the Field house', kind: 'improvement',
     items: [
       'Marshall Field\'s house now has the 55-foot front Richard Morris Hunt drew, not the shorter front of the 1911 atlas, and its walls stand about 1.5 m lower, as two photographs fitted to his plan show.',
