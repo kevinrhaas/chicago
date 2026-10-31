@@ -36947,6 +36947,18 @@ its top 4.79 m, stood 0.8 m off the wing because 16555 shows it only behind the 
 -3168.4 N, 5.02 m). Their tops are 16554's readings, which 16555 puts about 0.5 m higher;
 the widths are the print's (0.7-1.0 m). That they were planted in beds or fixed vases rather
 than in tubs carried in is read from the winter print; what they stood in is hidden in all three.
+Fourteen more stood on 2026-10-31 behind the 18th Street coping before the stable, where 16554
+shows them over the coping (x 727-1090 px), each on its pixel column through that camera: two small
+arborvitae cones and a pair of sheared balls before the corner bay (1478.3-1481.5 E, -3193.5 N, in
+the border line behind the coping that the c. 1900 Detroit view shows nearer the house, east of the
+court's carriage opening, which they keep clear), four sheared balls (1481.88-1484.72 E, -3188 N),
+a clipped column and two cones (1485.54-1487.55 E, -3188 N) and three sheared balls massed at the
+stable's east end (1489.97-1491.98 E, -3187 N). The middle cluster's and the east mass's line,
+about 4 m off the stable's front, is where 16555's leafy masses (x 903-963 and 1050-1100 px) cross
+16554's columns. Each top is its rise over the coping beside it in 16554, set over the built 0.9 m
+coping (1.45-2.24 m): through that camera the coping itself reads about 0.55 m, which the match
+record holds open, and read absolutely the tops are 0.8-1.7 m. 16555, of 1892-94, shows the low
+balls' stretch bare over the coping, so they are taken as planted after it and before 16554.
 **What is read:** each plant's place across the picture and its top from the plate's pixels; its
 depth from the plane it is read on (the terrace behind its balustrade, the line 1.6 m off the
 stable's wall, the ground at its visible foot); that the two balls are clipped evergreens, one
@@ -36965,7 +36977,7 @@ the pier where the plate has the ball), which the match records hold within tole
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
 and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
-**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934).
+**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934); the fourteen behind the coping before the stable 2026-10-31 (T-1934).
 
 ### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
 
@@ -37629,3 +37641,54 @@ knob without a spike; the build keeps the Taylor print's spike.
 **Ticket:** T-1890.
 **Recorded:** 2026-10-31.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and `taylor_c1895_northwest-side-by-side.jpg`, with their match records.
+
+### L-kimball-1801-range-stack-1890 — 1801 Prairie's east range: its 18th Street end pitched steep, and the stone stack on its apex
+
+**Decision:** r2, the east range behind the gabled section, keeps its 45-degree sides and its
+11.05 m ridge, but its 18th Street (south) end is pitched at 60 degrees
+(`rear_wings[].roof.end_pitch_deg`, built by `k01_frontage.Assembly.wing_hip_ends`), so the
+apex stands 2.7 m back from that wall rather than 4.7 m. On it stands a stack in the walls' pale
+stone (`rear_wings[].stacks`, the first stack a K01 wing carries): 0.8 m square at u -13.45,
+v 2.6, under a cap 0.1 m proud and 0.45 m deep, its top at 11.4 m. **What is read.** HABS
+photograph 2 (1965), at full size through T-3110's camera: the range's slate rises steeply from
+the eave to an apex at about x 380, y 797 px, where the build's 45-degree end put it about 55 px
+east; and on the apex a pale shaft under a moulded cap (x 336-387, the cap's top at y 776),
+which sets the stack's place within about 5 px and its height within about 2 px. **What is
+invented.** The end's pitch where the picture gives only the apex: 60 degrees is the steepest a
+K01 slated wing takes, and the print's apex may stand a little further forward still. The
+stack's depth along the range, which no picture sees; it is laid square. The cap is a plain slab
+where the print shows a moulded one, and the shaft's foot on its west face stands about 0.4-0.6 m
+under the print's through this one camera. The Taylor print of c. 1895, the period view, cannot
+see the range's roof behind its tree, so the 1965 stack and end are taken as the 1904 fabric.
+**How to resolve:** the 1892 drawings, or a period picture of the 18th Street range from the
+north-east.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-31.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, with its match record.
+
+### L-pullman-1729-architraves-1881 — 1729 Prairie's front lights framed in moulded architraves off the 1890 Albertype plate: their bands, imposts and keystones read, their profile reconstructed
+
+**Decision:** the four round-arched lights of the Prairie front that the build lays in the K01 wall
+(the principal storey's two and the second storey's centre and south lights) stand in moulded
+architraves (`street_front_windows.windows[].architrave`, a new K01 key): a band down both jambs from
+the sill and on round the arch, an impost block at the springing, and over the principal storey's
+lights a keystone at the crown. The second storey's 0.25 m voussoir rings (L-k01-1729-pullman-heads-3157)
+are replaced by the architraves.
+**What is read, not invented.** The 1890 Albertype plate (`albertype_1890_chicago_residences_plate`)
+at its full size through its solved camera, about 17 px a metre on the front: the bands' breadth (the
+second storey's widest light's glass at x 1194-1219 px against the moulding's outer edge at 1188-1222;
+the principal storey's big light's at 1197-1224 against 1191-1230), the imposts at the springing (y
+496-502 px on the big light) and the big light's keystone (x 1203-1208, y 468-474). Bands of 0.3 and
+0.28 m on the two wide lights; 0.18 m on the two narrow lights at s 15.45, which stand 0.26 m from the
+rusticated pier and whose bands the plate draws no wider than the pier leaves room for. Read to about
+0.1 m.
+**What is invented.** The moulding's profile, laid as two plain fascias (the outer 0.12 m proud, the
+inner 0.06 m) so that the step draws the plate's dark outer line; the imposts' 0.25-0.3 m height and
+0.05-0.1 m step; the narrow lights' keystone (0.22 m, scaled from the big light's). The forward
+block's light over the portico, a K08 bay light, is not framed, and the big light's sill on its two
+blocks is not built: both are open in the plate's match record.
+**How to resolve:** a closer picture of the front (the CHM 1905 views, once solved) gives the
+moulding's profile; a K08 bay-light architrave frames the forward block's light.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`.
+**Recorded:** 2026-10-31 (T-1881).
