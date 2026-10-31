@@ -1,0 +1,87 @@
+{
+  "method": "Actual published /1904/ app at 390x780, `full`; animation paused after readiness; each stand renders the same held frame with the far-relief swap off (buildings.farRelief.on=false), off again (QA_CONTROL), on, and with the three relief pieces hidden outright (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 390,
+    "height": 780
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0"
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "glessner-prairie-front",
+      "tierHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "off": {
+        "triangles": 3761269,
+        "drawCalls": 651
+      },
+      "on": {
+        "triangles": 3514104,
+        "drawCalls": 651,
+        "withinBudget": true
+      },
+      "saved": 247165,
+      "pixels": 304200,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 837,
+      "problems": 0
+    },
+    {
+      "name": "glessner-prairie-se",
+      "tierHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "off": {
+        "triangles": 3915870,
+        "drawCalls": 937
+      },
+      "on": {
+        "triangles": 3668705,
+        "drawCalls": 937,
+        "withinBudget": true
+      },
+      "saved": 247165,
+      "pixels": 304200,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 226,
+      "problems": 0
+    },
+    {
+      "name": "glessner-roof-close",
+      "tierHasItOn": true,
+      "pieces": 3,
+      "swapped": 0,
+      "off": {
+        "triangles": 3590071,
+        "drawCalls": 6030
+      },
+      "on": {
+        "triangles": 3590071,
+        "drawCalls": 6030,
+        "withinBudget": true
+      },
+      "saved": 0,
+      "pixels": 304200,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 162,
+      "problems": 0
+    }
+  ]
+}
