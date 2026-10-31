@@ -37034,3 +37034,14 @@ drawings.
 **Recorded:** 2026-10-30 (T-2382).
 
 
+### L-beaubien-keyed-graphic-working-form-2378 — conditional drawing proxies
+
+**Covers:** `jb_beaubien_homestead.log_1822.footprint`, `jb_beaubien_homestead.log_1822.form.wall_height_m`, `jb_beaubien_homestead.log_1822.form.roof_pitch_deg`, `jb_beaubien_homestead.log_1822.form.chimney_ridge_at`, `jb_beaubien_homestead.log_1822.form.frame_addition`, `jb_beaubien_homestead.log_1822.form.frame_addition_side`, `jb_beaubien_homestead.log_1822.form.frame_addition_width_m`, `jb_beaubien_homestead.log_1822.form.frame_addition_depth_m`, `jb_beaubien_homestead.log_1822.form.frame_addition_height_m`, `jb_beaubien_homestead.log_1822.form.frame_addition_roof_pitch_deg`, `jb_beaubien_homestead.log_1822.form.frame_addition_cladding`, `jb_beaubien_homestead.log_1822.form.frame_paint`, `jb_beaubien_homestead.log_1822.form.end_openings`.
+
+**Source and date limits:** The keyed1831 depiction in the verified1881 reproduction credits Wau-Bun1857. Wentworth supplies the preferred retrospective identification; Hubbard’s criticism remains and unchanged survival to July1835 is unproved. This does not move surveyed coordinates or borrow the separate Factor House’s two-storey, log or paint descriptions.
+
+**Reconstructed:** Retain the12.192×6.096m main core and world pivot. Two visual levels and two main stacks are inferred; the5m eave,50° pitch and ridge fractions0.16/0.84 are proxies. The centred6.096×2m low projection,3m eave,40° pitch, clapboard and openings are reconstructed; one low level is conditionally inferred. The occupied footprint is stepped, not filled at its outer corners. One small light in the visible−x gable is placed at0.5,z6.2 with stock0.7×0.8m dimensions; its metrics, panes and closure are not measured.
+
+**Unknown:** The core’s log construction is an inferred proxy, not pictured material attestation. No whitewash, paint or clapboard is asserted for it. Exact source dimensions, historical bearing, pigment, hidden opening counts and the roof junction remain unknown or reconstructed. The picture match accepts the bounded visible main house, projection and attic light, without promoting those uncertainties.
+
+**Recorded:** 2026-10-30 (T-2378).

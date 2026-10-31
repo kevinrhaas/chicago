@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 163124723,
+ "bytes": 163412975,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -4788,6 +4788,14 @@
   "early-andreas-1884-sauganash.jpg": {
    "bytes": 398547,
    "sha256": "8ae046d8405a13616fc82316b6afa4e3dfaa67560f8e997e0e2de18922b25808"
+  },
+  "early-beaubien-keyed-1831-thumb.jpg": {
+   "bytes": 25996,
+   "sha256": "9e0dbb1020b0c25e48331c9a8e7bd33615249b927fe8bad39d1914167fbb89b5"
+  },
+  "early-beaubien-keyed-1831.jpg": {
+   "bytes": 262256,
+   "sha256": "20c2baf03a905b446b76da3e75cf37f235a9e201b7a8a824f159a7d820d12d2c"
   },
   "early-blanchard-shober-1867-wolf-point-thumb.jpg": {
    "bytes": 16471,

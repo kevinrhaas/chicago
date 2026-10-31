@@ -1,0 +1,42 @@
+{
+  "structure_id": "jb_beaubien_homestead",
+  "source_id": "kinzie_1857_chicago_1831_panorama",
+  "photo": "../../sources/assets/beaubien_keyed_1831.jpg",
+  "image_px": [
+    1920,
+    1042
+  ],
+  "principal_px": [
+    257.42536080354415,
+    418.4243158718062
+  ],
+  "focal_px": 2531.062469079018,
+  "eye": [
+    -236.52482529095653,
+    179.4995093025139,
+    2.5
+  ],
+  "yaw_deg": 126.0273733851036,
+  "basis_right_up_forward": [
+    [
+      -0.5881716976750463,
+      -0.8087360843031884,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ],
+    [
+      0.8087360843031884,
+      -0.5881716976750463,
+      0.0
+    ]
+  ],
+  "near_m": 250.0,
+  "sky": "overcast",
+  "diagnostic_only": true,
+  "solve": "CURRENT NATIVE DIAGNOSTIC DRAWING CAMERA,2026-10-30. Numeric rays are unchanged from the finite role test and actual native main/projection/attic comparisons: long eaves wall=max-v on screenleft, visible gable=min-u on screenright. Approximate face widths64/44px(+/-8px) plus reconstructed main2:1 footprint supplied the53.9726266degree model-frame role seed. Distance300m/eye2.5m/focal2531.062469/principal[257.4253608,418.4243159]/near250 and basis remain reconstructed diagnostic framing, not surveyed dimensions, historical bearing or an actual visitor spot. Root directly reviewed positively pictured main mass/two main stacks/low front projection/small gable light; numerical metrics, pigment/hidden counts/roof junction remain qualified. Source is verified1881 keyed reproduction crediting Wau-Bun1857 and depicting1831; identity inferred, survival to July1835 unproved; Hubbard same-publication criticism retained. Do not move world placement/terrain to the drawing or borrow the separate Factor House description. Flat review grade is not app ground. Overcast avoids pretending the monochrome hatching calibrates colour or lighting. Metadata-only registration requires fresh native capture; no camera fit or geometry change.",
+  "library_image": "early-beaubien-keyed-1831"
+}
