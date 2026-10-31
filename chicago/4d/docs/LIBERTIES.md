@@ -36634,7 +36634,7 @@ readings and inside the plate's bound; and both trees' size, scale 0.6 where the
 to 1.10, read off their trunks (about 0.31 m across in the plate, 0.26 m in Taylor's print, where
 the renderer's elm draws 0.66 m at scale 1), which puts the first fork at about 4 m, within a
 metre of the pictures'. Their crowns are still the rule's elm, where both pictures show a broad,
-low head (open in the match records).
+low head (the gate tree's now grows one: see "The gate tree's head" below).
 **How to resolve:** a picture of this stretch nearer 1904, or a city forestry record.
 **Ticket:** T-1934; T-3164 (the gate's two trees).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
@@ -36674,6 +36674,18 @@ and the corner tree stands though Taylor's no. 1445, between the two pictures in
 parkway clear. The trees' size, crown and species are the rule's as above.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
 `albertype_1890-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg` and their match records.
+
+**The gate tree's head (T-3164, 2026-10-31):** the tree left of the 1800 Calumet gate
+(`calumet__prairie_calumet_18_20#p00`) no longer grows on the rule's elm. Both the 1894 plate and
+Lowe's print draw it on one straight leader running up through its crown, its limbs leaving it from
+about 3 m (plate, y 660) or 2.6 m (Lowe) and spreading wide and low over the walk: a young tree's
+head, not the grown elm's forked fountain. Its record names `form: "broad_head"`
+(`data/street_trees/pictured_1904.json`, carried into `1904.json` by the planter), and the renderer
+grows it on its own habit (`street-trees.js` FORMS, `tree-model.js` ARCH.ulmus_americana_young).
+**Read:** the single leader, the head's height and breadth, and the trunk at about 0.27 m across.
+**Chosen (reconstructed):** the habit's numbers (crown base 0.30 of the height, limbs at about 52
+degrees, an open crown between the plate's and Lowe's densities); the species stays the layer's
+American elm, read as a young one; its height stays the record's scale 0.6 of the parkway band.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 

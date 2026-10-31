@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2483, ts: '2026-10-31T04:55:26.329Z', date: 'Oct 30, 2026, 11:55 PM CT', title: 'The tree at Pullman\'s glasshouse gate gets its young, broad head', kind: 'improvement',
+    items: [
+      'The parkway tree beside the 18th Street gate to Pullman\'s glasshouses now stands on one straight stem with a broad, low, leafy head from about 3 m, as the 1894 Inland plate and Lowe\'s c. 1897 photograph show it, in place of the grown elm\'s forked fountain.',
+      'Its trunk is drawn about 0.27 m across, as thin as the pictures draw it.',
+    ] },
   { v: 2482, ts: '2026-10-31T03:58:19.748Z', date: 'Oct 30, 2026, 10:58 PM CT', title: '1701 Prairie\'s front steps and basement windows', kind: 'feature',
     items: [
       'The Hibbard house\'s front steps are now low, open steps tucked under the entrance arch, as the old photograph shows them, so the stone porch\'s base and all four of its round medallions stand clear above the fence.',

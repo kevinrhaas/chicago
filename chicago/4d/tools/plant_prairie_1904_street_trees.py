@@ -33,7 +33,9 @@ every tree off a stretch keeps its place. Pictured trees are ids `<face>#pNN`, m
 `"placed": "pictured"`, their crowns drawn from their own seed. 1729 Prairie's 18th Street
 (L-pullman-18th-street-trees-1934) is the first. A pictured tree may carry a `scale` read off
 its trunk's width in a picture (T-3164: the renderer's elm draws its bole about 0.66 m across at
-scale 1); without one its scale is drawn like any other tree's.
+scale 1); without one its scale is drawn like any other tree's. One whose crown a picture draws
+plainly unlike the grown elm's may name its habit as `form` (T-3164: `broad_head`, a young elm on
+its leader), which renderers/web/js/street-trees.js grows; without one it is the parkway elm.
 """
 from __future__ import annotations
 
@@ -169,6 +171,8 @@ def pictured_trees(face_id, pts, acc, stretch, views=None, liberty="", first=0):
             "yaw_deg": yaw,
             # a trunk measured in a picture sets the scale (T-3164); the draw is taken all the same
             "scale": round(t.get("scale", drawn), 3),
+            # a crown a picture draws unlike the grown elm's names its habit (T-3164, street-trees.js FORMS)
+            **({"form": t["form"]} if t.get("form") else {}),
             "placed": "pictured",
             "sources": sorted({views[r.split(" ")[0]]["source_id"] for r in t["read"]
                                if r.split(" ")[0] in views}),
