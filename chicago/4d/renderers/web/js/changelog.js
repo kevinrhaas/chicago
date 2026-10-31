@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2488, ts: '2026-10-31T09:22:47.551Z', date: 'Oct 31, 2026, 4:22 AM CT', title: 'Pullman\'s garden lodge and lawn now match the 1890s pictures', kind: 'improvement',
+    items: [
+      'Across 18th Street at 1800 Calumet, the gardener\'s lodge no longer shows a tall east wall above the glasshouse range. As in the 1894 plate and Lowe\'s photograph, its upper storey now steps back behind the bowed corner.',
+      'A gravel drive now turns east off the conservatory drive and crosses the far side of the lawn toward Calumet Avenue, the pale line both pictures show.',
+    ] },
   { v: 2487, ts: '2026-10-31T08:22:26.935Z', date: 'Oct 31, 2026, 3:22 AM CT', title: 'Calumet Avenue\'s corner trees, lamp and hydrant where Taylor\'s photograph shows them', kind: 'fix',
     items: [
       'Three slender young elms now line Calumet Avenue\'s west walk where it curves into 18th Street, opposite the Pullman stable, in place of three grown elms, read off J. W. Taylor\'s photograph no. 16554.',

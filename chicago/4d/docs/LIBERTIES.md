@@ -36192,6 +36192,37 @@ range was built, gives the part's depth and which face the sheet drew.
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
+### L-pullman-lodge-east-face-3164 — The Pullman lodge's body set 1.6 m in from the east wall's line behind a 2.2 m front, over a one-storey strip under the range's coping
+
+**Decision:** the 1911 sheet (`sanborn_1911_chicago_v3_sheet_28`) draws the lodge as one outline,
+8.95 by 11.58 m, and prints '2' on it. Stood two storeys on that whole outline, the lodge showed a
+face and an eave receding about 34 px east of its bowed corner on the 1894 Inland plate
+(`inland_1894_pullman_conservatory`) and about 23 px on Lowe's print
+(`aic_lowe_pullman_conservatory_c1897`): 9.6 m of wall seen from about 10.7 m east of its line. Both
+pictures show sky and the range's coping railing there instead (T-3164). The plate's roof also shows
+how deep the two storeys reach. Its east silhouette is one straight line from the bowed eave to the
+deck, and the deck's east side recedes about 17 px behind it, so the deck runs back about 4.5 m behind
+a front that has no east face. So only the front block (`r1`) keeps the east wall's line, for 2.2 m,
+to the sheet's corner where the east range's north wall leaves the lodge. It keeps the plate's north
+front, bowed corner, balcony and loggia, and its roof runs up to the deck. The body behind it (`r3`)
+stands 1.6 m in from that line. That is the least set-back that hides its east wall and eave behind
+the bowed corner from both solved cameras (1.32 m for the plate's, 1.50 m for Lowe's at the outline's
+south end). It carries the deck, its cresting and the stack where they stood. The strip between them
+(`r4`) is one storey, 5.5 m, under the range's 6.15 m coping, so the sheet's ground outline is all
+built. The builder takes two opt-in keys for this (`deck_exact`, `cresting: "none"`), so no other
+record's mesh moves.
+**What is invented.** The set-back's line and depth, and the strip's height and flat roof: the pictures
+fix only that nothing stands over the coping there. Also how the sheet's single '2' over the whole
+outline came to be: a later raising of the strip, after the 1890s pictures and before 1911, would
+also explain it, and the 1904 scene follows the pictures.
+**What is not.** The front's 2.2 m on the east wall's line, the deck's place and height, and the absence
+of any east face over the coping, which both pictures show.
+**How to resolve:** a picture of the lodge from the east or the south, or a plan of the glasshouse ground
+before 1911.
+**Covers:** `pullman_lodge_1800_calumet.as_standing_1904.form.draft_plan`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-31 (T-3164).
 ### L-pullman-gate-1800-calumet-3164 — The Pullman glasshouse ground's gate on 18th Street: two stone piers with scroll wings, placed through the plate's camera
 
 **Decision:** the 1894 Inland plate (`inland_1894_pullman_conservatory`) draws in its foreground the
@@ -37051,7 +37082,7 @@ pictures give at a few pixels; the drive's run past u 4 (the plate) or u 3 (Lowe
 near both horizons to fix its depth, carried straight on to u 16, where the planting hides it in both, and
 stopped there; and the coping's run past the frames' edges (about v 13 in Lowe's print, v 16 in the plate),
 carried round the Calumet Avenue corner on the 1911 sheet's lot line to the start of its Calumet straight.
-The pale line along the lawn's far side, a walk or the drive's turn, is read but not built. Each row's
+The pale line along the lawn's far side is built (2026-10-31) as the drive's turn toward Calumet Avenue. Through the plate's camera its edges fall at u 23-31 from the drive's east edge to the frame's edge. A gravel band 4 m wide on the middle of that reading, u 25-29, runs east to the 1911 sheet's Calumet line at v 28.3, joined to the drive by a wedge clear of the pictured lilacs. Its width, its depth (about 1.2 m of ground a pixel there), the wedge's plan and its run past the frame are invented. Each row's
 lift is the app's ground (the 1904 terrain, `e1871_postfire`) over the house's bed, measured where the
 row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate.
 **How to resolve:** a plan of the grounds, or a picture of the lawn's far side and the drive beyond the
