@@ -1,0 +1,27 @@
+{
+ "structure_id": "moulton_lowden_house_1912_prairie",
+ "source_id": "chicagology_1912_prairie_exterior_photo",
+ "library_image": "a19-cgy-1912-exterior",
+ "photo": "../../sources/assets/moulton_1912_photo_t3277/moulton_1912_chicagology.jpg",
+ "image_px": [
+  1218,
+  1974
+ ],
+ "principal_px": [
+  950.0,
+  1544.6
+ ],
+ "focal_px": 2920.6,
+ "eye": [
+  48.0,
+  28.56,
+  1.8
+ ],
+ "yaw_deg": 240.53,
+ "sun_uvy": [
+  0.6,
+  -0.3,
+  0.75
+ ],
+ "solve": "Fitted by T-3277 (piece 1 of T-1899) to the photograph alone, the image store's 1218 x 1974 px copy, against the 1911 sheet's plan (s28fp-1912-b1). The footprint frame's u runs toward Prairie Avenue (east) from the front block's rear wall and v north from its south wall (v 0) to its north wall (v 13.0); the front stands at u 20.45. THE PRINT IS NOT REVERSED. Read first as reversed (the source record's 'north gable'), the fit could not close: the window columns' spacing grows toward the picture's right, so the right is the near end, and with the gable on the left that is the house's south end. As printed, the round bay falls 3.25 m from the north wall where the sheet draws its bulge (v 5.85-9.75), the door is in the north corner block, and the flank at the right is the north flank. The camera is LEVEL (the corner's and the lamp post's verticals stand vertical), so the principal point stands off the frame's centre, as a view camera's shifted front puts it; the eye was held between 1.4 and 1.8 m and on the avenue (u 26-48). Eleven points fitted by least squares with the model's heights: the north corner block's front corner (x 960 px) at the cornice's top, the attic and chamber floors' belts and the principal floor (y 495, 750, 1150, 1545); the chamber window's sill and head over the door (x 813; y 1112, 862) and the door's sill (x 798, y 1528); the tower cone's apex (x 538, y 112); the south gable's apex (x 230, y 470), its north corner at the chamber floor (x 313, y 1185) and its arched pair's sill (x 188, y 1535). Residual 29.6 px RMS, the largest 99 px at the gable's apex and 54 px at its pair's sill, 49 px at the cone's apex: the fit lands on its bounds (the eye on the far walk, u 48, and the principal point at x 950), so the picture's perspective is closer and steeper than this camera draws, and the far end's heights are a reading, not a measurement. PLACE: the eye at u 48.0 (on the far walk of Prairie Avenue), v 28.6 (about 15.5 m north of the north wall), looking west-south-west (yaw 240.5 in the frame). LIGHT: the front and the north flank both lit, soft shadows falling down and to the left under the belts: a high sun from the east-south-east (sun_uvy)."
+}
