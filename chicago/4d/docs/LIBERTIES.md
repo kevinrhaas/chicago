@@ -36968,6 +36968,37 @@ fabric.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+### L-pullman-grounds-1800-calumet-3164 — The Pullman glasshouse ground's drive, walk, forecourt and lot-line coping, read through the plate's and Lowe's cameras
+
+**Decision:** the 1894 Inland plate (`inland_1894_pullman_conservatory`) and Lowe's print
+(`aic_lowe_pullman_conservatory_c1897`) both show the ground the estate's 18th Street gate opens onto
+(T-3164). No plan draws it: the 1911 sheet shows no drive or walk, and the grounds have no record of their
+own, so it is built on the conservatory's record beside the gate (`grounds`). A gravel drive about 4.3 m
+wide from between the wings' ends straight back past the conservatory's west flank; a turf wedge east of
+it, narrowing to the east wing, in which the two boxed standards stand; a walk 1.8 m wide entering the lot
+east of the east pier and running to a forecourt along the conservatory's north front, from 3.2 m out to
+its podium; and west of the gate a stone coping on the lot line, a body 0.32 m high and 0.36 m thick under
+a cap course to 0.4 m standing 0.03 m past both faces. **What is read.** Every edge is read off the two
+pictures through their solved cameras and laid on the ground those cameras put under it: the drive's
+edges, the wedge's edges, the walk's mouth east of the pier and the lawn east of it, the forecourt's
+front, and the coping's height and place (its foot on the line of the piers' fronts). Re-rendered, the
+drive's west edge lands within about 5 px of the plate's, the wedge within about 10, the walk and the lawn
+east of it within about 8, and the coping's top and foot within about 6. **What is invented.** The
+surfaces: gravel in a buff limestone tone, taken from the pictures reading drive and walks as pale as the
+public walk; the coping's stone, taken as the gate's; the coping's thickness and cap course, which the
+pictures give at a few pixels; the drive's run past u 4 (the plate) or u 3 (Lowe's), where it lies too
+near both horizons to fix its depth, carried straight on to u 16, where the planting hides it in both, and
+stopped there; and the coping's run past the frames' edges (about v 13 in Lowe's print, v 16 in the plate),
+carried round the Calumet Avenue corner on the 1911 sheet's lot line to the start of its Calumet straight.
+The pale line along the lawn's far side, a walk or the drive's turn, is read but not built. Each row's
+lift is the app's ground (the 1904 terrain, `e1871_postfire`) over the house's bed, measured where the
+row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate.
+**How to resolve:** a plan of the grounds, or a picture of the lawn's far side and the drive beyond the
+conservatory.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-30 (T-3164).
 
 ### L-kimball-1801-cone-slate-1890 — 1801 Prairie's tower and turret cones slated in the mansard's own coursed slate
 **Recorded:** 2026-10-30.
@@ -37032,6 +37063,7 @@ the corner from the west or the south-east.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
 
+<<<<<<< HEAD
 ### L-kimball-1801-cross-roof-1890 — 1801 Prairie's south pavilion's slated cross roof run back from behind its coped gable, its ridge level and its end at the two pictures' finial
 **Recorded:** 2026-10-31.
 
@@ -37060,3 +37092,32 @@ top (11.65 m), so the light on the cant still looks into its recess past nothing
 **How to resolve:** the 1892 drawings, or a picture of the roof from above or from the south-east.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and `habs_1965_01_southwest-side-by-side.jpg`, with their match records.
+=======
+### L-k01-hibbard-1701-stoop-basement-3257 — 1701 Prairie's stoop drawn short and cheekless, and its basement lights cut through the stone basement, read off Chicagology's photograph
+
+**Decision:** T-3257 (piece 4 of T-1876) works the last two differences the front's match record held
+open (`data/reference_views/hibbard_house_1701_prairie/chicagology_front.match.json`), through the camera
+T-3240 solved (`chicagology_front.json`) on Chicagology's photograph (`chicagology_1701_hibbard_photo`).
+The stoop T-3256 stood before the entrance arch (a 1.1 m landing, a 0.3 m going and solid stone cheeks
+0.3 m over the nosings) showed over the fence in front of the corner porch's podium; it is drawn with a
+0.4 m landing, a 0.27 m going and no cheeks (`entrance_kit` `cheeks: false`), so it reads as the pale
+stone under the arch's mouth the photograph shows and the podium and its four roundels stand clear. The
+round-headed basement lights the photograph shows over the fence, a pair under the stone bay's pair and
+one under the lower south range's narrow south light, are cut through each projection's stone basement:
+K08's new `in_plinth` light (T-3257), the plinth's face cut round K06's round-headed basement light and
+its reveal carried back to the wall, the bay's plinth carried up to the water table at 2.0 m as the
+range's already was.
+**What is read, not invented.** That nothing of the stoop stands over the fence before the podium, and
+that the arch's dark mouth runs down to the principal floor with pale stone under it: an upper bound on
+the landing and on a cheek's height, from the sightline that crosses the stoop's north edge about 1.9 m
+before the front and 1.4 m up. The basement lights' places (one under each light over it) and their
+heads, about 1.75 m over grade (y about 1006-1012 px against the eye's horizon at 1023 px), each about as
+broad as the light over it.
+**What is invented.** The landing's 0.4 m and the 0.27 m going inside that bound; whether the flight had
+iron rails (the fence and a tree hide it; none are drawn); the arch's reveal and vestibule standing as
+the rest of the landing. The basement lights' sills (1.0 m), so their 0.75 m clear height, and their
+glazing: the fence hides their feet and whatever grilles they had. Their surround is the plinth's own
+plain stone.
+**How to resolve:** a nearer photograph of the entrance and its steps, or of the house's basement.
+**Recorded:** 2026-10-31 (T-3257).
+>>>>>>> origin/dev

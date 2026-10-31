@@ -1265,6 +1265,7 @@ class Bay:
         for i, run in enumerate(self.runs):
             flat = strip(f"{v['id']}|run{i}")
             doors = []   # T-1890: the doors on grade in this run, (from, to) along it
+            sunk = []    # T-3257: the basement lights cut through this run's plinth
             cant = ct is not None and "side" in (run.start, run.end)
             for k in range(len(v["storeys"])):
                 holes = []
@@ -1291,7 +1292,15 @@ class Bay:
                         guard(o, w["guard"])
                     for h in o.holes:
                         sh = [(q[0] + s, q[1] + o.O[1]) for q in h]
-                        if w.get("door"):
+                        if w.get("in_plinth"):
+                            # T-3257: a basement light in a grade bay's stone plinth (1701's,
+                            # over the fence in Chicagology's photograph): its hole is cut in
+                            # the plinth's face, not in the wall over it
+                            if not (grade and k == 0 and max(q[1] for q in sh) < plinth["height_m"] - 0.05):
+                                raise ValueError(f"{v['id']}: a light in the plinth stands under its "
+                                                 f"{plinth['height_m']} m top, in a grade bay's lowest storey")
+                            sunk.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4, sh))
+                        elif w.get("door"):
                             # T-1890: a door on grade runs down through the plinth to the step;
                             # the wall over the plinth is opened from its foot, and the plinth is
                             # broken outside its surround's jambs, so they stand to the step
@@ -1348,6 +1357,8 @@ class Bay:
                     drop = cv.get("drop_roles", ()) if self.tier == "light" else ()
                     if w.get("voussoirs"):     # T-2531: they are its head, in place of K06's lintel
                         drop = (*drop, "head")
+                    if w.get("in_plinth"):     # T-3257: the plinth's own stone is its surround
+                        drop = (*drop, "head", "sill")
                     merge(flat.prims, o.prims, drop)
                     self.windows.append(self._window_record(run, i, k, w, s, o, wall_t))
                 # T-2919: a bay rock-faced to a storey line (`to_m`) is smooth ashlar over it
@@ -1377,7 +1388,17 @@ class Bay:
                 self._chamfer_cornice(flat, run, ct, band)
             if v.get("pilasters"):
                 self._pilasters(flat, run, i, levels, y_wall0, band["height_m"])
-            if grade and doors:
+            if grade and sunk:
+                # T-3257: the plinth's face cut round its basement lights, and each light's
+                # reveal carried from that face back to the wall's, where K06's own begins
+                ph, pp = plinth["height_m"], plinth["proud_m"]
+                if doors:
+                    raise ValueError(f"{v['id']}: a run's plinth takes a door or basement lights, not both")
+                wall_cells(flat, "plinth", [q[:6] for q in sunk], run.s_start(pp), run.s_end(pp), 0.0, ph, -pp)
+                ledge(flat, "plinth", run, ph, 0.0, pp, Y)
+                for q in sunk:
+                    flat.tube("plinth", q[6], -pp, 0.0, inward=True)
+            elif grade and doors:
                 # T-1890: the plinth broken square either side of each door, its cut ends closed
                 ph, pp = plinth["height_m"], plinth["proud_m"]
                 cuts = [None, *[x for door in sorted(doors) for x in door[:2]], None]
@@ -1524,7 +1545,8 @@ class Bay:
                 "y": [round(min(q[1] for q in bk), 4), round(max(q[1] for q in bk), 4)],
                 "recess_m": round(-z_lo, 4), "footprint": hull(foot), "panes": panes,
                 "why_not_ordinary": w.get("why_not_ordinary"),
-                **({"door": True} if w.get("door") else {})}
+                **({"door": True} if w.get("door") else {}),
+                **({"in_plinth": True} if w.get("in_plinth") else {})}
 
     # supports ----------------------------------------------------------------------------
     def _corbel_layout(self, y0):

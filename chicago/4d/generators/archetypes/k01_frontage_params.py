@@ -2447,6 +2447,22 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                             or st is not v["storeys"][0] or abs(float(w["sill_m"])) > 1e-9:
                         raise ParamError(f"bays: {e['id']}'s door is `door: true` on a K06 door (door_glazed), "
                                          f"sill_m 0, in the lowest storey of a bay standing on grade")
+                # T-3257: a basement light cut through a grade bay's stone plinth (1701's, under the
+                # bay's pair and in the lower south range's south face, Chicagology's photograph):
+                # `in_plinth: true` in the lowest storey, its head under the plinth's top, the
+                # plinth's stone its surround, so no K06 dressing of its own
+                if "in_plinth" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    ph = float(e.get("plinth_m", 0.6))
+                    head = float(w["sill_m"]) + float(w.get("clear_height_m", v6.get("clear_height_m", 0.0)))
+                    bare = not any(k in w for k in ("door", "surround", "voussoirs", "tympanum", "shutters",
+                                                    "guard", "grille"))
+                    if w["in_plinth"] is not True or v["base"] != "grade" or st is not v["storeys"][0] \
+                            or not bare or e.get("masonry") or not 0.2 <= float(w["sill_m"]) or head > ph - 0.15:
+                        raise ParamError(f"bays: {e['id']}'s in_plinth light is `in_plinth: true` in the lowest "
+                                         f"storey of a bay on grade, without a dressing of its own, its sill 0.2 m "
+                                         f"up at least and its head 0.15 m under the {ph} m plinth's top")
                 # T-1879: open louvred shutters folded back beside a bay's light, and an iron
                 # guard on a stone slab before its foot (1721's bows and forward block, the 1891
                 # plate). In the light's own frame, so a bow bends them with it
