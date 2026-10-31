@@ -13,7 +13,7 @@
         "shrubs": 13,
         "trees": 3,
         "beds": 0,
-        "creeper": 7
+        "creeper": 23
       }
     ],
     "street_trees": 35,
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+      "sha256": "847c3a15d3b1a9c4690b0bc4fdd9125c20a328db20c491b53019b9fbea7224b9"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+      "sha256": "8130c909259d710b5e03e496f1a6c3f091ebb5a4ea53337250865ad2a54d2f56"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "ff3471cebd427c9f33fae011dd886722801db14cc9b105668ddecbf2cd372caa",
+  "flora_sha256": "4c70b27e7689eeff60fb8805314b454d680cbbca9908526f14a86e85aca8867b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -192,7 +192,7 @@
     {
       "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank)",
       "status": "open",
-      "how": "T-1881: the lot's creeper is drawn from the front-yard layer, but sparser than the picture and, in a winter render, leafless"
+      "how": "T-1881 (2026-10-30): the front's ground storey south of the portico is now clothed to the belt course, as the Detroit print shows it; this photograph, earlier (c. 1880s-90s against the Detroit print's 1893-1901, nearer the 1904 scene), shows that wall bare and younger ivy only on the flank west of the arch, so the bare front here is the picture's date, argued, not a rebuild. Still open: the flank's ivy, drawn, stands about 100 px left of this photograph's through this camera (with the camera disagreement along the front recorded above), and the spring render's leaves are fuller than the photograph's young growth"
     },
     {
       "what": "the forward block's own dormer on its mansard (x 190-235), which the build stood on the main mansard behind the block (hidden by it since #1427)",
