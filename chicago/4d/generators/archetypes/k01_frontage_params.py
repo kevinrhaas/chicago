@@ -1919,13 +1919,20 @@ def _street_iron(si: dict, openings, entrance_kit: dict) -> dict:
         # T-3212: `before_light: true`, a guard standing before the foot of a light that runs
         # down behind it to a sill over the shelf (1700-1706 Prairie's principal windows: the
         # 1901 construction photograph's openings and Chicagology's sashes)
-        if set(b) - {"before_light"} != need or b.get("before_light", True) is not True:
-            raise ParamError(f"street_front_iron.balconettes[{j}] takes {sorted(need)} (and before_light: true)")
+        # T-3270: `console_drop_m`, consoles that run that far down the wall under the slab (1905
+        # Prairie's door column, whose pair the 1893 plate draws tall beside the door's surround)
+        if set(b) - {"before_light", "console_drop_m"} != need or b.get("before_light", True) is not True:
+            raise ParamError(f"street_front_iron.balconettes[{j}] takes {sorted(need)} (and before_light: true, "
+                             f"console_drop_m)")
         s0, s1, fl, d, h, sl, n = (float(b["from_s_m"]), float(b["to_s_m"]), float(b["floor_m"]),
                                    float(b["proud_m"]), float(b["height_m"]), float(b["slab_m"]), b["consoles"])
-        if not (0.6 <= s1 - s0 <= 3.0 and 0.15 <= d <= 0.9 and 0.6 <= h <= 1.1 and 0.08 <= sl <= 0.25
+        cd = b.get("console_drop_m")
+        if cd is not None and not (n and 0.3 <= float(cd) <= 1.2):
+            raise ParamError(f"street_front_iron.balconettes[{j}].console_drop_m: 0.3-1.2 m, under consoles")
+        # T-3270: up to 3.6 m long (1905 Prairie's door column's, about 3.5 m on the 1893 plate)
+        if not (0.6 <= s1 - s0 <= 3.6 and 0.15 <= d <= 0.9 and 0.6 <= h <= 1.1 and 0.08 <= sl <= 0.25
                 and isinstance(n, int) and n in (0, 2, 3, 4)):
-            raise ParamError(f"street_front_iron.balconettes[{j}]: 0.6-3.0 m long, 0.15-0.9 m proud, a guard "
+            raise ParamError(f"street_front_iron.balconettes[{j}]: 0.6-3.6 m long, 0.15-0.9 m proud, a guard "
                              f"0.6-1.1 m high on a slab 0.08-0.25 m deep, on 0 or 2-4 consoles")
         over = [o for o in front if s0 < o.s_m < s1 and o.sill_m > fl]
         if b.get("before_light"):
@@ -1938,7 +1945,7 @@ def _street_iron(si: dict, openings, entrance_kit: dict) -> dict:
             raise ParamError(f"street_front_iron.balconettes[{j}] stands under a street window, its guard "
                              f"under the sill ({fl + h:.2f} m)")
         bals.append({"from_s_m": s0, "to_s_m": s1, "floor_m": fl, "proud_m": d, "height_m": h, "slab_m": sl,
-                     "consoles": n})
+                     "consoles": n, **({"console_drop_m": float(cd)} if cd is not None else {})})
     if bals:
         out["balconettes"] = tuple(bals)
     rails = si.get("stoop_rails")
