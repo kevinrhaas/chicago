@@ -1,0 +1,32 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie",
+ "scene": "1904",
+ "also_render": [
+  "marshall_field_house_1905_prairie_conservatory"
+ ],
+ "source_id": "chicagology_1905_field_engraving",
+ "library_image": "a19-cgy-1905-field-1893-engraving",
+ "photo": "../../sources/assets/field_1905_pictures_t3271/field_1893_engraving.jpg",
+ "image_px": [
+  1743,
+  1843
+ ],
+ "principal_px": [
+  871.5,
+  1353.0
+ ],
+ "focal_px": 4576.0,
+ "eye": [
+  85.72,
+  30.74,
+  1.6
+ ],
+ "yaw_deg": 252.85,
+ "sky": "overcast",
+ "sun_uvy": [
+  0.6,
+  0.6,
+  1.2
+ ],
+ "solve": "Fitted by T-3271 to the engraving 'MARSHALL FIELD PRAIRIE AVE.' (chicagology's '1893marshallfieldhouse'; the image store's 1743 x 1843 px copy) against Hunt's own plan of the principal floor (Library of Congress, LC-DIG-ppmsca-58353; source hunt_field_1905_principal_floor_plan), whose written dimensions give the street front 55 ft 0 in (16.8 m) over all, the south flank 75 ft 9 in (23.1 m) from the front to the rear stair block, and the south-west corner cut on the library octagon's diagonal about 6 ft 3 in (1.9 m) back each way, with the front's north window column about 3.2 m from the north end, the door about 7.8 m and the library's window about 13.3 m, with the 923 Prairie photograph's water table (2.0 m) and cut (2.41 m along the front, 1.90 m along the flank) held. A tree in full leaf hides the front's middle, so only nine observations are read: the water table and the cornice's foot at the front's north end (x 210; y 1326 and 820 px), at the canted corner's start (1164; 1328 and 763) and at its end (1256; 1324 and 760), the x of the north column (400) and the door (638), and the x of the conservatory's east end against the flank (1472, about 16 m behind the front on the 1911 sheet). The camera is level with its principal point at the frame's centre (a drawing gives nothing to free it by); the wall's height is left free. It closes at 26 px RMS, worst 55 px (about 2 m at the house): the engraver drew the canted corner about 2 m narrower than the plan and the photographs have it, the door about a metre further south, and the walls about half a metre taller (the cornice's foot at 10.2 m against the photographs' 9.6). Without the conservatory's end the fit closes at 20 px but turns the camera square to the front, which hides the conservatory the engraving shows whole; with the principal point freed it does not converge. No pinhole camera draws this engraving within a metre: it is a free-hand perspective, the loosest of the house's cameras; read it for what it draws (counts, forms, the corner balcony, the conservatory's roof), not for lengths. PLACE: the eye about 65 m before the front and 14 m south of the plan's south wall, at 1.6 m, heading 253 degrees: a long view, as an engraver's foreshortening reads. LIGHT: a drawing, its shading conventional: overcast."
+}

@@ -1,0 +1,28 @@
+{
+ "id": "cdn_dn0003324_field_residence",
+ "type": "photograph",
+ "citation": "Marshall Field Residence (Marshall Field, Sr., residence at 1905 South Prairie Avenue). Chicago Daily News staff photographer, c. 1905. Chicago Daily News negative DN-0003324.",
+ "author": "Chicago Daily News staff photographer",
+ "date": "c. 1905",
+ "describes_date": "c. 1902-1908",
+ "repository": "Chicago History Museum, Chicago Daily News negatives collection (DN-0003324; Library of Congress American Memory ichicdn n003324); copy on Wikimedia Commons, File:Marshall_Field_Residence.jpg. Prairie library images a19-field-cdn-dn0003324 and, the same negative from chicagology, a19-cgy-1905-field-winter.",
+ "url": "https://commons.wikimedia.org/wiki/File:Marshall_Field_Residence.jpg",
+ "locator": "The whole negative: the house from the west side of Prairie Avenue to the south-west in winter, snow on the roadway, its street front, the canted south-west corner, the south flank with the glass conservatory, the mansard with its dormers, and the tall iron picket fence on a stone curb along the street line and the south yard.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Wikimedia Commons: public domain in the United States (published before 1931); the Chicago Daily News negatives of 1902-1933 were offered by the Library of Congress and the Chicago History Museum without known restrictions. The reference copy committed for the image gate (data/sources/assets/field_1905_pictures_t3271/field_daily_news_dn0003324.jpg) is the image store's, unaltered; nothing is derived from it as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-31 (T-3271) from the image store's copy, 640 x 457 px greyscale (sha256 69af6f6f8fab65746096090d5f81ca7bc486515bf769ca00690bc01f3b292423).",
+ "note": "The photograph nearest the 1904 target. It shows the house as the 1880s photograph and the 1893 plate do, with one change in the street: the scroll-pattern fence of those pictures is replaced by a tall iron picket fence on a stone curb. Its camera is solved in data/reference_views/marshall_field_house_1905_prairie/daily_news_dn0003324.json.",
+ "what_it_supplies": [
+  "the house c. 1905: the street front's columns, the blank canted corner, the south flank's first window column and the glass conservatory",
+  "the tall iron picket fence on a stone curb that stood by c. 1905 in place of the scroll fence",
+  "the walls' height against Hunt's plan, through its camera"
+ ],
+ "what_it_does_not_supply": [
+  "colour: a monochrome negative",
+  "the north flank and the rear",
+  "fine detail: the copy is 640 px wide"
+ ]
+}
