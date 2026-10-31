@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c209d45337ba190b8e39595cf1b781920758fc1cc83256eec4ac7536ea4fce08",
+  "glb_sha256": "630004d6554c275969ae460230d7e39d74198559aaf99f270696fbe0731a4469",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -24,7 +24,7 @@
     {
       "what": "the east range's openings: the print's 18th Street face is blank ashlar between pilaster strips and string courses, with one column of lights a storey at x 283-300 (u about -12.6), the frontispiece's lights and nothing else between the turret and the gabled section; the build had three columns of sash on r2 and one on r3b. r2 now carries the one column at s 5.3 and r3b's light is taken out (the frontispiece stands there)",
       "status": "fixed",
-      "how": "T-1890: that column of lights now stands in the frontispiece round it (bays.p_east_gable), the lower light at 1.55 m and the upper at 4.7-6.15 m, the print's upper light within about 10 px"
+      "how": "T-1890: that column of lights now stands in the frontispiece round it (bays.p_east_gable), the lower light at 1.55 m and the upper at 4.7-6.2 m, each 1.0 m clear across as the print reads them (x 283-300, 17 px of the bay's 46 over its 2.8 m), where the first build had 0.7 m, the print's upper light within about 10 px"
     },
     {
       "what": "a hooded slate dormer on the east range's roof between the turret and the frontispiece (x 300-345, y 870-950, its stone face under it to about y 990): the build's wing hip carries no dormer (a K01 wing's roof takes none)",

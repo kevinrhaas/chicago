@@ -1542,6 +1542,10 @@
             },
             {
               "id": "p_east_gable",
+              "light_tier": {
+                "max_triangle_ratio": 0.62,
+                "why": "one light a storey under its coped gable between pinnacles (T-1890): the coping, kneelers, pinnacles and finial stand whole in both tiers and the light tier has only the two sashes to drop, so the far copy keeps 0.60 of the full tier's triangles"
+              },
               "variant": "k08.projection.full_height",
               "wall": "k01.wall.wing.r2.south",
               "s_m": 5.45,
@@ -1557,8 +1561,8 @@
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 0.7,
-                      "clear_height_m": 1.45,
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 1.5,
                       "sill_m": 1.55,
                       "at": [
                         0.5
@@ -1571,8 +1575,8 @@
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 0.7,
-                      "clear_height_m": 1.45,
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 1.5,
                       "sill_m": 0.55,
                       "at": [
                         0.5

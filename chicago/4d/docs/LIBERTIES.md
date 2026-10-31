@@ -36973,7 +36973,8 @@ coped gable between pinnacles in `p_door`'s dressing, its slate roof run back in
 r2's and r3b's eaves are pulled in to 0.05 m (as r3's already were) so the range's eave box stays
 behind both frontispieces' faces. **What is read, not invented.** HABS photograph 2 (1965, Harold
 Allen for HABS, 'View: exterior - from NW, north (18th St.) and west…') shows the bay at x 272-318 px
-through T-3110's camera, its two lights, the pinnacles at its kneelers, its white-capped slate ridge
+through T-3110's camera, its two lights (each about 17 px across, x 283-300, so 1.0 m clear on the
+bay's 2.8 m), the pinnacles at its kneelers, its white-capped slate ridge
 running back at about y 876-888, and the range's cornice stopping at both bays' pilaster strips. The
 match record had read the slate as a hooded dormer on the range's hip; at full size it is this
 bay's roof. **What is invented or held by the kit.** The gable's pitch (1.2) and so its apex
