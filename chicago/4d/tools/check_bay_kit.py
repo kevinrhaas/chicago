@@ -646,13 +646,18 @@ def rule_light(full, light, data, v=None):
         # ...or for a bay with one light a storey under a cornice swept round it and a mansard
         # (1801's south bay, the main cornice and slate carried round it): both stand whole in
         # either tier, and one light a storey leaves the light tier little sash to drop
+        # ...or under a coped gable between pinnacles (1801's east frontispiece, T-1890): its coping,
+        # kneelers, pinnacles and finial stand whole in either tier, as the cornice and mansard do
         swept = ((v.get("overrides") or {}).get("eaves") or {}).get("profile") or (v.get("eaves") or {}).get("cornice")
-        dressed = bool(swept) and bool((v.get("roof") or {}).get("mansard")) \
+        roof = v.get("roof") or {}
+        coped = roof.get("kind") == "gable" and bool((roof.get("gable") or {}).get("coping")) \
+            and bool((roof.get("gable") or {}).get("pinnacle"))
+        dressed = (bool(swept) and bool(roof.get("mansard")) or coped) \
             and all(sum(len(w.get("at") or [0]) for w in st["windows"]) <= 1 for st in v["storeys"])
         if not dressed and not any(k06.get(w["opening"], {}).get("operation") == "open"
                                    for st in v["storeys"] for w in st["windows"]):
             fails.append("light: a bay states its own light_tier ratio but holds no open opening (or one light "
-                         "a storey under a swept cornice and a mansard) to warrant it")
+                         "a storey under a swept cornice and a mansard, or a coped gable between pinnacles) to warrant it")
         elif not str(lt.get("why", "")).strip() or not cv["max_triangle_ratio"] < lt["max_triangle_ratio"] <= 0.65:
             fails.append(f"light: a bay's own light_tier ratio {lt.get('max_triangle_ratio')} must lie over "
                          f"{cv['max_triangle_ratio']}, at most 0.65, and say why")
@@ -788,6 +793,14 @@ def self_test(data) -> int:
     def m_light_own(d):   # T-1890: a bay's own ratio, with no open opening to warrant it
         _v(d, "k08.bay.canted")["light_tier"] = {"max_triangle_ratio": 0.6, "why": "no reason"}
 
+    def m_light_gable(d):   # T-1890: a coped gable warrants its own ratio only over one light a storey
+        g = {"upstand_m": 0.15, "coping": {"width_m": 0.4, "height_m": 0.16, "proud_m": 0.08},
+             "kneeler": {"width_m": 0.35, "out_m": 0.03}, "pinnacle": {"width_m": 0.16, "shaft_m": 0.4, "cap_m": 0.4},
+             "finial": {"width_m": 0.2, "shaft_m": 0.2, "cap_m": 0.25}, "inset_m": [0.0, 0.0]}
+        v = _v(d, "k08.projection.full_height")
+        v["roof"] = {"kind": "gable", "pitch": 1.2, "covering": "slate_pennsylvania", "gable": g}
+        v["light_tier"] = {"max_triangle_ratio": 0.62, "why": "a coped gable with two lights a storey"}
+
     def m_light_pier(d):   # T-1890: a bay that calls itself a pier keeps no light tier, but only as a box
         _v(d, "k08.bay.canted")["pier"] = True
 
@@ -806,6 +819,8 @@ def self_test(data) -> int:
         ("a light tier as heavy as the full", m_light, "k08.bay.canted", "light:"),
         ("a light tier cut so coarse it loses the silhouette", m_coarse, "k08.bay.bowed", "facet: the light tier"),
         ("a glazed bay stating its own light-tier ratio", m_light_own, "k08.bay.canted", "holds no open opening"),
+        ("a coped gable over two lights a storey stating its own ratio", m_light_gable,
+         "k08.projection.full_height", "holds no open opening"),
         ("a glazed bay calling itself a pier to keep its light tier", m_light_pier, "k08.bay.canted", "a pier costs"),
     ]
     bad = 0
