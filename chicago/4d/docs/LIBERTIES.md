@@ -37021,3 +37021,16 @@ drawings.
 **Recorded:** 2026-10-30 (T-2372).
 
 
+### L-carpenter-low-roof-gable-2382 — Carpenter’s annex: lower roof and free-end chimney
+
+**Covers:** `philo_carpenter_log_shop.log_1832.form.roof_pitch_deg`, `philo_carpenter_log_shop.log_1832.form.chimney_ridge_at`.
+
+**Decision:** Give the separately recorded annex a reconstructed21.49° roof and move its one ridge stack from station0.80 to0.94 toward the free end. Including the overhang, this lowers the ridge0.824m and moves the stack0.853m. These follow the low annex in Braunhold’s engraving published in Andreas1884, not historical measurements. The documented16×20ft footprint, inferred2.5m eave, placement, openings and stack section/head remain unchanged.
+
+**Gable finish:** Horizontal timber on the exposed+x gable follows the pictured wall courses instead of the former roof-covering triangle. Its0.20m rhythm,8mm joints,12mm relief and neutral tone are proxies; the print does not settle exact joinery, paint, or logs versus boards.
+
+**Sources and limits:** `andreas_1884_sauganash_hotel_plate` governs this annex. Trowbridge’s drawing in Gale1902 and Kurz & Allison’s1893panel14 redraw its pitch/proportions and disagree about colour. These retrospective, dependent compositions are not three independent1835 measurements. Projection/pigment differences remain within the visitor tolerance; diagnostic camera eyes do not establish historic positions. The earlier caption-based Carpenter identification, use/survival uncertainty and July1835 transfer limits remain. Petford stays reference-only; no new camera or asset derives from its unresolved original. This acceptance covers the annex, not the whole Sauganash Hotel.
+
+**Recorded:** 2026-10-30 (T-2382).
+
+

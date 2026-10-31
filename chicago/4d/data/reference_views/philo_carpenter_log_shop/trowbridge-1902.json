@@ -1,0 +1,39 @@
+{
+  "structure_id": "philo_carpenter_log_shop",
+  "source_id": "trowbridge_sauganash_hotel",
+  "photo": "../../../../reference/images/chicago/chicago_sauganash_tavern_1835.jpg",
+  "image_px": [
+    860,
+    508
+  ],
+  "principal_px": [
+    1219.0828781023001,
+    132.50531426872553
+  ],
+  "focal_px": 2016.9078695984606,
+  "eye": [
+    51.773502683104496,
+    61.80796557463451,
+    6.982855093340911
+  ],
+  "yaw_deg": 245.72351384415884,
+  "sky": "overcast",
+  "solve": {
+    "status": "RECORDED_SOURCE_SPECIFIC_CANONICAL_ANNEX_DIAGNOSTIC_CAMERA",
+    "controls": "Six approximate hand-picked annex wall corners on the whole860x508 held Trowbridge illustration, each uncertain about5px. Retain existing6.096x4.877m documented-size footprint/currentorientation and2.5m inferred eave; no geometry change. Fixed focal2016.9078695984606px is inherited Andreas diagnostic focal scaled by rasterwidth860/2017, a reproducible framing choice, not an archival lens calibration. Flat upright camera, squarepixels, no image warp.",
+    "fit": {
+      "rms_per_point_px": 1.8171558662161755,
+      "max_px": 2.714982000319669,
+      "point_count": 6
+    },
+    "limits": "Diagnostic source-specific framing only. Elevated6.98m eye and principalx1219outside860px frame are weakly constrained; never a historical/visitor pose, From this spot, new georeference or independentmetricfinding. Roof/apex/stack/openings are holdouts, not fit controls. The hotel is an unchanged contextual holdout and not accepted by this annex camera.",
+    "source_date": "Verified1902 US publication, platefacingp31 inGale; retrospective1835caption does not date each fitting to1July1835. Andreas/Trowbridge/Kurz are dependent compositions, not separate measuredwitnesses.",
+    "lighting": "Overcastneutral review of monochromehatching, no attestedpaint or calibratedreflectance."
+  },
+  "scene": "1835",
+  "also_render": [
+    "sauganash_hotel"
+  ],
+  "diagnostic_only": true,
+  "library_image": "early-carpenter-trowbridge-1902"
+}
