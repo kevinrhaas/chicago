@@ -113,7 +113,28 @@ PICTURED = {
         "pictures": ["a16-pullman-det-4a08065", "a16-pullman-det-4a08066"],
         "creeper": {"faces": ["street"], "cover": 0.7, "height_m": [3.5, 7.5], "grade": "attested",
                     "note": "Ivy over the west front and the porch, to about the second storey's sills and "
-                            "past them on the porch's piers (both Detroit Publishing views)."},
+                            "past them on the porch's piers (both Detroit Publishing views); a solid mantle "
+                            "over the whole ground storey of the front south of the portico and of the 18th "
+                            "Street flank west of the porte-cochere, up to the balcony's belt course "
+                            "(LC-D4-12551)."},
+        # T-1881: the stretches a picture shows wholly clothed, each read through the Detroit print's
+        # solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json),
+        # which lays the lot's s/d metres on the print's x: the front's face (d 16.8) from s 25 at
+        # x 426 to the south-west corner at s 34.5, x 565 (the print's corner is at x 557-560), and
+        # the flank's west part (s 34.5) from the corner to the pavilion's west face at d 24.5, x 608.
+        # The print's leaves run unbroken from x 400 (the portico's south column) to x 608 and rise
+        # to y 387-395 under the balcony, which the camera reads as 6.6-7.0 m over the walk.
+        # Taylor's no. 1445, earlier, shows younger ivy on the same two stretches. `face` "street" is
+        # the front (`span_m` in s), "high_s" the side wall that faces the lot's high-s line, 18th
+        # Street here (`span_m` in d). Every cell of a stretch is planted (no `cover` roll).
+        "creeper_walls": [
+            {"face": "street", "span_m": [25.0, 34.6], "height_m": [6.4, 7.0],
+             # the print's leaves stop at the principal storey's two round-arched lights (heads at
+             # y 411 and 418): the model's own, so the mantle keeps clear of them where they stand
+             "clear_windows": {"sidecar": "pullman_house_1729_prairie", "storey": 0, "face_u_m": 27.75,
+                               "margin_m": 0.0}},
+            {"face": "high_s", "span_m": [16.6, 24.4], "height_m": [6.4, 7.0]},
+        ],
         # T-1934 (the owner, 2026-10-30: the carriage ways with "no plants blocking it"): the border
         # starts at the house's east wall (d 45.5), where the print shows it, not along the house's
         # flank, where it stood across the porte-cochere's carriage way; and it stops short of the
@@ -606,6 +627,29 @@ class Yard:
         return f"too near {', '.join(near)}" if near else None
 
 
+def window_spans(y, cw):
+    """The s span, in the lot's frame, of each street-front window of one storey of a structure's
+    sidecar (its `street_front_windows`, s_m along the K01 frame's v), widened by `margin_m`, with
+    its sill's height."""
+    sc = json.loads((SIDECARS / f"{cw['sidecar']}.json").read_text())
+    pl = sc["placement"]
+    rd = math.radians(pl.get("rotation_deg") or 0.0)
+    cd, sd = math.cos(rd), math.sin(rd)
+    out = []
+    for wnd in sc["attributes"]["street_front_windows"]["value"]["windows"]:
+        if wnd["storey"] != cw["storey"]:
+            continue
+        half = wnd["width_m"] / 2 + cw["margin_m"]
+        ends = []
+        for v in (wnd["s_m"] - half, wnd["s_m"] + half):
+            # the K01 frame's (u, v) as lay_structure places a model's (x, -z)
+            e = pl["local_e"] + cw["face_u_m"] * cd + v * sd
+            n = pl["local_n"] - cw["face_u_m"] * sd + v * cd
+            ends.append((e - y.A[0]) * y.su[0] + (n - y.A[1]) * y.su[1])
+        out.append((min(ends), max(ends), wnd["sill_m"]))
+    return out
+
+
 def plant_lot(p, plan: Plan, house, sids):
     y = Yard(p, plan, house, sids)
     if not y.ok:
@@ -815,7 +859,12 @@ def plant_lot(p, plan: Plan, house, sids):
         hugc = (y.inlot & ~H & (y.dh <= 0.3) & behind & ((d < front + 6.0) | (d < face_d + 0.6))
                 & (y.terms["a walk"] >= 0.0)
                 & (y.terms["a door or the way to it"] >= 0.0))
-        cand = list(np.flatnonzero(hugc))
+        walls = pic.get("creeper_walls", [])
+        in_walls = np.zeros(hugc.shape, bool)
+        for wl in walls:
+            if wl["face"] == "street":
+                in_walls |= (s >= wl["span_m"][0]) & (s <= wl["span_m"][1])
+        cand = list(np.flatnonzero(hugc & ~in_walls))
         rng.shuffle(cand)
         cand.sort(key=lambda i: s.flat[i])
         last = -9.0
@@ -832,6 +881,54 @@ def plant_lot(p, plan: Plan, house, sids):
             e, n = y.world(i)
             creeper.append([e, n, r2(math.degrees(math.atan2(-y.nu[0], -y.nu[1])) % 360),
                             w, r2(rng.uniform(*cr["height_m"]))])
+        # the stretches a picture shows wholly clothed (T-1881): a patch every 0.9 m along the
+        # wall's foot, each wider than the step, so the leaves close into one mantle
+        for wl in walls:
+            lo, hi = wl["span_m"]
+            if wl["face"] == "street":
+                along, out_ = s, -y.nu
+                mask = hugc & (s >= lo) & (s <= hi)
+            else:   # the side wall facing the lot's high-s line: its cells have the house 0.5 m toward low s
+                along, out_ = d, y.su
+                beside = ndimage.shift(H.astype(np.uint8), (y.su[1] * sh, y.su[0] * sh), order=0, cval=0) > 0
+                # ...on the wall's outer face, not a jog nearer the front facing the same way
+                s_face = float(s[H & (d >= lo) & (d <= hi)].max())
+                mask = (y.inlot & ~H & (y.dh <= 0.3) & beside & (d >= lo) & (d <= hi) & (s >= s_face - 0.6)
+                        & (y.terms["a walk"] >= 0.0) & (y.terms["a door or the way to it"] >= 0.0))
+            idx = np.flatnonzero(mask)
+            if not len(idx):
+                continue
+            facing = r2(math.degrees(math.atan2(out_[0], out_[1])) % 360)
+            # the stretch less its windows, each run of wall clothed edge to edge: a patch every
+            # 0.9 m or less, none reaching past the run's ends
+            gaps = sorted(window_spans(y, wl["clear_windows"])) if "clear_windows" in wl else []
+            runs, a = [], max(lo, float(along.flat[idx].min()))
+            for g0, g1, _ in gaps:
+                if g0 > a:
+                    runs.append((a, min(g0, hi)))
+                a = max(a, g1)
+            runs.append((a, min(hi, float(along.flat[idx].max()))))
+            for a, b in runs:
+                if b - a < 0.4:
+                    continue
+                k = max(1, math.ceil((b - a) / 0.9))
+                step = (b - a) / k
+                for j in range(k):
+                    c = a + (j + 0.5) * step
+                    i = idx[np.argmin(np.abs(along.flat[idx] - c) + y.dh.flat[idx])]
+                    w = r2(min(rng.uniform(1.4, 1.9), 2 * min(c - a, b - c) + step * 0.3))
+                    if y.terms["a door or the way to it"].flat[i] < w / 2:
+                        continue
+                    e, n = y.world(i)
+                    creeper.append([e, n, facing, w, r2(rng.uniform(*wl["height_m"])), "mantle"])
+            # ...and under each window, the wall below its sill clothed up to the sill
+            for g0, g1, sill in gaps:
+                c = (g0 + g1) / 2
+                i = idx[np.argmin(np.abs(along.flat[idx] - c) + y.dh.flat[idx])]
+                if abs(along.flat[i] - c) > 0.5 or y.terms["a door or the way to it"].flat[i] < (g1 - g0) / 2:
+                    continue
+                e, n = y.world(i)
+                creeper.append([e, n, facing, r2(g1 - g0 + 0.2), r2(sill - 0.05), "mantle_sill"])
 
     out = {
         "parcel": p["id"], "street": p["street"], "side": p.get("side"),
@@ -929,7 +1026,8 @@ def build(laid=None):
                 "tool. Local ENU metres of data/datum.json. shrubs and trees: [e, n, plant, height_m, "
                 "crown_width_m, (grade if not the lot's), (stand_m, tub_m: a tub plant's, what its tub stands on "
                 "over the ground and the tub's height)]; beds: [e, n, half_length_m, half_width_m, "
-                "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m]. The lawn is "
+                "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m, (\"mantle\" on a "
+                "stretch a picture shows wholly clothed, \"mantle_sill\" under a window in it: its top drawn level)]. The lawn is "
                 "the ground's own sward.",
         "scene": "1904", "target_date": "1904-07-01", "ticket": "T-3223",
         "generated_by": "tools/plant_prairie_1904_front_yards.py",
