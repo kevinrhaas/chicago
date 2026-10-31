@@ -3412,6 +3412,9 @@ class Assembly:
             v["stair"]["porch"] = porches[0] if len(porches) == 1 else porches
         if p.entrance_kit.get("balustrade"):
             v["stair"]["balustrade"] = p.entrance_kit["balustrade"]
+        # T-1881: a landing part way down the flight (1729's)
+        if p.entrance_kit.get("mid_landing"):
+            v["stair"]["mid_landing"] = p.entrance_kit["mid_landing"]
         # T-2933: the veranda's posts from the front's v into the door's own frame
         if p.entrance_kit.get("veranda"):
             vr = p.entrance_kit["veranda"]

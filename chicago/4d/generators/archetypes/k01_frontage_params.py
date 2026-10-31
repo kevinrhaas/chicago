@@ -2212,12 +2212,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # narrower than a pavilion may be wide but further out than one may stand, abutting a
             # forward block it stands less far out than (checked once every bay is read, below)
             elif q.get("front_step") is not None:
-                if q["front_step"] is not True or not (1.5 <= w <= 4.0 and 1.2 < d <= 3.0) \
+                # T-1881 (2026-10-31): 1.0 m at least, the step left between the forward block on the
+                # door's axis and the big window's architrave, its face one banded pier
+                if q["front_step"] is not True or not (1.0 <= w <= 4.0 and 1.2 < d <= 3.0) \
                         or e.get("variant") != "k08.projection.full_height" \
                         or e.get("wall") != "k01.wall.street_front" \
                         or set(q) - {"width_m", "proud_m", "front_step"}:
                     raise ParamError(f"bays: {e['id']} is a front step: a full-height projection on the street "
-                                     f"front, 1.5-4.0 m wide and 1.2-3.0 m proud (has {w} m and {d} m)")
+                                     f"front, 1.0-4.0 m wide and 1.2-3.0 m proud (has {w} m and {d} m)")
             # T-3191: or a flank's STEP (`step`), the rear part of a side wall standing out from its
             # front part (1827's south flank on the 1911 sheet: u 0-14.6 stands 1.6 m out), a plain
             # full-height projection on a side wall, longer and further out than a pavilion
@@ -5461,6 +5463,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                          f"principal floor over a straight stoop, or (`arch`) a round one in a stone front")
     yard = float(door_kit.get("front_yard_m", 0.0))
     reach = float(val("stair_landing_depth_m")) + (risers - 1) * tread
+    # T-1881: a landing part way down the flight (`mid_landing`: `after_risers` down from the
+    # floor, `depth_m` deep; 1729's, the Detroit print) carries the foot that much further out
+    ml_in = door_kit_in.get("mid_landing")
+    if ml_in is not None:
+        if set(ml_in) != {"after_risers", "depth_m"} or not isinstance(ml_in["after_risers"], int) \
+                or not 2 <= ml_in["after_risers"] <= risers - 2 or not tread + 0.3 <= float(ml_in["depth_m"]) <= 3.0:
+            raise ParamError(f"entrance_kit.mid_landing takes after_risers (2..{risers - 2}) and depth_m "
+                             f"({tread + 0.3:.2f}-3.0 m)")
+        if {"side_stoop", "cheek_form", "veranda"} & set(door_kit_in):
+            raise ParamError("entrance_kit.mid_landing is laid on a plain cheeked stoop: no side_stoop, "
+                             "cheek_form or veranda")
+        reach += float(ml_in["depth_m"]) - tread
     if not reach < yard:
         raise ParamError(f"entrance_kit: the stoop reaches {reach:.2f} m from the front, and the public "
                          f"walk's inner edge is {yard:.2f} m (front_yard_m)")
@@ -5470,6 +5484,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                          f"{risers}; one stoop cannot be both")
     terrace, balustrade = door_kit.get("terrace"), door_kit.get("balustrade")
     door_kit = {"variant": ev["id"], "front_yard_m": yard}
+    if ml_in is not None:
+        door_kit["mid_landing"] = {"after_risers": int(ml_in["after_risers"]), "depth_m": float(ml_in["depth_m"])}
     # T-2409: a terrace at the landing's height running from the stoop along the front to
     # `to_v_m` (the front's own s), its back stepped out where the front stands proud, and
     # a turned balustrade on it and on the stoop's cheeks

@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2509, ts: '2026-10-31T23:36:46.498Z', date: 'Oct 31, 2026, 6:36 PM CT', title: 'Pullman house\'s Prairie front matches the Detroit photograph', kind: 'fix',
+    items: [
+      'The roof reads as one full mansard: the deck behind the cresting is lower and black, with no red peak.',
+      'Dormers stand north and south on the front, none in the centre.',
+      'The entry block is narrower and centred on the door, so the north bay\'s windows show again.',
+      'The front steps break halfway at a landing, the railing level along it.',
+      'The sidewalk gate lines up with the door, and carved urns top its two piers.',
+    ] },
+  { v: 2508, ts: '2026-10-31T22:49:00.063Z', date: 'Oct 31, 2026, 5:49 PM CT', title: '1945 Prairie: the Armour-Corwith corner house stands', kind: 'feature',
+    items: [
+      'The corner house at 1945 Prairie Avenue, at 20th Street, is no longer a plain draft block: two storeys of brick over a high basement under a slated mansard with a dormer over every window, a canted bay at the north end of the front, the door over a tall straight stoop, round-headed windows on the principal floor, the corner cut on a slant toward 20th Street with a bay on that side, and an iron fence along the walk. It is built from the Chicago Tribune\'s 1928 \'Famous Homes\' photograph.',
+      'Still to come: the taller roof over the corner, the north bay\'s own curved roof and the arched doorway the photograph shows.',
+    ] },
   { v: 2507, ts: '2026-10-31T22:00:30.918Z', date: 'Oct 31, 2026, 5:00 PM CT', title: 'Glessner\'s roof draws lighter from a distance, with no visible change', kind: 'improvement',
     items: [
       'Looking at Glessner House from more than a few dozen metres away now costs about 247,000 fewer triangles a frame. Down the alley behind 1616 Prairie that is 6.06 M to 5.81 M.',
