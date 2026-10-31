@@ -37400,6 +37400,29 @@ rear nearer and can place the terrace's north end, its steps and the awning's po
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and `taylor_16554_from_south-side-by-side.jpg`, with their match records.
 **Recorded:** 2026-10-31 (T-1881).
 
+### L-kimball-1801-cross-hood-1890 — 1801 Prairie's slated hood on the cross roof's ridge end, under its finial
+
+**Decision:** the south pavilion's cross roof (L-kimball-1801-cross-roof-1890) now ends under a
+slated hood (`mansard.deck.cross_roof.hood`, built by `k01_mansard_deck._cross_hood`): a square
+pyramid 1.2 m across centred on the ridge's end at u 16.0, v 8.275, its foot buried in the deck
+behind and in the cross roof's slopes in front, its apex 0.5 m over the 16.3 m ridge. Each hip
+is rolled in pale zinc, 0.06 m down each face. The deck's turned finial moves off the ridge's end
+onto the hood's apex, and the cresting along the south curb now stops short of the hood's foot.
+**What is read.** HABS photograph 1 (1965) shows the hood: a small slated pyramid capping the
+ridge's end, its hips white-flashed, the finial on it (print about x 725-800, y 210-300). The
+Taylor print of c. 1895 cannot see the hood behind the ridge, but its finial's top stands about
+0.5 m over where the build's stood on the bare ridge, and that sets the hood's rise. HABS
+photograph 1 reads the apex about 0.5 m lower, but its camera also reads the ridge about 1.3 m
+under the Taylor print's. The Taylor print is the period view and is followed for 1904.
+**What is invented.** The base's size: HABS 1 shows the hood about 1.5 m across on the diagonal,
+taken as 1.2 m square. The zinc rolls' width and section. The hood's back and its foot, which no
+picture shows. The finial is the deck's own turning. HABS 1's and HABS 2's 1965 finial is a short
+knob without a spike; the build keeps the Taylor print's spike.
+**How to resolve:** the 1892 drawings, or a picture of the roof from the south-east or from above.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-31.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and `taylor_c1895_northwest-side-by-side.jpg`, with their match records.
+
 ### L-pullman-1729-architraves-1881 — 1729 Prairie's front lights framed in moulded architraves off the 1890 Albertype plate: their bands, imposts and keystones read, their profile reconstructed
 
 **Decision:** the four round-arched lights of the Prairie front that the build lays in the K01 wall

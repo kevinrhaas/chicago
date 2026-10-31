@@ -1118,6 +1118,11 @@ step "a K08 finial may be turned on a crocketed collar and a hooded dormer's fac
 step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
   python3 tools/test_k01_hood_flare.py
 
+# T-1890. 1801 Prairie's cross roof ends under a slated hood with its finial on the apex
+# (HABS photograph 1; the Taylor print sets its rise through the finial's top).
+step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
+  python3 tools/test_k01_cross_roof_hood.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
