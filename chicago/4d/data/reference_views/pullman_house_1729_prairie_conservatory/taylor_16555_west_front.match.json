@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "a2e37ec93375f33bad61933ab07b64e2c91c7d4bcdbb6e39856aaaecdb4ad99f"
+      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "579fc492fd1901fc8bf2dd62774b9b5f2e5b35bb1e827b520d35ca8a7378c4bd",
+  "group_sha256": "f8a28da033b33cfd86e2abb6ca53ab66dafcefb81acaeca1faddfe6e8949089d",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -306,6 +306,16 @@
       "what": "the parkway trees' girth (T-1934, 2026-10-31): the print's living trunks before the estate measure 11-15 px across at breast height (x 614-629, 829-840, 867-880 and 1067-1080 px, y 649), about 0.28-0.38 m through this camera's 30 m to them, where the renderer's elm draws its bole about 0.66 m across at the trees' scales of 0.94-0.98, 23-26 px; the dead trunk in its guard (x 439-472) is the one stout one",
       "status": "within tolerance",
       "how": "this print is of the early 1890s, and a parkway elm thickens about 1-1.5 cm a year, so by 1904 these trunks stand about 0.4-0.5 m across, within about 0.2 m of the render's; the print's crowns rise past its top edge, over 17.5 m at that distance, which the renderer's elm reaches only near its full scale, and its scale sets girth and height together, so a thinner trunk would cost the trees the height the print shows"
+    },
+    {
+      "what": "the house's porch on its east side at 18th Street (x 110-235 px): a raised stone terrace standing out from the rear wall, an arched light in its podium's south face, a stone balustrade on pedestals, and a striped awning pitched from the wall over it on slender posts, where the build stood a 4 m brick block under a flat tin deck",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the sheet's south-east block rebuilt as rear_terrace (k01_rear_terrace): the podium to the principal floor (2.0 m), 3.0 m out from v 11.63 to the 18th Street face, a 0.9 m balustrade, the awning from 6.1 m on the wall to a 4.3 m eave; through this camera the balustrade's front draws within about 25 px of the print's (the render's whole house stands about 20-30 px left of the print's here, the same offset as its corner pier), the awning's foot and eave within about 10 px of height"
+    },
+    {
+      "what": "the terrace's turned balusters and the urn on its front's corner pedestal (x 430-455)",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-10-31): built as square balusters, the urn not built; a section under the bar at this distance (L-k01-1729-pullman-terrace-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -1172,6 +1172,13 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 step "a K01 house carries a two-level veranda on its rear wall, and a wing's wall stands behind its oriel (T-3242)" \
   python3 tools/test_k01_rear_veranda.py
 
+# T-1881. A raised stone terrace under a striped awning on a K01 house's rear wall
+# (k01_rear_terrace), held on 1729 Prairie's record: its podium, balustrade, posts and
+# striped canvas built where the record puts them, nothing inside the main block, the old
+# brick block gone; an over-high floor, a low eave, a run past the wall and an unknown key refused.
+step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
+  python3 tools/test_k01_rear_terrace.py
+
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
 # the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,

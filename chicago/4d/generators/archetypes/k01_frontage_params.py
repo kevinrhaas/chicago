@@ -232,6 +232,9 @@ class K01FrontageParams:
     # T-3242: a two-level timber veranda against the main rear wall, its garden flight off the
     # lower deck (`rear_veranda`, k01_rear_veranda; 1701's, off its rear photograph)
     rear_veranda: dict = field(default_factory=dict)
+    # T-1881: a raised stone terrace against the main rear wall under a striped awning
+    # (`rear_terrace`, k01_rear_terrace; 1729's, off Taylor's photographs nos. 16555 and 16554)
+    rear_terrace: dict = field(default_factory=dict)
     # T-3255: round-headed lights under eared and crested stone hoods on the walls it names
     # (`eared_round_heads`), and the main block's corners as stone pilasters under capitals
     # (`corner_pilasters`), k01_dressings; 1701's, off its photograph
@@ -315,7 +318,7 @@ CONSUMED = frozenset({
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
-    "hip_deck", "rear_veranda", "side_porch", "eared_round_heads", "corner_pilasters",
+    "hip_deck", "rear_veranda", "side_porch", "eared_round_heads", "corner_pilasters", "rear_terrace",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -6398,6 +6401,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                        floor=pf)
     except VerandaError as e:
         raise ParamError(str(e)) from None
+    from .k01_rear_terrace import ParamError as TerraceError, resolve as resolve_terrace
+    try:
+        rear_terrace = resolve_terrace(val("rear_terrace"), width=width, eave=pf + sum(heights), wings=wings,
+                                       floor=pf)
+    except TerraceError as e:
+        raise ParamError(str(e)) from None
     lg_ = (door_kit or {}).get("loggia") or {}
     round_arcade_check(lg_.get("round_arcade"), round_corner, lg_.get("columns"), width)
     # T-2997: a pipe on a return stands on a street projection's square high-s return, at
@@ -6475,7 +6484,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
-        corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, side_porch=side_porch, shutters=shutters,
+        corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, rear_terrace=rear_terrace, side_porch=side_porch, shutters=shutters,
         eared_hoods=eared_hoods, corner_pilasters=corner_pilasters,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},

@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "a2e37ec93375f33bad61933ab07b64e2c91c7d4bcdbb6e39856aaaecdb4ad99f"
+      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
     }
   ],
-  "group_sha256": "36c0937d0187f2c883af5fb8997eda973294f22db873e8130bde380e6b98185c",
+  "group_sha256": "c687e9db68f1fa5269a2822d6513dd2a352be58a7fed17cee7b9cd59f9ddfb8b",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -249,6 +249,11 @@
     {
       "what": "the camera [T-1934, 2026-10-31]: T-3193's eye stood about 20 m from the ground the print shows, so the street drew 25-45 px high and the foreground lawn, its coping and the curving walk did not appear at all; re-solved with them in its fit (the camera's solve), the coping, the walk's outer edge and the wall's foot now land within about 5 px, the buildings within about 10 px",
       "status": "fixed"
+    },
+    {
+      "what": "the house's raised terrace at its south-east corner, its balustrade and its striped awning (pullman_house_1729_prairie, T-1881), where the build stood a one-storey brick block until now",
+      "status": "not shown",
+      "how": "T-1881 (2026-10-31): another structure, judged in the house's and the conservatory's records (taylor_16555_west_front, taylor_16554_from_south, inland_1894_plate); this record's verdict on the stable and range is unchanged"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

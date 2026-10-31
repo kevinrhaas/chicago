@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "a2e37ec93375f33bad61933ab07b64e2c91c7d4bcdbb6e39856aaaecdb4ad99f"
+      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "579fc492fd1901fc8bf2dd62774b9b5f2e5b35bb1e827b520d35ca8a7378c4bd",
+  "group_sha256": "f8a28da033b33cfd86e2abb6ca53ab66dafcefb81acaeca1faddfe6e8949089d",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -244,6 +244,16 @@
     {
       "what": "the camera [T-1934, 2026-10-31]: T-3193's eye stood about 20 m from the ground the print shows, so the street drew 25-45 px high and the foreground lawn, its coping and the curving walk did not appear at all; re-solved with them in its fit (the camera's solve), the coping, the walk's outer edge and the wall's foot now land within about 5 px, the buildings within about 10 px",
       "status": "fixed"
+    },
+    {
+      "what": "the house's south-east corner at its foot: a stone balustrade before the 18th Street face's east end and the rear wall (x 445-560 px, its top about y 525-530), the rear wall's lower lights standing clear over it, and no storey there, where the build stood a 4 m brick block under a flat tin deck",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the block is rebuilt as the raised terrace Taylor's no. 16555 shows (rear_terrace); its balustrade now draws at the corner's foot, behind the 18th Street wall's coping through this camera, which places the whole house 20-40 px off the print (the house's corner residual in this record's solve)"
+    },
+    {
+      "what": "the terrace's striped awning, which this winter print does not show",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-10-31): two pictures disagree (T-3153): Taylor's no. 16555, in leaf, shows the awning up; this print, with the trees bare, shows the frame bare. The 1904 scene is in July, so the awning stands (L-k01-1729-pullman-terrace-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

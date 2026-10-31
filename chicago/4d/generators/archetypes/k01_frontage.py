@@ -5849,6 +5849,10 @@ def build(params, structure_id: str):
         # T-3242: the two-level veranda on the rear wall and its garden flight (1701's)
         from . import k01_rear_veranda
         k01_rear_veranda.dress(a)
+    if p.rear_terrace:
+        # T-1881: the raised stone terrace on the rear wall under its striped awning (1729's)
+        from . import k01_rear_terrace
+        k01_rear_terrace.dress(a)
     if (p.mansard or {}).get("deck"):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck

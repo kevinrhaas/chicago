@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "a2e37ec93375f33bad61933ab07b64e2c91c7d4bcdbb6e39856aaaecdb4ad99f"
+      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "579fc492fd1901fc8bf2dd62774b9b5f2e5b35bb1e827b520d35ca8a7378c4bd",
+  "group_sha256": "f8a28da033b33cfd86e2abb6ca53ab66dafcefb81acaeca1faddfe6e8949089d",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -288,6 +288,16 @@
     {
       "what": "the corner bay against the arcade (T-1934, 2026-10-31): the plate shows the arcade's third arch whole and the bay's left edge about 17 px right of its end pier (x 1513 px); the bay's 1.0 m west return from v 12.6 had covered most of that arch (x 1429-1494), and its east end stopped at x 1779 where the plate's runs to x 1813. Re-planned (L-pullman-stable-bay-1934): the return now leaves the wall at v 12.95, 0.55 m proud, and the bay runs on to u -25.0; its leftmost edge renders at x 1483 and its east end at x 1817, the arch clear but for its pier's last few pixels. Its depth off the corner is not read (the plate and 16555 look from nearly the same bearing)",
       "status": "fixed"
+    },
+    {
+      "what": "the stone balustrade on a podium at the plate's left edge (x 80-330 px of the print, y 350-430), the house's raised terrace before its rear wall, where the build stood a brick block",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the terrace (rear_terrace) now stands there; its balustrade draws at about the plate's height through this camera. The plate's turned balusters and the pedestal's moulded panel are built as square balusters and a plain pedestal (L-k01-1729-pullman-terrace-1881)"
+    },
+    {
+      "what": "the terrace's striped awning, which the 1894 plate does not show",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-10-31): two pictures disagree (T-3153): Taylor's no. 16555 shows it up in summer, this plate and Taylor's no. 16554 show none; the 1904 scene is in July, so it stands"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
