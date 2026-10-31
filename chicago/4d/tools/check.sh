@@ -1179,6 +1179,14 @@ step "a K01 house carries a two-level veranda on its rear wall, and a wing's wal
 step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
   python3 tools/test_k01_rear_terrace.py
 
+# T-1881. A K01 named street window's round head framed by a moulded architrave (jambs, arch,
+# impost and keystone), held on 1729 Prairie's record off the 1890 Albertype plate: the four
+# lights the front shows framed, the one behind the forward block left in its voussoirs, every
+# band springing with its head and clear of the piers; voussoirs with an architrave, a band out
+# of range, a low keystone, an unknown key and two architraves run together refused.
+step "a K01 house's named round-arched street lights stand in moulded architraves (T-1881)" \
+  python3 tools/test_k01_architrave.py
+
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
 # the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,
