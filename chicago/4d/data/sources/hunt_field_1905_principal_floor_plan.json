@@ -1,0 +1,29 @@
+{
+ "id": "hunt_field_1905_principal_floor_plan",
+ "type": "illustration",
+ "citation": "[Residence for Marshall and Nannie S. Field, 1905 South Prairie Avenue, Chicago, Illinois]. [First floor plan]. Office of Richard Morris Hunt, architect, [between 1871 and 1873]. Ink and watercolour wash; sheet headed 'Office Copy', 'No 2', 'M. FIELD', 'House for Marshall Field - Chicago Ill.', 'Plan of Principal Floor', 'Scale 1/4\" = 1 ft'.",
+ "author": "Richard Morris Hunt, architect (office of R. M. Hunt)",
+ "date": "[between 1871 and 1873]",
+ "describes_date": "the house as designed, 1871-1873",
+ "repository": "Library of Congress Prints & Photographs Division, the Hunt Collection in the AIA/AAF Collection (DLC/PP-2010:100), Unprocessed in PR 13 CN 2010:100, 78.7080; LC-DIG-ppmsca-58353. Prairie library image dw-field-1905-hunt-principal-floor-plan (stream-drawings.json).",
+ "url": "https://www.loc.gov/pictures/item/2024635986/",
+ "locator": "The plan's outer dimension strings: along the street front 11 ft 7 in, 9 ft 3 in, 9 ft 0 in, 13 ft 2 in and 11 ft 0 in with two half-foot piers (55 ft 0 in over all); down the south flank 11 ft 0 in, 37 ft 4 in, 14 ft 2 in, 9 ft 6 in and 3 ft 9 in (75 ft 9 in); down the north flank 29 ft 2 in, 7 ft 11 in, 14 ft 0 in, 10 ft 8 in and 14 ft 4 in; the octagonal library at the south-west corner, its diagonal the canted corner; the window openings' 4 ft 8 in clear and the door's 6 ft 4 in.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "The Library of Congress: no known restrictions on publication. The reference copy committed for the image gate (data/sources/assets/field_1905_pictures_t3271/field_hunt_principal_floor_plan.jpg) is the image store's display copy, unaltered; lengths are read from its written dimensions, nothing is traced from it as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-31 (T-3271) from the image store's display copy, 1593 x 2400 px (sha256 a7db7fa70a9875df76122d19fa0aaf272c31132b14e59c58ee52853efd2be386), of the 9256 x 13948 px master TIFF the library recorded on 2026-10-01.",
+ "note": "The architect's plan of the principal floor: the only architect's drawing of the house located. It is a design drawing of 1871-1873, so it says what Hunt drew, not what was built or what stood in 1904; the photographs of the 1880s and c. 1905 are fitted to it (T-3271) and agree with its front within their fit. The 1911 Sanborn sheet draws the main body 50 ft on the street, the plan 55 ft.",
+ "what_it_supplies": [
+  "the street front's length over all, 55 ft 0 in, and its openings' places",
+  "the south flank's length to the rear stair block, 75 ft 9 in",
+  "the south-west corner cut on the library octagon's diagonal, about 6 ft 3 in back each way",
+  "the conservatory as a segmental bay off the south flank, between the library and the dining room"
+ ],
+ "what_it_does_not_supply": [
+  "heights: it is a plan",
+  "the house as built or in 1904: it is a design drawing of 1871-1873",
+  "the upper floors, the roof and the elevations"
+ ]
+}
