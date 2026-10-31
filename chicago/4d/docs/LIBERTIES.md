@@ -36676,7 +36676,7 @@ parkway clear. The trees' size, crown and species are the rule's as above.
 `albertype_1890-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg` and their match records.
 
 **The gate tree's head (T-3164, 2026-10-31):** the tree left of the 1800 Calumet gate
-(`calumet__prairie_calumet_18_20#p00`) no longer grows on the rule's elm. Both the 1894 plate and
+(`calumet__prairie_calumet_18_20#p03` since T-1934's 16554 stretch was numbered before it) no longer grows on the rule's elm. Both the 1894 plate and
 Lowe's print draw it on one straight leader running up through its crown, its limbs leaving it from
 about 3 m (plate, y 660) or 2.6 m (Lowe) and spreading wide and low over the walk: a young tree's
 head, not the grown elm's forked fountain. Its record names `form: "broad_head"`
@@ -36686,6 +36686,25 @@ grows it on its own habit (`street-trees.js` FORMS, `tree-model.js` ARCH.ulmus_a
 **Chosen (reconstructed):** the habit's numbers (crown base 0.30 of the height, limbs at about 52
 degrees, an open crown between the plate's and Lowe's densities); the species stays the layer's
 American elm, read as a young one; its height stays the record's scale 0.6 of the parkway band.
+
+**Extended (T-1934, 2026-10-31, Taylor's 16554):** Calumet Avenue's west parkway north of the
+glasshouse ground's gate, from 241.0 to 264.0 m along `calumet__prairie_calumet_18_20` (the walk's
+curve into 18th Street, opposite the Pullman stable), is planted off J. W. Taylor's no. 16554
+(`aic_taylor_16554_pullman_from_sw`, c. 1890-1910): three trees at 244.5, 248.8 and 259.9 m, where
+the rule had elms at 241.9, 250.9 and 259.9 m (the first just past the print's edge, its trunk drawing
+inside the frame where the print shows grass).
+**Read:** the print's camera re-solved with this corner's ground in its fit (Taylor stood on the
+lawn inside the corner lot's coping, a few metres from this walk; the coping's curve, the walk's
+outer edge and the stable's wall foot now land within about 5 px), and each trunk's x carried to
+the planting line through it; the third trunk west of them lands 0.45 m from the gate tree's
+266.9 m, which the plate and Lowe's print had placed, a check the camera was not fitted on.
+**Chosen:** all three on the planting line (the nearest one's foot reads about 1 m nearer the
+walk) and on the gate tree's young habit (`broad_head`, scale 0.6), where the print draws each
+bole about 0.19 m across on a straight leader, slenderer than the rule's grown elm; that trees of
+the 1890s print still stand in 1904. The print's trunks with feet on the lawn inside the coping
+are garden trees, left to the lot. **Review:**
+`docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`
+and its match record.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
