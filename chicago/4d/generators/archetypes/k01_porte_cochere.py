@@ -246,8 +246,8 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
     left either side, its crown under the entablature."""
     if not spec:
         return {}
-    if not isinstance(spec, dict) or set(spec) != PORCH_KEYS:
-        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)}")
+    if not isinstance(spec, dict) or not PORCH_KEYS <= set(spec) <= PORCH_KEYS | {"roundels"}:
+        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)} (and roundels)")
     s0, s1 = sorted(float(x) for x in spec["s_m"])
     out, t, fl = float(spec["out_m"]), float(spec["thickness_m"]), float(spec["floor_m"])
     ys, H = float(spec["spring_m"]), float(spec["head_m"])
@@ -298,7 +298,24 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
             b0, b1 = b["span_m"]
             if b1 > s0 - ep - 0.05 and b0 < s1 + ep + 0.05:
                 raise ParamError(f"corner_porch (s {s0}-{s1}) runs into the bay {b['id']} (s {b0:.2f}-{b1:.2f})")
+    # T-3257: carved roundels on the podium's front face (1701's, the photograph's dark
+    # discs in stone rings under the arcade, over the fence), each a ring proud of the face
+    # round a dark sunk disc, under the floor and clear of the face's ends
+    rs = spec.get("roundels")
+    roundels = None
+    if rs is not None:
+        if set(rs) != {"y_m", "d_m", "centre_m"} or not rs["centre_m"]:
+            raise ParamError("corner_porch.roundels takes y_m, d_m and centre_m (along the front)")
+        ry, rdm = float(rs["y_m"]), float(rs["d_m"])
+        if not 0.2 <= rdm <= 0.9 or ry - rdm / 2 < 0.15 or ry + rdm / 2 > fl - 0.1:
+            raise ParamError(f"corner_porch.roundels: 0.2-0.9 m across, at least 0.15 m off the ground and "
+                             f"0.1 m under the porch's floor at {fl} m")
+        cs = [float(c) - s0 for c in rs["centre_m"]]
+        if any(c - rdm / 2 < 0.1 or c + rdm / 2 > s1 - s0 - 0.1 for c in cs):
+            raise ParamError("corner_porch.roundels stand inside the porch's front face, 0.1 m clear of its ends")
+        roundels = {"y_m": ry, "d_m": rdm, "centre_m": cs}
     return {"wall": "k01.wall.street_front", "s_m": [s0, s1], "out_m": out, "thickness_m": t, "floor_m": fl,
+            **({"roundels": roundels} if roundels else {}),
             "spring_m": ys, "head_m": H, "arches": arches, "entablature": {"height_m": eh, "proud_m": ep},
             "balustrade": {"height_m": bh, "post_m": bp, "baluster_m": bb, "pitch_m": bpi, "rail_m": [rw, rd]}}
 
@@ -358,6 +375,24 @@ def dress_porch(a):
                 x1, y1 = c + r * math.cos(t1), ys + r * math.sin(t1)
                 n = _add(_mul(along, -math.cos(tm)), _mul(Y, -math.sin(tm)))
                 quad([at(x0, y0, 0.0), at(x1, y1, 0.0), at(x1, y1, t), at(x0, y0, t)], n, bh)
+    rnd = pc.get("roundels")
+    if rnd:   # T-3257: the podium's roundels (resolve_porch)
+        ring_out, sunk, k_n = 0.05, 0.02, 24
+        ro, ri = rnd["d_m"] / 2, rnd["d_m"] / 2 * 0.72
+        dark = a.prim("iron")
+        bi = a.basis("iron", O, R, Y, seed)
+        for c in rnd["centre_m"]:
+            cc = s0 + c
+            ang = [2 * math.pi * k / k_n for k in range(k_n + 1)]
+            for k in range(k_n):
+                a0, a1 = ang[k], ang[k + 1]
+                q = lambda rr, an, d: P(cc + rr * math.cos(an), rnd["y_m"] + rr * math.sin(an), out + d)
+                quad([q(ri, a0, ring_out), q(ri, a1, ring_out), q(ro, a1, ring_out), q(ro, a0, ring_out)], N, bf)
+                am = (a0 + a1) / 2
+                no = _add(_mul(R, math.cos(am)), _mul(Y, math.sin(am)))
+                quad([q(ro, a0, 0.0), q(ro, a0, ring_out), q(ro, a1, ring_out), q(ro, a1, 0.0)], no, bf)
+                quad([q(ri, a1, sunk), q(ri, a1, ring_out), q(ri, a0, ring_out), q(ri, a0, sunk)], _mul(no, -1), bf)
+                dark.face([q(0.0, a0, sunk), q(ri, a0, sunk), q(ri, a1, sunk)], N, bi, conf)
     for s_, n in ((s0, _mul(R, -1)), (s1, R)):   # the front wall's ends, its corners turned
         quad([P(s_, 0.0, out - t), P(s_, 0.0, out), P(s_, H, out), P(s_, H, out - t)], n, be)
     # the porch's floor on the podium, inside its walls

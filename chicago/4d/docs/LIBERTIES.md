@@ -36891,6 +36891,38 @@ picture shows before the bay; the match record holds that open.
 **How to resolve:** a nearer photograph of the entrance, or a plan of the front's bay.
 **Recorded:** 2026-10-30 (T-3256).
 
+### L-k01-hibbard-1701-3257 — 1701 Prairie's rear range under the house's bracketed cornice, its south face's lights by storey, and the front's bay, basement lights and porch roundels, read off its two photographs
+
+**Decision:** T-3257 (piece 4 of T-1876, the last) works both of the Hibbard house's photographs
+down to what a visitor would notice. On the rear (`glessner_blog_1701_hibbard_rear_photo`, through
+`data/reference_views/hibbard_house_1701_prairie/ghm_rear.json`): the 1874 range carries the main
+block's own cornice (K10's bracketed timber, paired at 1.6 m as the house's are) round its three walls
+under its flat deck's soffit, where T-3240 left a plain fascia (`rear_wings[].roof.cornice`, a new K01
+wing form built by `k10_frontage.dress_wings`); and the range's south face gives each storey its own
+lights (`rear_wings[].windows_by_storey`, new), the upper storey losing the light over s 7.2 the
+photograph does not show and taking the one it does at s 9.0. On the front
+(`chicagology_1701_hibbard_photo`, through `chicagology_front.json`): the stone bay is laid on the
+photograph's centre (v 11.4) instead of between that and the 1911 sheet's, so the entrance arch shows
+whole with a pier before the bay; and the corner porch's podium carries four roundels
+(`corner_porch.roundels`, new), one under each opening of its arcade.
+**What is read, not invented.** The range's cornice line running level into the main block's; the
+upper storey's two lights west of the oriel against the lower storey's three (x 413 against 390 and
+425, read at s 9.0); the bay's centre (its junctions at about v 9.1 and 13.7 through the solved
+camera); the podium's
+dark discs in stone rings, read at about v 0.8, 1.9, 3.2 and 4.3 and 1.4 m up.
+**What is invented.** The range's cornice section and brackets are the kit's (k10_cornices.json
+`restrictions` allow a generic section where the house's own is not read): the photograph shows a
+heavy bracketed cornice, too small to draw its members. The low roof over it is not seen from the
+lawn and stays a tin deck. The bay keeps K08's 3.6 m at the wall against the photograph's reading of
+about 4.6 m (K08 holds a canted bay to 1.2 m out). The roundels' size (0.55 m across) and their carving, drawn as a plain ring round a dark sunk disc.
+**What is still not built.** From the front camera the stoop's flight (T-3256's, 2.5 m wide and
+running out to the street) stands over the fence before the porch's podium, where the photograph
+shows the podium and two of its roundels clear; and the round-headed basement lights the photograph
+shows over the fence under the bay's pair and the lower south range's light (a K08 storey stacks no
+second light in a column and cuts none below its plinth). The match record holds both open.
+**How to resolve:** a nearer photograph of the entrance and its steps.
+**Recorded:** 2026-10-30 (T-3257).
+
 ### L-kimball-1801-turret-finial-1890 — 1801 Prairie's east turret given a turned finial over a plain collar, from the Taylor print
 
 **Decision:** the W. W. Kimball house's north-east turret on its east range (`bays.turret`, T-1890)
