@@ -27474,6 +27474,33 @@ the slab's run, thickness and stone.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-27 (T-3200).
 
+### L-prairie-walk-joins-3274 — Every 1904 house walk carried on across the one-foot margin to the public walk
+
+**Decision:** where a 1904 house's walk (a K14 or K16 front walk or side service walk, 1729
+Prairie's two carriage drives, the Pullman glasshouse ground's walk and drive) was laid to the lot
+line and stops short of the public walk, a paved join the walk's own width runs from its end square
+across to the public walk's inner edge, in the public walk's own paving and at its level. 51 joins,
+0.19-1.6 m long (`data/street_section/walk_joins_1904.json`, laid by
+`tools/lay_prairie_1904_walk_joins.py` from the built walks, their placements and the street grid);
+13 walk ends already met the public walk and are left alone.
+**What it stands on:** the 1905 code, sec. 2062 ("All walks to be laid on a line one foot from and
+parallel with the lot line", `chicago_revised_municipal_code_1905`), which puts the public walk a foot
+outside the lot line the yards were built to; and every picture of these avenues that shows a house
+walk at the street (Glessner, HABS c. 1923; the Pullman glasshouse ground, Inland 1894 and Lowe
+c. 1897; the 1700 and 1800 blocks' photographs), in which it runs on to meet the public walk. The
+owner, 2026-10-31: "there is a gap there between sidewalk and walkway. I see that all over the
+place ... make the walk connect correctly based on the photos".
+**What is invented:** the join's paving (the public walk's, not the house walk's stone flags or
+gravel), and, where a house's traced front and recorded front yard leave more than the code's foot
+(1812 Prairie's 1.6 m, the Pullman glasshouse ground's 0.8-0.9 m), the length the join takes to
+close it.
+**How to resolve:** a photograph of a house walk's street end in the district shows what paved the
+foot; a better trace of the house or the street line shrinks the longer joins, and rerunning the
+tool follows it.
+**Ticket:** T-3274.
+**Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
+**Recorded:** 2026-10-31 (T-3274).
+
 ### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
 
 **Decision:** where two 1904 roadways cross or meet, only one is drawn: the one with the higher
