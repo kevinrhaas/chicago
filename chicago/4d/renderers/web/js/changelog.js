@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2496, ts: '2026-10-31T15:14:30.796Z', date: 'Oct 31, 2026, 10:14 AM CT', title: 'Three more pictures of the Field house, checked against Hunt\'s own floor plan', kind: 'change',
+    items: [
+      '1905 Prairie, Marshall Field\'s house, is now compared with three more pictures: an 1880s photograph, the Chicago Daily News photograph of about 1905, and an 1893 engraving. Each has its camera worked out, and the model is drawn from the same viewpoint beside it.',
+      'Richard Morris Hunt\'s own plan of the house\'s main floor, from the Library of Congress, gives the front as 55 feet. Both photographs line up with that plan but not with the 1911 insurance map\'s 50 feet, and they show the walls about 6 feet lower than the model. Those differences are now recorded against each picture, ready to build.',
+    ] },
   { v: 2495, ts: '2026-10-31T13:31:09.463Z', date: 'Oct 31, 2026, 8:31 AM CT', title: 'Pullman\'s back corner gets its raised terrace and striped awning', kind: 'improvement',
     items: [
       'At the Pullman house\'s back corner on 18th Street, the plain brick box is gone. In its place is the raised stone terrace that Taylor\'s photographs show: a balustrade around it, an arched basement window below, and a green-and-white striped awning sloping down from the wall.',
