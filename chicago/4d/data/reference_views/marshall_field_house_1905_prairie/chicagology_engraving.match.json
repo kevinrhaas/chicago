@@ -2,7 +2,7 @@
  "structure_id": "marshall_field_house_1905_prairie",
  "view": "chicagology_engraving",
  "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
- "glb_sha256": "844eb450239f0a647fb0151cb1a6c6f5606702c545995f58294f767371b42e74",
+ "glb_sha256": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5",
  "camera_sha256": "3aa166905924f486e963fbc22a910f9a14db85e3d6906bfdbdfce7211707b466",
  "photo_sha256": "fb24ea4c06c3265ac7bb9c2a6231a0b365f08d55e0131d0f410651fc0d01e03c",
  "rendered_members": [
@@ -23,34 +23,34 @@
     0
    ],
    "rotation_y": 0,
-   "glb_sha256": "844eb450239f0a647fb0151cb1a6c6f5606702c545995f58294f767371b42e74"
+   "glb_sha256": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5"
   },
   {
    "structure_id": "marshall_field_house_1905_prairie_conservatory",
    "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
    "placement": {
-    "local_e": 1434.826,
-    "local_n": -3371.933,
+    "local_e": 1431.842,
+    "local_n": -3373.512,
     "rotation_deg": 359.444,
     "scene": "1904",
     "target_date": "1904-07-01",
     "phase": "as_mapped_1904"
    },
    "position": [
-    9.000411596869922,
+    11.999593522900811,
     0,
-    -15.250379145678007
+    -16.80034842749289
    ],
    "rotation_y": -3.141592653589794,
-   "glb_sha256": "db2d2082e96b08c2a0e99ab2b0fde2fbc54061667457adff9ff698f383b24854"
+   "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
   }
  ],
- "group_sha256": "f0b13b84d1b0edaa735280ea0b914503ebda719743ade40129d5f6e6ecb6f2a3",
+ "group_sha256": "93c2b82b2c74839f74a7d81676feefd058825b9434ab981773f8a6e5a58e67df",
  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/chicagology_engraving-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
   {
-   "what": "the camera: no pinhole camera draws this engraving within about 2 m (the solve says why), so its render is not the engraving's view; the front's length, the walls' height, the corner's cut and the conservatory's place are judged on the two photographs' views (chicagology_923_photo, daily_news_dn0003324), where they are open",
+   "what": "the camera: no pinhole camera draws this engraving within about 2 m (the solve says why), so its render is not the engraving's view; the front's length, the walls' height, the corner's cut and the conservatory's place are judged on the two photographs' views (chicagology_923_photo, daily_news_dn0003324), where T-3271 builds them to Hunt's plan",
    "status": "within tolerance"
   },
   {
