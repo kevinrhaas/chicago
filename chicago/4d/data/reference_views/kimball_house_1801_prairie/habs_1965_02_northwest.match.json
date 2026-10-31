@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b5c8ab53d39024856db570c49dd2027dbcd2b0b8f5b1cb0594c7d2f12d5507fe",
+  "glb_sha256": "48477def01b69739b39d633a8b762aa1c327ba7a9f4c27d343fb1ff87a3490f8",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -32,8 +32,8 @@
       "how": "T-1890, read again at full size: the slate between the turret and the frontispiece is not a dormer on the range's hip but the slate roof of a second stone frontispiece, whose coped gable between pinnacles rises through the eave at x 272-318 (its apex behind the utility pole) and whose white-capped ridge runs back into the range's roof at about y 876-888; the 'stone face under it' is that bay's front, carrying the range's one column of lights. bays.p_east_gable stands it on r2's 18th Street wall in p_door's dressing; it renders between x 263 and 313 against the print's 272-318 (L-kimball-1801-east-gable-1890)"
     },
     {
-      "what": "a tall stack rising behind the frontispiece's gable (x 337-403 px, its cap at about y 780, about 10 m): the build has no stack over the east range (a K01 stack stands only in the main block's roof)",
-      "status": "open",
+      "what": "a tall stack rising behind the frontispiece's gable (x 337-403 px, its cap at about y 780): the build had no stack over the east range (a K01 stack stood only in the main block's roof). Read at full size (T-1890) it is a pale stone shaft under a moulded cap (cap x 336-387, its top at y 776, its underside at y 792) standing on the range's apex, its foot at about y 803-808. K01's wings now carry stacks of their own (rear_wings[].stacks): r2's stands 0.8 m square at u -13.45, v 2.6, its cap 0.1 m proud and 0.45 m deep with its top at 11.4 m, in the walls' stone; its cap renders at x 343-390, y 775-793, within about 5 px of the print's",
+      "status": "fixed",
       "how": "T-1890 tried it (2026-10-27): a stone stack in the east range's roof on the print's line of sight, its cap at about y 776. One picture cannot fix its depth, and on the build's range hip (its ridge 8.3 m) the stack stood about 4 m of bare shaft over the slate, where the print shows only its cap clearing the slate behind the frontispiece, which stands to about y 795 (about 10 m at the wall's depth) against the build's hip at about y 865 there. So the stack was taken out: it waits on the range's roof, which in this print stands far higher than the build's (the frontispiece's place, above, moves with it)"
     },
     {
@@ -41,7 +41,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the east range's roof: the print's slate face rises steeply from the eave to about y 800 (about 9.6-10 m) over the frontispiece; the build's 45-degree hip rises to the same line from this eye",
+      "what": "the east range's roof: the print's slate face rises steeply from the eave to an apex at about x 380, y 797 px over the frontispiece, its west hip running down toward r2's north-west corner behind the turret's cone; the build's 45-degree hip put the apex 4.7 m back from the 18th Street wall, where it rendered at x 434, y 803, about 55 px east of the print's. T-1890 pitches r2's 18th Street end at 60 degrees (rear_wings[].roof.end_pitch_deg; the sides stay 45), so the apex stands 2.7 m back at the ridge's unchanged 11.05 m and renders at about x 372, y 790, under the stack as the print's is; beside the stack's west face the build's slate stands about 10 px (about 0.4-0.6 m) under the print's roof line (y 818 against 808), with the stack's cap and the apex both on the print's, a reading of this one camera the Taylor print (the tree hides the range's roof) cannot check",
       "status": "within tolerance"
     },
     {

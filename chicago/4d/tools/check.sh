@@ -1123,6 +1123,13 @@ step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
   python3 tools/test_k01_cross_roof_hood.py
 
+# T-1890. 1801 Prairie's east range (HABS photograph 2): its 18th Street end pitched steeper
+# than its sides to an apex 2.7 m back, and a stone stack standing on that apex — the first a
+# K01 wing carries: bad ends, a stack outside the wall line or under the slate refused; an end
+# at the sides' own pitch builds K05's hip exactly; a wing without either as before.
+step "a K01 wing's hip may pitch its ends steeper, and a wing may carry its own stacks (T-1890)" \
+  python3 tools/test_k01_wing_stack.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;

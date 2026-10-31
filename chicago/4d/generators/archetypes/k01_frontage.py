@@ -1215,20 +1215,41 @@ class Assembly:
                               **({"gable_to": r["gable_to"]} if "gable_to" in r else {}),
                               "overhang_m": o, "fascia_m": f, "covering": r["covering"],
                               "eave_datum_m": top, "ridge_datum_m": r["ridge_m"], "host_top_m": host_top,
+                              **({"end_pitch_deg": dict(r["end_pitch_deg"])} if r.get("end_pitch_deg") else {}),
+                              **({"stacks": len(w["stacks"])} if w.get("stacks") else {}),
                               "construction": "k05"},
                              {"eave": (u0, top, z1), "ridge": ((u0 + u1) / 2, r["ridge_m"], (z0 + z1) / 2)})
         # a ridge across the wing is built past the host wall by more than the roof's span,
         # so its far end lies wholly beyond the cut and the ridge runs straight into it
         far = u1 + (v1 - v0) + 2 * o + 1.0 if r["axis"] == "u" else u1
         base = min(host_top, top - o * t - f) - 0.5
-        if r["kind"] == "hip":
+        if r["kind"] == "hip" and r.get("end_pitch_deg"):
+            hip, hs = self.wing_hip_ends(k5, r, u0, u1, z0, z1, top, t, o, f)
+            solids = [hip, k5.body_box(u0, far, z0, z1, base, hs)]
+        elif r["kind"] == "hip":
             hip, hs = k5.hip_element(u0, far, z0, z1, top, t, o, f)
             solids = [hip, k5.body_box(u0, far, z0, z1, base, hs)]
         elif r["axis"] == "u":   # a gable to the rear: the one verge, on the rear wall
             solids, _, _, _ = k5.gable_element(u0, far, z0, z1, top, t, o, o, f, base, "x", verge_ends=("lo",))
         else:                    # a gable to a flank: the ridge along the wing, a gable at each end
             solids, _, _, _ = k5.gable_element(z0, z1, u0, u1, top, t, o, o, f, base, "z")
-        hi, end = r["ridge_m"] + 1.0, far + o + 2.0
+        # T-1890: the wing's own stacks (rear_wings[].stacks), T-2302's plain prism under its
+        # cap, joined into the roof solid so the shaft is cut where it leaves the slate
+        P = k5.frame("z")
+        stone_boxes = []
+        for c in w.get("stacks", ()):
+            sx, sz = c["plan_m"]
+            u, z, stop = c["u_m"], -c["v_m"], c["top_m"]
+            cp, cd = c["cap_proud_m"], c["cap_depth_m"]
+            solids.append(k5.extrude([(u - sx / 2, c["base_m"]), (u + sx / 2, c["base_m"]), (u + sx / 2, stop - cd / 2),
+                                      (u - sx / 2, stop - cd / 2)], z - sz / 2, z + sz / 2, P,
+                                     lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
+            solids.append(k5.extrude([(u - sx / 2 - cp, stop - cd), (u + sx / 2 + cp, stop - cd),
+                                      (u + sx / 2 + cp, stop), (u - sx / 2 - cp, stop)],
+                                     z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
+            if c["stone"]:
+                stone_boxes.append((u - sx / 2 - 1e-3, u + sx / 2 + 1e-3, z - sz / 2 - 1e-3, z + sz / 2 + 1e-3))
+        hi, end = max([r["ridge_m"]] + [c["top_m"] for c in w.get("stacks", ())]) + 1.0, far + o + 2.0
         # T-2900: a wing longer than its host wall is cut only along the host: past it, its
         # eaves and its hip run round its own front
         hv0, hv1 = w["host_v_m"]
@@ -1262,6 +1283,14 @@ class Assembly:
                 b_ = self.basis("fascia", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed) \
                     if abs(n[1]) > 0.999 else upright("fascia", n)
                 self.prim("fascia").face(tri, n, b_, conf)
+            elif role in ("chimney", "coping"):   # T-1890: a wing stack's shaft and cap
+                cx_, cz_ = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
+                mat = "limestone_trim" if role == "coping" else \
+                    "rough_stone_trim" if any(b[0] <= cx_ <= b[1] and b[2] <= cz_ <= b[3] for b in stone_boxes) \
+                    else "brick"
+                b_ = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed) \
+                    if abs(n[1]) > 0.999 else upright(mat, n)
+                self.prim(mat).face(tri, n, b_, conf)
             elif role in ("gable", "host_end"):
                 # across the wall line it is walling, from the wing's wall top (a gable) or the
                 # host's top (the junction) up; past the corners it is the eave's end
@@ -1276,6 +1305,23 @@ class Assembly:
                         self.prim(mat).face(piece, n, upright(mat, n), conf)
             else:
                 raise ValueError(f"the K05 union left a {role!r} face on {w['id']}'s roof")
+
+    @staticmethod
+    def wing_hip_ends(k5, r, u0, u1, z0, z1, top, t, o, f):
+        """T-1890: a wing's hip whose ridge runs along it (v) with one or both ends pitched
+        steeper than its sides (`end_pitch_deg`): k5.hip_element's ring stack, the ridge at
+        the same height, its ends drawn in toward the end walls. The south end (v0) is the
+        z1 side in the assembly's frame (z = -v), the north end the z0 side."""
+        ends = r["end_pitch_deg"]
+        hs, he = top - o * t - f, top - o * t
+        X0, X1, Z0, Z1 = u0 - o, u1 + o, z0 - o, z1 + o
+        rise = (X1 - X0) / 2 * t
+        xc = (X0 + X1) / 2
+        za = Z0 + rise / math.tan(math.radians(ends.get("north", r["pitch_deg"])))
+        zb = Z1 - rise / math.tan(math.radians(ends.get("south", r["pitch_deg"])))
+        rings = [(hs, k5.inset_rect(X0, X1, Z0, Z1, 0.0)), (he, k5.inset_rect(X0, X1, Z0, Z1, 0.0)),
+                 (he + rise, [(xc, za), (xc, za), (xc, zb), (xc, zb)])]
+        return k5.ring_stack(rings, ["fascia", "covering"], "soffit"), hs
 
     # -- k01.opening.* ---------------------------------------------------------------
     def opening(self, op, frame, thickness, body_mat, stone_trim, cut=False, coursed=False):
