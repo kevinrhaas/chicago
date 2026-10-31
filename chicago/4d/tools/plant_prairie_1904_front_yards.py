@@ -102,6 +102,7 @@ SIDE_REACH_M = 6.0         # a corner shrub stands no further back along a side 
 MIN_YARD_M = 1.6           # a house nearer its lot line than this has no front yard to plant
 CHECK_SLACK_M = 0.12       # --check lets a rebake move a stoop or a wall this much under a plant
 GATE_BAND_M = 1.0          # a lot line's fence or wall is read this deep into the lot (T-1934)
+GATE_OUT_M = 0.5           # ... and this far out past the line, where a wall ON it stands (T-1934)
 GATE_MIN_M = 0.45          # ... and a gap in it this long to GATE_MAX_M is a gateway (on the raster)
 GATE_MAX_M = 6.0
 GATE_WAY_M = 3.5           # a gateway's way is kept clear this far into the lot
@@ -350,6 +351,7 @@ class Plan:
         self.low = np.zeros((self.h, self.w), bool)
         self.paved = np.zeros((self.h, self.w), bool)
         self.floor = np.zeros((self.h, self.w))   # the highest level floor under LOW_TOP_M (a terrace's)
+        self.lots = np.zeros((self.h, self.w), bool)  # inside some parcel (outside: the street's)
         self.doors = []   # (e, n, structure id)
 
     def cells(self, en):
@@ -467,18 +469,27 @@ def inside(pe, pn, poly):
 
 # ---------------------------------------------------------------- one lot
 
-def gate_ways(s, d, width, fence, inlot):
+def gate_ways(s, d, width, fence, inlot, ours):
     """T-1934 (the owner, 2026-10-30, on Pullman's carriage ways: "no plants blocking it"): every
     gateway in a lot's fence or wall is kept clear. Along each of the lot's three street-side
     lines (the street line, d 0, and the side lines, s 0 and s = width) the fence, coping or pier
     raster is read in a band GATE_BAND_M deep; a run along the line with none of it, closed by
     fence at both ends and GATE_MIN_M to GATE_MAX_M long, is an opening, and a way as wide as it
-    is kept clear GATE_WAY_M into the lot. Returns the mask of those ways."""
+    is kept clear GATE_WAY_M into the lot. A wall built ON the line straddles it, and the half of it
+    outside it is still the lot's wall: so the band also reads GATE_OUT_M out past the line, over
+    the stretch of the line the lot itself spans, wherever that ground is no OTHER lot's (`ours`:
+    the street, or this lot's own polygon where it runs past the frame's straight line; a shared
+    side line's far side is the neighbour's yard, whose own work closes no gateway of this lot's).
+    T-1934: Pullman's 0.9 m coping along the stable's front stands just past the 18th Street line,
+    and with the c. 1900 wall's piers withdrawn nothing inside the band closed the court's carriage
+    mouth. Returns the mask of those ways."""
     out = np.zeros(s.shape, bool)
     for along, depth, lo in ((s, d, 0.0), (d, s, 0.0), (d, width - s, 0.0)):
-        band = inlot & (depth >= lo) & (depth <= GATE_BAND_M)
-        if not band.any():
+        inband = inlot & (depth >= lo) & (depth <= GATE_BAND_M)
+        if not inband.any():
             continue
+        span = (along >= along[inband].min()) & (along <= along[inband].max())
+        band = (inband | (ours & (depth >= lo - GATE_OUT_M) & (depth < lo))) & span
         a = np.round(along[band] / RES).astype(int)
         f = fence[band]
         if not f.any():
@@ -583,7 +594,7 @@ class Yard:
             self.doors.append((r2(ds), r2(dd), front_door))
         self.keep = keep
         edt = lambda m: ndimage.distance_transform_edt(~m) * RES if m.any() else np.full(m.shape, 99.0)
-        self.gate_way = gate_ways(s, d, width, fence, inlot)
+        self.gate_way = gate_ways(s, d, width, fence, inlot, inlot | ~plan.lots[r0:r1, c0:c1])
         self.terms = {
             "the house's wall": dh - WALL_GAP_M,
             "a stoop or its steps": edt(stoop) - STOOP_GAP_M,
@@ -967,6 +978,8 @@ def lay_district():
     e0, n0 = allp.min(axis=0) - 20
     e1, n1 = allp.max(axis=0) + 20
     plan = Plan(float(e0), float(n0), float(e1), float(n1))
+    for p in parcels:
+        plan.lay_polygon(plan.lots, p["polygon_local_m"])
     by_parcel: dict[str, set] = {}
     tracked = tracked_models()
     for f in sorted(SIDECARS.glob("*.json")):
