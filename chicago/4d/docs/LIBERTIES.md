@@ -37031,3 +37031,32 @@ not used for this. **How to resolve:** a re-solve of 16554 with the walk's edge 
 the corner from the west or the south-east.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
+
+### L-kimball-1801-cross-roof-1890 — 1801 Prairie's south pavilion's slated cross roof run back from behind its coped gable, its ridge level and its end at the two pictures' finial
+**Recorded:** 2026-10-31.
+
+**Decision:** behind the south pavilion's coped stone gable (`bays.p_south`, `roof.gable.behind`) a
+slated cross roof now runs back 4.5 m behind the front (to u 16.0) on the gable's middle (v 8.275):
+a level ridge at 16.3 m, two slopes from the pavilion's side walls' tops (13.6 m) up to it, slated
+cheeks under them down into the main roof, and its end closed square. Where the main mansard stands
+over a slope the two meet in a valley; where the cross roof stands over the main roof it shows. The
+deck's cresting stops 0.1 m short of it along the front (at v 6.75) and along the south curb (at
+u 15.9), the deck's south-west corner carries no finial of its own, and the deck's turned finial
+stands on the cross roof's ridge end instead (`mansard.deck.cross_roof`). It is slated in the
+mansard's own slate (`roof.slated_as_house`). **What is read.** The Taylor print of c. 1895 shows
+the roof's ridge running back from just under the gable's apex to the finial where the front's
+cresting ends (print x 1250, y 287 to x 1097, y 352); carried onto the gable's middle through its
+solved camera that is a level line at 16.26-16.38 m from u 20.1 back to u 15.97. HABS photograph 1
+(1965) shows the same roof from the south-west, its south slope down to the pavilion's eave and its
+ridge running back to a hood with a finial; carried onto the same plane through its camera the
+ridge ends at u 16.0. The two agree on where the roof ends and disagree by about 1.3 m on its
+height (HABS 1's camera reads the gable itself about 1.2 m high, its match record's within-tolerance
+entry); the Taylor print, which holds the gable within 10 px, is followed. **What is invented or held
+by the kit.** The slopes' pitch (about 62 degrees, from the side walls' tops to the ridge), the
+cheeks, the square end and the valleys are reconstructed: no picture shows the roof's back or how it
+meets the main roof. HABS photograph 1's slated hood under the finial is not built (the finial
+stands on the ridge's end). Behind the chamfered south corner the cheek stands from the canted face's
+top (11.65 m), so the light on the cant still looks into its recess past nothing of the house's.
+**How to resolve:** the 1892 drawings, or a picture of the roof from above or from the south-east.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and `habs_1965_01_southwest-side-by-side.jpg`, with their match records.

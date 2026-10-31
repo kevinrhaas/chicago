@@ -2357,8 +2357,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # round the cone (k01_frontage.cone_slate_uv); a bow's half cone leans on its wall
         if v["roof"].get("slated_as_house") is not None:
             whole_cone = v["roof"].get("kind") == "cone" and (v["kind"] == "tower" or v.get("cap_whole"))
-            if v["roof"]["slated_as_house"] is not True or not (v["roof"].get("mansard") or whole_cone):
-                raise ParamError(f"bays: {e['id']}'s roof.slated_as_house is true, on a mansard or a "
+            # T-1890: or the cross roof behind a shallow pavilion's gable (1801's south pavilion,
+            # slated as the mansard it runs back into in the Taylor print and HABS photograph 1)
+            behind = v["roof"].get("kind") == "gable" and (v["roof"].get("gable") or {}).get("behind")
+            if v["roof"]["slated_as_house"] is not True or not (v["roof"].get("mansard") or whole_cone or behind):
+                raise ParamError(f"bays: {e['id']}'s roof.slated_as_house is true, on a mansard, a gable's roof behind it or a "
                                  f"tower's or corner turret's whole cone")
         # T-1890: a round tower's corbelled upper stage (1801's, in the Taylor print and HABS
         # photograph 2): from one of its storey lines its ring is wider than its shaft's, carried
@@ -6125,7 +6128,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         from .k01_mansard_deck import ParamError as DeckError, resolve as resolve_deck
         try:
             mansard_roof["deck"] = resolve_deck(val("mansard")["deck"], mansard_roof, depth, width,
-                                                float(val("eave_overhang_m")), pitch, chimneys)
+                                                float(val("eave_overhang_m")), pitch, chimneys, bays=bays)
         except DeckError as e:
             raise ParamError(str(e)) from None
 
