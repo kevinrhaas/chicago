@@ -36782,6 +36782,24 @@ the 1890s print still stand in 1904. The print's trunks with feet on the lawn in
 are garden trees, left to the lot. **Review:**
 `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`
 and its match record.
+**Extended (T-1934, 2026-10-31, the trees' habit):** six of the pictured trees before the estate
+no longer grow as the rule's grown parkway elm: the four on 18th Street's north parkway at 37.65,
+43.7, 51.3 and 64.1 m (`e18th__prairie_ic_16_18`) and the two round the Calumet corner at 3.3 and
+10.3 m (`calumet__prairie_ic_16_18`) take the gate tree's young habit (`broad_head`), at scale 0.65
+on 18th Street and 0.6 at the corner. **Read:** Taylor's no. 1445 (1890s, about 25 px a metre on
+this flank) draws the 18th Street trees as straight single leaders about 0.3-0.4 m across at breast
+height and 12-14 m to their tops; Taylor's 16554 (winter) prints them 5-6 px across at 55-65 m
+(about 0.25-0.3 m) and 10-15 m tall, and the corner's two 4-5 px at 45-48 m and 9-11 m tall; the
+Detroit print of c. 1897-1901, the picture nearest 1904, draws the same file as slender trees with
+clear boles. The grown elm, forked low, drew about 1 m across through 16554's camera and 0.75 m
+through 16555's. **Chosen:** the renderer's one young form for all six, whose head starts about
+2-3 m lower on the leader than the pictures' crowns (they leave it about 5 m up); one scale for
+each stretch rather than one per tree; that trees of the 1890s pictures, grown a little, are of
+this size in 1904. The tree at 58.8 m, which the 1894 plate draws full-crowned and Taylor's 16555
+as a dead trunk in a guard, stays the grown elm. **Review:**
+`docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg`
+and their match records.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
