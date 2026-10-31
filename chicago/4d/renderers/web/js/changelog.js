@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2476, ts: '2026-10-31T00:08:58.224Z', date: 'Oct 30, 2026, 7:08 PM CT', title: '1701 Prairie\'s back range gets its bracketed cornice', kind: 'feature',
+    items: [
+      'The Hibbard house\'s 1874 back range now wears the same deep cornice on paired brackets as the main house, running level into it as in the old rear photograph, and its upper windows sit where the photograph shows them.',
+      'On the front, the stone bay steps south so the tall entrance arch shows whole, and the stone porch\'s base carries its round medallions.',
+    ] },
+  { v: 2475, ts: '2026-10-31T00:06:04.765Z', date: 'Oct 30, 2026, 7:06 PM CT', title: 'Pullman\'s 18th Street lamp is the district\'s gas post again', kind: 'fix',
+    items: [
+      'The lamp where 18th Street\'s walk turns into Calumet Avenue, outside Pullman\'s palm house, was drawn as a tall pale post with a globe head, read off J. W. Taylor\'s photograph no. 16554. Looked at again with the owner, the photograph shows the same gas lamp as the rest of the street: at its size the district lantern, narrow at the foot and wide at its sky-lit top under a small dark roof, reads like a globe. It now stands as the district\'s cast-iron post, and its card says so.',
+    ] },
   { v: 2474, ts: '2026-10-30T23:47:47.404Z', date: 'Oct 30, 2026, 6:47 PM CT', title: '1904 Prairie houses list their former residents', kind: 'feature',
     items: [
       'A 1904 Prairie Avenue house\'s People tab now lists who lived there before 1904. The family the house is named for comes first, like the Keiths at 1808 under the Fields.',

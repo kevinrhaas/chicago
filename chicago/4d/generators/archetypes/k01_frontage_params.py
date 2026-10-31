@@ -4023,6 +4023,12 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
         if not (0.0 <= ov <= 0.6 and 0.1 <= fas <= 0.5):
             raise ParamError(f"rear_wings: {wid}'s deck overhangs {ov} m on a {fas} m fascia, outside "
                              f"0-0.6 m and 0.1-0.5 m")
+        # T-3257: a flat wing may carry the house's bracketed timber cornice round its three
+        # walls under its deck (1701's range, its rear photograph), the K10 kit the main wall
+        # head names, paired as the house's are (k10_frontage.dress_wings)
+        cornice = roof.get("cornice")
+        if cornice is not None and (cornice != BRACKETED_CORNICE or kind != "flat"):
+            raise ParamError(f"rear_wings: {wid}'s roof.cornice carries {BRACKETED_CORNICE!r} under a flat deck")
         if kind == "flat":
             if roof.get("covering") != "painted_tin_sheet":
                 raise ParamError(f"rear_wings: {wid}'s deck is covered in {roof.get('covering')!r}; a K01 wing "
@@ -4051,6 +4057,16 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
             if side not in (e.get("windows") or {}):
                 raise ParamError(f"rear_wings: {wid}'s round_heads and basement_lights name a side whose "
                                  f"windows it lists, not {side!r}")
+        # T-3257: a side whose storeys do not stack their lights (1701's range, its rear
+        # photograph: three lights under, two over and not over them) lists each storey's own
+        # places; its `windows` still name the side, and its basement lights' places
+        wbs = e.get("windows_by_storey") or {}
+        for side, rows in wbs.items():
+            if side not in (e.get("windows") or {}):
+                raise ParamError(f"rear_wings: {wid}'s windows_by_storey names a side whose windows it "
+                                 f"lists, not {side!r}")
+            if len(rows) != len(heights):
+                raise ParamError(f"rear_wings: {wid}'s windows_by_storey.{side} lists one row per storey")
         for side, ss in sorted((e.get("windows") or {}).items()):
             if side not in walls:
                 raise ParamError(f"rear_wings: {wid} has no {side} wall ({', '.join(walls)})")
@@ -4083,7 +4099,7 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
                 if comp == ROUND_HOODED and h_ < w_ / 2 + 0.3:
                     raise ParamError(f"rear_wings: {wid}'s round-headed {side} lights in storey {k} spring "
                                      f"under 0.3 m over their sills")
-                for s in ss:
+                for s in (wbs[side][k] if side in wbs else ss):
                     s = float(s)
                     if s - w_ / 2 < 0.30 or s + w_ / 2 > length - 0.30:
                         raise ParamError(f"rear_wings: {wid}'s {side} window at s {s} stands closer than "
@@ -4114,6 +4130,7 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
         out.append({"id": wid, "fabric": fabric, "rect": (u0, u1, v0, v1), "host_wall": hwall, "host_span_m": (round(a, 4), round(b, 4)),
                     "floors_m": tuple(floors), "top_m": top, "deck_m": deck, "overhang_m": ov, "fascia_m": fas,
                     "host_v_m": (hv0, hv1), "openings": tuple(ops), "roof": pitched or {"kind": "flat"},
+                    **({"cornice": True} if cornice else {}),
                     **({"past_host": past} if past else {})})
     slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
     if len(slates) > 1:

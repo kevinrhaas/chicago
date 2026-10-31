@@ -35250,9 +35250,9 @@ and Tucker pictures show their posts in grass). Seven lamps stand where a photog
 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them
 (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these
 eleven are attested. A twelfth (T-1934) stands where J. W. Taylor's no. 16554 shows it, at the turn
-of 18th Street's walk into Calumet Avenue before Pullman's palm-house wing, in the form the same print
-shows (T-1934's globe post): a plain post painted pale, about 4.9 m to its cap, a small bar a third
-of the way down, a slim neck and a wide shallow globe under a small dark cap; and the rule stands no
+of 18th Street's walk into Calumet Avenue before Pullman's palm-house wing, the district's post as
+the print shows it at its size (T-3267: T-1934's reading of a taller globe-headed post withdrawn,
+2026-10-30); and the rule stands no
 lamp on 18th Street's north walk from Prairie Avenue to that turn, which 16554 and the Detroit
 Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`) see whole and show empty. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
 of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm
@@ -35269,19 +35269,14 @@ view (`loc_det_4a08065_pullman_residence`), the Glessner House Museum's halftone
 Pullman house (`ghm_blog_pullman_completed`), the Ward Bros. engraving of 1887
 (`ghm_ward_1887_prairie_north_from_20th`) and the Greene stereograph of the Tucker house
 (`nypl_dennis_tucker_1010_prairie_stereo`); the mid-block lamps from the photographs of the houses
-they stand before; the globe post's form from J. W. Taylor's no. 16554
-(`aic_taylor_16554_pullman_from_sw`), its heights read through that print's solved camera. That 1904
-is gas: every electric standard in the Prairie library is in a picture dated after it (the globe
-post's print, of the 1890s, cannot say what it burned).
+they stand before. That 1904 is gas: every electric standard in the Prairie library is in a picture
+dated after it.
 **What is invented:** every lamp's place but the twelve pictured; the 160-ft spacing and the
 stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where
 the pictures show four; one post for the
 whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn);
 the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass; the arms' bend and the
-glazed top's frame drawn as a plain cup and four hips; the globe post's pale paint drawn a light
-grey (the monochrome print gives its tone, not its colour), its base plain and its globe milky glass,
-which the print is too small to tell, and its 4.9 m read through a camera that puts 18th Street's walk
-further off than the print's ground does, so the height moves if that camera is re-solved.
+glazed top's frame drawn as a plain cup and four hips.
 **How to resolve:** a city record of the lamps (a gas-lighting contract or a list of lamp posts by
 street), or more dated photographs of the faces, would place them; a picture of another corner
 without a lamp removes that one.
@@ -36919,6 +36914,38 @@ and the photograph's (the record's bays note), hides the arch's south half and t
 picture shows before the bay; the match record holds that open.
 **How to resolve:** a nearer photograph of the entrance, or a plan of the front's bay.
 **Recorded:** 2026-10-30 (T-3256).
+
+### L-k01-hibbard-1701-3257 — 1701 Prairie's rear range under the house's bracketed cornice, its south face's lights by storey, and the front's bay, basement lights and porch roundels, read off its two photographs
+
+**Decision:** T-3257 (piece 4 of T-1876, the last) works both of the Hibbard house's photographs
+down to what a visitor would notice. On the rear (`glessner_blog_1701_hibbard_rear_photo`, through
+`data/reference_views/hibbard_house_1701_prairie/ghm_rear.json`): the 1874 range carries the main
+block's own cornice (K10's bracketed timber, paired at 1.6 m as the house's are) round its three walls
+under its flat deck's soffit, where T-3240 left a plain fascia (`rear_wings[].roof.cornice`, a new K01
+wing form built by `k10_frontage.dress_wings`); and the range's south face gives each storey its own
+lights (`rear_wings[].windows_by_storey`, new), the upper storey losing the light over s 7.2 the
+photograph does not show and taking the one it does at s 9.0. On the front
+(`chicagology_1701_hibbard_photo`, through `chicagology_front.json`): the stone bay is laid on the
+photograph's centre (v 11.4) instead of between that and the 1911 sheet's, so the entrance arch shows
+whole with a pier before the bay; and the corner porch's podium carries four roundels
+(`corner_porch.roundels`, new), one under each opening of its arcade.
+**What is read, not invented.** The range's cornice line running level into the main block's; the
+upper storey's two lights west of the oriel against the lower storey's three (x 413 against 390 and
+425, read at s 9.0); the bay's centre (its junctions at about v 9.1 and 13.7 through the solved
+camera); the podium's
+dark discs in stone rings, read at about v 0.8, 1.9, 3.2 and 4.3 and 1.4 m up.
+**What is invented.** The range's cornice section and brackets are the kit's (k10_cornices.json
+`restrictions` allow a generic section where the house's own is not read): the photograph shows a
+heavy bracketed cornice, too small to draw its members. The low roof over it is not seen from the
+lawn and stays a tin deck. The bay keeps K08's 3.6 m at the wall against the photograph's reading of
+about 4.6 m (K08 holds a canted bay to 1.2 m out). The roundels' size (0.55 m across) and their carving, drawn as a plain ring round a dark sunk disc.
+**What is still not built.** From the front camera the stoop's flight (T-3256's, 2.5 m wide and
+running out to the street) stands over the fence before the porch's podium, where the photograph
+shows the podium and two of its roundels clear; and the round-headed basement lights the photograph
+shows over the fence under the bay's pair and the lower south range's light (a K08 storey stacks no
+second light in a column and cuts none below its plinth). The match record holds both open.
+**How to resolve:** a nearer photograph of the entrance and its steps.
+**Recorded:** 2026-10-30 (T-3257).
 
 ### L-kimball-1801-turret-finial-1890 — 1801 Prairie's east turret given a turned finial over a plain collar, from the Taylor print
 

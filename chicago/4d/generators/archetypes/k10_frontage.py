@@ -241,13 +241,14 @@ def _lay(a, pieces, conf, cid):
     return tris
 
 
-def _blocked(params, run, y_low, bays, half):
+def _blocked(params, run, y_low, bays, half, openings=None):
     """Where along a run no bracket centre may stand: over a head that reaches y_low, a
     downpipe, or a bay whose roof does; each widened by the bracket's half width. `bays` and
-    every s here are the wall's own, moved onto the run by its `s0` (T-3261)."""
+    every s here are the wall's own, moved onto the run by its `s0` (T-3261).
+    T-3257: `openings` are a rear wing's own, for a run along one of its walls."""
     o0 = getattr(run, "s0", 0.0)
     out = []
-    for o in params.openings:
+    for o in (params.openings if openings is None else openings):
         if o.wall == run.name and o.head_m + HEAD_RISE_M > y_low:
             out.append((o.s_m - o.width_m / 2 - HEAD_HORN_M, o.s_m + o.width_m / 2 + HEAD_HORN_M))
     r = params.rainwater or {}
@@ -274,7 +275,7 @@ def pair_offsets(B) -> list:
     return [-d, d]
 
 
-def bracket_positions(params, run, B, y_low, bays):
+def bracket_positions(params, run, B, y_low, bays, openings=None):
     """The kit's rule where the wall allows it: one bracket `corner_m` from every corner on
     both faces, then evenly at no more than `spacing_m` along every pier the heads, pipes
     and bays leave. A stretch too short for two takes one, at its corner end if it has
@@ -290,7 +291,7 @@ def bracket_positions(params, run, B, y_low, bays):
     spacing, short = (pairs["spacing_m"], pairs["spacing_m"]) if pairs else (B["spacing_m"], B["range_spacing_m"][0])
     if pairs:
         c = max(c, half + 0.02)
-    blocked = _blocked(params, run, y_low, bays, half)
+    blocked = _blocked(params, run, y_low, bays, half, openings)
     # T-2404: a pavilion standing flush with the corner takes the corner itself, so that
     # corner has no bracket on this face (the pavilion's own eaves turn it)
     o0 = getattr(run, "s0", 0.0)   # T-3261: a run cut short by a canted corner
@@ -595,6 +596,91 @@ def _cornice(a, K, data, bays, conf):
                                     for i, r in enumerate(rr)},
                    "bed_mould_m": [round(y_bed, 4), round(y_s, 4)]}
     _lay(a, var.pieces, conf, CORNICE)
+
+
+def wing_runs(w):
+    """T-3257: a flat rear wing's wall head as three kit runs — its north, rear and south
+    walls, in that order round it, each from its wall's own origin (`wing_walls`), so s here
+    is the wall's s. The chain is open at the host wall at both ends."""
+    K = _kit()
+    u0, u1, v0, v1 = w["rect"]
+    wid = w["id"]
+    return [K.Run(f"k01.wall.wing.{wid}.north", (u1, -v1), (u0, -v1), (False, True)),
+            K.Run(f"k01.wall.wing.{wid}.rear", (u0, -v1), (u0, -v0), (True, True)),
+            K.Run(f"k01.wall.wing.{wid}.south", (u0, -v0), (u1, -v0), (True, False))]
+
+
+def dress_wings(a, bays):
+    """T-3257: the house's bracketed timber cornice carried round a flat rear wing that names
+    it (rear_wings[].roof.cornice; 1701's 1874 range, its rear photograph): the kit's brackets,
+    paired as the house's are, under the wing deck's soffit on its three walls, and the bed
+    moulding swept between them round both corners and dying into the host wall at each end.
+    A bay on a wing wall that reaches the bed moulding (1701's oriel, its crest under the
+    cornice) stops the moulding at its sides, and no bracket stands over it."""
+    p = a.p
+    wings = [w for w in p.rear_wings if w["roof"]["kind"] == "flat" and w.get("cornice")]
+    if not wings:
+        return
+    if (spec(p) or {}).get("cornice") != CORNICE:
+        raise ValueError(f"{wings[0]['id']} carries {CORNICE!r} round its deck, and the house's wall head does not")
+    K = _kit()
+    data = K.load()
+    B = dict(data["parts"]["bracket"], **{k: float(x) for k, x in ((p.wall_head or {}).get("bracket_m") or {}).items()})
+    bed = [tuple(q) for q in data["parts"]["profiles"]["bed_mould"]["points"]]
+    hb = max(u for _, u in bed)
+    paired = bool((spec(p) or {}).get("pairs"))
+    offs = pair_offsets(B) if paired else [0.0]
+    conf = max(p.conf("rear_wings"), p.conf("wall_head"))
+    for w in wings:
+        y_s = w["top_m"]
+        y_bed, y_low = y_s - hb, y_s - B["height_m"]
+        if B["projection_m"] > w["overhang_m"] - 0.02:
+            raise ValueError(f"{w['id']}: the cornice's brackets would reach its deck's fascia")
+        for o in w["openings"]:
+            if o.head_m + HEAD_RISE_M > y_bed - 0.005:
+                raise ValueError(f"{w['id']}: the head over {o.wall} s {o.s_m} reaches the bed moulding at {y_bed:.3f} m")
+        rr = wing_runs(w)
+        stations, cuts, start = [], [], 0.0
+        for i, r in enumerate(rr):
+            for s in bracket_positions(p, r, B, y_low, bays, w["openings"]):
+                stations.append((start + s, i, s))
+            cuts += [(start + s0, start + s1) for wall, s0, s1, top in bays if wall == r.name and top > y_bed - 0.005]
+            start += r.L
+        perim = start
+        seed = a.instance(CORNICE, "cornice",
+                          {"wing": w["id"], "brackets": len(stations) * len(offs), **({"paired": True} if paired else {}),
+                           "bracket_height_m": B["height_m"], "bracket_projection_m": B["projection_m"],
+                           "bed_mould": "bed_mould", "soffit_m": y_s},
+                          {"soffit": (w["rect"][0], y_s, -w["rect"][2])})
+        var = K.Variant({"id": CORNICE, "kind": "bracketed", "material": "timber"}, data)
+        var.seed, var.rng = seed, random.Random(seed)
+        k = 0
+        for _, i, s in stations:
+            for d in offs:
+                k += 1
+                pc = var.piece(f"wing bracket {k}", "timber", "open", bracket={"run": rr[i].name, "s": s + d})
+                K.console(pc.mesh, rr[i], s + d, y_s, 0.0, B["width_m"], B["height_m"], B["projection_m"], B["curl"])
+        bw = 2 * (offs[-1] + B["width_m"] / 2)
+        cum = [0.0]
+        for r in rr:
+            cum.append(cum[-1] + r.L)
+
+        def point(ps):
+            ps = min(max(ps, 0.0), perim)
+            i = max(j for j in range(len(rr)) if cum[j] <= ps + 1e-9)
+            i = min(i, len(rr) - 1)
+            return rr[i].at(ps - cum[i], y_bed)
+
+        edges = [0.0] + [x for st in stations for x in (st[0] - bw / 2, st[0] + bw / 2)] + [perim]
+        spans = [(edges[j], edges[j + 1]) for j in range(0, len(edges), 2)]
+        for c0, c1 in cuts:
+            spans = [q for s0, s1 in spans for q in ((s0, min(s1, c0)), (max(s0, c1), s1)) if q[1] - q[0] > 1e-6]
+        for j, (s0, s1) in enumerate(spans):
+            corners = [c for c in cum[1:len(rr)] if s0 + 1e-6 < c < s1 - 1e-6]
+            path = [point(s0)] + [point(c) for c in corners] + [point(s1)]
+            pc = var.piece(f"wing bed moulding {j + 1}", "timber", "open")
+            K.sweep(pc.mesh, path, K.Y, bed, side=1.0, sgn=1.0)
+        _lay(a, var.pieces, conf, CORNICE)
 
 
 def _crown_stations(p, B, cr, c):
