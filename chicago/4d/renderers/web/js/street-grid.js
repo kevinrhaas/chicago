@@ -640,6 +640,39 @@ function carriageWalkCard(w, face, grid, section) {
   };
 }
 
+/** T-3274: the paving that carries a house walk on across the one-foot margin to the public walk. */
+function walkJoinCard(j, face, grid, joins) {
+  const street = grid.streets?.[face.street] ?? {};
+  const what = { front_walk: 'front walk', service_walk: 'service walk', drive: 'carriage drive' }[j.kind]
+    ?? (j.kind.startsWith('grounds_') ? j.kind.slice(8).replace(/_/g, ' ') : j.kind);
+  return {
+    id: j.id,
+    sidecar: {
+      name: `${street.name_1904 ?? face.street} — a house walk meets the public walk`,
+      phase: null,
+      change_note: `The ${what} of ${j.house.replace(/_/g, ' ')} carried on ${j.gap_m} m from where it was laid to the `
+        + 'public walk, which the city laid a foot outside the lot line. The pictures show the walks meeting; this paving is our reconstruction.',
+      placement: {
+        symbolic_location: face.where ?? face.street,
+        position_confidence: joins?.tier ?? 'reconstructed',
+        position_sources: [],
+        position_note: 'From the house walk\'s end, square across to the public walk\'s inner edge.',
+      },
+      attributes: {
+        kind: {
+          value: 'walk join', confidence: 'inferred', sources: joins?.sources ?? [],
+          note: '1905 code sec. 2062: "All walks to be laid on a line one foot from and parallel with the lot line"; '
+            + 'a house walk ran on across that foot to meet the public walk, as every picture of these avenues shows.',
+        },
+        width: { value: `${j.width_m} m`, confidence: 'reconstructed', sources: [], note: 'The house walk\'s own width at its end.' },
+      },
+      citations: [],
+      research_doc: 'docs/RESEARCH/prairie_1904_street_section.md',
+      research_note: `Walk join ${j.id} of data/street_section/walk_joins_1904.json (T-3274). ${joins?.liberty ?? ''}`.trim(),
+    },
+  };
+}
+
 /** T-3198: a stone post at the curb, stood only where a picture shows one. */
 function carriagePostCard(post, face, grid, section) {
   const cp = section?.carriage_posts ?? {};
@@ -762,6 +795,17 @@ export async function createStreetGrid({
     problems.push(`street section: ${err.message} — the street is drawn level with its lots`);
   }
   out.section = section;
+  // T-3274 — the joins from every house walk across the one-foot margin to the public walk.
+  // Missing, the walks stop at the lot line as before.
+  let walkJoins = null;
+  if (section) {
+    try {
+      walkJoins = await getJSON(new URL(`street_section/walk_joins_${sceneId}.json`, dataBase));
+    } catch (err) {
+      problems.push(`walk joins: ${err.message} — the house walks stop at the lot line`);
+    }
+  }
+  out.walkJoins = walkJoins;
   let library = new Map();
   if (surfaces && assetBase) {
     try {
@@ -1231,6 +1275,16 @@ export async function createStreetGrid({
     push('walk', `cw:${w.id}`, [quad], 'reconstructed', surfaceOf(surfaces, 'band', null, 'walk', face.id), { priority: 1 });
     walkById.set(w.id, { w, face });
   }
+  // T-3274 — the walk joins: each house walk carried on to the public walk, in its paving.
+  const joinById = new Map();
+  for (const j of walkJoins?.joins ?? []) {
+    const face = faceById.get(j.face);
+    if (!face || j.polygon_local_m?.length !== 4) continue;
+    push('walk', `wj:${j.id}`, [j.polygon_local_m], walkJoins.tier ?? 'reconstructed',
+      surfaceOf(surfaces, 'band', null, 'walk', face.id), { priority: 1 });
+    joinById.set(j.id, { j, face });
+  }
+  out.census.walkJoins = joinById.size;
   // T-3200 — the corner crossings: the walk on across the parkway, then the ramp.
   const crossingById = new Map();
   for (const { x } of crossings) {
@@ -1572,6 +1626,10 @@ export async function createStreetGrid({
     if (spanId.startsWith('cw:')) {
       const hit = walkById.get(spanId.slice(3));
       return hit ? carriageWalkCard(hit.w, hit.face, grid, section) : null;
+    }
+    if (spanId.startsWith('wj:')) {
+      const hit = joinById.get(spanId.slice(3));
+      return hit ? walkJoinCard(hit.j, hit.face, grid, walkJoins) : null;
     }
     if (spanId.startsWith('xf:') || spanId.startsWith('xr:')) {
       const hit = crossingById.get(spanId.slice(3));
