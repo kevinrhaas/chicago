@@ -562,3 +562,31 @@ GLB that satisfies this contract exactly — correct node name, `extras`, and a 
 attribute exercising all three confidence levels. `generators/placeholder.py` emits one. A placeholder
 that does not satisfy the contract is worse than none, because it lets the renderer develop
 against a fiction.
+
+
+## Optional span walk-surface profile (T-2375)
+
+A water-anchored bridge may carry `placement.walk_surface_profile =
+{"version":1,"axis":"local_x","stations_m":[[x,z],...]}`. The pure archetype
+function that displaces the closed-draw mesh writes the same local-span stations
+and heights above its water anchor. Existing scalar-only sidecars and flat
+defaults omit this field and retain their old behavior.
+
+Version1 stations increase strictly from x=0 to the footprint's maximum x.
+Their first/last heights equal `walk_surface_m`; all values/transforms are finite.
+This bounded closed-rise profile permits heights from the base through base+3m.
+Malformed declarations refuse instead of silently flattening. The sampler
+returns null outside the local span; callers retain polygon-covering, highest
+deck, water and land rules. Walker, router grid/exact queries, offered-anchor
+readings and human root placement consume this same numeric sampler.
+
+The Dearborn profile is a nominal plank-top proxy: it bridges 8mm board gaps and
+omits 55mm proud thresholds. It is not a topmost-any-mesh raycast, continuous
+wood coverage, shoe/IK/wheel or whole-body contact certificate. Geometry and
+profile choices are reconstructed display form, not an operating historic draw.
+
+This contract alone grants no static prop, vehicle or horse placement on a
+sloped span. Before adoption, verify current whole emitted yard/asset extents
+clear the changed polygon and bind those finite scene inputs. Future overlapping
+placements require a qualified contact model. No horse, parked-transport or
+yard runtime architecture changes are included by this profile feature.

@@ -2,8 +2,8 @@
   "structure_id": "philo_carpenter_log_shop",
   "view": "andreas-1884",
   "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
-  "glb_sha256": "d9a216cea551ad194fa05950543e465cad46fb866a5f547ebdf292c562db63a3",
-  "camera_sha256": "5986e79011e1a86667ef1b3f2293178ddeefb635a47dbcb62f0ddb70ec5de115",
+  "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc",
+  "camera_sha256": "6ea679de451fa88947b4ff763440142d16835452021f7fe4eed8a79e9867389a",
   "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
   "rendered_members": [
     {
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "d9a216cea551ad194fa05950543e465cad46fb866a5f547ebdf292c562db63a3"
+      "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
     },
     {
       "structure_id": "sauganash_hotel",
@@ -45,43 +45,30 @@
       "glb_sha256": "ef7ea827f577505cbee8142064394efcf38ff79795e220b5c247d980aa0d8b54"
     }
   ],
-  "group_sha256": "320ff1ef50ef999e3f9827ddf4b7bedae3d60991aa201a6a34874be61a18b7f1",
+  "group_sha256": "cf7acf3e930b8e8261516da531a4031052371dfb0ec18e97c3d73d34f3f3f111",
   "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/andreas-1884-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
-      "what": "The pictured dark occupied doorway now replaces the generic closed board leaf using the existing 0.30m blind exterior recess. Depth and leaf state on1July1835 remain reconstructed.",
+      "what": "Generic35degree roof is replaced by accepted21.49degree reconstructed roof; actualnative ridge lowered0.824m includingoverhang, following the lowannex in this controlling retrospective plate. The numeric angle is not an attested historic measurement.",
       "status": "fixed"
     },
     {
-      "what": "The apparent annex size/height and relation to the hotel still depend on the provisional group camera and are not accepted as matched.",
-      "status": "open"
+      "what": "Stack station moves0.80to0.94, toward the pictured freeend by0.853m; existing stack section/head/count remain.",
+      "status": "fixed"
     },
     {
-      "what": "Annex roof/eave and stack proportions, window/log-joint detail and the unresolved source-camera fit still differ; the doorway change does not close these.",
-      "status": "open"
+      "what": "Exposed+x gable has horizontal timbercourses rather than a smooth roof-covering triangle. Horizontal wallmaterial is inferred;0.20m rhythm/8mm joints/12mm relief andneutral tone remain reconstructed.",
+      "status": "fixed"
     },
     {
-      "what": "Original paint colour and calibrated reflectance are not supplied by this monochrome engraving; the isolated master preview also omits the app procedural surface treatment.",
+      "what": "The annex retains the shared single-pen form, two front sash around one dark doorway, one free-end stack and horizontal exposed-gable timber. Openings, documented16x20ft footprint, inferred2.5m eave and placement are unchanged. Fine hatching, shadow edges and uncertain handpicked wallcorners do not justify additional bay/size controls.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Monochrome hatching cannot establish original paint, photometric reflectance, exact wall joinery or hidden faces. Neutral timber/course relief is a declared reconstructed proxy. The diagnostic eye/principal point is not a historical visitor pose or independent survey.",
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "_review": {
-    "reviewed_at": "2026-10-26T18:09:31.602075+00:00",
-    "method": "Freshly viewed the whole source and corrected-camera native side-by-side after adding diagnostic_only and library_image. The doorway remains a dark blind recess; annex/hotel massing, openings, roof and stack discrepancies remain visible and open. Source colour/reflectance remains not shown.",
-    "original_ticket": "T-2382 remains OPEN/DIFFERS",
-    "hotel_context": "Sauganash context stays byte-exact and retains its separate unresolved roof/opening/massing case; no accepted hotel match claimed.",
-    "metadata_correction": "Camera rays, placements, every group GLB and source photo remain exact. The new JPEG has tiny measured raster differences and is NOT byte-identical; no raster-equality claim is made. The provisional pose is not offered as a historical From this spot.",
-    "rerender_raster_comparison": {
-      "differing_pixels": 3061,
-      "total_pixels": 5259168,
-      "max_channel_difference": 43,
-      "mean_channel_difference": [
-        0.001991189480921697,
-        0.0019596255529391723,
-        0.0020554582017535852
-      ]
-    }
-  }
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

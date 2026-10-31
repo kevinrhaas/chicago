@@ -455,3 +455,56 @@ independent surveyed/plan controls and the two separately modeled Beaubien
 candidates. A camera fit alone cannot override a failed building identification.
 Only after that ruling should a form difference be assigned to this house. T-2378
 remains open, and no `matches` verdict is established by this metadata correction.
+
+## 9. Exact keyed-publication annotation strengthens the working identity — T-2378
+
+**23 October 2026, source correction; no geometry change.** Internet Archive’s
+`earlychicagofort00wentiala`, Wentworth’s1881 *Fort Dearborn*, printed **pp.86–87**,
+was retrieved and both page images opened. Page86 reproduces the exact local keyed
+panorama. Directly beneath it is an additional annotation absent from our local crop:
+
+> Gen. Beaubien’s house was near the N.-E. cor. Michigan Avenue and South-Water Street.
+
+That explicitly ties the pictured house to the same retrospective corner by which
+this record is located. **The preferred working identification is therefore this
+sale-located homestead, at inferred confidence.** This supersedes §8’s narrower
+statement that only the bare house key and Wau-Bun geography were available. It
+is the same1881 Wentworth witness as the sale narrative, not independent
+corroboration. Neither the annotation nor the sale establishes which earlier
+Beaubien building or new residence this corner house was. The separately modeled
+Factory House140m south retains its own squared-log/two-storey evidence; those
+details are not transferred to this record.
+
+Hubbard’s letter of20July1881 starts under this cut and continues on p.87:
+
+> It is certainly unlike the Fort and surroundings, as I recollect them.
+
+He specifically corrects the fort’s high elevation, pointed shore/river bends,
+relative blockhouse height and omission of the circa1824–25 brick building. His
+suggestion that the engraver worked without Kinzie’s correction is probable,
+not proven. An exact common-camera fit must not move surveyed coordinates or
+terrain to these pictorial errors. Wau-Bun’s printed1857 credit is preserved;
+the exact edition in which the cut first appeared is still not established.
+
+**Next bounded comparison:** with identity now preferred rather than entirely
+unjoined, isolate the keyed house’s visible form and test the current one-storey
+model against it using a declared provisional drawing camera. Treat possible
+upper-storey, gable, window and chimney readings as questions until actual pixels
+and render are compared. Retain the1831-to1835 survival assumption explicitly.
+No numerical form, confidence, mesh, placement, camera, pictured ruling or match
+verdict changes in this source correction. T-2378 remains open.
+
+Exact page images and fetch hashes are preserved in the read-only proposal’s
+`PRIMARY-FINDING.md` and `FETCH-MANIFEST.json`; these are evidence artifacts, not
+published payload. Readable printed86/87 were fetched from archive download
+`page/n95.jpg` and `page/n96.jpg`; the endpoint differs from the leaf labels in
+the page-number JSON, so the actual printed numerals were checked visually.
+
+
+## T-2378 current bounded graphic qualification —2026-10-30
+
+The actual native selected build and officialWEB reproduce the accepted working data under recipefdac754ae1397f961e54d428d198e3d27d90bea7f4c67cece5f4b1cbeed7f5a7. Root directly reviewed full source/raw comparisons and the existing source inspection. Positively pictured forms now represented are the taller two-level main mass, two main ridge stacks, low front projection and small dark/framed right-gable attic proxy. Exact mass/projection/opening metrics and stock components remain reconstructed choices; log construction remains an inferred proxy. The same-witness1881 nominal key/Hubbard criticism,1857 printedcredit and1831 depiction remain separate, with July1835 survival unknown. No later Factor House text/paint/count is borrowed.
+
+The dependent unkeyed print repeats light left walls/dark right gables across neighbouring structures; this supports illustration shading/hatching rather than independently attested contrasting paints or a vertical-board finish. Neither held print positively resolves core log-vs-clapboard courses, mainfront/lowfront counts behind the projection, pigment or the precise roof junction. No additional positively identified street-visible missing element remains in the held keyed picture after the finite form changes. Do not invent additional opening/paint/roof trials or followup tickets from those unknowns.
+
+The new canonical camera preserves all numeric c914 rays but updates stale pre-trial prose. Its metadata SHA changes; therefore the old raw native match stays UNREVIEWED and is not restamped. One fresh native canonical metadata capture is required before applying the separately reviewed match proposal. Source picture/model controls and diagnostic-only pose limits remain exact. Native grader, generated owners/current full gate and BOTH/phone app qualification still follow adoption; this note alone closes no ticket.

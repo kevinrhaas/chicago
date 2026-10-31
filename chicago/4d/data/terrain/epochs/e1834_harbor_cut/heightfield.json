@@ -52,12 +52,12 @@
   "shore_and_swale_cell_max": 215.233,
   "relief_zones_ft_per_300ft": {
    "approach_dearborn_north": {
-    "cells": 24,
-    "cell_max": 151.974
+    "cells": 31,
+    "cell_max": 149.151
    },
    "approach_dearborn_south": {
-    "cells": 42,
-    "cell_max": 148.58
+    "cells": 56,
+    "cell_max": 150.214
    },
    "approach_lasalle_crossing_east": {
     "cells": 13,
@@ -105,7 +105,7 @@
    },
    "marsh_strip": {
     "cells": 21942,
-    "cell_max": 148.58
+    "cell_max": 150.214
    },
    "north_sand_ridge": {
     "cells": 20024,
@@ -144,5 +144,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "00b4945eeab38d54d7e65fbb126a667747432eb2442bc49704228a9ae36e6654"
+ "inputs_sha256": "f72680a5128c4780dce557cc3fc28a820eb9ffd94ce3b19a068246b5f75ec416"
 }

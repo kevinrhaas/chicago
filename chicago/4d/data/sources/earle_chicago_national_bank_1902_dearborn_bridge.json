@@ -1,0 +1,32 @@
+{
+  "id": "earle_chicago_national_bank_1902_dearborn_bridge",
+  "type": "illustration",
+  "citation": "Lawrence C. Earle, \"Dearborn Street Bridge\", colour reproduction of a bank mural, in Chicago, Historical, Pictorial (Chicago National Bank; Chicago: Rand, McNally & Co., catalogued c1902), plate facing printed p.18. Exact Internet Archive scan n24; explanatory text p.18 at n23; artist attribution p.6 at n10; title n6 and Chicago printer imprint n5.",
+  "author": "Lawrence C. Earle; printed p.6 names Edward Potthast and several assistants in production of the mural series, without allocating individual passages of this plate",
+  "date": "1902",
+  "describes_date": "1834-1839",
+  "repository": "University of Illinois Urbana-Champaign scan at Internet Archive, chicagohistorica00chic; catalogue date c1902",
+  "url": "https://archive.org/details/chicagohistorica00chic/page/n24/mode/1up",
+  "locator": "Exact colour plate at actual n24, caption DEARBORN STREET BRIDGE. Facing explanatory text n23 has printed folio18 and heading THE FIRST BRIDGE ACROSS THE CHICAGO RIVER, 1834. Title n6; printer imprint n5; series artist attribution n10, printed p.6.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "The exact underlying artwork is independently present in a US book catalogued c1902 by Internet Archive/University of Illinois, creator Chicago National Bank, publisher Chicago: Rand, McNally & Co. Direct page reads establish the title, Chicago printer imprint, Earle attribution and exact colour plate; no explicit dated copyright/imprint leaf was located or is claimed. The c1902 catalogue date also agrees with Chicagology's1902 credit. This supports pre1930 US publication and public-domain underlying artwork by age. It does not license a separate modern museum/stock photograph, added restoration/layout or a provider's service; use the identified original-volume scan/reference with attribution.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Actual five JPEG page derivatives were downloaded over HTTPS with status200, JPEG signatures and SHA256 records on2026-10-29, then directly viewed. IA metadata and full OCR/XML are retained as research evidence; OCR is not substituted for the exact page reads. A35MB scandata.zip was priced and refused before download because the page-level derivatives suffice. The catalogue date remains explicitly c1902; no invented dated copyright statement.",
+  "note": "CURRENT IDENTITY CORRECTION,2026-10-29: the held filename chicago_first_swing_bridge_1849_earle.jpg and former inventory reviewer's1849 swing-bridge exclusion are wrong about this image. Exact original n24 reproduces the same lunette, including two gallows frames, high shore braces, rising closed-draw bridge profile, river vessels and foreground dockworkers/barrels. Original facing p.18 explicitly identifies the1834 bridge and says it was removed1839. Its steam vessel is not evidence that this is the1849 swing bridge. Retain the historical filename for byte/link continuity, but correct its current title/scene/description.\n\nRETROSPECTIVE: the book credits the Chicago National Bank mural series, begun in1900 according to p.6, not a surviving1834 photograph. The source itself says the artist researched old accounts and sometimes relied on published descriptions. It does not establish an exactJuly1835 day, surveyed camera, new geographic placement, metric rise, timber scantlings, precise original finish or independence from the earlier retrospective bridge pictures. P.18 says200ft total length with60ft draw; this conflicts with other retrospective300ft texts and the independently traced current water gap. Preserve that conflict without moving the independently mapped banks or treating the mural as a measured plan. The existing sixteen-foot width is independently inferred from Norton/Moses, not measured from this image.\n\nThe source plate has been directly read. No actual native Earle camera capture or accepted matches verdict has yet been produced by this source-only packet. Baker-Co Old Point engraving keeps its separate check_required hold; none of this verifies that work's original publication.\n\nSUBSEQUENT DIAGNOSTIC COMPARISON: the accepted sixteen-foot V5 bridge was actually rendered against this identified Earle image on 2026-10-29, including a corrected finite four-point framing. Both gallows, high outer braces, closed peaked deck, chains, boarded parapets and piled caps were compared. The camera is a reconstructed diagnostic fit; it establishes no historical viewpoint, metric dimensions or exact July-1835 condition. Fresh canonical metadata-bound capture remains a separate adoption step.",
+  "what_it_supplies": [
+    "The image is a retrospective depiction of the first Dearborn Street drawbridge, built1834 and removed1839, rather than the1849 swing bridge",
+    "Two gallows frames and high shore braces over a rising closed draw profile",
+    "Boarded bridge parapets and timber approach/support masses as pictured",
+    "A warm-brown painted representation, without proving the historical timber finish",
+    "Original book credits Earle and describes retrospective research for the Chicago National Bank mural series"
+  ],
+  "what_it_does_not_supply": [
+    "An exact1July1835 scene or surveyed picture location",
+    "A measured footprint, deck width, draw rise or timber scantling",
+    "The same physical projection as the Andreas engraving or an independent contemporary witness",
+    "A licence for a modern separately supplied museum/stock reproduction",
+    "Any rights clearance for the separate Baker-Co Old Point engraving"
+  ]
+}
