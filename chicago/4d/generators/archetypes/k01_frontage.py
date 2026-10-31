@@ -3448,8 +3448,13 @@ class Assembly:
                     and o.s_m - o.width_m / 2 - 0.08 < S1 and o.sill_m - 0.12 < y3 and o.head_m > y0 - 1.0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m, {y0}-{y3:.2f} m) runs into "
                                  f"the opening at s = {o.s_m}")
+        # T-1881: a front step stands behind the forward block the door is cut in, so a hood
+        # before that block's face stands clear of it (k01_frontage_params._bays holds the step
+        # less far out than the block it abuts)
+        cut_in_block = any(x.get("entrance") and x["wall"] == op.wall for x in p.bays)
         for b in p.bays:   # nor the pavilion's walls (a bay's hood it may run into, as drawn)
             if b["wall"] == op.wall and b["variant"]["kind"] != "bay" and not b.get("entrance") and \
+                    not (b.get("front_step") and cut_in_block) and \
                     b["span_m"][0] < S1 + 0.05 and b["span_m"][1] > S0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
         con, mod = h["consoles"], h["modillions"]
