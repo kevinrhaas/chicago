@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "a1aa2f596ec93f197a004306c9a28c9e4fabd9ccf54b60a2100e202718d039a7"
+      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
     }
   ],
-  "group_sha256": "07a608fe7c0e44f38fb9f9055f6d0a390206f625cd54396b8fd54f55c72bc009",
+  "group_sha256": "c687e9db68f1fa5269a2822d6513dd2a352be58a7fed17cee7b9cd59f9ddfb8b",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -248,6 +248,11 @@
       "what": "the parkway trees' girth (T-1934, 2026-10-31): the print's living trunks before the estate measure 11-15 px across at breast height (x 614-629, 829-840, 867-880 and 1067-1080 px, y 649), about 0.28-0.38 m through this camera's 30 m to them, where the renderer's elm draws its bole about 0.66 m across at the trees' scales of 0.94-0.98, 23-26 px; the dead trunk in its guard (x 439-472) is the one stout one",
       "status": "within tolerance",
       "how": "this print is of the early 1890s, and a parkway elm thickens about 1-1.5 cm a year, so by 1904 these trunks stand about 0.4-0.5 m across, within about 0.2 m of the render's; the print's crowns rise past its top edge, over 17.5 m at that distance, which the renderer's elm reaches only near its full scale, and its scale sets girth and height together, so a thinner trunk would cost the trees the height the print shows"
+    },
+    {
+      "what": "the house's raised terrace at its south-east corner, its balustrade and its striped awning (pullman_house_1729_prairie, T-1881), where the build stood a one-storey brick block until now",
+      "status": "not shown",
+      "how": "T-1881 (2026-10-31): another structure, judged in the house's and the conservatory's records (taylor_16555_west_front, taylor_16554_from_south, inland_1894_plate); this record's verdict on the stable and range is unchanged"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
