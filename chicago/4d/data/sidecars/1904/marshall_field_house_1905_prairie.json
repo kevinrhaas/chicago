@@ -81,7 +81,7 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The main body read off the 1911 sheet's trace (s28fp-1905-b1 p1) in the house's frame (u toward Prairie Avenue, west, from the rear wall; v south from the north wall): the front at u 21.0 and the south wall at v 15.25, the draft's own rectangle kept. The sheet's two rear pieces stand on it as K01 rear wings and its south-flank bulge as the conservatory's bow (bays). The plate cuts the south-west corner on a broad canted face that the sheet draws square: K01 builds the canted corner only on an all-stone house, so the corner stays the sheet's here and the cut is an open difference in the match record (T-3261)."
+    "note": "The main body read off the 1911 sheet's trace (s28fp-1905-b1 p1) in the house's frame (u toward Prairie Avenue, west, from the rear wall; v south from the north wall): the front at u 21.0 and the south wall at v 15.25, the draft's own rectangle kept. The sheet's two rear pieces stand on it as K01 rear wings and its south-flank bulge as the conservatory's bow (bays). The plate cuts the south-west corner on a broad canted face that the sheet draws square; the cut stands on this rectangle as cant_corner (T-3261)."
   },
   "attributes": {
     "stories": {
@@ -215,7 +215,7 @@
           },
           {
             "from_s_m": 9.95,
-            "to_s_m": 12.45,
+            "to_s_m": 11.85,
             "floor_m": 7.4,
             "proud_m": 0.7,
             "height_m": 0.9,
@@ -229,7 +229,7 @@
       "sources": [
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "T-3261: the plate's three iron balconies on the front, read against its window columns: one before the chamber window of the north column, one before the door column's (over the door) and one before the wide column's, none before the narrow column's. Each stands on the stone belt at the chamber floor (2.2 + 5.2 = 7.4 m) on two scrolled stone consoles, its guard about 0.9 m high before a chamber light that runs down behind it to a sill 0.3 m over the floor. Lengths from the plate's pixels scaled by the column spacing (47-52 px a metre locally): the north one about 2.3 m, the door column's about 3.5 m, the wide column's about 2.5 m, each centred on its window (their fronts read north of the windows only by the oblique view's parallax); the door column's is built 3.0 m, the kit's longest (open on the match record). About 0.7 m proud and the slab 0.2 m deep, inferred from the plate's consoles. The undated photograph from the west side of the avenue (chicagology_1905_field_photo, cross-check only, not a source of this) shows the same three and the narrow column without one. The pierced panels' scroll pattern is the kit's, RECONSTRUCTED."
+      "note": "T-3261: the plate's three iron balconies on the front, read against its window columns: one before the chamber window of the north column, one before the door column's (over the door) and one before the wide column's, none before the narrow column's. Each stands on the stone belt at the chamber floor (2.2 + 5.2 = 7.4 m) on two scrolled stone consoles, its guard about 0.9 m high before a chamber light that runs down behind it to a sill 0.3 m over the floor. Lengths from the plate's pixels scaled by the column spacing (47-52 px a metre locally): the north one about 2.3 m, the door column's about 3.5 m, the wide column's about 2.5 m, each centred on its window (their fronts read north of the windows only by the oblique view's parallax); the door column's is built 3.0 m, the kit's longest (open on the match record). About 0.7 m proud and the slab 0.2 m deep, inferred from the plate's consoles. The undated photograph from the west side of the avenue (chicagology_1905_field_photo, cross-check only, not a source of this) shows the same three and the narrow column without one. The pierced panels' scroll pattern is the kit's, RECONSTRUCTED. The wide column's stops at the canted corner (T-3261), 0.2 m short of the cut, so it is built 1.9 m, from 0.65 m south of its window to 1.25 m north."
     },
     "wall_head": {
       "value": {
@@ -314,8 +314,8 @@
             "gable_pitch_deg": 35
           },
           {
-            "face": "street",
-            "along_m": 13.2,
+            "face": "cant",
+            "along_m": 0.0,
             "sash": {
               "variant": "k06.opening.sash_2over2_flat",
               "width_m": 1.0,
@@ -357,7 +357,7 @@
       "sources": [
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "A tall slated mansard over the cornice, its curb about 5 m over the cornice's top through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json), built at 4.5 m, the K05 contract's ceiling for a face holding one storey (the plate's further half metre is an open difference in the match record), its faces steep. Dormers where the plate shows them: three on the street face over the north window column, the door and the narrow column (2.8, 6.4 and 8.8 m along), the large one the plate stands on the canted corner's face carried onto the street face at 13.2 m (the corner is the sheet's square one here), and one on the south face over the conservatory (K01's 'north' face on this east-side house). Their heads are pedimented with carved cheeks in the plate: built as K01's gabled dormer head, the carving not modelled. The iron cresting runs along the street and south curbs, the two the plate shows."
+      "note": "A tall slated mansard over the cornice, its curb about 5 m over the cornice's top through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json), built at 4.5 m, the K05 contract's ceiling for a face holding one storey (the plate's further half metre is an open difference in the match record), its faces steep. Dormers where the plate shows them: three on the street face over the north window column, the door and the narrow column (2.8, 6.4 and 8.8 m along), the large one on the canted south-west corner's face (cant_corner), centred on it as the plate stands it, and one on the south face over the conservatory (K01's 'north' face on this east-side house). Their heads are pedimented with carved cheeks in the plate: built as K01's gabled dormer head, the carving not modelled. The iron cresting runs along the street and south curbs, the two the plate shows."
     },
     "roof_covering": {
       "value": {
@@ -597,6 +597,18 @@
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
       "note": "The south flank's conservatory: the 1911 sheet's bulge off the south wall between about 7 and 16 m behind the front, 'Greenhouse' written at the front's bay, and the plate's curved glasshouse on a stone base with a balcony over it, at x 955-1180 px. Built as K08's bowed bay a storey high over the basement: 8.4 m on its chord and 2.7 m out (the sheet's bulge reaches about 3.6 m off the wall; K08 holds a bow's facets to its radius), three tall lights round it, as the kit spaces a bow's lights (the plate's ring of glazing is continuous: open for T-3261). Its curved glass roof and the balcony's railing are not the kit's (a flat tin cone stands for the roof) and are open differences for T-3261."
+    },
+    "cant_corner": {
+      "value": {
+        "corner": "north",
+        "cut_m": 3.2,
+        "blank": true
+      },
+      "confidence": "inferred",
+      "sources": [
+        "rand_mcnally_pictorial_chicago_1893_field"
+      ],
+      "note": "The plate cuts the house's south-west corner (K01's 'north' on this east-side house) on a broad canted face square to the corner, blank brick in both storeys between light stone strips, the bracketed cornice and the slated mansard carried round it and the largest dormer standing over it (x 683-900 px). Through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json) the cut reads about 3.4 m back each way; built 3.2 m, the most the front's wide window column (centred 11.2 m from the north end) leaves a 0.2 m pier for, since the front's own length is still to be re-read against the Daily News view (T-3261). The 1911 sheet draws this corner square: at its 50-foot scale a cut this size could be drawn either way, and the plate, nearer 1904, is followed (L-k01-field-1905-cant-3261)."
     },
     "rear_wings": {
       "value": [
