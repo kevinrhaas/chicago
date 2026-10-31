@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 526874402,
+  "content_version": 822285085,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -15,7 +15,7 @@
     "instantly"
   ],
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 59 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 9 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 60 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 10 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -382,7 +382,7 @@
         "kind": "structure",
         "id": "hibbard_house_1701_prairie"
       },
-      "text": "Hibbard House, 1701 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 1 matching. Pictured: 5 of the pictures on the Images tab show it. Next: Kellogg House, 1709 Prairie.",
+      "text": "Hibbard House, 1701 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 5 of the pictures on the Images tab show it. Next: Kellogg House, 1709 Prairie.",
       "read_s": 14,
       "evidence": [
         "stood-18",

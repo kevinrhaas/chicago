@@ -88,12 +88,21 @@ STOOP_REACH_M = 1.2        # low work this near the house is a stoop's, not a fe
 WALL_GAP_M = 0.12          # a plant's edge off the house's wall
 LOW_GAP_M = 0.25           # ... off a fence, a coping or a pier
 PAVED_GAP_M = 0.2          # ... off a walk
+# T-3164: a pictured tub plant is not searched for -- it stands where its pictures stand it -- and
+# where the same pictures also give the walk or drive beside it, the two readings are the only
+# word on the gap between them. Pullman's two boxed standards at 1800 Calumet fill the turf strip
+# between the drive and the walk in the 1894 plate and Lowe's print alike (masses read 1.5 and
+# 1.65 m wide in a strip the ground's rows make 1.6-1.85 m), so their crowns are held to the
+# paving's own edge: never over it beyond CHECK_SLACK_M, but not PAVED_GAP_M off it either, a
+# spacing the planter keeps for the plants it invents.
+PICTURED_PAVED_GAP_M = 0.0
 LOT_LINE_CLEAR_M = 0.85    # ... and off the street line (the boundary, its coping and gate)
 SIDE_LINE_CLEAR_M = 0.40   # ... or the side lot lines
 SIDE_REACH_M = 6.0         # a corner shrub stands no further back along a side wall than this
 MIN_YARD_M = 1.6           # a house nearer its lot line than this has no front yard to plant
 CHECK_SLACK_M = 0.12       # --check lets a rebake move a stoop or a wall this much under a plant
 GATE_BAND_M = 1.0          # a lot line's fence or wall is read this deep into the lot (T-1934)
+GATE_OUT_M = 0.5           # ... and this far out past the line, where a wall ON it stands (T-1934)
 GATE_MIN_M = 0.45          # ... and a gap in it this long to GATE_MAX_M is a gateway (on the raster)
 GATE_MAX_M = 6.0
 GATE_WAY_M = 3.5           # a gateway's way is kept clear this far into the lot
@@ -342,6 +351,7 @@ class Plan:
         self.low = np.zeros((self.h, self.w), bool)
         self.paved = np.zeros((self.h, self.w), bool)
         self.floor = np.zeros((self.h, self.w))   # the highest level floor under LOW_TOP_M (a terrace's)
+        self.lots = np.zeros((self.h, self.w), bool)  # inside some parcel (outside: the street's)
         self.doors = []   # (e, n, structure id)
 
     def cells(self, en):
@@ -459,18 +469,27 @@ def inside(pe, pn, poly):
 
 # ---------------------------------------------------------------- one lot
 
-def gate_ways(s, d, width, fence, inlot):
+def gate_ways(s, d, width, fence, inlot, ours):
     """T-1934 (the owner, 2026-10-30, on Pullman's carriage ways: "no plants blocking it"): every
     gateway in a lot's fence or wall is kept clear. Along each of the lot's three street-side
     lines (the street line, d 0, and the side lines, s 0 and s = width) the fence, coping or pier
     raster is read in a band GATE_BAND_M deep; a run along the line with none of it, closed by
     fence at both ends and GATE_MIN_M to GATE_MAX_M long, is an opening, and a way as wide as it
-    is kept clear GATE_WAY_M into the lot. Returns the mask of those ways."""
+    is kept clear GATE_WAY_M into the lot. A wall built ON the line straddles it, and the half of it
+    outside it is still the lot's wall: so the band also reads GATE_OUT_M out past the line, over
+    the stretch of the line the lot itself spans, wherever that ground is no OTHER lot's (`ours`:
+    the street, or this lot's own polygon where it runs past the frame's straight line; a shared
+    side line's far side is the neighbour's yard, whose own work closes no gateway of this lot's).
+    T-1934: Pullman's 0.9 m coping along the stable's front stands just past the 18th Street line,
+    and with the c. 1900 wall's piers withdrawn nothing inside the band closed the court's carriage
+    mouth. Returns the mask of those ways."""
     out = np.zeros(s.shape, bool)
     for along, depth, lo in ((s, d, 0.0), (d, s, 0.0), (d, width - s, 0.0)):
-        band = inlot & (depth >= lo) & (depth <= GATE_BAND_M)
-        if not band.any():
+        inband = inlot & (depth >= lo) & (depth <= GATE_BAND_M)
+        if not inband.any():
             continue
+        span = (along >= along[inband].min()) & (along <= along[inband].max())
+        band = (inband | (ours & (depth >= lo - GATE_OUT_M) & (depth < lo))) & span
         a = np.round(along[band] / RES).astype(int)
         f = fence[band]
         if not f.any():
@@ -575,7 +594,7 @@ class Yard:
             self.doors.append((r2(ds), r2(dd), front_door))
         self.keep = keep
         edt = lambda m: ndimage.distance_transform_edt(~m) * RES if m.any() else np.full(m.shape, 99.0)
-        self.gate_way = gate_ways(s, d, width, fence, inlot)
+        self.gate_way = gate_ways(s, d, width, fence, inlot, inlot | ~plan.lots[r0:r1, c0:c1])
         self.terms = {
             "the house's wall": dh - WALL_GAP_M,
             "a stoop or its steps": edt(stoop) - STOOP_GAP_M,
@@ -606,14 +625,16 @@ class Yard:
         c = int((e - (self.pe[0, 0] - RES / 2)) / RES)
         return (r, c) if 0 <= r < self.room.shape[0] and 0 <= c < self.room.shape[1] else None
 
-    def why(self, rc, r):
-        """The rule a plant of half-width r at cell rc breaks, or None."""
+    def why(self, rc, r, pictured=False):
+        """The rule a plant of half-width r at cell rc breaks, or None. A pictured tub plant is held
+        to the paving's own edge, not PAVED_GAP_M off it (see PICTURED_PAVED_GAP_M)."""
         if not self.inlot[rc]:
             return "outside its lot"
         if self.H[rc]:
             return "inside the house"
-        near = [f"{name} ({max(0.0, t[rc]):.2f} m of room for {r:.2f})" for name, t in self.terms.items()
-                if t[rc] < r - CHECK_SLACK_M]
+        give = {"a walk": PAVED_GAP_M - PICTURED_PAVED_GAP_M} if pictured else {}
+        near = [f"{name} ({max(0.0, t[rc] + give.get(name, 0.0)):.2f} m of room for {r:.2f})"
+                for name, t in self.terms.items() if t[rc] + give.get(name, 0.0) < r - CHECK_SLACK_M]
         return f"too near {', '.join(near)}" if near else None
 
 
@@ -957,6 +978,8 @@ def lay_district():
     e0, n0 = allp.min(axis=0) - 20
     e1, n1 = allp.max(axis=0) + 20
     plan = Plan(float(e0), float(n0), float(e1), float(n1))
+    for p in parcels:
+        plan.lay_polygon(plan.lots, p["polygon_local_m"])
     by_parcel: dict[str, set] = {}
     tracked = tracked_models()
     for f in sorted(SIDECARS.glob("*.json")):
@@ -1026,7 +1049,8 @@ def build(laid=None):
         "placement": {
             "raster_m": RES, "door_radius_m": DOOR_RADIUS_M, "door_way_half_m": DOOR_WAY_M,
             "stoop_gap_m": STOOP_GAP_M, "wall_gap_m": WALL_GAP_M, "low_gap_m": LOW_GAP_M,
-            "paved_gap_m": PAVED_GAP_M, "lot_line_clear_m": LOT_LINE_CLEAR_M, "min_yard_m": MIN_YARD_M,
+            "paved_gap_m": PAVED_GAP_M, "pictured_paved_gap_m": PICTURED_PAVED_GAP_M,
+            "lot_line_clear_m": LOT_LINE_CLEAR_M, "min_yard_m": MIN_YARD_M,
             "schemes": dict(SCHEMES),
             "note": "Each plant's crown edge stands clear of the house's wall, every stoop and step, fence, "
                     "coping and walk, a 2 m disk round every door, and a 5.2 m way from each front door to "
@@ -1064,10 +1088,11 @@ def collisions(data, laid) -> list[str]:
                 if abs(f - s[6]) > CHECK_SLACK_M:
                     out.append(f"{lot['parcel']}: {an(PLANTS[s[2]]['name'])} at {s[0]:.2f} E, {s[1]:.2f} N "
                                f"stands on a floor {s[6]:.2f} m up, and the models put one {f:.2f} m up there")
-        things = [(an(PLANTS[s[2]]["name"]), s[0], s[1], s[4] / 2) for s in lot["shrubs"]
+        # a tub row on the ground is a pictured plant, stood where its picture stands it
+        things = [(an(PLANTS[s[2]]["name"]), s[0], s[1], s[4] / 2, len(s) > 6) for s in lot["shrubs"]
                   if not (len(s) > 6 and s[6] > 0)] + \
-                 [(an(PLANTS[t[2]]["name"]), t[0], t[1], 0.4) for t in lot["trees"]] + \
-                 [("a bed", b[0], b[1], max(b[2], b[3])) for b in lot["beds"]]
+                 [(an(PLANTS[t[2]]["name"]), t[0], t[1], 0.4, False) for t in lot["trees"]] + \
+                 [("a bed", b[0], b[1], max(b[2], b[3]), False) for b in lot["beds"]]
         # ivy hugs the wall, so only a door and its way bound it: its whole width clear of them
         for c in lot["creeper"]:
             rc = y.at(c[0], c[1])
@@ -1075,12 +1100,12 @@ def collisions(data, laid) -> list[str]:
                 out.append(f"{lot['parcel']}: ivy at {c[0]:.2f} E, {c[1]:.2f} N stands too near a door or "
                            f"the way to it ({max(0.0, y.terms['a door or the way to it'][rc]):.2f} m of room "
                            f"for {c[3] / 2:.2f})")
-        for name, e, n, r in things:
+        for name, e, n, r, pictured in things:
             rc = y.at(e, n)
             if rc is None:
                 out.append(f"{lot['parcel']}: {name} at {e:.2f} E, {n:.2f} N is outside the lot's window")
                 continue
-            why = y.why(rc, r)
+            why = y.why(rc, r, pictured)
             if why:
                 out.append(f"{lot['parcel']}: {name} at {e:.2f} E, {n:.2f} N stands {why}")
     return out
@@ -1138,6 +1163,13 @@ def self_test() -> int:
         l = next(x for x in d["lots"] if x["parcel"] == "prairie_1729")
         l["shrubs"].append([1475.3, -3194.2, "globe", 1.0, 1.0])
     case("a shrub in a gateway", in_gateway, "a gateway")
+
+    def tub_on_drive(d):
+        # T-3164: a pictured tub is held to the paving's own edge, so one set on the gravel is refused
+        l = next(x for x in d["lots"] if x["parcel"] == "calumet_1800")
+        for s_ in l["shrubs"][:2]:
+            s_[0] = r2(s_[0] - 2.0)
+    case("a pictured tub stood on the drive", tub_on_drive, "too near a walk")
     return 0 if ok else 1
 
 

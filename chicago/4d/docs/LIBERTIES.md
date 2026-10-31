@@ -34172,6 +34172,36 @@ places its east end, its windows and the pavilion, and the piers' banding.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-26 (T-3160).
 
+### L-pullman-1729-porte-dressing-1881 — 1729 Prairie's porte-cochere balanced and dressed off Taylor's photograph 1445: its arches centred on their faces, its banded piers, impost and arch rings drawn at this build's sizes
+
+**Decision:** the porte-cochere on the Pullman house's 18th Street flank (T-1881; the owner, 2026-10-30:
+"this part of the pullman house would have been balanced not off centered lop sided like that, and there
+is more detail you need on it on the corners and arches") has each arch centred on the face it shows. The
+block stands before the 18th Street pavilion (`bays.p_18th`, 2.47 m proud), so its ends now begin at the
+pavilion's face (`porte_cochere.back_m`, a new key of `generators/archetypes/k01_porte_cochere.py`) and
+each end's arch is centred on the 3.5 m it shows there (4.22 m out, 2.5 m across, a 0.5 m pier either
+side) where it had been centred on the passage behind it, which left the west face a 2.9 m blank pier
+beside a 0.87 m corner. The front's arch is centred at s 10.5 (2.4 m across, 1.05 m piers), where it was
+at s 10.8. The walls go from 0.45 to 0.4 m thick so the wider end arches keep 0.1 m of end wall inside the
+front wall. The kit's new `dressing` lays banded piers from grade to the entablature (stopped clear of
+the arch ring over the impost, the corner piers' bands turned round the corner), a moulded impost at the
+springing, and a ring of voussoirs round each arch's head with a keystone standing higher and prouder.
+**What is read, not invented.** That the piers are banded to the entablature, the impost at the
+springing, the moulded ring round each head and the keystone at its crown, all in Taylor's photograph no.
+1445 (`aic_taylor_1445_pullman_from_sw`) at x 640-800 px; that the west arch is wide and the front's
+narrower (Taylor 2.8 and 2.46 m, the Detroit print 2.37 and 2.27 m).
+**What is invented.** The centring itself, which the owner asked for and which neither photograph
+measures to better than about 0.5 m (they disagree by more than that along the flank). The spans, 2.5
+and 2.4 m, chosen between the two pictures' readings. The courses' 0.4 m height and 0.1 m channels (the
+pavilion pilasters' own), their 0.05 m projection, the impost's 0.25 m height and 0.09 m projection, the
+ring's 0.3 m band and 0.06 m projection, its eleven voussoirs and the keystone's 0.15 m rise: the
+photograph shows them at one or two pixels a course. The 0.4 m walls.
+**How to resolve:** the CHM 1905 views or the Beman-addition side views, nearer the flank, count the
+courses and voussoirs and measure the spans and piers.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-10-31 (T-1881).
+
 ### L-pullman-1729-flank-stack-3161 — 1729 Prairie's great stack on the 18th Street cornice off Taylor's photograph 1445: its place, width and top read, its depth and cap reconstructed
 
 **Decision:** the Pullman house gains the tall stone stack J. W. Taylor's photograph no. 1445 shows
@@ -34874,6 +34904,30 @@ window columns (`street_front_iron`). Invented in them: their guards' pierced sc
 their 0.7 m projection and 0.2 m slab, and the consoles' form (the kit's short scrolled blocks, where the plate's
 door-column pair run down beside the door's surround). The door column's is built 3.0 m, the kit's longest, where the
 plate reads about 3.5 m. The door hood T-3260 stood in for that balcony, about 1.4 m low, is withdrawn.
+
+### L-k01-field-1905-cant-3261 — 1905 Prairie's canted south-west corner, cut off the 1893 Pictorial Chicago plate on a brick house
+
+**Decision:** T-3261 cuts the Field house's south-west corner (K01's 'north' on this east-side
+house) on a canted face, as the 1893 plate (`rand_mcnally_pictorial_chicago_1893_field`) shows it
+through the camera T-3260 solved
+(`data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json`). K01's
+`cant_corner` (T-3186, 1901's) was built for an all-stone house under the moulded stone cornice with a
+window column on its face; it now also takes a brick house, a face left `blank`, and the bracketed
+timber cornice, whose paired brackets and bed moulding turn onto the face. The front's stone belt at
+the chamber floor runs across it and the flank's brick string course starts behind it. The largest
+dormer, carried onto the street face until now, stands centred on the face's slope.
+**What is read, not invented.** The cut itself, square to the corner; its face blank brick in both
+storeys; the cornice, the mansard and the large dormer carried round and over it.
+**What is a working figure.** The cut is built 3.2 m back each way where the camera reads about
+3.4 m: the front's wide window column, centred 11.2 m from the north end, needs a 0.2 m pier, and the
+front's own length is still to be re-read against the Daily News view (T-3261). The 1911 Sanborn sheet
+draws the corner square; at its scale a cut could be drawn either way, and the plate, nearer 1904, is
+followed. The wide column's iron balcony stops 0.2 m short of the cut, 1.9 m long where the plate's
+reads about 2.5 m.
+**What is still not built.** The light stone strips framing the face's brick at its two angles; the
+iron balcony on the flank's window just behind the cut. Both stay open on the match record.
+**How to resolve:** the Daily News view's camera (DN-0003324), which sees the corner from the street.
+**Recorded:** 2026-10-30 (T-3261).
 
 ### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
 
@@ -36582,7 +36636,7 @@ readings and inside the plate's bound; and both trees' size, scale 0.6 where the
 to 1.10, read off their trunks (about 0.31 m across in the plate, 0.26 m in Taylor's print, where
 the renderer's elm draws 0.66 m at scale 1), which puts the first fork at about 4 m, within a
 metre of the pictures'. Their crowns are still the rule's elm, where both pictures show a broad,
-low head (open in the match records).
+low head (the gate tree's now grows one: see "The gate tree's head" below).
 **How to resolve:** a picture of this stretch nearer 1904, or a city forestry record.
 **Ticket:** T-1934; T-3164 (the gate's two trees).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
@@ -36622,6 +36676,37 @@ and the corner tree stands though Taylor's no. 1445, between the two pictures in
 parkway clear. The trees' size, crown and species are the rule's as above.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
 `albertype_1890-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg` and their match records.
+
+**The gate tree's head (T-3164, 2026-10-31):** the tree left of the 1800 Calumet gate
+(`calumet__prairie_calumet_18_20#p03` since T-1934's 16554 stretch was numbered before it) no longer grows on the rule's elm. Both the 1894 plate and
+Lowe's print draw it on one straight leader running up through its crown, its limbs leaving it from
+about 3 m (plate, y 660) or 2.6 m (Lowe) and spreading wide and low over the walk: a young tree's
+head, not the grown elm's forked fountain. Its record names `form: "broad_head"`
+(`data/street_trees/pictured_1904.json`, carried into `1904.json` by the planter), and the renderer
+grows it on its own habit (`street-trees.js` FORMS, `tree-model.js` ARCH.ulmus_americana_young).
+**Read:** the single leader, the head's height and breadth, and the trunk at about 0.27 m across.
+**Chosen (reconstructed):** the habit's numbers (crown base 0.30 of the height, limbs at about 52
+degrees, an open crown between the plate's and Lowe's densities); the species stays the layer's
+American elm, read as a young one; its height stays the record's scale 0.6 of the parkway band.
+
+**Extended (T-1934, 2026-10-31, Taylor's 16554):** Calumet Avenue's west parkway north of the
+glasshouse ground's gate, from 241.0 to 264.0 m along `calumet__prairie_calumet_18_20` (the walk's
+curve into 18th Street, opposite the Pullman stable), is planted off J. W. Taylor's no. 16554
+(`aic_taylor_16554_pullman_from_sw`, c. 1890-1910): three trees at 244.5, 248.8 and 259.9 m, where
+the rule had elms at 241.9, 250.9 and 259.9 m (the first just past the print's edge, its trunk drawing
+inside the frame where the print shows grass).
+**Read:** the print's camera re-solved with this corner's ground in its fit (Taylor stood on the
+lawn inside the corner lot's coping, a few metres from this walk; the coping's curve, the walk's
+outer edge and the stable's wall foot now land within about 5 px), and each trunk's x carried to
+the planting line through it; the third trunk west of them lands 0.45 m from the gate tree's
+266.9 m, which the plate and Lowe's print had placed, a check the camera was not fitted on.
+**Chosen:** all three on the planting line (the nearest one's foot reads about 1 m nearer the
+walk) and on the gate tree's young habit (`broad_head`, scale 0.6), where the print draws each
+bole about 0.19 m across on a straight leader, slenderer than the rule's grown elm; that trees of
+the 1890s print still stand in 1904. The print's trunks with feet on the lawn inside the coping
+are garden trees, left to the lot. **Review:**
+`docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`
+and its match record.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
@@ -36946,6 +37031,37 @@ fabric.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+### L-pullman-grounds-1800-calumet-3164 — The Pullman glasshouse ground's drive, walk, forecourt and lot-line coping, read through the plate's and Lowe's cameras
+
+**Decision:** the 1894 Inland plate (`inland_1894_pullman_conservatory`) and Lowe's print
+(`aic_lowe_pullman_conservatory_c1897`) both show the ground the estate's 18th Street gate opens onto
+(T-3164). No plan draws it: the 1911 sheet shows no drive or walk, and the grounds have no record of their
+own, so it is built on the conservatory's record beside the gate (`grounds`). A gravel drive about 4.3 m
+wide from between the wings' ends straight back past the conservatory's west flank; a turf wedge east of
+it, narrowing to the east wing, in which the two boxed standards stand; a walk 1.8 m wide entering the lot
+east of the east pier and running to a forecourt along the conservatory's north front, from 3.2 m out to
+its podium; and west of the gate a stone coping on the lot line, a body 0.32 m high and 0.36 m thick under
+a cap course to 0.4 m standing 0.03 m past both faces. **What is read.** Every edge is read off the two
+pictures through their solved cameras and laid on the ground those cameras put under it: the drive's
+edges, the wedge's edges, the walk's mouth east of the pier and the lawn east of it, the forecourt's
+front, and the coping's height and place (its foot on the line of the piers' fronts). Re-rendered, the
+drive's west edge lands within about 5 px of the plate's, the wedge within about 10, the walk and the lawn
+east of it within about 8, and the coping's top and foot within about 6. **What is invented.** The
+surfaces: gravel in a buff limestone tone, taken from the pictures reading drive and walks as pale as the
+public walk; the coping's stone, taken as the gate's; the coping's thickness and cap course, which the
+pictures give at a few pixels; the drive's run past u 4 (the plate) or u 3 (Lowe's), where it lies too
+near both horizons to fix its depth, carried straight on to u 16, where the planting hides it in both, and
+stopped there; and the coping's run past the frames' edges (about v 13 in Lowe's print, v 16 in the plate),
+carried round the Calumet Avenue corner on the 1911 sheet's lot line to the start of its Calumet straight.
+The pale line along the lawn's far side, a walk or the drive's turn, is read but not built. Each row's
+lift is the app's ground (the 1904 terrain, `e1871_postfire`) over the house's bed, measured where the
+row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate.
+**How to resolve:** a plan of the grounds, or a picture of the lawn's far side and the drive beyond the
+conservatory.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-30 (T-3164).
 
 ### L-kimball-1801-cone-slate-1890 — 1801 Prairie's tower and turret cones slated in the mansard's own coursed slate
 **Recorded:** 2026-10-30.
@@ -37045,3 +37161,110 @@ drawings.
 **Unknown:** The core’s log construction is an inferred proxy, not pictured material attestation. No whitewash, paint or clapboard is asserted for it. Exact source dimensions, historical bearing, pigment, hidden opening counts and the roof junction remain unknown or reconstructed. The picture match accepts the bounded visible main house, projection and attic light, without promoting those uncertainties.
 
 **Recorded:** 2026-10-30 (T-2378).
+
+### L-pullman-stable-bay-1934 — Pullman's stable corner bay moved clear of the arcade's third arch and run on to u -25.0, on the two pictures that agree
+**Recorded:** 2026-10-31.
+
+**Decision:** the polygonal bay across the stable's south-west corner (`pullman_house_1729_prairie_ranges`,
+`stable_dress.canted_bay.plan`, T-1934) now leaves the west wall at v 12.95, standing 0.55 m proud of it,
+and runs round the corner onto the 18th Street front as far as u -25.0, a light in each of its three faces.
+It had left the west wall at v 12.6 with a 1.0 m return and stopped at u -24.38 (L-pullman-stable-3193, which
+stood it between the plate's reading and Taylor 16554's). **What is read.** Through their solved cameras the
+1894 Inland plate (`inland_1894_pullman_palm_house_stable`) and Taylor's 16555
+(`aic_taylor_16555_pullman_west_front`) both show the arcade's third arch whole, the bay's left edge about
+17 px right of the arch's end pier in each, where the old return covered most of the arch from both; and both
+put the bay's east end on the south wall at u -24.9 and -25.3. **What is invented.** The bay's depth off the
+corner and the angle of its faces: both cameras look from 18th Street on nearly the same bearing, so they fix
+its edges across the view and not its depth, and the plan keeps the building's square corner inside the bay.
+Taylor's 16554 reads the bay further west still; its camera puts the walk's ground about 45 px off and it was
+not used for this. **How to resolve:** a re-solve of 16554 with the walk's edge in its fit, or any picture of
+the corner from the west or the south-east.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
+
+### L-k01-hibbard-1701-stoop-basement-3257 — 1701 Prairie's stoop drawn short and cheekless, and its basement lights cut through the stone basement, read off Chicagology's photograph
+
+**Decision:** T-3257 (piece 4 of T-1876) works the last two differences the front's match record held
+open (`data/reference_views/hibbard_house_1701_prairie/chicagology_front.match.json`), through the camera
+T-3240 solved (`chicagology_front.json`) on Chicagology's photograph (`chicagology_1701_hibbard_photo`).
+The stoop T-3256 stood before the entrance arch (a 1.1 m landing, a 0.3 m going and solid stone cheeks
+0.3 m over the nosings) showed over the fence in front of the corner porch's podium; it is drawn with a
+0.4 m landing, a 0.27 m going and no cheeks (`entrance_kit` `cheeks: false`), so it reads as the pale
+stone under the arch's mouth the photograph shows and the podium and its four roundels stand clear. The
+round-headed basement lights the photograph shows over the fence, a pair under the stone bay's pair and
+one under the lower south range's narrow south light, are cut through each projection's stone basement:
+K08's new `in_plinth` light (T-3257), the plinth's face cut round K06's round-headed basement light and
+its reveal carried back to the wall, the bay's plinth carried up to the water table at 2.0 m as the
+range's already was.
+**What is read, not invented.** That nothing of the stoop stands over the fence before the podium, and
+that the arch's dark mouth runs down to the principal floor with pale stone under it: an upper bound on
+the landing and on a cheek's height, from the sightline that crosses the stoop's north edge about 1.9 m
+before the front and 1.4 m up. The basement lights' places (one under each light over it) and their
+heads, about 1.75 m over grade (y about 1006-1012 px against the eye's horizon at 1023 px), each about as
+broad as the light over it.
+**What is invented.** The landing's 0.4 m and the 0.27 m going inside that bound; whether the flight had
+iron rails (the fence and a tree hide it; none are drawn); the arch's reveal and vestibule standing as
+the rest of the landing. The basement lights' sills (1.0 m), so their 0.75 m clear height, and their
+glazing: the fence hides their feet and whatever grilles they had. Their surround is the plinth's own
+plain stone.
+**How to resolve:** a nearer photograph of the entrance and its steps, or of the house's basement.
+**Recorded:** 2026-10-31 (T-3257).
+### L-pullman-18th-street-wall-c1900-1934 — Pullman's 18th Street wall east of the stair's pier built as the c. 1900 picture shows it: one level coping, its later piers, urn and curved low walls withdrawn
+**Recorded:** 2026-10-31.
+
+**Decision:** east of the third pier (the east pier of the stair at the house's 18th Street porch, x -9.35
+to -10.25 in `pullman_house_1729_prairie`'s frame) the 18th Street wall (`form.boundary.side_return`) now
+runs level at 0.9 m to the stable's east wall. The fourth, fifth and sixth piers, the fifth's urn, the
+sweeps from 1.4 m to 0.85 m and back up to 1.45 m between the third and fourth piers, and the sweep up to
+the sixth pier are withdrawn for 1904. L-pullman-18th-street-wall-1934 had built them off the 1894 Inland
+plate, which Taylor's 16555 and 16554, both of the early 1890s, agree with.
+**What is read.** The Detroit Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`, LC-D4-12552,
+taken beside the Fort Dearborn monument looking west-north-west along this wall) is the picture nearest
+1 July 1904. From the stair's east pier (its x 475-485 px) to the monument (x 740) it shows one level coping,
+about as high as the hydrant at the curb stands over the walk, with a dense border of shrubs behind it. No
+pier rises over its top, there is no urn, and no low wall falls and rises (x 485-740, y 520-535). The Chicago
+History Museum's view of the monument (ICHi-19208, circa 1900; the Prairie library's
+`a16-chm-ichi-19208-monument-pullman-wall`, no source record yet, so a check only) shows the same plain
+coping at the stable's end. So the earlier pictures' piers and curved walls are taken to have gone in a
+rebuilding between 1894 and about 1900, which no record held here dates.
+**What is invented.** The two openings are kept: the one onto the terrace's ground (x -15.2 to -16.15) and the
+court's carriage mouth (x -17.05 to -20.4). The Detroit view sees this face edge-on, where a doorway-wide
+opening reads as a narrow dark slot (it shows two, at x 493-497 and 611-617 px), and the court's mouth falls
+behind a parkway trunk there (x 702-714). So the picture can neither place nor deny them, and the carriage
+drive (L-pullman-carriage-ways-1934) needs the court's. Their plain ends without piers are reconstructed.
+**Read the same way:** the 1894 plate's planting before the terrace (its evergreen mass, a potted conifer) and
+Taylor's 16555's flights open from the walk give way in 1904 to the c. 1900 border, which the 1729 lot's border in
+`data/front_yards/1904.json` already draws. Those items read `not shown`, replaced for 1904, in the estate's
+match records.
+**How to resolve:** a solved camera for the Detroit view (an earlier attempt was withdrawn on 13-30 px
+residuals), a picture of the wall between 1894 and 1904 that dates the rebuilding, or a full-size copy of
+CHM i70232 (1905-1906) showing the wall at the court's mouth.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with the estate's six match records.
+
+### L-field-1905-conservatory-1905 — 1905 Prairie's conservatory stood as glass on the house's stone bow, off the 1893 Pictorial Chicago plate
+
+**Decision:** T-1905 builds the conservatory on the Field house's south flank as the 1893 plate
+(`rand_mcnally_pictorial_chicago_1893_field`) shows it through the camera T-3260 solved
+(`data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json`): a ring of tall
+glazed lights on fine bars, standing on a stone sill over the house's stone basement, under a glass roof
+that curves up from their head to the house's wall. Until now the house record's K08 bow stood for it, a
+storey of brick with three sashes under a flat tin cone. The bow now stops at the basement, in stone,
+and the glass is its own record (`marshall_field_house_1905_prairie_conservatory`), the K13 kit's
+segmental bay standing against the house's own wall on the bow's top. K13 learned, additively, to size a
+segmental bay as a segment (`chord_m`, `rise_m`) rather than a half circle, a `curved` roof (the
+kit's quarter-ellipse on every hip), a stone plinth (`plinth_fabric`), a lift onto a base (`base_m`),
+and a host wall that is another record's (`host_wall.structure`); every other K13 asset is the same bytes.
+**What is read, not invented.** The glass ring on its stone sill, the glass roof's curve and ribs, the
+bow's plan on the sheet's bulge ('Greenhouse', sheet 28), and the heights through the camera: the glass's
+head about 5.4 m over grade, the roof meeting the wall about 6.8 m, each within about 0.3 m.
+**What is a working figure.** Its plan stays the house record's bow, 8.4 m on its chord and 2.7 m out,
+where the sheet's bulge reaches about 3.6 m. The lights are six facets of two, ribs 0.88 m apart with the
+kit's glazing bars between, where the plate's lights are about 0.6 m: the kit's finest division that
+keeps every roof pane at least 0.2 m wide on the curve's last step. The curve is cut in four steps.
+The frame's white paint, the glass's colour, the staging inside and the gutter with its two pipes at the
+wall are the kit's (L-k13-conservatory-kit-2305).
+**What is still not built.** The transom across the lights, the iron balcony on the roof's deck at the
+chamber floor, and the dark tone the plate gives the bars. All stay open on the match record.
+**How to resolve:** the Daily News view's camera (DN-0003324), which sees the south flank nearer 1904.
+**Recorded:** 2026-10-31 (T-1905).

@@ -2,9 +2,50 @@
   "structure_id": "marshall_field_house_1905_prairie",
   "view": "pictorial_1893_plate",
   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b42b916f215826876558fc39099799afe6164fbe3fa7ebf71e715816ad707872",
-  "camera_sha256": "f41b5754d650dad29e0e6b1361ba4a03b35b6fd82524b514c9cb5f5115eec945",
+  "glb_sha256": "3fd05059198f1c1b9161aa7ec7b71830534acee455c73c00a9ba70b38057db67",
+  "camera_sha256": "d5203d93f29bc9cf1a519b1f27b759e267603675f302fc2d3b99e0f92bb7ec11",
   "photo_sha256": "d49b47b1f31f50b0ce0d4e99b234d0ae9c80f42c57cab75f8338ed0396d397dd",
+  "rendered_members": [
+    {
+      "structure_id": "marshall_field_house_1905_prairie",
+      "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1443.678,
+        "local_n": -3356.596,
+        "rotation_deg": 179.444,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "3fd05059198f1c1b9161aa7ec7b71830534acee455c73c00a9ba70b38057db67"
+    },
+    {
+      "structure_id": "marshall_field_house_1905_prairie_conservatory",
+      "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1434.826,
+        "local_n": -3371.933,
+        "rotation_deg": 359.444,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        9.000411596869922,
+        0,
+        -15.250379145678007
+      ],
+      "rotation_y": -3.141592653589794,
+      "glb_sha256": "ead445c815eec68c24294e7c191989f94ed96ebc95dda53ea7d21dad6cbb5a8d"
+    }
+  ],
+  "group_sha256": "1edf28473472b50202399b3ce6e878580d3f2df1ac564afa840d0dc8ea223d6f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -33,7 +74,19 @@
       "status": "fixed"
     },
     {
-      "what": "the south-west corner: the plate cuts it on a broad canted face, blank brick in both storeys between stone strips, with the largest dormer over it (x 683-900 px), about 3.4 m back each way through the camera; the render's corner is the sheet's square one, and that dormer stands on the street face at 13.2 m. K01's canted corner is built only on an all-stone house",
+      "what": "the south-west corner: the plate cuts it on a broad canted face, blank brick in both storeys, the bracketed cornice and the slated mansard carried round it and the largest dormer standing over it (x 683-900 px); the render's corner is cut on K01's canted face (T-3261) 3.2 m back each way, blank brick on the front's stone belt, the cornice's paired brackets turned onto it and the large dormer centred on its slope",
+      "status": "fixed"
+    },
+    {
+      "what": "the canted corner's cut: about 3.4 m back each way through the camera, built 3.2 m, the most the front's wide window column leaves a pier for until the front's length is re-read (T-3261)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the light stone strips that frame the canted face's brick at its two angles, from the basement to the frieze: the render's brick meets the front and the flank at plain angles",
+      "status": "open"
+    },
+    {
+      "what": "the wide column's iron balcony: built 1.9 m, stopped 0.2 m short of the canted corner's cut, where the plate's runs about 2.5 m centred on its window",
       "status": "open"
     },
     {
@@ -61,7 +114,23 @@
       "status": "open"
     },
     {
-      "what": "the conservatory: the plate's has a curved glass roof on fine bars and a continuous ring of tall glazing; the render's stands under a flat tin cone with three tall sashes, K08's spacing for a bow",
+      "what": "the conservatory: the plate's is glass, a ring of tall lights on fine bars on a stone sill over the stone base, under a glass roof that curves up from their head to the house's wall; the render's is now glass too (T-1905), the K13 kit's segmental bay on the bow's top, its head about 5.4 m and its curved roof meeting the wall about 6.8 m over grade, where it had stood under a flat tin cone with three tall sashes in brick",
+      "status": "fixed"
+    },
+    {
+      "what": "the conservatory's lights: the plate's about 0.6 m wide between equal bars; the render's ribs stand 0.88 m apart with the kit's finer glazing bars between (the finest division that keeps every roof pane at least 0.2 m wide)",
+      "status": "open"
+    },
+    {
+      "what": "the conservatory's transom: the plate's lights are crossed by a bar about two thirds of the way up; the render's run unbroken to the eave",
+      "status": "open"
+    },
+    {
+      "what": "the conservatory's bars: the plate prints them dark against pale glass; the render's are the kit's white paint over clear glass, so the bow reads light where the plate's reads barred",
+      "status": "open"
+    },
+    {
+      "what": "the conservatory's base: the plate's stone base is pale, as the house's basement is all round; the render's bow base is the K01 kit's tan stone",
       "status": "open"
     },
     {

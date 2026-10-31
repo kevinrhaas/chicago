@@ -1,4 +1,47 @@
 export const CHANGELOG = [ // newest first
+  { v: 2487, ts: '2026-10-31T08:22:26.935Z', date: 'Oct 31, 2026, 3:22 AM CT', title: 'Calumet Avenue\'s corner trees, lamp and hydrant where Taylor\'s photograph shows them', kind: 'fix',
+    items: [
+      'Three slender young elms now line Calumet Avenue\'s west walk where it curves into 18th Street, opposite the Pullman stable, in place of three grown elms, read off J. W. Taylor\'s photograph no. 16554.',
+      'The gas lamp that photograph shows now stands on that same corner, across 18th Street from where it stood before; the hydrant before the stable moves 5 m east along the walk.',
+      'The photograph was taken from the lawn of the corner lot at 18th and Calumet, so its camera has been re-fitted on that lawn\'s curved coping and the walk, which puts the street\'s ground where the picture has it.',
+    ] },
+  { v: 2486, ts: '2026-10-31T08:22:26.935Z', date: 'Oct 31, 2026, 3:22 AM CT', title: 'The Field house\'s conservatory, in glass', kind: 'improvement',
+    items: [
+      'The conservatory on the south side of 1905 Prairie, Marshall Field\'s house, is now glass, as the 1893 Pictorial Chicago plate shows it: a ring of tall lights on fine bars, standing on a stone sill over the house\'s stone base, under a ribbed glass roof that curves up to the wall.',
+      'Until now it was a brick bow with three windows under a flat tin roof.',
+    ] },
+  { v: 2485, ts: '2026-10-31T06:31:13.027Z', date: 'Oct 31, 2026, 1:31 AM CT', title: 'Pullman\'s 18th Street wall stands as it did around 1900', kind: 'change',
+    items: [
+      'In 1904 the low stone wall before Pullman\'s palm house and stable runs as one plain, level coping. A photograph from about 1900 shows it that way, with a thick border of shrubs behind it.',
+      'The tall piers, the urn and the curved low walls from the 1894 pictures are gone east of the porch stair. Both gateways stay, including the carriage way into the stable court.',
+    ] },
+  { v: 2484, ts: '2026-10-31T05:15:56.213Z', date: 'Oct 31, 2026, 12:15 AM CT', title: 'The Pullman house\'s carriage porch, balanced', kind: 'improvement',
+    items: [
+      '1729 Prairie\'s porte-cochère on 18th Street now has each arch centred on its face, with banded stone piers, a moulded band where the arches spring, and a ring of voussoirs with a keystone round each arch, as J. W. Taylor\'s photograph shows them.',
+    ] },
+  { v: 2483, ts: '2026-10-31T04:55:26.329Z', date: 'Oct 30, 2026, 11:55 PM CT', title: 'The tree at Pullman\'s glasshouse gate gets its young, broad head', kind: 'improvement',
+    items: [
+      'The parkway tree beside the 18th Street gate to Pullman\'s glasshouses now stands on one straight stem with a broad, low, leafy head from about 3 m, as the 1894 Inland plate and Lowe\'s c. 1897 photograph show it, in place of the grown elm\'s forked fountain.',
+      'Its trunk is drawn about 0.27 m across, as thin as the pictures draw it.',
+    ] },
+  { v: 2482, ts: '2026-10-31T03:58:19.748Z', date: 'Oct 30, 2026, 10:58 PM CT', title: '1701 Prairie\'s front steps and basement windows', kind: 'feature',
+    items: [
+      'The Hibbard house\'s front steps are now low, open steps tucked under the entrance arch, as the old photograph shows them, so the stone porch\'s base and all four of its round medallions stand clear above the fence.',
+      'Small round-headed basement windows now show above the fence: a pair under the stone bay\'s windows and one under the narrow window of the low south wing. The house now matches both of its old photographs.',
+    ] },
+  { v: 2481, ts: '2026-10-31T02:56:03.653Z', date: 'Oct 30, 2026, 9:56 PM CT', title: 'A drive and walks for Pullman\'s conservatory', kind: 'improvement',
+    items: [
+      'Inside the gate on 18th Street, Pullman\'s conservatory now has its ground as the 1894 plate and Lowe\'s photograph show it: a pale gravel drive running back between the lawns, a walk past a strip of turf to a forecourt before the glass, and a low stone coping that edges the lawn along the street.',
+    ] },
+  { v: 2480, ts: '2026-10-31T02:16:15.459Z', date: 'Oct 30, 2026, 9:16 PM CT', title: 'Pullman stable\'s corner bay moved clear of its arcade', kind: 'improvement',
+    items: [
+      'The stable\'s three-light corner bay no longer covers the last arch of its west arcade. The 1894 Inland Architect plate and Taylor\'s photograph both show that arch whole.',
+      'The bay now runs 0.6 m further along 18th Street, where both pictures put its east end.',
+    ] },
+  { v: 2479, ts: '2026-10-31T02:15:10.379Z', date: 'Oct 30, 2026, 9:15 PM CT', title: '1905 Prairie\'s canted south-west corner', kind: 'feature',
+    items: [
+      'The Marshall Field house at 1905 Prairie now has its south-west corner cut on a broad canted face, as the 1893 Pictorial Chicago plate shows it: blank brick in both storeys, the bracketed cornice and the slated mansard carried round it, and the largest dormer centred over it.',
+    ] },
   { v: 2478, ts: '2026-10-31T01:32:51.240Z', date: 'Oct 30, 2026, 8:32 PM CT', title: '1801 Prairie\'s east range gets its second gabled bay', kind: 'fix',
     items: [
       'Along 18th Street, the Kimball house\'s lower east range now has a second stone bay between the corner turret and the side door, rising through the eave to a pinnacled gable, as the 1965 survey photograph shows it.',

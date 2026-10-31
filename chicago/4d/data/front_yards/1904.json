@@ -129,6 +129,7 @@
   "wall_gap_m": 0.12,
   "low_gap_m": 0.25,
   "paved_gap_m": 0.2,
+  "pictured_paved_gap_m": 0.0,
   "lot_line_clear_m": 0.85,
   "min_yard_m": 1.6,
   "schemes": {
@@ -4000,7 +4001,7 @@
      1.28
     ],
     [
-     1415.68,
+     1415.93,
      -3086.34,
      "hydrangea",
      1.06,
@@ -5486,7 +5487,7 @@
     ],
     "width_m": 50.82
    },
-   "front_m": 9.4,
+   "front_m": 9.28,
    "doors": [
     [
      17.56,

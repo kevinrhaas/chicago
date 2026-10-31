@@ -153,13 +153,17 @@ ATTESTED_MIDBLOCK = [
      "sources": ["chicagology_2140_photo_b"],
      "note": "The second 2140 photograph shows the lamp on the parkway beside the walk at the Prairie "
              "Avenue porch."},
-    {"key": "pullman_court", "face": "calumet__prairie_ic_16_18", "at_m": 3.1, "parcel": "prairie_1729",
+    {"key": "pullman_court", "face": "calumet__prairie_calumet_18_20", "at_m": 249.2, "parcel": "calumet_1800",
      "sources": ["aic_taylor_16554_pullman_from_sw"],
-     "note": "J. W. Taylor's photograph no. 16554 (1890s), from the yard across 18th Street, shows the post at "
-             "the street edge of the walk before Pullman's palm-house wing, where the curb turns into Calumet "
-             "Avenue (x 795, its foot at y 607: u 10.0 m east of the palm house's centre through the print's "
-             "solved camera, data/reference_views/pullman_house_1729_prairie_conservatory/"
-             "taylor_16554_from_south.json). Its form is the district's post (T-3267, the owner, 2026-10-30): "
+     "note": "J. W. Taylor's photograph no. 16554 (1890s), taken from the lawn of the corner lot across 18th "
+             "Street, shows the post on the near side of the street, on Calumet Avenue's west parkway where its "
+             "walk curves into 18th Street, opposite Pullman's palm-house wing (x 797, its foot at y 607-608, "
+             "carried along its ray to the mid-block lamp's line through the print's camera, "
+             "data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16554_from_south.json). "
+             "T-1934 first stood it on the north walk, through a camera that drew the street's ground 25-45 px "
+             "high; re-solved with that ground in its fit (2026-10-31), a post on the north walk would stand "
+             "its foot at y 580, above the stable wall's foot (y 585), and the print's stands 22 px below it. "
+             "Its form is the district's post (T-3267, the owner, 2026-10-30): "
              "the print's head, 13 px across, is the 1811 photograph's lantern seen small, a ladder bar under a "
              "narrow foot that flares to a wide glazed top, lit by the sky, under a small dark roof; it is not "
              "a globe."},
@@ -174,7 +178,7 @@ PICTURED_EMPTY = [
      "why": "Taylor's no. 16554 (1890s) sees 18th Street's north walk whole from the house's 18th Street "
             "porch to its turn into Calumet Avenue, and the Detroit Publishing view of c. 1900 sees it from "
             "the Prairie Avenue corner past the palm house: neither shows a post on it. The one lamp 16554 "
-            "shows stands where the walk turns (lamp.pictured.pullman_court); the rule's mid-block lamp "
+            "shows stands across the street, on Calumet Avenue's west parkway (lamp.pictured.pullman_court); the rule's mid-block lamp "
             "would have rendered before the porch's arch (16554 x 206), where the print shows none."},
 ]
 
@@ -205,13 +209,14 @@ ATTESTED_HYDRANTS = [
               "the corner lamp at 18th Street. Read off the owner's crop of the Detroit view: a barrel on a "
               "flared foot, a band under a domed bonnet with an operating nut, side nozzle caps. Not a "
               "hitching post: none is shown at Pullman's.")},
-    {"key": "pullman_stable", "face": "calumet__prairie_ic_16_18", "end": None, "along_m": 14.2, "side": "walk",
+    {"key": "pullman_stable", "face": "calumet__prairie_ic_16_18", "end": None, "along_m": 19.2, "side": "walk",
      "sources": ["aic_taylor_16554_pullman_from_sw"],
      "note": ("Pullman's stable: J. W. Taylor's no. 16554 (1890s) shows a post hydrant on the walk at the foot "
               "of the low wall before the stable, about 3.7 m short of the stable's east end, where 18th "
               "Street's north walk turns into Calumet Avenue. Placed along its ray through the print's solved "
-              "camera (x 1065 px), on the walk's street edge (T-1934, the owner, 2026-10-30: 'there is a "
-              "hydrant in that photo'). Its form is the district's post hydrant; the print is too small to "
+              "camera (x 1063 px, its foot at y 587), on the walk's street edge (T-1934, the owner, 2026-10-30: "
+              "'there is a hydrant in that photo'); moved 5.0 m east along it when the camera was re-solved "
+              "with the street's ground in its fit (T-1934, 2026-10-31). Its form is the district's post hydrant; the print is too small to "
               "read its parts. Calumet Avenue curves into 18th Street here, so there is no corner: "
               "`end: None` measures from the face's own start, where 18th Street's face ends.")},
     {"key": "tucker", "face": "prairie__indiana_prairie_21_22", "end": "e22nd", "along_m": 6.0, "side": "curb",
