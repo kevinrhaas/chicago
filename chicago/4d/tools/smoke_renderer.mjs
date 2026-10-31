@@ -20351,6 +20351,17 @@ for (const [label, viewport, touch] of [
             focus: document.activeElement?.dataset?.personCard ?? null };
           out.story = (await tab('story')).text.includes('1885');
           await tab('photos');
+          // T-3266: a house's former residents, the family it is named for among them, and a
+          // house nobody is listed in for 1904 saying so instead of "nobody in our records".
+          // innerText carries the headings' CSS capitals, so the headings match in any case.
+          await open('keith_house_1808_prairie');
+          const keith = await tab('people');
+          out.keith = /Former residents/i.test(keith.text) && /Keith/.test(keith.text) && /Stanley Field/.test(keith.text);
+          if (!out.keith) out.keithSeen = { structure: root()?.dataset.structure, filled: keith.filled, shown: keith.shown, text: keith.text.slice(0, 160) };
+          await open('coleman_ames_house_1811_prairie');
+          const coleman = await tab('people');
+          out.coleman = /Nobody listed in 1904/i.test(coleman.text) && /Coleman/.test(coleman.text) && !/Nobody in our records/i.test(coleman.text);
+          if (!out.coleman) out.colemanSeen = { structure: root()?.dataset.structure, filled: coleman.filled, shown: coleman.shown, text: coleman.text.slice(0, 160) };
           await open('pullman_house_1729_prairie');
           out.newOpensOn = current();
           await tab('design');
@@ -20366,9 +20377,10 @@ for (const [label, viewport, touch] of [
           && inspectTabs1904.card.sources >= 1 && !inspectTabs1904.back.card && inspectTabs1904.back.listShown
           && inspectTabs1904.back.focus === 'pa1904_glessner_john_j_c1900_august_billings',
           JSON.stringify({ card: inspectTabs1904.card, back: inspectTabs1904.back }));
-        check(`${label}: Inspect's People tab lists the Glessner household; a new building opens on Overview and the same keeps its tab (T-2639)`,
+        check(`${label}: Inspect's People tab lists the Glessner household; 1808 lists its former residents and 1811 why nobody is listed (T-3266); a new building opens on Overview and the same keeps its tab (T-2639)`,
           inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
-          && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
+          && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design'
+          && inspectTabs1904.keith && inspectTabs1904.coleman,
           JSON.stringify(inspectTabs1904));
         // >>> T-2644: Glessner's Sources tab groups every fact by grade with real counts (the
         // same count the Overview's Confidence meter shows), a Liberties section with every

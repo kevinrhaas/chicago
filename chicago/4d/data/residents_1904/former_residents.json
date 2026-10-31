@@ -1,0 +1,3516 @@
+{
+  "scene": "1904",
+  "standard": "Who lived in each 1904 Prairie Avenue house before 1 July 1904, and for a house nobody is listed in on that day, who came after. Read from the Chicago Blue Book's street and alphabetical lists, 1890-1910 (kept only where the two agree), the 1900 census, and the district markers' name lines. Built by tools/build_former_residents_1904.py (T-3266); not a 1904 fact.",
+  "editions_read": [
+    1890,
+    1891,
+    1892,
+    1893,
+    1894,
+    1895,
+    1897,
+    1898,
+    1899,
+    1901,
+    1902,
+    1903,
+    1904,
+    1905,
+    1907,
+    1908,
+    1909,
+    1910
+  ],
+  "houses": {
+    "house_1601_prairie": {
+      "address": "1601 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1601. The register is selective, so silence is not proof the house was empty. The last household listed before is the Payne household, in the 1902 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "William Morton Payne",
+          "members": [
+            "William Morton Payne"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1892,
+            1893,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1892-1902",
+          "sources": [
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902"
+          ],
+          "seen": "Blue Book 1892-1902 (8 editions)",
+          "printed_as": [
+            "William M. Paine",
+            "Wm. Morton Payne"
+          ]
+        },
+        {
+          "name": "Bernard H. Trumbull",
+          "members": [
+            "Bernard H. Trumbull"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1897-1899",
+          "sources": [
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1897-1899 (3 editions)"
+        },
+        {
+          "name": "Horace G. Carter",
+          "members": [
+            "Horace G. Carter"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1898
+          ],
+          "years": "1898",
+          "sources": [
+            "chicago_blue_book_1898"
+          ],
+          "seen": "Blue Book 1898 (1 edition)",
+          "printed_as": [
+            "Horace G. Carter"
+          ]
+        },
+        {
+          "name": "Charles S. Thompson",
+          "members": [
+            "Charles S. Thompson"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1898,
+            1899
+          ],
+          "years": "1898-1899",
+          "sources": [
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1898-1899 (2 editions)",
+          "printed_as": [
+            "Chas. S. Thompson"
+          ]
+        }
+      ]
+    },
+    "house_1609_prairie": {
+      "address": "1609 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1609. The register is selective, so silence is not proof the house was empty.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      }
+    },
+    "house_1611_prairie": {
+      "address": "1611 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1611. The register is selective, so silence is not proof the house was empty.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      }
+    },
+    "goodman_house_1612_prairie": {
+      "address": "1612 Prairie Avenue",
+      "former": [
+        {
+          "name": "Joseph Goodman",
+          "members": [
+            "Joseph Goodman"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_1600_1700"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1600_1700",
+            "marker": "Joseph Goodman Residence. Built 1869"
+          }
+        },
+        {
+          "name": "Peter E. Studebaker",
+          "members": [
+            "Peter E. Studebaker"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895
+          ],
+          "years": "1890-1895",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895"
+          ],
+          "seen": "Blue Book 1890-1895 (6 editions)",
+          "printed_as": [
+            "Mr. & Mrs. P. E. Studebaker"
+          ]
+        },
+        {
+          "name": "Gilbert Ashley",
+          "members": [
+            "Gilbert Ashley"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [],
+          "years": "1900",
+          "sources": [
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "1900 census",
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 36, sheet 2B, line 77, leaf n668",
+            "as_enumerated": "Ashley, Gilbert"
+          }
+        }
+      ]
+    },
+    "house_1613_prairie": {
+      "address": "1613 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1613. The register is selective, so silence is not proof the house was empty. The last household listed before is the Mathews household, in the 1892 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "Edwin Greenidge",
+          "members": [
+            "Edwin Greenidge"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890
+          ],
+          "years": "1890",
+          "sources": [
+            "chicago_blue_book_1890"
+          ],
+          "seen": "Blue Book 1890 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. Edwin Greenidge"
+          ]
+        },
+        {
+          "name": "M. F. Sweenie",
+          "members": [
+            "M. F. Sweenie"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891
+          ],
+          "years": "1891",
+          "sources": [
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1891 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. M. F. Sweenie"
+          ]
+        },
+        {
+          "name": "S. Mathews",
+          "members": [
+            "S. Mathews"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1892
+          ],
+          "years": "1892",
+          "sources": [
+            "chicago_blue_book_1892"
+          ],
+          "seen": "Blue Book 1892 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. S. Mathews"
+          ]
+        },
+        {
+          "name": "Otto? Harish?",
+          "members": [
+            "Otto? Harish?"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [],
+          "years": "1900",
+          "sources": [
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "1900 census (the handwriting is uncertain)",
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 36, sheet 1A, line 48, leaf n665",
+            "as_enumerated": "Harish?, Otto?"
+          }
+        }
+      ]
+    },
+    "house_1615_prairie": {
+      "address": "1615 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1615. The register is selective, so silence is not proof the house was empty. The last household listed before is the Overton household, in the 1903 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "Miss Minnie Barker",
+          "members": [
+            "Miss Minnie Barker"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890
+          ],
+          "years": "1890",
+          "sources": [
+            "chicago_blue_book_1890"
+          ],
+          "seen": "Blue Book 1890 (1 edition)",
+          "printed_as": [
+            "Mr.& Mrs.JohnR.Barker & drs."
+          ]
+        },
+        {
+          "name": "Mrs. Emma Mott",
+          "members": [
+            "Mrs. Emma Mott"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890
+          ],
+          "years": "1890",
+          "sources": [
+            "chicago_blue_book_1890"
+          ],
+          "seen": "Blue Book 1890 (1 edition)",
+          "printed_as": [
+            "Mrs. Emma Mott"
+          ]
+        },
+        {
+          "name": "J. H. Boyer",
+          "members": [
+            "J. H. Boyer"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891
+          ],
+          "years": "1891",
+          "sources": [
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1891 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. Josiah H. Boyer"
+          ]
+        },
+        {
+          "name": "Thomas D. Rhodes",
+          "members": [
+            "Thomas D. Rhodes"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1892,
+            1893,
+            1894
+          ],
+          "years": "1892-1894",
+          "sources": [
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1892-1894 (3 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Thomas D. Rhodes"
+          ]
+        },
+        {
+          "name": "Mrs. S. J. Lovell",
+          "members": [
+            "Mrs. S. J. Lovell"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1892,
+            1893,
+            1894
+          ],
+          "years": "1892-1894",
+          "sources": [
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1892-1894 (3 editions)",
+          "printed_as": [
+            "Mr. S. J. Lovell",
+            "Mrs. S. J. Lovell"
+          ]
+        },
+        {
+          "name": "Lyman Wilson",
+          "members": [
+            "Lyman Wilson"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1895
+          ],
+          "years": "1895",
+          "sources": [
+            "chicago_blue_book_1895"
+          ],
+          "seen": "Blue Book 1895 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. Lyman Wilson"
+          ]
+        },
+        {
+          "name": "David Maclit?",
+          "members": [
+            "David Maclit?"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [],
+          "years": "1900",
+          "sources": [
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "1900 census (the handwriting is uncertain)",
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 36, sheet 1A, line 35, leaf n665",
+            "as_enumerated": "Maclit?, David"
+          }
+        },
+        {
+          "name": "W. H. Overton",
+          "members": [
+            "W. H. Overton"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1903
+          ],
+          "years": "1903",
+          "sources": [
+            "chicago_blue_book_1903"
+          ],
+          "seen": "Blue Book 1903 (1 edition)",
+          "printed_as": [
+            "W. H. Overton"
+          ]
+        }
+      ]
+    },
+    "house_1619_prairie": {
+      "address": "1619 Prairie Avenue",
+      "former": [
+        {
+          "name": "Walter H. Wilson",
+          "members": [
+            "Walter H. Wilson"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891
+          ],
+          "years": "1891",
+          "sources": [
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1891 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. Walter H. Wilson"
+          ]
+        },
+        {
+          "name": "J. Foster Rhodes",
+          "members": [
+            "J. Foster Rhodes"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1893,
+            1894
+          ],
+          "years": "1893-1894",
+          "sources": [
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1893-1894 (2 editions)",
+          "printed_as": [
+            "Mr. & Mrs. J. Foster Rhodes"
+          ]
+        }
+      ]
+    },
+    "law_house_1620_prairie": {
+      "address": "1620 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Law household",
+          "members": [
+            "Robert H. Law",
+            "Harry Law"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1890-1899",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1890-1899 (9 editions)",
+          "printed_as": [
+            "Robert H. Law",
+            "Harry Law",
+            "Robert H. Law & dr."
+          ]
+        },
+        {
+          "name": "Dr. Lyman Ware",
+          "members": [
+            "Dr. Lyman Ware"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1890-1899",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1890-1899 (9 editions)",
+          "printed_as": [
+            "Dr. & Mrs. Lyman Ware"
+          ]
+        }
+      ]
+    },
+    "house_1623_prairie": {
+      "address": "1623 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1623. The register is selective, so silence is not proof the house was empty. The last household listed before is the Lee household, in the 1902 edition. The next is the Townsend household, from the 1908 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "Granger Farwell",
+          "members": [
+            "Granger Farwell"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893
+          ],
+          "years": "1890-1893",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893"
+          ],
+          "seen": "Blue Book 1890-1893 (4 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Granger Farwell"
+          ]
+        },
+        {
+          "name": "J. M. Allan",
+          "members": [
+            "J. M. Allan"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1894,
+            1895,
+            1897,
+            1898
+          ],
+          "years": "1894-1898",
+          "sources": [
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898"
+          ],
+          "seen": "Blue Book 1894-1898 (4 editions)",
+          "printed_as": [
+            "Mr. & Mrs. J. M. Allan",
+            "Mr. & Mrs. J. M. Allan & drs.",
+            "Mr. & Mrs. J. M. Allan &"
+          ]
+        },
+        {
+          "name": "The Storey household",
+          "members": [
+            "Mrs. A. G. Storey",
+            "C. G. Storey"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1897,
+            1898
+          ],
+          "years": "1897-1898",
+          "sources": [
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898"
+          ],
+          "seen": "Blue Book 1897-1898 (2 editions)",
+          "printed_as": [
+            "C. G. Storey",
+            "Mrs. A. G. Storey"
+          ]
+        },
+        {
+          "name": "Blewett Lee",
+          "members": [
+            "Blewett Lee"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1901,
+            1902
+          ],
+          "years": "1901-1902",
+          "sources": [
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "Blue Book 1901-1902 (2 editions); 1900 census",
+          "printed_as": [
+            "Mr. & Mrs. Blewett Lee"
+          ],
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 36, sheet 1A, line 14, leaf n665",
+            "as_enumerated": "Lee, Blewett"
+          }
+        }
+      ],
+      "later": [
+        {
+          "name": "John S. Townsend",
+          "members": [
+            "John S. Townsend"
+          ],
+          "role": "lived here after",
+          "grade": "attested",
+          "editions": [
+            1908,
+            1909,
+            1910
+          ],
+          "years": "1908-1910",
+          "sources": [
+            "chicago_blue_book_1908",
+            "chicago_blue_book_1909",
+            "chicago_blue_book_1910"
+          ],
+          "seen": "Blue Book 1908-1910 (3 editions)"
+        }
+      ]
+    },
+    "house_1628_prairie": {
+      "address": "1628 Prairie Avenue",
+      "former": [
+        {
+          "name": "Mrs. Emma Beir",
+          "members": [
+            "Mrs. Emma Beir"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1895,
+            1910
+          ],
+          "years": "1895-1910",
+          "sources": [
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1910"
+          ],
+          "seen": "Blue Book 1895-1910 (2 editions)",
+          "printed_as": [
+            "Mrs. Emma Beirs",
+            "Mrs. Emma Beir"
+          ]
+        }
+      ]
+    },
+    "house_1630_prairie": {
+      "address": "1630 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1630. The register is selective, so silence is not proof the house was empty. The last household listed before is the Brust household, in the 1895 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "The Brust household",
+          "members": [
+            "Peter Brust",
+            "Mrs. Peter Brust"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891,
+            1892,
+            1893,
+            1894,
+            1895
+          ],
+          "years": "1891-1895",
+          "sources": [
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "Blue Book 1891-1895 (5 editions); 1900 census",
+          "printed_as": [
+            "Mr. & Mrs. Peter Brust & drs.",
+            "Mrs. Peter Brust & drs."
+          ],
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 36, sheet 2A, line 45, leaf n667",
+            "as_enumerated": "Brust, Elizabeth"
+          }
+        }
+      ]
+    },
+    "house_1634_prairie": {
+      "address": "1634 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Lorimer household",
+          "members": [
+            "Rev. George C. Lorimer",
+            "George H. Lorimer"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891
+          ],
+          "years": "1890-1891",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1890-1891 (2 editions)",
+          "printed_as": [
+            "Rev.& Mrs. George C. Lorimer",
+            "George H. Lorimer"
+          ]
+        },
+        {
+          "name": "Hulburd Dunlevey",
+          "members": [
+            "Hulburd Dunlevey"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891
+          ],
+          "years": "1891",
+          "sources": [
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1891 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. Hulburd Dunlevy"
+          ]
+        },
+        {
+          "name": "Mrs. J. E. Shaffner",
+          "members": [
+            "Mrs. J. E. Shaffner"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1902
+          ],
+          "years": "1902",
+          "sources": [
+            "chicago_blue_book_1902"
+          ],
+          "seen": "Blue Book 1902 (1 edition)",
+          "printed_as": [
+            "Mrs. J. E. Shaffner"
+          ]
+        }
+      ]
+    },
+    "forsyth_house_1635_prairie": {
+      "address": "1635 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1635. The register is selective, so silence is not proof the house was empty. The last household listed before is the Springer household, in the 1902 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "Warren Springer",
+          "members": [
+            "Warren Springer"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1894-1902",
+          "sources": [
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "Blue Book 1894-1902 (7 editions); 1900 census",
+          "printed_as": [
+            "Mr. & Mrs. Warren Springer",
+            "Mr. & Mrs. Warren Springer & dr."
+          ],
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 36, sheet 1A, line 1, leaf n665",
+            "as_enumerated": "Springer, Warren"
+          }
+        }
+      ]
+    },
+    "spalding_house_1637_prairie": {
+      "address": "1637 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Spalding household",
+          "members": [
+            "Miss Jessie Spalding",
+            "Jesse Spalding"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1890-1899",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1890-1899 (9 editions)",
+          "printed_as": [
+            "Mr.' & Mrs. Jesse Spalding",
+            "Miss Jessie Spalding",
+            "Mr. & Mrs. Jesse Spalding"
+          ]
+        }
+      ]
+    },
+    "shortall_gregory_house_1638_prairie_front": {
+      "address": "1638 Prairie Avenue",
+      "former": [
+        {
+          "name": "John G. Shortall",
+          "members": [
+            "John G. Shortall"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_1600_1700"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1600_1700",
+            "marker": "John G. Shortall-Robert B. Gregory Residence. Built 1868"
+          }
+        }
+      ]
+    },
+    "hibbard_house_1701_prairie": {
+      "address": "1701 Prairie Avenue",
+      "former": [
+        {
+          "name": "William G. Hibbard",
+          "members": [
+            "William G. Hibbard"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_1600_1700"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1600_1700",
+            "marker": "William G. Hibbard Residence. Built 1869"
+          }
+        }
+      ]
+    },
+    "house_1708_prairie": {
+      "address": "1708 Prairie Avenue",
+      "former": [
+        {
+          "name": "Stanley Field",
+          "members": [
+            "Stanley Field"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1902
+          ],
+          "years": "1902",
+          "sources": [
+            "chicago_blue_book_1902"
+          ],
+          "seen": "Blue Book 1902 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. Stanley Field"
+          ]
+        }
+      ]
+    },
+    "kellogg_house_1709_prairie": {
+      "address": "1709 Prairie Avenue",
+      "former": [
+        {
+          "name": "Mrs. Palmer V. Kellogg",
+          "members": [
+            "Mrs. Palmer V. Kellogg"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893
+          ],
+          "years": "1890-1893",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893"
+          ],
+          "seen": "Blue Book 1890-1893 (4 editions)",
+          "printed_as": [
+            "Mrs. Palmer V. Kellogg"
+          ]
+        },
+        {
+          "name": "The Schwartz household",
+          "members": [
+            "Mrs. Charles Schwartz",
+            "Gustavus A. Schwartz"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1894
+          ],
+          "years": "1894",
+          "sources": [
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1894 (1 edition)",
+          "printed_as": [
+            "Mrs. Charles Schwartz",
+            "G. A. Schwartz"
+          ]
+        },
+        {
+          "name": "Mrs. Jessie D. Crane",
+          "members": [
+            "Mrs. Jessie D. Crane"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1899
+          ],
+          "years": "1899",
+          "sources": [
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1899 (1 edition)",
+          "printed_as": [
+            "Mrs. Jessie D. Crane"
+          ]
+        },
+        {
+          "name": "Mrs. Edgar M. Doolittle",
+          "members": [
+            "Mrs. Edgar M. Doolittle"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1899
+          ],
+          "years": "1899",
+          "sources": [
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1899 (1 edition)",
+          "printed_as": [
+            "Mrs. E. M. Doolittle"
+          ]
+        }
+      ]
+    },
+    "house_1712_prairie": {
+      "address": "1712 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Sturges household",
+          "members": [
+            "Albert Sturges",
+            "Miss Mary Sturges",
+            "Solomon Sturges",
+            "Washington Sturges"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897
+          ],
+          "years": "1890-1897",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897"
+          ],
+          "seen": "Blue Book 1890-1897 (7 editions)",
+          "printed_as": [
+            "Albert Sturges & dr.",
+            "Washington Sturges",
+            "Solomon Sturges"
+          ]
+        }
+      ]
+    },
+    "walker_house_1720_prairie": {
+      "address": "1720 Prairie Avenue",
+      "former": [
+        {
+          "name": "Miss Jennie Royce",
+          "members": [
+            "Miss Jennie Royce"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891
+          ],
+          "years": "1890-1891",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1890-1891 (2 editions)",
+          "printed_as": [
+            "Miss Jennie Royce"
+          ]
+        },
+        {
+          "name": "Mrs. George M. Marsh",
+          "members": [
+            "Mrs. George M. Marsh"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1898
+          ],
+          "years": "1898",
+          "sources": [
+            "chicago_blue_book_1898"
+          ],
+          "seen": "Blue Book 1898 (1 edition)",
+          "printed_as": [
+            "Mrs. George M. Marsh"
+          ]
+        }
+      ]
+    },
+    "dexter_house_1721_prairie": {
+      "address": "1721 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Dexter household",
+          "members": [
+            "Mrs. Wirt Dexter",
+            "Samuel Dexter"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891,
+            1892,
+            1893,
+            1894,
+            1895
+          ],
+          "years": "1891-1895",
+          "sources": [
+            "hmdb_prairie_lost_houses_1600_1700",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895"
+          ],
+          "seen": "District marker; Blue Book 1891-1895 (5 editions)",
+          "printed_as": [
+            "Mrs. Wirt Dexter",
+            "Samuel Dexter"
+          ],
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1600_1700",
+            "marker": "Wirt Dexter Residence. Built 1863"
+          }
+        },
+        {
+          "name": "Henry Gardiner",
+          "members": [
+            "Henry Gardiner"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [],
+          "years": "1900",
+          "sources": [
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "1900 census",
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 40, sheet 1A, line 11, leaf n794",
+            "as_enumerated": "Gardiner, Henry"
+          }
+        }
+      ]
+    },
+    "pullman_house_1729_prairie": {
+      "address": "1729 Prairie Avenue",
+      "former": [
+        {
+          "name": "George M. Pullman",
+          "members": [
+            "George M. Pullman"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_1600_1700"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1600_1700",
+            "marker": "George M. Pullman Residence. Built 1870-1876"
+          }
+        },
+        {
+          "name": "Edgar J. Mayer",
+          "members": [
+            "Edgar J. Mayer"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1898
+          ],
+          "years": "1898",
+          "sources": [
+            "chicago_blue_book_1898"
+          ],
+          "seen": "Blue Book 1898 (1 edition)",
+          "printed_as": [
+            "Edgar J. Mayer"
+          ]
+        }
+      ]
+    },
+    "kimball_house_1801_prairie": {
+      "address": "1801 Prairie Avenue",
+      "former": [
+        {
+          "name": "Mrs. M. M. Cone",
+          "members": [
+            "Mrs. M. M. Cone"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1895-1899",
+          "sources": [
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1895-1899 (4 editions)",
+          "printed_as": [
+            "Mrs. M. M. Cone"
+          ]
+        }
+      ]
+    },
+    "keith_house_1808_prairie": {
+      "address": "1808 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Keith household",
+          "members": [
+            "O. R. Keith",
+            "Miss Alice Keith"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1890-1899",
+          "sources": [
+            "hmdb_prairie_lost_houses_1800_1900_west",
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "District marker; Blue Book 1890-1899 (9 editions); 1900 census",
+          "printed_as": [
+            "Mr. & Mrs. O. R. Keith",
+            "Miss Alice Keith"
+          ],
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 40, sheet 5A, line 44, leaf n802",
+            "as_enumerated": "Keith, O. R. Mr."
+          },
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1800_1900_west",
+            "marker": "Osborn R. Keith Residence. Built 1886"
+          }
+        },
+        {
+          "name": "Herbert M. Kinsley",
+          "members": [
+            "Herbert M. Kinsley"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890
+          ],
+          "years": "1890",
+          "sources": [
+            "chicago_blue_book_1890"
+          ],
+          "seen": "Blue Book 1890 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. H. M. Kinsley"
+          ]
+        },
+        {
+          "name": "Mrs. Henry W. Hoyt",
+          "members": [
+            "Mrs. Henry W. Hoyt"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1897,
+            1899
+          ],
+          "years": "1897-1899",
+          "sources": [
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1897-1899 (2 editions)",
+          "printed_as": [
+            "Mrs. Henry W. Hoyt"
+          ]
+        },
+        {
+          "name": "Frederic A. Delano",
+          "members": [
+            "Frederic A. Delano"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1901
+          ],
+          "years": "1901",
+          "sources": [
+            "chicago_blue_book_1901"
+          ],
+          "seen": "Blue Book 1901 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. F. A. Delano"
+          ]
+        }
+      ]
+    },
+    "coleman_ames_house_1811_prairie": {
+      "address": "1811 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1811. The register is selective, so silence is not proof the house was empty. The last household listed before is the Mayer household, in the 1903 edition. The next is the Fish household, from the 1908 edition. David Mayer is listed at 1811 through the 1903 edition; the 1904 edition's alphabetical list prints him at 4706 Woodlawn av., so the family had left by the autumn of 1903.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "Joseph G. Coleman",
+          "members": [
+            "Joseph G. Coleman"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_heritage_preserved"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_heritage_preserved",
+            "marker": "Joseph G. Coleman Residence. Built 1886"
+          }
+        },
+        {
+          "name": "The Ames household",
+          "members": [
+            "Miss Jennie R. Ames",
+            "Knowlton L. Ames",
+            "Miner T. Ames",
+            "Mrs. Miner T. Ames"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892
+          ],
+          "years": "1890-1892",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892"
+          ],
+          "seen": "Blue Book 1890-1892 (3 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Miner T.Ames&dr.",
+            "Knowlton L. Ames"
+          ]
+        },
+        {
+          "name": "Mrs. Eliz. Francis",
+          "members": [
+            "Mrs. Eliz. Francis"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1893
+          ],
+          "years": "1893",
+          "sources": [
+            "chicago_blue_book_1893"
+          ],
+          "seen": "Blue Book 1893 (1 edition)",
+          "printed_as": [
+            "Mrs. Lizzie Francis"
+          ]
+        },
+        {
+          "name": "William B. Keep",
+          "members": [
+            "William B. Keep"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1893,
+            1894
+          ],
+          "years": "1893-1894",
+          "sources": [
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1893-1894 (2 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Wm. B. Keep"
+          ]
+        },
+        {
+          "name": "Lorin C. Collins sr.",
+          "members": [
+            "Lorin C. Collins sr."
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1895
+          ],
+          "years": "1895",
+          "sources": [
+            "chicago_blue_book_1895"
+          ],
+          "seen": "Blue Book 1895 (1 edition)",
+          "printed_as": [
+            "Rev. Loren C. C9llins"
+          ]
+        },
+        {
+          "name": "David Mayer",
+          "members": [
+            "David Mayer"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1898,
+            1899,
+            1901,
+            1902,
+            1903
+          ],
+          "years": "1898-1903",
+          "sources": [
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "chicago_blue_book_1903",
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "Blue Book 1898-1903 (5 editions); 1900 census",
+          "printed_as": [
+            "Mr. & Mrs. David Mayer"
+          ],
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 40, sheet 4A, line 1, leaf n800",
+            "as_enumerated": "Mayer, David"
+          }
+        },
+        {
+          "name": "Mrs. G. Blum",
+          "members": [
+            "Mrs. G. Blum"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1903
+          ],
+          "years": "1903",
+          "sources": [
+            "chicago_blue_book_1903"
+          ],
+          "seen": "Blue Book 1903 (1 edition)",
+          "printed_as": [
+            "Mrs. G. Blum & dr."
+          ]
+        }
+      ],
+      "later": [
+        {
+          "name": "Joseph Fish",
+          "members": [
+            "Joseph Fish"
+          ],
+          "role": "lived here after",
+          "grade": "attested",
+          "editions": [
+            1908,
+            1909,
+            1910
+          ],
+          "years": "1908-1910",
+          "sources": [
+            "chicago_blue_book_1908",
+            "chicago_blue_book_1909",
+            "chicago_blue_book_1910"
+          ],
+          "seen": "Blue Book 1908-1910 (3 editions)"
+        }
+      ]
+    },
+    "wheeler_house_1812_prairie": {
+      "address": "1812 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Wheeler household",
+          "members": [
+            "George Henry Wheeler",
+            "Dr. Henry L. Wheeler",
+            "Miss Mabel Wheeler"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1890-1902",
+          "sources": [
+            "hmdb_prairie_lost_houses_1800_1900_west",
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902"
+          ],
+          "seen": "District marker; Blue Book 1890-1902 (11 editions)",
+          "printed_as": [
+            "Mr.&Mrs.G. H. Wheeler & dr.",
+            "Harry Wheeler",
+            "Mr. & Mrs.G. H. Wheeler & dr."
+          ],
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1800_1900_west",
+            "marker": "George H. Wheeler Residence. Built 1884"
+          }
+        }
+      ]
+    },
+    "sears_meeker_house_1815_prairie": {
+      "address": "1815 Prairie Avenue",
+      "former": [
+        {
+          "name": "Joseph Sears",
+          "members": [
+            "Joseph Sears"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892
+          ],
+          "years": "1890-1892",
+          "sources": [
+            "hmdb_prairie_lost_houses_1800_1900_east",
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892"
+          ],
+          "seen": "District marker; Blue Book 1890-1892 (3 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Joseph Sears"
+          ],
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1800_1900_east",
+            "marker": "The home was built by Joseph Sears, the founder of the Chicago suburb of Kenilworth."
+          }
+        },
+        {
+          "name": "C. J. Beacham",
+          "members": [
+            "C. J. Beacham"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1894
+          ],
+          "years": "1894",
+          "sources": [
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1894 (1 edition)",
+          "printed_as": [
+            "Mr. & Mrs. C. J. Beacham"
+          ]
+        },
+        {
+          "name": "Levy Mayer",
+          "members": [
+            "Levy Mayer"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1897,
+            1898,
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1897-1902",
+          "sources": [
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "Blue Book 1897-1902 (5 editions); 1900 census",
+          "printed_as": [
+            "Mr. & Mrs. Levy Mayer",
+            "Mr. & Mrs. Levy Mayei"
+          ],
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 40, sheet 4A, line 19, leaf n800",
+            "as_enumerated": "Mayer, Levi"
+          }
+        }
+      ]
+    },
+    "henderson_house_1816_prairie": {
+      "address": "1816 Prairie Avenue",
+      "former": [
+        {
+          "name": "W. H. Merrill jr.",
+          "members": [
+            "W. H. Merrill jr."
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1899,
+            1901,
+            1902,
+            1903
+          ],
+          "years": "1899-1903",
+          "sources": [
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "chicago_blue_book_1903"
+          ],
+          "seen": "Blue Book 1899-1903 (4 editions)",
+          "printed_as": [
+            "Mr. & Mrs. W. H. Merrill jr."
+          ]
+        }
+      ]
+    },
+    "marsh_house_1824_prairie": {
+      "address": "1824 Prairie Avenue",
+      "former": [
+        {
+          "name": "Samuel B. Pomeroy",
+          "members": [
+            "Samuel B. Pomeroy"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_1800_1900_west"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1800_1900_west",
+            "marker": "Samuel B. Pomeroy Residence. Built 1857"
+          }
+        },
+        {
+          "name": "The Marsh household",
+          "members": [
+            "George B. Marsh",
+            "Marshall M. S. Marsh"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891
+          ],
+          "years": "1890-1891",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1890-1891 (2 editions)",
+          "printed_as": [
+            "Mr. £ Mrs. M. M. S. Marsh",
+            "George B. Marsh",
+            "Mr. & Mrs. M. M. S. Marsh"
+          ]
+        },
+        {
+          "name": "Gustavus A. Schwartz",
+          "members": [
+            "Gustavus A. Schwartz"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1892,
+            1893
+          ],
+          "years": "1892-1893",
+          "sources": [
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893"
+          ],
+          "seen": "Blue Book 1892-1893 (2 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Charles Schwartz",
+            "Gustavus A. Schwartz"
+          ]
+        }
+      ]
+    },
+    "doane_house_1827_prairie": {
+      "address": "1827 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 1827. The register is selective, so silence is not proof the house was empty. The last household listed before is the Doane household, in the 1899 edition. The 1900 census taker walked from 1823 straight to 1905 and enumerated nobody at 1827 (ED 40, sheet 4A, leaf n800), so the house looks to have stood empty after the Doanes.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905",
+          "census_1900_chicago_t623_roll245"
+        ]
+      },
+      "former": [
+        {
+          "name": "The Doane household",
+          "members": [
+            "John E. Doane",
+            "John W. Doane",
+            "Miss Julia W. Doane",
+            "John W. Doane jr."
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1890-1899",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1890-1899 (9 editions)",
+          "printed_as": [
+            "Mr. & Mrs. J. W. Doane & drs",
+            "John E. Doane",
+            "J. W. Doane ir."
+          ]
+        },
+        {
+          "name": "J. Turner Rumsey",
+          "members": [
+            "J. Turner Rumsey"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891
+          ],
+          "years": "1890-1891",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1890-1891 (2 editions)",
+          "printed_as": [
+            "Mr. & Mrs. J. Turner Rumsey"
+          ]
+        }
+      ]
+    },
+    "jones_house_1834_prairie": {
+      "address": "1834 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Grant household",
+          "members": [
+            "George R. Grant",
+            "Mrs. George R. Grant"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894
+          ],
+          "years": "1890-1894",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1890-1894 (5 editions)",
+          "printed_as": [
+            "Mr. & Mrs. George R. Grant",
+            "Mrs. George R. Grant"
+          ]
+        }
+      ]
+    },
+    "elbridge_keith_house_1900_prairie": {
+      "address": "1900 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Hall household",
+          "members": [
+            "Clarence B. Hall",
+            "Henry G. Hall"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1890-1899",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1890-1899 (9 editions)",
+          "printed_as": [
+            "Henry G. Hall",
+            "Clarence B. Hall"
+          ]
+        }
+      ]
+    },
+    "moulton_lowden_house_1912_prairie": {
+      "address": "1912 Prairie Avenue",
+      "former": [
+        {
+          "name": "Byran P. Moulton",
+          "members": [
+            "Byran P. Moulton"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_1800_1900_west"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_1800_1900_west",
+            "marker": "Byran P. Moulton Residence. Built 1882"
+          }
+        },
+        {
+          "name": "Mosher T. Greene",
+          "members": [
+            "Mosher T. Greene"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895
+          ],
+          "years": "1890-1895",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895"
+          ],
+          "seen": "Blue Book 1890-1895 (6 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Mosher T. Greene",
+            "Mr. & Mrs. Mosher T. Greene &dr",
+            "Mr. & Mrs. Mosher T. Greene &dr."
+          ]
+        }
+      ]
+    },
+    "marshall_field_jr_house_1919_prairie": {
+      "address": "1919 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Schwartz household",
+          "members": [
+            "Charles Schwartz",
+            "Gustavus A. Schwartz"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891
+          ],
+          "years": "1890-1891",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1890-1891 (2 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Charles Schwartz",
+            "Gustavus A. Schwartz"
+          ]
+        },
+        {
+          "name": "LeRoy W. Fuller",
+          "members": [
+            "LeRoy W. Fuller"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1899-1902",
+          "sources": [
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "Blue Book 1899-1902 (3 editions); 1900 census",
+          "printed_as": [
+            "Mr. & Mrs. Leroy W. Fuller"
+          ],
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 40, sheet 4A, line 44, leaf n800",
+            "as_enumerated": "Fuller, Leroy W."
+          }
+        }
+      ]
+    },
+    "kellogg_house_1923_prairie": {
+      "address": "1923 Prairie Avenue",
+      "former": [
+        {
+          "name": "Pierrepont Isham",
+          "members": [
+            "Pierrepont Isham"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1895,
+            1898,
+            1899
+          ],
+          "years": "1895-1899",
+          "sources": [
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1895-1899 (3 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Pierrepont Isham"
+          ]
+        }
+      ]
+    },
+    "armour_corwith_house_1945_prairie": {
+      "address": "1945 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Armour household",
+          "members": [
+            "Mrs. Barbara Armour",
+            "Miss Mary G. Armour"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891
+          ],
+          "years": "1890-1891",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1890-1891 (2 editions)"
+        },
+        {
+          "name": "Mrs. C. B. McGenniss",
+          "members": [
+            "Mrs. C. B. McGenniss"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1899-1902",
+          "sources": [
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902"
+          ],
+          "seen": "Blue Book 1899-1902 (3 editions)",
+          "printed_as": [
+            "Mrs. C. B. McGenniss",
+            "MVs. C. B. McGenniss"
+          ]
+        }
+      ]
+    },
+    "house_2001_prairie": {
+      "address": "2001 Prairie Avenue",
+      "former": [
+        {
+          "name": "Dr. J. W. Streeter",
+          "members": [
+            "Dr. J. W. Streeter"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894
+          ],
+          "years": "1890-1894",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1890-1894 (5 editions)",
+          "printed_as": [
+            "Dr. & Mrs. John W. Streeter"
+          ]
+        },
+        {
+          "name": "Josiah L. Lombard",
+          "members": [
+            "Josiah L. Lombard"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1895-1902",
+          "sources": [
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902"
+          ],
+          "seen": "Blue Book 1895-1902 (6 editions)",
+          "printed_as": [
+            "Mr. & Mrs. J. L. Lombard",
+            "Mr. & Mrs. J. L. Ldmbard"
+          ]
+        }
+      ]
+    },
+    "house_2003_prairie": {
+      "address": "2003 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Bissell household",
+          "members": [
+            "Arthur G. Bissell",
+            "George F. Bissell",
+            "Richard M. Bissell",
+            "Mrs. George F. Bissell"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897
+          ],
+          "years": "1890-1897",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897"
+          ],
+          "seen": "Blue Book 1890-1897 (7 editions)",
+          "printed_as": [
+            "Mr. & Mrs. George F. Bissell",
+            "Richard M. Bissell",
+            "Arthur Bissell"
+          ]
+        },
+        {
+          "name": "Mrs. Delia Woodruff",
+          "members": [
+            "Mrs. Delia Woodruff"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1903
+          ],
+          "years": "1903",
+          "sources": [
+            "chicago_blue_book_1903"
+          ],
+          "seen": "Blue Book 1903 (1 edition)",
+          "printed_as": [
+            "Mrs. Delia Woodruff"
+          ]
+        }
+      ]
+    },
+    "house_2005_prairie": {
+      "address": "2005 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Keith household",
+          "members": [
+            "Mrs. O. R. Keith",
+            "Roy Keith",
+            "Osborne R. Keith"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1902,
+            1903,
+            1905,
+            1907,
+            1908
+          ],
+          "years": "1902-1908",
+          "sources": [
+            "chicago_blue_book_1902",
+            "chicago_blue_book_1903",
+            "chicago_blue_book_1905",
+            "chicago_blue_book_1907",
+            "chicago_blue_book_1908"
+          ],
+          "seen": "Blue Book 1902-1908 (5 editions)",
+          "printed_as": [
+            "Mrs. O. R.'Keith",
+            "Mrs. O. R. Keith",
+            "Roy Keith"
+          ]
+        }
+      ]
+    },
+    "mayer_house_2009_prairie": {
+      "address": "2009 Prairie Avenue",
+      "former": [
+        {
+          "name": "Max A. Meyer",
+          "members": [
+            "Max A. Meyer"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_2000_2100"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_2000_2100",
+            "marker": "Max A Meyer Residence. Built 1888"
+          }
+        }
+      ]
+    },
+    "house_2011_prairie": {
+      "address": "2011 Prairie Avenue",
+      "former": [
+        {
+          "name": "J. R. Dunlop",
+          "members": [
+            "J. R. Dunlop"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891,
+            1892
+          ],
+          "years": "1891-1892",
+          "sources": [
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892"
+          ],
+          "seen": "Blue Book 1891-1892 (2 editions)"
+        },
+        {
+          "name": "Mrs. E. Camille Storey",
+          "members": [
+            "Mrs. E. Camille Storey"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1893,
+            1894,
+            1895
+          ],
+          "years": "1893-1895",
+          "sources": [
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895"
+          ],
+          "seen": "Blue Book 1893-1895 (3 editions)",
+          "printed_as": [
+            "Mrs. E. Camille Storey"
+          ]
+        }
+      ]
+    },
+    "house_2017_prairie": {
+      "address": "2017 Prairie Avenue",
+      "former": [
+        {
+          "name": "Mrs. William Armour",
+          "members": [
+            "Mrs. William Armour"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893
+          ],
+          "years": "1890-1893",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893"
+          ],
+          "seen": "Blue Book 1890-1893 (4 editions)",
+          "printed_as": [
+            "Mrs. William Armour"
+          ]
+        },
+        {
+          "name": "Silas B. Cobb",
+          "members": [
+            "Silas B. Cobb"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894
+          ],
+          "years": "1890-1894",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894"
+          ],
+          "seen": "Blue Book 1890-1894 (5 editions)",
+          "printed_as": [
+            "Silas B. Cobb"
+          ]
+        }
+      ]
+    },
+    "house_2018_prairie": {
+      "address": "2018 Prairie Avenue",
+      "former": [
+        {
+          "name": "Josiah L. Lombard",
+          "members": [
+            "Josiah L. Lombard"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891,
+            1892,
+            1893
+          ],
+          "years": "1891-1893",
+          "sources": [
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893"
+          ],
+          "seen": "Blue Book 1891-1893 (3 editions)",
+          "printed_as": [
+            "Mr. & Mrs. J. L. Lombard & dr."
+          ]
+        },
+        {
+          "name": "F. A. Delano",
+          "members": [
+            "F. A. Delano"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [],
+          "years": "1900",
+          "sources": [
+            "census_1900_chicago_t623_roll245"
+          ],
+          "seen": "1900 census",
+          "census_1900": {
+            "date": "1900-06-01",
+            "locator": "ED 40, sheet 9A, line 22, leaf n810",
+            "as_enumerated": "Delano, F. A."
+          }
+        }
+      ]
+    },
+    "house_2026_prairie": {
+      "address": "2026 Prairie Avenue",
+      "former": [
+        {
+          "name": "Miss Mary Norton",
+          "members": [
+            "Miss Mary Norton"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893
+          ],
+          "years": "1890-1893",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893"
+          ],
+          "seen": "Blue Book 1890-1893 (4 editions)",
+          "printed_as": [
+            "Miss Mary Norton"
+          ]
+        },
+        {
+          "name": "The Rosenfeld household",
+          "members": [
+            "Harry Rosenfeld",
+            "Mrs. Levi Rosenfeld"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895
+          ],
+          "years": "1890-1895",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895"
+          ],
+          "seen": "Blue Book 1890-1895 (6 editions)",
+          "printed_as": [
+            "Mrs. Levi Rosenfeld",
+            "Harry Rosenfeld"
+          ]
+        }
+      ]
+    },
+    "house_2027_prairie": {
+      "address": "2027 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Walker household",
+          "members": [
+            "Charles Cobb Walker",
+            "William B. Walker"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1890-1902",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902"
+          ],
+          "seen": "Blue Book 1890-1902 (11 editions)",
+          "printed_as": [
+            "Mr. & Mrs. William B. Walker",
+            "Charles Walker",
+            "Charles C. Walker"
+          ]
+        },
+        {
+          "name": "Silas B. Cobb",
+          "members": [
+            "Silas B. Cobb"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1895-1899",
+          "sources": [
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1895-1899 (4 editions)",
+          "printed_as": [
+            "Silas B. Cobb"
+          ]
+        }
+      ]
+    },
+    "sherman_house_2100_prairie": {
+      "address": "2100 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 2100. The register is selective, so silence is not proof the house was empty. The last household listed before is the Sherman household, in the 1902 edition. The next is the Black household, from the 1908 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "John B. Sherman",
+          "members": [
+            "John B. Sherman"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1890-1902",
+          "sources": [
+            "hmdb_prairie_lost_houses_2000_2100",
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902"
+          ],
+          "seen": "District marker; Blue Book 1890-1902 (11 editions)",
+          "printed_as": [
+            "Mr. & Mrs. John B. Sherman",
+            "John B. Sherman"
+          ],
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_2000_2100",
+            "marker": "John B. Sherman Residence. Built 1874"
+          }
+        },
+        {
+          "name": "James H. Ashby",
+          "members": [
+            "James H. Ashby"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898
+          ],
+          "years": "1891-1898",
+          "sources": [
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898"
+          ],
+          "seen": "Blue Book 1891-1898 (7 editions)",
+          "printed_as": [
+            "Mr. & Mrs. James H. Ashby",
+            "Mr. £ Mrs. James H. Ashby"
+          ]
+        }
+      ],
+      "later": [
+        {
+          "name": "The Black household",
+          "members": [
+            "Mrs. N. J. Black",
+            "Dr. William L. Black",
+            "Miss Virginia B. Black"
+          ],
+          "role": "lived here after",
+          "grade": "attested",
+          "editions": [
+            1908,
+            1909,
+            1910
+          ],
+          "years": "1908-1910",
+          "sources": [
+            "chicago_blue_book_1908",
+            "chicago_blue_book_1909",
+            "chicago_blue_book_1910"
+          ],
+          "seen": "Blue Book 1908-1910 (3 editions)"
+        },
+        {
+          "name": "Dr. Charles McCormick",
+          "members": [
+            "Dr. Charles McCormick"
+          ],
+          "role": "lived here after",
+          "grade": "attested",
+          "editions": [
+            1908,
+            1909,
+            1910
+          ],
+          "years": "1908-1910",
+          "sources": [
+            "chicago_blue_book_1908",
+            "chicago_blue_book_1909",
+            "chicago_blue_book_1910"
+          ],
+          "seen": "Blue Book 1908-1910 (3 editions)"
+        }
+      ]
+    },
+    "house_2101_prairie": {
+      "address": "2101 Prairie Avenue",
+      "former": [
+        {
+          "name": "Mrs. Helen Rockwell",
+          "members": [
+            "Mrs. Helen Rockwell"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902,
+            1903
+          ],
+          "years": "1891-1903",
+          "sources": [
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "chicago_blue_book_1903"
+          ],
+          "seen": "Blue Book 1891-1903 (11 editions)",
+          "printed_as": [
+            "Mrs. Helen Rockwell"
+          ]
+        }
+      ]
+    },
+    "mark_kimball_house_2108_prairie": {
+      "address": "2108 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 2108. The register is selective, so silence is not proof the house was empty. The last household listed before is the Ames household, in the 1903 edition. The next is the Allport household, from the 1905 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "Mrs. Helen M. Galloway",
+          "members": [
+            "Mrs. Helen M. Galloway"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891
+          ],
+          "years": "1890-1891",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891"
+          ],
+          "seen": "Blue Book 1890-1891 (2 editions)",
+          "printed_as": [
+            "Mrs. Helen M. Galloway"
+          ]
+        },
+        {
+          "name": "Mark Kimball",
+          "members": [
+            "Mark Kimball"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892
+          ],
+          "years": "1890-1892",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892"
+          ],
+          "seen": "Blue Book 1890-1892 (3 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Mark Kimball"
+          ]
+        },
+        {
+          "name": "The Ames household",
+          "members": [
+            "Mrs. Miner T. Ames",
+            "Miner T. Ames jr."
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902,
+            1903
+          ],
+          "years": "1893-1903",
+          "sources": [
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "chicago_blue_book_1903"
+          ],
+          "seen": "Blue Book 1893-1903 (9 editions)",
+          "printed_as": [
+            "Mrs. Irene C. Ames",
+            "Mrs. Miner T. Ames",
+            "Mrs. Miner T. Ames & dr."
+          ]
+        },
+        {
+          "name": "Alexander H. Seelye",
+          "members": [
+            "Alexander H. Seelye"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902,
+            1903
+          ],
+          "years": "1893-1903",
+          "sources": [
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "chicago_blue_book_1903"
+          ],
+          "seen": "Blue Book 1893-1903 (9 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Alex. H. Seelye",
+            "Mr. £ Mrs. Alex. H. Seelye"
+          ]
+        },
+        {
+          "name": "Miss Eleonora Cowen",
+          "members": [
+            "Miss Eleonora Cowen"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1899,
+            1901,
+            1902,
+            1903
+          ],
+          "years": "1899-1903",
+          "sources": [
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902",
+            "chicago_blue_book_1903"
+          ],
+          "seen": "Blue Book 1899-1903 (4 editions)",
+          "printed_as": [
+            "Miss Eleonora Cowen"
+          ]
+        }
+      ],
+      "later": [
+        {
+          "name": "Dr. Frank Allport",
+          "members": [
+            "Dr. Frank Allport"
+          ],
+          "role": "lived here after",
+          "grade": "attested",
+          "editions": [
+            1905,
+            1907,
+            1908,
+            1909,
+            1910
+          ],
+          "years": "1905-1910",
+          "sources": [
+            "chicago_blue_book_1905",
+            "chicago_blue_book_1907",
+            "chicago_blue_book_1908",
+            "chicago_blue_book_1909",
+            "chicago_blue_book_1910"
+          ],
+          "seen": "Blue Book 1905-1910 (5 editions)"
+        }
+      ]
+    },
+    "roloson_house_2109_prairie": {
+      "address": "2109 Prairie Avenue",
+      "former": [
+        {
+          "name": "Mrs. Judith L. Marshall",
+          "members": [
+            "Mrs. Judith L. Marshall"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1890-1899",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1890-1899 (9 editions)",
+          "printed_as": [
+            "Mrs. Judith Marshall",
+            "Mrs. Judith L. Marshall"
+          ]
+        }
+      ]
+    },
+    "rees_house_2110_prairie": {
+      "address": "2110 Prairie Avenue",
+      "former": [
+        {
+          "name": "Mrs. James H. Rees",
+          "members": [
+            "Mrs. James H. Rees"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892
+          ],
+          "years": "1890-1892",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892"
+          ],
+          "seen": "Blue Book 1890-1892 (3 editions)",
+          "printed_as": [
+            "Mrs. James H. Rees"
+          ]
+        }
+      ]
+    },
+    "armour_house_2115_prairie": {
+      "address": "2115 Prairie Avenue",
+      "former": [
+        {
+          "name": "David Kelley",
+          "members": [
+            "David Kelley"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_2000_2100"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_2000_2100",
+            "marker": "David Kelley-Philip D. Armour Residence. Built 1871"
+          }
+        },
+        {
+          "name": "Mrs. Alice A. Sloan",
+          "members": [
+            "Mrs. Alice A. Sloan"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1898,
+            1899,
+            1901
+          ],
+          "years": "1890-1901",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901"
+          ],
+          "seen": "Blue Book 1890-1901 (9 editions)",
+          "printed_as": [
+            "Mrs. Alice A. Sloan"
+          ]
+        }
+      ]
+    },
+    "house_2123_prairie": {
+      "address": "2123 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Avery household",
+          "members": [
+            "Frank M. Avery",
+            "Mrs. Mary S. Avery",
+            "Thomas M. Avery",
+            "Mrs. Frank M. Avery"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901
+          ],
+          "years": "1890-1901",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901"
+          ],
+          "seen": "Blue Book 1890-1901 (10 editions)",
+          "printed_as": [
+            "Mrs. Mary S. Avery",
+            "Thomas M. Avery",
+            "Frank M. Avery"
+          ]
+        },
+        {
+          "name": "Mrs. Ella S. Clark",
+          "members": [
+            "Mrs. Ella S. Clark"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901
+          ],
+          "years": "1894-1901",
+          "sources": [
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901"
+          ],
+          "seen": "Blue Book 1894-1901 (6 editions)",
+          "printed_as": [
+            "Mrs. E. S. Clark",
+            "Mrs. Ella S. Clark"
+          ]
+        }
+      ]
+    },
+    "house_2125_prairie": {
+      "address": "2125 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 2125. The register is selective, so silence is not proof the house was empty. The last household listed before is the Wheeler household, in the 1901 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "Charles H. Wheeler",
+          "members": [
+            "Charles H. Wheeler"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1897,
+            1898,
+            1901
+          ],
+          "years": "1890-1901",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1901"
+          ],
+          "seen": "Blue Book 1890-1901 (6 editions)",
+          "printed_as": [
+            "Mr. & Mrs. C. H. Wheeler",
+            "Mr. & Mrs. C. H. Wheeler & dr."
+          ]
+        }
+      ]
+    },
+    "robbins_house_2126_prairie": {
+      "address": "2126 Prairie Avenue",
+      "former": [
+        {
+          "name": "The Hamill household",
+          "members": [
+            "Charles D. Hamill",
+            "Robert W. Hamill",
+            "Charles H. Hamill",
+            "Paul Hamill",
+            "Mrs. R. C. Hamill",
+            "Philip W. Hamill",
+            "Laurence Hamill"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1890-1899",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1890-1899 (9 editions)",
+          "printed_as": [
+            "Mr. & Mrs. Chas. D. Hamill",
+            "Robert W. Hamill",
+            "Mr. & Mrs. Chas. D. Hamili"
+          ]
+        },
+        {
+          "name": "The Page household",
+          "members": [
+            "Miss Alice W. Page",
+            "Miss Eleanor Page"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1895,
+            1897,
+            1898,
+            1899
+          ],
+          "years": "1895-1899",
+          "sources": [
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899"
+          ],
+          "seen": "Blue Book 1895-1899 (4 editions)",
+          "printed_as": [
+            "Miss Alice W. Page",
+            "Miss Eleanor H. Page",
+            "Miss Eleanor Page"
+          ]
+        },
+        {
+          "name": "Mrs. Jessie D. Crane",
+          "members": [
+            "Mrs. Jessie D. Crane"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1901
+          ],
+          "years": "1901",
+          "sources": [
+            "chicago_blue_book_1901"
+          ],
+          "seen": "Blue Book 1901 (1 edition)",
+          "printed_as": [
+            "Mrs. Jessie D. Crane"
+          ]
+        },
+        {
+          "name": "Mrs. Edgar M. Doolittle",
+          "members": [
+            "Mrs. Edgar M. Doolittle"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1901
+          ],
+          "years": "1901",
+          "sources": [
+            "chicago_blue_book_1901"
+          ],
+          "seen": "Blue Book 1901 (1 edition)",
+          "printed_as": [
+            "Mrs. E. M. Doolittle"
+          ]
+        }
+      ]
+    },
+    "flats_2127_prairie": {
+      "address": "2127 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 2127. The register is selective, so silence is not proof the house was empty. The next is the Rockwell household, from the 1910 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "later": [
+        {
+          "name": "Lawrence D. Rockwell",
+          "members": [
+            "Lawrence D. Rockwell"
+          ],
+          "role": "lived here after",
+          "grade": "attested",
+          "editions": [
+            1910
+          ],
+          "years": "1910",
+          "sources": [
+            "chicago_blue_book_1910"
+          ],
+          "seen": "Blue Book 1910 (1 edition)"
+        }
+      ]
+    },
+    "murdoch_house_2130_prairie": {
+      "address": "2130 Prairie Avenue",
+      "unlisted_on_scene_date": {
+        "note": "No edition of the Blue Book for 1904 or 1905 lists anyone at 2130. The register is selective, so silence is not proof the house was empty. The last household listed before is the Murdoch household, in the 1902 edition.",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1905"
+        ]
+      },
+      "former": [
+        {
+          "name": "The Murdoch household",
+          "members": [
+            "Miss Jane Murdoch",
+            "Thomas Murdoch",
+            "Miss Blanche Murdoch"
+          ],
+          "role": "lived here",
+          "grade": "attested",
+          "editions": [
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1897,
+            1898,
+            1899,
+            1901,
+            1902
+          ],
+          "years": "1890-1902",
+          "sources": [
+            "chicago_blue_book_1890",
+            "chicago_blue_book_1891",
+            "chicago_blue_book_1892",
+            "chicago_blue_book_1893",
+            "chicago_blue_book_1894",
+            "chicago_blue_book_1895",
+            "chicago_blue_book_1897",
+            "chicago_blue_book_1898",
+            "chicago_blue_book_1899",
+            "chicago_blue_book_1901",
+            "chicago_blue_book_1902"
+          ],
+          "seen": "Blue Book 1890-1902 (11 editions)",
+          "printed_as": [
+            "Thomas Murdock",
+            "Miss Jane Murdock",
+            "Thomas Murdoch"
+          ]
+        }
+      ]
+    },
+    "tucker_smith_house_2140_prairie": {
+      "address": "2140 Prairie Avenue",
+      "former": [
+        {
+          "name": "William F. Tucker",
+          "members": [
+            "William F. Tucker"
+          ],
+          "role": "built for",
+          "grade": "attested",
+          "editions": [],
+          "years": "",
+          "sources": [
+            "hmdb_prairie_lost_houses_2000_2100"
+          ],
+          "seen": "District marker",
+          "namesake": {
+            "source": "hmdb_prairie_lost_houses_2000_2100",
+            "marker": "William F. Tucker-Byron L. Smith Residence. Built 1876"
+          }
+        }
+      ]
+    }
+  }
+}

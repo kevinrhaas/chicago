@@ -7958,6 +7958,12 @@ step "the 1904 people directory is its own, and the drawer still offers no Peopl
 selftest "…and a card with no source, no grade, a home not in the scene or a late arrival is refused" \
   python3 tools/test_people_scene.py --self-test
 
+# T-3266. The 1904 houses' former residents (data/residents_1904/former_residents.json),
+# built from the Blue Book readings, the 1900 census reading and the district markers, and
+# carried into people.json for Inspect's People tab: the committed file is the build's own.
+step "the 1904 houses' former residents re-derive from the Blue Book and census readings (T-3266)" \
+  python3 tools/build_former_residents_1904.py --check
+
 # T-2611. The arrival's time-stream decks: data/timestream/<scene>.json, 8 to 12 landmark
 # years each, captioned as the ticker passes them (design doc section 05). The page shows
 # the strings as written, so this refuses a caption with no grade, no source, a source
