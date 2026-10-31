@@ -136,11 +136,11 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+      "sha256": "847c3a15d3b1a9c4690b0bc4fdd9125c20a328db20c491b53019b9fbea7224b9"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -148,7 +148,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+      "sha256": "51ceebfcbf3aaa887cce350ac152c685d447cc4558e63a173c0b9c3566e67449"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -163,7 +163,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "4a1b4feae4a85571f9696674047394bec5d60c5faf810f891aaabf0a1b37b972",
+  "flora_sha256": "0dc40e0dc7dc5e48e0b496bd0ea33b7a4eaa45c528e8fc0b39aabace048c5009",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -254,8 +254,8 @@
     },
     {
       "what": "the parkway trees' heads: Lowe's print's tree left of the gate carries a broad, low, leafy head from about 2.6 m, its leaves over the walk across the picture's top left, where the renderer's vase-formed elm shows two bare limbs up to the frame's top",
-      "status": "open",
-      "how": "T-3164 (parkway pass, 2026-10-30): the street-tree layer grows one tree, the American elm (renderers/web/js/street-trees.js, its crown high on arching limbs); this head is not an elm's vase and no other parkway form is drawn, so the shape stays open."
+      "status": "fixed",
+      "how": "T-3164 (parkway pass, 2026-10-30): the street-tree layer grows one tree, the American elm (renderers/web/js/street-trees.js, its crown high on arching limbs); this head is not an elm's vase and no other parkway form is drawn, so the shape stays open. T-3164 (parkway head pass, 2026-10-31): the tree now grows on its own habit, a young elm still on its leader (street-trees.js FORMS.broad_head, tree-model.js ARCH.ulmus_americana_young), named by its record in data/street_trees/pictured_1904.json: one straight stem through the crown, the head broad and low from about 3 m. Read on the re-render: its head is broad and low over the walk as Lowe's is; the print's head is denser than the plate's three years earlier, and the build sits between the two pictures, which disagree on it, so that is within tolerance (T-3153)."
     },
     {
       "what": "the lodge stands about 30 px west of where the photograph shows it",
