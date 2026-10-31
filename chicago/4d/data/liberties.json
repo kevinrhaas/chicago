@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 891,
+  "count": 892,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -61887,6 +61887,39 @@
       ],
       "work_refs": [
         "T-1890"
+      ]
+    },
+    {
+      "id": "L-pullman-stable-bay-1934",
+      "title": "Pullman's stable corner bay moved clear of the arcade's third arch and run on to u -25.0, on the two pictures that agree",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_ranges"
+      ],
+      "covers": [],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-31."
+        },
+        {
+          "label": "Decision",
+          "text": "the polygonal bay across the stable's south-west corner (1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges, stable dress canted bay plan) now leaves the west wall at v 12.95, standing 0.55 m proud of it, and runs round the corner onto the 18th Street front as far as u -25.0, a light in each of its three faces. It had left the west wall at v 12.6 with a 1.0 m return and stopped at u -24.38 (“Pullman's stable re-planned through three solved cameras: the arcade on the court face, a bay and a cut corner at the south-west corner, the front's sash moved west with it”, which stood it between the plate's reading and Taylor 16554's). **What is read.** Through their solved cameras the 1894 Inland plate (Inland Architect Press. Palm House and Stable of George M. Pullman, Chicago) and Taylor's 16555 (J. W. Taylor (Chicago), photographer) both show the arcade's third arch whole, the bay's left edge about 17 px right of the arch's end pier in each, where the old return covered most of the arch from both; and both put the bay's east end on the south wall at u -24.9 and -25.3. **What is invented.** The bay's depth off the corner and the angle of its faces: both cameras look from 18th Street on nearly the same bearing, so they fix its edges across the view and not its depth, and the plan keeps the building's square corner inside the bay. Taylor's 16554 reads the bay further west still; its camera puts the walk's ground about 45 px off and it was not used for this."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a re-solve of 16554 with the walk's edge in its fit, or any picture of the corner from the west or the south-east."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and the taylor 16555 west front side by side image, with their match records."
+        }
+      ],
+      "work_refs": [
+        "T-1934"
       ]
     },
     {

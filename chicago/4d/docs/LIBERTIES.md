@@ -36961,3 +36961,23 @@ on the cones they are mapped round the apex so each course closes on itself, the
 toward the apex as a cone's tapered slates do. How the real slates were cut and laid at the apex is
 not read; the pictures show only the courses and the tone.
 **How to resolve:** a nearer photograph of either cone, or a slater's account of the house.
+
+### L-pullman-stable-bay-1934 — Pullman's stable corner bay moved clear of the arcade's third arch and run on to u -25.0, on the two pictures that agree
+**Recorded:** 2026-10-31.
+
+**Decision:** the polygonal bay across the stable's south-west corner (`pullman_house_1729_prairie_ranges`,
+`stable_dress.canted_bay.plan`, T-1934) now leaves the west wall at v 12.95, standing 0.55 m proud of it,
+and runs round the corner onto the 18th Street front as far as u -25.0, a light in each of its three faces.
+It had left the west wall at v 12.6 with a 1.0 m return and stopped at u -24.38 (L-pullman-stable-3193, which
+stood it between the plate's reading and Taylor 16554's). **What is read.** Through their solved cameras the
+1894 Inland plate (`inland_1894_pullman_palm_house_stable`) and Taylor's 16555
+(`aic_taylor_16555_pullman_west_front`) both show the arcade's third arch whole, the bay's left edge about
+17 px right of the arch's end pier in each, where the old return covered most of the arch from both; and both
+put the bay's east end on the south wall at u -24.9 and -25.3. **What is invented.** The bay's depth off the
+corner and the angle of its faces: both cameras look from 18th Street on nearly the same bearing, so they fix
+its edges across the view and not its depth, and the plan keeps the building's square corner inside the bay.
+Taylor's 16554 reads the bay further west still; its camera puts the walk's ground about 45 px off and it was
+not used for this. **How to resolve:** a re-solve of 16554 with the walk's edge in its fit, or any picture of
+the corner from the west or the south-east.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
