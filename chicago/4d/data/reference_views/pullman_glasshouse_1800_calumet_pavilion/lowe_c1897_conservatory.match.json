@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "3bb842930c94e55c2f85d8bfab527769ae5e8378fb55e7bdc1d2894fd30f271f",
+  "glb_sha256": "801ea90c09aec5260ea48cdadbc2c73247f320d6a645d626e3747beeef28ad2a",
   "camera_sha256": "f72dc5d5006a4cbd513abe0b1afc875d574b75a8fce011cb6e2fe1d1c19dff69",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "3bb842930c94e55c2f85d8bfab527769ae5e8378fb55e7bdc1d2894fd30f271f"
+      "glb_sha256": "801ea90c09aec5260ea48cdadbc2c73247f320d6a645d626e3747beeef28ad2a"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -61,7 +61,7 @@
         -1.010127527884292
       ],
       "rotation_y": 1.5707963267948966,
-      "glb_sha256": "f77f5d1842e4bc3f63912f273b7c26a9752a531ffc73c119fbfdc9969fd1d73f"
+      "glb_sha256": "db614e8e41bfd2daa49bb19f9a250355d0acc501be59d1c2df4afee6275955d1"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_east_end",
@@ -80,7 +80,7 @@
         -17.846242297674625
       ],
       "rotation_y": 1.5707963267948966,
-      "glb_sha256": "1c2a7af790259c15729e46ff417b053c235a96c06536b5d93207ee53531f7729"
+      "glb_sha256": "cee0d6fea152eb04e9fc91bfb82b38157fb7749831b6e460e18d2c3adb2c009c"
     },
     {
       "structure_id": "pullman_lodge_1800_calumet",
@@ -102,7 +102,7 @@
       "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312"
     }
   ],
-  "group_sha256": "b3e7ea414e13676ca64dcaaad66e0b3cb76cbae248699faf355edf6d78d0546b",
+  "group_sha256": "bfc9e2546e1db1ab4b705cddc0a5749f3d8ee5d46ee651574daec54033b7aea4",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -165,7 +165,7 @@
   ],
   "flora_sha256": "207269ac19534f7c00a45f1aedf07c765540a7ffea4f1d5e9fa068cd9f3715a5",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the east range's eight windows glazed in small panes, a sunk panel under each, a sill course, a base course under the panels, a band over the heads and a cornice line under the coping; the windows narrower than built and set closer to the lodge, with a broad pier at the round end",
@@ -353,6 +353,31 @@
       "what": "the pale line along the far side of the lawn west of the drive (the plate's y 936-942 from x 320 to the drive at x 800; Lowe's y 586-590), a walk or the drive's turn toward Calumet Avenue in front of the planting, is not built: the drive is laid to u 16 and stops there, and both pictures put this line about 60 px under their horizons, where neither camera fixes its depth to better than a few metres [FIXED (T-3164, 2026-10-31): built as the drive's turn toward Calumet Avenue (pullman_glasshouse_1800_calumet_pavilion grounds.gravel 'turn' and 'cross'): through the plate's camera the line's edges fall on the ground at u 23-31 (pavilion frame) from the drive's east edge at v 7.5 to the frame's edge at v 23, so a gravel band 4 m wide at u 25-29 runs from the drive to the Calumet line, with a wedge joining it to the drive's east edge clear of the pictured lilacs. It renders as a pale line along the lawn's far side from the frame's edge to the gate pier, 3-4 px nearer the horizon than the plate's (y 935-938 against 936-942): a pixel offset, since the review render stands the gravel 0.1 m over its common grade plane. In Lowe's print it falls 5-6 px under the range's foot as the print's does, Lowe's whole ground standing about 20 px high through its diagnostic camera. Its width and depth are reconstructed (L-pullman-grounds-1800-calumet-3164).]",
       "status": "fixed",
       "how": "T-3164 (grounds pass, 2026-10-30): read, not built; it wants a nearer picture of the lawn's far side or a plan of the grounds."
+    },
+    {
+      "what": "owner's report, 2026-10-31: \"there looks like a black box inside the greenhouse\": the shaded block (to 5.2 m) that stood for the planted interior read as a box through the nave's glass from the garden",
+      "status": "fixed",
+      "how": "T-3273: interior_planting replaces interior_dark_m: a soil bed 0.4 m and six palms on ringed trunks (4.4-7.2 m) crowned with eleven arching fronds, the tallest under the dome, as Lowe's print shows fronds behind the north front; reconstructed (the planting is not described plant by plant)"
+    },
+    {
+      "what": "owner's report, 2026-10-31: \"the opaque glass is too white and there are no panes and no detail at the top or the sides\": the transept, drum and dome read as pale smooth shells",
+      "status": "fixed",
+      "how": "T-3273: the transept's ribs at 0.45 m (Lowe's count) with a level bar at every joint of its section and across its hipped ends; the dome a rib on each of 28 meridians and a bar at every ring; the drum a mullion at each angle, two between and three rails; the opaque glass a step darker so the white bars read over it"
+    },
+    {
+      "what": "owner's report, 2026-10-31: \"the path walk here is abnormally white ... there is a sharp line avoiding trees\": the drive's turn toward Calumet was a ruled wedge stepping round the pictured lilacs and a band meeting it at a corner",
+      "status": "fixed",
+      "how": "T-3273: one walk on a smooth curve leaving the drive at u 10 (its invented straight run now stops there, not at u 16) and sweeping well north of the lilacs to the band at u 25-29 and on to the Calumet line, 4.33 to 4.0 m wide with a 0.35 m worn margin each side; the gravel a step darker (0.66, 0.62, 0.54 -> 0.45, 0.42, 0.35)"
+    },
+    {
+      "what": "the north front's arched glass: both pictures draw heavy white mullions and transoms over a dark, densely planted interior; the render draws the kit's lighter bars over six palms, so the lower arch reads lighter and sparser than the pictures",
+      "status": "open",
+      "how": "T-3273: left open; the kit's nave bars are its own and a denser planting would cross the kit's planting budget"
+    },
+    {
+      "what": "a third clipped standard with a boxed mass before the lodge's loggia (Lowe x 640, about 38 m out; the plate's tall shrub before the loggia)",
+      "status": "not shown",
+      "how": "it stood where the 1911 sheet's north range (built after the pictures) has its base wall in 1904; the two standards and boxed masses before the conservatory's front are drawn (data/front_yards/1904.json, calumet_1800)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2500, ts: '2026-10-31T17:00:01.092Z', date: 'Oct 31, 2026, 12:00 PM CT', title: 'Pullman\'s conservatory glazed in panes, palms inside', kind: 'improvement',
+    items: [
+      'Transept, drum and dome glazed in a grid of panes over darker glass.',
+      'Palms inside the conservatory where a dark block stood.',
+      'The walk toward Calumet Avenue now curves past the lilacs, in a duller gravel with worn edges.',
+    ] },
   { v: 2499, ts: '2026-10-31T16:14:48.920Z', date: 'Oct 31, 2026, 11:14 AM CT', title: 'Slender young trees before the Pullman estate', kind: 'fix',
     items: [
       'The parkway trees on 18th Street before the Pullman palm house and stable, and the two at the Calumet Avenue corner, now stand as the slender young elms the 1890s photographs show — single straight trunks about a foot across and 10–14 m tall — in place of thick, forked full-grown elms.',
