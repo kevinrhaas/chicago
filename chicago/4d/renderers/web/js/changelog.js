@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2489, ts: '2026-10-31T10:17:09.872Z', date: 'Oct 31, 2026, 5:17 AM CT', title: 'Pullman\'s Prairie front steps back in three, as the photographs show', kind: 'improvement',
+    items: [
+      'The Pullman house\'s Prairie Avenue front now steps back three times from its north end: the portico block, then a narrow banded step under its own slate roof, then the wall running to the 18th Street corner.',
+      'The middle step stands where the 1911 fire-insurance map draws it and where the Detroit and 1890 pictures show a narrow banded face between the portico and the big dormer.',
+    ] },
   { v: 2488, ts: '2026-10-31T09:22:47.551Z', date: 'Oct 31, 2026, 4:22 AM CT', title: 'Pullman\'s garden lodge and lawn now match the 1890s pictures', kind: 'improvement',
     items: [
       'Across 18th Street at 1800 Calumet, the gardener\'s lodge no longer shows a tall east wall above the glasshouse range. As in the 1894 plate and Lowe\'s photograph, its upper storey now steps back behind the bowed corner.',

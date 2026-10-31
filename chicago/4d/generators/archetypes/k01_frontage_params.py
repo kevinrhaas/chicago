@@ -2189,6 +2189,20 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         or set(q) - {"width_m", "proud_m", "block"}:
                     raise ParamError(f"bays: {e['id']} is a forward block: a square full-height projection "
                                      f"6-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
+            # T-1881: or a FRONT STEP (`front_step`), the middle step of a street front that steps
+            # back in three (1729's Prairie front on the 1911 sheet: the forward block 2.95 m out,
+            # then 2.1 m of it 1.65 m out, then the wall to the corner; the Detroit print and the
+            # 1890 Albertype draw that middle step as the narrow banded face between the portico
+            # block and the big-dormer bay): a square full-height projection on the street front,
+            # narrower than a pavilion may be wide but further out than one may stand, abutting a
+            # forward block it stands less far out than (checked once every bay is read, below)
+            elif q.get("front_step") is not None:
+                if q["front_step"] is not True or not (1.5 <= w <= 4.0 and 1.2 < d <= 3.0) \
+                        or e.get("variant") != "k08.projection.full_height" \
+                        or e.get("wall") != "k01.wall.street_front" \
+                        or set(q) - {"width_m", "proud_m", "front_step"}:
+                    raise ParamError(f"bays: {e['id']} is a front step: a full-height projection on the street "
+                                     f"front, 1.5-4.0 m wide and 1.2-3.0 m proud (has {w} m and {d} m)")
             # T-3191: or a flank's STEP (`step`), the rear part of a side wall standing out from its
             # front part (1827's south flank on the 1911 sheet: u 0-14.6 stands 1.6 m out), a plain
             # full-height projection on a side wall, longer and further out than a pavilion
@@ -2232,7 +2246,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
             if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer", "block", "step",
-                         "pier", "range"}:
+                         "pier", "range", "front_step"}:
                 raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
                                  f"cant_left_m or cant_right_m, shallow and chamfer, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
@@ -3172,6 +3186,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"on_chamfer": cant} if cant else {}),
                     **({"on_face": face} if face else {}),
                     **({"block": True} if (e.get("plan") or {}).get("block") is True else {}),
+                    **({"front_step": True} if (e.get("plan") or {}).get("front_step") is True else {}),
                     "fabric": e.get("fabric", "stone"), "variant": v,
                     **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
                     **({"finial_fabric": e["finial"]["fabric"]} if "fabric" in (e.get("finial") or {}) else {}),
@@ -3193,6 +3208,20 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"dress": dress} if dress else {}),
                     **({"mansard_dormers": mansard_dormers} if mansard_dormers else {}),
                     **({"brick_above_m": brick_above} if brick_above is not None else {})})
+    # T-1881: a front step abuts a forward block on its wall, overlapping it by at most 0.1 m so
+    # the step's inner cheek stands inside the block, and stands less far out than the block
+    for e in entries:
+        if not (e.get("plan") or {}).get("front_step"):
+            continue
+        a, b = (x for o in out if o["id"] == e["id"] for x in o["span_m"])
+        d = float(e["plan"]["proud_m"])
+        if not any(f.get("wall") == e["wall"] and (f.get("plan") or {}).get("block") is True
+                   and float(f["plan"]["proud_m"]) > d
+                   and any(0.0 <= ov <= 0.1 for ov in (fb - a, b - fa))
+                   for f in entries if f is not e
+                   for fa, fb in (x["span_m"] for x in out if x["id"] == f["id"])):
+            raise ParamError(f"bays: {e['id']} is a front step: it abuts a forward block on its wall, "
+                             f"overlapping it 0-0.1 m, and stands less far out than the block")
     return tuple(out)
 
 
