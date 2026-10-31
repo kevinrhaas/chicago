@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 162132529,
+ "bytes": 163412975,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -4789,6 +4789,14 @@
    "bytes": 398547,
    "sha256": "8ae046d8405a13616fc82316b6afa4e3dfaa67560f8e997e0e2de18922b25808"
   },
+  "early-beaubien-keyed-1831-thumb.jpg": {
+   "bytes": 25996,
+   "sha256": "9e0dbb1020b0c25e48331c9a8e7bd33615249b927fe8bad39d1914167fbb89b5"
+  },
+  "early-beaubien-keyed-1831.jpg": {
+   "bytes": 262256,
+   "sha256": "20c2baf03a905b446b76da3e75cf37f235a9e201b7a8a824f159a7d820d12d2c"
+  },
   "early-blanchard-shober-1867-wolf-point-thumb.jpg": {
    "bytes": 16471,
    "sha256": "d8fbf745318f7f2ede8428c90f7a453d5f606c7badbf9b8cda7a271612808be2"
@@ -4805,6 +4813,22 @@
    "bytes": 352506,
    "sha256": "930a6249b928700422249dd831eb4ec1028c94a7549d37e5ad4eaf14a8ff9387"
   },
+  "early-carpenter-kurz-allison-1893-panel14-thumb.jpg": {
+   "bytes": 26918,
+   "sha256": "df799a80d068a4f2a4ef543eb44419b6f6402c465befccf57aad05f6380f58b1"
+  },
+  "early-carpenter-kurz-allison-1893-panel14.jpg": {
+   "bytes": 26918,
+   "sha256": "df799a80d068a4f2a4ef543eb44419b6f6402c465befccf57aad05f6380f58b1"
+  },
+  "early-carpenter-trowbridge-1902-thumb.jpg": {
+   "bytes": 20574,
+   "sha256": "81660320e379e5900150959de12dae6593da84a897f615e24e6a343f9b18b132"
+  },
+  "early-carpenter-trowbridge-1902.jpg": {
+   "bytes": 70507,
+   "sha256": "c1fca01519baeab74e995f17a292617aeb469277056a01e1fcfbdd8425092253"
+  },
   "early-castelnau-1842-chicago-harbor-thumb.jpg": {
    "bytes": 20576,
    "sha256": "37373debd17b6ba48d02dead0fb4699c90cdb696ce5e75ab2515d3c825f49e7c"
@@ -4812,6 +4836,30 @@
   "early-castelnau-1842-chicago-harbor.jpg": {
    "bytes": 59854,
    "sha256": "eee65adf2a3902a6bae159fddab38292d49017e847ddf9d8df3a048d41d18f12"
+  },
+  "early-dearborn-andreas-1884-thumb.jpg": {
+   "bytes": 23734,
+   "sha256": "f5d850f4bddb0fe7439f9023254a98f9950b601f9a03714eaa117ae170935248"
+  },
+  "early-dearborn-andreas-1884.jpg": {
+   "bytes": 352974,
+   "sha256": "75e87b7675d986d57ac5ae36b3429fe8f27098fdb620251093077ce0fec92869"
+  },
+  "early-dearborn-earle-1902-thumb.jpg": {
+   "bytes": 21828,
+   "sha256": "e25173892d1bc87b0ceb5e3325051cbb72b338fdf3cda1e194a00c17e44bda0a"
+  },
+  "early-dearborn-earle-1902.jpg": {
+   "bytes": 346022,
+   "sha256": "e4af254235c25c30bff97d51cdf29aceb6d762c5f8ff4de7268c650ecb78322f"
+  },
+  "early-eliza-chappel-school-shore-reference-thumb.jpg": {
+   "bytes": 18017,
+   "sha256": "dc7f62ba142f97337c26dc9f5ea38293fe277f3140a31926a5f3c31a8d91880d"
+  },
+  "early-eliza-chappel-school-shore-reference.jpg": {
+   "bytes": 84702,
+   "sha256": "1a63b75fea04e52cbdbbc5ffb2e85749cf648454970cb1bec0d8426a2cba61b9"
   },
   "early-gifford-first-tremont-thumb.jpg": {
    "bytes": 16397,

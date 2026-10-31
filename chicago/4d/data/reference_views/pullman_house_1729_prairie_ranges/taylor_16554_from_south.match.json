@@ -70,7 +70,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 13,
+        "shrubs": 16,
         "trees": 3,
         "beds": 0,
         "creeper": 23
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "638f6170f054c6baf4043cace83f40d566b2c9054ee9663bdd4d92229613d33a",
+  "flora_sha256": "ba73a83728fa954cca1558df5362bc52fe9d2b7f193cd7bd2d5d975a0eb5361d",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -206,7 +206,7 @@
       "how": "T-1934 render with the scene's street trees and front yards"
     },
     {
-      "what": "the tub plants (T-1934, 2026-10-29): this winter print shows the terrace bare, and the render draws no tub in the winter Season (tub plants were wintered under glass); the slim clipped column by the wall's east pier, planted in the ground, is drawn, an evergreen, at x about 736 px of the render, where the print's ground behind the wall is too far and too low to show one or not",
+      "what": "the tub plants (T-1934, 2026-10-29): this winter print shows the terrace bare, and the render draws no tub in the winter Season (tub plants were wintered under glass); the slim clipped column by the wall's east pier, planted in the ground, is drawn, an evergreen, at x about 736 px of the render, where the print's ground behind the wall is too far and too low to show one or not [T-1934, 2026-10-31: the terrace is not bare in this print: its four clipped columns are planted, not tubbed, and are drawn in the winter Season now (the item below). The tubs proper (the ball, the standard, the cone and the palm) are still drawn in summer only, and this print shows none of them.]",
       "status": "not shown"
     },
     {
@@ -249,6 +249,15 @@
     {
       "what": "the camera [T-1934, 2026-10-31]: T-3193's eye stood about 20 m from the ground the print shows, so the street drew 25-45 px high and the foreground lawn, its coping and the curving walk did not appear at all; re-solved with them in its fit (the camera's solve), the coping, the walk's outer edge and the wall's foot now land within about 5 px, the buildings within about 10 px",
       "status": "fixed"
+    },
+    {
+      "what": "the terrace's four slim clipped columns (T-1934, 2026-10-31): this print is not bare on the terrace. Read at full size it shows four clipped evergreen columns standing on it in the off-leaf season, a pair before the wing's arched windows (x 588-600 and 607-621 px, tops at y 498) and two at the drum's west side, one behind the other (x 647-657 and 663-673, tops at y 493-494), their feet behind the terrace's front. Taylor's summer 16555 shows three of them (x 240-254 and the pair at 322-342; the first stands behind the house's porch there) and the 1894 plate the drum's pair as one column, which had been read as a tub plant and so drawn in summer only. All four are now planted in the terrace, not tubbed, and drawn in every Season (data/front_yards/1904.json, tools/plant_prairie_1904_front_yards.py: each fixed in plan by crossing its column here with 16555's): they render at x 587-595, 609-618, 657-662 and 663-670, their tops at y 503-505.",
+      "status": "fixed",
+      "how": "T-1934 render with the scene's front yards, winter"
+    },
+    {
+      "what": "the clipped columns' foliage: the render draws each as an open stack of small leaf clumps about 8-10 px wide, where the print's four are dense dark cones 10-14 px wide; the renderer's sheared arborvitae (renderers/web/js/tree-model.js), the same habit as every sheared column in the district, not the plants' places or count [T-1934, 2026-10-31]",
+      "status": "open"
     },
     {
       "what": "the house's raised terrace at its south-east corner, its balustrade and its striped awning (pullman_house_1729_prairie, T-1881), where the build stood a one-storey brick block until now",

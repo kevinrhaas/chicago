@@ -13,8 +13,8 @@
   "actual_terrain_qualification": {
     "epoch": "e1834_harbor_cut",
     "data_sha256": {
-      "chicago/4d/data/terrain/epochs/e1834_harbor_cut/heightfield.bin": "977b86cad237c727432771290560421c687321b05ac5cd0509168d00dfa6ea47",
-      "chicago/4d/data/terrain/epochs/e1834_harbor_cut/heightfield.json": "4ef354f5ef58d1bed0834ee1f587c91bab5dd84955a40dd52df2aeddd615b470"
+      "chicago/4d/data/terrain/epochs/e1834_harbor_cut/heightfield.bin": "af51fa2d9ab60142e1069f30bf2f8e2650d3eaa00b74ac04e8f2f15e456912b7",
+      "chicago/4d/data/terrain/epochs/e1834_harbor_cut/heightfield.json": "b6fe53c0416e1edb7450a70f272094a123d5eeadfd8f0963a21a95dfabdee9f5"
     },
     "scope": "Four finite samples using actual pinned browser Heightfield at exact original stands; no main mesh/yoke/body clearance or shadow acceptance",
     "stands": [

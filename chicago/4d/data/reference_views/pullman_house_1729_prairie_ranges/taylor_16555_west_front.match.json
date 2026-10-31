@@ -70,7 +70,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 13,
+        "shrubs": 16,
         "trees": 3,
         "beds": 0,
         "creeper": 23
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "c1305737f9369ecdcc2a490e16514838785aebfead0a2c4eea955aa4e3eff4d2",
+  "flora_sha256": "6ea482a33d437696361b1dbe43be43d1d28298ef285317466497e3489ccd23da",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -199,7 +199,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. T-1934, 2026-10-30: a palm in its tub now stands on the terrace before the drum (the print's x 393-443 px, its fronds' top at y 587; its crown renders about 0.25 m under the print's), with the slim column against the drum's west side (x 325-342) and the cone before the wing's arched door (x 500-523), each placed where this camera's pixel columns cross the 1894 plate's; the print reads the column about 0.6 m and the cone about 1.2 m taller than the plate does (two pictures: within tolerance). Still open: the shrubs the build stands before the terrace, where the print shows its flights open from the walk, cross the palm's tub and the cone's foot from this camera.] [T-1934, 2026-10-31: what stayed open here, the shrubs the build stands before the terrace where this print shows its flights open from the walk, is the c. 1900 border: the Detroit view, nearer 1904 than this print of the early 1890s, shows a dense, continuous border of shrubs inside the coping there, at its height and more, from the house's porch stair past the palm house.]",
+      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. T-1934, 2026-10-30: a palm in its tub now stands on the terrace before the drum (the print's x 393-443 px, its fronds' top at y 587; its crown renders about 0.25 m under the print's), with the slim column against the drum's west side (x 325-342) and the cone before the wing's arched door (x 500-523), each placed where this camera's pixel columns cross the 1894 plate's; the print reads the column about 0.6 m and the cone about 1.2 m taller than the plate does (two pictures: within tolerance). Still open: the shrubs the build stands before the terrace, where the print shows its flights open from the walk, cross the palm's tub and the cone's foot from this camera.] [T-1934, 2026-10-31: what stayed open here, the shrubs the build stands before the terrace where this print shows its flights open from the walk, is the c. 1900 border: the Detroit view, nearer 1904 than this print of the early 1890s, shows a dense, continuous border of shrubs inside the coping there, at its height and more, from the house's porch stair past the palm house.] [T-1934, 2026-10-31: the terrace's clipped columns are now planted in the terrace and drawn in every Season, read in Taylor's winter 16554 and crossed with this print: the column before the wing's arched window renders at x 238-257 (the print's at x 240-254) and the drum's pair at x 328-343 (the print's at 322-342). A fourth, before the wing's west window, renders at x 200-218, where this print's house porch (its urned pier and awning, not built: the house record) stands before it and hides it; 16554 shows it.]",
       "status": "not shown",
       "how": "replaced for 1904: the c. 1900 Detroit view's border (loc_det_4a08066_pullman_residence) stands where this print shows the terrace open from the walk; the tub plants on the terrace stand as read above"
     },

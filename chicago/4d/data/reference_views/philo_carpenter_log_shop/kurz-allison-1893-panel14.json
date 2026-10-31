@@ -1,0 +1,50 @@
+{
+  "structure_id": "philo_carpenter_log_shop",
+  "source_id": "kurz_allison_1893",
+  "photo": "../../sources/assets/carpenter_log_shop_kurz_1893_panel14.png",
+  "image_px": [
+    368,
+    241
+  ],
+  "principal_px": [
+    407.9949229013426,
+    202.0328938793243
+  ],
+  "focal_px": 902.1246348613535,
+  "pixel_aspect": 1.1485403788773523,
+  "eye": [
+    41.62110164312504,
+    48.259742845205224,
+    0.4716711420469061
+  ],
+  "yaw_deg": 236.69726364763557,
+  "sky": "overcast",
+  "solve": {
+    "status": "RECORDED_DEPENDENT_PANEL_CANONICAL_ANNEX_DIAGNOSTIC_CAMERA",
+    "source_crop": {
+      "whole_source": "chicago/reference/photos/IMG_5382.png",
+      "whole_sha256": "c21d5f82be92c456f90bef3c1a861a7ed4a96b08f5f210131cf763bcfc9cc349",
+      "integer_box_left_top_right_bottom_px": [
+        1595,
+        915,
+        1963,
+        1156
+      ],
+      "crop_sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+      "pixel_identity": "Exact decoded source rectangle, no resampling or colour transformation."
+    },
+    "controls": "Fixed accepted Andreas-family diagnostic eye/yaw, documented-size6.096x4.877m footprint and inferred2.5m eave. Six approximate annex wallcorner picks in the368x241 exactcrop, about4px uncertainty. Fit only separate horizontal/verticalcopy scales and principaltranslation once; no geometry, pose, historicallens or worldcoordinate inferred. Pixelaspect1.14854 represents redraw/copy proportions, not physicalnon-squarehistoricalpixels.",
+    "fit": {
+      "rms_perpoint_px": 4.603040625698083,
+      "max_residual_px": 6.810112264072749,
+      "point_count": 6
+    },
+    "limits": "Printed14+whole sheetkey identify Sauganash. This is a coloured dependent Andreas-family redraw, not independent measured1831/1835testimony. Existing annex captionidentity is retained. Numeric residuals are from uncertain handpicks; Canonical metadata is reviewed by its own subsequent native comparison, without importing an old match hash. Roofapex, stack, sash and colours are holdouts. Redroof conflicts with otherretrospectivecolouration, adjudicate explicitly underT3153 rather than tuningnewgeometry. No historicpigment/visitorpose/Fromthisspot. Hotel remains unchanged contextualholdout/T2383."
+  },
+  "scene": "1835",
+  "also_render": [
+    "sauganash_hotel"
+  ],
+  "diagnostic_only": true,
+  "library_image": "early-carpenter-kurz-allison-1893-panel14"
+}
