@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 915,
+  "count": 916,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56878,7 +56878,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the owner, walking the 1904 scene on 2026-10-29, found the entry \"not straight\": the stair centred at v 4.0, the door at v 4.6 (half over the forward block's ground-storey window), the portico's hood and the block at v 5.25 and the gate's opening at v 5.7, so the walk bent between the gate and the stair. All four now stand on v 5.25, the forward block's centre: the door (front bays 5.25, the block's window taken off), the flight (stoop v (m) dropped, so the stoop is the door's), the gate (`boundary.runs`, the opening s 4.45-6.05) and the two inner columns (hood.columns.at v (m) 3.3 and 7.2), with a turned stone balustrade on the cheeks and the terraces (entrance kit…balustrade). **What is read, not invented.** The Detroit print (Detroit Publishing Co. The Pullman residence, Chicago) through its solved camera: the door's pale leaves between two columns (x 355-371 px), the two columns at v 3.05 and 6.9 (midpoint 5.0), the stair rising between them to the door, a raked rail on each cheek, and the gap in the street wall square before the stair. **What is invented.** The common axis at v 5.25 rather than the reading's 5.0: the forward block and the hood are centred there, and the readings (columns, door, gap) each sit within 0.3-0.5 m of it at the print's 13-14 px a metre. The inner columns' 3.9 m spacing is the reading's; their places are moved up to 0.3 m to be symmetric on the axis. The outer columns at the hood's ends stay a bounded design (“1729 Prairie's portico off the Detroit print: two columns and the flight read, the rest of the row and the balustrade's section reconstructed”). The balustrade's section (0.9 m, 0.36 m newels, turned balusters every 0.2 m) is the K07 stone stoop's, its newels 0.03 m proud of the 0.3 m cheek each side so no face is drawn twice; the print shows the rails but not their profile."
+          "text": "the owner, walking the 1904 scene on 2026-10-29, found the entry \"not straight\": the stair centred at v 4.0, the door at v 4.6 (half over the forward block's ground-storey window), the portico's hood and the block at v 5.25 and the gate's opening at v 5.7, so the walk bent between the gate and the stair. All four now stand on v 5.25, the forward block's centre: the door (front bays 5.25, the block's window taken off), the flight (stoop v (m) dropped, so the stoop is the door's), the gate (`boundary.runs`, the opening s 4.45-6.05) and the two inner columns (hood.columns.at v (m) 3.3 and 7.2), with a turned stone balustrade on the cheeks and the terraces (entrance kit…balustrade). On 2026-10-31 the axis moved to v 6.4 with a narrower forward block (“1729 Prairie's Prairie front laid as three bays off the Detroit print: the forward block narrowed onto the door, the north bay's windows and dormer put back, a landing in the flight, urns on the gate piers and a black deck”). **What is read, not invented.** The Detroit print (Detroit Publishing Co. The Pullman residence, Chicago) through its solved camera: the door's pale leaves between two columns (x 355-371 px), the two columns at v 3.05 and 6.9 (midpoint 5.0), the stair rising between them to the door, a raked rail on each cheek, and the gap in the street wall square before the stair. **What is invented.** The common axis at v 5.25 rather than the reading's 5.0: the forward block and the hood are centred there, and the readings (columns, door, gap) each sit within 0.3-0.5 m of it at the print's 13-14 px a metre. The inner columns' 3.9 m spacing is the reading's; their places are moved up to 0.3 m to be symmetric on the axis. The outer columns at the hood's ends stay a bounded design (“1729 Prairie's portico off the Detroit print: two columns and the flight read, the rest of the row and the balustrade's section reconstructed”). The balustrade's section (0.9 m, 0.36 m newels, turned balusters every 0.2 m) is the K07 stone stoop's, its newels 0.03 m proud of the 0.3 m cheek each side so no face is drawn twice; the print shows the rails but not their profile."
         },
         {
           "label": "How to resolve",
@@ -63005,6 +63005,38 @@
         {
           "label": "How to resolve",
           "text": "a closer picture of the front (the CHM 1905 views, once solved) gives the moulding's profile; a K08 bay-light architrave frames the forward block's light."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31 (T-1881)."
+        }
+      ],
+      "work_refs": [
+        "T-1881"
+      ]
+    },
+    {
+      "id": "L-pullman-1729-front-bays-1881",
+      "title": "1729 Prairie's Prairie front laid as three bays off the Detroit print: the forward block narrowed onto the door, the north bay's windows and dormer put back, a landing in the flight, urns on the gate piers and a black deck",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, on 2026-10-31, read the Detroit print (LC-D4-12551) against the scene: a full mansard with no peak in the centre; a dormer north and south but none in the centre; three windows on the second storey (north, centre, south); on the main storey a window, the entry and a window to the south; front steps with a landing in the middle; ornament at the sidewalk gate; and the top roof's colour. The forward block (bays.p forward) is narrowed from 6.5 to 6.02 m and centred on the door at v 6.4, with one second-storey light and no dormer; a 1 m step (bays.p step) returns its south face to the front. The north bay at v 1.5 gets back its ground and second-storey lights and its round-headed dormer, which the old block (v 2.0-8.5) had covered. The flight's 12 risers break after the sixth for a 1.2 m landing (entrance kit…mid landing, a new K07 key). The hood is recentred on the door on two columns. The gate moves onto the door's line, and each pier carries a turned urn (`boundary.urns`, a new K11 key). The deck behind the cresting drops to 10 degrees, K05's least, painted black. **What is read, not invented.** The Detroit print through its solved camera, on the main front's plane (about 13 px a metre): the north dormer at v 1.0-2.2, the rusticated piers at v 3.96-5.49, 7.65-8.82 and 13.68-14.56, the second-storey lights between them (v 6.17-6.99 and 10.4-12.16) and the corner's narrow light (15.03-15.77). The cornice steps about 8 px at the first pier, as a block about 3 m proud would draw. A pale finial stands on the wall line at v 7.1-7.6, about 1.7 m up. The 1890 Albertype plate shows the north bay's dormer and lights. **What is invented.** The block's exact width and the door axis: the print's door leaves and inner columns, read earlier at v 5.0 (“1729 Prairie's door, stair, inner columns and gate set on one axis, the forward block's centre; the cheeks' balustrade reconstructed”), sit behind ivy and the portico. The axis follows the owner's three-bay reading and the piers instead. The portico's two columns, the landing's place and 1.2 m depth, the north bay's lights' sizes (from the corner's), the northern urn (by symmetry), the urns' profile (the K11 kit's) and the deck's black paint (no picture sees the deck) are also invented."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a closer view of the portico and stair (the CHM 1905 views, once solved) fixes the door, the columns and the landing; a view over the cresting fixes the deck."
         },
         {
           "label": "Review",
