@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2480, ts: '2026-10-31T02:16:15.459Z', date: 'Oct 30, 2026, 9:16 PM CT', title: 'Pullman stable\'s corner bay moved clear of its arcade', kind: 'improvement',
+    items: [
+      'The stable\'s three-light corner bay no longer covers the last arch of its west arcade. The 1894 Inland Architect plate and Taylor\'s photograph both show that arch whole.',
+      'The bay now runs 0.6 m further along 18th Street, where both pictures put its east end.',
+    ] },
   { v: 2479, ts: '2026-10-31T02:15:10.379Z', date: 'Oct 30, 2026, 9:15 PM CT', title: '1905 Prairie\'s canted south-west corner', kind: 'feature',
     items: [
       'The Marshall Field house at 1905 Prairie now has its south-west corner cut on a broad canted face, as the 1893 Pictorial Chicago plate shows it: blank brick in both storeys, the bracketed cornice and the slated mansard carried round it, and the largest dormer centred over it.',
