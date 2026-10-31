@@ -292,6 +292,8 @@ const COVERAGE = [
   // the 1835 tabs once in the town (T-2639); part 13 the rail.
   ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
   ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
+  // T-3266: the People tab's former residents of a 1904 house; part 14 reads the 1904 tabs.
+  ['renderers/web/js/apps/former-residents.js', [14], 'Inspect\'s People tab: former residents of a 1904 house (T-3266)'],
   ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Sources tab: facts by grade, Liberties, folded citations (T-2644)'],
   // T-2645: the Photos tab. Part 14 reads it on Glessner House (pictures, All N, From this
   // spot); part 4 opens every tab of an 1835 building, Photos included.

@@ -1,0 +1,26 @@
+{
+  "id": "chicago_blue_book_1901",
+  "type": "book",
+  "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1901. Chicago: The Chicago Directory Company.",
+  "author": "The Chicago Directory Company",
+  "date": "1901",
+  "describes_date": "1901 (the edition 'for the year ending 1901', canvassed from the September before)",
+  "repository": "Internet Archive",
+  "url": "https://archive.org/details/chicagobluebooko1901chic",
+  "locator": "T-3266: the PRAIRIE AVENUE street-and-number list, numbers 1600-2140, and every line of the alphabetical list of names that gives a Prairie Avenue number in that range; each reading is a row of docs/RESEARCH/prairie-former-residents-3266/blue_book_prairie_readings.tsv.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1901; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read for T-3266 on 2026-10-30 from the item's OCR text (chicagobluebooko1901chic_djvu.txt) by docs/RESEARCH/prairie-former-residents-3266/read_blue_books.py. The OCR is not the page: a household is used only where the street list and the alphabetical list agree, or the alphabetical list prints it in two editions (tools/build_former_residents_1904.py).",
+  "note": "A society register: it lists the households that received and were received, not every household, so a number it skips is silence, not vacancy. Used on the 1904 Prairie Avenue People cards for who lived in each house before (or, for a house nobody is listed in for 1904, after) the scene date.",
+  "what_it_supplies": [
+    "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1901"
+  ],
+  "what_it_does_not_supply": [
+    "servants, young children, or households outside society",
+    "the date a household came or went within the year",
+    "the building's form, storeys, material or outline"
+  ]
+}

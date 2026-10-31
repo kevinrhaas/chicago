@@ -93,6 +93,9 @@
 .insp-card table.attrs { table-layout: fixed; }
 .insp-people-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .insp-person-link { cursor: pointer; text-align: left; background: transparent; color: var(--ink); font: inherit; min-height: 44px; }
+/* T-3266: a former resident is a row, not a person card: it opens nothing. */
+.insp-former { cursor: default; }
+.insp-former-members { font-size: 13px; }
 .insp-timeline { display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; padding: 0; list-style: none; }
 .insp-when { display: grid; grid-template-columns: 3.2rem 1fr; gap: 8px; align-items: baseline; }
 .insp-date { font: var(--label-weight, 400) 0.75rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
