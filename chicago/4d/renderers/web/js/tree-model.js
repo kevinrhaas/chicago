@@ -1598,6 +1598,10 @@ export function buildVineTemplate(spec, seed, lod = 'near', { conf = 0.5 } = {})
  * few woody stems climbing out of the ground under it. Built in the wall's frame: the
  * wall is the plane x = 0, the leaves stand off it toward +x (the instance's yaw turns
  * +x out of the wall), z runs along it; `crownW` is its width and `h` its height.
+ * T-1881: `arch: 'mantle'` is a stretch a picture shows wholly clothed (Pullman's ground
+ * storey under its balcony in LC-D4-12551): the same mat, its top held near `h` with only
+ * short tongues, so a row of overlapping patches reads as one level-topped mantle;
+ * `mantle_sill` is the same mat kept under a window's sill in such a stretch.
  */
 export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, leafCover = 1 } = {}) {
   const rnd = mulberry32(seed);
@@ -1606,6 +1610,8 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
   const W = spec.crownW ? (spec.crownW[0] + spec.crownW[1]) / 2 : Math.max(1.2, H * 0.4);
   // The top edge, a smooth random walk: tongues of ivy climbing ahead of the mat.
   const TOP_COLS = 12;
+  const mantle = spec.arch === 'mantle' || spec.arch === 'mantle_sill';
+  const [topFloor, edgeFloor] = mantle ? [0.88, 0.9] : [0.6, 0.7];
   const top = [];
   let tv = rnd();
   for (let c = 0; c <= TOP_COLS; c++) { tv = clamp01(tv + (rnd() - 0.5) * 0.55); top.push(tv); }
@@ -1634,7 +1640,7 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
         const u = clamp01((c + (lrnd() - 0.5) * 0.9) / cols) * 2 - 1;
         const y = ((r + (lrnd() - 0.5) * 0.9) / rows) * H;
         const edge = 1 - Math.pow(Math.abs(u), 5);
-        const yTop = H * (0.6 + 0.4 * topAt(u)) * (0.7 + 0.3 * edge);
+        const yTop = H * (topFloor + (1 - topFloor) * topAt(u)) * (edgeFloor + (1 - edgeFloor) * edge);
         if (y < 0 || y > yTop) continue;
         const up = y / H;
         // Thinner toward the ragged top and the loose side edges.
