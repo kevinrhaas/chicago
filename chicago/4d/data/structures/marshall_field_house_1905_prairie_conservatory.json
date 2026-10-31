@@ -1,0 +1,172 @@
+{
+  "id": "marshall_field_house_1905_prairie_conservatory",
+  "name": "1905 Prairie Avenue — the Marshall Field house's conservatory, on its south flank (K13)",
+  "aka": [
+    "1905 S. Prairie Avenue",
+    "Field house conservatory"
+  ],
+  "archetype": "k13_conservatories",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "rand_mcnally_pictorial_chicago_1893_field"
+    ],
+    "note": "Part of the house: the 1911 sheet writes 'Greenhouse' at the bulge off the house's south wall and the 1893 Pictorial Chicago plate shows it as a glass bow on the house's stone base, entered from the house."
+  },
+  "review_required": false,
+  "research_note": "T-1905 stood the conservatory the 1893 plate shows on 1905 Prairie's south flank as glass: a ring of tall lights on fine bars under a curved glass roof ribbed down to its eave, standing on the stone base the house's K08 bow keeps (the bow was built a storey of brick with three sashes under a tin cone until then). It is its own record because the glass is the K13 kit's and the house's walls are K01's; it stands against the house's own wall (host_wall names the house) and on the bow's top. The iron balcony over its roof, the transom across its lights and the lights' count are still open on the plate's match record.",
+  "phases": [
+    {
+      "id": "as_mapped_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28",
+          "rand_mcnally_pictorial_chicago_1893_field"
+        ],
+        "note": "The house's own range (data/structures/marshall_field_house_1905_prairie.json): the 1904 target to the 1911 sheet that draws the bulge and writes 'Greenhouse' on it; the 1893 plate shows the glasshouse standing before the target.",
+        "to_is": "seen"
+      },
+      "position": {
+        "utm_e": 448507.526,
+        "utm_n": 4634023.867,
+        "rotation_deg": 359.444,
+        "symbolic_location": "1905 S. Prairie Avenue, parcel prairie_1905 (data/street_grid/1904.json): against the south wall of the Field house, 12.0 m behind its front, on the house's stone bow.",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28",
+          "rand_mcnally_pictorial_chicago_1893_field"
+        ],
+        "note": "The middle of the house's bow on its south wall: the house's frame (u toward Prairie Avenue from the rear wall, v south from the north wall) at u 9.0, v 15.25, the K08 bow's centre on the wall (bays.south_conservatory, s 12.0 m from the front), carried through the house's own placement (utm 448516.378, 4634039.204, rotation 179.444). Turned a half turn from the house (359.444) so the kit's +z, out of its wall, runs south, off the house.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is the house's committed placement (data/structures/marshall_field_house_1905_prairie.json) plus the bow's centre in the house's frame, u 9.0 and v 15.25: e = 448516.378 + 9.0 cos(179.444) + 15.25 sin(179.444), n = 4634039.204 - 9.0 sin(179.444) + 15.25 cos(179.444)."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            4.29,
+            0.0
+          ],
+          [
+            3.728,
+            -0.957
+          ],
+          [
+            2.98,
+            -1.726
+          ],
+          [
+            2.077,
+            -2.307
+          ],
+          [
+            1.066,
+            -2.668
+          ],
+          [
+            0.0,
+            -2.79
+          ],
+          [
+            -1.066,
+            -2.668
+          ],
+          [
+            -2.077,
+            -2.307
+          ],
+          [
+            -2.98,
+            -1.726
+          ],
+          [
+            -3.728,
+            -0.957
+          ],
+          [
+            -4.29,
+            0.0
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28",
+          "rand_mcnally_pictorial_chicago_1893_field"
+        ],
+        "note": "The glass's plan to its coping, in the kit's frame (x along the house wall, v = -z off it): the K08 bow's arc, 8.4 m on its chord and 2.7 m out, the sheet's bulge as the house record builds it, the coping 0.09 m outside it."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "One glazed storey over the house's basement: the plate's glass stands on the stone base at the principal floor.",
+          "geometry": "record_only"
+        },
+        "construction": {
+          "value": "glass",
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "Glass on a light frame: the plate's ring of tall lights and its ribbed glass roof; the sheet writes 'Greenhouse' on the bulge.",
+          "geometry": "record_only"
+        },
+        "host_wall": {
+          "value": {
+            "structure": "marshall_field_house_1905_prairie"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "rand_mcnally_pictorial_chicago_1893_field"
+          ],
+          "note": "The house's own south wall: the conservatory is built against it and nothing is built for the wall here."
+        },
+        "conservatory": {
+          "value": {
+            "id": "k13.bay.field_1905_segmental",
+            "form": "segmental_bay",
+            "chord_m": 8.4,
+            "rise_m": 2.7,
+            "facets": 6,
+            "eave_m": 3.0,
+            "wall_top_m": 4.4,
+            "roof": "curved",
+            "bays": 2,
+            "door": null,
+            "gutters": [
+              {
+                "eave": "front",
+                "outlet": "both"
+              }
+            ],
+            "ridge_vent": false,
+            "planting": [
+              "bench_front"
+            ],
+            "bench_out_m": 0.1,
+            "plinth_fabric": "stone",
+            "base_m": 2.4,
+            "curve_facets": 4
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The plate's conservatory read through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json): a ring of tall glazed lights on fine bars round the bow, standing on a light stone sill on the house's stone base, their head about 5.4 m over grade at about three quarters of the principal windows' height, and a glass roof that leaves them curving and rises to the house's wall about 6.8 m over grade, under the chamber floor's balcony, ribbed at every bar. Built as the K13 kit's segmental bay on the K08 bow's own arc (8.4 m on its chord, 2.7 m out, in six facets of two lights each, the kit's glazing bars between) on the bow's top at 2.4 m (base_m), its stone plinth 0.6 m to the glass's sill, its eave at 3.0 m and its curved roof (the kit's quarter-ellipse on every hip, in four steps) to the wall at 4.4 m over the base. RECONSTRUCTED: the glass's colour (the kit's opaque substitute where it is not transparent), the bars' section, the staging inside, the gutter falling from its middle to a pipe at each end by the wall (L-field-1905-conservatory-1905). Open on the match record: the lights' width (the plate's about 0.6 m between equal bars, the render's ribs 0.88 m apart, the kit's finest that keeps every pane at least 0.2 m on the roof's last step), the transom across them and the iron balcony over the roof."
+        }
+      }
+    }
+  ]
+}

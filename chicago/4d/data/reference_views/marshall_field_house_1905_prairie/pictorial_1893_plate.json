@@ -1,5 +1,9 @@
 {
  "structure_id": "marshall_field_house_1905_prairie",
+ "scene": "1904",
+ "also_render": [
+  "marshall_field_house_1905_prairie_conservatory"
+ ],
  "source_id": "rand_mcnally_pictorial_chicago_1893_field",
  "library_image": "a19-pictorial-1893-field",
  "photo": "../../sources/assets/field_1905_pictures_t3260/pictorial_1893_field_plate.jpg",

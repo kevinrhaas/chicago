@@ -1398,6 +1398,12 @@
       "asset": "gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "marshall_field_house_1905_prairie_conservatory",
+      "name": "1905 Prairie Avenue — the Marshall Field house's conservatory, on its south flank (K13)",
+      "sidecar": "sidecars/1904/marshall_field_house_1905_prairie_conservatory.json",
+      "asset": "gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb"
+    },
+    {
       "id": "marshall_field_jr_house_1919_prairie",
       "name": "1919 Prairie Avenue — Field Jr., post-1902 enlargement (district draft; refined by T-1906, T-1907)",
       "sidecar": "sidecars/1904/marshall_field_jr_house_1919_prairie.json",
