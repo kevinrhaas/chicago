@@ -34170,6 +34170,36 @@ places its east end, its windows and the pavilion, and the piers' banding.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-26 (T-3160).
 
+### L-pullman-1729-porte-dressing-1881 — 1729 Prairie's porte-cochere balanced and dressed off Taylor's photograph 1445: its arches centred on their faces, its banded piers, impost and arch rings drawn at this build's sizes
+
+**Decision:** the porte-cochere on the Pullman house's 18th Street flank (T-1881; the owner, 2026-10-30:
+"this part of the pullman house would have been balanced not off centered lop sided like that, and there
+is more detail you need on it on the corners and arches") has each arch centred on the face it shows. The
+block stands before the 18th Street pavilion (`bays.p_18th`, 2.47 m proud), so its ends now begin at the
+pavilion's face (`porte_cochere.back_m`, a new key of `generators/archetypes/k01_porte_cochere.py`) and
+each end's arch is centred on the 3.5 m it shows there (4.22 m out, 2.5 m across, a 0.5 m pier either
+side) where it had been centred on the passage behind it, which left the west face a 2.9 m blank pier
+beside a 0.87 m corner. The front's arch is centred at s 10.5 (2.4 m across, 1.05 m piers), where it was
+at s 10.8. The walls go from 0.45 to 0.4 m thick so the wider end arches keep 0.1 m of end wall inside the
+front wall. The kit's new `dressing` lays banded piers from grade to the entablature (stopped clear of
+the arch ring over the impost, the corner piers' bands turned round the corner), a moulded impost at the
+springing, and a ring of voussoirs round each arch's head with a keystone standing higher and prouder.
+**What is read, not invented.** That the piers are banded to the entablature, the impost at the
+springing, the moulded ring round each head and the keystone at its crown, all in Taylor's photograph no.
+1445 (`aic_taylor_1445_pullman_from_sw`) at x 640-800 px; that the west arch is wide and the front's
+narrower (Taylor 2.8 and 2.46 m, the Detroit print 2.37 and 2.27 m).
+**What is invented.** The centring itself, which the owner asked for and which neither photograph
+measures to better than about 0.5 m (they disagree by more than that along the flank). The spans, 2.5
+and 2.4 m, chosen between the two pictures' readings. The courses' 0.4 m height and 0.1 m channels (the
+pavilion pilasters' own), their 0.05 m projection, the impost's 0.25 m height and 0.09 m projection, the
+ring's 0.3 m band and 0.06 m projection, its eleven voussoirs and the keystone's 0.15 m rise: the
+photograph shows them at one or two pixels a course. The 0.4 m walls.
+**How to resolve:** the CHM 1905 views or the Beman-addition side views, nearer the flank, count the
+courses and voussoirs and measure the spans and piers.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-10-31 (T-1881).
+
 ### L-pullman-1729-flank-stack-3161 — 1729 Prairie's great stack on the 18th Street cornice off Taylor's photograph 1445: its place, width and top read, its depth and cap reconstructed
 
 **Decision:** the Pullman house gains the tall stone stack J. W. Taylor's photograph no. 1445 shows

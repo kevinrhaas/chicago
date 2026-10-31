@@ -1434,24 +1434,25 @@
               12.75
             ],
             "out_m": 5.97,
-            "thickness_m": 0.45,
+            "thickness_m": 0.4,
             "spring_m": 4.85,
             "head_m": 6.85,
+            "back_m": 2.47,
             "arches": [
               {
                 "face": "low_end",
-                "centre_m": 4.0,
-                "span_m": 2.2
+                "centre_m": 4.22,
+                "span_m": 2.5
               },
               {
                 "face": "front",
-                "centre_m": 10.8,
-                "span_m": 2.2
+                "centre_m": 10.5,
+                "span_m": 2.4
               },
               {
                 "face": "high_end",
-                "centre_m": 4.0,
-                "span_m": 2.2
+                "centre_m": 4.22,
+                "span_m": 2.5
               }
             ],
             "entablature": {
@@ -1467,6 +1468,23 @@
                 0.25,
                 0.15
               ]
+            },
+            "dressing": {
+              "rustication": {
+                "course_m": 0.4,
+                "channel_m": 0.1,
+                "proud_m": 0.05
+              },
+              "impost": {
+                "height_m": 0.25,
+                "proud_m": 0.09
+              },
+              "archivolt": {
+                "band_m": 0.3,
+                "proud_m": 0.06,
+                "voussoirs": 11,
+                "keystone_m": 0.15
+              }
             }
           },
           "confidence": "inferred",
@@ -1475,7 +1493,7 @@
             "loc_det_4a08065_pullman_residence",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "T-3160, through the Detroit print's solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json): the arcade on the 18th Street flank (x 598-685 px) is a one-storey block standing out from the flank, not arches in its wall. Its west end is seen nearly square to the camera (its round arch is as wide as it is high, about 15 px a metre either way), its south front edge-on past the corner pier (about 5 px a metre along it). Its west face meets the flank at x 598 (u 21.4, s 6.35); the west arch's jambs at x 610 and 645 put it 0.81-3.18 m out (span 2.37 m), its crown at y 410 and springing at about 428 (6.0 and 4.85 m); the corner pier at x 645-668 and the south front's arch at x 668-678 put the front 4.27 m out and its arch at s 7.78-10.05 (span 2.27 m); the pier at x 678-685 ends where the tree and the building beyond take over (s 11.7). The entablature's soffit at y 402 (6.5 m), the balustrade's base at y 397 and its top at 389 (about 6.85 and 7.4 m). The block's east end is a bounded design: closed at s 11.48 by a corner pier the size of the west one, with an arch mirroring the west end's, so the carriage passes through (L-pullman-1729-porte-cochere-3160). The 1911 sheet draws the one-storey 'porte-cochere' (s20fp-1729-b1 p4) at u 15-20, 2-5.4 m out (s 7.75-12.75), 1.4 m east of and 1.1 m further out than the print's; the print, the nearer witness to what stood, governs the build, and the disagreement is written into the match record. T-3161, through Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json), which sees this block at 18-20 px a metre: its deck's balustrade turns its corner at x 730 px, rising to the left over the west end and falling to the right along the front, so the large arch (x 660-715, the side door seen through it) is in the WEST end and the narrower one (x 745-780, the flank's windows seen through it) in the south front. The west end meets the flank at x 625 (s 10.25) and its corner stands 5.45 m out; the west arch's jambs at 1.9 and 4.7 m out (built 1.85-4.6, the least corner pier the kit lays); the front's arch at s 11.25-13.7 (centre 12.48, span 2.46), and the front ends at x 800-805 (s 15.2-15.6, built 15.4). So the block stands at s 10.25-15.4, 5.45 m out, with walls 0.45 m thick; refitting the camera to honour the Detroit-built Prairie front's piers and lights (which this camera alone reads 2-4 m off) moves its west end only to s 9.6-9.7, so the reading stands against the camera's one weakness: 3.9 m east of and 1.2 m further out than the Detroit print's reading, which sees this face at 5-6 px a metre. The 1890 Albertype plate's arch stands 20-30 px east of the old build through its own camera, which is where this one puts it, and the 1911 sheet's outer line is 5.4 m out (its s 7.75-12.75 is 2.5 m west of this). The east end's arch is not seen (trees) and mirrors the west's (reconstructed). Heights: the crown reads 6.2 m (built 6.23 on the 4.85 m springing), the entablature's soffit 6.9 (built 6.85, was 6.5) and the deck's balustrade stands level with the second storey's sills over it, as built (its height 0.7 m, was 0.55, its top 7.9 m under the 8.3 m sills). T-1881: moved to the 1911 sheet's footprint, s 8.25-12.75 and 5.97 m out (u 15.0-19.5 to v 23.9), between Taylor's reading (s 10.25-15.4) and the Detroit print's (s 6.35-11.48), so it stands in front of the 18th Street pavilion (bays.p_18th) as both photographs show it. The west end's arch is read in Taylor at x 660-715 px, 3.5-5.8 m out on the s 8.25 plane; it is built 2.9-5.1 m out (centre 4.0, span 2.2), the outermost the kit lays with a 0.4 m pier inside the 0.45 m front wall, 0.5 m short of the reading. The front's arch at s 9.7-11.9 (centre 10.8, span 2.2), the furthest east the front's 4.5 m allows; Taylor's x 745-780 px reads 10.5-12.95. The east end mirrors the west (reconstructed)."
+          "note": "T-3160, through the Detroit print's solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json): the arcade on the 18th Street flank (x 598-685 px) is a one-storey block standing out from the flank, not arches in its wall. Its west end is seen nearly square to the camera (its round arch is as wide as it is high, about 15 px a metre either way), its south front edge-on past the corner pier (about 5 px a metre along it). Its west face meets the flank at x 598 (u 21.4, s 6.35); the west arch's jambs at x 610 and 645 put it 0.81-3.18 m out (span 2.37 m), its crown at y 410 and springing at about 428 (6.0 and 4.85 m); the corner pier at x 645-668 and the south front's arch at x 668-678 put the front 4.27 m out and its arch at s 7.78-10.05 (span 2.27 m); the pier at x 678-685 ends where the tree and the building beyond take over (s 11.7). The entablature's soffit at y 402 (6.5 m), the balustrade's base at y 397 and its top at 389 (about 6.85 and 7.4 m). The block's east end is a bounded design: closed at s 11.48 by a corner pier the size of the west one, with an arch mirroring the west end's, so the carriage passes through (L-pullman-1729-porte-cochere-3160). The 1911 sheet draws the one-storey 'porte-cochere' (s20fp-1729-b1 p4) at u 15-20, 2-5.4 m out (s 7.75-12.75), 1.4 m east of and 1.1 m further out than the print's; the print, the nearer witness to what stood, governs the build, and the disagreement is written into the match record. T-3161, through Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json), which sees this block at 18-20 px a metre: its deck's balustrade turns its corner at x 730 px, rising to the left over the west end and falling to the right along the front, so the large arch (x 660-715, the side door seen through it) is in the WEST end and the narrower one (x 745-780, the flank's windows seen through it) in the south front. The west end meets the flank at x 625 (s 10.25) and its corner stands 5.45 m out; the west arch's jambs at 1.9 and 4.7 m out (built 1.85-4.6, the least corner pier the kit lays); the front's arch at s 11.25-13.7 (centre 12.48, span 2.46), and the front ends at x 800-805 (s 15.2-15.6, built 15.4). So the block stands at s 10.25-15.4, 5.45 m out, with walls 0.45 m thick; refitting the camera to honour the Detroit-built Prairie front's piers and lights (which this camera alone reads 2-4 m off) moves its west end only to s 9.6-9.7, so the reading stands against the camera's one weakness: 3.9 m east of and 1.2 m further out than the Detroit print's reading, which sees this face at 5-6 px a metre. The 1890 Albertype plate's arch stands 20-30 px east of the old build through its own camera, which is where this one puts it, and the 1911 sheet's outer line is 5.4 m out (its s 7.75-12.75 is 2.5 m west of this). The east end's arch is not seen (trees) and mirrors the west's (reconstructed). Heights: the crown reads 6.2 m (built 6.23 on the 4.85 m springing), the entablature's soffit 6.9 (built 6.85, was 6.5) and the deck's balustrade stands level with the second storey's sills over it, as built (its height 0.7 m, was 0.55, its top 7.9 m under the 8.3 m sills). T-1881: moved to the 1911 sheet's footprint, s 8.25-12.75 and 5.97 m out (u 15.0-19.5 to v 23.9), between Taylor's reading (s 10.25-15.4) and the Detroit print's (s 6.35-11.48), so it stands in front of the 18th Street pavilion (bays.p_18th) as both photographs show it. The west end's arch is read in Taylor at x 660-715 px, 3.5-5.8 m out on the s 8.25 plane; it is built 2.9-5.1 m out (centre 4.0, span 2.2), the outermost the kit lays with a 0.4 m pier inside the 0.45 m front wall, 0.5 m short of the reading. The front's arch at s 9.7-11.9 (centre 10.8, span 2.2), the furthest east the front's 4.5 m allows; Taylor's x 745-780 px reads 10.5-12.95. The east end mirrors the west (reconstructed). T-1881 (the owner, 2026-10-30, on the porte-cochere: \"this part of the pullman house would have been balanced not off centered lop sided like that, and there is more detail you need on it on the corners and arches\"): each arch centred on the face it shows. The block stands before the 18th Street pavilion (bays.p_18th, 2.47 m proud), so its ends begin at the pavilion's face (back_m 2.47) and each end's arch is centred on the 3.5 m it shows there, at 4.22 m out, and widened from 2.2 to 2.5 m (2.97-5.47; Taylor's no. 1445 reads 2.8 m, the Detroit print 2.37), leaving a 0.5 m pier either side, the walls taken from 0.45 to 0.4 m thick so the arch keeps 0.1 m of end wall inside the front's; it was at 4.0, centred on the passage behind it, which left the west end's face reading a 2.9 m blank pier against a 0.87 m corner. The front's arch is centred on the front at s 10.5 and widened from 2.2 to 2.4 m (9.3-11.7; Taylor reads 2.46 m, the Detroit print 2.27), 1.05 m of pier either side; it was at 10.8. Taylor's no. 1445 reads the front's arch at s 10.5-12.95 and the Detroit print at 7.78-10.05, so the centred arch stands between the two pictures' readings, The dressing is read off Taylor's no. 1445 (the large west arch at x 660-715 px, the narrower south one at x 745-780): banded piers from grade to the springing, a moulded impost at the springing and a ring of voussoirs round each head with a keystone at the crown; their courses (0.4 m with 0.1 m channels, as the pavilion's pilasters), the impost's 0.25 m and the ring's 0.3 m band and eleven voussoirs are this build's, the photograph showing them at 1-2 px a course (docs/LIBERTIES.md L-pullman-1729-porte-dressing-1881)."
         },
         "yard": {
           "value": {
