@@ -73,7 +73,7 @@
         "shrubs": 16,
         "trees": 3,
         "beds": 0,
-        "creeper": 23
+        "creeper": 22
       }
     ],
     "street_trees": 37,
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "847c3a15d3b1a9c4690b0bc4fdd9125c20a328db20c491b53019b9fbea7224b9"
+      "sha256": "e2042326390ad458b5ba7a53d364e1f8a3164690c7fec2270d283e374461eb89"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -122,7 +122,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "51ceebfcbf3aaa887cce350ac152c685d447cc4558e63a173c0b9c3566e67449"
+      "sha256": "21f7123cd8fba73122d5e1553a29a23bb154e103da950ed14b8e03dd9d928ed2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "ba73a83728fa954cca1558df5362bc52fe9d2b7f193cd7bd2d5d975a0eb5361d",
+  "flora_sha256": "f8a36754ac6015de8e09bf8c9864a9c2444f0417214dab086936889022d01d72",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -256,8 +256,9 @@
       "how": "T-1934 render with the scene's front yards, winter"
     },
     {
-      "what": "the clipped columns' foliage: the render draws each as an open stack of small leaf clumps about 8-10 px wide, where the print's four are dense dark cones 10-14 px wide; the renderer's sheared arborvitae (renderers/web/js/tree-model.js), the same habit as every sheared column in the district, not the plants' places or count [T-1934, 2026-10-31]",
-      "status": "open"
+      "what": "the clipped columns' foliage: the render draws each as an open stack of small leaf clumps about 8-10 px wide, where the print's four are dense dark cones 10-14 px wide; the renderer's sheared arborvitae (renderers/web/js/tree-model.js), the same habit as every sheared column in the district, not the plants' places or count [T-1934, 2026-10-31] [T-1934, 2026-10-31, fixed: the four are the `column` plant now (arborvitae clipped to a column, renderers/web/js/front-yards.js; tools/plant_prairie_1904_front_yards.py), grown on a 'spire' envelope, near its full width to about two fifths up and drawn in to a blunt point, where the yard's cone is widest at its hidden foot; and every sheared habit (the cone, the ball, the standard's head, the column) stands a solid body of its own clipped shape under its sprays (tree-model.js solidCore), with its sprays held to that face. From this eye, at the far level, the four render as dense dark columns 8-11 px across with blunt points (x 587-595, 609-617, 653-660, 664-669 at y 520), against the print's 10-14 px; their tone about 0.4 of the lit stone's beside them, against the print's 0.5. Within tolerance.]",
+      "status": "fixed",
+      "how": "T-1934 render, winter, the scene's front yards at the far level"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

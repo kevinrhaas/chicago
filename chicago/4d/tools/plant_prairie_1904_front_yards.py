@@ -197,7 +197,11 @@ PICTURED = {
                      # T-1934 (2026-10-31): Taylor's 16554, the winter print, shows this column on
                      # the terrace too, so it is planted in the terrace, not set out in a tub: tub_m 0,
                      # drawn in every Season. Its top stays the plate's reading.
-                     {"plant": "arborvitae", "e": 1463.17, "n": -3169.79, "on": "floor", "top_m": 4.17, "w": 0.45,
+                     # T-1934 (2026-10-31, the columns' shape): this and the three below are the
+                     # `column` plant, not the yard's cone: 16554 prints all four as dense dark
+                     # shapes 10-14 px across from the balustrade's top to near their points,
+                     # where the cone, widest at its hidden foot, drew them 6-8 px.
+                     {"plant": "column", "e": 1463.17, "n": -3169.79, "on": "floor", "top_m": 4.17, "w": 0.45,
                       "tub_m": 0.0, "read": "the slim column on the terrace against the drum's west side, behind "
                       "the balustrade (its foot hidden in both pictures): plate x 212-240 px, its top at y 697 px; "
                       "16555 x 322-332 px; crossed at 4.4 m west of the drum's centre and 2.3 m off the wing. "
@@ -210,15 +214,15 @@ PICTURED = {
                      # behind the house's porch in 16555 and off the plate's left edge, so it is
                      # stood the same 0.8 m off the wing as its fellow. Seen in both seasons, so
                      # planted in the terrace, never wintered in.
-                     {"plant": "arborvitae", "e": 1457.33, "n": -3168.4, "on": "floor", "top_m": 4.79, "w": 0.85,
+                     {"plant": "column", "e": 1457.33, "n": -3168.4, "on": "floor", "top_m": 4.79, "w": 0.85,
                       "tub_m": 0.0, "read": "the west column of the pair before the wing's arched windows: 16554 "
                       "x 588-600 px (0.85 m across at 83 m), its top at y 498 px; hidden in 16555 behind the house porch's pier "
                       "(x 185-230 px) where this place renders (x 212); stood 0.8 m off the wing's face"},
-                     {"plant": "arborvitae", "e": 1458.91, "n": -3168.16, "on": "floor", "top_m": 4.77, "w": 1.0,
+                     {"plant": "column", "e": 1458.91, "n": -3168.16, "on": "floor", "top_m": 4.77, "w": 1.0,
                       "tub_m": 0.0, "read": "the east column of the pair before the wing's arched windows: 16554 "
                       "x 607-621 px (1.0 m across at 84 m), its top at y 498 px; 16555 x 240-254 px, its top at y 557 px (5.3 m: "
                       "16554's 4.8 m kept); crossed 8.7 m west of the drum's centre and 0.6 m off the wing"},
-                     {"plant": "arborvitae", "e": 1463.24, "n": -3168.4, "on": "floor", "top_m": 5.02, "w": 0.7,
+                     {"plant": "column", "e": 1463.24, "n": -3168.4, "on": "floor", "top_m": 5.02, "w": 0.7,
                       "tub_m": 0.0, "read": "the column behind the slim one, against the wing by the drum's west "
                       "side: 16554 x 663-673 px, its top at y 493 px; 16555 x 332-342 px, the two columns "
                       "standing one behind the other there; crossed 4.35 m west of the drum's centre and "
@@ -308,6 +312,7 @@ PLANTS = {
     "hydrangea": {"name": "smooth hydrangea, in flower", "h": [0.9, 1.25], "w": [1.1, 1.5]},
     "rose": {"name": "garden rose, in flower", "h": [0.9, 1.3], "w": [0.8, 1.2]},
     "arborvitae": {"name": "American arborvitae, sheared to a cone", "h": [2.0, 3.2], "w": [0.9, 1.3]},
+    "column": {"name": "arborvitae clipped to a column", "h": [2.6, 3.8], "w": [0.45, 1.0]},
     "globe": {"name": "arborvitae sheared to a ball", "h": [0.8, 1.15], "w": [0.9, 1.25]},
     "standard": {"name": "evergreen clipped to a ball on a clear stem, in a tub", "h": [1.4, 2.6], "w": [1.1, 1.6]},
     "palm": {"name": "palm from the palm house, set out in its tub", "h": [1.4, 2.4], "w": [1.8, 2.6]},
