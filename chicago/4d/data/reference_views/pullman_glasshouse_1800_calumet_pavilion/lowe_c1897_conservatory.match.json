@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "7bc6e12c0e41b08556522671c3dc064c6872479c88ffea21336cb9d5ded40c48",
+  "glb_sha256": "3bb842930c94e55c2f85d8bfab527769ae5e8378fb55e7bdc1d2894fd30f271f",
   "camera_sha256": "f72dc5d5006a4cbd513abe0b1afc875d574b75a8fce011cb6e2fe1d1c19dff69",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "7bc6e12c0e41b08556522671c3dc064c6872479c88ffea21336cb9d5ded40c48"
+      "glb_sha256": "3bb842930c94e55c2f85d8bfab527769ae5e8378fb55e7bdc1d2894fd30f271f"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -99,10 +99,10 @@
         -1.0108724267342746
       ],
       "rotation_y": -1.5707963267948963,
-      "glb_sha256": "dc1c4e59b8e257d2fd34c2ce925c2ccaa837148bf255939c8ed6a5d3171257ae"
+      "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312"
     }
   ],
-  "group_sha256": "c9b949c5be612690b14c2826459caa8a2f97003c89bff081c334cd41999caad2",
+  "group_sha256": "b3e7ea414e13676ca64dcaaad66e0b3cb76cbae248699faf355edf6d78d0546b",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -165,7 +165,7 @@
   ],
   "flora_sha256": "55051c17929b8e33c78b9a9be512af2a013f54a97644d53db8c303b06cd80dc8",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the east range's eight windows glazed in small panes, a sunk panel under each, a sill course, a base course under the panels, a band over the heads and a cornice line under the coping; the windows narrower than built and set closer to the lodge, with a broad pier at the round end",
@@ -260,8 +260,8 @@
       "how": "the camera stands north-east of them; the sheet's glass roof is built low behind the parapet"
     },
     {
-      "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope",
-      "status": "open",
+      "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope [FIXED (T-3164, east face pass, 2026-10-31): the lodge's two-storey body behind its front now stands 1.6 m in from the east wall's line over a one-storey strip (5.5 m) under the east range's 6.15 m coping, and only the front 2.2 m keeps the east wall's line, so from this camera nothing of the lodge rises over the coping east of the bowed corner. Read on the 1894 plate at the corner: the render's east face and receding eave, which stood about 34 px east of the bowed corner (9.6 m of wall seen from 10.7 m east of its line), are gone; the roof's east edge now runs from the bowed eave up the hip to the deck as the plate's does, within about 10 px (0.4 m) once this camera's existing 19 px offset at the corner (wall corner x 930 rendered, 949 in the plate) is taken out, and the deck's east side recedes about 17 px behind it as the plate's dark block at x 1013-1050 does. Lowe's print reads the same within about 6 px at its scale. The east wall's short return at the corner no longer carries the draft's door and sash.]",
+      "status": "fixed",
       "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open. T-3164 (west part pass): re-read, and unchanged by it: setting the loggia block 2 m back moves the receding east eave by about 7 px, and both pictures still show sky over the range's coping where any depth over about 1.5 m would stand stone, so this stays open."
     },
     {
@@ -350,8 +350,8 @@
       "how": "T-3164, 2026-10-29: the lights' count, width and place match; the transom bar (about 0.05 m) and the head's curve over a 0.6 m light are under the T-3153 bar from the street, and drawing them would take the house past its triangle budget again; the transept's band is drawn with them"
     },
     {
-      "what": "the pale line along the far side of the lawn west of the drive (the plate's y 936-942 from x 320 to the drive at x 800; Lowe's y 586-590), a walk or the drive's turn toward Calumet Avenue in front of the planting, is not built: the drive is laid to u 16 and stops there, and both pictures put this line about 60 px under their horizons, where neither camera fixes its depth to better than a few metres",
-      "status": "open",
+      "what": "the pale line along the far side of the lawn west of the drive (the plate's y 936-942 from x 320 to the drive at x 800; Lowe's y 586-590), a walk or the drive's turn toward Calumet Avenue in front of the planting, is not built: the drive is laid to u 16 and stops there, and both pictures put this line about 60 px under their horizons, where neither camera fixes its depth to better than a few metres [FIXED (T-3164, 2026-10-31): built as the drive's turn toward Calumet Avenue (pullman_glasshouse_1800_calumet_pavilion grounds.gravel 'turn' and 'cross'): through the plate's camera the line's edges fall on the ground at u 23-31 (pavilion frame) from the drive's east edge at v 7.5 to the frame's edge at v 23, so a gravel band 4 m wide at u 25-29 runs from the drive to the Calumet line, with a wedge joining it to the drive's east edge clear of the pictured lilacs. It renders as a pale line along the lawn's far side from the frame's edge to the gate pier, 3-4 px nearer the horizon than the plate's (y 935-938 against 936-942): a pixel offset, since the review render stands the gravel 0.1 m over its common grade plane. In Lowe's print it falls 5-6 px under the range's foot as the print's does, Lowe's whole ground standing about 20 px high through its diagnostic camera. Its width and depth are reconstructed (L-pullman-grounds-1800-calumet-3164).]",
+      "status": "fixed",
       "how": "T-3164 (grounds pass, 2026-10-30): read, not built; it wants a nearer picture of the lawn's far side or a plan of the grounds."
     }
   ],
