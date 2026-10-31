@@ -3509,14 +3509,14 @@
       "phase_id": "restored_1904",
       "structure_id": "law_house_1620_prairie"
     },
-    "law_house_1620_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "law_house_1620_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 78564,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "9b1cfbcb71469c194dcaccc4f6fc291797d9c6ffe8c7fb4862fc871c28833a49",
+      "bytes": 123184,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "1159e2ad73b061f09e80fd05658bab5a51763ca63ed81c3ca1b9e2b27537007d",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "law_house_1620_prairie_coach_house"
     },
     "lee_house_1812__lee_1812.glb": {

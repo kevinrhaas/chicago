@@ -1,0 +1,26 @@
+{
+  "structure_id": "law_house_1620_prairie_coach_house",
+  "source_id": "land_owner_1874_05_homes_of_chicago_1620_law",
+  "library_image": "a16-cgy-landowner-1874-1620-law",
+  "photo": "../../sources/assets/law_1620_pictures_t2370/law_1620_landowner_1874.jpg",
+  "image_px": [
+    1136,
+    756
+  ],
+  "principal_px": [
+    568,
+    578
+  ],
+  "focal_px": 1498,
+  "eye": [
+    93.08,
+    20.06,
+    2.0
+  ],
+  "yaw_deg": -116.2,
+  "scene": "1904",
+  "also_render": [
+    "law_house_1620_prairie"
+  ],
+  "solve": "Not fitted afresh: the house's own camera on this engraving (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json, fitted by T-2370 on the K01 rectangle's 11.25 m front and 16.75 m north wall and its eye height re-solved by T-2437 on the street's lattice fence foot; f 1498 px, heading -116.2 degrees, principal point (568, 578) px, eye 2.0 m over the house's grade) carried into this record's frame by T-1932. The two 1904 sidecar placements (the house at local E 1366.874, N -3022.849; this building at E 1333.907, N -3015.175; both turned -0.579 degrees) put the house's origin at u 32.888, v -8.007 here, so the house's eye (60.19, 28.07, 2.0) is (93.08, 20.06, 2.0) in this frame. The two positions come from two different map fits (the house from Robinson 1886 plate 10 at 4.54 m RMS, this building from the 1911 sheet at 3.08 m RMS), so their offset is no better than those fits; no reading here moved either. The house is rendered beside it (scene 1904, also_render) because its rear corner hides this building left of x 848 px in the engraving and the render alike. Readings on this camera, taken on the yard (east) wall's plane, u 7.363: the engraving's rear building starts at the house's corner (x 848 px, v -3.9), its two-storey block ends at x 957 px (v 2.4), a lower board structure runs on to x about 1007 px (v 5.15); its eaves at y about 460 px (8.8 m over grade), its ridges about 433 px (10.3 m), its two chimney tops about 417-420 px (11.2 m), a horizontal rail across its boards at y 505 px (6.2 m) and upper windows from y 470 to 500 px (8.2 to 6.5 m). The engraving casts no shadow from the stable; the light is the house's view's default. Its ground is not drawn: the fences in front hide it below y about 545 px."
+}
