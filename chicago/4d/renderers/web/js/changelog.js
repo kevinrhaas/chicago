@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2494, ts: '2026-10-31T13:04:03.835Z', date: 'Oct 31, 2026, 8:04 AM CT', title: 'Clipped evergreens read as solid, dense shapes', kind: 'improvement',
+    items: [
+      'The four clipped columns on the Pullman palm house\'s terrace at 1729 Prairie are now dense dark spires, full almost to the top and drawn in to a blunt point, as Taylor\'s photographs show them.',
+      'Every clipped arborvitae, ball and standard in the 1904 front yards now has a solid body under its leaves, so you no longer see the wall or the stem through it, from near or far.',
+    ] },
   { v: 2493, ts: '2026-10-31T13:02:53.010Z', date: 'Oct 31, 2026, 8:02 AM CT', title: '1801 Prairie\'s slate roof behind its south gable', kind: 'improvement',
     items: [
       'Behind the Kimball house\'s carved south gable a steep slate roof now runs back into the main roof, its ridge just under the gable\'s top. Taylor\'s c. 1895 photograph and the 1965 survey photograph both show it.',
