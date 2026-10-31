@@ -37063,6 +37063,33 @@ the corner from the west or the south-east.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
 
+### L-k01-hibbard-1701-stoop-basement-3257 — 1701 Prairie's stoop drawn short and cheekless, and its basement lights cut through the stone basement, read off Chicagology's photograph
+
+**Decision:** T-3257 (piece 4 of T-1876) works the last two differences the front's match record held
+open (`data/reference_views/hibbard_house_1701_prairie/chicagology_front.match.json`), through the camera
+T-3240 solved (`chicagology_front.json`) on Chicagology's photograph (`chicagology_1701_hibbard_photo`).
+The stoop T-3256 stood before the entrance arch (a 1.1 m landing, a 0.3 m going and solid stone cheeks
+0.3 m over the nosings) showed over the fence in front of the corner porch's podium; it is drawn with a
+0.4 m landing, a 0.27 m going and no cheeks (`entrance_kit` `cheeks: false`), so it reads as the pale
+stone under the arch's mouth the photograph shows and the podium and its four roundels stand clear. The
+round-headed basement lights the photograph shows over the fence, a pair under the stone bay's pair and
+one under the lower south range's narrow south light, are cut through each projection's stone basement:
+K08's new `in_plinth` light (T-3257), the plinth's face cut round K06's round-headed basement light and
+its reveal carried back to the wall, the bay's plinth carried up to the water table at 2.0 m as the
+range's already was.
+**What is read, not invented.** That nothing of the stoop stands over the fence before the podium, and
+that the arch's dark mouth runs down to the principal floor with pale stone under it: an upper bound on
+the landing and on a cheek's height, from the sightline that crosses the stoop's north edge about 1.9 m
+before the front and 1.4 m up. The basement lights' places (one under each light over it) and their
+heads, about 1.75 m over grade (y about 1006-1012 px against the eye's horizon at 1023 px), each about as
+broad as the light over it.
+**What is invented.** The landing's 0.4 m and the 0.27 m going inside that bound; whether the flight had
+iron rails (the fence and a tree hide it; none are drawn); the arch's reveal and vestibule standing as
+the rest of the landing. The basement lights' sills (1.0 m), so their 0.75 m clear height, and their
+glazing: the fence hides their feet and whatever grilles they had. Their surround is the plinth's own
+plain stone.
+**How to resolve:** a nearer photograph of the entrance and its steps, or of the house's basement.
+**Recorded:** 2026-10-31 (T-3257).
 ### L-pullman-18th-street-wall-c1900-1934 — Pullman's 18th Street wall east of the stair's pier built as the c. 1900 picture shows it: one level coping, its later piers, urn and curved low walls withdrawn
 **Recorded:** 2026-10-31.
 

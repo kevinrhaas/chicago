@@ -2,11 +2,11 @@
   "structure_id": "hibbard_house_1701_prairie",
   "view": "chicagology_front",
   "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
-  "glb_sha256": "69c42f9f39ab9cefd34fc5ecee2e96428fb502e93157b1314a8ef8f0179f2e34",
+  "glb_sha256": "ac96640c4fd88e68936105ca0e42566af1e15f5fb63858e6605c7db6ce633e32",
   "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
   "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
   "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the main block's two brick storeys over a stone basement, its south-west corner and its south-east corner where the photograph has them",
@@ -95,8 +95,8 @@
     },
     {
       "what": "the round-headed basement lights showing over the fence under the bay's pair of lights and in the lower south range's south face, and the porch podium's roundels",
-      "status": "open",
-      "how": "T-3257 drew the porch podium's roundels, a stone ring round a dark sunk disc under each opening of the arcade (corner_porch.roundels); two render, the other two are behind the stoop from this camera (the stoop's difference). The basement lights under the bay's pair and the lower south range's light are still not built: a K08 storey cannot stack a second light under the first in one column, nor cut one below its plinth (the K08 bay kit's gate), so they wait on a basement storey in those faces"
+      "status": "fixed",
+      "how": "T-3257: the porch podium's four roundels (corner_porch.roundels) all render clear now that the stoop stands under them. The basement lights are K08's in_plinth lights, cut through each projection's stone basement: a pair under the bay's pair (its plinth carried to the water table at 2.0 m) and one under the lower south range's narrow south light, K06's round-headed basement light 0.6 m across on a 1.0 m sill; their heads render at y about 1010 px on the photograph's 1006-1012, each under the light over it. Their feet are behind the fence in both."
     },
     {
       "what": "the rear veranda's south end, seen past the south flank's rear corner",
@@ -115,8 +115,8 @@
     },
     {
       "what": "the stoop's flight: in the render it stands over the fence before the porch's podium, from about the middle of the porch to the arch, where the photograph shows the podium and two of its roundels clear and only pale stone under the arch's mouth",
-      "status": "open",
-      "how": "T-3257 left it: the stoop is T-3256's, 2.5 m wide and run straight out to the street from the 2.0 m floor; the photograph hides its lower steps behind the fence and shows none of it before the podium, so its flight there is shorter, narrower or turned. No ticket owns it; it waits in this record (AGENTS.md rule 11)"
+      "status": "fixed",
+      "how": "T-3257: the stoop's landing taken to 0.4 m, its going to 0.27 m, and its stone cheeks off (entrance_kit cheeks: false), so the flight stays under the sightline to the podium's roundels: it now shows only as pale stone under the arch's mouth, the steps' ends a stepped edge a riser (0.17 m) deep against the photograph's plain stone there, and the podium and all four roundels stand clear over the fence as the photograph shows them."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

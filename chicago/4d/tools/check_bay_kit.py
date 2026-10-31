@@ -140,6 +140,8 @@ def rule_data(v, data, b):
         if w.get("door") and k == 0:   # T-1890: a door runs through the plinth, its sill on the step
             floor = levels[0] - k06["parts"]["sill"]["height_m"]
         ceil = levels[k + 1] - (band["height_m"] / 2 if k + 1 < len(levels) - 1 else 0)
+        if w.get("in_plinth") and k == 0:   # T-3257: a basement light stands in the plinth itself
+            floor, ceil = levels[0], plinth["height_m"]
         if w["y_all"][0] < floor - EPS or w["y_all"][1] > ceil + EPS:
             fails.append(f"storey: {w['opening']} on storey {k} spans y {w['y_all'][0]:.3f}..{w['y_all'][1]:.3f}, "
                          f"outside its storey's clear wall {floor:.3f}..{ceil:.3f}")
