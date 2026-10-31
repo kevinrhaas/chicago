@@ -42,7 +42,7 @@
         2.4319498013560494
       ],
       "rotation_y": 3.1490277562032887,
-      "glb_sha256": "eaa753c79caa122be9b5f911358398cc24f55d7d85ba9dbb7b5c5747a95de271"
+      "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
     }
   ],
-  "group_sha256": "c687e9db68f1fa5269a2822d6513dd2a352be58a7fed17cee7b9cd59f9ddfb8b",
+  "group_sha256": "4780273e7e9d6f1eeb2b372140777212dd42397ccd58d1a2a5f6ae3caf2367b9",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "3c4d431c9ed729c6fb6c8422529483c9243cd7b94f1db70d88d88291a22dc273",
+  "flora_sha256": "06f3d5921eee0582c6a740f82e22b44e908adc8d2bb6e539c5c106cad624937a",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
