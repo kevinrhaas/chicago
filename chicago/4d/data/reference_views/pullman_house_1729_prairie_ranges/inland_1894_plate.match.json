@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "a1aa2f596ec93f197a004306c9a28c9e4fabd9ccf54b60a2100e202718d039a7"
+      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
     }
   ],
-  "group_sha256": "07a608fe7c0e44f38fb9f9055f6d0a390206f625cd54396b8fd54f55c72bc009",
+  "group_sha256": "c687e9db68f1fa5269a2822d6513dd2a352be58a7fed17cee7b9cd59f9ddfb8b",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -262,6 +262,11 @@
     {
       "what": "the corner bay against the arcade (T-1934, 2026-10-31): the plate shows the arcade's third arch whole and the bay's left edge about 17 px right of its end pier (x 1513 px); the bay's 1.0 m west return from v 12.6 had covered most of that arch (x 1429-1494), and its east end stopped at x 1779 where the plate's runs to x 1813. Re-planned (L-pullman-stable-bay-1934): the return now leaves the wall at v 12.95, 0.55 m proud, and the bay runs on to u -25.0; its leftmost edge renders at x 1483 and its east end at x 1817, the arch clear but for its pier's last few pixels. Its depth off the corner is not read (the plate and 16555 look from nearly the same bearing)",
       "status": "fixed"
+    },
+    {
+      "what": "the house's raised terrace at its south-east corner, its balustrade and its striped awning (pullman_house_1729_prairie, T-1881), where the build stood a one-storey brick block until now",
+      "status": "not shown",
+      "how": "T-1881 (2026-10-31): another structure, judged in the house's and the conservatory's records (taylor_16555_west_front, taylor_16554_from_south, inland_1894_plate); this record's verdict on the stable and range is unchanged"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

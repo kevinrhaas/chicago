@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2495, ts: '2026-10-31T13:31:09.463Z', date: 'Oct 31, 2026, 8:31 AM CT', title: 'Pullman\'s back corner gets its raised terrace and striped awning', kind: 'improvement',
+    items: [
+      'At the Pullman house\'s back corner on 18th Street, the plain brick box is gone. In its place is the raised stone terrace that Taylor\'s photographs show: a balustrade around it, an arched basement window below, and a green-and-white striped awning sloping down from the wall.',
+      'Its size and heights come from Taylor\'s summer photograph. His winter view shows the same balustrade with the awning taken down. The scene is set in July, so the awning is up.',
+    ] },
   { v: 2494, ts: '2026-10-31T13:04:03.835Z', date: 'Oct 31, 2026, 8:04 AM CT', title: 'Clipped evergreens read as solid, dense shapes', kind: 'improvement',
     items: [
       'The four clipped columns on the Pullman palm house\'s terrace at 1729 Prairie are now dense dark spires, full almost to the top and drawn in to a blunt point, as Taylor\'s photographs show them.',
