@@ -37008,3 +37008,16 @@ drawings.
 
 **Evidence since, 2026-10-31 (T-2375):** The two Dearborn approach crests now use a reconstructed **6.0 m half-width**, replacing their earlier4.0 m grid allowance. The source-supported sixteen-foot deck extends only in local positive-v; its widened end corner mixed a low shoulder/water vertex through the2.5 m bilinear grid and stood0.711 m above the south-bank surface,0.438 m above the north-bank surface. Widening the existing invented fill crest supports that full end edge. It does not change the mapped street/approach axes, bank/shoreline controls, bridge origin or bearing,76.33 m water gap,2.22 m end-deck elevation,1-in-12 grade,3 m overhang,0.06 ft seat, or the separately reconstructed centre-rise profile. Six metres is a numerical walk-access allowance, **not a historically documented road width**. The four valid numeric bridge Covers tokens remain unchanged; no new terrain Covers token is added here; fresh native field/mesh fit, full-end-edge measurements and actual walking checks must establish that the wider crossing lands safely.
 
+### L-school-narrow-front-2372 — a reconstructed reading of an unidentified school drawing
+
+**Covers:** `chappel_infant_school.log_1833.footprint`, `chappel_infant_school.log_1833.form.roof_pitch_deg`, `chappel_infant_school.log_1833.form.door_h_m`, `chappel_infant_school.log_1833.form.front_set_out`.
+
+**Decision:** Use the narrow log gable, high doorway and two flanking lights in the owner-approved drawing reproduced by the Digital Research Library of Illinois History Journal’s2018 Eliza Chappell article (`eliza_chappel_school_shore_view`) as an attributed design reference. Its original artist, publication, holding institution, building identity and depicted date remain unresolved. This does not identify the drawing as the school or Sauganash annex, place its people in July1835, or declare public-domain rights.
+
+**Reconstructed:** Choose a4.572m (15ft) front and8.778m hidden depth to retain approximately the former40.13m² two-room school/lodging area. The41° roof rises2.2045m above the retained2.50m eave including the250mm overhang. The retained1.20m-wide doorway is2.30m tall; the existing0.85m lights share its2.32m head and stand at0.95,2.47 and3.73m across the front. These are modelling values, not measured dimensions. An arithmetic origin compensation keeps the former doorway centre and front-wall line fixed; it supplies no new survey control.
+
+**Unknown:** Hidden rear fabric, partition, flue, paint and continued July1835 appearance remain reconstructed. The local illustration alignment does not recover a historic visitor position. The unresolved subject remains excluded from the whole-structure picture grade, which stays inferred. The small remaining apex/projection difference is within the visitor tolerance, rather than evidence for another dimension fit.
+
+**Recorded:** 2026-10-30 (T-2372).
+
+

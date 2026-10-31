@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 162877087,
+ "bytes": 162979806,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -4828,6 +4828,14 @@
   "early-dearborn-earle-1902.jpg": {
    "bytes": 346022,
    "sha256": "e4af254235c25c30bff97d51cdf29aceb6d762c5f8ff4de7268c650ecb78322f"
+  },
+  "early-eliza-chappel-school-shore-reference-thumb.jpg": {
+   "bytes": 18017,
+   "sha256": "dc7f62ba142f97337c26dc9f5ea38293fe277f3140a31926a5f3c31a8d91880d"
+  },
+  "early-eliza-chappel-school-shore-reference.jpg": {
+   "bytes": 84702,
+   "sha256": "1a63b75fea04e52cbdbbc5ffb2e85749cf648454970cb1bec0d8426a2cba61b9"
   },
   "early-gifford-first-tremont-thumb.jpg": {
    "bytes": 16397,
