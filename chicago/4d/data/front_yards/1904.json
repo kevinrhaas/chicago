@@ -153,12 +153,12 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 138,
+  "shrubs": 137,
   "trees": 14,
   "beds": 11,
   "creeper_patches": 24,
   "attested_plants": 25,
-  "lots_with_a_door": 110,
+  "lots_with_a_door": 111,
   "schemes": {
    "corners": 79,
    "group": 22,
@@ -5765,21 +5765,19 @@
     ],
     "width_m": 30.56
    },
-   "front_m": 8.52,
-   "doors": [],
+   "front_m": 3.2,
+   "doors": [
+    [
+     9.98,
+     9.66
+    ]
+   ],
    "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
-     1422.18,
-     -3416.34,
-     "arborvitae",
-     2.83,
-     1.2
-    ],
-    [
-     1422.93,
-     -3433.59,
+     1420.18,
+     -3419.34,
      "lilac",
      2.92,
      2.38
