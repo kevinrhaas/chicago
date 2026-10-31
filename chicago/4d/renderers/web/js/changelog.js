@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2491, ts: '2026-10-31T11:20:53.436Z', date: 'Oct 31, 2026, 6:20 AM CT', title: 'Pullman\'s palm house terrace keeps its four clipped columns all year', kind: 'improvement',
+    items: [
+      'Four slim clipped evergreens now stand on the palm house\'s terrace at 1729 Prairie: a pair before the wing\'s arched windows and two by the drum. Taylor\'s winter photograph shows all four, and his summer one shows three.',
+      'They are planted in the terrace, not set out in tubs, so they stay when you switch the Season to winter.',
+    ] },
+  { v: 2490, ts: '2026-10-31T11:20:53.436Z', date: 'Oct 31, 2026, 6:20 AM CT', title: 'Four early Chicago buildings follow their pictures', kind: 'improvement',
+    items: [
+      'Eliza Chappel’s former infant school has a narrower gable front, steeper roof, taller doorway and two small flanking windows.',
+      'The Dearborn Street drawbridge follows two historic drawings, with its timber profile and walkable deck connected to the riverbanks.',
+      'Beaubien’s homestead has the pictured two-storey main house, low front wing, two stacks and right-gable light.',
+      'Carpenter’s log shop has a lower roof, its chimney near the free end and timber courses on the exposed gable.',
+    ] },
   { v: 2489, ts: '2026-10-31T10:17:09.872Z', date: 'Oct 31, 2026, 5:17 AM CT', title: 'Pullman\'s Prairie front steps back in three, as the photographs show', kind: 'improvement',
     items: [
       'The Pullman house\'s Prairie Avenue front now steps back three times from its north end: the portico block, then a narrow banded step under its own slate roof, then the wall running to the 18th Street corner.',
