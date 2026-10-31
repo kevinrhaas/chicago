@@ -543,7 +543,7 @@
           "variant": "k08.bay.bowed",
           "wall": "k01.wall.side.north",
           "s_m": 12.0,
-          "fabric": "brick",
+          "fabric": "stone",
           "plan": {
             "kind": "bow",
             "chord_m": 8.4,
@@ -564,28 +564,11 @@
                   "why_not_ordinary": "the conservatory's basement lights on its stone base, as the front's under the principal windows"
                 }
               ]
-            },
-            {
-              "height_m": 5.2,
-              "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 1.0,
-                  "clear_height_m": 3.6,
-                  "sill_m": 0.6,
-                  "at_deg": [
-                    -30,
-                    0,
-                    30
-                  ],
-                  "why_not_ordinary": "the plate's conservatory: a ring of tall glazed lights round the bow on its stone base, about 3.6 m high"
-                }
-              ]
             }
           ],
           "roof": {
             "kind": "cone",
-            "pitch": 0.05,
+            "pitch": 0.0,
             "covering": "tin_flat_seam_painted"
           },
           "plinth_m": 0.1
@@ -596,7 +579,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "The south flank's conservatory: the 1911 sheet's bulge off the south wall between about 7 and 16 m behind the front, 'Greenhouse' written at the front's bay, and the plate's curved glasshouse on a stone base with a balcony over it, at x 955-1180 px. Built as K08's bowed bay a storey high over the basement: 8.4 m on its chord and 2.7 m out (the sheet's bulge reaches about 3.6 m off the wall; K08 holds a bow's facets to its radius), three tall lights round it, as the kit spaces a bow's lights (the plate's ring of glazing is continuous: open for T-3261). Its curved glass roof and the balcony's railing are not the kit's (a flat tin cone stands for the roof) and are open differences for T-3261."
+      "note": "The south flank's conservatory: the 1911 sheet's bulge off the south wall between about 7 and 16 m behind the front, 'Greenhouse' written at the front's bay, and the plate's curved glasshouse on a stone base with a balcony over it, at x 955-1180 px. Built as K08's bowed bay over the basement: 8.4 m on its chord and 2.7 m out (the sheet's bulge reaches about 3.6 m off the wall; K08 holds a bow's facets to its radius). T-1905: the bow is the glasshouse's stone base only, a storey high in the house's stone with its basement light, decked flat at 2.4 m over grade; the glass that stands on it, a ring of tall lights under a curved glass roof, is its own record on the K13 kit (data/structures/marshall_field_house_1905_prairie_conservatory.json, L-field-1905-conservatory-1905). The balcony's railing on its roof is still open on the plate's match record."
     },
     "cant_corner": {
       "value": {

@@ -37164,3 +37164,30 @@ residuals), a picture of the wall between 1894 and 1904 that dates the rebuildin
 CHM i70232 (1905-1906) showing the wall at the court's mouth.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with the estate's six match records.
+
+### L-field-1905-conservatory-1905 — 1905 Prairie's conservatory stood as glass on the house's stone bow, off the 1893 Pictorial Chicago plate
+
+**Decision:** T-1905 builds the conservatory on the Field house's south flank as the 1893 plate
+(`rand_mcnally_pictorial_chicago_1893_field`) shows it through the camera T-3260 solved
+(`data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json`): a ring of tall
+glazed lights on fine bars, standing on a stone sill over the house's stone basement, under a glass roof
+that curves up from their head to the house's wall. Until now the house record's K08 bow stood for it, a
+storey of brick with three sashes under a flat tin cone. The bow now stops at the basement, in stone,
+and the glass is its own record (`marshall_field_house_1905_prairie_conservatory`), the K13 kit's
+segmental bay standing against the house's own wall on the bow's top. K13 learned, additively, to size a
+segmental bay as a segment (`chord_m`, `rise_m`) rather than a half circle, a `curved` roof (the
+kit's quarter-ellipse on every hip), a stone plinth (`plinth_fabric`), a lift onto a base (`base_m`),
+and a host wall that is another record's (`host_wall.structure`); every other K13 asset is the same bytes.
+**What is read, not invented.** The glass ring on its stone sill, the glass roof's curve and ribs, the
+bow's plan on the sheet's bulge ('Greenhouse', sheet 28), and the heights through the camera: the glass's
+head about 5.4 m over grade, the roof meeting the wall about 6.8 m, each within about 0.3 m.
+**What is a working figure.** Its plan stays the house record's bow, 8.4 m on its chord and 2.7 m out,
+where the sheet's bulge reaches about 3.6 m. The lights are six facets of two, ribs 0.88 m apart with the
+kit's glazing bars between, where the plate's lights are about 0.6 m: the kit's finest division that
+keeps every roof pane at least 0.2 m wide on the curve's last step. The curve is cut in four steps.
+The frame's white paint, the glass's colour, the staging inside and the gutter with its two pipes at the
+wall are the kit's (L-k13-conservatory-kit-2305).
+**What is still not built.** The transom across the lights, the iron balcony on the roof's deck at the
+chamber floor, and the dark tone the plate gives the bars. All stay open on the match record.
+**How to resolve:** the Daily News view's camera (DN-0003324), which sees the south flank nearer 1904.
+**Recorded:** 2026-10-31 (T-1905).

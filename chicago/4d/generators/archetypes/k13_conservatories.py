@@ -78,6 +78,7 @@ ROLE_MATERIAL = {
     "sky_glass": "glass_sky", "sash": "sash", "interior": "interior_shade",
     "stone_field": "stone_rough",
     "gravel": "gravel",
+    "plinth_stone": "stone",
 }
 BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
@@ -370,32 +371,70 @@ def form_segmental_bay(v, data):
     `radius_m` against the house wall, under a half-cone of glass triangles whose hips
     all run to one apex on the wall at `wall_top_m`. The Pullman wing's bay is drawn as
     a semicircle on the 1911 sheet; this is the kit's way of building one in planar glass."""
-    R, n, he, hw = v["radius_m"], v["facets"], v["eave_m"], v["wall_top_m"]
+    n, he, hw = v["facets"], v["eave_m"], v["wall_top_m"]
+    roof = v.get("roof", "cone")
     if n < 3:
         raise ValueError(f"{v['id']}: a segmental bay needs at least 3 facets, not {n}")
-    if hw <= he and v.get("roof", "cone") == "cone":
+    if roof not in ("cone", "flat", "curved"):
+        raise ValueError(f"{v['id']}: a segmental bay's roof is a cone, flat or curved, not {roof!r}")
+    if hw <= he and roof != "flat":
         raise ValueError(f"{v['id']}: wall_top_m {hw} does not rise above eave_m {he}")
-    ring = [(R * math.cos(math.pi * k / n), R * math.sin(math.pi * k / n)) for k in range(n + 1)]
-    ring[0], ring[-1] = (R, 0.0), (-R, 0.0)       # exactly on the wall
+    if "rise_m" in v:
+        # T-1905: a SEGMENT of a circle rather than its half: the bay meets the wall at
+        # +-chord_m/2 and stands rise_m out at its middle, its facets inscribed in that arc
+        # (1905 Prairie's conservatory, on the K08 bow its stone base is built on)
+        if "radius_m" in v:
+            raise ValueError(f"{v['id']}: a segmental bay is sized by radius_m (a half circle) or by "
+                             f"chord_m and rise_m (a segment), not both")
+        h, rise = v["chord_m"] / 2, v["rise_m"]
+        if not 0.0 < rise <= h:
+            raise ValueError(f"{v['id']}: a segment rises more than nothing and at most half its chord, not {rise}")
+        Rc = (h * h + rise * rise) / (2 * rise)
+        cz, half = rise - Rc, math.asin(h / Rc)
+        ring = [(Rc * math.sin(half - 2 * half * k / n), cz + Rc * math.cos(half - 2 * half * k / n))
+                for k in range(n + 1)]
+        ring[0], ring[-1] = (h, 0.0), (-h, 0.0)   # exactly on the wall
+        R = h
+    else:
+        R = v["radius_m"]
+        ring = [(R * math.cos(math.pi * k / n), R * math.sin(math.pi * k / n)) for k in range(n + 1)]
+        ring[0], ring[-1] = (R, 0.0), (-R, 0.0)       # exactly on the wall
     apex = (0.0, hw, 0.0)
     b = v["bays"]
     P = []
+    # T-1905: a curved roof bows each hip of the half cone on the kit's quarter-ellipse (data
+    # `curve`, the curvilinear lean-to's): it leaves the upright glass tangent to it and meets
+    # the wall level at wall_top_m, every facet cut in horizontal strips that stay planar
+    m = int(v.get("curve_facets", data["curve"]["facets"]))   # a variant may cut its curve coarser
+    cv = ([(math.cos(math.pi / 2 * j / m), he + (hw - he) * math.sin(math.pi / 2 * j / m)) for j in range(m + 1)]
+          if roof == "curved" else [])
     for k in range(n):
         (x0, z0), (x1, z1) = ring[k], ring[k + 1]
         hint = ((x0 + x1) / 2, 0.0, (z0 + z1) / 2)
         P.append(Panel(f"facet_{k}", [(x0, 0, z0), (x1, 0, z1), (x1, he, z1), (x0, he, z0)], hint,
                        plinth=True, bays=b))
-        if v.get("roof", "cone") == "cone":
+        if roof == "cone":
             P.append(Panel(f"roof_{k}", [(x0, he, z0), (x1, he, z1), apex], (hint[0], 1.0, hint[2]), bays=b))
+        for j in range(len(cv) - 1):
+            (f0, y0), (f1, y1) = cv[j], cv[j + 1]
+            lo = [(x0 * f0, y0, z0 * f0), (x1 * f0, y0, z1 * f0)]
+            hi = [apex] if j == len(cv) - 2 else [(x1 * f1, y1, z1 * f1), (x0 * f1, y1, z0 * f1)]
+            P.append(Panel(f"roof_{k}_{j}", lo + hi, (hint[0], 1.0, hint[2]), bays=b))
     plan_pts = list(reversed(ring))                # left to right along the wall, as the canted bay's
     # the staging runs on the chord of the first and last facets, stood out toward the glass
-    xb, zb = R * math.cos(math.pi / n), R * math.sin(math.pi / n) + v.get("bench_out_m", 0.0)
+    if "rise_m" in v:
+        # a segment is too shallow for a bench on its end facets' chord: it runs along the
+        # house wall, bench_out_m off it, between the second facets' feet, facing the glass
+        xb, zb = ring[2][0], v.get("bench_out_m", 0.0)
+    else:
+        xb, zb = R * math.cos(math.pi / n), R * math.sin(math.pi / n) + v.get("bench_out_m", 0.0)
+    deep = v["rise_m"] if "rise_m" in v else R
     return {
         "panels": P, "host": True, "closed": False,
         "plan": plan_pts,
         "eaves": {"front": [(x, he, z) for x, z in plan_pts]},
         "ridges": [], "benches": [("front", (-xb, zb), (xb, zb))], "border": None,
-        "eave_m": he, "top_m": hw, "centre": (0.0, hw / 2, R / 2),
+        "eave_m": he, "top_m": hw, "centre": (0.0, hw / 2, deep / 2),
     }
 
 
@@ -1009,7 +1048,9 @@ class House:
             if closed_loop:
                 m = mitre(seg_o[-1], seg_o[0])
                 frames[0] = frames[-1] = m
-            self._sweep(["plinth", "coping", "coping", "coping", "coping", "coping", "plinth"], pts,
+            # T-1905: a plinth of the house's stone, where the glass stands on a stone base
+            pr = "plinth_stone" if self.v.get("plinth_fabric") == "stone" else "plinth"
+            self._sweep([pr, "coping", "coping", "coping", "coping", "coping", pr], pts,
                         [(f, Y) for f in frames], seg_o, prof, edges)
             for end, sgn in ((0, -1.0), (len(pts) - 1, 1.0)):
                 if closed_loop:
@@ -1018,7 +1059,7 @@ class House:
                     continue
                 t = _unit(_sub(pts[1], pts[0])) if end == 0 else _unit(_sub(pts[-1], pts[-2]))
                 fr = frames[end]
-                for poly, role in zip(caps, ("plinth", "coping")):
+                for poly, role in zip(caps, (pr, "coping")):
                     self.face(role, [_add(pts[end], _add(_mul(fr, a_), _mul(Y, b_))) for a_, b_ in poly],
                               _mul(t, sgn))
             for i in range(len(pts) - 1):
@@ -2484,7 +2525,9 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
     data = data or load()
     form = phase["form"]
     h = House(form["conservatory"]["value"], data).build()
-    if h.form["host"]:
+    # T-1905: a host wall that is another record's own (`structure`) is that building's, so
+    # nothing is built for it: 1905 Prairie's conservatory stands against the house's south wall
+    if h.form["host"] and "structure" not in form["host_wall"]["value"]:
         host_wing(h, form["host_wall"]["value"])
         host_dress(h, form["host_wall"]["value"])
     if form["conservatory"]["value"].get("stonework"):
@@ -2501,14 +2544,19 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
 
 def structure_glb(h: House, data: dict, structure_id: str, phase_id: str, scene_ids) -> bytes:
     name = f"{structure_id}__{phase_id}"
+    # T-1905: a house standing on a base (`base_m`, 1905 Prairie's on its stone bow) is built
+    # and gated in its own frame and lifted only as it is written, so its plinth, glass and
+    # pipes are measured from the ground they stand on, the base's top
+    lift = float(h.v.get("base_m", 0.0))
     return to_glb([h], data, host_color=(h.meta.get("host") or {}).get("color"), stone_color=h.meta.get("stone_color"),
                   node_name=name, node_extras={
-        "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids)},
-        extras={"ticket": "T-2306", "structure": f"data/structures/{structure_id}.json"})
+        "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids),
+        **({"base_m": lift} if lift else {})},
+        extras={"ticket": "T-2306", "structure": f"data/structures/{structure_id}.json"}, lift=lift)
 
 
 def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extras: dict | None = None,
-           extras: dict | None = None, host_color=None, stone_color=None) -> bytes:
+           extras: dict | None = None, host_color=None, stone_color=None, lift: float = 0.0) -> bytes:
     mats = materials(data)
     if node_extras:     # a structure in the scene carries only the materials it draws (T-2306)
         used = {ROLE_MATERIAL[r] for h in kit for r, pr in h.prims.items() if pr.idx}
@@ -2561,7 +2609,8 @@ def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extr
             pos, nrm, uv, conf, idx = [], [], [], [], []
             for pr in by_mat[name]:
                 base = len(pos)
-                pos += [tuple(round(c, 5) for c in q) for q in pr.pos]
+                pos += ([tuple(round(c, 5) for c in q) for q in pr.pos] if not lift
+                        else [(round(q[0], 5), round(q[1] + lift, 5), round(q[2], 5)) for q in pr.pos])
                 nrm += pr.nrm
                 uv += pr.uv
                 conf += pr.conf
