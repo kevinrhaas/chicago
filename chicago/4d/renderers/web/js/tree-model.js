@@ -47,7 +47,7 @@ const PRAIRIE_SIDES = { near: [5, 4, 3, 0] };
  * Chicago lake plain would carry it. Every number is a reconstruction bounded
  * by the species' ordinary habit; none is a measurement of a tree that stood.
  *
- *   crown     envelope: 'oval' | 'vase' | 'spread' | 'round' | 'column' | 'cone' | 'irregular'
+ *   crown     envelope: 'oval' | 'vase' | 'spread' | 'round' | 'column' | 'cone' | 'spire' | 'irregular'
  *   crownBase where the crown begins, as a fraction of height (the clear bole)
  *   fork      'decurrent' (the trunk breaks into scaffolds) | 'excurrent' (a
  *             leader runs to the top and carries laterals)
@@ -65,6 +65,8 @@ const PRAIRIE_SIDES = { near: [5, 4, 3, 0] };
  *             its floor in metres, 0.7 unless the species says)
  *   density   clumps per metre of terminal branch
  *   leaf      the leaf-atlas family; bark the bark tile
+ *   core      a SHEARED plant's solid body under its sprays, as a share of the crown's
+ *             envelope (T-1934; the arborvitae cone, ball and standard): see solidCore
  */
 export const ARCH = {
   populus_deltoides: {
@@ -406,13 +408,23 @@ export const ARCH = {
     crown: 'cone', crownBase: 0.02, fork: 'excurrent', stems: [1, 1], scaffolds: [30, 40],
     limbAngle: 62, rise: 0.10, twist: 0.20, order2: [3, 40], order3: [0, 0], droop: 0.0,
     clump: 0.26, clumpMin: 0.18, density: 2.0, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
-    farBins: [3, 2], shellK: 22,
+    farBins: [3, 2], shellK: 22, core: 0.8,
+  },
+  // T-1934: arborvitae clipped to a column, as the Pullman palm house's terrace grows four
+  // in Taylor's 16554 (and three in 16555): a dense dark shape near its full width up to about
+  // two fifths of its height, then tapering to a blunt point, where the yard's cone is widest
+  // at its foot. The same plant as the cone, sheared to another shape.
+  thuja_column: {
+    crown: 'spire', crownBase: 0.02, fork: 'excurrent', stems: [1, 1], scaffolds: [30, 40],
+    limbAngle: 62, rise: 0.10, twist: 0.20, order2: [3, 40], order3: [0, 0], droop: 0.0,
+    clump: 0.26, clumpMin: 0.18, density: 2.0, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
+    farBins: [3, 2], shellK: 22, core: 0.8,
   },
   thuja_globe: {
     crown: 'round', crownBase: 0.03, fork: 'decurrent', stems: [5, 8], scaffolds: [0, 0],
     stemSplay: 30, limbAngle: 30, rise: 0.04, twist: 0.20, order2: [4, 44], order3: [0, 0], droop: 0.0,
     clump: 0.26, clumpMin: 0.15, density: 1.8, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
-    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.6,
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.6, core: 0.8,
   },
   // T-1934: an evergreen sheared to a ball on one clear stem, the tubbed standard of the
   // Pullman palm house's terrace in the 1894 Inland plate: the stem bare to about half the
@@ -421,7 +433,7 @@ export const ARCH = {
     crown: 'round', crownBase: 0.42, fork: 'decurrent', stems: [1, 1], scaffolds: [6, 8],
     limbAngle: 38, rise: 0.04, twist: 0.15, order2: [4, 44], order3: [0, 0], droop: 0.0,
     clump: 0.26, clumpMin: 0.15, density: 1.9, gaps: 0.02, leaf: 'scale', bark: 'smooth',
-    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5,
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5, core: 0.8,
   },
   // T-1934: a palm house's palm set out in its tub for the summer, as Taylor's 16555 shows
   // one on the Pullman terrace before the drum: a short stout stem and a head of long
@@ -589,6 +601,9 @@ function envelopeRadius(shape, t) {
     case 'spread': return Math.pow(Math.sin(Math.PI * (0.10 + t * 0.85)), 0.55);
     case 'column': return Math.pow(Math.sin(Math.PI * (0.04 + t * 0.94)), 0.8);
     case 'cone': return Math.pow(1 - t, 0.85);
+    // T-1934: arborvitae clipped to a column: near its full width from a little over the
+    // foot to about two fifths up, then drawn in to a blunt point (Taylor's 16554).
+    case 'spire': return Math.pow(Math.min(1, (1 - t) / 0.6), 0.75) * (0.8 + 0.2 * Math.min(1, t / 0.2));
     case 'round': return Math.pow(Math.sin(Math.PI * (0.03 + t * 0.95)), 0.6);
     case 'irregular': return Math.pow(Math.sin(Math.PI * (0.06 + t * 0.92)), 0.62);
     default: return Math.pow(Math.sin(Math.PI * (0.02 + t * 0.96)), 0.75);
@@ -1044,6 +1059,11 @@ const BLOOM_SHAPES = {
 /** The pale bark texel a solid bloom is drawn off is about this dark (linear), so its
  *  vertex colour is lifted by this much to come back to the flower's. */
 const BLOOM_FLAT_GAIN = 2.6;
+/** T-1934 — a sheared plant's solid body (solidCore): [sides, rings] at each level. The far
+ *  level is the one that needs it most: there a sheared column is a handful of binned cards
+ *  with its stem showing between them (the Pullman terrace's four, from Taylor's eye over
+ *  70 m off). A `distant` shrub is not drawn at all. */
+const CORE_SEGS = { near: [8, 8], mid: [6, 5], far: [5, 4] };
 
 // `distant` (T-2808): the trunk alone, three-sided, under a crown of a few masses.
 const SIDES = { near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0], distant: [3, 0, 0, 0] };
@@ -1116,6 +1136,49 @@ function tube(buf, b, sides, barkTile, tint, flexOf) {
 
 /** T-3223: a solid bloom, a small low sphere squashed by `sy`, drawn with the wood off one
  *  flat texel of the smooth bark tile. */
+/**
+ * T-1934 — A SHEARED PLANT'S BODY. Clipped arborvitae is a solid mass of scale leaf: the
+ * shears leave no sky through it, and from the street it reads as one dense dark shape.
+ * Grown as sprays alone it read as an open stack of small clumps with the stem showing
+ * between them (Taylor's 16554, where the Pullman palm house terrace's four clipped columns
+ * print as dense dark cones 10-14 px wide and the render drew them 8-10 px of scattered
+ * clumps). So the habit's `core` stands a closed body of the crown's own envelope, `k` of its
+ * radius, under the shell's sprays: the sprays still make the edge, and what shows between
+ * them is the plant's own shaded interior instead of the wall behind it. It is drawn with the
+ * wood (opaque, no cut-out) off the same flat bark texel as a solid bloom, so its vertex
+ * colour is its own, and it sways with the leaf at its height. Closed at its foot and apex.
+ */
+function solidCore(buf, sk, k, colour, [seg, rings], flexAt) {
+  const uv = atlasUV(BARK_GRID, BARK_TILES.smooth, 0.5, 0.5);
+  const base = buf.count;
+  const y0 = sk.baseY + sk.crownH * 0.02;
+  const y1 = sk.baseY + sk.crownH * 0.97;
+  const step = (y1 - y0) / rings;
+  const rAt = (y, ph) => sk.envR([sk.off[0] + Math.cos(ph), y, sk.off[2] + Math.sin(ph)]) * k;
+  // Top ring first, as blob() turns its rings, so the faces wind the same way.
+  for (let j = 0; j <= rings; j++) {
+    const y = y1 - step * j;
+    const up = clamp01((y - sk.baseY) / sk.crownH);
+    for (let i = 0; i <= seg; i++) {
+      const ph = (i / seg) * Math.PI * 2;
+      const end = j === 0 || j === rings;
+      const r = end ? 0 : rAt(y, ph);
+      const dr = (rAt(Math.min(y1, y + step * 0.5), ph) - rAt(Math.max(y0, y - step * 0.5), ph)) / step;
+      const n = j === 0 ? [0, 1, 0] : j === rings ? [0, -1, 0] : norm([Math.cos(ph), -dr, Math.sin(ph)]);
+      const shade = 0.82 + 0.18 * up;
+      buf.vert([sk.off[0] + Math.cos(ph) * r, y, sk.off[2] + Math.sin(ph) * r], n, mul(colour, shade), uv, flexAt(up));
+    }
+  }
+  for (let j = 0; j < rings; j++) {
+    for (let i = 0; i < seg; i++) {
+      const a = base + j * (seg + 1) + i;
+      const b = a + seg + 1;
+      buf.tri(a, a + 1, b);
+      buf.tri(a + 1, b + 1, b);
+    }
+  }
+}
+
 function blob(buf, at, r, sy, colour, [seg, rings], flex) {
   const uv = atlasUV(BARK_GRID, BARK_TILES.smooth, 0.5, 0.5);
   const base = buf.count;
@@ -1342,13 +1405,15 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
       // An elm's leaf is all at its crown's rim, where that cap would shrink every
       // mass to a scrap: its masses are held to the crown's reach instead.
       const room = sk.elm ? sk.R * 0.9 : Math.max(sk.R * 0.35, (sk.R * 1.1 - Math.hypot(at[0], at[2])) / 0.6);
-      const size = Math.min(want, room);
+      // T-1934: a sheared plant's masses are its body's texture, not its outline: held to
+      // its own clipped face, so no spray stands out of the shape the shears left.
+      const size = arch.core ? Math.min(want, room, sk.R * 0.7) : Math.min(want, room);
       // One card per mass, grown outward from the crown so it faces whoever is
       // looking at that side, set back by a third of its length so the mass is
       // centred on its bin, not hung outside it. The cap's card lies up.
       const d1 = norm(add(outward, [0, 0.35, 0]));
       card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
-      if (size < want * 0.7) card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
+      if (size < want * 0.7 && !arch.core) card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
     }
   } else {
     // Near: every clump as two sprays. Mid: every other clump as one card, a
@@ -1363,18 +1428,30 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
       }
       if (lod === 'mid' && (alt++ & 1)) continue;
       const { outward, colour, flex } = shade(c.at);
+      // T-1934: a sheared plant's sprays are smaller, so they stay on its clipped face
+      // over its body (solidCore) and do not make it shaggy.
+      const ks = arch.core ? 0.65 : 1;
       if (lod === 'mid') {
         // Turned to face out of the crown, near square, so a card this size
         // reads as a spray from the street, not a blade seen edge-on.
         const facing = norm(add(outward, mul(randUnit(lrnd), 0.35)));
-        card(leaves, c.at, c.dir, c.r * 2.2 * leafScale, clumpTile, colour, outward, flex, lrnd, facing);
+        card(leaves, c.at, c.dir, c.r * 2.2 * leafScale * ks, clumpTile, colour, outward, flex, lrnd, facing);
       } else {
         for (let i = 0; i < 2; i++) {
-          const jit = mul(randUnit(lrnd), c.r * 0.55);
-          card(leaves, add(c.at, jit), c.dir, c.r * 1.5 * leafScale, i === 0 ? clumpTile : sunTile, colour, outward, flex, lrnd);
+          const jit = mul(randUnit(lrnd), c.r * 0.55 * ks);
+          card(leaves, add(c.at, jit), c.dir, c.r * 1.5 * leafScale * ks, i === 0 ? clumpTile : sunTile, colour, outward, flex, lrnd);
         }
       }
     }
+  }
+  // T-1934: a sheared plant's body under its sprays (solidCore), at the near, mid and far
+  // levels, so the gaps between them show its shaded interior and not what is behind it.
+  const coreSegs = CORE_SEGS[lod];
+  if (arch.core && clumps.length && coreSegs) {
+    // Its leaf's own colour a little into the shade: Taylor's 16554 prints the terrace's
+    // columns at about half the lit stone's value behind them.
+    const cc = dark.map((v, j) => lerp(v, light[j], 0.5) * 1.3 * BLOOM_FLAT_GAIN);
+    solidCore(wood, sk, arch.core, cc, coreSegs, (up) => 0.45 + 0.4 * up);
   }
   // T-2784 — A PRAIRIE SHRUB IN FLOWER (`bloom`, its record's July
   // inflorescence: the rose's pink, New Jersey tea's and meadowsweet's white,
