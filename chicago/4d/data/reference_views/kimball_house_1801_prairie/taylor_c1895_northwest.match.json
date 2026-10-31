@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b69c2fc1e6b6f1ecf004af183e5bf6d5915154541ffbfbe9cc7272dc13f8ec15",
+  "glb_sha256": "b5c8ab53d39024856db570c49dd2027dbcd2b0b8f5b1cb0594c7d2f12d5507fe",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -281,6 +281,11 @@
       "what": "the south pavilion's cross roof (T-1890, read off this print through T-3074's camera): behind the coped gable a slated roof runs back, its ridge from just under the gable's apex (about x 1250, y 287) to the finial where the front's cresting ends (about x 1097, y 352); carried onto the gable's middle (v 8.275) it is a level line at 16.26-16.38 m from u 20.1 back to u 15.97. The build stood the main mansard's front face, deck and cresting on to the south-west curb corner there, its finial about 95 px south of the print's",
       "status": "fixed",
       "how": "T-1890: K08's new roof behind a shallow pavilion's gable (bays.p_south roof.gable.behind: ridge 16.3 m, run back 4.5 m to u 16.0, slopes from the side walls' tops, slated cheeks, slated as the mansard) and the deck's cross_roof stop (k01_mansard_deck): the front's cresting stops at it and the south-west finial stands on its ridge's end, now within about 10 px of the print's; its ridge renders along the print's. L-kimball-1801-cross-roof-1890"
+    },
+    {
+      "what": "the cross roof's finial's top: the print's spike rises to about y 240-253 over the cross roof's ridge (x 1092, its tip faint against the sky); with the finial stood on the ridge's end the build's tip rendered at y 260, about 10-20 px low",
+      "status": "fixed",
+      "how": "T-1890: HABS photograph 1's slated hood now stands on the ridge's end under the finial (deck.cross_roof.hood), its apex 0.5 m over the ridge, so the tip renders at y 239, within about 10 px of the print's; the hood itself stands behind the ridge from this camera. L-kimball-1801-cross-hood-1890"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a1aa2f596ec93f197a004306c9a28c9e4fabd9ccf54b60a2100e202718d039a7",
+  "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -222,6 +222,11 @@
     {
       "what": "the owner's report, 2026-10-30: the Prairie front stepped back three times from the north side. Built (T-1881): a 1.95 m middle step 1.65 m out (v 8.45-10.4, the 1911 sheet's u 29.4 line) between the portico's forward block and the wall to the corner, banded under its own mansard section, so the print's banded face south of the portico block now stands as a step of its own",
       "status": "fixed"
+    },
+    {
+      "what": "the terrace's striped awning past the flank's east corner (the render's x 850-890, y 515-560), where this photograph shows the stable's front",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-10-31): two pictures disagree (T-3153): this photograph, the trees in young leaf, shows no awning; Taylor's no. 16555, in full summer leaf, shows it up over the terrace. The 1904 scene is in July, so it stands (L-k01-1729-pullman-terrace-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

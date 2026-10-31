@@ -1,0 +1,27 @@
+{
+ "id": "chicagology_1905_field_engraving",
+ "type": "illustration",
+ "citation": "'MARSHALL FIELD PRAIRIE AVE.' Engraving of the house from Prairie Avenue, publication not named (file '1893marshallfieldhouse'). Reproduced on chicagology.com, Prairie Avenue, 1905 S. Prairie.",
+ "author": "unknown engraver",
+ "date": "1893 (per the file name; publication not named)",
+ "describes_date": "by 1893",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a19-cgy-1905-field-1893-engraving, recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a19-cgy-1905-field-1893-engraving.jpg), committed since T-3271 at data/sources/assets/field_1905_pictures_t3271/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1905prairie/",
+ "locator": "The whole engraving: the street front from its north end, half hidden by a tree in leaf, the stoop, the canted south-west corner with a balcony at the chamber floor, the conservatory on the south flank under its curved roof with a railed deck, the mansard with dormers and iron cresting, the arched basement lights and the scroll-pattern iron fence along the walk.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's ruling: 'unknown - link only'). Forms, counts and places are read from it; nothing is derived from the image as an asset, and the copy committed for the image gate is the store's, unaltered.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-31 (T-3271) from the image store's reference copy, 1743 x 1843 px (sha256 fb24ea4c06c3265ac7bb9c2a6231a0b365f08d55e0131d0f410651fc0d01e03c).",
+ "note": "A drawing: its perspective is looser than a photograph's (its camera closes at about 20 px, a metre at the house), and a tree hides the front's middle. Its camera is solved in data/reference_views/marshall_field_house_1905_prairie/chicagology_engraving.json.",
+ "what_it_supplies": [
+  "the street front's north column and door, the stoop, the canted corner and its balcony, the conservatory's curved roof and railed deck, the arched basement lights, the scroll fence, by 1893"
+ ],
+ "what_it_does_not_supply": [
+  "colour",
+  "lengths: a drawing",
+  "the front's middle, hidden by a tree",
+  "the north flank and the rear"
+ ]
+}
