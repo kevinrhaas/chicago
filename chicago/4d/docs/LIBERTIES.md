@@ -37104,6 +37104,33 @@ conservatory.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-30 (T-3164).
 
+### L-pullman-conservatory-glazing-3273 — The Pullman conservatory's planted interior, its transept, drum and dome glazed in panes, and the drive's turn laid as one curve
+**Recorded:** 2026-10-31.
+
+**Decision:** the owner, 2026-10-31, on the conservatory at 1800 Calumet seen from the garden: "there
+looks like a black box inside the greenhouse ... the opaque glass is too white and there are no panes and
+no detail at the top or the sides", and the walk "abnormally white ... a sharp line avoiding trees"
+(T-3273). **Interior.** The shaded block standing for the planting (L-pullman-pavilion-front-3164) is
+replaced by a soil bed 0.4 m over the floor and six palms on slim trunks, 4.4 to 7.2 m, the tallest under
+the dome, each crowned with eleven arching fronds drawn on both faces. Lowe's print shows fronds behind
+the north front's glass; the species, number, heights and places are invented. **Glass.** The transept's
+ribs are set at 0.45 m, the spacing Lowe's print counts on its east arm, with a level bar at every joint of
+its section and across each hipped end; the dome takes a rib on each of 28 meridians and a bar at every
+ring; the drum a mullion at each angle, two between, and three rails. Both pictures show the glass in fine
+panes; the bars' sizes and the counts beyond the arm's are invented. The kit's opaque substitute is a step
+darker, (0.36, 0.41, 0.43) for (0.60, 0.64, 0.66), so the white bars read over it; the pictures, prints of
+glass catching the sky, cannot give its tone. **Walk.** The drive's turn toward Calumet Avenue
+(L-pullman-grounds-1800-calumet-3164) keeps its reading, a band about 4 m wide at u 25-29 running to the
+Calumet line, but is laid as one curve leaving the drive at u 10 (the drive's straight run, invented past
+u 4 in both pictures, now stops there rather than at u 16) and sweeping well north of the pictured
+lilacs, 4.33 m easing to 4.0, with a worn margin 0.35 m each side in a tone between gravel and turf; the curve and the
+margin are invented, and the gravel is set a step darker, (0.45, 0.42, 0.35) for (0.66, 0.62, 0.54).
+**How to resolve:** a picture of the conservatory's interior or its south and east sides; a plan of the
+grounds.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3273.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`
+
 ### L-kimball-1801-cone-slate-1890 — 1801 Prairie's tower and turret cones slated in the mansard's own coursed slate
 **Recorded:** 2026-10-30.
 

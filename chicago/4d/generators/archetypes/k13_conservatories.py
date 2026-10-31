@@ -77,7 +77,9 @@ ROLE_MATERIAL = {
     "stonework": "stone", "dome": "glass_substitute", "dome_rib": "frame", "opening": "dark",
     "sky_glass": "glass_sky", "sash": "sash", "interior": "interior_shade",
     "stone_field": "stone_rough",
-    "gravel": "gravel",
+    "gravel": "gravel", "gravel_edge": "gravel_edge",
+    # T-3164: the Pullman conservatory's planted interior (its palms' trunks and fronds)
+    "palm_trunk": "staging", "palm_frond": "foliage",
     "plinth_stone": "stone",
     # T-3270: a roof deck in painted tin and the iron railing round it (1905 Prairie's conservatory)
     "deck": "deck", "rail": "iron",
@@ -108,7 +110,9 @@ def materials(data: dict) -> dict:
         # T-3179: the opaque substitute toned as the 1894 plate and the c. 1897 photograph show
         # Beman's glass catching a pale sky, for the glazing that stands outside a house's one
         # transparent envelope where the pictures read it light, not dark
-        "glass_sky": {"color": (0.60, 0.64, 0.66), "roughness": 0.2},
+        # Owner, 2026-10-31 ("the opaque glass is too white and there are no panes"): a step
+        # darker (0.60, 0.64, 0.66 before), so the white bars over it read as the pictures' panes
+        "glass_sky": {"color": (0.36, 0.41, 0.43), "roughness": 0.2},
         # T-3164: the sash bars of the range's masonry windows, which the plate reads dark against
         # their pale panes; the paint's colour is reconstructed
         "sash": {"color": (0.20, 0.19, 0.16), "roughness": 0.7},
@@ -118,8 +122,13 @@ def materials(data: dict) -> dict:
         # reads a tone darker than the dressed piers and courses framing it; the tone is reconstructed
         "stone_rough": {"color": (0.56, 0.53, 0.46), "roughness": 0.95},
         # T-3164: the Pullman glasshouse ground's drive and walks, which both pictures read as pale
-        # as the public walk against the lawn; a buff limestone gravel, its tone reconstructed
-        "gravel": {"color": (0.66, 0.62, 0.54), "roughness": 0.95},
+        # as the public walk against the lawn; a buff limestone gravel, its tone reconstructed.
+        # Owner, 2026-10-31: in the app's sun the walk read "abnormally white", so it is set a
+        # step darker (0.66, 0.62, 0.54 before), still the lawn's palest ground
+        "gravel": {"color": (0.45, 0.42, 0.35), "roughness": 0.95},
+        # T-3164 (owner, 2026-10-31: the walk "abnormally white"): the worn margin of a curved
+        # walk, gravel trodden into the turf, a tone between the two; reconstructed
+        "gravel_edge": {"color": (0.36, 0.36, 0.27), "roughness": 1.0},
         # T-3270: the roof deck's painted tin and its railing's iron; both tones reconstructed
         "deck": {"color": (0.24, 0.24, 0.22), "roughness": 0.6},
         "iron": {"color": (0.06, 0.06, 0.055), "roughness": 0.55, "metallic": 0.3},
@@ -1928,7 +1937,19 @@ def _dome(h: House, d: dict, cx: float, cz: float, y0: float, role: str = "dome"
             tm = (t0 + t1) / 2
             h.face(role, q, (math.cos(tm), 0.4 + j / rings, math.sin(tm)))
     w = d.get("rib_m", 0.1)
-    for k in range(0, m, 2):
+    if d.get("ring_bars"):
+        # T-3164 (owner, 2026-10-31: "no panes"): a level bar round the dome at every ring, so
+        # with the ribs it is glazed in panes as both pictures draw it
+        for j in range(1, rings):
+            r, y = prof[j][0] + 0.04, prof[j][1]
+            for k in range(m):
+                t0, t1 = math.tau * k / m, math.tau * (k + 1) / m
+                tm = (t0 + t1) / 2
+                h.face("dome_rib", [(cx + r * math.cos(t0), y - w / 2, cz + r * math.sin(t0)),
+                                    (cx + r * math.cos(t1), y - w / 2, cz + r * math.sin(t1)),
+                                    (cx + r * math.cos(t1), y + w / 2, cz + r * math.sin(t1)),
+                                    (cx + r * math.cos(t0), y + w / 2, cz + r * math.sin(t0))], (math.cos(tm), 0.3, math.sin(tm)))
+    for k in range(0, m, d.get("rib_every", 2)):
         t = math.tau * k / m
         c, s_, ux, uz = math.cos(t), math.sin(t), -math.sin(t), math.cos(t)
         for j in range(rings):
@@ -2128,6 +2149,68 @@ def ribs(h: House, prof, xa, xb, ze, sgn, zin, hip, spacing):
                                     (a[0], a[1], z + w / 2)], (nx, ny, 0.0))
 
 
+def _palms(h: House, ip: dict, L: float, W: float):
+    """T-3164 (owner, 2026-10-31: "a black box inside the greenhouse"): the conservatory's planted
+    interior seen through its glass, where a shaded block stood: a bed of soil over the floor and
+    palms on slim ringed trunks, each crowned with arching fronds that rise and fall back, as the
+    Lowe print shows fronds behind the north front's glass. `palms` [[u, z, height, spread], ...]
+    in the nave's own plan (x = u along it, z across); `fronds` a crown; `bed_m` the soil's height.
+    Each frond is a strip of `frond_segments` quads drawn on both faces, so it reads from inside
+    the glass and from above. Reconstructed: Pullman's palm house is not described plant by plant."""
+    i = ip.get("inset_m", 0.35)
+    bed = ip.get("bed_m", 0.4)
+    h.face("interior", [(i, bed, i), (L - i, bed, i), (L - i, bed, W - i), (i, bed, W - i)], Y)
+    nf, ns = ip.get("fronds", 9), ip.get("frond_segments", 4)
+    for idx, (u, z, ht, sp) in enumerate(ip["palms"]):
+        r = ip.get("trunk_m", 0.14)
+        _prism(h, "palm_trunk", [(u + r * math.cos(math.tau * k / 6), z + r * math.sin(math.tau * k / 6)) for k in range(6)],
+               bed, ht, top=False)
+        sd = seed_of(h.v["id"], 3000 + idx)
+        for f in range(nf):
+            a = math.tau * (f + unit01(sd, f)) / nf
+            ca, sa = math.cos(a), math.sin(a)
+            rise = 0.35 + 0.5 * unit01(sd, 40 + f)
+            pts = []
+            for k in range(ns + 1):
+                t = k / ns
+                rr = sp * t
+                yy = ht + rise * math.sin(math.pi * t * 0.9) - 0.9 * sp * 0.35 * t * t
+                hw = 0.32 * sp / 2.0 * math.sin(math.pi * min(t * 1.1 + 0.08, 1.0))
+                pts.append((u + ca * rr, yy, z + sa * rr, hw))
+            for (xa_, ya_, za_, wa), (xb_, yb_, zb_, wb) in zip(pts, pts[1:]):
+                q = [(xa_ - sa * wa, ya_, za_ + ca * wa), (xb_ - sa * wb, yb_, zb_ + ca * wb),
+                     (xb_ + sa * wb, yb_, zb_ - ca * wb), (xa_ + sa * wa, ya_, za_ - ca * wa)]
+                h.face("palm_frond", q, Y)
+                # its underside 1 cm below, a leaf's thickness, so the two faces never share a plane
+                h.face("palm_frond", [(x, y - 0.01, z) for x, y, z in q], (0.0, -1.0, 0.0))
+
+
+def _purlins(h: House, prof, xa, xb, ze, sgn, zin, hip):
+    """T-3164 (owner, 2026-10-31: "no panes and no detail at the top or the sides"): the level
+    bars across the transept's glass at every joint of its section, each long slope from its hip
+    to the nave and the hipped end from hip to hip, so with the ribs the arm's glass reads in
+    panes as Lowe's print shows it; 5 cm bars standing 3 cm proud, as the ribs are."""
+    w, out = 0.05, 0.02                                   # a centimetre behind the ribs' face
+    for i in range(1, len(prof) - 1):
+        (qa, ya), (q, y), (qb, yb) = prof[i - 1], prof[i], prof[i + 1]
+        dx, dy = qb - qa, yb - ya
+        ln = math.hypot(dx, dy)
+        tx, ty = dx / ln, dy / ln                         # up the section, in (run, y)
+        for xs, sx in ((xa, 1.0), (xb, -1.0)):
+            nx, ny = -sx * ty, tx
+            x0 = xs + sx * q + nx * out
+            y0 = y + ny * out
+            p, r = (x0 - sx * tx * w / 2, y0 - ty * w / 2), (x0 + sx * tx * w / 2, y0 + ty * w / 2)
+            z0, z1 = hip(q), zin(y)
+            if abs(z1 - z0) < 0.05:
+                continue
+            h.face("dome_rib", [(p[0], p[1], z0), (p[0], p[1], z1), (r[0], r[1], z1), (r[0], r[1], z0)], (nx, ny, 0.0))
+        if xb - q - (xa + q) > 0.05:
+            z = hip(q) + sgn * out
+            h.face("dome_rib", [(xa + q, y - w / 2, z), (xb - q, y - w / 2, z), (xb - q, y + w / 2, z),
+                                (xa + q, y + w / 2, z)], (0.0, 0.3, sgn))
+
+
 def _finial(h: House, cx: float, cz: float, y0: float, height: float):
     """T-3164: an iron finial, a slim hexagonal shaft standing `height` over (cx, y0, cz) with a
     collar a third of the way up, as the dome's own finial is drawn."""
@@ -2240,6 +2323,8 @@ def pavilion(h: House, ps: dict):
         h.meta["plan_extra_m2"] = h.meta.get("plan_extra_m2", 0.0) + tw * reach
         # glazing bars: a rib up each long slope, standing 3 cm proud
         ribs(h, arm, xa, xb, ze, sgn, zin, hip, tr.get("rib_spacing_m", 0.6))
+        if tr.get("purlins"):
+            _purlins(h, arm, xa, xb, ze, sgn, zin, hip)
         cr = ps.get("cresting")
         if cr:
             # T-3164: the iron cresting the plate draws along the arm's level crest, from its hipped
@@ -2296,7 +2381,9 @@ def pavilion(h: House, ps: dict):
             o_, t_, n_, spans = runs[name]
             for s0, s1 in spans:
                 _lit_band(h, bd, o_, t_, n_, s0, s1, pod, he)
-    if ps.get("interior_dark_m"):
+    if ps.get("interior_planting"):
+        _palms(h, ps["interior_planting"], L, W)
+    elif ps.get("interior_dark_m"):
         # the conservatory's planted depth behind its glass, drawn in shade inside the nave as
         # palm_house draws the palm house's: the pictures read the glass dark over the lower half
         # of the arch, with the roof's light over it
@@ -2309,6 +2396,32 @@ def pavilion(h: House, ps: dict):
     _prism(h, "sky_glass", [(xd + dr["radius_m"] * math.cos(math.tau * (k + 0.5) / dr["sides"]),
                         W / 2 + dr["radius_m"] * math.sin(math.tau * (k + 0.5) / dr["sides"])) for k in range(dr["sides"])],
            dr["base_m"], dr["top_m"])
+    if dr.get("bars"):
+        # T-3164 (owner, 2026-10-31: "no detail at the top"): the drum's glazing as the pictures
+        # draw it, a white mullion at each angle and `per_face` between, and level rails
+        db = dr["bars"]
+        w, o, R, n_ = db["bar_m"], 0.03, dr["radius_m"], dr["sides"]
+        corner = lambda k: (xd + R * math.cos(math.tau * (k + 0.5) / n_), W / 2 + R * math.sin(math.tau * (k + 0.5) / n_))
+        for k in range(n_):
+            (ax, az), (bx, bz) = corner(k), corner(k + 1)
+            ex, ez = bx - ax, bz - az
+            ln = math.hypot(ex, ez)
+            ex, ez = ex / ln, ez / ln
+            nx, nz = (ax + bx) / 2 - xd, (az + bz) / 2 - W / 2
+            nl = math.hypot(nx, nz)
+            nx, nz = nx / nl * o, nz / nl * o
+            per = db.get("per_face", 2)
+            for i in range(per + 2):
+                f = min(max(i / (per + 1), w / 2 / ln), 1 - w / 2 / ln)
+                px, pz = ax + (bx - ax) * f + nx, az + (bz - az) * f + nz
+                h.face("dome_rib", [(px - ex * w / 2, dr["base_m"], pz - ez * w / 2), (px + ex * w / 2, dr["base_m"], pz + ez * w / 2),
+                                    (px + ex * w / 2, dr["top_m"], pz + ez * w / 2), (px - ex * w / 2, dr["top_m"], pz - ez * w / 2)],
+                       (nx, 0.0, nz))
+            for yy in db.get("rails_m", []):
+                # the rails a centimetre behind the mullions' face, so no two bars share a plane
+                y_, rx, rz = dr["base_m"] + yy, nx * (o - 0.01) / o, nz * (o - 0.01) / o
+                h.face("dome_rib", [(ax + rx, y_ - w / 2, az + rz), (bx + rx, y_ - w / 2, bz + rz),
+                                    (bx + rx, y_ + w / 2, bz + rz), (ax + rx, y_ + w / 2, az + rz)], (nx, 0.0, nz))
     h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xd, W / 2, dr["top_m"], "sky_glass"), 3)}
     if ps.get("gate"):
         gate(h, ps["gate"])
@@ -2568,6 +2681,49 @@ def gate(h: House, gs: dict):
 GRAVEL_PROUD_M = 0.02   # a drive's gravel over the ground its row measures, as K14's drives stand
 
 
+def _gravel_path(h: House, srf: dict):
+    """T-3164 (owner, 2026-10-31: "the path walk here is abnormally white ... and there is a sharp
+    line avoiding trees"): a gravel walk laid along a smooth curve rather than as rows across u.
+    `path_m` [[u, v, lift], ...] is its centreline, drawn as a Catmull-Rom curve through those
+    points at `samples` steps a span; `width_m` [start, end] its width, eased between them; and
+    `edge_m` a worn margin each side in `gravel_edge`, a tone between the gravel and the turf,
+    set a centimetre under the gravel, so the walk does not end on a ruled line against the lawn."""
+    pts = [tuple(map(float, q)) for q in srf["path_m"]]
+    n = srf.get("samples", 6)
+    w0, w1 = srf["width_m"] if isinstance(srf["width_m"], list) else (srf["width_m"],) * 2
+    ext = [pts[0]] + pts + [pts[-1]]
+    cl = []
+    for i in range(1, len(ext) - 2):
+        p0, p1, p2, p3 = ext[i - 1], ext[i], ext[i + 1], ext[i + 2]
+        for k in range(n + (1 if i == len(ext) - 3 else 0)):
+            t = k / n
+            cl.append(tuple(0.5 * ((2 * p1[j]) + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t * t
+                                   + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t * t * t) for j in range(3)))
+    acc = [0.0]
+    for a, b in zip(cl, cl[1:]):
+        acc.append(acc[-1] + math.hypot(b[0] - a[0], b[1] - a[1]))
+    sec = []
+    for i, (u, v, lift) in enumerate(cl):
+        a, b = cl[max(i - 1, 0)], cl[min(i + 1, len(cl) - 1)]
+        du, dv = b[0] - a[0], b[1] - a[1]
+        ln = math.hypot(du, dv)
+        nu, nv = -dv / ln, du / ln                     # the walk's left, in (u, v)
+        f = acc[i] / acc[-1]
+        w = w0 + (w1 - w0) * (3 * f * f - 2 * f * f * f)
+        sec.append((u, v, lift, nu, nv, w / 2))
+    em = srf.get("edge_m", 0.0)
+    for (ua, va, la, nua, nva, ha), (ub, vb, lb, nub, nvb, hb) in zip(sec, sec[1:]):
+        # 5 mm over the rows' gravel, so where the curve's first sections lap the drive's last
+        # row the two surfaces never share a plane
+        at = lambda u, v, l, nu, nv, d, dy: (u + nu * d, l + GRAVEL_PROUD_M + 0.005 + dy, -(v + nv * d))
+        h.face("gravel", [at(ua, va, la, nua, nva, -ha, 0.0), at(ua, va, la, nua, nva, ha, 0.0),
+                          at(ub, vb, lb, nub, nvb, hb, 0.0), at(ub, vb, lb, nub, nvb, -hb, 0.0)], Y)
+        if em:
+            for sd in (1.0, -1.0):
+                h.face("gravel_edge", [at(ua, va, la, nua, nva, sd * ha, -0.01), at(ua, va, la, nua, nva, sd * (ha + em), -0.01),
+                                       at(ub, vb, lb, nub, nvb, sd * (hb + em), -0.01), at(ub, vb, lb, nub, nvb, sd * hb, -0.01)], Y)
+
+
 def grounds(h: House, gr: dict):
     """T-3164: the ground the gate opens onto, as the 1894 Inland plate and Lowe's print show it
     from 18th Street: the gravel drive between the gate's wings, the walk that enters east of the
@@ -2582,6 +2738,9 @@ def grounds(h: House, gr: dict):
     under a cap course to `top_m` standing `cap_out_m` past both faces; its first end abuts the
     west pier and is not drawn. Placed in this record's frame (x = u, z = -v), as the gate is."""
     for srf in gr["gravel"]:
+        if "path_m" in srf:
+            _gravel_path(h, srf)
+            continue
         rows = srf["rows_m"]
         for (u0, a0, b0, l0), (u1, a1, b1, l1) in zip(rows, rows[1:]):
             y0, y1 = l0 + GRAVEL_PROUD_M, l1 + GRAVEL_PROUD_M
