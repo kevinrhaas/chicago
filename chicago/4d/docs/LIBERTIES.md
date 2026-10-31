@@ -24332,7 +24332,7 @@ house stays this draft's.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24384,6 +24384,10 @@ line puts a mansard on 1730.
 **1736's stable retired from this liberty by T-2995 (2026-10-23):** `house_1736_prairie_coach_house`
 now stands as the K12 coach house under `L-k12-1736-coach-house-2995`, under the same id, on the
 outline, storeys, brick and window mark the sheet draws; its draft attributes are gone.
+**1620's stable retired from this liberty by T-1932 (2026-10-31):** `law_house_1620_prairie_coach_house`
+now stands as the K12 coach house under `L-k12-1620-stable-1932`, under the same id, on the
+outline, storeys, brick and two window marks the sheet draws, as the brick stable Robinson's 1886
+plate crosses; its draft attributes are gone.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -24425,7 +24429,7 @@ which household it served is not read.
 **How to resolve:** each house's per-building ticket (T-1859 to T-1874, named on its card and in
 its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley
 buildings are T-1932's.
-**Retired in part:** 1612 Goodman's front house by T-2344 (piece 1 of T-1860), which refined it in place on the K01 frontage kit under `L-k01-1612-goodman-2344`; its stable is still this draft's. 1620 Law's house by T-1861, which refined it in place on the K01 frontage kit under `L-k01-1620-law-1861`; its stable is still this draft's. 1736's house by T-2933 (piece 1 of T-1874), which refined it in place on the K01 frontage kit under `L-k01-1736-mcbirney-veranda-2933`; its stable is still this draft's.
+**Retired in part:** 1612 Goodman's front house by T-2344 (piece 1 of T-1860), which refined it in place on the K01 frontage kit under `L-k01-1612-goodman-2344`; its stable is still this draft's. 1620 Law's house by T-1861, which refined it in place on the K01 frontage kit under `L-k01-1620-law-1861`; its stable by T-1932, on the K12 coach-house kit under `L-k12-1620-stable-1932`. 1736's house by T-2933 (piece 1 of T-1874), which refined it in place on the K01 frontage kit under `L-k01-1736-mcbirney-veranda-2933`; its stable is still this draft's.
 **Ticket:** T-2334 (piece 1 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-west-2334/README.md`.
 **Recorded:** 2026-10-11 (T-2334).
@@ -32717,6 +32721,46 @@ for the stable, entered as a source, gives its openings, roof and gable their tr
 **Ticket:** T-2995 (piece 2 of T-2962).
 **Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md` (§ T-2995).
 **Recorded:** 2026-10-23 (T-2995).
+
+### L-k12-1620-stable-1932 — The stable on the alley behind 1620 Prairie, the Robert Law house, built from the K12 kit on the outline the 1911 sheet draws
+
+**Decision:** the district draft's alley building behind 1620 Prairie Avenue (T-1932) is refined in
+place, under its own id `law_house_1620_prairie_coach_house`, onto the K12 coach-house kit
+(L-k12-coach-house-kit-2320), the third K12 coach house in the scene after 1812's and 1736's
+(L-k12-1736-coach-house-2995). **What is read.** From sheet 20 of the 1911 Sanborn: its outline, 7.36 m
+deep from the alley line by 16.30 m along it, the whole width of the lot's rear, measured between line
+centres on the committed raster (median darkness profiles: columns 2226 and 2371, rows 2319 and 2640)
+and carried by the sheet's fitted similarity; its '2' storeys; its brick; the wall figures '12 8' on its
+north and south walls; two of the key's window marks, one on the alley wall about 9.19 m from the north
+wall with a dot for each storey and one on the south wall about 3.55 m from the alley with one dot; and
+1616's crossed building drawn against its north wall along its whole width. From Robinson's 1886 plate
+10: a pink building crossed by the atlas's X on the same ground, a brick stable, so the use. Inferred for
+1904 as every reading of these sheets is. **What is invented.** Every opening but the two marks is the
+kit's laid out for this lot: on the alley, a man door with a loft sash over it at the north end, the
+carriage bay 3.0 m clear with the loft hatch over it, a stable sash and a loft sash where the sheet's mark
+stands, and two more stable sash toward the south end with a loft sash over the last; on the yard side a
+door at the middle between two stable sash and two loft sash; the south end is the kit's open gable with
+one stable sash where the one-dot mark stands and nothing over it. The north end is the kit's party wall.
+The roof is the kit's gable with its ridge along the alley at the kit's 40 degrees, about 3.1 m from eave
+to ridge over the 7.36 m span: no picture of the brick building shows its roof. The kit's storey heights
+(3.6 m and 2.7 m to the eave) and its 1.8 m basement, reached by nothing. The workyard is paved from the
+yard door toward the house's rear wall, 25.5 m east. Flat colours. **What is not.** The outline, its
+place on the lot, its two storeys, its brick, the window marks' places, the party wall's neighbour and the
+use in 1886 are the maps'. **Left out.** Robinson's small ell, about 4.0 by 4.6 m, toward the house at the
+north end: the 1911 sheet does not draw it, and the 1904 build follows the nearer map. **The 1874
+engraving.** The Land Owner's engraving of the house (May 1874) draws a building on this ground in
+board-and-batten under two hipped roofs with two chimneys, its eaves about 8.6 m over grade and its
+two-storey block stopping about 5 m short of the lot's north line; both maps draw brick in its place, so it
+is read as the frame stable the brick one replaced between 1874 and 1886, and none of it is built
+(`data/reference_views/law_house_1620_prairie_coach_house/landowner_1874_from_northeast.match.json`).
+**How to resolve:** a photograph of the alley behind 1616-1620 Prairie, or a building permit for the
+stable, entered as a source, gives its openings, roof and gable their true form; a reading that the
+engraver drew brick as boards would make the engraving this building's picture, and its roof and height
+would then be built.
+**Covers:** `law_house_1620_prairie_coach_house.as_standing_1904.form.coach_house`, `law_house_1620_prairie_coach_house.as_standing_1904.form.stories`, `law_house_1620_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-1932.
+**Review:** `docs/RESEARCH/k12-1620-law-stable-1932/README.md`.
+**Recorded:** 2026-10-31 (T-1932).
 
 ### L-k01-1736-roof-rear-2995 — 1736 Prairie's mansard taken off the north wall, the rear and the 18th Street wall behind the brick bay, which rise as a straight brick third storey, built blank and coped
 
