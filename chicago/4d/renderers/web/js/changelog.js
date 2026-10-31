@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2479, ts: '2026-10-31T02:15:10.379Z', date: 'Oct 30, 2026, 9:15 PM CT', title: '1905 Prairie\'s canted south-west corner', kind: 'feature',
+    items: [
+      'The Marshall Field house at 1905 Prairie now has its south-west corner cut on a broad canted face, as the 1893 Pictorial Chicago plate shows it: blank brick in both storeys, the bracketed cornice and the slated mansard carried round it, and the largest dormer centred over it.',
+    ] },
   { v: 2478, ts: '2026-10-31T01:32:51.240Z', date: 'Oct 30, 2026, 8:32 PM CT', title: '1801 Prairie\'s east range gets its second gabled bay', kind: 'fix',
     items: [
       'Along 18th Street, the Kimball house\'s lower east range now has a second stone bay between the corner turret and the side door, rising through the eave to a pinnacled gable, as the 1965 survey photograph shows it.',
