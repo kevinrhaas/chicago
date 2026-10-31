@@ -1215,20 +1215,41 @@ class Assembly:
                               **({"gable_to": r["gable_to"]} if "gable_to" in r else {}),
                               "overhang_m": o, "fascia_m": f, "covering": r["covering"],
                               "eave_datum_m": top, "ridge_datum_m": r["ridge_m"], "host_top_m": host_top,
+                              **({"end_pitch_deg": dict(r["end_pitch_deg"])} if r.get("end_pitch_deg") else {}),
+                              **({"stacks": len(w["stacks"])} if w.get("stacks") else {}),
                               "construction": "k05"},
                              {"eave": (u0, top, z1), "ridge": ((u0 + u1) / 2, r["ridge_m"], (z0 + z1) / 2)})
         # a ridge across the wing is built past the host wall by more than the roof's span,
         # so its far end lies wholly beyond the cut and the ridge runs straight into it
         far = u1 + (v1 - v0) + 2 * o + 1.0 if r["axis"] == "u" else u1
         base = min(host_top, top - o * t - f) - 0.5
-        if r["kind"] == "hip":
+        if r["kind"] == "hip" and r.get("end_pitch_deg"):
+            hip, hs = self.wing_hip_ends(k5, r, u0, u1, z0, z1, top, t, o, f)
+            solids = [hip, k5.body_box(u0, far, z0, z1, base, hs)]
+        elif r["kind"] == "hip":
             hip, hs = k5.hip_element(u0, far, z0, z1, top, t, o, f)
             solids = [hip, k5.body_box(u0, far, z0, z1, base, hs)]
         elif r["axis"] == "u":   # a gable to the rear: the one verge, on the rear wall
             solids, _, _, _ = k5.gable_element(u0, far, z0, z1, top, t, o, o, f, base, "x", verge_ends=("lo",))
         else:                    # a gable to a flank: the ridge along the wing, a gable at each end
             solids, _, _, _ = k5.gable_element(z0, z1, u0, u1, top, t, o, o, f, base, "z")
-        hi, end = r["ridge_m"] + 1.0, far + o + 2.0
+        # T-1890: the wing's own stacks (rear_wings[].stacks), T-2302's plain prism under its
+        # cap, joined into the roof solid so the shaft is cut where it leaves the slate
+        P = k5.frame("z")
+        stone_boxes = []
+        for c in w.get("stacks", ()):
+            sx, sz = c["plan_m"]
+            u, z, stop = c["u_m"], -c["v_m"], c["top_m"]
+            cp, cd = c["cap_proud_m"], c["cap_depth_m"]
+            solids.append(k5.extrude([(u - sx / 2, c["base_m"]), (u + sx / 2, c["base_m"]), (u + sx / 2, stop - cd / 2),
+                                      (u - sx / 2, stop - cd / 2)], z - sz / 2, z + sz / 2, P,
+                                     lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
+            solids.append(k5.extrude([(u - sx / 2 - cp, stop - cd), (u + sx / 2 + cp, stop - cd),
+                                      (u + sx / 2 + cp, stop), (u - sx / 2 - cp, stop)],
+                                     z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
+            if c["stone"]:
+                stone_boxes.append((u - sx / 2 - 1e-3, u + sx / 2 + 1e-3, z - sz / 2 - 1e-3, z + sz / 2 + 1e-3))
+        hi, end = max([r["ridge_m"]] + [c["top_m"] for c in w.get("stacks", ())]) + 1.0, far + o + 2.0
         # T-2900: a wing longer than its host wall is cut only along the host: past it, its
         # eaves and its hip run round its own front
         hv0, hv1 = w["host_v_m"]
@@ -1262,6 +1283,14 @@ class Assembly:
                 b_ = self.basis("fascia", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed) \
                     if abs(n[1]) > 0.999 else upright("fascia", n)
                 self.prim("fascia").face(tri, n, b_, conf)
+            elif role in ("chimney", "coping"):   # T-1890: a wing stack's shaft and cap
+                cx_, cz_ = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
+                mat = "limestone_trim" if role == "coping" else \
+                    "rough_stone_trim" if any(b[0] <= cx_ <= b[1] and b[2] <= cz_ <= b[3] for b in stone_boxes) \
+                    else "brick"
+                b_ = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed) \
+                    if abs(n[1]) > 0.999 else upright(mat, n)
+                self.prim(mat).face(tri, n, b_, conf)
             elif role in ("gable", "host_end"):
                 # across the wall line it is walling, from the wing's wall top (a gable) or the
                 # host's top (the junction) up; past the corners it is the eave's end
@@ -1276,6 +1305,23 @@ class Assembly:
                         self.prim(mat).face(piece, n, upright(mat, n), conf)
             else:
                 raise ValueError(f"the K05 union left a {role!r} face on {w['id']}'s roof")
+
+    @staticmethod
+    def wing_hip_ends(k5, r, u0, u1, z0, z1, top, t, o, f):
+        """T-1890: a wing's hip whose ridge runs along it (v) with one or both ends pitched
+        steeper than its sides (`end_pitch_deg`): k5.hip_element's ring stack, the ridge at
+        the same height, its ends drawn in toward the end walls. The south end (v0) is the
+        z1 side in the assembly's frame (z = -v), the north end the z0 side."""
+        ends = r["end_pitch_deg"]
+        hs, he = top - o * t - f, top - o * t
+        X0, X1, Z0, Z1 = u0 - o, u1 + o, z0 - o, z1 + o
+        rise = (X1 - X0) / 2 * t
+        xc = (X0 + X1) / 2
+        za = Z0 + rise / math.tan(math.radians(ends.get("north", r["pitch_deg"])))
+        zb = Z1 - rise / math.tan(math.radians(ends.get("south", r["pitch_deg"])))
+        rings = [(hs, k5.inset_rect(X0, X1, Z0, Z1, 0.0)), (he, k5.inset_rect(X0, X1, Z0, Z1, 0.0)),
+                 (he + rise, [(xc, za), (xc, za), (xc, zb), (xc, zb)])]
+        return k5.ring_stack(rings, ["fascia", "covering"], "soffit"), hs
 
     # -- k01.opening.* ---------------------------------------------------------------
     def opening(self, op, frame, thickness, body_mat, stone_trim, cut=False, coursed=False):
@@ -1925,7 +1971,11 @@ class Assembly:
                 ring = next((r for r in self.p.street_dress.get("voussoirs", ())
                              if abs(r["s_m"] - op.s_m) < 1e-6 and abs(r["sill_m"] - op.sill_m) < 1e-6), None)
                 if ring:
-                    self.street_voussoirs(frame, hd, ring, conf, recess, cid, inst, j)
+                    j = self.street_voussoirs(frame, hd, ring, conf, recess, cid, inst, j)
+                arc = next((r for r in self.p.street_dress.get("architraves", ())
+                            if abs(r["s_m"] - op.s_m) < 1e-6 and abs(r["sill_m"] - op.sill_m) < 1e-6), None)
+                if arc:
+                    self.street_architrave(frame, hd, y0, arc, conf, recess, cid, inst, j)
 
     KEYSTONE_PROUD_M = 0.03   # T-2889: a keystone stands this far before its ring
 
@@ -1960,6 +2010,51 @@ class Assembly:
             self.stone(frame, pts, [hj] * 4, "dress_stone", self._stone_seed(cid, inst, j), conf,
                        recess=recess, bevel=wk["bevel_m"], F=F, bed=bed)
             j += 1
+        return j
+
+    ARCHITRAVE_PIECES = 12    # T-1881: an architrave's arch in this many straight pieces
+    ARCHITRAVE_INNER = 0.55   # T-1881: the inner fascia's share of the band, next the light
+
+    def street_architrave(self, frame, hd, sill, arc, conf, recess, cid, inst, j):
+        """T-1881: a named window's round head framed by a moulded architrave
+        (`street_front_windows.windows[k].architrave`, 1729 Prairie's front in the 1890 plate):
+        a band `band_m` broad down each jamb from the sill to the springing and on round the
+        arch, in two fascias, the outer `proud_m` before the wall and the inner half that, laid
+        without joints or bevel so the band reads as one moulding; an impost block stepping out past the band and before it
+        at the springing; and a keystone over the crown, a little prouder."""
+        b, F = arc["band_m"], arc["proud_m"]
+        ys, cx, r0 = hd.spring, hd.cx, hd.R
+        z4 = [0.0] * 4
+
+        def lay(pts, f):
+            nonlocal j
+            self.stone(frame, pts, z4, "dress_stone", self._stone_seed(cid, inst, j), conf,
+                       recess=recess, bevel=0.0, F=f)
+            j += 1
+        # moulded in two fascias: the inner one, next the light, half as proud as the outer, so
+        # the step between them draws the shadow line the plate shows round each head
+        n = self.ARCHITRAVE_PIECES
+        for w0, w1, f in ((0.0, b * self.ARCHITRAVE_INNER, F * 0.5), (b * self.ARCHITRAVE_INNER, b, F)):
+            for a0, a1 in ((hd.s0 - w1, hd.s0 - w0), (hd.s1 + w0, hd.s1 + w1)):   # the jambs
+                lay([(a0, sill), (a1, sill), (a1, ys), (a0, ys)], f)
+            ri, ro = r0 + w0, r0 + w1
+            for i in range(n):                                              # the arch, right to left
+                t0, t1 = math.pi * i / n, math.pi * (i + 1) / n
+                lay([(cx + ri * math.cos(t0), ys + ri * math.sin(t0)), (cx + ro * math.cos(t0), ys + ro * math.sin(t0)),
+                     (cx + ro * math.cos(t1), ys + ro * math.sin(t1)), (cx + ri * math.cos(t1), ys + ri * math.sin(t1))], f)
+        if arc.get("impost_m"):
+            ih, io = arc["impost_m"]
+            for a0, a1 in ((hd.s0 - b - io, hd.s0), (hd.s1, hd.s1 + b + io)):
+                lay([(a0, ys - ih), (a1, ys - ih), (a1, ys), (a0, ys)], F + io)
+        if arc.get("key_m"):
+            kw, kh = arc["key_m"]
+            yk = ys + r0                                                    # on the crown, before the band
+            lay([(cx - kw / 2, yk), (cx + kw / 2, yk), (cx + kw / 2, ys + r0 + kh), (cx - kw / 2, ys + r0 + kh)],
+                F + self.KEYSTONE_PROUD_M)
+        self.architrave_meta = getattr(self, "architrave_meta", []) + [
+            {"s_m": arc["s_m"], "sill_m": arc["sill_m"], "spring_m": round(ys, 4), "radius_m": round(r0, 4),
+             "outer_m": [round(hd.s0 - b, 4), round(hd.s1 + b, 4)], "impost": bool(arc.get("impost_m")),
+             "key": bool(arc.get("key_m"))}]
         return j
 
     # -- T-2753: the dressed surrounds and the proud frontispiece --------------------------

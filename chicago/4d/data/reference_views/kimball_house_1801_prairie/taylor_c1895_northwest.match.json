@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b5c8ab53d39024856db570c49dd2027dbcd2b0b8f5b1cb0594c7d2f12d5507fe",
+  "glb_sha256": "48477def01b69739b39d633a8b762aa1c327ba7a9f4c27d343fb1ff87a3490f8",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -286,6 +286,10 @@
       "what": "the cross roof's finial's top: the print's spike rises to about y 240-253 over the cross roof's ridge (x 1092, its tip faint against the sky); with the finial stood on the ridge's end the build's tip rendered at y 260, about 10-20 px low",
       "status": "fixed",
       "how": "T-1890: HABS photograph 1's slated hood now stands on the ridge's end under the finial (deck.cross_roof.hood), its apex 0.5 m over the ridge, so the tip renders at y 239, within about 10 px of the print's; the hood itself stands behind the ridge from this camera. L-kimball-1801-cross-hood-1890"
+    },
+    {
+      "what": "the east range's stack and its steep 18th Street end (T-1890, HABS photograph 2): through this camera they stand at about x 310-350, y 740-790 px, where the print shows the tree's crown and branches over a dark roof slope it does not resolve; nothing else this picture shows changed",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
