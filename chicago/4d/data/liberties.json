@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 893,
+  "count": 896,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -58605,6 +58605,36 @@
       ]
     },
     {
+      "id": "L-k01-field-1905-cant-3261",
+      "title": "1905 Prairie's canted south-west corner, cut off the 1893 Pictorial Chicago plate on a brick house",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_house_1905_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work cuts the Field house's south-west corner (K01's 'north' on this east-side house) on a canted face, as the 1893 plate ('Residence of Mr. Marshall Field, 1905 Prairie Avenue.' Halftone plate…) shows it through the camera earlier work solved (the pictorial 1893 plate data). K01's cant corner (1901's) was built for an all-stone house under the moulded stone cornice with a window column on its face; it now also takes a brick house, a face left `blank`, and the bracketed timber cornice, whose paired brackets and bed moulding turn onto the face. The front's stone belt at the chamber floor runs across it and the flank's brick string course starts behind it. The largest dormer, carried onto the street face until now, stands centred on the face's slope. **What is read, not invented.** The cut itself, square to the corner; its face blank brick in both storeys; the cornice, the mansard and the large dormer carried round and over it. **What is a working figure.** The cut is built 3.2 m back each way where the camera reads about 3.4 m: the front's wide window column, centred 11.2 m from the north end, needs a 0.2 m pier, and the front's own length is still to be re-read against the Daily News view. The 1911 Sanborn sheet draws the corner square; at its scale a cut could be drawn either way, and the plate, nearer 1904, is followed. The wide column's iron balcony stops 0.2 m short of the cut, 1.9 m long where the plate's reads about 2.5 m. **What is still not built.** The light stone strips framing the face's brick at its two angles; the iron balcony on the flank's window just behind the cut. Both stay open on the match record."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the Daily News view's camera (DN-0003324), which sees the corner from the street."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3261)."
+        }
+      ],
+      "work_refs": [
+        "T-3186",
+        "T-3261",
+        "T-3260"
+      ]
+    },
+    {
       "id": "L-pullman-stable-3192",
       "title": "Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw",
       "section": "per_subject",
@@ -61896,6 +61926,49 @@
       ]
     },
     {
+      "id": "L-pullman-grounds-1800-calumet-3164",
+      "title": "The Pullman glasshouse ground's drive, walk, forecourt and lot-line coping, read through the plate's and Lowe's cameras",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_pavilion"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both show the ground the estate's 18th Street gate opens onto. No plan draws it: the 1911 sheet shows no drive or walk, and the grounds have no record of their own, so it is built on the conservatory's record beside the gate (`grounds`). A gravel drive about 4.3 m wide from between the wings' ends straight back past the conservatory's west flank; a turf wedge east of it, narrowing to the east wing, in which the two boxed standards stand; a walk 1.8 m wide entering the lot east of the east pier and running to a forecourt along the conservatory's north front, from 3.2 m out to its podium; and west of the gate a stone coping on the lot line, a body 0.32 m high and 0.36 m thick under a cap course to 0.4 m standing 0.03 m past both faces. **What is read.** Every edge is read off the two pictures through their solved cameras and laid on the ground those cameras put under it: the drive's edges, the wedge's edges, the walk's mouth east of the pier and the lawn east of it, the forecourt's front, and the coping's height and place (its foot on the line of the piers' fronts). Re-rendered, the drive's west edge lands within about 5 px of the plate's, the wedge within about 10, the walk and the lawn east of it within about 8, and the coping's top and foot within about 6. **What is invented.** The surfaces: gravel in a buff limestone tone, taken from the pictures reading drive and walks as pale as the public walk; the coping's stone, taken as the gate's; the coping's thickness and cap course, which the pictures give at a few pixels; the drive's run past u 4 (the plate) or u 3 (Lowe's), where it lies too near both horizons to fix its depth, carried straight on to u 16, where the planting hides it in both, and stopped there; and the coping's run past the frames' edges (about v 13 in Lowe's print, v 16 in the plate), carried round the Calumet Avenue corner on the 1911 sheet's lot line to the start of its Calumet straight. The pale line along the lawn's far side, a walk or the drive's turn, is read but not built. Each row's lift is the app's ground (the 1904 terrain, the 1871 postfire ground) over the house's bed, measured where the row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a plan of the grounds, or a picture of the lawn's far side and the drive beyond the conservatory."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3164)."
+        }
+      ],
+      "work_refs": [
+        "T-3164"
+      ]
+    },
+    {
       "id": "L-kimball-1801-cone-slate-1890",
       "title": "1801 Prairie's tower and turret cones slated in the mansard's own coursed slate",
       "section": "per_subject",
@@ -61956,6 +62029,39 @@
       "work_refs": [
         "T-1890",
         "T-3110"
+      ]
+    },
+    {
+      "id": "L-pullman-stable-bay-1934",
+      "title": "Pullman's stable corner bay moved clear of the arcade's third arch and run on to u -25.0, on the two pictures that agree",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_ranges"
+      ],
+      "covers": [],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-31."
+        },
+        {
+          "label": "Decision",
+          "text": "the polygonal bay across the stable's south-west corner (1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges, stable dress canted bay plan) now leaves the west wall at v 12.95, standing 0.55 m proud of it, and runs round the corner onto the 18th Street front as far as u -25.0, a light in each of its three faces. It had left the west wall at v 12.6 with a 1.0 m return and stopped at u -24.38 (“Pullman's stable re-planned through three solved cameras: the arcade on the court face, a bay and a cut corner at the south-west corner, the front's sash moved west with it”, which stood it between the plate's reading and Taylor 16554's). **What is read.** Through their solved cameras the 1894 Inland plate (Inland Architect Press. Palm House and Stable of George M. Pullman, Chicago) and Taylor's 16555 (J. W. Taylor (Chicago), photographer) both show the arcade's third arch whole, the bay's left edge about 17 px right of the arch's end pier in each, where the old return covered most of the arch from both; and both put the bay's east end on the south wall at u -24.9 and -25.3. **What is invented.** The bay's depth off the corner and the angle of its faces: both cameras look from 18th Street on nearly the same bearing, so they fix its edges across the view and not its depth, and the plan keeps the building's square corner inside the bay. Taylor's 16554 reads the bay further west still; its camera puts the walk's ground about 45 px off and it was not used for this."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a re-solve of 16554 with the walk's edge in its fit, or any picture of the corner from the west or the south-east."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and the taylor 16555 west front side by side image, with their match records."
+        }
+      ],
+      "work_refs": [
+        "T-1934"
       ]
     },
     {

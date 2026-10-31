@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "0db7d8f97ce8de8f0607120303697777fcba7c2dc7505e1462e29a5a78ad7a81"
+      "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "579ba53e2131bee8e540589a5b82b34fafa97bd9d881c7bb4e0ddc1ff85b46b0",
+  "group_sha256": "0842a23cc7a0ccc95e96180493c3f5fd6b4714f4fd2bb7c97495c557e1630854",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -279,6 +279,10 @@
       "what": "the palm house's stone (podium, columns, entablature, balustrade, terrace and flight) in the house's own tone, and its glazing a grid of panes between the columns; the build drew the stone white and the glass as dark slots",
       "status": "fixed",
       "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): the stonework takes the stable's dressed-stone shade (0.372, 0.335, 0.27); horizontal bars about 0.55 m apart and a transom at 5.2 m across each bay"
+    },
+    {
+      "what": "the corner bay against the arcade (T-1934, 2026-10-31): the plate shows the arcade's third arch whole and the bay's left edge about 17 px right of its end pier (x 1513 px); the bay's 1.0 m west return from v 12.6 had covered most of that arch (x 1429-1494), and its east end stopped at x 1779 where the plate's runs to x 1813. Re-planned (L-pullman-stable-bay-1934): the return now leaves the wall at v 12.95, 0.55 m proud, and the bay runs on to u -25.0; its leftmost edge renders at x 1483 and its east end at x 1817, the arch clear but for its pier's last few pixels. Its depth off the corner is not read (the plate and 16555 look from nearly the same bearing)",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

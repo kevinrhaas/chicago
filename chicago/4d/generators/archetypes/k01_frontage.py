@@ -5670,6 +5670,7 @@ def build(params, structure_id: str):
     gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid]
                  + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid]
                  + ([p.rear_section["host_span_m"]] if p.rear_section and p.rear_section["host_wall"] == cid else [])
+                 + ([cant_cut[cid][:2]] if cid in cant_cut else [])   # T-3261: belts stop at a cant's cut
              for cid in walls}
     if a.k14 is not None:   # T-2358: each wall's frame, for its trails and its damp line
         a.k14_walls = {cid: (O, R, _cross(R, Y), length) for cid, (mat, O, R, length, t, bands) in walls.items()}
@@ -5752,10 +5753,12 @@ def build(params, structure_id: str):
     # A blank south wall (T-2350: 1634's party wall with 1636) carries none, as the north one
     south_to = D - p.stone["south_return_m"] if p.stone and "south_return_m" in p.stone else D   # T-2581
     south_to = min(south_to, rounded.get("k01.wall.side.south", (D, D))[0])   # T-3006: to the round
+    south_to = min(south_to, cant_cut.get("k01.wall.side.south", (D,))[0])   # T-3261: or to a cant's cut
     courses = ([("k01.wall.side.south", -k03_brick.STRING_PROUD, south_to)] if p.side_bays else []) \
         + [("k01.wall.rear_service", 0.0, W)]
     if p.north_bays:
-        courses.append(("k01.wall.side.north", rounded.get("k01.wall.side.north", (0.0, 0.0))[1],
+        courses.append(("k01.wall.side.north", max(rounded.get("k01.wall.side.north", (0.0, 0.0))[1],
+                                                   cant_cut.get("k01.wall.side.north", (0.0, 0.0))[1]),
                         D + k03_brick.STRING_PROUD))
     if all_round:
         courses = []   # T-2788: no brick to run a brick course in; the front's belts go round
