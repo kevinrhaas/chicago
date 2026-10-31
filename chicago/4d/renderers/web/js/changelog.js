@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2502, ts: '2026-10-31T19:56:23.472Z', date: 'Oct 31, 2026, 2:56 PM CT', title: '1616 Prairie\'s brick stable joins its neighbour on the alley', kind: 'feature',
+    items: [
+      'The house at 1616 Prairie now has its own stable on the alley, standing against 1620\'s: a two-storey brick building 9.9 m along the alley and 11 m deep. Its outline, storeys, brick, alley window and the fire wall rising above its roof at the north end are read off the 1911 Sanborn sheet. Its carriage doors, loft hatch, other windows and gable roof come from the shared coach-house kit and are reconstructed. Robinson\'s 1886 atlas shows the spot still empty, so the stable was built some time after that.',
+    ] },
   { v: 2501, ts: '2026-10-31T17:03:32.896Z', date: 'Oct 31, 2026, 12:03 PM CT', title: 'House walks now run all the way to the sidewalk', kind: 'fix',
     items: [
       'On Prairie Avenue and its cross streets, 51 house walks, side walks and drives stopped on a strip of grass short of the public sidewalk. Each now runs on until it meets it, as the period photographs show.',
