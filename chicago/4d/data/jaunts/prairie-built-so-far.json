@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 118369227,
+  "content_version": 899049344,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -15,7 +15,7 @@
     "instantly"
   ],
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 61 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 11 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 62 Prairie Avenue buildings modelled past their first rough model, in 2 areas. A walk holds 50 stops, so 12 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -970,7 +970,7 @@
         "kind": "structure",
         "id": "house_1600_prairie"
       },
-      "text": "1600 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1601 Prairie.",
+      "text": "1600 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1613 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-46",
@@ -989,33 +989,12 @@
       "id": "stop-47",
       "destination": {
         "kind": "structure",
-        "id": "house_1601_prairie"
-      },
-      "text": "1601 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1613 Prairie.",
-      "read_s": 12,
-      "evidence": [
-        "stood-47",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "house_1601_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-48"
-    },
-    {
-      "id": "stop-48",
-      "destination": {
-        "kind": "structure",
         "id": "house_1613_prairie"
       },
       "text": "1613 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1615 Prairie.",
       "read_s": 12,
       "evidence": [
-        "stood-48",
+        "stood-47",
         "tour"
       ],
       "links": [
@@ -1025,10 +1004,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-49"
+      "next": "stop-48"
     },
     {
-      "id": "stop-49",
+      "id": "stop-48",
       "destination": {
         "kind": "structure",
         "id": "house_1615_prairie"
@@ -1036,7 +1015,7 @@
       "text": "1615 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1619 Prairie.",
       "read_s": 12,
       "evidence": [
-        "stood-49",
+        "stood-48",
         "tour"
       ],
       "links": [
@@ -1046,16 +1025,37 @@
           "label": "About this building"
         }
       ],
+      "next": "stop-49"
+    },
+    {
+      "id": "stop-49",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1619_prairie"
+      },
+      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: walk on to the 1945 Prairie area, starting at Armour-Corwith House, 1945 Prairie.",
+      "read_s": 15,
+      "evidence": [
+        "stood-49",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "house_1619_prairie",
+          "label": "About this building"
+        }
+      ],
       "next": "stop-50"
     },
     {
       "id": "stop-50",
       "destination": {
         "kind": "structure",
-        "id": "house_1619_prairie"
+        "id": "armour_corwith_house_1945_prairie"
       },
-      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Last stop of the walk so far; it grows as more buildings are built out.",
-      "read_s": 16,
+      "text": "Armour-Corwith House, 1945 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Last stop of the walk so far; it grows as more buildings are built out.",
+      "read_s": 20,
       "evidence": [
         "stood-50",
         "tour"
@@ -1063,7 +1063,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1619_prairie",
+          "id": "armour_corwith_house_1945_prairie",
           "label": "About this building"
         }
       ],
@@ -1524,15 +1524,6 @@
     },
     {
       "id": "stood-47",
-      "text": "1601 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). No source here states when 1601 was built, so no building date is claimed."
-    },
-    {
-      "id": "stood-48",
       "text": "1613 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1541,7 +1532,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-49",
+      "id": "stood-48",
       "text": "1615 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1550,13 +1541,23 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-50",
+      "id": "stood-49",
       "text": "1619 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
       "confidence": "inferred",
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    },
+    {
+      "id": "stood-50",
+      "text": "Armour-Corwith House, 1945 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the 1928 photograph shows the same house still standing. Its building and loss dates are the register's (1872; lost about 1931) and are not read here."
     }
   ],
   "liberties": [

@@ -1,12 +1,12 @@
 {
   "id": "armour_corwith_house_1945_prairie",
-  "phase": "draft_1904",
-  "name": "1945 Prairie Avenue — George Armour/Corwith corner mansion (district draft; refined by T-1908)",
+  "phase": "as_mapped_1904",
+  "name": "1945 Prairie Avenue — the George Armour/Corwith house, a Second Empire corner mansion (K01; T-3281)",
   "aka": [
     "1945 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/armour_corwith_house_1945_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/armour_corwith_house_1945_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -22,9 +22,10 @@
     "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_28"
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicago_tribune_1928_07_29_famous_homes_corwith"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the 1928 photograph shows the same house still standing. Its building and loss dates are the register's (1872; lost about 1931) and are not read here.",
     "to_is": "seen"
   },
   "change_note": "",
@@ -36,11 +37,11 @@
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 29.500, v -7.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.435 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 29.500, v -7.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.435 degrees turns the plan's u axis onto the lot's own rear-to-street line. Kept from the district draft (T-2330) by T-3281.",
     "symbolic_location": "1945 S. Prairie Avenue, parcel prairie_1945 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -70,12 +71,13 @@
   },
   "attributes": {
     "stories": {
-      "value": 3,
-      "confidence": "attested",
+      "value": 2,
+      "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
       ],
-      "note": "'3S.B.; rear2B' printed on the 1911 sheet: 3 full storeys."
+      "note": "Two full storeys over a high basement under a mansard storey: the photograph shows two tiers of lights in the walls and a third in the dormers, and the 1911 sheet prints '3S.B.', which counts the mansard as the third storey."
     },
     "construction": {
       "value": "brick",
@@ -83,114 +85,722 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The register reads the map's colours as 'brick'."
+      "note": "The 1911 sheet colours the house as brick ('3S.B.; rear2B brick dwelling'); the photograph's walls are under creeper and cannot say more."
     },
-    "draft_plan": {
+    "principal_floor_m": {
+      "value": 1.8,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The principal floor's height over grade: the photograph's straight stoop climbs a high basement, its lights about a third of the principal storey's height above the walk; 1.8 m sits inside RECONSTRUCTION-RULES.md's range for a raised basement and is read through the camera to about 0.3 m."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.4,
+        4.0
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "Read through the solved camera against the stories the sheet prints: the principal storey's round-headed lights are the tallest in the front, the chamber storey's a little shorter. The two heights are the photograph's proportions scaled by the sheet's plan, good to about 0.3 m."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): a brick front of a three-storey house of the 1870s, as the kit's other brick fronts on this block."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the kit's flank wall."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the kit's common brick for walls no picture shows."
+    },
+    "roof_form": {
+      "value": "mansard",
+      "confidence": "attested",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The photograph shows a mansard: steep lower faces with dormers over the cornice on the front, the north bay and the corner."
+    },
+    "roof_pitch_deg": {
+      "value": 10,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the mansard's upper deck is out of the photograph's sight; the kit's low deck."
+    },
+    "eave_overhang_m": {
+      "value": 0.45,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The cornice stands well out over the front in the photograph (its shadow line under the dormers); 0.45 m is the kit's moulded cornice projection."
+    },
+    "mansard": {
       "value": {
-        "parts": [
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 3.4,
+        "bulge": 0.0,
+        "lower_pitch_deg": 74,
+        "dormers": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "hip",
-            "rect": [
-              0.0,
-              0.0,
-              15.75,
-              13.25
-            ],
-            "from": "s28fp-1945-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
+            "face": "street",
+            "along_m": 1.6,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 45
           },
           {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              -3.25,
-              5.0,
-              0.0,
-              14.25
-            ],
-            "from": "s28fp-1945-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
+            "face": "street",
+            "along_m": 3.4,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 45
           },
           {
-            "id": "r3",
-            "role": "range",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              -3.75,
-              0.75,
-              0.0,
-              4.75
-            ],
-            "from": "s28fp-1945-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
+            "face": "street",
+            "along_m": 5.6,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 45
+          },
+          {
+            "face": "street",
+            "along_m": 8.1,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.6,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 45
+          },
+          {
+            "face": "street",
+            "along_m": 10.0,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.6,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 45
+          },
+          {
+            "face": "north",
+            "along_m": 6.5,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 45
+          },
+          {
+            "face": "north",
+            "along_m": 11.0,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 45
+          },
+          {
+            "face": "cant",
+            "along_m": 0.0,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 45
           }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The photograph's mansard: a dormer over each light of the front's columns (the north bay's two, the door's, the corner block's two) and dormers on the 20th Street face (K01's 'north' on this east-side house). Lower rise and pitch are the kit's convex mansard read through the camera to about 0.3 m. The corner block's mansard stands higher than the rest in the photograph; this piece carries it at the house's height (match record, open for T-3283). A dormer over the canted corner as over every other column (reconstructed: in the halftone the corner is lost behind the higher roof)."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania",
+        "paint": "black"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "Slate on the mansard's lower faces, as the photograph's dark coursed faces read, and the kit's painted tin on the deck no picture sees."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.moulded_stone",
+        "walls": [
+          "k01.wall.side.south",
+          "k01.wall.street_front",
+          "k01.wall.side.north"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "A heavy moulded cornice under the mansard round the front and the 20th Street flank, as the photograph's cornice line reads over the north bay and the corner; the kit's moulded stone cornice."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k01.flat_lintel",
+          "k01.flat_lintel"
         ],
-        "lot_v": [
+        "brick_heads": "segmental"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "Stone sills and heads in a brick front: the chamber storey's lights read flat-headed under their heads in the photograph; the principal storey's are round-headed (street_front_round_heads)."
+    },
+    "street_front_round_heads": {
+      "value": {
+        "storeys": [
+          0
+        ],
+        "key": {
+          "width_m": 0.2,
+          "height_m": 0.25,
+          "proud_m": 0.05
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The principal storey's lights stand under round heads in the photograph, on the front and the corner block alike. A plain key block on each crown: the halftone shows the heads but not their dressing (reconstructed)."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the kit's tread."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.6,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the landing at the door, out of the photograph's sight under the arch."
+    },
+    "stoop_width_m": {
+      "value": 2.0,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The straight stoop between its two cheek walls in the photograph, about as wide as the door's arch; read through the camera to about 0.3 m."
+    },
+    "entrance_bay": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The door stands in the front's first window column south of the north bay (K01's columns count from the front's left end, its north end on this east-side house), under a round arch, as the photograph shows it."
+    },
+    "front_bays": {
+      "value": [
+        5.6,
+        8.1,
+        10.0
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The front's window columns from its north end, besides the north bay's own lights: the door's column and the corner block's two lights. Read through the camera to about 0.4 m."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.4,
+          "width_m": 1.1,
+          "height_m": 3.0
+        },
+        {
+          "sill_above_floor_m": 0.4,
+          "width_m": 1.05,
+          "height_m": 2.6
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The front's lights: tall round-headed ones in the principal storey and slightly shorter ones above, as the photograph shows them through the camera, good to about 0.3 m."
+    },
+    "basement_lights": {
+      "value": {
+        "sill_m": 0.3,
+        "width_m": 1.0,
+        "height_m": 0.8
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the basement's lights are lost in the halftone's shadow under the creeper; the kit's area light under each column."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        },
+        "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+        "k01.opening.sash_round_plain": "k06.opening.sash_round_fanlight"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): two-over-two sashes as the photograph's lights read their meeting rails; the kit's round fanlight sash in the round heads."
+    },
+    "side_bays": {
+      "value": [
+        4.0,
+        9.0,
+        13.0
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the north flank (K01's 'south' wall on this east-side house) is out of the photograph's sight: three window columns, the kit's rule for a flank of this depth."
+    },
+    "north_bays": {
+      "value": [
+        10.5,
+        13.8
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The 20th Street flank (K01's 'north' wall on this east-side house), measured from the front, behind its canted bay: the photograph sees its front part only, and the two columns behind are the kit's rule."
+    },
+    "rear_bays": {
+      "value": [
+        3.0,
+        11.0
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the rear is out of the photograph's sight: the kit's two columns where the rear wing and range leave the wall open."
+    },
+    "cant_corner": {
+      "value": {
+        "corner": "north",
+        "cut_m": 2.2
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The house's south-west corner, at 20th Street (K01's 'north' end of the front on this east-side house), is cut on a canted face between the front's corner block and the flank, as the photograph's pale face between them shows; the halftone cannot resolve an opening in it, so the cut carries the kit's own window column (reconstructed). The cut is read through the camera to about 0.4 m."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "north_bay",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.45,
+          "fabric": "brick",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -2.15,
+                0.0
+              ],
+              [
+                -1.45,
+                0.75
+              ],
+              [
+                1.45,
+                0.75
+              ],
+              [
+                2.15,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 1.75,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.9,
+                  "clear_height_m": 0.8,
+                  "sill_m": 0.3,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "T-3281: the bay's basement light under its middle face, the kit's area light at the basement's height."
+                }
+              ]
+            },
+            {
+              "height_m": 4.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.9,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.35,
+                    0.65
+                  ],
+                  "why_not_ordinary": "T-3281: the bay's principal-storey pair on its middle face, as the photograph shows two lights there (x 290 and 395 px)."
+                }
+              ]
+            },
+            {
+              "height_m": 4.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.5,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.35,
+                    0.65
+                  ],
+                  "why_not_ordinary": "T-3281: the bay's chamber pair, over the pair below, as the photograph shows (x 300 and 405 px)."
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "slate_pennsylvania"
+          },
+          "plinth_m": 0.05
+        },
+        {
+          "id": "south_flank_bay",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.side.north",
+          "s_m": 6.5,
+          "fabric": "brick",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -1.9,
+                0.0
+              ],
+              [
+                -1.2,
+                0.8
+              ],
+              [
+                1.2,
+                0.8
+              ],
+              [
+                1.9,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 1.75,
+              "windows": []
+            },
+            {
+              "height_m": 4.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.8,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 4.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.4,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "slate_pennsylvania"
+          },
+          "plinth_m": 0.05
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "Two canted bays on K08, each its height in the house's storeys: at the front's north end the bay the photograph shows with a pair of lights in each storey under its own dormers (its faces' cant reconstructed: the halftone shows the bay's front face and a receding north face), and on the 20th Street flank the bay the photograph shows behind the canted corner (x 1050-1200 px in the box), one light a storey on its middle face. Places and widths read through the camera to about 0.4 m."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 1.2,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 8.0,
+            "v_m": 12.5
+          },
+          {
+            "u_m": 8.0,
+            "v_m": 0.75
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the photograph's roof line shows no stack clear of the dormers; one stack in each flank wall, the kit's rule for a house of this depth."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 15.0
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 4.9
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the kit's copper gutter and downpipes on walls the photograph does not show."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 9.5
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "The door at the head of a straight stoop climbing to the front between cheek walls, as the photograph shows it; K07's panel door and stoop. The door's round arch is open in the match record."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 9.3,
+        "lot_s_m": [
           -0.5,
           15.5
         ],
-        "street_u": 25.269
+        "fence": "k11.fence.scroll_band",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 70
+        },
+        "posts": {
+          "section_m": 0.12,
+          "height_m": 1.2
+        }
       },
+      "confidence": "inferred",
+      "sources": [
+        "chicago_tribune_1928_07_29_famous_homes_corwith"
+      ],
+      "note": "An iron fence on a stone curb along the walk, as the photograph shows it before the house; the kit's scroll-band panels. The lot's ends are the draft's (data/street_grid/1904.json, parcel prairie_1945). No side gate: the north flank stands 0.5 m off the lot line, too close for a passage; service reaches the rear from 20th Street."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_wing",
+          "rect": [
+            -3.25,
+            0.0,
+            5.0,
+            13.25
+          ],
+          "floor_m": 1.8,
+          "storey_heights_m": [
+            4.4,
+            4.0,
+            3.0
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.0,
+              "height_m": 2.4
+            },
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.0,
+              "height_m": 2.2
+            },
+            {
+              "sill_above_floor_m": 0.5,
+              "width_m": 0.9,
+              "height_m": 1.6
+            }
+          ],
+          "windows": {
+            "rear": [
+              2.0,
+              6.0
+            ],
+            "north": [
+              1.6
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        },
+        {
+          "id": "rear_range",
+          "rect": [
+            -3.75,
+            0.0,
+            0.75,
+            4.75
+          ],
+          "floor_m": 1.8,
+          "storey_heights_m": [
+            4.0,
+            3.6
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.2
+            },
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.0,
+              "height_m": 2.0
+            }
+          ],
+          "windows": {
+            "rear": [
+              2.0
+            ],
+            "south": [
+              1.9
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1945-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s28fp-1945-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s28fp-1945-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The 1911 sheet's rear parts as the draft fitted them (s28fp-1945-b1: the main part's rear rectangle, three storeys, and the 'rear2B' brick range, two), on K01's rear wings under flat roofs; their lights and heights are the kit's (reconstructed), out of the photograph's sight. The wing's south wall is held on the main body's line (v 13.25): the draft's fit runs it 1.0 m past it, inside the sheet's tracing tolerance, and K01 stands a wing on its host wall's length."
     },
-    "draft_elevation": {
+    "yard": {
       "value": {
-        "kind": "house",
-        "seed": 1428675031,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 38,
-        "mansard_lower_m": 3.0,
-        "front_bays": 5,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": true,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2330",
-          "refined_by": [
-            "T-1908"
-          ]
-        },
-        "v_toward": "south"
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's 'corner mansion with substantial roof/attic, deep Prairie facade and long 20th Street elevation': a hip with attic dormers over the mapped house, its rear2B range behind. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1428675031 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2330",
-        "liberty": "L-draft-prairie-18-20-east-2330",
-        "register_row": "frontage-28-058",
-        "census_ids": [
-          "s28-1945-front",
-          "s28-1945-wing"
-        ],
-        "trace_building": "s28fp-1945-b1",
-        "seed": 1428675031,
-        "replaceable_by": [
-          "T-1908"
-        ],
-        "card": "District draft — refined by T-1908."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the kit's yard: a flagged walk from the stoop's foot to the gate, as on the block's other K01 houses."
     },
     "function": {
       "value": "residence",
@@ -203,6 +813,25 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicago_tribune_1928_07_29_famous_homes_corwith",
+      "citation": "'Famous Homes' [the old Corwith home, 1945 Prairie avenue]. Halftone photograph with caption, '[Tribune Photo.]'. Chicago Sunday Tribune, 29 July 1928 (vol. 87 no. 31).",
+      "url": "https://archive.org/details/per_chicago-daily-tribune_1928-07-29_87_31/page/n96/mode/1up",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the house's form by 1928: two full storeys over a high basement under a mansard with dormers, a Second Empire house",
+        "the street front's composition: a canted two-storey bay at the north end under its own dormers, the round-arched door over a high straight stoop, then a broad south block with two lights a storey under a higher mansard, cut on a canted face at the 20th Street corner",
+        "round-headed lights on the principal storey, taller flat-headed lights above, and the 20th Street flank's window column behind the corner",
+        "an iron fence on a stone curb along the walk"
+      ],
+      "what_it_does_not_supply": [
+        "colour: a monochrome halftone, and the walls are under creeper",
+        "the north flank, the rear and the rear ranges",
+        "the house in 1904: it shows it in 1928, six years after Mrs. Corwith's death"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
@@ -224,8 +853,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1908 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1945-b1), the T-1841 census (s28-1945-front, s28-1945-wing) and the T-1837 register row frontage-28-058 (George Armour/Corwith corner mansion); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "T-3281 (piece 1 of T-1908) refines the district draft (T-2330) in place under its own id: the 1911 sheet's '3S.B.; rear2B' brick house at the north-east corner of 20th Street and Prairie, read off the Chicago Tribune's 'Famous Homes' photograph of 29 July 1928 (chicago_tribune_1928_07_29_famous_homes_corwith; camera data/reference_views/armour_corwith_house_1945_prairie/tribune_1928_famous_homes.json). The main body stands on K01 under a dormered mansard, with the north end's canted bay and the 20th Street flank's canted bay on K08, the south-west corner cut on a canted face, and the sheet's rear wing and two-storey range on K01's rear wings. The register's attribution (Treat & Foltz, 1872, for George Armour; Mrs. Henry Corwith in 1904 per the Blue Book) is carried from the study and not re-read here. What the photograph does not show, and what it shows that this piece has not yet built, is in the match record and docs/LIBERTIES.md (L-k01-1945-corwith-3281); T-3283 works the differences down.",
   "research_doc": "",
   "review_required": false,
-  "called": "1945 Prairie Avenue — George Armour/Corwith corner mansion"
+  "called": "1945 Prairie Avenue — the George Armour/Corwith house, a Second Empire corner mansion"
 }

@@ -24281,7 +24281,7 @@ brings every 1906 match record to `matches`.
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24324,6 +24324,9 @@ read off the 1898 Chicagology photograph, under `L-k01-1901-ream-1903`, under th
 house stays this draft's.
 **1905 retired from this liberty by T-3260 (2026-10-30):** Marshall Field's house now stands as the K01 brick house
 read off the 1893 Pictorial Chicago plate, under `L-k01-1905-field-3260`, under the same id; its draft attributes are gone. Its coach
+house stays this draft's.
+**1945 retired from this liberty by T-3281 (2026-10-31):** the George Armour/Corwith house now stands as the K01 brick house
+read off the Tribune's 1928 'Famous Homes' photograph, under `L-k01-1945-corwith-3281`, under the same id; its draft attributes are gone. Its coach
 house stays this draft's.
 **Ticket:** T-2330 (piece 2 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
@@ -34932,6 +34935,41 @@ every 1900 match record to `matches`.
 **Ticket:** T-3207 (piece 1 of T-1897).
 **Review:** `docs/RESEARCH/photo-match/elbridge_keith_house_1900_prairie/glessner_oblique-side-by-side.jpg`.
 **Recorded:** 2026-10-27 (T-3207).
+
+### L-k01-1945-corwith-3281 — 1945 Prairie refined from the district draft to a K01 brick Second Empire corner house under a dormered mansard, read off the Tribune's 1928 photograph
+
+**Decision:** the house at 1945 Prairie Avenue, the George Armour/Corwith corner mansion (T-3281, piece 1
+of T-1908), is no longer a district draft. It stands, under the draft's own id
+`armour_corwith_house_1945_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`, against
+the Chicago Tribune's 'Famous Homes' photograph of 29 July 1928
+(`chicago_tribune_1928_07_29_famous_homes_corwith`, public domain): two storeys of brick over a high
+basement under a slated, dormered mansard, a canted two-storey bay at the front's north end, the door
+in the next column over a straight stoop, the corner block's two lights a storey, round-headed in the
+principal storey, the south-west corner cut on a canted face, a canted bay on the 20th Street flank, the
+1911 sheet's rear wing and two-storey range, and an iron fence along the walk.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1945-b1, census
+s28-1945-front and s28-1945-wing): the main body's place and plan (15.75 by 13.25 m), its brick, its
+storeys, and the rear wing and range. From the photograph, through its camera
+(`data/reference_views/armour_corwith_house_1945_prairie/tribune_1928_famous_homes.json`, about 27 px RMS
+with the eye held at a chosen stand): the front's composition and its window columns, the round heads,
+the storeys' proportions, the mansard and its dormers' places, the stoop, the canted corner and the
+flank's bay, the fence.
+**Where the picture says more than is built.** The corner block's mansard stands higher than the rest
+in the photograph, the north bay rises under its own curved roof, the door is round-arched, and the
+walls are under creeper in 1928: open on the match record for T-3283. The canted corner's face is pale
+and blank-looking in the halftone, which cannot resolve an opening in it; it carries the kit's window
+column. The library's other picture of the house, Chicagology's undated stereoview
+(`a19-cgy-1945-armour`, rights unknown, link only), is not built from.
+**What is invented.** wall_thickness_front_m, wall_thickness_side_m, service_wall_brick, roof_pitch_deg, stair_tread_m, stair_landing_depth_m, basement_lights, window_kit, side_bays, rear_bays, chimneys, rainwater, yard: the walls' thickness, the north flank's and the rear's windows
+(no picture sees them), the stacks, the deck's pitch, the treads and landing, the basement lights, the
+sash pattern, the rainwater and the yard's walk; the rear wing's and range's heights, lights and decks;
+the north bay's cant and the flank bay's depth.
+**How to resolve:** T-3283 works the match record's open differences down, adds the rear, roof and cost
+views T-1908's acceptance asks for, and brings the 1945 match record to `matches`.
+**Covers:** `armour_corwith_house_1945_prairie.as_mapped_1904.form.wall_thickness_front_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.wall_thickness_side_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.service_wall_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.roof_pitch_deg`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.stair_tread_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.stair_landing_depth_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.basement_lights`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.window_kit`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.side_bays`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.rear_bays`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.chimneys`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.rainwater`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3281 (piece 1 of T-1908).
+**Review:** `docs/RESEARCH/photo-match/armour_corwith_house_1945_prairie/tribune_1928_famous_homes-side-by-side.jpg`.
+**Recorded:** 2026-10-31 (T-3281).
 
 ### L-k01-1905-field-3260 — 1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate
 
