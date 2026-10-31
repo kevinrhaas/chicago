@@ -62832,6 +62832,39 @@
       ]
     },
     {
+      "id": "L-kimball-1801-range-stack-1890",
+      "title": "1801 Prairie's east range: its 18th Street end pitched steep, and the stone stack on its apex",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "r2, the east range behind the gabled section, keeps its 45-degree sides and its 11.05 m ridge, but its 18th Street (south) end is pitched at 60 degrees (rear wings[].roof.end pitch (deg), built by k01 frontage Assembly wing hip ends), so the apex stands 2.7 m back from that wall rather than 4.7 m. On it stands a stack in the walls' pale stone (rear wings[].stacks, the first stack a K01 wing carries): 0.8 m square at u -13.45, v 2.6, under a cap 0.1 m proud and 0.45 m deep, its top at 11.4 m. **What is read.** HABS photograph 2 (1965), at full size through later work's camera: the range's slate rises steeply from the eave to an apex at about x 380, y 797 px, where the build's 45-degree end put it about 55 px east; and on the apex a pale shaft under a moulded cap (x 336-387, the cap's top at y 776), which sets the stack's place within about 5 px and its height within about 2 px. **What is invented.** The end's pitch where the picture gives only the apex: 60 degrees is the steepest a K01 slated wing takes, and the print's apex may stand a little further forward still. The stack's depth along the range, which no picture sees; it is laid square. The cap is a plain slab where the print shows a moulded one, and the shaft's foot on its west face stands about 0.4-0.6 m under the print's through this one camera. The Taylor print of c. 1895, the period view, cannot see the range's roof behind its tree, so the 1965 stack and end are taken as the 1904 fabric."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1892 drawings, or a period picture of the 18th Street range from the north-east."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, with its match record."
+        }
+      ],
+      "work_refs": [
+        "T-3110",
+        "T-1890"
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",

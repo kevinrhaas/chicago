@@ -4011,12 +4011,96 @@ def _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top) -> dict:
         axis = "u" if u1 - u0 > v1 - v0 else "v"
     t = math.tan(math.radians(pitch))
     ridge = round(top + ((v1 - v0) if axis == "u" else (u1 - u0)) / 2 * t, 4)
+    # T-1890: a hip whose ridge runs along the wing may pitch one or both of its ends
+    # steeper than its sides (1801's east range, HABS photograph 2 (1965): the range's
+    # 18th Street end rises steeply to an apex about 3 m back from the wall, where its
+    # 45-degree sides would put it 4.7 m back). The ridge keeps its height; only where
+    # it ends moves. `end_pitch_deg` names the end by its wall, south (v0) or north (v1)
+    ends = roof.get("end_pitch_deg")
+    end_pitch = {}
+    if ends is not None:
+        if kind != "hip" or axis != "v":
+            raise ParamError(f"rear_wings: {wid}'s end_pitch_deg pitches a hip's ends, and only a hip "
+                             f"whose ridge runs along the wing (v) has them")
+        if not isinstance(ends, dict) or not ends or set(ends) - {"south", "north"}:
+            raise ParamError(f"rear_wings: {wid}'s end_pitch_deg names its south and/or north end "
+                             f"({ends!r})")
+        for side, e in sorted(ends.items()):
+            e = float(e)
+            if not pitch <= e <= 60.0:
+                raise ParamError(f"rear_wings: {wid}'s end_pitch_deg.{side} {e} is not between the sides' "
+                                 f"{pitch} deg and 60 (a steeper face is a mansard's)")
+            end_pitch[side] = e
+        rise = (u1 - u0) / 2 * t
+        if (v1 - v0) - sum(rise / math.tan(math.radians(end_pitch.get(sd, pitch))) for sd in ("south", "north")) < 0.3:
+            raise ParamError(f"rear_wings: {wid}'s ends at {end_pitch} meet less than 0.3 m apart: no ridge")
     return {"kind": kind, "pitch_deg": pitch, "covering": cov, "axis": axis,
             **({"gable_to": gable_to} if kind == "gable" else {}),
+            **({"end_pitch_deg": end_pitch} if end_pitch else {}),
             "ridge_m": ridge, "cover_m": ridge if axis == "u" else top}
 
 
-def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
+def wing_cover_m(w: dict, u: float, v: float) -> float:
+    """T-1890: the height of a pitched wing's covering over a plan point inside its wall
+    line, at the wall line's eave (the overhang aside): the lowest of its slopes there."""
+    r, top = w["roof"], w["top_m"]
+    u0, u1, v0, v1 = w["rect"]
+    t = math.tan(math.radians(r["pitch_deg"]))
+    te = {sd: math.tan(math.radians(r.get("end_pitch_deg", {}).get(sd, r["pitch_deg"]))) for sd in ("south", "north")}
+    if r["axis"] == "v":
+        runs = [(u - u0) * t, (u1 - u) * t]
+        if r["kind"] == "hip":
+            runs += [(v - v0) * te["south"], (v1 - v) * te["north"]]
+    else:
+        runs = [(v - v0) * t, (v1 - v) * t] + ([(u - u0) * t] if r["kind"] == "hip" else [])
+    return min(r["ridge_m"], top + max(0.0, min(runs)))
+
+
+def _wing_stacks(w: dict, entries, stone: bool) -> tuple:
+    """T-1890: the stacks a pitched wing's roof carries (`rear_wings[].stacks`): 1801's east
+    range, HABS photograph 2 (1965), a pale stone stack under a moulded cap standing on the
+    range's hip just in front of its apex. Each is T-2302's plain stack, a prism under a cap
+    slab, built in the wing's own roof solid so its shaft is cut where it leaves the slate;
+    it stands inside the wing's wall line, rises from under the covering and stops at its
+    own `top_m`, its cap clear of the covering under its plan and at least 0.3 m of shaft
+    showing on its low side (a stack astride an apex shows little on its high one)."""
+    if not entries:
+        return ()
+    wid, r = w["id"], w["roof"]
+    if r["kind"] == "flat":
+        raise ParamError(f"rear_wings: {wid}'s stacks stand on a hipped or gabled wing's slate")
+    u0, u1, v0, v1 = w["rect"]
+    out = []
+    for st_ in entries:
+        if set(st_) - {"u_m", "v_m", "plan_m", "top_m", "cap_proud_m", "cap_depth_m", "fabric"} \
+                or not {"u_m", "v_m", "plan_m", "top_m"} <= set(st_):
+            raise ParamError(f"rear_wings: {wid}'s stack takes u_m, v_m, plan_m and top_m, and optionally "
+                             f"cap_proud_m, cap_depth_m and fabric ({sorted(st_)})")
+        u, v, top = float(st_["u_m"]), float(st_["v_m"]), float(st_["top_m"])
+        sx, sz = (float(x) for x in st_["plan_m"])
+        cp, cd = float(st_.get("cap_proud_m", 0.05)), float(st_.get("cap_depth_m", 0.15))
+        fab = st_.get("fabric", "brick")
+        where = f"rear_wings: {wid}'s stack at ({u}, {v})"
+        if not (0.5 <= sx <= 2.0 and 0.5 <= sz <= 2.0):
+            raise ParamError(f"{where} is {sx} x {sz} m; a stack's plan is 0.5-2.0 m each way")
+        if not (u0 + sx / 2 + 0.3 <= u <= u1 - sx / 2 - 0.3 and v0 + sz / 2 + 0.3 <= v <= v1 - sz / 2 - 0.3):
+            raise ParamError(f"{where} does not stand 0.3 m inside the wing's wall line")
+        if not 0.0 <= cp <= 0.4 or not 0.05 <= cd <= 0.8:
+            raise ParamError(f"{where}: its cap stands 0-0.4 m proud and 0.05-0.8 m deep")
+        if fab not in ("brick", "stone") or (fab == "stone" and not stone):
+            raise ParamError(f"{where}: fabric is 'brick', or 'stone' on a house with a stone front, not {fab!r}")
+        under = [wing_cover_m(w, u + a * sx / 2, v + b * sz / 2) for a in (-1, 1) for b in (-1, 1)]
+        if top - cd < max(under) + 0.05 - 1e-9 or top - cd < min(under) + 0.3 - 1e-9:
+            raise ParamError(f"{where} tops at {top} m; its cap does not clear the covering under it "
+                             f"({min(under):.3f}-{max(under):.3f} m) with 0.3 m of shaft showing on its low side")
+        if top > r["ridge_m"] + 3.0:
+            raise ParamError(f"{where} tops at {top} m, more than 3 m over the wing's {r['ridge_m']} m ridge")
+        out.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": round(w["top_m"] - 0.3, 4),
+                    "cap_proud_m": cp, "cap_depth_m": cd, "stone": fab == "stone"})
+    return tuple(out)
+
+
+def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, stone: bool = False):
     """Resolve the record's `rear_wings` (T-2343): the ranges a sheet draws behind the main
     body, each a rectangle in the footprint frame whose front stands on the main rear wall
     (u = 0) or on the rear wall of a wing listed before it, inside that wall's length.
@@ -4185,11 +4269,15 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
             pool.remove(o)
         if host is not None:
             host["openings"] = tuple(pool)
-        out.append({"id": wid, "fabric": fabric, "rect": (u0, u1, v0, v1), "host_wall": hwall, "host_span_m": (round(a, 4), round(b, 4)),
-                    "floors_m": tuple(floors), "top_m": top, "deck_m": deck, "overhang_m": ov, "fascia_m": fas,
-                    "host_v_m": (hv0, hv1), "openings": tuple(ops), "roof": pitched or {"kind": "flat"},
-                    **({"cornice": True} if cornice else {}),
-                    **({"past_host": past} if past else {})})
+        wing = {"id": wid, "fabric": fabric, "rect": (u0, u1, v0, v1), "host_wall": hwall, "host_span_m": (round(a, 4), round(b, 4)),
+                "floors_m": tuple(floors), "top_m": top, "deck_m": deck, "overhang_m": ov, "fascia_m": fas,
+                "host_v_m": (hv0, hv1), "openings": tuple(ops), "roof": pitched or {"kind": "flat"},
+                **({"cornice": True} if cornice else {}),
+                **({"past_host": past} if past else {})}
+        stacks = _wing_stacks(wing, e.get("stacks"), stone)
+        if stacks:
+            wing["stacks"] = stacks
+        out.append(wing)
     slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
     if len(slates) > 1:
         raise ParamError(f"rear_wings: the wings are slated in {', '.join(sorted(slates))}; a K01 house's "
@@ -6188,7 +6276,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(str(e)) from None
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
-                        opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))
+                        opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""),
+                        stone=bool(val("stone_front")))
     if wing_towers:
         wings, more = _wing_towers(wing_towers, wings, (record or {}).get("id", ""), bool(val("stone_front")),
                                    float(val("eave_overhang_m")))
