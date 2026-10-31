@@ -1263,7 +1263,7 @@
         },
         {
           "key": "half_width_m",
-          "value": 4.0
+          "value": 6.0
         },
         {
           "key": "side_slope",
@@ -1277,7 +1277,10 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "The south approach to the Dearborn Street drawbridge, from the foot of Dearborn on South Water. Andreas describes about 300 ft of timber causeway with a 60 ft draw; the causeway itself is the committed deck, and this is the earthwork that gets a team from the street onto it. Form invented at 1 in 12."
+        "The south approach to the Dearborn Street drawbridge, from the foot of Dearborn on South Water. Andreas describes about 300 ft of timber causeway with a 60 ft draw; the causeway itself is the committed deck, and this is the earthwork that gets a team from the street onto it. Form invented at 1 in 12. CURRENT SIXTEEN-FOOT DECK ACCESS CORRECTION: Widen the reconstructed crest half-width from4m to6m while preserving the existing approach axis, deck elevation, grade and3m overhang. The mapped bridge origin/bearing, bank controls and water-gap length remain unchanged. The positive-v deck extension otherwise mixes a low shoulder/water vertex into its2.5m bilinear heightfield end edge; the widened fill supports a full-width step within the0.35m walk rule. Six metres is a numerical access reconstruction, not a source-attested historical road width. Native regenerated end-edge and fresh walk checks are required. The numerical access reconstruction is admitted in the liberties register L-dearborn-picture-profile-2375."
+      ],
+      "work_refs": [
+        "T-2375"
       ]
     },
     {
@@ -1306,7 +1309,7 @@
         },
         {
           "key": "half_width_m",
-          "value": 4.0
+          "value": 6.0
         },
         {
           "key": "side_slope",
@@ -1320,7 +1323,10 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "The north approach to the Dearborn Street drawbridge, onto the Kinzie's Addition side. Same footing as dearborn south."
+        "The north approach to the Dearborn Street drawbridge, onto the Kinzie's Addition side. Same footing as dearborn south. CURRENT SIXTEEN-FOOT DECK ACCESS CORRECTION: Widen the reconstructed crest half-width from4m to6m while preserving the existing approach axis, deck elevation, grade and3m overhang. The mapped bridge origin/bearing, bank controls and water-gap length remain unchanged. The positive-v deck extension otherwise mixes a low shoulder/water vertex into its2.5m bilinear heightfield end edge; the widened fill supports a full-width step within the0.35m walk rule. Six metres is a numerical access reconstruction, not a source-attested historical road width. Native regenerated end-edge and fresh walk checks are required. The numerical access reconstruction is admitted in the liberties register L-dearborn-picture-profile-2375."
+      ],
+      "work_refs": [
+        "T-2375"
       ]
     },
     {

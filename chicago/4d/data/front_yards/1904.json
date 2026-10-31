@@ -142,11 +142,11 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 135,
+  "shrubs": 138,
   "trees": 14,
   "beds": 11,
   "creeper_patches": 25,
-  "attested_plants": 22,
+  "attested_plants": 25,
   "lots_with_a_door": 111,
   "schemes": {
    "corners": 78,
@@ -4374,11 +4374,41 @@
      1463.17,
      -3169.79,
      "arborvitae",
-     2.27,
+     2.77,
      0.45,
      "inferred",
      1.4,
-     0.5
+     0.0
+    ],
+    [
+     1457.33,
+     -3168.4,
+     "arborvitae",
+     3.39,
+     0.85,
+     "inferred",
+     1.4,
+     0.0
+    ],
+    [
+     1458.91,
+     -3168.16,
+     "arborvitae",
+     3.37,
+     1.0,
+     "inferred",
+     1.4,
+     0.0
+    ],
+    [
+     1463.24,
+     -3168.4,
+     "arborvitae",
+     3.62,
+     0.7,
+     "inferred",
+     1.4,
+     0.0
     ],
     [
      1467.25,
@@ -4662,7 +4692,8 @@
      "loc_det_4a08065_pullman_residence",
      "loc_det_4a08066_pullman_residence",
      "inland_1894_pullman_palm_house_stable",
-     "aic_taylor_16555_pullman_west_front"
+     "aic_taylor_16555_pullman_west_front",
+     "aic_taylor_16554_pullman_from_sw"
     ],
     "pictures": [
      "a16-pullman-det-4a08065",
@@ -4688,7 +4719,7 @@
     },
     "tubs": {
      "grade": "inferred",
-     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and the slim column beside the drum that both pictures show, and the palm set out before the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace."
+     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and the palm set out before the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace. Four slim clipped columns are planted in the terrace itself, not tubbed (a pair before the wing's arched windows and two at the drum's west side): Taylor's winter photograph 16554 shows all four and his summer 16555 three of them (the fourth behind the house's porch), so they stood the year round."
     }
    }
   },

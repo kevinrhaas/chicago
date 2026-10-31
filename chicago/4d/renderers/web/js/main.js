@@ -47,6 +47,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
+import { profiledGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -3408,6 +3409,7 @@ async function boot() {
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
+    groundHeight: (e, n) => profiledGroundHeight(terrain, decks, e, n),
   });
   api.humans.on('open', ({ personId }) => {
     if (!api.people) return;

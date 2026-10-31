@@ -1,3 +1,4 @@
+import { deckHeightAt } from './deck-surface.js';
 /**
  * route.js — the route planner behind auto-travel: "walk me to that building".
  *
@@ -434,7 +435,7 @@ export function createRouter({
     for (const d of decks) {
       if (!(d?.pts?.length >= 3) || typeof d.y !== 'number') continue;
       const bb = bboxOf(d.pts);
-      deckBoxes.push({ pts: d.pts, y: d.y, ...bb });
+      deckBoxes.push({ ...d, ...bb });
       const s = span(bb, 0);
       for (let j = s.j0; j <= s.j1; j++) {
         const n = cN(j);
@@ -447,9 +448,9 @@ export function createRouter({
           if (surfaceAt) {
             hgt[k] = surfaceAt(e, n);
           } else if (cls[k] === CLS_BLOCKED) {
-            hgt[k] = d.y;               // over water: the deck wins outright
+            hgt[k] = deckHeightAt(d, e, n); // over water: the sampled deck wins
           } else {
-            hgt[k] = Math.max(hgt[k], d.y);
+            hgt[k] = Math.max(hgt[k], deckHeightAt(d, e, n));
           }
           if (cls[k] === CLS_BLOCKED) cls[k] = CLS_DECK;
           else lower(k, CLS_DECK);
@@ -655,8 +656,9 @@ export function createRouter({
     let deckY = null;
     for (const d of grid.deckBoxes) {
       if (e < d.e0 || e > d.e1 || n < d.n0 || n > d.n1) continue;
-      if ((deckY !== null && d.y <= deckY) || !inside(e, n, d.pts)) continue;
-      deckY = d.y;
+      if (!inside(e, n, d.pts)) continue;
+      const y = deckHeightAt(d, e, n);
+      if (typeof y === 'number' && (deckY === null || y > deckY)) deckY = y;
     }
     const ground = grid.surf(e, n);
     const water = grid.waterOf(e, n, ground);

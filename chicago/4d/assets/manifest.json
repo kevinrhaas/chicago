@@ -153,8 +153,8 @@
     "chappel_infant_school__log_1833.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 50172,
-      "inputs_sha256": "15ae41a18f95842783dca40cda1ea8da85dbf8731282384d3bd140415ebd5430",
+      "bytes": 49864,
+      "inputs_sha256": "2fe83632046f2462e58524944e13e970ace9824693f5141f3769c1b726537f44",
       "kind": "generated",
       "phase_id": "log_1833",
       "structure_id": "chappel_infant_school"
@@ -263,8 +263,8 @@
     "dearborn_street_drawbridge__draw_1834.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,
-      "bytes": 1062488,
-      "inputs_sha256": "57d1297cfa9d3bbe9d4e6537ad04d3cd183b60879b882d7c2af06ba308016c59",
+      "bytes": 1101020,
+      "inputs_sha256": "046b845007ca607c55ff9f591eb6760f1c6ae839513a62dcd014ec60806fa301",
       "kind": "generated",
       "phase_id": "draw_1834",
       "structure_id": "dearborn_street_drawbridge"
@@ -3242,8 +3242,8 @@
     "jb_beaubien_homestead__log_1822.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 49644,
-      "inputs_sha256": "9436e9668b4ea14b23c1752c127b4b420ccbab1dcfb4e3e3ca5447c10813bea0",
+      "bytes": 102744,
+      "inputs_sha256": "fdac754ae1397f961e54d428d198e3d27d90bea7f4c67cece5f4b1cbeed7f5a7",
       "kind": "generated",
       "phase_id": "log_1822",
       "structure_id": "jb_beaubien_homestead"
@@ -3494,7 +3494,7 @@
       "archetype": "bridge_timber",
       "baked_ao": false,
       "bytes": 57968,
-      "inputs_sha256": "d44ee6e610982ff5626774d22346807ddb0009b541b5982804e82d898bbe90d2",
+      "inputs_sha256": "0297a0c1e92d47282c6f5bf71c2cbb8b1ca0623864f3cda26daa233d31e05c61",
       "kind": "generated",
       "phase_id": "crossing_1835",
       "structure_id": "lasalle_slough_crossing"
@@ -3948,7 +3948,7 @@
       "archetype": "bridge_timber",
       "baked_ao": false,
       "bytes": 200972,
-      "inputs_sha256": "29774599c5550402f154cb41ace3b7d3ca9a41a43df642b3eefae264750ea3fb",
+      "inputs_sha256": "9c6d7a1bdf1a55fbeb7e74846096d1d013d872638282efdfa09805ad54c21e9d",
       "kind": "generated",
       "phase_id": "log_1832",
       "structure_id": "north_branch_bridge"
@@ -3975,7 +3975,7 @@
       "archetype": "bridge_timber",
       "baked_ao": false,
       "bytes": 38992,
-      "inputs_sha256": "96ae12f45e74fad7b5c3b7a4c07717a4c393843fbb5d94a67713589b768025c2",
+      "inputs_sha256": "337abe5fc3235da286f5bf5a9d8734bac5dd30d58e7feaa5c547616fe653a40f",
       "kind": "generated",
       "phase_id": "crossing_1835",
       "structure_id": "north_water_slough_crossing"
@@ -4030,8 +4030,8 @@
     "philo_carpenter_log_shop__log_1832.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 46604,
-      "inputs_sha256": "08db0e0117c1d6467997fd392ed09d51f8012e4e4bf9ae6399348c2574e852f9",
+      "bytes": 48472,
+      "inputs_sha256": "498ba51e434b99cb489b0dcf20150394cb3e4b00335dce00d95efde5011ef165",
       "kind": "generated",
       "phase_id": "log_1832",
       "structure_id": "philo_carpenter_log_shop"
@@ -9161,7 +9161,7 @@
       "archetype": "bridge_timber",
       "baked_ao": false,
       "bytes": 38144,
-      "inputs_sha256": "ac8f85b78ed7874a532034335469d3bc5e4aa88d364676ce11233dc1a6626315",
+      "inputs_sha256": "8f9a0e96f8830f76a33050be1853915b9ecd7b099067acbba84d1561ed0a1817",
       "kind": "generated",
       "phase_id": "log_1833",
       "structure_id": "slough_log_bridge"
@@ -9179,7 +9179,7 @@
       "archetype": "bridge_timber",
       "baked_ao": false,
       "bytes": 171344,
-      "inputs_sha256": "311c4ec42a1ad631e270184d1fb6d0f3462b8fd084668544dbd07cd0c030fa66",
+      "inputs_sha256": "31fae123a5fd82e8972861e85baec6d6811aceb2b62b1b554acd03e292debb3a",
       "kind": "generated",
       "phase_id": "log_1833",
       "structure_id": "south_branch_raft_bridge"
@@ -9280,35 +9280,35 @@
     },
     "terrain__e1830_natural.glb": {
       "baked_ao": false,
-      "bytes": 30004072,
+      "bytes": 33792948,
       "generator": "generators/terrain_gen_e1830.py",
-      "inputs_sha256": "26e3f920439ba9361737ec2be066313b8fd08d3f040314c16d6d4e6fd4b75cdd",
+      "inputs_sha256": "8d9dc1e2ffa50ea09bfe2e4e50cf7b7783631eca9f3376656f3fd245d0b37541",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
-        "max_m": 0.0064,
+        "max_m": 0.006,
         "misses": 0,
-        "rms_m": 0.00025,
+        "rms_m": 0.00018,
         "samples": 210897
       },
       "terrain_epoch": "e1830_natural",
-      "triangles": 1152880
+      "triangles": 1298704
     },
     "terrain__e1834_harbor_cut.glb": {
       "baked_ao": false,
-      "bytes": 30621836,
+      "bytes": 33923604,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "00b4945eeab38d54d7e65fbb126a667747432eb2442bc49704228a9ae36e6654",
+      "inputs_sha256": "f72680a5128c4780dce557cc3fc28a820eb9ffd94ce3b19a068246b5f75ec416",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
-        "max_m": 0.0068,
+        "max_m": 0.0036,
         "misses": 0,
-        "rms_m": 0.00024,
+        "rms_m": 0.00019,
         "samples": 210897
       },
       "terrain_epoch": "e1834_harbor_cut",
-      "triangles": 1176602
+      "triangles": 1303760
     },
     "terrain__e1871_postfire.glb": {
       "baked_ao": false,
@@ -9454,7 +9454,7 @@
       "baked_ao": false,
       "bytes": 1368,
       "generator": "generators/terrain_gen_e1830.py",
-      "inputs_sha256": "26e3f920439ba9361737ec2be066313b8fd08d3f040314c16d6d4e6fd4b75cdd",
+      "inputs_sha256": "8d9dc1e2ffa50ea09bfe2e4e50cf7b7783631eca9f3376656f3fd245d0b37541",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1830_natural",
@@ -9464,7 +9464,7 @@
       "baked_ao": false,
       "bytes": 1376,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "00b4945eeab38d54d7e65fbb126a667747432eb2442bc49704228a9ae36e6654",
+      "inputs_sha256": "f72680a5128c4780dce557cc3fc28a820eb9ffd94ce3b19a068246b5f75ec416",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",
