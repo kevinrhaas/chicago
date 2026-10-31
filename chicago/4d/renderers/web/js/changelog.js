@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2487, ts: '2026-10-31T08:22:26.935Z', date: 'Oct 31, 2026, 3:22 AM CT', title: 'Calumet Avenue\'s corner trees, lamp and hydrant where Taylor\'s photograph shows them', kind: 'fix',
+    items: [
+      'Three slender young elms now line Calumet Avenue\'s west walk where it curves into 18th Street, opposite the Pullman stable, in place of three grown elms, read off J. W. Taylor\'s photograph no. 16554.',
+      'The gas lamp that photograph shows now stands on that same corner, across 18th Street from where it stood before; the hydrant before the stable moves 5 m east along the walk.',
+      'The photograph was taken from the lawn of the corner lot at 18th and Calumet, so its camera has been re-fitted on that lawn\'s curved coping and the walk, which puts the street\'s ground where the picture has it.',
+    ] },
+  { v: 2486, ts: '2026-10-31T08:22:26.935Z', date: 'Oct 31, 2026, 3:22 AM CT', title: 'The Field house\'s conservatory, in glass', kind: 'improvement',
+    items: [
+      'The conservatory on the south side of 1905 Prairie, Marshall Field\'s house, is now glass, as the 1893 Pictorial Chicago plate shows it: a ring of tall lights on fine bars, standing on a stone sill over the house\'s stone base, under a ribbed glass roof that curves up to the wall.',
+      'Until now it was a brick bow with three windows under a flat tin roof.',
+    ] },
+  { v: 2485, ts: '2026-10-31T06:31:13.027Z', date: 'Oct 31, 2026, 1:31 AM CT', title: 'Pullman\'s 18th Street wall stands as it did around 1900', kind: 'change',
+    items: [
+      'In 1904 the low stone wall before Pullman\'s palm house and stable runs as one plain, level coping. A photograph from about 1900 shows it that way, with a thick border of shrubs behind it.',
+      'The tall piers, the urn and the curved low walls from the 1894 pictures are gone east of the porch stair. Both gateways stay, including the carriage way into the stable court.',
+    ] },
   { v: 2484, ts: '2026-10-31T05:15:56.213Z', date: 'Oct 31, 2026, 12:15 AM CT', title: 'The Pullman house\'s carriage porch, balanced', kind: 'improvement',
     items: [
       '1729 Prairie\'s porte-cochère on 18th Street now has each arch centred on its face, with banded stone piers, a moulded band where the arches spring, and a ring of voussoirs with a keystone round each arch, as J. W. Taylor\'s photograph shows them.',
