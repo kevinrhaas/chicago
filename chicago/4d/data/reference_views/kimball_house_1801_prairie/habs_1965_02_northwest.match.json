@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b69c2fc1e6b6f1ecf004af183e5bf6d5915154541ffbfbe9cc7272dc13f8ec15",
+  "glb_sha256": "b5c8ab53d39024856db570c49dd2027dbcd2b0b8f5b1cb0594c7d2f12d5507fe",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -140,6 +140,11 @@
       "what": "the south pavilion's cross roof, at the frame's right edge (T-1890): the print shows a slated roof running back from behind the coped gable at about x 1500-1560, lower than the main deck, where the build stood the mansard's front face; now built as the Taylor print reads it",
       "status": "fixed",
       "how": "T-1890: bays.p_south roof.gable.behind and deck.cross_roof (L-kimball-1801-cross-roof-1890); read here only at the frame's edge, nothing it shows differs beyond the Taylor and HABS 1 records'"
+    },
+    {
+      "what": "the cross roof's finial, at the frame's right edge: on the hood T-1890 stood on the cross roof's end its turnings and spike now show over the front's cresting (render about x 1314, y 262-317), where the print's 1965 finial is a short knob without a spike, lower (about x 1290, y 345), as it is on HABS photograph 1",
+      "status": "within tolerance",
+      "how": "T-1890: 1965 fabric against the c. 1895 Taylor print, which shows the spike and sets the finial's top; the build follows the print for 1904. This camera's frame edge also reads the tower about 37 px off (the round tower's entry). L-kimball-1801-cross-hood-1890"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
