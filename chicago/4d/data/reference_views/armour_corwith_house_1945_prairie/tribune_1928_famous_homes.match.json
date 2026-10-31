@@ -1,0 +1,53 @@
+{
+ "structure_id": "armour_corwith_house_1945_prairie",
+ "view": "tribune_1928_famous_homes",
+ "glb": "assets/gltf/armour_corwith_house_1945_prairie__as_mapped_1904.glb",
+ "glb_sha256": "72ffd18978f6aa0622c128fd5ee293714f0da9ca66ee54a4d7fe966272203735",
+ "camera_sha256": "96fb4a4225823778273b8b66a19b3ea22002232080f294f96ff395f109497cce",
+ "photo_sha256": "de40c9e5304e2c321c60d06deec224f38ef217fb583375142223a6ac0fd1756e",
+ "side_by_side": "docs/RESEARCH/photo-match/armour_corwith_house_1945_prairie/tribune_1928_famous_homes-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "massing: the draft's hipped block is now the photograph's house, two storeys of brick over a high basement under a dormered mansard, filling about the same part of the frame (the photograph's house x 190-850 px of the side-by-side's left half, the render's about x 240-845)",
+   "status": "fixed"
+  },
+  {
+   "what": "the front's composition from the north: a canted bay with two lights a storey, the door's column over a straight stoop, then the corner block's two lights a storey, round-headed in the principal storey",
+   "status": "fixed"
+  },
+  {
+   "what": "a dormer over each column of the front and on the 20th Street face, and the canted south-west corner with the flank's bay behind it",
+   "status": "fixed"
+  },
+  {
+   "what": "the corner block's mansard stands about a storey higher than the rest in the photograph (its dormers' heads at y 230-330 px against the north bay's at y 330-400); the build carries the whole mansard at one height",
+   "status": "open"
+  },
+  {
+   "what": "the north bay rises under its own curved mansard with two dormers in the photograph; the build stops it under the cornice with a low hip and the house's mansard behind",
+   "status": "open"
+  },
+  {
+   "what": "the door stands under a round arch in the photograph; the build's door is square-headed under a flat lintel",
+   "status": "open"
+  },
+  {
+   "what": "the camera sees the 20th Street flank more openly than the render (the flank's bay at x 1050-1200 px of the box); the eye is held at a chosen stand (26.6 px RMS) and the flank's depth of view is not fitted",
+   "status": "open"
+  },
+  {
+   "what": "the chamber storey's corner lights read slightly arched in the halftone; the build's are flat-headed",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the walls are under a heavy creeper in 1928; its 1904 extent is not known, and the build shows the brick bare",
+   "status": "not shown"
+  },
+  {
+   "what": "colour: a monochrome halftone, and the walls are under creeper",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

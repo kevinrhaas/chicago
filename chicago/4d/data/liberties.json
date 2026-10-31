@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 915,
+  "count": 916,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -11,7 +11,7 @@
     },
     {
       "id": "armour_corwith_house_1945_prairie",
-      "name": "1945 Prairie Avenue — George Armour/Corwith corner mansion"
+      "name": "1945 Prairie Avenue — the George Armour/Corwith house, a Second Empire corner mansion"
     },
     {
       "id": "armour_corwith_house_1945_prairie_coach_house",
@@ -35374,18 +35374,6 @@
       "covers": [
         {
           "domain": "structure",
-          "structure": "armour_corwith_house_1945_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "armour_corwith_house_1945_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "armour_corwith_house_1945_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35498,7 +35486,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35506,7 +35494,7 @@
         },
         {
           "label": "How to resolve",
-          "text": "each house's per-building piece of work (to, named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id; the alley buildings are earlier work's. **1811 retired from this liberty by later work (2026-10-16):** the house now stands as the K01 stone-front house under `“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”`, under the same id; its draft attributes are gone, and its stable keeps 1811 S. Prairie Avenue — the alley building of the house at 1811 here. **1815 retired from this liberty by later work (2026-10-25):** the house now stands as the K01 stone-front house under `“1815 Prairie refined from the district draft to a K01 stone-front house under a mansard, its pavilion, corner bay and balcony read off its photographs”`, under the same id; its draft attributes are gone, and its coach house keeps 1815 S. Prairie Avenue — the alley building of the house at 1815 here. **1823 retired from this liberty by later work (2026-10-26):** the house now stands as the K01 stone-front house under `“1823 Prairie refined from the district draft to a K01 stone-front house under a mansard, its south pavilion, window groups and stacks read off its pictures”`, under the same id; its draft attributes are gone. **1827 retired from this liberty by later work (2026-10-26):** the Doane house's main block now stands as the K01 stone house read off the Chicagology photograph, under `“1827 Prairie refined from the district draft to a K01 stone house under a mansard, its pavilion, porch and heights read off the Chicagology photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1901 retired from this liberty by later work (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house read off the 1898 Chicagology photograph, under `“1901 Prairie refined from the district draft to a K01 stone house under a dormered mansard, its porch and balcony read off its photographs”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1905 retired from this liberty by later work (2026-10-30):** Marshall Field's house now stands as the K01 brick house read off the 1893 Pictorial Chicago plate, under `“1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate”`, under the same id; its draft attributes are gone. Its coach house stays this draft's."
+          "text": "each house's per-building piece of work (to, named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id; the alley buildings are earlier work's. **1811 retired from this liberty by later work (2026-10-16):** the house now stands as the K01 stone-front house under `“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”`, under the same id; its draft attributes are gone, and its stable keeps 1811 S. Prairie Avenue — the alley building of the house at 1811 here. **1815 retired from this liberty by later work (2026-10-25):** the house now stands as the K01 stone-front house under `“1815 Prairie refined from the district draft to a K01 stone-front house under a mansard, its pavilion, corner bay and balcony read off its photographs”`, under the same id; its draft attributes are gone, and its coach house keeps 1815 S. Prairie Avenue — the alley building of the house at 1815 here. **1823 retired from this liberty by later work (2026-10-26):** the house now stands as the K01 stone-front house under `“1823 Prairie refined from the district draft to a K01 stone-front house under a mansard, its south pavilion, window groups and stacks read off its pictures”`, under the same id; its draft attributes are gone. **1827 retired from this liberty by later work (2026-10-26):** the Doane house's main block now stands as the K01 stone house read off the Chicagology photograph, under `“1827 Prairie refined from the district draft to a K01 stone house under a mansard, its pavilion, porch and heights read off the Chicagology photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1901 retired from this liberty by later work (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house read off the 1898 Chicagology photograph, under `“1901 Prairie refined from the district draft to a K01 stone house under a dormered mansard, its porch and balcony read off its photographs”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1905 retired from this liberty by later work (2026-10-30):** Marshall Field's house now stands as the K01 brick house read off the 1893 Pictorial Chicago plate, under `“1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1945 retired from this liberty by later work (2026-10-31):** the George Armour/Corwith house now stands as the K01 brick house read off the Tribune's 1928 'Famous Homes' photograph, under `“1945 Prairie refined from the district draft to a K01 brick Second Empire corner house under a dormered mansard, read off the Tribune's 1928 photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's."
         },
         {
           "label": "Review",
@@ -35532,7 +35520,8 @@
         "T-3162",
         "T-3171",
         "T-3185",
-        "T-3260"
+        "T-3260",
+        "T-3281"
       ]
     },
     {
@@ -58619,6 +58608,123 @@
       ]
     },
     {
+      "id": "L-k01-1945-corwith-3281",
+      "title": "1945 Prairie refined from the district draft to a K01 brick Second Empire corner house under a dormered mansard, read off the Tribune's 1928 photograph",
+      "section": "per_subject",
+      "subjects": [
+        "armour_corwith_house_1945_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1945 Prairie Avenue, the George Armour/Corwith corner mansion, is no longer a district draft. It stands, under the draft's own id 1945 Prairie Avenue — the George Armour/Corwith house, a Second Empire corner mansion, as a k01 frontage record built by the k01 emit generator, against the Chicago Tribune's 'Famous Homes' photograph of 29 July 1928 ('Famous Homes' [the old Corwith home, 1945 Prairie avenue], public domain): two storeys of brick over a high basement under a slated, dormered mansard, a canted two-storey bay at the front's north end, the door in the next column over a straight stoop, the corner block's two lights a storey, round-headed in the principal storey, the south-west corner cut on a canted face, a canted bay on the 20th Street flank, the 1911 sheet's rear wing and two-storey range, and an iron fence along the walk. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1945-b1, census s28-1945-front and s28-1945-wing): the main body's place and plan (15.75 by 13.25 m), its brick, its storeys, and the rear wing and range. From the photograph, through its camera (the tribune 1928 famous homes data, about 27 px RMS with the eye held at a chosen stand): the front's composition and its window columns, the round heads, the storeys' proportions, the mansard and its dormers' places, the stoop, the canted corner and the flank's bay, the fence. **Where the picture says more than is built.** The corner block's mansard stands higher than the rest in the photograph, the north bay rises under its own curved roof, the door is round-arched, and the walls are under creeper in 1928: open on the match record for later work. The canted corner's face is pale and blank-looking in the halftone, which cannot resolve an opening in it; it carries the kit's window column. The library's other picture of the house, Chicagology's undated stereoview (`a19-cgy-1945-armour`, rights unknown, link only), is not built from. **What is invented.** wall thickness front (m), wall thickness side (m), service wall brick, roof pitch (deg), stair tread (m), stair landing depth (m), basement lights, window kit, side bays, rear bays, chimneys, rainwater, yard: the walls' thickness, the north flank's and the rear's windows (no picture sees them), the stacks, the deck's pitch, the treads and landing, the basement lights, the sash pattern, the rainwater and the yard's walk; the rear wing's and range's heights, lights and decks; the north bay's cant and the flank bay's depth."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work works the match record's open differences down, adds the rear, roof and cost views earlier work's acceptance asks for, and brings the 1945 match record to `matches`."
+        },
+        {
+          "label": "Covers",
+          "text": "`armour_corwith_house_1945_prairie.as_mapped_1904.form.wall_thickness_front_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.wall_thickness_side_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.service_wall_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.roof_pitch_deg`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.stair_tread_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.stair_landing_depth_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.basement_lights`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.window_kit`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.side_bays`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.rear_bays`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.chimneys`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.rainwater`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31 (T-3281)."
+        }
+      ],
+      "work_refs": [
+        "T-3281",
+        "T-1908",
+        "T-3283"
+      ]
+    },
+    {
       "id": "L-k01-1905-field-3260",
       "title": "1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate",
       "section": "per_subject",
@@ -58749,12 +58855,17 @@
         {
           "label": "Recorded",
           "text": "2026-10-30 (T-3261)."
+        },
+        {
+          "label": "Revised",
+          "text": "Hunt's plan of the principal floor ([Residence for Marshall and Nannie S. Field, 1905 South Prairie Avenue…) and the 923 Prairie and Daily News cameras fitted to it re-read the front at 16.8 m and the cut at about 2.4 m along the front and 1.9 m along the flank (the library octagon's 6 ft 3 in diagonal). K01's cut is one length both ways, so it is now built 2.15 m, within 0.3 m of both; the wide column's balcony runs its plate length, 2.4 m, 0.2 m short of the cut. The light stone strips and the flank balcony stay open."
         }
       ],
       "work_refs": [
         "T-3186",
         "T-3261",
-        "T-3260"
+        "T-3260",
+        "T-3271"
       ]
     },
     {

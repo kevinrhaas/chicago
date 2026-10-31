@@ -14,13 +14,14 @@
   "tuck_m": 0.04
  },
  "summary": {
-  "walk_ends": 72,
-  "joined": 51,
+  "walk_ends": 73,
+  "joined": 52,
   "already_met": 13,
   "not_street_ends": 8,
   "widest_gap_m": 1.6
  },
  "joins": [
+  {"id": "armour_corwith_house_1945_prairie:front_walk:0", "house": "armour_corwith_house_1945_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.321, "width_m": 1.28, "polygon_local_m": [[1414.282, -3451.249], [1414.295, -3452.529], [1413.894, -3452.533], [1413.881, -3451.253]]},
   {"id": "coleman_ames_house_1811_prairie:front_walk:0", "house": "coleman_ames_house_1811_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.316, "width_m": 2.2, "polygon_local_m": [[1412.262, -3250.629], [1412.284, -3252.829], [1411.889, -3252.833], [1411.867, -3250.633]]},
   {"id": "dent_house_1823_prairie:front_walk:0", "house": "dent_house_1823_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.31, "width_m": 1.5, "polygon_local_m": [[1412.552, -3280.08], [1412.566, -3281.58], [1412.177, -3281.584], [1412.162, -3280.084]]},
   {"id": "dexter_house_1721_prairie:front_walk:0", "house": "dexter_house_1721_prairie", "kind": "front_walk", "face": "prairie__prairie_ic_16_18", "gap_m": 0.48, "width_m": 1.5, "polygon_local_m": [[1411.424, -3133.37], [1411.434, -3134.87], [1410.882, -3134.876], [1410.863, -3133.377]]},
@@ -57,7 +58,7 @@
   {"id": "kimball_house_1801_prairie:front_walk:0", "house": "kimball_house_1801_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.311, "width_m": 2.2, "polygon_local_m": [[1411.932, -3218.235], [1411.953, -3220.435], [1411.563, -3220.439], [1411.541, -3218.239]]},
   {"id": "marsh_house_1824_prairie:front_walk:0", "house": "marsh_house_1824_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.306, "width_m": 1.28, "polygon_local_m": [[1392.743, -3289.595], [1392.729, -3288.315], [1393.116, -3288.311], [1393.129, -3289.591]]},
   {"id": "marsh_house_1824_prairie:service_walk:1", "house": "marsh_house_1824_prairie", "kind": "service_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.294, "width_m": 1.69, "polygon_local_m": [[1392.894, -3303.344], [1392.875, -3301.654], [1393.249, -3301.651], [1393.266, -3303.341]]},
-  {"id": "marshall_field_house_1905_prairie:front_walk:0", "house": "marshall_field_house_1905_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.304, "width_m": 1.28, "polygon_local_m": [[1413.375, -3362.65], [1413.388, -3363.93], [1413.004, -3363.934], [1412.991, -3362.654]]},
+  {"id": "marshall_field_house_1905_prairie:front_walk:0", "house": "marshall_field_house_1905_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.303, "width_m": 1.28, "polygon_local_m": [[1413.387, -3363.9], [1413.4, -3365.18], [1413.017, -3365.184], [1413.004, -3363.904]]},
   {"id": "marshall_field_house_1905_prairie:service_walk:1", "house": "marshall_field_house_1905_prairie", "kind": "service_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.31, "width_m": 7.031, "polygon_local_m": [[1413.212, -3345.86], [1413.281, -3352.891], [1412.893, -3352.895], [1412.823, -3345.864]]},
   {"id": "pullman_house_1729_prairie:drive:0", "house": "pullman_house_1729_prairie", "kind": "drive", "face": "e18th__prairie_ic_16_18", "gap_m": 0.309, "width_m": 2.4, "polygon_local_m": [[1450.661, -3195.592], [1448.261, -3195.608], [1448.264, -3195.997], [1450.664, -3195.981]]},
   {"id": "pullman_house_1729_prairie:drive:2", "house": "pullman_house_1729_prairie", "kind": "drive", "face": "e18th__prairie_ic_16_18", "gap_m": 0.312, "width_m": 2.6, "polygon_local_m": [[1476.561, -3195.412], [1473.961, -3195.437], [1473.964, -3195.826], [1476.564, -3195.804]]},
