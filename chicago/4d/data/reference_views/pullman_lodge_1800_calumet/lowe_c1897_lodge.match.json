@@ -42,7 +42,7 @@
         36.35058159007709
       ],
       "rotation_y": 1.5707963267948963,
-      "glb_sha256": "03d44b56578250454a70f7a6a099110ba42c4fb67bd7a8646232f54c55e187a2"
+      "glb_sha256": "7bc6e12c0e41b08556522671c3dc064c6872479c88ffea21336cb9d5ded40c48"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "1c2a7af790259c15729e46ff417b053c235a96c06536b5d93207ee53531f7729"
     }
   ],
-  "group_sha256": "e631bd6c07ad0ae9c1543b04afac99f7dc82c4cb3ff4672082884f6aaf59b597",
+  "group_sha256": "fbc7a1f0e9c67f1d88fc19627950ac8e541aeb6940148fd9de37bd8bd9f7c509",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -239,8 +239,8 @@
     },
     {
       "what": "the drive, the walks and the lawn's edges",
-      "status": "open",
-      "how": "T-3164: no walk, drive or lawn edge is built on the 1800 Calumet ground."
+      "status": "fixed",
+      "how": "T-3164 (grounds pass, 2026-10-30): built on the conservatory's record (grounds), each edge read off this plate and Lowe's print through their solved cameras and laid on the ground those cameras put under it: the gravel drive from between the wings' ends (v 5.24-9.34) straight back past the conservatory's flank, about 4.3 m wide, to u 16, where the planting hides it in both pictures; the turf wedge between it and the walk, narrowing to the east wing, in which the two boxed standards stand; the walk 1.8 m wide entering east of the east pier and running to the forecourt along the conservatory's north front (u -3.2 to its podium); and west of the gate a stone coping on the lot line, 0.32 m to a cap course at 0.4 m, round the Calumet Avenue corner. Through this print the drive, the wedge, the walk and the coping fall where the print draws them, about 10 px low with the gate they are laid against (the same offset the gate's wings carry in this camera); the coping's top at y 681 against the print's 670, its foot at 711 against 700. Its stone is the gate's, which the plate reads dark on its faces as it does the wings'."
     },
     {
       "what": "the parkway tree left of the gate (the print's x 394, foot y 739) is not drawn",
@@ -261,6 +261,11 @@
       "what": "the lodge stands about 30 px west of where the photograph shows it",
       "status": "within tolerance",
       "how": "T-3153: two camera fits disagree; the print is cropped and its fit is one of a family (the pavilion camera's solve), and the plate's camera, which places are read from, puts it within a few pixels"
+    },
+    {
+      "what": "the pale line along the far side of the lawn west of the drive (the plate's y 936-942 from x 320 to the drive at x 800; Lowe's y 586-590), a walk or the drive's turn toward Calumet Avenue in front of the planting, is not built: the drive is laid to u 16 and stops there, and both pictures put this line about 60 px under their horizons, where neither camera fixes its depth to better than a few metres",
+      "status": "open",
+      "how": "T-3164 (grounds pass, 2026-10-30): read, not built; it wants a nearer picture of the lawn's far side or a plan of the grounds."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
