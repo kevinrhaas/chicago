@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101",
+  "glb_sha256": "f18763b70c56d9891b02f64291eb05516b24876482dfd380061633bfeca297a4",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -117,7 +117,7 @@
     {
       "what": "the Prairie front's windows round-arched under moulded rings: three on the second storey (x 390-402, 452-472 and 519-528 px, crowns at y 339) and the two the ivy leaves on the principal storey (heads at y 411 and 418)",
       "status": "fixed",
-      "how": "T-3157: named off the print (street_front_windows) as K06 round fanlight sashes, the second storey's under 0.25 m rings of K02 voussoirs; the render's lights at x 393-400, 455-470 and 519-526 with crowns at y 340 and sills at y 377 (the print's 380), the principal storey's crowns at y 414 and 420"
+      "how": "T-3157: named off the print (street_front_windows) as K06 round fanlight sashes, the second storey's under 0.25 m rings of K02 voussoirs; the render's lights at x 393-400, 455-470 and 519-526 with crowns at y 340 and sills at y 377 (the print's 380), the principal storey's crowns at y 414 and 420 T-1881 (2026-10-31): the four lights the front shows are now framed in moulded architraves read off the 1890 Albertype plate (in place of the second storey's voussoir rings), which this print, at 15 px a metre and the principal storey behind ivy, cannot contradict; the render's heads move under 2 px here."
     },
     {
       "what": "the 18th Street flank's windows round-arched under hoods, as the Prairie front's; the build cuts them flat under plain lintels",

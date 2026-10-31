@@ -1971,7 +1971,11 @@ class Assembly:
                 ring = next((r for r in self.p.street_dress.get("voussoirs", ())
                              if abs(r["s_m"] - op.s_m) < 1e-6 and abs(r["sill_m"] - op.sill_m) < 1e-6), None)
                 if ring:
-                    self.street_voussoirs(frame, hd, ring, conf, recess, cid, inst, j)
+                    j = self.street_voussoirs(frame, hd, ring, conf, recess, cid, inst, j)
+                arc = next((r for r in self.p.street_dress.get("architraves", ())
+                            if abs(r["s_m"] - op.s_m) < 1e-6 and abs(r["sill_m"] - op.sill_m) < 1e-6), None)
+                if arc:
+                    self.street_architrave(frame, hd, y0, arc, conf, recess, cid, inst, j)
 
     KEYSTONE_PROUD_M = 0.03   # T-2889: a keystone stands this far before its ring
 
@@ -2006,6 +2010,51 @@ class Assembly:
             self.stone(frame, pts, [hj] * 4, "dress_stone", self._stone_seed(cid, inst, j), conf,
                        recess=recess, bevel=wk["bevel_m"], F=F, bed=bed)
             j += 1
+        return j
+
+    ARCHITRAVE_PIECES = 12    # T-1881: an architrave's arch in this many straight pieces
+    ARCHITRAVE_INNER = 0.55   # T-1881: the inner fascia's share of the band, next the light
+
+    def street_architrave(self, frame, hd, sill, arc, conf, recess, cid, inst, j):
+        """T-1881: a named window's round head framed by a moulded architrave
+        (`street_front_windows.windows[k].architrave`, 1729 Prairie's front in the 1890 plate):
+        a band `band_m` broad down each jamb from the sill to the springing and on round the
+        arch, in two fascias, the outer `proud_m` before the wall and the inner half that, laid
+        without joints or bevel so the band reads as one moulding; an impost block stepping out past the band and before it
+        at the springing; and a keystone over the crown, a little prouder."""
+        b, F = arc["band_m"], arc["proud_m"]
+        ys, cx, r0 = hd.spring, hd.cx, hd.R
+        z4 = [0.0] * 4
+
+        def lay(pts, f):
+            nonlocal j
+            self.stone(frame, pts, z4, "dress_stone", self._stone_seed(cid, inst, j), conf,
+                       recess=recess, bevel=0.0, F=f)
+            j += 1
+        # moulded in two fascias: the inner one, next the light, half as proud as the outer, so
+        # the step between them draws the shadow line the plate shows round each head
+        n = self.ARCHITRAVE_PIECES
+        for w0, w1, f in ((0.0, b * self.ARCHITRAVE_INNER, F * 0.5), (b * self.ARCHITRAVE_INNER, b, F)):
+            for a0, a1 in ((hd.s0 - w1, hd.s0 - w0), (hd.s1 + w0, hd.s1 + w1)):   # the jambs
+                lay([(a0, sill), (a1, sill), (a1, ys), (a0, ys)], f)
+            ri, ro = r0 + w0, r0 + w1
+            for i in range(n):                                              # the arch, right to left
+                t0, t1 = math.pi * i / n, math.pi * (i + 1) / n
+                lay([(cx + ri * math.cos(t0), ys + ri * math.sin(t0)), (cx + ro * math.cos(t0), ys + ro * math.sin(t0)),
+                     (cx + ro * math.cos(t1), ys + ro * math.sin(t1)), (cx + ri * math.cos(t1), ys + ri * math.sin(t1))], f)
+        if arc.get("impost_m"):
+            ih, io = arc["impost_m"]
+            for a0, a1 in ((hd.s0 - b - io, hd.s0), (hd.s1, hd.s1 + b + io)):
+                lay([(a0, ys - ih), (a1, ys - ih), (a1, ys), (a0, ys)], F + io)
+        if arc.get("key_m"):
+            kw, kh = arc["key_m"]
+            yk = ys + r0                                                    # on the crown, before the band
+            lay([(cx - kw / 2, yk), (cx + kw / 2, yk), (cx + kw / 2, ys + r0 + kh), (cx - kw / 2, ys + r0 + kh)],
+                F + self.KEYSTONE_PROUD_M)
+        self.architrave_meta = getattr(self, "architrave_meta", []) + [
+            {"s_m": arc["s_m"], "sill_m": arc["sill_m"], "spring_m": round(ys, 4), "radius_m": round(r0, 4),
+             "outer_m": [round(hd.s0 - b, 4), round(hd.s1 + b, 4)], "impost": bool(arc.get("impost_m")),
+             "key": bool(arc.get("key_m"))}]
         return j
 
     # -- T-2753: the dressed surrounds and the proud frontispiece --------------------------

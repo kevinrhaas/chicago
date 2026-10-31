@@ -1211,7 +1211,19 @@
                 "s_m": 11.3,
                 "width_m": 1.2,
                 "sill_m": 2.5,
-                "height_m": 3.25
+                "height_m": 3.25,
+                "architrave": {
+                  "band_m": 0.3,
+                  "proud_m": 0.12,
+                  "impost_m": [
+                    0.3,
+                    0.1
+                  ],
+                  "key_m": [
+                    0.3,
+                    0.45
+                  ]
+                }
               },
               {
                 "component": "k01.opening.street_sash_round_fanlight",
@@ -1219,7 +1231,19 @@
                 "s_m": 15.45,
                 "width_m": 0.9,
                 "sill_m": 2.5,
-                "height_m": 2.75
+                "height_m": 2.75,
+                "architrave": {
+                  "band_m": 0.18,
+                  "proud_m": 0.12,
+                  "impost_m": [
+                    0.3,
+                    0.05
+                  ],
+                  "key_m": [
+                    0.22,
+                    0.35
+                  ]
+                }
               },
               {
                 "component": "k01.opening.street_sash_round_fanlight",
@@ -1245,13 +1269,12 @@
                 "width_m": 1.45,
                 "sill_m": 7.7,
                 "height_m": 2.65,
-                "voussoirs": {
-                  "ring_m": 0.25,
-                  "stones": 13,
-                  "proud_m": 0.05,
-                  "key_m": [
-                    0.22,
-                    0.3
+                "architrave": {
+                  "band_m": 0.28,
+                  "proud_m": 0.12,
+                  "impost_m": [
+                    0.25,
+                    0.08
                   ]
                 }
               },
@@ -1262,13 +1285,12 @@
                 "width_m": 0.8,
                 "sill_m": 7.7,
                 "height_m": 2.65,
-                "voussoirs": {
-                  "ring_m": 0.25,
-                  "stones": 13,
-                  "proud_m": 0.05,
-                  "key_m": [
-                    0.22,
-                    0.3
+                "architrave": {
+                  "band_m": 0.18,
+                  "proud_m": 0.12,
+                  "impost_m": [
+                    0.25,
+                    0.05
                   ]
                 }
               }
@@ -1279,7 +1301,7 @@
           "sources": [
             "loc_det_4a08065_pullman_residence"
           ],
-          "note": "T-3157: the Prairie front's street windows read off the Detroit print through its camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json; the front's plane u 27.75, v along it from the north wall, 14-16 px a metre), each on 5-6x crops. Second storey: three round-arched lights between the rusticated piers, the north one over the portico at x 390-402 px (v 6.0-6.9), the centre one the widest at x 452-472 (v 10.6-12.0) and the south one narrow at x 519-528 (v 15.2-15.7); their sills at about 7.5-7.8 m (y 380-382) and their crowns at about 10.1-10.3 m (y 339), each arch under a moulded ring (x 447-473 at the centre, about 0.25 m out from the light), laid as K02 voussoirs flush but for 0.05 m, with a keystone barely larger, since the print's 15 px a metre does not part a moulding from a ring of stones (L-k01-1729-pullman-heads-3157). Principal storey, behind the ivy: the centre light's arched head at y 411 (5.8 m) over a sill hidden at about y 468, and the south one's at y 418 (5.3 m); the ivy hides their surrounds, so their arches carry none, and the centre one is held 1.2 m wide so its head stands clear of the portico's south end (v 10.6). The north bay's principal storey is the door under the portico. Widths are the lights between the jambs' dark edges plus a sash frame each side."
+          "note": "T-3157: the Prairie front's street windows read off the Detroit print through its camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json; the front's plane u 27.75, v along it from the north wall, 14-16 px a metre), each on 5-6x crops. Second storey: three round-arched lights between the rusticated piers, the north one over the portico at x 390-402 px (v 6.0-6.9), the centre one the widest at x 452-472 (v 10.6-12.0) and the south one narrow at x 519-528 (v 15.2-15.7); their sills at about 7.5-7.8 m (y 380-382) and their crowns at about 10.1-10.3 m (y 339), each arch under a moulded ring (x 447-473 at the centre, about 0.25 m out from the light), laid as K02 voussoirs flush but for 0.05 m, with a keystone barely larger, since the print's 15 px a metre does not part a moulding from a ring of stones (L-k01-1729-pullman-heads-3157). Principal storey, behind the ivy: the centre light's arched head at y 411 (5.8 m) over a sill hidden at about y 468, and the south one's at y 418 (5.3 m); the ivy hides their surrounds, so their arches carry none, and the centre one is held 1.2 m wide so its head stands clear of the portico's south end (v 10.6). The north bay's principal storey is the door under the portico. Widths are the lights between the jambs' dark edges plus a sash frame each side. T-1881 (2026-10-31, the 1890 Albertype plate, data/reference_views/pullman_house_1729_prairie/albertype_1890.json, at its full size, about 17 px a metre on the front): every round-arched light of the front the plate shows, on both storeys, stands in a moulded architrave: a band down both jambs from the sill and round the arch with a dark line at its outer edge, an impost block stepping out at the springing and, on the principal storey, a keystone at the crown. Built (`architrave`, a new K01 key): bands of 0.3 m (the big principal light) and 0.28 m (the second storey's widest) and 0.18 m on the two narrow lights at s 15.45, which stand 0.26 m from the rusticated pier, in two fascias 0.12 and 0.06 m proud; imposts 0.25-0.3 m high stepping 0.05-0.1 m out; keystones 0.3 and 0.22 m across rising 0.45 and 0.35 m over the crown. The second storey's voussoir rings are replaced by the architraves (the ring was the Detroit print's moulding, which that print could not part from a ring of stones). The light at s 6.45 stands behind the forward block (p_forward) and keeps its ring; the block's own light over the portico is a K08 bay light and is not framed (open in the plate's match record). The band widths and the keystones are read to about 0.1 m; the fascias' split and depth are RECONSTRUCTED (L-pullman-1729-architraves-1881)."
         },
         "basement_lights": {
           "value": {},
