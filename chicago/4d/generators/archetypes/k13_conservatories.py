@@ -79,6 +79,8 @@ ROLE_MATERIAL = {
     "stone_field": "stone_rough",
     "gravel": "gravel",
     "plinth_stone": "stone",
+    # T-3270: a roof deck in painted tin and the iron railing round it (1905 Prairie's conservatory)
+    "deck": "deck", "rail": "iron",
 }
 BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
@@ -118,6 +120,9 @@ def materials(data: dict) -> dict:
         # T-3164: the Pullman glasshouse ground's drive and walks, which both pictures read as pale
         # as the public walk against the lawn; a buff limestone gravel, its tone reconstructed
         "gravel": {"color": (0.66, 0.62, 0.54), "roughness": 0.95},
+        # T-3270: the roof deck's painted tin and its railing's iron; both tones reconstructed
+        "deck": {"color": (0.24, 0.24, 0.22), "roughness": 0.6},
+        "iron": {"color": (0.06, 0.06, 0.055), "roughness": 0.55, "metallic": 0.3},
     }
 
 
@@ -406,8 +411,15 @@ def form_segmental_bay(v, data):
     # `curve`, the curvilinear lean-to's): it leaves the upright glass tangent to it and meets
     # the wall level at wall_top_m, every facet cut in horizontal strips that stay planar
     m = int(v.get("curve_facets", data["curve"]["facets"]))   # a variant may cut its curve coarser
-    cv = ([(math.cos(math.pi / 2 * j / m), he + (hw - he) * math.sin(math.pi / 2 * j / m)) for j in range(m + 1)]
-          if roof == "curved" else [])
+    # T-3270: a curved roof that stops level at a flat deck (`roof_deck.reach`, the deck's edge as a
+    # fraction of the way out to the glass), as 1905 Prairie's 1893 plate draws its conservatory's
+    # glass roof curving up to a railed deck at the chamber floor, not to the house's wall
+    dk = v.get("roof_deck")
+    if dk is not None and (roof != "curved" or "rise_m" not in v or not 0.2 <= float(dk.get("reach", 0)) <= 0.8):
+        raise ValueError(f"{v['id']}: a roof_deck stands on a segment's curved roof, its reach 0.2-0.8 of the way out")
+    fd = float(dk["reach"]) if dk else 0.0
+    cv = ([(fd + (1 - fd) * math.cos(math.pi / 2 * j / m), he + (hw - he) * math.sin(math.pi / 2 * j / m))
+           for j in range(m + 1)] if roof == "curved" else [])
     for k in range(n):
         (x0, z0), (x1, z1) = ring[k], ring[k + 1]
         hint = ((x0 + x1) / 2, 0.0, (z0 + z1) / 2)
@@ -418,7 +430,7 @@ def form_segmental_bay(v, data):
         for j in range(len(cv) - 1):
             (f0, y0), (f1, y1) = cv[j], cv[j + 1]
             lo = [(x0 * f0, y0, z0 * f0), (x1 * f0, y0, z1 * f0)]
-            hi = [apex] if j == len(cv) - 2 else [(x1 * f1, y1, z1 * f1), (x0 * f1, y1, z0 * f1)]
+            hi = [apex] if j == len(cv) - 2 and not fd else [(x1 * f1, y1, z1 * f1), (x0 * f1, y1, z0 * f1)]
             P.append(Panel(f"roof_{k}_{j}", lo + hi, (hint[0], 1.0, hint[2]), bays=b))
     plan_pts = list(reversed(ring))                # left to right along the wall, as the canted bay's
     # the staging runs on the chord of the first and last facets, stood out toward the glass
@@ -435,6 +447,7 @@ def form_segmental_bay(v, data):
         "eaves": {"front": [(x, he, z) for x, z in plan_pts]},
         "ridges": [], "benches": [("front", (-xb, zb), (xb, zb))], "border": None,
         "eave_m": he, "top_m": hw, "centre": (0.0, hw / 2, deep / 2),
+        **({"deck": [(x * fd, hw, z * fd) for x, z in ring]} if fd else {}),
     }
 
 
@@ -684,7 +697,65 @@ class House:
             for r0, r1, pitch in f["ridges"]:
                 self._vent(r0, r1, pitch)
         self._planting()
+        if self.form.get("deck"):
+            self._deck()
         return self
+
+    def _deck(self):
+        """T-3270: the roof deck (form `deck`, the ring at its edge) in painted tin, and on it an
+        iron railing round its edge from wall to wall: a post at every facet's corner, a top and a
+        foot rail between them and plain balusters `baluster_m` apart (the plate's scrolled
+        panels, which its halftone does not resolve, RECONSTRUCTED as plain bars)."""
+        dk = self.v["roof_deck"]
+        ring = self.form["deck"]
+        y = ring[0][1]
+        self.face("deck", [(x, y, z) for x, _, z in ring], Y)
+        H, sp = float(dk.get("rail_m", 0.9)), float(dk.get("baluster_m", 0.13))
+        back = float(dk.get("set_back_m", 0.08))
+        pts = []
+        for x, _, z in ring:   # the rail's line, set back in from the deck's edge toward the wall's middle
+            ln = math.hypot(x, z) or 1.0
+            pts.append((x - x / ln * back, z - z / ln * back) if z > 1e-9 else (x - math.copysign(back, x), z))
+        def bar(a, b, y0, y1, hw_, ends=False, top=True, bottom=False):
+            dx, dz = b[0] - a[0], b[1] - a[1]
+            ln = math.hypot(dx, dz)
+            if ln < 1e-9:
+                return
+            ux, uz = dx / ln, dz / ln
+            nx, nz = -uz * hw_, ux * hw_
+            c = [(a[0] + nx, a[1] + nz), (b[0] + nx, b[1] + nz), (b[0] - nx, b[1] - nz), (a[0] - nx, a[1] - nz)]
+            for i in range(4):
+                (p0x, p0z), (p1x, p1z) = c[i], c[(i + 1) % 4]
+                mx, mz = (p0x + p1x) / 2 - (a[0] + b[0]) / 2, (p0z + p1z) / 2 - (a[1] + b[1]) / 2
+                if i in (1, 3) and not ends:
+                    continue
+                self.face("rail", [(p0x, y0, p0z), (p1x, y0, p1z), (p1x, y1, p1z), (p0x, y1, p0z)], (mx, 0.0, mz))
+            if top:
+                self.face("rail", [(px, y1, pz) for px, pz in c], Y)
+            if bottom:
+                self.face("rail", [(px, y0, pz) for px, pz in c], (0.0, -1.0, 0.0))
+        for i, q in enumerate(pts):   # the posts, standing a little over the top rail
+            nb = pts[i + 1] if i + 1 < len(pts) else pts[i - 1]
+            dx, dz = nb[0] - q[0], nb[1] - q[1]
+            ln = math.hypot(dx, dz)
+            a_ = (q[0] - dx / ln * 0.025, q[1] - dz / ln * 0.025)
+            b_ = (q[0] + dx / ln * 0.025, q[1] + dz / ln * 0.025)
+            bar(a_, b_, y, y + H + 0.04, 0.025, ends=True)      # its foot on the deck, not drawn
+        for a, b in zip(pts, pts[1:]):
+            L = math.hypot(b[0] - a[0], b[1] - a[1])
+            e = ((b[0] - a[0]) / L * 0.026, (b[1] - a[1]) / L * 0.026)   # the rails stop at the posts
+            ra, rb = (a[0] + e[0], a[1] + e[1]), (b[0] - e[0], b[1] - e[1])
+            bar(ra, rb, y + H - 0.04, y + H, 0.02, bottom=True)          # the top rail
+            bar(ra, rb, y + 0.06, y + 0.10, 0.015, bottom=True)          # the foot rail
+            L = math.hypot(b[0] - a[0], b[1] - a[1])
+            k = max(1, round(L / sp))
+            for j in range(1, k):
+                t = j / k
+                c = (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t)
+                ux, uz = (b[0] - a[0]) / L, (b[1] - a[1]) / L
+                bar((c[0] - ux * 0.008, c[1] - uz * 0.008), (c[0] + ux * 0.008, c[1] + uz * 0.008),
+                    y + 0.10, y + H - 0.04, 0.008, ends=True, top=False)   # between the rails
+        self.meta["deck"] = {"top_m": round(y, 4), "rail_m": H, "posts": len(pts)}
 
     def _edges(self):
         by = {}
@@ -895,7 +966,14 @@ class House:
                             [(a, m) for _, a, m, _ in joints])
             else:
                 reg = hclip(hclip(hclip(inner, -1, 0, -u0), 1, 0, u1), 0, -1, -v_glass)
-                self.slab(p, reg, T3["proud_m"], T3["inner_m"], lines, "tertiary", "bar", u1 - u0)
+                if self.v.get("transom_m") is not None and p.plinth and p.vertical:
+                    # T-3270: the bar stops under the transom and starts again over it
+                    vt = p.v_of_y(float(self.v["transom_m"]))
+                    w2 = self.data["tiers"]["secondary"]["width_m"]
+                    for part in (hclip(reg, 0, 1, vt), hclip(reg, 0, -1, -(vt + w2))):
+                        self.slab(p, part, T3["proud_m"], T3["inner_m"], lines, "tertiary", "bar", u1 - u0)
+                else:
+                    self.slab(p, reg, T3["proud_m"], T3["inner_m"], lines, "tertiary", "bar", u1 - u0)
         if p.plinth:     # the sill plate on the coping, stopped at the door's jambs
             spans = [(u_lo, u_hi)]
             if door:
@@ -907,6 +985,26 @@ class House:
                                   -1, 0, -ua), 1, 0, ub)
                 self.slab(p, reg, T2["proud_m"], T2["inner_m"], [(0, 1, v_sill + T2["width_m"])],
                           "secondary", "sill_plate", T2["width_m"])
+        # T-3270: a transom across an upright face's lights (`transom_m`, the height of its foot
+        # over the house's ground), as 1905 Prairie's 1893 plate crosses its conservatory's tall
+        # lights about two thirds of the way up: a secondary plate run between the primaries,
+        # the bars and panes stopped under and started over it
+        v_tr = None
+        if p.plinth and p.vertical and self.v.get("transom_m") is not None:
+            v_tr = p.v_of_y(float(self.v["transom_m"]))
+            if not v_glass < v_tr < max(q[1] for q in inner) - T2["width_m"]:
+                raise ValueError(f"{self.v['id']}: transom_m {self.v['transom_m']} does not stand inside "
+                                 f"the lights of {p.name}")
+            prim = sorted((a, b) for a, b, t_, *_ in verticals if t_ == "primary")
+            edges_t = [u_lo] + [x for ab in prim for x in ab] + [u_hi]
+            for k in range(0, len(edges_t), 2):
+                ua, ub = edges_t[k], edges_t[k + 1]
+                if ub - ua <= 1e-6:
+                    continue
+                reg = hclip(hclip(hclip(hclip(inner, 0, -1, -v_tr), 0, 1, v_tr + T2["width_m"]),
+                                  -1, 0, -ua), 1, 0, ub)
+                self.slab(p, reg, T2["proud_m"], T2["inner_m"],
+                          [(0, -1, -v_tr), (0, 1, v_tr + T2["width_m"])], "secondary", "transom", T2["width_m"])
         # panes: every cell between verticals, above the sill plate
         cuts = sorted([(a, b) for a, b, *_ in verticals] + [(a, b) for a, b, _ in bars])
         edges_u = [u_lo] + [x for ab in cuts for x in ab] + [u_hi]
@@ -917,6 +1015,9 @@ class House:
             if door and a >= door["l"] - 1e-9 and b <= door["r"] + 1e-9:
                 continue
             cell = hclip(hclip(hclip(inner, -1, 0, -a), 1, 0, b), 0, -1, -v_glass)
+            if v_tr is not None:     # T-3270: a light under the transom and one over it
+                self._pane(p, hclip(cell, 0, 1, v_tr), role, self._segment_of(segments, a, b))
+                cell = hclip(cell, 0, -1, -(v_tr + T2["width_m"]))
             self._pane(p, cell, role, self._segment_of(segments, a, b))
         if door:
             self._door(p, inner, door, role)
@@ -2549,6 +2650,7 @@ def structure_glb(h: House, data: dict, structure_id: str, phase_id: str, scene_
     # pipes are measured from the ground they stand on, the base's top
     lift = float(h.v.get("base_m", 0.0))
     return to_glb([h], data, host_color=(h.meta.get("host") or {}).get("color"), stone_color=h.meta.get("stone_color"),
+                  frame_color=h.v.get("frame_color"),
                   node_name=name, node_extras={
         "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids),
         **({"base_m": lift} if lift else {})},
@@ -2556,7 +2658,8 @@ def structure_glb(h: House, data: dict, structure_id: str, phase_id: str, scene_
 
 
 def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extras: dict | None = None,
-           extras: dict | None = None, host_color=None, stone_color=None, lift: float = 0.0) -> bytes:
+           extras: dict | None = None, host_color=None, stone_color=None, lift: float = 0.0,
+           frame_color=None) -> bytes:
     mats = materials(data)
     if node_extras:     # a structure in the scene carries only the materials it draws (T-2306)
         used = {ROLE_MATERIAL[r] for h in kit for r, pr in h.prims.items() if pr.idx}
@@ -2565,6 +2668,10 @@ def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extr
             mats["house_wall"] = {**mats["house_wall"], "color": tuple(host_color)}
         if "stone" in mats and stone_color:
             mats["stone"] = {**mats["stone"], "color": tuple(stone_color)}
+        # T-3270: a house whose frame is painted dark (1905 Prairie's bars, which the 1893 plate
+        # prints dark against its pale glass); every other house keeps the kit's white paint
+        if "frame" in mats and frame_color:
+            mats["frame"] = {**mats["frame"], "color": tuple(frame_color)}
     bin_ = bytearray()
     views, accessors, meshes, nodes = [], [], [], []
 

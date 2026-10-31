@@ -1148,7 +1148,7 @@ def _balconette(a, frame, bc, conf):
                       {"floor": _P(frame, (s0 + s1) / 2, fl, 0.0)})
     _box(a, "limestone_trim", frame, s0, s1, fl - sl, fl, 0.0, d, seed, conf, skip=("back",))
     # the consoles: a scrolled block under the slab, deep at its head and dying into the wall
-    cw, drop = 0.16, min(0.55, 2.4 * d)
+    cw, drop = 0.16, bc.get("console_drop_m") or min(0.55, 2.4 * d)   # T-3270: or a tall pair
     for i in range(n):
         x = s0 + 0.12 + (s1 - s0 - 0.24) * i / max(1, n - 1)
         steps = 5

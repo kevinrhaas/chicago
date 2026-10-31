@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_house_1905_prairie",
   "view": "pictorial_1893_plate",
   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3fd05059198f1c1b9161aa7ec7b71830534acee455c73c00a9ba70b38057db67",
+  "glb_sha256": "844eb450239f0a647fb0151cb1a6c6f5606702c545995f58294f767371b42e74",
   "camera_sha256": "d5203d93f29bc9cf1a519b1f27b759e267603675f302fc2d3b99e0f92bb7ec11",
   "photo_sha256": "d49b47b1f31f50b0ce0d4e99b234d0ae9c80f42c57cab75f8338ed0396d397dd",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "3fd05059198f1c1b9161aa7ec7b71830534acee455c73c00a9ba70b38057db67"
+      "glb_sha256": "844eb450239f0a647fb0151cb1a6c6f5606702c545995f58294f767371b42e74"
     },
     {
       "structure_id": "marshall_field_house_1905_prairie_conservatory",
@@ -42,10 +42,10 @@
         -15.250379145678007
       ],
       "rotation_y": -3.141592653589794,
-      "glb_sha256": "ead445c815eec68c24294e7c191989f94ed96ebc95dda53ea7d21dad6cbb5a8d"
+      "glb_sha256": "db2d2082e96b08c2a0e99ab2b0fde2fbc54061667457adff9ff698f383b24854"
     }
   ],
-  "group_sha256": "1edf28473472b50202399b3ce6e878580d3f2df1ac564afa840d0dc8ea223d6f",
+  "group_sha256": "f0b13b84d1b0edaa735280ea0b914503ebda719743ade40129d5f6e6ecb6f2a3",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -86,7 +86,7 @@
       "status": "open"
     },
     {
-      "what": "the wide column's iron balcony: built 1.9 m, stopped 0.2 m short of the canted corner's cut, where the plate's runs about 2.5 m centred on its window",
+      "what": "the wide column's iron balcony: built 1.9 m, stopped 0.2 m short of the canted corner's cut, where the plate's runs about 2.5 m centred on its window; the balcony cannot run on past the cut until the front's length is re-read (the open item below)",
       "status": "open"
     },
     {
@@ -102,19 +102,19 @@
       "status": "fixed"
     },
     {
-      "what": "the door column's balcony: the plate's runs about 3.5 m (x 240-415 px), the render's 3.0 m, the kit's longest balconette",
+      "what": "the door column's balcony: the plate's runs about 3.5 m (x 240-415 px); T-3270 builds it 3.5 m, centred on its window (4.65-8.15 m along the front)",
+      "status": "fixed"
+    },
+    {
+      "what": "the balconies' consoles: the plate's door-column pair are tall scrolled consoles running down beside the door's surround; T-3270 runs that pair 0.9 m down the wall under the slab's ends, the other two balconies keeping the kit's short ones as the plate draws them",
+      "status": "fixed"
+    },
+    {
+      "what": "the iron balcony before the window behind the canted south-west corner: K01 lays balconettes on the street front only, and the corner's window waits on the corner's own re-read (T-3261)",
       "status": "open"
     },
     {
-      "what": "the balconies' consoles: the plate's door-column pair are tall scrolled consoles running down beside the door's surround, the render's the kit's short ones under the slab",
-      "status": "open"
-    },
-    {
-      "what": "the other two iron balconies: before the window behind the canted south-west corner (waits on the corner itself) and on the conservatory's roof; K01 lays balconettes on the street front only",
-      "status": "open"
-    },
-    {
-      "what": "the conservatory: the plate's is glass, a ring of tall lights on fine bars on a stone sill over the stone base, under a glass roof that curves up from their head to the house's wall; the render's is now glass too (T-1905), the K13 kit's segmental bay on the bow's top, its head about 5.4 m and its curved roof meeting the wall about 6.8 m over grade, where it had stood under a flat tin cone with three tall sashes in brick",
+      "what": "the conservatory: the plate's is glass, a ring of tall lights on fine bars on a stone sill over the stone base, under a glass roof that curves up from their head to the house's wall; the render's is now glass too (T-1905), the K13 kit's segmental bay on the bow's top, its head about 5.4 m and its curved roof rising to a railed deck about 6.8 m over grade (T-3270), where it had stood under a flat tin cone with three tall sashes in brick",
       "status": "fixed"
     },
     {
@@ -122,19 +122,19 @@
       "status": "open"
     },
     {
-      "what": "the conservatory's transom: the plate's lights are crossed by a bar about two thirds of the way up; the render's run unbroken to the eave",
-      "status": "open"
+      "what": "the conservatory's transom: the plate's lights are crossed by a bar about two thirds of the way up; T-3270 runs a transom across every light at 2.2 m over the base, the bars and panes stopped under and started over it",
+      "status": "fixed"
     },
     {
-      "what": "the conservatory's bars: the plate prints them dark against pale glass; the render's are the kit's white paint over clear glass, so the bow reads light where the plate's reads barred",
-      "status": "open"
+      "what": "the conservatory's bars: the plate prints them dark against pale glass; T-3270 paints the K13 frame dark (its tone RECONSTRUCTED), so the bow reads barred",
+      "status": "fixed"
     },
     {
       "what": "the conservatory's base: the plate's stone base is pale, as the house's basement is all round; the render's bow base is the K01 kit's tan stone",
       "status": "open"
     },
     {
-      "what": "the carved work: the window heads' crests, the frieze's roundels, the carved blocks over the window columns and the dormers' pedimented and scrolled cheeks; the render's are K09's plain heads and K01's gabled dormers",
+      "what": "the carved work: the window heads' crests and the frieze's roundels are built (T-3270: a palmette between two volutes on each chamber window's hood, pairs of carved rings in the frieze's bracket bays); the dormers' pedimented and scrolled cheeks are still K01's gabled dormers, and the frieze's rings stand in the kit's bracket bays, not over the plate's piers",
       "status": "open"
     },
     {
@@ -148,6 +148,14 @@
     {
       "what": "the north flank, the rear and the sheet's two-storey north range at the rear: out of the plate's sight",
       "status": "not shown"
+    },
+    {
+      "what": "the conservatory's roof balcony: the plate's glass roof curves up to a flat deck at about the chamber floor, a curved iron railing round its edge; T-3270 stops the K13 roof level at a tin deck 0.52 of the way out from the wall (6.8 m over grade) and rails it, posts at the facets' corners, balusters between a top and a foot rail (the railing's scroll panels are plain bars, RECONSTRUCTED)",
+      "status": "fixed"
+    },
+    {
+      "what": "the window heads' carved crests and the frieze's roundels (T-3270): a palmette between two scroll volutes on each chamber window's cornice hood, under the frieze, and pairs of carved rings in the frieze at the north end, either side of the north pier's bracket pair and over the narrow-wide pier",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
