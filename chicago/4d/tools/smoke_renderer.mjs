@@ -20240,11 +20240,23 @@ for (const [label, viewport, touch] of [
           'pullman_glasshouse_1800_calumet_north',
           'pullman_glasshouse_1800_calumet_east',
           'pullman_glasshouse_1800_calumet_east_end',
-          'pullman_lodge_1800_calumet'].sort();
+          'pullman_lodge_1800_calumet',
+          // T-3269 (#1519) stood 1905 Prairie's conservatory as a record of its own on the
+          // house's stone bow and left it off this list, so this check was red at both
+          // viewports on every branch off dev until T-3275 added it.
+          'marshall_field_house_1905_prairie_conservatory'].sort();
+        // T-3275: this list has drifted four times (T-2331, T-2468, T-3164, T-3275), and each time the
+        // only clue was the whole placed list printed beside this one. Name the difference.
+        const missing1904 = PLACED_1904.filter((id) => !at.placed.includes(id));
+        const unlisted1904 = at.placed.filter((id) => !PLACED_1904.includes(id));
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
-          `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
+          `meshes: ${JSON.stringify(at.drawn)}; `
+          + `placed but not on PLACED_1904 ${JSON.stringify(unlisted1904)}; `
+          + `on PLACED_1904 but not placed ${JSON.stringify(missing1904)}; `
+          + `registry ${at.registry} against ${PLACED_1904.length} listed; `
+          + `structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
         // Owner-reported date ambiguity: 1946 closes an exterior phase, not
         // the life of the surviving museum. Check the actual card and evidence.

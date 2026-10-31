@@ -3716,7 +3716,7 @@
       "baked_ao": false,
       "bytes": 235436,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "15398a3cd2f9eaeb1560e21a88c4687caaf4b0d8aae75557c6eb95b28499d6e4",
+      "inputs_sha256": "efaafc507d32356f369cceebb8f4f23c8b88e19da23af69eeb8da84ce8c9b48e",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "marshall_field_house_1905_prairie_conservatory"
@@ -4093,9 +4093,9 @@
     "pullman_glasshouse_1800_calumet_east__as_standing_1904.glb": {
       "archetype": "k13_conservatories",
       "baked_ao": false,
-      "bytes": 337736,
+      "bytes": 337740,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "3ca8ce9549d249acbd3f188fa0ebc0d5c6c22819e1ab84b235f66931f42d554a",
+      "inputs_sha256": "2f8297a5854581e7f38b39d436984f8ac4c0cefb221f05b4e50e0b4e04605538",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_east"
@@ -4105,7 +4105,7 @@
       "baked_ao": false,
       "bytes": 183688,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "8c4f0844598643299f1860d78d0897f81cc7cf15a8e96a969355a199a8919f83",
+      "inputs_sha256": "e41b8de28dc7b9b2760ac04e9b97eb5d3c1d4831577257e82c1ca123803aefbe",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_east_end"
@@ -4115,7 +4115,7 @@
       "baked_ao": false,
       "bytes": 692204,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "43e4a0ffa86f96c7751ea14d7ea0016c9703870ea0ce69a8d5afa4f4508c9e31",
+      "inputs_sha256": "ae4319f85685c86fb773c7b859b0ec37eef5f041cfa7380da8a867c0fb1995dd",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_north"
@@ -4123,9 +4123,9 @@
     "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": {
       "archetype": "k13_conservatories",
       "baked_ao": false,
-      "bytes": 916888,
+      "bytes": 1114664,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "47225bc3519c12ce3e16ad62d07250b5132b0725bed8472ca64d7b6eb453064b",
+      "inputs_sha256": "e1405f7691ffa0d2db759b3db16177d681d1b7ce0d2eb4997220d3b3f4393dff",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_pavilion"
@@ -4145,7 +4145,7 @@
       "baked_ao": false,
       "bytes": 439432,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "4ba0c6df09903012ebf7c2f3c36d1709398fb87f350eef50dea2c9a6dcbc3fd2",
+      "inputs_sha256": "b0c5c5494edd6750b430176a12672cb9dd30e6e235cba49e7327314108f9a471",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_house_1729_prairie_conservatory"

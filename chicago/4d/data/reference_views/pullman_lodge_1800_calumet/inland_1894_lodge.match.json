@@ -42,7 +42,7 @@
         36.35058159007709
       ],
       "rotation_y": 1.5707963267948963,
-      "glb_sha256": "3bb842930c94e55c2f85d8bfab527769ae5e8378fb55e7bdc1d2894fd30f271f"
+      "glb_sha256": "801ea90c09aec5260ea48cdadbc2c73247f320d6a645d626e3747beeef28ad2a"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -80,7 +80,7 @@
         -4.44968363427405
       ],
       "rotation_y": 3.141592653589793,
-      "glb_sha256": "f77f5d1842e4bc3f63912f273b7c26a9752a531ffc73c119fbfdc9969fd1d73f"
+      "glb_sha256": "db614e8e41bfd2daa49bb19f9a250355d0acc501be59d1c2df4afee6275955d1"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_east_end",
@@ -99,10 +99,10 @@
         -6.117888795052961
       ],
       "rotation_y": 3.141592653589793,
-      "glb_sha256": "1c2a7af790259c15729e46ff417b053c235a96c06536b5d93207ee53531f7729"
+      "glb_sha256": "cee0d6fea152eb04e9fc91bfb82b38157fb7749831b6e460e18d2c3adb2c009c"
     }
   ],
-  "group_sha256": "11df7e7e1563b1f52c9e8a7095715d007b74d267af1e844eac0f4cb55ed36514",
+  "group_sha256": "c7f51a3ac06d15a687a3ee029e15840ac03b53a4595534b90133bbfaeb7923c6",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -260,6 +260,11 @@
       "what": "the pale line along the far side of the lawn west of the drive (the plate's y 936-942 from x 320 to the drive at x 800; Lowe's y 586-590), a walk or the drive's turn toward Calumet Avenue in front of the planting, is not built: the drive is laid to u 16 and stops there, and both pictures put this line about 60 px under their horizons, where neither camera fixes its depth to better than a few metres [FIXED (T-3164, 2026-10-31): built as the drive's turn toward Calumet Avenue (pullman_glasshouse_1800_calumet_pavilion grounds.gravel 'turn' and 'cross'): through the plate's camera the line's edges fall on the ground at u 23-31 (pavilion frame) from the drive's east edge at v 7.5 to the frame's edge at v 23, so a gravel band 4 m wide at u 25-29 runs from the drive to the Calumet line, with a wedge joining it to the drive's east edge clear of the pictured lilacs. It renders as a pale line along the lawn's far side from the frame's edge to the gate pier, 3-4 px nearer the horizon than the plate's (y 935-938 against 936-942): a pixel offset, since the review render stands the gravel 0.1 m over its common grade plane. In Lowe's print it falls 5-6 px under the range's foot as the print's does, Lowe's whole ground standing about 20 px high through its diagnostic camera. Its width and depth are reconstructed (L-pullman-grounds-1800-calumet-3164).]",
       "status": "fixed",
       "how": "T-3164 (grounds pass, 2026-10-30): read, not built; it wants a nearer picture of the lawn's far side or a plan of the grounds."
+    },
+    {
+      "what": "T-3273 (owner, 2026-10-31): the conservatory beside the lodge re-glazed (its transept, drum and dome in a pane grid over a darker glass, palms inside where a shaded block stood) and the drive's turn laid as one curve; re-rendered here, the lodge itself unchanged",
+      "status": "fixed",
+      "how": "see pullman_glasshouse_1800_calumet_pavilion's records"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

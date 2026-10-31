@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 909,
+  "count": 911,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -42873,6 +42873,44 @@
       ]
     },
     {
+      "id": "L-prairie-walk-joins-3274",
+      "title": "Every 1904 house walk carried on across the one-foot margin to the public walk",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "where a 1904 house's walk (a K14 or K16 front walk or side service walk, 1729 Prairie's two carriage drives, the Pullman glasshouse ground's walk and drive) was laid to the lot line and stops short of the public walk, a paved join the walk's own width runs from its end square across to the public walk's inner edge, in the public walk's own paving and at its level. 51 joins, 0.19-1.6 m long (the walk joins 1904 data, laid by the lay prairie 1904 walk joins tool from the built walks, their placements and the street grid); 13 walk ends already met the public walk and are left alone."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the 1905 code, sec. 2062 (\"All walks to be laid on a line one foot from and parallel with the lot line\", The Revised Municipal Code of Chicago of 1905), which puts the public walk a foot outside the lot line the yards were built to; and every picture of these avenues that shows a house walk at the street (Glessner, HABS c. 1923; the Pullman glasshouse ground, Inland 1894 and Lowe c. 1897; the 1700 and 1800 blocks' photographs), in which it runs on to meet the public walk. The owner, 2026-10-31: \"there is a gap there between sidewalk and walkway. I see that all over the place... make the walk connect correctly based on the photos\"."
+        },
+        {
+          "label": "What is invented",
+          "text": "the join's paving (the public walk's, not the house walk's stone flags or gravel), and, where a house's traced front and recorded front yard leave more than the code's foot (1812 Prairie's 1.6 m, the Pullman glasshouse ground's 0.8-0.9 m), the length the join takes to close it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of a house walk's street end in the district shows what paved the foot; a better trace of the house or the street line shrinks the longer joins, and rerunning the tool follows it."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on prairie 1904 street section."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31 (T-3274)."
+        }
+      ],
+      "work_refs": [
+        "T-3274"
+      ]
+    },
+    {
       "id": "L-prairie-paving-seams-2475",
       "title": "Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m",
       "section": "per_subject",
@@ -62100,6 +62138,49 @@
       ],
       "work_refs": [
         "T-3164"
+      ]
+    },
+    {
+      "id": "L-pullman-conservatory-glazing-3273",
+      "title": "The Pullman conservatory's planted interior, its transept, drum and dome glazed in panes, and the drive's turn laid as one curve",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_pavilion"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-31."
+        },
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-10-31, on the conservatory at 1800 Calumet seen from the garden: \"there looks like a black box inside the greenhouse... the opaque glass is too white and there are no panes and no detail at the top or the sides\", and the walk \"abnormally white... a sharp line avoiding trees\". **Interior.** The shaded block standing for the planting (“The Pullman conservatory's north front read as its pictures show it: a band of round-headed lights and the planted shade behind the great arch”) is replaced by a soil bed 0.4 m over the floor and six palms on slim trunks, 4.4 to 7.2 m, the tallest under the dome, each crowned with eleven arching fronds drawn on both faces. Lowe's print shows fronds behind the north front's glass; the species, number, heights and places are invented. **Glass.** The transept's ribs are set at 0.45 m, the spacing Lowe's print counts on its east arm, with a level bar at every joint of its section and across each hipped end; the dome takes a rib on each of 28 meridians and a bar at every ring; the drum a mullion at each angle, two between, and three rails. Both pictures show the glass in fine panes; the bars' sizes and the counts beyond the arm's are invented. The kit's opaque substitute is a step darker, (0.36, 0.41, 0.43) for (0.60, 0.64, 0.66), so the white bars read over it; the pictures, prints of glass catching the sky, cannot give its tone. **Walk.** The drive's turn toward Calumet Avenue (“The Pullman glasshouse ground's drive, walk, forecourt and lot-line coping, read through the plate's and Lowe's cameras”) keeps its reading, a band about 4 m wide at u 25-29 running to the Calumet line, but is laid as one curve leaving the drive at u 10 (the drive's straight run, invented past u 4 in both pictures, now stops there rather than at u 16) and sweeping well north of the pictured lilacs, 4.33 m easing to 4.0, with a worn margin 0.35 m each side in a tone between gravel and turf; the curve and the margin are invented, and the gravel is set a step darker, (0.45, 0.42, 0.35) for (0.66, 0.62, 0.54)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the conservatory's interior or its south and east sides; a plan of the grounds."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match"
+        }
+      ],
+      "work_refs": [
+        "T-3273"
       ]
     },
     {
