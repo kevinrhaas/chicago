@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 897,
+  "count": 898,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -62105,6 +62105,43 @@
         "T-3257",
         "T-3240",
         "T-3256"
+      ]
+    },
+    {
+      "id": "L-pullman-18th-street-wall-c1900-1934",
+      "title": "Pullman's 18th Street wall east of the stair's pier built as the c. 1900 picture shows it: one level coping, its later piers, urn and curved low walls withdrawn",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_conservatory"
+      ],
+      "covers": [],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-31."
+        },
+        {
+          "label": "Decision",
+          "text": "east of the third pier (the east pier of the stair at the house's 18th Street porch, x -9.35 to -10.25 in 1729 Prairie Avenue — the George M. Pullman house's frame) the 18th Street wall (form.boundary.side return) now runs level at 0.9 m to the stable's east wall. The fourth, fifth and sixth piers, the fifth's urn, the sweeps from 1.4 m to 0.85 m and back up to 1.45 m between the third and fourth piers, and the sweep up to the sixth pier are withdrawn for 1904. “Pullman's 18th Street wall carried past the house to the stable's east end, its piers and the curved low walls before the terrace read off the 1894 Inland plate” had built them off the 1894 Inland plate, which Taylor's 16555 and 16554, both of the early 1890s, agree with. **What is read.** The Detroit Publishing view of c. 1900 (Detroit Publishing Co. The Pullman residence, Chicago. c. 1900, LC-D4-12552, taken beside the Fort Dearborn monument looking west-north-west along this wall) is the picture nearest 1 July 1904. From the stair's east pier (its x 475-485 px) to the monument (x 740) it shows one level coping, about as high as the hydrant at the curb stands over the walk, with a dense border of shrubs behind it. No pier rises over its top, there is no urn, and no low wall falls and rises (x 485-740, y 520-535). The Chicago History Museum's view of the monument (ICHi-19208, circa 1900; the Prairie library's `a16-chm-ichi-19208-monument-pullman-wall`, no source record yet, so a check only) shows the same plain coping at the stable's end. So the earlier pictures' piers and curved walls are taken to have gone in a rebuilding between 1894 and about 1900, which no record held here dates. **What is invented.** The two openings are kept: the one onto the terrace's ground (x -15.2 to -16.15) and the court's carriage mouth (x -17.05 to -20.4). The Detroit view sees this face edge-on, where a doorway-wide opening reads as a narrow dark slot (it shows two, at x 493-497 and 611-617 px), and the court's mouth falls behind a parkway trunk there (x 702-714). So the picture can neither place nor deny them, and the carriage drive (“Pullman's two carriage drives, the gateways kept clear, and the stable's stone toned from the winter print”) needs the court's. Their plain ends without piers are reconstructed."
+        },
+        {
+          "label": "Read the same way",
+          "text": "the 1894 plate's planting before the terrace (its evergreen mass, a potted conifer) and Taylor's 16555's flights open from the walk give way in 1904 to the c. 1900 border, which the 1729 lot's border in the 1904 front yards data already draws. Those items read `not shown`, replaced for 1904, in the estate's match records."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a solved camera for the Detroit view (an earlier attempt was withdrawn on 13-30 px residuals), a picture of the wall between 1894 and 1904 that dates the rebuilding, or a full-size copy of CHM i70232 (1905-1906) showing the wall at the court's mouth."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and the taylor 16555 west front side by side image, with the estate's six match records."
+        }
+      ],
+      "work_refs": [
+        "T-1934"
       ]
     },
     {
