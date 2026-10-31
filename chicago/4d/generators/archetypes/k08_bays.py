@@ -217,6 +217,9 @@ def hull(points):
 
 # -- runs: the plan cut into pieces a strip can be built on -----------------------------------
 
+
+BEHIND_CHEEK_IN_M = 0.01   # T-1890: a roof behind a gable keeps its cheeks this far inside the plan
+
 class Run:
     """One piece of the plan. Its frame: s along the outer face from its start, y up, z out
     of the face. A line run maps rigidly; an arc run bends round its centre, clockwise seen
@@ -1985,8 +1988,12 @@ class Bay:
                 o0, o1 = (a, e0) if a < xl else (e1, b)
             if not ((a < xl and chamfer == "left") or (a >= xl and chamfer == "right")):
                 world.face("band", [(o0, y_top, 0.0), (o1, y_top, 0.0), (o1, y_top, p), (o0, y_top, p)], D)
+        behind = self._gable_behind(world, g["behind"], shallow, xl, xr, xc, y_top, zb, under) \
+            if g.get("behind") else None
         meta = {"kind": "gable", "pitch": pitch, "planes": 0 if shallow else 2, "apex": [round(xc, 4), round(y_r, 4), 0.0],
                 "ridge_m": round(y_r, 4), "kneeler_m": round(y_k, 4), "gable_top_m": round(top(xc), 4)}
+        if behind:
+            meta["behind"] = behind
         if g.get("panel"):
             meta["panel"] = self._gable_panel(world, g["panel"], xa, xb, xc, y_top, under, p, pitch)
         zm = (zb + zf) / 2
@@ -2011,6 +2018,53 @@ class Bay:
             self._spike(world, xc, zm, w, top(xc) - pitch * w / 2, sh + pitch * w / 2, cap)
             meta["finial_top_m"] = round(top(xc) + sh + cap, 4)
         self.meta["roof"] = meta
+
+    def _gable_behind(self, world, bh, shallow, xl, xr, xc, y_top, zb, under):
+        """T-1890: the slated cross roof a shallow pavilion's gable parapet stands in front of
+        (1801's south pavilion: on the Taylor photograph and HABS photograph 1 a roof runs back
+        from behind the coped gable, its level ridge on the gable's middle just under the
+        copings, about 4.5 m back into the main roof, where a finial stands on its end). Two
+        slopes, each from a side wall's top (`y_top`, over the plan's front corners `xl`, `xr`)
+        up to `ridge_m` on the gable's middle, run back from the parapet's back (`zb`) to
+        `run_back_m` behind the wall plane; under each a CHEEK hung in the same slate, as a
+        mansard dormer's are, from `cheek_from_m` (the host's eave: below it the house stands
+        round it; [left, right] where a chamfer's top stands over the eave) up to the slope's foot; and its end closed square, ridge to cheeks. A host's
+        mansard rises round it: where the main roof stands over a slope the two meet in a
+        valley, and where the cross roof stands over the main one (its ridge over the curb) it
+        is the cross roof that shows. The host stops its deck's cresting and corner finial at
+        it and stands a finial on its ridge's end (k01_mansard_deck). Returns its meta."""
+        if not shallow:
+            raise ValueError(f"{self.v['id']}: a roof behind the gable is a shallow pavilion's, whose parapet "
+                             f"is carried back past the wall plane (a deep one's roof is its own)")
+        y_rb, run = float(bh["ridge_m"]), float(bh["run_back_m"])
+        # the cheeks' feet [left, right], or one for both: over a chamfer (1801's south corner)
+        # the cheek stands from the canted face's top, clear of what its light looks into
+        cf = bh["cheek_from_m"]
+        y0s = [float(x) for x in cf] if isinstance(cf, (list, tuple)) else [float(cf)] * 2
+        if not (y_top + 0.5 <= y_rb <= under(xc) - 0.1):
+            raise ValueError(f"{self.v['id']}: the roof behind the gable rises 0.5 m or more over the wall top "
+                             f"{y_top:.3f} m to a ridge 0.1 m or more under the copings' beds ({under(xc):.3f} m), "
+                             f"not {y_rb} m")
+        if not (0.5 <= run <= 8.0 and -run <= zb - 0.3):
+            raise ValueError(f"{self.v['id']}: the roof behind the gable runs back 0.5-8 m behind the wall plane, "
+                             f"0.3 m or more past the parapet's back")
+        if len(y0s) != 2 or not all(0.0 < y0 <= y_top - 1.0 for y0 in y0s):
+            raise ValueError(f"{self.v['id']}: its cheeks rise from a host's eave (or a chamfer's top) a metre or "
+                             f"more under the wall top {y_top:.3f} m")
+        ze = -run
+        # the cheeks a centimetre inside the plan's corners, off the planes of the returns and a
+        # chamfer's cheek that end there
+        xl, xr = xl + BEHIND_CHEEK_IN_M, xr - BEHIND_CHEEK_IN_M
+        for xs, y0 in zip((xl, xr), y0s):
+            o = -1.0 if xs < xc else 1.0
+            world.face("roof", [(xs, y_top, zb), (xc, y_rb, zb), (xc, y_rb, ze), (xs, y_top, ze)],
+                       (o * (y_rb - y_top), abs(xc - xs), 0.0))
+            world.face("roof", [(xs, y0, zb), (xs, y_top, zb), (xs, y_top, ze), (xs, y0, ze)], (o, 0.0, 0.0))
+        world.face("roof", [(xl, y0s[0], ze), (xr, y0s[1], ze), (xr, y_top, ze), (xc, y_rb, ze), (xl, y_top, ze)],
+                   (0.0, 0.0, -1.0))
+        return {"ridge_m": round(y_rb, 4), "run_back_m": round(run, 4), "eaves_m": round(y_top, 4),
+                "x_m": [round(xl, 4), round(xc, 4), round(xr, 4)],
+                "pitch": round((y_rb - y_top) / max(xc - xl, xr - xc), 4)}
 
     def _gable_panel(self, world, pn, xa, xb, xc, y_top, under, p, pitch):
         """T-3002: the carved panel filling a gable's tympanum (1801's south pavilion: a tall

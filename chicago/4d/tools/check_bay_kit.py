@@ -266,6 +266,15 @@ def rule_keyed(b, v):
     # T-2900: a corner turret's cone stands whole over its wing's roof (`cap_whole`), so its
     # roof and finial reach behind the face, inside its eaves' circle and nowhere else
     whole = ("roof", "finial") if v.get("cap_whole") else ()
+    # T-1890: a shallow pavilion's roof behind its gable (`roof.gable.behind`, 1801's south
+    # pavilion) runs back into its host's roof, as deep as `run_back_m` and no deeper (below)
+    behind_roof = (((v.get("roof") or {}).get("gable") or {}).get("behind")) if v.get("shallow") else None
+    if behind_roof:
+        whole = (*whole, "roof")
+        far = min((p[2] for p in b.prims["roof"].pos), default=0.0) if "roof" in b.prims else 0.0
+        if far < -float(behind_roof["run_back_m"]) - 1e-6:
+            fails.append(f"behind: the roof behind its gable stands {-far:.4f} m behind the host wall's face, "
+                         f"past its run_back_m {behind_roof['run_back_m']}")
     # T-3047: a shallow projection's window recesses and its gable's parapet run back through
     # the plane (its host opens its face round the recesses), no deeper than a recess reaches
     through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
@@ -286,7 +295,7 @@ def rule_keyed(b, v):
         if far[0] < -deep - 1e-6:
             fails.append(f"behind: a shallow projection's {far[1]} reaches {-far[0]:.4f} m behind the host wall's "
                          f"face, past its recesses' {deep:.4f} m")
-    if whole:
+    if whole and v.get("cap_whole"):
         (cx, cz), reach = b.plan["centre"], b.plan["R"] + b.meta["overhang_m"]
         far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
         if far > reach + 1e-6:
