@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2481, ts: '2026-10-31T02:56:03.653Z', date: 'Oct 30, 2026, 9:56 PM CT', title: 'A drive and walks for Pullman\'s conservatory', kind: 'improvement',
+    items: [
+      'Inside the gate on 18th Street, Pullman\'s conservatory now has its ground as the 1894 plate and Lowe\'s photograph show it: a pale gravel drive running back between the lawns, a walk past a strip of turf to a forecourt before the glass, and a low stone coping that edges the lawn along the street.',
+    ] },
   { v: 2480, ts: '2026-10-31T02:16:15.459Z', date: 'Oct 30, 2026, 9:16 PM CT', title: 'Pullman stable\'s corner bay moved clear of its arcade', kind: 'improvement',
     items: [
       'The stable\'s three-light corner bay no longer covers the last arch of its west arcade. The 1894 Inland Architect plate and Taylor\'s photograph both show that arch whole.',
