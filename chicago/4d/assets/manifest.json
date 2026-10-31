@@ -1300,14 +1300,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1616_prairie"
     },
-    "house_1616_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_1616_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 48592,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "f55bb43123dd7e08cefb3890a2c93525e0490cb91541a62c7d4c04d56863a1ff",
+      "bytes": 96680,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "449016b710b0c2093f94ad99f51b3128c917abf2339e7c7bfc8ab6462276994b",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "house_1616_prairie_coach_house"
     },
     "house_1619_indiana__draft_1904.glb": {
