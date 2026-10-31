@@ -37399,3 +37399,30 @@ rear nearer and can place the terrace's north end, its steps and the awning's po
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and `taylor_16554_from_south-side-by-side.jpg`, with their match records.
 **Recorded:** 2026-10-31 (T-1881).
+
+### L-pullman-1729-architraves-1881 — 1729 Prairie's front lights framed in moulded architraves off the 1890 Albertype plate: their bands, imposts and keystones read, their profile reconstructed
+
+**Decision:** the four round-arched lights of the Prairie front that the build lays in the K01 wall
+(the principal storey's two and the second storey's centre and south lights) stand in moulded
+architraves (`street_front_windows.windows[].architrave`, a new K01 key): a band down both jambs from
+the sill and on round the arch, an impost block at the springing, and over the principal storey's
+lights a keystone at the crown. The second storey's 0.25 m voussoir rings (L-k01-1729-pullman-heads-3157)
+are replaced by the architraves.
+**What is read, not invented.** The 1890 Albertype plate (`albertype_1890_chicago_residences_plate`)
+at its full size through its solved camera, about 17 px a metre on the front: the bands' breadth (the
+second storey's widest light's glass at x 1194-1219 px against the moulding's outer edge at 1188-1222;
+the principal storey's big light's at 1197-1224 against 1191-1230), the imposts at the springing (y
+496-502 px on the big light) and the big light's keystone (x 1203-1208, y 468-474). Bands of 0.3 and
+0.28 m on the two wide lights; 0.18 m on the two narrow lights at s 15.45, which stand 0.26 m from the
+rusticated pier and whose bands the plate draws no wider than the pier leaves room for. Read to about
+0.1 m.
+**What is invented.** The moulding's profile, laid as two plain fascias (the outer 0.12 m proud, the
+inner 0.06 m) so that the step draws the plate's dark outer line; the imposts' 0.25-0.3 m height and
+0.05-0.1 m step; the narrow lights' keystone (0.22 m, scaled from the big light's). The forward
+block's light over the portico, a K08 bay light, is not framed, and the big light's sill on its two
+blocks is not built: both are open in the plate's match record.
+**How to resolve:** a closer picture of the front (the CHM 1905 views, once solved) gives the
+moulding's profile; a K08 bay-light architrave frames the forward block's light.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`.
+**Recorded:** 2026-10-31 (T-1881).

@@ -3692,6 +3692,56 @@ def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
             "key_m": (kw, kh), **({"short_m": short} if short is not None else {})}
 
 
+def _architrave(ar, k, variant, s, wd, sill, h, top, width) -> dict:
+    """T-1881: a named street window's round head framed by a moulded architrave (1729
+    Prairie's front in the 1890 Albertype plate: a band down both jambs from the sill and on
+    round the arch, an impost block stepping out at the springing, and over the principal
+    storey's lights a keystone at the crown): `band_m` broad, standing `proud_m` before the
+    wall; optional `impost_m` [height, how far it steps out past the band, and before it] and
+    `key_m` [width, height over the head's crown]."""
+    what = f"street_front_windows.windows[{k}].architrave"
+    if not {"band_m", "proud_m"} <= set(ar) <= {"band_m", "proud_m", "impost_m", "key_m"}:
+        raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out] and key_m "
+                         f"[width, height]")
+    if variant["head"] != "round":
+        raise ParamError(f"{what}: an architrave is carried round a round head, not a {variant['head']} one")
+    b, pr = float(ar["band_m"]), float(ar["proud_m"])
+    if not 0.1 <= b <= 0.45 or not 0.03 <= pr <= 0.15:
+        raise ParamError(f"{what}: a 0.1-0.45 m band 0.03-0.15 m proud")
+    imp = tuple(float(x) for x in ar["impost_m"]) if ar.get("impost_m") is not None else None
+    if imp is not None and (len(imp) != 2 or not 0.1 <= imp[0] <= 0.5 or not 0.02 <= imp[1] <= 0.2):
+        raise ParamError(f"{what}.impost_m: a block 0.1-0.5 m high stepping 0.02-0.2 m out past the band")
+    key = tuple(float(x) for x in ar["key_m"]) if ar.get("key_m") is not None else None
+    if key is not None and (len(key) != 2 or not 0.15 <= key[0] <= min(0.6, wd / 2) or not b <= key[1] <= b + 0.4):
+        raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across (at most half the light), rising the band's "
+                         f"depth to 0.4 m past it over the crown")
+    out = b + (imp[1] if imp else 0.0)
+    if s - wd / 2 - out < 0.05 or s + wd / 2 + out > width - 0.05:
+        raise ParamError(f"{what} runs off the front's end")
+    crown = sill + h + max(b, key[1] if key else 0.0)
+    if crown > top + 0.30:
+        raise ParamError(f"{what} rises to {crown:.2f} m, past the storey's head ({top + 0.30:.2f} m)")
+    return {"s_m": round(s, 4), "sill_m": round(sill, 4), "band_m": b, "proud_m": pr,
+            "half_m": round(wd / 2 + out, 4), "top_m": round(crown, 4),
+            **({"impost_m": imp} if imp else {}), **({"key_m": key} if key else {})}
+
+
+def _architraves_clear(arcs, laid):
+    """T-1881: no architrave runs into another window's hole or another architrave."""
+    boxes = [(a["s_m"] - a["half_m"], a["s_m"] + a["half_m"], a["sill_m"], a["top_m"]) for a in arcs]
+    for i, (a0, a1, b0, b1) in enumerate(boxes):
+        for c0, c1, d0, d1 in laid:
+            mine = abs((c0 + c1) / 2 - arcs[i]["s_m"]) < 1e-4 and abs(d0 - arcs[i]["sill_m"]) < 1e-4
+            if not mine and a0 < c1 and a1 > c0 and b0 < d1 and b1 > d0:
+                raise ParamError(f"street_front_windows: the architrave at s {arcs[i]['s_m']} runs into the window "
+                                 f"at s {round((c0 + c1) / 2, 4)}")
+        for j in range(i + 1, len(boxes)):
+            c0, c1, d0, d1 = boxes[j]
+            if a0 < c1 and a1 > c0 and b0 < d1 and b1 > d0:
+                raise ParamError(f"street_front_windows: the architraves at s {arcs[i]['s_m']} and "
+                                 f"{arcs[j]['s_m']} overlap")
+
+
 def _street_frontispiece(fp, openings, dress, floors, width) -> dict:
     """T-2753: the frontispiece of a named-window front (1625's, its photograph): the front from
     `s_m` to its south end and from grade to the hood mould's bed stands `proud_m` out, its
@@ -4974,11 +5024,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if sfw:
         kit_ids = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
         door = (door_s - 0.60 - 0.30, door_s + 0.60 + 0.30, door_floor + door_h + 0.30)
-        laid, rings = [], []
+        laid, rings, arcs = [], [], []
         for k, w in enumerate(sfw["windows"]):
-            if set(w) - {"voussoirs"} != {"component", "storey", "s_m", "width_m", "sill_m", "height_m"}:
+            if set(w) - {"voussoirs", "architrave"} != {"component", "storey", "s_m", "width_m", "sill_m", "height_m"}:
                 raise ParamError(f"street_front_windows.windows[{k}] takes component, storey, s_m, width_m, sill_m and height_m"
-                                 f" (and, T-2889, voussoirs)")
+                                 f" (and, T-2889, voussoirs, or, T-1881, architrave)")
+            if w.get("voussoirs") is not None and w.get("architrave") is not None:
+                raise ParamError(f"street_front_windows.windows[{k}]: a head turned in voussoirs or framed by an "
+                                 f"architrave, not both")
             comp, st = w["component"], int(w["storey"])
             s, wd, sill, h = (float(w[x]) for x in ("s_m", "width_m", "sill_m", "height_m"))
             entry = (val("window_kit") or {}).get(comp)
@@ -5007,6 +5060,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if w.get("voussoirs") is not None:
                 rings.append(_voussoirs(w["voussoirs"], k, kit_ids[vid], s, sill, h, sgr,
                                         float(val("eave_overhang_m")), eave))
+            if w.get("architrave") is not None:
+                arcs.append(_architrave(w["architrave"], k, kit_ids[vid], s, wd, sill, h, top, width))
             dh = kit_ids[vid]["operation"].startswith("double_hung")
             openings.append(Opening(comp, "k01.wall.street_front", round(s, 4), round(sill, 4), wd, h, dh))
     street_dress, frontispiece = {}, {}
@@ -5014,6 +5069,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         street_dress = _street_dress(sfw, openings, floors, width)
         if rings:   # T-2889: the named windows' voussoir rings
             street_dress["voussoirs"] = tuple(rings)
+        if arcs:    # T-1881: the named windows' moulded architraves
+            _architraves_clear(arcs, laid)
+            street_dress["architraves"] = tuple(arcs)
     if val("street_front_frontispiece"):
         if not sfw:
             raise ParamError("street_front_frontispiece dresses a front laid by street_front_windows")
