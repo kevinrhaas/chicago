@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 162132529,
+ "bytes": 162877087,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -4812,6 +4812,22 @@
   "early-castelnau-1842-chicago-harbor.jpg": {
    "bytes": 59854,
    "sha256": "eee65adf2a3902a6bae159fddab38292d49017e847ddf9d8df3a048d41d18f12"
+  },
+  "early-dearborn-andreas-1884-thumb.jpg": {
+   "bytes": 23734,
+   "sha256": "f5d850f4bddb0fe7439f9023254a98f9950b601f9a03714eaa117ae170935248"
+  },
+  "early-dearborn-andreas-1884.jpg": {
+   "bytes": 352974,
+   "sha256": "75e87b7675d986d57ac5ae36b3429fe8f27098fdb620251093077ce0fec92869"
+  },
+  "early-dearborn-earle-1902-thumb.jpg": {
+   "bytes": 21828,
+   "sha256": "e25173892d1bc87b0ceb5e3325051cbb72b338fdf3cda1e194a00c17e44bda0a"
+  },
+  "early-dearborn-earle-1902.jpg": {
+   "bytes": 346022,
+   "sha256": "e4af254235c25c30bff97d51cdf29aceb6d762c5f8ff4de7268c650ecb78322f"
   },
   "early-gifford-first-tremont-thumb.jpg": {
    "bytes": 16397,

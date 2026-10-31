@@ -97,7 +97,7 @@ from common.logwork import (  # noqa: E402
 )
 from common import materials  # noqa: E402
 from common.mesh import MeshBuilder, simple_material  # noqa: E402
-from archetypes.bridge_timber_params import BridgeTimberParams  # noqa: E402
+from archetypes.bridge_timber_params import BridgeTimberParams, draw_rise_m_at  # noqa: E402
 
 M_LOG, M_DECK, M_FILL, M_IRON = 0, 1, 2, 3
 
@@ -133,6 +133,78 @@ LEAF_PROUD_M = 0.055
 BOARD_CAP_T_M = 0.06
 
 
+def _draw_rise(p: BridgeTimberParams, x: float) -> float:
+    """The same pure resolved profile serialized for native surface consumers."""
+    return draw_rise_m_at(p, x)
+
+
+def _clip_x(points, boundary: float, keep_greater: bool):
+    """Clip one face in its own winding order; no cap is inserted at a fold."""
+    result = []
+    for a, b in zip(points, points[1:] + points[:1]):
+        inside_a = a[0] >= boundary if keep_greater else a[0] <= boundary
+        inside_b = b[0] >= boundary if keep_greater else b[0] <= boundary
+        if inside_a:
+            result.append(a)
+        if inside_a != inside_b:
+            t = (boundary - a[0]) / (b[0] - a[0])
+            result.append(tuple(a[i] + t * (b[i] - a[i]) for i in range(3)))
+    # A vertex exactly on a cut can be emitted twice; remove only exact-near
+    # consecutive copies, preserving the original polygon and face orientation.
+    clean = []
+    for point in result:
+        if not clean or sum((point[i] - clean[-1][i]) ** 2 for i in range(3)) > 1e-18:
+            clean.append(point)
+    if len(clean) > 1 and sum((clean[0][i] - clean[-1][i]) ** 2 for i in range(3)) < 1e-18:
+        clean.pop()
+    return clean
+
+
+def _face_area_vector(points):
+    # Newell's vector works for clipped n-gons, including the old log end caps.
+    return tuple(sum((a[(i+1)%3] - b[(i+1)%3]) * (a[(i+2)%3] + b[(i+2)%3])
+                     for a, b in zip(points, points[1:] + points[:1])) for i in range(3))
+
+
+def _apply_draw_profile(b: MeshBuilder, p: BridgeTimberParams) -> None:
+    """Fold existing deck/leaf/rail faces into the plate's central rise.
+
+    This operates before gallows and tackle are built: frames stay vertical and
+    their heads stay level. Long stringer/rail faces are split at both draw ends
+    and the centre before displacement; moving only old endpoints would leave a
+    flat beam underneath a rising deck. The profile's exact rise and all such
+    timber joints are reconstruction, not an attested historical mechanism.
+    """
+    if p.draw_profile == "flat":
+        return
+    mid = p.span_m / 2.0
+    cuts = [mid - p.draw_span_m / 2.0, mid, mid + p.draw_span_m / 2.0]
+    old_verts, old_conf, old_faces, old_mat = b.verts, b.conf, b.faces, b.mat_index
+    b.verts, b.conf, b.faces, b.mat_index = [], [], [], []
+    for face, material in zip(old_faces, old_mat):
+        points = [old_verts[i] for i in face]
+        confidence = max(old_conf[i] for i in face)
+        pieces = [points]
+        for cut in cuts:
+            split = []
+            for polygon in pieces:
+                xs = [point[0] for point in polygon]
+                # A cap face exactly on a cut stays one face, never two coplanar
+                # copies. Faces merely touching a cut need no clipping either.
+                if min(xs) >= cut - 1e-9 or max(xs) <= cut + 1e-9:
+                    split.append(polygon)
+                else:
+                    for greater in (False, True):
+                        clipped = _clip_x(polygon, cut, greater)
+                        if len(clipped) >= 3 and sum(x*x for x in _face_area_vector(clipped)) > 1e-18:
+                            split.append(clipped)
+            pieces = split
+        for polygon in pieces:
+            rises = [_draw_rise(p, point[0]) for point in polygon]
+            c = max(confidence, p.worst_conf("draw_profile", "draw_rise_m")) if max(rises) > 1e-9 else confidence
+            b.add_poly([(point[0], point[1], point[2] + rise)
+                        for point, rise in zip(polygon, rises)], c, material)
+
 def build(params: BridgeTimberParams, name: str):
     """Build the bridge. Returns a Blender object at the local origin; z = 0 is the
     water surface (see the module docstring), y-up is handled by the exporter."""
@@ -163,8 +235,10 @@ def build(params: BridgeTimberParams, name: str):
     _stringers(b, params, stringer_top, c_struct)
     _deck(b, params, deck_z, c_deck)
 
-    for xp in params.pier_x:
-        _pier(b, params, xp, bearing_z, c_pier)
+    # Preserve the old default emission order; raised cribs stay horizontal.
+    if params.draw_profile == "flat":
+        for xp in params.pier_x:
+            _pier(b, params, xp, bearing_z, c_pier)
     if params.abutments:
         _abutments(b, params, bearing_z, params.conf("abutments"))
     if params.railing:
@@ -177,6 +251,11 @@ def build(params: BridgeTimberParams, name: str):
     if params.draw_leaves:
         _draw_leaves(b, params, deck_z,
                      params.worst_conf("draw_leaves", "draw_span_m"))
+    _apply_draw_profile(b, params)
+    if params.draw_profile != "flat":
+        for xp in params.pier_x:
+            _pier(b, params, xp, bearing_z, c_pier)
+
     # The gallows frames over a draw. Their POSITIONS are documented (either end of a
     # documented opening) and their SIZE is not, so the whole frame takes the height's
     # confidence: a frame whose height is a guess is a guessed frame, even though we
@@ -293,6 +372,16 @@ def _deck(b: MeshBuilder, p: BridgeTimberParams, deck_z: float, conf: float) -> 
 def _pier(b: MeshBuilder, p: BridgeTimberParams, xp: float, bearing_z: float,
           conf: float) -> None:
     """One intermediate support: a bent of heavy logs, a log crib, or driven piles."""
+    if p.draw_bearing_platform_m is not None and any(abs(xp - xg) < 1e-8 for xg in p.gallows_x):
+        # The Andreas platform is an open vertical-pile foundation with a
+        # boarded cap. Its plan is centered on the bearing, with an explicit
+        # transverse offset; the general pier_kind still controls approaches.
+        along, across = p.draw_bearing_platform_m
+        x0, x1 = xp - along / 2.0, xp + along / 2.0
+        y0 = (p.width_m - across) / 2.0 + p.draw_bearing_platform_offset_m
+        c = max(conf, p.worst_conf("draw_bearing_platform_m", "draw_bearing_platform_offset_m"))
+        _piled_platform(b, x0, y0, x1, y0 + across, bearing_z, c)
+        return
     if p.pier_kind == "bent":
         _log_bent(b, p, xp, bearing_z, conf)
         return
@@ -302,6 +391,37 @@ def _pier(b: MeshBuilder, p: BridgeTimberParams, xp: float, bearing_z: float,
     half = 0.58
     _crib(b, xp - half, 0.42, xp + half, p.width_m - 0.42, bearing_z, conf)
     _cap(b, p, xp, bearing_z, conf)
+
+
+
+def _piled_platform(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
+                    top_z: float, conf: float) -> None:
+    """Retrospective plate's piled foundation, with reconstructed scantlings.
+
+    A close perimeter of vertical piles holds two longitudinal sleepers and a
+    thin boarded cap. No filled box or horizontal crib walls are inserted.
+    Pile count follows the bounded 0.48 m maximum pitch, not a historical count.
+    The mesh stops below the waterline; it asserts no riverbed or driven depth.
+    """
+    radius, cap_t, sleeper_t = 0.15, 0.14, 0.20
+    inset = radius + 0.06
+    xa, xb, ya, yb = x0 + inset, x1 - inset, y0 + inset, y1 - inset
+    nx = max(2, math.ceil((xb - xa) / 0.48) + 1)
+    ny = max(2, math.ceil((yb - ya) / 0.48) + 1)
+    points = [(xa + (xb - xa) * i / (nx - 1), y) for i in range(nx) for y in (ya, yb)]
+    points += [(x, ya + (yb - ya) * i / (ny - 1)) for i in range(1, ny - 1) for x in (xa, xb)]
+    for x, y in points:
+        log_prism(b, (x, y, -SUBMERGED_M),
+                  (x, y, top_z - cap_t - sleeper_t), radius, conf, M_LOG)
+    for y in (ya, yb):
+        b.add_box(x0, y - radius, top_z - cap_t - sleeper_t,
+                  x1, y + radius, top_z - cap_t, conf, M_LOG)
+    boards = max(1, math.ceil((x1 - x0) / SAWN_PITCH_M))
+    pitch = (x1 - x0) / boards
+    for i in range(boards):
+        a, z = x0 + i * pitch, top_z - cap_t
+        b.add_box(a + 0.005, y0, z, a + pitch - 0.005, y1,
+                  top_z, conf, M_DECK)
 
 
 def _crib(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
@@ -486,10 +606,12 @@ def _gallows(b: MeshBuilder, p: BridgeTimberParams, xc: float, deck_z: float,
                kn, conf, M_LOG)
     sh = 0.125                      # half-section of a shore
     sgn_x = -1.0 if xc < p.span_m / 2.0 else 1.0
+    attach = 2.60 if p.gallows_shore_attach_m is None else p.gallows_shore_attach_m
+    shore_conf = conf if p.gallows_shore_attach_m is None else max(conf, p.conf("gallows_shore_attach_m"))
     for y_post in (-out, p.width_m + out):
-        _strut(b, (xc + sgn_x * s, y_post, deck_z + 2.60),
+        _strut(b, (xc + sgn_x * s, y_post, deck_z + attach),
                (xc + sgn_x * (s + 2.85), y_post, bearing_z + 0.06),
-               sh, conf, M_LOG)
+               sh, shore_conf, M_LOG)
 
 
 def _hoist_chains(b: MeshBuilder, p: BridgeTimberParams, xc: float, deck_z: float,
@@ -525,7 +647,7 @@ def _hoist_chains(b: MeshBuilder, p: BridgeTimberParams, xc: float, deck_z: floa
     mid = p.span_m / 2.0
     head_z = deck_z + p.gallows_height_m - 0.36
     for y in (-0.14, p.width_m + 0.14):
-        _strut(b, (xc, y, head_z), (mid, y, deck_z + LEAF_PROUD_M * 0.5),
+        _strut(b, (xc, y, head_z), (mid, y, deck_z + LEAF_PROUD_M * 0.5 + _draw_rise(p, mid)),
                CHAIN_S, conf, M_IRON)
         # The eye the chain is shackled to, at the head. Small, and it is what stops
         # the run reading as a wire that ends in mid-air.
@@ -537,8 +659,9 @@ def _draw_leaves(b: MeshBuilder, p: BridgeTimberParams, deck_z: float,
                  conf: float) -> None:
     """The joint timber of a draw lying down: what makes a closed opening legible.
 
-    The deck boards are untouched and run straight through, so the crossing stays as
-    walkable as it was — `_deck` never learns there is a draw. What is added is the
+    The boards run through the draw. The optional display profile folds these
+    faces afterward; the same pure function supplies the nominal floor sidecar.
+    What is added here is the
     framing a leaf has at its edges: a bearing timber across the deck at each end of
     the opening, where a leaf is hinged and where it lands; an edge beam down each
     side of each leaf; and, at the centre of the opening, the two leaves' ends butted

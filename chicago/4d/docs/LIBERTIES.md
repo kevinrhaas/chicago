@@ -2110,12 +2110,14 @@ section for that reason; what was resolved is one line of it, not the liberty.
 council order, an engraving. The bridge was repaired in 1835, so a repair record is the most
 likely thing to exist. A CONTEMPORARY view, as against the retrospective plates L163 works
 from, would settle what those plates only suggest.
-**Covers:** `dearborn_street_drawbridge.draw_1834.footprint`, `dearborn_street_drawbridge.draw_1834.form.gallows_height_m`, `dearborn_street_drawbridge.draw_1834.form.overall_length_m`, `dearborn_street_drawbridge.draw_1834.form.pier_count`, `dearborn_street_drawbridge.draw_1834.form.pier_kind`, `dearborn_street_drawbridge.draw_1834.form.width_m`.
+**Covers:** `dearborn_street_drawbridge.draw_1834.form.gallows_height_m`, `dearborn_street_drawbridge.draw_1834.form.overall_length_m`, `dearborn_street_drawbridge.draw_1834.form.pier_count`, `dearborn_street_drawbridge.draw_1834.form.pier_kind`.
 **Recorded:** 2026-08-10.
 **Evidence since, 2026-08-19:** the ground_contact token is withdrawn. T-0046's approach
 earthworks (L147) raise Dearborn Street to the deck at both ends and the record no longer
 declares `approach_not_modelled`. Everything this entry says about the draw, the mechanism and
 the omitted opening is untouched.
+
+**Evidence since, 2026-10-31 (T-2375):** The footprint and width tokens are withdrawn from active coverage. The historical body above is retained: its ten-foot proxy has been superseded by the directly read sixteen-foot statement in Moses and Kirkland (1895), printed p.95, at inferred secondary confidence. The length remains independently traced from Wright1834; this is not a survey of the full rectangle. The four remaining coverage tokens still describe reconstructed or simplified choices. Neither withdrawal resolves them, establishes a measured hoist, or claims the widened deck's bank transition without a fresh full-edge ground-contact check.
 
 ### L36a — Thomas Church's store: a building placed by a street and one sentence
 **Decision:** `thomas_church_store` stands on Lake Street with its **position** and its
@@ -36987,3 +36989,22 @@ drawings.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+
+
+### L-dearborn-picture-profile-2375 — Dearborn’s pictured closed draw and piled caps
+
+**Covers:** `dearborn_street_drawbridge.draw_1834.form.draw_rise_m`, `dearborn_street_drawbridge.draw_1834.form.gallows_shore_attach_m`, `dearborn_street_drawbridge.draw_1834.form.draw_bearing_platform_m`, `dearborn_street_drawbridge.draw_1834.form.draw_bearing_platform_offset_m`.
+
+**Decision:** Follow the peaked closed draw, high outer braces and open piled bearing caps in the cleared Andreas1884 plate, with Earle’s retrospective painting as a qualified cross-check. The sixteen-foot width (4.8768m, rounded to4.877m in the model) follows Moses and Kirkland1895p95. The independently traced76.33m water gap, mapped origin/bearing and text-attested18.288m draw are retained; neither drawing supplies coordinates.
+
+**Reconstructed:** The1.2m central rise,5.2m raker attachment below the6.4m head,3.6×7.8288m caps and−1.0m transverse offset are appearance choices. The0.30m piles, their pitch/count (46 per cap), sleepers, board thicknesses and hidden foundations are proxies, not details counted or measured from either picture. The closed depiction does not establish a historically measured lifting mechanism. Walking follows a nominal deck surface; its8mm board gaps and55mm proud thresholds are not simulated, and this does not attest footwear, wheels or overlapping props.
+
+**Sources and limits:** `andreas_1884_dearborn_drawbridge_plate`, `moses_kirkland_history_of_chicago_v1`, `earle_chicago_national_bank_1902_dearborn_bridge`. The later depictions do not establish an exact1July1835 condition; their projection and tone disagreements remain qualified. The separate Baker engraving retains the owner’s Chicago Tribune Editorial,15February1880 credit; its exact original remains unverified and supplies no new geometry or derived comparison. L163 retains the earlier bracing, chain and leaf choices.
+
+**Recorded:** 2026-10-30 (T-2375).
+
+
+**Coverage correction, 2026-10-31:** Qualitative draw_profile and draw_bearing_supports are inferred from the credited cleared plate, not reconstructed dimensions. They are removed from the active invention coverage; their source interpretation and the four remaining reconstructed numeric choices above are retained.
+
+**Evidence since, 2026-10-31 (T-2375):** The two Dearborn approach crests now use a reconstructed **6.0 m half-width**, replacing their earlier4.0 m grid allowance. The source-supported sixteen-foot deck extends only in local positive-v; its widened end corner mixed a low shoulder/water vertex through the2.5 m bilinear grid and stood0.711 m above the south-bank surface,0.438 m above the north-bank surface. Widening the existing invented fill crest supports that full end edge. It does not change the mapped street/approach axes, bank/shoreline controls, bridge origin or bearing,76.33 m water gap,2.22 m end-deck elevation,1-in-12 grade,3 m overhang,0.06 ft seat, or the separately reconstructed centre-rise profile. Six metres is a numerical walk-access allowance, **not a historically documented road width**. The four valid numeric bridge Covers tokens remain unchanged; no new terrain Covers token is added here; fresh native field/mesh fit, full-end-edge measurements and actual walking checks must establish that the wider crossing lands safely.
+
