@@ -37132,3 +37132,35 @@ glazing: the fence hides their feet and whatever grilles they had. Their surroun
 plain stone.
 **How to resolve:** a nearer photograph of the entrance and its steps, or of the house's basement.
 **Recorded:** 2026-10-31 (T-3257).
+### L-pullman-18th-street-wall-c1900-1934 — Pullman's 18th Street wall east of the stair's pier built as the c. 1900 picture shows it: one level coping, its later piers, urn and curved low walls withdrawn
+**Recorded:** 2026-10-31.
+
+**Decision:** east of the third pier (the east pier of the stair at the house's 18th Street porch, x -9.35
+to -10.25 in `pullman_house_1729_prairie`'s frame) the 18th Street wall (`form.boundary.side_return`) now
+runs level at 0.9 m to the stable's east wall. The fourth, fifth and sixth piers, the fifth's urn, the
+sweeps from 1.4 m to 0.85 m and back up to 1.45 m between the third and fourth piers, and the sweep up to
+the sixth pier are withdrawn for 1904. L-pullman-18th-street-wall-1934 had built them off the 1894 Inland
+plate, which Taylor's 16555 and 16554, both of the early 1890s, agree with.
+**What is read.** The Detroit Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`, LC-D4-12552,
+taken beside the Fort Dearborn monument looking west-north-west along this wall) is the picture nearest
+1 July 1904. From the stair's east pier (its x 475-485 px) to the monument (x 740) it shows one level coping,
+about as high as the hydrant at the curb stands over the walk, with a dense border of shrubs behind it. No
+pier rises over its top, there is no urn, and no low wall falls and rises (x 485-740, y 520-535). The Chicago
+History Museum's view of the monument (ICHi-19208, circa 1900; the Prairie library's
+`a16-chm-ichi-19208-monument-pullman-wall`, no source record yet, so a check only) shows the same plain
+coping at the stable's end. So the earlier pictures' piers and curved walls are taken to have gone in a
+rebuilding between 1894 and about 1900, which no record held here dates.
+**What is invented.** The two openings are kept: the one onto the terrace's ground (x -15.2 to -16.15) and the
+court's carriage mouth (x -17.05 to -20.4). The Detroit view sees this face edge-on, where a doorway-wide
+opening reads as a narrow dark slot (it shows two, at x 493-497 and 611-617 px), and the court's mouth falls
+behind a parkway trunk there (x 702-714). So the picture can neither place nor deny them, and the carriage
+drive (L-pullman-carriage-ways-1934) needs the court's. Their plain ends without piers are reconstructed.
+**Read the same way:** the 1894 plate's planting before the terrace (its evergreen mass, a potted conifer) and
+Taylor's 16555's flights open from the walk give way in 1904 to the c. 1900 border, which the 1729 lot's border in
+`data/front_yards/1904.json` already draws. Those items read `not shown`, replaced for 1904, in the estate's
+match records.
+**How to resolve:** a solved camera for the Detroit view (an earlier attempt was withdrawn on 13-30 px
+residuals), a picture of the wall between 1894 and 1904 that dates the rebuilding, or a full-size copy of
+CHM i70232 (1905-1906) showing the wall at the court's mouth.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with the estate's six match records.

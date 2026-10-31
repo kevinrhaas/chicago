@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2485, ts: '2026-10-31T06:31:13.027Z', date: 'Oct 31, 2026, 1:31 AM CT', title: 'Pullman\'s 18th Street wall stands as it did around 1900', kind: 'change',
+    items: [
+      'In 1904 the low stone wall before Pullman\'s palm house and stable runs as one plain, level coping. A photograph from about 1900 shows it that way, with a thick border of shrubs behind it.',
+      'The tall piers, the urn and the curved low walls from the 1894 pictures are gone east of the porch stair. Both gateways stay, including the carriage way into the stable court.',
+    ] },
   { v: 2484, ts: '2026-10-31T05:15:56.213Z', date: 'Oct 31, 2026, 12:15 AM CT', title: 'The Pullman house\'s carriage porch, balanced', kind: 'improvement',
     items: [
       '1729 Prairie\'s porte-cochère on 18th Street now has each arch centred on its face, with banded stone piers, a moulded band where the arches spring, and a ring of voussoirs with a keystone round each arch, as J. W. Taylor\'s photograph shows them.',
