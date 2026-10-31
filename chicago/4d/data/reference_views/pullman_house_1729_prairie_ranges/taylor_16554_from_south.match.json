@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_ranges",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
-  "glb_sha256": "0db7d8f97ce8de8f0607120303697777fcba7c2dc7505e1462e29a5a78ad7a81",
+  "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef",
   "camera_sha256": "b7fb4107a2d92faf618f854cb031ce06dfbad62ed73c1986206a0256a312a976",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "0db7d8f97ce8de8f0607120303697777fcba7c2dc7505e1462e29a5a78ad7a81"
+      "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     },
     {
       "structure_id": "pullman_house_1729_prairie_conservatory",
@@ -64,7 +64,7 @@
       "glb_sha256": "1f5c76e419c00f5419202a2c377f34a5bd44a45c0db224edcceb4888747d7dab"
     }
   ],
-  "group_sha256": "e17f5a590b0d71d8609380a8571d23b3749a690de1e4412cf8be360e3de3f00c",
+  "group_sha256": "f9648dabe3a8e1bf75a4779b13bf16060efbbff9c623f2ee20edf8d1f4250ec8",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -232,6 +232,10 @@
       "what": "a post hydrant on the walk at the foot of the low wall before the stable (x 1060-1070, y 570-588), about 3.7 m short of the stable's east end",
       "status": "fixed",
       "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): hydrant.pictured.pullman_stable in data/street_furniture/1904.json, placed on the print's ray (x 1065) at the walk's street edge"
+    },
+    {
+      "what": "the corner bay (T-1934, 2026-10-31): re-planned on the 1894 plate and Taylor's 16555, which agree that it stands clear of the arcade's third arch and runs to u -25.0 along 18th Street (L-pullman-stable-bay-1934); it now renders at x 802-877 px. This print still reads it further west, but this camera's ground is about 45 px off the print's (the walk and the lamp's foot), so its reading of the bay's place was not used",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

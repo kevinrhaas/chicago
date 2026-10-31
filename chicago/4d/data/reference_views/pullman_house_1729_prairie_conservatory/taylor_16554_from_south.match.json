@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "0db7d8f97ce8de8f0607120303697777fcba7c2dc7505e1462e29a5a78ad7a81"
+      "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "579ba53e2131bee8e540589a5b82b34fafa97bd9d881c7bb4e0ddc1ff85b46b0",
+  "group_sha256": "0842a23cc7a0ccc95e96180493c3f5fd6b4714f4fd2bb7c97495c557e1630854",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -153,8 +153,8 @@
       "how": "T-3192's forms, the deck set by T-3193 between this print and the plate"
     },
     {
-      "what": "the corner bay: the print puts it about 1.4 m further west, standing directly against the drum (the plate reads it 0.6-0.9 m east: the two disagree on its place), and reads it rounder than the build's three faces",
-      "status": "open",
+      "what": "the corner bay: the print puts it about 1.4 m further west, standing directly against the drum (the plate reads it 0.6-0.9 m east: the two disagree on its place), and reads it rounder than the build's three faces [the corner bay (T-1934, 2026-10-31): re-planned on the 1894 plate and Taylor's 16555, which agree that it stands clear of the arcade's third arch and runs to u -25.0 along 18th Street (L-pullman-stable-bay-1934); it now renders at x 802-877 px. This print still reads it further west, but this camera's ground is about 45 px off the print's (the walk and the lamp's foot), so its reading of the bay's place was not used. The plate and 16555 put it east of where this print does, so its place is a disagreement between pictures (within tolerance); its shape reads three faces in both of them, as built.]",
+      "status": "within tolerance",
       "how": "two pictures disagree (the plate puts it about 0.8 m further east); the build stands between them"
     },
     {
