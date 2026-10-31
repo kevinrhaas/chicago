@@ -160,11 +160,16 @@ PICTURED = {
                          "stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball "
                          "on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, "
                          "which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and "
-                         "the slim column beside the drum that both pictures show, and the palm set out before "
+                         "the palm set out before "
                          "the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants "
                          "were wintered under glass and set out again each summer, and no picture nearer "
-                         "1904 shows the terrace.",
-                 "sources": ["inland_1894_pullman_palm_house_stable", "aic_taylor_16555_pullman_west_front"],
+                         "1904 shows the terrace. Four slim clipped columns are planted in the terrace "
+                         "itself, not tubbed (a pair before the wing's arched windows and two at the "
+                         "drum's west side): Taylor's winter photograph 16554 shows all four and his "
+                         "summer 16555 three of them (the fourth behind the house's porch), so they stood "
+                         "the year round.",
+                 "sources": ["inland_1894_pullman_palm_house_stable", "aic_taylor_16555_pullman_west_front",
+                             "aic_taylor_16554_pullman_from_sw"],
                  "plants": [
                      {"plant": "globe", "e": 1472.4, "n": -3173.0, "on": "floor", "top_m": 3.24, "w": 1.13,
                       "tub_m": 0.5, "read": "plate x 845-925 px, y 763-838 px, a ball as tall as it is wide "
@@ -189,10 +194,35 @@ PICTURED = {
                       "plate x 727-782 px, its top at y 750 px and its tub's foot at y 895 px; 16555 x 500-523 px; "
                       "crossed at 4.1 m east of the drum's centre and 1.8 m off the wing (16555 reads its top "
                       "about 1.2 m higher: two pictures, within tolerance)"},
+                     # T-1934 (2026-10-31): Taylor's 16554, the winter print, shows this column on
+                     # the terrace too, so it is planted in the terrace, not set out in a tub: tub_m 0,
+                     # drawn in every Season. Its top stays the plate's reading.
                      {"plant": "arborvitae", "e": 1463.17, "n": -3169.79, "on": "floor", "top_m": 4.17, "w": 0.45,
-                      "tub_m": 0.5, "read": "the slim column on the terrace against the drum's west side, behind "
-                      "the balustrade (its tub hidden in both pictures): plate x 212-240 px, its top at y 697 px; "
-                      "16555 x 325-342 px; crossed at 4.4 m west of the drum's centre and 2.3 m off the wing"},
+                      "tub_m": 0.0, "read": "the slim column on the terrace against the drum's west side, behind "
+                      "the balustrade (its foot hidden in both pictures): plate x 212-240 px, its top at y 697 px; "
+                      "16555 x 322-332 px; crossed at 4.4 m west of the drum's centre and 2.3 m off the wing. "
+                      "Taylor's 16554 (bare trees: off-leaf season) shows it standing at x 647-657 px, its top at "
+                      "y 494 px; its ray crosses 16555's column 0.6 m from here, and reads its top 4.9 m, the "
+                      "plate's 4.17 m kept (the cameras' heights disagree by about 0.5 m at 80 m)"},
+                     # T-1934 (2026-10-31): the terrace's other clipped columns, each read in Taylor's
+                     # 16554 (winter) and fixed in plan by crossing its pixel column there with
+                     # 16555's (summer), the two cameras about 35 degrees apart; the first stands
+                     # behind the house's porch in 16555 and off the plate's left edge, so it is
+                     # stood the same 0.8 m off the wing as its fellow. Seen in both seasons, so
+                     # planted in the terrace, never wintered in.
+                     {"plant": "arborvitae", "e": 1457.33, "n": -3168.4, "on": "floor", "top_m": 4.79, "w": 0.85,
+                      "tub_m": 0.0, "read": "the west column of the pair before the wing's arched windows: 16554 "
+                      "x 588-600 px (0.85 m across at 83 m), its top at y 498 px; hidden in 16555 behind the house porch's pier "
+                      "(x 185-230 px) where this place renders (x 212); stood 0.8 m off the wing's face"},
+                     {"plant": "arborvitae", "e": 1458.91, "n": -3168.16, "on": "floor", "top_m": 4.77, "w": 1.0,
+                      "tub_m": 0.0, "read": "the east column of the pair before the wing's arched windows: 16554 "
+                      "x 607-621 px (1.0 m across at 84 m), its top at y 498 px; 16555 x 240-254 px, its top at y 557 px (5.3 m: "
+                      "16554's 4.8 m kept); crossed 8.7 m west of the drum's centre and 0.6 m off the wing"},
+                     {"plant": "arborvitae", "e": 1463.24, "n": -3168.4, "on": "floor", "top_m": 5.02, "w": 0.7,
+                      "tub_m": 0.0, "read": "the column behind the slim one, against the wing by the drum's west "
+                      "side: 16554 x 663-673 px, its top at y 493 px; 16555 x 332-342 px, the two columns "
+                      "standing one behind the other there; crossed 4.35 m west of the drum's centre and "
+                      "0.9 m off the wing"},
                      {"plant": "palm", "e": 1467.25, "n": -3172.47, "on": "floor", "top_m": 3.73, "w": 2.35,
                       "tub_m": 0.58, "read": "the palm in its tub on the terrace before the drum, in 16555 only: "
                       "x 393-443 px, its fronds' top at y 587 px and its tub's at y 617 px, read on the terrace's "

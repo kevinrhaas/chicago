@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "a2e37ec93375f33bad61933ab07b64e2c91c7d4bcdbb6e39856aaaecdb4ad99f"
+      "glb_sha256": "a1aa2f596ec93f197a004306c9a28c9e4fabd9ccf54b60a2100e202718d039a7"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,13 +64,13 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "579fc492fd1901fc8bf2dd62774b9b5f2e5b35bb1e827b520d35ca8a7378c4bd",
+  "group_sha256": "6d4d1eef523b63939252ca0df5304b2635cfde2adb10742eb9c61209dceecee3",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 13,
+        "shrubs": 16,
         "trees": 3,
         "beds": 0,
         "creeper": 23
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "62cb7892919de3cab2e524c811a83b811c38a8135e1fd5117e5ffe67db42969d",
+  "flora_sha256": "03e83b2dc92a11a8be3a7316abd56708f306b5c80b76d1cfb88acc156d65ab76",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -266,7 +266,7 @@
       "status": "fixed"
     },
     {
-      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. T-1934, 2026-10-30: the slim column behind the balustrade against the drum's west side (x 212-240 px, its top at y 697) and the cone in its tub before the wing's arched door east of the drum (x 727-782 px) now stand where this camera's pixel columns cross Taylor's 16555's (data/front_yards/1904.json, the 1729 lot's tubs) and render within about 15 px of the plate's; 16555's palm in its tub before the drum renders left of the elm trunk (x 470-560) where the plate shows the drum's columns bare above the balustrade (two summers' arrangements: within tolerance). Still open: the tall evergreen mass and the potted conifer west of the plate's flight, and the clipped heads read looser than the plate's shears. T-1934, 2026-10-30: the triangulation in the porch's item puts no second flight there: they stand in the ground between the terrace's flight and the house's porch.] [T-1934, 2026-10-30, for the next look: the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the nearest picture to 1904 that sees this stretch, shows a dense, continuous border of shrubs inside the 18th Street coping from the house's porch past the palm house, the front yard's attested 'border' the render draws; the plate's 1894 planting there is the earlier of the two, so how much of the plate's arrangement still stood in 1904 is a question between dated pictures, not yet ruled.] [T-1934, 2026-10-31: what stayed open here (the evergreen mass and potted conifer west of the plate's flight, the shears' tightness) is the plate's 1894 planting before the terrace; the Detroit view of c. 1900, nearer 1904, shows a dense, continuous border of shrubs at the coping's height and more in that place instead, which the build draws (data/front_yards/1904.json, the 1729 lot's border).]",
+      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate [T-1934, 2026-10-29: the plate's tub plants are stood where it shows them (data/front_yards/1904.json, the 1729 lot's tubs, read through this camera): the ball clipped on its tub on the terrace east of its flight (x 845-925 px), the ball on a clear stem in its tub before the stable's west arcade (x 1290-1385 px) and the slim clipped column inside the wall by its east pier (x 1730-1780 px) render within about 40 px of the plate's. T-1934, 2026-10-30: the slim column behind the balustrade against the drum's west side (x 212-240 px, its top at y 697) and the cone in its tub before the wing's arched door east of the drum (x 727-782 px) now stand where this camera's pixel columns cross Taylor's 16555's (data/front_yards/1904.json, the 1729 lot's tubs) and render within about 15 px of the plate's; 16555's palm in its tub before the drum renders left of the elm trunk (x 470-560) where the plate shows the drum's columns bare above the balustrade (two summers' arrangements: within tolerance). Still open: the tall evergreen mass and the potted conifer west of the plate's flight, and the clipped heads read looser than the plate's shears. T-1934, 2026-10-30: the triangulation in the porch's item puts no second flight there: they stand in the ground between the terrace's flight and the house's porch.] [T-1934, 2026-10-30, for the next look: the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the nearest picture to 1904 that sees this stretch, shows a dense, continuous border of shrubs inside the 18th Street coping from the house's porch past the palm house, the front yard's attested 'border' the render draws; the plate's 1894 planting there is the earlier of the two, so how much of the plate's arrangement still stood in 1904 is a question between dated pictures, not yet ruled.] [T-1934, 2026-10-31: what stayed open here (the evergreen mass and potted conifer west of the plate's flight, the shears' tightness) is the plate's 1894 planting before the terrace; the Detroit view of c. 1900, nearer 1904, shows a dense, continuous border of shrubs at the coping's height and more in that place instead, which the build draws (data/front_yards/1904.json, the 1729 lot's border).] [T-1934, 2026-10-31: the slim column against the drum's west side is planted in the terrace (Taylor's winter 16554 shows it), drawn to the same top; a second column 1.9 m behind it, against the wing, renders behind it here (x 213 against its x 219), and the pair before the wing's arched windows that 16554 and 16555 show stand off this plate's left edge.]",
       "status": "not shown",
       "how": "replaced for 1904: the c. 1900 Detroit view's border (loc_det_4a08066_pullman_residence) stands where the plate's 1894 planting did; T-1934 render with the scene's street trees and front yards (camera flora)"
     },

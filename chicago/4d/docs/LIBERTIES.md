@@ -36756,7 +36756,17 @@ degrees apart, so the depth is good to about a metre), on the terrace floor the 
 1.4 m up: a slim arborvitae column in a tub against the drum's west side (1463.17 E, -3169.79 N, its
 top 4.17 m), a clipped arborvitae cone in a tub before the wing's arched door east of the drum
 (1471.75 E, -3169.2 N, 3.49 m), both pictured in the plate and the print, and a palm in its tub
-before the drum (1467.25 E, -3172.47 N, 3.73 m), pictured in the print only.
+before the drum (1467.25 E, -3172.47 N, 3.73 m), pictured in the print only. On 2026-10-31 Taylor's
+16554 (`aic_taylor_16554_pullman_from_sw`), a winter print (its trees bare), showed that column
+standing on the terrace with three more like it, so the four are planted in the terrace, not
+tubbed, and drawn in every Season: the column against the drum's west side taken out of its tub
+(the same place and top), and three more, each where 16554's pixel column crosses 16555's (the
+two cameras about 35 degrees apart): a pair before the wing's arched windows (1457.33 E, -3168.4 N,
+its top 4.79 m, stood 0.8 m off the wing because 16555 shows it only behind the house's porch;
+1458.91 E, -3168.16 N, 4.77 m) and a column against the wing behind the drum's (1463.24 E,
+-3168.4 N, 5.02 m). Their tops are 16554's readings, which 16555 puts about 0.5 m higher;
+the widths are the print's (0.7-1.0 m). That they were planted in beds or fixed vases rather
+than in tubs carried in is read from the winter print; what they stood in is hidden in all three.
 **What is read:** each plant's place across the picture and its top from the plate's pixels; its
 depth from the plane it is read on (the terrace behind its balustrade, the line 1.6 m off the
 stable's wall, the ground at its visible foot); that the two balls are clipped evergreens, one
@@ -36775,7 +36785,7 @@ the pier where the plate has the ball), which the match records hold within tole
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
 and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
-**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934).
+**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934).
 
 ### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
 
