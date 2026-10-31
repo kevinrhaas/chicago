@@ -35,6 +35,7 @@
 import * as THREE from 'three';
 import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
+import { crestTwin, drawFarReliefAsCrests, farReliefFromSearch } from './far-roof-relief.js';
 import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
 import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
@@ -515,6 +516,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     .map((r) => r.sidecar));
   /** The instance colours `setWeathering` rewrites: one row per source mesh. */
   const toneRanges = [];
+  /** T-3272: a relief roof piece past its last visible pixel draws its crests only
+   *  (far-roof-relief.js). One state for the layer; each batch fills its own pairs. */
+  const farRelief = { on: farReliefFromSearch(globalThis.location?.search), batches: [] };
   /** structure id -> its footprint extent in its own local frame, so a building
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
@@ -835,6 +839,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   }
   geometriesOf.clear();
   for (const [, bucket] of groups) {
+    // T-3272: each relief piece is followed by its hidden crests-only twin, laid
+    // before the batch is sized so the twin's vertices are counted in it.
+    if (bucket.material.userData.roofFilter === 'course-pixels-v1') {
+      bucket.entries = bucket.entries.flatMap((e) => {
+        const twin = crestTwin(e.geo);
+        return twin ? [e, { ...e, geo: twin.geo, twinOf: e, maxCourse: twin.maxCourse,
+          occludesView: false, planar: null }] : [e];
+      });
+    }
     const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
     const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
     // The normals and uvs stored compact, in one format across the batch, and
@@ -868,6 +881,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // T-2529: at `light`, a piece whose shadow cannot reach the view is left
     // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
     if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
+    // T-3272: before the narrow phase below, which trusts only the hook it wrapped.
+    let farPairs = null;
+    if (bucket.entries.some((e) => e.twinOf)) {
+      farPairs = [];
+      drawFarReliefAsCrests(batch, { get on() { return farRelief.on; }, pairs: farPairs,
+        set swapped(n) { farRelief.swapped = n; } });
+      farRelief.batches.push({ batch, pairs: farPairs });
+    }
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -878,7 +899,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.userData.confidenceRanges = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
-    for (const { record, geo, base, factors, occludesView, bodyRole, planar } of bucket.entries) {
+    for (const entry of bucket.entries) {
+      const { record, geo, base, factors, occludesView, bodyRole, planar } = entry;
       const pause = checkpoint(); if (pause) await pause;
       compactGeometry(geo, plan);
       const frame = instanceFrames.get(record.id);
@@ -893,6 +915,36 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       for (let i = 0; i < scalars.count; i += 1) toneSum += scalar('_tone', i);
       const geometryId = batch.addGeometry(geo);
       const instanceId = batch.addInstance(geometryId);
+      entry.instanceId = instanceId;
+      if (entry.twinOf) {
+        // T-3272: a twin is the piece's own triangles, drawn only in its place. It
+        // keeps no tone row, roll or channel of its own: it is not another surface.
+        batch.setColorAt(instanceId, batch.getColorAt(entry.twinOf.instanceId, new THREE.Color()));
+        batch.setMatrixAt(instanceId, frame.matrix);
+        batch.userData.positionScale[instanceId] = frame.scale;
+        batch.userData.batchIndex[instanceId] = record.id;
+        const pieceRange = batch.userData.confidenceRanges[entry.twinOf.instanceId];
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange.slice();
+        batch.setVisibleAt(instanceId, false);
+        // The twin sorts and sphere-culls as its piece does: a transparent batch draws its
+        // instances back to front by their spheres, and the relief's three pieces meet at
+        // the ridge, so a twin keyed by its own (smaller) sphere could change who draws
+        // last there. Larger than the twin's own, so the cull stays conservative.
+        const pieceInfo = batch._geometryInfo?.[batch.getGeometryIdAt(entry.twinOf.instanceId)];
+        const twinInfo = batch._geometryInfo?.[geometryId];
+        if (pieceInfo && twinInfo && 'boundingSphere' in twinInfo) {
+          twinInfo.boundingSphere = batch.getBoundingSphereAt(
+            batch.getGeometryIdAt(entry.twinOf.instanceId), new THREE.Sphere());
+        }
+        // The bound is read off the bytes the shader decodes (the packed piece), not the
+        // floats the twin was cut from: every vertex of the piece, so never below a relief one.
+        const course = entry.twinOf.geo.getAttribute('_roof_detail');
+        let maxCourse = entry.maxCourse;
+        for (let i = 0; course && i < course.count; i++) maxCourse = Math.max(maxCourse, course.getX(i));
+        farPairs.push({ piece: entry.twinOf.instanceId, twin: instanceId, maxCourse });
+        geo.dispose();
+        continue;
+      }
       // T-0002. The mesh's paint is its instance's colour, so the tone can be
       // wound back and forth at runtime — see setWeathering.
       const count = geo.getAttribute('position').count;
@@ -1136,6 +1188,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batches,
     coalesce,
     viewOccluders,
+    /** T-3272: far relief pieces drawn as their crests, on or off, for the on/off pixel
+     *  proof; `swapped` is how many the last colour pass swapped. */
+    farRelief: {
+      get on() { return farRelief.on; },
+      set on(v) { farRelief.on = !!v; },
+      get swapped() { return farRelief.swapped ?? 0; },
+      get pieces() { return farRelief.batches.reduce((n, b) => n + b.pairs.length, 0); },
+    },
     /** T-3152: the proven planar backings on or off, for the on/off pixel proof. */
     setPlanarCovers(on) { planarOn = !!on; return planarOn; },
     planarCovers,

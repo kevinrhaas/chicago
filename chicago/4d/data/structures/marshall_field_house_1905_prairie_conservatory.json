@@ -32,19 +32,19 @@
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448507.526,
-        "utm_n": 4634023.867,
+        "utm_e": 448504.542,
+        "utm_n": 4634022.288,
         "rotation_deg": 359.444,
-        "symbolic_location": "1905 S. Prairie Avenue, parcel prairie_1905 (data/street_grid/1904.json): against the south wall of the Field house, 12.0 m behind its front, on the house's stone bow.",
+        "symbolic_location": "1905 S. Prairie Avenue, parcel prairie_1905 (data/street_grid/1904.json): against the south wall of the Field house, 9.0 m behind its front, on the house's stone bow.",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28",
           "rand_mcnally_pictorial_chicago_1893_field"
         ],
-        "note": "The middle of the house's bow on its south wall: the house's frame (u toward Prairie Avenue from the rear wall, v south from the north wall) at u 9.0, v 15.25, the K08 bow's centre on the wall (bays.south_conservatory, s 12.0 m from the front), carried through the house's own placement (utm 448516.378, 4634039.204, rotation 179.444). Turned a half turn from the house (359.444) so the kit's +z, out of its wall, runs south, off the house.",
+        "note": "The middle of the house's bow on its south wall: the house's frame (u toward Prairie Avenue from the rear wall, v south from the north wall) at u 12.0, v 16.8 (the south wall since T-3271 re-read the front to Hunt's 16.8 m; 15.25 before), the K08 bow's centre on the wall (bays.south_conservatory, s 9.0 m from the front since T-3271; 12.0 before), carried through the house's own placement (utm 448516.378, 4634039.204, rotation 179.444). Turned a half turn from the house (359.444) so the kit's +z, out of its wall, runs south, off the house.",
         "derivation": {
           "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is the house's committed placement (data/structures/marshall_field_house_1905_prairie.json) plus the bow's centre in the house's frame, u 9.0 and v 15.25: e = 448516.378 + 9.0 cos(179.444) + 15.25 sin(179.444), n = 4634039.204 - 9.0 sin(179.444) + 15.25 cos(179.444)."
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is the house's committed placement (data/structures/marshall_field_house_1905_prairie.json) plus the bow's centre in the house's frame, u 12.0 and v 16.8: e = 448516.378 + 12.0 cos(179.444) + 16.8 sin(179.444), n = 4634039.204 - 12.0 sin(179.444) + 16.8 cos(179.444)."
         }
       },
       "footprint": {
@@ -139,8 +139,8 @@
             "chord_m": 8.4,
             "rise_m": 2.7,
             "facets": 6,
-            "eave_m": 3.0,
-            "wall_top_m": 4.4,
+            "eave_m": 2.4,
+            "wall_top_m": 3.4,
             "roof": "curved",
             "bays": 2,
             "door": null,
@@ -156,9 +156,9 @@
             ],
             "bench_out_m": 0.1,
             "plinth_fabric": "stone",
-            "base_m": 2.4,
+            "base_m": 2.0,
             "curve_facets": 4,
-            "transom_m": 2.2,
+            "transom_m": 1.8,
             "frame_color": [
               0.11,
               0.12,
@@ -176,7 +176,7 @@
             "rand_mcnally_pictorial_chicago_1893_field",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The plate's conservatory read through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json): a ring of tall glazed lights on fine bars round the bow, standing on a light stone sill on the house's stone base, their head about 5.4 m over grade at about three quarters of the principal windows' height, and a glass roof that leaves them curving and rises to the house's wall about 6.8 m over grade, under the chamber floor's balcony, ribbed at every bar. Built as the K13 kit's segmental bay on the K08 bow's own arc (8.4 m on its chord, 2.7 m out, in six facets of two lights each, the kit's glazing bars between) on the bow's top at 2.4 m (base_m), its stone plinth 0.6 m to the glass's sill, its eave at 3.0 m and its curved roof (the kit's quarter-ellipse on every hip, in four steps) to the wall at 4.4 m over the base. A transom crosses every light at 2.2 m over the base, about two thirds of the way up the glass, where the plate's bar runs (T-3270), and the frame is painted dark, as the plate prints its bars against the pale glass. RECONSTRUCTED: the bars' dark paint's colour, the glass's colour (the kit's opaque substitute where it is not transparent), the bars' section, the staging inside, the gutter falling from its middle to a pipe at each end by the wall (L-field-1905-conservatory-1905). Open on the match record: the lights' width (the plate's about 0.6 m between equal bars, the render's ribs 0.88 m apart, the kit's finest that keeps every pane at least 0.2 m on the roof's last step). T-3270: the roof stops level at a deck 0.52 of the way out from the wall (roof_deck), as the plate draws it, in painted tin under an iron railing 0.9 m high round its edge from wall to wall, posts at the facets' corners and plain balusters 0.13 m apart between a top and a foot rail; the railing's scroll panels and the deck's and iron's tones are RECONSTRUCTED (L-field-1905-carving-3270)."
+          "note": "The plate's conservatory read through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json): a ring of tall glazed lights on fine bars round the bow, standing on a light stone sill on the house's stone base, their head about 5.4 m over grade at about three quarters of the principal windows' height, and a glass roof that leaves them curving and rises to the house's wall about 6.8 m over grade, under the chamber floor's balcony, ribbed at every bar. Built as the K13 kit's segmental bay on the K08 bow's own arc (8.4 m on its chord, 2.7 m out, in six facets of two lights each, the kit's glazing bars between) on the bow's top at the principal floor, 2.0 m (base_m), its stone plinth 0.6 m to the glass's sill, its eave at 2.4 m and its curved roof (the kit's quarter-ellipse on every hip, in four steps) to the wall at 3.4 m over the base. A transom crosses every light at 1.8 m over the base, about two thirds of the way up the glass, where the plate's bar runs (T-3270), and the frame is painted dark, as the plate prints its bars against the pale glass. RECONSTRUCTED: the bars' dark paint's colour, the glass's colour (the kit's opaque substitute where it is not transparent), the bars' section, the staging inside, the gutter falling from its middle to a pipe at each end by the wall (L-field-1905-conservatory-1905). Open on the match record: the lights' width (the plate's about 0.6 m between equal bars, the render's ribs 0.88 m apart, the kit's finest that keeps every pane at least 0.2 m on the roof's last step). T-3270: the roof stops level at a deck 0.52 of the way out from the wall (roof_deck), as the plate draws it, in painted tin under an iron railing 0.9 m high round its edge from wall to wall, posts at the facets' corners and plain balusters 0.13 m apart between a top and a foot rail; the railing's scroll panels and the deck's and iron's tones are RECONSTRUCTED (L-field-1905-carving-3270). T-3271: lowered with the house when the 923 Prairie photograph's camera, fitted to Hunt's plan of the principal floor, re-read the house's storeys (the principal floor 2.0 m, the chamber floor 6.1 m, where the plate's camera with its heights held had read 2.2 and 7.4 m): the glass keeps the plate's proportions to the house, its head about 4.4 m over grade (the plate's 5.4 m against a 7.4 m chamber floor) and its deck about 5.4 m, 0.7 m under the chamber floor (0.6 m before; 2.5 and 3.5 m over the base laid two gutter faces on one plane, which the kit refuses); the transom stays two thirds up the glass."
         }
       }
     }

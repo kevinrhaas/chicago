@@ -2,7 +2,7 @@
  "structure_id": "marshall_field_house_1905_prairie",
  "view": "pictorial_1893_plate",
  "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
- "glb_sha256": "844eb450239f0a647fb0151cb1a6c6f5606702c545995f58294f767371b42e74",
+ "glb_sha256": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5",
  "camera_sha256": "d5203d93f29bc9cf1a519b1f27b759e267603675f302fc2d3b99e0f92bb7ec11",
  "photo_sha256": "d49b47b1f31f50b0ce0d4e99b234d0ae9c80f42c57cab75f8338ed0396d397dd",
  "rendered_members": [
@@ -23,32 +23,36 @@
     0
    ],
    "rotation_y": 0,
-   "glb_sha256": "844eb450239f0a647fb0151cb1a6c6f5606702c545995f58294f767371b42e74"
+   "glb_sha256": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5"
   },
   {
    "structure_id": "marshall_field_house_1905_prairie_conservatory",
    "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
    "placement": {
-    "local_e": 1434.826,
-    "local_n": -3371.933,
+    "local_e": 1431.842,
+    "local_n": -3373.512,
     "rotation_deg": 359.444,
     "scene": "1904",
     "target_date": "1904-07-01",
     "phase": "as_mapped_1904"
    },
    "position": [
-    9.000411596869922,
+    11.999593522900811,
     0,
-    -15.250379145678007
+    -16.80034842749289
    ],
    "rotation_y": -3.141592653589794,
-   "glb_sha256": "db2d2082e96b08c2a0e99ab2b0fde2fbc54061667457adff9ff698f383b24854"
+   "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
   }
  ],
- "group_sha256": "f0b13b84d1b0edaa735280ea0b914503ebda719743ade40129d5f6e6ecb6f2a3",
+ "group_sha256": "93c2b82b2c74839f74a7d81676feefd058825b9434ab981773f8a6e5a58e67df",
  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
+  {
+   "what": "the camera: T-3260 fitted it to the 1911 sheet's 15.25 m front with the heights held at 2.2 and 11.6 m; T-3271 rebuilds the house to Hunt's plan (a 16.8 m front, the walls about 1.5 m lower), which the two photographs' cameras fit and this one does not, so its render now stands small and to the right of the plate's house. The camera wants re-solving against the rebuilt house before this view can be judged; until then the front's length, the walls' height, the cut and the columns are judged on the two photographs (chicagology_923_photo, daily_news_dn0003324)",
+   "status": "open"
+  },
   {
    "what": "massing: the draft's generic block is now the plate's house, two storeys of brick over a raised light stone basement under a bracketed cornice and a tall slated mansard, its wall head about 11.6 m; the plate's house fills x 60-860 px of the side-by-side's left half, the render's x 150-750 px",
    "status": "fixed"
@@ -78,7 +82,7 @@
    "status": "fixed"
   },
   {
-   "what": "the canted corner's cut: about 3.4 m back each way through the camera, built 3.2 m, the most the front's wide window column leaves a pier for until the front's length is re-read (T-3261)",
+   "what": "the canted corner's cut: about 3.4 m back each way through the camera, built 3.2 m, the most the front's wide window column leaves a pier for until the front's length is re-read (T-3261) T-3271: built 2.15 m, to Hunt's plan and the photographs' cameras.",
    "status": "within tolerance"
   },
   {
@@ -86,12 +90,12 @@
    "status": "open"
   },
   {
-   "what": "the wide column's iron balcony: built 1.9 m, stopped 0.2 m short of the canted corner's cut, where the plate's runs about 2.5 m centred on its window; the balcony cannot run on past the cut until the front's length is re-read (the open item below)",
-   "status": "open"
+   "what": "the wide column's iron balcony: built 1.9 m, stopped 0.2 m short of the canted corner's cut, where the plate's runs about 2.5 m centred on its window; the balcony cannot run on past the cut until the front's length is re-read (the open item below) T-3271: with the front re-read it runs 2.4 m (12.05-14.45 m), centred on its window, 0.2 m short of the cut.",
+   "status": "fixed"
   },
   {
-   "what": "the front's length: through the camera the plate's north end lands about 3 m north of the sheet's north wall, so the render's front runs about 120 px short at its north end and its window columns stand up to a column's width off the plate's; the camera holds the eye at 1.6 m and the heights at 2.2 and 11.6 m, and both it and the sheet are to be re-read against the Daily News view (T-3261). RE-READ by T-3271 against Hunt's plan of the principal floor (hunt_field_1905_principal_floor_plan): the front runs 55 ft (16.8 m) over all, its corner cut about 1.9 m back each way, and the 923 Prairie and Daily News photographs fit that plan (3.0 and 1.6 px RMS) and not the sheet; they also read the walls about 1.8 m lower than this camera's held heights, which is why the plate reads the front longer still. Still to build",
-   "status": "open"
+   "what": "the front's length: through the camera the plate's north end lands about 3 m north of the sheet's north wall, so the render's front runs about 120 px short at its north end and its window columns stand up to a column's width off the plate's; the camera holds the eye at 1.6 m and the heights at 2.2 and 11.6 m, and both it and the sheet are to be re-read against the Daily News view (T-3261). RE-READ by T-3271 against Hunt's plan of the principal floor (hunt_field_1905_principal_floor_plan): the front runs 55 ft (16.8 m) over all, its corner cut about 1.9 m back each way, and the 923 Prairie and Daily News photographs fit that plan (3.0 and 1.6 px RMS) and not the sheet; they also read the walls about 1.8 m lower than this camera's held heights, which is why the plate reads the front longer still. Still to build T-3271 builds the front 16.8 m; this view waits on its camera (above).",
+   "status": "within tolerance"
   },
   {
    "what": "the mansard: the plate's rises about 5 m over the cornice, the render's 4.5 m (K05's ceiling for a face holding one storey); its slate in bands is plain in the render",
@@ -138,8 +142,8 @@
    "status": "open"
   },
   {
-   "what": "the chamber windows: the plate's run up to the frieze, about 3.2 m tall; the render's are 2.8 m so K09's heads clear the frieze",
-   "status": "open"
+   "what": "the chamber windows: the plate's run up to the frieze, about 3.2 m tall; the render's are 2.8 m so K09's heads clear the frieze T-3271: with the storeys re-read lower the chamber lights are 2.6 m in a 4.0 m storey, about the plate's proportion (its 3.2 m in 4.2 m reads about 2.7 m), within 0.1 m.",
+   "status": "within tolerance"
   },
   {
    "what": "the brick's colour: the plate is a monochrome halftone, so the render's red-brown brick is the kit's",

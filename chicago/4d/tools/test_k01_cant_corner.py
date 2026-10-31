@@ -125,15 +125,19 @@ SID5 = "marshall_field_house_1905_prairie"
 st5 = json.loads((ROOT / "data" / "structures" / f"{SID5}.json").read_text())
 p5 = KP.from_phase(st5["phases"][0], st5)
 cc5 = p5.cant_corner
-check(cc5.get("corner") == "north" and cc5.get("cut_m") == 3.2 and cc5.get("blank") is True,
-      f"1905's record cuts K01's north corner 3.2 m each way, the face blank ({cc5})")
+# T-3271: Hunt's plan of the principal floor and the 923 photograph's camera re-read the cut to
+# 2.15 m each way (it was 3.2 m, the 1893 plate's camera's reading with its heights held)
+check(cc5.get("corner") == "north" and cc5.get("cut_m") == 2.15 and cc5.get("blank") is True,
+      f"1905's record cuts K01's north corner 2.15 m each way, the face blank ({cc5})")
 check(not [o for o in p5.openings if o.wall == KP.CANT_WALL], "1905's canted face carries no window column")
 a5 = K1.build(p5, SID5)
 w5 = a5.components.get(KP.CANT_WALL)
 face5 = KP.cant_corner_plan(cc5, p5.depth_m, p5.width_m)
 (fu, fv), _ = face5["ends"]
-on_face = lambda q: (abs(face5["normal"][0] * (q[0] - fu) + face5["normal"][1] * (-q[2] - fv)) < 0.01 and 3.0 < q[1] < 7.0
-                     and -q[2] > fv + 0.3 and q[0] < fu - 0.3)   # inside the face, clear of its two ends
+belt5 = p5.floors_m[1]   # the stone belt at the chamber floor (6.1 m since T-3271's lower walls)
+on_face = lambda q: (abs(face5["normal"][0] * (q[0] - fu) + face5["normal"][1] * (-q[2] - fv)) < 0.01
+                     and 3.0 < q[1] < belt5 - 0.3
+                     and -q[2] > fv + 0.3 and q[0] < fu - 0.3)   # inside the face, clear of its two ends and the belt
 check(w5 is not None and len(w5["instances"]) == 1 and any(on_face(q) for q in a5.prims["brick"].pos)
       and not any(on_face(q) for q in a5.prims["limestone_trim"].pos),
       "the build lays 1905's k01.wall.cant in its brick, blank between the belts")
@@ -162,7 +166,8 @@ def refused5(rec, why, needle):
     refused(rec, why, needle)
 
 
-refused5(variant5(lambda f: f["street_front_iron"]["value"]["balconettes"][-1].update(to_s_m=12.45)),
+cut_s5 = face5["walls"]["k01.wall.street_front"][0]   # where the front's cut begins (14.65 m)
+refused5(variant5(lambda f: f["street_front_iron"]["value"]["balconettes"][-1].update(to_s_m=round(cut_s5 + 0.15, 2))),
          "a balcony run onto the cut", "runs onto the cut")
 refused5(variant5(lambda f: f["wall_head"]["value"].update(walls=["k01.wall.street_front"])),
          "a timber cornice on named walls", "bracketed timber")
