@@ -37385,3 +37385,58 @@ at its full length, which waits on the front's length being re-read. The balcony
 corner. All three stay open on the match record.
 **How to resolve:** the Daily News view's camera (DN-0003324), and a sharper print of the plate for the carving.
 **Recorded:** 2026-10-31 (T-3270).
+
+### L-k01-1729-pullman-terrace-1881 — 1729 Prairie's raised terrace and striped awning at the south-east corner, read off Taylor's nos. 16555 and 16554
+
+**Decision:** the 1911 sheet's one-storey 'B' block at the house's south-east corner (u -2.0 to 0,
+v 11.6-18.8), built until now as a 4 m brick box under a flat tin deck (`rear_wings` se_block), is
+taken off and built as the raised terrace the photographs show there (`rear_terrace`, a new K01
+option, k01_rear_terrace): a dressed-stone podium against the rear wall from v 11.63 to the 18th
+Street face (v 17.93), 3.0 m out, its coping the principal floor (2.0 m); an arched light in its
+south face; a stone balustrade 0.9 m high on pedestals round its three open sides; and a striped
+awning pitched from the rear wall at 6.1 m to an eave at 4.3 m, 0.2 m past the front, with a valance
+along its eave and down both ends, on three iron posts standing on the front's pedestals.
+**What is read, not invented.** J. W. Taylor's no. 16555 (`aic_taylor_16555_pullman_west_front`),
+a summer view from across 18th Street, through its solved camera: the podium, its arched light and
+the balustrade (its top about 3.1 m over the walk) standing out from the rear wall at its 18th
+Street end; the awning's foot on the wall and its eave over the balustrade; its front's breadth read
+against the old block's 2 m front in the same render (x 215-455 px against 135 px for 2 m at the
+pair's scale), about 3.0 m. Taylor's no. 16554 (`aic_taylor_16554_pullman_from_sw`), a winter view
+from the south-east, shows the same balustrade at the corner's foot, the rear wall's lower lights
+standing clear over it and no storey there, with the awning down.
+**What is invented.** The coping's, pedestals', rails' and balusters' sections, and square balusters
+for the photograph's turned ones; the pedestals' spacing (no more than 3 m apart); the light's size;
+the awning's posts (the photograph shows a corner pedestal with an urn and dark space under the
+canvas); its stripes' colours, a light ground and a dark green stripe, since both photographs are
+monochrome; and the terrace's north end, which no picture sees, railed like its south end. The
+sheet's line is about 0.7-1.0 m nearer the wall than the photograph's front; the photograph, the
+nearer witness, governs. The awning is built standing: the 1904 scene is in July, and the winter
+view's bare frame is evidence of its own season.
+**How to resolve:** the Beman-addition side views and CHM i70232 (1905-1906), once solved, see the
+rear nearer and can place the terrace's north end, its steps and the awning's posts.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and `taylor_16554_from_south-side-by-side.jpg`, with their match records.
+**Recorded:** 2026-10-31 (T-1881).
+
+### L-kimball-1801-cross-hood-1890 — 1801 Prairie's slated hood on the cross roof's ridge end, under its finial
+
+**Decision:** the south pavilion's cross roof (L-kimball-1801-cross-roof-1890) now ends under a
+slated hood (`mansard.deck.cross_roof.hood`, built by `k01_mansard_deck._cross_hood`): a square
+pyramid 1.2 m across centred on the ridge's end at u 16.0, v 8.275, its foot buried in the deck
+behind and in the cross roof's slopes in front, its apex 0.5 m over the 16.3 m ridge. Each hip
+is rolled in pale zinc, 0.06 m down each face. The deck's turned finial moves off the ridge's end
+onto the hood's apex, and the cresting along the south curb now stops short of the hood's foot.
+**What is read.** HABS photograph 1 (1965) shows the hood: a small slated pyramid capping the
+ridge's end, its hips white-flashed, the finial on it (print about x 725-800, y 210-300). The
+Taylor print of c. 1895 cannot see the hood behind the ridge, but its finial's top stands about
+0.5 m over where the build's stood on the bare ridge, and that sets the hood's rise. HABS
+photograph 1 reads the apex about 0.5 m lower, but its camera also reads the ridge about 1.3 m
+under the Taylor print's. The Taylor print is the period view and is followed for 1904.
+**What is invented.** The base's size: HABS 1 shows the hood about 1.5 m across on the diagonal,
+taken as 1.2 m square. The zinc rolls' width and section. The hood's back and its foot, which no
+picture shows. The finial is the deck's own turning. HABS 1's and HABS 2's 1965 finial is a short
+knob without a spike; the build keeps the Taylor print's spike.
+**How to resolve:** the 1892 drawings, or a picture of the roof from the south-east or from above.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-31.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and `taylor_c1895_northwest-side-by-side.jpg`, with their match records.

@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a1aa2f596ec93f197a004306c9a28c9e4fabd9ccf54b60a2100e202718d039a7",
+  "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -175,7 +175,7 @@
       "how": "T-1881: not built; read again at the print's full size, the low course's top is crossed by a parkway tree (x 615-630) and what stands behind it is the house's area, so the posts' number and height are not read here; the Detroit print's posts and panels along the same wall are open in its own record"
     },
     {
-      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1139-1273 through this camera, far down the street behind the picture's own trees; this item is unchanged.] [T-1934, 2026-10-31: the four parkway trees before the estate on 18th Street (37.65, 43.7, 51.3 and 64.1 m) and the two at the Calumet corner are now drawn as slender young elms, read off Taylor's 1445, Taylor's 16554 and the Detroit print; this item stands for the house's own parkway and lawn trees, unchanged.]",
+      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1139-1273 through this camera, far down the street behind the picture's own trees; this item is unchanged.]",
       "status": "open",
       "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture. T-1881, 2026-10-30: 18th Street's north parkway west of T-1934's stretch (0-46.9 m) is now planted off Taylor's photograph no. 1445, five trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns (the app's grown trees against the picture's slender ones), the Prairie Avenue parkway and the lawn trees inside the walls (the slender saplings behind the 18th Street wall, the front lawn's three lindens), none yet worked to the pictures. T-1881, 2026-10-30 (the Prairie parkway): the house's own Prairie Avenue parkway (prairie__prairie_ic_16_18, 228.5-257.5 m) is now planted off the Detroit print, four trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns, the lawn trees inside the walls (the white-barked saplings behind the Prairie wall, the front lawn's lindens) and the corner between the two parkways."
     },
@@ -222,6 +222,11 @@
     {
       "what": "the owner's report, 2026-10-30: the Prairie front stepped back three times from the north side. Built (T-1881): a 1.95 m middle step 1.65 m out (v 8.45-10.4, the 1911 sheet's u 29.4 line) between the portico's forward block and the wall to the corner, banded under its own mansard section, so the print's banded face south of the portico block now stands as a step of its own",
       "status": "fixed"
+    },
+    {
+      "what": "the terrace's striped awning past the flank's east corner (the render's x 850-890, y 515-560), where this photograph shows the stable's front",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-10-31): two pictures disagree (T-3153): this photograph, the trees in young leaf, shows no awning; Taylor's no. 16555, in full summer leaf, shows it up over the terrace. The 1904 scene is in July, so it stands (L-k01-1729-pullman-terrace-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

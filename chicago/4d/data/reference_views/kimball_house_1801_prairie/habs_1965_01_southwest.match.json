@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b69c2fc1e6b6f1ecf004af183e5bf6d5915154541ffbfbe9cc7272dc13f8ec15",
+  "glb_sha256": "b5c8ab53d39024856db570c49dd2027dbcd2b0b8f5b1cb0594c7d2f12d5507fe",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -145,8 +145,13 @@
     },
     {
       "what": "the hood under the cross roof's finial: a small slated pyramid, white-flashed on its hips, rising from the ridge's end to the finial (about x 745-800, y 160-240); the build stands the finial on the ridge's end with no hood, and about 60 px west of this print's (x about 720 against 780), where the Taylor print holds it within about 10 px",
-      "status": "open",
-      "how": "T-1890: the finial's place is a disagreement between the pictures (within tolerance on its own); the hood is a missing element. K01's deck hoods stand only on the curb's corners (k01_mansard_deck.hoods); one on a cross roof's ridge end is a kit piece still to build."
+      "status": "fixed",
+      "how": "T-1890: built (deck.cross_roof.hood, k01_mansard_deck._cross_hood): a slated square pyramid 1.2 m across centred on the cross roof's ridge end, its foot under the deck and the cross roof's slopes, its apex 0.5 m over the ridge, each hip rolled in pale zinc 0.06 m a side, the finial moved onto its apex. It now renders where the print shows it, the finial on it, its near hip's zinc a pale line down its middle as the print's white flashing is. The finial's place along the ridge stays the pictures' disagreement (within tolerance on its own); its height is the next entry. L-kimball-1801-cross-hood-1890"
+    },
+    {
+      "what": "the cross roof hood's apex: through this camera it renders at about y 187, where the print's apex stands at about y 212 (about 25 px, roughly 0.5 m, high), and the print's 1965 finial over it is a short knob with no spike. This camera reads the cross roof's ridge itself about 1.3 m under the Taylor print's (the cross roof's entry above), and the hood's rise is set where the Taylor print, the period view, puts the finial's top",
+      "status": "within tolerance",
+      "how": "T-1890: the pictures disagree on the roof's height here; the c. 1895 Taylor print is followed for 1904 (the ticket's phase guard). L-kimball-1801-cross-hood-1890"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
