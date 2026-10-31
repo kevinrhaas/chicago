@@ -167,7 +167,10 @@ PICTURED = {
                          "itself, not tubbed (a pair before the wing's arched windows and two at the "
                          "drum's west side): Taylor's winter photograph 16554 shows all four and his "
                          "summer 16555 three of them (the fourth behind the house's porch), so they stood "
-                         "the year round.",
+                         "the year round. Behind the 18th Street coping before the stable, a row of sheared "
+                         "balls and cones, a clipped column and a dense mass at its east end, as Taylor's "
+                         "winter 16554 shows them over the coping; the earlier 16555 (1892-94) shows the "
+                         "taller of them there in leaf and the low balls not yet planted.",
                  "sources": ["inland_1894_pullman_palm_house_stable", "aic_taylor_16555_pullman_west_front",
                              "aic_taylor_16554_pullman_from_sw"],
                  "plants": [
@@ -232,6 +235,47 @@ PICTURED = {
                       "x 393-443 px, its fronds' top at y 587 px and its tub's at y 617 px, read on the terrace's "
                       "front, 5.0 m before the drum's centre; the plate's elm trunk stands across that place and "
                       "nothing of it shows above the balustrade's east pier there"},
+                     # T-1934 (2026-10-31): the clipped evergreens behind the 18th Street coping before the
+                     # stable, as Taylor's winter 16554 shows them over the coping (x 727-1090 px), each one's
+                     # pixel column carried through 16554's solved camera to its line. The line: Taylor's summer
+                     # 16555 sees the middle cluster's mass (x 903-963 px) and the east mass (x 1050-1100) cross
+                     # 16554's columns about 4 m off the stable's front (n -3188 and -3187); the four west of
+                     # the corner bay's middle stand in the c. 1900 Detroit view's border line behind the coping
+                     # (n -3193.5), east of the court's carriage opening, which they keep clear. Each top is
+                     # read as its rise over the coping beside it in the print (the print's coping top at y 570),
+                     # put over the built 0.9 m coping: through 16554's camera the coping itself reads about
+                     # 0.55 m (the record's match notes this), and the absolute reading of each top is kept in
+                     # `read`. 16555, of 1892-94, shows the low balls' stretch (x 830-900) bare over the coping:
+                     # 16554 is the later picture, so they are taken as planted after it was made. In the
+                     # ground, never wintered in: tub_m 0, drawn in every Season.
+                     {"plant": "arborvitae", "e": 1478.3, "n": -3193.5, "on": "grade", "top_m": 1.73, "w": 0.53,
+                      "tub_m": 0.0, "read": "the cone behind the coping before the stable: 16554 x 727-738 px, its top at y 551 px, 19 px over the coping's top (about 1.1 m over the walk read absolutely through the camera); 52.9 m off, read on n -3193.5"},
+                     {"plant": "arborvitae", "e": 1479.16, "n": -3193.5, "on": "grade", "top_m": 1.54, "w": 0.45,
+                      "tub_m": 0.0, "read": "the cone behind the coping before the stable: 16554 x 747-754 px, its top at y 555 px, 15 px over the coping's top (about 0.93 m over the walk read absolutely through the camera); 52.5 m off, read on n -3193.5"},
+                     {"plant": "globe", "e": 1480.7, "n": -3193.5, "on": "grade", "top_m": 1.53, "w": 0.78,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 775-792 px, its top at y 555 px, 15 px over the coping's top (about 0.93 m over the walk read absolutely through the camera); 51.7 m off, read on n -3193.5"},
+                     {"plant": "globe", "e": 1481.5, "n": -3193.5, "on": "grade", "top_m": 1.53, "w": 0.82,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 792-810 px, its top at y 555 px, 15 px over the coping's top (about 0.94 m over the walk read absolutely through the camera); 51.3 m off, read on n -3193.5"},
+                     {"plant": "globe", "e": 1481.88, "n": -3188, "on": "grade", "top_m": 1.45, "w": 0.78,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 839-855 px, its top at y 557 px, 13 px over the coping's top (about 0.81 m over the walk read absolutely through the camera); 56.0 m off, read on n -3188"},
+                     {"plant": "globe", "e": 1482.99, "n": -3188, "on": "grade", "top_m": 1.53, "w": 0.76,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 862-878 px, its top at y 555 px, 15 px over the coping's top (about 0.91 m over the walk read absolutely through the camera); 55.5 m off, read on n -3188"},
+                     {"plant": "globe", "e": 1483.79, "n": -3188, "on": "grade", "top_m": 1.48, "w": 0.75,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 879-895 px, its top at y 556 px, 14 px over the coping's top (about 0.86 m over the walk read absolutely through the camera); 55.1 m off, read on n -3188"},
+                     {"plant": "globe", "e": 1484.72, "n": -3188, "on": "grade", "top_m": 1.52, "w": 1.02,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 896-918 px, its top at y 555 px, 15 px over the coping's top (about 0.91 m over the walk read absolutely through the camera); 54.6 m off, read on n -3188"},
+                     {"plant": "column", "e": 1485.54, "n": -3188, "on": "grade", "top_m": 2.16, "w": 0.45,
+                      "tub_m": 0.0, "read": "the column behind the coping before the stable: 16554 x 920-930 px, its top at y 541 px, 29 px over the coping's top (about 1.56 m over the walk read absolutely through the camera); 54.2 m off, read on n -3188"},
+                     {"plant": "arborvitae", "e": 1486.31, "n": -3188, "on": "grade", "top_m": 2.11, "w": 0.72,
+                      "tub_m": 0.0, "read": "the cone behind the coping before the stable: 16554 x 934-950 px, its top at y 542 px, 28 px over the coping's top (about 1.51 m over the walk read absolutely through the camera); 53.9 m off, read on n -3188"},
+                     {"plant": "arborvitae", "e": 1487.55, "n": -3188, "on": "grade", "top_m": 1.96, "w": 1.32,
+                      "tub_m": 0.0, "read": "the cone behind the coping before the stable: 16554 x 955-985 px, its top at y 545 px, 25 px over the coping's top (about 1.37 m over the walk read absolutely through the camera); 53.3 m off, read on n -3188"},
+                     {"plant": "globe", "e": 1489.97, "n": -3187, "on": "grade", "top_m": 2.21, "w": 1.02,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 1018-1042 px, its top at y 539 px, 31 px over the coping's top (about 1.64 m over the walk read absolutely through the camera); 53.0 m off, read on n -3187"},
+                     {"plant": "globe", "e": 1490.99, "n": -3187, "on": "grade", "top_m": 2.24, "w": 1.0,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 1042-1066 px, its top at y 538 px, 32 px over the coping's top (about 1.68 m over the walk read absolutely through the camera); 52.5 m off, read on n -3187"},
+                     {"plant": "globe", "e": 1491.98, "n": -3187, "on": "grade", "top_m": 2.14, "w": 0.99,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 1066-1090 px, its top at y 540 px, 30 px over the coping's top (about 1.59 m over the walk read absolutely through the camera); 52.0 m off, read on n -3187"},
                  ]},
     },
     "prairie_1912": {
