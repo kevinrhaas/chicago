@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2493, ts: '2026-10-31T13:02:53.010Z', date: 'Oct 31, 2026, 8:02 AM CT', title: '1801 Prairie\'s slate roof behind its south gable', kind: 'improvement',
+    items: [
+      'Behind the Kimball house\'s carved south gable a steep slate roof now runs back into the main roof, its ridge just under the gable\'s top. Taylor\'s c. 1895 photograph and the 1965 survey photograph both show it.',
+      'The iron cresting along the front now stops at that roof, and the corner finial stands on its ridge\'s far end, where both photographs put it.',
+    ] },
   { v: 2492, ts: '2026-10-31T12:06:03.265Z', date: 'Oct 31, 2026, 7:06 AM CT', title: 'The Field house\'s carving, balconies and conservatory details', kind: 'improvement',
     items: [
       '1905 Prairie, Marshall Field\'s house, now has the carved crests the 1893 Pictorial Chicago plate shows over its upper windows, and carved rings in the frieze under its cornice.',
