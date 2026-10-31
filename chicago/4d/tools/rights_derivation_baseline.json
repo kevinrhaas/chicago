@@ -2851,6 +2851,22 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.north_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "miller_house/log_frame_1827/form.construction": {
       "kind": "structure",
       "blocked_sources": [

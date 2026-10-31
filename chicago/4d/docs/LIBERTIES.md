@@ -35078,6 +35078,7 @@ reads about 2.5 m.
 iron balcony on the flank's window just behind the cut. Both stay open on the match record.
 **How to resolve:** the Daily News view's camera (DN-0003324), which sees the corner from the street.
 **Recorded:** 2026-10-30 (T-3261).
+**Revised (T-3271, 2026-10-31):** Hunt's plan of the principal floor (`hunt_field_1905_principal_floor_plan`) and the 923 Prairie and Daily News cameras fitted to it re-read the front at 16.8 m and the cut at about 2.4 m along the front and 1.9 m along the flank (the library octagon's 6 ft 3 in diagonal). K01's cut is one length both ways, so it is now built 2.15 m, within 0.3 m of both; the wide column's balcony runs its plate length, 2.4 m, 0.2 m short of the cut. The light stone strips and the flank balcony stay open.
 
 ### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
 
