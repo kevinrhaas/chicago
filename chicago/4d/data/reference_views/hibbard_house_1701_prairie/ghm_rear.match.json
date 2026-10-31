@@ -2,11 +2,11 @@
   "structure_id": "hibbard_house_1701_prairie",
   "view": "ghm_rear",
   "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3f73ef678cad54cfa880f8e4b88bde0c6aa857298bb9001f349dbf07d7c5c896",
+  "glb_sha256": "69c42f9f39ab9cefd34fc5ecee2e96428fb502e93157b1314a8ef8f0179f2e34",
   "camera_sha256": "7a4c200fcf71886e84da386ff9f8ce670e971d522f9ade33567ca4faba7eae58",
   "photo_sha256": "6ca5124a0a6b3134e7b98e817edb87622a98aada87b89d01f00497d10f8caeca",
   "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/ghm_rear-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the 1874 rear range: brick, as tall as the main block's wall head, behind the main block's north half, its south face long and its east face short",
@@ -25,8 +25,8 @@
     },
     {
       "what": "the range's heavy bracketed cornice and the low roof over it",
-      "status": "open",
-      "how": "T-3240 builds the range under K01's flat wing deck on a plain fascia, about 0.8 m lower than the fit reads the cornice's bed; T-3242 left it so (a K01 wing has no K10 cornice yet): the range's own cornice, not the oriel's; T-3257"
+      "status": "fixed",
+      "how": "T-3257: the main block's own cornice (K10's bracketed timber, paired at 1.6 m) carried round the range's three walls under its deck's soffit (rear_wings[].roof.cornice): its pairs render along the photograph's south and east faces under the eave, and the line runs level into the main block's cornice where the photograph's does (x 305-320). The low roof over it is not seen from the lawn, so the range keeps its tin deck behind the fascia"
     },
     {
       "what": "the high stone basement exposed at the range's east end over the falling lawn",
@@ -50,13 +50,13 @@
     },
     {
       "what": "the veranda's south end: the photograph's runs on past where the model's main block turns its corner, about 40 px further left (x 137 against 179)",
-      "status": "open",
-      "how": "the camera reads the main block's rear wall about 2 m wider than T-3240's footprint (its south corner at about x 137, the model's at 177); the veranda stands to the model's corner, so this is the block's width, not the veranda's; T-3257"
+      "status": "within tolerance",
+      "how": "T-3257: two camera fits disagree about the main block's width: the front camera renders both of its street corners on the photograph's (the 1911 sheet's 14.7 m, chicagology_front: massing), this one reads its rear wall about 2 m wider. The veranda stands to the block's corner, so it follows the block the front fit holds"
     },
     {
       "what": "the range's south face: the photograph's upper storey has one light west of the oriel (x 413), its lower two (x 390 and 425)",
-      "status": "open",
-      "how": "T-3242 cut the three lights the lower storey shows (s 2.6, 7.2, 10.0); a K01 wing cuts one list of lights through every storey, so the upper storey also has the light at 7.2 the photograph does not; T-3257"
+      "status": "fixed",
+      "how": "T-3257: the face lists its lights by storey (rear_wings[].windows_by_storey): the lower storey's three at s 2.6, 7.2 and 10.0, the upper storey's at s 2.6 and 9.0, rendering on the photograph's x 413, and none over 7.2"
     },
     {
       "what": "the veranda's turned posts and balusters and the brackets at its posts' heads",
@@ -67,6 +67,11 @@
       "what": "the main block's south flank lights at the left of the picture, under their light hoods",
       "status": "within tolerance",
       "how": "T-3255: the flank's lights now carry the eared and crested hoods the front photograph shows (eared_round_heads); at this distance they read as the photograph's pale heads. Nothing else in this view moved."
+    },
+    {
+      "what": "the range's cornice at its near (south-east) corner: about 20 px higher in the photograph than in the render (the fit reads its bed at about 10.8 m over grade, against the main block's 10.0 m wall head built)",
+      "status": "within tolerance",
+      "how": "T-3257: the photograph shows the range's cornice running level into the main block's, and there (x 305-320) the render's lies on the photograph's; the front camera holds the main block's cornice at its 10.0 m wall head. One level cornice cannot stand at both readings, so the gap is the fit's (its eye solved under the house's grade on a falling lawn), two readings disagreeing"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

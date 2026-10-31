@@ -135,10 +135,10 @@
     },
     {
       "file": "renderers/web/js/street-furniture.js",
-      "sha256": "42f06bf6a41414601648724575930f58658620585e3398316e5d8a176bb8b268"
+      "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "bc5a6ad8c2f241ae2cd04e82b617ad29f43bbc910981e96a678a504d73347aff",
+  "flora_sha256": "e75821eb8147269f063beed558a40a1fab09ce3f10455091d63919073ad10236",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -284,7 +284,7 @@
       "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     },
     {
-      "what": "the gas lamp at the turn of 18th Street's walk into Calumet Avenue (data/street_furniture/1904.json, lamp.pictured.pullman_court) renders before the stable's corner bay (x about 640) where this print shows the court's gate pier and no post. Taylor's 16554 shows the post there, and it is the later picture: the dead Fort Dearborn 'massacre tree' this print shows before the wing, felled on 18 May 1894, does not stand in it. So the lamp is taken as set after this print, and stands for 1904 (T-1934, 2026-10-30): two pictures of different dates, the build following the later [T-1934, 2026-10-30: the lamp is now drawn in its own form, the pale globe post 16554 shows, 4.9 m to its cap; it renders before the stable's corner bay as before, and this print, the earlier, still shows none there.]",
+      "what": "the gas lamp at the turn of 18th Street's walk into Calumet Avenue (data/street_furniture/1904.json, lamp.pictured.pullman_court) renders before the stable's corner bay (x about 640) where this print shows the court's gate pier and no post. Taylor's 16554 shows the post there, and it is the later picture: the dead Fort Dearborn 'massacre tree' this print shows before the wing, felled on 18 May 1894, does not stand in it. So the lamp is taken as set after this print, and stands for 1904 (T-1934, 2026-10-30): two pictures of different dates, the build following the later [T-1934, 2026-10-30: the lamp is now drawn in its own form, the pale globe post 16554 shows, 4.9 m to its cap; it renders before the stable's corner bay as before, and this print, the earlier, still shows none there.] [T-3267, 2026-10-30: the globe post is withdrawn; the lamp is drawn as the district's post, and this print, the earlier, still shows none there.]",
       "status": "within tolerance"
     },
     {

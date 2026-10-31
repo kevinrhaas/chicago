@@ -138,10 +138,10 @@
     },
     {
       "file": "renderers/web/js/street-furniture.js",
-      "sha256": "42f06bf6a41414601648724575930f58658620585e3398316e5d8a176bb8b268"
+      "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "8e7e0d680bc95bf2059a2986f047d93ba05d8c0a8eb396776be06f7c71c0e7dd",
+  "flora_sha256": "f875d06ec7379c6a147d78bc363663910a16b879161f29d1558bb42af91821a6",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
