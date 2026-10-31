@@ -6,7 +6,7 @@
    "prairie_1729"
   ],
   "street_trees_m": 70,
-    "street_furniture_m": 70,
+  "street_furniture_m": 70,
   "season": "winter"
  },
  "also_render": [
@@ -21,16 +21,16 @@
  ],
  "principal_px": [
   600,
-  535.1
+  546.4
  ],
- "focal_px": 850,
+ "focal_px": 1181,
  "eye": [
-  14.53,
-  -71.1,
-  1.2
+  29.75,
+  -75.72,
+  1.31
  ],
- "yaw_deg": -18.94,
- "solve": "Fitted by T-3193 to the image store's 1200 x 927 px copy of AIC 16554 (the print with its border and grey scale) in this record's frame, level, principal x at the print's centre. The holder's caption and the source record call it a view from the south-west, but the house shows its 18th Street side and its east face, so the eye stands SOUTH-EAST of the range, looking north-north-west: the stable's court face and its arcade are hidden behind its own corner, and the drum stands directly against the bay. FITTED ON the drum's balustrade silhouette (x 662 and 762) and top (y 457), the stable front's three bays of sash in both storeys (x 887, 955, 1020; ground at y 521, upper at y 472, on the record's sash at u 14.5, 18.1 and 21.0) and the stack's middle (x 1062), with the eye held at a standing height (1.2-2.0 m): 6.1 px rms over 16 readings, the eye 1.2 m up at u 14.5, v -71.1 (in the yard south of 18th Street), heading 18.9 degrees west of north, focal 850 px, horizon y 535. CHECKS IT WAS NOT FITTED ON: the front's east end lands at x 1091 (the print's at about x 1090), the lantern at x 934 (the print's at about 945), and the house's outline within about 35 px of the print's, though the house was left out of the fit (its corners are ambiguous at this size: a pavilion's edge and the corner read alike). The sash positions are the record's as T-3193 moved them; the fit is therefore not an independent test of their places along the front, which the plate and 16555's re-solved camera are.",
+ "yaw_deg": -27.79,
+ "solve": "Fitted by T-3193 to the image store's 1200 x 927 px copy of AIC 16554 (the print with its border and grey scale) in this record's frame, level, principal x at the print's centre. The holder's caption and the source record call it a view from the south-west, but the house shows its 18th Street side and its east face, so the eye stands SOUTH-EAST of the range, looking north-north-west: the stable's court face and its arcade are hidden behind its own corner, and the drum stands directly against the bay. FITTED ON the drum's balustrade silhouette (x 662 and 762) and top (y 457), the stable front's three bays of sash in both storeys (x 887, 955, 1020; ground at y 521, upper at y 472, on the record's sash at u 14.5, 18.1 and 21.0) and the stack's middle (x 1062), with the eye held at a standing height (1.2-2.0 m): 6.1 px rms over 16 readings, the eye 1.2 m up at u 14.5, v -71.1 (in the yard south of 18th Street), heading 18.9 degrees west of north, focal 850 px, horizon y 535. CHECKS IT WAS NOT FITTED ON: the front's east end lands at x 1091 (the print's at about x 1090), the lantern at x 934 (the print's at about 945), and the house's outline within about 35 px of the print's, though the house was left out of the fit (its corners are ambiguous at this size: a pavilion's edge and the corner read alike). The sash positions are the record's as T-3193 moved them; the fit is therefore not an independent test of their places along the front, which the plate and 16555's re-solved camera are. RE-SOLVED BY T-1934 (2026-10-31) WITH THE GROUND IN THE FIT: T-3193's eye stood about 20 m from the ground the print's foreground shows, so the whole street drew about 25-45 px high (the parkway trees' feet, the lamp's, the wall's) and the foreground lawn not at all. Read at full size, Taylor stood on the lawn of the corner lot SOUTH of 18th Street at Calumet Avenue (the 1800 Calumet glasshouse ground), a few metres inside its coping: the coping curving across the foreground is that lot's corner on Calumet Avenue's turn into 18th Street (data/street_grid/1904.json, face calumet__prairie_calumet_18_20), with the walk and its parkway outside it at right. FITTED ON T-3193's building readings above, the house's south-west corner (x 138, which neither fit had been given), the coping's lawn-side edge along the curve (x 850-995, y 617-740, on the lot line, the lawn standing 0.22 m over the walk as the coping's face shows), the walk's outer edge (x 900-1172, y 615-697) and the 18th Street wall's foot before the stable (x 675-1100, y 584-587), free in place, height, heading, focal length and horizon: the eye 1.31 m over the walk at u 29.75, v -75.72, heading 27.8 degrees west of north, focal 1181 px, horizon y 546.4. RESIDUALS: the ground 4.8 px rms (coping 4.5, walk 3.6, wall foot 6.7, the wall reading a little low across the frame); the buildings 10.3 px rms (sash 2-10 px, the drum's top 19 px and its silhouette 11-14 px, the house's corner 28 px, where T-3193's camera had it about 46 px the other way); T-3193's buildings-only fit had 3.7 px on them and 25-150 px on the ground. Through it a foot reading at 15-30 m is good to about 0.5 m and one at 40 m to several metres, so trunks are carried by their x to a parkway's line, as elsewhere. CHECK IT WAS NOT FITTED ON: the trunk at x 537 lands 0.45 m along Calumet Avenue's west parkway from the gate tree the 1894 conservatory plate and Lowe's print placed (266.9 m); the hydrant's foot (x 1063, y 587) still reads on the north walk before the stable.",
  "source_id": "aic_taylor_16554_pullman_from_sw",
  "sky": "overcast"
 }
