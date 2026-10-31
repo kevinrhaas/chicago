@@ -1,0 +1,30 @@
+{
+  "id": "lyskilde_2020_old_cart",
+  "type": "website",
+  "citation": "Lyskilde (longtail), Old Cart, published15January2020, CC BY4.0, individually credited Objaverse redistribution.",
+  "author": "Lyskilde / longtail",
+  "date": "2020-01-15",
+  "describes_date": "2020-01-15",
+  "repository": "Sketchfab / AllenAI Objaverse",
+  "url": "https://sketchfab.com/3d-models/old-cart-f536745fd82144eeb5cc4900a48e816e",
+  "archived_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-032/f536745fd82144eeb5cc4900a48e816e.glb",
+  "tier": 5,
+  "rights_status": "cleared",
+  "rights_note": "The original model metadata, individual Objaverse annotation and embedded GLB author/license/source credit agree on CC BY4.0. Exact original source and saved credit are preserved in assets/authored/transport/farm_box_master_v1; author credit and explicit modification notice accompany derivatives.",
+  "rights_checked": {
+    "date": "2026-10-26",
+    "method": "Re-read saved original author/model/individual annotation rights records, exact SHA256-bound original GLB and actual source-native front/profile/quarter images recovered from the immutable22October evidence package.",
+    "outcome": "Licensed adaptation with attribution and change notice; no historical object attribution is supplied."
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Modern licensed artistic construction and optical development base only. Original source scale/units, object maker, date, region and prototype are unknown. The Chicago adaptation explicitly reconstructs metre scale, body envelope, differing front/rear wheel radii, steering neutralisation, single-pole layout and proposed interfaces. It is not an attested1835 Chicago wagon, Dearborn vehicle, Studebaker specimen, owner, timber species, coating or historic load. Photographic/master/LOD/world acceptance requires actual new evidence. The asset_use field classifies its historical evidence role: a modern development-base cross-check, never a traced historical outline. Actual licensed geometry/UV/map reuse is retained explicitly in what_it_supplies and the authored SOURCE.json/ATTRIBUTION.md; it is not removed or relabeled as project-original geometry.",
+  "what_it_supplies": [
+    "Redistributable artist-authored body, steering gear, eight-spoke wheels, hubs, hardware, UVs and six1024px PBR maps under CC BY4.0.",
+    "A concrete visually inspected weathered-board/iron construction and surface comparison."
+  ],
+  "what_it_does_not_supply": [
+    "Historical Chicago presence, maker/date/owner/breed or period-specific hardware attestation.",
+    "Metric calibration, load strength, current mechanical clearance, portable LOD quality or photographic completion."
+  ]
+}

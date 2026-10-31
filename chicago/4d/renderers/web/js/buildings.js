@@ -801,9 +801,33 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   // cast a solid shadow. The same patch on a depth material dithers the shadow
   // exactly as it dithers the surface, and the depth shader has the same
   // `<clipping_planes_fragment>` anchor to hang the discard on.
-  const depthMaterial = confidence.patch(new THREE.MeshDepthMaterial({
-    depthPacking: THREE.RGBADepthPacking,
-  }), { packed: PACKED_CONFIDENCE });
+  // A depth owner belongs to one live colour material. Sharing it across
+  // unrelated batches lets Three retain a previous map in its cached depth
+  // uniforms when the next batch has no map. Residency must capture these
+  // actual shadow texture slots before its first upload/release as well.
+  const depthMaterials = new Map();
+  const depthFor = (material) => {
+    let depth = depthMaterials.get(material);
+    if (!depth) {
+      depth = confidence.patch(new THREE.MeshDepthMaterial({
+        depthPacking: THREE.RGBADepthPacking,
+      }), { packed: PACKED_CONFIDENCE });
+      Object.assign(depth, {
+        visible: material.visible, wireframe: material.wireframe,
+        // Native getDepthMaterial still chooses PCF/VSM shadow sidedness.
+        side: material.shadowSide !== null ? material.shadowSide : material.side,
+        map: material.map, alphaMap: material.alphaMap,
+        alphaTest: material.alphaToCoverage === true ? 0.5 : material.alphaTest,
+        clipShadows: material.clipShadows, clippingPlanes: material.clippingPlanes,
+        clipIntersection: material.clipIntersection,
+        displacementMap: material.displacementMap,
+        displacementScale: material.displacementScale, displacementBias: material.displacementBias,
+        wireframeLinewidth: material.wireframeLinewidth, linewidth: material.linewidth,
+      });
+      depthMaterials.set(material, depth);
+    }
+    return depth;
+  };
 
   const batches = [];
   /** structure id -> its union bounding box, in the structure's own frame. */
@@ -860,6 +884,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // arrive from GLTFLoader asking for one, and an unbound `color` would then
     // darken the batch, so it is turned off here for all of them.
     bucket.material.vertexColors = false;
+    const depthMaterial = depthFor(bucket.material);
     const batch = new THREE.BatchedMesh(bucket.entries.length, verts, idx, bucket.material);
     batch.name = `structures:${bucket.material.name || bucket.material.type}`;
     batch.castShadow = true;
@@ -1283,7 +1308,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         b.geometry.dispose();
       }
       for (const [, bucket] of groups) bucket.material.dispose();
-      depthMaterial.dispose();
+      for (const depth of depthMaterials.values()) depth.dispose();
+      depthMaterials.clear();
     },
   };
 }

@@ -409,6 +409,8 @@ step "Parked vehicles keep their exact wagon stands and cannot cross era boundar
 # Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.
 step "Parked W01 fine timber regenerates exact original geometry and reviewed surface binding (T-2793)" \
   python3 tools/check_parked_wagon_fine_wood.py
+step "Licensed farm-box master preserves credited sources, actual articulated geometry and compressed LOD contracts (T-2793)" \
+  python3 tools/check_farm_box_master.py
 step "Selected empty covered wagons reproduce original reviewed sources" \
   python3 tools/transport/generate_covered_wagons.py --verify
 step "Covered identity rejects kind, yoke, era and stand substitutions" \

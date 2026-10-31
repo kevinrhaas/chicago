@@ -24,9 +24,8 @@
  * desktop: device-profile.js `decide`) the top mip is dropped before upload, so a 1024²
  * sheet goes up as 512² and its chain — a quarter of the bytes from the same file, with
  * no second asset to ship or keep in step.
- * The shared GLB loader applies this same device policy before its texture is
- * cloned, including when residency re-decodes it. Full texture profiles retain
- * every mip; changing scene detail does not change the device texture profile.
+ * The shared GLB adapter applies this same device texture policy before delivery,
+ * including residency re-decodes. Full retains every mip regardless of scene detail.
  */
 import * as THREE from 'three';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
@@ -35,6 +34,7 @@ let loader = null;
 let dropTopMip = false;
 let rendererRef = null;
 let glbLoader = null;
+const lightGlbVariants = new WeakMap();
 /** What the boot found, for `__chicago4d.ktx2` and the memory meter's report. */
 export const ktx2State = { enabled: false, reason: 'not initialised', dropTopMip: false, glb: 'shared',
   formats: null, sheets: { ktx2: 0, fallback: 0, gpuBytes: 0, failed: [] } };
@@ -77,7 +77,7 @@ export function initKTX2(renderer, { textures = 'full', disabled = false } = {})
       l.dispose();
       return null;
     }
-    loader = withTexturePolicy(l);
+    loader = l;
     ktx2State.enabled = true;
     ktx2State.reason = 'on';
   } catch (err) {
@@ -99,8 +99,44 @@ export function initKTX2(renderer, { textures = 'full', disabled = false } = {})
  */
 export function registerKTX2(gltfLoader) {
   const l = loader || rgbaGlbLoader();
-  if (l) gltfLoader.setKTX2Loader(l);
+  if (l) gltfLoader.setKTX2Loader(glbTextureLoader(l, dropTopMip));
   return gltfLoader;
+}
+
+/** Isolate delivered mip descriptors from the transcoder cache on every profile.
+ * Light also drops mip0, matching library sheets; Full keeps every byte and size.
+ * Clone before trimming or release: the cached full texture must stay full.
+ * The encoded-image record keeps this adapter, so a residency refill gets the same
+ * mip layout as the original decode, never a full chain in half-sized slots.
+ */
+function glbTextureLoader(source, reduce) {
+  return {
+    load(url, onLoad, onProgress, onError) {
+      return source.load(url, (texture) => {
+        let variant = texture;
+        if (reduce) {
+          let light = lightGlbVariants.get(texture);
+          if (!light) {
+            light = texture.clone();
+            light.source = new THREE.Source(texture.source.data);
+            // Three clones the mip array, not its descriptors. Residency releases
+            // descriptor.data after upload; isolate that mutation from the full cache.
+            light.mipmaps = texture.mipmaps.map((level) => ({ ...level }));
+            dropTop(light);
+            light.needsUpdate = true;
+            lightGlbVariants.set(texture, light);
+          }
+          variant = light;
+        }
+        // Share the selected source for Three's GPU cache, while isolating each
+        // delivery's descriptors from the retained variant and other deliveries.
+        const delivered = variant.clone();
+        delivered.mipmaps = variant.mipmaps.map((level) => ({ ...level }));
+        forgetSettledTranscodes(source);
+        onLoad(delivered);
+      }, onProgress, onError);
+    },
+  };
 }
 
 function rgbaGlbLoader() {
@@ -110,7 +146,7 @@ function rgbaGlbLoader() {
     l.detectSupport(rendererRef);
     // No block format: the transcoder falls through to RGBA32 for every texture.
     for (const k of Object.keys(l.workerConfig || {})) l.workerConfig[k] = false;
-    glbLoader = withTexturePolicy(l);
+    glbLoader = l;
     ktx2State.glb = 'rgba8';
   } catch (err) {
     ktx2State.glb = `unavailable — ${err.message}`;
@@ -132,21 +168,6 @@ function forgetSettledTranscodes(l) {
   for (let i = 0; i < pool.workersResolve.length; i++) {
     if (!(pool.workerStatus & (1 << i))) pool.workersResolve[i] = null;
   }
-}
-
-/** Apply the existing device texture policy at the shared loader boundary.
- * GLTFLoader and texture residency both call this same loader's load(), so a
- * house's initial decode and its later re-decode keep the same dimensions.
- * The library path may call dropTop again; the texture flag makes that a no-op.
- * No second loader/worker pool or second copy of the source image is created. */
-function withTexturePolicy(l) {
-  const load = l.load.bind(l);
-  l.load = (url, onLoad, onProgress, onError) => load(url, (tex) => {
-    dropTop(tex);
-    forgetSettledTranscodes(l);
-    onLoad?.(tex);
-  }, onProgress, onError);
-  return l;
 }
 
 /** The light tier's residency: upload from mip 1, a quarter of the bytes. */

@@ -1,0 +1,180 @@
+{
+  "scope": "Exact existing wagon geometry/code dependencies, all81originalwagon/cartrecords, and3finewoodstands; unrelatedhorse/carriagecode/records are outside this guard. Historical complete shared-file hashes are preserved in external PROTECTED-BASELINE.json.",
+  "base": "cb93ad9cd5ea38654737e05002b1f1904be14e54",
+  "paths": [
+    {
+      "path": "data/transport/parked/wagon-w01.json",
+      "bytes": 5348,
+      "sha256": "8e8e1f1703592277b31271ada771c1a3a01bbeea2883448be8788abf2a518830"
+    },
+    {
+      "path": "assets/authored/transport/wagon_parked/SOURCE.json",
+      "bytes": 3996,
+      "sha256": "bcb47e6ecc8deff8905d9b803570f45c657891c03afb8782ccd090f53c74f7fb"
+    },
+    {
+      "path": "assets/authored/transport/wagon_parked_fine_wood/SOURCE.json",
+      "bytes": 2602,
+      "sha256": "5ca734854b702f9dcf81dbdc2438cd94c50ad19ad4cf3bbd24ea9d0070e346bd"
+    },
+    {
+      "path": "assets/authored/transport/wagon_parked_fine_wood/surface.json",
+      "bytes": 54134,
+      "sha256": "f61b7744818c3d673fb33114693d241f84dbe0ec9bad24236815a3531d246d22"
+    },
+    {
+      "path": "assets/authored/transport/wagon_parked_fine_wood/surface.bin",
+      "bytes": 1053240,
+      "sha256": "cd92b487e3165add3a4f5bd020c875b051757a91b4293e5f30023d0629e62693"
+    },
+    {
+      "path": "renderers/web/transport/parked-wagon-fine-wood/wagon-w01.glb",
+      "bytes": 2990752,
+      "sha256": "e1e5b4f1d7dfe6bf08cca21e8cfae2e88748a3f6e6c6959753334ae2b0c84dd8"
+    },
+    {
+      "path": "tools/transport/generate_wagon.py",
+      "bytes": 16337,
+      "sha256": "c9fa9985816071b2dc24871efddde9139088d2159b7db34fc603f20b2a9a4484"
+    },
+    {
+      "path": "tools/transport/generate_parked_wagon.py",
+      "bytes": 4296,
+      "sha256": "45ca7a7ee5b14ae459cacdb3e549a4049f0fc7e8e491d6364ec3bc9d8b8c0e12"
+    },
+    {
+      "path": "tools/transport/generate_parked_wagon_fine_wood.py",
+      "bytes": 5356,
+      "sha256": "c98041dc28d82cfc5ce72246d55f78ac53f4c6caa3f73bcaa3036f089519c833"
+    }
+  ],
+  "yard_wagon_code": {
+    "path": "renderers/web/js/yard.js",
+    "regions": {
+      "function:buildCart": "dde88540a75f3f3b0870d265252fced333b1ea44451b94c99cee617707bec5e6",
+      "function:buildWagon": "8fca6e8c3f5cac5be3cbc393253a3eb41a97f8c334508a4ea591242c1a630ff8",
+      "function:cross3": "b4220fb64236c0f46d82fe548c9ae23ea75c5900f2c5851ab00db28830baa111",
+      "function:dot3": "45f5663aeab7ea58a8cb96704e8319866e7d2618525c01b2bf05c5a8aca00a53",
+      "function:emitV": "d8b3d6a56aa2e04ef0996fa379a351be875bfcb00756b6db96b0032a77cb132b",
+      "function:groundAt": "41058dc0b41a58bba63c367429f50740814ec1414b2a66d790f9b2746c08bc12",
+      "function:hashOf": "6aca8ed5cc40fc0ea9762d9b9b30e5f62536a0c2edd4be6cd9fbed6a9901eeaa",
+      "function:isGrained": "77d75d4440b035ffd1e11e8bc9799f97d81ad43f27fa59bf9df00b6f72ab546b",
+      "function:planarGrain": "d89a68eb5f32b5c894d408ff5052c17c22852e7a03d2bab280a71c1c0c158ecc",
+      "function:pushBox": "8764d75338518c4f9dac943d4ff0c0979ba073a9a414e93edfc7a2ab5023b3f8",
+      "function:pushBoxV": "21f645dd9c2e1a8bfd517c82446cb7278324719880bf3b44df06344e65a360b6",
+      "function:pushCask": "d413d4314d805602351c1b78afc0362de5a26b7588a4bddd306f11d29b4e37de",
+      "function:pushPole": "f7b7b30604f891257808ad071766b97e88a2e3cc0809578888b163486ed3d8a6",
+      "function:pushTilt": "03168b7bd62da0d180a90cf96b20be913339a37a19811141f4c1bdf0cc2b762b",
+      "function:pushWagonBox": "14616dfc98942c0b70f8ed33cceb09d96960ba598a5c6b4cfd72f6a7627e15ab",
+      "function:pushWheel": "e5be5930da54dc00587718e247ac2850e979c1cd0e0b40aa558b9f4c6f40649d",
+      "function:pushYoke": "96df69ec07c1d4cd911d86275b8742f550fb288edb3c2aeeeefd977d1e5d58e6",
+      "function:readForm": "46586031887dbfdc5d986aa337d71854636f40ffe8ff5591922be5e53937982b",
+      "function:seededOff": "dc6a2b91ecf8fcd4c220e9b8a81f3e4fd9edb6b22ff96d1e4e927cf353dd17e0",
+      "function:streamOf": "642a2bade04559a3842fc8225bd1d470e6d56b6fc589d9d57e0e9d371031dcaa",
+      "function:toneOf": "d4f1c562b08e4281008e941cfb8bc62742b03e29bda86b4f9cba545e17824418",
+      "function:tri": "c03aeae08553a2dd2bd50e2743d23d8040089ded640fa0e99f58529f920ad0b9",
+      "function:triOut3": "fcbf05360c8eff4c6737aa18426fa0b0cd2ddb116de406a5829167023ddf0966",
+      "function:unit3": "4b89a9497ffd4a1ef2b70c8bd0357e11465993349bbc942d8403ebd3a545b832",
+      "function:wagonCoat": "30bc545bebe088bd37a8854e74840610e6659d0d863692b2cc825caf570dd590",
+      "constant:SPOKE_T_M": "40bba12dd7fe6a4e087dfe224d6ffd8e633d4e8d7784cb4790905a8830a0c3a4",
+      "constant:HUB_SIDES": "126a9749a533148bf67e0d6ea2cac38ceba0a3a6850713d3c3707a5cf8bcf61c",
+      "constant:BOLSTER_OUT_M": "a712c221f371856f1ceed5136fd41965829149a0292da254dc89665975423ee5",
+      "constant:GRAIN_TILE_M": "a4fe4b6407b6ee9263f454433d87dd2a033cfafa3c63c4d0644ad1cbb96b1f40",
+      "constant:MARK_PAD": "0142cfec43c224e90094496f6bd45ce13aba946deb20a2836a05940c4e0b3d43",
+      "constant:BARREL_SIDES": "b61750a969c6eb656a8428ae5dbc2479df3e2a2f288dcbc09188b8826b27bba0",
+      "constant:MARK_FACES": "d0db1f9dfa615c08f0fa83e650870962d571e0163d2455a03faccbcb863c6b1f",
+      "constant:REACH_W_M": "6f44946ef57f168e7df70c50915f7f6c634ab9d3ebf29d5237b8ffdf56f56c38",
+      "constant:BOLSTER_T_M": "6208836041528f6611976c1b5324b6c0af837bca0e77882337e324b340702f83",
+      "constant:WHEEL_SPOKES": "679bb6be0910df3dfaada222e64a37d2a4cb25361e69ca35cff7775d6afcb1cf",
+      "constant:CONTACT_K": "95d92c913fecc42b7d65c1a011f70a9d8ad255bad863d1bd4b93c2e247d018bd",
+      "constant:MARK_TILE": "f25974f310352c1ca97164dd4011f55328745a8e7a17258777b8fc8f1381a9a7",
+      "constant:SHAFT_T_M": "e93b0d071ebd98e77a0f36dd83baa67c01141e2193f9268f6f2262581a1b75c1",
+      "constant:CHUNK_M": "3e823a785583f197120aebea8ab315d37f4b201b7c2f241d8c07042e2bc71ceb",
+      "constant:WOODS": "26bbb905a6bb7fe38828d23b58d95005ad5337b493a2171087542c91bdb30626",
+      "constant:CANVAS_COLOUR": "8d836262ecd5290d23f6fd8e5a4ae964c16eb2626c899324d8d8291df542fe80",
+      "constant:CART_SHAFT_GAUGE_M": "de538b5485d24a8a4ce458625bbcbe16d8bbe201813ba367c63b45a88b745fd9",
+      "constant:CONTACT_M": "3d83ee7085550a2d369b867f8195ffc6a49a9213589d97713459dcbb83a684c2",
+      "constant:YOKE_BOW_DROP_M": "e06b41f1c36d3bde5f1d8c68ba419dac8216f5f173a618ad5076cb699dabaf33",
+      "constant:TILT_SEGS": "52c2e48c3fb86806f68afcf2781524e9b1d3fa3ed9b34ea551eb3bd0e569ea7d",
+      "constant:HIDE_COLOUR": "58e2118ac484cff1f3a207fc4cdbef353902000ed661c8f6c401d48ffb928b62",
+      "constant:WAGON_SCHEMES": "72d687dcf6cc41df5a097da62a62be8ecf83c73591e8aa49b245b54e50212b0f",
+      "constant:WAGON_PAINT": "ed4ba2c0a5df60e284471a5307b7952d3ab8b376f203e86f609d864ac4a17633",
+      "constant:MARK_BOX": "02e3e0a5ae1cd03e46dd762dff411f838498d1d7a22d0d754a77c51377960a91",
+      "constant:WAGON_STAKE_M": "b154584cd9a924165c4fe5d50e29ec1a91ab15dede1dec8bf89c7eb34231ca52",
+      "constant:STAVE_T_M": "40443ce85ac97cb2666b054470f1975f8669210d7cdad7287a8dee39ac76d4e5",
+      "constant:STONE_YAW_DEG": "b35b0ceeaf2225a0119193f25d1e9455abfca6c5d9d285bb679ea149443211ac",
+      "constant:HUB_R_M": "753aa53024ce46215d2b16d1aea3cfbcdb4acb9bb8034bad34d05a435bb96ca6",
+      "constant:STONE_COLOUR": "1e76000030443d2258c3b0f7edcd3dc10f9de42aa87ccacb6b50b13ceff24ad2",
+      "constant:KINGBOLT_DROP_M": "13c21d8dc97a047bdb5726ca2996f029b235ba0c7204d34f772fdd15877583d4",
+      "constant:WHEEL_RIM_M": "0765cdd2c0ad07eccfba1c55aaef0eaaa7e465deb1997c94ede0ab0bf3841b15",
+      "constant:HOOP_RINGS": "3828cfe3c415e9a210ae9a593c830ff430a70b70c7a44fc24cf41bcbfe349bd7",
+      "constant:AXLE_T_M": "34aa39c9eb7c68181194c68814bc7dc7f1acbd61bf4fca00d584e83e8e315ca5",
+      "constant:KINGBOLT_T_M": "d6a02ad32a80e25041b5b7e793c634347cf6abd0263ca44972340c2a403a817e",
+      "constant:HAY_COLOUR": "e703c869de13ad9496daa3d42328818f943d0e8d2ae2a4c2ad869723d66d26ac",
+      "constant:DECK_T_M": "3a4d06a4474fe4bea638ea407869fdc02d2b45747caf07a437e77e513e2d52b3",
+      "constant:MARK_COLS": "cc9d80ed9e78a54ddf2d52af7f4b62e774d3a385af1af741e686092578ab67c6",
+      "constant:WHEEL_SIDES": "97728ce727688337a4b49f426a6af409e536eb60de458db703d1adc0aba8ba97",
+      "constant:CRATE_CLEAT_M": "4d4f40540dd68beb5c5d622c3f4b771e406cec363fc9c729fc3ac5c8ac3babbb",
+      "constant:TONGUE_T_M": "f967e2e048f573d0603132151498450a2775ed6950f2fbe143e6a0703908fb99",
+      "constant:END_GRAIN_K": "3ca7001a34f82ee7ef19c8b42a577777e5f34d385ccfd8f4c9572becfd65f3b5",
+      "constant:CHIME_M": "84bb3d7944e5a732fc7d7e6ffda677b541718455137d755b7a9b8afd6b5bd50a",
+      "constant:WHEEL_T_M": "f84d77a386c150f674bad258addcc5c483d0b8a3d19a9f1a8e6498326f205e9f",
+      "constant:HOUND_W_M": "84ba93b372f8aa73bf32fd08e3f6bf9235deb24c8ce8f5156055c521a7e5e598",
+      "constant:HOUND_BACK_M": "3762590eac063027025445f88dc7e64f5986cf25a68d7185b279d685e5895375",
+      "constant:NO_GRAIN": "6e702e7d855e54b4d8d8b87f5e602c4c4b17089f8e37751a4bde29ace68ea2e4",
+      "constant:BILGE_STAVES": "c870bd4ac9c97741ea49e25d242f4c48cca8d7fa33d91a4b12e3b472ca07b506",
+      "constant:STONE_JITTER": "6662983e01f62a511ea11bd1a7767f22ee52a91f85091731611170250efa0806",
+      "constant:BRICK_LINEAR": "d14465902895b9fefb6fc4419d83c51662fa7f6a289d83592d1b2f7a643e8e55"
+    }
+  },
+  "town_wagons": {
+    "path": "data/yard/town_trade_goods.json",
+    "sha256": "3fee4d86d1fc5d2858aed1811e8cae7ec4132226c78619f4e86372f8abd285fb",
+    "record_count": 81,
+    "form_keys": [
+      "barrel_height_m",
+      "barrel_belly_diameter_m",
+      "barrel_head_diameter_m",
+      "crate_size_m",
+      "wagon_body_m",
+      "cart_m",
+      "ox_yoke_m",
+      "bench_size_m",
+      "bench_plank_m",
+      "wagon_tilt_m",
+      "shed_bay_m",
+      "shed_timber_m",
+      "shed_pitch_deg",
+      "marks"
+    ],
+    "baseline_transition": {
+      "previous_sha256": "a1feb467bc1092f23a8bde0bafe26a27b528670d5cc2b663d74f6ec1b369af5c",
+      "accepted_dev": "ec16b8dd726fa7852ede885ef2d754d55b9b4c59",
+      "upstream_commit": "f2635549179a61fd684336248418ba1e48aaeea9",
+      "ticket": "T-2376",
+      "reason": "Accepted DEV aligns the Green Tree front wagon bay and its existing wagon together by 8.14 m. Preserve that incoming placement, not the older pre-integration coordinates. All 81 wagon/cart records remain protected; all 80 other records, the remaining fields of this wagon, forms, dimensions, eligibility and refusals are exactly unchanged.",
+      "record_id": "green_tree_tavern_shed_wagon",
+      "changes": {
+        "at_local_enu_m": {
+          "from": [
+            -26.73,
+            -86.97
+          ],
+          "to": [
+            -34.87,
+            -86.97
+          ]
+        },
+        "clearance_m": {
+          "from": 11.45,
+          "to": 3.31
+        }
+      }
+    }
+  },
+  "fine_wood_selection": {
+    "path": "data/transport/parked/placements.json",
+    "sha256": "f7a4bbab7756a2c00539d28bb0ea4a2d49e5f313ba0e13216aab81cb1290cd50",
+    "stand_count": 3
+  }
+}

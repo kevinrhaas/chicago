@@ -1,0 +1,394 @@
+{
+  "schema": "chicago_licensed_farm_box_master_v1",
+  "asset_id": "wagon_w01_farm_box_master_v1",
+  "units": "m",
+  "up_axis": "+Y",
+  "forward_axis": "+Z",
+  "left_axis": "+X",
+  "grade": "reconstructed",
+  "photographic_acceptance": false,
+  "status": "Development master; matched-view, clearance, LOD and world qualification pending",
+  "source": {
+    "title": "Old Cart",
+    "author": "Lyskilde / longtail",
+    "license": "CC-BY-4.0",
+    "url": "https://sketchfab.com/3d-models/old-cart-f536745fd82144eeb5cc4900a48e816e",
+    "original_sha256": "13600b73c1777545e1454d452c58d141469f031b2c5e6c29b1c6fdefe9145046",
+    "original_binary_prefix_preserved": true,
+    "embedded_image_sha256": [
+      "d50c510edf7d1280c58d8d531b738410de29070ce18699fb47e74108228e3b82",
+      "3aafe07241415d52e788900e9d6a9e42f515b8ebf994ce4725a32f68ca095844",
+      "beb4be3f0d16376abdfcde7230c783c16c328d602041b8d0ab8a076ff81339e2",
+      "767f5d6525a71caad60ab3d033baa4685a66dea4250cfdbb07da0a9f1fef71f8",
+      "3139cdb59480f19aebb2799dc0e587b0557793733a3fce128a3df6f50114fe14",
+      "c66aa0607b9712cde5108d48ffbeafe9b3ffdcbcdec880359acb17d5d3864f99"
+    ],
+    "materials_exact": true,
+    "geometry_license": "CC-BY-4.0; original credit and adaptation notice retained",
+    "producer_code_license": "GPL-3.0-or-later; does not replace the source geometry license"
+  },
+  "parameters": {
+    "schema": "chicago_farm_box_master_v1",
+    "asset_id": "wagon_w01_farm_box_master_v1",
+    "grade": "reconstructed",
+    "sources": [
+      "lyskilde_2020_old_cart"
+    ],
+    "status": "source-guided development; actual photographic acceptance pending",
+    "body_m": [
+      3.05,
+      1.07,
+      0.55
+    ],
+    "bed_top_m": 0.95,
+    "wheel_radius_m": {
+      "front": 0.535,
+      "rear": 0.685
+    },
+    "axle_stations_z_m": {
+      "front": 1.175,
+      "rear": -1.175
+    },
+    "wheel_center_track_m": 1.21,
+    "tongue_length_m": 2.75,
+    "steering_limit_deg": 8,
+    "wheel_spokes": 8,
+    "source_limits": [
+      "Existing W01 body envelope, axle stations and wheel radii are reconstruction targets; the licensed source's eight-spoke wheels replace the old twelve-spoke construction in this separate master only.",
+      "Old Cart by Lyskilde/longtail is a cleared modern construction/optical comparison only, not an 1835 Chicago specimen or identified maker.",
+      "The 1893 Studebaker Farm Wagon No4 plate is a later period analogy only, not evidence of an 1835 Studebaker wagon.",
+      "Colours, species, wear, concealed joints and small hardware are bounded reconstruction.",
+      "No historical owner, load, working hitch, driver, suspension, brakes, traffic or boarding is asserted.",
+      "The central90x55mmreach and its front/rear fit are explicit new engineering reconstruction from the licensed shaft surface; originalbodyrails are not mislabeledasreach. The retainedkingbolt is separatelyowned withmeasured4.994mmeccentricity, notperfectcoaxial/loadcertification."
+    ],
+    "export_lods": {
+      "near": {
+        "ratio": 1,
+        "error": 0,
+        "texture_size": 1024
+      },
+      "mid": {
+        "ratio": 0.5,
+        "error": 0.001,
+        "texture_size": 512
+      },
+      "far": {
+        "ratio": 0.13,
+        "error": 0.008,
+        "texture_size": 256
+      }
+    },
+    "reach_section_m": [
+      0.09,
+      0.055
+    ],
+    "reach_endpoint_y_m": {
+      "front": 0.6675,
+      "rear": 0.73
+    }
+  },
+  "source_steering_neutralised_deg": 12.930344230186737,
+  "source_floor_y": 74.60684525568885,
+  "source_front_axle_centre": [
+    -85.63819721645058,
+    41.91290461468646,
+    -1.3653379263976468
+  ],
+  "source_rear_axle_centre": [
+    89.02991299128752,
+    41.912900168263114,
+    -1.4520080307133014
+  ],
+  "source_body_bounds": [
+    [
+      -129.03492103816097,
+      44.1265387099291,
+      -49.305840886369644
+    ],
+    [
+      140.27981686166004,
+      119.4723966917563,
+      53.37303365473311
+    ]
+  ],
+  "parts": [
+    {
+      "name": "CartBody_CartBase_0",
+      "original_node": 4,
+      "frame": "vehicle_body",
+      "triangles": 1458,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": true,
+      "subset_compacted": false,
+      "UV_values_sha256": "4b9a6187c2b3d8a7a7032c9c4060945fde523a64d748ca8690242b0555a6bd91",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.535,
+        0.6554152757764564,
+        -1.525
+      ],
+      "local_max_m": [
+        0.535,
+        1.5,
+        1.525
+      ],
+      "ownership": "All artist-authored body/frame components; explicit continuous metric adaptation"
+    },
+    {
+      "name": "CartBody_CartDetails_0",
+      "original_node": 5,
+      "frame": "vehicle_body",
+      "triangles": 5100,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": true,
+      "subset_compacted": false,
+      "UV_values_sha256": "397caec092531220a6a13ecafb44882a5738f5ca72b1cbac1c72dd19dbfd9402",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.6259785263787749,
+        0.6349834248265538,
+        -1.4915258513478813
+      ],
+      "local_max_m": [
+        0.5571817433477616,
+        1.4423519925349606,
+        1.4319315874507235
+      ],
+      "ownership": "All artist-authored body/frame components; explicit continuous metric adaptation"
+    },
+    {
+      "name": "CartSteer_CartBase_0",
+      "original_node": 7,
+      "frame": "vehicle_steer_front",
+      "triangles": 116,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": false,
+      "subset_compacted": true,
+      "UV_values_sha256": "4f911f9a0b56b9777229dd8b20b9021f53ed7da47ddb1cc2206dc66443656583",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.5410665677770028,
+        -0.033544321333361736,
+        -0.05336336799090678
+      ],
+      "local_max_m": [
+        0.5520956181281546,
+        0.11299022753240544,
+        0.0625795129987634
+      ],
+      "ownership": "Neutralised front gear; original two shaft components excluded from this frame"
+    },
+    {
+      "name": "CartSteer_CartDetails_0",
+      "original_node": 8,
+      "frame": "vehicle_steer_front",
+      "triangles": 2036,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": false,
+      "subset_compacted": true,
+      "UV_values_sha256": "16d6a5a720356e08b48df7032dd4e1caabcc700af84fac2e25b4ef51ad7ebca1",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.5410664812991156,
+        -0.04968405361557862,
+        -0.05755824024424641
+      ],
+      "local_max_m": [
+        0.5520959969128356,
+        0.1158363028798506,
+        0.2410909132193933
+      ],
+      "ownership": "Neutralised front gear; original two shaft components excluded from this frame"
+    },
+    {
+      "name": "original_kingbolt",
+      "original_node": 8,
+      "frame": "vehicle_kingbolt",
+      "triangles": 28,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": false,
+      "subset_compacted": true,
+      "UV_values_sha256": "68ba8f18a393925fc1ce4c6c43e6146adeacfe0868c072ab96683308dac39561",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.008403019089991614,
+        -0.0895732964619955,
+        -0.007849989646845438
+      ],
+      "local_max_m": [
+        0.012252762838109275,
+        0.29086722244464763,
+        0.017067029832416442
+      ],
+      "ownership": "Actual source kingbolt component5 separately owned; retained4.994mm eccentricity, no exactcoaxial/strengthclaim"
+    },
+    {
+      "name": "wheel_fr_CartDetails_0",
+      "original_node": 10,
+      "frame": "vehicle_wheel_front_right",
+      "triangles": 2170,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": true,
+      "subset_compacted": false,
+      "UV_values_sha256": "f11646343bbe45dad956aad49f53476f6fd46a3bd530e3109ad66af4eb5c6a25",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.1935525561265362,
+        -0.5349999999999999,
+        -0.5349213261452023
+      ],
+      "local_max_m": [
+        0.12104708931621377,
+        0.535,
+        0.5350843723868872
+      ],
+      "ownership": "Original eight-spoke wheel; circular radial calibration, tyre width and axle-centre frame reconstructed"
+    },
+    {
+      "name": "wheel_fl_CartDetails_0",
+      "original_node": 12,
+      "frame": "vehicle_wheel_front_left",
+      "triangles": 2170,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": true,
+      "subset_compacted": false,
+      "UV_values_sha256": "ff4b7323c617211b0f3d40a5d5b084509df4ea1b551aa61c362f3bdff7fb00ff",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.12104887519635997,
+        -0.535,
+        -0.5350846427653807
+      ],
+      "local_max_m": [
+        0.193555107029066,
+        0.535,
+        0.5349210835981542
+      ],
+      "ownership": "Original eight-spoke wheel; circular radial calibration, tyre width and axle-centre frame reconstructed"
+    },
+    {
+      "name": "wheel_rl_CartDetails_0",
+      "original_node": 14,
+      "frame": "vehicle_wheel_rear_left",
+      "triangles": 2170,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": true,
+      "subset_compacted": false,
+      "UV_values_sha256": "14c8ad2bd2d12e8fcca9c3f819bc1f5a10cb1ce39b0246350489f82060ac05dd",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.12128440612297117,
+        -0.6850000000000002,
+        -0.6849999701358007
+      ],
+      "local_max_m": [
+        0.19400044015446408,
+        0.685,
+        0.6849999701358007
+      ],
+      "ownership": "Original eight-spoke wheel; circular radial calibration, tyre width and axle-centre frame reconstructed"
+    },
+    {
+      "name": "wheel_rr_CartDetails_0",
+      "original_node": 16,
+      "frame": "vehicle_wheel_rear_right",
+      "triangles": 2170,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": true,
+      "subset_compacted": false,
+      "UV_values_sha256": "d8297536569ef3cad649336fd92a342baf3be4c130acdca2901a1d589df78340",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.1939995609850964,
+        -0.6849999999999999,
+        -0.6849999946748677
+      ],
+      "local_max_m": [
+        0.12128389614896279,
+        0.685,
+        0.6849999946748677
+      ],
+      "ownership": "Original eight-spoke wheel; circular radial calibration, tyre width and axle-centre frame reconstructed"
+    },
+    {
+      "name": "single_reconstructed_pole",
+      "original_node": 7,
+      "frame": "vehicle_tongue",
+      "triangles": 44,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": false,
+      "subset_compacted": true,
+      "UV_values_sha256": "56c05b0983d5a8476c1fe4ecfebc6ca04414c77eb2d75f6ac711f021db5ec998",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.0275,
+        -0.0275,
+        0.0
+      ],
+      "local_max_m": [
+        0.0275,
+        0.0275,
+        2.75
+      ],
+      "ownership": "Source shaft component1 adapted to existing W01 single-pole envelope; source component2 omitted"
+    },
+    {
+      "name": "central_drawbar_bearing",
+      "original_node": 7,
+      "frame": "vehicle_steer_front",
+      "triangles": 44,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": false,
+      "subset_compacted": true,
+      "UV_values_sha256": "56c05b0983d5a8476c1fe4ecfebc6ca04414c77eb2d75f6ac711f021db5ec998",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.05,
+        -0.04,
+        -0.1
+      ],
+      "local_max_m": [
+        0.05,
+        0.04,
+        0.45
+      ],
+      "ownership": "Reconstructed central axle-to-pole support from reused licensed timber surface; designed joinery overlap at axle and pole root"
+    },
+    {
+      "name": "central_reconstructed_reach",
+      "original_node": 7,
+      "frame": "vehicle_reach",
+      "triangles": 44,
+      "source_UV_values_unchanged": true,
+      "source_UV_accessor_unchanged": false,
+      "subset_compacted": true,
+      "UV_values_sha256": "56c05b0983d5a8476c1fe4ecfebc6ca04414c77eb2d75f6ac711f021db5ec998",
+      "source_material_unchanged": true,
+      "local_min_m": [
+        -0.045,
+        0.640107504342,
+        -1.175606239502
+      ],
+      "local_max_m": [
+        0.045,
+        0.757392498665,
+        1.175606240323
+      ],
+      "ownership": "New actual longitudinal reach from licensed source timber component; reconstructed90x55mmsection and fixed front-plate/rear-axle fit, no historical orstrengthcertification"
+    }
+  ],
+  "statistics": {
+    "triangles": 17550,
+    "draw_batches": 12
+  },
+  "socket_policy": "Named proposed unloaded interfaces; no occupied seat, draft hitch, load, boarding or collision qualification",
+  "limitations": [
+    "Existing W01 body envelope, axle stations and wheel radii are reconstruction targets; the licensed source's eight-spoke wheels replace the old twelve-spoke construction in this separate master only.",
+    "Old Cart by Lyskilde/longtail is a cleared modern construction/optical comparison only, not an 1835 Chicago specimen or identified maker.",
+    "The 1893 Studebaker Farm Wagon No4 plate is a later period analogy only, not evidence of an 1835 Studebaker wagon.",
+    "Colours, species, wear, concealed joints and small hardware are bounded reconstruction.",
+    "No historical owner, load, working hitch, driver, suspension, brakes, traffic or boarding is asserted.",
+    "The central90x55mmreach and its front/rear fit are explicit new engineering reconstruction from the licensed shaft surface; originalbodyrails are not mislabeledasreach. The retainedkingbolt is separatelyowned withmeasured4.994mmeccentricity, notperfectcoaxial/loadcertification."
+  ],
+  "glb_sha256": "fb0c507048ad8a95e19cc0d8a1e57ade5c2937060eeef3adc9e45af96a0e4ee4"
+}

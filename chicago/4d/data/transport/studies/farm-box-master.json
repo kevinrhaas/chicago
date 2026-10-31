@@ -1,0 +1,60 @@
+{
+  "schema": "chicago_farm_box_master_v1",
+  "asset_id": "wagon_w01_farm_box_master_v1",
+  "grade": "reconstructed",
+  "sources": [
+    "lyskilde_2020_old_cart"
+  ],
+  "status": "source-guided development; actual photographic acceptance pending",
+  "body_m": [
+    3.05,
+    1.07,
+    0.55
+  ],
+  "bed_top_m": 0.95,
+  "wheel_radius_m": {
+    "front": 0.535,
+    "rear": 0.685
+  },
+  "axle_stations_z_m": {
+    "front": 1.175,
+    "rear": -1.175
+  },
+  "wheel_center_track_m": 1.21,
+  "tongue_length_m": 2.75,
+  "steering_limit_deg": 8,
+  "wheel_spokes": 8,
+  "source_limits": [
+    "Existing W01 body envelope, axle stations and wheel radii are reconstruction targets; the licensed source's eight-spoke wheels replace the old twelve-spoke construction in this separate master only.",
+    "Old Cart by Lyskilde/longtail is a cleared modern construction/optical comparison only, not an 1835 Chicago specimen or identified maker.",
+    "The 1893 Studebaker Farm Wagon No4 plate is a later period analogy only, not evidence of an 1835 Studebaker wagon.",
+    "Colours, species, wear, concealed joints and small hardware are bounded reconstruction.",
+    "No historical owner, load, working hitch, driver, suspension, brakes, traffic or boarding is asserted.",
+    "The central90x55mmreach and its front/rear fit are explicit new engineering reconstruction from the licensed shaft surface; originalbodyrails are not mislabeledasreach. The retainedkingbolt is separatelyowned withmeasured4.994mmeccentricity, notperfectcoaxial/loadcertification."
+  ],
+  "export_lods": {
+    "near": {
+      "ratio": 1,
+      "error": 0,
+      "texture_size": 1024
+    },
+    "mid": {
+      "ratio": 0.5,
+      "error": 0.001,
+      "texture_size": 512
+    },
+    "far": {
+      "ratio": 0.13,
+      "error": 0.008,
+      "texture_size": 256
+    }
+  },
+  "reach_section_m": [
+    0.09,
+    0.055
+  ],
+  "reach_endpoint_y_m": {
+    "front": 0.6675,
+    "rear": 0.73
+  }
+}

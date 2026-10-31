@@ -1546,3 +1546,36 @@ Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_compo
 | `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
 | `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
 | `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+
+
+## Licensed Old Cart farm-box development master — T-2793
+
+| Path | License and attribution | Scope |
+|---|---|---|
+| `authored/transport/farm_box_master_v1/old-cart-original.glb` | **CC BY4.0**, “Old Cart” by Lyskilde (longtail), https://sketchfab.com/longtail; https://sketchfab.com/3d-models/old-cart-f536745fd82144eeb5cc4900a48e816e; https://creativecommons.org/licenses/by/4.0/ | Exact unchanged9,809,548B original, SHA25613600b73c1777545e1454d452c58d141469f031b2c5e6c29b1c6fdefe9145046. Individual author/model/Objaverse credit retained in ORIGINAL-CREDIT.json. Modern artistic source; no maker, historical date, Chicago presence or original metric calibration. |
+| `authored/transport/farm_box_master_v1/{ORIGINAL-CREDIT.json,ATTRIBUTION.md}` | Saved individual source rights metadata and project attribution/change notice | Credits accompany the artist-authored geometry, UVs and maps; producer-code SPDX does not replace these rights. |
+| `renderers/web/transport/farm-box-master/` licensed wagon derivatives | **CC BY4.0** adaptation of Lyskilde/longtail's Old Cart, exact original author/source/license extras retained | Explicit Chicago changes: metre/axis calibration, independently circular front/rear wheels, neutralised source front-steer pose, reconstructed single pole and central bearing, articulated frames and proposed unloaded interfaces. No source texture pixels are repainted in the near master. Compression/LOD changes are disclosed in their actual export receipts. |
+
+The Python/JS producer and preview code are original project GPL-3.0-or-later. The credited source geometry/maps and their derivatives retain CC BY4.0; neither a code header nor the project author's source changes erase the original credit. See L-farm-box-licensed-master-2793.
+
+Exact authored paths for the same credited CC BY4.0 adaptation above:
+
+| Path relative to assets/ | License and provenance |
+|---|---|
+| `authored/transport/farm_box_master_v1/ORIGINAL-CREDIT.json` | Unmodified individual source attribution/rights metadata; original Old Cart author and CC BY4.0 license retained. |
+| `authored/transport/farm_box_master_v1/ATTRIBUTION.md` | Project adaptation notice retaining Old Cart by Lyskilde/longtail, CC BY4.0. |
+| `authored/transport/farm_box_master_v1/SOURCE.json` | Project provenance/derivation inventory; licensed underlying geometry/maps remain CC BY4.0. |
+| `authored/transport/farm_box_master_v1/derived/farm-box-source.glb` | CC BY4.0 derivative of Old Cart by Lyskilde/longtail. Original image bytes retained in this authored master; web derivatives use separately measured WebP representations. |
+| `authored/transport/farm_box_master_v1/derived/farm-box-source.json` | Engine-neutral reconstruction/attribution/ownership sidecar accompanying that CC BY4.0 geometry. |
+
+The optional muted warm finish multiplies existing source material colors; it
+adds no texture maps and identifies no historic paint, timber species or finish.
+It is an explicit reconstructed display alternative. The default weathered
+finish retains source material factors. Source geometry/UVs/maps remain CC BY4.0;
+producer/checker code is GPL-3.0-or-later project work. This amendment preserves
+the earlier exact-pixel statements for the authored master: production WebP
+images intentionally have bounded, recorded codec loss rather than byte identity.
+
+Exact reconstructed-fit limitation: the retained artist kingbolt axis is 4.994mm eccentric from the tyre-centre yaw frame (XZ+1.925/+4.609mm), moving0.697mm over an8degree turn. No exact coaxial/strength claim. Original rims retain at most2.617mm radial ground irregularity; this is not a perfect-circle/suspension simulation.
+
+The final farm-box master also includes an actual central90x55mm coupling reach, reconstructed from the same licensed shaft surface/UVs and separately owned in vehicle_reach. Its end connections are geometry-checked against the fixed front bolster and rear axle. The actual original28-triangle kingbolt is separately owned in vehicle_kingbolt; this is a component split, not an empty proxy or a hidden change to source surfaces. Both remain CC BY4.0 derivatives with the same author credit; fit/strength/historic-design limits remain reconstruction.

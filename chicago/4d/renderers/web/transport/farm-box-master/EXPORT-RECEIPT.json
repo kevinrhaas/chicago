@@ -1,0 +1,1205 @@
+{
+  "schema": "chicago_farm_box_portable_web_lods_v2",
+  "input_sha256": "fb0c507048ad8a95e19cc0d8a1e57ade5c2937060eeef3adc9e45af96a0e4ee4",
+  "parameters_sha256": "aa5bd3bf3dff5fb31d92b3c6cca2c1f802388052bb89b26897e173431f032ab7",
+  "exporter_sha256": "d6ad251701bc791897f5cce7621089350cb9395186c52f4173e4d516af34059b",
+  "tool_versions": {
+    "@gltf-transform/core": "4.5.0",
+    "@gltf-transform/functions": "4.5.0",
+    "@gltf-transform/extensions": "4.5.0",
+    "meshoptimizer": "1.2.0",
+    "sharp": "0.35.5"
+  },
+  "equivalence": "Oriented full paired vertex-attribute triangle multiset within each exact primitive/material/node; winding and every live shader attribute retained. Image bytes, nodes, materials and credit checked separately.",
+  "negative_controls": [
+    "complete-tuple cyclic rotation accepted",
+    "reversed triangle winding rejected",
+    "NORMAL shader-data mutation rejected",
+    "POSITION shader-data mutation rejected",
+    "TANGENT shader-data mutation rejected",
+    "TEXCOORD_0 shader-data mutation rejected"
+  ],
+  "lossless_prune": {
+    "before_bytes": 11984672,
+    "after_bytes": 9828496,
+    "live_semantics_sha256": "73c67494fcb292b442f8f3f563a655dfeb92cfc8670320beb5a6bf1e0c356ebe",
+    "exact_live_semantics_equal": true
+  },
+  "photographic_acceptance": false,
+  "lods": [
+    {
+      "level": "near",
+      "file": "farm-box-near.glb",
+      "sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "bytes": 5105348,
+      "triangles": 17550,
+      "vertices": 51727,
+      "draw_batches": 12,
+      "simplification": {
+        "ratio": 1,
+        "error": 0,
+        "source_geometry_exact": true,
+        "method": "none",
+        "primitives": []
+      },
+      "texture_dimensions": [
+        [
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024
+        ],
+        [
+          1024,
+          1024
+        ]
+      ],
+      "texture_representations": {
+        "format": "image/webp",
+        "representation": "bounded-loss web derivative; exact original/master PNGs preserved",
+        "source_PNGs_preserved_in_authored_master": true,
+        "measured_loss": [
+          {
+            "source_sha256": "d50c510edf7d1280c58d8d531b738410de29070ce18699fb47e74108228e3b82",
+            "web_sha256": "ad25039869bb915d936f79f8001c31d4d87c784de9511cee15acbfbeca4e2b9b",
+            "roles": [
+              "BaseColor"
+            ],
+            "codec": "lossy base-color WebP",
+            "source_bytes": 1686605,
+            "web_bytes": 410746,
+            "width": 1024,
+            "height": 1024,
+            "quality": 97,
+            "mean_absolute_RGB_error": 1.173087437947591,
+            "RMSE_RGB": 1.592659570992462,
+            "max_absolute_RGB_error": 13,
+            "channel_MAE": [
+              1.2388238906860352,
+              0.9227399826049805,
+              1.3576984405517578,
+              0
+            ],
+            "channel_RMSE": [
+              1.6601438993106763,
+              1.2566310475476263,
+              1.8095563464956206,
+              0
+            ],
+            "channel_max": [
+              13,
+              8,
+              11,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "3aafe07241415d52e788900e9d6a9e42f515b8ebf994ce4725a32f68ca095844",
+            "web_sha256": "295266620aecac19bc2af8edfffc819f02135a8bbe727d81ee865ccc8cabb395",
+            "roles": [
+              "MetallicRoughness",
+              "Occlusion"
+            ],
+            "codec": "near-lossless WebP97",
+            "source_bytes": 1518342,
+            "web_bytes": 967784,
+            "width": 1024,
+            "height": 1024,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.31661351521809894,
+            "RMSE_RGB": 0.5626842055879114,
+            "max_absolute_RGB_error": 1,
+            "channel_MAE": [
+              0.4588336944580078,
+              0.49100685119628906,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0.677372640765781,
+              0.7007188103628224,
+              0,
+              0
+            ],
+            "channel_max": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "beb4be3f0d16376abdfcde7230c783c16c328d602041b8d0ab8a076ff81339e2",
+            "web_sha256": "61922e3824d4b709495c1cb4c2d9ab11ca182cb4d17f3559bd3b39826d1aac2a",
+            "roles": [
+              "Normal"
+            ],
+            "codec": "near-lossless WebP97",
+            "source_bytes": 1478487,
+            "web_bytes": 929320,
+            "width": 1024,
+            "height": 1024,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.356930414835612,
+            "RMSE_RGB": 0.5974365362409735,
+            "max_absolute_RGB_error": 1,
+            "channel_MAE": [
+              0.4918403625488281,
+              0.4934730529785156,
+              0.08547782897949219,
+              0
+            ],
+            "channel_RMSE": [
+              0.7013133126847287,
+              0.7024763718293418,
+              0.2923659162410902,
+              0
+            ],
+            "channel_max": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "normal_angles": {
+              "mean_deg": 0.37931910857704015,
+              "rms_deg": 0.4457534198652922,
+              "max_deg": 0.7816653171576577
+            },
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "767f5d6525a71caad60ab3d033baa4685a66dea4250cfdbb07da0a9f1fef71f8",
+            "web_sha256": "6ef1d2724be9e6bd3db0356a3a4a5067c9b57504089e0ef1e910f198a96619af",
+            "roles": [
+              "BaseColor"
+            ],
+            "codec": "lossy base-color WebP",
+            "source_bytes": 904083,
+            "web_bytes": 229460,
+            "width": 1024,
+            "height": 1024,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.9842878977457682,
+            "RMSE_RGB": 1.4392190136396912,
+            "max_absolute_RGB_error": 14,
+            "channel_MAE": [
+              1.094207763671875,
+              0.6940641403198242,
+              1.1645917892456055,
+              0
+            ],
+            "channel_RMSE": [
+              1.562001873723468,
+              1.0351392060802043,
+              1.6439863375910504,
+              0
+            ],
+            "channel_max": [
+              13,
+              7,
+              14,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "3139cdb59480f19aebb2799dc0e587b0557793733a3fce128a3df6f50114fe14",
+            "web_sha256": "335e205c052a38bee21abab00b667133ea5ad9870a27b39e7a9bdd97eba759bb",
+            "roles": [
+              "MetallicRoughness",
+              "Occlusion"
+            ],
+            "codec": "near-lossless WebP97",
+            "source_bytes": 773409,
+            "web_bytes": 463074,
+            "width": 1024,
+            "height": 1024,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.27611573537190753,
+            "RMSE_RGB": 0.5254671591754403,
+            "max_absolute_RGB_error": 1,
+            "channel_MAE": [
+              0.3930063247680664,
+              0.43534088134765625,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0.6269021652284082,
+              0.6598036687891757,
+              0,
+              0
+            ],
+            "channel_max": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "c66aa0607b9712cde5108d48ffbeafe9b3ffdcbcdec880359acb17d5d3864f99",
+            "web_sha256": "d4f3fbcb41fa70c1e6786a7570fbbabb79e4d7739f6d4af6881891415ed0b534",
+            "roles": [
+              "Normal"
+            ],
+            "codec": "near-lossless WebP97",
+            "source_bytes": 750060,
+            "web_bytes": 419878,
+            "width": 1024,
+            "height": 1024,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.2950900395711263,
+            "RMSE_RGB": 0.5432219063800044,
+            "max_absolute_RGB_error": 1,
+            "channel_MAE": [
+              0.42881202697753906,
+              0.43657779693603516,
+              0.019880294799804688,
+              0
+            ],
+            "channel_RMSE": [
+              0.6548374049926737,
+              0.6607403400247598,
+              0.14099749926791144,
+              0
+            ],
+            "channel_max": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "normal_angles": {
+              "mean_deg": 0.33213891144004065,
+              "rms_deg": 0.4176259685111352,
+              "max_deg": 0.7785955442682753
+            },
+            "alpha_exact": true
+          }
+        ]
+      },
+      "protected_far_structure": [],
+      "near_geometry_shader_attributes_exact_to_master": true,
+      "lossless_delivery_cleanup": {
+        "before": {
+          "triangles": 17550,
+          "vertices": 51727,
+          "draw_batches": 12
+        },
+        "after": {
+          "triangles": 17550,
+          "vertices": 51727,
+          "draw_batches": 12
+        },
+        "oriented_paired_semantics_equal": true
+      },
+      "webp_extension_declared_required": true,
+      "texture_RGBA8_mip_estimate_bytes": 33554424,
+      "decoded_semantics_sha256": "9ac3949ffc0be18074f51c01ee9d2ede985eff44df3e86ba8ca424a90e9815b4",
+      "meshopt_decoded_exact_to_precompression": true
+    },
+    {
+      "level": "mid",
+      "file": "farm-box-mid.glb",
+      "sha256": "6a5fa3f484afbed41d05f055858df57a8163b19ff0057e292449c51ccb360b36",
+      "bytes": 2168924,
+      "triangles": 12996,
+      "vertices": 34227,
+      "draw_batches": 12,
+      "simplification": {
+        "ratio": 0.5,
+        "error": 0.001,
+        "source_geometry_exact": false,
+        "method": "meshoptimizer attribute-aware, seam-permissive within each original primitive",
+        "primitives": [
+          {
+            "mesh": "CartBody_CartBase_0",
+            "input_triangles": 1458,
+            "output_triangles": 984,
+            "reportedError": 0.0009991428814828396,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "CartBody_CartDetails_0",
+            "input_triangles": 5100,
+            "output_triangles": 2550,
+            "reportedError": 0.0007870179833844304,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "CartSteer_CartBase_0",
+            "input_triangles": 116,
+            "output_triangles": 116,
+            "reportedError": 0,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "CartSteer_CartDetails_0",
+            "input_triangles": 2036,
+            "output_triangles": 1664,
+            "reportedError": 0.000995440175756812,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "original_kingbolt",
+            "input_triangles": 28,
+            "output_triangles": 28,
+            "reportedError": 0,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "wheel_fr_CartDetails_0",
+            "input_triangles": 2170,
+            "output_triangles": 1884,
+            "reportedError": 0.0009838395053520799,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "wheel_fl_CartDetails_0",
+            "input_triangles": 2170,
+            "output_triangles": 1886,
+            "reportedError": 0.0009713314357213676,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "wheel_rl_CartDetails_0",
+            "input_triangles": 2170,
+            "output_triangles": 1880,
+            "reportedError": 0.0009649193962104619,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "wheel_rr_CartDetails_0",
+            "input_triangles": 2170,
+            "output_triangles": 1872,
+            "reportedError": 0.0009679985814727843,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "single_reconstructed_pole",
+            "input_triangles": 44,
+            "output_triangles": 44,
+            "reportedError": 0,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "central_drawbar_bearing",
+            "input_triangles": 44,
+            "output_triangles": 44,
+            "reportedError": 0,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          },
+          {
+            "mesh": "central_reconstructed_reach",
+            "input_triangles": 44,
+            "output_triangles": 44,
+            "reportedError": 0,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": null
+          }
+        ]
+      },
+      "texture_dimensions": [
+        [
+          512,
+          512
+        ],
+        [
+          512,
+          512
+        ],
+        [
+          512,
+          512
+        ],
+        [
+          512,
+          512
+        ],
+        [
+          512,
+          512
+        ],
+        [
+          512,
+          512
+        ]
+      ],
+      "texture_representations": {
+        "format": "image/webp",
+        "representation": "bounded-loss web derivative; exact original/master PNGs preserved",
+        "source_PNGs_preserved_in_authored_master": true,
+        "measured_loss": [
+          {
+            "source_sha256": "d50c510edf7d1280c58d8d531b738410de29070ce18699fb47e74108228e3b82",
+            "web_sha256": "da8021c127eb53f617410b476be546e50bcd2461809b35d11c93f2fc0ff04772",
+            "roles": [
+              "BaseColor"
+            ],
+            "codec": "lossy base-color WebP",
+            "source_bytes": 1686605,
+            "web_bytes": 93316,
+            "width": 512,
+            "height": 512,
+            "quality": 93,
+            "mean_absolute_RGB_error": 1.5326525370279949,
+            "RMSE_RGB": 2.0212742694757337,
+            "max_absolute_RGB_error": 13,
+            "channel_MAE": [
+              1.5887184143066406,
+              1.31170654296875,
+              1.6975326538085938,
+              0
+            ],
+            "channel_RMSE": [
+              2.0769415906205957,
+              1.7259548032640242,
+              2.2280131650361086,
+              0
+            ],
+            "channel_max": [
+              12,
+              8,
+              13,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "3aafe07241415d52e788900e9d6a9e42f515b8ebf994ce4725a32f68ca095844",
+            "web_sha256": "529421466ac0a722393e0db97e385e7ac47ba09a4905e690a721304973575e9f",
+            "roles": [
+              "MetallicRoughness",
+              "Occlusion"
+            ],
+            "codec": "near-lossless WebP97",
+            "source_bytes": 1518342,
+            "web_bytes": 266494,
+            "width": 512,
+            "height": 512,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.325286865234375,
+            "RMSE_RGB": 0.5703392545094323,
+            "max_absolute_RGB_error": 1,
+            "channel_MAE": [
+              0.48081207275390625,
+              0.49504852294921875,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0.6934061383878183,
+              0.703596846886922,
+              0,
+              0
+            ],
+            "channel_max": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "beb4be3f0d16376abdfcde7230c783c16c328d602041b8d0ab8a076ff81339e2",
+            "web_sha256": "8ba3cd72935782ac4725558c01e65a25a2397161a2c96a5df355fe42c1949033",
+            "roles": [
+              "Normal"
+            ],
+            "codec": "lossless WebP",
+            "source_bytes": 1478487,
+            "web_bytes": 307292,
+            "width": 512,
+            "height": 512,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0,
+            "RMSE_RGB": 0,
+            "max_absolute_RGB_error": 0,
+            "channel_MAE": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "channel_max": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "normal_angles": {
+              "mean_deg": 1.6455434272345362e-7,
+              "rms_deg": 4.383724278297498e-7,
+              "max_deg": 0.000002091309789151873
+            },
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "767f5d6525a71caad60ab3d033baa4685a66dea4250cfdbb07da0a9f1fef71f8",
+            "web_sha256": "d03be7ad4d88223e9a75494e055edc20606070fc70fde32fc909cc82b7f04b59",
+            "roles": [
+              "BaseColor"
+            ],
+            "codec": "lossy base-color WebP",
+            "source_bytes": 904083,
+            "web_bytes": 56756,
+            "width": 512,
+            "height": 512,
+            "quality": 93,
+            "mean_absolute_RGB_error": 1.41168212890625,
+            "RMSE_RGB": 1.964375798525331,
+            "max_absolute_RGB_error": 15,
+            "channel_MAE": [
+              1.5614471435546875,
+              1.0897560119628906,
+              1.5838432312011719,
+              0
+            ],
+            "channel_RMSE": [
+              2.1361688049135856,
+              1.5151580405817253,
+              2.171956671407306,
+              0
+            ],
+            "channel_max": [
+              14,
+              10,
+              15,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "3139cdb59480f19aebb2799dc0e587b0557793733a3fce128a3df6f50114fe14",
+            "web_sha256": "84d805fdf113e7cb3a50102118a98de129fbca9f85ac95c75dd311e226ad5b7d",
+            "roles": [
+              "MetallicRoughness",
+              "Occlusion"
+            ],
+            "codec": "near-lossless WebP97",
+            "source_bytes": 773409,
+            "web_bytes": 147110,
+            "width": 512,
+            "height": 512,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.30438232421875,
+            "RMSE_RGB": 0.5517085500685575,
+            "max_absolute_RGB_error": 1,
+            "channel_MAE": [
+              0.44286346435546875,
+              0.47028350830078125,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0.6654798752445251,
+              0.6857721985475799,
+              0,
+              0
+            ],
+            "channel_max": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "c66aa0607b9712cde5108d48ffbeafe9b3ffdcbcdec880359acb17d5d3864f99",
+            "web_sha256": "d322520b2215045bc604ae0d388e8b922b56a39635aad172cf745b37120e07ac",
+            "roles": [
+              "Normal"
+            ],
+            "codec": "lossless WebP",
+            "source_bytes": 750060,
+            "web_bytes": 139682,
+            "width": 512,
+            "height": 512,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0,
+            "RMSE_RGB": 0,
+            "max_absolute_RGB_error": 0,
+            "channel_MAE": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "channel_max": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "normal_angles": {
+              "mean_deg": 1.208792930525959e-7,
+              "rms_deg": 3.787048115330511e-7,
+              "max_deg": 0.0000017075472925031877
+            },
+            "alpha_exact": true
+          }
+        ]
+      },
+      "protected_far_structure": [],
+      "near_geometry_shader_attributes_exact_to_master": false,
+      "lossless_delivery_cleanup": {
+        "before": {
+          "triangles": 12996,
+          "vertices": 34227,
+          "draw_batches": 12
+        },
+        "after": {
+          "triangles": 12996,
+          "vertices": 34227,
+          "draw_batches": 12
+        },
+        "oriented_paired_semantics_equal": true
+      },
+      "webp_extension_declared_required": true,
+      "texture_RGBA8_mip_estimate_bytes": 8388600,
+      "decoded_semantics_sha256": "09aa34160c5d3ae8c62d1c99789109e8c323f617b763ff4f395f2fe555ff805b",
+      "meshopt_decoded_exact_to_precompression": true
+    },
+    {
+      "level": "far",
+      "file": "farm-box-far.glb",
+      "sha256": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "bytes": 1190220,
+      "triangles": 10178,
+      "vertices": 27891,
+      "draw_batches": 12,
+      "simplification": {
+        "ratio": 0.13,
+        "error": 0.008,
+        "source_geometry_exact": false,
+        "method": "meshoptimizer attribute-aware, seam-permissive within each original primitive",
+        "primitives": [
+          {
+            "mesh": "CartBody_CartBase_0",
+            "preserved": "thin structural timber/board coverage",
+            "input_triangles": 1458,
+            "output_triangles": 1458,
+            "reportedError": 0
+          },
+          {
+            "mesh": "CartBody_CartDetails_0",
+            "input_triangles": 5100,
+            "output_triangles": 662,
+            "reportedError": 0.0016221926780417562,
+            "effectiveError": 0.008,
+            "effectiveRatio": 0.13,
+            "normalWeight": 0.01,
+            "uvWeight": 0.025,
+            "preserved": null
+          },
+          {
+            "mesh": "CartSteer_CartBase_0",
+            "preserved": "thin structural timber/board coverage",
+            "input_triangles": 116,
+            "output_triangles": 116,
+            "reportedError": 0
+          },
+          {
+            "mesh": "CartSteer_CartDetails_0",
+            "input_triangles": 2036,
+            "output_triangles": 262,
+            "reportedError": 0.0063282279297709465,
+            "effectiveError": 0.008,
+            "effectiveRatio": 0.13,
+            "normalWeight": 0.01,
+            "uvWeight": 0.025,
+            "preserved": null
+          },
+          {
+            "mesh": "original_kingbolt",
+            "input_triangles": 28,
+            "output_triangles": 26,
+            "reportedError": 0.0077978214249014854,
+            "effectiveError": 0.008,
+            "effectiveRatio": 0.13,
+            "normalWeight": 0.01,
+            "uvWeight": 0.025,
+            "preserved": null
+          },
+          {
+            "mesh": "wheel_fr_CartDetails_0",
+            "input_triangles": 2170,
+            "output_triangles": 1884,
+            "reportedError": 0.0009838395053520799,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": "same wheel geometry as mid; retain rim/spoke silhouette"
+          },
+          {
+            "mesh": "wheel_fl_CartDetails_0",
+            "input_triangles": 2170,
+            "output_triangles": 1886,
+            "reportedError": 0.0009713314357213676,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": "same wheel geometry as mid; retain rim/spoke silhouette"
+          },
+          {
+            "mesh": "wheel_rl_CartDetails_0",
+            "input_triangles": 2170,
+            "output_triangles": 1880,
+            "reportedError": 0.0009649193962104619,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": "same wheel geometry as mid; retain rim/spoke silhouette"
+          },
+          {
+            "mesh": "wheel_rr_CartDetails_0",
+            "input_triangles": 2170,
+            "output_triangles": 1872,
+            "reportedError": 0.0009679985814727843,
+            "effectiveError": 0.001,
+            "effectiveRatio": 0.5,
+            "normalWeight": 0.05,
+            "uvWeight": 0.1,
+            "preserved": "same wheel geometry as mid; retain rim/spoke silhouette"
+          },
+          {
+            "mesh": "single_reconstructed_pole",
+            "preserved": "thin structural timber/board coverage",
+            "input_triangles": 44,
+            "output_triangles": 44,
+            "reportedError": 0
+          },
+          {
+            "mesh": "central_drawbar_bearing",
+            "preserved": "thin structural timber/board coverage",
+            "input_triangles": 44,
+            "output_triangles": 44,
+            "reportedError": 0
+          },
+          {
+            "mesh": "central_reconstructed_reach",
+            "preserved": "thin structural timber/board coverage",
+            "input_triangles": 44,
+            "output_triangles": 44,
+            "reportedError": 0
+          }
+        ]
+      },
+      "texture_dimensions": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "texture_representations": {
+        "format": "image/webp",
+        "representation": "bounded-loss web derivative; exact original/master PNGs preserved",
+        "source_PNGs_preserved_in_authored_master": true,
+        "measured_loss": [
+          {
+            "source_sha256": "d50c510edf7d1280c58d8d531b738410de29070ce18699fb47e74108228e3b82",
+            "web_sha256": "f2adeecdac6107734870424df2b525590cfc8b9e3aefff7eacc8b7495ffed40e",
+            "roles": [
+              "BaseColor"
+            ],
+            "codec": "lossy base-color WebP",
+            "source_bytes": 1686605,
+            "web_bytes": 22666,
+            "width": 256,
+            "height": 256,
+            "quality": 90,
+            "mean_absolute_RGB_error": 1.9382425944010417,
+            "RMSE_RGB": 2.519374793268825,
+            "max_absolute_RGB_error": 14,
+            "channel_MAE": [
+              2.0036468505859375,
+              1.67327880859375,
+              2.1378021240234375,
+              0
+            ],
+            "channel_RMSE": [
+              2.5860997636024576,
+              2.162694174808357,
+              2.770665978753179,
+              0
+            ],
+            "channel_max": [
+              13,
+              10,
+              14,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "3aafe07241415d52e788900e9d6a9e42f515b8ebf994ce4725a32f68ca095844",
+            "web_sha256": "2fa99ac4ee6913409f7a6c652413de43e002feb546691b15d530d1a2c18a42ad",
+            "roles": [
+              "MetallicRoughness",
+              "Occlusion"
+            ],
+            "codec": "near-lossless WebP97",
+            "source_bytes": 1518342,
+            "web_bytes": 73068,
+            "width": 256,
+            "height": 256,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.3271433512369792,
+            "RMSE_RGB": 0.5719644667608113,
+            "max_absolute_RGB_error": 1,
+            "channel_MAE": [
+              0.4921875,
+              0.4892425537109375,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0.701560760020114,
+              0.6994587576912148,
+              0,
+              0
+            ],
+            "channel_max": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "beb4be3f0d16376abdfcde7230c783c16c328d602041b8d0ab8a076ff81339e2",
+            "web_sha256": "1d8bf16689cfbab341afa4e6f0fd0d811076366931f635aaad2d501ca0a0b6a7",
+            "roles": [
+              "Normal"
+            ],
+            "codec": "lossless WebP",
+            "source_bytes": 1478487,
+            "web_bytes": 69480,
+            "width": 256,
+            "height": 256,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0,
+            "RMSE_RGB": 0,
+            "max_absolute_RGB_error": 0,
+            "channel_MAE": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "channel_max": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "normal_angles": {
+              "mean_deg": 1.472816807473323e-7,
+              "rms_deg": 4.1218614475335754e-7,
+              "max_deg": 0.0000019090959104164224
+            },
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "767f5d6525a71caad60ab3d033baa4685a66dea4250cfdbb07da0a9f1fef71f8",
+            "web_sha256": "76e8dd7c88ea6587e3fcb26756c18a0ac3c2d68c4a45b97c24aacdee1b85ac71",
+            "roles": [
+              "BaseColor"
+            ],
+            "codec": "lossy base-color WebP",
+            "source_bytes": 904083,
+            "web_bytes": 15838,
+            "width": 256,
+            "height": 256,
+            "quality": 90,
+            "mean_absolute_RGB_error": 1.8742218017578125,
+            "RMSE_RGB": 2.5376247932803926,
+            "max_absolute_RGB_error": 17,
+            "channel_MAE": [
+              2.10101318359375,
+              1.4510955810546875,
+              2.070556640625,
+              0
+            ],
+            "channel_RMSE": [
+              2.7956199174165737,
+              1.9547454215539009,
+              2.771659861648228,
+              0
+            ],
+            "channel_max": [
+              17,
+              10,
+              17,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "3139cdb59480f19aebb2799dc0e587b0557793733a3fce128a3df6f50114fe14",
+            "web_sha256": "8d0e9dd612cd9fa54c32c4430ff7290732de962fbaccaf8c9875be55ca8c78af",
+            "roles": [
+              "MetallicRoughness",
+              "Occlusion"
+            ],
+            "codec": "near-lossless WebP97",
+            "source_bytes": 773409,
+            "web_bytes": 47888,
+            "width": 256,
+            "height": 256,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0.3215688069661458,
+            "RMSE_RGB": 0.5670703721463023,
+            "max_absolute_RGB_error": 1,
+            "channel_MAE": [
+              0.4798431396484375,
+              0.48486328125,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0.692707109569721,
+              0.6963212485986623,
+              0,
+              0
+            ],
+            "channel_max": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "normal_angles": null,
+            "alpha_exact": true
+          },
+          {
+            "source_sha256": "c66aa0607b9712cde5108d48ffbeafe9b3ffdcbcdec880359acb17d5d3864f99",
+            "web_sha256": "9aec1d12d36bff76e4584071abad9186debe0edef28b291e42a96d49ffc0d981",
+            "roles": [
+              "Normal"
+            ],
+            "codec": "lossless WebP",
+            "source_bytes": 750060,
+            "web_bytes": 31770,
+            "width": 256,
+            "height": 256,
+            "quality": 97,
+            "mean_absolute_RGB_error": 0,
+            "RMSE_RGB": 0,
+            "max_absolute_RGB_error": 0,
+            "channel_MAE": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "channel_RMSE": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "channel_max": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "normal_angles": {
+              "mean_deg": 8.289773330606166e-8,
+              "rms_deg": 3.14822672779226e-7,
+              "max_deg": 0.0000017075472925031877
+            },
+            "alpha_exact": true
+          }
+        ]
+      },
+      "protected_far_structure": [
+        {
+          "mesh": "CartBody_CartBase_0",
+          "exact_to": "canonical structural timber",
+          "paired_triangle_multiset_sha256": "12b465fba9bd7785647dac4274eb289a9484e63a2d83b24bc085de436f7498a5"
+        },
+        {
+          "mesh": "CartSteer_CartBase_0",
+          "exact_to": "canonical structural timber",
+          "paired_triangle_multiset_sha256": "171d0ad819595bea181f09868e5b8e1c8cb097104c19888499d65184aa0788a8"
+        },
+        {
+          "mesh": "wheel_fr_CartDetails_0",
+          "exact_to": "mid wheel geometry",
+          "paired_triangle_multiset_sha256": "8224518cb8d92c01a75164fde5f22c637f0060c0a953b7cfcdde130d26aca4a1"
+        },
+        {
+          "mesh": "wheel_fl_CartDetails_0",
+          "exact_to": "mid wheel geometry",
+          "paired_triangle_multiset_sha256": "35d25012afee92bfe99aa6155810e059d676d89b38568c28f6b30f273e959127"
+        },
+        {
+          "mesh": "wheel_rl_CartDetails_0",
+          "exact_to": "mid wheel geometry",
+          "paired_triangle_multiset_sha256": "09dcccec90cf70a874b22b2408cbe8b81cacbb85ff70bad53f2a44b5717c153e"
+        },
+        {
+          "mesh": "wheel_rr_CartDetails_0",
+          "exact_to": "mid wheel geometry",
+          "paired_triangle_multiset_sha256": "2d6aa382c792c06f5bfcf77bed9ac0ef349ae185f148d41091a3fba0bc569448"
+        },
+        {
+          "mesh": "single_reconstructed_pole",
+          "exact_to": "canonical structural timber",
+          "paired_triangle_multiset_sha256": "963a1233b0adc60619a479c059bb65029d26a4121b2032af903a3a4112745b6b"
+        },
+        {
+          "mesh": "central_drawbar_bearing",
+          "exact_to": "canonical structural timber",
+          "paired_triangle_multiset_sha256": "098be0c4e44527f1f70259ac0b2d6e5beeb04c7218bdafef1019a533b5328dbd"
+        },
+        {
+          "mesh": "central_reconstructed_reach",
+          "exact_to": "canonical structural timber",
+          "paired_triangle_multiset_sha256": "98ba0301c1684d658942b0b34b0415ec61d7cef6c39be191d60dee1451bd9f5f"
+        }
+      ],
+      "near_geometry_shader_attributes_exact_to_master": false,
+      "lossless_delivery_cleanup": {
+        "before": {
+          "triangles": 10178,
+          "vertices": 27891,
+          "draw_batches": 12
+        },
+        "after": {
+          "triangles": 10178,
+          "vertices": 27891,
+          "draw_batches": 12
+        },
+        "oriented_paired_semantics_equal": true
+      },
+      "webp_extension_declared_required": true,
+      "texture_RGBA8_mip_estimate_bytes": 2097144,
+      "decoded_semantics_sha256": "ab3dfbac7425ce43c176f3420805e498dbf7c7a31dfb9d71b72600527aedd3d1",
+      "meshopt_decoded_exact_to_precompression": true
+    }
+  ]
+}

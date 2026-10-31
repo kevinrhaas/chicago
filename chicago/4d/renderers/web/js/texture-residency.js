@@ -149,18 +149,63 @@ function redecode(encoded) {
   });
 }
 
+/** A source GLTF needs a fresh parse before rebuilding if its uploaded compressed
+ * payloads were released. Inspect the actual arrays: a source texture clone can
+ * share released descriptors without carrying the batch texture's userData marker.
+ */
+export function hasReleasedTextureLevels(gltf) {
+  let released = false;
+  gltf?.scene?.traverse?.((node) => {
+    if (released) return;
+    for (const material of [].concat(node.material ?? [])) {
+      for (const value of Object.values(material ?? {})) {
+        if (value?.isCompressedTexture && value.mipmaps?.some((level) => level?.data?.byteLength === 0)) {
+          released = true;
+        }
+      }
+    }
+  });
+  return released;
+}
+
+/** Required texture-slot multiplicities for one unchanged source asset. Compare
+ * stable node/material ordinals, material names and slot keys, never runtime IDs
+ * or compressed format choices.
+ */
+export function hasRequiredSourceTextures(previous, replacement) {
+  const slots = (gltf) => {
+    const counts = new Map();
+    let ordinal = 0;
+    gltf?.scene?.traverse?.((node) => {
+      const nodeOrdinal = ordinal++;
+      for (const [materialIndex, material] of [].concat(node.material ?? []).entries()) {
+        for (const [slot, value] of Object.entries(material ?? {})) {
+          if (!value?.isTexture) continue;
+          const key = JSON.stringify([nodeOrdinal, materialIndex, material.name ?? '', slot]);
+          counts.set(key, (counts.get(key) ?? 0) + 1);
+        }
+      }
+    });
+    return counts;
+  };
+  const fresh = slots(replacement);
+  return [...slots(previous)].every(([key, count]) => (fresh.get(key) ?? 0) >= count);
+}
+
 /**
  * @param {object} o
  * @param {THREE.Object3D} o.group       the structures group (buildings.js)
  * @param {THREE.WebGLRenderer} o.renderer
  * @param {string} o.tier                'full' | 'balanced' | 'light'
+ * @param {boolean} o.releaseCompressedLevels  release uploaded compressed source arrays
+ *                                       on any device; requires encoded bytes for refill.
  * @param {boolean} o.closeImages        a phone: close a distant source's bitmap when
  *                                       its encoded bytes were kept, and close a
  *                                       re-decoded one once it is uploaded again; let
  *                                       go of a KTX2's transcoded levels likewise
  */
 export function createTextureResidency({ group, renderer, tier = 'full', closeImages = false,
-  settings = null } = {}) {
+  releaseCompressedLevels = closeImages, settings = null } = {}) {
   const cfg = {};
   const tierSettings = (t) => ({ ...(RESIDENCY[t] ?? RESIDENCY.full), ...(settings ?? {}) });
   Object.assign(cfg, tierSettings(tier));
@@ -246,15 +291,17 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
     if (entry.encoded) state.encodedBytes += entry.encoded.view.byteLength;
   }
 
-  // A phone closes a resident picture's decoded copy once it is uploaded
-  // (closeUploadedImages), and a stand-in cannot be drawn from a closed bitmap, so
-  // there every stand-in is made now, while every picture is still open.
-  if (closeImages) for (const entry of entries.values()) ensureStandIns(entry);
+  // Prepare a stand-in before releasing its source: every decoded image on a
+  // phone, or recoverable compressed levels on desktop. Regular desktop images
+  // stay decoded; their stand-ins can be made lazily if distance later evicts them.
+  for (const entry of entries.values()) {
+    if (closeImages || (releaseCompressedLevels && entry.compressed && entry.encoded)) ensureStandIns(entry);
+  }
 
   // T-2828: the KTX2 sources whose transcoded levels a phone still holds, and can let
   // go of because the file is kept to transcode them from again.
   const holding = new Set();
-  if (closeImages) {
+  if (releaseCompressedLevels) {
     for (const entry of entries.values()) if (entry.compressed && entry.encoded) holding.add(entry);
   }
   const uploaded = (tex) => {

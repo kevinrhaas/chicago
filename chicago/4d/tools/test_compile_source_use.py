@@ -6,6 +6,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 import audit_confidence
+import compile_source_use
 from compile_source_use import Compiler, compile_outputs, owned_resolves, MANIFEST, NEWSPAPERS, STEP
 
 
@@ -47,6 +48,18 @@ class SourceUseTests(unittest.TestCase):
         self.assertEqual(self.rows(c)['memory']['counts'], {'entities': 1, 'claims': 1, 'grades': [[1, 0, 0], [1, 0, 0]]})
         self.assertEqual(self.rows(c)['unused']['use'], 'unused')
         self.assertEqual(json.loads(c.outputs()['unused.json'])['edges'], [])
+
+    def test_raw_index_accepts_exact_ceiling_and_rejects_next_utf8_byte(self):
+        c = Compiler(self.root)
+        size = len(c.outputs()['index.json'].encode())
+        # Exercise the real boundary with the normal fixture, without introducing
+        # an implausible 190 KB citation into the reader's language conversion.
+        with patch.object(compile_source_use, 'INDEX_BUDGET', size):
+            self.assertEqual(len(c.outputs()['index.json'].encode()), size)
+            # A non-ASCII character must be charged as UTF-8 bytes, not one character.
+            c.sources['map']['citation'] += 'é'
+            with self.assertRaisesRegex(ValueError, 'source index .* exceeds .*byte budget'):
+                c.outputs()
 
     def test_dangling_source_refused(self):
         with self.assertRaisesRegex(ValueError, 'unresolved source missing'):
