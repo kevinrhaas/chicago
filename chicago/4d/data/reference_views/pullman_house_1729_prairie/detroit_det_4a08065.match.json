@@ -13,7 +13,7 @@
         "shrubs": 13,
         "trees": 3,
         "beds": 0,
-        "creeper": 7
+        "creeper": 23
       }
     ],
     "street_trees": 35,
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+      "sha256": "847c3a15d3b1a9c4690b0bc4fdd9125c20a328db20c491b53019b9fbea7224b9"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+      "sha256": "8130c909259d710b5e03e496f1a6c3f091ebb5a4ea53337250865ad2a54d2f56"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "48bb3e631f57e93d1d79e7407cb46b818aa2eeaf5e8da551263171bb6e8b857d",
+  "flora_sha256": "a3e10a59e132e806fd02fbda4a52bc8a64866b2a201ad018daa923fb0a291901",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -247,7 +247,7 @@
     {
       "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank)",
       "status": "open",
-      "how": "T-1881: the lot's creeper is drawn from the front-yard layer, but sparser than the picture and, in a winter render, leafless"
+      "how": "T-1881 (2026-10-30): the stretches this print shows wholly clothed are now drawn as one mantle up to the balcony's belt course (data/front_yards/1904.json, `mantle` patches from tools/plant_prairie_1904_front_yards.py's creeper_walls): the front's ground storey from the portico's south column to the south-west corner (s 25-34.6 m, x 414-558 through this camera) and the flank west of the porte-cochere (x 570-605), each patch's top at 6.4-7.0 m (y 387-405, the print's 387-395), stopping at the two round-arched lights the print shows clear and clothed under their sills (a summer render through this camera checked it). Still open: this view's winter render draws the ivy leafless where the print shows it in leaf; the leaves over the two lights' heads (the mantle's patches rise from the ground, so the wall over each head, about 1 m, is bare); the ivy on the porte-cochere's piers and the porch's piers, which the generator keeps clear as part of the carriage way and the porch"
     },
     {
       "what": "the belt course under the second storey's sills, where the ivy leaves it to be seen (y about 383-395 at the portico's balcony and across the flank)",
