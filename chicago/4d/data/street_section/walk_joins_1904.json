@@ -14,8 +14,8 @@
   "tuck_m": 0.04
  },
  "summary": {
-  "walk_ends": 72,
-  "joined": 51,
+  "walk_ends": 73,
+  "joined": 52,
   "already_met": 13,
   "not_street_ends": 8,
   "widest_gap_m": 1.6
@@ -54,6 +54,7 @@
   {"id": "house_1828_prairie:service_walk:1", "house": "house_1828_prairie", "kind": "service_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.303, "width_m": 1.66, "polygon_local_m": [[1393.017, -3316.52], [1392.999, -3314.86], [1393.382, -3314.856], [1393.398, -3316.516]]},
   {"id": "jones_house_1834_prairie:front_walk:0", "house": "jones_house_1834_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.326, "width_m": 1.2, "polygon_local_m": [[1393.008, -3317.97], [1392.995, -3316.77], [1393.401, -3316.766], [1393.413, -3317.966]]},
   {"id": "kellogg_house_1709_prairie:front_walk:0", "house": "kellogg_house_1709_prairie", "kind": "front_walk", "face": "prairie__prairie_ic_16_18", "gap_m": 0.284, "width_m": 1.5, "polygon_local_m": [[1410.848, -3102.684], [1410.859, -3104.184], [1410.503, -3104.189], [1410.484, -3102.689]]},
+  {"id": "kellogg_house_1923_prairie:front_walk:0", "house": "kellogg_house_1923_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.379, "width_m": 1.28, "polygon_local_m": [[1414.072, -3424.571], [1414.084, -3425.851], [1413.626, -3425.855], [1413.613, -3424.575]]},
   {"id": "kimball_house_1801_prairie:front_walk:0", "house": "kimball_house_1801_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.311, "width_m": 2.2, "polygon_local_m": [[1411.932, -3218.235], [1411.953, -3220.435], [1411.563, -3220.439], [1411.541, -3218.239]]},
   {"id": "marsh_house_1824_prairie:front_walk:0", "house": "marsh_house_1824_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.306, "width_m": 1.28, "polygon_local_m": [[1392.743, -3289.595], [1392.729, -3288.315], [1393.116, -3288.311], [1393.129, -3289.591]]},
   {"id": "marsh_house_1824_prairie:service_walk:1", "house": "marsh_house_1824_prairie", "kind": "service_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.294, "width_m": 1.69, "polygon_local_m": [[1392.894, -3303.344], [1392.875, -3301.654], [1393.249, -3301.651], [1393.266, -3303.341]]},

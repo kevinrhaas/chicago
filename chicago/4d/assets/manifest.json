@@ -3316,14 +3316,14 @@
       "phase_id": "draft_1904",
       "structure_id": "kellogg_house_1709_prairie_coach_house"
     },
-    "kellogg_house_1923_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "kellogg_house_1923_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 268416,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "6e0b4782597b7af88cbe6cb75ff36e39b37b369201b85c4652c01fdce37edba1",
+      "bytes": 6947548,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "c94164de9312cbfb110665bd634a6d2d4ed44f0a11652aa96c3a10bfc00d0c09",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "kellogg_house_1923_prairie"
     },
     "kellogg_house_1923_prairie_coach_house__draft_1904.glb": {

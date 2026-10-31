@@ -1,0 +1,27 @@
+{
+ "id": "glessner_blog_2011_prairie_1800_1900_elevations",
+ "type": "illustration",
+ "citation": "[Row elevations of the 1800 and 1900 blocks of Prairie Avenue] 'East Side of Prairie Ave' / 'West Side of Prairie Ave'. Undated drawing, unknown draughtsman. Reproduced in the Glessner House blog, 'Business Encroachment on Prairie Avenue', 18 April 2011.",
+ "author": "unknown draughtsman",
+ "date": "undated (the blog says it shows the two blocks 'as they appeared at the time', 1914; its lettering suggests a later reconstruction drawing)",
+ "describes_date": "c. 1914 (the hosting blog's reading)",
+ "repository": "Glessner House Museum (blog reproduction; the original's holder is not named). Prairie library image a19-gh-prairie-1800-1900-elevations (stream-1900.json), recorded there as 'unknown — link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a19-gh-prairie-1800-1900-elevations.jpg), committed since T-3282 at data/sources/assets/kellogg_1923_pictures_t3282/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://glessnerhouse.blogspot.com/2011/04/business-encroachment-on-prairie-avenue.html",
+ "locator": "The upper row ('East Side of Prairie Ave'), running north to south from left to right: the third front from the right, x 1340-1435 px of the 1600 px copy, is 1923 (1905 with its dormered mansard and balconies, 1919 with its gables and tall stack, then 1923, then 1945 last).",
+ "tier": 2,
+ "rights_status": "check_required",
+ "rights_note": "A blog reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3282) is the store's, unaltered, with a crop of the 1923 front, and their attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-31 (T-3282, piece 2 of T-1908) from the image store's reference copy, 1600 x 464 px, sha256 8392d418e65d1c9a0bd957c1ed711a7ba2773753ee1f6dca004f759e9801bbbe.",
+ "note": "Two rows of front elevations, one front per house on a common baseline and at what reads as one scale (1905's front agrees with its record's heights and the sheet's width to within a few per cent). Its 1923: two storeys over a high basement, a canted bay of three windows a storey across the front's north part carried up through the roof, the entrance right of it under a broad framed porch, two windows a storey south of it, hoods over every window, a cornice, and a steep mansard with cresting along its curb and a stack at its south end; no dormer in the front face. It draws the front about 12.8 m across where the 1911 sheet has 16.7 m, so it is weighed below the sheet for plan and used for composition and heights.",
+ "what_it_supplies": [
+  "1923's front composition: the corner bay carried through the roof, the entrance's place, the window columns, the mansard and its cresting",
+  "the storeys', windows' and roof's heights at the row's common scale"
+ ],
+ "what_it_does_not_supply": [
+  "a date it can be trusted to: undated, and possibly a later reconstruction",
+  "the flanks, the rear and colour",
+  "the front's width, which it draws narrower than the sheet"
+ ]
+}
