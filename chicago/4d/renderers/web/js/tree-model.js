@@ -119,6 +119,20 @@ export const ARCH = {
     farBins: [8, 3], sides: { near: [10, 7, 4, 3], far: [3, 3, 0, 0], distant: [3, 3, 0, 0] },
     minRad: { mid: 0.045, far: 0.1, distant: 0.16 }, minRadCoarse: { far: 0.12 }, elm: true,
   },
+  // T-3164 — A YOUNG PARKWAY ELM'S HEAD, before it vases. The 1894 Inland
+  // conservatory plate and Lowe's c. 1897 print both show the parkway tree before
+  // the 1800 Calumet gate as one straight leader running up through its crown, its
+  // limbs leaving it from about 3 m and spreading wide and low in an open head
+  // over the walk: the habit of an elm still on its central leader, not the
+  // forked fountain of the grown street elm above. The habit is read off the two
+  // pictures; these numbers are reconstructed (docs/LIBERTIES.md
+  // L-pullman-18th-street-trees-1934). Only a pictured tree that names
+  // `form: 'broad_head'` grows on it (street-trees.js).
+  ulmus_americana_young: {
+    crown: 'round', crownBase: 0.30, fork: 'excurrent', stems: [1, 1], scaffolds: [6, 8],
+    limbAngle: 52, rise: 0.03, twist: 0.22, order2: [5, 46], order3: [3, 48], droop: 0.14,
+    clump: 0.08, clumpMin: 0.45, density: 0.70, gaps: 0.50, leaf: 'elm', bark: 'interlaced',
+  },
   fraxinus_pennsylvanica: {
     crown: 'oval', crownBase: 0.36, fork: 'decurrent', stems: [1, 1], scaffolds: [3, 5],
     limbAngle: 34, rise: 0.06, twist: 0.20, order2: [5, 44], order3: [3, 44], droop: 0.10,
