@@ -63,6 +63,11 @@ def main() -> int:
     shallow = b["variant"]
     # T-3047: 1801's pavilion is now shallow (0.1 m proud, its gable a parapet carried back past
     # the wall plane, below); the deep gable is held on the same pavilion stood 0.6 m proud
+    # T-1890: 1801's gable now carries the slated cross roof behind it (held below); the
+    # gable's own checks are made on the pavilion without it
+    cross = copy.deepcopy(shallow)
+    shallow = copy.deepcopy(shallow)
+    shallow["roof"]["gable"].pop("behind", None)
     v = copy.deepcopy(shallow)
     v.pop("shallow", None)
     # T-1890: 1801's canted face stopped under its cornice is a shallow pavilion's; held below
@@ -217,6 +222,41 @@ def main() -> int:
     bad = copy.deepcopy(shallow)
     bad["roof"]["gable"]["inset_m"] = [0.0, 1.6]
     refused(bad, "a gable inset past 1.5 m (T-1890 widened the bound from a metre)", "stands its corners 0-1.5 m in")
+
+    # T-1890: the cross roof behind 1801's gable (the Taylor photograph and HABS photograph 1): a
+    # level ridge on the gable's middle under its copings, two slopes from the side walls' tops
+    # run back from the parapet's back, slated cheeks under them and the end closed
+    bh = cross["roof"]["gable"].get("behind")
+    check(bool(bh), "1801's pavilion carries a roof behind its gable")
+    if bh:
+        cb = K8.build_variant(cross, board=False)
+        cm = cb.meta["roof"]["behind"]
+        rp = cb.prims["roof"].pos
+        xl_, xc_, xr_ = cm["x_m"]
+        ridge = [q for q in rp if abs(q[1] - bh["ridge_m"]) < 1e-9]
+        check(ridge and all(abs(q[0] - xc_) < 1e-9 for q in ridge)
+              and abs(min(q[2] for q in ridge) + bh["run_back_m"]) < 1e-9,
+              f"its ridge level at {bh['ridge_m']} m on the gable's middle, run back {bh['run_back_m']} m")
+        check(cb.meta["roof"]["planes"] == 0 and max(q[2] for q in rp) < 0.0,
+              "nothing of it in front of the wall plane (the parapet is the gable's face)")
+        check(bh["ridge_m"] <= cb.meta["roof"]["gable_top_m"] - 0.1 - 0.18,
+              "its ridge under the copings' beds")
+        feet = [bh["cheek_from_m"]] * 2 if not isinstance(bh["cheek_from_m"], list) else bh["cheek_from_m"]
+        check(any(abs(q[0] - xl_) < 1e-9 and abs(q[1] - feet[0]) < 1e-9 for q in rp)
+              and any(abs(q[0] - xr_) < 1e-9 and abs(q[1] - feet[1]) < 1e-9 for q in rp),
+              f"its cheeks from {feet[0]} and {feet[1]} m")
+        a_ = copy.deepcopy(cross)
+        a_["roof"]["gable"]["behind"]["ridge_m"] = cb.meta["roof"]["gable_top_m"]
+        refused(a_, "a roof behind the gable over its copings", "0.1 m or more under the copings")
+        a_ = copy.deepcopy(cross)
+        a_["roof"]["gable"]["behind"]["run_back_m"] = 0.2
+        refused(a_, "a roof behind the gable that stops in its parapet", "runs back 0.5-8 m")
+        a_ = copy.deepcopy(cross)
+        a_["roof"]["gable"]["behind"]["cheek_from_m"] = 13.5
+        refused(a_, "cheeks rising from under the wall top by less than a metre", "a metre or more under")
+        a_ = copy.deepcopy(v)   # the deep gable held above, given the same roof behind it
+        a_["roof"]["gable"]["behind"] = copy.deepcopy(bh)
+        refused(a_, "a roof behind a deep projection's gable", "a shallow pavilion's")
 
     print(f"\n{'FAIL' if failures else 'ok'}: {len(failures)} failure(s)")
     return 1 if failures else 0

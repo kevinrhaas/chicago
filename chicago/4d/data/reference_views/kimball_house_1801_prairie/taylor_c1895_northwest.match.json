@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "630004d6554c275969ae460230d7e39d74198559aaf99f270696fbe0731a4469",
+  "glb_sha256": "b69c2fc1e6b6f1ecf004af183e5bf6d5915154541ffbfbe9cc7272dc13f8ec15",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -150,8 +150,8 @@
     },
     {
       "what": "the mansard's curb and deck: at the front's north-west corner the print's curb stands about 35-50 px lower than the build's (the corner hip's top at about x 950, y 320 against 978, 247) and its corner hip runs about 25-30 px west of the build's; the front's deck ends at the print's x 1092 under its south finial, where the build's runs on to x 1187. So the cresting, the corner hood and its finial stand about 35-50 px over the print's, and the south finial about 95 px south of it (seen by T-3000)",
-      "status": "open",
-      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera. T-1890 (2026-10-27, the hoods' flare): through T-3074's camera the build's north-west curb corner still renders about 25-30 px over and east of the print's, and the 18th Street dormer's hood's cheek about 20 px shallower at its top than the print's, both as if the print's lower faces ran back further than the build's 69.1 degrees over 6.4 m; the deck's extent, the faces' pitch and the dormers' set-back are one question here."
+      "status": "within tolerance",
+      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera. T-1890 (2026-10-27, the hoods' flare): through T-3074's camera the build's north-west curb corner still renders about 25-30 px over and east of the print's, and the 18th Street dormer's hood's cheek about 20 px shallower at its top than the print's, both as if the print's lower faces ran back further than the build's 69.1 degrees over 6.4 m; the deck's extent, the faces' pitch and the dormers' set-back are one question here. T-1890 (2026-10-30/31): the two halves of this difference are two things. THE CURB: tried as the record's own hypothesis (lower_rise 6.4 -> 5.8 m at 66 degrees), it brought this print's north-west curb from about 45 px over to about 5, but put HABS photograph 2's curb about 46 px UNDER its print, where the committed 6.4 m at 69.1 degrees sits within about 5 px of it (the corner at y 281 against 276, along the 18th Street face 325 against 319); this print's curb lines recede far flatter than any level curb can through its camera (front to corner about 20 px against at least 36, 18th Street to corner about 50 against about 110), so the two pictures disagree about the curb's height and it is a camera question: within tolerance, reverted. THE DECK'S SOUTH END is not the deck's: it is the south pavilion's own slated cross roof, its level ridge running back from just under the gable's apex to the finial where the front's cresting ends, now built (see 'the south pavilion's cross roof' below)."
     },
     {
       "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do",
@@ -276,6 +276,11 @@
     {
       "what": "the east range's second frontispiece (T-1890, read off HABS photograph 2): on this print it stands behind the tree's trunk and branches at about x 250-280, where a pointed form shows only indistinctly",
       "status": "not shown"
+    },
+    {
+      "what": "the south pavilion's cross roof (T-1890, read off this print through T-3074's camera): behind the coped gable a slated roof runs back, its ridge from just under the gable's apex (about x 1250, y 287) to the finial where the front's cresting ends (about x 1097, y 352); carried onto the gable's middle (v 8.275) it is a level line at 16.26-16.38 m from u 20.1 back to u 15.97. The build stood the main mansard's front face, deck and cresting on to the south-west curb corner there, its finial about 95 px south of the print's",
+      "status": "fixed",
+      "how": "T-1890: K08's new roof behind a shallow pavilion's gable (bays.p_south roof.gable.behind: ridge 16.3 m, run back 4.5 m to u 16.0, slopes from the side walls' tops, slated cheeks, slated as the mansard) and the deck's cross_roof stop (k01_mansard_deck): the front's cresting stops at it and the south-west finial stands on its ridge's end, now within about 10 px of the print's; its ridge renders along the print's. L-kimball-1801-cross-roof-1890"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

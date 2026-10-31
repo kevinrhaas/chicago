@@ -17,7 +17,7 @@
  *
  *   shrubs    the nursery shrubs of an 1890s yard (YARD_PLANTS): lilac, Van Houtte's
  *             spiraea, the smooth hydrangea in its July flower, the garden rose in bloom,
- *             arborvitae sheared to a cone or a ball;
+ *             arborvitae sheared to a cone or a ball, or clipped to a column (Pullman's terrace);
  *   trees     a young maple or linden in the lawn, as the 1816 and Pullman photographs show;
  *   beds      a round or oval bed cut in the lawn, bedded out as the period's books lay them:
  *             scarlet or pink geraniums massed, or edged with coleus;
@@ -66,6 +66,10 @@ export const YARD_PLANTS = {
     bloom: { shape: 'cup', rgb: [196, 30, 52], size_m: [0.08, 0.11], height_frac: 0.4 } },
   arborvitae: { speciesId: 'thuja_occidentalis', common: 'American arborvitae', h: [2.0, 3.2],
     crownW: [0.9, 1.3], dbh: [0.05, 0.08], dark: 0x1f361b, light: 0x4f6c34, bark: 0x6b5444, evergreen: true },
+  // T-1934: the Pullman palm house terrace's clipped columns (Taylor's 16554 and 16555).
+  column: { speciesId: 'thuja_column', arch: 'thuja_column', common: 'arborvitae clipped to a column',
+    h: [2.6, 3.8], crownW: [0.45, 1.0], dbh: [0.05, 0.08], dark: 0x1f361b, light: 0x4f6c34, bark: 0x6b5444,
+    evergreen: true },
   globe: { speciesId: 'thuja_globe', arch: 'thuja_globe', common: 'arborvitae sheared to a ball',
     h: [0.8, 1.15], crownW: [0.9, 1.25], dbh: [0.02, 0.03], dark: 0x213a1c, light: 0x55723a,
     bark: 0x6b5444, evergreen: true },

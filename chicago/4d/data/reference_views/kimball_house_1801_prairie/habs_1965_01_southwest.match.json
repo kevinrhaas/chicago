@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "630004d6554c275969ae460230d7e39d74198559aaf99f270696fbe0731a4469",
+  "glb_sha256": "b69c2fc1e6b6f1ecf004af183e5bf6d5915154541ffbfbe9cc7272dc13f8ec15",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -53,7 +53,8 @@
     },
     {
       "what": "the front north of the pavilion: the camera re-solved on the rebuilt corner (T-3108) cannot also fit the loggia: its arch's crown renders about 117 px north of the print's (x 278 against 395) and the bow between them wider than the print's, where T-3107's camera, fitted with the pavilion's face free to stand 2.1 m proud, held the arch within 10 px. The front's layout between the loggia and the pavilion and this picture's do not agree; the Taylor camera holds that stretch",
-      "status": "open"
+      "status": "within tolerance",
+      "how": "T-1890 (2026-10-31): two camera fits disagree about this stretch: T-3107's camera held the loggia's arch within 10 px with the pavilion's face free to stand 2.1 m proud, T-3108's re-solved camera, fitted on the rebuilt corner, cannot also hold it. The Taylor print, which looks straight along this stretch, holds the loggia, its arch and the bow within its match record's tolerances, so the gap is this camera's (AGENTS.md rule 11: a gap two camera fits disagree about is within tolerance)."
     },
     {
       "what": "the south bay: the print's lit face with its column of lights (x 1037-1150 px) stands proud of the wall with a shaded face beyond it to x 1222; the build's south wall was flat. T-3109 builds it on K08 to the 1911 sheet's trace: a canted bay from u 13.15 to 6.87, 0.85 m proud with cants 0.87 m along the wall, two storeys to 8.7 m, one transomed light a storey on its front (L-kimball-1801-south-bay-3109)",
@@ -77,11 +78,13 @@
     },
     {
       "what": "the recessed range behind the south-east corner: set back from the wall, tall glazed openings under a carved head at about the cornice (x 1225-1300 px, y 610-770); the build's rear wings stand there plain (T-3109). The 1911 sheet steps the wall back to about v 9.8 east of u 6.87 (the bay's east end), where the build's rectangle holds v 11.0 to the corner",
-      "status": "open"
+      "status": "within tolerance",
+      "how": "T-1890 (2026-10-31): 1965 fabric on ground the 1911 sheet draws open, so not built for 1904. Through this camera the range's cornice (about x 1250, y 708) lies on a ray that crosses u -2 to -7.6 at v 11.0 to 8.7 for depths of 47-53 m, at about 6.9 m; its glazing runs down to about y 1010, below the grade the sheet's east range (r2's court face at u -8.3) would put under it at that depth (about y 934), so it stands nearer the camera than r2, in the court. The 1911 sheet's trace of the house (s28fp-1801-b1, data/traces/prairie_1904_footprints_s28.json) has nothing south of v 7.5 between the main block's rear (u 0) and r2 (u -8.3): behind u 0 it steps in to v 9.8, 9.1 and 7.5 by u -0.4, 7.2 to u -2.5 and 6.05 on to r2. The source record carries a 1965 picture to 1904 only for fabric the c. 1895 print or the 1911 sheet does not contradict, so the picture and the sheet disagree here and the 1904 build keeps the court open. (The sheet's steps of the main block's own south wall behind u 6.9, which the record's footprint runs straight, project at x 1050-1220 behind the wall gable and the canted bay and are not this range.)"
     },
     {
       "what": "the rear range beyond the court: a lower two-storey white range with a gable and a hooded dormer facing the court (x 1300-1640 px); the build's wings stand there with hipped roofs (T-3110)",
-      "status": "open"
+      "status": "within tolerance",
+      "how": "T-1890 (2026-10-31): 1965 fabric on ground the 1911 sheet draws open, so not built for 1904. As T-1890 read on 2026-10-30, its foot stands on no wing of the house through this camera: the court fence in front of it (about x 1450, y 1110) is on the ground at about u 11, v 20, 31 m from the eye, and the range rises behind it with its eaves about y 910, about 190 px under where r2's 6.35 m eaves render at that bearing (about y 725 at v 11), so it is a lower building standing in the court between the fence and r2. The 1911 sheet's trace has no building there (the house's trace s28fp-1801-b1 holds v 0-7.5 east of the main block, r2 from u -8.3; 1811's buildings begin at v 24.2), so this picture and the sheet disagree and the 1904 build keeps the court open (the source record carries the 1965 picture to 1904 only where the sheet does not contradict it)."
     },
     {
       "what": "the south bay through this camera: its front renders about three times as foreshortened as the print's (its light about 20 px across against 65), and about 95 px west of the print's, and the print's courses fall more steeply on the shaded face beyond than on the lit one, as if the lit face were turned toward the camera. The camera is fitted to the front and the two south corners and foreshortens the whole south wall harder than the print does, so the bay's plan stands on the 1911 sheet; a camera re-solved on the south wall's own courses decides the cants (T-3109)",
@@ -134,6 +137,16 @@
     {
       "what": "the cant's far edge: the print's leans, its foot at the balustrade about x 720 px against x 742 under the cornice; the build's stands upright at about x 738, so its foot is about 18 px (about 0.3 m on the light's 40 px for 0.65 m) further out than the print's, tapering to nothing at the cornice (seen by T-1890)",
       "status": "within tolerance"
+    },
+    {
+      "what": "the south pavilion's cross roof (T-1890, read off this print through T-3108's camera): behind the coped gable a slated roof whose south slope comes down to the pavilion's eave and whose ridge, white-flashed, runs back from under the gable's apex (about x 570, y 225) to a slated hood with a finial (about x 725, y 295); carried onto the gable's middle (v 8.275) the ridge ends at about u 16.0, where the Taylor print also ends it. The build stood the main mansard's south-west hip and south face there, its finial on the curb's corner (about x 661)",
+      "status": "fixed",
+      "how": "T-1890: built as the Taylor print reads it (bays.p_south roof.gable.behind, deck.cross_roof; L-kimball-1801-cross-roof-1890): ridge 16.3 m, run back 4.5 m, slated as the mansard. Through this camera the ridge reads about 15.0 m, about 1.3 m under the Taylor print's; this camera reads the gable itself about 1.2 m high (the 'gable's height' entry), so the two pictures disagree about the height and the Taylor print, which holds the gable within 10 px, is followed (within tolerance)."
+    },
+    {
+      "what": "the hood under the cross roof's finial: a small slated pyramid, white-flashed on its hips, rising from the ridge's end to the finial (about x 745-800, y 160-240); the build stands the finial on the ridge's end with no hood, and about 60 px west of this print's (x about 720 against 780), where the Taylor print holds it within about 10 px",
+      "status": "open",
+      "how": "T-1890: the finial's place is a disagreement between the pictures (within tolerance on its own); the hood is a missing element. K01's deck hoods stand only on the curb's corners (k01_mansard_deck.hoods); one on a cross roof's ridge end is a kit piece still to build."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2494, ts: '2026-10-31T13:04:03.835Z', date: 'Oct 31, 2026, 8:04 AM CT', title: 'Clipped evergreens read as solid, dense shapes', kind: 'improvement',
+    items: [
+      'The four clipped columns on the Pullman palm house\'s terrace at 1729 Prairie are now dense dark spires, full almost to the top and drawn in to a blunt point, as Taylor\'s photographs show them.',
+      'Every clipped arborvitae, ball and standard in the 1904 front yards now has a solid body under its leaves, so you no longer see the wall or the stem through it, from near or far.',
+    ] },
+  { v: 2493, ts: '2026-10-31T13:02:53.010Z', date: 'Oct 31, 2026, 8:02 AM CT', title: '1801 Prairie\'s slate roof behind its south gable', kind: 'improvement',
+    items: [
+      'Behind the Kimball house\'s carved south gable a steep slate roof now runs back into the main roof, its ridge just under the gable\'s top. Taylor\'s c. 1895 photograph and the 1965 survey photograph both show it.',
+      'The iron cresting along the front now stops at that roof, and the corner finial stands on its ridge\'s far end, where both photographs put it.',
+    ] },
+  { v: 2492, ts: '2026-10-31T12:06:03.265Z', date: 'Oct 31, 2026, 7:06 AM CT', title: 'The Field house\'s carving, balconies and conservatory details', kind: 'improvement',
+    items: [
+      '1905 Prairie, Marshall Field\'s house, now has the carved crests the 1893 Pictorial Chicago plate shows over its upper windows, and carved rings in the frieze under its cornice.',
+      'The iron balcony over the front door now runs its full length, on tall scrolled brackets that reach down beside the doorway.',
+      'The glass conservatory on the south side has a crossbar two thirds of the way up its windows and dark-painted bars. Its curved glass roof now rises to a flat deck with an iron railing round it, as in the plate.',
+    ] },
   { v: 2491, ts: '2026-10-31T11:20:53.436Z', date: 'Oct 31, 2026, 6:20 AM CT', title: 'Pullman\'s palm house terrace keeps its four clipped columns all year', kind: 'improvement',
     items: [
       'Four slim clipped evergreens now stand on the palm house\'s terrace at 1729 Prairie: a pair before the wing\'s arched windows and two by the drum. Taylor\'s winter photograph shows all four, and his summer one shows three.',
