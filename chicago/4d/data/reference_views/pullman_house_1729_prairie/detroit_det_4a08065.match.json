@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "10cc9640d027c24fd7947c603d495a1885de2d676d075387396dae2fe3da94e1",
+  "glb_sha256": "332b718e9187ee4c5462fe17c64acfaf7a1d0143b219c438f0dbb2fd047f5447",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "8130c909259d710b5e03e496f1a6c3f091ebb5a4ea53337250865ad2a54d2f56"
+      "sha256": "51ceebfcbf3aaa887cce350ac152c685d447cc4558e63a173c0b9c3566e67449"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "a1a81086da52dd0d71cac1a073a8e5d6d6ee723e7b7ceeb8e6ab5e1cc49c8eda",
+  "flora_sha256": "85555918469299710ad129dce063c62e8fa036a7eb971404f6d4291c56952b26",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -277,6 +277,10 @@
       "what": "the porte-cochère's west arch, seen nearly square (x 610-645 px), and the front's past the corner pier: piers either side of each arch equal, banded, under the entablature",
       "status": "within tolerance",
       "how": "T-1881: the end arches centred on the face standing out before the 18th Street pavilion (4.22 m out, 2.5 m across, 0.5 m piers) and the front's at s 10.5 (2.4 m); this print reads the west arch 0.81-3.18 m out on a block it reads 4.27 m out, and Taylor's no. 1445 reads the block 5.45 m out with its arch 1.9-4.7 m, so the build's place between them is a disagreement between the two pictures; the banding, impost and ring are a pixel or two here and are read off Taylor's"
+    },
+    {
+      "what": "the owner's report, 2026-10-30: the Prairie front stepped back three times from the north side, the entry in the middle step, the third step the corner. Built (T-1881) on the 1911 sheet's three lines (u 30.7, then u 29.4 for v 8.4-10.5, then u 27.75 to the corner): the forward block with the portico and door, a 1.95 m middle step 1.65 m out (v 8.45-10.4) banded under its own mansard section, and the wall to the south-west corner. The step renders at x 400-440, on the print's narrow banded face at x 413-428 between the portico block's window (x 390-402) and the big-dormer bay",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
