@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
+      "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88"
     }
   ],
-  "group_sha256": "4780273e7e9d6f1eeb2b372140777212dd42397ccd58d1a2a5f6ae3caf2367b9",
+  "group_sha256": "9ca75085e29aa8c71497daacd85b95edcfabb79fe7b9a9a4f1584999e2c51bff",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -73,7 +73,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 22
+        "creeper": 23
       }
     ],
     "street_trees": 37,
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "cc0b4e91866ec6d3c71e790a9668cc63913a40e01ef28335b93007d4805394b4",
+  "flora_sha256": "5a6b79e00c78cd18e86d4450b509d6186ed2daa89f9370976f2bf84a18ea1d27",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

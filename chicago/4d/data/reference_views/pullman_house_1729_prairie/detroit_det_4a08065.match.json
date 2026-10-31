@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f18763b70c56d9891b02f64291eb05516b24876482dfd380061633bfeca297a4",
+  "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -13,7 +13,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 22
+        "creeper": 23
       }
     ],
     "street_trees": 35,
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "4f89516fdeb3d4947902379b79e075f983c4a765bce6381e0c6ad8d4eb9f65cf",
+  "flora_sha256": "fae3e38865467d5853424bd74fd15083ff1a970d66677d8a5905f3f111f9b323",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -281,6 +281,16 @@
     {
       "what": "the owner's report, 2026-10-30: the Prairie front stepped back three times from the north side, the entry in the middle step, the third step the corner. Built (T-1881) on the 1911 sheet's three lines (u 30.7, then u 29.4 for v 8.4-10.5, then u 27.75 to the corner): the forward block with the portico and door, a 1.95 m middle step 1.65 m out (v 8.45-10.4) banded under its own mansard section, and the wall to the south-west corner. The step renders at x 400-440, on the print's narrow banded face at x 413-428 between the portico block's window (x 390-402) and the big-dormer bay",
       "status": "fixed"
+    },
+    {
+      "what": "the owner's report, 2026-10-31, reading this print: a full mansard with a peak in the centre in the build; a dormer north and south but none in the centre; second storey north, centre and south windows; main storey a window, the entry and a window to the south; front steps with a landing in the middle; ornament at the sidewalk gate; the top roof's colour",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the forward block narrowed to v 3.39-9.41 and centred on the door at v 6.4 with one second-storey light and no dormer; the north bay's lights and round-headed dormer (the print's left dormer, v 1.0-2.2 on the front) back on the main front; the deck behind the cresting at K05's least pitch (10 degrees) and painted black, so no red hip rises over the cresting; the flight broken after six of its twelve risers by a 1.2 m landing; the gate on the door's line with a turned urn on each pier, the south one where the print's pale finial stands (v 7.1-7.6, about 1.7 m up). L-pullman-1729-front-bays-1881"
+    },
+    {
+      "what": "the door's pale leaves and the portico's inner columns, read on 2026-10-29 at v 5.0 (x 355-371 px), against the build's axis at v 6.4",
+      "status": "open",
+      "how": "T-1881 (2026-10-31): the axis follows the owner's three-bay reading and the piers; the leaves sit behind ivy and the portico's columns, and a closer view of the portico (the CHM 1905 views, once solved) settles it (L-pullman-1729-front-bays-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
