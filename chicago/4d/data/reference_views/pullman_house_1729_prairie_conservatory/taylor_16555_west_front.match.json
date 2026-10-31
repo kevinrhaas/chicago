@@ -70,7 +70,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 16,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
         "creeper": 22
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "12b5f252e3fb9c077267718519e40ddef7f61ace2a6206950c9dc538a19ec8c5",
+  "flora_sha256": "0880710a86619800367606912f27040a744270abc943e5231caef0bedd9ea50f",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -321,6 +321,11 @@
       "what": "T-3273 (owner, 2026-10-31: \"the opaque glass is too white\"): the kit's opaque glass substitute set a step darker, re-rendered here; this building's own geometry is unchanged",
       "status": "fixed",
       "how": "glass_sky (0.60, 0.64, 0.66) -> (0.36, 0.41, 0.43) in generators/archetypes/k13_conservatories.py, so the white bars over it read as panes"
+    },
+    {
+      "what": "the low sheared balls behind the 18th Street coping before the stable's corner bay and its west half (x 777-910 px through this camera), which this print shows bare over the coping",
+      "status": "not shown",
+      "how": "replaced for 1904: Taylor's winter 16554, the later picture (c. 1890-1910 against this print's 1892-May 1894), shows a row of sheared balls and two small cones there over the coping, so they are taken as planted after this print was made (T-1934, 2026-10-31; data/front_yards/1904.json). The taller plants east of them, the clipped column and cones (x 933-987) and the dense mass at the stable's east end (x 1037-1088), stand where this print's leafy masses at x 903-963 and 1050-1100 rise, and were placed by crossing this print's columns with 16554's."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

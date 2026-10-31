@@ -10,7 +10,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 16,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
         "creeper": 22
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "6a705f87af5336354a423ca4bee43f54d1e039f59b541c1f812349267ad2af61",
+  "flora_sha256": "2782a5b30720eeacfbc106b90a452f9184553e840301e34b1ca09c0606870f95",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
