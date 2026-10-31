@@ -20,12 +20,12 @@
         "from_is": "seen"
       },
       "position": {
-        "utm_e": 447883.62,
-        "utm_n": 4637348.74,
+        "utm_e": 447880.328,
+        "utm_n": 4637347.5525,
         "rotation_deg": 90.0,
         "symbolic_location": "West side of State Street between South Water Street and Lake Street, just outside the western edge of the military reservation; fronting east onto State.",
         "confidence": "reconstructed",
-        "note": "INVENTED WITHIN AN ATTESTED NEIGHBOURHOOD. What Andreas gives is 'a log house just outside the military reservation' and nothing more precise. The reservation's western boundary on the south side WAS State Street until the town's February 1835 extension, which is documented, so 'just outside' means immediately west of State; the block between South Water and Lake is this project's dossier's reading of where that puts the school, and the dossier tags the exact lot [CONJ] itself. NO SOURCE PLACES THIS BUILDING ON A LOT, A CORNER OR A BLOCK FACE, so the coordinate is a point chosen inside a two-block-long strip and the confidence says so. METHOD: State Street survives on its plat line; the modern West Lake Street / North State Street centre (EPSG:26916 E 447902.80, N 4637282.51, OSM node 258957342) and the West Wacker Drive / North State Street centre (E 447899.81, N 4637407.66, 4 nodes averaged, spread 21.4 m), both fetched 2026-08-11, give the street's line, and the mid-point between them, E 447901.30 / N 4637345.08, is the middle of the block face. The footprint's east face is set 12.2 m west of that centreline - half of an 80 ft street per Hathaway 1834 - and the building centred on the block face north to south. UNCERTAINTY: about 20 m from the georeference, plus about 60 m either way ALONG State Street from the mid-block choice, plus the possibility that 'just outside the reservation' was read too narrowly and the house stood a lot or two back from the street. Facade bearing 90, due east onto State, a convention rather than a finding. NOTE ALSO that South Water Street's modern successor, Wacker Drive, was built on the old right of way in 1924-26 and widened northward, so the northern of the two control points is the softer one; it is used here only to fix a direction, not a frontage.",
+        "note": "INVENTED WITHIN AN ATTESTED NEIGHBOURHOOD. What Andreas gives is 'a log house just outside the military reservation' and nothing more precise. The reservation's western boundary on the south side WAS State Street until the town's February 1835 extension, which is documented, so 'just outside' means immediately west of State; the block between South Water and Lake is this project's dossier's reading of where that puts the school, and the dossier tags the exact lot [CONJ] itself. NO SOURCE PLACES THIS BUILDING ON A LOT, A CORNER OR A BLOCK FACE, so the coordinate is a point chosen inside a two-block-long strip and the confidence says so. METHOD: State Street survives on its plat line; the modern West Lake Street / North State Street centre (EPSG:26916 E 447902.80, N 4637282.51, OSM node 258957342) and the West Wacker Drive / North State Street centre (E 447899.81, N 4637407.66, 4 nodes averaged, spread 21.4 m), both fetched 2026-08-11, give the street's line, and the mid-point between them, E 447901.30 / N 4637345.08, is the middle of the block face. The footprint's east face is set 12.2 m west of that centreline - half of an 80 ft street per Hathaway 1834 - and the building centred on the block face north to south. UNCERTAINTY: about 20 m from the georeference, plus about 60 m either way ALONG State Street from the mid-block choice, plus the possibility that 'just outside the reservation' was read too narrowly and the house stood a lot or two back from the street. Facade bearing 90, due east onto State, a convention rather than a finding. NOTE ALSO that South Water Street's modern successor, Wacker Drive, was built on the old right of way in 1924-26 and widened northward, so the northern of the two control points is the softer one; it is used here only to fix a direction, not a frontage. T-2372 picture-fit proposal: the new origin is countertranslated by (+1.1875,-3.292) m in the existing footprint frame, equivalent at bearing90 to (-3.292,-1.1875) m ENU. This keeps the existing doorway centre and east-facing front-wall line exactly fixed while the declared reconstructed plan becomes narrower and deeper. These extra arithmetic digits preserve an old model anchor; they add no survey precision or new positional evidence.",
         "derivation": {
           "method": "not_derivable",
           "reason": "This placement predates the derivation module. Its provenance and reasoning are recorded in position.note, but no machine-checkable derivation block has been authored for it yet."
@@ -38,20 +38,20 @@
             0
           ],
           [
-            7.315,
+            4.572,
             0
           ],
           [
-            7.315,
-            5.486
+            4.572,
+            8.778
           ],
           [
             0,
-            5.486
+            8.778
           ]
         ],
         "confidence": "reconstructed",
-        "note": "INVENTED. NO SOURCE REACHED GIVES THIS BUILDING A DIMENSION. 7.315 x 5.486 m is 24 x 18 ft, recorded converted with the original figures stated per data/datum.json's units rule. The one constraint the evidence offers is the plan rather than the size: the house was 'divided into school-room and lodging quarters', so it held two rooms - a schoolroom big enough for an infant school and a teacher's lodging - which is bigger than a single-pen cabin and smaller than a public building. 24 x 18 ft is a two-room log house of the period at the small end. Everything else about the shape is this record's. Note the axis convention: with a bearing of 90 the polygon's first axis runs along State Street north to south and the second runs back from it, so the 24 ft dimension is the street frontage."
+        "note": "RECONSTRUCTED PICTURE-FIT CHOICE, NOT A MEASUREMENT. The owner-approved, attributed shore drawing shows a considerably narrower gable front than the former24ft by18ft proxy. Choose a15ft (4.572m) frontage, with8.778m hidden depth to retain approximately the old40.130m² floor area rather than silently shrink the two documented school/lodging rooms. The new area is40.133016m²; the hidden depth and room arrangement are not drawn. This roughly15ft by28.8ft two-room interpretation is bounded by the known two uses and the existing floor-area choice. The image gives no metric scale, lot, historically solved station or secure building identity. The original position and facade line are preserved by arithmetic countertranslation in position.note. All dimensions, depth, alignment and July1835 transfer remain reconstructed; the scene date and former-school use are unchanged."
       },
       "form": {
         "stories": {
@@ -78,30 +78,33 @@
           "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region. Typological derivation, not a measurement."
         },
         "roof_pitch_deg": {
-          "value": 35.0,
-          "confidence": "inferred",
-          "note": "No pitch is attested. 35 degrees is this archetype's own mid-range for a log building roofed in riven shakes and is the figure this project's other log records carry. Inferred from construction practice, not measured."
+          "value": 41.0,
+          "confidence": "reconstructed",
+          "note": "T-2372: reconstructed41° pitch for the narrowed15ft gable front. The existing producer includes250mm overhangs, so its ridge rises2.204511m above the unchanged2.50m eave. In the local composed drawing fit this puts the front ridge near the drawn apex while the front-wall width follows the picture. This replaces the earlier typological35° choice for this building only. No measured pitch, original date, identified subject or global historic camera is asserted.",
+          "sources": [
+            "eliza_chappel_school_shore_view"
+          ]
         },
         "front_set_out": {
           "value": [
             [
               "window",
-              1.609
+              0.95
             ],
             [
               "door",
-              3.658
+              2.47
             ],
             [
               "window",
-              5.706
+              3.73
             ]
           ],
           "confidence": "reconstructed",
           "sources": [
             "eliza_chappel_school_shore_view"
           ],
-          "note": "T-2372: a declared design choice using the owner-approved, attributed school-shore drawing as a visual reference. Two framed windows flank a central doorway in the visible log wall. Their centres retain this model's existing symmetric spacing (rounded to millimetres); they are not dimensions recovered from the composed drawing. The picture's subject remains unresolved, so this does not attest the appearance of Chappel's 1833-34 building or its continued state on 1 July 1835. This record is not reidentified as the Sauganash annex."
+          "note": "T-2372: reconstructed stations along the narrowed4.572m front, with two existing0.85m framed lights flanking the existing1.20m recess. The visible left/right spacing is slightly asymmetric about the doorway, following the composed drawing in a declared22° local facade review. Stations are design values, not dimensions recovered from the drawing. The building origin is countertranslated so this doorway centre remains at the old world position. School/annex identity, original publication/date, exact room layout and appearance on1July1835 remain unproved."
         },
         "door_w_m": {
           "value": 1.2,
@@ -109,9 +112,9 @@
           "note": "T-2372: reconstructed 1.20 m opening within the existing two-room cabin frontage. The approved reference draws a broad doorway; no absolute width is supplied. This replaces the archetype's 1.04 m default for this record alone; it does not claim the person's scale or a metric camera."
         },
         "door_h_m": {
-          "value": 2.05,
+          "value": 2.3,
           "confidence": "reconstructed",
-          "note": "T-2372: reconstructed 2.05 m clear opening, beginning at the existing 0.02 m sill. This raises its head from the old default 1.95 m to 2.07 m over grade, below the unchanged 2.50 m eave. It is an ordinary headroom choice guided by the drawing's tall doorway, not a measured height. The drawn door may still be taller relative to the wall; its open state remains unresolved."
+          "note": "T-2372: reconstructed2.30m clear blind opening, beginning at the existing0.02m sill and leaving0.18m below the unchanged2.50m eave. This raises the earlier2.05m proxy by0.25m to follow the drawing's conspicuously high doorway. The producer also hangs the existing0.85m lights from the2.32m common head. The drawn door head lies slightly higher than those lights; a residual of a few pixels is a local drawing/fit ambiguity below the visitor-noticeable bar, to be accepted only after actual native render. No metric scale or pictured occupant's height is claimed."
         },
         "window_w_m": {
           "value": 0.85,
@@ -121,7 +124,7 @@
         "window_h_m": {
           "value": 0.85,
           "confidence": "reconstructed",
-          "note": "T-2372: reconstructed 0.85 m sash height. The explicit front set-out hangs it at the common 2.07 m door-head datum, with its sill at 1.22 m, replacing the old default 0.85..1.57 m band. The reference shows the lights much higher in the log wall than the baseline render; a common head is the existing builder's bounded approximation, not a claim that the composed drawing has exactly aligned heads."
+          "note": "T-2372: retain the existing reconstructed0.85m sash height. The existing front-set-out contract hangs both lights at the new2.32m common head, with1.47m sills. This is a0.25m vertical change from the previous1.22..2.07m band, guided by the high lights in the attributed drawing. The source does not supply metric dimensions or exactly aligned heads; no building identity or historic precision follows."
         },
         "front_shutters": {
           "value": false,
@@ -186,6 +189,6 @@
     ],
     "note": "Chappel's occupancy is attested for 1833-34 and is over before the scene date. No source reached names anyone in this building in 1835. Stated with its end date rather than carried forward, which is the opposite of what most occupancy fields in this dataset do and is deliberate."
   },
-  "research_note": "A BUILDING THAT IS ATTESTED THROUGH AN INSTITUTION THAT HAD LEFT IT. Everything documented here - the log house, the division into school-room and lodging quarters, the siting just outside the military reservation - comes from one sentence of Andreas about the school (docs/research/04-structures-south.md section 9, from Andreas I scan p. 431), and the school moved out in 1834. So the record makes two separable claims, and a later source can knock down either without touching the other: that a log house of this description stood west of State Street, and that it was still standing on 1835-07-01. The second is an inference about how long a log house lasts. THREE GUARDS. (1) DO NOT CONFLATE THIS WITH THE NORTH SIDE SCHOOLS. John Watkins taught near the old Indian agency-house on the north bank in the spring of 1833, and a public school stood on the north bank just east of Clark Street in the building erected by Cols. Hamilton and Owen; both are north-side buildings and neither is this one. The Watkins house on Michigan Street is a separate record here. (2) DO NOT PROMOTE THE POSITION. The dossier itself tags the exact lot conjectural and the placement here is a point inside a two-block strip. (3) THE LATER SCHOOL BUILDINGS ARE EXCLUDED BY DATE: the first public school building erected by private means is 1837 and the Miltimore and Dearborn schools are 1837 and 1844-45. WHAT WOULD UPGRADE IT: Andreas vol. 1 at page-image level around scan p. 431, read for a street or a lot rather than for the school; the 1834 or 1835 Chicago Democrat, which advertised schools and would date the move out of this house from the other side; and any of the Chappel biographical literature, which is extensive because she later founded the Chicago Orphan Asylum. A NOTE ON SCOPE, for the same reason walker_meeting_house carries one: an infant school in Chicago in 1833 taught the children of a town that was still a Potawatomi trading settlement in the year of the final removal, and interpretive text about this building sits close to the project's standing constraint on Indigenous history even though the structure itself is a settler building. review_required is set false, consistent with walker_meeting_house, but the call is worth a second opinion.\n\nT-2372 opening refinement, 2026-10-22 project approval applied: the attributed school-shore drawing now guides an explicitly reconstructed front treatment with larger, higher framed sash and a slightly broader/taller doorway. The drawing is a provisional design reference, not proof that its log building is this one. The log house's location, footprint, dates, former-school use and the unknown 1835 occupants remain as recorded above. Its gable-front roof, open doorway, covering and exact proportions still differ from this model; no camera is enrolled and no image-match completion is claimed. T-2372 next door-only increment replaces the actual closed-leaf proxy with an explicitly reconstructed blind exterior recess, guided by approved attributed project use of the journal reproduction. This does not stage the pictured teacher/children in 1835 or identify the depicted building. Broad facade/gable surfaces, roof fabric, opening alignment, stack visibility, camera and identity/date differences remain open. T-2372 front-gable next proposal is isolated/unrun: horizontal courses replace only the existing +Y plain cap under the unchanged roof silhouette; identity/date/camera and many appearance differences remain unresolved.",
+  "research_note": "A BUILDING THAT IS ATTESTED THROUGH AN INSTITUTION THAT HAD LEFT IT. Everything documented here - the log house, the division into school-room and lodging quarters, the siting just outside the military reservation - comes from one sentence of Andreas about the school (docs/research/04-structures-south.md section 9, from Andreas I scan p. 431), and the school moved out in 1834. So the record makes two separable claims, and a later source can knock down either without touching the other: that a log house of this description stood west of State Street, and that it was still standing on 1835-07-01. The second is an inference about how long a log house lasts. THREE GUARDS. (1) DO NOT CONFLATE THIS WITH THE NORTH SIDE SCHOOLS. John Watkins taught near the old Indian agency-house on the north bank in the spring of 1833, and a public school stood on the north bank just east of Clark Street in the building erected by Cols. Hamilton and Owen; both are north-side buildings and neither is this one. The Watkins house on Michigan Street is a separate record here. (2) DO NOT PROMOTE THE POSITION. The dossier itself tags the exact lot conjectural and the placement here is a point inside a two-block strip. (3) THE LATER SCHOOL BUILDINGS ARE EXCLUDED BY DATE: the first public school building erected by private means is 1837 and the Miltimore and Dearborn schools are 1837 and 1844-45. WHAT WOULD UPGRADE IT: Andreas vol. 1 at page-image level around scan p. 431, read for a street or a lot rather than for the school; the 1834 or 1835 Chicago Democrat, which advertised schools and would date the move out of this house from the other side; and any of the Chappel biographical literature, which is extensive because she later founded the Chicago Orphan Asylum. A NOTE ON SCOPE, for the same reason walker_meeting_house carries one: an infant school in Chicago in 1833 taught the children of a town that was still a Potawatomi trading settlement in the year of the final removal, and interpretive text about this building sits close to the project's standing constraint on Indigenous history even though the structure itself is a settler building. review_required is set false, consistent with walker_meeting_house, but the call is worth a second opinion.\n\nT-2372 opening refinement, 2026-10-22 project approval applied: the attributed school-shore drawing now guides an explicitly reconstructed front treatment with larger, higher framed sash and a slightly broader/taller doorway. The drawing is a provisional design reference, not proof that its log building is this one. The log house's location, footprint, dates, former-school use and the unknown 1835 occupants remain as recorded above. Its gable-front roof, open doorway, covering and exact proportions still differ from this model; no camera is enrolled and no image-match completion is claimed. T-2372 next door-only increment replaces the actual closed-leaf proxy with an explicitly reconstructed blind exterior recess, guided by approved attributed project use of the journal reproduction. This does not stage the pictured teacher/children in 1835 or identify the depicted building. Broad facade/gable surfaces, roof fabric, opening alignment, stack visibility, camera and identity/date differences remain open. T-2372 front-gable next proposal is isolated/unrun: horizontal courses replace only the existing +Y plain cap under the unchanged roof silhouette; identity/date/camera and many appearance differences remain unresolved. T-2372 next whole-front fit, prepared2026-10-29 and NOT YET APPLIED OR RENDERED: the declared reconstructed front becomes4.572m wide, depth8.778m approximately preserves the old two-room area, the roof becomes41° including the inherited overhang, and the three openings are placed on the pictured narrower face with a2.30m door/common-head adjustment. Exact origin compensation preserves the former door's world centre and front-wall line. A diagnostic local drawing camera is proposed; it is not a historical viewpoint. Original publication/subject identity remains unresolved, and no school/annex reidentification, attested grade, source-date assertion or matches verdict is made by this proposal. T-2372 external trial actually rendered and was directly reviewed on2026-10-29: MASTERfb141fef3f348b494ffbf1bc2479427d0cec499001605cdcb34ce52c93c0787a, WEBf120aa9abc970bb5b0b28f82c5fd176b268ba67923cea9b31de9967c8c9bf804. Its building form matches the approved drawing underT3153, including the roughly0.26m residual at the drawn apex. This supersedes the proposal-only status above for that frozen external trial only. Current adopted native production, canonical picture capture and published mobile/desktop review remain pending; identity/date and metric-camera limitations remain.",
   "review_required": false
 }

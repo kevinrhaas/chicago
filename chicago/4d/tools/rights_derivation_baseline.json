@@ -65,14 +65,6 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
-    "dearborn_street_drawbridge/draw_1834/form.draw_lifting_gear": {
-      "kind": "structure",
-      "blocked_sources": [
-        "dearborn_street_bridge_1834_engraving"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
     "dearborn_street_drawbridge/draw_1834/form.draw_span_m": {
       "kind": "structure",
       "blocked_sources": [

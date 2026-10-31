@@ -1,0 +1,43 @@
+[
+  {
+    "id": "early-beaubien-keyed-1831",
+    "kind": "engraving",
+    "title": "Fort Dearborn and Chicago in1831 — keyed Gen.J.B.Beaubien house",
+    "building_ids": [],
+    "addresses": [],
+    "streetscape": true,
+    "view": "street view",
+    "facing": null,
+    "camera_position": null,
+    "date": "1881 keyed reproduction; credits Wau-Bun1857 and depicts1831",
+    "date_earliest": 1881,
+    "date_latest": 1881,
+    "period": "in-period",
+    "creator": "Engraver not established; after a sketch attributed to Juliette A. Kinzie",
+    "repository": "Internet Archive, digitized Fergus Historical Series pamphlet; keyed reproduction also held on Wikimedia Commons",
+    "collection": "John Wentworth,Fort Dearborn(Fergus Historical Series,1881),printedp86",
+    "call_number": null,
+    "catalog_url": "https://archive.org/stream/earlychicagofort00wentiala#page/86/mode/1up",
+    "image_url": null,
+    "rights": "public domain",
+    "rights_basis": "The committed inventory chicago/reference/images/IMAGE_SOURCES.md identifies the image as public domain by pre-1930 publication. The underlying Wau-Bun illustration is nineteenth-century. The separately advertised Getty/Alamy reproductions are not acquired or licensed by this record.",
+    "local": {
+      "display": "research/images/files/early-beaubien-keyed-1831.jpg",
+      "display_bytes": 262256,
+      "thumb": "research/images/files/early-beaubien-keyed-1831-thumb.jpg",
+      "thumb_bytes": 25996,
+      "original_px": [
+        1920,
+        1042
+      ],
+      "original_sha256": "624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f",
+      "original_bytes": 614551,
+      "fetched_from": "file:///workspace/chicago/chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg",
+      "fetched": "2026-10-30"
+    },
+    "verified": "viewed",
+    "found_via": "Existing held keyed source kinzie_1857_chicago_1831_panorama; same actual1881 cut/key checked with printedpp86-87.",
+    "notes": "Conditional preferred homestead identity under Wentworth same-witness corner annotation; not an independent1831 survey or proof of unchangedJuly1835 survival. Raw source624d includes the whole print/key. Native display/thumb derivatives preserve that frame; local native fetched_from accurately records the held file, while catalog_url credits the verified publication. House has bounded root-reviewed main mass/two stacks/low front projection/gable-light proxies; no pigment/material/pane/metric attestation or historical viewing spot. The dependent unkeyed print is not a second independent witness.",
+    "measurements": []
+  }
+]

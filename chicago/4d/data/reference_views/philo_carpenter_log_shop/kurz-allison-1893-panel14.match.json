@@ -1,0 +1,70 @@
+{
+  "structure_id": "philo_carpenter_log_shop",
+  "view": "kurz-allison-1893-panel14",
+  "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+  "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc",
+  "camera_sha256": "a4f07a851137c13d4caba5fc0a4afd56e6d7f3b210a821f65ce98ca46e4d32d6",
+  "photo_sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+  "rendered_members": [
+    {
+      "structure_id": "philo_carpenter_log_shop",
+      "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+      "placement": {
+        "local_e": 111.32,
+        "local_n": -127.5,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1832"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+    },
+    {
+      "structure_id": "sauganash_hotel",
+      "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+      "placement": {
+        "local_e": 101.4,
+        "local_n": -130.6,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "frame_1831"
+      },
+      "position": [
+        -9.919999999999987,
+        0,
+        3.0999999999999943
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "ef7ea827f577505cbee8142064394efcf38ff79795e220b5c247d980aa0d8b54"
+    }
+  ],
+  "group_sha256": "cf7acf3e930b8e8261516da531a4031052371dfb0ec18e97c3d73d34f3f3f111",
+  "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/kurz-allison-1893-panel14-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Kurz14 repeats the low annex/twofrontsash/darkdoor/free-endstack/horizontalgable categories but redraws side/front proportions. Fixed acceptedAndreas pose and onecopy-scale/principal fit preserve geometry; approximate4px wallcorner picks on368x241crop have maxresidual6.81px. Source/camera disagreement is within tolerance underT3153, not a new historical dimension.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Kurz14 redroof colouring disagrees with the darker retrospective rendition and is not established by monochromeAndreas/Trowbridge. Existing reconstructed shinglefinish remains; genuine dependent-copy/pigment disagreement is within tolerance underT3153, with no historical paint claim.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The annex retains the shared single-pen form, two front sash around one dark doorway, one free-end stack and horizontal exposed-gable timber. Openings, documented16x20ft footprint, inferred2.5m eave and placement are unchanged. Fine hatching, shadow edges and uncertain handpicked wallcorners do not justify additional bay/size controls.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Monochrome hatching cannot establish original paint, photometric reflectance, exact wall joinery or hidden faces. Neutral timber/course relief is a declared reconstructed proxy. The diagnostic eye/principal point is not a historical visitor pose or independent survey.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

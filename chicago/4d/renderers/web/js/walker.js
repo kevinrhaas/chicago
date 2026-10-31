@@ -32,6 +32,7 @@
  */
 
 import * as THREE from 'three';
+import { deckFromSidecar, deckHeightAt } from './deck-surface.js';
 import { enuToWorld, bearingToYaw, yawToBearing } from './terrain.js';
 
 const DEG = Math.PI / 180;
@@ -199,23 +200,8 @@ export function footprintsFrom(registry, { camps = false } = {}) {
 export function decksFrom(registry) {
   const out = [];
   for (const record of registry.values()) {
-    const p = record.sidecar?.placement ?? {};
-    const h = p.walk_surface_m;
-    if (typeof h !== 'number' || p.vertical_anchor !== 'water') continue;
-    const raw = record.sidecar?.footprint;
-    const poly = Array.isArray(raw) ? raw : raw?.polygon;
-    if (!Array.isArray(poly) || poly.length < 3) continue;
-
-    const th = (p.rotation_deg ?? 0) * DEG;
-    const cos = Math.cos(th);
-    const sin = Math.sin(th);
-    const e0 = p.local_e ?? 0;
-    const n0 = p.local_n ?? 0;
-    out.push({
-      id: record.id,
-      y: h,
-      pts: poly.map(([u, v]) => [e0 + u * cos + v * sin, n0 - u * sin + v * cos]),
-    });
+    const deck = deckFromSidecar(record.id, record.sidecar);
+    if (deck) out.push(deck);
   }
   return out;
 }
@@ -285,8 +271,9 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
   function surfaceAt(e, n) {
     let deckY = null;
     for (const d of decks) {
-      if ((deckY !== null && d.y <= deckY) || !inside(e, n, d.pts)) continue;
-      deckY = d.y;
+      if (!inside(e, n, d.pts)) continue;
+      const y = deckHeightAt(d, e, n);
+      if (typeof y === 'number' && (deckY === null || y > deckY)) deckY = y;
     }
     if (deckY === null) return terrain.walkHeight(e, n);
     return terrain.isWater(e, n) ? deckY : Math.max(deckY, terrain.surfaceHeight(e, n));

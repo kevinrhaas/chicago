@@ -2110,12 +2110,14 @@ section for that reason; what was resolved is one line of it, not the liberty.
 council order, an engraving. The bridge was repaired in 1835, so a repair record is the most
 likely thing to exist. A CONTEMPORARY view, as against the retrospective plates L163 works
 from, would settle what those plates only suggest.
-**Covers:** `dearborn_street_drawbridge.draw_1834.footprint`, `dearborn_street_drawbridge.draw_1834.form.gallows_height_m`, `dearborn_street_drawbridge.draw_1834.form.overall_length_m`, `dearborn_street_drawbridge.draw_1834.form.pier_count`, `dearborn_street_drawbridge.draw_1834.form.pier_kind`, `dearborn_street_drawbridge.draw_1834.form.width_m`.
+**Covers:** `dearborn_street_drawbridge.draw_1834.form.gallows_height_m`, `dearborn_street_drawbridge.draw_1834.form.overall_length_m`, `dearborn_street_drawbridge.draw_1834.form.pier_count`, `dearborn_street_drawbridge.draw_1834.form.pier_kind`.
 **Recorded:** 2026-08-10.
 **Evidence since, 2026-08-19:** the ground_contact token is withdrawn. T-0046's approach
 earthworks (L147) raise Dearborn Street to the deck at both ends and the record no longer
 declares `approach_not_modelled`. Everything this entry says about the draw, the mechanism and
 the omitted opening is untouched.
+
+**Evidence since, 2026-10-31 (T-2375):** The footprint and width tokens are withdrawn from active coverage. The historical body above is retained: its ten-foot proxy has been superseded by the directly read sixteen-foot statement in Moses and Kirkland (1895), printed p.95, at inferred secondary confidence. The length remains independently traced from Wright1834; this is not a survey of the full rectangle. The four remaining coverage tokens still describe reconstructed or simplified choices. Neither withdrawal resolves them, establishes a measured hoist, or claims the widened deck's bank transition without a fresh full-edge ground-contact check.
 
 ### L36a — Thomas Church's store: a building placed by a street and one sentence
 **Decision:** `thomas_church_store` stands on Lake Street with its **position** and its
@@ -36754,7 +36756,17 @@ degrees apart, so the depth is good to about a metre), on the terrace floor the 
 1.4 m up: a slim arborvitae column in a tub against the drum's west side (1463.17 E, -3169.79 N, its
 top 4.17 m), a clipped arborvitae cone in a tub before the wing's arched door east of the drum
 (1471.75 E, -3169.2 N, 3.49 m), both pictured in the plate and the print, and a palm in its tub
-before the drum (1467.25 E, -3172.47 N, 3.73 m), pictured in the print only.
+before the drum (1467.25 E, -3172.47 N, 3.73 m), pictured in the print only. On 2026-10-31 Taylor's
+16554 (`aic_taylor_16554_pullman_from_sw`), a winter print (its trees bare), showed that column
+standing on the terrace with three more like it, so the four are planted in the terrace, not
+tubbed, and drawn in every Season: the column against the drum's west side taken out of its tub
+(the same place and top), and three more, each where 16554's pixel column crosses 16555's (the
+two cameras about 35 degrees apart): a pair before the wing's arched windows (1457.33 E, -3168.4 N,
+its top 4.79 m, stood 0.8 m off the wing because 16555 shows it only behind the house's porch;
+1458.91 E, -3168.16 N, 4.77 m) and a column against the wing behind the drum's (1463.24 E,
+-3168.4 N, 5.02 m). Their tops are 16554's readings, which 16555 puts about 0.5 m higher;
+the widths are the print's (0.7-1.0 m). That they were planted in beds or fixed vases rather
+than in tubs carried in is read from the winter print; what they stood in is hidden in all three.
 **What is read:** each plant's place across the picture and its top from the plate's pixels; its
 depth from the plane it is read on (the terrace behind its balustrade, the line 1.6 m off the
 stable's wall, the ground at its visible foot); that the two balls are clipped evergreens, one
@@ -36773,7 +36785,7 @@ the pier where the plate has the ball), which the match records hold within tole
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
 and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
-**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934).
+**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934).
 
 ### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
 
@@ -37134,6 +37146,62 @@ drawings.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
+
+
+### L-dearborn-picture-profile-2375 — Dearborn’s pictured closed draw and piled caps
+
+**Covers:** `dearborn_street_drawbridge.draw_1834.form.draw_rise_m`, `dearborn_street_drawbridge.draw_1834.form.gallows_shore_attach_m`, `dearborn_street_drawbridge.draw_1834.form.draw_bearing_platform_m`, `dearborn_street_drawbridge.draw_1834.form.draw_bearing_platform_offset_m`.
+
+**Decision:** Follow the peaked closed draw, high outer braces and open piled bearing caps in the cleared Andreas1884 plate, with Earle’s retrospective painting as a qualified cross-check. The sixteen-foot width (4.8768m, rounded to4.877m in the model) follows Moses and Kirkland1895p95. The independently traced76.33m water gap, mapped origin/bearing and text-attested18.288m draw are retained; neither drawing supplies coordinates.
+
+**Reconstructed:** The1.2m central rise,5.2m raker attachment below the6.4m head,3.6×7.8288m caps and−1.0m transverse offset are appearance choices. The0.30m piles, their pitch/count (46 per cap), sleepers, board thicknesses and hidden foundations are proxies, not details counted or measured from either picture. The closed depiction does not establish a historically measured lifting mechanism. Walking follows a nominal deck surface; its8mm board gaps and55mm proud thresholds are not simulated, and this does not attest footwear, wheels or overlapping props.
+
+**Sources and limits:** `andreas_1884_dearborn_drawbridge_plate`, `moses_kirkland_history_of_chicago_v1`, `earle_chicago_national_bank_1902_dearborn_bridge`. The later depictions do not establish an exact1July1835 condition; their projection and tone disagreements remain qualified. The separate Baker engraving retains the owner’s Chicago Tribune Editorial,15February1880 credit; its exact original remains unverified and supplies no new geometry or derived comparison. L163 retains the earlier bracing, chain and leaf choices.
+
+**Recorded:** 2026-10-30 (T-2375).
+
+
+**Coverage correction, 2026-10-31:** Qualitative draw_profile and draw_bearing_supports are inferred from the credited cleared plate, not reconstructed dimensions. They are removed from the active invention coverage; their source interpretation and the four remaining reconstructed numeric choices above are retained.
+
+**Evidence since, 2026-10-31 (T-2375):** The two Dearborn approach crests now use a reconstructed **6.0 m half-width**, replacing their earlier4.0 m grid allowance. The source-supported sixteen-foot deck extends only in local positive-v; its widened end corner mixed a low shoulder/water vertex through the2.5 m bilinear grid and stood0.711 m above the south-bank surface,0.438 m above the north-bank surface. Widening the existing invented fill crest supports that full end edge. It does not change the mapped street/approach axes, bank/shoreline controls, bridge origin or bearing,76.33 m water gap,2.22 m end-deck elevation,1-in-12 grade,3 m overhang,0.06 ft seat, or the separately reconstructed centre-rise profile. Six metres is a numerical walk-access allowance, **not a historically documented road width**. The four valid numeric bridge Covers tokens remain unchanged; no new terrain Covers token is added here; fresh native field/mesh fit, full-end-edge measurements and actual walking checks must establish that the wider crossing lands safely.
+
+### L-school-narrow-front-2372 — a reconstructed reading of an unidentified school drawing
+
+**Covers:** `chappel_infant_school.log_1833.footprint`, `chappel_infant_school.log_1833.form.roof_pitch_deg`, `chappel_infant_school.log_1833.form.door_h_m`, `chappel_infant_school.log_1833.form.front_set_out`.
+
+**Decision:** Use the narrow log gable, high doorway and two flanking lights in the owner-approved drawing reproduced by the Digital Research Library of Illinois History Journal’s2018 Eliza Chappell article (`eliza_chappel_school_shore_view`) as an attributed design reference. Its original artist, publication, holding institution, building identity and depicted date remain unresolved. This does not identify the drawing as the school or Sauganash annex, place its people in July1835, or declare public-domain rights.
+
+**Reconstructed:** Choose a4.572m (15ft) front and8.778m hidden depth to retain approximately the former40.13m² two-room school/lodging area. The41° roof rises2.2045m above the retained2.50m eave including the250mm overhang. The retained1.20m-wide doorway is2.30m tall; the existing0.85m lights share its2.32m head and stand at0.95,2.47 and3.73m across the front. These are modelling values, not measured dimensions. An arithmetic origin compensation keeps the former doorway centre and front-wall line fixed; it supplies no new survey control.
+
+**Unknown:** Hidden rear fabric, partition, flue, paint and continued July1835 appearance remain reconstructed. The local illustration alignment does not recover a historic visitor position. The unresolved subject remains excluded from the whole-structure picture grade, which stays inferred. The small remaining apex/projection difference is within the visitor tolerance, rather than evidence for another dimension fit.
+
+**Recorded:** 2026-10-30 (T-2372).
+
+
+### L-carpenter-low-roof-gable-2382 — Carpenter’s annex: lower roof and free-end chimney
+
+**Covers:** `philo_carpenter_log_shop.log_1832.form.roof_pitch_deg`, `philo_carpenter_log_shop.log_1832.form.chimney_ridge_at`.
+
+**Decision:** Give the separately recorded annex a reconstructed21.49° roof and move its one ridge stack from station0.80 to0.94 toward the free end. Including the overhang, this lowers the ridge0.824m and moves the stack0.853m. These follow the low annex in Braunhold’s engraving published in Andreas1884, not historical measurements. The documented16×20ft footprint, inferred2.5m eave, placement, openings and stack section/head remain unchanged.
+
+**Gable finish:** Horizontal timber on the exposed+x gable follows the pictured wall courses instead of the former roof-covering triangle. Its0.20m rhythm,8mm joints,12mm relief and neutral tone are proxies; the print does not settle exact joinery, paint, or logs versus boards.
+
+**Sources and limits:** `andreas_1884_sauganash_hotel_plate` governs this annex. Trowbridge’s drawing in Gale1902 and Kurz & Allison’s1893panel14 redraw its pitch/proportions and disagree about colour. These retrospective, dependent compositions are not three independent1835 measurements. Projection/pigment differences remain within the visitor tolerance; diagnostic camera eyes do not establish historic positions. The earlier caption-based Carpenter identification, use/survival uncertainty and July1835 transfer limits remain. Petford stays reference-only; no new camera or asset derives from its unresolved original. This acceptance covers the annex, not the whole Sauganash Hotel.
+
+**Recorded:** 2026-10-30 (T-2382).
+
+
+### L-beaubien-keyed-graphic-working-form-2378 — conditional drawing proxies
+
+**Covers:** `jb_beaubien_homestead.log_1822.footprint`, `jb_beaubien_homestead.log_1822.form.wall_height_m`, `jb_beaubien_homestead.log_1822.form.roof_pitch_deg`, `jb_beaubien_homestead.log_1822.form.chimney_ridge_at`, `jb_beaubien_homestead.log_1822.form.frame_addition`, `jb_beaubien_homestead.log_1822.form.frame_addition_side`, `jb_beaubien_homestead.log_1822.form.frame_addition_width_m`, `jb_beaubien_homestead.log_1822.form.frame_addition_depth_m`, `jb_beaubien_homestead.log_1822.form.frame_addition_height_m`, `jb_beaubien_homestead.log_1822.form.frame_addition_roof_pitch_deg`, `jb_beaubien_homestead.log_1822.form.frame_addition_cladding`, `jb_beaubien_homestead.log_1822.form.frame_paint`, `jb_beaubien_homestead.log_1822.form.end_openings`.
+
+**Source and date limits:** The keyed1831 depiction in the verified1881 reproduction credits Wau-Bun1857. Wentworth supplies the preferred retrospective identification; Hubbard’s criticism remains and unchanged survival to July1835 is unproved. This does not move surveyed coordinates or borrow the separate Factor House’s two-storey, log or paint descriptions.
+
+**Reconstructed:** Retain the12.192×6.096m main core and world pivot. Two visual levels and two main stacks are inferred; the5m eave,50° pitch and ridge fractions0.16/0.84 are proxies. The centred6.096×2m low projection,3m eave,40° pitch, clapboard and openings are reconstructed; one low level is conditionally inferred. The occupied footprint is stepped, not filled at its outer corners. One small light in the visible−x gable is placed at0.5,z6.2 with stock0.7×0.8m dimensions; its metrics, panes and closure are not measured.
+
+**Unknown:** The core’s log construction is an inferred proxy, not pictured material attestation. No whitewash, paint or clapboard is asserted for it. Exact source dimensions, historical bearing, pigment, hidden opening counts and the roof junction remain unknown or reconstructed. The picture match accepts the bounded visible main house, projection and attic light, without promoting those uncertainties.
+
+**Recorded:** 2026-10-30 (T-2378).
 
 ### L-pullman-stable-bay-1934 — Pullman's stable corner bay moved clear of the arcade's third arch and run on to u -25.0, on the two pictures that agree
 **Recorded:** 2026-10-31.

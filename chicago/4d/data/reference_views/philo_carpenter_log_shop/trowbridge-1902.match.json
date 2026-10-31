@@ -1,0 +1,66 @@
+{
+  "structure_id": "philo_carpenter_log_shop",
+  "view": "trowbridge-1902",
+  "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+  "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc",
+  "camera_sha256": "d39698da52b1d40c70947369c4417651d0e585e8ebd9c5ab48b16d89417de7f8",
+  "photo_sha256": "1a4ae4d29ca25b2cefba837ef992a3b00503ab6779f0274c6df01b06e95d217f",
+  "rendered_members": [
+    {
+      "structure_id": "philo_carpenter_log_shop",
+      "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+      "placement": {
+        "local_e": 111.32,
+        "local_n": -127.5,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1832"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+    },
+    {
+      "structure_id": "sauganash_hotel",
+      "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+      "placement": {
+        "local_e": 101.4,
+        "local_n": -130.6,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "frame_1831"
+      },
+      "position": [
+        -9.919999999999987,
+        0,
+        3.0999999999999943
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "ef7ea827f577505cbee8142064394efcf38ff79795e220b5c247d980aa0d8b54"
+    }
+  ],
+  "group_sha256": "cf7acf3e930b8e8261516da531a4031052371dfb0ec18e97c3d73d34f3f3f111",
+  "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/trowbridge-1902-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Trowbridge draws the annex gable steeper than Andreas at retained wallcorner framing. These are dependent retrospective compositions and source-specific diagnostic cameras, not independent metric1835 observations. The Andreas-governed lowroof is retained; this genuine picture/projection conflict is within tolerance underT3153.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The annex retains the shared single-pen form, two front sash around one dark doorway, one free-end stack and horizontal exposed-gable timber. Openings, documented16x20ft footprint, inferred2.5m eave and placement are unchanged. Fine hatching, shadow edges and uncertain handpicked wallcorners do not justify additional bay/size controls.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Monochrome hatching cannot establish original paint, photometric reflectance, exact wall joinery or hidden faces. Neutral timber/course relief is a declared reconstructed proxy. The diagnostic eye/principal point is not a historical visitor pose or independent survey.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

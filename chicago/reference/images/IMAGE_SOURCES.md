@@ -76,7 +76,7 @@ Primary subject of this collection: the Fort Dearborn settlement (1803-1830s) an
 | `chicago_st_marys_church_1843.jpg` | undated wooden church with belfry | building exterior | St. Mary's Church |
 | `chicago_saloon_building_1836.jpg` | ca. 1836-1848 | street scene | The Saloon Building |
 | `chicago_fort_dearborn_river_mouth_1830.jpg` | ca. 1836-1849 | building exterior | Old Fort Dearborn, erected at the mouth of Chicago River for defence against the Indians |
-| `chicago_first_swing_bridge_1849_earle.jpg` | ca. 1849 | riverfront | The First Swing Bridge (Dearborn Street Bridge) |
+| `chicago_first_swing_bridge_1849_earle.jpg` | 1834–1839 (retrospective) | riverfront | Dearborn Street Bridge — first bridge,1834 (Earle) |
 | `chicago_panorama_st_marys_college_1849.jpg` | ca. 1849 | town panorama | View of Chicago as seen at the top of St. Mary's College (drawn for Julio Rae's Commercial Chart) |
 | `licensed_previews/chicago_early_days_views_1779_1857_newberry.jpg` | 1779-1857; 12 of 15 vignettes depict 1803-1845 scenes | town panorama | Chicago In Early Days. 1779-1857 |
 | `licensed_previews/chicago_fort_dearborn_1803_getty_2.jpg` | 1803 | building exterior | Fort Dearborn |
@@ -301,11 +301,13 @@ Also held/licensed by: Alamy (contributor: NB/PR); from Pictorial History of Chi
 
 #### `chicago_dearborn_street_bridge_1834.jpg`
 
-**Old Dearborn Street (Old Point) Bridge** — wood engraving · scene: 1834-1839 · made: 19th century  
-*Baker & Co. (engravers)*  
-Wood engraving of the first drawbridge over the Chicago River, built 1834 at Dearborn Street by Nelson R. Norton, with its gallows-frame draw raised area, harbor lighthouse, and sailing vessels at the wharves.  
-Institution: chicagology.com scan library · Rights: Public domain (pre-1930 publication)  
+**Old Dearborn Street (Old Point) Bridge** — wood engraving · scene:1834–1839 · original publication date not independently established
+*Baker & Co. (engravers; BAKER–CO mark on the held plate)*
+Wood engraving of the first Dearborn drawbridge, with twin gallows frames, raised central profile, lighthouse, wharf buildings and moored sailing vessels.
+Institution: reproduced by Chicagology · Rights: canonical standalone artwork record retains `check_required`; the earlier inventory's unqualified pre1930-publication assertion was not independently supported. This does not limit use of the separately verified Andreas1884/Earle c1902 artworks or Norton/Moses text.
 Source page: <https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/>  
+Owner-provided credit,2026-10-29: **“the dearborn bridge photo is from Chicago Tribune Editorial February15,1880.”** The actual dated editorial is independently verified at <https://archive.org/details/per_chicago-daily-tribune_the-chicago-daily-tribun_1880-02-15_40/page/n3/mode/1up>, printedp4. That page is text-only; no matching Baker plate was found in a direct overview of all16 scanned pages. Chicagology's image/caption stands before a rule and the next editorial heading. Retain the owner credit as a supplied publication lead; no exact engraving-to1880issue match or modern reproduction licence is claimed.
+Source records: `dearborn_street_bridge_1834_engraving` and `chicago_tribune_editorial_1880_02_15_dearborn_bridge`. No new Baker-derived asset, camera or accepted image match follows from this bibliography check.
 
 #### `chicago_green_tree_tavern_1835.jpg`
 
@@ -476,12 +478,15 @@ Also held/licensed by: Granger Historical Picture Archive (GRANGER / Granger) ·
 
 #### `chicago_first_swing_bridge_1849_earle.jpg`
 
-**The First Swing Bridge (Dearborn Street Bridge)** — oil mural lunette (reproduction) · scene: ca. 1849 · made: early 1900s  
-*Lawrence C. Earle (Central Trust Company of Illinois banking-room mural series, early 1900s)*  
-Lunette mural painting of the 1834 Dearborn Street drawbridge with its timber towers, schooners and steamboat on the river, and teamsters unloading barrels on the wharf; painted for the Central Trust Company of Illinois banking hall. Reviewer correction: not the 1834 gallows-frame drawbridge — the mural depicts the tower-braced swing bridge of ca. 1849 with a steam tug and busy docks.  
-Institution: chicagology.com scan library (Central Trust Company of Illinois murals) · Rights: Public domain (pre-1930 artwork)  
-Source page: <https://chicagology.com/goldenage/goldenage105/earle/earle7/>  
-Also held/licensed by: Chicago History Museum (via its Alamy contributor account) · 2D6EGG4 · <https://www.alamy.com/oil-painting-titled-the-first-bridge-across-the-chicago-river-1834-by-lawrence-c-earle-image382636356.html> · Personal use $19.99; Presentation $19.99; Website $49.99; Magazines/books $69.99; Marketing $199.99 (RF)  
+**Dearborn Street Bridge — the first bridge across the Chicago River,1834** — oil mural lunette (reproduction) · scene:1834–1839; exact day unknown · made: Chicago National Bank mural series, begun1900; published in a US book catalogued c1902
+*Lawrence C.Earle; the original book credits Edward Potthast and other assistants for the series, without assigning individual details of this plate.*
+The exact colour lunette in the held file is independently reproduced in *Chicago, Historical, Pictorial*, Chicago National Bank (Chicago: Rand, McNally & Co., catalogued c1902), actual IA n24, facing explanatory text printed p.18 at n23. That text explicitly calls it **The First Bridge Across the Chicago River,1834** and says the bridge was removed1839. The image shows two gallows frames, high shore braces, rising closed draw, vessels and dockworkers/barrels. Title n6, Chicago printer imprint n5 and Earle attribution printed p.6/n10 were directly read on2026-10-29. The original-volume scan is a separate reference from a modern licensed museum/stock reproduction.
+Institution: University of Illinois Urbana-Champaign scan at Internet Archive, `chicagohistorica00chic` · Rights: underlying artwork public domain by age on the identified pre1930 US publication; catalogue says **c1902**, and no explicit dated copyright leaf is claimed. Retrospective scene; no surveyed camera, metric dimension or exactJuly1835 day follows.
+Verified original plate: <https://archive.org/details/chicagohistorica00chic/page/n24/mode/1up>
+Aggregator: <https://chicagology.com/skyscrapers/skyscrapers133/earle7/>
+**Superseded inventory reading:** the historical filename, former ca.1849 scene label and reviewer claim that this was a tower-braced1849 swing bridge are incorrect for this exact artwork. Keep the filename for link/byte continuity; it is not a valid identity/date ruling. The earlier Central Trust attribution is superseded for this publication by the original Chicago National Bank volume.
+Separate modern holding/licensing information, retained without treating it as a licence for this original-volume reference: Chicago History Museum via Alamy ·2D6EGG4· <https://www.alamy.com/oil-painting-titled-the-first-bridge-across-the-chicago-river-1834-by-lawrence-c-earle-image382636356.html> · previously listed stock prices are service-specific and grant no automatic licence.
+Source record: `earle_chicago_national_bank_1902_dearborn_bridge`. Actual native Earle per-view capture remains to be made; this bibliography correction is not an image-match verdict.
 
 #### `chicago_panorama_st_marys_college_1849.jpg`
 
