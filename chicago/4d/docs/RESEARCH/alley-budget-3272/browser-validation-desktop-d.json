@@ -1,0 +1,65 @@
+{
+  "method": "Actual published /1904/ app at 1280x800, `full`; animation paused after readiness; each stand renders the same held frame with the far-relief swap off (buildings.farRelief.on=false), off again (QA_CONTROL), on, and with the three relief pieces hidden outright (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0"
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "glessner-18th-far-west",
+      "tierHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "off": {
+        "triangles": 6433708,
+        "drawCalls": 3903
+      },
+      "on": {
+        "triangles": 6186543,
+        "drawCalls": 3903,
+        "withinBudget": false
+      },
+      "saved": 247165,
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 61,
+      "problems": 0
+    },
+    {
+      "name": "glessner-prairie-far-se",
+      "tierHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "off": {
+        "triangles": 7789182,
+        "drawCalls": 5674
+      },
+      "on": {
+        "triangles": 7542017,
+        "drawCalls": 5674,
+        "withinBudget": false
+      },
+      "saved": 247165,
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 0,
+      "problems": 0
+    }
+  ]
+}
