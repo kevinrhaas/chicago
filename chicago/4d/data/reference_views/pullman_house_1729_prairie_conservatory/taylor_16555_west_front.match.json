@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "eaa753c79caa122be9b5f911358398cc24f55d7d85ba9dbb7b5c5747a95de271",
+  "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5",
   "camera_sha256": "3256272d16b906547b153fa4cd655768dba21389f2b4369884eb43aa58d9f9d2",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "eaa753c79caa122be9b5f911358398cc24f55d7d85ba9dbb7b5c5747a95de271"
+      "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "f8a28da033b33cfd86e2abb6ca53ab66dafcefb81acaeca1faddfe6e8949089d",
+  "group_sha256": "a4e092e07709066060483fdaec7d7aca9f2e2390c0e378e4b2a087883594ec25",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "b004e73f25c482617d2b41b6bf1723e67ae1f22bb14531074d93ec541cad29c7",
+  "flora_sha256": "12b5f252e3fb9c077267718519e40ddef7f61ace2a6206950c9dc538a19ec8c5",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -316,6 +316,11 @@
       "what": "the terrace's turned balusters and the urn on its front's corner pedestal (x 430-455)",
       "status": "within tolerance",
       "how": "T-1881 (2026-10-31): built as square balusters, the urn not built; a section under the bar at this distance (L-k01-1729-pullman-terrace-1881)"
+    },
+    {
+      "what": "T-3273 (owner, 2026-10-31: \"the opaque glass is too white\"): the kit's opaque glass substitute set a step darker, re-rendered here; this building's own geometry is unchanged",
+      "status": "fixed",
+      "how": "glass_sky (0.60, 0.64, 0.66) -> (0.36, 0.41, 0.43) in generators/archetypes/k13_conservatories.py, so the white bars over it read as panes"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

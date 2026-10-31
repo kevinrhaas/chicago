@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2500, ts: '2026-10-31T17:00:01.092Z', date: 'Oct 31, 2026, 12:00 PM CT', title: 'Pullman\'s conservatory glazed in panes, palms inside', kind: 'improvement',
+    items: [
+      'Transept, drum and dome glazed in a grid of panes over darker glass.',
+      'Palms inside the conservatory where a dark block stood.',
+      'The walk toward Calumet Avenue now curves past the lilacs, in a duller gravel with worn edges.',
+    ] },
+  { v: 2499, ts: '2026-10-31T16:14:48.920Z', date: 'Oct 31, 2026, 11:14 AM CT', title: 'Slender young trees before the Pullman estate', kind: 'fix',
+    items: [
+      'The parkway trees on 18th Street before the Pullman palm house and stable, and the two at the Calumet Avenue corner, now stand as the slender young elms the 1890s photographs show — single straight trunks about a foot across and 10–14 m tall — in place of thick, forked full-grown elms.',
+      'The one big tree the 1894 Inland Architect plate shows full-crowned there stays a grown elm.',
+    ] },
+  { v: 2498, ts: '2026-10-31T16:14:48.920Z', date: 'Oct 31, 2026, 11:14 AM CT', title: '1620 Prairie\'s brick stable stands on the alley', kind: 'feature',
+    items: [
+      'The Robert Law house at 1620 Prairie now has its own stable behind it: a two-storey brick coach house 16.3 m long on the alley, its outline, storeys, brick and two window marks read off the 1911 Sanborn sheet, standing against 1616\'s stable as the sheet draws it. Its carriage doors, loft hatch, other windows and gable roof come from the shared coach-house kit and are reconstructed. Robinson\'s 1886 atlas already marks a brick stable there. The 1874 engraving of the house shows an earlier wooden stable on the same spot, so that one is not built for 1904.',
+    ] },
   { v: 2497, ts: '2026-10-31T15:15:29.175Z', date: 'Oct 31, 2026, 10:15 AM CT', title: '1801 Prairie: the slated hood on the cross roof\'s end', kind: 'feature',
     items: [
       'The Kimball house\'s south cross roof now ends under a small slated hood, its hips rolled in pale zinc, with the turned finial on top. It is read off the 1965 HABS photograph and set to the height of the finial in the c. 1895 Taylor print.',

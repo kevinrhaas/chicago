@@ -3509,14 +3509,14 @@
       "phase_id": "restored_1904",
       "structure_id": "law_house_1620_prairie"
     },
-    "law_house_1620_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "law_house_1620_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 78564,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "9b1cfbcb71469c194dcaccc4f6fc291797d9c6ffe8c7fb4862fc871c28833a49",
+      "bytes": 123184,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "85bd099fb82ad69fc393d018b3b819c14b98a0af83c5291e65af694867484392",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "law_house_1620_prairie_coach_house"
     },
     "lee_house_1812__lee_1812.glb": {
@@ -3716,7 +3716,7 @@
       "baked_ao": false,
       "bytes": 234060,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "8ca35d7462e6d26cebf0d9763a567dc05fb3dcec62c85207f925601721164db8",
+      "inputs_sha256": "f56794575499c847555d462718dd7ddaa9f0ba86845d40c79a88ba770fd45deb",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "marshall_field_house_1905_prairie_conservatory"
@@ -4093,9 +4093,9 @@
     "pullman_glasshouse_1800_calumet_east__as_standing_1904.glb": {
       "archetype": "k13_conservatories",
       "baked_ao": false,
-      "bytes": 337736,
+      "bytes": 337740,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "9c3a0b3f92dd2ce313a8bcdd4fe11e1a09bd29525949ee32049cf8dda56c2835",
+      "inputs_sha256": "24efc2a77530179feb97c784fd042fc558f5b8469b23da34abc64990e789fb08",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_east"
@@ -4105,7 +4105,7 @@
       "baked_ao": false,
       "bytes": 183688,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "0808bb532812658f6b3413973ed5f94d3974f130a1ee0e9e4111b3b5f59ddd81",
+      "inputs_sha256": "337bdf8b27f2d236af9723aeb37e98e1cb9bd4989aa9c7250e7057c4c1b16d6a",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_east_end"
@@ -4115,7 +4115,7 @@
       "baked_ao": false,
       "bytes": 692204,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "64e23926d600148ac21e0e06ad8d92b755cc57339019dd29e4ad9e11e082537f",
+      "inputs_sha256": "31f6b7285ec5c1115fdadf3e08a4f2954b6accb409909edb991c915f0646051f",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_north"
@@ -4123,9 +4123,9 @@
     "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": {
       "archetype": "k13_conservatories",
       "baked_ao": false,
-      "bytes": 916888,
+      "bytes": 1114664,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "5e3e91a490519c68869ed9038ffec193af3a5fb93980f46931f3c323e16eb648",
+      "inputs_sha256": "987665f6390b4762a34fed8fa61843828b9866cfeee9f4d7a0c223889b8f4742",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_pavilion"
@@ -4145,7 +4145,7 @@
       "baked_ao": false,
       "bytes": 439432,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "d5510673c8a745106af1420907eb59127b4cf3e4f170c07cd4c3181cb7fec865",
+      "inputs_sha256": "0b597e83360d253cfa919036b3ba16666a3d5d9e08dc7341bba82326bbe21cc7",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_house_1729_prairie_conservatory"
