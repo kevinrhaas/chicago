@@ -157,14 +157,26 @@
             "bench_out_m": 0.1,
             "plinth_fabric": "stone",
             "base_m": 2.4,
-            "curve_facets": 4
+            "curve_facets": 4,
+            "transom_m": 2.2,
+            "frame_color": [
+              0.11,
+              0.12,
+              0.1
+            ],
+            "roof_deck": {
+              "reach": 0.52,
+              "rail_m": 0.9,
+              "baluster_m": 0.13,
+              "set_back_m": 0.08
+            }
           },
           "confidence": "inferred",
           "sources": [
             "rand_mcnally_pictorial_chicago_1893_field",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The plate's conservatory read through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json): a ring of tall glazed lights on fine bars round the bow, standing on a light stone sill on the house's stone base, their head about 5.4 m over grade at about three quarters of the principal windows' height, and a glass roof that leaves them curving and rises to the house's wall about 6.8 m over grade, under the chamber floor's balcony, ribbed at every bar. Built as the K13 kit's segmental bay on the K08 bow's own arc (8.4 m on its chord, 2.7 m out, in six facets of two lights each, the kit's glazing bars between) on the bow's top at 2.4 m (base_m), its stone plinth 0.6 m to the glass's sill, its eave at 3.0 m and its curved roof (the kit's quarter-ellipse on every hip, in four steps) to the wall at 4.4 m over the base. RECONSTRUCTED: the glass's colour (the kit's opaque substitute where it is not transparent), the bars' section, the staging inside, the gutter falling from its middle to a pipe at each end by the wall (L-field-1905-conservatory-1905). Open on the match record: the lights' width (the plate's about 0.6 m between equal bars, the render's ribs 0.88 m apart, the kit's finest that keeps every pane at least 0.2 m on the roof's last step), the transom across them and the iron balcony over the roof."
+          "note": "The plate's conservatory read through its camera (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json): a ring of tall glazed lights on fine bars round the bow, standing on a light stone sill on the house's stone base, their head about 5.4 m over grade at about three quarters of the principal windows' height, and a glass roof that leaves them curving and rises to the house's wall about 6.8 m over grade, under the chamber floor's balcony, ribbed at every bar. Built as the K13 kit's segmental bay on the K08 bow's own arc (8.4 m on its chord, 2.7 m out, in six facets of two lights each, the kit's glazing bars between) on the bow's top at 2.4 m (base_m), its stone plinth 0.6 m to the glass's sill, its eave at 3.0 m and its curved roof (the kit's quarter-ellipse on every hip, in four steps) to the wall at 4.4 m over the base. A transom crosses every light at 2.2 m over the base, about two thirds of the way up the glass, where the plate's bar runs (T-3270), and the frame is painted dark, as the plate prints its bars against the pale glass. RECONSTRUCTED: the bars' dark paint's colour, the glass's colour (the kit's opaque substitute where it is not transparent), the bars' section, the staging inside, the gutter falling from its middle to a pipe at each end by the wall (L-field-1905-conservatory-1905). Open on the match record: the lights' width (the plate's about 0.6 m between equal bars, the render's ribs 0.88 m apart, the kit's finest that keeps every pane at least 0.2 m on the roof's last step). T-3270: the roof stops level at a deck 0.52 of the way out from the wall (roof_deck), as the plate draws it, in painted tin under an iron railing 0.9 m high round its edge from wall to wall, posts at the facets' corners and plain balusters 0.13 m apart between a top and a foot rail; the railing's scroll panels and the deck's and iron's tones are RECONSTRUCTED (L-field-1905-carving-3270)."
         }
       }
     }

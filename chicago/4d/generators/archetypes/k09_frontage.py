@@ -25,6 +25,13 @@ What the record's `street_front_trim` names, and what is built for it:
                    capital carries the hood's end in place of its console
   shelf            (T-2531) over the apron, the light stood on a tablet proud of the wall over
                    a moulded shelf under its sill, the panel hung from the shelf's foot
+  crest            (T-3270) on the storeys it names, a carved crest standing on each street
+                   window's cornice hood: a palmette at its middle between two scroll volutes
+                   on low sweeps, `width_m` across (never wider than the hood), `height_m` high
+                   and `proud_m` out of the wall (1905 Prairie's chamber windows, the 1893 plate)
+  frieze_roundels  (T-3270) at each `s_m` along the front, a pair of carved rings `gap_m` apart
+                   centred at `y_m` in the wall head's frieze, between two upright blocks
+                   `block_m` wide (the plate's frieze over each pier, read "1 O O 1")
 
 A generic kit motif is allowed here because 1808's own carving is not read in any source
 this project holds (k09_trim.json `restrictions`: a generic motif never replaces a
@@ -37,6 +44,7 @@ own slot so the carved stone can be costed and coloured apart.
 
 from __future__ import annotations
 
+import math
 import random
 
 ROLE_MATERIAL = {"trim": "limestone_trim", "carving": "carved_trim"}
@@ -85,6 +93,21 @@ def spec(params) -> dict | None:
                            or not 0.0 < sh["tablet_m"] < sh["proud_m"]):
         raise ValueError("street_front_trim.shelf stands over an apron and takes height_m (0.15-0.5 m), "
                          "proud_m (0.05-0.3 m) and tablet_m (under the shelf's proud)")
+    cr = t.get("crest")
+    if cr is not None and (set(cr) != {"storeys", "width_m", "height_m", "proud_m"}
+                           or not all(isinstance(k, int) and 0 <= k < params.stories for k in cr["storeys"])
+                           or not 0.4 <= cr["width_m"] <= 2.0 or not 0.15 <= cr["height_m"] <= 0.6
+                           or not 0.04 <= cr["proud_m"] <= 0.2):
+        raise ValueError("street_front_trim.crest takes storeys (by index), width_m (0.4-2.0 m), height_m "
+                         "(0.15-0.6 m) and proud_m (0.04-0.2 m)")
+    fr = t.get("frieze_roundels")
+    if fr is not None and (set(fr) != {"s_m", "y_m", "radius_m", "ring_m", "proud_m", "gap_m", "block_m"}
+                           or not fr["s_m"] or not 0.08 <= fr["radius_m"] <= 0.3
+                           or not 0.02 <= fr["ring_m"] < fr["radius_m"] or not 0.01 <= fr["proud_m"] <= 0.08
+                           or not 2 * fr["radius_m"] < fr["gap_m"] <= 1.5 or not 0.0 <= fr["block_m"] <= 0.2):
+        raise ValueError("street_front_trim.frieze_roundels takes s_m (a list), y_m, radius_m (0.08-0.3 m), "
+                         "ring_m (under the radius), proud_m (0.01-0.08 m), gap_m (the pair's centres, clear "
+                         "of each other, up to 1.5 m) and block_m (0-0.2 m)")
     return t
 
 
@@ -204,7 +227,70 @@ def dress(a, op, frame, conf):
         _apron(a, kit, data, op, frame, conf, foot)
     if pil:
         _pilasters(a, kit, data, op, frame, conf, pil)
+    cr = t.get("crest")
+    if cr and _storey(p, op) in cr["storeys"] and op.component == "k01.opening.sash_flat":
+        _crest(a, var, op, frame, conf, cr, seed)
     return True
+
+
+ARC_PIECES = 16      # a carved ring's pieces round its circle
+
+
+def _crest(a, var, op, frame, conf, cr, seed):
+    """T-3270: a carved crest on a window's cornice hood (module doc): it stands on the hood's
+    top, as wide as the spec or the hood's top (the narrower), its back in the wall."""
+    from .k01_dressings import prism
+    mat = ROLE_MATERIAL["carving"]
+    pts = [q for piece in var.pieces if piece.role not in BOARD_ROLES for q in piece.mesh.pos]
+    top = max(q[1] for q in pts)
+    at_top = [q[0] for q in pts if q[1] > top - 1e-6]
+    W = min(cr["width_m"], max(at_top) - min(at_top))
+    h, d = cr["height_m"], cr["proud_m"]
+    c, y0 = op.s_m, op.sill_m + top
+    pw = W / 6                                   # the palmette's half width
+    r = min(h * 0.4, W / 8)                      # each volute's radius
+    prism(a, mat, frame, [(c - pw, y0), (c + pw, y0), (c + pw, y0 + 0.6 * h), (c, y0 + h),
+                          (c - pw, y0 + 0.6 * h)], 0.0, d, seed, conf)
+    for sg in (-1, 1):
+        vc = c + sg * (W / 2 - r)
+        prism(a, mat, frame, [(c + sg * pw, y0), (vc, y0), (vc, y0 + 1.2 * r), (c + sg * pw, y0 + 0.45 * h)],
+              0.0, d * 0.7, seed, conf)
+        ring = [(vc + r * math.cos(2 * math.pi * k / 8), y0 + r + r * math.sin(2 * math.pi * k / 8))
+                for k in range(8)]
+        prism(a, mat, frame, ring, 0.0, d * 0.85, seed, conf)
+        eye = [(vc + r * 0.45 * math.cos(2 * math.pi * k / 8), y0 + r + r * 0.45 * math.sin(2 * math.pi * k / 8))
+               for k in range(8)]
+        prism(a, mat, frame, eye, d * 0.85, d, seed, conf)
+    a.crest_meta = getattr(a, "crest_meta", []) + [
+        {"s_m": round(c, 4), "foot_m": round(y0, 4), "top_m": round(y0 + h, 4), "width_m": round(W, 4)}]
+
+
+def frieze(a, frame, conf):
+    """T-3270: the frieze's carved roundels (module doc), each pair between its two blocks."""
+    t = spec(a.p)
+    fr = (t or {}).get("frieze_roundels")
+    if not fr:
+        return
+    from .k01_dressings import prism
+    mat = ROLE_MATERIAL["carving"]
+    R, ri, d, g, bw, y = fr["radius_m"], fr["radius_m"] - fr["ring_m"], fr["proud_m"], fr["gap_m"], \
+        fr["block_m"], fr["y_m"]
+    for s in fr["s_m"]:
+        seed = a.instance("k09.frieze.roundels", "trim", {"radius_m": R, "gap_m": g},
+                          {"centre": _socket(frame, s, y)})
+        for c in (s - g / 2, s + g / 2):
+            for i in range(ARC_PIECES):
+                t0, t1 = 2 * math.pi * i / ARC_PIECES, 2 * math.pi * (i + 1) / ARC_PIECES
+                prism(a, mat, frame, [(c + ri * math.cos(t0), y + ri * math.sin(t0)),
+                                      (c + R * math.cos(t0), y + R * math.sin(t0)),
+                                      (c + R * math.cos(t1), y + R * math.sin(t1)),
+                                      (c + ri * math.cos(t1), y + ri * math.sin(t1))], 0.0, d, seed, conf)
+        if bw:
+            for sg in (-1, 1):
+                x0 = s + sg * (g / 2 + R + 0.06)
+                x1 = x0 + sg * bw
+                prism(a, mat, frame, [(min(x0, x1), y - R), (max(x0, x1), y - R), (max(x0, x1), y + R),
+                                      (min(x0, x1), y + R)], 0.0, d, seed, conf)
 
 
 def pilaster_overhang(pil) -> float:
