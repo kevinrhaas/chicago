@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2478, ts: '2026-10-31T01:32:51.240Z', date: 'Oct 30, 2026, 8:32 PM CT', title: '1801 Prairie\'s east range gets its second gabled bay', kind: 'fix',
+    items: [
+      'Along 18th Street, the Kimball house\'s lower east range now has a second stone bay between the corner turret and the side door, rising through the eave to a pinnacled gable, as the 1965 survey photograph shows it.',
+      'The range\'s eaves no longer run across the faces of its two gabled bays, so both rise clear and their upper windows show.',
+    ] },
+  { v: 2477, ts: '2026-10-31T00:59:53.017Z', date: 'Oct 30, 2026, 7:59 PM CT', title: 'Ivy cloaks the Pullman house\'s ground storey, as the old photograph shows', kind: 'improvement',
+    items: [
+      'At 1729 Prairie, the Boston ivy now covers the ground storey of the front south of the portico, and the 18th Street side up to the porte-cochère, in one mantle that stops level under the balcony\'s belt course. This follows the Detroit Publishing view of about 1900.',
+      'The two round-arched front windows stay clear, as in the photograph, and the ivy grows under their sills.',
+    ] },
   { v: 2476, ts: '2026-10-31T00:08:58.224Z', date: 'Oct 30, 2026, 7:08 PM CT', title: '1701 Prairie\'s back range gets its bracketed cornice', kind: 'feature',
     items: [
       'The Hibbard house\'s 1874 back range now wears the same deep cornice on paired brackets as the main house, running level into it as in the old rear photograph, and its upper windows sit where the photograph shows them.',
