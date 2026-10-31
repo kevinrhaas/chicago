@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 914,
+  "count": 915,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -62899,6 +62899,40 @@
       ],
       "work_refs": [
         "T-1881"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-flank-shallow-1890",
+      "title": "1801 Prairie's 18th Street section stood at the 1911 sheet's 0.1 m as a shallow projection, 6.97 m across",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 18th Street wall's three-storey section with the corbel table (bays.p flank) stands 0.1 m proud of the flank, where the 1911 sheet 28 trace (`s28fp-1801-b1`) draws it at about 0.1 m; it stood 0.6 m, K08's own pavilion depth, the least its window recesses fitted in. It is built as a SHALLOW K08 projection (`plan.shallow`, as the south pavilion is, “1801 Prairie's south pavilion stood at the 1911 sheet's 0.1 m as a shallow projection, its corner still square”): its windows' 0.55 m recesses run back through the wall plane, and the flank's coursing below the main cornice (newly, for a side wall: K01 now opens an all-stone house's side walls round a shallow bay's recesses below their wall top, as it opens the front) and the section's back over the eave are opened round each light. Its width follows from the depth (ruled it so): 6.97 m, from u 4.13 to the tower at u 11.1, where it was 6.0 m from u 5.1. K01 lets a shallow pavilion run up to 8.0 m along its wall and K08 lets a shallow one's gable stand up to 2.5 m in from its corners; every other house is untouched (none but 1801 carries a shallow bay). **What is read, not invented.** The depth is the sheet's. Everything the Taylor print places on the section keeps its place in the picture: each point is carried back along its ray from the solved camera (eye at u 38.3, v -17.74) from the 0.6 m face onto the 0.1 m one, so the section's rear corner moves 0.97 m back (u 5.1 to 4.13) and still renders at about x 500 against the print's pilaster at x 497-501; the lower storeys' lights (u 6.6 and 9.6 to 5.68 and 8.76), the wall dormer's gable (its middle u 8.1 to 7.22, insets 1.49 and 2.28 m) and the pair under it (u 8.23 to 7.35) render within a few pixels of where they did. The corner round over the corbel table is moved along its own ray, its ring's centre from the wall plane to 0.4 m behind it (u 5.4 to 4.66), so its outline and its light stay where the print's are: the same 1.0 m radius on a 1.83 m chord rising 0.6 m, standing 0.5 m past the section's face (it stood 0.4 m past the 0.6 m face), its four corbel courses still stepping back 0.6 m onto the section's corbel table. HABS photograph 2 (1965) agrees: the section's corner now falls at about x 60-70 on its 1800 px render where the photograph's corbel table ends (about x 65); it fell at about x 85. **What is invented or held by the kit.** The section's openings keep later work's and later work's reconstructed sash and places (the print shows three lights a storey across the section's middle storey, not two; that is a window-count question, not this one). What stands behind the section over the main eave is not modelled; its back is closed on the plane as before."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a reading of the section's openings against the print and HABS photograph 2."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890",
+        "T-3001",
+        "T-2843"
       ]
     },
     {

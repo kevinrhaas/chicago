@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "48477def01b69739b39d633a8b762aa1c327ba7a9f4c27d343fb1ff87a3490f8",
+  "glb_sha256": "5f98350ab0badc246d67c61ed8af76ebbc3d01b37b0f75ff10938b793268c0b5",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -145,6 +145,11 @@
       "what": "the cross roof's finial, at the frame's right edge: on the hood T-1890 stood on the cross roof's end its turnings and spike now show over the front's cresting (render about x 1314, y 262-317), where the print's 1965 finial is a short knob without a spike, lower (about x 1290, y 345), as it is on HABS photograph 1",
       "status": "within tolerance",
       "how": "T-1890: 1965 fabric against the c. 1895 Taylor print, which shows the spike and sets the finial's top; the build follows the print for 1904. This camera's frame edge also reads the tower about 37 px off (the round tower's entry). L-kimball-1801-cross-hood-1890"
+    },
+    {
+      "what": "the 18th Street section's depth (T-1890, from the Taylor print's record): stood at the 1911 sheet's 0.1 m, its corner over the corbel table now renders at about x 60-70 on the 1800 px render, where the print's corbel table ends at about x 65 (it rendered at about x 85 at 0.6 m)",
+      "status": "fixed",
+      "how": "L-kimball-1801-flank-shallow-1890"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

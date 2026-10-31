@@ -219,9 +219,14 @@ def main() -> int:
     a, b = K8.build_variant(square, board=False), K8.build_variant(bare, board=False)
     check(all(a.prims[k].pos == b.prims[k].pos for k in b.prims) and a.prims.keys() == b.prims.keys(),
           "an inset of nothing builds the square gable exactly")
+    # T-1890: 1.5 m on a deep projection; 2.5 m on a shallow one, which may run wider than a
+    # pavilion (1801's 18th Street section, 6.97 m across at the 1911 sheet's 0.1 m)
     bad = copy.deepcopy(shallow)
+    bad["roof"]["gable"]["inset_m"] = [0.0, 2.6]
+    refused(bad, "a shallow gable inset past 2.5 m", "stands its corners 0-2.5 m in")
+    bad = copy.deepcopy(v)
     bad["roof"]["gable"]["inset_m"] = [0.0, 1.6]
-    refused(bad, "a gable inset past 1.5 m (T-1890 widened the bound from a metre)", "stands its corners 0-1.5 m in")
+    refused(bad, "a deep gable inset past 1.5 m (T-1890 widened the bound from a metre)", "stands its corners 0-1.5 m in")
 
     # T-1890: the cross roof behind 1801's gable (the Taylor photograph and HABS photograph 1): a
     # level ridge on the gable's middle under its copings, two slopes from the side walls' tops

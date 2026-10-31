@@ -1919,9 +1919,12 @@ class Bay:
         pts = self.v["plan"]["points"]
         xl, p, xr = float(pts[1][0]), float(pts[1][1]), float(pts[2][0])
         il, ir = (float(a) for a in g.get("inset_m", (0.0, 0.0)))
-        # T-1890: up to 1.5 m (1801's 18th Street section, its wall dormer about 3.2 m across a 6 m front)
-        if not (0.0 <= il <= 1.5 and 0.0 <= ir <= 1.5):
-            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-1.5 m in from the front's")
+        # T-1890: up to 1.5 m (1801's 18th Street section, its wall dormer about 3.2 m across a 6 m front),
+        # and on a shallow projection up to 2.5 m, which may be wider (the same section at the 1911
+        # sheet's 0.1 m, 7.0 m across, its wall dormer where the Taylor print stands it)
+        most = 2.5 if self.v.get("shallow") else 1.5
+        if not (0.0 <= il <= most and 0.0 <= ir <= most):
+            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-{most} m in from the front's")
         gl, gr = xl + il, xr - ir             # the gable's own corners (the front's unless inset)
         xc = (gl + gr) / 2
         up = float(g["upstand_m"])
