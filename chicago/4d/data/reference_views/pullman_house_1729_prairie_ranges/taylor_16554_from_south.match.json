@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "a1aa2f596ec93f197a004306c9a28c9e4fabd9ccf54b60a2100e202718d039a7"
+      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
     }
   ],
-  "group_sha256": "07a608fe7c0e44f38fb9f9055f6d0a390206f625cd54396b8fd54f55c72bc009",
+  "group_sha256": "c687e9db68f1fa5269a2822d6513dd2a352be58a7fed17cee7b9cd59f9ddfb8b",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -259,6 +259,11 @@
       "what": "the clipped columns' foliage: the render draws each as an open stack of small leaf clumps about 8-10 px wide, where the print's four are dense dark cones 10-14 px wide; the renderer's sheared arborvitae (renderers/web/js/tree-model.js), the same habit as every sheared column in the district, not the plants' places or count [T-1934, 2026-10-31] [T-1934, 2026-10-31, fixed: the four are the `column` plant now (arborvitae clipped to a column, renderers/web/js/front-yards.js; tools/plant_prairie_1904_front_yards.py), grown on a 'spire' envelope, near its full width to about two fifths up and drawn in to a blunt point, where the yard's cone is widest at its hidden foot; and every sheared habit (the cone, the ball, the standard's head, the column) stands a solid body of its own clipped shape under its sprays (tree-model.js solidCore), with its sprays held to that face. From this eye, at the far level, the four render as dense dark columns 8-11 px across with blunt points (x 587-595, 609-617, 653-660, 664-669 at y 520), against the print's 10-14 px; their tone about 0.4 of the lit stone's beside them, against the print's 0.5. Within tolerance.]",
       "status": "fixed",
       "how": "T-1934 render, winter, the scene's front yards at the far level"
+    },
+    {
+      "what": "the house's raised terrace at its south-east corner, its balustrade and its striped awning (pullman_house_1729_prairie, T-1881), where the build stood a one-storey brick block until now",
+      "status": "not shown",
+      "how": "T-1881 (2026-10-31): another structure, judged in the house's and the conservatory's records (taylor_16555_west_front, taylor_16554_from_south, inland_1894_plate); this record's verdict on the stable and range is unchanged"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
