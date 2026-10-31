@@ -36856,6 +36856,18 @@ its top 4.79 m, stood 0.8 m off the wing because 16555 shows it only behind the 
 -3168.4 N, 5.02 m). Their tops are 16554's readings, which 16555 puts about 0.5 m higher;
 the widths are the print's (0.7-1.0 m). That they were planted in beds or fixed vases rather
 than in tubs carried in is read from the winter print; what they stood in is hidden in all three.
+Fourteen more stood on 2026-10-31 behind the 18th Street coping before the stable, where 16554
+shows them over the coping (x 727-1090 px), each on its pixel column through that camera: two small
+arborvitae cones and a pair of sheared balls before the corner bay (1478.3-1481.5 E, -3193.5 N, in
+the border line behind the coping that the c. 1900 Detroit view shows nearer the house, east of the
+court's carriage opening, which they keep clear), four sheared balls (1481.88-1484.72 E, -3188 N),
+a clipped column and two cones (1485.54-1487.55 E, -3188 N) and three sheared balls massed at the
+stable's east end (1489.97-1491.98 E, -3187 N). The middle cluster's and the east mass's line,
+about 4 m off the stable's front, is where 16555's leafy masses (x 903-963 and 1050-1100 px) cross
+16554's columns. Each top is its rise over the coping beside it in 16554, set over the built 0.9 m
+coping (1.45-2.24 m): through that camera the coping itself reads about 0.55 m, which the match
+record holds open, and read absolutely the tops are 0.8-1.7 m. 16555, of 1892-94, shows the low
+balls' stretch bare over the coping, so they are taken as planted after it and before 16554.
 **What is read:** each plant's place across the picture and its top from the plate's pixels; its
 depth from the plane it is read on (the terrace behind its balustrade, the line 1.6 m off the
 stable's wall, the ground at its visible foot); that the two balls are clipped evergreens, one
@@ -36874,7 +36886,7 @@ the pier where the plate has the ball), which the match records hold within tole
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
 and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
-**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934).
+**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934); the fourteen behind the coping before the stable 2026-10-31 (T-1934).
 
 ### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
 

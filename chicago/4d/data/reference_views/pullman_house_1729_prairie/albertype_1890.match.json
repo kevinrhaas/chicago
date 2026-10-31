@@ -10,7 +10,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 16,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
         "creeper": 22
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "6d12e674f67a5269b91c254ff5ca3d76aa6ced8af08686277f42ae000bdd2ae7",
+  "flora_sha256": "4f89516fdeb3d4947902379b79e075f983c4a765bce6381e0c6ad8d4eb9f65cf",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
