@@ -79,7 +79,7 @@
       }
     }
   },
-  "_variants_doc": "form: lean_to, span, span_lantern, curvilinear_lean_to or canted_bay. Lengths in metres, x along the front, z out from the house wall (a lean-to or bay) or across the house (a span), y up. bays sets the posts and rafters (each a primary at an even fraction of its panel's base). door names the wall it stands in. gutters lists the eaves that shed, each with its outlet end.",
+  "_variants_doc": "form: lean_to, span, span_lantern, curvilinear_lean_to or canted_bay. Lengths in metres, x along the front, z out from the house wall (a lean-to or bay) or across the house (a span), y up. bays sets the posts and rafters (each a primary at an even fraction of its panel's base). door names the wall it stands in. gutters lists the eaves that shed, each with its outlet end. T-1905, for a record's own variant: a segmental_bay is a half circle on radius_m, or a segment on chord_m and rise_m; its roof is a cone (the default), flat, or curved (each hip bowed on the kit's quarter-ellipse in curve_facets steps, the curve's facets by default); plinth_fabric 'stone' lays the plinth in the kit's stone; base_m lifts the house onto a base as it is written (it is built and gated on its own ground); and a host_wall naming {structure} is that record's wall, so nothing is built for it.",
   "variants": [
     {"id": "k13.house.lean_to", "form": "lean_to", "length_m": 3.6, "depth_m": 2.2, "eave_m": 2.3, "pitch_deg": 30, "bays": 3,
      "door": {"wall": "end_right", "at": 0.5}, "gutters": [{"eave": "front", "outlet": "left"}], "ridge_vent": false,

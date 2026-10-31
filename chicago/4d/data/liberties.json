@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 898,
+  "count": 899,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1544,6 +1544,10 @@
     {
       "id": "marshall_field_house_1905_prairie_coach_house",
       "name": "1905 S. Prairie Avenue — the alley building of the house at 1905"
+    },
+    {
+      "id": "marshall_field_house_1905_prairie_conservatory",
+      "name": "1905 Prairie Avenue — the Marshall Field house's conservatory, on its south flank"
     },
     {
       "id": "marshall_field_jr_house_1919_prairie",
@@ -61505,7 +61509,7 @@
         },
         {
           "label": "The gate tree's head",
-          "text": "the tree left of the 1800 Calumet gate (calumet__prairie calumet 18 20#p00) no longer grows on the rule's elm. Both the 1894 plate and Lowe's print draw it on one straight leader running up through its crown, its limbs leaving it from about 3 m (plate, y 660) or 2.6 m (Lowe) and spreading wide and low over the walk: a young tree's head, not the grown elm's forked fountain. Its record names form: \"broad head\" (the pictured 1904 data, carried into the 1904 data by the planter), and the renderer grows it on its own habit (the walkthrough's street trees code FORMS, the walkthrough's tree model code ARCH.ulmus americana young)."
+          "text": "the tree left of the 1800 Calumet gate (calumet__prairie calumet 18 20#p03 since 's 16554 stretch was numbered before it) no longer grows on the rule's elm. Both the 1894 plate and Lowe's print draw it on one straight leader running up through its crown, its limbs leaving it from about 3 m (plate, y 660) or 2.6 m (Lowe) and spreading wide and low over the walk: a young tree's head, not the grown elm's forked fountain. Its record names form: \"broad head\" (the pictured 1904 data, carried into the 1904 data by the planter), and the renderer grows it on its own habit (the walkthrough's street trees code FORMS, the walkthrough's tree model code ARCH.ulmus americana young)."
         },
         {
           "label": "Read",
@@ -61514,6 +61518,22 @@
         {
           "label": "Chosen (reconstructed)",
           "text": "the habit's numbers (crown base 0.30 of the height, limbs at about 52 degrees, an open crown between the plate's and Lowe's densities); the species stays the layer's American elm, read as a young one; its height stays the record's scale 0.6 of the parkway band."
+        },
+        {
+          "label": "Extended (2026-10-31, Taylor's 16554)",
+          "text": "Calumet Avenue's west parkway north of the glasshouse ground's gate, from 241.0 to 264.0 m along calumet__prairie calumet 18 20 (the walk's curve into 18th Street, opposite the Pullman stable), is planted off J. W. Taylor's no. 16554 (J. W. Taylor (Chicago), photographer, c. 1890-1910): three trees at 244.5, 248.8 and 259.9 m, where the rule had elms at 241.9, 250.9 and 259.9 m (the first just past the print's edge, its trunk drawing inside the frame where the print shows grass)."
+        },
+        {
+          "label": "Read",
+          "text": "the print's camera re-solved with this corner's ground in its fit (Taylor stood on the lawn inside the corner lot's coping, a few metres from this walk; the coping's curve, the walk's outer edge and the stable's wall foot now land within about 5 px), and each trunk's x carried to the planting line through it; the third trunk west of them lands 0.45 m from the gate tree's 266.9 m, which the plate and Lowe's print had placed, a check the camera was not fitted on."
+        },
+        {
+          "label": "Chosen",
+          "text": "all three on the planting line (the nearest one's foot reads about 1 m nearer the walk) and on the gate tree's young habit (broad head, scale 0.6), where the print draws each bole about 0.19 m across on a straight leader, slenderer than the rule's grown elm; that trees of the 1890s print still stand in 1904. The print's trunks with feet on the lawn inside the coping are garden trees, left to the lot."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and its match record."
         }
       ],
       "work_refs": [
@@ -62142,6 +62162,36 @@
       ],
       "work_refs": [
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-field-1905-conservatory-1905",
+      "title": "1905 Prairie's conservatory stood as glass on the house's stone bow, off the 1893 Pictorial Chicago plate",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_house_1905_prairie",
+        "marshall_field_house_1905_prairie_conservatory"
+      ],
+      "covers": [],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work builds the conservatory on the Field house's south flank as the 1893 plate ('Residence of Mr. Marshall Field, 1905 Prairie Avenue.' Halftone plate…) shows it through the camera later work solved (the pictorial 1893 plate data): a ring of tall glazed lights on fine bars, standing on a stone sill over the house's stone basement, under a glass roof that curves up from their head to the house's wall. Until now the house record's K08 bow stood for it, a storey of brick with three sashes under a flat tin cone. The bow now stops at the basement, in stone, and the glass is its own record (1905 Prairie Avenue — the Marshall Field house's conservatory, on its south flank), the K13 kit's segmental bay standing against the house's own wall on the bow's top. K13 learned, additively, to size a segmental bay as a segment (chord (m), rise (m)) rather than a half circle, a `curved` roof (the kit's quarter-ellipse on every hip), a stone plinth (plinth fabric), a lift onto a base (base (m)), and a host wall that is another record's (host wall structure); every other K13 asset is the same bytes. **What is read, not invented.** The glass ring on its stone sill, the glass roof's curve and ribs, the bow's plan on the sheet's bulge ('Greenhouse', sheet 28), and the heights through the camera: the glass's head about 5.4 m over grade, the roof meeting the wall about 6.8 m, each within about 0.3 m. **What is a working figure.** Its plan stays the house record's bow, 8.4 m on its chord and 2.7 m out, where the sheet's bulge reaches about 3.6 m. The lights are six facets of two, ribs 0.88 m apart with the kit's glazing bars between, where the plate's lights are about 0.6 m: the kit's finest division that keeps every roof pane at least 0.2 m wide on the curve's last step. The curve is cut in four steps. The frame's white paint, the glass's colour, the staging inside and the gutter with its two pipes at the wall are the kit's (“The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed”). **What is still not built.** The transom across the lights, the iron balcony on the roof's deck at the chamber floor, and the dark tone the plate gives the bars. All stay open on the match record."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the Daily News view's camera (DN-0003324), which sees the south flank nearer 1904."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31 (T-1905)."
+        }
+      ],
+      "work_refs": [
+        "T-1905",
+        "T-3260"
       ]
     },
     {
