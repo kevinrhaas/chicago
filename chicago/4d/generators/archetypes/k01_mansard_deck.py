@@ -255,7 +255,7 @@ def _cross_hood_faces(a, dk, xh, conf):
         for n, far in ((normals[i - 1], foot[i - 1]), (normals[i], foot[(i + 1) % 4])):
             off = tuple(0.012 * x for x in n)
             side = _unit(_cross(n, along))
-            if sum(side[k] * (far[k] - c[k]) for k in range(3)) < 0:   # into the face, not off it
+            if side[0] * (far[0] - c[0]) + side[1] * (far[1] - c[1]) + side[2] * (far[2] - c[2]) < 0:   # into the face, not off it
                 side = tuple(-x for x in side)
             p0 = tuple(c[k] + off[k] for k in range(3))
             p1 = tuple(apex[k] + off[k] for k in range(3))
