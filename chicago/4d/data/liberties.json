@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 897,
+  "count": 898,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60733,6 +60733,49 @@
       ]
     },
     {
+      "id": "L-pullman-lodge-east-face-3164",
+      "title": "The Pullman lodge's body set 1.6 m in from the east wall's line behind a 2.2 m front, over a one-storey strip under the range's coping",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_lodge_1800_calumet"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_lodge_1800_calumet",
+          "phase": "as_standing_1904",
+          "aspect": "form.draft_plan"
+        }
+      ],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1911 sheet (Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3) draws the lodge as one outline, 8.95 by 11.58 m, and prints '2' on it. Stood two storeys on that whole outline, the lodge showed a face and an eave receding about 34 px east of its bowed corner on the 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and about 23 px on Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…): 9.6 m of wall seen from about 10.7 m east of its line. Both pictures show sky and the range's coping railing there instead. The plate's roof also shows how deep the two storeys reach. Its east silhouette is one straight line from the bowed eave to the deck, and the deck's east side recedes about 17 px behind it, so the deck runs back about 4.5 m behind a front that has no east face. So only the front block (`r1`) keeps the east wall's line, for 2.2 m, to the sheet's corner where the east range's north wall leaves the lodge. It keeps the plate's north front, bowed corner, balcony and loggia, and its roof runs up to the deck. The body behind it (`r3`) stands 1.6 m in from that line. That is the least set-back that hides its east wall and eave behind the bowed corner from both solved cameras (1.32 m for the plate's, 1.50 m for Lowe's at the outline's south end). It carries the deck, its cresting and the stack where they stood. The strip between them (`r4`) is one storey, 5.5 m, under the range's 6.15 m coping, so the sheet's ground outline is all built. The builder takes two opt-in keys for this (deck exact, `cresting: \"none\"`), so no other record's mesh moves. **What is invented.** The set-back's line and depth, and the strip's height and flat roof: the pictures fix only that nothing stands over the coping there. Also how the sheet's single '2' over the whole outline came to be: a later raising of the strip, after the 1890s pictures and before 1911, would also explain it, and the 1904 scene follows the pictures. **What is not.** The front's 2.2 m on the east wall's line, the deck's place and height, and the absence of any east face over the coping, which both pictures show."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the lodge from the east or the south, or a plan of the glasshouse ground before 1911."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_lodge_1800_calumet.as_standing_1904.form.draft_plan`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31 (T-3164)."
+        }
+      ],
+      "work_refs": [
+        "T-3164"
+      ]
+    },
+    {
       "id": "L-pullman-gate-1800-calumet-3164",
       "title": "The Pullman glasshouse ground's gate on 18th Street: two stone piers with scroll wings, placed through the plate's camera",
       "section": "per_subject",
@@ -61957,7 +62000,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both show the ground the estate's 18th Street gate opens onto. No plan draws it: the 1911 sheet shows no drive or walk, and the grounds have no record of their own, so it is built on the conservatory's record beside the gate (`grounds`). A gravel drive about 4.3 m wide from between the wings' ends straight back past the conservatory's west flank; a turf wedge east of it, narrowing to the east wing, in which the two boxed standards stand; a walk 1.8 m wide entering the lot east of the east pier and running to a forecourt along the conservatory's north front, from 3.2 m out to its podium; and west of the gate a stone coping on the lot line, a body 0.32 m high and 0.36 m thick under a cap course to 0.4 m standing 0.03 m past both faces. **What is read.** Every edge is read off the two pictures through their solved cameras and laid on the ground those cameras put under it: the drive's edges, the wedge's edges, the walk's mouth east of the pier and the lawn east of it, the forecourt's front, and the coping's height and place (its foot on the line of the piers' fronts). Re-rendered, the drive's west edge lands within about 5 px of the plate's, the wedge within about 10, the walk and the lawn east of it within about 8, and the coping's top and foot within about 6. **What is invented.** The surfaces: gravel in a buff limestone tone, taken from the pictures reading drive and walks as pale as the public walk; the coping's stone, taken as the gate's; the coping's thickness and cap course, which the pictures give at a few pixels; the drive's run past u 4 (the plate) or u 3 (Lowe's), where it lies too near both horizons to fix its depth, carried straight on to u 16, where the planting hides it in both, and stopped there; and the coping's run past the frames' edges (about v 13 in Lowe's print, v 16 in the plate), carried round the Calumet Avenue corner on the 1911 sheet's lot line to the start of its Calumet straight. The pale line along the lawn's far side, a walk or the drive's turn, is read but not built. Each row's lift is the app's ground (the 1904 terrain, the 1871 postfire ground) over the house's bed, measured where the row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate."
+          "text": "the 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both show the ground the estate's 18th Street gate opens onto. No plan draws it: the 1911 sheet shows no drive or walk, and the grounds have no record of their own, so it is built on the conservatory's record beside the gate (`grounds`). A gravel drive about 4.3 m wide from between the wings' ends straight back past the conservatory's west flank; a turf wedge east of it, narrowing to the east wing, in which the two boxed standards stand; a walk 1.8 m wide entering the lot east of the east pier and running to a forecourt along the conservatory's north front, from 3.2 m out to its podium; and west of the gate a stone coping on the lot line, a body 0.32 m high and 0.36 m thick under a cap course to 0.4 m standing 0.03 m past both faces. **What is read.** Every edge is read off the two pictures through their solved cameras and laid on the ground those cameras put under it: the drive's edges, the wedge's edges, the walk's mouth east of the pier and the lawn east of it, the forecourt's front, and the coping's height and place (its foot on the line of the piers' fronts). Re-rendered, the drive's west edge lands within about 5 px of the plate's, the wedge within about 10, the walk and the lawn east of it within about 8, and the coping's top and foot within about 6. **What is invented.** The surfaces: gravel in a buff limestone tone, taken from the pictures reading drive and walks as pale as the public walk; the coping's stone, taken as the gate's; the coping's thickness and cap course, which the pictures give at a few pixels; the drive's run past u 4 (the plate) or u 3 (Lowe's), where it lies too near both horizons to fix its depth, carried straight on to u 16, where the planting hides it in both, and stopped there; and the coping's run past the frames' edges (about v 13 in Lowe's print, v 16 in the plate), carried round the Calumet Avenue corner on the 1911 sheet's lot line to the start of its Calumet straight. The pale line along the lawn's far side is built (2026-10-31) as the drive's turn toward Calumet Avenue. Through the plate's camera its edges fall at u 23-31 from the drive's east edge to the frame's edge. A gravel band 4 m wide on the middle of that reading, u 25-29, runs east to the 1911 sheet's Calumet line at v 28.3, joined to the drive by a wedge clear of the pictured lilacs. Its width, its depth (about 1.2 m of ground a pixel there), the wedge's plan and its run past the frame are invented. Each row's lift is the app's ground (the 1904 terrain, the 1871 postfire ground) over the house's bed, measured where the row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate."
         },
         {
           "label": "How to resolve",

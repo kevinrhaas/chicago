@@ -314,7 +314,7 @@ def bow_arc(a, b, corner, bulge, y, flare=0.0, seg=8):
 
 
 def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, chamfer=None, cresting="posts",
-             bow=None):
+             bow=None, exact=False):
     """A hipped roof cut off level `deck_h` over its eave: four sloped faces to a flat
     lead deck, and a ring of iron cresting round the deck. `insets` (u0, u1, v0, v1), the
     deck's edges in from the eave lines, gives each face its own pitch where a picture
@@ -324,10 +324,14 @@ def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, cha
     deck in open ironwork (T-1934); otherwise posts and a rail. `bow` (bulge, flare), with a
     chamfer, carries the cut eave round an arc `bulge` metres proud of the chord's middle and
     belled out and down by `flare`, the roof over it a fan to the deck's corner: the bowed
-    corner of the Pullman lodge in the 1894 plate (T-3164). Returns the cresting's top."""
+    corner of the Pullman lodge in the 1894 plate (T-3164). `exact`, with `insets`, stands the
+    deck at `deck_h` over the eave even where the plan is too shallow for that pitch to reach
+    it, and `cresting` "none" draws no deck or cresting: a front block whose roof runs up to
+    a deck that a deeper block behind it carries (the Pullman lodge's, T-3164). Returns the
+    cresting's top, or the deck's level when there is none."""
     u0, u1, v0, v1 = u0 - o, u1 + o, v0 - o, v1 + o
     inset = min(deck_h / math.tan(math.radians(pitch)), (u1 - u0) / 2 - 0.3, (v1 - v0) / 2 - 0.3)
-    yd = y + inset * math.tan(math.radians(pitch))
+    yd = y + (deck_h if exact and insets else inset * math.tan(math.radians(pitch)))
     i_u0, i_u1, i_v0, i_v1 = insets if insets else (inset,) * 4
     a0, a1, b0, b1 = u0 + i_u0, u1 - i_u1, v0 + i_v0, v1 - i_v1
     lo = [(u0, v0, y), (u1, v0, y), (u1, v1, y), (u0, v1, y)]
@@ -357,6 +361,8 @@ def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, cha
     for f_ in faces:
         m.face("roof", f_, cen)
     m.face("cornice", ring, cen)
+    if cresting == "none":
+        return yd
     if cresting == "open":
         return open_cresting(m, a0, a1, b0, b1, yd)
     return crested_cap(m, [(a0, b0), (a1, b0), (a1, b1), (a0, b1)], (a0 + a1) / 2, (b0 + b1) / 2, yd)
@@ -1083,7 +1089,8 @@ def build(params, structure_id: str):
                            insets=[float(x) for x in p["deck_insets_m"]] if p.get("deck_insets_m") else None,
                            chamfer=(ch["corner"], ch["m"]) if ch else None,
                            cresting=p.get("cresting", "posts"),
-                           bow=(ch["bow_m"], ch.get("flare_m", 0.0)) if ch and ch.get("bow_m") else None)
+                           bow=(ch["bow_m"], ch.get("flare_m", 0.0)) if ch and ch.get("bow_m") else None,
+                           exact=bool(p.get("deck_exact")))
         elif roof == "gable":
             along = "u" if (u1 - u0) >= (v1 - v0) else "v"
             inset = float(gothic.get("gable_inset_v0_m", 0.0)) if gothic and role == "main" else 0.0
