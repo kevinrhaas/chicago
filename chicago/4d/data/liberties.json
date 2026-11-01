@@ -63180,6 +63180,10 @@
       "revised": null,
       "fields": [
         {
+          "label": "Superseded in part (2026-11-01)",
+          "text": "the forward block is replaced by two pavilions either side of a stepped-in centre (“1729 Prairie's Prairie front laid as two pavilions with the entry in a stepped-in centre, off the owner's reading of the Detroit print; the depth reconstructed”)."
+        },
+        {
           "label": "Decision",
           "text": "the owner, on 2026-10-31, read the Detroit print (LC-D4-12551) against the scene: a full mansard with no peak in the centre; a dormer north and south but none in the centre; three windows on the second storey (north, centre, south); on the main storey a window, the entry and a window to the south; front steps with a landing in the middle; ornament at the sidewalk gate; and the top roof's colour. The forward block (bays.p forward) is narrowed from 6.5 to 6.02 m and centred on the door at v 6.4, with one second-storey light and no dormer; a 1 m step (bays.p step) returns its south face to the front. The north bay at v 1.5 gets back its ground and second-storey lights and its round-headed dormer, which the old block (v 2.0-8.5) had covered. The flight's 12 risers break after the sixth for a 1.2 m landing (entrance kit…mid landing, a new K07 key). The hood is recentred on the door on two columns. The gate moves onto the door's line, and each pier carries a turned urn (`boundary.urns`, a new K11 key). The deck behind the cresting drops to 10 degrees, K05's least, painted black. **What is read, not invented.** The Detroit print through its solved camera, on the main front's plane (about 13 px a metre): the north dormer at v 1.0-2.2, the rusticated piers at v 3.96-5.49, 7.65-8.82 and 13.68-14.56, the second-storey lights between them (v 6.17-6.99 and 10.4-12.16) and the corner's narrow light (15.03-15.77). The cornice steps about 8 px at the first pier, as a block about 3 m proud would draw. A pale finial stands on the wall line at v 7.1-7.6, about 1.7 m up. The 1890 Albertype plate shows the north bay's dormer and lights. **What is invented.** The block's exact width and the door axis: the print's door leaves and inner columns, read earlier at v 5.0 (“1729 Prairie's door, stair, inner columns and gate set on one axis, the forward block's centre; the cheeks' balustrade reconstructed”), sit behind ivy and the portico. The axis follows the owner's three-bay reading and the piers instead. The portico's two columns, the landing's place and 1.2 m depth, the north bay's lights' sizes (from the corner's), the northern urn (by symmetry), the urns' profile (the K11 kit's) and the deck's black paint (no picture sees the deck) are also invented."
         },
@@ -63265,6 +63269,38 @@
       "work_refs": [
         "T-3110",
         "T-1890"
+      ]
+    },
+    {
+      "id": "L-pullman-1729-recessed-centre-1881",
+      "title": "1729 Prairie's Prairie front laid as two pavilions with the entry in a stepped-in centre, off the owner's reading of the Detroit print; the depth reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, on 2026-11-01, looked again at the photographs: \"the center area steps in and there is the walkway that leads up to it\". The forward block centred on the door (“1729 Prairie's Prairie front laid as three bays off the Detroit print: the forward block narrowed onto the door, the north bay's windows and dormer put back, a landing in the flight, urns on the gate piers and a black deck”) is replaced by two K08 pavilions. p north (v 0.3-5.0) carries the north bay's two lights and its round dormer. p south (v 8.85-13.6) carries the big lights and the big dormer with its broken pediment. Between them the centre stays on the front's plane with one second-storey light, no dormer, and the door at v 6.875. The portico (two columns, 3.1 m), the stoop with its mid landing, the walk and the urned gate stand on the door's line in the recess. **What is read, not invented.** The Detroit print (LC-D4-12551) through its solved camera, unwarped onto the front's plane: a hip in the mansard either side of the plain centre (x 365-382 and 415-432 px), a dormer north and south of it and none over it, the north pavilion's south return lit beside the portico, and the centre's light reading at v 6.4. Laid over the render through the same camera, the big dormer, the big window and the corner bay's dormer and light fall on the print's. **What is invented.** The pavilions' 1.2 m projection, the most K08 lets a pavilion stand (the print's return suggests 1.2-2 m; the 1911 sheet's front lines are 1.65 and 3.05 m but draw the portico's 3 m with them). Also invented: their exact ends (0.3 m clear of the north corner and of the corner pier at v 13.6), and the loss of the K01 architraves on the pavilions' lights, which are K08 lights."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a re-solved camera for Taylor's no. 1445, the closest view, triangulated against the Detroit print, fixes the pavilions' depth and ends; a K08 light architrave restores the frames."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-01 (T-1881)."
+        }
+      ],
+      "work_refs": [
+        "T-1881"
       ]
     },
     {
