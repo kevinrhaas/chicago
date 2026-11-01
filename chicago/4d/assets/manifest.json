@@ -1007,14 +1007,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "glessner_lee_house_1700_prairie"
     },
-    "glessner_lee_house_1700_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "glessner_lee_house_1700_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 131028,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "aa5a8d1e948c1b3887ff64ad9ac4564689f1c556c32b9638b7ad6d4e0ffcfb33",
+      "bytes": 123232,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "0c57ebd0e6436cafc459bacd5af282c1719806945faefcee0dbc6472c0b9b87c",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "glessner_lee_house_1700_prairie_coach_house"
     },
     "goodman_house_1612_prairie__as_built_1869.glb": {

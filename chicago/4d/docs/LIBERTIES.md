@@ -24419,7 +24419,7 @@ house stays this draft's.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24489,6 +24489,10 @@ same ids, on the outlines, storeys, brick and window marks the sheet draws, as t
 **1712's stable retired from this liberty by T-1932 (2026-11-01):** `house_1712_prairie_coach_house`
 now stands as the K12 coach house under `L-k12-1712-stable-1932`, under the same id, on the outline, storeys, brick
 and window mark the sheet draws, as the crossed brick stable Robinson's 1886 plate draws on lot 3; its draft
+attributes are gone.
+**1700's stable retired from this liberty by T-1932 (2026-11-01):** `glessner_lee_house_1700_prairie_coach_house`
+now stands as the K12 coach house under `L-k12-1700-stable-1932`, under the same id, on the outline, storeys, brick
+and window mark the sheet draws, as the crossed brick stable Robinson's 1886 plate draws on lot 2; its draft
 attributes are gone.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
@@ -33066,6 +33070,45 @@ and ends their true form.
 **Covers:** `house_1712_prairie_coach_house.as_standing_1904.form.coach_house`, `house_1712_prairie_coach_house.as_standing_1904.form.stories`, `house_1712_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1932.
 **Review:** `docs/RESEARCH/k12-1712-stable-1932/README.md`.
+**Recorded:** 2026-11-01 (T-1932).
+
+### L-k12-1700-stable-1932 — The stable on the alley behind the 1700-1706 Prairie pair, built from the K12 kit on the outline the 1911 sheet draws, its party wall on the lot line to the north
+
+**Decision:** the district draft's alley building behind 1700 Prairie Avenue (T-1932), the only rear building on the
+lot the 1700 and 1706 townhouses share, is refined in place, under its own id
+`glessner_lee_house_1700_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), the ninth
+K12 coach house in the scene after 1812's, 1736's, 1620's, 1616's, 1612's, 1626's, 1628's and 1712's
+(L-k12-1712-stable-1932). **What is read.** From sheet 20 of the 1911 Sanborn: one pink building, crossed by one X
+(the stable's sign) and lettered '2', with '12 8' inside its north wall and '12' inside its south wall. It is 10.42 m
+deep from the alley line by 19.37 m along it, measured between line centres on the committed raster (median darkness
+profiles: columns 2224.3 and 2429.5, rows 3807.1 and 4188.6) and carried by the sheet's fitted similarity; its north
+wall stands on the lot line, which the sheet runs on east from it. One of the key's window marks, with a dot for each
+storey, on the alley wall about 9.74 m from the north wall line and 9.63 m from the south, at its middle. From
+Robinson's 1886 plate 10: a pink building crossed by an X (the atlas's stable) on the alley behind lot 2 (house
+number 1702 and a 105 ft frontage in its margin), about 9.6 m deep by 19.6 m along the alley by half-height edges of
+its pink fill, which take in the plate's own border lines: the 1911 building within two and a half of the plate's
+0.346 m pixels. Inferred for 1904 as every reading of these sheets is; both maps put it there, either side of it.
+**What is invented.** The kit stands as drawn, its party wall at the north end, on the lot line, rising the kit's
+0.45 m above the roof, though the sheet draws no fire-wall sign; its south end, 2.9 m short of the 1706/1712 lot line,
+is the kit's open gable, blank, as the sheet marks no window on it. Every opening but the mark is the kit's, laid out
+for this lot: on the alley wall the carriage bay (3.0 m clear) toward the north end with the loft hatch over it, the
+mark built as a stable sash with a loft sash over it, then a man door and a second stable sash, each with a loft sash
+over it, toward the south end; on the yard wall a door at the middle between four stable sash, with loft sash over the
+outer two. The roof is a single gable with its ridge along the alley at 30 degrees, about 3.0 m from eave to ridge
+over the 10.42 m span, as the deep stables at 1616, 1612, 1626, 1628 and 1736 took. The kit's storey heights (3.6 m
+and 2.7 m to the eave) and its 1.8 m basement, reached by nothing. The workyard is paved from the yard door to the
+pair's shared rear wall line, 22.6 m east, between the two townhouses' rear ranges: the walk takes the middle because
+which household the stable served is not read. Flat colours. **Left out.** The sheet's dashed L inside the building,
+1.29 m in from the east wall and 1.66 m in from the south (the census's dashed partition), which divides the inside
+and shows nothing outside; and its solid dot about 2.8 m from the south wall and 7.3 m from the alley, the key's sign
+for a vertical steam boiler, whose flue is not shown because the kit builds no stack and the sheet draws none.
+**What is not.** The outline, its place on the lot, its two storeys, its brick, the mark's place, the 1886 building's
+extent and the use are the maps'.
+**How to resolve:** a photograph of the alley behind 1700-1720 Prairie, entered as a source, gives its openings, roof
+and ends their true form.
+**Covers:** `glessner_lee_house_1700_prairie_coach_house.as_standing_1904.form.coach_house`, `glessner_lee_house_1700_prairie_coach_house.as_standing_1904.form.stories`, `glessner_lee_house_1700_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-1932.
+**Review:** `docs/RESEARCH/k12-1700-stable-1932/README.md`.
 **Recorded:** 2026-11-01 (T-1932).
 
 ### L-k01-1736-roof-rear-2995 — 1736 Prairie's mansard taken off the north wall, the rear and the 18th Street wall behind the brick bay, which rise as a straight brick third storey, built blank and coped
