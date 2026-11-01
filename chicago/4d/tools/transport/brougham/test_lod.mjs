@@ -146,6 +146,26 @@ try {
  need(starts.length===ends.length&&starts.length===requests.filter(u=>u.includes('/parked-brougham/')).length,'Every success, HTTP failure and manager abort balances source manager start/end');
  need(errors.length===3,'Manager error accounting preserves controlled mid503, near404 and aborted-mid errors');
  need(sourceDisposals.every(r=>r.count===1)&&sourceMaterials.every(r=>r.count===1),'HTTP-failure/manager-abort paths retain exact cached source disposal');
+ // T-3300: loadWithin defers each vehicle's fetch until the eye is within its
+ // tier's reach plus that margin; nearer than that it loads once and is drawn.
+ {
+  const at=new T.Vector3(1397.9,0,3240),place=d=>{camera.position.copy(at).add(new T.Vector3(0,1.6,d));camera.lookAt(at);camera.updateMatrixWorld(true)};
+  const saved=compatibilityRecord;compatibilityRecord=null;
+  const before=requests.length;const deferred=await createParkedTransport({...options,loadWithin:60,problems:[]});objects.push(deferred);
+  need(requests.length===before&&!deferred.instances.length&&deferred.records.length===1,'loadWithin: creation fetches no vehicle');
+  place(161);deferred.update(camera);await Promise.resolve();
+  need(requests.length===before&&!deferred.requested.size,'loadWithin: beyond reach plus margin fetches nothing');
+  await deferred.setTier('balanced');place(126);deferred.update(camera);
+  need(requests.length===before&&!deferred.requested.size,'loadWithin: Balanced measures from its own 65 m reach');
+  await deferred.setTier('full');place(159);deferred.update(camera);
+  need(deferred.requested.size===1&&deferred.pending===1,'loadWithin: inside reach plus margin requests the vehicle, pending until placed');
+  for(let i=0;i<400&&!deferred.instances.length;i++)await new Promise(r=>setTimeout(r,5));
+  for(let i=0;i<400&&deferred.pending;i++)await new Promise(r=>setTimeout(r,5));
+  need(deferred.instances.length===1&&!deferred.pending&&!deferred.instances[0].group.visible,'loadWithin: the loaded vehicle stays hidden until within reach');
+  const loaded=requests.length;place(50);deferred.update(camera);
+  need(deferred.instances[0].group.visible&&requests.length===loaded,'loadWithin: within reach it is drawn, with no second fetch');
+  await dispose(deferred);compatibilityRecord=saved;
+ }
  console.log(JSON.stringify({pass:true,scope:'Actual vendored Three/GLTF optical near-mid batching, active-only picking, source-cache ownership, tier/reach/zoom/resize and disposal; synthetic flat ground is not world proof',activeGeometryReadback,parseBases,managerEvents,assertionCount:assertions.length,assertions,opticalDeliveryProfileVerified:true,geometryCountsPreserved:true,photographicAcceptance:false,actualWorldBudgetAcceptance:false},null,2));
 } finally {
  for(const out of objects)if(out.instances.length)await dispose(out);

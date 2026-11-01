@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2551, ts: '2026-11-01T22:15:25.051Z', date: 'Nov 1, 2026, 4:15 PM CT', title: 'The first visit downloads 2 MB less', kind: 'improvement',
+    items: [
+      'The parked wagons at the Western Hotel and Wolf Point now load as you walk toward them, not before you arrive. A first visit to 1835 downloads 39.4 MB, down from 41.4 MB.',
+    ] },
+  { v: 2550, ts: '2026-11-01T22:11:47.015Z', date: 'Nov 1, 2026, 4:11 PM CT', title: '1912 Prairie\'s roof gets its carved stone dormers', kind: 'feature',
+    items: [
+      'The two dormers on the Moulton house\'s roof at 1912 Prairie are now stone, with crocketed gables, a slim pinnacle at each side and a finial on top, as its photograph and the 1883 engraving show.',
+      'The south gable\'s stone edges now carry crockets too, and the tower\'s cone ends in a turned finial with knobs instead of a plain spike.',
+      'Still to come: the taller south dormer, the single arch over the ground-floor pair, and the carved capitals beside the door.',
+    ] },
   { v: 2549, ts: '2026-11-01T21:48:28.101Z', date: 'Nov 1, 2026, 3:48 PM CT', title: 'The gate runs in four parts that each fit a run\'s limit', kind: 'chore',
     items: [
       'tools/check.sh --part k/N runs every N-th check, so a run gets a verdict in four calls of five to eight minutes instead of none from one call cut off at ten.',

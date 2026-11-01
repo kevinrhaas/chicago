@@ -5,6 +5,13 @@
 //   node tools/measure_boot_payload.mjs            measure; print a report
 //   node tools/measure_boot_payload.mjs --json     print the machine reading
 //   node tools/measure_boot_payload.mjs --check    exit 1 if over the budget in docs/SITE-BUDGET.md §4
+//   node tools/measure_boot_payload.mjs --entries F  also write every request (url, bytes) to F
+//   node tools/measure_boot_payload.mjs --against F  print what grew, shrank, arrived and left since F
+//
+// T-3300: the report names the 15 largest files, and a breach is rarely one of
+// them — 2026-11-01's 5.3 MB over budget was the prebuilt layers drifting up a
+// little each and a dozen new boot files, none in the top 15 alone. --entries
+// keeps a reading whole, and --against answers "what grew since then" by URL.
 //
 // WHY THIS EXISTS (T-0722 / T-0727): the 32 MB whole-tree budget is this
 // project's own number and a poor proxy for the thing a size budget is for.
@@ -187,8 +194,52 @@ function report(m) {
   }
 }
 
+function argValue(flag) {
+  const i = process.argv.indexOf(flag);
+  return i > 0 ? process.argv[i + 1] : null;
+}
+
+// T-3300: a reading kept whole, and the difference between two of them by URL.
+function entriesOf(m) {
+  return m.entries.filter((e) => e.status === 200)
+    .map((e) => ({ url: e.url.split('?')[0], bytes: e.bytes }))
+    .sort((a, b) => b.bytes - a.bytes);
+}
+
+function compare(before, after) {
+  const sum = (list) => {
+    const out = new Map();
+    for (const e of list) out.set(e.url, (out.get(e.url) || 0) + e.bytes);
+    return out;
+  };
+  const a = sum(before), b = sum(after);
+  const rows = [];
+  for (const url of new Set([...a.keys(), ...b.keys()])) {
+    const d = (b.get(url) || 0) - (a.get(url) || 0);
+    if (d) rows.push({ url, before: a.get(url) || 0, after: b.get(url) || 0, delta: d });
+  }
+  rows.sort((x, y) => Math.abs(y.delta) - Math.abs(x.delta));
+  const tot = (m) => [...m.values()].reduce((s, v) => s + v, 0);
+  console.log('');
+  console.log(`AGAINST THE EARLIER READING: ${fmt(tot(a))} -> ${fmt(tot(b))} (${tot(b) >= tot(a) ? '+' : ''}${fmt(tot(b) - tot(a))})`);
+  const band = (label, pick) => {
+    const r = rows.filter(pick);
+    if (!r.length) return;
+    console.log(`  ${label}: ${r.length} file(s), ${fmt(r.reduce((s, x) => s + x.delta, 0))}`);
+    for (const x of r.slice(0, 25)) console.log(`    ${x.delta >= 0 ? '+' : ''}${fmt(x.delta)}  ${x.url}`);
+  };
+  band('ARRIVED', (x) => !x.before);
+  band('GREW', (x) => x.before && x.after && x.delta > 0);
+  band('SHRANK', (x) => x.before && x.after && x.delta < 0);
+  band('LEFT', (x) => !x.after);
+}
+
 async function main() {
   const m = await measure();
+  const entriesFile = argValue('--entries');
+  if (entriesFile) {
+    fs.writeFileSync(entriesFile, JSON.stringify({ total_bytes: m.total, entries: entriesOf(m) }, null, 1) + '\n');
+  }
   if (process.argv.includes('--json')) {
     console.log(JSON.stringify({
       measured_at: new Date().toISOString(),
@@ -206,6 +257,8 @@ async function main() {
   } else {
     report(m);
   }
+  const againstFile = argValue('--against');
+  if (againstFile) compare(JSON.parse(fs.readFileSync(againstFile, 'utf8')).entries, entriesOf(m));
   if (process.argv.includes('--check')) {
     const doc = fs.readFileSync(path.join(HERE, '../docs/SITE-BUDGET.md'), 'utf8');
     const b = doc.match(/boot payload budget[^0-9]*([0-9]+(?:\.[0-9]+)?)\s*MB/i);
