@@ -203,6 +203,8 @@ step "The drawn cells of one structure mesh join into one draw, drawing the same
   node tools/test_batch_coalesce.mjs
 selftest "Directional shadow culling retains toward-view and filter-near casters, preserves colour lists, and fails open on unknown light, camera or map state" \
   node tools/test_batch_shadow_cull.mjs
+step "A far structure piece casts from its clustered shadow twin only where the twin's edge moves under a pixel, never pools two confidences, and is put back after the sun's pass (T-3286)" \
+  node tools/test_far_shadow.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
 step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
@@ -1133,6 +1135,20 @@ step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
   python3 tools/test_k01_cross_roof_hood.py
 
+# T-1890. 1801 Prairie's east range (HABS photograph 2): its 18th Street end pitched steeper
+# than its sides to an apex 2.7 m back, and a stone stack standing on that apex — the first a
+# K01 wing carries: bad ends, a stack outside the wall line or under the slate refused; an end
+# at the sides' own pitch builds K05's hip exactly; a wing without either as before.
+step "a K01 wing's hip may pitch its ends steeper, and a wing may carry its own stacks (T-1890)" \
+  python3 tools/test_k01_wing_stack.py
+
+# T-1890. 1801 Prairie's east range frontispiece (HABS photograph 2) straddles the 1911 sheet's
+# junction of two ranges on one wall line: a wing's shallow projection may run past its wall's
+# end onto the next wing's wall (`past_end`), that wall cut behind it; refused on a deep bay,
+# onto a wing on other floors, past 1.5 m, or near the other wall's lights and bays.
+step "a wing's shallow projection may run past its wall's end onto the next wing's wall (T-1890)" \
+  python3 tools/test_k01_past_end.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
@@ -1193,6 +1209,14 @@ step "a K01 house carries a two-level veranda on its rear wall, and a wing's wal
 # brick block gone; an over-high floor, a low eave, a run past the wall and an unknown key refused.
 step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
   python3 tools/test_k01_rear_terrace.py
+
+# T-1881. A K01 named street window's round head framed by a moulded architrave (jambs, arch,
+# impost and keystone), held on 1729 Prairie's record off the 1890 Albertype plate: the four
+# lights the front shows framed, the one behind the forward block left in its voussoirs, every
+# band springing with its head and clear of the piers; voussoirs with an architrave, a band out
+# of range, a low keystone, an unknown key and two architraves run together refused.
+step "a K01 house's named round-arched street lights stand in moulded architraves (T-1881)" \
+  python3 tools/test_k01_architrave.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on

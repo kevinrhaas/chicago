@@ -1,86 +1,90 @@
 {
- "structure_id": "marshall_field_house_1905_prairie",
- "view": "chicagology_engraving",
- "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
- "glb_sha256": "844eb450239f0a647fb0151cb1a6c6f5606702c545995f58294f767371b42e74",
- "camera_sha256": "3aa166905924f486e963fbc22a910f9a14db85e3d6906bfdbdfce7211707b466",
- "photo_sha256": "fb24ea4c06c3265ac7bb9c2a6231a0b365f08d55e0131d0f410651fc0d01e03c",
- "rendered_members": [
-  {
-   "structure_id": "marshall_field_house_1905_prairie",
-   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
-   "placement": {
-    "local_e": 1443.678,
-    "local_n": -3356.596,
-    "rotation_deg": 179.444,
-    "scene": "1904",
-    "target_date": "1904-07-01",
-    "phase": "as_mapped_1904"
-   },
-   "position": [
-    0,
-    0,
-    0
-   ],
-   "rotation_y": 0,
-   "glb_sha256": "844eb450239f0a647fb0151cb1a6c6f5606702c545995f58294f767371b42e74"
-  },
-  {
-   "structure_id": "marshall_field_house_1905_prairie_conservatory",
-   "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
-   "placement": {
-    "local_e": 1434.826,
-    "local_n": -3371.933,
-    "rotation_deg": 359.444,
-    "scene": "1904",
-    "target_date": "1904-07-01",
-    "phase": "as_mapped_1904"
-   },
-   "position": [
-    9.000411596869922,
-    0,
-    -15.250379145678007
-   ],
-   "rotation_y": -3.141592653589794,
-   "glb_sha256": "db2d2082e96b08c2a0e99ab2b0fde2fbc54061667457adff9ff698f383b24854"
-  }
- ],
- "group_sha256": "f0b13b84d1b0edaa735280ea0b914503ebda719743ade40129d5f6e6ecb6f2a3",
- "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/chicagology_engraving-side-by-side.jpg",
- "verdict": "differs",
- "differences": [
-  {
-   "what": "the camera: no pinhole camera draws this engraving within about 2 m (the solve says why), so its render is not the engraving's view; the front's length, the walls' height, the corner's cut and the conservatory's place are judged on the two photographs' views (chicagology_923_photo, daily_news_dn0003324), where they are open",
-   "status": "within tolerance"
-  },
-  {
-   "what": "the south flank's first window column behind the canted corner: its chamber window carries an iron balcony on consoles, as the front's do; the render's has none",
-   "status": "open"
-  },
-  {
-   "what": "the basement lights: the engraving draws them round-headed, under the front and the conservatory; the render's are square-headed",
-   "status": "open"
-  },
-  {
-   "what": "the conservatory's curved glass roof with an iron-railed deck at the chamber floor, and its tall barred lights on a stone base",
-   "status": "fixed"
-  },
-  {
-   "what": "the stoop between stone cheeks before the door, the iron cresting, the dormers: drawn as the photographs show them; a tree in leaf hides the front's middle and most of the mansard",
-   "status": "not shown"
-  },
-  {
-   "what": "the fence: the engraving's is the scroll-pattern fence of 1893 or before; the 1904 fence is judged on the Daily News view",
-   "status": "not shown"
-  },
-  {
-   "what": "the brick's colour: the picture is monochrome",
-   "status": "not shown"
-  },
-  {
-   "what": "the north flank, the rear and the rear ranges: out of the picture's sight",
-   "status": "not shown"
-  }
- ],
- "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "structure_id": "marshall_field_house_1905_prairie",
+  "view": "chicagology_engraving",
+  "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
+  "glb_sha256": "95862ab3dd00167c768dad224dae45c747362b3d8d416e9a73e6547f689b12c2",
+  "camera_sha256": "3aa166905924f486e963fbc22a910f9a14db85e3d6906bfdbdfce7211707b466",
+  "photo_sha256": "fb24ea4c06c3265ac7bb9c2a6231a0b365f08d55e0131d0f410651fc0d01e03c",
+  "rendered_members": [
+    {
+      "structure_id": "marshall_field_house_1905_prairie",
+      "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1443.678,
+        "local_n": -3356.596,
+        "rotation_deg": 179.444,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "95862ab3dd00167c768dad224dae45c747362b3d8d416e9a73e6547f689b12c2"
+    },
+    {
+      "structure_id": "marshall_field_house_1905_prairie_conservatory",
+      "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1431.842,
+        "local_n": -3373.512,
+        "rotation_deg": 359.444,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        11.999593522900811,
+        0,
+        -16.80034842749289
+      ],
+      "rotation_y": -3.141592653589794,
+      "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
+    }
+  ],
+  "group_sha256": "1de2fcff71dae2260493e311ef433ae478496ebe03a7b875ed3538bfbb25ce96",
+  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/chicagology_engraving-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the camera: no pinhole camera draws this engraving within about 2 m (the solve says why), so its render is not the engraving's view; the front's length, the walls' height, the corner's cut and the conservatory's place are judged on the two photographs' views (chicagology_923_photo, daily_news_dn0003324), where T-3271 builds them to Hunt's plan",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the south flank's first window column behind the canted corner: its chamber window carries an iron balcony on consoles, as the front's do; the render's has none T-3271 (the sign-off): built: its chamber balcony on two consoles.",
+      "status": "fixed"
+    },
+    {
+      "what": "the basement lights: the engraving draws them round-headed, under the front and the conservatory; the render's are square-headed T-3271 (the sign-off): cut round-headed, K06's round-headed basement light.",
+      "status": "fixed"
+    },
+    {
+      "what": "the conservatory's curved glass roof with an iron-railed deck at the chamber floor, and its tall barred lights on a stone base",
+      "status": "fixed"
+    },
+    {
+      "what": "the stoop between stone cheeks before the door, the iron cresting, the dormers: drawn as the photographs show them; a tree in leaf hides the front's middle and most of the mansard",
+      "status": "not shown"
+    },
+    {
+      "what": "the fence: the engraving's is the scroll-pattern fence of 1893 or before; the 1904 fence is judged on the Daily News view T-3271 (the sign-off): The render builds the c. 1905 negative's tall spear fence for 1904.",
+      "status": "not shown"
+    },
+    {
+      "what": "the brick's colour: the picture is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank, the rear and the rear ranges: out of the picture's sight T-3271 (the sign-off): the north flank is now built to Hunt's plan of the principal floor (the parlour's two windows; the drawing room's projection, 14 ft long and about 0.8 m out, with two lights). The rear stays the draft's: the plan's rear is its stair block and service range, which no picture shows.",
+      "status": "not shown"
+    },
+    {
+      "what": "the basement: the picture shows the house standing on a pale dressed-stone basement up to the water table (2.0 m), its round-headed lights cut in it; the render's basement is the walls' brick carried down to grade, as K01 lays a brick front with no K02 stone below it. Building it wants the front as a stone basement under brick (stone_front with brick_above_m at the water table), which T-3271 did not reach: a wrong material a visitor would see. T-3271 (the sign-off): built. The house now stands on K02's smooth Lemont limestone from grade to the water table at 2.0 m (construction brick_with_stone_front, stone_front.brick_above_m 2.0): one plinth course and its coping to 0.7 m, under the round-headed lights' spring, smooth stone over it, the brick from the water table up. The same stone runs round the canted face (cant_corner, its base to the front's stone top) and along the south flank (side_base), and the conservatory's bow base is laid in it (front_stone), so the basement reads as one pale band all round under the brick, as the picture shows it.",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

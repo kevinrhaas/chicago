@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
+      "glb_sha256": "e77fcf2ab690a23922af90357e97f7f65d4bc915e75c63b77bd0d5f629737955"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,16 +64,16 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "a4e092e07709066060483fdaec7d7aca9f2e2390c0e378e4b2a087883594ec25",
+  "group_sha256": "3d279068d82b198d21618a0b56ed8bfcbf814a4f123b579da7fb306f57aa2966",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 16,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 22
+        "creeper": 19
       }
     ],
     "street_trees": 30,
@@ -111,7 +111,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "21f7123cd8fba73122d5e1553a29a23bb154e103da950ed14b8e03dd9d928ed2"
+      "sha256": "d86d46a592cdd73924e42537e760eeece94bd891466360bfe8261cbb96a18aa2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "12b5f252e3fb9c077267718519e40ddef7f61ace2a6206950c9dc538a19ec8c5",
+  "flora_sha256": "eab6f7c608347096190a95bf7950addcd971a4ef1cf72d18d75cbcf9726dab6a",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -184,8 +184,8 @@
     },
     {
       "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled [T-1934, 2026-10-30: the wing, its rustication and pilasters and the stable are now one stone, read from the winter print 16554, where the two print alike; this print's darker wing is left to the trees' shade. Still open here, since this print alone cannot tell stone from shade.]",
-      "status": "open",
-      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print) [T-1934, 2026-10-30 (the owner on Taylor's 16554): the drum's stone now prints with the wing's and the stable's; the wing's face itself is unchanged]"
+      "status": "within tolerance",
+      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print) [T-1934, 2026-10-30 (the owner on Taylor's 16554): the drum's stone now prints with the wing's and the stable's; the wing's face itself is unchanged] [T-1934, 2026-10-31: a gap two pictures disagree about (AGENTS.md rule 11, T-3153): the 1894 Inland plate and Taylor's winter 16554 print the wing and the stable in one light stone, which the build follows; this summer print alone darkens the wing, under the trees' shade.]"
     },
     {
       "what": "the dome's covering: glass or metal sheets between the ribs",
@@ -321,6 +321,15 @@
       "what": "T-3273 (owner, 2026-10-31: \"the opaque glass is too white\"): the kit's opaque glass substitute set a step darker, re-rendered here; this building's own geometry is unchanged",
       "status": "fixed",
       "how": "glass_sky (0.60, 0.64, 0.66) -> (0.36, 0.41, 0.43) in generators/archetypes/k13_conservatories.py, so the white bars over it read as panes"
+    },
+    {
+      "what": "the low sheared balls behind the 18th Street coping before the stable's corner bay and its west half (x 777-910 px through this camera), which this print shows bare over the coping",
+      "status": "not shown",
+      "how": "replaced for 1904: Taylor's winter 16554, the later picture (c. 1890-1910 against this print's 1892-May 1894), shows a row of sheared balls and two small cones there over the coping, so they are taken as planted after this print was made (T-1934, 2026-10-31; data/front_yards/1904.json). The taller plants east of them, the clipped column and cones (x 933-987) and the dense mass at the stable's east end (x 1037-1088), stand where this print's leafy masses at x 903-963 and 1050-1100 rise, and were placed by crossing this print's columns with 16554's."
+    },
+    {
+      "what": "the tree at 18th Street's Calumet corner (x 873 in the print, the render's x 750 through this camera's recorded disagreement): the print draws one slender leader, the bole about 14-20 px across at 16 m (about 0.2-0.27 m), clear to about 4.5-5 m (its first limbs at y 400-430) under a tall open head; the build drew the grown elm, a bole about 0.5 m across forking at about 3.6 m [T-1934, 2026-11-01: it now grows on the young elm's leader with its limbs from about 5 m and a 0.24-0.30 m bole (form limbed_head); the render draws a slender trunk under a head starting about where the print's does. Fixed.]",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

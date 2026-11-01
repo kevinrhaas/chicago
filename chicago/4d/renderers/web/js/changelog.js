@@ -1,4 +1,148 @@
 export const CHANGELOG = [ // newest first
+  { v: 2529, ts: '2026-11-01T11:02:33.663Z', date: 'Nov 1, 2026, 5:02 AM CT', title: 'Rounded bay-window caps no longer vanish when seen from above', kind: 'fix',
+    items: [
+      'Ten shallow, rounded bay-window caps on eight Prairie Avenue houses (1619, 1621, 1637, 1721, 1801, 1808, 1828 and 1905) were built inside out. From above they disappeared, leaving the bay open to the sky. Each now shows its roof from every side. From the street they look the same as before, and every picture these houses are checked against still matches.',
+    ] },
+  { v: 2528, ts: '2026-11-01T10:59:26.507Z', date: 'Nov 1, 2026, 4:59 AM CT', title: 'Winter elms at middle distance carry twice the twigs', kind: 'improvement',
+    items: [
+      'With the Season set to winter, the bare elms a short walk away (about 10 to 45 m) now carry twice as many fine twigs, so their crowns grey in against the sky the way the elms do in Taylor\'s winter photograph of the Pullman estate.',
+      'A tree costs the same to draw as before: each twig at that distance is a thin taper rather than a full stroke, which is all a twig under a pixel wide needs.',
+      'Near trees, far trees, and trees in summer, spring and fall are unchanged.',
+    ] },
+  { v: 2527, ts: '2026-11-01T10:13:43.292Z', date: 'Nov 1, 2026, 4:13 AM CT', title: '1912 Prairie gains its corner turret on the north flank', kind: 'feature',
+    items: [
+      'The Moulton house at 1912 Prairie now has the small round turret its photograph shows on the north side, just behind the front corner. It rises off the attic belt to a moulded cornice and a steep slate cone that leans against the roof.',
+      'The north side\'s front windows now line up under the turret, where the photograph places them.',
+      'The turret stands about half a metre lower than in the photograph, and the 1883 engraving draws it taller still. Both differences are noted on the house\'s picture records.',
+    ] },
+  { v: 2526, ts: '2026-11-01T09:58:04.095Z', date: 'Nov 1, 2026, 3:58 AM CT', title: 'Two brick stables behind 1626 and 1628 Prairie', kind: 'feature',
+    items: [
+      'The alley behind 1626 and 1628 Prairie now has its pair of two-storey brick stables, built wall to wall: 1626\'s is 8 m along the alley and 12 m deep, with windows in its north gable; 1628\'s is 7 m along and 14 m deep. Their outlines, storeys, brick and window places come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas draws the same pair, so both stood through 1904. The doors, loft hatches, other windows and roofs come from the shared coach-house kit and are reconstructed.',
+    ] },
+  { v: 2525, ts: '2026-11-01T09:30:58.522Z', date: 'Nov 1, 2026, 3:30 AM CT', title: 'Winter elms fork upward into twig', kind: 'fix',
+    items: [
+      'With the Season set to winter, the bare elms drew their branches as long flat strokes drooping and crossing each other, the shape the summer crown takes under its leaf.',
+      'Now each branch rises and forks again and again into short upturned twigs, the way the elms do in Taylor\'s winter photograph of the Pullman estate. That covers the big parkway elms and the young ones still on their single trunk.',
+      'Summer, spring and fall trees are unchanged, and a winter tree still draws no more than the same tree in leaf.',
+    ] },
+  { v: 2524, ts: '2026-11-01T08:54:24.456Z', date: 'Nov 1, 2026, 2:54 AM CT', title: 'Marshall Field\'s house stands on its pale stone basement', kind: 'improvement',
+    items: [
+      '1905 Prairie now stands on the pale dressed-stone basement that all four of its pictures show. The stone runs round the canted corner and along the south flank, under the brick, with the round-headed basement lights cut into it.',
+      'The conservatory\'s base is laid in the same pale stone, as the 1893 plate draws it.',
+      'The north flank, which no picture shows, now follows Richard Morris Hunt\'s own plan of the principal floor: the parlour\'s two windows, and the drawing room\'s shallow projection with two lights on each storey.',
+      'The house is signed off against all four of its pictures: the 1893 plate, the 923 Prairie photograph, the engraving and the c. 1905 Daily News negative.',
+    ] },
+  { v: 2523, ts: '2026-11-01T07:59:29.636Z', date: 'Nov 1, 2026, 1:59 AM CT', title: 'Dormers on the back of the Pullman house', kind: 'fix',
+    items: [
+      'The rear roof of the Pullman house now has its two round-headed dormers, as J. W. Taylor\'s photograph from 18th Street shows.',
+      'Each one stands over one of the rear wall\'s two windows, under the same eared hood as the dormers on the 18th Street side.',
+    ] },
+  { v: 2522, ts: '2026-11-01T07:58:10.408Z', date: 'Nov 1, 2026, 1:58 AM CT', title: '1912 Prairie checked against its 1883 engraving and a row elevation', kind: 'improvement',
+    items: [
+      'The Moulton house at 1912 Prairie is now rendered from the camera of the 1883 New Chicago Album engraving. The engraver stood within a few metres of where the later photographer did, so the two pictures show the same view thirty years apart.',
+      'It is also rendered against the undated row elevations of the west side of Prairie Avenue. 1912 is the tenth front from Glessner\'s, scaled by its own cornice and belts.',
+      'Both pictures draw the lower storeys taller than the model builds them, and both show crocketed dormers, an arched door and a corner turret that the model does not have yet. Those differences are recorded for the next pass on the house.',
+    ] },
+  { v: 2521, ts: '2026-11-01T07:00:55.366Z', date: 'Nov 1, 2026, 1:00 AM CT', title: '1923 Prairie: the Kellogg house stands', kind: 'feature',
+    items: [
+      'The Kellogg house at 1923 Prairie Avenue is no longer a plain draft block: two storeys of brick over a high basement under a crested mansard, a canted bay at the north corner rising past the cornice under its own crown, hooded windows, a columned porch over a broad high stoop and iron fences either side of the walk, built from the Chicago Tribune\'s 1898 sketch of its front and a row drawing of the block\'s fronts, on the 1911 map\'s plan.',
+      'Still to come: the porch\'s arch, the stoop\'s sweeping stone cheeks and the scroll-panel fence the 1898 sketch draws.',
+    ] },
+  { v: 2520, ts: '2026-11-01T06:26:26.921Z', date: 'Nov 1, 2026, 1:26 AM CT', title: '1612 Prairie\'s big brick stable on the alley', kind: 'feature',
+    items: [
+      'The Goodman house at 1612 Prairie now has its own stable on the alley, north of 1616\'s: a two-storey brick building 15.2 m along the alley and 14 m deep, with a window in its north gable facing the open yard. Its outline, storeys, brick and both windows come from the 1911 Sanborn sheet. Robinson\'s 1886 atlas shows a stable half as deep on the same spot, so the alley half is older and the yard half was added later. The carriage doors, loft hatch, other windows and roof come from the shared coach-house kit and are reconstructed.',
+    ] },
+  { v: 2519, ts: '2026-11-01T05:46:35.457Z', date: 'Nov 1, 2026, 12:46 AM CT', title: 'Winter trees down the street show their branches and twigs', kind: 'fix',
+    items: [
+      'With the Season set to winter, the bare elms along the streets from about 10 m out, and the woods\' trees further off, had shrunk to a trunk and a few long poles, because the leaf that covers the fine wood in summer was gone and nothing drew the wood in its place.',
+      'They now carry their branches and a fringe of twigs, so a street of winter elms greys in round its limbs the way Taylor\'s winter photograph of the Pullman estate shows it.',
+      'Summer, spring and fall trees are unchanged, and a winter tree draws no more than the same tree in leaf.',
+    ] },
+  { v: 2518, ts: '2026-11-01T05:00:03.683Z', date: 'Nov 1, 2026, 12:00 AM CT', title: 'Pullman house\'s Prairie front steps in at the centre', kind: 'fix',
+    items: [
+      'The entry now sits in a stepped-in centre between two forward pavilions, as the Detroit photograph shows.',
+      'The north pavilion carries its dormer and windows; the south pavilion carries the big window and the big pedimented dormer.',
+      'No dormer over the centre; the portico, steps and walk lead straight up into it.',
+      'The sidewalk gate and its urned piers line up with the moved door.',
+    ] },
+  { v: 2517, ts: '2026-11-01T04:48:04.526Z', date: 'Oct 31, 2026, 11:48 PM CT', title: 'Far houses cast lighter shadows', kind: 'change',
+    items: [
+      'Houses far from you now cast their shadows from a simpler copy of themselves, with the fine stonework and mouldings smoothed out. Up close nothing changes. From far away the picture matches the old one to within a pixel, and the long views up Prairie Avenue and down the alleys draw 0.6 to 1 million fewer triangles.',
+    ] },
+  { v: 2516, ts: '2026-11-01T04:24:24.894Z', date: 'Oct 31, 2026, 11:24 PM CT', title: '1801 Prairie: the side door\'s frontispiece moves to match its photograph', kind: 'feature',
+    items: [
+      'On 18th Street, the stone frontispiece over the Kimball house\'s side door, with its arched light, paired window and pinnacled gable, now stands about a metre further east, where Harold Allen\'s 1965 photograph shows it. That puts it straight across the line where two of the house\'s back ranges meet. J. W. Taylor\'s c. 1895 photograph puts the door in the same place. With this change, the house matches all three of its photographs.',
+    ] },
+  { v: 2515, ts: '2026-11-01T03:50:37.733Z', date: 'Oct 31, 2026, 10:50 PM CT', title: 'The Pullman estate\'s corner elm stands on a clear, slender trunk', kind: 'fix',
+    items: [
+      'The elm on 18th Street\'s south parkway at the Calumet Avenue corner, across from the Pullman stable, now rises as one slender trunk clear to about 5 m before its branches start, as Taylor\'s two photographs of the estate show it. It had been drawn as a stout, full-grown elm forking low into a V.',
+    ] },
+  { v: 2514, ts: '2026-11-01T03:15:55.488Z', date: 'Oct 31, 2026, 10:15 PM CT', title: 'The Field house gets its tall 1904 fence and south-side balconies', kind: 'improvement',
+    items: [
+      '1905 Prairie now stands behind the tall spear-topped iron fence of the c. 1905 Daily News photograph, nearly 2 m high, in place of the lower scroll fence of the 1880s and 1890s pictures.',
+      'The south side gains the two upstairs windows over the conservatory and two iron balconies on consoles, as the 1880s photograph shows them.',
+      'Light stone strips now frame the brick of the canted corner, and the basement windows under the front are round-headed, as every picture of the house draws them.',
+      'The 1893 Pictorial Chicago view is re-fitted to the rebuilt house, and through it the mansard\'s height already matches.',
+    ] },
+  { v: 2513, ts: '2026-11-01T01:57:05.784Z', date: 'Oct 31, 2026, 8:57 PM CT', title: 'A tree moved off Pullman\'s stable on 18th Street', kind: 'fix',
+    items: [
+      'At the turn of 18th Street into Calumet Avenue, a large elm stood in front of the Pullman stable\'s chimney stack. Taylor\'s photograph shows the stack and the sky clear there.',
+      'That elm is gone. A slimmer young tree now stands about 3 m west, where the photograph shows its trunk.',
+    ] },
+  { v: 2512, ts: '2026-11-01T01:55:58.213Z', date: 'Oct 31, 2026, 8:55 PM CT', title: '1912 Prairie Avenue — the Moulton house built from its photograph', kind: 'feature',
+    items: [
+      'The Moulton/Lowden house at 1912 Prairie, a generic draft block until now, stands as the stone Chateauesque house of its photograph and the 1883 New Chicago Album: two storeys and an attic storey over a raised basement under a very steep slate roof with iron cresting.',
+      'A round tower rises three stages to a slated cone and finial between a coped gable over an arched pair of windows and the north corner block, whose door stands at the head of a high stoop between solid stone cheek walls; a tall stone chimney rises off the north side.',
+    ] },
+  { v: 2511, ts: '2026-11-01T01:41:19.482Z', date: 'Oct 31, 2026, 8:41 PM CT', title: 'Glessner\'s distant roof is lighter on its shadow too', kind: 'change',
+    items: [
+      'From far off, Glessner House\'s tile roof now casts its shadow from the roof\'s outline only, without the tile edges you can\'t see from there. That draws about 247,000 fewer triangles in every far view, and almost every pixel stays the same.',
+    ] },
+  { v: 2510, ts: '2026-11-01T00:55:12.600Z', date: 'Oct 31, 2026, 7:55 PM CT', title: '1801 Prairie: the 18th Street wing sits flatter, as the 1911 map draws it', kind: 'feature',
+    items: [
+      'On 18th Street, the Kimball house\'s three-storey section under its corbel table now stands just 0.1 m out from the wall, as the 1911 fire-insurance map draws it, and runs about a metre further along it. Its windows, gable and rounded corner were moved with it, so they still sit where J. W. Taylor\'s c. 1895 photograph shows them. Taylor\'s view of the house now matches the photograph.',
+    ] },
+  { v: 2509, ts: '2026-10-31T23:36:46.498Z', date: 'Oct 31, 2026, 6:36 PM CT', title: 'Pullman house\'s Prairie front matches the Detroit photograph', kind: 'fix',
+    items: [
+      'The roof reads as one full mansard: the deck behind the cresting is lower and black, with no red peak.',
+      'Dormers stand north and south on the front, none in the centre.',
+      'The entry block is narrower and centred on the door, so the north bay\'s windows show again.',
+      'The front steps break halfway at a landing, the railing level along it.',
+      'The sidewalk gate lines up with the door, and carved urns top its two piers.',
+    ] },
+  { v: 2508, ts: '2026-10-31T22:49:00.063Z', date: 'Oct 31, 2026, 5:49 PM CT', title: '1945 Prairie: the Armour-Corwith corner house stands', kind: 'feature',
+    items: [
+      'The corner house at 1945 Prairie Avenue, at 20th Street, is no longer a plain draft block: two storeys of brick over a high basement under a slated mansard with a dormer over every window, a canted bay at the north end of the front, the door over a tall straight stoop, round-headed windows on the principal floor, the corner cut on a slant toward 20th Street with a bay on that side, and an iron fence along the walk. It is built from the Chicago Tribune\'s 1928 \'Famous Homes\' photograph.',
+      'Still to come: the taller roof over the corner, the north bay\'s own curved roof and the arched doorway the photograph shows.',
+    ] },
+  { v: 2507, ts: '2026-10-31T22:00:30.918Z', date: 'Oct 31, 2026, 5:00 PM CT', title: 'Glessner\'s roof draws lighter from a distance, with no visible change', kind: 'improvement',
+    items: [
+      'Looking at Glessner House from more than a few dozen metres away now costs about 247,000 fewer triangles a frame. Down the alley behind 1616 Prairie that is 6.06 M to 5.81 M.',
+      'Past that distance the roof\'s carved tile noses are already too small for a single pixel to show, so only the ridge crests and beds under them are drawn. Every pixel was checked against the old frame and none changed.',
+    ] },
+  { v: 2506, ts: '2026-10-31T21:59:29.734Z', date: 'Oct 31, 2026, 4:59 PM CT', title: '1905 Prairie rebuilt to Hunt\'s own plan of the Field house', kind: 'improvement',
+    items: [
+      'Marshall Field\'s house now has the 55-foot front Richard Morris Hunt drew, not the shorter front of the 1911 atlas, and its walls stand about 1.5 m lower, as two photographs fitted to his plan show.',
+      'The four window columns, the iron balconies and the street dormers move to where the 1880s photograph and the c. 1905 Daily News negative have them. The library\'s balcony now runs its full length.',
+      'The canted south-west corner is cut shallower, to the library octagon on the plan.',
+      'Along the south side, the conservatory moves 3 m nearer the street, a window stands just behind the corner, and two dormers sit where the photograph puts them.',
+    ] },
+  { v: 2505, ts: '2026-10-31T20:36:25.655Z', date: 'Oct 31, 2026, 3:36 PM CT', title: 'Clipped evergreens before Pullman\'s stable', kind: 'improvement',
+    items: [
+      'The row of clipped evergreens behind the 18th Street wall in front of the Pullman stable is planted now, where a winter photograph shows them over the coping: little cones and sheared balls, a clipped column, and a dense mass at the stable\'s east end.',
+    ] },
+  { v: 2504, ts: '2026-10-31T20:36:25.655Z', date: 'Oct 31, 2026, 3:36 PM CT', title: '1801 Prairie: the east range\'s steep end and its stone chimney', kind: 'feature',
+    items: [
+      'On 18th Street, the Kimball house\'s east range now rises steeply to its peak just behind the side-door bay, with a pale stone chimney on top. Both are read off the 1965 HABS photograph taken from the north-west.',
+    ] },
+  { v: 2503, ts: '2026-10-31T20:36:25.655Z', date: 'Oct 31, 2026, 3:36 PM CT', title: '1729 Prairie\'s front windows framed in moulded stone', kind: 'improvement',
+    items: [
+      'The Pullman house\'s round-arched front windows now stand in moulded stone surrounds, as the 1890 Albertype plate draws them: a band down each side and round the arch, a block at the springing, and a keystone over the principal floor\'s lights.',
+    ] },
+  { v: 2502, ts: '2026-10-31T19:56:23.472Z', date: 'Oct 31, 2026, 2:56 PM CT', title: '1616 Prairie\'s brick stable joins its neighbour on the alley', kind: 'feature',
+    items: [
+      'The house at 1616 Prairie now has its own stable on the alley, standing against 1620\'s: a two-storey brick building 9.9 m along the alley and 11 m deep. Its outline, storeys, brick, alley window and the fire wall rising above its roof at the north end are read off the 1911 Sanborn sheet. Its carriage doors, loft hatch, other windows and gable roof come from the shared coach-house kit and are reconstructed. Robinson\'s 1886 atlas shows the spot still empty, so the stable was built some time after that.',
+    ] },
   { v: 2501, ts: '2026-10-31T17:03:32.896Z', date: 'Oct 31, 2026, 12:03 PM CT', title: 'House walks now run all the way to the sidewalk', kind: 'fix',
     items: [
       'On Prairie Avenue and its cross streets, 51 house walks, side walks and drives stopped on a strip of grass short of the public sidewalk. Each now runs on until it meets it, as the period photographs show.',

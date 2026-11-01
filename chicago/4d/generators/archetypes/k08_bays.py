@@ -1919,9 +1919,12 @@ class Bay:
         pts = self.v["plan"]["points"]
         xl, p, xr = float(pts[1][0]), float(pts[1][1]), float(pts[2][0])
         il, ir = (float(a) for a in g.get("inset_m", (0.0, 0.0)))
-        # T-1890: up to 1.5 m (1801's 18th Street section, its wall dormer about 3.2 m across a 6 m front)
-        if not (0.0 <= il <= 1.5 and 0.0 <= ir <= 1.5):
-            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-1.5 m in from the front's")
+        # T-1890: up to 1.5 m (1801's 18th Street section, its wall dormer about 3.2 m across a 6 m front),
+        # and on a shallow projection up to 2.5 m, which may be wider (the same section at the 1911
+        # sheet's 0.1 m, 7.0 m across, its wall dormer where the Taylor print stands it)
+        most = 2.5 if self.v.get("shallow") else 1.5
+        if not (0.0 <= il <= most and 0.0 <= ir <= most):
+            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-{most} m in from the front's")
         gl, gr = xl + il, xr - ir             # the gable's own corners (the front's unless inset)
         xc = (gl + gr) / 2
         up = float(g["upstand_m"])
@@ -2601,7 +2604,9 @@ class Bay:
         whole = bool(self.v.get("cap_whole"))
         Re = R + ov
         step = math.radians(cv["max_seg_deg"])
-        cz = c[1]
+        # T-3289: a half round's centre is ON the wall plane, but chord 1.6 / rise 0.8 computes
+        # it at -1.1e-16 and so took the segmental path; within a micron of the wall is on it
+        cz = 0.0 if abs(c[1]) < 1e-6 else c[1]
         cross = []
         if abs(cz) < Re:
             a = math.asin(-cz / Re)
@@ -2644,7 +2649,11 @@ class Bay:
             if l0 == 0 and l1 == 0:
                 add_poly(pr, [q[0], q[3], q[2]][::-1], [n[0], n[3], n[2]][::-1], [uv[0], uv[3], uv[2]][::-1])
             else:
-                add_poly(pr, q[::-1], n[::-1], uv[::-1])
+                # T-3289: a segmental bow's slice is a quad from its ring (h) in to where the
+                # wall cuts it (l). In the order l0, l1, h1, h0 its ring edge runs f1 -> f0, the
+                # way the triangle path's does, so it is wound outward with the normals N writes;
+                # reversed (as it was) it faced into the bow and the renderer culled it from above
+                add_poly(pr, q, n, uv)
             if tower and h0 < Re - 1e-9 and h1 < Re - 1e-9:
                 a, b = P(f0, h0), P(f1, h1)
                 world.face("roof_back", [(a[0], y_e, 0.0), (b[0], y_e, 0.0), (b[0], b[1], 0.0), (a[0], a[1], 0.0)],

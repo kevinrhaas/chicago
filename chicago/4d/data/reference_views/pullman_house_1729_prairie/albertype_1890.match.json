@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101",
+  "glb_sha256": "e77fcf2ab690a23922af90357e97f7f65d4bc915e75c63b77bd0d5f629737955",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 16,
+        "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 22
+        "creeper": 19
       }
     ],
     "street_trees": 35,
@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "21f7123cd8fba73122d5e1553a29a23bb154e103da950ed14b8e03dd9d928ed2"
+      "sha256": "d86d46a592cdd73924e42537e760eeece94bd891466360bfe8261cbb96a18aa2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "6d12e674f67a5269b91c254ff5ca3d76aa6ced8af08686277f42ae000bdd2ae7",
+  "flora_sha256": "fde04c7109f7e216ee42d1208f7d7d03db79cfadaeac876e63370510dc2f6c30",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -86,8 +86,8 @@
     },
     {
       "what": "the Prairie front's round-arched windows on both storeys under moulded heads",
-      "status": "open",
-      "how": "T-3157: the render's arched windows line up with the plate's within 10-20 px (under a metre at the front's scale); the plate's heads read heavier, a profile the vignette cannot measure Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "status": "fixed",
+      "how": "T-3157: the render's arched windows line up with the plate's within 10-20 px (under a metre at the front's scale); the plate's heads read heavier, a profile the vignette cannot measure Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-1881 (2026-10-31): read at the plate's full size (about 17 px a metre on the front, from the render's lights), each round-arched light stands in a moulded architrave: a band down both jambs and round the arch (the second storey's widest light: glass x 1194-1219, the moulding's outer edge x 1188-1222; the principal storey's big light: x 1197-1224 and 1191-1230), a dark line at its outer edge, an impost block stepping out at the springing (y 496-502 on the big light) and, on the principal storey, a keystone at the crown (x 1203-1208, y 468-474). Built (street_front_windows.windows[].architrave): 0.28-0.3 m bands on the two wide lights and 0.18 m on the two narrow ones beside the rusticated pier, in two fascias 0.12 m and 0.06 m proud (the step draws the outer line), imposts 0.25-0.3 m high stepping 0.05-0.1 m out, keystones 0.3 and 0.22 m across rising 0.45 and 0.35 m over the crown; the second storey's voussoir rings (T-3157) replaced. The render's heads now read moulded with their imposts and shadow line, as the plate's do, 15-20 px left of the plate's through this camera as every element of the front does (the camera disagreement already recorded). (L-pullman-1729-architraves-1881)"
     },
     {
       "what": "the tall stack rising behind the tree just west of the corner pier (x about 1293, its top at y 213)",
@@ -150,7 +150,7 @@
       "how": "T-1881: the belt course (street_front_pavilions.belt) runs round the north-west pavilion, the Prairie front, the forward block, the corner pier and the 18th Street flank and pavilion, its bed at 6.72 m and its top at 7.67 m under the second storey's sills, a moulded string 0.17 m out at its foot and a plain fascia over it; the render's at y 442-463 on the front and flank against the plate's 443-463"
     },
     {
-      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1726-1978 through this camera, far down the street behind the picture's own trees; this item is unchanged.] [T-1934, 2026-10-31: the four parkway trees before the estate on 18th Street (37.65, 43.7, 51.3 and 64.1 m) and the two at the Calumet corner are now drawn as slender young elms, read off Taylor's 1445, Taylor's 16554 and the Detroit print; this item stands for the house's own parkway and lawn trees, unchanged.]",
+      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1726-1978 through this camera, far down the street behind the picture's own trees; this item is unchanged.] [T-1934, 2026-10-31: the four parkway trees before the estate on 18th Street (37.65, 43.7, 51.3 and 64.1 m) and the two at the Calumet corner are now drawn as slender young elms, read off Taylor's 1445, Taylor's 16554 and the Detroit print; this item stands for the house's own parkway and lawn trees, unchanged.] [T-1934, 2026-11-01, re-rendered on the elms' winter skeleton (tree-model.js winterElm, drawFringe) after merging dev's T-1881 dormers: the house is unchanged pixel for pixel; the bare elms' crowns at the mid ring now rise as Vs of short ascending twig where they hung as crossing strokes. This item stays open: the near trees are still a few coarse limbs, and the crowns stay open against the sky where the picture's are fine.]",
       "status": "open",
       "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture. T-1881, 2026-10-30: 18th Street's north parkway beside the house is now planted off Taylor's photograph no. 1445 (data/street_trees/pictured_1904.json); this vignette sees the flank's parkway only in the corner of its frame, so this item is otherwise unchanged. T-1881, 2026-10-30 (the Prairie parkway): the house's own Prairie Avenue parkway (prairie__prairie_ic_16_18, 228.5-257.5 m) is now planted off the Detroit print, four trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns, the lawn trees inside the walls (the white-barked saplings behind the Prairie wall, the front lawn's lindens) and the corner between the two parkways."
     },
@@ -187,6 +187,26 @@
     {
       "what": "the owner's report, 2026-10-30: the Prairie front stepped back three times from the north side. Built (T-1881): a 1.95 m middle step 1.65 m out (v 8.45-10.4, the 1911 sheet's u 29.4 line) between the forward block and the wall to the corner, banded under its own mansard section; it renders where the plate draws its banded pier between the narrow second-storey light and the big arched window (x 1137-1163 on the plate, about 20 px left of the render through this camera, the same offset as the corner pier's)",
       "status": "fixed"
+    },
+    {
+      "what": "the forward block's second-storey light over the portico (x 1017-1044) under the same moulded head as the front's other lights: in the build it is a K08 bay light (p_forward) under K06's own arch band, which the K01 architrave does not reach",
+      "status": "open",
+      "how": "T-1881 (2026-10-31): seen when the front's K01 lights were framed; needs the K08 bay window to take an architrave"
+    },
+    {
+      "what": "the principal storey's big light stands on a projecting sill carried on two blocks over a sunk panel (x 1180-1240, y 545-560); the build's light stands on K06's plain sill",
+      "status": "open",
+      "how": "T-1881 (2026-10-31): read with the architraves; not built in that run"
+    },
+    {
+      "what": "the north bay's round-headed dormer and its two lights on the Prairie front, north of the portico block",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the forward block, which had covered them since it was built, is narrowed and moved onto the door at v 6.4; the dormer stands on the main mansard at along 1.5 m and the lights at s 1.5 (L-pullman-1729-front-bays-1881)"
+    },
+    {
+      "what": "the Prairie front's massing: two pavilions under their own hipped mansards, a dormer on each, either side of a plain stepped-in centre over the portico",
+      "status": "fixed",
+      "how": "T-1881 (2026-11-01): built so (L-pullman-1729-recessed-centre-1881); the pavilions' lights are now K08 lights, so this plate's architraves frame only the centre's and the corner bay's"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

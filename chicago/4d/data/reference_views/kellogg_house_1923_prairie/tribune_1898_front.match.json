@@ -1,0 +1,45 @@
+{
+ "structure_id": "kellogg_house_1923_prairie",
+ "view": "tribune_1898_front",
+ "glb": "assets/gltf/kellogg_house_1923_prairie__as_mapped_1904.glb",
+ "glb_sha256": "7d1561f482e400e6e2f7a8b007a091fd924de8de59c0100da45303bb44a2df47",
+ "camera_sha256": "d9991b52fc0f5a40ade8077484b7b4150cc4d9b2b2e22edd6e7824f57256573c",
+ "photo_sha256": "28c1b1cb04552a885b2e831e8773cfbd37dab54396fa55e88c2f17962f981285",
+ "side_by_side": "docs/RESEARCH/photo-match/kellogg_house_1923_prairie/tribune_1898_front-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "composition: the front square-on, the canted bay at its north end, the cornice over the chamber windows' hoods, the door under a porch right of the middle with a broad high stoop before it and iron fences either side of the walk; built so",
+   "status": "fixed"
+  },
+  {
+   "what": "the corner bay rising past the main cornice under a cornice of its own: built, but the camera's frame cuts it at the panel's top edge, so only its lower storeys show",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the porch: the sketch draws an arch springing between paired columns across a porch wider than the stoop, with a balustrade over it; built as K01's columned hood on single columns, flat-headed, 3.4 m across",
+   "status": "open"
+  },
+  {
+   "what": "the stoop's cheeks: the sketch's stone cheek walls sweep out and down to round-capped stone posts at the walk; built as K07's straight cheeks",
+   "status": "open"
+  },
+  {
+   "what": "the fence: the sketch's panels of large scrolls between posts either side of the walk; K11's scroll-band fence reads at this distance as plain spear-topped railings",
+   "status": "open"
+  },
+  {
+   "what": "heights: the sketch's principal storey is drawn about 1.3 times taller for its width than the record's (the camera's pixel aspect 0.779 and 11.9 px RMS); the storeys' order and the windows' places agree",
+   "status": "within tolerance"
+  },
+  {
+   "what": "colour and material: a pen sketch, hatched in courses; the record's brick colour is the kit's",
+   "status": "not shown"
+  },
+  {
+   "what": "the chamber windows' sills, the principal windows' heads and the porch's upper part are behind the numerals' cartouche",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

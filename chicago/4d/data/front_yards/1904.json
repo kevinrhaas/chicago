@@ -153,11 +153,11 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 138,
+  "shrubs": 152,
   "trees": 14,
   "beds": 11,
-  "creeper_patches": 24,
-  "attested_plants": 25,
+  "creeper_patches": 20,
+  "attested_plants": 39,
   "lots_with_a_door": 111,
   "schemes": {
    "corners": 78,
@@ -4331,11 +4331,11 @@
     ],
     "width_m": 44.23
    },
-   "front_m": 7.97,
+   "front_m": 11.5,
    "doors": [
     [
-     21.52,
-     14.15
+     23.16,
+     17.09
     ]
    ],
    "scheme": "pictured",
@@ -4432,6 +4432,146 @@
      0.58
     ],
     [
+     1478.3,
+     -3193.5,
+     "arborvitae",
+     1.73,
+     0.53,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1479.16,
+     -3193.5,
+     "arborvitae",
+     1.54,
+     0.45,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1480.7,
+     -3193.5,
+     "globe",
+     1.53,
+     0.78,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1481.5,
+     -3193.5,
+     "globe",
+     1.53,
+     0.82,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1481.88,
+     -3188,
+     "globe",
+     1.45,
+     0.78,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1482.99,
+     -3188,
+     "globe",
+     1.53,
+     0.76,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1483.79,
+     -3188,
+     "globe",
+     1.48,
+     0.75,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1484.72,
+     -3188,
+     "globe",
+     1.52,
+     1.02,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1485.54,
+     -3188,
+     "column",
+     2.16,
+     0.45,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1486.31,
+     -3188,
+     "arborvitae",
+     2.11,
+     0.72,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1487.55,
+     -3188,
+     "arborvitae",
+     1.96,
+     1.32,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1489.97,
+     -3187,
+     "globe",
+     2.21,
+     1.02,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1490.99,
+     -3187,
+     "globe",
+     2.24,
+     1.0,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1491.98,
+     -3187,
+     "globe",
+     2.14,
+     0.99,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
      1457.43,
      -3193.59,
      "spiraea",
@@ -4498,16 +4638,16 @@
      "attested"
     ],
     [
-     1413.68,
-     -3164.84,
+     1420.93,
+     -3165.59,
      "linden",
      6.79,
      3.55,
      "attested"
     ],
     [
-     1417.68,
-     -3179.84,
+     1421.18,
+     -3181.09,
      "linden",
      7.98,
      4.18,
@@ -4524,38 +4664,30 @@
      6.34
     ],
     [
-     1428.43,
+     1428.18,
      -3167.34,
      269.29,
      1.21,
      5.27
     ],
     [
-     1428.43,
+     1428.18,
      -3168.34,
      269.29,
      1.63,
      3.58
     ],
     [
-     1426.68,
-     -3178.09,
-     269.29,
-     0.82,
-     6.45,
-     "mantle"
-    ],
-    [
      1428.43,
-     -3180.09,
+     -3180.59,
      269.29,
-     1.01,
+     1.52,
      7.0,
      "mantle"
     ],
     [
-     1428.43,
-     -3180.84,
+     1427.18,
+     -3181.34,
      269.29,
      1.56,
      6.59,
@@ -4563,18 +4695,10 @@
     ],
     [
      1428.43,
-     -3181.59,
-     269.29,
-     1.62,
-     6.92,
-     "mantle"
-    ],
-    [
-     1428.43,
      -3182.34,
      269.29,
-     1.01,
-     6.69,
+     1.15,
+     6.92,
      "mantle"
     ],
     [
@@ -4582,15 +4706,15 @@
      -3184.09,
      269.29,
      0.95,
-     6.53,
+     6.69,
      "mantle"
     ],
     [
      1428.43,
      -3184.84,
      269.29,
-     1.88,
-     6.75,
+     1.85,
+     6.53,
      "mantle"
     ],
     [
@@ -4598,16 +4722,8 @@
      -3185.59,
      269.29,
      0.95,
-     6.92,
+     6.75,
      "mantle"
-    ],
-    [
-     1428.43,
-     -3179.09,
-     269.29,
-     1.4,
-     2.45,
-     "mantle_sill"
     ],
     [
      1428.43,
@@ -4622,19 +4738,27 @@
      -3186.09,
      179.29,
      1.08,
-     6.57,
+     6.92,
      "mantle"
     ],
     [
      1429.93,
      -3186.09,
      179.29,
+     1.87,
+     6.57,
+     "mantle"
+    ],
+    [
+     1430.68,
+     -3185.84,
+     179.29,
      1.46,
      6.62,
      "mantle"
     ],
     [
-     1430.68,
+     1431.68,
      -3185.84,
      179.29,
      1.9,
@@ -4642,7 +4766,7 @@
      "mantle"
     ],
     [
-     1431.68,
+     1432.43,
      -3185.84,
      179.29,
      1.46,
@@ -4650,7 +4774,7 @@
      "mantle"
     ],
     [
-     1432.43,
+     1433.18,
      -3185.84,
      179.29,
      1.89,
@@ -4658,7 +4782,7 @@
      "mantle"
     ],
     [
-     1433.18,
+     1434.18,
      -3185.84,
      179.29,
      1.44,
@@ -4666,7 +4790,7 @@
      "mantle"
     ],
     [
-     1434.18,
+     1434.93,
      -3185.84,
      179.29,
      1.45,
@@ -4674,19 +4798,11 @@
      "mantle"
     ],
     [
-     1434.93,
-     -3185.84,
-     179.29,
-     1.76,
-     6.81,
-     "mantle"
-    ],
-    [
      1435.68,
      -3185.84,
      179.29,
      1.08,
-     6.41,
+     6.81,
      "mantle"
     ]
    ],
@@ -4722,7 +4838,7 @@
     },
     "tubs": {
      "grade": "inferred",
-     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and the palm set out before the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace. Four slim clipped columns are planted in the terrace itself, not tubbed (a pair before the wing's arched windows and two at the drum's west side): Taylor's winter photograph 16554 shows all four and his summer 16555 three of them (the fourth behind the house's porch), so they stood the year round."
+     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and the palm set out before the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace. Four slim clipped columns are planted in the terrace itself, not tubbed (a pair before the wing's arched windows and two at the drum's west side): Taylor's winter photograph 16554 shows all four and his summer 16555 three of them (the fourth behind the house's porch), so they stood the year round. Behind the 18th Street coping before the stable, a row of sheared balls and cones, a clipped column and a dense mass at its east end, as Taylor's winter 16554 shows them over the coping; the earlier 16555 (1892-94) shows the taller of them there in leaf and the low balls not yet planted."
     }
    }
   },
@@ -5521,10 +5637,10 @@
     ],
     "width_m": 50.82
    },
-   "front_m": 9.28,
+   "front_m": 9.5,
    "doors": [
     [
-     17.56,
+     18.81,
      9.53
     ]
    ],
@@ -5605,11 +5721,11 @@
     ],
     "width_m": 17.17
    },
-   "front_m": 6.38,
+   "front_m": 3.58,
    "doors": [
     [
-     2.83,
-     7.62
+     2.74,
+     7.82
     ]
    ],
    "scheme": "pictured",
@@ -5619,18 +5735,11 @@
    "beds": [],
    "creeper": [
     [
-     1387.68,
-     -3398.59,
+     1386.43,
+     -3396.59,
      89.43,
-     1.35,
-     8.82
-    ],
-    [
-     1387.68,
-     -3399.59,
-     89.43,
-     1.49,
-     7.58
+     1.65,
+     5.63
     ]
    ],
    "pictured": {
@@ -5765,29 +5874,22 @@
     ],
     "width_m": 30.56
    },
-   "front_m": 8.52,
+   "front_m": 3.2,
    "doors": [
     [
-     14.32,
-     9.44
+     9.98,
+     9.66
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
-     1422.18,
-     -3424.09,
-     "hydrangea",
-     1.23,
-     1.49
-    ],
-    [
-     1422.43,
-     -3432.59,
-     "hydrangea",
-     1.23,
-     1.49
+     1420.18,
+     -3419.34,
+     "lilac",
+     2.92,
+     2.38
     ]
    ],
    "trees": [],
@@ -5819,35 +5921,42 @@
    "front_m": 7.88,
    "doors": [
     [
-     2.39,
-     9.5
+     6.11,
+     9.65
     ]
    ],
-   "scheme": "corners",
+   "scheme": "stoop",
    "grade": "reconstructed",
    "shrubs": [
+    [
+     1421.93,
+     -3446.59,
+     "rose",
+     1.04,
+     0.95
+    ],
+    [
+     1421.93,
+     -3457.09,
+     "rose",
+     1.04,
+     0.95
+    ],
     [
      1422.68,
      -3460.59,
      "arborvitae",
      2.43,
      1.03
-    ],
-    [
-     1421.93,
-     -3454.09,
-     "lilac",
-     2.88,
-     2.35
     ]
    ],
    "trees": [
     [
      1417.93,
      -3458.84,
-     "linden",
-     5.9,
-     3.09
+     "maple",
+     6.23,
+     2.93
     ]
    ],
    "beds": [],

@@ -6,26 +6,48 @@
 // budget with no page error or failed request.
 //   node tools/qa_k12_t1932.mjs                     (after tools/publish.sh)
 //   QA_VIEWPORT=mobile node tools/qa_k12_t1932.mjs
+//   QA_TARGET=1616 node tools/qa_k12_t1932.mjs       1616's stable, the package's second building
+//   QA_TARGET=1612 node tools/qa_k12_t1932.mjs       1612's stable, the third (the kit in mirror image)
+//   QA_TARGET=1626 node tools/qa_k12_t1932.mjs       1626's and 1628's pair of stables, the fourth and fifth
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import {createRequire} from 'node:module';
 const root=process.cwd(),require=createRequire(path.join(root,'tools/qa.mjs'));
 const {chromium}=require('playwright');
-const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH/k12-1620-law-stable-1932'),TAG=process.env.QA_TAG||'after';
+// each building of the package: its research folder, the records that must stand, the GLB it watches and its stands
+// [name, eye, target]: east, north, metres above the ground at the eye (the target's at its own)
+const TARGETS={
+ '1620':{dir:'k12-1620-law-stable-1932',ids:['law_house_1620_prairie_coach_house','law_house_1620_prairie','house_1616_prairie_coach_house'],glb:'law_house_1620',stands:[
+  ['alley-from-south',[1331.2,-3040,1.7],[1334,-3015,4]],
+  ['alley-from-north',[1331.2,-2992,1.7],[1334,-3015,4]],
+  ['yard-face',[1360,-3005,1.7],[1338,-3015,4]],
+  ['air',[1375,-3050,45],[1337,-3015,0]]]},
+ '1616':{dir:'k12-1616-stable-1932',ids:['house_1616_prairie_coach_house','house_1616_prairie','law_house_1620_prairie_coach_house'],glb:'house_1616_prairie_coach',stands:[
+  ['alley-from-south',[1331,-3016,1.7],[1334.5,-3002,4]],
+  ['north-yard',[1350,-2990,1.7],[1338,-3001,4]],
+  ['yard-face',[1354,-3010,1.7],[1340,-3002,4]],
+  ['air',[1365,-3035,40],[1338,-3004,0]]]},
+ '1612':{dir:'k12-1612-goodman-stable-1932',ids:['goodman_house_1612_prairie_coach_house','goodman_house_1612_prairie','house_1616_prairie_coach_house'],glb:'goodman_house_1612_prairie_coach',stands:[
+  ['alley-from-south',[1331,-3004,1.7],[1334.5,-2989,4]],
+  ['north-gable',[1352,-2968,1.7],[1340,-2982,4]],
+  ['yard-face',[1357,-2996,1.7],[1347,-2988,4]],
+  ['air',[1372,-3018,42],[1340,-2989,0]]]},
+ '1626':{dir:'k12-1626-1628-stables-1932',ids:['house_1626_prairie_coach_house','house_1628_prairie_coach_house','house_1626_prairie','house_1628_prairie'],glb:['house_1626_prairie_coach','house_1628_prairie_coach'],stands:[
+  ['alley-from-north',[1331,-3021,1.7],[1334.5,-3036,4]],
+  ['alley-from-south',[1331,-3057,1.7],[1334.5,-3040,4]],
+  ['yard-face',[1359,-3049,1.7],[1346,-3038,4]],
+  ['air',[1373,-3062,42],[1341,-3038,0]]]},
+};
+const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
+const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
 fs.mkdirSync(out,{recursive:true});
-const IDS=['law_house_1620_prairie_coach_house','law_house_1620_prairie','house_1616_prairie_coach_house'];
+const IDS=TARGET.ids;
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.glb':'model/gltf-binary','.svg':'image/svg+xml'};
 const server=http.createServer((req,res)=>{let p=path.join(site,decodeURIComponent(req.url.split('?')[0]));try{if(fs.statSync(p).isDirectory())p=path.join(p,'index.html');res.writeHead(200,{'Content-Type':types[path.extname(p)]||'application/octet-stream'});fs.createReadStream(p).pipe(res)}catch{res.writeHead(404);res.end('missing')}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE || undefined,args:['--no-sandbox','--enable-unsafe-swiftshader']});
-// [name, eye, target]: east, north, metres above the ground at the eye (the target's at its own)
-const STANDS=[
- ['alley-from-south',[1331.2,-3040,1.7],[1334,-3015,4]],
- ['alley-from-north',[1331.2,-2992,1.7],[1334,-3015,4]],
- ['yard-face',[1360,-3005,1.7],[1338,-3015,4]],
- ['air',[1375,-3050,45],[1337,-3015,0]],
-]
+const STANDS=TARGET.stands;
 const PART=process.env.QA_PART||'';
 const ONLY=(process.env.QA_ONLY||'').split(',').filter(Boolean);
 const RUN=(PART==='a'?STANDS.slice(0,2):PART==='b'?STANDS.slice(2):STANDS).filter(([n])=>!ONLY.length||ONLY.includes(n));
@@ -37,7 +59,7 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
  const page=await context.newPage();page.setDefaultTimeout(240000);
  const errors=[],bad=[],assets=[];
  page.on('pageerror',e=>errors.push(String(e)));
- page.on('response',async r=>{if(r.status()>=400)bad.push(r.url()+':'+r.status());if(r.url().endsWith('.glb')&&(r.url().includes('law_house_1620')))assets.push({url:r.url().replace(/^.*\/data\//,'data/'),status:r.status(),bytes:Number(r.headers()['content-length']||0)})});
+ page.on('response',async r=>{if(r.status()>=400)bad.push(r.url()+':'+r.status());if(r.url().endsWith('.glb')&&([].concat(TARGET.glb).some(g=>r.url().includes(g))))assets.push({url:r.url().replace(/^.*\/data\//,'data/'),status:r.status(),bytes:Number(r.headers()['content-length']||0)})});
  const t0=Date.now();
  await page.goto(`http://127.0.0.1:${server.address().port}/1904/`,{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>window.__chicago4d?.ready||window.__chicago4d?.error,null,{timeout:240000,polling:500});

@@ -7,9 +7,9 @@
   "structures": [
     {
       "id": "armour_corwith_house_1945_prairie",
-      "name": "1945 Prairie Avenue — George Armour/Corwith corner mansion (district draft; refined by T-1908)",
+      "name": "1945 Prairie Avenue — the George Armour/Corwith house, a Second Empire corner mansion (K01; T-3281)",
       "sidecar": "sidecars/1904/armour_corwith_house_1945_prairie.json",
-      "asset": "gltf/armour_corwith_house_1945_prairie__draft_1904.glb"
+      "asset": "gltf/armour_corwith_house_1945_prairie__as_mapped_1904.glb"
     },
     {
       "id": "armour_corwith_house_1945_prairie_coach_house",
@@ -169,9 +169,9 @@
     },
     {
       "id": "goodman_house_1612_prairie_coach_house",
-      "name": "1612 S. Prairie Avenue — the alley building of the house at 1612 (district draft; refined by T-1932)",
+      "name": "1612 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/goodman_house_1612_prairie_coach_house.json",
-      "asset": "gltf/goodman_house_1612_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/goodman_house_1612_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "hanford_house_2008_calumet",
@@ -295,9 +295,9 @@
     },
     {
       "id": "house_1616_prairie_coach_house",
-      "name": "1616 S. Prairie Avenue — the alley building of the house at 1616 (district draft; refined by T-1932)",
+      "name": "1616 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/house_1616_prairie_coach_house.json",
-      "asset": "gltf/house_1616_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/house_1616_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "house_1619_indiana",
@@ -355,9 +355,9 @@
     },
     {
       "id": "house_1626_prairie_coach_house",
-      "name": "1626 S. Prairie Avenue — the alley building of the house at 1626 (district draft; refined by T-1932)",
+      "name": "1626 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/house_1626_prairie_coach_house.json",
-      "asset": "gltf/house_1626_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/house_1626_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "house_1628_prairie",
@@ -367,9 +367,9 @@
     },
     {
       "id": "house_1628_prairie_coach_house",
-      "name": "1628 S. Prairie Avenue — the alley building of the house at 1628 (district draft; refined by T-1932)",
+      "name": "1628 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/house_1628_prairie_coach_house.json",
-      "asset": "gltf/house_1628_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/house_1628_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "house_1630_prairie",
@@ -1321,9 +1321,9 @@
     },
     {
       "id": "kellogg_house_1923_prairie",
-      "name": "1923 Prairie Avenue — Kellogg map-led masonry mansion (district draft; refined by T-1908)",
+      "name": "1923 Prairie Avenue — the Kellogg house (brick, under a mansard)",
       "sidecar": "sidecars/1904/kellogg_house_1923_prairie.json",
-      "asset": "gltf/kellogg_house_1923_prairie__draft_1904.glb"
+      "asset": "gltf/kellogg_house_1923_prairie__as_mapped_1904.glb"
     },
     {
       "id": "kellogg_house_1923_prairie_coach_house",
@@ -1423,9 +1423,9 @@
     },
     {
       "id": "moulton_lowden_house_1912_prairie",
-      "name": "1912 Prairie Avenue — Moulton/Lowden Chateauesque (district draft; refined by T-1899, T-1900)",
+      "name": "1912 Prairie Avenue — the Moulton/Lowden house (Chateauesque stone front)",
       "sidecar": "sidecars/1904/moulton_lowden_house_1912_prairie.json",
-      "asset": "gltf/moulton_lowden_house_1912_prairie__draft_1904.glb"
+      "asset": "gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb"
     },
     {
       "id": "moulton_lowden_house_1912_prairie_coach_house",

@@ -2,11 +2,11 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b5c8ab53d39024856db570c49dd2027dbcd2b0b8f5b1cb0594c7d2f12d5507fe",
+  "glb_sha256": "9c1366b83565ceb2f4e762938c48660b0761fdea4f1aa9442f7674cebe0b602f",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the south wall's two tall stacks: the print's rise from the main cornice over the wall line in pale ashlar the walls' tone, the front one at about u 14.45 (shaft x 870-945 px) and the rear one at about u 3.2 (x 1122-1190); the build had one small reconstructed brick stack at u 3.0, v 10.0 (T-3107)",
@@ -33,8 +33,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the south cornice, re-measured on the rebuilt corner through the re-solved camera (T-3108; it read about 85 px under the print's at the corner): the round's wall top renders about 19 px under the print's (y 614 against 595) and its balustrade's rail about 50 px under (y 560 against 510), and the main cornice at the south-east corner about 23 px over (y 632 against 655). The pavilion's window rows fit within about 13 px; the round's rows read about 20 px under the print's, so through this camera the round's storeys stand about 0.3 m higher than the build's against the pavilion's, which the Taylor print (it sees only the round's cornice end) cannot check",
-      "status": "open",
+      "what": "the south cornice, re-measured on the rebuilt corner through the re-solved camera (T-3108; it read about 85 px under the print's at the corner): the round's wall top renders about 19 px under the print's (y 614 against 595) and its balustrade's rail about 50 px under (y 560 against 510), and the main cornice at the south-east corner about 23 px over (y 632 against 655). The pavilion's window rows fit within about 13 px; the round's rows read about 20 px under the print's, so through this camera the round's storeys stand about 0.3 m higher than the build's against the pavilion's, which the Taylor print (it sees only the round's cornice end) cannot check. Weighed under the stopping rule (T-1890, AGENTS.md rule 11): re-read at twice size, the round is the print's shape and only its place differs. Its balustrade stands 42 px from rail to base on the print and 38 px on the render, and its upper light's head stands 108 px under the balustrade's base on the print against 100 px on the render (about 0.13 m), so the round's top is not short; the whole of it renders 30-40 px under the print's. The main cornice it stands on, which the print carries round the round at one level, renders about 38 px under the print's at the round and 23 px over it at the south-east corner. A cornice level in the building cannot read low at one end and high at the other for anything the build does: that tilt is this camera's fit (rms 11.8 px, focal length and principal point held), and T-3107's earlier fit of the same picture read the same cornice 85 px under at the round and 10 px at the corner. The Taylor print, the period view, holds the round's cornice and balustrade where it ends past the pavilion's face and the main cornice's height (that record's entries). A gap two camera fits disagree about is within tolerance",
+      "status": "within tolerance",
       "how": "T-1890: the main moulded stone course now runs this wall from the south pavilion's chamfer to the south-east corner, wrapping the south bay; the heights measured above are unchanged by it"
     },
     {
@@ -152,7 +152,11 @@
       "what": "the cross roof hood's apex: through this camera it renders at about y 187, where the print's apex stands at about y 212 (about 25 px, roughly 0.5 m, high), and the print's 1965 finial over it is a short knob with no spike. This camera reads the cross roof's ridge itself about 1.3 m under the Taylor print's (the cross roof's entry above), and the hood's rise is set where the Taylor print, the period view, puts the finial's top",
       "status": "within tolerance",
       "how": "T-1890: the pictures disagree on the roof's height here; the c. 1895 Taylor print is followed for 1904 (the ticket's phase guard). L-kimball-1801-cross-hood-1890"
+    },
+    {
+      "what": "the east range's stack and its steep 18th Street end (T-1890, HABS photograph 2): they stand at the range's north end, which this camera cannot see; the range's west slope it renders only re-phases its slate courses, and nothing this picture shows changed",
+      "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

@@ -2,19 +2,19 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b5c8ab53d39024856db570c49dd2027dbcd2b0b8f5b1cb0594c7d2f12d5507fe",
+  "glb_sha256": "9c1366b83565ceb2f4e762938c48660b0761fdea4f1aa9442f7674cebe0b602f",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the east range's frontispiece over its side door (T-3110): the print's stone frontispiece between pilaster strips from grade (x 345-398 px) carries a small round-arched light filled with an ornamental grille (x 362-382, y 1045-1070, about 2.4-3.1 m), a paired light in the upper storey (x 355-385, y 940-985, about 4.7-5.9 m) and, through the eave, a coped gable between pinnacles with a finial (apex x 372, y 835, about 8.65 m); the build's range wall ran plain under its hip with two rows of reconstructed sash. Built (bays.p_door): 3.0 m wide, 0.1 m proud, the grilled round-headed light and the mullioned pair on its axis, a coped gable of pitch 1.5 between pinnacles; its lights render within about 5 px of the print's rows",
       "status": "fixed"
     },
     {
-      "what": "the frontispiece's place along the range: its axis renders at x 394 against the print's 373, about 1.15 m west, because r3b's 18th Street wall (u -8.5 to -4.6, the 1911 sheet's rectangle) holds it; the print's frontispiece straddles the sheet's junction of r3b and r2, which nothing on the print marks. A K08 bay stands on one wing's wall, so moving it onto the print's axis means re-cutting the wings or carrying a bay across a junction",
-      "status": "open"
+      "what": "the frontispiece's place along the range: its axis renders at x 394 against the print's 373, about 1.15 m west, because r3b's 18th Street wall (u -8.5 to -4.6, the 1911 sheet's rectangle) holds it; the print's frontispiece straddles the sheet's junction of r3b and r2, which nothing on the print marks. A K08 bay stands on one wing's wall, so moving it onto the print's axis means re-cutting the wings or carrying a bay across a junction. Fixed (T-1890): bays.p_door stands at s 0.65 on r3b's 18th Street wall (it stood at s 1.8), its axis 1.15 m east, and runs 0.85 m past the wall's east end onto r2's (past_end: a shallow projection's face carried onto the next wing's wall where that wing stands on the same wall line, floors and wall top, the wall behind it cut so nothing doubles); its door, grilled light and paired light stay on r3b's wall. Re-rendered, the door's axis falls at about x 371 against the print's 373-375 (it rendered at 394), and its gable's west pinnacle now stands close by the second frontispiece's east one, as the print's do (L-kimball-1801-frontispiece-junction-1890)",
+      "status": "fixed"
     },
     {
       "what": "the side door under the frontispiece's round-arched light: a narrow door at the walk (x 368-382, y 1092-1170, its head about 1.8 m) with a glazed panel; the build has none there (no K01 wing or K08 bay cuts a door)",
@@ -32,8 +32,8 @@
       "how": "T-1890, read again at full size: the slate between the turret and the frontispiece is not a dormer on the range's hip but the slate roof of a second stone frontispiece, whose coped gable between pinnacles rises through the eave at x 272-318 (its apex behind the utility pole) and whose white-capped ridge runs back into the range's roof at about y 876-888; the 'stone face under it' is that bay's front, carrying the range's one column of lights. bays.p_east_gable stands it on r2's 18th Street wall in p_door's dressing; it renders between x 263 and 313 against the print's 272-318 (L-kimball-1801-east-gable-1890)"
     },
     {
-      "what": "a tall stack rising behind the frontispiece's gable (x 337-403 px, its cap at about y 780, about 10 m): the build has no stack over the east range (a K01 stack stands only in the main block's roof)",
-      "status": "open",
+      "what": "a tall stack rising behind the frontispiece's gable (x 337-403 px, its cap at about y 780): the build had no stack over the east range (a K01 stack stood only in the main block's roof). Read at full size (T-1890) it is a pale stone shaft under a moulded cap (cap x 336-387, its top at y 776, its underside at y 792) standing on the range's apex, its foot at about y 803-808. K01's wings now carry stacks of their own (rear_wings[].stacks): r2's stands 0.8 m square at u -13.45, v 2.6, its cap 0.1 m proud and 0.45 m deep with its top at 11.4 m, in the walls' stone; its cap renders at x 343-390, y 775-793, within about 5 px of the print's",
+      "status": "fixed",
       "how": "T-1890 tried it (2026-10-27): a stone stack in the east range's roof on the print's line of sight, its cap at about y 776. One picture cannot fix its depth, and on the build's range hip (its ridge 8.3 m) the stack stood about 4 m of bare shaft over the slate, where the print shows only its cap clearing the slate behind the frontispiece, which stands to about y 795 (about 10 m at the wall's depth) against the build's hip at about y 865 there. So the stack was taken out: it waits on the range's roof, which in this print stands far higher than the build's (the frontispiece's place, above, moves with it)"
     },
     {
@@ -41,7 +41,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the east range's roof: the print's slate face rises steeply from the eave to about y 800 (about 9.6-10 m) over the frontispiece; the build's 45-degree hip rises to the same line from this eye",
+      "what": "the east range's roof: the print's slate face rises steeply from the eave to an apex at about x 380, y 797 px over the frontispiece, its west hip running down toward r2's north-west corner behind the turret's cone; the build's 45-degree hip put the apex 4.7 m back from the 18th Street wall, where it rendered at x 434, y 803, about 55 px east of the print's. T-1890 pitches r2's 18th Street end at 60 degrees (rear_wings[].roof.end_pitch_deg; the sides stay 45), so the apex stands 2.7 m back at the ridge's unchanged 11.05 m and renders at about x 372, y 790, under the stack as the print's is; beside the stack's west face the build's slate stands about 10 px (about 0.4-0.6 m) under the print's roof line (y 818 against 808), with the stack's cap and the apex both on the print's, a reading of this one camera the Taylor print (the tree hides the range's roof) cannot check",
       "status": "within tolerance"
     },
     {
@@ -49,7 +49,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the gabled section's 18th Street face: the print's round oriel, two storeys on corbels (x 430-505 px, y 780-1000) under a balustraded balcony with an open loggia behind it, three round-arched lights under it (x 436-539, y 1020-1065) and the coped gable over (apex x 497); the build's p_gable is a flat pavilion with transomed pairs. The Taylor print's match record carries the same difference (open there) — T-1890: rebuilt to the print: a round oriel on the shallow pavilion's face, its bow 2.7 m on the chord and 0.6 m out, from the 5.0 m floor to a 9.2 m wall top on six stepped corbel courses down to 3.8 m, its two transomed lights bent to the bow, under a moulded cornice and the round stone balustrade the print carries on its top; the principal storey's three round-arched lights under it, 0.5 m clear each. Through this camera the oriel's width, its corbel, its balcony and the arched lights now stand where the print's do, the balcony's rail a little (about 0.5 m) over the print's",
+      "what": "the gabled section's 18th Street face: the print's round oriel, two storeys on corbels (x 430-505 px, y 780-1000) under a balustraded balcony with an open loggia behind it, three round-arched lights under it (x 436-539, y 1020-1065) and the coped gable over (apex x 497); the build's p_gable is a flat pavilion with transomed pairs. The Taylor print's match record carries the same difference (open there) \u2014 T-1890: rebuilt to the print: a round oriel on the shallow pavilion's face, its bow 2.7 m on the chord and 0.6 m out, from the 5.0 m floor to a 9.2 m wall top on six stepped corbel courses down to 3.8 m, its two transomed lights bent to the bow, under a moulded cornice and the round stone balustrade the print carries on its top; the principal storey's three round-arched lights under it, 0.5 m clear each. Through this camera the oriel's width, its corbel, its balcony and the arched lights now stand where the print's do, the balcony's rail a little (about 0.5 m) over the print's",
       "status": "fixed"
     },
     {
@@ -145,7 +145,12 @@
       "what": "the cross roof's finial, at the frame's right edge: on the hood T-1890 stood on the cross roof's end its turnings and spike now show over the front's cresting (render about x 1314, y 262-317), where the print's 1965 finial is a short knob without a spike, lower (about x 1290, y 345), as it is on HABS photograph 1",
       "status": "within tolerance",
       "how": "T-1890: 1965 fabric against the c. 1895 Taylor print, which shows the spike and sets the finial's top; the build follows the print for 1904. This camera's frame edge also reads the tower about 37 px off (the round tower's entry). L-kimball-1801-cross-hood-1890"
+    },
+    {
+      "what": "the 18th Street section's depth (T-1890, from the Taylor print's record): stood at the 1911 sheet's 0.1 m, its corner over the corbel table now renders at about x 60-70 on the 1800 px render, where the print's corbel table ends at about x 65 (it rendered at about x 85 at 0.6 m)",
+      "status": "fixed",
+      "how": "L-kimball-1801-flank-shallow-1890"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

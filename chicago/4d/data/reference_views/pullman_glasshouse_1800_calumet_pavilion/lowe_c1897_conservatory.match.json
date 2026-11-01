@@ -140,7 +140,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -148,7 +148,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "21f7123cd8fba73122d5e1553a29a23bb154e103da950ed14b8e03dd9d928ed2"
+      "sha256": "d86d46a592cdd73924e42537e760eeece94bd891466360bfe8261cbb96a18aa2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -163,7 +163,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "207269ac19534f7c00a45f1aedf07c765540a7ffea4f1d5e9fa068cd9f3715a5",
+  "flora_sha256": "4702888f0ab40da782724b9368533497b7c67a070df80856b687679bed601655",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
