@@ -81,3 +81,18 @@ clears. Both are listed under `moved`.
 `QA_TARGET=1712 node tools/qa_k12_t1932.mjs` reads the published `/1904/` app at four stands (down the alley from
 the north and from the south, the yard face from 1712's back yard, and the air) at 1280x800 full and 390x780 light:
 `browser-validation-after-<viewport>.json` and `after-<viewport>-<stand>.jpg` in this folder.
+Both viewports: 0 page errors, 0 failed requests, all three records placed (the stable, its house and 1720's
+stable south of it).
+
+| viewport | load to ready | JS heap | stand | draw calls | triangles | in budget |
+|---|---|---|---|---|---|---|
+| desktop, full | 72.1 s | 83.6 MB | alley from the north | 7,203 | 4.58 M | yes |
+| | | | alley from the south | 2,826 | 2.31 M | yes |
+| | | | yard face | 6,174 | 1.37 M | yes |
+| | | | air | 2,033 | 1.44 M | yes |
+| mobile, light | 45.1 s | 109.5 MB | alley from the north | 4,840 | 0.99 M | yes |
+| | | | alley from the south | 2,454 | 0.69 M | yes |
+| | | | yard face | 1,468 | 0.23 M | yes |
+| | | | air | 1,846 | 0.46 M | yes |
+
+Load times are this runner's software GL, relative only.
