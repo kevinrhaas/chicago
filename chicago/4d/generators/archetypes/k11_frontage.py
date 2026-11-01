@@ -158,6 +158,12 @@ def spec(params) -> dict | None:
                 or t.get("side_fence"):
             raise ValueError(f"boundary.fence_end {fe}: s_m, from a metre inside the front's end to a pier's "
                              f"width short of the lot line, on an iron front with no side fence")
+    # T-3271: an iron street line taller than the kit's (1905 Prairie's c. 1905 Daily News
+    # negative: close-set spear pickets standing nearly to the water table): the top rail raised
+    # to `fence_rail_top_m` over the curb, as a front garden's may be, and the gates with it
+    top = t.get("fence_rail_top_m")
+    if top is not None and (FENCES[t["fence"]] in ("boards", "lattice") or not 0.8 <= top <= 2.2):
+        raise ValueError(f"boundary.fence_rail_top_m {top}: an iron railing's top rail stands 0.8-2.2 m over the curb")
     if FENCES[t["fence"]] == "lattice" and not 0.2 <= t.get("lattice_pitch_m", 0) <= 0.6:
         raise ValueError("a lattice fence names its bay, boundary.lattice_pitch_m, 0.2-0.6 m")
     if t.get("lattice_span_bays", 2) not in (2, 3, 4):
@@ -243,6 +249,15 @@ def dress(a):
         return open_front(a, t)
     K = _kit()
     data = K.load()
+    if t.get("fence_rail_top_m") is not None:   # T-3271: a taller railing, its gates as tall
+        import copy
+        data = copy.deepcopy(data)
+        R0 = data["parts"]["rail"]["top_m"]
+        lift = t["fence_rail_top_m"] - R0
+        data["parts"]["rail"]["top_m"] = t["fence_rail_top_m"]
+        g = data["parts"]["gate"]
+        g["hinges"] = [g["hinges"][0], round(g["hinges"][-1] + lift, 4)]
+        g["height_m"] = round(g["height_m"] + lift, 4)
     P = data["parts"]
     conf = p.conf("boundary")
     D = p.depth_m
@@ -615,6 +630,20 @@ def coping_spec(params, t):
         raise ValueError("stone_coping_wall: every run is an opening; there is no wall to lay")
     if abs(last - s1) > 1e-6:
         raise ValueError(f"stone_coping_wall: the runs end at s {last}, not on the north lot line {s1}")
+    # T-1881: a carved urn standing on a run's top (1729's gate piers on Prairie Avenue, the
+    # Detroit print's pale ornament over the wall's end at the walk), `s_m` its centre along the
+    # line, `width_m` and `height_m` its size; the run under it must stand there
+    for u in t.get("urns") or ():
+        if set(u) != {"s_m", "width_m", "height_m"} or not 0.2 <= u["width_m"] <= 0.8 \
+                or not 0.3 <= u["height_m"] <= 1.2:
+            raise ValueError(f"stone_coping_wall urn {u}: s_m, width_m 0.2-0.8 and height_m 0.3-1.2")
+        sa_, held = s0, False
+        for r in t.get("runs") or ():
+            if not r.get("opening") and sa_ + u["width_m"] / 2 <= u["s_m"] <= r["to_s_m"] - u["width_m"] / 2:
+                held = True
+            sa_ = r["to_s_m"]
+        if not held:
+            raise ValueError(f"stone_coping_wall urn at s {u['s_m']}: no run's top holds it whole")
     sp = t.get("stair_pier")
     if sp and (sp.get("side") not in ("left", "right") or not 0.3 <= sp.get("section_m", 0) <= 0.9
                or not 0.8 <= sp.get("height_m", 0) <= 2.0 or not 0.0 <= sp.get("cap_m", -1) <= 0.1):
@@ -890,6 +919,20 @@ def coping_wall(a, t):
                 for pts, n in _turned((x0 + x1) / 2, -T / 2, [(r * sr_, y_top + y * sy) for r, y in Pr["urn"]],
                                       segments=16, cap_bottom=False):
                     side_face(pts, n)
+    if t.get("urns"):
+        # T-1881: the kit's urn turned on the run's top at its centre line, let into it by the kit's
+        # sink and stretched from the kit's own width and height to the record's
+        from .k01_stone_finish import turned_faces as _turned_s
+        Pr = _kit().load()["parts"]["pier"]
+        kr = max(r for r, _ in Pr["urn"]) * 2
+        ky = max(y for _, y in Pr["urn"])
+        for u in t["urns"]:
+            h = next(r[2] for r in runs if r[2] is not None and r[0] <= u["s_m"] <= r[1])
+            y_top = h - Pr["urn_sink_m"]
+            sr_, sy = u["width_m"] / kr, u["height_m"] / ky
+            for pts, n in _turned_s(u["s_m"], -T / 2, [(r * sr_, y_top + y * sy) for r, y in Pr["urn"]],
+                                    segments=16, cap_bottom=False):
+                face(pts, n)
     piers = []
     if sp:
         # its foot, and the cheek's outer face

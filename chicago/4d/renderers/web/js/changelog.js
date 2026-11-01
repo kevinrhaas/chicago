@@ -1,4 +1,42 @@
 export const CHANGELOG = [ // newest first
+  { v: 2514, ts: '2026-11-01T03:15:55.488Z', date: 'Oct 31, 2026, 10:15 PM CT', title: 'The Field house gets its tall 1904 fence and south-side balconies', kind: 'improvement',
+    items: [
+      '1905 Prairie now stands behind the tall spear-topped iron fence of the c. 1905 Daily News photograph, nearly 2 m high, in place of the lower scroll fence of the 1880s and 1890s pictures.',
+      'The south side gains the two upstairs windows over the conservatory and two iron balconies on consoles, as the 1880s photograph shows them.',
+      'Light stone strips now frame the brick of the canted corner, and the basement windows under the front are round-headed, as every picture of the house draws them.',
+      'The 1893 Pictorial Chicago view is re-fitted to the rebuilt house, and through it the mansard\'s height already matches.',
+    ] },
+  { v: 2513, ts: '2026-11-01T01:57:05.784Z', date: 'Oct 31, 2026, 8:57 PM CT', title: 'A tree moved off Pullman\'s stable on 18th Street', kind: 'fix',
+    items: [
+      'At the turn of 18th Street into Calumet Avenue, a large elm stood in front of the Pullman stable\'s chimney stack. Taylor\'s photograph shows the stack and the sky clear there.',
+      'That elm is gone. A slimmer young tree now stands about 3 m west, where the photograph shows its trunk.',
+    ] },
+  { v: 2512, ts: '2026-11-01T01:55:58.213Z', date: 'Oct 31, 2026, 8:55 PM CT', title: '1912 Prairie Avenue — the Moulton house built from its photograph', kind: 'feature',
+    items: [
+      'The Moulton/Lowden house at 1912 Prairie, a generic draft block until now, stands as the stone Chateauesque house of its photograph and the 1883 New Chicago Album: two storeys and an attic storey over a raised basement under a very steep slate roof with iron cresting.',
+      'A round tower rises three stages to a slated cone and finial between a coped gable over an arched pair of windows and the north corner block, whose door stands at the head of a high stoop between solid stone cheek walls; a tall stone chimney rises off the north side.',
+    ] },
+  { v: 2511, ts: '2026-11-01T01:41:19.482Z', date: 'Oct 31, 2026, 8:41 PM CT', title: 'Glessner\'s distant roof is lighter on its shadow too', kind: 'change',
+    items: [
+      'From far off, Glessner House\'s tile roof now casts its shadow from the roof\'s outline only, without the tile edges you can\'t see from there. That draws about 247,000 fewer triangles in every far view, and almost every pixel stays the same.',
+    ] },
+  { v: 2510, ts: '2026-11-01T00:55:12.600Z', date: 'Oct 31, 2026, 7:55 PM CT', title: '1801 Prairie: the 18th Street wing sits flatter, as the 1911 map draws it', kind: 'feature',
+    items: [
+      'On 18th Street, the Kimball house\'s three-storey section under its corbel table now stands just 0.1 m out from the wall, as the 1911 fire-insurance map draws it, and runs about a metre further along it. Its windows, gable and rounded corner were moved with it, so they still sit where J. W. Taylor\'s c. 1895 photograph shows them. Taylor\'s view of the house now matches the photograph.',
+    ] },
+  { v: 2509, ts: '2026-10-31T23:36:46.498Z', date: 'Oct 31, 2026, 6:36 PM CT', title: 'Pullman house\'s Prairie front matches the Detroit photograph', kind: 'fix',
+    items: [
+      'The roof reads as one full mansard: the deck behind the cresting is lower and black, with no red peak.',
+      'Dormers stand north and south on the front, none in the centre.',
+      'The entry block is narrower and centred on the door, so the north bay\'s windows show again.',
+      'The front steps break halfway at a landing, the railing level along it.',
+      'The sidewalk gate lines up with the door, and carved urns top its two piers.',
+    ] },
+  { v: 2508, ts: '2026-10-31T22:49:00.063Z', date: 'Oct 31, 2026, 5:49 PM CT', title: '1945 Prairie: the Armour-Corwith corner house stands', kind: 'feature',
+    items: [
+      'The corner house at 1945 Prairie Avenue, at 20th Street, is no longer a plain draft block: two storeys of brick over a high basement under a slated mansard with a dormer over every window, a canted bay at the north end of the front, the door over a tall straight stoop, round-headed windows on the principal floor, the corner cut on a slant toward 20th Street with a bay on that side, and an iron fence along the walk. It is built from the Chicago Tribune\'s 1928 \'Famous Homes\' photograph.',
+      'Still to come: the taller roof over the corner, the north bay\'s own curved roof and the arched doorway the photograph shows.',
+    ] },
   { v: 2507, ts: '2026-10-31T22:00:30.918Z', date: 'Oct 31, 2026, 5:00 PM CT', title: 'Glessner\'s roof draws lighter from a distance, with no visible change', kind: 'improvement',
     items: [
       'Looking at Glessner House from more than a few dozen metres away now costs about 247,000 fewer triangles a frame. Down the alley behind 1616 Prairie that is 6.06 M to 5.81 M.',

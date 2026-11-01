@@ -2,11 +2,11 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "48477def01b69739b39d633a8b762aa1c327ba7a9f4c27d343fb1ff87a3490f8",
+  "glb_sha256": "5f98350ab0badc246d67c61ed8af76ebbc3d01b37b0f75ff10938b793268c0b5",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the round tower: the photograph's stands on the 18th Street flank about 8 m back from the front, where the 1911 sheet draws a bump in the north wall, its eaves about 12.9 m and its cone to about 18.7 m; the draft put it at the front's north-west corner under an eave about 16 m up",
@@ -135,8 +135,8 @@
     },
     {
       "what": "the flank section stands about 0.1 m proud on the sheet; the build stands it 0.6 m proud (K08's pavilion depth, the least its window recesses fit in; the main eave's gutter, its lip 0.46 m out, also dies behind it). Its width is ruled with it (T-3001): at the built depth the build's 6.0 m (u 5.1-11.1) renders its west edge at about x 500 against the print's pilaster at x 497-501, so T-2538's 7.8 m was its camera's; at the sheet's 0.1 m the same edge falls at u 3.9 and the section would be about 7.2 m, so moving it to the sheet's depth means widening it past K08's 6.0 m. The pavilion stood 0.6 m proud too",
-      "status": "open",
-      "how": "L-kimball-1801-k01-2843; T-3001 the flank section's. The pavilion's is fixed: T-3047 stands it 0.1 m proud as a shallow projection, its recesses run back through the wall plane, its gable a parapet carried back past it, and the mansard's eave box and gutter stopped at its cheeks (L-kimball-1801-pavilion-shallow-3047)"
+      "status": "fixed",
+      "how": "L-kimball-1801-k01-2843; T-3001 the flank section's. The pavilion's is fixed: T-3047 stands it 0.1 m proud as a shallow projection, its recesses run back through the wall plane, its gable a parapet carried back past it, and the mansard's eave box and gutter stopped at its cheeks (L-kimball-1801-pavilion-shallow-3047). T-1890: the section now stands 0.1 m proud as a SHALLOW projection (its lights' recesses run back through the wall plane, the flank's coursing opened round them below the cornice) and runs 6.97 m from u 4.13 to the tower; its rear corner, lights, wall dormer's gable and corner round are each carried back along their rays from this camera, so the corner renders at about x 500 against the print's pilaster at x 497-501 and the rest within a few px of where they rendered (L-kimball-1801-flank-shallow-1890)"
     },
     {
       "what": "the east range runs on south behind the gabled section to v 18.3 on the sheet; the build stops it at the gabled section's 6 m (a K01 wing stands inside its host wall); not seen from this camera",

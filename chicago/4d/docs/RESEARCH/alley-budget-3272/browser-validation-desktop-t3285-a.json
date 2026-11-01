@@ -1,0 +1,145 @@
+{
+  "method": "Actual published /1904/ app at 1280x800, `full`; animation paused after readiness; each stand renders the same held frame with the far-relief swap off (buildings.farRelief.on=false), off again (QA_CONTROL), on in the colour pass only (farRelief.sun=false, T-3284), on in both passes (T-3285), with the relief batches casting nothing (the sun's positive control), and with the three relief pieces hidden outright (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0"
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "alley-from-north",
+      "tierHasItOn": true,
+      "sunHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "sunSwapped": 3,
+      "off": {
+        "triangles": 5921288,
+        "drawCalls": 8057
+      },
+      "colourOnly": {
+        "triangles": 5674123
+      },
+      "on": {
+        "triangles": 5426958,
+        "drawCalls": 8057,
+        "withinBudget": false
+      },
+      "saved": 494330,
+      "savedBySun": 247165,
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "sunPixelsDiffering": 0,
+      "sunMaxChannelDelta": 0,
+      "controlPixelsDifferingWithReliefCastingNothing": 2,
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithRoofReliefHidden": 7,
+      "problems": 0
+    },
+    {
+      "name": "alley-from-south",
+      "tierHasItOn": true,
+      "sunHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "sunSwapped": 0,
+      "off": {
+        "triangles": 1344455,
+        "drawCalls": 1679
+      },
+      "colourOnly": {
+        "triangles": 1344455
+      },
+      "on": {
+        "triangles": 1344455,
+        "drawCalls": 1679,
+        "withinBudget": true
+      },
+      "saved": 0,
+      "savedBySun": 0,
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "sunPixelsDiffering": 0,
+      "sunMaxChannelDelta": 0,
+      "controlPixelsDifferingWithReliefCastingNothing": 0,
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithRoofReliefHidden": 0,
+      "problems": 0
+    },
+    {
+      "name": "glessner-18th-far-west",
+      "tierHasItOn": true,
+      "sunHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "sunSwapped": 3,
+      "off": {
+        "triangles": 6442876,
+        "drawCalls": 3929
+      },
+      "colourOnly": {
+        "triangles": 6195711
+      },
+      "on": {
+        "triangles": 5948546,
+        "drawCalls": 3929,
+        "withinBudget": false
+      },
+      "saved": 494330,
+      "savedBySun": 247165,
+      "pixels": 1024000,
+      "pixelsDiffering": 20,
+      "maxChannelDelta": 31,
+      "sunPixelsDiffering": 20,
+      "sunMaxChannelDelta": 31,
+      "controlPixelsDifferingWithReliefCastingNothing": 26,
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithRoofReliefHidden": 62,
+      "problems": 0
+    },
+    {
+      "name": "glessner-prairie-far-se",
+      "tierHasItOn": true,
+      "sunHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "sunSwapped": 3,
+      "off": {
+        "triangles": 7796477,
+        "drawCalls": 5678
+      },
+      "colourOnly": {
+        "triangles": 7549312
+      },
+      "on": {
+        "triangles": 7302147,
+        "drawCalls": 5678,
+        "withinBudget": false
+      },
+      "saved": 494330,
+      "savedBySun": 247165,
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "sunPixelsDiffering": 0,
+      "sunMaxChannelDelta": 0,
+      "controlPixelsDifferingWithReliefCastingNothing": 0,
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithRoofReliefHidden": 0,
+      "problems": 0
+    }
+  ]
+}

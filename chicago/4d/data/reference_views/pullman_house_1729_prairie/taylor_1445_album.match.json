@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f18763b70c56d9891b02f64291eb05516b24876482dfd380061633bfeca297a4",
+  "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -13,7 +13,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 22
+        "creeper": 23
       }
     ],
     "street_trees": 35,
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "2782a5b30720eeacfbc106b90a452f9184553e840301e34b1ca09c0606870f95",
+  "flora_sha256": "a12179394527157b6b338cc7f4ea53b37ccc8bcb111347793a4d75c16e8949d5",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -232,6 +232,11 @@
       "what": "the Prairie front's second-storey lights (x 205-230 and 300-325) under moulded arched heads with an impost each side at the springing",
       "status": "fixed",
       "how": "T-1881 (2026-10-31): the K01 lights framed in architraves read off the 1890 Albertype plate; through this camera the render's heads now carry the moulded arch and imposts the photograph shows, at the same 20-37 px offset along the front as the piers (the camera disagreement already recorded)"
+    },
+    {
+      "what": "the Prairie front's bays: the forward block over the portico, the north bay beside it",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the block narrowed and centred on the door at v 6.4 and the north bay's lights and dormer put back, from the owner's reading of the Detroit print; through this camera the block's north edge moves about 1.4 m south (L-pullman-1729-front-bays-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

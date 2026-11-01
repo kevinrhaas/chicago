@@ -81,7 +81,8 @@ function elmSpec(mode) {
  * height band, leaf and season; every other tree is the parkway elm. One:
  * `broad_head`, a young elm still on its leader, the head wide and low from
  * about a quarter of its height (tree-model.js ARCH.ulmus_americana_young), the
- * tree before the 1800 Calumet gate in the 1894 plate and Lowe's print.
+ * tree before the 1800 Calumet gate in the 1894 plate and Lowe's print. Two:
+ * `limbed_head`, that young elm with its limbs starting about 5 m up (T-1934).
  */
 const FORMS = {
   // `dbh` is the bole at the height the crown is grown at: a form's few trees grow
@@ -90,6 +91,11 @@ const FORMS = {
   // here unscaled. The plate draws this trunk about 0.27 m across at breast height.
   broad_head: (mode) => ({ ...elmSpec(mode), arch: 'ulmus_americana_young', form: 'parkway_head', spreadK: 0.95,
     dbh: [0.24, 0.30] }),
+  // T-1934: `limbed_head`, the same young elm clear to about 5 m before its first limbs
+  // (ARCH.ulmus_americana_young_limbed), the tree at 18th Street's Calumet corner in
+  // Taylor's 16555 and 16554.
+  limbed_head: (mode) => ({ ...elmSpec(mode), arch: 'ulmus_americana_young_limbed', form: 'parkway_head_limbed',
+    spreadK: 0.85, dbh: [0.24, 0.30] }),
 };
 const specFor = (t, mode, elm) => (FORMS[t.form] ? FORMS[t.form](mode) : elm);
 
@@ -163,7 +169,7 @@ function treeCard(t, doc) {
       change_note: (young
         ? 'A young elm planted in a gap in the parkway file, as the 1901 photograph of 1700 Prairie shows one. '
         : 'One of the elms in the grass parkway between the walk and the curb. ')
-        + (t.form === 'broad_head'
+        + (t.form === 'broad_head' || t.form === 'limbed_head'
           ? 'Still a young tree on its leader, its head broad and low over the walk, as the pictures draw it. '
           : '')
         + (pictured

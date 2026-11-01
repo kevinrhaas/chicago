@@ -518,7 +518,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   const toneRanges = [];
   /** T-3272: a relief roof piece past its last visible pixel draws its crests only
    *  (far-roof-relief.js). One state for the layer; each batch fills its own pairs. */
-  const farRelief = { on: farReliefFromSearch(globalThis.location?.search), batches: [] };
+  // T-3285: `sun` lets the sun's pass keep the relief whole while the colour pass swaps.
+  const farRelief = { on: farReliefFromSearch(globalThis.location?.search), sun: true, batches: [] };
   /** structure id -> its footprint extent in its own local frame, so a building
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
@@ -885,8 +886,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     let farPairs = null;
     if (bucket.entries.some((e) => e.twinOf)) {
       farPairs = [];
-      drawFarReliefAsCrests(batch, { get on() { return farRelief.on; }, pairs: farPairs,
-        set swapped(n) { farRelief.swapped = n; } });
+      drawFarReliefAsCrests(batch, { get on() { return farRelief.on; },
+        get sun() { return farRelief.sun; }, pairs: farPairs,
+        set swapped(n) { farRelief.swapped = n; }, set sunSwapped(n) { farRelief.sunSwapped = n; } });
       farRelief.batches.push({ batch, pairs: farPairs });
     }
     batch.userData.batchIndex = [];
@@ -1189,11 +1191,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     coalesce,
     viewOccluders,
     /** T-3272: far relief pieces drawn as their crests, on or off, for the on/off pixel
-     *  proof; `swapped` is how many the last colour pass swapped. */
+     *  proof; `swapped` is how many the last colour pass swapped. T-3285: `sun` takes
+     *  the sun's pass alone back to the whole relief; `sunSwapped` is its count. */
     farRelief: {
       get on() { return farRelief.on; },
       set on(v) { farRelief.on = !!v; },
+      get sun() { return farRelief.sun; },
+      set sun(v) { farRelief.sun = !!v; },
       get swapped() { return farRelief.swapped ?? 0; },
+      get sunSwapped() { return farRelief.sunSwapped ?? 0; },
       get pieces() { return farRelief.batches.reduce((n, b) => n + b.pairs.length, 0); },
     },
     /** T-3152: the proven planar backings on or off, for the on/off pixel proof. */

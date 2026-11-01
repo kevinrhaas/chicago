@@ -135,6 +135,16 @@ export const ARCH = {
     limbAngle: 52, rise: 0.03, twist: 0.22, order2: [5, 46], order3: [3, 48], droop: 0.14,
     clump: 0.08, clumpMin: 0.45, density: 0.70, gaps: 0.50, leaf: 'elm', bark: 'interlaced',
   },
+  // T-1934 — THE SAME YOUNG ELM, LIMBED UP. Taylor's 16555, at 16 m, draws the tree at
+  // 18th Street's Calumet corner as one slender leader clear to about 5 m before its
+  // first limbs, and 16554 sees its crown start as high; the head above is the young
+  // elm's. Only the crown base differs (docs/LIBERTIES.md
+  // L-pullman-18th-street-trees-1934). A pictured tree names it as `form: 'limbed_head'`.
+  ulmus_americana_young_limbed: {
+    crown: 'round', crownBase: 0.44, fork: 'excurrent', stems: [1, 1], scaffolds: [6, 8],
+    limbAngle: 52, rise: 0.03, twist: 0.22, order2: [5, 46], order3: [3, 48], droop: 0.14,
+    clump: 0.08, clumpMin: 0.45, density: 0.70, gaps: 0.50, leaf: 'elm', bark: 'interlaced',
+  },
   fraxinus_pennsylvanica: {
     crown: 'oval', crownBase: 0.36, fork: 'decurrent', stems: [1, 1], scaffolds: [3, 5],
     limbAngle: 34, rise: 0.06, twist: 0.20, order2: [5, 44], order3: [3, 44], droop: 0.10,

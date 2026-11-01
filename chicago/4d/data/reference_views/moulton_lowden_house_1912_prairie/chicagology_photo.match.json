@@ -1,0 +1,73 @@
+{
+  "structure_id": "moulton_lowden_house_1912_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
+  "glb_sha256": "f68f7c6d97740280d0e816bec469e3795da789d33c190676764ca691d25e3a3c",
+  "camera_sha256": "c517d22d93ccfb5413bddb08607b87d5dc1519475b4d04fb458f2b545810422c",
+  "photo_sha256": "edfbb93fb891e8f549e6aa782b2609f7a7b6fcde87847a46fbce72e00c350010",
+  "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's generic hipped block is now the photograph's house: a stone front of two storeys and a short attic storey over a raised basement under a very steep slated roof with iron cresting, the cornice's top near 13.25 m; the front receding left to the south, the north flank at the right",
+      "status": "fixed"
+    },
+    {
+      "what": "the round tower on the sheet's bay, three stages of bent sashes to a slated cone with a finial; the north corner block with the door at the stoop's head and its chamber and attic windows over it; the south gable with its arched pair, chamber pair and attic light",
+      "status": "fixed"
+    },
+    {
+      "what": "the high stoop of eleven risers between solid stone cheek walls ending in block newels, and the low iron railing on its coping along the walk",
+      "status": "fixed"
+    },
+    {
+      "what": "the tall stone stack off the north flank behind the corner block",
+      "status": "fixed"
+    },
+    {
+      "what": "the tower's third stage: built 1.0 m over the main cornice (K01's least clearance for a tower), where the photograph springs the cone at the cornice's level, so the cone stands about 1 m high",
+      "status": "open"
+    },
+    {
+      "what": "the corbelled corner turret at the north corner block's front corner on the north flank (x 1040-1150, y 480-720 px), with its little cone",
+      "status": "open"
+    },
+    {
+      "what": "the dormers: built plain gabled dormers in the slate; the photograph's are stone wall dormers with crocketed gables, pinnacles and finials, the south one tall (x 270-400, y 120-500 px) between the gable and the tower",
+      "status": "open"
+    },
+    {
+      "what": "the south gable: its crockets, pinnacles and finial are built plain, and the arched pair is a square-headed pair under a surround where the photograph draws two round heads under one arch",
+      "status": "open"
+    },
+    {
+      "what": "the entrance: the photograph's door stands in an arched recess between carved capitals under a striped canvas awning; built a flat-headed door on the stoop",
+      "status": "open"
+    },
+    {
+      "what": "the ivy over the south part of the front and the tower, to the attic floor",
+      "status": "open"
+    },
+    {
+      "what": "the stone's tone: built the register's brownstone; the monochrome print reads lighter, which a print cannot settle",
+      "status": "not shown"
+    },
+    {
+      "what": "the camera: its solve lands on its bounds (29.6 px RMS, 99 px at the gable's apex), so the render draws the house smaller and flatter than the photograph's close, steep view; the gaps that follow from the camera alone are within tolerance",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the south flank and the rear, and the sheet's stone wing on the south flank's rear half (T-3278)",
+      "status": "not shown"
+    },
+    {
+      "what": "the tower stands 0.17 m further out and the south gable 0.05 m more proud than first built, so the kit closes the gable's window recesses and holds the tower's finial clear of the wall's plane (T-3277's lap); under the 0.3 m bar",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the tower's finial: built a plain spike, where the photograph's is turned with knobs (x 420-450, y 0-110 px); the turned finial, clipped at the wall's plane on a tower centred so near it, drew its back twice, and stood out far enough to clear the plane it took the tower over the kit's triangle budget",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

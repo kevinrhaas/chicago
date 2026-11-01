@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "4863a2a61be862020ea3ef974fcaf1077be93a962fcf1a8e53d63ee6c790d101"
+      "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "a4e092e07709066060483fdaec7d7aca9f2e2390c0e378e4b2a087883594ec25",
+  "group_sha256": "5c47aea6d8da5ce9f97b4b1a75f934d71f4ded9738555771a624abe623d31891",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -73,7 +73,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 22
+        "creeper": 23
       }
     ],
     "street_trees": 30,
@@ -111,7 +111,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "21f7123cd8fba73122d5e1553a29a23bb154e103da950ed14b8e03dd9d928ed2"
+      "sha256": "85f1f563c854e11abf2f28e2c92b981f36ecd7cf1d6bf9b16762626ef32ddc25"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "fcf71b28b7b585c45131c698bd1920f2a461c7e1a4ba7465dbeb34954b749ed1",
+  "flora_sha256": "7f4f76aa2e2d31232de1265fd26fe05d1351773034b522f2412f693bc7e0d2a3",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -187,7 +187,8 @@
     },
     {
       "what": "the house is a light stone in the print, with a stone porch and balustraded terrace on 18th Street; the build draws it red brick: the house's own record (T-1881)",
-      "status": "open"
+      "status": "fixed",
+      "how": "[T-1934, 2026-10-31: re-rendered on dev's house GLB: the house now draws in T-1881's fawn sandstone ashlar (PR #1465), not red brick, and its raised stone terrace with its balustrade and awning toward 18th Street stands (T-1881, PR #1523). The stone's tone against this print is the house's own records' to judge (pullman_house_1729_prairie).]"
     },
     {
       "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it; none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match) [T-1934, 2026-10-31: east of the third pier this is replaced for 1904 — the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end; the fourth, fifth and sixth piers, the fifth's urn and the curved low walls are withdrawn (L-pullman-18th-street-wall-c1900-1934).]",
@@ -200,8 +201,8 @@
       "how": "T-1934: an element missing"
     },
     {
-      "what": "the planting: the print's bare yard and parkway trees stand at other places than the street-tree layer's (camera flora, winter), and the clipped shrubs along the wall's back are fewer in the render [T-1934, 2026-10-29: the 18th Street parkway's trees before the estate are now placed off Taylor's 16555 and the 1894 plate (data/street_trees/pictured_1904.json). Through this camera they render at x 439, 571, 675, 791 and 957; the print's trunks along the street's far side stand at about x 387, 417, 532, 550, 660, 711, 815 and 852, their feet at y 587-600 where this camera puts the parkway's at y 557-562, so which of the print's are parkway trees and which the yard's cannot be told through it, and nothing here was placed from it. Still open.] [T-1934, 2026-10-31: through the camera re-solved with the street's ground in its fit, the print's trunks are told apart by their feet. The three on Calumet Avenue's west parkway on the camera's side of the street (x 712, 1016 and 1137, feet at y 602-655) are now planted where the print shows them, slender young elms (data/street_trees/pictured_1904.json, 241.0-264.0 m; the rule's three grown elms there withdrawn), and render at x 712, 1015 and 1140; the trunk at x 537 lands 0.45 m from the gate tree the 1894 conservatory plate placed (266.9 m), and those at x 660 and 817 within about 1.3 m of the two 16555 placed at the Calumet corner. Still open: the far trees beyond 18th Street (x 190, 293 and 1000, feet at y 587-590), which this camera cannot put on one parkway or the other at that distance, and the render's grown, thick-trunked elms there where the print draws slender trees; and the two trunks on the lawn inside the coping (x 388 and 417), the 1800 Calumet ground's own trees, not built.] [T-1934, 2026-10-31, the trees' habit: the parkway trees before the estate were drawn as the grown, forked parkway elm, about 1 m across at breast height through this camera at 55-65 m; the print draws slender single leaders 5-6 px across there (about 0.25-0.3 m) and 10-15 m tall, as Taylor's 1445 (about 0.3-0.4 m and 12-14 m, at 25 px a metre) and the Detroit print of c. 1897-1901 do. The four on 18th Street's north parkway at 37.65, 43.7, 51.3 and 64.1 m and the two at the Calumet corner (3.3 and 10.3 m) now grow on the young elm's broad head at scale 0.65 and 0.6 (data/street_trees/pictured_1904.json), and render about 6-8 px across here. The plate's full-crowned tree at 58.8 m (Taylor's 16555 shows a dead trunk in a guard there) stays the grown elm. The far trees' places (x 190, 293 against the render's 137 and 219) are this camera's weakest side: the trees stand where Taylor's 1445 and the Detroit print put them within 0.05-2.2 m, and the house's corner lands 28 px off here, so their places are a camera disagreement. The two trunks read at x 388 and 417 are not on the 1800 Calumet lawn: the 1894 conservatory plate and Lowe's c. 1897 print both see that lawn where this camera puts them (plate x 383-488, Lowe x 20-106) and show it open, and through this camera's left side the 18th Street coping itself draws 13-21 px above the print's lawn edge, so they are taken for the 18th Street parkway's trees. Still open in this item: the clipped shrubs along the wall's back, fewer in the render, and the young elm's head starting about 2-3 m lower on its leader than the print's crowns (limbs leaving the leader about 5 m up).] [T-1934, 2026-10-31, the shrubs along the wall's back: the print's row behind the 18th Street coping before the stable (x 727-1090 px: two small cones and a pair of balls before the corner bay, four sheared balls, a clipped column, two cones and a dense mass at the stable's east end) is now planted, each plant on its pixel column through this camera (data/front_yards/1904.json, the 1729 lot's pictured plants; tools/plant_prairie_1904_front_yards.py keeps each one's reading): the middle cluster and the east mass on the line about 4 m off the stable's front where Taylor's 16555 crosses them, the four westmost in the border line behind the coping, east of the court's carriage opening. They render at x 727-1090 within about 10 px of the print's, and rise over the coping as far as the print's do. Fixed. Still open in this item: the young elm's head starting about 2-3 m lower on its leader than the print's crowns.]",
-      "status": "open",
+      "what": "the planting: the print's bare yard and parkway trees stand at other places than the street-tree layer's (camera flora, winter), and the clipped shrubs along the wall's back are fewer in the render [T-1934, 2026-10-29: the 18th Street parkway's trees before the estate are now placed off Taylor's 16555 and the 1894 plate (data/street_trees/pictured_1904.json). Through this camera they render at x 439, 571, 675, 791 and 957; the print's trunks along the street's far side stand at about x 387, 417, 532, 550, 660, 711, 815 and 852, their feet at y 587-600 where this camera puts the parkway's at y 557-562, so which of the print's are parkway trees and which the yard's cannot be told through it, and nothing here was placed from it. Still open.] [T-1934, 2026-10-31: through the camera re-solved with the street's ground in its fit, the print's trunks are told apart by their feet. The three on Calumet Avenue's west parkway on the camera's side of the street (x 712, 1016 and 1137, feet at y 602-655) are now planted where the print shows them, slender young elms (data/street_trees/pictured_1904.json, 241.0-264.0 m; the rule's three grown elms there withdrawn), and render at x 712, 1015 and 1140; the trunk at x 537 lands 0.45 m from the gate tree the 1894 conservatory plate placed (266.9 m), and those at x 660 and 817 within about 1.3 m of the two 16555 placed at the Calumet corner. Still open: the far trees beyond 18th Street (x 190, 293 and 1000, feet at y 587-590), which this camera cannot put on one parkway or the other at that distance, and the render's grown, thick-trunked elms there where the print draws slender trees; and the two trunks on the lawn inside the coping (x 388 and 417), the 1800 Calumet ground's own trees, not built.] [T-1934, 2026-10-31, the trees' habit: the parkway trees before the estate were drawn as the grown, forked parkway elm, about 1 m across at breast height through this camera at 55-65 m; the print draws slender single leaders 5-6 px across there (about 0.25-0.3 m) and 10-15 m tall, as Taylor's 1445 (about 0.3-0.4 m and 12-14 m, at 25 px a metre) and the Detroit print of c. 1897-1901 do. The four on 18th Street's north parkway at 37.65, 43.7, 51.3 and 64.1 m and the two at the Calumet corner (3.3 and 10.3 m) now grow on the young elm's broad head at scale 0.65 and 0.6 (data/street_trees/pictured_1904.json), and render about 6-8 px across here. The plate's full-crowned tree at 58.8 m (Taylor's 16555 shows a dead trunk in a guard there) stays the grown elm. The far trees' places (x 190, 293 against the render's 137 and 219) are this camera's weakest side: the trees stand where Taylor's 1445 and the Detroit print put them within 0.05-2.2 m, and the house's corner lands 28 px off here, so their places are a camera disagreement. The two trunks read at x 388 and 417 are not on the 1800 Calumet lawn: the 1894 conservatory plate and Lowe's c. 1897 print both see that lawn where this camera puts them (plate x 383-488, Lowe x 20-106) and show it open, and through this camera's left side the 18th Street coping itself draws 13-21 px above the print's lawn edge, so they are taken for the 18th Street parkway's trees. Still open in this item: the clipped shrubs along the wall's back, fewer in the render, and the young elm's head starting about 2-3 m lower on its leader than the print's crowns (limbs leaving the leader about 5 m up).] [T-1934, 2026-10-31, the shrubs along the wall's back: the print's row behind the 18th Street coping before the stable (x 727-1090 px: two small cones and a pair of balls before the corner bay, four sheared balls, a clipped column, two cones and a dense mass at the stable's east end) is now planted, each plant on its pixel column through this camera (data/front_yards/1904.json, the 1729 lot's pictured plants; tools/plant_prairie_1904_front_yards.py keeps each one's reading): the middle cluster and the east mass on the line about 4 m off the stable's front where Taylor's 16555 crosses them, the four westmost in the border line behind the coping, east of the court's carriage opening. They render at x 727-1090 within about 10 px of the print's, and rise over the coping as far as the print's do. Fixed. Still open in this item: the young elm's head starting about 2-3 m lower on its leader than the print's crowns.] [T-1934, 2026-10-31, Calumet's curve: through this camera the rule's grown elm at 19.4 m on the parkway's turn from 18th Street into Calumet Avenue (calumet__prairie_ic_16_18) drew as a thick forked trunk at x 1091 against the stable's stack, where the print shows the stack and the sky clear; the print's one trunk on that stretch stands at x 996-1006, its foot at y 589, about 0.35 m across. The rule's tree is withdrawn and a young elm planted at the print's reading, 16.1 m (data/street_trees/pictured_1904.json, 13.3-22.8 m), which renders at x about 995. Fixed. The young elm's head, read again tree by tree: on Calumet's west parkway the render's first limbs leave the leader within about 1-2 m of the print's (x 712: 5.6 m against 4.7; x 1016: about 7 m against 5.6; x 1137: about 4.9 m against 2.9-3.7), above the print's, not below; on 18th Street's north parkway the tree at x 335 still forks in a low V at about 3.7 m where the print's crowns start about 5 m up. A narrower habit for those trees (crownBase 0.42) was tried and did not move that fork through this camera, so it was not kept. Still open in this item: the 18th Street file's low fork.] [T-1934, 2026-11-01: the low V at x 335 was not the 18th Street file's tree. Every parkway tree projected through this camera puts two trunks there: the north parkway's young elm (e18th__prairie_ic_16_18#p05, 56.9 m) at x 334.5, and in front of it, at x 349 and 39 m, the south parkway's tree at the Calumet corner (e18th__prairie_calumet_18_20#p00), which was still the grown elm at scale 0.6, its decurrent fork at 0.30 of its height drawing the V at about 3.1 m (y 491 over its foot at y 586). That is why the 18th Street file's crown base did not move it. Taylor's 16555 sees the same tree at 16 m as one slender leader, the bole about 0.2-0.27 m, clear to about 4.5-5 m before its first limbs; it now grows on the young elm's leader with its limbs from about 5 m (form limbed_head, data/street_trees/pictured_1904.json), and through this camera it draws a straight leader with no fork below the house's second storey. The print's trunks on this side stand at x 385 and 417, 35-65 px right of the render's two, the camera disagreement already recorded for this side. Fixed.]",
+      "status": "fixed",
       "how": "T-1934 render with the scene's street trees and front yards"
     },
     {
@@ -239,7 +240,8 @@
     },
     {
       "what": "the lamp's height: through the re-solved camera the district's post, 26.8 m off, renders about 137 px from its foot to its cap where the print's post is about 102 px; read through this camera the print's post is about 2.2 m to its cap, where the owner's ruling draws the district's 3.1 m post (T-3267). Either the post is shorter than the district's or the camera's eye height and horizon, fitted on the buildings and the ground, are about 0.5 m out at that distance; not changed here [T-1934, 2026-10-31]",
-      "status": "open"
+      "status": "owner ruling",
+      "how": "[T-1934, 2026-10-31: T-3267 (the owner, 2026-10-30, on this print: \"the print shows a lamp like the district's other gas lamps\") draws this lamp with the district's one gas post, 3.1 m to its cap; through this camera the print's post reads about 2.2 m, which the ruling's post does not follow. Whether that is the post or this camera's eye height at 27 m is not settled by this print alone.]"
     },
     {
       "what": "the camera [T-1934, 2026-10-31]: T-3193's eye stood about 20 m from the ground the print shows, so the street drew 25-45 px high and the foreground lawn, its coping and the curving walk did not appear at all; re-solved with them in its fit (the camera's solve), the coping, the walk's outer edge and the wall's foot now land within about 5 px, the buildings within about 10 px",
@@ -272,8 +274,12 @@
     },
     {
       "what": "the 18th Street coping before the stable: through this camera the print's coping top (y 570 px, over its foot at y 585-587 and level with the hydrant's top) reads about 0.55-0.6 m over the walk, where the build stands it at 0.9 m off the c. 1900 Detroit view and the 1894 plate, so it draws about 15 px higher than the print's here; the hydrant, which the camera was not fitted on, lands within 0.1 m of its height, so the camera's vertical is good to about that much at 40 m [T-1934, 2026-10-31: the shrubs behind it are read as their rise over the coping, not absolutely, so they stand in the print's relation to the wall whichever height is right]",
-      "status": "open",
-      "how": "T-1934 render"
+      "status": "within tolerance",
+      "how": "T-1934 render [T-1934, 2026-10-31: a gap two pictures disagree about (AGENTS.md rule 11, T-3153): the c. 1900 Detroit view (loc_det_4a08066), the picture nearest 1 July 1904, and the 1894 Inland plate both read the coping at about 0.9 m along this stretch, and the Chicago History Museum's ICHi-19208 shows the same plain coping at the stable's end; this print alone reads it 0.55-0.6 m. The build keeps the two pictures' 0.9 m.]"
+    },
+    {
+      "what": "the bare winter crowns: the print's trees on both parkways carry dense fringes of fine twigs, and the render's elms at 15-70 m draw a few long limbs with no twig fringe, so they read as poles and sticks [T-1934, 2026-11-01: seen while judging the Calumet corner tree's fork. It is the app's winter draw of every elm at this distance (the levels this camera's eye deals them), not a place or habit read off this print, and the summer views (16555, the plate) are not affected.]",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

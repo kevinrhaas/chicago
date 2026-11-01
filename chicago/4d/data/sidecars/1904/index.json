@@ -7,9 +7,9 @@
   "structures": [
     {
       "id": "armour_corwith_house_1945_prairie",
-      "name": "1945 Prairie Avenue — George Armour/Corwith corner mansion (district draft; refined by T-1908)",
+      "name": "1945 Prairie Avenue — the George Armour/Corwith house, a Second Empire corner mansion (K01; T-3281)",
       "sidecar": "sidecars/1904/armour_corwith_house_1945_prairie.json",
-      "asset": "gltf/armour_corwith_house_1945_prairie__draft_1904.glb"
+      "asset": "gltf/armour_corwith_house_1945_prairie__as_mapped_1904.glb"
     },
     {
       "id": "armour_corwith_house_1945_prairie_coach_house",
@@ -1423,9 +1423,9 @@
     },
     {
       "id": "moulton_lowden_house_1912_prairie",
-      "name": "1912 Prairie Avenue — Moulton/Lowden Chateauesque (district draft; refined by T-1899, T-1900)",
+      "name": "1912 Prairie Avenue — the Moulton/Lowden house (Chateauesque stone front)",
       "sidecar": "sidecars/1904/moulton_lowden_house_1912_prairie.json",
-      "asset": "gltf/moulton_lowden_house_1912_prairie__draft_1904.glb"
+      "asset": "gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb"
     },
     {
       "id": "moulton_lowden_house_1912_prairie_coach_house",
