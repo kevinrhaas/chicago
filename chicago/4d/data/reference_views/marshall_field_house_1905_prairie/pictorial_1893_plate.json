@@ -13,19 +13,19 @@
  ],
  "principal_px": [
   719.0,
-  931.0
+  923.3
  ],
- "focal_px": 1531.6,
+ "focal_px": 1880.5,
  "eye": [
-  49.31,
-  23.94,
+  46.86,
+  31.29,
   1.6
  ],
- "yaw_deg": 248.23,
+ "yaw_deg": 237.79,
  "sun_uvy": [
   0.6,
   0.8,
   1.0
  ],
- "solve": "Fitted by T-3260 (piece 1 of T-1904) to the 1893 Pictorial Chicago plate (the image store's copy of the page cropped to the plate's border, 1438 x 1080 px), against the 1911 sheet's plan (s28fp-1905-b1). The footprint frame's u runs toward Prairie Avenue (west) from the main body's rear wall and v south from its north wall; the front stands at u 21.0 and the south wall at v 15.25. The plate is a view camera's: its verticals stand parallel, so the camera is held level with its principal point free in height (a raised front), and its principal point's x is the plate's centre. Six observations fitted by least squares: the frieze's foot and the water table at the front's north end as the plate shows it (x 97, y 545 and 905 px), at the start of the canted south-west corner (683; 447 and 885) and at its end on the south flank (900; 447 and 885), with the water table held at 2.2 m and the frieze's foot at 11.6 m and the eye at 1.6 m; the unknowns the eye's place, the heading, the focal length, the principal point's height, the corner's cut and where the plate's north end stands on the front. It closes at 14.7 px RMS, its worst residual 36 px (the frieze's foot at the north end, where a neighbouring house's shadow meets the corner). WHAT IT SAYS: the corner is cut about 3.4 m back each way on a canted face square to the corner (the sheet draws the corner square), and the plate's north end lands about 3 m north of the sheet's north wall: the plate's front is longer than the sheet's 15.25 m, or its scale is about a fifth out. The sheet's plan is kept; the window columns are laid in proportion between the plate's north end and the corner's cut. PLACE: the eye at u 49.3 (about 28 m before the front, on the avenue's far side), v 23.9 (about 9 m south of the south wall). The distance, the focal length and the heights trade against one another, and the eye's height is held, not read: this camera is good to about a metre at the house and is the one to refine (T-3261) on the plate's other columns and the Daily News view. LIGHT: the front and the canted corner lit, the south flank a shade less: a sun in the south-west, high (sun_uvy)."
+ "solve": "Re-solved by T-3271 (the sign-off) against the house as rebuilt to Hunt's plan of the principal floor (hunt_field_1905_principal_floor_plan): the front 16.8 m, the water table 2.0 m and the frieze's foot 9.6 m over grade, the canted corner cut 2.15 m. The same six observations T-3260 read off the plate (the image store's copy cropped to the plate's border, 1438 x 1080 px): the frieze's foot and the water table at the front's north end (x 97; y 545 and 905 px), at the start of the canted south-west corner (683; 447 and 885) and at its end on the south flank (900; 447 and 885). Held: the eye at 1.6 m, the camera level (a view camera's: its verticals stand parallel, the principal point free in height) with its principal point's x at the plate's centre, and the plate's north end ON the house's north end. Fitted by least squares: the eye's place, the heading, the focal length and the principal point's height. It closes at 13.8 px RMS, its worst residual 21 px (the cant's two ends, x 18 and -21 px: the plate draws the cut broader than the plan's 2.15 m, about 3.4 m, as T-3260's free fit read it; K01's cut is the plan's, within tolerance on the photographs). The projection was first checked against T-3260's camera on T-3260's geometry, which it reproduces at T-3260's 14.7 px. Freeing the north end as well closes at 11.3 px only by moving the eye 18 m further south and the focal length to 2890 px, so the plan's north end is held. Before (T-3260): fitted to the 1911 sheet's 15.25 m front with the heights held at 2.2 and 11.6 m, which put the plate's north end about 3 m north of the sheet's north wall; Hunt's 16.8 m front closes most of that. PLACE: the eye at u 46.9 (about 26 m before the front, on the avenue's far side), v 31.3 (about 14.5 m south of the south wall). Good to about a metre at the house. LIGHT: the front and the canted corner lit, the south flank a shade less: a sun in the south-west, high (sun_uvy)."
 }
