@@ -6756,6 +6756,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     street_iron = _street_iron(val("street_front_iron") or {}, openings, val("entrance_kit") or {})
     shutters = _window_shutters(val("window_shutters") or {}, openings,
                                 [round(pf + sum(heights[:k]), 4) for k in range(len(heights))], depth, width)
+    # T-3292: the rear wings (and the side pieces after them) drop the openings behind them
+    # too, after the bays' re-index above, so an arched group finds its own again by identity
+    # once every opening is settled (1912's arched door stood at index 19 of 17 once its
+    # wings had dropped the side lights behind them, and the build fell off the list)
+    for g, ops in zip((arched or {}).get("groups", ()), grouped):
+        at = [j for o in ops for j, x in enumerate(openings) if x is o]
+        if len(at) != len(ops):
+            raise ParamError(f"an arched group in bay {g['bay']} lost an opening to a piece built over it")
+        g["ops"] = tuple(at)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
         storey_heights_m=heights, front_thickness_m=ft, side_thickness_m=st,
