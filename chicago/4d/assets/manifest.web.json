@@ -1,5 +1,6 @@
 {
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__as_mapped_1904.glb": "72ffd18978f6aa0622c128fd5ee293714f0da9ca66ee54a4d7fe966272203735",
@@ -149,9 +150,9 @@
     "house_1623_prairie__as_mapped_1904.glb": "2995a46266b0a3209f63477c0d7b4f313e37366060927d2d8969faf1f36aa8ec",
     "house_1625_prairie__as_mapped_1904.glb": "c75457bc94b79dceea56f2d213109c098a927de583f86d4a45a5548863588295",
     "house_1626_prairie__as_mapped_1904.glb": "1ff169754a2e88dbb935988c130f804824624b432fbb4ff5305d2fc079312ce9",
-    "house_1626_prairie_coach_house__draft_1904.glb": "e328c9d15de05f81601278885c2f0344df4c1504f0dd80f7b5bca81e07ecbb8d",
+    "house_1626_prairie_coach_house__as_standing_1904.glb": "8f6ab7edb0cd08a7eb6bf9dc4e5d02977d135426ceb1bc956c16346ba14f7e04",
     "house_1628_prairie__as_mapped_1904.glb": "0ebf25c51e8c34da0bf7872ebf85f908c4e96273b1fcb3acea7267bf123f86e0",
-    "house_1628_prairie_coach_house__draft_1904.glb": "623269355ebe765ad0018ba03c0ff8d8bcb4dea0f6b33837157c3b0d59affd92",
+    "house_1628_prairie_coach_house__as_standing_1904.glb": "7418cad6d6dd20f41253097d6de2e0bc990f00e3d1cd326893e8128d1bb5f7ee",
     "house_1630_prairie__as_mapped_1904.glb": "5f8a73010b47efa01476067a12b0c1a2ffdf53b7dfba41581264fe36192300e3",
     "house_1630_prairie_coach_house__draft_1904.glb": "639637f2f5e29a1ec0bb8063e16311ac11be25b52a8713dfbe9294ddb56ce10e",
     "house_1634_prairie__as_mapped_1904.glb": "13577c23388a83763babf40357c83002f0094cd03b3978e11b12a4935e903be8",
@@ -1032,6 +1033,5 @@
     "wolf_point_trading_camp__camp_1835.glb": "394c965b3637b16fc5b35b7a169d4ef95ce7c2c3805bcb50abb20f8e1912f75f",
     "wright_building_to_let_a__documented_1835.glb": "47dfcbe909ed2cace0f517d63cf996c49cff8f196a8f2c0b67e413d35234e49a",
     "wright_building_to_let_b__documented_1835.glb": "4f15702f7be9d0e407cc004477278d866bdd72661e5fb80f2b95790893fcb8a8"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }
