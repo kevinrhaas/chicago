@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2524, ts: '2026-11-01T08:54:24.456Z', date: 'Nov 1, 2026, 2:54 AM CT', title: 'Marshall Field\'s house stands on its pale stone basement', kind: 'improvement',
+    items: [
+      '1905 Prairie now stands on the pale dressed-stone basement that all four of its pictures show. The stone runs round the canted corner and along the south flank, under the brick, with the round-headed basement lights cut into it.',
+      'The conservatory\'s base is laid in the same pale stone, as the 1893 plate draws it.',
+      'The north flank, which no picture shows, now follows Richard Morris Hunt\'s own plan of the principal floor: the parlour\'s two windows, and the drawing room\'s shallow projection with two lights on each storey.',
+      'The house is signed off against all four of its pictures: the 1893 plate, the 923 Prairie photograph, the engraving and the c. 1905 Daily News negative.',
+    ] },
+  { v: 2523, ts: '2026-11-01T07:59:29.636Z', date: 'Nov 1, 2026, 1:59 AM CT', title: 'Dormers on the back of the Pullman house', kind: 'fix',
+    items: [
+      'The rear roof of the Pullman house now has its two round-headed dormers, as J. W. Taylor\'s photograph from 18th Street shows.',
+      'Each one stands over one of the rear wall\'s two windows, under the same eared hood as the dormers on the 18th Street side.',
+    ] },
   { v: 2522, ts: '2026-11-01T07:58:10.408Z', date: 'Nov 1, 2026, 1:58 AM CT', title: '1912 Prairie checked against its 1883 engraving and a row elevation', kind: 'improvement',
     items: [
       'The Moulton house at 1912 Prairie is now rendered from the camera of the 1883 New Chicago Album engraving. The engraver stood within a few metres of where the later photographer did, so the two pictures show the same view thirty years apart.',
