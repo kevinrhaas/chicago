@@ -1379,7 +1379,7 @@
     },
     {
       "id": "kellogg_house_1923_prairie",
-      "name": "1923 Prairie Avenue — Kellogg masonry mansion"
+      "name": "1923 Prairie Avenue — the Kellogg house (brick, under a mansard)"
     },
     {
       "id": "kellogg_house_1923_prairie_coach_house",
@@ -35499,18 +35499,6 @@
         },
         {
           "domain": "structure",
-          "structure": "kellogg_house_1923_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "kellogg_house_1923_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "kellogg_house_1923_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35575,7 +35563,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35583,7 +35571,7 @@
         },
         {
           "label": "How to resolve",
-          "text": "each house's per-building piece of work (to, named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id; the alley buildings are earlier work's. **1811 retired from this liberty by later work (2026-10-16):** the house now stands as the K01 stone-front house under `“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”`, under the same id; its draft attributes are gone, and its stable keeps 1811 S. Prairie Avenue — the alley building of the house at 1811 here. **1815 retired from this liberty by later work (2026-10-25):** the house now stands as the K01 stone-front house under `“1815 Prairie refined from the district draft to a K01 stone-front house under a mansard, its pavilion, corner bay and balcony read off its photographs”`, under the same id; its draft attributes are gone, and its coach house keeps 1815 S. Prairie Avenue — the alley building of the house at 1815 here. **1823 retired from this liberty by later work (2026-10-26):** the house now stands as the K01 stone-front house under `“1823 Prairie refined from the district draft to a K01 stone-front house under a mansard, its south pavilion, window groups and stacks read off its pictures”`, under the same id; its draft attributes are gone. **1827 retired from this liberty by later work (2026-10-26):** the Doane house's main block now stands as the K01 stone house read off the Chicagology photograph, under `“1827 Prairie refined from the district draft to a K01 stone house under a mansard, its pavilion, porch and heights read off the Chicagology photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1901 retired from this liberty by later work (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house read off the 1898 Chicagology photograph, under `“1901 Prairie refined from the district draft to a K01 stone house under a dormered mansard, its porch and balcony read off its photographs”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1905 retired from this liberty by later work (2026-10-30):** Marshall Field's house now stands as the K01 brick house read off the 1893 Pictorial Chicago plate, under `“1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1945 retired from this liberty by later work (2026-10-31):** the George Armour/Corwith house now stands as the K01 brick house read off the Tribune's 1928 'Famous Homes' photograph, under `“1945 Prairie refined from the district draft to a K01 brick Second Empire corner house under a dormered mansard, read off the Tribune's 1928 photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's."
+          "text": "each house's per-building piece of work (to, named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id; the alley buildings are earlier work's. **1811 retired from this liberty by later work (2026-10-16):** the house now stands as the K01 stone-front house under `“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”`, under the same id; its draft attributes are gone, and its stable keeps 1811 S. Prairie Avenue — the alley building of the house at 1811 here. **1815 retired from this liberty by later work (2026-10-25):** the house now stands as the K01 stone-front house under `“1815 Prairie refined from the district draft to a K01 stone-front house under a mansard, its pavilion, corner bay and balcony read off its photographs”`, under the same id; its draft attributes are gone, and its coach house keeps 1815 S. Prairie Avenue — the alley building of the house at 1815 here. **1823 retired from this liberty by later work (2026-10-26):** the house now stands as the K01 stone-front house under `“1823 Prairie refined from the district draft to a K01 stone-front house under a mansard, its south pavilion, window groups and stacks read off its pictures”`, under the same id; its draft attributes are gone. **1827 retired from this liberty by later work (2026-10-26):** the Doane house's main block now stands as the K01 stone house read off the Chicagology photograph, under `“1827 Prairie refined from the district draft to a K01 stone house under a mansard, its pavilion, porch and heights read off the Chicagology photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1901 retired from this liberty by later work (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house read off the 1898 Chicagology photograph, under `“1901 Prairie refined from the district draft to a K01 stone house under a dormered mansard, its porch and balcony read off its photographs”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1905 retired from this liberty by later work (2026-10-30):** Marshall Field's house now stands as the K01 brick house read off the 1893 Pictorial Chicago plate, under `“1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1923 retired from this liberty by later work (2026-10-31):** the Kellogg house now stands as the K01 brick house read off the 1898 Tribune vignette and the c. 1914 row elevations, under `“1923 Prairie refined from the district draft to a K01 brick house under a crested mansard, its north corner bay carried past the cornice, read off the 1898 Tribune vignette and the c. 1914 row elevations”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1945 retired from this liberty by later work (2026-10-31):** the George Armour/Corwith house now stands as the K01 brick house read off the Tribune's 1928 'Famous Homes' photograph, under `“1945 Prairie refined from the district draft to a K01 brick Second Empire corner house under a dormered mansard, read off the Tribune's 1928 photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's."
         },
         {
           "label": "Review",
@@ -35610,6 +35598,7 @@
         "T-3171",
         "T-3185",
         "T-3260",
+        "T-3282",
         "T-3281"
       ]
     },
@@ -58965,6 +58954,123 @@
         "T-3260",
         "T-1904",
         "T-3261"
+      ]
+    },
+    {
+      "id": "L-k01-1923-kellogg-3282",
+      "title": "1923 Prairie refined from the district draft to a K01 brick house under a crested mansard, its north corner bay carried past the cornice, read off the 1898 Tribune vignette and the c. 1914 row elevations",
+      "section": "per_subject",
+      "subjects": [
+        "kellogg_house_1923_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1923 Prairie Avenue, the Kellogg house, is no longer a district draft. It stands, under the draft's own id 1923 Prairie Avenue — the Kellogg house (brick, under a mansard), as a k01 frontage record built by the k01 emit generator, against two pictures: the 1923 vignette of the Chicago Tribune's strip of 9 January 1898 ('Select residence district where wealth has not prevented death from visiting…, public domain) and the 1923 front in the east row of the undated row elevations of the 1800 and 1900 blocks that the Glessner House blog reproduces ([Row elevations of the 1800 and 1900 blocks of Prairie Avenue] 'East Side of…, rights unknown, read for forms and proportions only): two storeys of brick over a high basement under a bracketed cornice and a crested mansard; a canted bay at the front's north corner carried past the cornice under its own mansard crown; the door right of the middle under a columned porch over a broad high stoop; hooded windows; the south flank's canted bay; the sheet's two ranges behind; an iron scroll fence. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1923-b1, census s28-1923-front): the front block's place and plan (16.7 m of front, 12.4 m deep to the south wall's step), its brick, the corner bay's plan, the south flank's bay and the two ranges behind. From the elevation, at its row's common scale (set by 1905's front beside it), through the elevations c1914 front data: the window columns, the door's place, the storeys' and windows' heights, the mansard's rise and the cresting. From the vignette, through the tribune 1898 front data: the corner bay rising past the cornice, the hooded windows, the deep cornice, the porch's columns, the broad stoop and the fence. **Where the pictures and the sheet disagree.** The elevation draws the front about 12.8 m wide at its row's scale, the sheet 16.7 m; the sheet's length is kept and the columns placed in proportion. The elevation's chamber windows read about 1.3 m taller than built and its corner bay wider than the sheet's 5.2 m: both are carried on its match record. It is an interpretive drawing of uncertain date (the blog's c. 1914), weighed below the sheet. **What is invented.** wall thickness front (m), wall thickness side (m), service wall brick, roof pitch (deg), roof covering, stair tread (m), side bays, north bays, rear bays, chimneys, rainwater, window kit, yard: the walls' thickness, the flank and rear walls' windows (no picture sees them), the stacks but the south one, the deck's pitch and the coverings (the pictures are monochrome), the treads, the rainwater, the sash pattern and the yard's walk; the porch's balustrade and the hood's depth; the south flank bay's windows and roof; the rear ranges' floors, heights, windows and decks; the one attic dormer on the south face. **What is not built.** The sheet's one-storey strip along the north wall's front half ('1B.'); the mansard the sheet's dashed line runs round the rear ranges; the vignette's arch between the porch's columns and the stoop's curved stone cheeks with round-capped posts at their foot; the carving the vignette's hoods and cornice suggest: open on the match records for later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work works both pictures to matches and builds the rear, roof and cost views earlier work's acceptance asks for."
+        },
+        {
+          "label": "Covers",
+          "text": "`kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_front_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_side_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.service_wall_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_pitch_deg`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_covering`, `kellogg_house_1923_prairie.as_mapped_1904.form.stair_tread_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.side_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.north_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.rear_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.chimneys`, `kellogg_house_1923_prairie.as_mapped_1904.form.rainwater`, `kellogg_house_1923_prairie.as_mapped_1904.form.window_kit`, `kellogg_house_1923_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31 (T-3282)."
+        }
+      ],
+      "work_refs": [
+        "T-3282",
+        "T-1908",
+        "T-3283"
       ]
     },
     {
