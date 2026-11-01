@@ -37613,6 +37613,28 @@ grounds.
 **Ticket:** T-3273.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`
 
+### L-pullman-pavilion-arch-transoms-1934 — The Pullman conservatory's north arch divided by its two transoms, and low palms behind its lower lights
+**Recorded:** 2026-11-01.
+
+**Decision:** both match records' open difference (T-1934): "both pictures draw heavy white mullions and
+transoms over a dark, densely planted interior; the render draws the kit's lighter bars over six palms".
+**Transoms.** Two level rails 0.12 m deep cross the north arch's glass from the frame's inner edge to the
+other, in the frame's paint, a centimetre behind the frame and the mullion. **What is read, not invented.**
+The Inland plate draws a strong rail about 1.56 m over the arch's springing, where its dark planted register
+ends, and a fainter line higher up; Lowe's print draws the same rail at about 1.45 m and a thin line near
+2.9 m (each read off the arch's own height, 5.85 m, at about 48 and 34 px a metre). The rails are set at an
+even 1.5 and 3.0 m between those readings; the upper one's height (the pictures' faint lines disagree by
+about 0.7 m) and the rails' depth are invented. **Planting.** Three palms stand 1.3 m inside the north glass
+(4.0, 4.4 and 4.0 m to their crowns, 0.9 m fronds, kept clear of the glass and the vault), so the fronds
+fill the lower register both pictures read dark; their species, number, heights and places are invented,
+as the six before them (L-pullman-conservatory-glazing-3273). The render's lower register still reads
+lighter than either picture: the house has no shade behind its glass (the owner's "black box", 2026-10-31,
+is not put back).
+**How to resolve:** a picture of the conservatory's north front nearer or face on, or of its interior.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+
 ### L-kimball-1801-cone-slate-1890 — 1801 Prairie's tower and turret cones slated in the mansard's own coursed slate
 **Recorded:** 2026-10-30.
 

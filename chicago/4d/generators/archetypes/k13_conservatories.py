@@ -2366,6 +2366,22 @@ def pavilion(h: House, ps: dict):
         m = ps.get("mullion_m", 0.15)
         h.face("dome_rib", [(fo, he, W / 2 - m / 2), (fo, he, W / 2 + m / 2), (fo, nave[-1][1] - fw, W / 2 + m / 2),
                             (fo, nave[-1][1] - fw, W / 2 - m / 2)], (-1.0, 0.0, 0.0))
+        at = ps.get("arch_transoms")
+        if at:
+            # T-1934: the level transoms both pictures draw across the arch's glass, the heavy
+            # white rails that divide its lights into registers: each across the arch from the
+            # frame's inner edge to the other at `heights_m` over the springing, a centimetre
+            # behind the frame and the mullion so no two bars share a plane
+            rw, fr = at["rail_m"], fo + 0.01
+            for t in at["heights_m"]:
+                y = he + t
+                zs = [za + (zb - za) * (y - ya) / (yb - ya) for (za, ya), (zb, yb) in zip(inner, inner[1:])
+                      if yb != ya and min(ya, yb) <= y <= max(ya, yb)]
+                if len(zs) < 2:
+                    raise ValueError(f"{v['id']}: arch transom at {t} m over the springing is above the arch")
+                z0, z1 = min(zs), max(zs)
+                h.face("dome_rib", [(fr, y - rw / 2, z0), (fr, y - rw / 2, z1), (fr, y + rw / 2, z1),
+                                    (fr, y + rw / 2, z0)], (-1.0, 0.0, 0.0))
     if ps.get("apex_finial_m"):
         # T-3164: the small ornament the plate draws over the north arch's point
         _finial(h, 0.0, W / 2, nave[-1][1], ps["apex_finial_m"])

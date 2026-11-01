@@ -4123,9 +4123,9 @@
     "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": {
       "archetype": "k13_conservatories",
       "baked_ao": false,
-      "bytes": 1114664,
+      "bytes": 1158980,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "981121d8232f91aa5c565122ec34401a887fe0c4af65f8671bacfc6d393ec412",
+      "inputs_sha256": "649c4fd0decb389399fd8c91dccacf27a06f057fda4a954a10a4f85d7c64746a",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_pavilion"
