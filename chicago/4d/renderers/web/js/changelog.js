@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2520, ts: '2026-11-01T06:26:26.921Z', date: 'Nov 1, 2026, 1:26 AM CT', title: '1612 Prairie\'s big brick stable on the alley', kind: 'feature',
+    items: [
+      'The Goodman house at 1612 Prairie now has its own stable on the alley, north of 1616\'s: a two-storey brick building 15.2 m along the alley and 14 m deep, with a window in its north gable facing the open yard. Its outline, storeys, brick and both windows come from the 1911 Sanborn sheet. Robinson\'s 1886 atlas shows a stable half as deep on the same spot, so the alley half is older and the yard half was added later. The carriage doors, loft hatch, other windows and roof come from the shared coach-house kit and are reconstructed.',
+    ] },
   { v: 2519, ts: '2026-11-01T05:46:35.457Z', date: 'Nov 1, 2026, 12:46 AM CT', title: 'Winter trees down the street show their branches and twigs', kind: 'fix',
     items: [
       'With the Season set to winter, the bare elms along the streets from about 10 m out, and the woods\' trees further off, had shrunk to a trunk and a few long poles, because the leaf that covers the fine wood in summer was gone and nothing drew the wood in its place.',
