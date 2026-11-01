@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "b0871a49313e101b4927afa73e5f8c116201daedcfe3a599ad4166b5ed6a256c"
+      "sha256": "1cf61cdc69df641dd98b5265640fd6bb0dafee45eaaa38bd72e96a06883a8ecc"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "fb91b04e56e926447d04ccd48051d193c2ca449d98acfa616ef198ee1ceea602",
+  "flora_sha256": "999ac97fd501f40a281631918f64c5a01a8a2c88b19744cd622928b91d79ce12",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -279,7 +279,8 @@
     },
     {
       "what": "the bare winter crowns: the print's trees on both parkways carry dense fringes of fine twigs, where the render's elms at 15-70 m read as open branchwork of straight crossing strokes [T-1934, 2026-11-01: seen while judging the Calumet corner tree's fork. It is the app's winter draw of every elm at this distance (the levels this camera's eye deals them), not a place or habit read off this print, and the summer views (16555, the plate) are not affected.] [T-1934, 2026-11-01, re-rendered on the bare crown's coarse-level twigs (tree-model.js bareTwigs): the poles and sticks are gone. The elms at 15-70 m now carry their limbs, branches and a share of their twigs at the mid and far levels, each held to a visible width and within the leaf's own summer triangle budget, so the crowns branch and grey in round their limbs as the print's do. What is still open is the grown elm's own winter habit, at every level including near: its branches run out as long, nearly straight strokes at the summer crown's drooping angles and cross one another, and it grows a few hundred twigs, where the print draws limbs that fork again and again into fine ascending twig, a dense fringe at each crown's rim. That is the skeleton (growElm), not the detail level.] [T-1934, 2026-11-01, re-rendered on the elms' winter skeleton (tree-model.js winterElm, drawFringe): a bare grown elm and the young elms on their leaders now stand each branch only as far as it rises, drop the summer's hanging twigs, and fork off every limb's tip and along every branch into short ascending twig, three forks deep near, one at the mid ring, held within the summer leaf's own triangle budget. The flat crossing strokes are gone: the crowns at 15-44 m now read as rising Vs of twig as the print's do. Still open: the density. The print's crowns grey in with a fringe of hundreds of fine twigs each, where the mid ring (10-44 m, where most of this print's trees stand) can spend only the summer leaf's budget, a few dozen strokes a tree, so the render's crowns stay open against the sky.] [T-1934, 2026-11-01, re-rendered on spiked mid-ring twigs (tree-model.js spike, ELM_FRINGE.mid.spike): at the mid ring each fringe twig is now one three-sided spike from its foot to its tip (three triangles where the stroke spent six, its foot 0.02 m across so it covers about what the even stroke did), so the same summer-leaf budget draws twice the twigs: a grown parkway elm about 440 twigs at that ring where it drew about 220 (150 of its ~200 sprouts where it drew 73), the young elms 60-90 where they drew 30-45. The crowns at 15-44 m now grey in with more rising V's of twig. Still open: the print's crowns are denser yet, a few hundred fine twigs at each rim, and past 44 m (the far ring) a bare elm still draws its limbs and branches with no fringe.] [T-1934, 2026-11-01, re-rendered on the bare elm's own summer budget at the mid and far rings (tree-model.js: a bare elm at mid and far spends what its summer leaf there costs, elmShare's cards, and draws its skipped wood as spikes; ELM_FRINGE.far.spike and reserve): a grown parkway elm at the mid ring (10-44 m) now draws every one of its ~200 sprouts to its first fork and a share of the second, about 640 twigs where it drew about 450, still within its summer leaf's triangles (about 2,530 against 2,580); past 44 m (the far ring) it now draws a fringe twig off each limb tip it reaches, 11-12 a tree where it drew none, its skipped limbs and branches as spikes beside them, in the same 67 triangles as before. The crowns at 15-44 m grey in further and the far row carries rising twig over its limbs. Still open: the print's crowns are denser yet, hundreds of fine twigs at each rim, which the summer leaf's budget does not buy as geometry, most of all at the far ring (a dozen twigs a tree).]",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1934, 2026-11-01, re-rendered on twig cards (tree-model.js twigCards, ELM_TWIG_CARDS; the leaf atlas's new sixth row, tools/generate_tree_atlas.py twig_tile): a bare elm at the mid and far rings now spends part of its summer leaf's budget on cards of a painted bare-twig spray, each rooted on the foot of one of its winter sprouts and rising the way it rises, so every card carries dozens of forking twigs for two triangles, as the leaf buys its density as a texture. The crowns at 15-70 m now grey in with fine, forking, ascending twig round their limbs with the sky and the house showing through, as the print's do; the triangle count is unchanged (the cards come out of the spikes' share)."
     },
     {
       "what": "the house's rear (east) mansard: two round-headed dormers on it under the deck's cresting (x about 503-512 and 537-548 px), each standing over one of the two bays of lights in the rear wall below (x 509-515 and 543-548), where the build laid no dormer on that face",
@@ -290,6 +291,11 @@
       "what": "a stack rising behind the house's rear face, between its two dormers (x 513-522 px, its cap at about y 318), which the build does not stand",
       "status": "open",
       "how": "T-1881 (2026-11-01): seen while laying the rear dormers; this camera does not place it on the house's deck to better than a few metres, so it waits on a camera fitted to the house (L-pullman-1729-rear-dormers-1881)"
+    },
+    {
+      "what": "the nearest parkway elm's twig (top right, about 12 m from the eye) reads a little heavier in stroke than the print's fine twig",
+      "status": "within tolerance",
+      "how": "T-1934, 2026-11-01: the twig tile is painted to come through as a line at the mid ring's coarser mips, so at that ring's near edge its strokes are a pixel or two wider than the print's; the crown's density, habit and colour are the print's. Under the T-3153 bar a stroke's pixel width is not a difference a visitor would notice."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
