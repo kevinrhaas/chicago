@@ -1,0 +1,40 @@
+{
+ "structure_id": "marshall_field_jr_house_1919_prairie",
+ "source_id": "gatlin_programme_1919_field_jr_plate",
+ "library_image": "cgs-1919-gatlin-program-1919",
+ "photo": "../../sources/assets/field_jr_1919_plates_t3279/gatlin_programme_1919.jpg",
+ "image_px": [
+  1400,
+  1040
+ ],
+ "principal_px": [
+  710.0,
+  554.1
+ ],
+ "focal_px": 1134.0,
+ "eye": [
+  47.0,
+  -21.27,
+  5.0
+ ],
+ "yaw_deg": 300.15,
+ "basis_right_up_forward": [
+  [
+   0.50225,
+   0.86472,
+   0.0
+  ],
+  [
+   0.0,
+   -0.0,
+   1.0
+  ],
+  [
+   -0.86472,
+   0.50225,
+   0.0
+  ]
+ ],
+ "sky": "overcast",
+ "solve": "Fitted by T-3280 (piece 2 of T-1906) to the 1919 programme plate (the image store's 1400 x 1040 px copy of the advertisement; the vignetted halftone stands at about x 220-1200, y 190-920 px, and the principal point is taken near its centre, x 710, y 554), against T-3279's record of the house on the 1911 sheet's plan, in the same footprint frame as the 1913 plate's camera (u toward Prairie Avenue from the front block's rear wall, v south from its north wall). The plate is a soft halftone, so the camera is fitted by least squares with the camera held level and unrolled (the stacks' and the tower's sides stand vertical in the plate) to what it can find: the tops of the two tall stacks on the north flank (x 797, y 199 and x 623, y 254 px), the front's north eave (x 830, y 428), the tower's axis (x 742) and the iron fence's foot and top on the street line (y 790 at x 500, y 748 at x 450). The eye was bounded at u 47, the avenue's far side, as the 1913 plate's was, because left free it walks back along the line of sight trading distance against focal length. RESIDUALS about 25 px RMS on the stacks, the eave and the tower's top (23, 12, 9 and 26 px across; 20, 15, 18 and 8 px up), the largest on the near stack, which the plate stands closer to the tower than the record does (a gap the 1913 plate's camera does not show, so it is within tolerance). PLACE: the eye at u 47, v -21.3 (about 21 m north of the north flank) and 5 m over grade, heading 300 degrees in this frame (south-east across the house's north-west corner), focal length 1134 px; within about 1 m and 1 degree of the 1913 plate's camera, which agrees with the Prairie library's note that the two are of one viewpoint. CHECKED on what it did not fit: the render's street hip rises to the plate's finial (about 15.9 m, which is what set the hip's 52 degrees), the tower's flat top lands on the plate's within about 0.5 m, and the rear ranges' gables stand over the plate's. LIGHT: soft and even, no cast shadow readable on the walls or the pavement, so the view renders overcast."
+}

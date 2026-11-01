@@ -4982,12 +4982,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     prange = tuple(roof["parameters"]["pitch_deg"]["ranges"][band])
     # T-2542: a gable read off a source may stand in the contract's steep band too (1811's,
     # whose plate shows its street slope rising from about 8.4 m to about 16 m); a
-    # reconstructed pitch keeps the ordinary band, as a reconstructed principal floor does
+    # reconstructed pitch keeps the ordinary band, as a reconstructed principal floor does.
+    # T-3280: so may a hip read off a source (1919's, whose street hip rises to about 15.9 m
+    # over a 9.5 m eave in its 1919 programme plate, solved camera, about 52 degrees)
     rpa = form.get("roof_pitch_deg") or {}
-    if gable and rpa.get("confidence", "reconstructed") != "reconstructed":
+    if band == "ordinary" and rpa.get("confidence", "reconstructed") != "reconstructed":
         if not rpa.get("sources"):
             raise ParamError(f"roof_pitch_deg is {rpa.get('confidence')} and names no source: "
-                             "only a source can put a gable past the ordinary band")
+                             "only a source can put a hip or a gable past the ordinary band")
         prange = (prange[0], roof["parameters"]["pitch_deg"]["ranges"]["steep"][1])
     _within(pitch, prange, "roof_pitch_deg")
     # T-2541: a gable's ridge runs along the street front (T-2459), so its length is the
@@ -5470,6 +5472,21 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("the dormer sash's sill sits on its apron's upstand")
         if wg:
             dormer.update(_wall_gable(d, wg, dormer, width))
+        elif "v_m" in d or "at_m" in d["sash"]:
+            # T-3280: a broad dormer's row of lights (1919's three, off its 1919 programme plate),
+            # each the one sash's size at `sash.at_m` from the face's centre, and the dormer
+            # stood off the front's centre at `v_m`; a record naming neither builds as before
+            wd, sw = dormer["width_m"], dw
+            at = sorted(float(x) for x in d["sash"].get("at_m", [0.0]))
+            if not 1 <= len(at) <= 4 or any(b - a < sw + 0.1 for a, b in zip(at, at[1:])):
+                raise ParamError("dormer.sash.at_m: 1-4 lights, each 0.1 m clear of the next")
+            if max(abs(a) for a in at) + sw / 2 > wd / 2 - 0.15:
+                raise ParamError("dormer.sash.at_m: a light stands 0.15 m inside the face's cheeks")
+            vm = float(d.get("v_m", width / 2))
+            if not wd / 2 + 0.3 <= vm <= width - wd / 2 - 0.3:
+                raise ParamError("dormer.v_m: the dormer stands 0.3 m inside both ends of the front")
+            dormer["sash"]["at_m"] = at
+            dormer["v_m"] = vm
 
     slope_dormers = _slope_dormers(val("slope_dormers"), roof_form, depth, width, eave, pitch,
                                    float(val("eave_overhang_m")), rear_section)
