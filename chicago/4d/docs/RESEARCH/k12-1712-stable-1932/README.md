@@ -71,7 +71,7 @@ The neighbours: 1700-1706's stable ends about 10.6 m to the north, past the lot 
 closed, every opening cut through. The web derivative is 25.9 KB.
 
 `lay_prairie_1904_street_furniture.py`, re-run against the baked model, moves no pole: the alley's poles #04 and
-#05 stand 10.3 m north of the stable's party wall and 2.0 m south of its gable, and the wire between them, 0.45 m
+#05 stand 20.3 m north of the stable's party wall and 2.0 m south of its gable, and the wire between them, 0.45 m
 inside the alley's edge, clears the alley eave. (Run before the new GLB is tracked, the rule stands the building as
 its padded footprint prism instead of its model and steps both poles 1.95 m into the alley; with the model
 committed it does not.)
