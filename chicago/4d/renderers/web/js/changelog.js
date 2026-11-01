@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2542, ts: '2026-11-01T18:32:53.564Z', date: 'Nov 1, 2026, 12:32 PM CT', title: '1945 Prairie\'s front door now stands under its round arch', kind: 'improvement',
+    items: [
+      'The Armour-Corwith house at 1945 Prairie gets the round-arched doorway its 1928 newspaper photograph shows: a pair of doors under a fanlight, set back in the brick.',
+      'The arch carries the same stone band and keystone as the round-headed windows beside it, so the principal storey reads as one row of arches.',
+    ] },
   { v: 2541, ts: '2026-11-01T17:54:29.185Z', date: 'Nov 1, 2026, 11:54 AM CT', title: 'Winter elms grey in with fine, forking twig', kind: 'improvement',
     items: [
       'In winter, elms seen from about 10 m and further now show a dense fringe of fine twigs that fork and rise. Before, their crowns were a few straight sticks.',

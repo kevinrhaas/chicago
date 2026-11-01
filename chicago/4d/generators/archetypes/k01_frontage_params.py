@@ -88,6 +88,9 @@ class Opening:
     # T-2960: a ROUND_CUT hole cut segmental at this rise over its span (1736's upper lights,
     # the c. 1890 photograph), which its K06 sash is built to; 0 is the round head
     rise_over_span: float = 0.0
+    # T-3283: a principal door cut round-headed in a brick front (`street_front_round_heads.door`,
+    # 1945's, the 1928 photograph), its head on the same curve as the round lights beside it
+    round_head: bool = False
 
     @property
     def head_m(self) -> float:
@@ -5085,12 +5088,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # T-3255: a front its eared hoods dress takes neither key nor hood: the crest stands there
     eared_front = "k01.wall.street_front" in ((val("eared_round_heads") or {}).get("walls") or ())
     if rh:
-        if not {"storeys"} <= set(rh) <= {"storeys", "key", "head", "rise_over_span", "hood"} \
+        if not {"storeys"} <= set(rh) <= {"storeys", "key", "head", "rise_over_span", "hood", "door"} \
                 or (("key" in rh or "hood" in rh) if eared_front else ("key" in rh) == ("hood" in rh)) \
                 or ("key" in rh and set(rh["key"]) != {"width_m", "height_m", "proud_m"}):
             raise ParamError("street_front_round_heads takes storeys [k, ...] and either key {width_m, height_m, "
-                             "proud_m} or hood (neither under eared_round_heads), and may name head and "
-                             "rise_over_span")
+                             "proud_m} or hood (neither under eared_round_heads), and may name head, "
+                             "rise_over_span and (T-3283) door")
+        # T-3283: the principal door cut round-headed in the brick front under the same arch band
+        # and key as its round lights (1945's, the 1928 photograph): K07's round-headed entrance
+        # in a round hole, where a stone front lays its door's voussoirs (`entrance_kit.arch`)
+        if "door" in rh and (rh["door"] is not True or "key" not in rh or rh.get("head", "round") != "round"
+                             or val("stone_front") or door_arch_of(val("entrance_kit"))):
+            raise ParamError("street_front_round_heads.door (true) cuts the door round in a brick front under "
+                             "the round lights' arch band and key; a stone front's door takes entrance_kit.arch")
         if rh.get("head", "round") not in ("round", "segmental"):
             raise ParamError("street_front_round_heads.head cuts a 'round' or a 'segmental' head")
         if "rise_over_span" in rh and (rh.get("head") != "segmental" or not 0.05 <= rh["rise_over_span"] < 0.5):
@@ -5115,7 +5125,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         rh = {"storeys": tuple(sorted({int(k) for k in rh["storeys"]})), "head": rh.get("head", "round"),
               **({"rise_over_span": float(rh["rise_over_span"])} if "rise_over_span" in rh else {}),
               **({"key": {k: float(x) for k, x in rh["key"].items()}} if "key" in rh else
-                 {"hood": {"variant": hood["variant"], "overhang_m": float(hood["overhang_m"])}} if hood else {})}
+                 {"hood": {"variant": hood["variant"], "overhang_m": float(hood["overhang_m"])}} if hood else {}),
+              **({"door": True} if rh.get("door") else {})}
     # T-2437: as T-2366 rules for the principal floor, the contract's starting range binds a
     # sash height the record reconstructs; one read off a source stands on that source
     sba = form.get("sash_by_storey") or {}
@@ -5266,8 +5277,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if om is not None:
         if form.get("door_clear_height_m"):
             raise ParamError("entrance_kit.opening_m and door_clear_height_m both size the door's hole; give one")
-        if not door_arch_of(val("entrance_kit")) or len(om) != 2:
-            raise ParamError("entrance_kit.opening_m [width, height] sizes a round-arched door's hole (`arch`)")
+        if not (door_arch_of(val("entrance_kit")) or (rh or {}).get("door")) or len(om) != 2:
+            raise ParamError("entrance_kit.opening_m [width, height] sizes a round-arched door's hole (`arch`, "
+                             "or T-3283 street_front_round_heads.door)")
         door_w, door_h = float(om[0]), float(om[1])
         # T-2952: under a segmental head (`arch.rise_over_span`) the mouth may be a porch's, to 3.2 m
         ros = door_arch_of(val("entrance_kit")).get("rise_over_span")
@@ -5276,7 +5288,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"entrance_kit.opening_m {om}: an arch 1.0-{widest} m across whose jambs rise at least "
                              f"1.2 m to its springing, its crown at most 3.6 m over the floor")
     openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(door_floor, 4),
-                            door_w, door_h, False))
+                            door_w, door_h, False, round_head=bool((rh or {}).get("door"))))
     if sfw:
         kit_ids = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
         door = (door_s - 0.60 - 0.30, door_s + 0.60 + 0.30, door_floor + door_h + 0.30)
@@ -5619,11 +5631,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # courses go round the jambs to the spring and a voussoir block over it, so the hole is
     # K07's own round one and the door stands round-headed in its reveal
     door_arch = door_arch_of(val("entrance_kit"))
-    if (ev["head"] != ("round" if door_arch else "flat") or ev["use"] != "principal"
+    # T-3283: or a brick front's round-headed door (`street_front_round_heads.door`)
+    round_door = bool((val("street_front_round_heads") or {}).get("door"))
+    if (ev["head"] != ("round" if door_arch or round_door else "flat") or ev["use"] != "principal"
             or ev["stair"]["kind"] != "straight"):
         raise ParamError(f"entrance_kit: {ev['id']} is a {ev['head']}-headed {ev['use']} entrance on a "
                          f"{ev['stair']['kind']} stair; a K01 front cuts a rectangular hole at the "
-                         f"principal floor over a straight stoop, or (`arch`) a round one in a stone front")
+                         f"principal floor over a straight stoop, or (`arch`) a round one in a stone front, or "
+                         f"(T-3283 street_front_round_heads.door) a round one in a brick front")
     yard = float(door_kit.get("front_yard_m", 0.0))
     reach = float(val("stair_landing_depth_m")) + (risers - 1) * tread
     # T-1881: a landing part way down the flight (`mid_landing`: `after_risers` down from the
