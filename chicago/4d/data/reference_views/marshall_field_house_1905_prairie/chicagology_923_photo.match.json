@@ -2,7 +2,7 @@
  "structure_id": "marshall_field_house_1905_prairie",
  "view": "chicagology_923_photo",
  "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
- "glb_sha256": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5",
+ "glb_sha256": "badef2d4fee25212961656ebfc55438ba57b7e79108139c49e9e4ffd41e111a2",
  "camera_sha256": "900263f898b0801fdcc26794446f448c165c324f4ece05ab31d6d79e98c77548",
  "photo_sha256": "de5ec221368f99f6ae1fb4918204849e199566266c2f8bdb158e35204d9a494d",
  "rendered_members": [
@@ -23,7 +23,7 @@
     0
    ],
    "rotation_y": 0,
-   "glb_sha256": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5"
+   "glb_sha256": "badef2d4fee25212961656ebfc55438ba57b7e79108139c49e9e4ffd41e111a2"
   },
   {
    "structure_id": "marshall_field_house_1905_prairie_conservatory",
@@ -45,7 +45,7 @@
    "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
   }
  ],
- "group_sha256": "93c2b82b2c74839f74a7d81676feefd058825b9434ab981773f8a6e5a58e67df",
+ "group_sha256": "3d91ebcc29fd14afcd0501cc104e4e8e5cfcf0bb6f604d742f332c20226a1055",
  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/chicagology_923_photo-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
@@ -66,24 +66,24 @@
    "status": "fixed"
   },
   {
-   "what": "the light stone strips that frame the canted face's brick at its two angles, from the water table to the frieze: the render's brick meets the front and the flank at plain angles",
-   "status": "open"
+   "what": "the light stone strips that frame the canted face's brick at its two angles, from the water table to the frieze: the render's brick meets the front and the flank at plain angles T-3271 (the sign-off): built: a dressed stone band 0.3 m wide at each of the face's two angles, 0.03 m proud, from the water table (2.0 m) to the frieze's foot (9.6 m) (cant_corner.strips).",
+   "status": "fixed"
   },
   {
-   "what": "the south flank's first window column behind the canted corner: T-3271 moves it to about 3.1 m behind the front, where the picture's stands (x 790 against its 790 px), from 7.0 m; its chamber window's iron balcony on consoles, as the front's carry, is still not built (K01 lays balconettes on the street front only)",
-   "status": "open"
+   "what": "the south flank's first window column behind the canted corner: T-3271 moves it to about 3.1 m behind the front, where the picture's stands (x 790 against its 790 px), from 7.0 m; its chamber window's iron balcony on consoles, as the front's carry, is still not built (K01 lays balconettes on the street front only) T-3271 (the sign-off): its chamber balcony built, the front's kind on two consoles on the chamber belt, 1.4 m long and 0.5 m proud, centred on the window (street_front_iron.balconettes with wall).",
+   "status": "fixed"
   },
   {
    "what": "the mansard's south face: the photograph has two dormers on it, one over the conservatory's west end and one near the flank's rear (x 1060 and 1500 px); T-3271 builds two, about 5.3 and 16.8 m behind the front, where one stood over the conservatory's middle",
    "status": "fixed"
   },
   {
-   "what": "the basement lights: the photograph's are round-headed openings in the stone basement, seen through the fence (x 640, 770 and 940 px); the render's are square-headed",
-   "status": "open"
+   "what": "the basement lights: the photograph's are round-headed openings in the stone basement, seen through the fence (x 640, 770 and 940 px); the render's are square-headed T-3271 (the sign-off): cut round-headed (basement_lights.head round), K06's round-headed basement light, 1.0 m across, sill 0.5 m, crown 1.5 m.",
+   "status": "fixed"
   },
   {
-   "what": "the south flank's windows past the first column: the photograph has chamber windows over the conservatory, about 5.6 and 9.2 m behind the front (x 910 and 1090 px), the second and a window about 14.7 m back carrying iron balconies, and lights on both storeys about 14.7 and 18.8 m back. T-3271 builds the two past the conservatory, 14.7 and 18.8 m back, on both storeys; the two chamber windows over the conservatory (K01's bay takes no lights above it) and the flank's balconies are not built",
-   "status": "open"
+   "what": "the south flank's windows past the first column: the photograph has chamber windows over the conservatory, about 5.6 and 9.2 m behind the front (x 910 and 1090 px), the second and a window about 14.7 m back carrying iron balconies, and lights on both storeys about 14.7 and 18.8 m back. T-3271 builds the two past the conservatory, 14.7 and 18.8 m back, on both storeys; the two chamber windows over the conservatory (K01's bay takes no lights above it) and the flank's balconies are not built T-3271 (the sign-off): the two chamber windows over the conservatory are built at about 5.6 and 9.2 m back on the chamber storey alone (read north_bays), and the 14.7 m column's chamber balcony with them; the 9.2 m window's iron is the conservatory's railed deck before it.",
+   "status": "fixed"
   },
   {
    "what": "the flank's far end: the main mansard and its cornice stop at x 1600 px in both, the camera fitted to it on the main body's rear wall",
@@ -98,7 +98,7 @@
    "status": "fixed"
   },
   {
-   "what": "the fence: the photograph's is the scroll-pattern fence of the 1880s; by c. 1905 the Daily News negative (daily_news_dn0003324) shows a tall picket fence in its place, so the 1904 fence is judged on that view, not this one",
+   "what": "the fence: the photograph's is the scroll-pattern fence of the 1880s; by c. 1905 the Daily News negative (daily_news_dn0003324) shows a tall picket fence in its place, so the 1904 fence is judged on that view, not this one T-3271 (the sign-off): The render now builds the c. 1905 negative's tall spear fence for 1904; this photograph's scroll fence is the fence of its own earlier date, argued on the Daily News view.",
    "status": "not shown"
   },
   {
@@ -108,6 +108,10 @@
   {
    "what": "the north flank, the rear and the rear ranges: out of the picture's sight",
    "status": "not shown"
+  },
+  {
+   "what": "the basement: the picture shows the house standing on a pale dressed-stone basement up to the water table (2.0 m), its round-headed lights cut in it; the render's basement is the walls' brick carried down to grade, as K01 lays a brick front with no K02 stone below it. Building it wants the front as a stone basement under brick (stone_front with brick_above_m at the water table), which T-3271 did not reach: a wrong material a visitor would see.",
+   "status": "open"
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

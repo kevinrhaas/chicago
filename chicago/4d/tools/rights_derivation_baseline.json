@@ -2851,6 +2851,15 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.basement_lights": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_engraving",
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "marshall_field_house_1905_prairie/as_mapped_1904/form.bays": {
       "kind": "structure",
       "blocked_sources": [
@@ -2859,7 +2868,23 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.cant_corner": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "marshall_field_house_1905_prairie/as_mapped_1904/form.north_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.street_front_iron": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1905_field_photo"
