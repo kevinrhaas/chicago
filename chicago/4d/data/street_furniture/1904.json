@@ -198,18 +198,6 @@
       "along_m": 0.0
      },
      {
-      "pole": "pole.alley.indiana_prairie_16_18#04",
-      "side": "east",
-      "inset_m": 2.4,
-      "along_m": 0.0
-     },
-     {
-      "pole": "pole.alley.indiana_prairie_16_18#05",
-      "side": "east",
-      "inset_m": 2.4,
-      "along_m": 0.0
-     },
-     {
       "pole": "pole.alley.indiana_prairie_16_18#06",
       "side": "east",
       "inset_m": 0.9,
@@ -547,8 +535,8 @@
   {"id": "pole.alley.indiana_prairie_16_18#01", "kind": "utility_pole", "e": 1332.8, "n": -2989.76, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
   {"id": "pole.alley.indiana_prairie_16_18#02", "kind": "utility_pole", "e": 1333.7, "n": -3024.46, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
   {"id": "pole.alley.indiana_prairie_16_18#03", "kind": "utility_pole", "e": 1334.13, "n": -3058.16, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
-  {"id": "pole.alley.indiana_prairie_16_18#04", "kind": "utility_pole", "e": 1332.63, "n": -3092.39, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
-  {"id": "pole.alley.indiana_prairie_16_18#05", "kind": "utility_pole", "e": 1333.07, "n": -3126.6, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
+  {"id": "pole.alley.indiana_prairie_16_18#04", "kind": "utility_pole", "e": 1334.58, "n": -3092.37, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
+  {"id": "pole.alley.indiana_prairie_16_18#05", "kind": "utility_pole", "e": 1335.02, "n": -3126.57, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
   {"id": "pole.alley.indiana_prairie_16_18#06", "kind": "utility_pole", "e": 1335.01, "n": -3160.78, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
   {"id": "pole.alley.indiana_prairie_16_18#07", "kind": "utility_pole", "e": 1335.44, "n": -3194.48, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
   {"id": "pole.alley.indiana_prairie_18_20#00", "kind": "utility_pole", "e": 1336.2, "n": -3220.39, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_18_20", "where": "in the alley behind the lots of Indiana to Prairie, 18th to 20th Street"},
