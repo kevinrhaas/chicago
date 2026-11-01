@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2517, ts: '2026-11-01T04:48:04.526Z', date: 'Oct 31, 2026, 11:48 PM CT', title: 'Far houses cast lighter shadows', kind: 'change',
+    items: [
+      'Houses far from you now cast their shadows from a simpler copy of themselves, with the fine stonework and mouldings smoothed out. Up close nothing changes. From far away the picture matches the old one to within a pixel, and the long views up Prairie Avenue and down the alleys draw 0.6 to 1 million fewer triangles.',
+    ] },
   { v: 2516, ts: '2026-11-01T04:24:24.894Z', date: 'Oct 31, 2026, 11:24 PM CT', title: '1801 Prairie: the side door\'s frontispiece moves to match its photograph', kind: 'feature',
     items: [
       'On 18th Street, the stone frontispiece over the Kimball house\'s side door, with its arched light, paired window and pinnacled gable, now stands about a metre further east, where Harold Allen\'s 1965 photograph shows it. That puts it straight across the line where two of the house\'s back ranges meet. J. W. Taylor\'s c. 1895 photograph puts the door in the same place. With this change, the house matches all three of its photographs.',
