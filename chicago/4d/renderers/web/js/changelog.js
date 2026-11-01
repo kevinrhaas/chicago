@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2525, ts: '2026-11-01T09:30:58.522Z', date: 'Nov 1, 2026, 3:30 AM CT', title: 'Winter elms fork upward into twig', kind: 'fix',
+    items: [
+      'With the Season set to winter, the bare elms drew their branches as long flat strokes drooping and crossing each other, the shape the summer crown takes under its leaf.',
+      'Now each branch rises and forks again and again into short upturned twigs, the way the elms do in Taylor\'s winter photograph of the Pullman estate. That covers the big parkway elms and the young ones still on their single trunk.',
+      'Summer, spring and fall trees are unchanged, and a winter tree still draws no more than the same tree in leaf.',
+    ] },
   { v: 2524, ts: '2026-11-01T08:54:24.456Z', date: 'Nov 1, 2026, 2:54 AM CT', title: 'Marshall Field\'s house stands on its pale stone basement', kind: 'improvement',
     items: [
       '1905 Prairie now stands on the pale dressed-stone basement that all four of its pictures show. The stone runs round the canted corner and along the south flank, under the brick, with the round-headed basement lights cut into it.',
