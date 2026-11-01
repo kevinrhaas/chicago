@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 926,
+  "count": 927,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -35413,7 +35413,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1912 Prairie Avenue, built 1882 for Byron P. Moulton, is no longer a district draft. It stands, under the draft's own id 1912 Prairie Avenue — the Moulton/Lowden house (Chateauesque stone front), as a k01 frontage record built by the k01 emit generator, against the undated Chicagology photograph of its front ([1912 S. Prairie Ave. (Moulton / Lowden residence).] Photograph of the house's…, rights check required: forms and proportions only) and the 1883 New Chicago Album's vignette ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions): a stone house of two storeys and a short attic storey over a raised basement under a very steep slated roof with iron cresting; from the south, a coped gable with pinnacles over an arched pair, a tall pinnacled dormer, a round tower rising three stages to a slated cone and finial, and the north corner block with the door at the head of a high stoop between solid stone cheek walls, its chamber and attic windows over it and a dormer above; a tall stone stack off the north flank; the sheet's brick rear ranges. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1912-b1, census s28-1912-front and s28-1912-wing): the front block's place and plan (20.45 by 13.0 m; the draft's inscribed rectangle was 1.3 m short of its south wall, so the house's origin moves 1.3 m south), the round bay's place on the front (v 5.85-9.75), '2½B; rear3B' and stone with brick rear. From the photograph, through its solved camera (the chicagology photo data, 29.6 px RMS): the storey heights up the north corner block's front corner, the stoop's eleven risers, the windows' heights, the tower's three stages and cone, the gable and the dormers, the north stack. From the vignette: the same composition, and its date. The photograph is printed the right way round: read first as reversed, it could not be fitted, and as printed its bay falls where the sheet draws it (the source record's \"north gable\" and the ivy reading that follows it are the reversed reading). **Where the pictures, the sheet and the kit disagree.** The tower's third stage stands 1.0 m over the main cornice where the photograph springs the cone at the cornice's level: K01 stands a tower's wall top at least 1.0 m over its host's eave. The tower is built a 1.95 m round centred 0.17 m in front of the wall line, 0.72 m further out than the sheet's 1.4 m bulge, the least that holds its finial clear of the wall's plane. The south gable stands 0.4 m proud, the least that holds its windows' recesses (cut to the kit's 0.33 m minimum) in front of the wall, where the sheet draws the front flush (under the sheet's resolution). The corner block's dormer stands 0.5 m south of its window column, the nearest the hip lets it. All are on the match record. **What is invented.** The walls' thickness; the brown sandstone's colour (the register's brownstone; the print is monochrome); the roof's deck and covering; the tower's finial's form, built plain where the photograph's is turned (an open difference on the match record); the treads; the south and rear walls' windows and the north flank's two rear columns (no picture shows them); the south flank's stack on the sheet's chimney breast; the rainwater; the rear ranges' storeys, windows and flat roof; the railing's gates and the front walk (K14's flags, width and wear) and the cinder service walk. **What is not built.** The sheet's stone wing on the south flank's rear half (u 0.3-8.9, 2.05 m out), which K01's rear wings and pavilions cannot carry and no picture shows; the corbelled corner turret on the north flank; the dormers' and gable's crockets and carving; the entrance's arched recess, its carved capitals and the striped awning; the ivy's undated reach: open for other work."
+          "text": "the house at 1912 Prairie Avenue, built 1882 for Byron P. Moulton, is no longer a district draft. It stands, under the draft's own id 1912 Prairie Avenue — the Moulton/Lowden house (Chateauesque stone front), as a k01 frontage record built by the k01 emit generator, against the undated Chicagology photograph of its front ([1912 S. Prairie Ave. (Moulton / Lowden residence).] Photograph of the house's…, rights check required: forms and proportions only) and the 1883 New Chicago Album's vignette ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions): a stone house of two storeys and a short attic storey over a raised basement under a very steep slated roof with iron cresting; from the south, a coped gable with pinnacles over an arched pair, a tall pinnacled dormer, a round tower rising three stages to a slated cone and finial, and the north corner block with the door at the head of a high stoop between solid stone cheek walls, its chamber and attic windows over it and a dormer above; a tall stone stack off the north flank; the sheet's brick rear ranges. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1912-b1, census s28-1912-front and s28-1912-wing): the front block's place and plan (20.45 by 13.0 m; the draft's inscribed rectangle was 1.3 m short of its south wall, so the house's origin moves 1.3 m south), the round bay's place on the front (v 5.85-9.75), '2½B; rear3B' and stone with brick rear. From the photograph, through its solved camera (the chicagology photo data, 29.6 px RMS): the storey heights up the north corner block's front corner, the stoop's eleven risers, the windows' heights, the tower's three stages and cone, the gable and the dormers, the north stack. From the vignette: the same composition, and its date. The photograph is printed the right way round: read first as reversed, it could not be fitted, and as printed its bay falls where the sheet draws it (the source record's \"north gable\" and the ivy reading that follows it are the reversed reading). **Where the pictures, the sheet and the kit disagree.** The tower's third stage stands 1.0 m over the main cornice where the photograph springs the cone at the cornice's level: K01 stands a tower's wall top at least 1.0 m over its host's eave. The tower is built a 1.95 m round centred 0.17 m in front of the wall line, 0.72 m further out than the sheet's 1.4 m bulge, the least that holds its finial clear of the wall's plane. The south gable stands 0.4 m proud, the least that holds its windows' recesses (cut to the kit's 0.33 m minimum) in front of the wall, where the sheet draws the front flush (under the sheet's resolution). The corner block's dormer stands 0.5 m south of its window column, the nearest the hip lets it. All are on the match record. **What is invented.** The walls' thickness; the brown sandstone's colour (the register's brownstone; the print is monochrome); the roof's deck and covering; the tower's finial's form, built plain where the photograph's is turned (an open difference on the match record); the treads; the south and rear walls' windows and the north flank's two rear columns (no picture shows them); the south flank's stack on the sheet's chimney breast; the rainwater; the rear ranges' storeys, windows and flat roof; the railing's gates and the front walk (K14's flags, width and wear) and the cinder service walk. **What is not built.** The sheet's stone wing on the south flank's rear half (u 0.3-8.9, 2.05 m out), which K01's rear wings and pavilions cannot carry and no picture shows; the corbelled corner turret on the north flank (since built by, `“1912 Prairie's corbelled corner turret on the north flank, built from the photograph”`); the dormers' and gable's crockets and carving; the entrance's arched recess, its carved capitals and the striped awning; the ivy's undated reach: open for other work."
         },
         {
           "label": "How to resolve",
@@ -35436,7 +35436,42 @@
         "T-3277",
         "T-1899",
         "T-3203",
+        "T-3290",
         "T-3278",
+        "T-1900"
+      ]
+    },
+    {
+      "id": "L-k01-1912-moulton-turret-3290",
+      "title": "1912 Prairie's corbelled corner turret on the north flank, built from the photograph",
+      "section": "per_subject",
+      "subjects": [
+        "moulton_lowden_house_1912_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the corner turret the photograph shows on the north flank just behind the north corner block's front corner is built as a K08 round oriel (north turret in the record's `bays`): 1.4 m across, its centre on the wall's plane at s 2.8 from the front corner, standing on the attic floor (10.5 m), one storey with one light, a moulded stone cornice and a steep slated cone. **What is read, not invented.** From the photograph ([1912 S. Prairie Ave. (Moulton / Lowden residence).] Photograph of the house's…, rights check required: forms and proportions only), through its solved camera: the turret's place along the flank and its width (its silhouettes, x 1050-1145 px, land within 6 px of the render's), its foot on the attic belt (y 745-800 px), its one light turned toward the avenue (x 1063-1107, y 595-725 px), the moulded cornice, and the slated cone leaning on the mansard toward the stack. The north flank's front window column is moved under the turret's axis (s 2.8, first built at s 1.7), where the photograph's camera puts its windows (x 1060-1120 px). **Where the pictures and the kit disagree.** The turret's wall top is 12.25 m, about 0.55 m under the photograph's, whose cornice runs level with the main cornice: K01 holds an oriel's wall top a metre under the main eave unless the eave dies into it, which the kit does only on a street front under a hip or gable. Its light is 1.25 m tall against the photograph's 1.45 m for the same reason. The 1883 plate draws the turret taller, two stages corbelled out from the chamber floor over a pendant; the photograph, thirty years later and from the same place, shows one stage over the attic belt, and the photograph's is built. All are on the match records. **What is invented.** The cone's pitch past what the photograph shows (its top is hidden behind the stack: built to about 15.7 m); the foot's form, a turned stone round 0.3 m deep where the photograph's belt sweeps round the turret (no picture shows a corbel under it, and K08's six corbel courses for a 0.7 m reach would have covered the chamber window the photograph shows below); the sash's two-over-two lights; the turret's walling, in the house's brownstone."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a K01 eave that dies into a side wall's oriel under a mansard would carry the turret up to the cornice; earlier work brings every 1912 match record to `matches`."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-01 (T-3290)."
+        }
+      ],
+      "work_refs": [
+        "T-3290",
+        "T-3288",
         "T-1900"
       ]
     },
