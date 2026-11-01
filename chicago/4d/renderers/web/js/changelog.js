@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2512, ts: '2026-11-01T01:55:58.213Z', date: 'Oct 31, 2026, 8:55 PM CT', title: '1912 Prairie Avenue — the Moulton house built from its photograph', kind: 'feature',
+    items: [
+      'The Moulton/Lowden house at 1912 Prairie, a generic draft block until now, stands as the stone Chateauesque house of its photograph and the 1883 New Chicago Album: two storeys and an attic storey over a raised basement under a very steep slate roof with iron cresting.',
+      'A round tower rises three stages to a slated cone and finial between a coped gable over an arched pair of windows and the north corner block, whose door stands at the head of a high stoop between solid stone cheek walls; a tall stone chimney rises off the north side.',
+    ] },
   { v: 2511, ts: '2026-11-01T01:41:19.482Z', date: 'Oct 31, 2026, 8:41 PM CT', title: 'Glessner\'s distant roof is lighter on its shadow too', kind: 'change',
     items: [
       'From far off, Glessner House\'s tile roof now casts its shadow from the roof\'s outline only, without the tile edges you can\'t see from there. That draws about 247,000 fewer triangles in every far view, and almost every pixel stays the same.',
