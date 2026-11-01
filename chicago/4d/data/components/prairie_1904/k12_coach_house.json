@@ -137,6 +137,13 @@
       "confidence": "reconstructed",
       "note": "A one-storey connecting wing from the coach house to the house, flat-roofed, its walls and roof dying into the coach house at one end and the house's rear wall at the other: the kit's 'connecting wing' and the 'believable workyard connection' K12 asks for."
     },
+    "range": {
+      "height_m": 3.2,
+      "roof_m": 0.25,
+      "overhang_m": 0.1,
+      "confidence": "reconstructed",
+      "note": "T-1932: a one-storey brick range carried on along the alley past the coach house's open gable, as 1720 Prairie's stable has one on the 1911 sheet and on Robinson's 1886 plate: its alley wall on the coach house's alley wall line, its far end closed, under a flat roof flush with the alley face and dying into the gable. The wing's flat roof and the 9-inch service wall; the 3.2 m wall height is the wing's specimen figure. A variant states the range's length along the alley and its depth back from it (less than the coach house's), and every opening on it."
+    },
     "ventilator": {
       "evidence": null,
       "confidence": "reconstructed",
@@ -156,7 +163,7 @@
       "coach_house": 9000
     }
   },
-  "_variants_doc": "kind picks the builder; class picks the triangle budget. width_m runs along the alley (party wall included), depth_m back from it. Openings are on a wall (alley, yard, gable, lean_to, wing_east, wing_west), at s0..s1 along it from its start, sill to head in metres from grade; a carriage opening's head is its springing line.",
+  "_variants_doc": "kind picks the builder; class picks the triangle budget. width_m runs along the alley (party wall included), depth_m back from it. Openings are on a wall (alley, yard, gable, lean_to, wing_east, wing_west, range_alley, range_yard, range_end), at s0..s1 along it from its start, sill to head in metres from grade; a carriage opening's head is its springing line.",
   "variants": [
     {
       "id": "k12.coach_house.two_storey_brick",
