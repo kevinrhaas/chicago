@@ -156,9 +156,13 @@
      "note": "The plates show the front block under a steep slated roof with a dormer on its street slope, and no flat deck or mansard curb; built as K01's hip, its ridge running front to back. The plates' gables on the north flank are the rear ranges' (rear_wings)."
     },
     "roof_pitch_deg": {
-     "value": 45,
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: the steepest of K01's ordinary band; the plates show it steeper, which K01 lets a hip reach only on a reading it can measure."
+     "value": 52,
+     "confidence": "inferred",
+     "sources": [
+      "gatlin_programme_1919_field_jr_plate",
+      "cdn_almanac_1913_gatlin_1919_plate"
+     ],
+     "note": "T-3280: read off the 1919 programme plate through its solved camera (data/reference_views/marshall_field_jr_house_1919_prairie/gatlin_programme_1919.json): the street hip's apex, where its finial stands, lies at about 15.9 m over grade, so 6.4 m over the 9.5 m eave across the front block's 4.95 m half-depth, about 52 degrees. The 1913 plate shows the roof as steep. T-3279 had built it at 45, the top of K01's ordinary band, until a reading could be measured."
     },
     "eave_overhang_m": {
      "value": 0.5,
@@ -179,7 +183,7 @@
     },
     "dormer": {
      "value": {
-      "width_m": 2.0,
+      "width_m": 3.3,
       "face_setback_m": 0.3,
       "face_height_m": 2.2,
       "face_thickness_m": 0.2,
@@ -187,16 +191,22 @@
       "verge_m": 0.15,
       "sash": {
        "sill_m": 0.25,
-       "width_m": 1.15,
-       "height_m": 1.5
+       "width_m": 0.75,
+       "height_m": 1.5,
+       "at_m": [
+        -1.0,
+        0.0,
+        1.0
+       ]
       }
      },
      "confidence": "inferred",
      "sources": [
+      "gatlin_programme_1919_field_jr_plate",
       "cdn_almanac_1913_gatlin_1919_plate",
       "chicago_blue_book_1912_gatlin_1919_plate"
      ],
-     "note": "The gabled dormer on the street slope over the front, which both plates show with a broad light under its gable (three lights in the 1913 plate, built as one K05 sash at the contract's widest, 1.15 m, under a 2.0 m dormer; the plate's broader three-light face is an open difference)."
+     "note": "The broad gabled dormer on the street slope over the front, which the 1919 programme plate shows with three lights under its gable, as the 1913 plate does: T-3280 built it 3.3 m wide with three K06 sashes at the contract's narrowest, 0.75 m, 1.0 m apart (K01's `sash.at_m`), still centred on the front. Where it stands along the front the pictures do not agree: through the programme plate's camera its face lies about 1.6 m south of the centre, while the 2004 photograph (unsolved) shows it about 1 m north of it, so it stays on the centre, between them, and the difference is within tolerance. Its gable's stone coping and kneelers, and the smaller one-light dormer both pictures show near the front's south end, are open differences in the view's match record."
     },
     "stair_tread_m": {
      "value": 0.3,
@@ -265,11 +275,11 @@
       {
        "sill_above_floor_m": 0.6,
        "width_m": 1.1,
-       "height_m": 1.95
+       "height_m": 1.8
       }
      ],
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: tall two-storey sash, the principal storey's the taller; the plates show tall square-headed windows."
+     "note": "RECONSTRUCTED: tall two-storey sash, the principal storey's the taller; the plates show tall square-headed windows. T-3280: the upper storey's lights 1.8 m high, 0.15 m under T-3279's, so their lintels clear the soffit and the cornice's bed of the 52-degree hip, whose overhang drops further down its slope."
     },
     "basement_lights": {
      "value": {
@@ -297,7 +307,7 @@
        0.9,
        0.75
       ],
-      "top_above_ridge_m": 3.0,
+      "top_above_ridge_m": 1.6,
       "cap_proud_m": 0.05,
       "cap_depth_m": 0.15,
       "stacks": [
@@ -323,7 +333,7 @@
      "sources": [
       "cdn_almanac_1913_gatlin_1919_plate"
      ],
-     "note": "The two tall stacks the 1913 plate shows rising off the north flank well above the ridge: one between the round tower and the front's canted corner, one further back. Their places along the wall are read through the plate's camera; their plans and their height, 3.0 m over the ridge (K01 tops a hip's stacks off the ridge), are RECONSTRUCTED at about what the plate shows."
+     "note": "The two tall stacks the 1913 plate shows rising off the north flank well above the ridge: one between the round tower and the front's canted corner, one further back. Their places along the wall are read through the plate's camera; their plans and their height, 1.6 m over the ridge (K01 tops a hip's stacks off the ridge), is RECONSTRUCTED at about what the plates show: T-3280 steepened the hip to 52 degrees, lifting the ridge 1.4 m, and lowered the stacks' rise by as much, so their tops stand where T-3279 put them, about 17.4 m, which the 1913 plate's camera reads at 17.1 m and 17.7 m and the 1919 programme plate's at 16.8 m and 18.1 m (the near stack and the far one)."
     },
     "rainwater": {
      "value": {
@@ -386,12 +396,12 @@
          ]
         },
         {
-         "height_m": 2.6,
+         "height_m": 2.4,
          "windows": [
           {
            "opening": "k06.opening.sash_2over2_flat",
            "clear_width_m": 0.8,
-           "clear_height_m": 1.8,
+           "clear_height_m": 1.7,
            "sill_m": 0.4,
            "at_deg": [
             -25,
@@ -452,7 +462,7 @@
          ]
         },
         {
-         "height_m": 2.6,
+         "height_m": 4.5,
          "windows": [
           {
            "opening": "k06.opening.sash_2over2_flat",
@@ -470,18 +480,18 @@
        ],
        "roof": {
         "kind": "cone",
-        "pitch": 0.9,
-        "covering": "slate_pennsylvania",
-        "finial": true
+        "pitch": 0.05,
+        "covering": "tin_flat_seam_painted"
        }
       }
      ],
      "confidence": "inferred",
      "sources": [
       "cdn_almanac_1913_gatlin_1919_plate",
-      "sanborn_1911_chicago_v3_sheet_28"
+      "sanborn_1911_chicago_v3_sheet_28",
+      "gatlin_programme_1919_field_jr_plate"
      ],
-     "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top."
+     "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top. T-3280: (2) NORTH_TOWER's top: the 1919 programme plate and the 1913 plate both show the tower carried up past its third tier of windows as a plain band to a flat top with a heavy edge, its top at about 13.7 m and 14.9 m through their cameras, where T-3279's slated cone rose from 12.1 m to a finial at 14.4 m; built by carrying its third storey up 1.9 m, plain over its windows, to 14.0 m under K08's nearly flat tin cap (its eaves the heavy edge), and the cone and finial taken off. (3) FRONT_BOW's upper storey 2.4 m and its lights 1.7 m, 0.2 and 0.1 m under T-3279's, so the bow still stops under the cornice's bed, which the steeper hip's soffit brings 0.1 m lower."
     },
     "rear_wings": {
      "value": [
