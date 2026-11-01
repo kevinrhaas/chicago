@@ -24331,7 +24331,7 @@ the photograph's and builds what they show; T-1900 brings every 1912 match recor
 **Recorded:** 2026-10-31 (T-3277).
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24375,6 +24375,9 @@ house stays this draft's.
 **1905 retired from this liberty by T-3260 (2026-10-30):** Marshall Field's house now stands as the K01 brick house
 read off the 1893 Pictorial Chicago plate, under `L-k01-1905-field-3260`, under the same id; its draft attributes are gone. Its coach
 house stays this draft's.
+**1923 retired from this liberty by T-3282 (2026-10-31):** the Kellogg house now stands as the K01 brick house
+read off the 1898 Tribune vignette and the c. 1914 row elevations, under `L-k01-1923-kellogg-3282`, under the same id; its draft
+attributes are gone. Its coach house stays this draft's.
 **1945 retired from this liberty by T-3281 (2026-10-31):** the George Armour/Corwith house now stands as the K01 brick house
 read off the Tribune's 1928 'Famous Homes' photograph, under `L-k01-1945-corwith-3281`, under the same id; its draft attributes are gone. Its coach
 house stays this draft's.
@@ -35162,6 +35165,43 @@ their 0.7 m projection and 0.2 m slab, and the consoles' form (the kit's short s
 door-column pair run down beside the door's surround). The door column's is built 3.0 m, the kit's longest, where the
 plate reads about 3.5 m. The door hood T-3260 stood in for that balcony, about 1.4 m low, is withdrawn.
 
+
+### L-k01-1923-kellogg-3282 — 1923 Prairie refined from the district draft to a K01 brick house under a crested mansard, its north corner bay carried past the cornice, read off the 1898 Tribune vignette and the c. 1914 row elevations
+
+**Decision:** the house at 1923 Prairie Avenue, the Kellogg house (T-3282, piece 2 of T-1908), is no longer a
+district draft. It stands, under the draft's own id `kellogg_house_1923_prairie`, as a `k01_frontage` record built
+by `generators/k01_emit.py`, against two pictures: the 1923 vignette of the Chicago Tribune's strip of 9 January 1898
+(`chicago_tribune_1898_01_09_residence_district`, public domain) and the 1923 front in the east row of the undated
+row elevations of the 1800 and 1900 blocks that the Glessner House blog reproduces (`glessner_blog_2011_prairie_1800_1900_elevations`,
+rights unknown, read for forms and proportions only): two storeys of brick over a high basement under a bracketed
+cornice and a crested mansard; a canted bay at the front's north corner carried past the cornice under its own
+mansard crown; the door right of the middle under a columned porch over a broad high stoop; hooded windows; the
+south flank's canted bay; the sheet's two ranges behind; an iron scroll fence.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1923-b1, census s28-1923-front): the
+front block's place and plan (16.7 m of front, 12.4 m deep to the south wall's step), its brick, the corner bay's
+plan, the south flank's bay and the two ranges behind. From the elevation, at its row's common scale (set by 1905's
+front beside it), through `data/reference_views/kellogg_house_1923_prairie/elevations_c1914_front.json`: the
+window columns, the door's place, the storeys' and windows' heights, the mansard's rise and the cresting. From the
+vignette, through `data/reference_views/kellogg_house_1923_prairie/tribune_1898_front.json`: the corner bay rising
+past the cornice, the hooded windows, the deep cornice, the porch's columns, the broad stoop and the fence.
+**Where the pictures and the sheet disagree.** The elevation draws the front about 12.8 m wide at its row's scale,
+the sheet 16.7 m; the sheet's length is kept and the columns placed in proportion. The elevation's chamber windows
+read about 1.3 m taller than built and its corner bay wider than the sheet's 5.2 m: both are carried on its match
+record. It is an interpretive drawing of uncertain date (the blog's c. 1914), weighed below the sheet.
+**What is invented.** wall_thickness_front_m, wall_thickness_side_m, service_wall_brick, roof_pitch_deg, roof_covering, stair_tread_m, side_bays, north_bays, rear_bays, chimneys, rainwater, window_kit, yard: the walls' thickness, the flank and rear walls' windows (no picture sees
+them), the stacks but the south one, the deck's pitch and the coverings (the pictures are monochrome), the treads,
+the rainwater, the sash pattern and the yard's walk; the porch's balustrade and the hood's depth; the south flank
+bay's windows and roof; the rear ranges' floors, heights, windows and decks; the one attic dormer on the south face.
+**What is not built.** The sheet's one-storey strip along the north wall's front half ('1B.'); the mansard the sheet's
+dashed line runs round the rear ranges; the vignette's arch between the porch's columns and the stoop's curved stone
+cheeks with round-capped posts at their foot; the carving the vignette's hoods and cornice suggest: open on the match
+records for T-3283.
+**How to resolve:** T-3283 works both pictures to matches and builds the rear, roof and cost views T-1908's
+acceptance asks for.
+**Covers:** `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_front_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_side_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.service_wall_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_pitch_deg`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_covering`, `kellogg_house_1923_prairie.as_mapped_1904.form.stair_tread_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.side_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.north_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.rear_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.chimneys`, `kellogg_house_1923_prairie.as_mapped_1904.form.rainwater`, `kellogg_house_1923_prairie.as_mapped_1904.form.window_kit`, `kellogg_house_1923_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3282 (piece 2 of T-1908).
+**Review:** `docs/RESEARCH/photo-match/kellogg_house_1923_prairie/`.
+**Recorded:** 2026-10-31 (T-3282).
 ### L-k01-field-1905-cant-3261 — 1905 Prairie's canted south-west corner, cut off the 1893 Pictorial Chicago plate on a brick house
 
 **Decision:** T-3261 cuts the Field house's south-west corner (K01's 'north' on this east-side
