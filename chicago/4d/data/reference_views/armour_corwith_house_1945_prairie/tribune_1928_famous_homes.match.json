@@ -2,7 +2,7 @@
  "structure_id": "armour_corwith_house_1945_prairie",
  "view": "tribune_1928_famous_homes",
  "glb": "assets/gltf/armour_corwith_house_1945_prairie__as_mapped_1904.glb",
- "glb_sha256": "72ffd18978f6aa0622c128fd5ee293714f0da9ca66ee54a4d7fe966272203735",
+ "glb_sha256": "57d24e0dd49877a78e670998e44a5bc5b837679ef1af96e1d674794072f9bd10",
  "camera_sha256": "96fb4a4225823778273b8b66a19b3ea22002232080f294f96ff395f109497cce",
  "photo_sha256": "de40c9e5304e2c321c60d06deec224f38ef217fb583375142223a6ac0fd1756e",
  "side_by_side": "docs/RESEARCH/photo-match/armour_corwith_house_1945_prairie/tribune_1928_famous_homes-side-by-side.jpg",
@@ -29,11 +29,11 @@
    "status": "open"
   },
   {
-   "what": "the door stands under a round arch in the photograph; the build's door is square-headed under a flat lintel",
-   "status": "open"
+   "what": "the door stands under a round arch in the photograph (its ring x 462-535 px, its crown about y 695, level with the corner block's round heads); T-3283 cuts it round-headed in the brick, 1.3 m across and 3.4 m to the crown, a pair of leaves under a fanlight in a deep reveal, under the round lights' own arch band and key, and the render's crown stands within a few px of the photograph's",
+   "status": "fixed"
   },
   {
-   "what": "the camera sees the 20th Street flank more openly than the render (the flank's bay at x 1050-1200 px of the box); the eye is held at a chosen stand (26.6 px RMS) and the flank's depth of view is not fitted",
+   "what": "the camera sees the 20th Street flank more openly than the render (the flank's bay at x 1050-1200 px of the box); the eye is held at a chosen stand (26.6 px RMS) and the flank's depth of view is not fitted; and the front's north half is drawn narrower than the photograph's: the north bay's lights and the door both stand about 55-60 px south of the photograph's while the corner block's lights land on theirs, so the door's column agrees with the picture relative to the bay and the gap is the camera's, not the door's (T-3283)",
    "status": "open"
   },
   {

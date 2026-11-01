@@ -1149,6 +1149,13 @@ step "a K01 wing's hip may pitch its ends steeper, and a wing may carry its own 
 step "a wing's shallow projection may run past its wall's end onto the next wing's wall (T-1890)" \
   python3 tools/test_k01_past_end.py
 
+# T-3283. 1945 Prairie's door under its round arch (the Tribune's 1928 photograph): a brick
+# front's principal door may be cut round-headed (`street_front_round_heads.door`) on the round
+# lights' curve, under their arch band and key, with K07's round-headed entrance in it; refused
+# on a stone front, with no key, on a segmental head or with a flat-headed K07 variant.
+step "a K01 brick front's door may be cut round-headed under its round lights' arch band (T-3283)" \
+  python3 tools/test_k01_round_door.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
