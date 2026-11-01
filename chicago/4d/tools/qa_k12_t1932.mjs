@@ -10,6 +10,7 @@
 //   QA_TARGET=1612 node tools/qa_k12_t1932.mjs       1612's stable, the third (the kit in mirror image)
 //   QA_TARGET=1626 node tools/qa_k12_t1932.mjs       1626's and 1628's pair of stables, the fourth and fifth
 //   QA_TARGET=1712 node tools/qa_k12_t1932.mjs       1712's stable, the sixth
+//   QA_TARGET=1700 node tools/qa_k12_t1932.mjs       1700-1706's stable, the seventh (the longest on the alley)
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -44,6 +45,11 @@ const TARGETS={
   ['alley-from-south',[1331,-3135,1.7],[1335,-3121,4]],
   ['yard-face',[1353,-3108,1.7],[1343,-3118,3.5]],
   ['air',[1373,-3142,42],[1339,-3118,0]]]},
+ '1700':{dir:'k12-1700-stable-1932',ids:['glessner_lee_house_1700_prairie_coach_house','glessner_lee_house_1700_prairie','house_1712_prairie_coach_house'],glb:'glessner_lee_house_1700_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3072,1.7],[1335,-3088,4]],
+  ['alley-from-south',[1331,-3113,1.7],[1335,-3097,4]],
+  ['yard-face',[1359,-3080,1.7],[1346,-3092,3.5]],
+  ['air',[1375,-3118,44],[1340,-3092,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
