@@ -64002,12 +64002,6 @@
           "domain": "structure",
           "structure": "marshall_field_jr_house_1919_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.roof_pitch_deg"
-        },
-        {
-          "domain": "structure",
-          "structure": "marshall_field_jr_house_1919_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.sash_by_storey"
         },
         {
@@ -64078,7 +64072,7 @@
         }
       ],
       "recorded": "2026-10-31",
-      "revised": null,
+      "revised": "2026-11-01",
       "fields": [
         {
           "label": "Decision",
@@ -64090,7 +64084,7 @@
         },
         {
           "label": "Covers",
-          "text": "`marshall_field_jr_house_1919_prairie.as_mapped_1904.form.principal_floor_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.storey_heights_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_thickness_front_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_thickness_side_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.street_front_trim`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_head`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.roof_pitch_deg`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.eave_overhang_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stair_tread_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stair_landing_depth_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stoop_width_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.front_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.side_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.north_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.sash_by_storey`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.basement_lights`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.window_kit`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.rainwater`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.entrance_kit`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.yard`"
+          "text": "`marshall_field_jr_house_1919_prairie.as_mapped_1904.form.principal_floor_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.storey_heights_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_thickness_front_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_thickness_side_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.street_front_trim`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_head`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.eave_overhang_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stair_tread_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stair_landing_depth_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stoop_width_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.front_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.side_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.north_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.sash_by_storey`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.basement_lights`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.window_kit`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.rainwater`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.entrance_kit`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Review",
@@ -64099,6 +64093,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-31 (T-3279)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-01 (T-3280): the street hip's pitch is no longer invented here: the 1919 programme plate, through its solved camera (`data/reference_views/marshall_field_jr_house_1919_prairie/gatlin_programme_1919.json`), puts the hip's apex at about 15.9 m, so the roof is built at 52 degrees, inferred from that reading, and the stacks' rise is lowered to keep their tops where they stood. The tower's low slated cap gives way to the flat top both plates show, and the street dormer carries its three lights; their sizes stay readings through two cameras, not measurements."
         }
       ],
       "work_refs": [
