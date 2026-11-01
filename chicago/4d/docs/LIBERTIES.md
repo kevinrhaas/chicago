@@ -24174,7 +24174,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24231,6 +24231,7 @@ plate, plan or measured drawing; the alley buildings are T-1935's.
 **Retired in part:** 1834 Jones's house by T-3183 (piece 1 of T-1888), which refined it in place on the K01 frontage kit under `L-k01-1834-jones-1888`; its alley building is still this draft's.
 **Retired in part:** 1900 Elbridge G. Keith's house by T-3207 (piece 1 of T-1897), which refined it in place on the K01 frontage kit under `L-k01-1900-keith-3207`; its coach house is still this draft's.
 **Retired in part:** 1906 Edson Keith's house, with its attached 1908, by T-3238 (piece 1 of T-1898), which refined it in place on the K01 frontage kit under `L-k01-1906-keith-3238`; its coach house is still this draft's.
+**Retired in part:** 1912 the Moulton/Lowden house by T-3277 (piece 1 of T-1899), which refined it in place on the K01 frontage kit under `L-k01-1912-moulton-3277`; its coach house is still this draft's.
 **Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
 **Recorded:** 2026-10-10 (T-2329).
@@ -24279,6 +24280,55 @@ brings every 1906 match record to `matches`.
 **Review:** `docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg`, `docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/tribune_1898_front-side-by-side.jpg`.
 **Recorded:** 2026-10-29 (T-3238).
 
+
+### L-k01-1912-moulton-3277 — 1912 Prairie refined from the district draft to a K01 Chateauesque stone house, read off its photograph and the 1883 album vignette
+
+**Decision:** the house at 1912 Prairie Avenue, built 1882 for Byron P. Moulton (T-3277, piece 1 of
+T-1899), is no longer a district draft. It stands, under the draft's own id
+`moulton_lowden_house_1912_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`,
+against the undated Chicagology photograph of its front (`chicagology_1912_prairie_exterior_photo`,
+rights check_required: forms and proportions only) and the 1883 New Chicago Album's vignette
+(`newberry_new_chicago_album_1883_residences`, no known restrictions): a stone house of two storeys and
+a short attic storey over a raised basement under a very steep slated roof with iron cresting; from the
+south, a coped gable with pinnacles over an arched pair, a tall pinnacled dormer, a round tower rising
+three stages to a slated cone and finial, and the north corner block with the door at the head of a
+high stoop between solid stone cheek walls, its chamber and attic windows over it and a dormer above;
+a tall stone stack off the north flank; the sheet's brick rear ranges.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1912-b1, census
+s28-1912-front and s28-1912-wing): the front block's place and plan (20.45 by 13.0 m; the draft's
+inscribed rectangle was 1.3 m short of its south wall, so the house's origin moves 1.3 m south), the
+round bay's place on the front (v 5.85-9.75), '2½B; rear3B' and stone with brick rear. From the
+photograph, through its solved camera
+(`data/reference_views/moulton_lowden_house_1912_prairie/chicagology_photo.json`, 29.6 px RMS): the
+storey heights up the north corner block's front corner, the stoop's eleven risers, the windows'
+heights, the tower's three stages and cone, the gable and the dormers, the north stack. From the
+vignette: the same composition, and its date. The photograph is printed the right way round: read
+first as reversed, it could not be fitted, and as printed its bay falls where the sheet draws it (the
+source record's "north gable" and the T-3203 ivy reading that follows it are the reversed reading).
+**Where the pictures, the sheet and the kit disagree.** The tower's third stage stands 1.0 m over the
+main cornice where the photograph springs the cone at the cornice's level: K01 stands a tower's wall
+top at least 1.0 m over its host's eave. The tower is built a 1.95 m round centred 0.17 m in front
+of the wall line, 0.72 m further out than the sheet's 1.4 m bulge, the least that holds its finial clear
+of the wall's plane. The south gable stands 0.4 m proud, the least that holds its windows' recesses (cut
+to the kit's 0.33 m minimum) in front of the wall, where the sheet draws the front flush (under the
+sheet's resolution). The corner block's dormer stands 0.5 m south of its window
+column, the nearest the hip lets it. All are on the match record.
+**What is invented.** The walls' thickness; the brown sandstone's colour (the register's brownstone;
+the print is monochrome); the roof's deck and covering; the tower's finial's
+form, built plain where the photograph's is turned (an open difference on the match record); the treads; the south and rear walls' windows
+and the north flank's two rear columns (no picture shows them); the south flank's stack on the
+sheet's chimney breast; the rainwater; the rear ranges' storeys, windows and flat roof; the railing's
+gates and the front walk (K14's flags, width and wear) and the cinder service walk.
+**What is not built.** The sheet's stone wing on the south flank's rear half (u 0.3-8.9, 2.05 m out),
+which K01's rear wings and pavilions cannot carry and no picture shows; the corbelled corner turret on
+the north flank; the dormers' and gable's crockets and carving; the entrance's arched recess, its
+carved capitals and the striped awning; the ivy's undated reach: open for T-3278 and T-1900.
+**How to resolve:** T-3278 solves the vignette's and the 1800-1900 elevation drawing's cameras beside
+the photograph's and builds what they show; T-1900 brings every 1912 match record to `matches`.
+**Covers:** `moulton_lowden_house_1912_prairie.as_mapped_1904.form.wall_thickness_front_m`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.wall_thickness_side_m`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.service_wall_brick`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.roof_pitch_deg`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.stair_tread_m`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.side_bays`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.rear_bays`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.rainwater`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3277 (piece 1 of T-1899).
+**Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
+**Recorded:** 2026-10-31 (T-3277).
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
 **Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
