@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2547, ts: '2026-11-01T21:23:15.534Z', date: 'Nov 1, 2026, 3:23 PM CT', title: 'Brick walls no longer repeat the same small patch of bricks', kind: 'improvement',
+    items: [
+      'Every brick wall on Prairie Avenue in 1904 used to repeat one patch of 48 bricks, less than a metre square, so its darker bricks lined up into a visible grid. Now each brick takes its face from another brick at random, so no two stretches of wall look alike.',
+      'Each brick also has its own slight shade, lighter or darker and warmer or cooler, and whole walls carry a gentle uneven weathering. The wall\'s overall colour is unchanged. It costs no extra memory, so phones are not affected.',
+    ] },
   { v: 2546, ts: '2026-11-01T20:52:55.581Z', date: 'Nov 1, 2026, 2:52 PM CT', title: 'Pullman house rebuilt to the owner\'s plan and elevation sketches', kind: 'fix',
     items: [
       'The Prairie Avenue front is now three parts: the north block standing forward, the entry stepped back with the door, portico and stairs, and the south part stepped back again with the big windows and the pedimented dormer. Every arched window keeps its moulded frame.',
