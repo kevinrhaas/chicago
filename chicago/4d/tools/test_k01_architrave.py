@@ -9,12 +9,14 @@ record's assembly to that:
 
   * the six named lights the front shows are framed, the principal storey's three keyed, the
     second storey's not (T-1881, 2026-10-31: the north bay's pair are back on the front and the
-    light that stood behind the forward block is gone; the block's own lights are K08 lights,
-    which this key does not reach);
+    light that stood behind the forward block is gone);
+  * the forward block's own light over the portico, a K08 bay light, framed the same way by the
+    bays' `architrave` key (T-1881, 2026-11-01), unkeyed as the plate draws it, at both tiers;
   * each architrave's band springs where its light's round head springs and wraps the light,
     and stands clear of the front's rusticated piers (street_front_pavilions);
   * refused: voussoirs and an architrave on one light, an architrave over a flat head, a band
-    out of its range, an unknown key, and two architraves run into one another.
+    out of its range, an unknown key, and two architraves run into one another, and the same
+    for a bay light's.
 
     python3 tools/test_k01_architrave.py
 """
@@ -94,6 +96,47 @@ refused(lambda ws: ws[0]["architrave"].update(band_m=0.6), "architrave: a 0.1-0.
 refused(lambda ws: ws[0]["architrave"].update(hood=True), "architrave takes", "an unknown key")
 refused(lambda ws: ws[0]["architrave"].update(key_m=[0.3, 0.1]), "key_m", "a keystone lower than the band")
 refused(lambda ws: ws[2].update(s_m=12.85), "overlap", "two architraves run into one another")
+
+
+# T-1881 (2026-11-01): the forward block's own light over the portico, a K08 bay light, framed
+# by the same architrave through the bays' `architrave` key (the plate draws no keystone on it)
+from archetypes import k08_bays as K8  # noqa: E402
+
+
+def bay_light(ph):
+    fw = next(b for b in ph["form"]["bays"]["value"] if b["id"] == "p_forward")
+    return fw["storeys"][1]["windows"][0]
+
+
+fwd = next(b for b in p.bays if b["id"] == "p_forward")["variant"]
+ar = [w["architrave"] for s_ in fwd["storeys"] for w in s_["windows"] if "architrave" in w]
+check(ar == [{"band_m": 0.25, "proud_m": 0.12, "impost_m": [0.25, 0.08]}],
+      f"the forward block's light carries its architrave, unkeyed ({ar})")
+for tier in ("full", "light"):
+    bay = K8.Bay(fwd, K8.load(), tier=tier)
+    bay.build()
+    check(bay.meta.get("architraves") == 1, f"K08 frames the forward block's light at the {tier} tier")
+
+
+def bay_refused(edit, says, what):
+    st_, ph = record()
+    edit(bay_light(ph))
+    try:
+        KP.from_phase(ph, st_)
+    except KP.ParamError as e:
+        check(says in str(e), f"refused: {what} ({e})")
+        return
+    check(False, f"refused: {what} — it was accepted")
+
+
+bay_refused(lambda w: w.update(opening="k06.opening.sash_2over2_flat"), "round-headed",
+            "a bay architrave round a flat head")
+bay_refused(lambda w: w["architrave"].update(band_m=0.05), "0.1-0.45 m band", "a bay architrave's band out of range")
+bay_refused(lambda w: w["architrave"].update(hood=True), "takes band_m", "an unknown bay architrave key")
+bay_refused(lambda w: w.update(voussoirs={"stones": 5, "splay_m": 0.1, "proud_m": 0.04, "joint_m": 0.01,
+                                          "bevel_m": 0.01}), "without a surround, voussoirs",
+            "a bay architrave beside voussoirs")
+bay_refused(lambda w: w["architrave"].update(key_m=[0.3, 0.1]), "key_m", "a bay keystone lower than its band")
 
 print(f"\n{'FAIL' if failures else 'PASS'}: test_k01_architrave — {len(failures)} failure(s)")
 sys.exit(1 if failures else 0)

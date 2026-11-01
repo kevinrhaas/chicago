@@ -1028,6 +1028,49 @@ def surround(o, su: dict, op, s: float, tier: str) -> list:
     return out
 
 
+ARCHITRAVE_PIECES = 12    # T-1881: an architrave's arch in this many straight pieces (K01's)
+ARCHITRAVE_INNER = 0.55   # T-1881: the inner fascia's share of the band, next the light (K01's)
+
+
+def architrave(o, ar: dict, op, s: float, tier: str) -> list:
+    """T-1881: a round-headed light framed by a moulded architrave, as K01 frames a street
+    front's named lights (k01_frontage.street_architrave; 1729 Prairie's forward block in the
+    1890 Albertype plate): a band `band_m` broad down each jamb from the sill to the springing
+    and on round the arch, in two fascias, the outer `proud_m` before the face and the inner,
+    next the light, half that, so the step between them draws the plate's shadow line; an
+    impost block (`impost_m`: height, how far past the band and before it) at the springing;
+    and a keystone (`key_m`: width, height over the crown) a little prouder. The light tier
+    keeps one fascia and half the arch's pieces. Drawn into the strip `o`; returns the jambs'
+    (s0, s1, y0, y1) for a coursed wall's cells."""
+    pts = [(q[0] + s, q[1] + op.O[1]) for h in op.holes for q in h]
+    x0, x1 = min(q[0] for q in pts), max(q[0] for q in pts)
+    r0, cx = (x1 - x0) / 2, (x0 + x1) / 2
+    ys = max(q[1] for q in pts) - r0
+    # the foot a little under the sill's top, which falls outward (as `surround`'s does)
+    y0 = op.O[1] - 0.016
+    b, F = ar["band_m"], ar["proud_m"]
+    if tier == "full":
+        fascias, n = ((0.0, b * ARCHITRAVE_INNER, F * 0.5), (b * ARCHITRAVE_INNER, b, F)), ARCHITRAVE_PIECES
+    else:
+        fascias, n = ((0.0, b, F),), ARCHITRAVE_PIECES // 2
+    for w0, w1, f in fascias:
+        for a0, a1 in ((x0 - w1, x0 - w0), (x1 + w0, x1 + w1)):           # the jambs
+            o.proud("band", rect(a0, a1, y0, ys), f)
+        ri, ro = r0 + w0, r0 + w1
+        for i in range(n):                                                  # the arch, right to left
+            t0, t1 = math.pi * i / n, math.pi * (i + 1) / n
+            o.proud("band", [(cx + ri * math.cos(t0), ys + ri * math.sin(t0)), (cx + ro * math.cos(t0), ys + ro * math.sin(t0)),
+                             (cx + ro * math.cos(t1), ys + ro * math.sin(t1)), (cx + ri * math.cos(t1), ys + ri * math.sin(t1))], f)
+    if ar.get("impost_m"):
+        ih, io = ar["impost_m"]
+        for a0, a1 in ((x0 - b - io, x0), (x1, x1 + b + io)):
+            o.proud("band", rect(a0, a1, ys - ih, ys), F + io)
+    if ar.get("key_m"):
+        kw, kh = ar["key_m"]
+        o.proud("band", rect(cx - kw / 2, cx + kw / 2, ys + r0, ys + r0 + kh), F + 0.03)
+    return [(x0 - b, x0, y0, ys), (x1, x1 + b, y0, ys)]
+
+
 def tympanum(o, ty: dict, x0: float, x1: float, y0: float, cx: float, tier: str) -> int:
     """T-3197: a carved tympanum over a light's lintel (1827's, from the Doane photograph): a
     stone panel standing on the lintel's top (`y0`) between its ends (`x0`, `x1`), `proud_m`
@@ -1204,6 +1247,9 @@ def window(w: dict, s: float, y_sill: float, recess: float):
         data6["parts"]["sill"]["horn_m"] = su["band_m"] + 0.01
         data6["parts"]["head_band"].update({"ear_m": su["band_m"] + 0.01, "width_m": su["head_m"],
                                              "proud_m": su["head_proud_m"]})
+    if w.get("architrave"):
+        # T-1881: an architrave's jambs stand on the sill's horns, as a surround's do
+        data6["parts"]["sill"]["horn_m"] = max(data6["parts"]["sill"]["horn_m"], w["architrave"]["band_m"] + 0.01)
     probe = K6.Opening(v6, data6).build()
     inner_glass = probe.meta["depth_backing_m"] - data6["parts"]["backing"]["depth_m"]
     data6["parts"]["backing"]["depth_m"] = recess - inner_glass
@@ -1329,6 +1375,12 @@ class Bay:
                         jambs = surround(flat, w["surround"], o, s, self.tier)
                         if v.get("masonry"):
                             trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
+                    if w.get("architrave"):
+                        # T-1881: a round head's moulded architrave, as K01 frames the front's lights
+                        jambs = architrave(flat, w["architrave"], o, s, self.tier)
+                        if v.get("masonry"):
+                            trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
+                        self.meta["architraves"] = self.meta.get("architraves", 0) + 1
                     if w.get("tympanum"):
                         # T-3197: a carved tympanum on the lintel, under the arc it names
                         hp = o.prims["head"].pos

@@ -2566,6 +2566,48 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 ty = w.get("tympanum")
                 if ty is not None:
                     w["tympanum"] = tympanum_spec(ty, f"bays: {e['id']}'s tympanum", float(su["head_proud_m"]))
+        # T-1881: a round-headed bay light framed by a moulded architrave, as K01 frames the
+        # front's own (`street_front_windows.windows[k].architrave`): 1729's forward block's
+        # light over the portico, which the 1890 Albertype plate draws under the same moulded
+        # head as the front's other lights. On a round-headed stone light, never beside a
+        # surround, voussoirs or a tympanum; its crown inside its storey
+        for st in v["storeys"]:
+            for w in st["windows"]:
+                ar = w.get("architrave")
+                if ar is None:
+                    continue
+                k06 = json.loads(WINDOW_KIT.read_text())
+                v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                what = f"bays: {e['id']}'s architrave"
+                if not isinstance(ar, dict) or not {"band_m", "proud_m"} <= set(ar) <= {"band_m", "proud_m", "impost_m",
+                                                                                     "key_m"} \
+                        or v6.get("head") != "round" or e.get("fabric", "stone") == "frame" \
+                        or any(k in w for k in ("surround", "voussoirs", "tympanum", "narrow")):
+                    raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out] and "
+                                     f"key_m [width, height], on a round-headed stone light without a surround, "
+                                     f"voussoirs or a tympanum, not {ar}")
+                b, pr = float(ar["band_m"]), float(ar["proud_m"])
+                wd = float(w.get("clear_width_m", v6.get("clear_width_m", 0.0)))
+                if not 0.1 <= b <= 0.45 or not 0.03 <= pr <= 0.15:
+                    raise ParamError(f"{what}: a 0.1-0.45 m band 0.03-0.15 m proud, not {ar}")
+                arc = {"band_m": b, "proud_m": pr}
+                if ar.get("impost_m") is not None:
+                    imp = [float(x) for x in ar["impost_m"]]
+                    if len(imp) != 2 or not 0.1 <= imp[0] <= 0.5 or not 0.02 <= imp[1] <= 0.2:
+                        raise ParamError(f"{what}.impost_m: a block 0.1-0.5 m high stepping 0.02-0.2 m out past "
+                                         f"the band")
+                    arc["impost_m"] = imp
+                if ar.get("key_m") is not None:
+                    key = [float(x) for x in ar["key_m"]]
+                    if len(key) != 2 or not 0.15 <= key[0] <= min(0.6, wd / 2) or not b <= key[1] <= b + 0.4:
+                        raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across (at most half the light), "
+                                         f"rising the band's depth to 0.4 m past it over the crown")
+                    arc["key_m"] = key
+                head = float(w["sill_m"]) + float(w.get("clear_height_m", v6.get("clear_height_m", 0.0)))
+                crown = head + max(b, arc.get("key_m", [0.0, 0.0])[1])
+                if crown > float(st["height_m"]) - 0.05:
+                    raise ParamError(f"{what} rises to {crown:.2f} m, past its {st['height_m']} m storey")
+                w["architrave"] = arc
         for st in v["storeys"]:
             for w in st["windows"]:
                 if "tympanum" in w and "surround" not in w:

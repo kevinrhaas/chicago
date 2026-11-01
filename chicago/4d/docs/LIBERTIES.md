@@ -37746,6 +37746,12 @@ blocks is not built: both are open in the plate's match record.
 moulding's profile; a K08 bay-light architrave frames the forward block's light.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`.
+**Revised:** 2026-11-01 (T-1881) — half of the last sentence above is no longer true: the forward block's light over the portico is framed. A
+new K08 `architrave` key on a round-headed bay light builds K01's architrave on it (a 0.25 m band
+in the same two fascias, imposts 0.25 m high stepping 0.08 m out, no keystone), read off the plate
+at its full size: the glass at x 1021-1042 px, the ring about 5 px outside the head, the jamb bands
+5-6 px, the imposts at y 401-406 and a plain crown. Its profile is the front's, so invented the
+same way. The big light's sill on its two blocks is still not built.
 **Recorded:** 2026-10-31 (T-1881).
 
 ### L-pullman-1729-front-bays-1881 — 1729 Prairie's Prairie front laid as three bays off the Detroit print: the forward block narrowed onto the door, the north bay's windows and dormer put back, a landing in the flight, urns on the gate piers and a black deck
