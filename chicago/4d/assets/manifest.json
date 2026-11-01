@@ -3319,9 +3319,9 @@
     "kellogg_house_1923_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 6947548,
+      "bytes": 7023396,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1341223bf9fcca62736c833c19ef310d8009d00964b390052b241c2dacda6131",
+      "inputs_sha256": "4163ebf1eab34aa49b1c92b21599c65f1eb01e2accf18affb2a95000afe9bb8e",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "kellogg_house_1923_prairie"
@@ -3808,9 +3808,9 @@
     "moulton_lowden_house_1912_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 12708060,
+      "bytes": 12780280,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "fe4fd5f3b4e67842691d54f654114e499929220f3fab75f75b2851252f69b5c3",
+      "inputs_sha256": "a0cd3f0a5a7751c40b6b9ca2c118c74526d8a37bb36cf5e878486b01dad15b0c",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "moulton_lowden_house_1912_prairie"
@@ -4133,9 +4133,9 @@
     "pullman_house_1729_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 16066928,
+      "bytes": 16614548,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "564d5a8496c18d78a22f22026812ef7982a5b018b9ea1be7bb2b24f8db97ad33",
+      "inputs_sha256": "beafeadbcd2c7cb325af60dfc65415f75b1b3a44952e276ef0005cd9e3d0ebe5",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "pullman_house_1729_prairie"
