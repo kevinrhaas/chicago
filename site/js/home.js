@@ -100,7 +100,7 @@
   var close = document.getElementById('closeFilm'), title = document.getElementById('filmTitle');
   var walk = document.getElementById('filmWalk');
   var FILMS = {
-    'chicago-walk': ['4D Chicago · 1812, 1835 and 1904', '4d/'],
+    'chicago-walk': ['4D Chicago · 1904, 1835 and 1812', '4d/'],
     'chicago-1812': ['4D Chicago · Fort Dearborn, 14 August 1812', '4d/1812/'],
     'chicago-1835': ['4D Chicago · the river town, 1 July 1835', '4d/1835/'],
     'chicago-1904': ['4D Chicago · Prairie Avenue, 1 July 1904', '4d/1904/']
@@ -111,8 +111,9 @@
     if (name !== current) {
       current = name;
       film.pause();
-      film.innerHTML = '<source src="media/' + name + '.webm" type="video/webm"><source src="media/' + name + '.mp4" type="video/mp4">';
-      film.poster = 'media/' + name + '.jpg';
+      var v = name === 'chicago-walk' ? '?v=2' : '';   // the combined cut was re-cut newest-first
+      film.innerHTML = '<source src="media/' + name + '.webm' + v + '" type="video/webm"><source src="media/' + name + '.mp4' + v + '" type="video/mp4">';
+      film.poster = 'media/' + name + '.jpg' + v;
       film.load();
     }
     if (title) title.textContent = FILMS[name][0];
