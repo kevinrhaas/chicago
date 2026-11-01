@@ -5825,8 +5825,13 @@ def build(params, structure_id: str):
                 # T-2788: each face coursed on the front's beds, its K06 sills seated, a flat
                 # arch over every opening, its belts the front's run round, dressed where a
                 # kit stands and stopped where a rear wing stands on it
+                # T-1890: and opened round a shallow bay's recesses below its wall top, as the
+                # front is (1801's 18th Street section, 0.1 m proud on its 1911 sheet: its lower
+                # storeys' lights run back through this wall's plane); over it the bay's back is
+                # closed round them (`bay_holes`, above)
                 a.stone_front(cid, O, R, length, E, yf, t, [o for o in p.openings if o.wall == cid],
-                              a.front_course_beds, [*stops(cid)[0], *stops(cid)[1]])
+                              a.front_course_beds, [*stops(cid)[0], *stops(cid)[1],
+                                                    *(h for h in a.bay_holes.get(cid, ()) if h[2] < E)])
                 if side_arch and side_arch["wall"] == cid:
                     k01_arched_front.side_arch(a, frames[cid][0][0], side_arch["group"])
                 continue

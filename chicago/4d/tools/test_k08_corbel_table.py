@@ -104,7 +104,7 @@ def kit_refusals():
     g = v["roof"]["gable"]
     for why, mut in (("a fan beside a leafy relief's keys", lambda g: g["panel"]["relief"].update(stem_m=0.1)),
                      ("a fan of 3 rays", lambda g: g["panel"]["relief"].update(rays=3)),
-                     ("a gable 1.6 m in from a corner", lambda g: g.update(inset_m=[1.6, 1.4]))):
+                     ("a gable 2.6 m in from a corner", lambda g: g.update(inset_m=[2.6, 1.4]))):
         w = copy.deepcopy(v)
         mut(w["roof"]["gable"])
         try:
@@ -119,7 +119,10 @@ def kit_refusals():
         check(True, "a gable 1.5 m in from both corners builds")
     except ValueError as e:
         check(False, f"a gable 1.5 m in from both corners builds ({e})")
-    check(g["inset_m"] == [1.4, 1.4], "1801's stands 1.4 m in from each")
+    # T-1890: the section stands at the 1911 sheet's 0.1 m, a shallow projection 6.97 m across, its
+    # wall dormer where the Taylor print stands it (a shallow gable may stand 2.5 m in)
+    check(v.get("shallow") is True and g["inset_m"] == [1.489, 2.281],
+          f"1801's is a shallow section's, 1.489 and 2.281 m in ({g['inset_m']})")
 
 
 def param_refusals():

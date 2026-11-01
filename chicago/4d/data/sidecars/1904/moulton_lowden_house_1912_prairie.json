@@ -1,12 +1,12 @@
 {
   "id": "moulton_lowden_house_1912_prairie",
-  "phase": "draft_1904",
-  "name": "1912 Prairie Avenue — Moulton/Lowden Chateauesque (district draft; refined by T-1899, T-1900)",
+  "phase": "as_mapped_1904",
+  "name": "1912 Prairie Avenue — the Moulton/Lowden house (Chateauesque stone front)",
   "aka": [
     "1912 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/moulton_lowden_house_1912_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -25,23 +25,23 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the marker dates it to 1882 for Byron P. Moulton. The undated photograph (an electric lamp at the curb) and the 1883 album's vignette show the same house.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1365.75,
-    "local_n": -3399.78,
+    "local_e": 1365.764,
+    "local_n": -3401.08,
     "rotation_deg": -0.622,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 25.750, v -4.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.622 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The front block's rear south corner: the draft's frame point u 0.00, v -1.30 through its own rotation, where the 1911 sheet's trace (s28fp-1912-b1 p1) runs the block's south wall (v -1.2 to -1.8 in the draft's frame; its rear half steps out to -3.4 for the stone south wing). The draft's fit of the sheet stands behind it (its georeference's independent check 1.47 m RMS). Rotation -0.622 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1912 S. Prairie Avenue, parcel prairie_1912 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -51,172 +51,773 @@
         0.0
       ],
       [
-        20.5,
+        20.45,
         0.0
       ],
       [
-        20.5,
-        11.75
+        20.45,
+        13.0
       ],
       [
         0.0,
-        11.75
+        13.0
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The front block read off the 1911 sheet's trace (s28fp-1912-b1 p1, '2½B' stone) in the house's frame: its south wall at v 0 (the draft's inscribed 11.75 m rectangle stopped 1.3 m short of it), its north wall at v 13.0, the front at u 20.45 and the rear at u 0. The round bay the sheet draws on the front (v 5.85-9.75, about 1.4 m out) stands on it as a K08 tower, the sheet's two brick ranges behind it as a K01 rear wing. Not built here: the sheet's stone wing on the south flank's rear half (u 0.3-8.9, 2.05 m out), which K01's rear wings (behind the body only) and pavilions (at most 1.2 m out) cannot carry and no picture shows (T-3278)."
   },
   "attributes": {
     "stories": {
-      "value": 2,
-      "confidence": "attested",
+      "value": 3,
+      "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1912_prairie_exterior_photo",
+        "newberry_new_chicago_album_1883_residences"
       ],
-      "note": "'2½B; rear3B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
+      "note": "'2½B; rear3B' on the 1911 sheet: two full storeys over a raised basement and a half storey. The photograph shows the half storey as a short third storey of wall across the street front under the cornice (the north corner block's attic window, the tower's third stage, the south gable's attic light), the steep roof rising from its head; the 1883 album's vignette agrees. The brick rear ranges are the sheet's three."
     },
     "construction": {
-      "value": "stone_with_brick_rear",
+      "value": "stone",
       "confidence": "attested",
       "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "The sheet colours the front block stone ('rear3B' brick behind it); the photograph shows coursed ashlar on the front, the north corner block's flank and the round tower."
+    },
+    "principal_floor_m": {
+      "value": 1.85,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "The stoop's eleven risers in the photograph (y 1590-1880 px, about 0.17 m each) to the door's sill: about 1.85 m over grade, which K07's stoop and K01's stair both solve in eleven. Barred basement lights stand under the south gable's arched pair."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.3,
+        4.35,
+        2.75
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "Read up the north corner block's front corner in the photograph (x 960 px), where one vertical line keeps one scale (about 92 px a metre, against the door's opening): the principal floor at y 1545 px, the chamber floor's belt at y 1150, the attic floor's dentilled belt at y 750 and the cornice's top at y 495, so 4.3, 4.35 and 2.75 m. The wall head stands near 13.25 m."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "A stone front's thickness at the top of the K01 contract's range; the photograph's reveals are deep but not measurable."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "The stone block's flanks as thick as its front; no picture measures them."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "The kit's K03 panel for the brick rear ranges ('rear3B' brick on the sheet); no picture shows them."
+    },
+    "stone_front": {
+      "value": {
+        "fabric": "sandstone_brown",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 2,
+        "coping_height_m": 0.25,
+        "corner_bond": []
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The register reads the map's colours as 'stone with brick rear'."
+      "note": "Coursed smooth ashlar with dressed trim on the photograph's front and flank, with deeper courses at the basement's foot; brown sandstone is the register's brownstone (frontage-28-046), a colour the monochrome print cannot give."
     },
-    "draft_plan": {
+    "street_front_trim": {
       "value": {
-        "parts": [
+        "by_storey": [
+          "k09.trim.lintel_cornice_hood",
+          "k09.trim.lintel_cornice_hood",
+          "k01.flat_lintel"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "Flat-headed openings under moulded caps on the north corner block, the door and the chamber window over it, and a plain head on its attic window, in the photograph; the south gable's arched pair is its own."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.moulded_stone",
+        "walls": [
+          "k01.wall.side.south",
+          "k01.wall.street_front",
+          "k01.wall.side.north"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "A moulded stone cornice at the wall head under the slate, round the corner block and the tower's top stage, in the photograph (y 495-530 px)."
+    },
+    "roof_form": {
+      "value": "mansard",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
+        "newberry_new_chicago_album_1883_residences"
+      ],
+      "note": "A very steep slated roof from the cornice to a short deck with iron cresting over the north corner block, in the photograph and the 1883 vignette; K01's mansard with straight steep faces is that roof."
+    },
+    "roof_pitch_deg": {
+      "value": 10,
+      "confidence": "reconstructed",
+      "note": "The deck behind the cresting, above every view's sight line."
+    },
+    "eave_overhang_m": {
+      "value": 0.4,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "The cornice's projection past the front in the photograph, about 0.4 m."
+    },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 4.5,
+        "lower_pitch_deg": 72,
+        "bulge": 0.0,
+        "dormers": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "hip_steep",
-            "rect": [
-              0.0,
-              0.0,
-              20.5,
-              11.75
-            ],
-            "from": "s28fp-1912-b1 p1 (main, stone), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
+            "face": "street",
+            "along_m": 10.9,
+            "head": "gable",
+            "gable_pitch_deg": 58,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.8,
+              "height_m": 1.2,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.2
           },
           {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              1.0,
-              -3.0,
-              8.25,
-              0.0
-            ],
-            "from": "s28fp-1912-b1 p1 (main, stone), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
-          },
-          {
-            "id": "r3",
-            "role": "range",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              -7.25,
-              -1.25,
-              -0.5,
-              5.25
-            ],
-            "from": "s28fp-1912-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 94% of its fill"
-          },
-          {
-            "id": "r4",
-            "role": "range",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              -7.75,
-              5.5,
-              -0.5,
-              10.25
-            ],
-            "from": "s28fp-1912-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
+            "face": "street",
+            "along_m": 4.95,
+            "head": "gable",
+            "gable_pitch_deg": 60,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.8,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.2
           }
         ],
-        "lot_v": [
-          -4.341,
-          12.841
-        ],
-        "street_u": 28.141
+        "deck": {
+          "cresting": {
+            "height_m": 0.5,
+            "inset_m": 0.08
+          }
+        }
       },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
+        "newberry_new_chicago_album_1883_residences"
+      ],
+      "note": "The north corner block's roof in the photograph: straight slate faces at about 72 degrees from the cornice to the cresting (y 500-210 px), about 4.5 m through the camera (K01's most for a face over one storey); and two pinnacled stone dormers in the street face: a small one over the corner block's window column (x 340-480, y 290-500 px; built 10.9 m along, 0.5 m south of the column, the nearest the hip lets a dormer stand) and the taller crocketed one between the south gable and the tower (x 740-880, y 150-500 px). Their crockets, pinnacles and carved gables are T-3278's."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania",
+        "paint": "black"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "Slate on the steep faces in the photograph; the deck behind the cresting is the kit's painted tin."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "Two-light sashes with a meeting rail in the windows the ivy leaves open to view."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "The stoop's treads; the photograph shows the flight from its north side."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.5,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "The landing at the stoop's head under the awning, about 1.5 m before the door, in the photograph."
+    },
+    "stoop_width_m": {
+      "value": 2.2,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
+        "newberry_new_chicago_album_1883_residences"
+      ],
+      "note": "The flight between its two solid stone cheek walls, about 2.2 m against the door's width, in the photograph and the vignette."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
+        "newberry_new_chicago_album_1883_residences",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The door in the north corner block, under its chamber window and dormer, beside the round tower, in the photograph and the 1883 vignette, read against the sheet's bay."
+    },
+    "front_bays": {
+      "value": [
+        11.4
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "One opening column in the north corner block (v 9.75-13.0, north of the sheet's bay at v 5.85-9.75): the door at the stoop's head with the chamber and attic windows over it, in the photograph (door x 720-880 px, windows x 760-870 px)."
+    },
+    "side_bays": {
+      "value": [
+        10.6,
+        17.5
+      ],
+      "confidence": "reconstructed",
+      "note": "The south flank toward 1918; no picture shows it."
+    },
+    "north_bays": {
+      "value": [
+        1.7,
+        9.0,
+        15.5
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "The north flank: the window column by the front corner (s 1.7) that the photograph shows under the corbelled corner turret (x 1060-1120 px); the two behind it are reconstructed."
+    },
+    "rear_bays": {
+      "value": [
+        3.0
+      ],
+      "confidence": "reconstructed",
+      "note": "The rear wall above the brick ranges; no picture shows the rear."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.7,
+          "width_m": 1.15,
+          "height_m": 2.9
+        },
+        {
+          "sill_above_floor_m": 0.4,
+          "width_m": 1.1,
+          "height_m": 2.7
+        },
+        {
+          "sill_above_floor_m": 0.45,
+          "width_m": 0.9,
+          "height_m": 1.35
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "The corner block's chamber window about 1.1 x 2.7 m (x 760-870, y 862-1112 px, its sill 0.4 m over the belt) and its attic window about 0.9 x 1.6 m (y 530-700 px; built 1.35 m, its head under the cornice's bed); the flanks' principal windows about 1.15 x 2.9 m."
+    },
+    "basement_lights": {
+      "value": {
+        "sill_m": 0.35,
+        "width_m": 0.9,
+        "height_m": 0.8
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "note": "The barred basement lights under the south gable's arched pair in the photograph (x 80-240, y 1610-1700 px)."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 15.0,
+            "v_m": 12.8,
+            "plan_m": [
+              1.6,
+              0.9
+            ],
+            "top_m": 20.6,
+            "cap_proud_m": 0.15,
+            "cap_depth_m": 0.5,
+            "on_cornice": true,
+            "fabric": "stone"
+          },
+          {
+            "u_m": 14.0,
+            "v_m": 0.2,
+            "plan_m": [
+              1.2,
+              0.8
+            ],
+            "top_m": 19.4,
+            "cap_proud_m": 0.12,
+            "cap_depth_m": 0.4,
+            "on_cornice": true,
+            "fabric": "stone"
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The tall panelled stone stack rising off the north flank behind the corner block in the photograph (x 1090-1190 px, its cap at y 120 px), and a second on the sheet's chimney breast on the south flank (u 12.3-15.7), which no picture shows."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 19.9
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 0.35
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "K01's copper gutter behind the cornice and two downpipes; no picture shows them."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 7.69,
+          "balustrade": {
+            "height_m": 0.9,
+            "pitch_m": 0.2,
+            "newel_m": 0.42,
+            "newel_cap_m": 0.14,
+            "rail_m": [
+              0.25,
+              0.15
+            ],
+            "segments": 8,
+            "profile": [
+              [
+                0.07,
+                0.0
+              ],
+              [
+                0.07,
+                0.06
+              ],
+              [
+                0.05,
+                0.1
+              ],
+              [
+                0.045,
+                0.18
+              ],
+              [
+                0.07,
+                0.35
+              ],
+              [
+                0.075,
+                0.45
+              ],
+              [
+                0.05,
+                0.65
+              ],
+              [
+                0.036,
+                0.78
+              ],
+              [
+                0.05,
+                0.86
+              ],
+              [
+                0.06,
+                0.94
+              ],
+              [
+                0.06,
+                1.0
+              ]
+            ]
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
+        "newberry_new_chicago_album_1883_residences"
+      ],
+      "note": "The door at the stoop's head in the north corner block, in the photograph and the vignette; the stoop's solid stone cheek walls end in block newels at the foot. The arched recess, its carved capitals and the striped awning are T-3278's."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "tower",
+          "variant": "k08.tower.round",
+          "wall": "k01.wall.street_front",
+          "s_m": 7.8,
+          "fabric": "front_stone",
+          "plan": {
+            "radius_m": 1.95,
+            "centre_proud_m": 0.17
+          },
+          "storeys": [
+            {
+              "height_m": 6.15,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.9,
+                  "sill_m": 2.6,
+                  "at_deg": [
+                    -50,
+                    0,
+                    50
+                  ],
+                  "why_not_ordinary": "the tower's tall principal lights in the photograph, about 2.9 m against the door"
+                }
+              ]
+            },
+            {
+              "height_m": 4.35,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.7,
+                  "sill_m": 0.4,
+                  "at_deg": [
+                    -50,
+                    0,
+                    50
+                  ],
+                  "why_not_ordinary": "the tower's chamber lights in the photograph, level with the corner block's (y 862-1112 px)"
+                }
+              ]
+            },
+            {
+              "height_m": 3.75,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.85,
+                  "clear_height_m": 1.5,
+                  "sill_m": 0.6,
+                  "at_deg": [
+                    -50,
+                    0,
+                    50
+                  ],
+                  "why_not_ordinary": "the third stage's short lights under the cone in the photograph (y 580-710 px)"
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 2.5,
+            "covering": "slate_pennsylvania",
+            "finial": true,
+            "slated_as_house": true
+          },
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "finial": {
+            "height_m": 2.4,
+            "radius_m": 0.14
+          }
+        },
+        {
+          "id": "south_gable",
+          "variant": "k08.projection.full_height",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.3,
+          "fabric": "front_stone",
+          "plan": {
+            "width_m": 3.6,
+            "proud_m": 0.4
+          },
+          "storeys": [
+            {
+              "height_m": 6.15,
+              "windows": [
+                {
+                  "opening": "k06.opening.casement_pair_transom_plate",
+                  "clear_width_m": 1.7,
+                  "clear_height_m": 2.9,
+                  "sill_m": 2.6,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the gable's paired round-headed lights under one arch in the photograph and the vignette",
+                  "surround": {
+                    "band_m": 0.2,
+                    "proud_m": 0.04,
+                    "head_m": 0.2,
+                    "head_proud_m": 0.08
+                  },
+                  "recess_m": 0.33
+                }
+              ]
+            },
+            {
+              "height_m": 4.35,
+              "windows": [
+                {
+                  "opening": "k06.opening.casement_pair_transom_plate",
+                  "clear_width_m": 1.7,
+                  "clear_height_m": 2.6,
+                  "sill_m": 0.5,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the gable's chamber pair in the photograph",
+                  "surround": {
+                    "band_m": 0.2,
+                    "proud_m": 0.04,
+                    "head_m": 0.2,
+                    "head_proud_m": 0.08
+                  },
+                  "recess_m": 0.33
+                }
+              ]
+            },
+            {
+              "height_m": 1.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 0.6,
+                  "sill_m": 0.2,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the attic light at the gable's foot, in the photograph (x 170-240, y 670-820 px; built 0.6 m of its 1.5, inside the gable storey's clear wall, the rest standing in the gable's face, where K08 cuts no light)",
+                  "recess_m": 0.33
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "gable",
+            "pitch": 1.4,
+            "covering": "slate_pennsylvania",
+            "gable": {
+              "inset_m": [
+                0.0,
+                0.0
+              ],
+              "upstand_m": 0.15,
+              "coping": {
+                "width_m": 0.3,
+                "height_m": 0.18,
+                "proud_m": 0.08
+              },
+              "kneeler": {
+                "width_m": 0.4,
+                "out_m": 0.03
+              },
+              "pinnacle": {
+                "width_m": 0.18,
+                "shaft_m": 0.6,
+                "cap_m": 0.55
+              },
+              "finial": {
+                "width_m": 0.24,
+                "shaft_m": 0.3,
+                "cap_m": 0.45
+              }
+            }
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1912_prairie_exterior_photo",
+        "newberry_new_chicago_album_1883_residences"
+      ],
+      "note": "Two K08 pieces on the 1911 sheet's trace (s28fp-1912-b1) in the house's frame, read with the photograph and the 1883 vignette. The round tower on the sheet's front bulge (v 5.85-9.75, about 1.4 m out; built a 1.95 m round centred 0.17 m in front of the wall line, so 0.72 m further out than the sheet draws it, the least that holds its finial clear of the wall's plane): three stages of bent sashes to a slated cone with a plain finial (the photograph's is turned, with knobs: an open difference on the match record), its third stage 1.0 m taller than the photograph's, whose cone springs at the main cornice's level, because K01 stands a tower's wall top at least 1.0 m over its host's eave. The south gable (v 0.5-4.1): a stone projection 0.4 m proud (the sheet draws the front flush there, under its resolution), the least that holds its windows' recesses, cut to the kit's 0.33 m minimum, in front of the wall with its arched pair, its chamber pair and its attic light, its coped gable with pinnacles and a finial rising from just over the attic floor (its kneelers at y 720 px, under the main cornice) to an apex near 14 m (y 470 px)."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_ranges",
+          "rect": [
+            -7.4,
+            0.0,
+            0.0,
+            12.7
+          ],
+          "floor_m": 1.85,
+          "storey_heights_m": [
+            3.6,
+            3.3,
+            3.0
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 2.2
+            },
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.0,
+              "height_m": 2.0
+            },
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.0,
+              "height_m": 1.8
+            }
+          ],
+          "windows": {
+            "rear": [
+              2.5,
+              6.3,
+              10.2
+            ],
+            "south": [
+              3.7
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1912-b1 p1 (main, stone), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s28fp-1912-b1 p1 (main, stone), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s28fp-1912-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 94% of its fill; s28fp-1912-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The sheet's two brick ranges behind the front block ('rear3B'; s28fp-1912-b1 p2 and p3, u -7.4 to -0.4 and v 0 to 12.7 in the house's frame) as one three-storey brick wing under a flat tin roof; its storeys, windows and roof are reconstructed: no picture shows the rear."
     },
-    "draft_elevation": {
+    "boundary": {
       "value": {
-        "kind": "house",
-        "seed": 1244695446,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
+        "street_line_m": 7.45,
+        "lot_s_m": [
+          -3.04,
+          14.14
         ],
-        "roof_pitch_deg": 56,
-        "mansard_lower_m": 3.0,
-        "front_bays": 5,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": true,
-        "stone": "brownstone",
-        "features": [
-          {
-            "kind": "corner_tower",
-            "radius_m": 2.0,
-            "above_eave_m": 3.0,
-            "cap_m": 6.0,
-            "at": [
-              19.8,
-              0.7
-            ]
-          }
-        ],
-        "draft_label": {
-          "pass": "T-2329",
-          "refined_by": [
-            "T-1899",
-            "T-1900"
-          ]
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 70
+        },
+        "side_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "pier_s_m": -1.5,
+          "drawn_deg": 0
+        },
+        "posts": {
+          "section_m": 0.12,
+          "height_m": 1.2
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1912_prairie_exterior_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "A low iron railing on a stone coping along the walk in the photograph (y 1700-1780 px), open at the stoop's foot; the lot's sides are the 1904 parcel's (data/street_grid/1904.json). The gates are reconstructed (liberty L-k01-1912-moulton-3277)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.8
+        },
+        "service_walk": {
+          "surface": "cinder",
+          "to_u_m": 0.0,
+          "wear_tone": 0.78,
+          "band": "gate"
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'Chateauesque' overlaid with the frontage row: Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2½B read as dormers in the steep hip. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1244695446 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2329",
-        "liberty": "L-draft-prairie-18-20-west-2329",
-        "register_row": "frontage-28-046",
-        "census_ids": [
-          "s28-1912-front",
-          "s28-1912-wing"
-        ],
-        "trace_building": "s28fp-1912-b1",
-        "seed": 1244695446,
-        "replaceable_by": [
-          "T-1899",
-          "T-1900"
-        ],
-        "card": "District draft — refined by T-1899, T-1900."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The walk in flags from the stoop's foot through the railing's opening to the public walk, and the cinder service walk from the side gate back along the south lot line. RECONSTRUCTED: the K14 kit's flags, width and wear (data/components/prairie_1904/k14_condition.json) aged from the phase's own year; liberty L-k01-1912-moulton-3277."
     },
     "function": {
       "value": "residence",
@@ -238,6 +839,22 @@
   "residents": [],
   "citations": [
     {
+      "source_id": "chicagology_1912_prairie_exterior_photo",
+      "citation": "[1912 S. Prairie Ave. (Moulton / Lowden residence).] Photograph of the house's street front from the walk, close to, looking up past its stoop; unknown photographer, undated (an electric street lamp stands at the right). Reproduced on chicagology.com, Prairie Avenue, 1912 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1912prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the ivy over 1912's street front and round bay, and how far up it reaches"
+      ],
+      "what_it_does_not_supply": [
+        "a date: undated, after 1904",
+        "colour: the print is monochrome",
+        "the front yard before the coping, which the print crops"
+      ]
+    },
+    {
       "source_id": "hmdb_prairie_lost_houses_1800_1900_west",
       "citation": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (West Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308706.",
       "url": "https://www.hmdb.org/m.asp?m=308706",
@@ -249,6 +866,24 @@
       ],
       "what_it_does_not_supply": [
         "measurements or appearance beyond the style named"
+      ]
+    },
+    {
+      "source_id": "newberry_new_chicago_album_1883_residences",
+      "citation": "'Private Residences of Chicago.' Plate in The New Chicago Album (Chicago: Wittemann Bros., 1883): eleven engraved vignettes, among them 'Thomas Dent' (the second vignette of the middle row, left of C. P. Libby's). Newberry Library.",
+      "url": "https://collections.carli.illinois.edu/digital/collection/nby_chicago/id/7411",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a date for the composition the Chicagology engraving shows (1883)",
+        "the street front's light stone against the darker brick of the north flank",
+        "the pavilion's attic under its pedimented gable, and the dormers' heads"
+      ],
+      "what_it_does_not_supply": [
+        "measurements: a vignette a few centimetres across, its perspective drawn rather than photographed",
+        "the south flank and the rear",
+        "the house in 1904: two decades before the target date"
       ]
     },
     {
@@ -272,8 +907,7 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1899, T-1900 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1912-b1), the T-1841 census (s28-1912-front, s28-1912-wing) and the T-1837 register row frontage-28-046 (Moulton/Lowden Chateauesque); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
+  "research_note": "T-3277 (piece 1 of T-1899, the owner's T-1837 Prairie programme) refines the district draft (T-2329) in place under this id onto K01: Byron P. Moulton's 1882 stone house, read off the undated photograph of its front (Chicagology) and the 1883 New Chicago Album vignette against sheet 28's trace. The front from the south: the coped gable with its arched pair, a tall crocketed dormer, the round tower rising three stages to a slated cone, and the north corner block with the door at the high stoop's head under the steep slated roof; behind, the sheet's brick rear ranges. Open for T-3278 and T-1900: the sheet's stone wing on the south flank's rear half, the vignette's and the elevation drawing's cameras, the corbelled corner turret on the north flank, the dormers' and gable's carving, the arched entrance with its awning. Liberty L-k01-1912-moulton-3277.",
   "research_doc": "",
-  "review_required": false,
-  "called": "1912 Prairie Avenue — Moulton/Lowden Chateauesque"
+  "review_required": false
 }

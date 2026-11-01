@@ -496,6 +496,11 @@ TOWER_PAST_EAVE_M = 1.0
 #: T-2900: how far inside its end wall's plane a corner turret's ring may stand, at the most
 TURRET_CORNER_M = 0.3
 SHALLOW_PROUD_M = 0.3   # T-3047: a shallow projection stands at most this far proud
+#: T-1890: and may run this far along its wall, past a pavilion's 6.0 m (1801's 18th Street
+#: section, about 7 m between the corbel table's corner round and the tower at the 1911 sheet's
+#: 0.1 m): a pavilion's width was the least its recesses and eave fitted in, which a shallow
+#: one's run back through the wall plane for
+SHALLOW_WIDE_M = 8.0
 CHAMFER_BEHIND_M = 0.6  # T-3048: and its chamfer runs back at most this far behind the wall's face
 CHAMFER_ALONG_M = 1.0   # ...and at most this far (and a quarter of its width) along its front
 # T-3108: a chamfer a round bay stands on (`on_chamfer`, 1801's south-west corner on HABS
@@ -2256,9 +2261,10 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']} is a pier: a windowless full-height projection under a "
                                      f"flat top, 0.3-1.5 m wide and 0.05-0.3 m proud (has {w} m and {d} m)")
                 v["pier"] = True   # check_bay_kit holds it to a box's triangles, with no light tier
-            elif not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
+            elif not (1.5 <= w <= (SHALLOW_WIDE_M if q.get("shallow") is True else 6.0) and 0.1 <= d <= 1.2):
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
-                                 f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
+                                 f"is 1.5-6.0 m wide (a shallow one up to {SHALLOW_WIDE_M} m) and stands "
+                                 f"0.1-1.2 m proud")
             # T-2988: either cheek may be CANTED, running from the wall `cant_*_m` further out
             # along it than the front's corner (1811's bay on its 1911 sheet and its 1888 plate:
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays

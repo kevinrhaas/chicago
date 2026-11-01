@@ -156,7 +156,7 @@
   "shrubs": 153,
   "trees": 14,
   "beds": 11,
-  "creeper_patches": 25,
+  "creeper_patches": 24,
   "attested_plants": 39,
   "lots_with_a_door": 111,
   "schemes": {
@@ -5753,11 +5753,11 @@
     ],
     "width_m": 17.17
    },
-   "front_m": 6.38,
+   "front_m": 3.58,
    "doors": [
     [
-     2.83,
-     7.62
+     2.74,
+     7.82
     ]
    ],
    "scheme": "pictured",
@@ -5767,18 +5767,11 @@
    "beds": [],
    "creeper": [
     [
-     1387.68,
-     -3398.59,
+     1386.43,
+     -3396.59,
      89.43,
-     1.35,
-     8.82
-    ],
-    [
-     1387.68,
-     -3399.59,
-     89.43,
-     1.49,
-     7.58
+     1.65,
+     5.63
     ]
    ],
    "pictured": {
