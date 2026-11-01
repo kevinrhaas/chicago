@@ -1126,8 +1126,12 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         raise ParamError(f"{what}: a 0.1-0.4 m surround, its face on the lower face")
     # T-3000: a hood's light is the short one at its foot (1801's read about 0.9 m)
     low = 0.6 if head == "hood" else 1.0
-    if not 0.5 <= sw <= 1.2 or not low <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
-        raise ParamError(f"{what}.sash: 0.5-1.2 m wide, {low}-2.4 m high, on a 0.1-0.6 m sill")
+    # T-3297: a grouped light's width is its bays' and mullions' (1700-1706's paired sash, about
+    # 1.45 m in Chicagology's photograph, had been held to one light's 1.2 m)
+    v_ = kit.get(sh.get("variant"), {})
+    wide = 1.2 if v_.get("bays", 1) == 1 else round(1.2 * v_["bays"] + v_.get("mullion_m", 0.0) * (v_["bays"] - 1), 4)
+    if not 0.5 <= sw <= wide or not low <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
+        raise ParamError(f"{what}.sash: 0.5-{wide} m wide, {low}-2.4 m high, on a 0.1-0.6 m sill")
     out = {"variant": sh["variant"], "head": head, "sash_width_m": sw, "sash_height_m": sht, "sill_m": sill,
            "surround_m": ring, "face_setback_m": sb, "width_m": round(sw + 2 * ring, 4),
            "head_m": round(sht + ring, 4)}
@@ -2258,13 +2262,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # forward block it stands less far out than (checked once every bay is read, below)
             elif q.get("front_step") is not None:
                 # T-1881 (2026-10-31): 1.0 m at least, the step left between the forward block on the
-                # door's axis and the big window's architrave, its face one banded pier
-                if q["front_step"] is not True or not (1.0 <= w <= 4.0 and 1.2 < d <= 3.0) \
+                # door's axis and the big window's architrave, its face one banded pier.
+                # T-1881 (2026-11-01, the owner's plan of the front): up to 5 m, the whole entrance
+                # bay between the north block and the south part, the door on its face
+                if q["front_step"] is not True or not (1.0 <= w <= 5.0 and 1.2 < d <= 3.0) \
                         or e.get("variant") != "k08.projection.full_height" \
                         or e.get("wall") != "k01.wall.street_front" \
                         or set(q) - {"width_m", "proud_m", "front_step"}:
                     raise ParamError(f"bays: {e['id']} is a front step: a full-height projection on the street "
-                                     f"front, 1.0-4.0 m wide and 1.2-3.0 m proud (has {w} m and {d} m)")
+                                     f"front, 1.0-5.0 m wide and 1.2-3.0 m proud (has {w} m and {d} m)")
             # T-3191: or a flank's STEP (`step`), the rear part of a side wall standing out from its
             # front part (1827's south flank on the 1911 sheet: u 0-14.6 stands 1.6 m out), a plain
             # full-height projection on a side wall, longer and further out than a pavilion.
@@ -2527,8 +2533,25 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 if "door" in w:
                     k06 = json.loads(WINDOW_KIT.read_text())
                     v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    # T-1881: a raised door names its flight (1729's side door in its porte-cochere,
+                    # Taylor's photograph no. 1445): `steps` {risers, tread_m, width_m}, its sill
+                    # over the plinth and the risers' sum, 0.14-0.2 m each, 0.22-0.4 m treads, the
+                    # flight at least the door's clear width and 0.2 m more
+                    fl = w.get("steps")
+                    if fl is not None:
+                        ph_ = float(e.get("plinth_m", 0.6))
+                        n_ = fl.get("risers") if isinstance(fl, dict) else None
+                        if not isinstance(fl, dict) or set(fl) != {"risers", "tread_m", "width_m"} \
+                                or not isinstance(n_, int) or n_ < 2 or w["door"] is not True \
+                                or not 0.14 <= float(w["sill_m"]) / n_ <= 0.2 or float(w["sill_m"]) < ph_ \
+                                or not 0.22 <= float(fl["tread_m"]) <= 0.4 \
+                                or not float(w.get("clear_width_m", v6.get("clear_width_m", 0.0))) + 0.2 \
+                                <= float(fl["width_m"]) <= 4.0:
+                            raise ParamError(f"bays: {e['id']}'s raised door's steps take risers (0.14-0.2 m each, up to "
+                                             f"its sill over the plinth), tread_m 0.22-0.4 and width_m (its clear width "
+                                             f"and 0.2 m, to 4 m)")
                     if w["door"] is not True or v6.get("operation") != "door_glazed" or v["base"] != "grade" \
-                            or st is not v["storeys"][0] or abs(float(w["sill_m"])) > 1e-9:
+                            or st is not v["storeys"][0] or (fl is None and abs(float(w["sill_m"])) > 1e-9):
                         raise ParamError(f"bays: {e['id']}'s door is `door: true` on a K06 door (door_glazed), "
                                          f"sill_m 0, in the lowest storey of a bay standing on grade")
                 # T-3257: a basement light cut through a grade bay's stone plinth (1701's, under the
@@ -2618,6 +2641,48 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 ty = w.get("tympanum")
                 if ty is not None:
                     w["tympanum"] = tympanum_spec(ty, f"bays: {e['id']}'s tympanum", float(su["head_proud_m"]))
+        # T-1881: a round-headed bay light framed by a moulded architrave, as K01 frames the
+        # front's own (`street_front_windows.windows[k].architrave`): 1729's forward block's
+        # light over the portico, which the 1890 Albertype plate draws under the same moulded
+        # head as the front's other lights. On a round-headed stone light, never beside a
+        # surround, voussoirs or a tympanum; its crown inside its storey
+        for st in v["storeys"]:
+            for w in st["windows"]:
+                ar = w.get("architrave")
+                if ar is None:
+                    continue
+                k06 = json.loads(WINDOW_KIT.read_text())
+                v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                what = f"bays: {e['id']}'s architrave"
+                if not isinstance(ar, dict) or not {"band_m", "proud_m"} <= set(ar) <= {"band_m", "proud_m", "impost_m",
+                                                                                     "key_m"} \
+                        or v6.get("head") != "round" or e.get("fabric", "stone") == "frame" \
+                        or any(k in w for k in ("surround", "voussoirs", "tympanum", "narrow")):
+                    raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out] and "
+                                     f"key_m [width, height], on a round-headed stone light without a surround, "
+                                     f"voussoirs or a tympanum, not {ar}")
+                b, pr = float(ar["band_m"]), float(ar["proud_m"])
+                wd = float(w.get("clear_width_m", v6.get("clear_width_m", 0.0)))
+                if not 0.1 <= b <= 0.45 or not 0.03 <= pr <= 0.15:
+                    raise ParamError(f"{what}: a 0.1-0.45 m band 0.03-0.15 m proud, not {ar}")
+                arc = {"band_m": b, "proud_m": pr}
+                if ar.get("impost_m") is not None:
+                    imp = [float(x) for x in ar["impost_m"]]
+                    if len(imp) != 2 or not 0.1 <= imp[0] <= 0.5 or not 0.02 <= imp[1] <= 0.2:
+                        raise ParamError(f"{what}.impost_m: a block 0.1-0.5 m high stepping 0.02-0.2 m out past "
+                                         f"the band")
+                    arc["impost_m"] = imp
+                if ar.get("key_m") is not None:
+                    key = [float(x) for x in ar["key_m"]]
+                    if len(key) != 2 or not 0.15 <= key[0] <= min(0.6, wd / 2) or not b <= key[1] <= b + 0.4:
+                        raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across (at most half the light), "
+                                         f"rising the band's depth to 0.4 m past it over the crown")
+                    arc["key_m"] = key
+                head = float(w["sill_m"]) + float(w.get("clear_height_m", v6.get("clear_height_m", 0.0)))
+                crown = head + max(b, arc.get("key_m", [0.0, 0.0])[1])
+                if crown > float(st["height_m"]) - 0.05:
+                    raise ParamError(f"{what} rises to {crown:.2f} m, past its {st['height_m']} m storey")
+                w["architrave"] = arc
         for st in v["storeys"]:
             for w in st["windows"]:
                 if "tympanum" in w and "surround" not in w:
@@ -3152,7 +3217,10 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 # before it, and the photographs put the door behind the portico on that part):
                 # the door is cut in the block's face, the door, stoop and porch laid out from
                 # it, and the host wall's door stands inside the block
-                if e.get("entrance") is True and v["kind"] == "projection" and (e.get("plan") or {}).get("block") \
+                # T-1881 (2026-11-01): or the front step between that block and the corner, as the
+                # owner's plan of the front puts the door on the stepped-back middle part
+                if e.get("entrance") is True and v["kind"] == "projection" \
+                        and ((e.get("plan") or {}).get("block") or (e.get("plan") or {}).get("front_step")) \
                         and e["wall"] == "k01.wall.street_front" and a + BAY_PIER_M <= j0 and j1 <= b - BAY_PIER_M:
                     v["door_hole"] = {"x_m": (round(j0 - (a + b) / 2, 4), round(j1 - (a + b) / 2, 4)),
                                       "y_m": (round(o.sill_m, 4), round(o.head_m, 4))}
@@ -5196,6 +5264,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 continue
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.south", float(s), round(sill, 4), w, h))
         for s in val("rear_bays"):
+            if isinstance(s, dict):   # T-1881: a window read off a picture is laid once, below
+                continue
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.rear_service", float(s), round(sill, 4), w, h))
         for s in val("north_bays") or ():
             if not isinstance(s, dict):   # T-2866: a window read off a picture is laid once, below
@@ -5211,7 +5281,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     read = {}
     for attr, wall_id, j, e in [("north_bays", "k01.wall.side.north", j, e)
                                 for j, e in enumerate(val("north_bays") or ())] + \
-            [("side_bays", "k01.wall.side.south", j, e) for j, e in enumerate(val("side_bays") or ())]:
+            [("side_bays", "k01.wall.side.south", j, e) for j, e in enumerate(val("side_bays") or ())] + \
+            [("rear_bays", "k01.wall.rear_service", j, e) for j, e in enumerate(val("rear_bays") or ())]:
         if not isinstance(e, dict):
             continue
         what = f"{attr}[{j}]"
@@ -6619,11 +6690,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # rear walls do (two rowlock rings on a segmental arch), instead of the stone lintel or
     # K09 head `by_storey` names; the hole stays the K01 rectangle, so the sash stays flat
     trim = dict(val("street_front_trim", {}) or {})
-    if trim.get("brick_heads") not in (None, "segmental"):
-        raise ParamError("street_front_trim.brick_heads builds 'segmental' alone")
+    if trim.get("brick_heads") not in (None, "segmental", "flat"):
+        raise ParamError("street_front_trim.brick_heads builds 'segmental' or 'flat'")
     if trim.get("brick_heads") and construction != "brick":
         raise ParamError("street_front_trim.brick_heads arches the brick; a stone front is laid "
                          "by its K02 stone_front")
+    # T-3297: a stone key over each brick head, its foot on the head (1700-1706's upper lights
+    # in Chicagology's photograph: a tapered block wider at its top, its top corners cut)
+    if "head_key" in trim:
+        hk = trim["head_key"]
+        keys = {"foot_m", "top_m", "height_m", "proud_m", "chamfer_m"}
+        if not trim.get("brick_heads") or not isinstance(hk, dict) or set(hk) != keys:
+            raise ParamError(f"street_front_trim.head_key takes {sorted(keys)}, over brick_heads")
+        hk = {k: float(v) for k, v in hk.items()}
+        if not (0.15 <= hk["foot_m"] <= hk["top_m"] <= 0.6 and 0.2 <= hk["height_m"] <= 0.8
+                and 0.02 <= hk["proud_m"] <= 0.12 and 0.0 <= hk["chamfer_m"] <= min(hk["top_m"] / 4, hk["height_m"] / 4)):
+            raise ParamError("street_front_trim.head_key: a key 0.15-0.6 m across, no narrower at its top than "
+                             "its foot, 0.2-0.8 m high, 0.02-0.12 m proud, its top corners cut up to a quarter")
+        trim["head_key"] = hk
     # T-3197: a front bay's lights under a carved tympanum on a stone lintel, in place of the
     # K09 head its storey names (1827's window bay south of the pavilion, the Doane photograph)
     if "tympana" in trim:
@@ -6860,7 +6944,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stoop_width_m=float(val("stoop_width_m")), entrance_bay=entrance,
         front_bays=front_bays,
         side_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("side_bays")),
-        rear_bays=tuple(float(s) for s in val("rear_bays")),
+        rear_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("rear_bays")),
         north_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("north_bays") or ()),
         side_belts=tuple(side_belts), side_base=tuple(side_base), street_iron=street_iron,
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,

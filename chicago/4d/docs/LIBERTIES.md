@@ -24447,7 +24447,7 @@ house stays this draft's.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24527,6 +24527,10 @@ attributes are gone.
 `L-k12-1720-stable-range-1932`, under the same id, on the outlines, storeys, brick and two window marks the sheet
 draws, as the crossed brick stable and the brick range Robinson's 1886 plate draws on lot 4; its draft attributes
 are gone.
+**1726's alley building retired from this liberty by T-1932 (2026-11-01):** `house_1726_prairie_coach_house`
+now stands as the K12 coach house, in mirror image, under `L-k12-1726-stable-1932`, under the same id, on the outline,
+storeys, brick and window mark the sheet draws; the piece of the 1911 range its trace took in north of it is not
+built for 1904; its draft attributes are gone.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -33192,6 +33196,47 @@ range's extension past the lot line.
 **Review:** `docs/RESEARCH/k12-1720-stable-range-1932/README.md`.
 **Recorded:** 2026-11-01 (T-1932).
 
+### L-k12-1726-stable-1932 — The two-storey brick building on the alley behind 1726 Prairie, lettered GARAGE in 1911, built from the K12 kit in mirror image as a stable on the outline the 1911 sheet draws, its party wall on the 1726/1730 lot line
+
+**Decision:** the district draft's alley building behind 1726 Prairie Avenue (T-1932) is refined in place, under
+its own id `house_1726_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), the
+eleventh K12 coach house in the scene after 1812's, 1736's, 1620's, 1616's, 1612's, 1626's, 1628's, 1712's, 1700's
+and 1720's (L-k12-1720-stable-range-1932). **What is read.** From sheet 20 of the 1911 Sanborn: one pink (brick)
+building, uncrossed, lettered '2' and GARAGE, with '12 12' inside its north wall and again inside its south wall;
+11.66 m deep from the alley line by 14.08 m along it (median darkness profiles: columns 2225.0 and 2454.6, rows
+5277.1 and 5554.4), its south wall on the 1726/1730 lot line, where the two-storey piece of 1730's alley building
+stands against it; the key's fire-wall sign with two ticks at the alley end of its north wall and of its south wall;
+one of the key's window marks on the alley wall 7.51 m from its north wall line, with a dot for each storey; a solid
+dot near its south-east corner (the key's vertical steam boiler). North of it, on the alley line, a piece of the
+one-storey brick range that runs on from 1720's stable, 4.07 m deep by 4.33 m from the 1720/1726 lot line, with no
+wall drawn across the range on that line. From Robinson's 1886 plate 10, behind lots 5 and 6: a yellow (frame)
+building, uncrossed, about 6.6 m deep by 11.3 m along the alley, starting about 2.8 m south of the lot 4/5 line, and
+no brick on this ground; 1720's range ends on the lot 4/5 line. **What is ruled.** The brick building replaced the
+plate's frame one after 1886. It is first seen in 1911, lettered GARAGE, and may postdate 1904; the T-1840 census
+carries it into 1904 as a service building of unread use (study ruling 11, the kit's `no_1911_use_labels`), and it
+is built as the house's stable and coach house, as 1736's GARAGE is: the use is RECONSTRUCTED. The range piece north
+of it is NOT built for 1904: the plate ends 1720's range on the lot line with a frame building beyond it, and 1720's
+record builds the range ending there with a closed end wall; building the piece would stand a second end wall on a
+line the 1911 sheet draws no wall on, so the 1911 joining of the two is left out, as later work. **What is invented.**
+The kit is built in mirror image: its party wall at the south end, on the lot line, rising the kit's 0.45 m above the
+roof against 1730's building; its open gable at the north end, blank, facing the 4.3 m of open ground to the end of
+1720's range. The sheet's fire-wall sign at the north end is not built (the kit has one party wall). Every opening
+but the mark is the kit's: on the alley wall the carriage bay (3.0 m clear) toward the south end with the loft hatch
+over it, the mark built as a stable sash with a loft sash over it, and a man door with a loft sash over it toward the
+north end; on the yard wall a door at the middle between four stable sash, with loft sash over the outer two. A
+single gable roof with its ridge along the alley at 30 degrees over the 11.66 m span, as the deep stables took. The
+kit's storey heights and its 1.8 m basement, reached by nothing. The workyard is paved from the yard door to the 1726
+house's rear wall line, 10.79 m east. No boiler stack. Flat colours. **What is not.** The outline, its place on the
+lot, the storeys, the brick, the mark's place, the fire-wall end on the lot line and the 1886 frame building are the
+maps'.
+**How to resolve:** a photograph of the alley behind 1720-1736 Prairie, entered as a source, gives its openings,
+roof and ends their true form; a building permit or an atlas between 1886 and 1911 dates the brick building (stable,
+or a garage built after 1904) and the range's extension across the lot line.
+**Covers:** `house_1726_prairie_coach_house.as_standing_1904.form.coach_house`, `house_1726_prairie_coach_house.as_standing_1904.form.stories`, `house_1726_prairie_coach_house.as_standing_1904.form.construction`, `house_1726_prairie_coach_house.function`
+**Ticket:** T-1932.
+**Review:** `docs/RESEARCH/k12-1726-stable-1932/README.md`.
+**Recorded:** 2026-11-01 (T-1932).
+
 ### L-k01-1736-roof-rear-2995 — 1736 Prairie's mansard taken off the north wall, the rear and the 18th Street wall behind the brick bay, which rise as a straight brick third storey, built blank and coped
 
 **Decision:** 1736 Prairie's mansard (T-2995, piece 2 of T-2962) stands where the 1911 sheet 20 draws
@@ -38312,12 +38357,34 @@ The rear, the plan's stair block and service range, stays the draft's.
 
 ### L-pullman-1729-recessed-centre-1881 — 1729 Prairie's Prairie front laid as two pavilions with the entry in a stepped-in centre, off the owner's reading of the Detroit print; the depth reconstructed
 
+**Superseded (2026-11-01, round 3):** the two pavilions are replaced by the owner's three-part front, the north block forward, the entry stepped back and the south part on the main wall (L-pullman-1729-three-part-front-1881).
 **Decision:** the owner, on 2026-11-01, looked again at the photographs: "the center area steps in and there is the walkway that leads up to it". The forward block centred on the door (L-pullman-1729-front-bays-1881) is replaced by two K08 pavilions. `p_north` (v 0.3-5.0) carries the north bay's two lights and its round dormer. `p_south` (v 8.85-13.6) carries the big lights and the big dormer with its broken pediment. Between them the centre stays on the front's plane with one second-storey light, no dormer, and the door at v 6.875. The portico (two columns, 3.1 m), the stoop with its mid landing, the walk and the urned gate stand on the door's line in the recess.
 **What is read, not invented.** The Detroit print (LC-D4-12551) through its solved camera, unwarped onto the front's plane: a hip in the mansard either side of the plain centre (x 365-382 and 415-432 px), a dormer north and south of it and none over it, the north pavilion's south return lit beside the portico, and the centre's light reading at v 6.4. Laid over the render through the same camera, the big dormer, the big window and the corner bay's dormer and light fall on the print's.
 **What is invented.** The pavilions' 1.2 m projection, the most K08 lets a pavilion stand (the print's return suggests 1.2-2 m; the 1911 sheet's front lines are 1.65 and 3.05 m but draw the portico's 3 m with them). Also invented: their exact ends (0.3 m clear of the north corner and of the corner pier at v 13.6), and the loss of the K01 architraves on the pavilions' lights, which are K08 lights.
 **How to resolve:** a re-solved camera for Taylor's no. 1445, the closest view, triangulated against the Detroit print, fixes the pavilions' depth and ends; a K08 light architrave restores the frames.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).
+**Revised 2026-11-01 (T-1881, owner's go-ahead):** the pavilions' four lights are framed again. K08 bay lights now take an `architrave` key (band, two fascias, impost blocks, optional keystone, built as K01's street architrave; first written for the forward block's light in PR 1550, which the recessed centre made moot), and each pavilion light carries the architrave it had as a K01 light: the principal storey's keyed, the second storey's not. The frames are no longer an invented loss; their profile stays as L-pullman-1729-architraves-1881 records it.
+
+### L-pullman-1729-three-part-front-1881 — 1729 Prairie's Prairie front laid in the owner's three parts (north block forward, entry stepped back, south part on the main wall) and its 18th Street side in his four sections; the parts' ends along the faces reconstructed
+
+**Decision:** the owner, on 2026-11-01, sketched the house's plan and its west, south and east elevations over the photographs ("You have a lot right but the windows and walls are not … please use calculated size of the window and walls from the image") and ruled that the south-west corner's section belongs to the 18th Street side. The Prairie front is built in his three parts: `p_block` (v 0-7.4, 2.95 m proud) with a light a storey and its own dormer; `p_entry` (v 7.35-12.1, 1.6 m proud) carrying the door, the portico and the stoop, one light over the door and no dormer; and the south part on the main wall (v 12.1-17.93) with the big lights and the big pedimented dormer. The 18th Street side is built in his four sections: section 1 with two lights a storey and two dormers either side of the great stack; the 18th Street section (`p_18th`, s 7.2-20.6) with the pair, the oculus pier and the triple upstairs, the triple's fellows below, the side door under the pair and a dormer over each group; section 4 with a pair upstairs, one large light below and one dormer. The east side keeps three lights a floor.
+**What is read, not invented.** The depths: the 1911 sheet's three front lines (u 30.7 and 29.4 against the main wall's 27.75: 2.95 and 1.65 m), which the sketch's steps follow. The 18th Street section's depth: Taylor's no. 1445 triangulated against no. 16554 puts its triple's face 1.35-1.5 m out, its pair's 1.12-1.17 and the oculus pier's 1.21, so it is cut from 2.47 to 1.3 m. The porte-cochere's corners (s 9.05-9.5 and 14.5-14.9, 5.73-6.13 m out) from the same pair. Section 1's lights (x 470 and 555 px in no. 1445), its dormers (465 and 545) and the stack between them (490-520). The window counts and arrangement on every face are the sketch's, checked against the photographs.
+**What is invented.** The parts' ends along the faces, set from the sketch's proportions to about 0.5 m: the north block's 7.4 m and the entry's 4.75 m on the Prairie front, the 18th Street section's s 7.2 and 20.6. The north block's single light a storey (the sketch draws one; the photographs do not resolve the block's face behind the portico), centred on the block. Section 4's large ground light is round-headed as the photograph shows it; the sketch draws a square.
+**How to resolve:** a camera solved on the Albertype plate's own corners reads the north block's south return and the entry's ends; the north wall, which no photograph shows, stays on the 1911 sheet's line with its north-west block.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).
+
+### L-pullman-1729-side-door-1881 — 1729 Prairie's side door in its porte-cochere raised on a flight of seven steps; the flight reconstructed
+
+**Decision:** the owner's elevation of the 18th Street side (2026-11-01) draws an arched entry in section 2, under the porte-cochere, and asked that "the entry points around the portico … be properly built, match to the photos". The door is built on the 18th Street section's face under the second storey's pair (s 11.63), 1.3 m wide and 2.6 m high, as a raised K08 door (`door` with `steps`, a kit key written for it), its sill 1.2 m up a stone flight of seven steps, 0.25 m deep and 1.9 m wide, square to the face. The porte-cochere's end arches are widened from 2.5 to 2.8 m and stay centred on the faces they show (the owner's 2026-10-30 ruling).
+**What is read, not invented.** Taylor's no. 1445, through the west arch: the door's leaves at x 662-682 px, about s 11.1-12.45 on the section's face, its head about 3.8-4.0 m over the drive and its foot about 1.35 m, a flight's treads in front of it; the west arch's span (2.86 m) and the front arch's (2.29 m, s 10.52-12.81).
+**What is invented.** The flight: its run square to the face, its seven risers and 0.25 m treads (the photograph shows the top treads only, the coping wall hiding the rest), its width and its plain cheeks. The door's leaf is K06's narrow glazed door widened; its panels are not read. The sill is set at 1.2 m, inside the reading's 0.2 m.
+**How to resolve:** a view into the porte-cochere from 18th Street or a plan of the ground floor fixes the flight's run and the floor it climbs to.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
 
 ### L-pullman-1729-rear-dormers-1881 — 1729 Prairie's two rear dormers set over the rear wall's window bays, off Taylor's no. 16554; their places reconstructed

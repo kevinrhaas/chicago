@@ -442,10 +442,10 @@ export const ARCH = {
   // Pullman palm house's terrace in the 1894 Inland plate: the stem bare to about half the
   // plant's height, then a dense clipped head.
   standard_ball: {
-    crown: 'round', crownBase: 0.42, fork: 'decurrent', stems: [1, 1], scaffolds: [6, 8],
+    crown: 'ball', crownBase: 0.42, fork: 'decurrent', stems: [1, 1], scaffolds: [6, 8],
     limbAngle: 38, rise: 0.04, twist: 0.15, order2: [4, 44], order3: [0, 0], droop: 0.0,
     clump: 0.26, clumpMin: 0.15, density: 1.9, gaps: 0.02, leaf: 'scale', bark: 'smooth',
-    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5, core: 0.8,
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5, core: 0.8, headK: 1.0,
   },
   // T-1934: a palm house's palm set out in its tub for the summer, as Taylor's 16555 shows
   // one on the Pullman terrace before the drum: a short stout stem and a head of long
@@ -622,6 +622,8 @@ function envelopeRadius(shape, t) {
     // foot to about two fifths up, then drawn in to a blunt point (Taylor's 16554).
     case 'spire': return Math.pow(Math.min(1, (1 - t) / 0.6), 0.75) * (0.8 + 0.2 * Math.min(1, t / 0.2));
     case 'round': return Math.pow(Math.sin(Math.PI * (0.03 + t * 0.95)), 0.6);
+    // T-1881: a head sheared to a true ball (a standard's), as round at its foot as at its top.
+    case 'ball': return Math.sqrt(Math.max(0, 1 - (2 * t - 1) * (2 * t - 1))) * 0.98 + 0.02;
     case 'irregular': return Math.pow(Math.sin(Math.PI * (0.06 + t * 0.92)), 0.62);
     default: return Math.pow(Math.sin(Math.PI * (0.02 + t * 0.96)), 0.75);
   }
@@ -643,8 +645,12 @@ function growSkeleton(spec, arch, rnd) {
     ? lerp(spec.crownW[0], spec.crownW[1], rnd())
     : H * (spec.spreadK ?? 0.6) * (0.88 + rnd() * 0.24);
   const R = crownW / 2;
-  const baseY = H * arch.crownBase * (0.85 + rnd() * 0.3);
-  const crownH = Math.max(1, H - baseY);
+  // A clipped standard's head is a ball (`headK`, its height over its width): the 1894 Inland
+  // plate prints both of Pullman's boxed standards' heads as wide as they are tall, where a
+  // fixed share of the plant's height drew the taller one's head half again as tall as wide.
+  const baseY = arch.headK ? Math.max(H * 0.25, H - crownW * arch.headK)
+    : H * arch.crownBase * (0.85 + rnd() * 0.3);
+  const crownH = arch.headK ? H - baseY : Math.max(1, H - baseY);
   const centreY = baseY + crownH * 0.5;
   // The crown drifts a little off the trunk, as an open-grown crown does toward
   // its open side; a leaning tree throws it further.
@@ -758,7 +764,9 @@ function growSkeleton(spec, arch, rnd) {
       // limbs leave a tapering stem rather than the cut top of a post.
       // T-3223: a garden shrub's stems run up through its crown (`stemK` of its height),
       // where the wild shrubs' stop at 0.8 m and branch, and a bedding plant is shorter than that.
-      const forkY = arch.stemK ? H * arch.stemK : Math.max(0.8, baseY * (nStems > 1 ? 0.55 : 0.92));
+      // A standard's clear stem runs on into the foot of its head, so no bare fork shows under it.
+      const forkY = arch.headK ? baseY + crownH * 0.2
+        : arch.stemK ? H * arch.stemK : Math.max(0.8, baseY * (nStems > 1 ? 0.55 : 0.92));
       const trunk = branch([0, 0, 0], dir0, forkY / Math.max(0.3, dir0[1]), sr, sr * 0.86, 0, { rise: 0.01 });
       const top = trunk.pts[trunk.pts.length - 1];
       const topR = trunk.rad[trunk.rad.length - 1];
@@ -829,6 +837,29 @@ function growSkeleton(spec, arch, rnd) {
     const at = [off[0] + Math.cos(az) * er, y, off[2] + Math.sin(az) * er];
     if (rnd() < arch.gaps) continue;
     clumps.push({ at, dir: norm([Math.cos(az), 0.3, Math.sin(az)]), r: clumpR * (0.7 + rnd() * 0.4), shell: true });
+  }
+  // THE SHEARS (T-1881): a clipped plant (`core`) has nothing outside its clipped shape. Its
+  // twigs, grown as any shrub's, reach past it (a 1.5 m ball's half-metre shoots carried leaf
+  // out to 1.3 m from its stem, read in Kevin's phone shot of Pullman's boxed standards as
+  // cards flying loose round the ball); so every twig and leaf mass is cut back inside the
+  // envelope, the masses a little inside it so their cards lie on the clipped face.
+  if (arch.core) {
+    const clip = (p, k) => {
+      const y = Math.min(H, Math.max(baseY + crownH * 0.04, p[1]));
+      const dx = p[0] - off[0]; const dz = p[2] - off[2];
+      const r = Math.hypot(dx, dz); const lim = envR([p[0], y, p[2]]) * k;
+      const f = r > lim ? lim / r : 1;
+      return [off[0] + dx * f, y, off[2] + dz * f];
+    };
+    // the stems too, where they run up into the clipped shape (a ball's splayed stems reach
+    // out of it); a standard's clear stem under its head is left as it grew
+    for (const b of branches) {
+      for (let i = b.order === 0 ? 1 : 0; i < b.pts.length; i++) {
+        if (b.order === 0 && b.pts[i][1] < baseY) continue;
+        b.pts[i] = clip(b.pts[i], 0.97);
+      }
+    }
+    for (const c of clumps) c.at = clip(c.at, 0.86);
   }
   return { H, dbh, R, baseY, crownH, centreY, off, branches, clumps, envR };
 }
