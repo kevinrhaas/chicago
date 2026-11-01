@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2516, ts: '2026-11-01T04:24:24.894Z', date: 'Oct 31, 2026, 11:24 PM CT', title: '1801 Prairie: the side door\'s frontispiece moves to match its photograph', kind: 'feature',
+    items: [
+      'On 18th Street, the stone frontispiece over the Kimball house\'s side door, with its arched light, paired window and pinnacled gable, now stands about a metre further east, where Harold Allen\'s 1965 photograph shows it. That puts it straight across the line where two of the house\'s back ranges meet. J. W. Taylor\'s c. 1895 photograph puts the door in the same place. With this change, the house matches all three of its photographs.',
+    ] },
   { v: 2515, ts: '2026-11-01T03:50:37.733Z', date: 'Oct 31, 2026, 10:50 PM CT', title: 'The Pullman estate\'s corner elm stands on a clear, slender trunk', kind: 'fix',
     items: [
       'The elm on 18th Street\'s south parkway at the Calumet Avenue corner, across from the Pullman stable, now rises as one slender trunk clear to about 5 m before its branches start, as Taylor\'s two photographs of the estate show it. It had been drawn as a stout, full-grown elm forking low into a V.',

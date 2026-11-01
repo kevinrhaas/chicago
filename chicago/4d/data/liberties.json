@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 919,
+  "count": 920,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -63192,6 +63192,39 @@
         "T-1890",
         "T-3001",
         "T-2843"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-frontispiece-junction-1890",
+      "title": "1801 Prairie's east range frontispiece moved onto HABS photograph 2's axis, its face carried across the 1911 sheet's junction",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the east range's frontispiece over the side door (bays.p door, built by, “1801 Prairie's east range brought to HABS photograph 2: a frontispiece on r3b's wall, and the range's lights cut to the one column the print shows”) stands on HABS photograph 2's axis: at s 0.65 on r3b's 18th Street wall, u about -7.85, where it stood at s 1.8 (u -6.7), about 1.15 m west of the print's, because a K08 bay stood on one wing's wall and r3b's (u -8.5 to -4.6, the 1911 sheet's rectangle) held it. The print's frontispiece straddles the sheet's junction of r3b and r2, and nothing on the print marks that junction: the two ranges stand on one wall line, at one height, in one walling. So its face now runs 0.85 m past r3b's east end onto r2's wall (K01's new past end, allowed only on a shallow full-height projection on a wing's south or north wall where the wing beyond stands on the same wall line on the same floors to the same wall top, up to 1.5 m, and 0.3 m clear of that wall's lights and bays; the wall behind the overrun is cut, so no face doubles). Its door, grilled light and paired light stay on r3b's wall. Every other house is untouched (no other record names past end; every other K01, K12, K13, K16 and draft GLB re-emits byte-identical). **What is read, not invented.** The axis is the print's: re-rendered through the solved camera the door's axis falls at about x 371 against the print's 373-375 (it rendered at 394), and the Taylor print's side door, under a tree there, now renders at about x 313 against the print's 307-317 (it rendered at about 327). The sheet's two rectangles and r2's front wall on the junction's line past r3b are unchanged. **What is invented.** How the two ranges meet behind the frontispiece: the build keeps the sheet's junction at u -8.5 and stands the frontispiece's face across it, where the house may have been built with the frontispiece on one range or the junction elsewhere inside; nothing seen from the street tells them apart."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured plan of the east range, or the HABS drawings' first-floor plan."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-01 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-3110",
+        "T-1890"
       ]
     },
     {

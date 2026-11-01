@@ -1140,6 +1140,13 @@ step "a K01 mansard deck's cross roof may end under a slated hood, its finial on
 step "a K01 wing's hip may pitch its ends steeper, and a wing may carry its own stacks (T-1890)" \
   python3 tools/test_k01_wing_stack.py
 
+# T-1890. 1801 Prairie's east range frontispiece (HABS photograph 2) straddles the 1911 sheet's
+# junction of two ranges on one wall line: a wing's shallow projection may run past its wall's
+# end onto the next wing's wall (`past_end`), that wall cut behind it; refused on a deep bay,
+# onto a wing on other floors, past 1.5 m, or near the other wall's lights and bays.
+step "a wing's shallow projection may run past its wall's end onto the next wing's wall (T-1890)" \
+  python3 tools/test_k01_past_end.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
