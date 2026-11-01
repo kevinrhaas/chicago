@@ -3973,10 +3973,15 @@ class Assembly:
                 # frame, sashes and dark room stand (`window`, never emitted; dormer_sash)
                 from types import SimpleNamespace
                 rev = self.kit_reveal(SimpleNamespace(component="k01.opening.sash_flat", width_m=sw, height_m=sh))
-                recess = k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
-                                     (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
-                                    zc - sw / 2, zc + sw / 2, P,
-                                    lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+                # T-3280: a broad dormer's row of lights, one recess each (`sash.at_m`)
+                at = d["sash"].get("at_m", [0.0])
+                cuts = [k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
+                                    (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
+                                   zc + a - sw / 2, zc + a + sw / 2, P,
+                                   lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+                        for a in at]
+                recess = cuts[0]
+                recesses += cuts[1:]
         if p.rear_section:   # T-2820: the rear section's attic, its end parapets and dormers
             from . import k01_rear_section
             more, cut = k01_rear_section.elements(self, k5, f)
@@ -4988,13 +4993,15 @@ class Assembly:
         wd, hf = d["width_m"], d["face_height_m"]
         O = (g["xf"], g["ys"], g["zs"])
         R = (0.0, 0.0, -1.0)
+        at = d["sash"].get("at_m", [0.0])   # T-3280: a broad dormer's row of lights
         self.instance("k01.wall.dormer_face", "wall", {"length_m": wd, "height_m": hf,
                                                        "thickness_m": d["face_thickness_m"],
-                                                       "construction": "masonry", "openings": 1},
+                                                       "construction": "masonry", "openings": len(at)},
                       {"base": O, "top": _add(O, _mul(Y, hf))})
-        self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2, d["sash"]["sill_m"],
-                             d["sash"]["width_m"], d["sash"]["height_m"]), (O, R, _cross(R, Y)),
-                     d["face_thickness_m"], "dormer_stone", "limestone_trim", cut=True)
+        for a in at:
+            self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2 - a, d["sash"]["sill_m"],
+                                 d["sash"]["width_m"], d["sash"]["height_m"]), (O, R, _cross(R, Y)),
+                         d["face_thickness_m"], "dormer_stone", "limestone_trim", cut=True)
 
     # -- K04 on the K05 graph: caps on ridges and hips, flashing in valleys -------------
     def _line_planes(self, pts, tris, A, B):
