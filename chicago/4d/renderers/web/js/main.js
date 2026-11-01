@@ -2514,6 +2514,9 @@ async function boot() {
     detail: detailLevel, problems: layerProblems('parked_transport'), hostMissing,
     groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : null,
     getDrawingBufferHeight: () => renderer.getDrawingBufferSize(parkedDrawingBuffer).y,
+    // T-3300: fetch a vehicle when the eye comes within 60 m of where it is drawn,
+    // not at boot — 1835's wagons were 2.0 MB of the first visit, all out of reach.
+    loadWithin: 60,
   });
   scene3d.add(parkedTransport.group);
   api.parkedTransport = parkedTransport;
