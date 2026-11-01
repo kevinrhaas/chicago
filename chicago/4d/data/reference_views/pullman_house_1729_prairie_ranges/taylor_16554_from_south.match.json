@@ -122,7 +122,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "85f1f563c854e11abf2f28e2c92b981f36ecd7cf1d6bf9b16762626ef32ddc25"
+      "sha256": "c7f41f5072de7f373bb1a2544baaba856a5212953c42924a7e30c500d23e64b7"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "42e70df971b31f66239309bddaf87df0e65fa7b103175451aff03b4f78e24aa5",
+  "flora_sha256": "854076a9fb3011cfa0e6fb00784b5b80ae53ef014b789be73aeca506424ce253",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -272,7 +272,7 @@
       "how": "T-1934 render [T-1934, 2026-10-31: a gap two pictures disagree about (AGENTS.md rule 11, T-3153): the c. 1900 Detroit view (loc_det_4a08066), the picture nearest 1 July 1904, and the 1894 Inland plate both read the coping at about 0.9 m along this stretch, and the Chicago History Museum's ICHi-19208 shows the same plain coping at the stable's end; this print alone reads it 0.55-0.6 m. The build keeps the two pictures' 0.9 m.]"
     },
     {
-      "what": "the bare winter crowns: the print's trees on both parkways carry dense fringes of fine twigs, and the render's elms at 15-70 m draw a few long limbs with no twig fringe, so they read as poles and sticks [T-1934, 2026-11-01: seen while judging the Calumet corner tree's fork. It is the app's winter draw of every elm at this distance (the levels this camera's eye deals them), not a place or habit read off this print, and the summer views (16555, the plate) are not affected.]",
+      "what": "the bare winter crowns: the print's trees on both parkways carry dense fringes of fine twigs, where the render's elms at 15-70 m read as open branchwork of straight crossing strokes [T-1934, 2026-11-01: seen while judging the Calumet corner tree's fork. It is the app's winter draw of every elm at this distance (the levels this camera's eye deals them), not a place or habit read off this print, and the summer views (16555, the plate) are not affected.] [T-1934, 2026-11-01, re-rendered on the bare crown's coarse-level twigs (tree-model.js bareTwigs): the poles and sticks are gone. The elms at 15-70 m now carry their limbs, branches and a share of their twigs at the mid and far levels, each held to a visible width and within the leaf's own summer triangle budget, so the crowns branch and grey in round their limbs as the print's do. What is still open is the grown elm's own winter habit, at every level including near: its branches run out as long, nearly straight strokes at the summer crown's drooping angles and cross one another, and it grows a few hundred twigs, where the print draws limbs that fork again and again into fine ascending twig, a dense fringe at each crown's rim. That is the skeleton (growElm), not the detail level.]",
       "status": "open"
     }
   ],
