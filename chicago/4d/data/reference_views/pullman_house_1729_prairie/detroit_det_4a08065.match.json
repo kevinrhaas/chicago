@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8c0437c354166569776a98e6028caec662a2fba6b5dfa3f7bb7a855dbacab08c",
+  "glb_sha256": "7b1f0088762be801519d4cc4b19280a0754eb908891108a7239c2b151e327ebc",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -82,7 +82,7 @@
     {
       "what": "iron cresting round the mansard's deck",
       "status": "fixed",
-      "how": "T-1880: mansard.deck.cresting, 0.8 m"
+      "how": "T-1880: mansard.deck.cresting, 0.8 m T-1881 (2026-11-01): raised to 1.0 m (the print's band reads about 1 m deep at the front's 15 px a metre) and a 1.75 m turned finial set on every hip of the deck and of each pavilion's own curb, as the print's posts stand (x about 317, 381, 416, 501 and 585 px, each rising about 2 m over the curb), off Taylor's 16554 where they are clearest."
     },
     {
       "what": "the columned portico across the Prairie front's north part carrying a balustraded balcony at the second floor",
