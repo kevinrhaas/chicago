@@ -1,0 +1,124 @@
+{
+  "method": "Actual published /1904/ app at 1280x800, `full`; animation paused after readiness; each stand renders the same held frame with the far shadow twins off (buildings.farShadow.on=false), off again (control), on, and with no structure casting (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0",
+    "twins": 334,
+    "twinTriangles": 355080,
+    "twinVertices": 291609,
+    "buildMs": 501,
+    "readyMs": 37509
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "alley-from-north",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 201,
+      "saved": 956754,
+      "off": {
+        "triangles": 5539477,
+        "drawCalls": 8065
+      },
+      "on": {
+        "triangles": 4648930,
+        "drawCalls": 8092,
+        "withinBudget": false,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "pixelsDifferingOver8": 0,
+      "maxChannelDelta": 0,
+      "differingAt": [],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 119170,
+      "problems": 0
+    },
+    {
+      "name": "glessner-18th-far-west",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 244,
+      "saved": 1066861,
+      "off": {
+        "triangles": 6216086,
+        "drawCalls": 3965
+      },
+      "on": {
+        "triangles": 5195660,
+        "drawCalls": 3979,
+        "withinBudget": false,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 1024000,
+      "pixelsDiffering": 2,
+      "pixelsDifferingOver8": 0,
+      "maxChannelDelta": 2,
+      "differingAt": [
+        [
+          556,
+          435,
+          2
+        ],
+        [
+          573,
+          381,
+          1
+        ]
+      ],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 2086,
+      "problems": 0
+    },
+    {
+      "name": "glessner-prairie-far-se",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 215,
+      "saved": 679232,
+      "off": {
+        "triangles": 7294865,
+        "drawCalls": 5678
+      },
+      "on": {
+        "triangles": 6650853,
+        "drawCalls": 5690,
+        "withinBudget": false,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "pixelsDifferingOver8": 0,
+      "maxChannelDelta": 0,
+      "differingAt": [],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 154876,
+      "problems": 0
+    }
+  ]
+}
