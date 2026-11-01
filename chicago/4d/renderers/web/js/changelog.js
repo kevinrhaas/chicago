@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2534, ts: '2026-11-01T13:41:44.147Z', date: 'Nov 1, 2026, 7:41 AM CT', title: 'Pullman\'s conservatory arch gains its transoms and low palms', kind: 'improvement',
+    items: [
+      'The great arched glass front of Pullman\'s conservatory at 1800 Calumet Avenue is now crossed by two heavy white transoms, as the 1894 Inland Architect plate and Lowe\'s photograph both draw them. They divide the arch into three tiers of lights instead of one run of thin bars.',
+      'Three low palms now stand just inside the north glass, so the arch\'s lowest tier is planted as the pictures show it. That tier still reads a little lighter than either picture.',
+    ] },
   { v: 2533, ts: '2026-11-01T13:08:21.611Z', date: 'Nov 1, 2026, 7:08 AM CT', title: 'Nothing you can see: 1912 Prairie checked from behind and above', kind: 'chore',
     items: [
       'Nothing you can see changed. The Moulton house at 1912 Prairie was inspected in the app from the avenue, both walks, over the alley and from the air, on a desktop and a phone screen.',
