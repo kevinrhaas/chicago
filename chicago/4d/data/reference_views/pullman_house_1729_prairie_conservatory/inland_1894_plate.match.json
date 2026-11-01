@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "b0871a49313e101b4927afa73e5f8c116201daedcfe3a599ad4166b5ed6a256c"
+      "sha256": "1cf61cdc69df641dd98b5265640fd6bb0dafee45eaaa38bd72e96a06883a8ecc"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "f89e4447fbc2d7518482d02b869ac2e6e9d9c5c61ae933f5da2ee306781b795b",
+  "flora_sha256": "d26ee8e94aaed7b3c8adee8a80b37dd98f2f969a36a79342589c83ed4eb47076",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
