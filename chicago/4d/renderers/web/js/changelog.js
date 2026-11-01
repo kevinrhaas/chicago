@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2548, ts: '2026-11-01T21:35:26.049Z', date: 'Nov 1, 2026, 3:35 PM CT', title: '1637 Prairie\'s front door now centred between its bay and wing', kind: 'fix',
+    items: [
+      'The Spalding house\'s front door at 1637 Prairie, the window over it and the dormer above now stand in the middle of the wall between the round bay and the forward wing. They had sat about half a metre toward the bay.',
+      'The stoop, its rails, the iron fence\'s first post and the flagged walk to the sidewalk moved with the door, so the walk still meets the sidewalk.',
+      'The engraving of the house as Spalding remodelled it draws the door in the middle of that wall, so the model still matches it.',
+    ] },
   { v: 2547, ts: '2026-11-01T21:23:15.534Z', date: 'Nov 1, 2026, 3:23 PM CT', title: 'Brick walls no longer repeat the same small patch of bricks', kind: 'improvement',
     items: [
       'Every brick wall on Prairie Avenue in 1904 used to repeat one patch of 48 bricks, less than a metre square, so its darker bricks lined up into a visible grid. Now each brick takes its face from another brick at random, so no two stretches of wall look alike.',
