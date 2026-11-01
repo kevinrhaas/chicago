@@ -2398,13 +2398,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # Taylor print and both HABS photographs), whole round its apex, so its slate is mapped
         # round the cone (k01_frontage.cone_slate_uv); a bow's half cone leans on its wall
         if v["roof"].get("slated_as_house") is not None:
-            whole_cone = v["roof"].get("kind") == "cone" and (v["kind"] == "tower" or v.get("cap_whole"))
+            whole_cone = v["roof"].get("kind") == "cone" and (v["kind"] == "tower" or v.get("cap_whole")
+                                                              # T-3290: or a round oriel's half cone
+                                                              # (1912's corbelled corner turret, slated
+                                                              # as the mansard behind it in the photograph)
+                                                              or (v["kind"] == "oriel" and v["plan"]["kind"] == "bow"))
             # T-1890: or the cross roof behind a shallow pavilion's gable (1801's south pavilion,
             # slated as the mansard it runs back into in the Taylor print and HABS photograph 1)
             behind = v["roof"].get("kind") == "gable" and (v["roof"].get("gable") or {}).get("behind")
             if v["roof"]["slated_as_house"] is not True or not (v["roof"].get("mansard") or whole_cone or behind):
                 raise ParamError(f"bays: {e['id']}'s roof.slated_as_house is true, on a mansard, a gable's roof behind it or a "
-                                 f"tower's or corner turret's whole cone")
+                                 f"tower's or corner turret's whole cone, or a round oriel's half cone")
         # T-1890: a round tower's corbelled upper stage (1801's, in the Taylor print and HABS
         # photograph 2): from one of its storey lines its ring is wider than its shaft's, carried
         # out on stepped corbel courses, its eaves and cone the stage's (k08_bays._build_staged)

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2527, ts: '2026-11-01T10:13:43.292Z', date: 'Nov 1, 2026, 4:13 AM CT', title: '1912 Prairie gains its corner turret on the north flank', kind: 'feature',
+    items: [
+      'The Moulton house at 1912 Prairie now has the small round turret its photograph shows on the north side, just behind the front corner. It rises off the attic belt to a moulded cornice and a steep slate cone that leans against the roof.',
+      'The north side\'s front windows now line up under the turret, where the photograph places them.',
+      'The turret stands about half a metre lower than in the photograph, and the 1883 engraving draws it taller still. Both differences are noted on the house\'s picture records.',
+    ] },
   { v: 2526, ts: '2026-11-01T09:58:04.095Z', date: 'Nov 1, 2026, 3:58 AM CT', title: 'Two brick stables behind 1626 and 1628 Prairie', kind: 'feature',
     items: [
       'The alley behind 1626 and 1628 Prairie now has its pair of two-storey brick stables, built wall to wall: 1626\'s is 8 m along the alley and 12 m deep, with windows in its north gable; 1628\'s is 7 m along and 14 m deep. Their outlines, storeys, brick and window places come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas draws the same pair, so both stood through 1904. The doors, loft hatches, other windows and roofs come from the shared coach-house kit and are reconstructed.',
