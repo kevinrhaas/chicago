@@ -2,7 +2,7 @@
   "structure_id": "moulton_lowden_house_1912_prairie",
   "view": "elevations_c1914_front",
   "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ce45eb3f1ebd29fc40700e4e719a1c1774c51d639594f627164051414da17b60",
+  "glb_sha256": "c471eb5bb0ec58a2590fea5f36d6d1600f853f132488950bc859a78ad93a0430",
   "camera_sha256": "babc3fe528caaee1f49ed568584eeb4e22f550aab2fbb214fca77b4ed75e4742",
   "photo_sha256": "6a188ecf12322445de8c9a8621968131cd2d74be06183f548a87054051efa97e",
   "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/elevations_c1914_front-side-by-side.jpg",
@@ -21,8 +21,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the openings at the principal floor: the drawing's south pair has round heads under one arch and the door an arched head; built square-headed",
-      "status": "open"
+      "what": "the openings at the principal floor: the drawing's south pair has round heads and the door an arched head; both now built round-headed (T-3292). The drawing's one broad arch over the south pair is on the photograph's record as open (T-3294)",
+      "status": "fixed"
     },
     {
       "what": "the tower's lights: three a storey across the round bay, a broad centre light between two narrow ones; built two a storey",
