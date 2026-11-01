@@ -502,7 +502,11 @@ export const BARK_TILES = {
   furrowed: 0, furrowed_dark: 0, interlaced: 1, blocky: 2, plated: 3, ridged: 3,
   shaggy: 4, shaggy_strips: 4, smooth: 5, aspen: 5, sycamore: 6, corky: 7, warty: 7,
 };
-const LEAF_GRID = [4, 5];
+const LEAF_GRID = [4, 6];
+/** T-1934 — the bare winter elm's twig in the leaf atlas's sixth row: a branch end's twig
+ *  (`spray`) and a tuft of them massed (`tuft`), painted near the elm's bark colour by
+ *  tools/generate_tree_atlas.py (TWIG_TILES). */
+const TWIG_TILE = { spray: 20, tuft: 21 };
 /**
  * T-3017 — EACH LEAF TILE'S OPAQUE BOX: [u0, u1, v0, v1] in the tile's own units
  * (atlasUV's), measured from the committed atlas with 8 px to spare and printed
@@ -518,6 +522,7 @@ export const LEAF_CROP = [
   [0.106, 0.782, 0.002, 1.000], [0.000, 1.000, 0.106, 0.920], [0.164, 0.828, 0.002, 1.000], [0.000, 1.000, 0.098, 0.964],
   [0.190, 0.824, 0.002, 1.000], [0.000, 0.930, 0.012, 0.982], [0.204, 0.958, 0.002, 1.000], [0.066, 0.994, 0.084, 0.954],
   [0.378, 0.972, 0.000, 0.902], [0.000, 1.000, 0.100, 0.908], [0.204, 0.808, 0.002, 0.902], [0.102, 0.942, 0.094, 0.816],
+  [0.226, 0.718, 0.000, 0.968], [0.136, 0.920, 0.168, 0.918], [0.000, 1.000, 0.000, 1.000], [0.000, 1.000, 0.000, 1.000],
 ];
 const FULL_TILE = [0, 1, 0, 1];
 const BARK_GRID = [4, 2];
@@ -1247,6 +1252,46 @@ function winterElm(sk, rnd) {
 const ELM_FRINGE = { near: { segs: 2, depth: 3, floor: 0 }, mid: { segs: 1, depth: 1, floor: 0.010, spike: 0.020 },
   far: { segs: 1, depth: 0, floor: 0.04, spike: 0.08, reserve: 0.5 } };
 
+/**
+ * T-1934 — THE BARE ELM'S TWIG CARDS. Spent as geometry, the summer leaf's budget buys a
+ * grown parkway elm about 640 twigs at the mid ring and a dozen at the far, where Taylor's
+ * winter 16554 prints hundreds of fine twigs at every crown's rim and the crowns grey in
+ * against the sky. The leaf buys its density as a texture, and so now does the bare twig:
+ * at the mid and far rings a bare elm spends `share` of that budget on cards of the twig
+ * tile (TWIG_TILE.tuft, dozens of forking twigs a card), each rooted on the foot of one
+ * of its winter skeleton's sprouts (winterElm's fringe, off a limb's tip or along a
+ * branch, so a tuft grows out of drawn wood and never floats), rising the way the sprout
+ * rises, faced out of the crown and `size` times the sprout's first twig long, in the
+ * wood's own tone; the rest still draws its limbs, branches and fringe twigs as spikes. Two
+ * triangles a card, in the leaf batch, so winter still costs no more than summer. The
+ * tile is painted for the mip these rings sample it at (tools/generate_tree_atlas.py
+ * twig_marks), so a twig comes through as a line and not a blot.
+ */
+const ELM_TWIG_CARDS = { mid: { share: 0.10, size: 2.6, tile: 'spray' }, far: { share: 0.5, size: 3.0, tile: 'spray' } };
+
+function twigCards(leaves, sk, groups, cards, { size, tile }, tint, rnd) {
+  if (!cards || !groups.length) return 0;
+  const take = Math.min(1, cards / groups.length);
+  let drawn = 0;
+  for (const g of groups) {
+    if (drawn >= cards) break;
+    const t0 = g[0];
+    if (!t0 || rnd() > take) continue;
+    const foot = t0.pts[0];
+    const rise = norm(sub(t0.pts[t0.pts.length - 1], foot));
+    const out = norm([foot[0] - sk.off[0] + (rnd() - 0.5) * 0.5, 0, foot[2] - sk.off[2] + (rnd() - 0.5) * 0.5]);
+    const up = clamp01((foot[1] - sk.baseY) / sk.crownH);
+    // In the wood's own tone, a little lighter toward the crown's top: a twig is wood,
+    // and lit as a leaf is it read as a dead leaf's tan.
+    const k = 0.66 + 0.10 * up + (rnd() - 0.5) * 0.08;
+    const n = norm(add(out, [0, 0.8, 0]));
+    // The tuft's foot on the sprout's foot, its fan rising the way the sprout rises.
+    card(leaves, foot, rise, t0.L * size, TWIG_TILE[tile], mul(tint, k), n, 0.35 + 0.4 * up, rnd, out);
+    drawn++;
+  }
+  return drawn;
+}
+
 /** T-1934 — one twig as a three-sided pyramid: a ring of three at its foot (`r` across at
  *  least its own radius) and its tip, each face lit by its own outward normal. Three
  *  triangles where `tube` spends six on one segment. */
@@ -1632,7 +1677,11 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
       const F = wintry && lod !== 'near' ? ELM_FRINGE[lod] : null;
       const total = F ? Math.floor(sk.clumps.length * Math.max(BARE_TWIGS[lod].perClump, sk.elm ? elmShare[lod] * 2 : 0)) : 0;
       const kept = F ? Math.floor(total * (F.reserve ?? 0)) : 0;
-      let left = BARE_TWIGS[lod] ? bareTwigs(wood, wsk, F ? { ...BARE_TWIGS[lod], segs: 1, spike: F.spike, budget: total - kept }
+      // T-1934: a share of it as twig cards (ELM_TWIG_CARDS), the rest as below.
+      const C = F ? ELM_TWIG_CARDS[lod] : null;
+      const cards = C ? twigCards(leaves, sk, wsk.fringe, Math.floor((total * C.share) / 2), C, barkUpper,
+        mulberry32(seed ^ 0x1934c)) : 0;
+      let left = BARE_TWIGS[lod] ? bareTwigs(wood, wsk, F ? { ...BARE_TWIGS[lod], segs: 1, spike: F.spike, budget: total - kept - cards * 2 }
         : wintry ? { ...BARE_TWIGS[lod], segs: 1 } : BARE_TWIGS[lod],
         (b) => sides[Math.min(3, b.order)] && (b.rad[0] >= minRad || b === keep), barkTile, barkUpper, flexOf, brnd) + kept : 0;
       // The winter elm's fringe: at mid and far, in what the bare twigs left of the summer
