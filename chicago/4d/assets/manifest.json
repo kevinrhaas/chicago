@@ -3319,9 +3319,9 @@
     "kellogg_house_1923_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 6947548,
+      "bytes": 7023396,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1341223bf9fcca62736c833c19ef310d8009d00964b390052b241c2dacda6131",
+      "inputs_sha256": "4163ebf1eab34aa49b1c92b21599c65f1eb01e2accf18affb2a95000afe9bb8e",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "kellogg_house_1923_prairie"

@@ -35391,11 +35391,19 @@ them), the stacks but the south one, the deck's pitch and the coverings (the pic
 the rainwater, the sash pattern and the yard's walk; the porch's balustrade and the hood's depth; the south flank
 bay's windows and roof; the rear ranges' floors, heights, windows and decks; the one attic dormer on the south face.
 **What is not built.** The sheet's one-storey strip along the north wall's front half ('1B.'); the mansard the sheet's
-dashed line runs round the rear ranges; the vignette's arch between the porch's columns and the stoop's curved stone
-cheeks with round-capped posts at their foot; the carving the vignette's hoods and cornice suggest: open on the match
-records for T-3283.
-**How to resolve:** T-3283 works both pictures to matches and builds the rear, roof and cost views T-1908's
-acceptance asks for.
+dashed line runs round the rear ranges; the vignette's pairing of the porch's columns; the vignette's large-scroll fence panels (K11 has no
+such panel); the carving the vignette's hoods and cornice suggest: open on the match records.
+**How to resolve:** the porch's paired columns need a hood that stands on two columns at each end; the fence
+panels a K11 panel of large scrolls between posts; the corner bay's width a ruling on whether the elevation or the
+sheet's plan holds. Each is open on its match record; no ticket is filed for them (AGENTS.md rule 11).
+**Revised (T-3283, piece 3 of T-1908, 2026-11-01):** worked against both pictures. The porch is widened to the
+elevation's 4.9 m on a 4.8 m stoop and turns a round arch between its columns (the vignette's); the stoop's cheeks
+sweep down and out to capped newels at the walk (the vignette's round-capped posts); the chamber storey leaves the
+door's column blind, the elevation's plain panel over the entrance; the chamber lights are 3.2 m from a 0.1 m sill,
+the tallest K09's hood allows under K10's frieze (the corner bay's 3.1 m from 0.2 m, heads level, the clearance
+K08 keeps over a storey's floor). These are read off the pictures (inferred) and add nothing to the
+invented list above. Front, oblique, rear and roof views with their costs, in the published app at 1280x800 and
+390x780: `docs/RESEARCH/k01-1923-1945-views-3283/`.
 **Covers:** `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_front_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_side_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.service_wall_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_pitch_deg`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_covering`, `kellogg_house_1923_prairie.as_mapped_1904.form.stair_tread_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.side_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.north_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.rear_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.chimneys`, `kellogg_house_1923_prairie.as_mapped_1904.form.rainwater`, `kellogg_house_1923_prairie.as_mapped_1904.form.window_kit`, `kellogg_house_1923_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3282 (piece 2 of T-1908).
 **Review:** `docs/RESEARCH/photo-match/kellogg_house_1923_prairie/`.
