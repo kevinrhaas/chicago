@@ -1,12 +1,14 @@
 {
   "id": "marshall_field_jr_house_1919_prairie",
-  "phase": "draft_1904",
-  "name": "1919 Prairie Avenue — Field Jr., post-1902 enlargement (district draft; refined by T-1906, T-1907)",
+  "phase": "as_mapped_1904",
+  "name": "1919 Prairie Avenue — Marshall Field Jr. house, after its 1902 enlargement, K01 frontage assembly",
   "aka": [
-    "1919 S. Prairie Avenue"
+    "1919 S. Prairie Avenue",
+    "Marshall Field Jr. house",
+    "the Gatlin Institute (from 1909)"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/marshall_field_jr_house_1919_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -31,23 +33,23 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The house claims the 1904 target and no more: the 1911 sheet draws it and the T-1841 census rules it present in 1904 (present_as_mapped); the 1912 and 1913 plates photograph it c. 1909-1912 in the form its 1902 enlargement gave it. Its building and loss dates are T-1907's to read.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1446.939,
-    "local_n": -3404.818,
+    "local_e": 1440.132,
+    "local_n": -3404.084,
     "rotation_deg": 179.445,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 21.500, v -0.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.445 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear north corner of the main body read off the 1911 sheet's trace (T-3279): the draft frame's u 6.80, v -0.80 (lot frame u 28.300, v -1.550 from the middle of the rear lot line), where the traced front block's rear (the step to the wider middle range) meets its north wall. Through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.445 degrees turns the plan's u axis onto the lot's own rear-to-street line, so v runs SOUTH: K01's 'south' wall is the real north flank.",
     "symbolic_location": "1919 S. Prairie Avenue, parcel prairie_1919 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -57,136 +59,622 @@
         0.0
       ],
       [
-        25.75,
+        18.4,
         0.0
       ],
       [
-        25.75,
-        9.0
+        18.4,
+        9.9
       ],
       [
         0.0,
-        9.0
+        9.9
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The front block read off the 1911 sheet's trace (s28fp-1919-b1, data/traces/prairie_1904_footprints_s28.json): in the draft's frame its rear at u 6.8 (where the plan steps out to the middle range), its front wall at 25.2 (18.4 m deep), its north wall at v -0.8 and its south wall at 9.1 (9.9 m along the street). The sheet draws the front swelling forward to u 26.0 between corners cut back to 25.2 (v 0.4-8.8): that swell is the bowed front of the 1913 plate, built as a K08 bow (bays). The north wall's shallow bows (about 0.6 m, u 9.4-19.3) are the tower's and the stack's. What stands behind the block is the rear wings'."
   },
   "attributes": {
     "stories": {
       "value": 2,
       "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "cdn_almanac_1913_gatlin_1919_plate"
       ],
-      "note": "'2½S.B.' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
+      "note": "'2½S.B.' printed on the 1911 sheet over the front block, and both Gatlin plates show it: two full storeys of brick over a raised basement and a half storey in the roof, lit by dormers."
     },
     "construction": {
       "value": "brick",
       "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "chicago_blue_book_1912_gatlin_1919_plate"
       ],
-      "note": "The register reads the map's colours as 'brick'."
+      "note": "The sheet colours the house pink (brick) and prints 'S.B.' (stone basement); the 1912 and 1913 plates show red pressed brick walls dressed in stone. Built as K01's brick house with stone lintels; the plates' stone belts and quoins are not yet laid (the match record's open differences)."
     },
-    "draft_plan": {
+    "principal_floor_m": {
+      "value": 1.7,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a high stoop at the front's south end, which both plates show climbing to the door; its height is not readable in the halftones, so the principal floor is taken at 1.7 m (ten risers, which the K07 stoop and the K01 stair solve alike) inside the contract's range."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.1,
+        3.7
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: two tall storeys of a large house, the principal one the taller; the wall head stands at 9.5 m, which the 1913 plate's camera puts at the eave line it shows over the front (data/reference_views/marshall_field_jr_house_1919_prairie/cdn_almanac_1913.json)."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a brick front, as 1616's."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the sheet prints '12' (inches) against the walls; K01 lays it at 0.33 with its joints."
+    },
+    "service_wall_brick": {
+      "value": "rough_red_brown_running",
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate"
+      ],
+      "note": "Every wall the plates show, the street front and the long north flank alike, is the same dark red brick, so the K03 red-brown panel is laid all round rather than the buff common brick; the 2004 photograph of the restored house shows red brick on both faces."
+    },
+    "street_front_trim": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "hip",
-            "rect": [
-              0.0,
-              0.0,
-              25.75,
-              9.0
-            ],
-            "from": "s28fp-1919-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "hip",
-            "rect": [
-              -21.25,
-              -4.25,
-              -0.25,
-              9.25
-            ],
-            "from": "s28fp-1919-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 81% of its fill"
-          }
-        ],
-        "lot_v": [
-          -8.591,
-          10.091
-        ],
-        "street_u": 33.177
+        "by_storey": [
+          "k01.flat_lintel",
+          "k01.flat_lintel"
+        ]
       },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: stone lintels over every window: the plates show square-headed windows in the brick under pale heads, too small in the halftone to read a profile."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K10's bracketed eave cornice under the hip, the kit's cornice for a hip; the plates show a heavy eave carried round the front and its canted corner, its profile not readable."
+    },
+    "roof_form": {
+      "value": "hip",
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "chicago_blue_book_1912_gatlin_1919_plate"
+      ],
+      "note": "The plates show the front block under a steep slated roof with a dormer on its street slope, and no flat deck or mansard curb; built as K01's hip, its ridge running front to back. The plates' gables on the north flank are the rear ranges' (rear_wings)."
+    },
+    "roof_pitch_deg": {
+      "value": 45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the steepest of K01's ordinary band; the plates show it steeper, which K01 lets a hip reach only on a reading it can measure."
+    },
+    "eave_overhang_m": {
+      "value": 0.5,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K05 eave over the bracketed cornice, 1712's."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "slate_pennsylvania",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate"
+      ],
+      "note": "The plates show a dark, small-unit covering on every slope, read as slate; copper flashings and ridge roll are the kit's."
+    },
+    "dormer": {
+      "value": {
+        "width_m": 2.0,
+        "face_setback_m": 0.3,
+        "face_height_m": 2.2,
+        "face_thickness_m": 0.2,
+        "pitch_deg": 45,
+        "verge_m": 0.15,
+        "sash": {
+          "sill_m": 0.25,
+          "width_m": 1.15,
+          "height_m": 1.5
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "chicago_blue_book_1912_gatlin_1919_plate"
+      ],
+      "note": "The gabled dormer on the street slope over the front, which both plates show with a broad light under its gable (three lights in the 1913 plate, built as one K05 sash at the contract's widest, 1.15 m, under a 2.0 m dormer; the plate's broader three-light face is an open difference)."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K07 stoop's."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.2,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K07 stoop's."
+    },
+    "stoop_width_m": {
+      "value": 1.8,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K07 stoop's."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "chicago_blue_book_1912_gatlin_1919_plate"
+      ],
+      "note": "The door at the front's south end (K01's 'north' in this frame), where both plates show the stoop climbing beside the south neighbour."
+    },
+    "front_bays": {
+      "value": [
+        8.65
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED in its windows: the front wall's own column is the door's at the south end, with a window over it, where the plates show the stoop and an arched opening beside the south neighbour; the rest of the front is the bow (bays), whose windows are the front's. The plates show the front too obliquely and under trees to count its windows."
+    },
+    "side_bays": {
+      "value": [
+        1.6,
+        4.2,
+        6.8,
+        9.4
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a window a storey along the main body's north flank (K01's south wall) behind the tower: the 1913 plate shows windows in two storeys there, but not where along the wall."
+    },
+    "north_bays": {
+      "value": [
+        4.0,
+        12.0
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: two windows a storey in the south wall (K01's north), which stands about 1 m off the lot line facing 1923's north wall."
+    },
+    "rear_bays": {
+      "value": [],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1919-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill; s28fp-1919-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "None: the middle range (rear_wings) covers the whole rear wall on the 1911 sheet."
     },
-    "draft_elevation": {
-      "value": {
-        "kind": "house",
-        "seed": 465919014,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 38,
-        "mansard_lower_m": 3.0,
-        "front_bays": 3,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": true,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2330",
-          "refined_by": [
-            "T-1906",
-            "T-1907"
-          ]
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.1,
+          "height_m": 2.4
         },
-        "v_toward": "south"
-      },
+        {
+          "sill_above_floor_m": 0.6,
+          "width_m": 1.1,
+          "height_m": 1.95
+        }
+      ],
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: 2½S.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 465919014 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
+      "note": "RECONSTRUCTED: tall two-storey sash, the principal storey's the taller; the plates show tall square-headed windows."
     },
-    "draft": {
+    "basement_lights": {
       "value": {
-        "pass": "T-2330",
-        "liberty": "L-draft-prairie-18-20-east-2330",
-        "register_row": "frontage-28-056",
-        "census_ids": [
-          "s28-1919-front",
-          "s28-1919-wing"
-        ],
-        "trace_building": "s28fp-1919-b1",
-        "seed": 465919014,
-        "replaceable_by": [
-          "T-1906",
-          "T-1907"
-        ],
-        "card": "District draft — refined by T-1906, T-1907."
+        "sill_m": 0.4,
+        "width_m": 0.9,
+        "height_m": 0.7
       },
       "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "RECONSTRUCTED: lights in the stone basement ('S.B.') under the principal windows."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K06 two-over-two double-hung sash (the kit has no flat-headed one-over-one; the plates cannot resolve the glazing bars); the basement lights the kit's area light."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 3.0,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 16.3,
+            "v_m": 0.8,
+            "plan_m": [
+              1.4,
+              0.9
+            ]
+          },
+          {
+            "u_m": 2.6,
+            "v_m": 0.75,
+            "plan_m": [
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate"
+      ],
+      "note": "The two tall stacks the 1913 plate shows rising off the north flank well above the ridge: one between the round tower and the front's canted corner, one further back. Their places along the wall are read through the plate's camera; their plans and their height, 3.0 m over the ridge (K01 tops a hip's stacks off the ridge), are RECONSTRUCTED at about what the plate shows."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 0.35
+          },
+          {
+            "wall": "k01.wall.side.north",
+            "s_m": 0.35
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: half-round copper gutters on the hip's eaves and round downpipes at the north flank's rear end and the south wall's front end; the street front, whose corner brackets the kit stands at both ends, carries none."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 7.98
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K07's panelled door at the head of a straight stoop; the front wall stands 7.98 m from the 1904 parcel's street line (the sheet's bow comes 0.8 m nearer, its 7.15 m)."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "front_bow",
+          "variant": "k08.bay.bowed",
+          "wall": "k01.wall.street_front",
+          "s_m": 3.9,
+          "fabric": "brick",
+          "plan": {
+            "kind": "bow",
+            "chord_m": 6.0,
+            "rise_m": 1.0
+          },
+          "storeys": [
+            {
+              "height_m": 5.8,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.4,
+                  "sill_m": 2.45,
+                  "at_deg": [
+                    -25,
+                    0,
+                    25
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 2.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 1.8,
+                  "sill_m": 0.4,
+                  "at_deg": [
+                    -25,
+                    0,
+                    25
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0.05,
+            "covering": "tin_flat_seam_painted"
+          }
+        },
+        {
+          "id": "north_tower",
+          "variant": "k08.tower.round",
+          "wall": "k01.wall.side.south",
+          "s_m": 13.4,
+          "fabric": "brick",
+          "plan": {
+            "radius_m": 1.3,
+            "centre_proud_m": 0.1
+          },
+          "storeys": [
+            {
+              "height_m": 5.8,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.2,
+                  "sill_m": 2.35,
+                  "at_deg": [
+                    -50,
+                    0,
+                    50
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 3.7,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.0,
+                  "sill_m": 0.7,
+                  "at_deg": [
+                    -50,
+                    0,
+                    50
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 2.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 1.5,
+                  "sill_m": 0.6,
+                  "at_deg": [
+                    -50,
+                    0,
+                    50
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0.9,
+            "covering": "slate_pennsylvania",
+            "finial": true
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "middle_range",
+          "rect": [
+            -7.0,
+            0.0,
+            -3.1,
+            10.85
+          ],
+          "past_host": true,
+          "floor_m": 1.7,
+          "storey_heights_m": [
+            4.2,
+            3.7
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.1,
+              "height_m": 2.4
+            },
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.1,
+              "height_m": 1.95
+            }
+          ],
+          "windows": {
+            "south": [
+              2.0,
+              5.0
+            ],
+            "north": [
+              1.6,
+              5.2
+            ]
+          },
+          "roof": {
+            "kind": "gable",
+            "gable_to": "south",
+            "pitch_deg": 50,
+            "overhang_m": 0.3,
+            "fascia_m": 0.3,
+            "covering": "slate_pennsylvania"
+          }
+        },
+        {
+          "id": "rear_range",
+          "rect": [
+            -16.4,
+            -7.0,
+            -4.8,
+            10.8
+          ],
+          "past_host": true,
+          "floor_m": 1.7,
+          "storey_heights_m": [
+            4.2,
+            3.7
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.1,
+              "height_m": 2.4
+            },
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.1,
+              "height_m": 1.95
+            }
+          ],
+          "windows": {
+            "south": [
+              1.8,
+              4.6,
+              7.4
+            ],
+            "north": [
+              2.4,
+              6.6
+            ]
+          },
+          "roof": {
+            "kind": "gable",
+            "gable_to": "south",
+            "pitch_deg": 50,
+            "overhang_m": 0.3,
+            "fascia_m": 0.3,
+            "covering": "slate_pennsylvania"
+          }
+        },
+        {
+          "id": "garage",
+          "rect": [
+            -28.2,
+            -16.4,
+            -4.8,
+            10.8
+          ],
+          "floor_m": 0.15,
+          "storey_heights_m": [
+            4.0,
+            3.4
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 1.2,
+              "width_m": 1.0,
+              "height_m": 1.6
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.6
+            }
+          ],
+          "windows": {
+            "south": [
+              2.5,
+              6.0,
+              9.5
+            ],
+            "rear": [
+              3.0,
+              7.8,
+              12.6
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "cdn_almanac_1913_gatlin_1919_plate"
+      ],
+      "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2½S.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2½S.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 7.78,
+        "lot_s_m": [
+          -7.79,
+          10.89
+        ],
+        "fence": "k11.fence.scroll_band",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 70
+        },
+        "posts": {
+          "section_m": 0.12,
+          "height_m": 1.4
+        },
+        "side_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "pier_s_m": -2.0,
+          "drawn_deg": 0
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "chicago_blue_book_1912_gatlin_1919_plate"
+      ],
+      "note": "The iron fence on the street line that both plates show along the front and the north yard, with a gate at the walk; its pattern is not readable in the halftones and is K11's scroll band, as 1905's next door. A second gate on piers closes the side passage into the north yard (RECONSTRUCTED: K11 gates an iron front's side passage; its place is the kit's)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.5
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the walk in flags from the stair's foot through the fence's gate to the public walk, the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year; liberty L-k01-1919-field-jr-3279."
     },
     "function": {
       "value": "residence",
@@ -207,6 +695,42 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "cdn_almanac_1913_gatlin_1919_plate",
+      "citation": "'Former Residence of Marshall Field Jr.' [1919 S. Prairie Avenue], halftone in the Gatlin Institute advertisement 'Liquor and Drug Habits Quickly Cured', The Chicago Daily News Almanac and Year-Book for 1913 (Chicago: Chicago Daily News Company, 1912), p. 619. Photographer uncredited.",
+      "url": "https://archive.org/details/chicagodailynews1913chic/page/n622/mode/1up",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the post-1902 massing seen from the north-west: the narrow front, its canted north corner and the stoop at its south end; the long north flank with its round tower, tall stacks, steep gables and dormers",
+        "the materials' tone: dark brick, paler stone dressings, dark slate",
+        "the iron fence on the street line"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the plate is monochrome",
+        "the south flank and the rear",
+        "fine detail: the halftone screen hides mouldings, glazing bars and carving",
+        "a 1904 date: the photograph is c. 1909-1912"
+      ]
+    },
+    {
+      "source_id": "chicago_blue_book_1912_gatlin_1919_plate",
+      "citation": "'Home of Gatlin Institute, former Mansion of Marshall Field' [1919 S. Prairie Avenue], halftone in the Gatlin Institute advertisement 'Drink Habit Cured in Three Days', The Chicago Blue Book of Selected Names of Chicago and Suburban Towns for the Year Ending 1912 (Chicago: Chicago Directory Company, 1911), p. 28. Photographer uncredited.",
+      "url": "https://archive.org/details/chicagobluebooko1912chic/page/n27/mode/1up",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second view of the north flank, the tower, the stacks, the gables and the street dormer, confirming the 1913 plate"
+      ],
+      "what_it_does_not_supply": [
+        "colour",
+        "the south flank and the rear",
+        "fine detail",
+        "a 1904 date"
+      ]
+    },
     {
       "source_id": "hmdb_prairie_heritage_preserved",
       "citation": "'A Heritage Preserved', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308723.",
@@ -242,8 +766,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1906, T-1907 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1919-b1), the T-1841 census (s28-1919-front, s28-1919-wing) and the T-1837 register row frontage-28-056 (Field Jr., post-1902 enlargement); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "T-3279 (piece 1 of T-1906) refines the district draft (T-2330) in place under the same id: the house is rebuilt on the K01 frontage assembly and its kits instead of the draft builder, from the two Gatlin Institute advertisement plates (the 1912 Chicago Blue Book's and the 1913 Daily News Almanac's, both photographs of c. 1909-1912, public domain) against the 1911 Sanborn sheet 28. The plates show the house as Marshall Field Jr.'s 1902 enlargement left it (the Institute bought it in 1909 and changed its use, not its form): a narrow red brick front with a canted north corner and a stoop at its south end, a long north flank with a round tower close behind the front, two very tall stacks, steep slated roofs with dormers and gables. The 1913 plate's camera is solved and its match record written (differs); the other pictures (the c. 1905 Daily News negative, the before-1902 photograph of the earlier front, the 1919 programme, the 1981 and 2004 photographs, the elevations drawing) are T-3280's. Liberty L-k01-1919-field-jr-3279 records what is built without a reading.",
   "research_doc": "",
   "review_required": false,
-  "called": "1919 Prairie Avenue — Field Jr., post-1902 enlargement"
+  "called": "1919 Prairie Avenue — Marshall Field Jr. house, after its 1902 enlargement"
 }

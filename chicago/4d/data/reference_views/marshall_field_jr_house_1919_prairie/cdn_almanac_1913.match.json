@@ -1,0 +1,65 @@
+{
+  "structure_id": "marshall_field_jr_house_1919_prairie",
+  "view": "cdn_almanac_1913",
+  "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
+  "glb_sha256": "042431a4183171730a82f2d620bc18b66416f7ec3777158cf9655ff6be394ccc",
+  "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
+  "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
+  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's generic block is now the plate's house: a narrow red brick front two storeys over a stone basement under a steep slated hip with a street dormer, its long north flank running back past a round tower to steep-gabled half-storey ranges and a two-storey garage; the two tall stacks, the tower, the dormer and the front's corners lie within about 15-25 px of the plate (16 px RMS on the fitted points)",
+      "status": "fixed"
+    },
+    {
+      "what": "the broad bow across the front's north part, which the plate shows as the wall and eave sweeping round from the north corner: built as a K08 bow, 6.0 m on its chord and 1.0 m out, where the 1911 sheet draws the front swelling 0.8 m forward",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's north corner: the plate sweeps the eave round it in a curve and the sheet cuts it back about 0.85 by 1.2 m; built square (K01 cuts a canted corner only under a mansard and rounds one only in a stone front)",
+      "status": "open"
+    },
+    {
+      "what": "the bow is carried up to the eave in the plate, the main cornice running round it; built stopping under the cornice's bed with a nearly flat cap (K08 stops a bay below the bed moulding)",
+      "status": "open"
+    },
+    {
+      "what": "the round tower: the plate takes it about 2 m higher than built, with a broader, more solid top; the build's low slated cone is the kit's",
+      "status": "open"
+    },
+    {
+      "what": "the north flank's two-storey bays with flat tops (balconies over them) across the rear ranges, and the rear range's canted north bay the sheet draws: not built, the ranges' north walls are flat",
+      "status": "open"
+    },
+    {
+      "what": "the steep gables over the rear ranges: the plate draws three or more, stepped and finialled at their peaks; built as two plain slated gables",
+      "status": "open"
+    },
+    {
+      "what": "the street dormer: the plate's is broad, three lights under its gable; built with one sash at the K01 contract's widest",
+      "status": "open"
+    },
+    {
+      "what": "the entrance at the stoop's head: the plate shows an arched opening beside the south neighbour; built as K07's square-headed panelled door",
+      "status": "open"
+    },
+    {
+      "what": "stone belts and dressings: the plate shows pale stone courses and window dressings across the brick; built with plain stone lintels only",
+      "status": "open"
+    },
+    {
+      "what": "windows: their count and places along the front and the flank are the kit's, not read (the plate is too coarse and the trees hide the lower storey)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "colour: the brick's red, the stone's tone and the slate are read from later photographs and the trade's materials; the plate is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the south neighbour (1923, the mansard at the plate's right edge), the street trees, the lamp post and the iron fence's pattern: not part of this record (the fence is K11's scroll band, its pattern unreadable)",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

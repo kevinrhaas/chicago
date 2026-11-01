@@ -1,0 +1,217 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of QA_FRAMES (default 5) renders, each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 64965,
+      "js_heap_used_bytes": 83465836,
+      "js_heap_total_bytes": 84955136,
+      "prairie_records_in_registry": 146,
+      "placed": [
+        "moulton_lowden_house_1912_prairie",
+        "moulton_lowden_house_1912_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 2,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "rear",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 2458,
+            "rendererCalls": 237,
+            "multiDraw": true,
+            "triangles": 2000065,
+            "programs": 90,
+            "geometries": 496,
+            "textures": 1128,
+            "batches": 405,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 76381780,
+            "fps": 0,
+            "cameraNear": 0.7000000000000001,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 10442.7,
+          "frames_timed": 5,
+          "camera": [
+            1335,
+            -3394.6,
+            22.45
+          ],
+          "target": [
+            1364,
+            -3394.6,
+            11.49
+          ]
+        },
+        {
+          "name": "rear-alley",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 3519,
+            "rendererCalls": 205,
+            "multiDraw": true,
+            "triangles": 1942230,
+            "programs": 90,
+            "geometries": 532,
+            "textures": 1194,
+            "batches": 405,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 76381780,
+            "fps": 0,
+            "cameraNear": 0.55,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 10020.3,
+          "frames_timed": 5,
+          "camera": [
+            1334,
+            -3376,
+            18.45
+          ],
+          "target": [
+            1362,
+            -3396,
+            12.49
+          ]
+        },
+        {
+          "name": "roof",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1867,
+            "rendererCalls": 130,
+            "multiDraw": true,
+            "triangles": 1166675,
+            "programs": 90,
+            "geometries": 532,
+            "textures": 1194,
+            "batches": 405,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 76381780,
+            "fps": 0,
+            "cameraNear": 1.85,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 5790.2,
+          "frames_timed": 5,
+          "camera": [
+            1394,
+            -3374,
+            50.54
+          ],
+          "target": [
+            1372,
+            -3395,
+            12.49
+          ]
+        }
+      ]
+    }
+  ]
+}
