@@ -30152,6 +30152,12 @@ species look. The atlases are painted from code; one photograph is sampled, a mo
 leaf (`bioimages_ulmus_americana_11688`, CC BY 4.0), whose veins and mottle fill the elm's painted
 blades since T-3247: it is the species' leaf surface, not evidence about any tree. Repeating a few variants
 makes neighbouring trees of a species siblings, not individuals.
+A bare winter crown at the `mid` and `far` detail levels draws the branches and twigs that those
+levels leave to the summer leaf, as single strokes held to at least 1.0 cm (`mid`) and 4 cm (`far`)
+of radius, and only as many as the leaf's own triangles would have cost. A twig is thinner than
+that, so these twigs are drawn thicker than they are, enough for a crown 15-70 m off to grey in
+round its limbs as the winter photographs print it (Taylor's 16554), rather than vanish under a
+pixel and leave a pole (T-1934).
 **How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
 Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
 **Ticket:** T-2743.
