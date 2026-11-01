@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 929,
+  "count": 930,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1551,7 +1551,7 @@
     },
     {
       "id": "marshall_field_jr_house_1919_prairie",
-      "name": "1919 Prairie Avenue — Field Jr., post-1902 enlargement"
+      "name": "1919 Prairie Avenue — Marshall Field Jr. house, after its 1902 enlargement"
     },
     {
       "id": "mason_blacksmith_shop",
@@ -35490,7 +35490,6 @@
         "kellogg_house_1923_prairie_coach_house",
         "marshall_field_house_1905_prairie",
         "marshall_field_house_1905_prairie_coach_house",
-        "marshall_field_jr_house_1919_prairie",
         "ream_house_1901_prairie",
         "ream_house_1901_prairie_coach_house",
         "sears_meeker_house_1815_prairie",
@@ -35559,18 +35558,6 @@
         },
         {
           "domain": "structure",
-          "structure": "marshall_field_jr_house_1919_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "marshall_field_jr_house_1919_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "ream_house_1901_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35599,7 +35586,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35608,6 +35595,10 @@
         {
           "label": "How to resolve",
           "text": "each house's per-building piece of work (to, named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id; the alley buildings are earlier work's. **1811 retired from this liberty by later work (2026-10-16):** the house now stands as the K01 stone-front house under `“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”`, under the same id; its draft attributes are gone, and its stable keeps 1811 S. Prairie Avenue — the alley building of the house at 1811 here. **1815 retired from this liberty by later work (2026-10-25):** the house now stands as the K01 stone-front house under `“1815 Prairie refined from the district draft to a K01 stone-front house under a mansard, its pavilion, corner bay and balcony read off its photographs”`, under the same id; its draft attributes are gone, and its coach house keeps 1815 S. Prairie Avenue — the alley building of the house at 1815 here. **1823 retired from this liberty by later work (2026-10-26):** the house now stands as the K01 stone-front house under `“1823 Prairie refined from the district draft to a K01 stone-front house under a mansard, its south pavilion, window groups and stacks read off its pictures”`, under the same id; its draft attributes are gone. **1827 retired from this liberty by later work (2026-10-26):** the Doane house's main block now stands as the K01 stone house read off the Chicagology photograph, under `“1827 Prairie refined from the district draft to a K01 stone house under a mansard, its pavilion, porch and heights read off the Chicagology photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1901 retired from this liberty by later work (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house read off the 1898 Chicagology photograph, under `“1901 Prairie refined from the district draft to a K01 stone house under a dormered mansard, its porch and balcony read off its photographs”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1905 retired from this liberty by later work (2026-10-30):** Marshall Field's house now stands as the K01 brick house read off the 1893 Pictorial Chicago plate, under `“1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1923 retired from this liberty by later work (2026-10-31):** the Kellogg house now stands as the K01 brick house read off the 1898 Tribune vignette and the c. 1914 row elevations, under `“1923 Prairie refined from the district draft to a K01 brick house under a crested mansard, its north corner bay carried past the cornice, read off the 1898 Tribune vignette and the c. 1914 row elevations”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1945 retired from this liberty by later work (2026-10-31):** the George Armour/Corwith house now stands as the K01 brick house read off the Tribune's 1928 'Famous Homes' photograph, under `“1945 Prairie refined from the district draft to a K01 brick Second Empire corner house under a dormered mansard, read off the Tribune's 1928 photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's."
+        },
+        {
+          "label": "Retired in part",
+          "text": "1919 Marshall Field Jr.'s house by later work, which refined it in place on the K01 frontage kit under `“1919 Prairie refined from the district draft to a K01 brick house with a bowed front, a round tower and tall stacks, read off the 1912 and 1913 Gatlin Institute plates”`."
         },
         {
           "label": "Review",
@@ -35635,7 +35626,9 @@
         "T-3185",
         "T-3260",
         "T-3282",
-        "T-3281"
+        "T-3281",
+        "T-1906",
+        "T-3279"
       ]
     },
     {
@@ -63663,6 +63656,166 @@
       ],
       "work_refs": [
         "T-1881"
+      ]
+    },
+    {
+      "id": "L-k01-1919-field-jr-3279",
+      "title": "1919 Prairie refined from the district draft to a K01 brick house with a bowed front, a round tower and tall stacks, read off the 1912 and 1913 Gatlin Institute plates",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_jr_house_1919_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_jr_house_1919_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-31",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1919 Prairie Avenue, Marshall Field Jr.'s after its 1902 enlargement, is no longer a district draft. It stands, under the draft's own id 1919 Prairie Avenue — Marshall Field Jr. house, after its 1902 enlargement, as a k01 frontage record built by the k01 emit generator, against the two Gatlin Institute advertisement plates ('Former Residence of Marshall Field Jr.' [1919 S. Prairie Avenue], halftone in… and 'Home of Gatlin Institute, former Mansion of Marshall Field' [1919 S. Prairie…, photographs of c. 1909-1912, public domain): a red brick house of two storeys over a stone basement with a half storey in a steep slated hip, a broad bow across its narrow street front's north part, the stoop and door at its south end, a round tower on the north flank close behind the front with two very tall stacks beside and behind it, and the sheet's half-storey ranges under steep gables running back along the north flank to a two-storey garage at the alley. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1919-b1, census s28-1919-front and s28-1919-wing): the front block's place and plan (18.4 by 9.9 m, with the front swelling 0.8 m forward between cut-back corners), the middle range, the rear range and the garage and their storeys ('2½S.B.', '2B'), brick walls and a stone basement. From the 1913 plate through its solved camera (the cdn almanac 1913 data), and confirmed by the 1912 plate: the bow, the tower's place, the two stacks' places, the street dormer, the steep north-facing gables of the rear ranges, the stoop at the south end, the iron fence, and the materials' tone (dark brick, pale stone, dark slate). **What is invented.** Every height (the principal floor at 1.7 m, the storeys at 4.1 and 3.7 m, the hip's 45 degrees, the ranges' 50 degree gables); the windows' count, places and sash, and the stone lintels over them; the bow's chord and its windows; the tower's radius, stages and low slated cap; the stacks' plans and their 3.0 m over the ridge; the bracketed eave cornice; the rainwater; the fence's pattern, its gates and the flagged front walk (K11's and K14's kits). **What is not built.** The front's north corner, which the sheet cuts back and the plate sweeps the eave round, stands square (K01 cuts a canted corner only under a mansard and rounds one only in a stone front); the stone belts and quoins; the dormer's three lights; the north flank's two-storey bays with their balconies and the rear range's canted north bay; the stepped gables; the arched entrance; the tower's true height and top. All are open on the match record for later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work solves the other pictures' cameras (the c. 1905 Daily News negative, the 1919 programme, the 1981 and 2004 photographs, the elevations drawing), builds what they show and brings the match records to `matches`; earlier work finishes the architecture."
+        },
+        {
+          "label": "Covers",
+          "text": "`marshall_field_jr_house_1919_prairie.as_mapped_1904.form.principal_floor_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.storey_heights_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_thickness_front_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_thickness_side_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.street_front_trim`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.wall_head`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.roof_pitch_deg`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.eave_overhang_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stair_tread_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stair_landing_depth_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.stoop_width_m`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.front_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.side_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.north_bays`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.sash_by_storey`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.basement_lights`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.window_kit`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.rainwater`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.entrance_kit`, `marshall_field_jr_house_1919_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-31 (T-3279)."
+        }
+      ],
+      "work_refs": [
+        "T-3279",
+        "T-1906",
+        "T-3280",
+        "T-1907"
       ]
     },
     {

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2532, ts: '2026-11-01T13:07:17.505Z', date: 'Nov 1, 2026, 7:07 AM CT', title: '1919 Prairie stands as Marshall Field Jr.\'s house from its photographs', kind: 'feature',
+    items: [
+      '1919 Prairie Avenue, Marshall Field Jr.\'s house, is no longer a draft box: a red brick house of two storeys over a stone basement under a steep slate roof, its narrow front swelling forward in a broad bow, with the stoop and door at its south end.',
+      'Along its long north side a round tower rises past the eaves beside two very tall chimneys, and steep-gabled wings run back to a garage on the alley, as the 1911 fire map draws the plan.',
+      'It is built to two 1912-1913 photographs of the house printed in Gatlin Institute advertisements, and compared against the sharper one from its photographer\'s own viewpoint. The card says what is still to come, such as the stepped gables and the side bays.',
+    ] },
   { v: 2531, ts: '2026-11-01T12:12:48.844Z', date: 'Nov 1, 2026, 6:12 AM CT', title: 'Winter elms keep their fine twigs farther off', kind: 'improvement',
     items: [
       'With the Season set to winter, the elms beyond about 45 m now carry a fringe of fine twigs above their limbs. Until now they stood as bare branches with no twigs at all.',

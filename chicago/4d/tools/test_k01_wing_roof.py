@@ -264,9 +264,12 @@ def main() -> int:
 
     # as-was: every committed K01 wing is still decked flat in tin, no wing slate laid, but
     # those a building's own ticket roofs from its picture (T-2843: 1801's, the Taylor photograph;
-    # T-3001: and r3b, the part of the sheet's rectangle the print shows at the east range's height)
+    # T-3001: and r3b, the part of the sheet's rectangle the print shows at the east range's height;
+    # T-3279: 1919's two half-storey ranges, under the steep gables the 1913 Gatlin plate shows
+    # along the north flank — the garage to the alley stays decked flat)
     import k01_emit
-    pictured = {"kimball_house_1801_prairie": {"r3", "r3b", "r2"}}
+    pictured = {"kimball_house_1801_prairie": {"r3", "r3b", "r2"},
+                "marshall_field_jr_house_1919_prairie": {"middle_range", "rear_range"}}
     n = 0
     for st, phase, _ in k01_emit.records():
         for w in (phase["form"].get("rear_wings") or {}).get("value", ()):
