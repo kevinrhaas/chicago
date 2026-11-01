@@ -2,7 +2,7 @@
   "structure_id": "dexter_house_1721_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/dexter_house_1721_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9a00202908b64db39f5eb96c7ff188a2db3d9c34ed357808a52cd6aa9ed8f921",
+  "glb_sha256": "7fd31b1da5606084d7ee8532130e27ebfbd8b23e601c4a299d147c74d081b2f5",
   "camera_sha256": "3da664e85e8113d4743c4b2b60543e98cbe9fd9997109602c8a3215fff050000",
   "photo_sha256": "b461a8115204b2394f5a6d464842c508687a32ac6381408ef1a7d108ad01d442",
   "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie/inland_architect_plate-side-by-side.jpg",
@@ -54,7 +54,7 @@
       "how": "T-1879: the stack moved to v 4.6 m and its top to 16.9 m over grade (top at y 205 px through this camera)"
     },
     {
-      "what": "the north flank: one column of openings about 4 m back from the front corner — a window at the third floor, a small oval light at the second, a narrow slot at the principal floor — and blank wall otherwise, where the record had two columns of windows",
+      "what": "the north flank: one column of openings about 4 m back from the front corner \u2014 a window at the third floor, a small oval light at the second, a narrow slot at the principal floor \u2014 and blank wall otherwise, where the record had two columns of windows",
       "status": "fixed",
       "how": "T-1879: side_bays read off this picture (K01's south wall is this house's north wall in its frame)"
     },
@@ -109,5 +109,5 @@
       "how": "T-3205: a low coping 0.4 m with 0.9 m posts at the opening, the flagged walk from the public walk to the stair; the render's coping meets the stair's cheeks as the plate's does, within about 0.3 m (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

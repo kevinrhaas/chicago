@@ -2,8 +2,9 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
+  "glb_sha256": "3124dd7ad02a4437bc20e27025c4930f61cbf2ee48f47f2ce1783978b4ebc084",
   "camera_sha256": "46115ac244cc65333d243964347a01814de2331453f82ea86651a33af8d4141a",
+  "photo_sha256": "b32fe308a5bc60e7b93bc1ac750da382523cd5c293b435b827b5f0e898625ad1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -100,5 +101,5 @@
       "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

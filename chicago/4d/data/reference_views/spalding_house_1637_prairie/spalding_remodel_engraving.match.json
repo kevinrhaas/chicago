@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c0e1ca07a903e777bb231c2936a0eeae82fe3c360b663fa09144ba72224dcd82",
+  "glb_sha256": "5529c64e8e97843e559f5da59976c34f074fabb7f51a7ac6d9dd7c40a5fe1338",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "photo_sha256": "623aefdf2d4fa77eba389efc6ab9970af93d7c20d0782a3d6994920ff82f89fa",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
@@ -139,5 +139,5 @@
       "how": "T-3221: a flagged walk laid from the stoop's foot, its 1.8 m width, out through the gap between the wall and the fence (s 0.87 to 7.55) to the public walk. It runs straight where the engraving curves it, a difference in the walk's line inside the garden's gap of well under a foot at the stoop and a few feet at the street: within tolerance for a reconstructed walk (L-k14-walks-1600-block-3215)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

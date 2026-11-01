@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2529, ts: '2026-11-01T11:02:33.663Z', date: 'Nov 1, 2026, 5:02 AM CT', title: 'Rounded bay-window caps no longer vanish when seen from above', kind: 'fix',
+    items: [
+      'Ten shallow, rounded bay-window caps on eight Prairie Avenue houses (1619, 1621, 1637, 1721, 1801, 1808, 1828 and 1905) were built inside out. From above they disappeared, leaving the bay open to the sky. Each now shows its roof from every side. From the street they look the same as before, and every picture these houses are checked against still matches.',
+    ] },
   { v: 2528, ts: '2026-11-01T10:59:26.507Z', date: 'Nov 1, 2026, 4:59 AM CT', title: 'Winter elms at middle distance carry twice the twigs', kind: 'improvement',
     items: [
       'With the Season set to winter, the bare elms a short walk away (about 10 to 45 m) now carry twice as many fine twigs, so their crowns grey in against the sky the way the elms do in Taylor\'s winter photograph of the Pullman estate.',

@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4e43237d72d7c851ed9c437a70e56649a9db2c6559f4e2e8ed32b996e3eab13e",
+  "glb_sha256": "9c1366b83565ceb2f4e762938c48660b0761fdea4f1aa9442f7674cebe0b602f",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -49,7 +49,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the gabled section's 18th Street face: the print's round oriel, two storeys on corbels (x 430-505 px, y 780-1000) under a balustraded balcony with an open loggia behind it, three round-arched lights under it (x 436-539, y 1020-1065) and the coped gable over (apex x 497); the build's p_gable is a flat pavilion with transomed pairs. The Taylor print's match record carries the same difference (open there) — T-1890: rebuilt to the print: a round oriel on the shallow pavilion's face, its bow 2.7 m on the chord and 0.6 m out, from the 5.0 m floor to a 9.2 m wall top on six stepped corbel courses down to 3.8 m, its two transomed lights bent to the bow, under a moulded cornice and the round stone balustrade the print carries on its top; the principal storey's three round-arched lights under it, 0.5 m clear each. Through this camera the oriel's width, its corbel, its balcony and the arched lights now stand where the print's do, the balcony's rail a little (about 0.5 m) over the print's",
+      "what": "the gabled section's 18th Street face: the print's round oriel, two storeys on corbels (x 430-505 px, y 780-1000) under a balustraded balcony with an open loggia behind it, three round-arched lights under it (x 436-539, y 1020-1065) and the coped gable over (apex x 497); the build's p_gable is a flat pavilion with transomed pairs. The Taylor print's match record carries the same difference (open there) \u2014 T-1890: rebuilt to the print: a round oriel on the shallow pavilion's face, its bow 2.7 m on the chord and 0.6 m out, from the 5.0 m floor to a 9.2 m wall top on six stepped corbel courses down to 3.8 m, its two transomed lights bent to the bow, under a moulded cornice and the round stone balustrade the print carries on its top; the principal storey's three round-arched lights under it, 0.5 m clear each. Through this camera the oriel's width, its corbel, its balcony and the arched lights now stand where the print's do, the balcony's rail a little (about 0.5 m) over the print's",
       "status": "fixed"
     },
     {
@@ -152,5 +152,5 @@
       "how": "L-kimball-1801-flank-shallow-1890"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
