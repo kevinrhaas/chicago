@@ -1,8 +1,0 @@
-{
-  "title": "The gate runs in four parts that each fit a run's limit",
-  "kind": "chore",
-  "items": [
-    "tools/check.sh --part k/N runs every N-th check, so a run gets a verdict in four calls of five to eight minutes instead of none from one call cut off at ten.",
-    "The four parts cover exactly the checks of the whole gate, each publishing the site for itself, and a part's pass says it is one part of four."
-  ]
-}

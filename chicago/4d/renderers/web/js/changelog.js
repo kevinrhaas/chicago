@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2549, ts: '2026-11-01T21:48:28.101Z', date: 'Nov 1, 2026, 3:48 PM CT', title: 'The gate runs in four parts that each fit a run\'s limit', kind: 'chore',
+    items: [
+      'tools/check.sh --part k/N runs every N-th check, so a run gets a verdict in four calls of five to eight minutes instead of none from one call cut off at ten.',
+      'The four parts cover exactly the checks of the whole gate, each publishing the site for itself, and a part\'s pass says it is one part of four.',
+    ] },
   { v: 2548, ts: '2026-11-01T21:35:26.049Z', date: 'Nov 1, 2026, 3:35 PM CT', title: '1637 Prairie\'s front door now centred between its bay and wing', kind: 'fix',
     items: [
       'The Spalding house\'s front door at 1637 Prairie, the window over it and the dormer above now stand in the middle of the wall between the round bay and the forward wing. They had sat about half a metre toward the bay.',
