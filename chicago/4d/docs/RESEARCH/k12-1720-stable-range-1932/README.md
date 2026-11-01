@@ -98,4 +98,27 @@ draft's seven blocks were 1,436).
 
 ## In the app
 
-See the table below, written by `QA_TARGET=1720 node tools/qa_k12_t1932.mjs` on the published `/1904/` app.
+`QA_TARGET=1720 node tools/qa_k12_t1932.mjs` reads the published `/1904/` app at four stands (down the alley from
+the north and from the south, the yard face from the 1720 house's back yard, and the air) at 1280x800 full and
+390x780 light: `browser-validation-after-<viewport>.json` and `after-<viewport>-<stand>.jpg` in this folder. Both
+viewports: 0 page errors, 0 failed requests, all three records placed (the stable, the 1720 house and 1712's stable
+north of it), every stand inside its budget.
+
+| viewport | load to ready | JS heap | stand | draw calls | triangles | in budget |
+|---|---|---|---|---|---|---|
+| desktop, full | 50.7 s | 84.0 MB | alley from the north | 7,242 | 4.41 M | yes (4.70 M) |
+| | | | alley from the south | 3,014 | 2.36 M | yes |
+| | | | yard face | 5,461 | 1.07 M | yes |
+| | | | air | 2,185 | 1.90 M | yes |
+| mobile, light | 24.1 s | 110.4 MB | alley from the north | 4,711 | 0.96 M | yes (1.27 M) |
+| | | | alley from the south | 2,264 | 0.64 M | yes |
+| | | | yard face | 1,255 | 0.22 M | yes |
+| | | | air | 1,980 | 0.52 M | yes |
+
+Load times are this runner's software GL, shared with other runs, and relative only. The building adds 184
+triangles to what the draft drew (1,620 against 1,436).
+
+**Seen, not fixed here.** South of the range's end wall, 0.56 m across the lot line, the draft of 1726's building
+still stands its piece of the 1911 range as a two-storey flat box; that is 1726's to refine (T-1932's next
+building). The renderer's bedding of a K12 stable at its workyard walk's far end (recorded on
+[1700's](../k12-1700-stable-1932/README.md)) applies here too, on ground that falls east.
