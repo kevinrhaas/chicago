@@ -145,11 +145,13 @@ def spec(params) -> dict | None:
                          f"height_m 0.2-0.8, width_m 0.08-0.3, projection_m 0.1-0.4")
     # T-3184: the timber cornice's brackets sized off a picture (1834's photograph: deep carved
     # brackets, paired, under a cornice about 1.1 m deep), the kit's shape at the read size
+    # T-3297: down to a modillion's depth (1700-1706's close row under the corona, Chicagology's
+    # photograph), where the kit's 0.3 m bracket hung down over the upper lights' keys
     bm = t.get("bracket_m")
     if bm is not None and (t.get("cornice") != CORNICE or set(bm) != {"height_m", "projection_m", "width_m"}
-                           or not 0.3 <= float(bm["height_m"]) <= 1.2 or not 0.08 <= float(bm["width_m"]) <= 0.3
+                           or not 0.15 <= float(bm["height_m"]) <= 1.2 or not 0.08 <= float(bm["width_m"]) <= 0.3
                            or not 0.2 <= float(bm["projection_m"]) <= float(params.eave_overhang_m) - 0.02):
-        raise ValueError(f"wall_head.bracket_m sizes {CORNICE!r}'s brackets: height_m 0.3-1.2, width_m 0.08-0.3, "
+        raise ValueError(f"wall_head.bracket_m sizes {CORNICE!r}'s brackets: height_m 0.15-1.2, width_m 0.08-0.3, "
                          f"projection_m 0.2 m up to 0.02 m short of the eave's overhang")
     paint = t.get("paint")
     if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
