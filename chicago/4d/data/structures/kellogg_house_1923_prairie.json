@@ -238,12 +238,13 @@
      "note": "The vignette's stoop lands under the porch's columns."
     },
     "stoop_width_m": {
-     "value": 3.4,
+     "value": 4.8,
      "confidence": "inferred",
      "sources": [
-      "chicago_tribune_1898_01_09_residence_district"
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2011_prairie_1800_1900_elevations"
      ],
-     "note": "The vignette's stoop is broad, nearly the porch's own width between its cheeks."
+     "note": "The vignette's stoop is broad, nearly the porch's own width between its cheeks. T-3283: 4.8 m, the porch's columns standing on its landing's two ends under the 4.9 m porch the c. 1914 elevation frames in the principal storey (about 4.9 m at its row's scale); the vignette draws the cheeks outside the flight, as built."
     },
     "entrance_bay": {
      "value": 1,
@@ -294,16 +295,16 @@
        "height_m": 3.2
       },
       {
-       "sill_above_floor_m": 0.4,
+       "sill_above_floor_m": 0.1,
        "width_m": 1.1,
-       "height_m": 2.7
+       "height_m": 3.2
       }
      ],
      "confidence": "inferred",
      "sources": [
       "glessner_blog_2011_prairie_1800_1900_elevations"
      ],
-     "note": "The elevation's windows at its row's scale (data/reference_views/kellogg_house_1923_prairie/elevations_c1914_front.json): the principal ones about 3.6 m tall from sills at the water table, the chamber ones about 4.0 m under the frieze, built 3.2 and 2.7 m so that K09's hood clears the band and K10's frieze (open on the match record); about 1.1 m wide."
+     "note": "The elevation's windows at its row's scale (data/reference_views/kellogg_house_1923_prairie/elevations_c1914_front.json): the principal ones about 3.6 m tall from sills at the water table, the chamber ones about 4.0 m under the frieze, with their hoods. Built 3.2 m for the principal storey so that K09's hood clears the band; T-3283 builds the chamber ones 3.2 m from a sill 0.1 m over the floor, the tallest light whose K09 hood still clears K10's frieze (3.3 m to the head; a taller one is refused by the kit), so that sash and hood fill the storey from the band nearly to the frieze as the elevation draws them; about 1.1 m wide."
     },
     "basement_lights": {
      "value": {
@@ -381,7 +382,7 @@
        "front_yard_m": 9.45,
        "hood": {
         "soffit_m": 6.1,
-        "width_m": 3.4,
+        "width_m": 4.9,
         "out_m": 2.0,
         "fascia_m": 0.45,
         "cornice": {
@@ -409,7 +410,38 @@
          "respond_m": 0.2
         },
         "railing_fabric": "stone",
-        "fabric": "stone"
+        "fabric": "stone",
+        "arches": {
+         "faces": [
+          "front"
+         ],
+         "spring_m": 5.0,
+         "rise_m": 0.8
+        }
+       },
+       "cheek_form": {
+        "kind": "swept",
+        "head_m": 0.1,
+        "foot_m": 0.85,
+        "block_m": 0.5,
+        "flare": [
+         {
+          "side": "left",
+          "out_m": 0.6
+         },
+         {
+          "side": "right",
+          "out_m": 0.6
+         }
+        ],
+        "newel": {
+         "width_m": 0.55,
+         "cap_m": [
+          0.12,
+          0.05
+         ],
+         "knob_m": 0.3
+        }
        }
       }
      },
@@ -419,7 +451,7 @@
       "glessner_blog_2011_prairie_1800_1900_elevations",
       "sanborn_1911_chicago_v3_sheet_28"
      ],
-     "note": "The vignette's porch at the stoop's head: columns standing before the door under a lintel, the elevation's broad framed entrance in the principal storey. Built as K01's columned door hood with a balustrade on its top, its soffit 3.6 m over the principal floor, clear of the chamber window over it; the vignette's arch between the columns and its balustrade are under the numerals (open in its match record). The front yard to the street line is the 1904 parcel's (street_u 27.715 in the draft's frame, the front at 18.25 m)."
+     "note": "The vignette's porch at the stoop's head: columns standing before the door under a round arch, a balustrade over it, and the elevation's broad framed entrance, about 4.9 m across, in the principal storey. Built as K01's columned door hood in stone with a stone balustrade on its top, its soffit 3.6 m over the principal floor; T-3283 widens it from the stoop's former 3.4 m to the elevation's 4.9 m and turns a round arch (0.8 m rise, springing 2.5 m over the porch floor) between its columns on the front face (hood.arches, T-3210's), as the vignette draws it. The stoop's cheeks are K07's swept cheeks (cheek_form swept, T-3134's), sweeping down and out 0.6 m each side to a newel at the walk under a cap and a round knob, the vignette's stone cheek walls running down to round-capped posts. The vignette's columns are paired; the hood's are single (open in its match record). The front yard to the street line is the 1904 parcel's (street_u 27.715 in the draft's frame, the front at 18.25 m)."
     },
     "boundary": {
      "value": {
@@ -509,24 +541,24 @@
           {
            "opening": "k06.opening.sash_2over2_flat",
            "clear_width_m": 0.75,
-           "clear_height_m": 2.7,
-           "sill_m": 0.4,
+           "clear_height_m": 3.2,
+           "sill_m": 0.1,
            "at": [
             0.117,
             0.883
            ],
            "recess_m": 0.35,
-           "why_not_ordinary": "the elevation's chamber light in each of the bay's cheeks"
+           "why_not_ordinary": "the elevation's chamber light in each of the bay's cheeks, 3.2 m from a 0.1 m sill as the front's (T-3283)"
           },
           {
            "opening": "k06.opening.sash_2over2_flat",
            "clear_width_m": 1.1,
-           "clear_height_m": 2.7,
-           "sill_m": 0.4,
+           "clear_height_m": 3.2,
+           "sill_m": 0.1,
            "at": [
             0.5
            ],
-           "why_not_ordinary": "the elevation's chamber light in the bay's front"
+           "why_not_ordinary": "the elevation's chamber light in the bay's front, 3.2 m from a 0.1 m sill as the front's (T-3283)"
           }
          ]
         }
@@ -736,6 +768,19 @@
       "sanborn_1911_chicago_v3_sheet_28"
      ],
      "note": "K14's yard: a flagged walk from the stoop to the street, the kit's rule (the north side passage is about 1 m wide, too narrow for the kit's side gate and service walk); no picture shows the walk's surface."
+    },
+    "front_bays_by_storey": {
+     "value": {
+      "1": [
+       13.0,
+       15.1
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "T-3283: the chamber storey lights the two window columns south of the door and leaves the door's column blind: the c. 1914 row elevation draws a plain panel in the chamber storey over the entrance, between the porch's top and the frieze, where K01 would put the door column's chamber window. The 1898 vignette's chamber storey over the porch is behind its numerals' cartouche."
     }
    }
   }

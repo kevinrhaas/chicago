@@ -2,7 +2,7 @@
  "structure_id": "kellogg_house_1923_prairie",
  "view": "elevations_c1914_front",
  "glb": "assets/gltf/kellogg_house_1923_prairie__as_mapped_1904.glb",
- "glb_sha256": "7d1561f482e400e6e2f7a8b007a091fd924de8de59c0100da45303bb44a2df47",
+ "glb_sha256": "dc03505a6de841d610a1f6cac7ed52dae9069aa0317e5a12f243c2144efb5d00",
  "camera_sha256": "8b32a62e25aa93499752730b3284b81a5db84754fd11fbc32219601530d81b47",
  "photo_sha256": "54d7697d1855792e47cfc046a55c7ee2bbdbca06f894f0bdb162196cd2681d9b",
  "side_by_side": "docs/RESEARCH/photo-match/kellogg_house_1923_prairie/elevations_c1914_front-side-by-side.jpg",
@@ -25,16 +25,16 @@
    "status": "open"
   },
   {
-   "what": "the entrance: the drawing frames a broad porch about 4.9 m across in the principal storey where the columned hood is built 3.4 m across, the stoop's own width",
-   "status": "open"
+   "what": "the entrance: the drawing frames a broad porch about 4.9 m across in the principal storey; T-3283 widens the columned porch from 3.4 m to 4.9 m on a 4.8 m stoop, and the render's porch now spans the drawing's",
+   "status": "fixed"
   },
   {
-   "what": "over the entrance the drawing shows a plain panel in the chamber storey where K01 puts the door column's chamber window",
-   "status": "open"
+   "what": "over the entrance the drawing shows a plain panel in the chamber storey; T-3283 leaves the door's column blind in the chamber storey (front_bays_by_storey), so the render shows plain brick there between the porch's balustrade and the frieze",
+   "status": "fixed"
   },
   {
-   "what": "the chamber windows: drawn about 4.0 m tall to the frieze, built 2.7 m so that K09's hood clears K10's frieze",
-   "status": "open"
+   "what": "the chamber windows: drawn with their hoods about 4.0 m from the band to the frieze; T-3283 builds them 3.2 m from a 0.1 m sill under K09's hood, sash and hood together about 3.7 m, the tallest K09's hood allows under K10's frieze. What is left is about 0.3 m, some 2 px on the drawing's 125 px copy",
+   "status": "within tolerance"
   },
   {
    "what": "the stack: the drawing's one stack at the mansard's south end is built there; the north stack, which no picture shows, is the kit's",

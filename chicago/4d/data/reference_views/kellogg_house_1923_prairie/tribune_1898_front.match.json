@@ -2,7 +2,7 @@
  "structure_id": "kellogg_house_1923_prairie",
  "view": "tribune_1898_front",
  "glb": "assets/gltf/kellogg_house_1923_prairie__as_mapped_1904.glb",
- "glb_sha256": "7d1561f482e400e6e2f7a8b007a091fd924de8de59c0100da45303bb44a2df47",
+ "glb_sha256": "dc03505a6de841d610a1f6cac7ed52dae9069aa0317e5a12f243c2144efb5d00",
  "camera_sha256": "d9991b52fc0f5a40ade8077484b7b4150cc4d9b2b2e22edd6e7824f57256573c",
  "photo_sha256": "28c1b1cb04552a885b2e831e8773cfbd37dab54396fa55e88c2f17962f981285",
  "side_by_side": "docs/RESEARCH/photo-match/kellogg_house_1923_prairie/tribune_1898_front-side-by-side.jpg",
@@ -17,12 +17,12 @@
    "status": "within tolerance"
   },
   {
-   "what": "the porch: the sketch draws an arch springing between paired columns across a porch wider than the stoop, with a balustrade over it; built as K01's columned hood on single columns, flat-headed, 3.4 m across",
+   "what": "the porch: the sketch draws a round arch springing between paired columns across a porch wider than the stoop, with a balustrade over it. T-3283 builds the arch (0.8 m rise between the columns), the balustrade and the elevation's 4.9 m width; the columns are still single at each end where the sketch pairs them, which a visitor at the gate would see",
    "status": "open"
   },
   {
-   "what": "the stoop's cheeks: the sketch's stone cheek walls sweep out and down to round-capped stone posts at the walk; built as K07's straight cheeks",
-   "status": "open"
+   "what": "the stoop's cheeks: the sketch's stone cheek walls sweep out and down to round-capped stone posts at the walk; T-3283 builds K07's swept cheeks flared 0.6 m out each side to a newel under a cap and a round knob (in this camera they stand behind the gate's piers)",
+   "status": "fixed"
   },
   {
    "what": "the fence: the sketch's panels of large scrolls between posts either side of the walk; K11's scroll-band fence reads at this distance as plain spear-topped railings",
