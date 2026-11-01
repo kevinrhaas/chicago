@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2526, ts: '2026-11-01T09:58:04.095Z', date: 'Nov 1, 2026, 3:58 AM CT', title: 'Two brick stables behind 1626 and 1628 Prairie', kind: 'feature',
+    items: [
+      'The alley behind 1626 and 1628 Prairie now has its pair of two-storey brick stables, built wall to wall: 1626\'s is 8 m along the alley and 12 m deep, with windows in its north gable; 1628\'s is 7 m along and 14 m deep. Their outlines, storeys, brick and window places come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas draws the same pair, so both stood through 1904. The doors, loft hatches, other windows and roofs come from the shared coach-house kit and are reconstructed.',
+    ] },
   { v: 2525, ts: '2026-11-01T09:30:58.522Z', date: 'Nov 1, 2026, 3:30 AM CT', title: 'Winter elms fork upward into twig', kind: 'fix',
     items: [
       'With the Season set to winter, the bare elms drew their branches as long flat strokes drooping and crossing each other, the shape the summer crown takes under its leaf.',
