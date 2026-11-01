@@ -4537,7 +4537,8 @@ def cant_ring(ring, cc: dict, depth: float, width: float, out: float):
 
 
 def _cant_corner(cc, depth, width, openings, bays, rainwater, chimneys, *, construction, roof_form,
-                 mansard, wall_head, others, floors, sash, basement, iron=None) -> dict:
+                 mansard, wall_head, others, floors, sash, basement, iron=None,
+                 stone_top=None) -> dict:
     """T-3186: a corner of the main body cut on a canted face from grade to the roof (1901's
     south-west corner, K01's 'north', in both Chicagology photographs: the face square to the
     corner, its own window column on both storeys, the cornice and the mansard carried round
@@ -4560,9 +4561,14 @@ def _cant_corner(cc, depth, width, openings, bays, rainwater, chimneys, *, const
     if not CANT_CUT_M[0] <= c <= min(CANT_CUT_M[1], width / 4, depth / 4):
         raise ParamError(f"cant_corner.cut_m {c}: {CANT_CUT_M[0]}-{CANT_CUT_M[1]} m and at most a quarter "
                          f"of the main body's width and depth")
-    if construction not in ("stone", "brick"):
-        raise ParamError("cant_corner is laid round an all-stone house on the front's beds, or round a brick "
-                         "one in its brick (construction: stone or brick)")
+    # T-3271: or round a brick house on a stone basement (1905's, every picture's pale basement under
+    # the brick): the face is the side walls' brick over the basement's stone, run round it from
+    # grade to the front's stone top as a side wall's `side_base` is (blank faces only)
+    if construction not in ("stone", "brick") and not (construction == "brick_with_stone_front"
+                                                         and stone_top is not None and cc.get("blank")):
+        raise ParamError("cant_corner is laid round an all-stone house on the front's beds, round a brick "
+                         "one in its brick, or blank round a brick front over a stone basement "
+                         "(stone_front.brick_above_m) (construction: stone, brick or brick_with_stone_front)")
     if roof_form != "mansard" or not mansard or mansard.get("crown") or mansard.get("straight") \
             or mansard.get("side_parapet"):
         raise ParamError("cant_corner cuts a plain mansard's rings: not a hip, a gable or a flat roof, nor a "
@@ -4581,6 +4587,8 @@ def _cant_corner(cc, depth, width, openings, bays, rainwater, chimneys, *, const
     if clash:
         raise ParamError(f"cant_corner cuts the corner {', '.join(clash)} would stand on")
     out = {"corner": cc["corner"], "cut_m": c}
+    if construction == "brick_with_stone_front":
+        out["base_top_m"] = float(stone_top)   # T-3271: the basement's stone round the face
     plan = cant_corner_plan(out, depth, width)
     for wall, (s0, s1) in plan["walls"].items():
         lo, hi = s0 - CANT_PIER_M, s1 + CANT_PIER_M
@@ -6642,7 +6650,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                        "street_front_pavilions": val("street_front_pavilions"),
                                        "shaped_gable": val("shaped_gable"),
                                        "a shallow pavilion": [b for b in bays if b["variant"].get("shallow")]},
-                               floors=floors, sash=sash, basement=bl, iron=val("street_front_iron"))
+                               floors=floors, sash=sash, basement=bl, iron=val("street_front_iron"),
+                               stone_top=(val("stone_front") or {}).get("brick_above_m"))
     round_corner = _round_corner(val("round_corner"), depth, width, stone, openings, bays, rainwater,
                                  side_belts=val("side_belts") or (), frontispiece=frontispiece)
     front_pier = _front_pier(val("front_pier"), stone, openings, bays, rainwater, round_corner, roof_form,
