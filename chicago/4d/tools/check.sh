@@ -160,6 +160,12 @@ step "A coursed wall's mortar floor is drawn behind the stone faces lying on it,
 selftest "The joint-floor check refuses a missing seat, a forward offset and a batch key blind to the offset (T-3226)" \
   node tools/check_joint_floor.mjs --self-test
 
+step "A K03 brick wall's per-brick shuffle reads the library's own bonds, and every shipped brick panel is shuffled (T-3295)" \
+  node tools/check_brick_bond.mjs
+
+selftest "The brick-bond check refuses a bond with a course moved and a load loop that never binds the shuffle (T-3295)" \
+  node tools/check_brick_bond.mjs --self-test
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
