@@ -750,6 +750,17 @@ def structure_glb(var: Variant, data: dict, structure_id: str, phase_id: str, sc
     """The structure's GLB: no boards, turned into the structure frame, its origin the middle
     of the alley wall's outer face at grade — the point the record's position names."""
     turn = FACING[var.v["alley_side"]]
+    if var.v.get("mirror"):
+        # T-1932: a lot whose neighbour stands against the OTHER end (1612's stable, built
+        # against 1616's party wall, with its open gable and window to the north) builds the
+        # kit in mirror image: the kit's x (along the alley) is reversed before the turn, so
+        # the party wall lands at the far end. Every opening's s still counts from the party
+        # wall's inner face. A reflection turns every triangle inside out, so each is rewound.
+        face_on = turn
+        turn = lambda p: face_on((-p[0], p[1], p[2]))
+        for p in var.pieces:
+            ix = p.mesh.idx
+            p.mesh.idx = [i for k in range(0, len(ix), 3) for i in (ix[k], ix[k + 2], ix[k + 1])]
     for p in var.pieces:
         p.mesh.pos = [turn(q) for q in p.mesh.pos]
         p.mesh.nrm = [turn(q) for q in p.mesh.nrm]
