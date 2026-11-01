@@ -2,7 +2,7 @@
   "structure_id": "moulton_lowden_house_1912_prairie",
   "view": "elevations_c1914_front",
   "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c471eb5bb0ec58a2590fea5f36d6d1600f853f132488950bc859a78ad93a0430",
+  "glb_sha256": "4264a886d77478f1ef9d191959b1b0093ffc90dcd62fdc3ee167f2332b4ede21",
   "camera_sha256": "babc3fe528caaee1f49ed568584eeb4e22f550aab2fbb214fca77b4ed75e4742",
   "photo_sha256": "6a188ecf12322445de8c9a8621968131cd2d74be06183f548a87054051efa97e",
   "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/elevations_c1914_front-side-by-side.jpg",
@@ -29,8 +29,8 @@
       "status": "open"
     },
     {
-      "what": "the dormers: drawn as crocketed wall dormers rising off the front at both ends with pinnacles and finials; built small gabled dormers in the slate",
-      "status": "open"
+      "what": "the dormers' ornament: drawn as crocketed wall dormers rising off the front at both ends with pinnacles and finials; now built faced in the front's stone, a stone coping up each rake with crockets on its back (two a rake on the north dormer, three on the south), a square pinnacle engaged at each edge of the face from the cornice past the gable's foot under a cap and a pyramid, and a turned finial at the apex (T-3293); the drawing's dormers stand taller than the build's (T-3294, on the photograph's record)",
+      "status": "fixed"
     },
     {
       "what": "the stacks: the drawing's one tall stack stands just south of the cone, behind the south dormer (x 239-252 px of the copy), with a pinnacle at the front's south corner; the build's south stack stands at the front's south end. The photograph and the 1883 plate, both from the north-east, show no stack there, so this is the drawing's reading against theirs; the photograph does show a tall stack at the house's south end, its top over the south gable's back (x 210-320, y 430-530 px), where the build's south stack stands: the drawing's reading against the photograph's, within tolerance (T-3153, T-3290)",

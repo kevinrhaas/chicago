@@ -2011,6 +2011,9 @@ class Bay:
             for x in spots:
                 self._spike(world, x, zm, w, y_k, sh, cap)
             meta["pinnacle_top_m"] = round(y_k + sh + cap, 4)
+        cr = g.get("crockets")
+        if cr and self.tier == "full":   # T-3293: carving, so the light tier keeps the coping
+            meta["crockets"] = self._gable_crockets(world, cr, (xa, xb), xc, top, pitch, zb, zf)
         fn = g.get("finial")
         if fn:
             w, sh, cap = (float(fn[k]) for k in ("width_m", "shaft_m", "cap_m"))
@@ -2021,6 +2024,41 @@ class Bay:
             self._spike(world, xc, zm, w, top(xc) - pitch * w / 2, sh + pitch * w / 2, cap)
             meta["finial_top_m"] = round(top(xc) + sh + cap, 4)
         self.meta["roof"] = meta
+
+    #: T-3293: a gable crocket's outline, (along the rake toward the apex, out of the coping's
+    #: back) as fractions of its size: a hooked leaf leaning up the rake, its root sunk in the stone
+    CROCKET_LEAF = ((-0.35, -0.05), (0.35, -0.05), (0.45, 0.55), (0.1, 1.0), (-0.3, 0.7))
+
+    def _gable_crockets(self, world, cr, kneelers, xc, top, pitch, zb, zf):
+        """T-3293: CROCKETS along a coped gable's rakes (1912 Prairie's south gable in its
+        photograph and the 1883 plate): `count` hooked stone leaves a rake, each `size_m` tall
+        off the coping's back, spaced evenly between the kneeler's pinnacle and the apex's
+        finial, each a closed slab across the coping's middle, its root let into the stone.
+        Returns the count built."""
+        if set(cr) != {"count", "size_m"} or not 1 <= int(cr["count"]) <= 8 or not 0.08 <= float(cr["size_m"]) <= 0.4:
+            raise ValueError(f"{self.v['id']}: a gable's crockets are 1-8 a rake, each 0.08-0.4 m")
+        n, z = int(cr["count"]), float(cr["size_m"])
+        zm, th = (zb + zf) / 2, min(z * 0.25, (zf - zb) / 2 - 0.01)
+        L = math.hypot(1.0, pitch)
+        for xs in kneelers:
+            sg = 1.0 if xs < xc else -1.0                       # along the rake, toward the apex
+            e = (sg / L, pitch / L)
+            nn = (-sg * pitch / L, 1.0 / L)                     # out of the coping's back
+            for i in range(n):
+                f = 0.15 + 0.7 * (i + 0.5) / n
+                x0 = xs + (xc - xs) * f
+                P0 = (x0, top(x0))
+                poly = [(P0[0] + z * (u * e[0] + v * nn[0]), P0[1] + z * (u * e[1] + v * nn[1]))
+                        for u, v in self.CROCKET_LEAF]
+                if sg < 0:
+                    poly.reverse()
+                world.face("band", [(x, y, zm + th) for x, y in poly], (0.0, 0.0, 1.0))
+                world.face("band", [(x, y, zm - th) for x, y in poly], (0.0, 0.0, -1.0))
+                for j in range(len(poly)):
+                    (x1, y1), (x2, y2) = poly[j], poly[(j + 1) % len(poly)]
+                    world.face("band", [(x1, y1, zm - th), (x2, y2, zm - th), (x2, y2, zm + th), (x1, y1, zm + th)],
+                               (y2 - y1, -(x2 - x1), 0.0))
+        return 2 * n
 
     def _gable_behind(self, world, bh, shallow, xl, xr, xc, y_top, zb, under):
         """T-1890: the slated cross roof a shallow pavilion's gable parapet stands in front of
@@ -2742,7 +2780,8 @@ class Bay:
         (`cap_whole`: a corner turret's, its axis maybe behind its wall's face) stands into no
         wall, so nothing of it is held in front of the wall's plane (1801's east turret)."""
         ax, ay, az = self.meta["roof"]["apex"]
-        r0, H, k = f["radius_m"], f["height_m"], self.TURNED_SEGS
+        # T-3293: a turning may be lathed in fewer `segments` (1912's tower: 6, inside its budget)
+        r0, H, k = f["radius_m"], f["height_m"], int(f.get("segments", self.TURNED_SEGS))
         clip = not self.v.get("cap_whole")
         self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=clip)
         top = {"top_m": round(ay + H, 4), "form": "turned"}

@@ -70,6 +70,7 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.gable_colonnette a colonnette between or beside the lights under the great arch
   k01.roof.gable_pinnacle   a wall gable's pinnacle: square shaft, cap and pyramid
   k01.roof.gable_finial     a wall gable's turned finial on the ridge at its apex
+  k01.roof.dormer_coping    T-3293: a gabled mansard dormer's stone coping and its crockets
   k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
                             round-arched variant in the recess the roof's union cut
   k01.opening.sash_round_hooded
@@ -4638,7 +4639,7 @@ class Assembly:
             hood = hood + self.dormer_eared_hood(d, k5, axis, sg, nf, back, centre, r, ys,
                                                  sill + d["sash_height_m"] - d["sash_width_m"] / 2)
         return {"body": body, "recess": recess, "roof": roof, **({"hood": hood} if hood else {}),
-                "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
+                "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill, "E": E,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
                          "width": 2 * r, "top": top, "variant": v, "d": d}}
 
@@ -4922,6 +4923,94 @@ class Assembly:
         o.build()
         roles = {r: ("limestone_trim" if m == "stone" else (m or "dormer_stone")) for r, m in self.K06_ROLES.items()}
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), ("reveal",))
+        if d.get("ornament"):
+            self.dormer_ornament(g, conf)
+
+    #: T-3293: a coping's foot and apex are sunk this far under the rake, so its underside
+    #: stands inside the dormer's slated slope behind the face, never on it
+    COPING_SINK_M = 0.02
+
+    def dormer_ornament(self, g, conf):
+        """T-3293: a gabled lower-face dormer's ornament (`ornament`, k01_frontage_params.
+        _dormer_ornament) — 1912 Prairie's Chateauesque stone dormers in its photograph and the
+        1883 plate: a stone COPING up both rakes, standing `proud_m` out of the face and running
+        `back_m` back over the slated slopes; CROCKETS, hooked leaves standing up off the
+        coping's back, `count` a rake between its foot and its apex; a square PINNACLE engaged
+        at each edge of the face, from the cornice `rise_m` past the gable's foot, under a cap
+        and a pyramid; and a turned FINIAL on the coping's apex. Built after the union in the
+        face's own frame (s across from its left edge, y absolute, d out of its plane)."""
+        from . import k01_arched_front as af
+        from .k01_wall_gable import _pyramid, PIN_CAP_PROUD_M, FINIAL_SINK_M
+        d, O, R = g["d"], g["O"], g["R"]
+        orn = d["ornament"]
+        N = _cross(R, Y)
+        Fr = ((O[0], 0.0, O[2]), R, N)
+        w, ring, gp = g["width"], d["surround_m"], math.radians(d["gable_pitch_deg"])
+        c, eaves, apex = w / 2, g["sill"] + d["sash_height_m"] + ring, g["top"]
+        mat = "dormer_stone"
+        cp = orn.get("coping")
+        if cp:
+            h, k0 = cp["width_m"] / math.cos(gp), self.COPING_SINK_M
+            d0, d1 = -cp["back_m"], cp["proud_m"]
+            cseed = self.instance("k01.roof.dormer_coping", "roof",
+                                  {"width_m": cp["width_m"], "proud_m": d1, "back_m": cp["back_m"],
+                                   "crockets": 2 * orn.get("crockets", {}).get("count", 0)},
+                                  {"apex": g["top_pt"]})
+            # the chevron's outline, counter-clockwise from the left foot's underside
+            lo = [(0.0, eaves - k0), (c, apex - k0), (w, eaves - k0)]
+            hi = [(w, eaves + h - k0), (c, apex + h - k0), (0.0, eaves + h - k0)]
+            outline = lo + hi
+            for half in ([lo[0], lo[1], hi[1], hi[2]], [lo[1], lo[2], hi[0], hi[1]]):
+                af._face(self, mat, Fr, [(s, y, d1) for s, y in half], (0, 0, 1), cseed, conf)
+                af._face(self, mat, Fr, [(s, y, d0) for s, y in half], (0, 0, -1), cseed, conf)
+            n = len(outline)
+            for i in range(n):
+                (s0, y0), (s1, y1) = outline[i], outline[(i + 1) % n]
+                out = (y1 - y0, -(s1 - s0), 0.0)
+                af._face(self, mat, Fr, [(s0, y0, d0), (s1, y1, d0), (s1, y1, d1), (s0, y0, d1)], out, cseed, conf)
+            cr = orn.get("crockets")
+            if cr:
+                # each a hooked leaf rooted in the coping's back, leaning toward the apex, a
+                # closed slab across the coping's middle, `size_m` tall off the back
+                z, L = cr["size_m"], c / math.cos(gp)
+                leaf = [(-0.35, -0.03), (0.35, -0.03), (0.45, 0.55), (0.1, 1.0), (-0.3, 0.7)]
+                dm, th = (d0 + d1) / 2, min(z * 0.25, (d1 - d0) / 2 - 0.01)
+                for sg, base in ((1.0, (0.0, eaves + h - k0)), (-1.0, (w, eaves + h - k0))):
+                    e, nn = (sg * math.cos(gp), math.sin(gp)), (-sg * math.sin(gp), math.cos(gp))
+                    for i in range(cr["count"]):
+                        f = 0.15 + 0.7 * (i + 0.5) / cr["count"]
+                        P0 = (base[0] + e[0] * f * L, base[1] + e[1] * f * L)
+                        poly = [(P0[0] + z * (u * e[0] + v * nn[0]), P0[1] + z * (u * e[1] + v * nn[1]))
+                                for u, v in leaf]
+                        if sg < 0:
+                            poly.reverse()   # keep it counter-clockwise across the face
+                        from .k01_wall_gable import _prism
+                        _prism(self, mat, Fr, poly, dm - th, dm + th, cseed, conf)
+                        af._face(self, mat, Fr, [(s, y, dm - th) for s, y in poly], (0, 0, -1), cseed, conf)
+        pn = orn.get("pinnacles")
+        if pn:
+            hw = pn["shaft_m"] / 2
+            y0, y1 = g["E"], eaves + pn["rise_m"]
+            for s in (0.0, w):
+                pseed = self.instance("k01.roof.gable_pinnacle", "roof",
+                                      {"shaft_m": pn["shaft_m"], "top_m": round(y1, 4), "cap_m": pn["cap_m"],
+                                       "spire_m": pn["spire_m"], "dormer": True},
+                                      {"foot": af._P(Fr, s, y0, 0.0)})
+                af._box(self, mat, Fr, s - hw, s + hw, y0, y1, -hw, hw, pseed, conf, skip=("bottom", "top"))
+                q = hw + PIN_CAP_PROUD_M
+                af._box(self, mat, Fr, s - q, s + q, y1, y1 + pn["cap_m"], -q, q, pseed, conf)
+                _pyramid(self, mat, Fr, s, 0.0, y1 + pn["cap_m"], hw, y1 + pn["cap_m"] + pn["spire_m"], pseed, conf)
+        fn = orn.get("finial")
+        if fn:
+            ya = apex - FINIAL_SINK_M + ((cp["width_m"] / math.cos(gp) - self.COPING_SINK_M) if cp else 0.0)
+            dm = (cp["proud_m"] - cp["back_m"]) / 2 if cp else 0.0
+            fseed = self.instance("k01.roof.gable_finial", "roof", {"height_m": fn["height_m"], "radius_m": fn["radius_m"],
+                                                                     "dormer": True},
+                                  {"foot": af._P(Fr, c, ya, dm)})
+            rr, hg = fn["radius_m"], fn["height_m"]
+            for (fa, fb, ra_, rb) in ((0.0, 0.2, 0.6, 0.6), (0.2, 0.3, 0.6, 1.0), (0.3, 0.45, 1.0, 0.45),
+                                      (0.45, 0.6, 0.45, 0.8), (0.6, 0.7, 0.8, 0.3), (0.7, 1.0, 0.3, 0.03)):
+                af._frustum(self, mat, Fr, c, dm, ya + fa * hg, ya + fb * hg, rr * ra_, rr * rb, fseed, conf)
 
     def dormer_sash(self, roof_seed):
         """The dormer's face: a K01 wall component whose surface is the union's, and its
