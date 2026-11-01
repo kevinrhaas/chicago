@@ -7,6 +7,7 @@
 //   node tools/qa_k12_t1932.mjs                     (after tools/publish.sh)
 //   QA_VIEWPORT=mobile node tools/qa_k12_t1932.mjs
 //   QA_TARGET=1616 node tools/qa_k12_t1932.mjs       1616's stable, the package's second building
+//   QA_TARGET=1612 node tools/qa_k12_t1932.mjs       1612's stable, the third (the kit in mirror image)
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -26,6 +27,11 @@ const TARGETS={
   ['north-yard',[1350,-2990,1.7],[1338,-3001,4]],
   ['yard-face',[1354,-3010,1.7],[1340,-3002,4]],
   ['air',[1365,-3035,40],[1338,-3004,0]]]},
+ '1612':{dir:'k12-1612-goodman-stable-1932',ids:['goodman_house_1612_prairie_coach_house','goodman_house_1612_prairie','house_1616_prairie_coach_house'],glb:'goodman_house_1612_prairie_coach',stands:[
+  ['alley-from-south',[1331,-3004,1.7],[1334.5,-2989,4]],
+  ['north-gable',[1352,-2968,1.7],[1340,-2982,4]],
+  ['yard-face',[1357,-2996,1.7],[1347,-2988,4]],
+  ['air',[1372,-3018,42],[1340,-2989,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
