@@ -1,0 +1,24 @@
+{
+ "structure_id": "moulton_lowden_house_1912_prairie",
+ "source_id": "glessner_blog_2011_prairie_1800_1900_elevations",
+ "library_image": "a19-gh-prairie-1800-1900-elevations",
+ "photo": "../../sources/assets/moulton_1912_pictures_t3278/row_elevations_1912_front.jpg",
+ "image_px": [
+  156,
+  235
+ ],
+ "principal_px": [
+  78.0,
+  167.5
+ ],
+ "focal_px": 3832.0,
+ "eye": [
+  420.45,
+  6.5,
+  6.0
+ ],
+ "yaw_deg": 270.0,
+ "near_m": 380,
+ "sky": "overcast",
+ "solve": "An elevation, so an orthographic camera far off on the front's normal (heading 270, due west toward the front in the footprint frame, whose u runs east toward Prairie Avenue), solved as the 1923 front in the same drawing was (T-3282): the eye 400 m before the front (u 20.45 + 400) and a near plane at 380 m, so nothing between the camera and the house is drawn. The picture is the 1912 front in the drawing's west row ('West Side of Prairie Ave', the image store's 1600 x 464 px copy, its pixels x 190-346, y 195-430 cropped unscaled into row_elevations_1912_front.jpg). WHICH FRONT IS 1912: the west row runs south to north from left to right, the long rough-stone front at its right end (x 1375-1600 px) being Glessner's at 1800, and counting south from it 1808, 1812, 1816, 1824, 1828, 1834, 1900, 1906 and then 1912, the tenth front from the right (x 202-334 px), whose arched pair at its south end, steep central gable over three narrow lights, crocketed dormers, tall stack and arched door at its north end are the photograph's (T-3277); the front left of it is the Italianate house with its tower, Allerton's at 1936 (1918 is not drawn). THE LENGTH IS THIS FRONT'S OWN, from its heights over the walk (y 420 px): the cornice's top (13.25 m, the record's) at y 294.5, the attic belt (10.5 m) at y 321, the chamber belt (6.15 m) at y 355.5 and the water table (principal floor, 1.85 m) at y 401.5, least squares through the walk 9.58 px a metre (focal 3832 px at 400 m), residuals 3.0 px RMS, the worst 5.6 px at the chamber belt, and not evenly spread: the drawing makes the principal storey about 4.8 m and the chamber storey about 3.6 m where the record has 4.3 and 4.35 m, as the 1883 plate does. At that scale the front reads 13.8 m across (132 px) where the sheet has 13.0 m, so the render runs about 8 px narrower than the drawing, half at each end, centred on the drawn front (x 268 px of the copy, the eye at v 6.5); the central gable's apex at y 222 px (about 20.7 m) and its finial to y 204 (about 22.5 m). The principal point is the eye's place in the cut: x 78 px (v 6.5), y 167.5 px (6.0 m over the walk)."
+}

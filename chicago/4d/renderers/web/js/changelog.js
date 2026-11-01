@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2522, ts: '2026-11-01T07:58:10.408Z', date: 'Nov 1, 2026, 1:58 AM CT', title: '1912 Prairie checked against its 1883 engraving and a row elevation', kind: 'improvement',
+    items: [
+      'The Moulton house at 1912 Prairie is now rendered from the camera of the 1883 New Chicago Album engraving. The engraver stood within a few metres of where the later photographer did, so the two pictures show the same view thirty years apart.',
+      'It is also rendered against the undated row elevations of the west side of Prairie Avenue. 1912 is the tenth front from Glessner\'s, scaled by its own cornice and belts.',
+      'Both pictures draw the lower storeys taller than the model builds them, and both show crocketed dormers, an arched door and a corner turret that the model does not have yet. Those differences are recorded for the next pass on the house.',
+    ] },
   { v: 2521, ts: '2026-11-01T07:00:55.366Z', date: 'Nov 1, 2026, 1:00 AM CT', title: '1923 Prairie: the Kellogg house stands', kind: 'feature',
     items: [
       'The Kellogg house at 1923 Prairie Avenue is no longer a plain draft block: two storeys of brick over a high basement under a crested mansard, a canted bay at the north corner rising past the cornice under its own crown, hooded windows, a columned porch over a broad high stoop and iron fences either side of the walk, built from the Chicago Tribune\'s 1898 sketch of its front and a row drawing of the block\'s fronts, on the 1911 map\'s plan.',

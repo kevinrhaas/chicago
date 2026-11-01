@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 818077773,
+  "content_version": 469558964,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -508,8 +508,8 @@
         "kind": "structure",
         "id": "ream_house_1901_prairie"
       },
-      "text": "Ream House, 1901 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 5 of the pictures on the Images tab show it. Next: Marshall Field House, 1905 Prairie.",
-      "read_s": 15,
+      "text": "Ream House, 1901 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 5 of the pictures on the Images tab show it. Next: Armour-Corwith House, 1945 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-24",
         "tour"
@@ -527,33 +527,12 @@
       "id": "stop-25",
       "destination": {
         "kind": "structure",
-        "id": "marshall_field_house_1905_prairie"
-      },
-      "text": "Marshall Field House, 1905 Prairie. DETAIL 4/5: a kit build matched to its picture; 4 solved pictures, 4 matching. Pictured: 16 of the pictures on the Images tab show it. Next: Armour-Corwith House, 1945 Prairie.",
-      "read_s": 15,
-      "evidence": [
-        "stood-25",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "marshall_field_house_1905_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-26"
-    },
-    {
-      "id": "stop-26",
-      "destination": {
-        "kind": "structure",
         "id": "armour_corwith_house_1945_prairie"
       },
       "text": "Armour-Corwith House, 1945 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Kellogg House, 1923 Prairie.",
       "read_s": 16,
       "evidence": [
-        "stood-26",
+        "stood-25",
         "tour"
       ],
       "links": [
@@ -563,15 +542,36 @@
           "label": "About this building"
         }
       ],
+      "next": "stop-26"
+    },
+    {
+      "id": "stop-26",
+      "destination": {
+        "kind": "structure",
+        "id": "kellogg_house_1923_prairie"
+      },
+      "text": "Kellogg House, 1923 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Marshall Field House, 1905 Prairie.",
+      "read_s": 16,
+      "evidence": [
+        "stood-26",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "kellogg_house_1923_prairie",
+          "label": "About this building"
+        }
+      ],
       "next": "stop-27"
     },
     {
       "id": "stop-27",
       "destination": {
         "kind": "structure",
-        "id": "kellogg_house_1923_prairie"
+        "id": "marshall_field_house_1905_prairie"
       },
-      "text": "Kellogg House, 1923 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Dent House, 1823 Prairie.",
+      "text": "Marshall Field House, 1905 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 4 solved pictures, 0 matching. Pictured: 16 of the pictures on the Images tab show it. Next: Dent House, 1823 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-27",
@@ -580,7 +580,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "kellogg_house_1923_prairie",
+          "id": "marshall_field_house_1905_prairie",
           "label": "About this building"
         }
       ],
@@ -823,7 +823,7 @@
         "kind": "structure",
         "id": "moulton_lowden_house_1912_prairie"
       },
-      "text": "Moulton-Lowden House, 1912 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1730 Prairie.",
+      "text": "Moulton-Lowden House, 1912 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 3 solved pictures, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1730 Prairie.",
       "read_s": 15,
       "evidence": [
         "stood-39",
@@ -1322,16 +1322,6 @@
     },
     {
       "id": "stood-25",
-      "text": "Marshall Field House, 1905 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_28",
-        "rand_mcnally_pictorial_chicago_1893_field"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the 1893 Pictorial Chicago plate shows the house standing before the target. Its building and loss dates are the register's (1871-1873; lost 1955) and are not read here."
-    },
-    {
-      "id": "stood-26",
       "text": "Armour-Corwith House, 1945 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1341,13 +1331,23 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the 1928 photograph shows the same house still standing. Its building and loss dates are the register's (1872; lost about 1931) and are not read here."
     },
     {
-      "id": "stood-27",
+      "id": "stood-26",
       "text": "Kellogg House, 1923 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "confidence": "inferred",
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    },
+    {
+      "id": "stood-27",
+      "text": "Marshall Field House, 1905 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "rand_mcnally_pictorial_chicago_1893_field"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the 1893 Pictorial Chicago plate shows the house standing before the target. Its building and loss dates are the register's (1871-1873; lost 1955) and are not read here."
     },
     {
       "id": "stood-28",
