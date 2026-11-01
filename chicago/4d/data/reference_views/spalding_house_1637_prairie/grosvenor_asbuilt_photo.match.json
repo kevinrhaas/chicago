@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "grosvenor_asbuilt_photo",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c0e1ca07a903e777bb231c2936a0eeae82fe3c360b663fa09144ba72224dcd82",
+  "glb_sha256": "5529c64e8e97843e559f5da59976c34f074fabb7f51a7ac6d9dd7c40a5fe1338",
   "camera_sha256": "856a15ff71693396f8e7a7b8f4b66bfb786f6d3fff3e7bae180a916a561f4a8b",
   "photo_sha256": "75198e2332b04505f6bfbbc7b5567130138baee19cd79c332f728123a64b3a2d",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/grosvenor_asbuilt_photo-side-by-side.jpg",
@@ -109,5 +109,5 @@
       "how": "this photograph is of the Grosvenor house as built, before Spalding's remodel and his front garden, and its crop does not reach the front yard's ground, so it says nothing about the walk; recorded so a later reader knows the side-by-side was looked at again after the bake"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
