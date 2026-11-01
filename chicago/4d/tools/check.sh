@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# The per-commit gate. About four minutes on four cores, no Blender, runs in every
-# agent sandbox — and has to keep fitting the 600 s that is all a steward run's
-# single foreground command gets (T-1578).
+# The per-commit gate. No Blender, runs in every agent sandbox. Whole, it is about
+# nineteen minutes of pool on four cores (2026-11-01); a steward run's single
+# foreground command gets 600 s (T-1578), so a run takes it in four parts,
+# `--part 1/4` … `--part 4/4`, five to eight minutes each (T-3299, below).
 #
 # A gate that takes four minutes gets skipped, so this one deliberately does not
 # build geometry. Content builds live in tools/bake.sh and run on demand.
@@ -30,8 +31,35 @@
 # transcript is unchanged byte for byte. Measured on four cores: 484 s, 1,906
 # CPU-seconds. Each step's time sits in CHECK_TIMINGS. Read it before adding to the tail.
 #
-#   tools/check.sh            the gate
-#   tools/check.sh --strict   warnings are errors (used before a release)
+# THE THIRD TIME, IT WAS NOT A TAIL, SO THE GATE CAME IN PARTS (T-3299). On 2026-11-01
+# a four-core steward runner reached the publish at about 515 s and was cut off at
+# 585 s (rc 124), and CI's own `Run the gate` took 25.5 minutes on dev. Measured with
+# CHECK_TIMINGS across three capped calls: 1,111 steps, 4,593 CPU-seconds, so about
+# 1,150 s of pool, against T-2117's 1,906 four weeks earlier. That growth is not one
+# step to make cheaper. The slowest twenty steps are a third of it (each K-kit's
+# `--check` rebuilds every house it covers through k05_roofs' CSG, about 110 s apiece,
+# and some thirty test_k01_* files are 15-50 s each), and the remaining two-thirds are
+# spread across hundreds of tools. So the budget is re-argued here, as this header
+# asks: THE 600 s CEILING NOW BINDS A PART, NOT THE WHOLE GATE.
+#
+#   tools/check.sh --part k/N   runs every N-th step from the k-th, in declared order,
+#                               plus the `every_part` prerequisites (merge drivers,
+#                               tickets, publish). The N parts are a partition: all N
+#                               green is the gate green, and nothing less is.
+#
+# Four parts, measured on the same four-core runner the day they landed, each one
+# green: 305 s, 316 s, 473 s and 402 s, each including the ~57 s publish it pays for
+# itself (1,006 / 1,052 / 1,615 / 1,270 CPU-seconds; part 3 drew the 104 s block-infill
+# check and the 116 s entrance-kit self-test). The gate more than doubled in a month,
+# so that headroom will not last. When a part passes about 540 s, raise N; do not
+# lower the bar. CI still runs the gate whole, and the
+# harness's own check (tools/test_check_harness.sh) proves the parts are a partition.
+# Making the K-kit checks share their builds is the cut that would bring the WHOLE
+# gate back down, and it is a ticket of its own.
+#
+#   tools/check.sh                the gate, whole (CI runs it this way)
+#   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
+#   tools/check.sh --strict       warnings are errors (used before a release)
 #
 #   CHECK_JOBS=1              serial, for reproducing a step's red on a quiet tree
 #   CHECK_TIMINGS=<path>      append "<seconds>\t<kind>\t<command>\t<label>" per step
@@ -40,7 +68,16 @@ _check_tools="$(cd "$(dirname "$0")" && pwd)"
 cd "$_check_tools/.."
 
 STRICT=""
-[ "${1:-}" = "--strict" ] && STRICT="--strict"
+CHECK_PART="${CHECK_PART:-}"
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --strict) STRICT="--strict" ;;
+    --part) CHECK_PART="${2:-}"; shift ;;
+    --part=*) CHECK_PART="${1#--part=}" ;;
+    *) printf 'check: unknown argument "%s" (usage: tools/check.sh [--strict] [--part k/N])\n' "$1" >&2; exit 2 ;;
+  esac
+  shift
+done
 
 # The step harness — `step`, `selftest` and the end-of-run roll-up — lives in its own
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
@@ -479,14 +516,14 @@ step "Every human GLB is the one the browser measured: sha256 and verdicts in da
 # in .git/config, so they cannot be committed and a fresh clone starts without them.
 # Unregistered they cost a hand-resolved changelog conflict per branch — four of them
 # in one session on 2026-09-24 — and nothing anywhere says so. This says so.
-step "the merge drivers this clone needs are registered (T-1548)" \
+every_part step "the merge drivers this clone needs are registered (T-1548)" \
   bash tools/check-merge-drivers.sh
 
-step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
+every_part step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
   bash tools/tickets.sh
 check_flush   # the publish below reads the clone; never race it under CHECK_JOBS>1
 
-step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
+every_part step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
   bash tools/publish.sh
 
 # THE ONE ORDERING THIS GATE HAS, and under CHECK_JOBS>1 it has to be said out loud.

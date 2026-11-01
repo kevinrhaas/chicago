@@ -48,13 +48,19 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    disagreement — declares `not_a_reading: "<what it is instead>"` at the top, or measuring
    your own work reads the meter up and the domain looks further behind for having checked
    itself. Both are printed by the report; neither is ever a silent zero.
-9. **`tools/check.sh` passes before every commit.** About four minutes on four cores, and
-   no Blender. It runs its steps in a pool sized to the machine (`CHECK_JOBS`, on by
+9. **`tools/check.sh` passes before every commit.** No Blender. **A run takes it in four
+   parts, `./tools/check.sh --part 1/4` through `--part 4/4`, one foreground call each**
+   (T-3299): whole, it was about nineteen minutes of pool on four cores on 2026-11-01, so
+   a bare call is cut off at the 600 s cap with no verdict. The parts are a partition of
+   the same steps, and each one publishes the mirror for itself. All four green is the
+   gate green; one part's `CHECK PASS — part k/4` is not, and it says so. CI runs it
+   whole. It runs its steps in a pool sized to the machine (`CHECK_JOBS`, on by
    default since T-1578 — it was serial everywhere but CI, where a 620 s gate no longer
    fit the 600 s a run's single foreground command gets, so a run got no verdict at all).
    `CHECK_JOBS=1` is the serial escape hatch, for reproducing one step's red on a quiet
-   tree. **It has to keep fitting that ceiling**: the next step that costs a minute is
-   made cheaper, moved to `tools/bake.sh`, or argued for in check.sh's header.
+   tree. **Each part has to keep fitting that ceiling**: the next step that costs a minute
+   is made cheaper, moved to `tools/bake.sh`, or argued for in check.sh's header, and when
+   a part passes about 540 s the count of parts goes up rather than the bar going down.
    **Read its last four lines, not its middle.** 264 of its 628 steps are self-tests that
    prove a gate by breaking it, so a GREEN run prints `FAIL` lines on purpose.
    Those are tagged — every line of a self-test's transcript starts `   self-test | ` —
