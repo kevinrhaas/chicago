@@ -300,7 +300,7 @@ PICTURED = {
         "sources": ["inland_1894_pullman_conservatory", "aic_lowe_pullman_conservatory_c1897"],
         "pictures": ["a16-inland-1894-pullman-conservatory", "a16-aic-lowe-pullman-conservatory-c1897"],
         "tubs": {"grade": "inferred",
-                 "note": "Two clipped standards on clear stems, each in a square planting box with a dense "
+                 "note": "Two clipped standards on clear stems, each in a square planting box on legs with a dense "
                          "leafy mass spilling over it, in the lawn before the conservatory's front, and tall shrubs "
                          "along the far edge of the drive, as the 1894 Inland Architect plate and Lowe's "
                          "c. 1897 photograph show them in summer. Inferred for 1 July 1904: the pictures are "
@@ -310,24 +310,27 @@ PICTURED = {
                  # record's north range has its base wall, half a metre off it: not drawn)
                  "plants": [
                      {"plant": "standard", "e": 1472.48, "n": -3231.49, "on": "grade", "top_m": 2.9, "w": 1.0,
-                      "tub_m": 0.57, "read": "the near box, east of the conservatory's front: plate x 1152, the "
+                      "tub_m": 0.57, "vessel": "box", "read": "the near box, east of the conservatory's front: plate x 1152, the "
                       "mass's foot y 985 (35.0 m), the standard's crown y 813-865, 53 px wide; Lowe x 730, the "
                       "box's front leg y 617 (26.8 m), the box 0.58 m tall, the crown top y 478. The two "
                       "fits put the box 3.9 m apart along the line of sight; stood between them, its crown "
                       "top between the plate's 2.94 m and Lowe's 2.70 m"},
                      {"plant": "globe", "e": 1472.48, "n": -3231.49, "on": "grade", "top_m": 1.36, "w": 1.5,
-                      "tub_m": 0.0, "read": "the near box's mass: plate y 907 over its foot (1.36 m), 93 px "
+                      "tub_m": 0.45, "vessel": "over", "read": "the near box's mass: plate y 907 over its foot (1.36 m), 93 px "
                       "wide (1.63 m); Lowe 1.36 m, 1.33 m wide, white flowers in it. Drawn as the yard's "
                       "sheared ball, the one dense clipped form the yards grow: the plate shows a close, "
-                      "rounded mass down to the lawn, which an open hydrangea did not read as"},
+                      "rounded mass down to the lawn, which an open hydrangea did not read as. Lowe's print, "
+                      "three summers later and the nearer to 1904, shows the box under it: its face 50 px "
+                      "across (0.95 m), its panels from 0.1 m on pale corner legs to about 0.5 m, the mass "
+                      "sitting on the box and hanging over its rim (T-1881), so the mass stands from 0.45 m"},
                      {"plant": "standard", "e": 1472.55, "n": -3221.85, "on": "grade", "top_m": 3.05, "w": 1.07,
-                      "tub_m": 0.57, "read": "the box by the gate: plate x 1349, the mass's foot y 1031 "
+                      "tub_m": 0.57, "vessel": "box", "read": "the box by the gate: plate x 1349, the mass's foot y 1031 "
                       "(24.0 m), the crown y 763-840, 83 px wide; Lowe x 857, the box's leg y 653 (19.2 m), "
                       "the box 0.56 m tall, the crown top y 445. The fits agree on the box within 1.1 m; "
                       "its crown top between the plate's 3.19 m and Lowe's 2.89 m"},
                      {"plant": "globe", "e": 1472.55, "n": -3221.85, "on": "grade", "top_m": 1.44, "w": 1.65,
-                      "tub_m": 0.0, "read": "the gate box's mass: plate 1.44 m tall, 153 px wide (1.83 m); "
-                      "Lowe 1.43 m, 1.44 m wide"},
+                      "tub_m": 0.45, "vessel": "over", "read": "the gate box's mass: plate 1.44 m tall, 153 px wide (1.83 m); "
+                      "Lowe 1.43 m, 1.44 m wide, over its box as the near one is"},
                      {"plant": "lilac", "e": 1475.59, "n": -3260.67, "on": "grade", "top_m": 2.52, "w": 2.0,
                       "tub_m": 0.0, "read": "plate x 840, the shrubs' foot at the drive's far edge y 942 "
                       "(61.4 m), their tops y 860: the east half of the mass before the east range"},
@@ -870,7 +873,12 @@ def plant_lot(p, plan: Plan, house, sids):
         for t in pic["tubs"]["plants"]:
             stand = r2(y.floor_at(t["e"], t["n"], plan)) if t["on"] == "floor" else 0.0
             h = r2(t["top_m"] - stand - t["tub_m"])
-            shrubs.append([t["e"], t["n"], t["plant"], h, t["w"], pic["tubs"]["grade"], stand, t["tub_m"]])
+            row = [t["e"], t["n"], t["plant"], h, t["w"], pic["tubs"]["grade"], stand, t["tub_m"]]
+            # T-1881: the vessel, where it is not the terrace's round tub: "box", a square planting
+            # box on legs, or "over", a plant grown over the box at its own spot, its foot tub_m up
+            if t.get("vessel"):
+                row.append(t["vessel"])
+            shrubs.append(row)
             taken.append((t["e"], t["n"], t["w"] / 2))
 
     # a pictured border (Pullman's along 18th Street), kept off the coping as every plant is
@@ -1117,7 +1125,7 @@ def build(laid=None):
                 "sidecars' baked models and the traced Sanborn footprints -- do not hand-edit; re-run the "
                 "tool. Local ENU metres of data/datum.json. shrubs and trees: [e, n, plant, height_m, "
                 "crown_width_m, (grade if not the lot's), (stand_m, tub_m: a tub plant's, what its tub stands on "
-                "over the ground and the tub's height)]; beds: [e, n, half_length_m, half_width_m, "
+                "over the ground and the tub's height, (vessel: \"box\", a square planting box on legs, or \"over\", grown over the box at its spot, its foot tub_m up)))]; beds: [e, n, half_length_m, half_width_m, "
                 "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m, (\"mantle\" on a "
                 "stretch a picture shows wholly clothed, \"mantle_sill\" under a window in it: its top drawn level)]. The lawn is "
                 "the ground's own sward.",

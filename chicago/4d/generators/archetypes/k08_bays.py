@@ -38,6 +38,10 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   doors        (T-1890) a window entry's `door`: a K06 door in a grade bay's lowest storey, its
                hole run down through the plinth to the step and the plinth broken square
                either side of it (1801's side door under its frontispiece, HABS photograph 2)
+               (T-1881) or, with `steps`, a raised door over the plinth: its hole cut as a
+               light's, the plinth unbroken under it, and a stone flight of `risers` steps
+               `tread_m` deep and `width_m` wide from grade up to its sill, square to the face
+               (1729's side door in its porte-cochere, Taylor's photograph no. 1445)
   floor balcony (T-2534) a projection's balcony on one of its floors, bowed out from its
                front under the window it serves: a stone slab and a stone balustrade on it
   frieze       (T-2778) a windowless storey's carved frieze: on every run a dressed panel
@@ -1347,6 +1351,7 @@ class Bay:
         for i, run in enumerate(self.runs):
             flat = strip(f"{v['id']}|run{i}")
             doors = []   # T-1890: the doors on grade in this run, (from, to) along it
+            flights = []   # T-1881: the raised doors' steps in this run, (from, to, rise, risers, tread)
             sunk = []    # T-3257: the basement lights cut through this run's plinth
             cant = ct is not None and "side" in (run.start, run.end)
             for k in range(len(v["storeys"])):
@@ -1382,6 +1387,14 @@ class Bay:
                                 raise ValueError(f"{v['id']}: a light in the plinth stands under its "
                                                  f"{plinth['height_m']} m top, in a grade bay's lowest storey")
                             sunk.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4, sh))
+                        elif w.get("door") and w.get("steps"):
+                            # T-1881: a raised door is cut as a light is, over the unbroken
+                            # plinth, and its flight laid from grade to its sill below
+                            st_ = w["steps"]
+                            c_ = (sh[0][0] + sh[1][0]) / 2
+                            flights.append((c_ - st_["width_m"] / 2, c_ + st_["width_m"] / 2, levels[k] + w["sill_m"],
+                                            int(st_["risers"]), st_["tread_m"]))
+                            holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
                         elif w.get("door"):
                             # T-1890: a door on grade runs down through the plinth to the step;
                             # the wall over the plinth is opened from its foot, and the plinth is
@@ -1500,6 +1513,19 @@ class Bay:
                                              flat.P(x, ph, -d_)], (hx, 0.0, 0.0))
             elif grade:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
+            for x0, x1, rise, n, tr in flights:
+                # T-1881: the raised door's flight: each step's riser and tread, and on either
+                # side the strip each step adds to the stepped profile (open below and behind,
+                # as the plinth is)
+                for j in range(n):
+                    y0_, y1 = rise * j / n, rise * (j + 1) / n
+                    d1, d0 = tr * (n - j), tr * (n - j - 1)
+                    flat.plane("plinth", K6.box(x0, x1, y0_, y1), -d1)
+                    flat.face("plinth", [flat.P(x0, y1, -d1), flat.P(x1, y1, -d1), flat.P(x1, y1, -d0),
+                                         flat.P(x0, y1, -d0)], Y)
+                    for x, hx in ((x0, -1.0), (x1, 1.0)):
+                        flat.face("plinth", [flat.P(x, 0.0, -d0), flat.P(x, 0.0, -d1), flat.P(x, y1, -d1),
+                                             flat.P(x, y1, -d0)], (hx, 0.0, 0.0))
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
             if v.get("cap_band"):
                 self._cap_band(flat, run, y_top, v["cap_band"])

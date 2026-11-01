@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d98ec6905771b7e082d70819bd843c1dc25451baf09736c1754b568df704fe8e",
+  "glb_sha256": "8c0437c354166569776a98e6028caec662a2fba6b5dfa3f7bb7a855dbacab08c",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "e2042326390ad458b5ba7a53d364e1f8a3164690c7fec2270d283e374461eb89"
+      "sha256": "b527f926d041a77b6c1cfe049ee0b0c82f32620fe09a48918fefa190e22d767f"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -46,11 +46,11 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "b0871a49313e101b4927afa73e5f8c116201daedcfe3a599ad4166b5ed6a256c"
+      "sha256": "eb2b97698e243c36fc1e1cd5f5e2bd32a13bb1c70d8a1e0dcb33182efc57908d"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "4867c393d8c04b3a651f2475408305c1c829486d458ae2954769e7dbd9db9011",
+  "flora_sha256": "fc419582bc09a31aad08f15895f92ec18dcda4ef5758dbe0184b098950fdd5f1",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -137,7 +137,7 @@
     {
       "what": "the 18th Street pavilion's own hipped roof (s 11.5-17.5), which the plate does not show over the flank's cornice: taken off by T-3161 on Taylor's photograph no. 1445",
       "status": "fixed",
-      "how": "T-1881: the 18th Street pavilion stands 2.47 m forward again (s 8.3-18.55) under the mansard's own line, its cornice continuous with the flank's as the photographs draw it; no separate hipped roof stands out of the mansard"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the 18th Street section stands 1.3 m forward (s 7.2-20.6) under the mansard's own line, where Taylor's no. 1445 and no. 16554 triangulate its faces (1.12-1.5 m out); its cornice continuous with the flank's, no separate hipped roof (L-pullman-1729-three-part-front-1881)"
     },
     {
       "what": "the low stone wall along Prairie Avenue and its piers at the walk",
@@ -162,7 +162,7 @@
     {
       "what": "the dormers on the forward block and the 18th Street pavilion: the plate's north-west dormer at about x 1014-1058 and two on the flank at x 1377-1407 and 1444-1466",
       "status": "within tolerance",
-      "how": "T-1881: the forward block's dormer (bays.p_forward.mansard_dormers, placed on the Detroit print) renders at x 1003-1040; the pavilion's two (placed on Taylor's photograph no. 1445) at about x 1442 and 1474. The plate reads the flank at 5-6 px a metre against Taylor's 18, and is of 1890, before the 1892 work Taylor's shows: two pictures disagree (T-3153), and the later, closer photograph governs"
+      "how": "T-1881: the forward block's dormer (bays.p_forward.mansard_dormers, placed on the Detroit print) renders at x 1003-1040; the pavilion's two (placed on Taylor's photograph no. 1445) at about x 1442 and 1474. The plate reads the flank at 5-6 px a metre against Taylor's 18, and is of 1890, before the 1892 work Taylor's shows: two pictures disagree (T-3153), and the later, closer photograph governs Round 3: the north block carries the north-west dormer (bays.p_block) and the 18th Street section its two over the pair and the triple (L-pullman-1729-three-part-front-1881)."
     },
     {
       "what": "the walls' tone: the plate draws the walls as a light, evenly toned ashlar of one stone with the dressings; the build's brownstone rendered a dark red-brown (owner, 2026-10-29: the walls read as red brick)",
@@ -204,9 +204,9 @@
       "how": "T-1881 (2026-10-31): the forward block, which had covered them since it was built, is narrowed and moved onto the door at v 6.4; the dormer stands on the main mansard at along 1.5 m and the lights at s 1.5 (L-pullman-1729-front-bays-1881)"
     },
     {
-      "what": "the Prairie front's massing: two pavilions under their own hipped mansards, a dormer on each, either side of a plain stepped-in centre over the portico",
+      "what": "the Prairie front's massing: the north block forward, the entry stepped back, the south part stepped back again (round 3; it was two pavilions either side of a stepped-in centre)",
       "status": "fixed",
-      "how": "T-1881 (2026-11-01): built so (L-pullman-1729-recessed-centre-1881); the pavilions' lights are now K08 lights, so this plate's architraves frame only the centre's and the corner bay's"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the Prairie front in his three parts: the north block 2.95 m forward (v 0-7.4), the entry 1.6 m forward with the door, portico and stoop (v 7.35-12.1), the south part on the main wall with the big lights and the pedimented dormer; the depths are the 1911 sheet's front lines, the ends the sketch's (L-pullman-1729-three-part-front-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

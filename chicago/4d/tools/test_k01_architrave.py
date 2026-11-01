@@ -66,7 +66,7 @@ st, phase = record()
 wins = phase["form"]["street_front_windows"]["value"]["windows"]
 p = KP.from_phase(phase, st)
 arcs = p.street_dress.get("architraves", ())
-check(len(arcs) == 3 and len(wins) == 3, f"all three of the front wall's named lights are framed ({len(arcs)})")
+check(len(arcs) == 2 and len(wins) == 2, f"both of the south part's named lights are framed ({len(arcs)})")
 check(not p.street_dress.get("voussoirs"), "no light on the front is still turned in voussoirs")
 keyed = sorted(a["s_m"] for a in arcs if a.get("key_m"))
 check(keyed == sorted(w["s_m"] for w in wins if w["storey"] == 0 and "architrave" in w),
@@ -74,7 +74,7 @@ check(keyed == sorted(w["s_m"] for w in wins if w["storey"] == 0 and "architrave
 check(all(a.get("impost_m") for a in arcs), "every architrave steps out in an impost at its springing")
 a = K1.build(p, st["id"])
 meta = getattr(a, "architrave_meta", [])
-check(len(meta) == 3, f"the assembly framed three lights ({len(meta)})")
+check(len(meta) == 2, f"the assembly framed two lights ({len(meta)})")
 for m in meta:
     w = next(w for w in wins if "architrave" in w and abs(w["s_m"] - m["s_m"]) < 1e-6 and abs(w["sill_m"] - m["sill_m"]) < 1e-6)
     spring = w["sill_m"] + w["height_m"] - w["width_m"] / 2
@@ -90,12 +90,12 @@ for r in arcs:
     lo, hi = r["s_m"] - r["half_m"], r["s_m"] + r["half_m"]
     check(all(hi <= p0 or lo >= p1 for p0, p1 in piers), f"s {r['s_m']}: clear of the piers ({lo:.2f}-{hi:.2f} m)")
 
-refused(lambda ws: ws[2].update(voussoirs={"ring_m": 0.25, "stones": 13, "proud_m": 0.05, "key_m": [0.22, 0.3]}),
+refused(lambda ws: ws[1].update(voussoirs={"ring_m": 0.25, "stones": 13, "proud_m": 0.05, "key_m": [0.22, 0.3]}),
         "not both", "voussoirs and an architrave on one light")
 refused(lambda ws: ws[0]["architrave"].update(band_m=0.6), "architrave: a 0.1-0.45 m band", "a band out of range")
 refused(lambda ws: ws[0]["architrave"].update(hood=True), "architrave takes", "an unknown key")
 refused(lambda ws: ws[0]["architrave"].update(key_m=[0.3, 0.1]), "key_m", "a keystone lower than the band")
-refused(lambda ws: ws[2].update(s_m=8.0), "overlap", "two architraves run into one another")
+refused(lambda ws: ws.append(dict(ws[0], s_m=12.9)), "runs into", "two architraves run into one another")
 
 
 # T-1881 (2026-11-01): the two pavilions' K08 lights framed by the bays' `architrave` key, each
@@ -103,20 +103,22 @@ refused(lambda ws: ws[2].update(s_m=8.0), "overlap", "two architraves run into o
 from archetypes import k08_bays as K8  # noqa: E402
 
 
-def bay_light(ph, bid="p_south", storey=1):
+def bay_light(ph, bid="p_entry", storey=1):
     b = next(b for b in ph["form"]["bays"]["value"] if b["id"] == bid)
     return b["storeys"][storey]["windows"][0]
 
 
-for bid in ("p_north", "p_south"):
+# round 3 (the owner's sketch, 2026-11-01): the forward block carries a light at each storey,
+# the principal storey's keyed; the entry carries its one upper light over the door, unkeyed
+for bid, keyed in (("p_block", [True, False]), ("p_entry", [False])):
     var = next(b for b in p.bays if b["id"] == bid)["variant"]
     ar = [w.get("architrave") for s_ in var["storeys"] for w in s_["windows"]]
-    check(len(ar) == 2 and all(ar) and "key_m" in ar[0] and "key_m" not in ar[1],
-          f"{bid}'s two lights carry architraves, the principal storey's keyed ({ar})")
+    check(len(ar) == len(keyed) and all(ar) and [("key_m" in a) for a in ar] == keyed,
+          f"{bid}'s lights carry architraves, only the principal storey's keyed ({ar})")
     for tier in ("full", "light"):
         bay = K8.Bay(var, K8.load(), tier=tier)
         bay.build()
-        check(bay.meta.get("architraves") == 2, f"K08 frames {bid}'s two lights at the {tier} tier")
+        check(bay.meta.get("architraves") == len(keyed), f"K08 frames {bid}'s lights at the {tier} tier")
 
 
 def bay_refused(edit, says, what):
