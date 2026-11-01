@@ -30165,6 +30165,13 @@ of radius, and only as many as the leaf's own triangles would have cost. A twig 
 that, so these twigs are drawn thicker than they are, enough for a crown 15-70 m off to grey in
 round its limbs as the winter photographs print it (Taylor's 16554), rather than vanish under a
 pixel and leave a pole (T-1934).
+A bare elm, the grown parkway elm and the young elm on its leader alike, is drawn on a winter
+skeleton of its own: each branch only as far as it rises (the drooping tail is where the summer
+leaf hung), none of the summer's hanging twigs, and off every limb's tip and along every branch a
+short sprout that forks up to three times into ascending twig (14-40 degrees off the vertical, each
+fork about two thirds of its parent's length). The habit is read off Taylor's winter 16554, whose
+elms fork again and again into fine rising twig; the angles, lengths and fork counts are this
+file's, and the summer and winter crowns of one tree therefore differ in their finest wood (T-1934).
 **How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
 Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
 **Ticket:** T-2743.
