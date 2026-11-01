@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d98ec6905771b7e082d70819bd843c1dc25451baf09736c1754b568df704fe8e",
+  "glb_sha256": "8c0437c354166569776a98e6028caec662a2fba6b5dfa3f7bb7a855dbacab08c",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "e2042326390ad458b5ba7a53d364e1f8a3164690c7fec2270d283e374461eb89"
+      "sha256": "b527f926d041a77b6c1cfe049ee0b0c82f32620fe09a48918fefa190e22d767f"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -46,11 +46,11 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "b0871a49313e101b4927afa73e5f8c116201daedcfe3a599ad4166b5ed6a256c"
+      "sha256": "3bdd25d27199219843d748dc878a962ab7bdbdde1ee75f951a8472f9be47995b"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "4867c393d8c04b3a651f2475408305c1c829486d458ae2954769e7dbd9db9011",
+  "flora_sha256": "279073a23d545dbe8a240c7b09734b9df64a5e2986183287d7b57a9756da007e",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -207,7 +207,7 @@
     {
       "what": "the 18th Street pavilion's own hipped roof (s 11.5-17.5, 1.2 m out), which the print does not show standing out of the mansard over the flank: taken off by T-3161 on Taylor's photograph no. 1445",
       "status": "fixed",
-      "how": "T-1881: the 18th Street pavilion stands 2.47 m forward again (s 8.3-18.55) under the mansard's own line, its cornice continuous with the flank's as the photographs draw it; no separate hipped roof stands out of the mansard"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the 18th Street section stands 1.3 m forward (s 7.2-20.6) under the mansard's own line, where Taylor's no. 1445 and no. 16554 triangulate its faces (1.12-1.5 m out); its cornice continuous with the flank's, no separate hipped roof (L-pullman-1729-three-part-front-1881)"
     },
     {
       "what": "the low stone wall along Prairie Avenue, the gap at x 195-225 px between two square piers standing over it, the walk through the gap to the stair",
@@ -222,7 +222,7 @@
     {
       "what": "the stepped Prairie front and the 18th Street face: the forward block over the door and the 18th Street pavilion each standing out under their own cornice and mansard, the porte-cochere in front of the pavilion",
       "status": "fixed",
-      "how": "T-1881: the forward block 6.5 m wide and 2.95 m proud (v 2.0-8.5) with banded corner piers; the pavilion 2.47 m out with the pair and triple of narrow lights over the porte-cochere; the porte-cochere at the 1911 sheet's s 8.25-12.75, 5.97 m out, arches 4.0, 10.8 and 4.0 m on centre with 2.2 m spans; within about 10 px of Taylor's photograph and the Detroit print"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the Prairie front in his three parts: the north block 2.95 m forward (v 0-7.4), the entry 1.6 m forward with the door, portico and stoop (v 7.35-12.1), the south part on the main wall with the big lights and the pedimented dormer; the depths are the 1911 sheet's front lines, the ends the sketch's (L-pullman-1729-three-part-front-1881); the 18th Street section 1.3 m forward; the porte-cochere at s 9.3-14.7, 5.97 m out, where the two Taylor prints triangulate its corners, its end arches 2.8 m and its front's 2.5 m, each centred on its face"
     },
     {
       "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 864-1048 through this camera, far down the street behind the picture's own trees; this item is unchanged.] [T-1934, 2026-10-31: the four parkway trees before the estate on 18th Street (37.65, 43.7, 51.3 and 64.1 m) and the two at the Calumet corner are now drawn as slender young elms, read off Taylor's 1445, Taylor's 16554 and the Detroit print; this item stands for the house's own parkway and lawn trees, unchanged.] [T-1934, 2026-11-01, re-rendered on the elms' winter skeleton (tree-model.js winterElm, drawFringe) after merging dev's T-1881 dormers: the house is unchanged pixel for pixel; the bare elms' crowns at the mid ring now rise as Vs of short ascending twig where they hung as crossing strokes. This item stays open: the near trees are still a few coarse limbs, and the crowns stay open against the sky where the picture's are fine.] [T-1934, 2026-11-01, re-rendered on the bare elm spending its own summer leaf budget at the mid and far rings: the elms at 10-44 m carry about 40% more twig and the far row past 44 m now carries a fringe twig off its limb tips where it drew none. The house is unchanged. This item stays open: the near trees are still a few coarse limbs, and the crowns stay open against the sky where the picture shows them fine.]",
@@ -295,12 +295,12 @@
     {
       "what": "the owner's report, 2026-11-01: the Prairie front's centre steps in, with the walk leading up to it; the build had the centre standing forward as a block",
       "status": "fixed",
-      "how": "T-1881 (2026-11-01): two pavilions 1.2 m proud stand either side of a stepped-in centre. The north one (v 0.3-5.0) has its dormer and lights; the south one (v 8.85-13.6) has the big lights and the pedimented dormer. The door, portico, stoop, walk and gate stand in the centre at v 6.875. Laid over the print through this camera, the big dormer, the big window and the corner bay's dormer and light fall on the print's. (L-pullman-1729-recessed-centre-1881)"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the Prairie front in his three parts: the north block 2.95 m forward (v 0-7.4), the entry 1.6 m forward with the door, portico and stoop (v 7.35-12.1), the south part on the main wall with the big lights and the pedimented dormer; the depths are the 1911 sheet's front lines, the ends the sketch's (L-pullman-1729-three-part-front-1881)"
     },
     {
-      "what": "the pavilions' depth: the print's north return suggests 1.2-2 m, and the build's 1.2 m is K08's most for a pavilion; the portico and its balcony reach further north in the print (x 310-425 px) than the build's 3.1 m hood in the recess",
+      "what": "the front parts' depth and ends: the print's north return suggests 1.2-2 m, the portico and its balcony reach further north in the print (x 310-425 px) than the build's",
       "status": "open",
-      "how": "T-1881 (2026-11-01): a re-solved Taylor no. 1445 camera triangulated against this one settles the depth; the balcony's run needs a portico across the north pavilion's front, which K07 does not build (L-pullman-1729-recessed-centre-1881)"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m and the entry 1.6 m forward, the 1911 sheet's lines, the portico 4.0 m wide before the entry and clear of the block; the parts' ends along the front are the sketch's proportions, read to about 0.5 m, so this stays open until a camera on the plate's own corners reads them (L-pullman-1729-three-part-front-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

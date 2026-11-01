@@ -96,9 +96,11 @@ export const isGrownForm = (spec) => spec.form !== 'thicket' && spec.form !== 's
 export const grownGroupName = (name) => `${name}s-grown`;
 
 function archetypeKey(spec) {
-  // A habit named outright (`spec.arch`, T-3017) is its own archetype.
+  // A habit named outright (`spec.arch`, T-3017) is its own archetype; so is a plant grown to its
+  // own measured crown (`spec.own`, T-1881: a standard's ball head, which a shared variant
+  // stretched to another width would draw as an egg).
   return [spec.speciesId ?? spec.common, spec.form, spec.common, spec.dark, spec.light, spec.bark,
-    spec.conf ?? 0.5].join('|') + (spec.arch ? `|${spec.arch}` : '');
+    spec.conf ?? 0.5].join('|') + (spec.arch ? `|${spec.arch}` : '') + (spec.own ? `|own ${spec.own}` : '');
 }
 
 /**

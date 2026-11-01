@@ -38357,12 +38357,34 @@ The rear, the plan's stair block and service range, stays the draft's.
 
 ### L-pullman-1729-recessed-centre-1881 — 1729 Prairie's Prairie front laid as two pavilions with the entry in a stepped-in centre, off the owner's reading of the Detroit print; the depth reconstructed
 
+**Superseded (2026-11-01, round 3):** the two pavilions are replaced by the owner's three-part front, the north block forward, the entry stepped back and the south part on the main wall (L-pullman-1729-three-part-front-1881).
 **Decision:** the owner, on 2026-11-01, looked again at the photographs: "the center area steps in and there is the walkway that leads up to it". The forward block centred on the door (L-pullman-1729-front-bays-1881) is replaced by two K08 pavilions. `p_north` (v 0.3-5.0) carries the north bay's two lights and its round dormer. `p_south` (v 8.85-13.6) carries the big lights and the big dormer with its broken pediment. Between them the centre stays on the front's plane with one second-storey light, no dormer, and the door at v 6.875. The portico (two columns, 3.1 m), the stoop with its mid landing, the walk and the urned gate stand on the door's line in the recess.
 **What is read, not invented.** The Detroit print (LC-D4-12551) through its solved camera, unwarped onto the front's plane: a hip in the mansard either side of the plain centre (x 365-382 and 415-432 px), a dormer north and south of it and none over it, the north pavilion's south return lit beside the portico, and the centre's light reading at v 6.4. Laid over the render through the same camera, the big dormer, the big window and the corner bay's dormer and light fall on the print's.
 **What is invented.** The pavilions' 1.2 m projection, the most K08 lets a pavilion stand (the print's return suggests 1.2-2 m; the 1911 sheet's front lines are 1.65 and 3.05 m but draw the portico's 3 m with them). Also invented: their exact ends (0.3 m clear of the north corner and of the corner pier at v 13.6), and the loss of the K01 architraves on the pavilions' lights, which are K08 lights.
 **How to resolve:** a re-solved camera for Taylor's no. 1445, the closest view, triangulated against the Detroit print, fixes the pavilions' depth and ends; a K08 light architrave restores the frames.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).
+**Revised 2026-11-01 (T-1881, owner's go-ahead):** the pavilions' four lights are framed again. K08 bay lights now take an `architrave` key (band, two fascias, impost blocks, optional keystone, built as K01's street architrave; first written for the forward block's light in PR 1550, which the recessed centre made moot), and each pavilion light carries the architrave it had as a K01 light: the principal storey's keyed, the second storey's not. The frames are no longer an invented loss; their profile stays as L-pullman-1729-architraves-1881 records it.
+
+### L-pullman-1729-three-part-front-1881 — 1729 Prairie's Prairie front laid in the owner's three parts (north block forward, entry stepped back, south part on the main wall) and its 18th Street side in his four sections; the parts' ends along the faces reconstructed
+
+**Decision:** the owner, on 2026-11-01, sketched the house's plan and its west, south and east elevations over the photographs ("You have a lot right but the windows and walls are not … please use calculated size of the window and walls from the image") and ruled that the south-west corner's section belongs to the 18th Street side. The Prairie front is built in his three parts: `p_block` (v 0-7.4, 2.95 m proud) with a light a storey and its own dormer; `p_entry` (v 7.35-12.1, 1.6 m proud) carrying the door, the portico and the stoop, one light over the door and no dormer; and the south part on the main wall (v 12.1-17.93) with the big lights and the big pedimented dormer. The 18th Street side is built in his four sections: section 1 with two lights a storey and two dormers either side of the great stack; the 18th Street section (`p_18th`, s 7.2-20.6) with the pair, the oculus pier and the triple upstairs, the triple's fellows below, the side door under the pair and a dormer over each group; section 4 with a pair upstairs, one large light below and one dormer. The east side keeps three lights a floor.
+**What is read, not invented.** The depths: the 1911 sheet's three front lines (u 30.7 and 29.4 against the main wall's 27.75: 2.95 and 1.65 m), which the sketch's steps follow. The 18th Street section's depth: Taylor's no. 1445 triangulated against no. 16554 puts its triple's face 1.35-1.5 m out, its pair's 1.12-1.17 and the oculus pier's 1.21, so it is cut from 2.47 to 1.3 m. The porte-cochere's corners (s 9.05-9.5 and 14.5-14.9, 5.73-6.13 m out) from the same pair. Section 1's lights (x 470 and 555 px in no. 1445), its dormers (465 and 545) and the stack between them (490-520). The window counts and arrangement on every face are the sketch's, checked against the photographs.
+**What is invented.** The parts' ends along the faces, set from the sketch's proportions to about 0.5 m: the north block's 7.4 m and the entry's 4.75 m on the Prairie front, the 18th Street section's s 7.2 and 20.6. The north block's single light a storey (the sketch draws one; the photographs do not resolve the block's face behind the portico), centred on the block. Section 4's large ground light is round-headed as the photograph shows it; the sketch draws a square.
+**How to resolve:** a camera solved on the Albertype plate's own corners reads the north block's south return and the entry's ends; the north wall, which no photograph shows, stays on the 1911 sheet's line with its north-west block.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).
+
+### L-pullman-1729-side-door-1881 — 1729 Prairie's side door in its porte-cochere raised on a flight of seven steps; the flight reconstructed
+
+**Decision:** the owner's elevation of the 18th Street side (2026-11-01) draws an arched entry in section 2, under the porte-cochere, and asked that "the entry points around the portico … be properly built, match to the photos". The door is built on the 18th Street section's face under the second storey's pair (s 11.63), 1.3 m wide and 2.6 m high, as a raised K08 door (`door` with `steps`, a kit key written for it), its sill 1.2 m up a stone flight of seven steps, 0.25 m deep and 1.9 m wide, square to the face. The porte-cochere's end arches are widened from 2.5 to 2.8 m and stay centred on the faces they show (the owner's 2026-10-30 ruling).
+**What is read, not invented.** Taylor's no. 1445, through the west arch: the door's leaves at x 662-682 px, about s 11.1-12.45 on the section's face, its head about 3.8-4.0 m over the drive and its foot about 1.35 m, a flight's treads in front of it; the west arch's span (2.86 m) and the front arch's (2.29 m, s 10.52-12.81).
+**What is invented.** The flight: its run square to the face, its seven risers and 0.25 m treads (the photograph shows the top treads only, the coping wall hiding the rest), its width and its plain cheeks. The door's leaf is K06's narrow glazed door widened; its panels are not read. The sill is set at 1.2 m, inside the reading's 0.2 m.
+**How to resolve:** a view into the porte-cochere from 18th Street or a plan of the ground floor fixes the flight's run and the floor it climbs to.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
 
 ### L-pullman-1729-rear-dormers-1881 — 1729 Prairie's two rear dormers set over the rear wall's window bays, off Taylor's no. 16554; their places reconstructed
@@ -38422,3 +38444,23 @@ match records to `matches`; T-1907 finishes the architecture.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg`.
 **Recorded:** 2026-10-31 (T-3279).
 **Revised:** 2026-11-01 (T-3280): the street hip's pitch is no longer invented here: the 1919 programme plate, through its solved camera (`data/reference_views/marshall_field_jr_house_1919_prairie/gatlin_programme_1919.json`), puts the hip's apex at about 15.9 m, so the roof is built at 52 degrees, inferred from that reading, and the stacks' rise is lowered to keep their tops where they stood. The tower's low slated cap gives way to the flat top both plates show, and the street dormer carries its three lights; their sizes stay readings through two cameras, not measurements.
+
+### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
+
+**Decision:** the renderer no longer repeats a K03 brick panel (`assets/textures/prairie_1904_brick/panel/`,
+4 modules by 12 courses, 0.86 by 0.80 m) as a tile. On every wall that wears one, each brick takes its
+face, grain, arris and joints from another brick of the same length in the same panel, picked by a hash
+of its place on the wall and of the building it is on; each brick then takes its own spread of up to
+7 % lighter or darker and 3 % warmer or cooler, off the mortar; and the whole wall a mottle of up to 5 %,
+a couple of metres across. `renderers/web/js/brick-bond.js`.
+**What is attested.** Nothing about any house's brick: the panel itself is L-k03-brick-library-2290.
+The owner asked for it, 2026-11-01: the walls "appear as a pattern and are too consistent and
+repetitive".
+**What is invented.** Which brick stands where; the spread and the mottle and their sizes. They are
+bounded by the library's own firing variants (tints 0.87 to 1.04 of the body), and they are
+mean-neutral, so a wall's colour as a whole, and every photo-match verdict read off it, is unchanged.
+**How to resolve:** a photograph close enough to read one house's brick (its burnt-header rate, its
+colour range, its weathering) replaces the spread for that house.
+**Ticket:** T-3295.
+**Review:** the before/after stills in the T-3295 PR (`tools/brick_bond_shots.mjs`).
+**Recorded:** 2026-11-01 (T-3295).
