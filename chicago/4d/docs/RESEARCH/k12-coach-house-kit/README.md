@@ -90,6 +90,10 @@ pieces, and none is heavy. A lighter tier is not needed at this size. The first 
 
 T-2321 puts the first K12 coach house on a named lot, at its mapped rear footprint.
 
+A named lot may set `mirror` (T-1932, first at 1612 Prairie): the kit is built in mirror image, its party
+wall at the other end of the alley run, for a stable whose neighbour stands against that end. The
+variant is built and gated in the kit's own frame; only the structure GLB is reflected (and rewound).
+
 **Not done, said.**
 
 - No ventilator, by the restriction: the kit has no ventilator geometry for a sourced one to switch

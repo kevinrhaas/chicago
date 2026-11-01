@@ -169,9 +169,9 @@
     },
     {
       "id": "goodman_house_1612_prairie_coach_house",
-      "name": "1612 S. Prairie Avenue — the alley building of the house at 1612 (district draft; refined by T-1932)",
+      "name": "1612 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/goodman_house_1612_prairie_coach_house.json",
-      "asset": "gltf/goodman_house_1612_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/goodman_house_1612_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "hanford_house_2008_calumet",
@@ -1321,9 +1321,9 @@
     },
     {
       "id": "kellogg_house_1923_prairie",
-      "name": "1923 Prairie Avenue — Kellogg map-led masonry mansion (district draft; refined by T-1908)",
+      "name": "1923 Prairie Avenue — the Kellogg house (brick, under a mansard)",
       "sidecar": "sidecars/1904/kellogg_house_1923_prairie.json",
-      "asset": "gltf/kellogg_house_1923_prairie__draft_1904.glb"
+      "asset": "gltf/kellogg_house_1923_prairie__as_mapped_1904.glb"
     },
     {
       "id": "kellogg_house_1923_prairie_coach_house",
