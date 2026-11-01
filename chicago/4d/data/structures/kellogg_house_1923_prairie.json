@@ -1,184 +1,743 @@
 {
-  "id": "kellogg_house_1923_prairie",
-  "name": "1923 Prairie Avenue — Kellogg map-led masonry mansion (district draft; refined by T-1908)",
-  "aka": [
-    "1923 S. Prairie Avenue"
+ "id": "kellogg_house_1923_prairie",
+ "name": "1923 Prairie Avenue — the Kellogg house (brick, under a mansard)",
+ "aka": [
+  "1923 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_28"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '3S.B. brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+ },
+ "review_required": false,
+ "research_note": "Refined from the district draft (T-2330) in place by T-3282 (piece 2 of T-1908), under the draft's own id, as a K01 brick house read off the 1923 vignette of the Chicago Tribune's strip of 9 January 1898 (chicago_tribune_1898_01_09_residence_district) and the 1923 front in the east row of the c. 1914 row elevations of the 1800 and 1900 blocks (glessner_blog_2011_prairie_1800_1900_elevations), against the 1911 sheet's plan (s28fp-1923-b1): two storeys of brick over a high basement under a bracketed cornice and a mansard with an iron cresting; a canted bay at the front's north corner carried up past the cornice under its own mansard crown; the door right of the front's middle under a columned porch, reached by a broad high stoop between stone cheeks with iron scroll fences either side; hooded windows; the south flank's canted bay; the sheet's two ranges behind. The two pictures' cameras and match records are in data/reference_views/kellogg_house_1923_prairie/; what is still open is in their match records and belongs to T-3283. The detached coach house is its own record. Liberty L-k01-1923-kellogg-3282.",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_28"
+     "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '3S.B. brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1908 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1923-b1), the T-1841 census (s28-1923-front) and the T-1837 register row frontage-28-057 (Kellogg map-led masonry mansion); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448514.305,
-        "utm_n": 4633978.558,
-        "rotation_deg": 179.445,
-        "symbolic_location": "1923 S. Prairie Avenue, parcel prairie_1923 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 27.000, v -13.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.445 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            18.25,
-            0.0
-          ],
-          [
-            18.25,
-            14.0
-          ],
-          [
-            0.0,
-            14.0
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 3,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "'3S.B.' printed on the 1911 sheet: 3 full storeys."
-        },
-        "construction": {
-          "value": "brick",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "The register reads the map's colours as 'brick'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "hip",
-                "rect": [
-                  0.0,
-                  0.0,
-                  18.25,
-                  14.0
-                ],
-                "from": "s28fp-1923-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "hip",
-                "rect": [
-                  -5.75,
-                  1.5,
-                  0.0,
-                  7.5
-                ],
-                "from": "s28fp-1923-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 82% of its fill"
-              }
-            ],
-            "lot_v": [
-              -2.281,
-              28.281
-            ],
-            "street_u": 27.715
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1923-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s28fp-1923-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 82% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 4219775760,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 35,
-            "mansard_lower_m": 3.0,
-            "front_bays": 5,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2330",
-              "refined_by": [
-                "T-1908"
-              ]
-            },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's 'restrained masonry villa vocabulary' and its rule 'do not invent a landmark tower': a low hip over the mapped three storeys, no tower. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 4219775760 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2330",
-            "liberty": "L-draft-prairie-18-20-east-2330",
-            "register_row": "frontage-28-057",
-            "census_ids": [
-              "s28-1923-front"
-            ],
-            "trace_building": "s28fp-1923-b1",
-            "seed": 4219775760,
-            "replaceable_by": [
-              "T-1908"
-            ],
-            "card": "District draft — refined by T-1908."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448508.5,
+    "utm_n": 4633979.8,
+    "rotation_deg": 179.445,
+    "symbolic_location": "1923 S. Prairie Avenue, parcel prairie_1923 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The rear north corner of the front block, read off the 1911 sheet's trace (s28fp-1923-b1 p1, data/traces/prairie_1904_footprints_s28.json) at local x 1435.8, y -3416.0 m: the north wall's line behind the sheet's one-storey strip ('1B.') and the step where the south wall turns in 12.4 m behind the front. Through the T-1250 fit of the sheet, 1.47 m RMS. The rotation is the district draft's (T-2330), the lot's own rear-to-street line; T-3282 moves the origin 6.0 m toward the street and 1.24 m north of the draft's, because the draft's one rectangle (18.25 x 14.0 m) stood inside the sheet's outline rather than on it.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      12.4,
+      0.0
+     ],
+     [
+      12.4,
+      16.7
+     ],
+     [
+      0.0,
+      16.7
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The front block read off the 1911 sheet's trace (s28fp-1923-b1 p1) in the house's frame (u toward Prairie Avenue, west, from the block's rear; v south from the north wall): the front at x 1423.4 and the south wall at y -3432.7, 16.7 m of front, and the south wall's step 12.4 m behind the front, where the sheet turns it 3.5 m in. The two ranges behind it, inside the same outline, are rear_wings; the north corner's canted bay and the south flank's canted bay, which the sheet draws, are bays. The sheet's one-storey strip along the north wall's front half ('1B.', about 1 m wide) is not built (L-k01-1923-kellogg-3282)."
+   },
+   "form": {
+    "stories": {
+     "value": 2,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "Two storeys of brick over a raised basement under a mansard: the c. 1914 elevation stops the walls at a cornice over the second storey and draws the roof's steep face over it, and the 1898 vignette draws the second storey's hooded windows under the cornice. The 1911 sheet's '3S.B.' counts the mansard's attic as its third storey, as it does at 1905 and 1816."
+    },
+    "construction": {
+     "value": "brick",
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The 1911 sheet colours the building brick ('3S.B.', walls '12 12'); the vignette's front is hatched in courses throughout."
+    },
+    "principal_floor_m": {
+     "value": 2.5,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The water table under the principal storey about 2.4 m over the walk on the c. 1914 elevation at its row's common scale (about 7.4 px a metre on the 1600 px copy, set by 1905's front beside it: data/reference_views/kellogg_house_1923_prairie/elevations_c1914_front.json), built 2.5 m; the 1898 vignette's stoop is a long straight flight of about fourteen risers, which a 2.5 m rise at 0.18 m a riser agrees with."
+    },
+    "storey_heights_m": {
+     "value": [
+      4.5,
+      4.4
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "Read off the c. 1914 elevation at its row's scale (data/reference_views/kellogg_house_1923_prairie/elevations_c1914_front.json): the principal storey about 4.3 m from the water table to the band under the chamber sills, the chamber storey about 4.5 m to the frieze's foot and the frieze and cornice about 1.6 m over it (the cornice's top about 12.6 m over the walk, as 1905's beside it); built 4.5 and 4.4 m, the wall head at 11.4 m with K10's frieze and cornice over it."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.33,
+     "confidence": "reconstructed",
+     "note": "The kit's 13-inch brick wall; the sheet's '12 12' is the walls' brick thickness in inches."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.33,
+     "confidence": "reconstructed",
+     "note": "As the front."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "The kit's common brick for the flanks and rear, which no picture shows."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k09.trim.lintel_cornice_hood",
+       "k09.trim.lintel_cornice_hood"
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "The vignette's windows, the chamber row under the cornice and the principal windows below the numerals, each stand under a moulded head with a projecting cornice, and the elevation draws a hood over every window of both storeys: K09's lintel with a cornice hood on both."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.bracketed_timber",
+      "pairs": {
+       "spacing_m": 1.6
+      },
+      "frieze": {
+       "height_m": 0.5,
+       "proud_m": 0.025
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "The vignette's deep cornice across the front's head, bracketed over a plain frieze, with the elevation's brackets drawn in pairs under it: K10's bracketed cornice over a frieze, as 1905's next door."
+    },
+    "roof_form": {
+     "value": "mansard",
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The c. 1914 elevation's steep roof face over the cornice, cresting along its curb; the 1911 sheet draws a dashed line inside the walls all round, as it does where a mansard stands (1730, 1905). The 1898 vignette's frame stops at the cornice and does not show the roof."
+    },
+    "roof_pitch_deg": {
+     "value": 10,
+     "confidence": "reconstructed",
+     "note": "The mansard's deck, the kit's low pitch."
+    },
+    "eave_overhang_m": {
+     "value": 0.6,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The vignette's cornice stands well out over the frieze, as 1905's."
+    },
+    "mansard": {
+     "value": {
+      "variant": "k05.roof.mansard_convex",
+      "lower_rise_m": 4.5,
+      "bulge": 0.0,
+      "lower_pitch_deg": 78,
+      "dormers": [
+       {
+        "face": "north",
+        "along_m": 6.0,
+        "sash": {
+         "variant": "k06.opening.sash_2over2_flat",
+         "width_m": 0.9,
+         "height_m": 1.6,
+         "sill_m": 0.2
+        },
+        "surround_m": 0.25,
+        "face_setback_m": 0.1,
+        "head": "gable",
+        "gable_pitch_deg": 35
+       }
+      ],
+      "deck": {
+       "cresting": {
+        "height_m": 0.5,
+        "inset_m": 0.08,
+        "sides": [
+         "street"
+        ]
+       }
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "The elevation's mansard face about 4.7 m over the cornice at its row's scale (data/reference_views/kellogg_house_1923_prairie/elevations_c1914_front.json), built 4.5 m, the K05 contract's ceiling for a face holding one storey, steep, with a cresting along its curb over the street. The elevation draws no dormer in the front face, so none stands there; one dormer lights the attic from the south face (reconstructed, no picture shows the flank)."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_standing_seam_painted",
+      "flashing": "copper_sheet",
+      "caps": "copper_ridge_roll",
+      "lower_faces": "slate_pennsylvania",
+      "paint": "black"
+     },
+     "confidence": "reconstructed",
+     "note": "The kit's slate faces and tin deck, as 1905's; the pictures are monochrome."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "The kit's tread."
+    },
+    "stair_landing_depth_m": {
+     "value": 2.0,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The vignette's stoop lands under the porch's columns."
+    },
+    "stoop_width_m": {
+     "value": 3.4,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The vignette's stoop is broad, nearly the porch's own width between its cheeks."
+    },
+    "entrance_bay": {
+     "value": 1,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The elevation's door under its porch stands right of the bay, between it and the front's two south window columns, at about 9.0 m from the north corner (front_bays); the vignette's stoop and porch are the panel's middle with the canted bay at its left, the north. K01 counts from the front's left end, which on this east-side front is its north end."
+    },
+    "front_bays": {
+     "value": [
+      9.0,
+      13.0,
+      15.1
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "The front's flat window columns from its north end, right of the canted bay: the door's column, and two windows south of it, at x 1390, 1414 and 1426 px of the 1600 px copy, on the 1923 front's x 1340-1435 px, laid in proportion on the sheet's 16.7 m front. The elevation draws the front about 12.8 m wide at its row's scale, about 4 m narrower than the sheet, which is the measurement this follows."
+    },
+    "side_bays": {
+     "value": [
+      3.0,
+      8.5
+     ],
+     "confidence": "reconstructed",
+     "note": "The north flank's windows, which no picture shows, in the kit's spacing."
+    },
+    "north_bays": {
+     "value": [
+      2.5
+     ],
+     "confidence": "reconstructed",
+     "note": "The south flank's one window in front of its canted bay (reconstructed: no picture shows the flank)."
+    },
+    "rear_bays": {
+     "value": [],
+     "confidence": "reconstructed",
+     "note": "The front block's rear wall stands behind the 3-storey range (rear_wings) for its whole width below the range's deck; it carries no window."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.4,
+       "width_m": 1.1,
+       "height_m": 3.2
+      },
+      {
+       "sill_above_floor_m": 0.4,
+       "width_m": 1.1,
+       "height_m": 2.7
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "The elevation's windows at its row's scale (data/reference_views/kellogg_house_1923_prairie/elevations_c1914_front.json): the principal ones about 3.6 m tall from sills at the water table, the chamber ones about 4.0 m under the frieze, built 3.2 and 2.7 m so that K09's hood clears the band and K10's frieze (open on the match record); about 1.1 m wide."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.6,
+      "width_m": 1.0,
+      "height_m": 1.0
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "The elevation draws a basement light under each principal window."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 1.2,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 3.0,
+        "v_m": 15.8
+       },
+       {
+        "u_m": 3.0,
+        "v_m": 1.0
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "The elevation draws one stack over the mansard's south end; it stands there, and the north flank's stack is the kit's."
+    },
+    "rainwater": {
+     "value": {
+      "gutter": "half_round",
+      "fabric": "copper_sheet",
+      "downpipe": "round",
+      "ends_at": "grade_with_splash_stone",
+      "downpipes": [
+       {
+        "wall": "k01.wall.side.south",
+        "s_m": 11.9
+       },
+       {
+        "wall": "k01.wall.side.north",
+        "s_m": 0.4
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "The kit's copper gutter and downpipes at the front block's corners."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "The kit's two-over-two sash and area lights."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 9.45,
+       "hood": {
+        "soffit_m": 6.1,
+        "width_m": 3.4,
+        "out_m": 2.0,
+        "fascia_m": 0.45,
+        "cornice": {
+         "height_m": 0.2,
+         "proud_m": 0.2
+        },
+        "brackets": "k08.bay.canted_hooded",
+        "railing": {
+         "height_m": 0.35,
+         "post_m": 0.25,
+         "baluster_m": 0.08,
+         "pitch_m": 0.2,
+         "rail_m": [
+          0.2,
+          0.12
+         ]
+        },
+        "columns": {
+         "diameter_m": 0.32,
+         "plinth_m": [
+          0.4,
+          0.5
+         ],
+         "capital_m": 0.45,
+         "respond_m": 0.2
+        },
+        "railing_fabric": "stone",
+        "fabric": "stone"
+       }
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2011_prairie_1800_1900_elevations",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The vignette's porch at the stoop's head: columns standing before the door under a lintel, the elevation's broad framed entrance in the principal storey. Built as K01's columned door hood with a balustrade on its top, its soffit 3.6 m over the principal floor, clear of the chamber window over it; the vignette's arch between the columns and its balustrade are under the numerals (open in its match record). The front yard to the street line is the 1904 parcel's (street_u 27.715 in the draft's frame, the front at 18.25 m)."
+    },
+    "boundary": {
+     "value": {
+      "street_line_m": 9.25,
+      "lot_s_m": [
+       -1.041,
+       29.521
+      ],
+      "fence": "k11.fence.scroll_band",
+      "entrance_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "leaves": 2,
+       "clear_m": 1.3,
+       "drawn_deg": 70
+      },
+      "posts": {
+       "section_m": 0.12,
+       "height_m": 1.55
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The vignette's cast-iron fence either side of the walk, panels of scrolls between posts, as K11's scroll-band fence (the nearest K11 has); its stone posts with rounded caps at the stoop's foot are the gate's piers here. The line stands 9.25 m before the front, just inside the parcel's street line; the lot's sides are the parcel's (data/street_grid/1904.json prairie_1923), 2.281 m north of the draft's frame and 28.281 m south of it, moved 1.24 m into this frame."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "front_corner_canted",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.street_front",
+       "s_m": 2.9,
+       "fabric": "brick",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -2.6,
+          0.0
+         ],
+         [
+          -1.6,
+          1.0
+         ],
+         [
+          1.6,
+          1.0
+         ],
+         [
+          2.6,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 7.0,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.75,
+           "clear_height_m": 3.2,
+           "sill_m": 2.8,
+           "at": [
+            0.117,
+            0.883
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "the elevation's principal light in each of the bay's cheeks, as tall as the front's"
+          },
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 3.2,
+           "sill_m": 2.8,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the elevation's principal light in the bay's front, as the front's"
+          }
+         ]
+        },
+        {
+         "height_m": 4.14,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.75,
+           "clear_height_m": 2.7,
+           "sill_m": 0.4,
+           "at": [
+            0.117,
+            0.883
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "the elevation's chamber light in each of the bay's cheeks"
+          },
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 2.7,
+           "sill_m": 0.4,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the elevation's chamber light in the bay's front"
+          }
+         ]
+        }
+       ],
+       "eaves": {
+        "cornice": "k10.cornice.bracketed_timber"
+       },
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.1,
+        "covering": "slate_pennsylvania",
+        "mansard": {
+         "rise_m": 4.5,
+         "lower_pitch_deg": 78,
+         "cresting": {
+          "height_m": 0.4,
+          "inset_m": 0.1
+         }
+        }
+       }
+      },
+      {
+       "id": "south_flank_canted",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.side.north",
+       "s_m": 8.85,
+       "fabric": "brick",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -2.25,
+          0.0
+         ],
+         [
+          -1.0,
+          1.4
+         ],
+         [
+          1.0,
+          1.4
+         ],
+         [
+          2.25,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 7.0,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.0,
+           "clear_height_m": 3.2,
+           "sill_m": 2.8,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the front's principal sash in the bay's face (reconstructed: no picture shows the flank)"
+          }
+         ]
+        },
+        {
+         "height_m": 3.1,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.0,
+           "clear_height_m": 2.3,
+           "sill_m": 0.4,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the front's chamber sash in the bay's face (reconstructed)"
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.25,
+        "covering": "tin_flat_seam_painted"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicago_tribune_1898_01_09_residence_district",
+      "glessner_blog_2011_prairie_1800_1900_elevations"
+     ],
+     "note": "The front's north corner: the 1911 sheet draws a bay about 1 m proud of the front over its north 5.5 m with its corners cut (trace y -3416.0 to -3421.45), the vignette a canted bay at the panel's left rising past the main cornice under a cornice of its own, and the elevation three windows a storey across the front's north part, its cheeks and its face, with the bay's lines carried up through the mansard. Built as K08's canted bay on the sheet's plan, its two storeys' windows at the front's heights, under its own bracketed cornice and a mansard crown with cresting, as 1900's corner bay across the avenue. The south flank's canted bay is the sheet's bulge 6.6-11.1 m behind the front, about 1.4 m out with cut ends; its windows and its low roof, under the main cornice, are reconstructed."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_range",
+       "rect": [
+        -6.0,
+        0.0,
+        0.0,
+        13.2
+       ],
+       "floor_m": 2.5,
+       "storey_heights_m": [
+        4.3,
+        4.0
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.75,
+         "width_m": 1.0,
+         "height_m": 2.4
+        },
+        {
+         "sill_above_floor_m": 0.6,
+         "width_m": 1.0,
+         "height_m": 2.2
+        }
+       ],
+       "windows": {
+        "north": [
+         2.0,
+         4.3
+        ],
+        "south": [
+         1.5,
+         4.5
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      },
+      {
+       "id": "rear_building",
+       "rect": [
+        -12.0,
+        -6.0,
+        2.6,
+        8.85
+       ],
+       "floor_m": 2.5,
+       "storey_heights_m": [
+        4.0,
+        3.8
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.75,
+         "width_m": 1.0,
+         "height_m": 2.4
+        },
+        {
+         "sill_above_floor_m": 0.6,
+         "width_m": 1.0,
+         "height_m": 2.2
+        }
+       ],
+       "windows": {
+        "rear": [
+         1.6,
+         4.65
+        ],
+        "north": [
+         3.0
+        ],
+        "south": [
+         3.0
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The 1911 sheet's outline behind the front block, inside the same brick wall and the same '3S.B.' (trace s28fp-1923-b1 p1): a range 6.0 m deep across the block's rear behind the south wall's step (v 0-13.2), and behind it a narrower building 6.0 m deep and 6.25 m wide (v 2.6-8.85) closing the outline at the rear. Built as two K01 rear wings, each two storeys under a flat deck below the main cornice, the second standing on the first's rear wall. No picture shows the rear: their storeys, roofs and windows are the kit's, reconstructed inside an inferred plan; the sheet's dashed line suggests the mansard runs round them, which is not built (L-k01-1923-kellogg-3282)."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.6,
+       "top_m": 0.06,
+       "wear_tone": 0.9
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "K14's yard: a flagged walk from the stoop to the street, the kit's rule (the north side passage is about 1 m wide, too narrow for the kit's side gate and service walk); no picture shows the walk's surface."
+    }
+   }
+  }
+ ]
 }
