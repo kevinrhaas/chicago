@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2533, ts: '2026-11-01T13:08:21.611Z', date: 'Nov 1, 2026, 7:08 AM CT', title: 'Nothing you can see: 1912 Prairie checked from behind and above', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The Moulton house at 1912 Prairie was inspected in the app from the avenue, both walks, over the alley and from the air, on a desktop and a phone screen.',
+      'Its slate roof, rear brick range and chimneys read as one house from every side. No picture shows the back, and no defect was found there, so nothing was rebuilt.',
+      'The house\'s load, memory and frame costs are written up beside the views for the work still to come on its front.',
+    ] },
   { v: 2532, ts: '2026-11-01T13:07:17.505Z', date: 'Nov 1, 2026, 7:07 AM CT', title: '1919 Prairie stands as Marshall Field Jr.\'s house from its photographs', kind: 'feature',
     items: [
       '1919 Prairie Avenue, Marshall Field Jr.\'s house, is no longer a draft box: a red brick house of two storeys over a stone basement under a steep slate roof, its narrow front swelling forward in a broad bow, with the stoop and door at its south end.',
