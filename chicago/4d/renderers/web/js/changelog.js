@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2519, ts: '2026-11-01T05:46:35.457Z', date: 'Nov 1, 2026, 12:46 AM CT', title: 'Winter trees down the street show their branches and twigs', kind: 'fix',
+    items: [
+      'With the Season set to winter, the bare elms along the streets from about 10 m out, and the woods\' trees further off, had shrunk to a trunk and a few long poles, because the leaf that covers the fine wood in summer was gone and nothing drew the wood in its place.',
+      'They now carry their branches and a fringe of twigs, so a street of winter elms greys in round its limbs the way Taylor\'s winter photograph of the Pullman estate shows it.',
+      'Summer, spring and fall trees are unchanged, and a winter tree draws no more than the same tree in leaf.',
+    ] },
   { v: 2518, ts: '2026-11-01T05:00:03.683Z', date: 'Nov 1, 2026, 12:00 AM CT', title: 'Pullman house\'s Prairie front steps in at the centre', kind: 'fix',
     items: [
       'The entry now sits in a stepped-in centre between two forward pavilions, as the Detroit photograph shows.',
