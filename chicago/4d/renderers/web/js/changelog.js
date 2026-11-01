@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2537, ts: '2026-11-01T15:10:32.108Z', date: 'Nov 1, 2026, 9:10 AM CT', title: '1912 Prairie\'s front door now stands in a deep stone arch', kind: 'feature',
+    items: [
+      'The Moulton house at 1912 Prairie now has its front door set back in a deep round arch, with a moulded stone ring and a keystone, as its photograph and the 1883 engraving show. A pair of panelled doors stands under a fan-shaped window in the arch.',
+      'The pair of tall windows on the ground floor of the south gable now has round tops, as all three pictures of the house show.',
+      'Still to come: the single arch over that pair, the carved capitals beside the door, and the stone dormers and carving on the roof.',
+    ] },
+  { v: 2536, ts: '2026-11-01T15:10:32.108Z', date: 'Nov 1, 2026, 9:10 AM CT', title: 'The back of the Pullman house steps out', kind: 'fix',
+    items: [
+      'The rear wall of the Pullman house is no longer one flat face: its north half now stands forward under its own mansard roof, with the raised terrace in the corner, as J. W. Taylor\'s photograph from 18th Street shows it.',
+      'That forward half has two windows on each floor and a dormer over each pair. The south half keeps one window and one dormer, matching the photograph.',
+    ] },
   { v: 2535, ts: '2026-11-01T13:55:52.457Z', date: 'Nov 1, 2026, 7:55 AM CT', title: 'A brick stable behind the 1700-1706 Prairie pair', kind: 'feature',
     items: [
       'The alley behind the Glessner-Lee and George Glessner townhouses at 1700-1706 Prairie now has its two-storey brick stable, the longest on that alley: 19.4 m along it and 10.4 m deep, with a fire wall on the lot line to the north and a window pair at the middle of its alley wall. Its outline, storeys, brick and window place come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas draws the same stable, so it stood through 1904. The doors, loft hatch, other windows and roof are reconstructed from the shared coach-house kit and listed in the liberties.',
