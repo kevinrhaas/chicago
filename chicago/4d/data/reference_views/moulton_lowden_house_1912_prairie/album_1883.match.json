@@ -1,0 +1,61 @@
+{
+  "structure_id": "moulton_lowden_house_1912_prairie",
+  "view": "album_1883",
+  "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
+  "glb_sha256": "f68f7c6d97740280d0e816bec469e3795da789d33c190676764ca691d25e3a3c",
+  "camera_sha256": "d42ede24e6ae28edde7a487e1208c12195fd9938583f98011e33119bfccce2d5",
+  "photo_sha256": "8479c93215df5e498fcfa87e9cc4829a43aab228919383ac1d358845352981d9",
+  "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/album_1883-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing from the plate's own camera: the front between the south gable at the left and the north corner block at the right, the round tower right of the gable under a slated cone with a finial, the very steep slated roof with iron cresting, and the north flank receding to the right; the front's two corners, the flank's rear corner, the tower's axis and the door land within 8.5 px of the plate (4.0 px RMS)",
+      "status": "fixed"
+    },
+    {
+      "what": "the tall stack rising off the north flank behind the corner block, standing where the plate draws it and to about its height",
+      "status": "fixed"
+    },
+    {
+      "what": "the storeys: with the cornice placed, the plate draws the chamber belt about 58 px (some 3 m) higher on the north corner than the record's 6.15 m and the walls' foot well above the record's grade, so it makes the walls about 0.8 of the record's height for their width; the row elevations (elevations_c1914_front) agree in direction, a principal storey near 4.8 m and a chamber storey near 3.6 m against the record's 4.3 and 4.35 m",
+      "status": "open"
+    },
+    {
+      "what": "the south gable: drawn as a tall stone wall gable rising through the roof with crockets, pinnacles and a finial, over a chamber pair and the arched pair of the principal floor (two round heads with colonnettes under one arch); built a low gable at the eave over square-headed pairs",
+      "status": "open"
+    },
+    {
+      "what": "the tower's top: the plate carries the tower a full stage over the main cornice, with its own lights and pinnacles, under a tall slated spire; the build springs a broader cone about 1 m over the cornice (the photograph's chicagology_photo record reads the cone lower still, so the two pictures, thirty years apart, are to be weighed against each other)",
+      "status": "open"
+    },
+    {
+      "what": "the dormers: the plate's are stone wall dormers with crocketed gables and pinnacles rising off the cornice, one over the north corner block and one on the north flank; built plain gabled dormers set in the slate",
+      "status": "open"
+    },
+    {
+      "what": "the entrance: the plate's door stands in a deep arched recess between carved capitals; built a flat-headed door at the stoop's head",
+      "status": "open"
+    },
+    {
+      "what": "the corbelled corner turret at the north corner block's flank corner (x 350-372, y 150-310 px of the cut, its corbel at y 310), with its little cone: not built",
+      "status": "open"
+    },
+    {
+      "what": "the low iron railing along the walk before the house",
+      "status": "fixed"
+    },
+    {
+      "what": "colour and the stone's tone: the plate is a monochrome engraving, so the brownstone's colour is not compared",
+      "status": "not shown"
+    },
+    {
+      "what": "the south flank, the rear and the roof's rear faces",
+      "status": "not shown"
+    },
+    {
+      "what": "the walk, the trees, the carriage and the figures, and the brick neighbour at the left",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,27 @@
+{
+ "structure_id": "moulton_lowden_house_1912_prairie",
+ "source_id": "newberry_new_chicago_album_1883_residences",
+ "library_image": "a19-nby-newchicagoalbum-1883-residences",
+ "photo": "../../sources/assets/moulton_1912_pictures_t3278/moulton_1912_album_1883.jpg",
+ "image_px": [
+  525,
+  520
+ ],
+ "principal_px": [
+  220.0,
+  424.3
+ ],
+ "focal_px": 678.1,
+ "eye": [
+  50.6,
+  25.47,
+  1.76
+ ],
+ "yaw_deg": 238.57,
+ "sun_uvy": [
+  0.6,
+  -0.3,
+  0.9
+ ],
+ "solve": "Fitted by T-3278 (piece 2 of T-1899) to the 'B. F. Moulton' vignette of the New Chicago Album's 'Private Residences of Chicago' plate (1883), cut unaltered from the Prairie library's 2400 x 1480 px copy (a19-nby-newchicagoalbum-1883-residences) at x 940-1465 and y 790-1310 px (the vignette inside its frame, the bottom vignette of the middle column); pixel places here are in that 525 x 520 px cut. THE PLATE IS THE RIGHT WAY ROUND, as T-3277 found the photograph: the south gable with its arched pair at the left, the round tower right of it, the door in an arched recess in the north corner block, and the north flank receding to the right with the corbelled corner turret at its front end. A drawn perspective, so solved as a LEVEL camera (its verticals are drawn vertical) with the eye fixed at 1.76 m, as the Dent vignette on the same plate was (T-3163). FIVE PLAN READINGS AND THREE HEIGHTS, least squares over the eye's plan place, the heading, the focal length and the principal point: the front's south corner (x 116 px) and north corner (x 334.5 px) and the north flank's rear corner at u 0 (x 435 px), each at the top of the cornice (13.25 m, the record's: y 224, 183 and 267.5 px); the tower's axis (u 21.15, v 7.8: x 226 px) and the door's centre (v 12.1: x 301 px). Every plan place is the record's footprint, read off the 1911 sheet (s28fp-1912-b1). Residuals 4.0 px RMS, the worst 8.5 px at the door and 7.6 px at the flank's rear eave. THE WALLS BELOW THE CORNICE DO NOT FIT THIS CAMERA: with the cornice placed, the record's chamber belt (6.15 m) falls at y 332 px on the north corner where the plate draws it at y 274, and the north corner's foot at y 461 where the terrace meets it at about y 405; freeing the eye's height to take the belts as well drives the fit to 13.4 px RMS (30 px at the north cornice). The plate draws the front's walls about 0.8 of the record's height for their width (the row elevations, T-3278, draw them about 1.05 times wider than tall where the record is 0.98), so its storey heights are a reading for the build, not a measurement, and are carried as an open difference in the match record. PLACE: the eye at u 50.6 (out on the far side of Prairie Avenue), v 25.5 (about 12.5 m north of the north wall), heading 238.6, west-south-west: within 3.5 m and 2 degrees of the photograph's camera (T-3277: u 48.0, v 28.6, heading 240.5), so the engraver drew the house from where the photographer later stood, and the two are one view of the house thirty years apart. LIGHT: the front lit and the north flank in shade, so the sun from the east-south-east, as in the photograph."
+}
