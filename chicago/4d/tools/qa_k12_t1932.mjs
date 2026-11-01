@@ -12,6 +12,7 @@
 //   QA_TARGET=1712 node tools/qa_k12_t1932.mjs       1712's stable, the sixth
 //   QA_TARGET=1700 node tools/qa_k12_t1932.mjs       1700-1706's stable, the seventh (the longest on the alley)
 //   QA_TARGET=1720 node tools/qa_k12_t1932.mjs       1720's stable and its one-storey range, the eighth (the kit's range fitting)
+//   QA_TARGET=1726 node tools/qa_k12_t1932.mjs       1726's two-storey building (GARAGE in 1911), the ninth (the kit in mirror image)
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -56,6 +57,11 @@ const TARGETS={
   ['alley-from-south',[1331,-3165,1.7],[1335,-3145,3]],
   ['yard-face',[1358,-3130,1.7],[1345,-3140,3.5]],
   ['air',[1375,-3170,44],[1340,-3140,0]]]},
+ '1726':{dir:'k12-1726-stable-1932',ids:['house_1726_prairie_coach_house','house_1726_prairie','walker_house_1720_prairie_coach_house'],glb:'house_1726_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3143,1.7],[1335,-3162,4]],
+  ['alley-from-south',[1331,-3190,1.7],[1335,-3167,4]],
+  ['yard-face',[1356,-3157,1.7],[1345,-3165,3.5]],
+  ['air',[1375,-3195,44],[1340,-3164,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';

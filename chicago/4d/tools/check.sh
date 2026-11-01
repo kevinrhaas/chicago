@@ -4518,7 +4518,7 @@ selftest "the bake is skipped only when the freshness register says nothing stal
 # to install chromium there, so all eighteen content-build smoke legs died in
 # `Install Playwright` and no bake could open its PR. A job that installs Playwright
 # names an exact image — the one its timings and ceilings were measured on.
-step "every workflow job that installs Playwright runs on a pinned image (T-3169)" \
+step "every workflow job that installs Playwright or runs Blender runs on a pinned image (T-3169, T-3296)" \
   python3 tools/check_runner_images.py --gate
 
 selftest "…and a job on a moving label is refused, read per job and not from prose" \
