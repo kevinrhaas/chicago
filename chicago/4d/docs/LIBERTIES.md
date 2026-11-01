@@ -38206,6 +38206,7 @@ The rear, the plan's stair block and service range, stays the draft's.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
+**Revised 2026-11-01 (T-1881, owner's go-ahead):** the pavilions' four lights are framed again. K08 bay lights now take an `architrave` key (band, two fascias, impost blocks, optional keystone, built as K01's street architrave; first written for the forward block's light in PR 1550, which the recessed centre made moot), and each pavilion light carries the architrave it had as a K01 light: the principal storey's keyed, the second storey's not. The frames are no longer an invented loss; their profile stays as L-pullman-1729-architraves-1881 records it.
 
 ### L-pullman-1729-rear-dormers-1881 — 1729 Prairie's two rear dormers set over the rear wall's window bays, off Taylor's no. 16554; their places reconstructed
 

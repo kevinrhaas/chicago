@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "e77fcf2ab690a23922af90357e97f7f65d4bc915e75c63b77bd0d5f629737955"
+      "glb_sha256": "d973c0990449edad714b7616be1ecb5ade6f83c091a5466026aff717a3cf8eb3"
     }
   ],
-  "group_sha256": "090b7f6d985d16d27505489a870155a1b3cc96bbf43a0349a3123c06d96f8953",
+  "group_sha256": "a499f1c492a9cb8cb3b918ee295301ab34eb9a583399f8d3e761e76705cae84b",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "168b01f593c9e140391cb968654ec26740a9738d054a45457905da6b7d2f9608",
+  "flora_sha256": "e199a922b9ccca027a8dbbcb5f8e90121e3bab9f746a14576f8c1688d99dddfd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

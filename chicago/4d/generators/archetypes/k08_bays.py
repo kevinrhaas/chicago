@@ -1028,6 +1028,82 @@ def surround(o, su: dict, op, s: float, tier: str) -> list:
     return out
 
 
+ARCHITRAVE_PIECES = 12    # T-1881: an architrave's arch in this many straight pieces (K01's)
+ARCHITRAVE_INNER = 0.55   # T-1881: the inner fascia's share of the band, next the light (K01's)
+ARCHITRAVE_TUCK_M = 0.01  # T-1881: how far an architrave's band stands off the light's edge
+
+
+def architrave(o, ar: dict, op, s: float, tier: str) -> list:
+    """T-1881: a round-headed light framed by a moulded architrave, as K01 frames a street
+    front's named lights (k01_frontage.street_architrave; 1729 Prairie's pavilion lights in the
+    1890 Albertype plate): a band `band_m` broad up each jamb from the sill to the springing and
+    on round the arch, in two fascias, the outer `proud_m` before the face and the inner, next
+    the light, half that, so the step between them draws the plate's shadow line; an impost
+    block (`impost_m`: height, how far past the band and before it) at the springing; and a
+    keystone (`key_m`: width, height over the crown) a little prouder. The light tier keeps one
+    fascia and half the arch's pieces.
+
+    The band is swept as one moulding (its section carried up the jamb, round the arch and down
+    the other jamb), so no two of its pieces meet face to face; it stands ARCHITRAVE_TUCK_M off
+    the light's edge, clear of K06's head band's inner face, and the impost a further step off,
+    its inner face inside the band: K08's doubled-face rule holds. The band has no back (it stands on the wall) and buries its feet in the sill.
+    Drawn into the strip `o`; returns the jambs' (s0, s1, y0, y1) for a coursed wall's cells."""
+    pts = [(q[0] + s, q[1] + op.O[1]) for h in op.holes for q in h]
+    x0, x1 = min(q[0] for q in pts), max(q[0] for q in pts)
+    r0, cx = (x1 - x0) / 2, (x0 + x1) / 2
+    ys = max(q[1] for q in pts) - r0
+    # the foot a little under the sill's top, which falls outward (as `surround`'s does)
+    y0 = op.O[1] - 0.016
+    b, F = ar["band_m"], ar["proud_m"]
+    e = ARCHITRAVE_TUCK_M
+    if tier == "full":
+        w = b * ARCHITRAVE_INNER
+        sec, n = [(0.0, 0.0), (0.0, F * 0.5), (w, F * 0.5), (w, F), (b, F), (b, 0.0)], ARCHITRAVE_PIECES
+    else:
+        sec, n = [(0.0, 0.0), (0.0, F), (b, F), (b, 0.0)], ARCHITRAVE_PIECES // 2
+    # the band's inner edge stands ARCHITRAVE_TUCK_M off the light's, so its inner face is not
+    # drawn in the plane of K06's head band (which it covers) round the arch
+    sec = [(e + t, d) for t, d in sec]
+    # the path's stations: (direction away from the light, ((x, y) at the band's inner edge))
+    # up the left jamb, round the arch from the left springing to the right, down the right jamb
+    stations = [((-1.0, 0.0), (x0, y0)), ((-1.0, 0.0), (x0, ys))]
+    stations += [((math.cos(math.pi * (1 - i / n)), math.sin(math.pi * (1 - i / n))), None) for i in range(n + 1)]
+    stations += [((1.0, 0.0), (x1, ys)), ((1.0, 0.0), (x1, y0))]
+
+    def at(k, t):
+        (ux, uy), base = stations[k]
+        if base is None:                                                    # on the arch
+            return (cx + (r0 + t) * ux, ys + (r0 + t) * uy)
+        return (base[0] + t * ux, base[1] + t * uy)
+    for k in range(len(stations) - 1):
+        if stations[k][1] is not None and stations[k + 1][1] is None or \
+                stations[k][1] is None and stations[k + 1][1] is not None:
+            continue                                                        # the springing: one point
+        ux, uy = (stations[k][0][0] + stations[k + 1][0][0]) / 2, (stations[k][0][1] + stations[k + 1][0][1]) / 2
+        for (ta, da), (tb, db) in zip(sec, sec[1:]):
+            pa0, pb0, pa1, pb1 = at(k, ta), at(k, tb), at(k + 1, ta), at(k + 1, tb)
+            nt, nd = -(db - da), (tb - ta)                                  # outward in the section
+            o.face("band", [o.P(pa0[0], pa0[1], -da), o.P(pb0[0], pb0[1], -db),
+                            o.P(pb1[0], pb1[1], -db), o.P(pa1[0], pa1[1], -da)], (nt * ux, nt * uy, nd))
+    # the feet, buried in the sill: each a convex piece of the section
+    for k, hy in ((0, -1.0), (len(stations) - 1, -1.0)):
+        for (ta, da), (tb, db) in zip(sec, sec[1:]):
+            if da == db and da > 0:
+                p0, p1 = at(k, ta), at(k, tb)
+                o.face("band", [o.P(p0[0], p0[1], 0.0), o.P(p1[0], p1[1], 0.0),
+                                o.P(p1[0], p1[1], -da), o.P(p0[0], p0[1], -da)], (0.0, hy, 0.0))
+    if ar.get("impost_m"):
+        ih, io = ar["impost_m"]
+        # raised ARCHITRAVE_TUCK_M, so its top is not drawn in the plane of K06's head band's
+        # feet at the springing
+        for a0, a1 in ((x0 - e - b - io, x0 - 2 * e), (x1 + 2 * e, x1 + e + b + io)):
+            o.proud("band", rect(a0, a1, ys - ih + e, ys + e), F + io)
+    if ar.get("key_m"):
+        kw, kh = ar["key_m"]
+        o.proud("band", rect(cx - kw / 2, cx + kw / 2, ys + r0, ys + r0 + kh), F + 0.03)
+    return [(x0 - b, x0, y0, ys), (x1, x1 + b, y0, ys)]
+
+
 def tympanum(o, ty: dict, x0: float, x1: float, y0: float, cx: float, tier: str) -> int:
     """T-3197: a carved tympanum over a light's lintel (1827's, from the Doane photograph): a
     stone panel standing on the lintel's top (`y0`) between its ends (`x0`, `x1`), `proud_m`
@@ -1204,6 +1280,12 @@ def window(w: dict, s: float, y_sill: float, recess: float):
         data6["parts"]["sill"]["horn_m"] = su["band_m"] + 0.01
         data6["parts"]["head_band"].update({"ear_m": su["band_m"] + 0.01, "width_m": su["head_m"],
                                              "proud_m": su["head_proud_m"]})
+    if w.get("architrave"):
+        # T-1881: an architrave's jambs stand on the sill's horns, as a surround's do, the horns
+        # running a little past the band (stood ARCHITRAVE_TUCK_M off the light) so their ends
+        # are not drawn in its outer face's plane
+        data6["parts"]["sill"]["horn_m"] = max(data6["parts"]["sill"]["horn_m"],
+                                               w["architrave"]["band_m"] + ARCHITRAVE_TUCK_M + 0.03)
     probe = K6.Opening(v6, data6).build()
     inner_glass = probe.meta["depth_backing_m"] - data6["parts"]["backing"]["depth_m"]
     data6["parts"]["backing"]["depth_m"] = recess - inner_glass
@@ -1329,6 +1411,12 @@ class Bay:
                         jambs = surround(flat, w["surround"], o, s, self.tier)
                         if v.get("masonry"):
                             trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
+                    if w.get("architrave"):
+                        # T-1881: a round head's moulded architrave, as K01 frames the front's lights
+                        jambs = architrave(flat, w["architrave"], o, s, self.tier)
+                        if v.get("masonry"):
+                            trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
+                        self.meta["architraves"] = self.meta.get("architraves", 0) + 1
                     if w.get("tympanum"):
                         # T-3197: a carved tympanum on the lintel, under the arc it names
                         hp = o.prims["head"].pos

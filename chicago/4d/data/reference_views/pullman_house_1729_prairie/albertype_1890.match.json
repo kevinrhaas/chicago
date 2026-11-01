@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e77fcf2ab690a23922af90357e97f7f65d4bc915e75c63b77bd0d5f629737955",
+  "glb_sha256": "d973c0990449edad714b7616be1ecb5ade6f83c091a5466026aff717a3cf8eb3",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -190,8 +190,8 @@
     },
     {
       "what": "the forward block's second-storey light over the portico (x 1017-1044) under the same moulded head as the front's other lights: in the build it is a K08 bay light (p_forward) under K06's own arch band, which the K01 architrave does not reach",
-      "status": "open",
-      "how": "T-1881 (2026-10-31): seen when the front's K01 lights were framed; needs the K08 bay window to take an architrave"
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): seen when the front's K01 lights were framed; needs the K08 bay window to take an architrave T-1881 (2026-11-01): the forward block is gone (the recessed centre); the light over the portico is a K01 street light again with its architrave, and K08 bay lights now take the same `architrave` key (from PR 1550), so the two pavilions' four lights carry the moulded heads, impost blocks and, on the principal storey, the keystones they had as K01 lights"
     },
     {
       "what": "the principal storey's big light stands on a projecting sill carried on two blocks over a sunk panel (x 1180-1240, y 545-560); the build's light stands on K06's plain sill",
@@ -206,7 +206,7 @@
     {
       "what": "the Prairie front's massing: two pavilions under their own hipped mansards, a dormer on each, either side of a plain stepped-in centre over the portico",
       "status": "fixed",
-      "how": "T-1881 (2026-11-01): built so (L-pullman-1729-recessed-centre-1881); the pavilions' lights are now K08 lights, so this plate's architraves frame only the centre's and the corner bay's"
+      "how": "T-1881 (2026-11-01): built so (L-pullman-1729-recessed-centre-1881); the pavilions' lights are now K08 lights, so this plate's architraves frame only the centre's and the corner bay's. Since 2026-11-01 the pavilions' four lights are framed as well, through K08's `architrave` key, as they were when they were K01 lights"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
