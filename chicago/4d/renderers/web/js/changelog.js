@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2541, ts: '2026-11-01T17:54:29.185Z', date: 'Nov 1, 2026, 11:54 AM CT', title: 'Winter elms grey in with fine, forking twig', kind: 'improvement',
+    items: [
+      'In winter, elms seen from about 10 m and further now show a dense fringe of fine twigs that fork and rise. Before, their crowns were a few straight sticks.',
+      'Pullman\'s stable now matches all three of its pictures. The 1890s winter print of the estate from the south was the last one to differ, on its trees.',
+    ] },
   { v: 2540, ts: '2026-11-01T16:57:04.465Z', date: 'Nov 1, 2026, 10:57 AM CT', title: 'A brick stable and its range behind 1720 Prairie', kind: 'feature',
     items: [
       'The alley behind 1720 Prairie now has its two-storey brick stable, 16.6 m along the alley and 10.1 m deep, with a one-storey brick range running on from its south end to the next lot line. The draft had stood it as seven boxes of mixed heights. The outlines, storeys, brick and both windows come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas draws the same stable and range on the lot. The two maps divide the run between them differently, so the 1911 division is built and the difference is recorded.',

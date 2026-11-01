@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "8c0437c354166569776a98e6028caec662a2fba6b5dfa3f7bb7a855dbacab08c"
+      "glb_sha256": "d98ec6905771b7e082d70819bd843c1dc25451baf09736c1754b568df704fe8e"
     }
   ],
-  "group_sha256": "c3aa1fbaed8d10bb2bfc8de25de06088bd4aecc5c81829e7de1109dd4dd0fa31",
+  "group_sha256": "2d65eb9fb07c15bff1353d800f1c29d309bd98e8bdc7d0e999d98e39f6079135",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "b527f926d041a77b6c1cfe049ee0b0c82f32620fe09a48918fefa190e22d767f"
+      "sha256": "e2042326390ad458b5ba7a53d364e1f8a3164690c7fec2270d283e374461eb89"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -118,11 +118,11 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
+      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "eb2b97698e243c36fc1e1cd5f5e2bd32a13bb1c70d8a1e0dcb33182efc57908d"
+      "sha256": "1cf61cdc69df641dd98b5265640fd6bb0dafee45eaaa38bd72e96a06883a8ecc"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "c2740de228c769273c26eab1d4620c65b7c3c2a0d603d78c17bef3d486bd683d",
+  "flora_sha256": "a002c2879ca43b4889444f41add30eff956fe38c3def68b7b8c8b277d9d48df7",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
