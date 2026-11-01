@@ -25,7 +25,10 @@
  *   tubs      Pullman's summer tub plants (T-1934): a clipped standard, cone or column, or a
  *             palm out of the palm house, in a painted tub, at grade or up on the palm house's
  *             terrace, where the 1894 plate and Taylor's 16555 stand them. Their rows carry two more numbers, what the tub stands on above the
- *             ground (the terrace floor, read off the baked model) and the tub's height.
+ *             ground (the terrace floor, read off the baked model) and the tub's height, and may
+ *             name the vessel (T-1881): 'box', a square planting box on legs (the boxed
+ *             standards before the 1800 Calumet conservatory, Lowe's c. 1897 print), or 'over',
+ *             a plant grown over the box of the row at its own spot, its foot the height given.
  *
  * WHAT IS EVIDENCE. Pullman's ivy and its shrub border along 18th Street are in the Detroit
  * Publishing views and are attested; 1912's ivy is in a later photograph, so inferred; the
@@ -48,6 +51,13 @@ const LOAM = 0x3b2c1f;
 /** A planting tub: a round staved tub painted the period's dark garden green (T-1934). */
 const TUB_PAINT = 0x2d3b2a;
 const TUB_SEG = 12;
+/** T-1881: a planting box's corner posts, which print paler than its panels in Lowe's c. 1897
+ *  photograph of the conservatory lawn: drawn a painted stone white. */
+const BOX_POST_PAINT = 0xb9b4a4;
+/** A planting box's half-width (Lowe's print: the near box's face 50 px across at 26.8 m, about
+ *  0.95 m) and how far its panels stand clear of the lawn on its legs (0.1 m). */
+const BOX_HALF_M = 0.47;
+const BOX_LEGS_M = 0.1;
 /**
  * The plants, as tree-model.js grows them (`arch` its ARCH habit; `h` and `crownW` the
  * plant's band, metres; `dark`/`light` its July leaf; `bloom` the flower it carries on
@@ -73,9 +83,10 @@ export const YARD_PLANTS = {
   globe: { speciesId: 'thuja_globe', arch: 'thuja_globe', common: 'arborvitae sheared to a ball',
     h: [0.8, 1.15], crownW: [0.9, 1.25], dbh: [0.02, 0.03], dark: 0x213a1c, light: 0x55723a,
     bark: 0x6b5444, evergreen: true },
+  // `own`: each is grown to its own height and width (T-1881), so its head stays a ball.
   standard: { speciesId: 'standard_ball', common: 'evergreen clipped to a ball on a clear stem',
     h: [1.4, 2.6], crownW: [1.1, 1.6], dbh: [0.03, 0.05], dark: 0x213a1c, light: 0x55723a,
-    bark: 0x7a6e5e, evergreen: true },
+    bark: 0x7a6e5e, evergreen: true, own: true },
   // T-1934: the palm house's palm set out on its terrace for the summer (Taylor's 16555).
   palm: { speciesId: 'phoenix_tub', common: 'palm from the palm house, set out in its tub',
     h: [1.4, 2.4], crownW: [1.8, 2.6], dbh: [0.05, 0.07], dark: 0x2a4320, light: 0x6f8a45,
@@ -157,7 +168,8 @@ function plantCard(hit, doc) {
         : (grade === 'attested' ? pictured.border?.note : null);
   const plant = YARD_PLANTS[hit.plant];
   const name = {
-    shrub: hit.tub ? `${/^[aeiou]/i.test(plant?.common ?? '') ? 'An' : 'A'} ${plant?.common ?? 'shrub'}, in a tub`
+    shrub: hit.tub ? `${/^[aeiou]/i.test(plant?.common ?? '') ? 'An' : 'A'} ${plant?.common ?? 'shrub'}, `
+      + (hit.vessel === 'box' || hit.vessel === 'over' ? 'in a planting box' : 'in a tub')
       : `A ${plant?.common ?? 'shrub'} in the front yard`,
     tree: `A ${plant?.common ?? 'young tree'} in the front lawn`,
     bed: 'A flower bed in the front lawn',
@@ -329,21 +341,22 @@ export async function createFrontYards({
 
   /* ---- what grows: every plant one stem in the grown batches ------------- */
   const placed = [];   // { x, z, y, h, r, plant, conf, grade, lot, kind, index, yaw, scale }
-  const tubs = [];     // { x, z, y, h, r, conf }
+  const tubs = [];     // { x, z, y, h, r, conf, box }
   for (const lot of lots) {
     // A row is [east, north, plant, height, crown width, (grade), (stand, tub)]: the planter
     // measured the width against the doors and walks, so the plant is drawn to it. A tub
     // plant's row adds what its tub stands on above the ground and the tub's own height.
     for (const kind of ['shrub', 'tree']) {
       for (const [i, r] of (lot[`${kind}s`] ?? []).entries()) {
-        const [e, n, plant, h, w, grade, standM = 0, tubM = 0] = r;
+        const [e, n, plant, h, w, grade, standM = 0, tubM = 0, vessel = 'tub'] = r;
         const g = grade ?? lot.grade;
         const y0 = groundAt(e, n) + standM;
-        if (tubM > 0) {
-          tubs.push({ x: e, z: -n, y: y0, h: tubM, r: Math.min(0.42, Math.max(0.26, w * 0.28)), conf: CONF[g] ?? 1 });
+        if (tubM > 0 && vessel !== 'over') {
+          tubs.push({ x: e, z: -n, y: y0, h: tubM, r: Math.min(0.42, Math.max(0.26, w * 0.28)), conf: CONF[g] ?? 1,
+            box: vessel === 'box' });
         }
         placed.push({ x: e, z: -n, y: y0 + tubM, h, w, plant, grade: g, conf: CONF[g] ?? 1, lot, kind, index: i,
-          tub: tubM > 0 });
+          tub: tubM > 0, vessel });
       }
     }
     const cg = lot.pictured_notes?.creeper?.grade ?? 'reconstructed';
@@ -374,8 +387,30 @@ export async function createFrontYards({
   let tubMesh = null;
   stats.tubs = tubs.length;
   if (tubs.length) {
-    const pos = []; const conf = [];
+    const pos = []; const conf = []; const col = [];
+    const paint = new THREE.Color(TUB_PAINT); const post = new THREE.Color(BOX_POST_PAINT);
+    // A box: its four panels between the posts and the soil in it, and a post at each corner.
+    const cuboid = (x0, x1, y0, y1, z0, z1, c, k) => {
+      const q = (a, b, cc, d) => {
+        pos.push(...a, ...b, ...cc, ...a, ...cc, ...d);
+        for (let i = 0; i < 6; i += 1) { conf.push(k); col.push(c.r, c.g, c.b); }
+      };
+      q([x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]);
+      q([x1, y0, z0], [x0, y0, z0], [x0, y1, z0], [x1, y1, z0]);
+      q([x1, y0, z1], [x1, y0, z0], [x1, y1, z0], [x1, y1, z1]);
+      q([x0, y0, z0], [x0, y0, z1], [x0, y1, z1], [x0, y1, z0]);
+      q([x0, y1, z1], [x1, y1, z1], [x1, y1, z0], [x0, y1, z0]);
+    };
     for (const t of tubs) {
+      if (t.box) {
+        const a = BOX_HALF_M; const p = 0.045; const top = t.y + t.h;
+        cuboid(t.x - a + p, t.x + a - p, t.y + BOX_LEGS_M, top - 0.03, t.z - a + p, t.z + a - p, paint, t.conf);
+        for (const [sx, sz] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+          const cx = t.x + sx * (a - p); const cz = t.z + sz * (a - p);
+          cuboid(cx - p, cx + p, t.y - 0.02, top, cz - p, cz + p, post, t.conf);
+        }
+        continue;
+      }
       const rb = t.r * 0.86; const top = t.y + t.h;
       for (let k = 0; k < TUB_SEG; k += 1) {
         const a0 = (k / TUB_SEG) * Math.PI * 2; const a1 = ((k + 1) / TUB_SEG) * Math.PI * 2;
@@ -384,14 +419,16 @@ export async function createFrontYards({
         pos.push(t.x + c0 * rb, t.y - 0.02, t.z + s0 * rb, t.x + c1 * t.r, top, t.z + s1 * t.r, t.x + c1 * rb, t.y - 0.02, t.z + s1 * rb);
         pos.push(t.x + c0 * rb, t.y - 0.02, t.z + s0 * rb, t.x + c0 * t.r, top, t.z + s0 * t.r, t.x + c1 * t.r, top, t.z + s1 * t.r);
         pos.push(t.x, top - 0.04, t.z, t.x + c1 * t.r * 0.94, top - 0.04, t.z + s1 * t.r * 0.94, t.x + c0 * t.r * 0.94, top - 0.04, t.z + s0 * t.r * 0.94);
-        for (let z = 0; z < 9; z += 1) conf.push(t.conf);
+        for (let z = 0; z < 9; z += 1) { conf.push(t.conf); col.push(paint.r, paint.g, paint.b); }
       }
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
     geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(conf, 1));
     geo.computeVertexNormals();
-    const mat = new THREE.MeshStandardMaterial({ color: TUB_PAINT, roughness: 0.8, metalness: 0, side: THREE.DoubleSide });
+    const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.8, metalness: 0,
+      side: THREE.DoubleSide });
     mat.name = 'front-yards-tubs';
     confidence?.patch(mat);
     const mesh = new THREE.Mesh(geo, mat);
@@ -440,7 +477,8 @@ export async function createFrontYards({
         continue;
       }
       const spec = specOf(p.plant, p.conf);
-      grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1, { crownW: p.w ?? null });
+      const own = spec.own && p.w ? { crownW: [p.w, p.w], own: `${p.h}x${p.w}` } : {};
+      grown.add({ ...spec, h: [p.h, p.h], ...own }, p.x, p.y, p.z, 1, { crownW: p.w ?? null });
     }
     const pause = checkpoint(); if (pause) await pause;
     forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
@@ -521,7 +559,7 @@ export async function createFrontYards({
     if (!r) return null;
     const hit = m[2] === 'bed' ? { lot, kind: 'bed', index: i, bedKind: r[5], grade: lot.grade }
       : m[2] === 'creeper' ? { lot, kind: 'creeper', index: i, grade: lot.pictured_notes?.creeper?.grade ?? lot.grade }
-        : { lot, kind: m[2], index: i, plant: r[2], grade: r[5] ?? lot.grade, tub: (r[7] ?? 0) > 0 };
+        : { lot, kind: m[2], index: i, plant: r[2], grade: r[5] ?? lot.grade, tub: (r[7] ?? 0) > 0, vessel: r[8] ?? 'tub' };
     return plantCard(hit, doc);
   };
   out.dispose = () => {
