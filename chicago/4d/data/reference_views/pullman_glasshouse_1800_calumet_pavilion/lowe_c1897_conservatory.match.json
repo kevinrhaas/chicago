@@ -148,7 +148,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "c7f41f5072de7f373bb1a2544baaba856a5212953c42924a7e30c500d23e64b7"
+      "sha256": "595af48dc060d3de662ac177d563b506ee121c4c329eef0b872afe13b3c90a58"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -163,7 +163,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "27237825203b46c5e8669aa26a68280d6e1b3fc80553df76e5d3f89a92cd5bb1",
+  "flora_sha256": "ae7c56ea6eaa04c708ea13c552aff5aabecfbd5840c5ae5f1614d2cf6cff96d5",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
