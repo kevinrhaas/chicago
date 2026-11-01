@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2510, ts: '2026-11-01T00:55:12.600Z', date: 'Oct 31, 2026, 7:55 PM CT', title: '1801 Prairie: the 18th Street wing sits flatter, as the 1911 map draws it', kind: 'feature',
+    items: [
+      'On 18th Street, the Kimball house\'s three-storey section under its corbel table now stands just 0.1 m out from the wall, as the 1911 fire-insurance map draws it, and runs about a metre further along it. Its windows, gable and rounded corner were moved with it, so they still sit where J. W. Taylor\'s c. 1895 photograph shows them. Taylor\'s view of the house now matches the photograph.',
+    ] },
   { v: 2509, ts: '2026-10-31T23:36:46.498Z', date: 'Oct 31, 2026, 6:36 PM CT', title: 'Pullman house\'s Prairie front matches the Detroit photograph', kind: 'fix',
     items: [
       'The roof reads as one full mansard: the deck behind the cresting is lower and black, with no red peak.',
