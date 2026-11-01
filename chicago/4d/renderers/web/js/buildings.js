@@ -52,6 +52,7 @@ import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
+import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
@@ -509,6 +510,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    */
   const walls = await loadWallRelief({ lowSpec });
   if (walls.problem) problems.push(walls.problem);
+  /** T-3295: K03 brick panels shuffled per brick unless `?bricks=tiled` (brick-bond.js). */
+  const brickBonds = brickBondFromSearch(globalThis.location?.search);
+  /** panel id -> source materials bound, for `stats().brickBond`. */
+  const brickBound = {};
 
   const dealt = dealTones([...registry.values()]
     // Only what will actually be drawn: a record with no GLB stands in nobody's
@@ -595,6 +600,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // A number when this is a bound wall: how much of the wood's figure its
       // finish lets through, written per vertex below (wall-grain.js).
       const grain = walls.apply(material, record.sidecar);
+      // T-3295: a K03 brick panel draws each brick from another of its kind, so the
+      // 0.86 m tile stops showing; by the base colour's image name (brick-bond.js).
+      const brickPanel = applyBrickBond(material, { on: brickBonds });
+      if (brickPanel) brickBound[brickPanel] = (brickBound[brickPanel] ?? 0) + 1;
       filterGlessnerRoof(material, record, mesh.geometry);
       // T-2446/T-2469: Glessner's granite to grey-greige; it rides the albedo multiply.
       tintGlessnerGranite(material, record);
@@ -1299,6 +1308,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      * each substrate's library id, map size, tile and mean roughness.
      */
     wallRelief: walls.off ? { off: true } : { off: false, substrates: walls.sets ?? null },
+    // T-3295: the K03 panels drawn brick by brick, or `{ off: true }` under ?bricks=tiled.
+    brickBond: brickBonds ? { off: false, panels: brickBound } : { off: true },
     /** Draw calls these buildings cost in the colour pass. */
     get drawCalls() { return batches.length; },
 
