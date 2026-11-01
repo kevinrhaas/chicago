@@ -2,7 +2,7 @@
   "structure_id": "moulton_lowden_house_1912_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c471eb5bb0ec58a2590fea5f36d6d1600f853f132488950bc859a78ad93a0430",
+  "glb_sha256": "4264a886d77478f1ef9d191959b1b0093ffc90dcd62fdc3ee167f2332b4ede21",
   "camera_sha256": "c517d22d93ccfb5413bddb08607b87d5dc1519475b4d04fb458f2b545810422c",
   "photo_sha256": "edfbb93fb891e8f549e6aa782b2609f7a7b6fcde87847a46fbce72e00c350010",
   "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg",
@@ -45,11 +45,15 @@
       "status": "fixed"
     },
     {
-      "what": "the dormers: built plain gabled dormers in the slate; the photograph's are stone wall dormers with crocketed gables, pinnacles and finials, the south one tall (x 270-400, y 120-500 px) between the gable and the tower",
+      "what": "the dormers' ornament: the photograph's are stone wall dormers with crocketed gables, pinnacles and finials; now built faced in the front's stone, a stone coping up each rake with crockets on its back (two a rake on the north dormer, three on the south), a square pinnacle engaged at each edge of the face from the cornice past the gable's foot under a cap and a pyramid, and a turned finial at the apex (T-3293)",
+      "status": "fixed"
+    },
+    {
+      "what": "the south dormer's height: the photograph's rises from the cornice nearly to the cone's shoulder (x 270-400, y 120-500 px), its finial a cross-like knop; built on the record's 1.5 m sash under a 60 degree gable, so it stands lower and most of it falls behind the tower from this camera (T-3294)",
       "status": "open"
     },
     {
-      "what": "the south gable: its crockets, pinnacles and finial are built plain (T-3293); the arched pair is now two round-headed lights either side of a mullion (T-3292), where the photograph draws them under one enclosing arch with a hood, which is not built (T-3294)",
+      "what": "the south gable: its copings now carry three crockets a rake between the kneelers' pinnacles and the apex finial (T-3293); the arched pair is two round-headed lights either side of a mullion (T-3292), where the photograph draws them under one enclosing arch with a hood, which is not built (T-3294)",
       "status": "open"
     },
     {
@@ -77,8 +81,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the tower's finial: built a plain spike, where the photograph's is turned with knobs (x 420-450, y 0-110 px); the turned finial, clipped at the wall's plane on a tower centred so near it, drew its back twice, and stood out far enough to clear the plane it took the tower over the kit's triangle budget",
-      "status": "open"
+      "what": "the tower's finial: now built turned (T-3293), the kit's knobs on a waisted shaft 2.4 m over the cone's apex as the photograph's is (x 420-450, y 0-110 px), with no collar on the cone, so its widest knob (0.15 m from the axis) stands clear of the wall's plane the axis is 0.17 m in front of and nothing of it is clipped",
+      "status": "fixed"
     },
     {
       "what": "the entrance's carved capitals on the pilasters either side of the arch (x 680-710 and 880-915, y 1195-1225 px) are not built (T-3294)",

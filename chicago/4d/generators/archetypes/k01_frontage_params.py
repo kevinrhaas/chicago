@@ -1100,6 +1100,43 @@ def _broken_pediment(ped, eh, ro, what):
     return ped
 
 
+#: T-3293: what a gabled dormer's ORNAMENT names — the Chateauesque stone dormer of 1912
+#: Prairie's photograph and plate: a stone coping up each rake with crockets along its back,
+#: a square pinnacle engaged at each edge of the face from the cornice past the gable's foot,
+#: and a turned finial at the apex
+DORMER_ORNAMENT = {
+    "coping": {"width_m": (0.1, 0.3), "proud_m": (0.02, 0.15), "back_m": (0.1, 0.5)},
+    "crockets": {"count": (1, 6), "size_m": (0.08, 0.3)},
+    "pinnacles": {"shaft_m": (0.12, 0.35), "rise_m": (0.2, 2.0), "cap_m": (0.05, 0.2), "spire_m": (0.2, 1.2)},
+    "finial": {"height_m": (0.3, 1.5), "radius_m": (0.05, 0.2)},
+}
+
+
+def _dormer_ornament(o, what: str, d: dict) -> dict:
+    """T-3293: a gabled lower-face dormer's ornament, each part optional and bounded by
+    DORMER_ORNAMENT. A pinnacle's shaft stands centred on the face's edge, from the cornice
+    `rise_m` past the gable's foot (the surround's head); its cap and pyramid over that."""
+    if not isinstance(o, dict) or not o or not set(o) <= set(DORMER_ORNAMENT):
+        raise ParamError(f"{what}.ornament names any of {', '.join(DORMER_ORNAMENT)}, not {o!r}")
+    out = {}
+    for part, keys in DORMER_ORNAMENT.items():
+        if part not in o:
+            continue
+        q = o[part]
+        if not isinstance(q, dict) or set(q) != set(keys):
+            raise ParamError(f"{what}.ornament.{part} takes exactly {', '.join(keys)}")
+        for k, (lo, hi) in keys.items():
+            if not lo <= float(q[k]) <= hi:
+                raise ParamError(f"{what}.ornament.{part}.{k} {q[k]}: {lo}-{hi}")
+        out[part] = {k: (int(q[k]) if k == "count" else float(q[k])) for k in keys}
+    if "crockets" in out and "coping" not in out:
+        raise ParamError(f"{what}.ornament.crockets: a crocket stands on a coping's back")
+    if "pinnacles" in out and out["pinnacles"]["shaft_m"] > d["surround_m"] * 2 + 0.05:
+        raise ParamError(f"{what}.ornament.pinnacles.shaft_m: a shaft engaged at the face's edge is at most "
+                         f"its two surrounds and 0.05 m across")
+    return out
+
+
 def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False) -> dict:
     """A lower-face dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones,
     T-2452's gabled ones): a K06 sash in a stone face `surround_m` round it, its face
@@ -1141,6 +1178,10 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
             raise ParamError(f"{what}.gable_pitch_deg {gp}: a dormer's pediment is pitched 30-60 deg")
         out["gable_pitch_deg"] = gp
         out["head_m"] = round(sht + ring + (sw / 2 + ring) * math.tan(math.radians(gp)), 4)
+        if "ornament" in d:
+            out["ornament"] = _dormer_ornament(d["ornament"], what, out)
+    elif "ornament" in d:
+        raise ParamError(f"{what}.ornament: a gabled dormer's coping, crockets, pinnacles and finial")
     if head == "hip":
         # T-2866: the face's wall head stands `surround_m` over the sash, as its jambs do; the
         # hip over it is K05's (k05_roofs.hip_element), its eaves the kit's dormer overhang
@@ -2885,7 +2926,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # (1801's tower's, about 2.7 m over its cone's apex in the Taylor print)
             fn = e["finial"]
             if not v["roof"].get("finial") or not isinstance(fn, dict) or not {"height_m", "radius_m"} <= set(fn) \
-                    or not set(fn) <= {"height_m", "radius_m", "form", "collar_m", "crockets", "fabric"} \
+                    or not set(fn) <= {"height_m", "radius_m", "form", "collar_m", "crockets", "fabric", "segments"} \
                     or not 0.3 <= float(fn["height_m"]) <= 3.5 or not 0.03 <= float(fn["radius_m"]) <= 0.3:
                 raise ParamError(f"bays: {e['id']}'s finial sizes its cap's own finial by height_m (0.3-3.5 m) "
                                  f"and radius_m (0.03-0.3 m), not {fn}")
@@ -2909,6 +2950,12 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s finial.crockets {fn['crockets']!r}: false, "
                                      f"on a collar, takes its crockets off")
                 v["overrides"]["finial"]["crockets"] = False
+            if "segments" in fn:
+                # T-3293: a turned finial lathed in fewer sides, where its tower's budget is tight
+                if form != "turned" or fn["segments"] not in (6, 8, 10, 12):
+                    raise ParamError(f"bays: {e['id']}'s finial.segments {fn['segments']!r}: 6, 8, 10 or 12, "
+                                     f"on a turned finial")
+                v["overrides"]["finial"]["segments"] = int(fn["segments"])
             if form == "turned":
                 v["overrides"]["finial"]["form"] = form
             if "fabric" in fn and fn["fabric"] not in FINIAL_FABRICS:
