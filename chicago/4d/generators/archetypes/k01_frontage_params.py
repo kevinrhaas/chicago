@@ -3020,10 +3020,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"stands 0-{TURRET_CORNER_M} m inside it, never past the end wall's plane")
             v["cap_whole"] = True
         across = e.get("across_corner")   # T-3176
+        # T-1890: a wing's projection may run past its wall's end onto the next wing's wall
+        # (`past_end`); `_wing_towers` holds that wall to this one and the overrun to its limits
+        past = e.get("past_end") if wing_corner else None
         if cant is None and face is None and ((a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left"
-                                               and across != "left") or
+                                               and across != "left" and past != "left") or
                                               (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right"
-                                               and corner != "right" and across != "right")):
+                                               and corner != "right" and across != "right" and past != "right")):
             raise ParamError(f"bays: {e['id']} meets {e['wall']} at s {a:.3f}..{b:.3f}, closer than "
                              f"{BAY_PIER_M} m to a corner of its {wall_len[e['wall']]} m wall")
         top = sum(float(st["height_m"]) for st in v["storeys"])
@@ -4393,8 +4396,13 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
             raise ParamError(f"bays: {e['id']} stands on {e['wall']}, a gable end: the gable's walling rises "
                              f"where the tower's back is closed over the wing's wall top")
         ops = list(w["openings"])
+        past = e.get("past_end")
+        if past is not None:
+            nxt = _past_end_wing(e, w, side, wings)
         (b,) = _bays([e], {e["wall"]: wing_walls(w)[side][2]}, ops, structure_id, front_stone,
                      tuple(w["floors_m"]), w["top_m"], overhang, wing_corner=True)
+        if past is not None:
+            b = {**b, "past_end": _past_end_span(e, b, w, side, nxt, past)}
         for x in wings:
             if x["host_wall"] == e["wall"] and x["host_span_m"][0] < b["span_m"][1] + BAY_PIER_M \
                     and b["span_m"][0] - BAY_PIER_M < x["host_span_m"][1]:
@@ -4402,7 +4410,73 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
                                  f"within {BAY_PIER_M} m of where {x['id']} stands on it")
         wings[j] = {**w, "openings": tuple(ops)}
         out.append({**b, "wing": w["id"], "eave_m": w["top_m"]})
+    # T-1890: a face run past its wall's end stands clear of every bay on the wall it runs onto
+    for b in out:
+        pe = b.get("past_end")
+        for x in out if pe else ():
+            if x["wall"] == pe["wall"] and x["span_m"][0] < pe["span_m"][1] + BAY_PIER_M \
+                    and pe["span_m"][0] - BAY_PIER_M < x["span_m"][1]:
+                raise ParamError(f"bays: {b['id']} runs onto {pe['wall']} at s {pe['span_m'][0]}..{pe['span_m'][1]}, "
+                                 f"within {BAY_PIER_M} m of {x['id']}")
     return tuple(wings), tuple(out)
+
+#: T-1890: the most a wing's projection may run past its wall's end onto the next wing's wall
+PAST_END_M = 1.5
+
+
+def _past_end_wing(e, w, side, wings):
+    """T-1890: the wing whose wall a projection's face runs onto past its own wall's end
+    (`past_end: "left" | "right"`, read from outside as the wall is). 1801 Prairie's east
+    range frontispiece straddles the junction of the 1911 sheet's two rectangles behind the
+    main block (HABS photograph 2, 1965), and nothing on the picture marks that junction: the
+    two wings stand on one wall line at one height in one walling. So it is allowed exactly
+    there: a shallow full-height projection on a wing's south or north wall, whose end at
+    that side meets a wing carrying the same wall in the same plane, on the same floors to
+    the same wall top. Anything else is refused."""
+    past = e["past_end"]
+    if past not in ("left", "right") or side not in ("south", "north") \
+            or e["variant"] != "k08.projection.full_height" or not (e.get("plan") or {}).get("shallow"):
+        raise ParamError(f"bays: {e['id']}: past_end is 'left' or 'right', on a shallow full-height "
+                         f"projection on a wing's south or north wall")
+    u0, u1, v0, v1 = w["rect"]
+    # south runs u0 -> u1 at v0, north runs u1 -> u0 at v1 (wing_walls)
+    end_u = {("south", "left"): u0, ("south", "right"): u1,
+             ("north", "left"): u1, ("north", "right"): u0}[(side, past)]
+    plane_v = v0 if side == "south" else v1
+    pv = 2 if side == "south" else 3
+    for x in wings:
+        if x is w or x["id"] == w["id"]:
+            continue
+        xu0, xu1 = x["rect"][0], x["rect"][1]
+        meets = abs(xu1 - end_u) < 1e-6 if end_u == u0 else abs(xu0 - end_u) < 1e-6
+        if meets and abs(x["rect"][pv] - plane_v) < 1e-6:
+            if abs(x["top_m"] - w["top_m"]) > 1e-6 or tuple(x["floors_m"]) != tuple(w["floors_m"]):
+                raise ParamError(f"bays: {e['id']} runs past {e['wall']}'s {past} end onto {x['id']}, whose "
+                                 f"floors or wall top are not {w['id']}'s: the junction would show")
+            return x
+    raise ParamError(f"bays: {e['id']} runs past {e['wall']}'s {past} end, where no wing stands on "
+                     f"the same wall line")
+
+
+def _past_end_span(e, b, w, side, x, past):
+    """T-1890: the stretch of the next wing's wall a projection's face covers past its own
+    wall's end, (s0, s1) in that wall's own run, held to PAST_END_M and BAY_PIER_M clear of
+    that wall's own openings and bays; the bay's own lights stay on its own wall."""
+    length = wing_walls(w)[side][2]
+    over = -b["span_m"][0] if past == "left" else b["span_m"][1] - length
+    if not 1e-6 < over <= PAST_END_M + 1e-9:
+        raise ParamError(f"bays: {e['id']} runs {over:.3f} m past {e['wall']}'s {past} end; past_end "
+                         f"carries a projection 0-{PAST_END_M} m onto the next wing's wall")
+    xl = wing_walls(x)[side][2]
+    span = (round(xl - over, 4), round(xl, 4)) if past == "left" else (0.0, round(over, 4))
+    cid = f"k01.wall.wing.{x['id']}.{side}"
+    for o in x["openings"]:
+        if o.wall == cid and o.s_m - o.width_m / 2 < span[1] + BAY_PIER_M \
+                and o.s_m + o.width_m / 2 > span[0] - BAY_PIER_M:
+            raise ParamError(f"bays: {e['id']} runs onto {cid} at s {span[0]}..{span[1]}, within "
+                             f"{BAY_PIER_M} m of its light at s {o.s_m}")
+    return {"wing": x["id"], "wall": cid, "span_m": span}
+
 
 #: T-3006: the corners a front block may round, each named by the side wall it turns into
 ROUND_CORNERS = ("north", "south")
