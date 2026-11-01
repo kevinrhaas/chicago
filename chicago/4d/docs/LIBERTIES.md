@@ -24478,7 +24478,7 @@ house stays this draft's.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24558,6 +24558,10 @@ attributes are gone.
 `L-k12-1720-stable-range-1932`, under the same id, on the outlines, storeys, brick and two window marks the sheet
 draws, as the crossed brick stable and the brick range Robinson's 1886 plate draws on lot 4; its draft attributes
 are gone.
+**1726's alley building retired from this liberty by T-1932 (2026-11-01):** `house_1726_prairie_coach_house`
+now stands as the K12 coach house, in mirror image, under `L-k12-1726-stable-1932`, under the same id, on the outline,
+storeys, brick and window mark the sheet draws; the piece of the 1911 range its trace took in north of it is not
+built for 1904; its draft attributes are gone.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -33221,6 +33225,47 @@ range's extension past the lot line.
 **Covers:** `walker_house_1720_prairie_coach_house.as_standing_1904.form.coach_house`, `walker_house_1720_prairie_coach_house.as_standing_1904.form.stories`, `walker_house_1720_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1932.
 **Review:** `docs/RESEARCH/k12-1720-stable-range-1932/README.md`.
+**Recorded:** 2026-11-01 (T-1932).
+
+### L-k12-1726-stable-1932 — The two-storey brick building on the alley behind 1726 Prairie, lettered GARAGE in 1911, built from the K12 kit in mirror image as a stable on the outline the 1911 sheet draws, its party wall on the 1726/1730 lot line
+
+**Decision:** the district draft's alley building behind 1726 Prairie Avenue (T-1932) is refined in place, under
+its own id `house_1726_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), the
+eleventh K12 coach house in the scene after 1812's, 1736's, 1620's, 1616's, 1612's, 1626's, 1628's, 1712's, 1700's
+and 1720's (L-k12-1720-stable-range-1932). **What is read.** From sheet 20 of the 1911 Sanborn: one pink (brick)
+building, uncrossed, lettered '2' and GARAGE, with '12 12' inside its north wall and again inside its south wall;
+11.66 m deep from the alley line by 14.08 m along it (median darkness profiles: columns 2225.0 and 2454.6, rows
+5277.1 and 5554.4), its south wall on the 1726/1730 lot line, where the two-storey piece of 1730's alley building
+stands against it; the key's fire-wall sign with two ticks at the alley end of its north wall and of its south wall;
+one of the key's window marks on the alley wall 7.51 m from its north wall line, with a dot for each storey; a solid
+dot near its south-east corner (the key's vertical steam boiler). North of it, on the alley line, a piece of the
+one-storey brick range that runs on from 1720's stable, 4.07 m deep by 4.33 m from the 1720/1726 lot line, with no
+wall drawn across the range on that line. From Robinson's 1886 plate 10, behind lots 5 and 6: a yellow (frame)
+building, uncrossed, about 6.6 m deep by 11.3 m along the alley, starting about 2.8 m south of the lot 4/5 line, and
+no brick on this ground; 1720's range ends on the lot 4/5 line. **What is ruled.** The brick building replaced the
+plate's frame one after 1886. It is first seen in 1911, lettered GARAGE, and may postdate 1904; the T-1840 census
+carries it into 1904 as a service building of unread use (study ruling 11, the kit's `no_1911_use_labels`), and it
+is built as the house's stable and coach house, as 1736's GARAGE is: the use is RECONSTRUCTED. The range piece north
+of it is NOT built for 1904: the plate ends 1720's range on the lot line with a frame building beyond it, and 1720's
+record builds the range ending there with a closed end wall; building the piece would stand a second end wall on a
+line the 1911 sheet draws no wall on, so the 1911 joining of the two is left out, as later work. **What is invented.**
+The kit is built in mirror image: its party wall at the south end, on the lot line, rising the kit's 0.45 m above the
+roof against 1730's building; its open gable at the north end, blank, facing the 4.3 m of open ground to the end of
+1720's range. The sheet's fire-wall sign at the north end is not built (the kit has one party wall). Every opening
+but the mark is the kit's: on the alley wall the carriage bay (3.0 m clear) toward the south end with the loft hatch
+over it, the mark built as a stable sash with a loft sash over it, and a man door with a loft sash over it toward the
+north end; on the yard wall a door at the middle between four stable sash, with loft sash over the outer two. A
+single gable roof with its ridge along the alley at 30 degrees over the 11.66 m span, as the deep stables took. The
+kit's storey heights and its 1.8 m basement, reached by nothing. The workyard is paved from the yard door to the 1726
+house's rear wall line, 10.79 m east. No boiler stack. Flat colours. **What is not.** The outline, its place on the
+lot, the storeys, the brick, the mark's place, the fire-wall end on the lot line and the 1886 frame building are the
+maps'.
+**How to resolve:** a photograph of the alley behind 1720-1736 Prairie, entered as a source, gives its openings,
+roof and ends their true form; a building permit or an atlas between 1886 and 1911 dates the brick building (stable,
+or a garage built after 1904) and the range's extension across the lot line.
+**Covers:** `house_1726_prairie_coach_house.as_standing_1904.form.coach_house`, `house_1726_prairie_coach_house.as_standing_1904.form.stories`, `house_1726_prairie_coach_house.as_standing_1904.form.construction`, `house_1726_prairie_coach_house.function`
+**Ticket:** T-1932.
+**Review:** `docs/RESEARCH/k12-1726-stable-1932/README.md`.
 **Recorded:** 2026-11-01 (T-1932).
 
 ### L-k01-1736-roof-rear-2995 — 1736 Prairie's mansard taken off the north wall, the rear and the 18th Street wall behind the brick bay, which rise as a straight brick third storey, built blank and coped

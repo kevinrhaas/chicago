@@ -1033,6 +1033,25 @@ class Assembly:
         pr.face([P(s0, y0, 0), P(s0, y0, d), P(s0, y1, d), P(s0, y1, 0)], _mul(R, -1), be, conf)
         pr.face([P(s1, y0, 0), P(s1, y0, d), P(s1, y1, d), P(s1, y1, 0)], R, be, conf)
 
+    def key_block(self, mat, frame, s, y0, k, seed, conf):
+        """T-3297: a tapered stone key standing `proud_m` out of the wall, its foot `foot_m`
+        across on y0, widening to `top_m` at its top `height_m` up, its top corners cut
+        `chamfer_m` (1700-1706's keys over their upper lights, Chicagology's photograph)."""
+        O, R, N = frame
+        P = lambda u, y, dd: _add(_add(_add(O, _mul(R, u)), _mul(Y, y)), _mul(N, dd))
+        b, t, h, d, c = k["foot_m"] / 2, k["top_m"] / 2, k["height_m"], k["proud_m"], k["chamfer_m"]
+        outline = [(s - b, y0), (s + b, y0), (s + t, y0 + h - c), (s + t - c, y0 + h),
+                   (s - t + c, y0 + h), (s - t, y0 + h - c)]
+        if c <= 0:
+            outline = [outline[0], outline[1], (s + t, y0 + h), (s - t, y0 + h)]
+        pr = self.prim(mat)
+        pr.face([P(u, y, d) for u, y in outline], N, self.basis(mat, O, R, Y, seed), conf)
+        for i, (u0, ya) in enumerate(outline):
+            u1, yb = outline[(i + 1) % len(outline)]
+            out = _unit(_add(_mul(R, yb - ya), _mul(Y, -(u1 - u0))))
+            pr.face([P(u0, ya, 0), P(u1, yb, 0), P(u1, yb, d), P(u0, ya, d)], out,
+                    self.basis(mat, O, _unit(_add(_mul(R, u1 - u0), _mul(Y, yb - ya))), N, seed), conf)
+
     # -- k01.wall.* ----------------------------------------------------------------
     def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=(), cols=(),
              construction="masonry"):
@@ -1411,7 +1430,8 @@ class Assembly:
                 # the arch band and key its round lights beside it carry, and no lintel
                 self.round_door_head(op, frame, stone_trim, seed, max(conf, p.conf("street_front_round_heads")))
                 return
-        brick_head = op.wall != "k01.wall.street_front" or p.street_front_trim.get("brick_heads") == "segmental"
+        street_brick = p.street_front_trim.get("brick_heads") if op.wall == "k01.wall.street_front" else None
+        brick_head = op.wall != "k01.wall.street_front" or street_brick in ("segmental", "flat")
         if MATERIALS[body_mat].get("courses") and not door and brick_head:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
@@ -1419,10 +1439,14 @@ class Assembly:
             # front (T-2341) keeps the front's stone dressings: its K09 head or the lintel,
             # unless its record arches them in the brick too (T-1861, `brick_heads`)
             crown = y1 + k03_brick.RISE_TO_SPAN * op.width_m + k03_brick.RINGS * (k03_brick.BED + k03_brick.JOINT)
-            if crown < self.soffit_m - k03_brick.COURSE:
+            # T-3297: or a flat head the record names (1700-1706's gauged flat arches)
+            if street_brick != "flat" and crown < self.soffit_m - k03_brick.COURSE:
                 k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)
             else:
                 k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
+            hk = p.street_front_trim.get("head_key") if street_brick else None
+            if hk:
+                self.key_block(stone_trim, frame, op.s_m, y1, hk, seed, max(conf, p.conf("street_front_trim")))
             return
         # T-3197: a carved tympanum on a stone lintel where the record names one for this light
         ty = self.front_tympanum(op)
@@ -3911,16 +3935,16 @@ class Assembly:
         if cr and cr.get("dormer"):
             g = self.crown_dormer_body(cr, E, f)
             solids.append(g["body"])
-            recesses.append(g["recess"])
+            recesses += g["recesses"]
         if m and m.get("dormers"):   # T-2411: the main mansard's lower-face dormers
             for g in self.mansard_dormer_bodies(m, E):
                 solids.append(g["body"])
                 solids += g.get("hood", [])   # T-3000: a hooded dormer's shelf and hood
-                recesses.append(g["recess"])
+                recesses += g["recesses"]
         if p.slope_dormers:   # T-2866: dormers on the hip's side slopes
             for g in self.slope_dormer_bodies(E, tp):
                 solids += [g["body"], g["roof"]] if g["roof"] else [g["body"]]
-                recesses.append(g["recess"])
+                recesses += g["recesses"]
         d = p.dormer
         if d:
             dp = kit["parts"]["dormer"]
@@ -4607,7 +4631,6 @@ class Assembly:
         v["clear_width_m"], v["clear_height_m"] = d["sash_width_m"], d["sash_height_m"]
         o = k06_windows.Opening(v, k06_windows.load())
         o.build()
-        hole = o.holes[0]
         sill = ys + d["sill_m"]
         r = d["width_m"] / 2
         top = sill + d["head_m"]
@@ -4646,11 +4669,15 @@ class Assembly:
             box = (a0, a1, centre - r, centre + r) if axis == "x" else (centre - r, centre + r, a0, a1)
             self.gable_dormer_boxes = getattr(self, "gable_dormer_boxes", []) + [box]
         rev = v.get("overrides", {}).get("reveal_depth_m", k06_windows.load()["parts"]["reveal_depth_m"]["value"])
-        # the hole in the kit's frame is (+X along the wall, +Y up), +X being the face's R
-        rec = [(centre + ra * q[0], sill + q[1]) for q in hole]
+        # the hole in the kit's frame is (+X along the wall, +Y up), +X being the face's R.
+        # T-3297: one recess to EACH of K06's holes: a paired sash (1700-1706's) had only its
+        # first light cut, so the second stood glazed behind the solid face, the dormer reading
+        # half shut; the face between the holes is the pair's mullion
         inner, outer = nf - sg * rev, nf + sg * 0.05
-        recess = k5.extrude(rec, min(inner, outer), max(inner, outer), P, "reveal",
-                            *(("window", "reveal") if sg > 0 else ("reveal", "window")))
+        recesses = [k5.extrude([(centre + ra * q[0], sill + q[1]) for q in hole], min(inner, outer),
+                               max(inner, outer), P, "reveal",
+                               *(("window", "reveal") if sg > 0 else ("reveal", "window")))
+                    for hole in o.holes]
         at = lambda along, y, n: (n, y, along) if axis == "x" else (along, y, n)
         roof, hood = None, []
         if d.get("head") in HIPPED_HEADS:
@@ -4670,7 +4697,7 @@ class Assembly:
         if d.get("eared_hood"):   # T-1881: 1729's eared architrave and hood round the arch
             hood = hood + self.dormer_eared_hood(d, k5, axis, sg, nf, back, centre, r, ys,
                                                  sill + d["sash_height_m"] - d["sash_width_m"] / 2)
-        return {"body": body, "recess": recess, "roof": roof, **({"hood": hood} if hood else {}),
+        return {"body": body, "recesses": recesses, "roof": roof, **({"hood": hood} if hood else {}),
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill, "E": E,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
                          "width": 2 * r, "top": top, "variant": v, "d": d}}
@@ -4727,7 +4754,7 @@ class Assembly:
             g = self.round_dormer_body(d, face, fascia, c, float(mn["rise_m"]), float(mn["lower_pitch_deg"]),
                                        0.0, y_e, profile="convex")
             solids += [g["body"]] + g.get("hood", [])
-            recesses.append(g["recess"])
+            recesses += g["recesses"]
             geoms.append(g["geom"])
         polys = k5.union_all(k5._snap(solids))
         for rc in recesses:
@@ -4902,8 +4929,8 @@ class Assembly:
         g = self.round_dormer_body(d, "street", 0.0, 0.0, m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"], E)
         turn = lambda q: (mx + q[0] * nx - q[2] * nz, q[1], mz + q[0] * nz + q[2] * nx)
         vec = lambda q: (q[0] * nx - q[2] * nz, q[1], q[0] * nz + q[2] * nx)
-        for key in ("body", "recess"):
-            g[key] = [k5.Poly([turn(q) for q in pl.v], pl.role) for pl in g[key]]
+        g["body"] = [k5.Poly([turn(q) for q in pl.v], pl.role) for pl in g["body"]]
+        g["recesses"] = [[k5.Poly([turn(q) for q in pl.v], pl.role) for pl in rc] for rc in g["recesses"]]
         for key in ("O", "sill_pt", "top_pt"):
             g["geom"][key] = turn(g["geom"][key])
         g["geom"]["R"] = vec(g["geom"]["R"])
