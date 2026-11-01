@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2515, ts: '2026-11-01T03:50:37.733Z', date: 'Oct 31, 2026, 10:50 PM CT', title: 'The Pullman estate\'s corner elm stands on a clear, slender trunk', kind: 'fix',
+    items: [
+      'The elm on 18th Street\'s south parkway at the Calumet Avenue corner, across from the Pullman stable, now rises as one slender trunk clear to about 5 m before its branches start, as Taylor\'s two photographs of the estate show it. It had been drawn as a stout, full-grown elm forking low into a V.',
+    ] },
   { v: 2514, ts: '2026-11-01T03:15:55.488Z', date: 'Oct 31, 2026, 10:15 PM CT', title: 'The Field house gets its tall 1904 fence and south-side balconies', kind: 'improvement',
     items: [
       '1905 Prairie now stands behind the tall spear-topped iron fence of the c. 1905 Daily News photograph, nearly 2 m high, in place of the lower scroll fence of the 1880s and 1890s pictures.',
