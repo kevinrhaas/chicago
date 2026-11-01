@@ -36972,6 +36972,18 @@ behind the Fort Dearborn monument (x about 922) whose foot the monument hides; i
 reading. **Review:**
 `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`
 and its match record.
+**Extended (T-1934, 2026-11-01), the Calumet corner tree's bole:** the tree on 18th Street's
+south parkway at 3.0 m (`e18th__prairie_calumet_18_20#p00`) was still the grown elm at scale 0.6,
+whose fork at 0.30 of its height drew a V at about 3.1 m through Taylor's 16554 (x 349, in front of
+the north parkway's tree at x 335, which the record had blamed). Taylor's 16555 sees it at 16 m as
+one slender leader, the bole about 0.2-0.27 m, clear to about 4.5-5 m before its first limbs; 16554
+sees its crown start about as high. **What is read:** the single leader, the clear bole's height,
+the bole's width. **What is chosen (reconstructed):** it grows on the young elm's habit with only
+the crown base raised, 0.44 of its height against the young elm's 0.30
+(`form: "limbed_head"`, tree-model.js ARCH.ulmus_americana_young_limbed), its bole 0.24-0.30 m.
+**Review:**
+`docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`
+and both 16554 side-by-sides.
 
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them

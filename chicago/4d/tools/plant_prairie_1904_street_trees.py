@@ -35,7 +35,8 @@ every tree off a stretch keeps its place. Pictured trees are ids `<face>#pNN`, m
 its trunk's width in a picture (T-3164: the renderer's elm draws its bole about 0.66 m across at
 scale 1); without one its scale is drawn like any other tree's. One whose crown a picture draws
 plainly unlike the grown elm's may name its habit as `form` (T-3164: `broad_head`, a young elm on
-its leader), which renderers/web/js/street-trees.js grows; without one it is the parkway elm.
+its leader; `limbed_head`, the same clear to about 5 m), which renderers/web/js/street-trees.js
+grows; without one it is the parkway elm.
 """
 from __future__ import annotations
 
