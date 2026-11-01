@@ -9,6 +9,7 @@
 //   QA_TARGET=1616 node tools/qa_k12_t1932.mjs       1616's stable, the package's second building
 //   QA_TARGET=1612 node tools/qa_k12_t1932.mjs       1612's stable, the third (the kit in mirror image)
 //   QA_TARGET=1626 node tools/qa_k12_t1932.mjs       1626's and 1628's pair of stables, the fourth and fifth
+//   QA_TARGET=1712 node tools/qa_k12_t1932.mjs       1712's stable, the sixth
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -38,6 +39,11 @@ const TARGETS={
   ['alley-from-south',[1331,-3057,1.7],[1334.5,-3040,4]],
   ['yard-face',[1359,-3049,1.7],[1346,-3038,4]],
   ['air',[1373,-3062,42],[1341,-3038,0]]]},
+ '1712':{dir:'k12-1712-stable-1932',ids:['house_1712_prairie_coach_house','house_1712_prairie','walker_house_1720_prairie_coach_house'],glb:'house_1712_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3102,1.7],[1335,-3116,4]],
+  ['alley-from-south',[1331,-3135,1.7],[1335,-3121,4]],
+  ['yard-face',[1353,-3108,1.7],[1343,-3118,3.5]],
+  ['air',[1373,-3142,42],[1339,-3118,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
