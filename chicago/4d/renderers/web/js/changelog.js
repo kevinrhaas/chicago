@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2511, ts: '2026-11-01T01:41:19.482Z', date: 'Oct 31, 2026, 8:41 PM CT', title: 'Glessner\'s distant roof is lighter on its shadow too', kind: 'change',
+    items: [
+      'From far off, Glessner House\'s tile roof now casts its shadow from the roof\'s outline only, without the tile edges you can\'t see from there. That draws about 247,000 fewer triangles in every far view, and almost every pixel stays the same.',
+    ] },
   { v: 2510, ts: '2026-11-01T00:55:12.600Z', date: 'Oct 31, 2026, 7:55 PM CT', title: '1801 Prairie: the 18th Street wing sits flatter, as the 1911 map draws it', kind: 'feature',
     items: [
       'On 18th Street, the Kimball house\'s three-storey section under its corbel table now stands just 0.1 m out from the wall, as the 1911 fire-insurance map draws it, and runs about a metre further along it. Its windows, gable and rounded corner were moved with it, so they still sit where J. W. Taylor\'s c. 1895 photograph shows them. Taylor\'s view of the house now matches the photograph.',
