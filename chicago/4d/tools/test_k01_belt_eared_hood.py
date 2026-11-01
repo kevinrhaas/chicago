@@ -186,15 +186,19 @@ refused(lambda: KP._bay_mansard_dormers({"id": "p", "mansard_dormers": [dorm(0.0
                                         {**proj, "roof": {"kind": "hip", "pitch": 0.1, "mansard": {"rise_m": 2.5, "lower_pitch_deg": 75}}}),
         "a dormer whose head meets the curb is refused")
 bays_ = {b["id"]: b for b in p.bays}
-check(len(bays_["p_forward"].get("mansard_dormers", ())) == 1 and len(bays_["p_18th"].get("mansard_dormers", ())) == 2,
-      "1729's forward block carries one dormer and its 18th Street pavilion two")
-check(not any(d["face"] == "street" and d["along_m"] < 2.0 for d in p.mansard["dormers"]),
-      "1729's north-west dormer no longer stands on the main mansard behind the forward block")
+# T-1881 (2026-10-31, the owner's reading of the Detroit print): a dormer north and south on
+# the Prairie front, none in the centre, so the narrowed forward block carries none and the
+# north-west dormer stands on the main mansard again, clear of the block
+check(not bays_["p_forward"].get("mansard_dormers") and len(bays_["p_18th"].get("mansard_dormers", ())) == 2,
+      "1729's forward block carries no dormer and its 18th Street pavilion two")
+check(any(d["face"] == "street" and d["along_m"] < 2.0 for d in p.mansard["dormers"]),
+      "1729's north-west dormer stands on the main mansard, north of the forward block")
 asm = K1.build(p, SID)
 face = asm.prims["dormer_stone"].pos
-fw = [q for q in face if abs(q[0] - 30.92) < 0.03 and -5.0 < q[2] < -3.4]
+nw = [q for q in face if 27.5 < q[0] < 28.5 and 0.9 < -q[2] < 2.1 and q[1] > 10.0]
+fw = [q for q in face if 29.0 < q[0] < 32.0 and 3.4 < -q[2] < 9.4]
 pv = [q for q in face if abs(q[2] + 20.62) < 0.03 and (17.0 < q[0] < 18.5 or 11.6 < q[0] < 13.1)]
-check(len(fw) > 20, f"the forward block's dormer face stands on its front ({len(fw)} vertices)")
+check(len(nw) > 20 and not fw, f"the north-west dormer's face stands on the main front ({len(nw)} vertices), none on the block's ({len(fw)})")
 check(len(pv) > 40, f"the pavilion's two dormer faces stand on its front ({len(pv)} vertices)")
 
 if failures:

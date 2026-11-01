@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f18763b70c56d9891b02f64291eb05516b24876482dfd380061633bfeca297a4",
+  "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -13,7 +13,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 22
+        "creeper": 23
       }
     ],
     "street_trees": 35,
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "4f89516fdeb3d4947902379b79e075f983c4a765bce6381e0c6ad8d4eb9f65cf",
+  "flora_sha256": "5016755e20215c016a3ae00db87c3ee2f81daabf26431b0774ed5500831cd233",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -197,6 +197,11 @@
       "what": "the principal storey's big light stands on a projecting sill carried on two blocks over a sunk panel (x 1180-1240, y 545-560); the build's light stands on K06's plain sill",
       "status": "open",
       "how": "T-1881 (2026-10-31): read with the architraves; not built in that run"
+    },
+    {
+      "what": "the north bay's round-headed dormer and its two lights on the Prairie front, north of the portico block",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the forward block, which had covered them since it was built, is narrowed and moved onto the door at v 6.4; the dormer stands on the main mansard at along 1.5 m and the lights at s 1.5 (L-pullman-1729-front-bays-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

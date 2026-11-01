@@ -34285,6 +34285,7 @@ stair. All four now stand on v 5.25, the forward block's centre (T-1881): the do
 the block's window taken off), the flight (`stoop_v_m` dropped, so the stoop is the door's), the gate
 (`boundary.runs`, the opening s 4.45-6.05) and the two inner columns (`hood.columns.at_v_m` 3.3 and
 7.2), with a turned stone balustrade on the cheeks and the terraces (`entrance_kit…balustrade`).
+On 2026-10-31 the axis moved to v 6.4 with a narrower forward block (L-pullman-1729-front-bays-1881).
 **What is read, not invented.** The Detroit print (`loc_det_4a08065_pullman_residence`) through its
 solved camera: the door's pale leaves between two columns (x 355-371 px), the two columns at v 3.05 and
 6.9 (midpoint 5.0), the stair rising between them to the door, a raked rail on each cheek, and the gap in
@@ -37730,4 +37731,35 @@ blocks is not built: both are open in the plate's match record.
 moulding's profile; a K08 bay-light architrave frames the forward block's light.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`.
+**Recorded:** 2026-10-31 (T-1881).
+
+### L-pullman-1729-front-bays-1881 — 1729 Prairie's Prairie front laid as three bays off the Detroit print: the forward block narrowed onto the door, the north bay's windows and dormer put back, a landing in the flight, urns on the gate piers and a black deck
+
+**Decision:** the owner, on 2026-10-31, read the Detroit print (LC-D4-12551) against the scene: a full
+mansard with no peak in the centre; a dormer north and south but none in the centre; three windows on
+the second storey (north, centre, south); on the main storey a window, the entry and a window to the
+south; front steps with a landing in the middle; ornament at the sidewalk gate; and the top roof's
+colour. The forward block (`bays.p_forward`) is narrowed from 6.5 to 6.02 m and centred on the door at
+v 6.4, with one second-storey light and no dormer; a 1 m step (`bays.p_step`) returns its south face to
+the front. The north bay at v 1.5 gets back its ground and second-storey lights and its round-headed
+dormer, which the old block (v 2.0-8.5) had covered. The flight's 12 risers break after the sixth for a
+1.2 m landing (`entrance_kit…mid_landing`, a new K07 key). The hood is recentred on the door on two
+columns. The gate moves onto the door's line, and each pier carries a turned urn (`boundary.urns`, a new
+K11 key). The deck behind the cresting drops to 10 degrees, K05's least, painted black.
+**What is read, not invented.** The Detroit print through its solved camera, on the main front's plane
+(about 13 px a metre): the north dormer at v 1.0-2.2, the rusticated piers at v 3.96-5.49, 7.65-8.82
+and 13.68-14.56, the second-storey lights between them (v 6.17-6.99 and 10.4-12.16) and the corner's
+narrow light (15.03-15.77). The cornice steps about 8 px at the first pier, as a block about 3 m proud
+would draw. A pale finial stands on the wall line at v 7.1-7.6, about 1.7 m up. The 1890 Albertype plate
+shows the north bay's dormer and lights.
+**What is invented.** The block's exact width and the door axis: the print's door leaves and inner
+columns, read earlier at v 5.0 (L-pullman-1729-entry-axis-1881), sit behind ivy and the portico. The
+axis follows the owner's three-bay reading and the piers instead. The portico's two columns, the
+landing's place and 1.2 m depth, the north bay's lights' sizes (from the corner's), the northern urn
+(by symmetry), the urns' profile (the K11 kit's) and the deck's black paint (no picture sees the deck)
+are also invented.
+**How to resolve:** a closer view of the portico and stair (the CHM 1905 views, once solved) fixes the
+door, the columns and the landing; a view over the cresting fixes the deck.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-31 (T-1881).
