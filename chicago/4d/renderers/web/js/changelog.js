@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2544, ts: '2026-11-01T20:08:01.514Z', date: 'Nov 1, 2026, 2:08 PM CT', title: '1700-1706 Prairie\'s dormers open and upper windows wear their keystones', kind: 'fix',
+    items: [
+      'The Glessner townhouses\' roof dormers no longer look half shut. Each one\'s pair of windows had only its left window cut through the dormer\'s face. Both now open, at the full width Chicagology\'s photograph shows.',
+      'The eight top-floor windows under the cornice now carry the tapered stone keystones over flat brick heads that the photograph and the Christmas print show. The cornice\'s brackets are shallower, like the photograph\'s, so they no longer hide the keys.',
+      'The second dormer window of the Dent house at 1823 Prairie now opens too. It had the same fault.',
+    ] },
   { v: 2543, ts: '2026-11-01T19:27:21.950Z', date: 'Nov 1, 2026, 1:27 PM CT', title: '1919 Prairie: a steeper roof, flat-topped tower and broader dormer', kind: 'feature',
     items: [
       'Marshall Field Jr.\'s house at 1919 Prairie Avenue has been checked against a second picture, a 1919 theatre-programme photograph, and its street roof now rises as steeply as that picture shows, about 52 degrees.',
