@@ -2,7 +2,7 @@
   "structure_id": "house_1621_prairie",
   "view": "building_budget_front",
   "glb": "assets/gltf/house_1621_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d78fd189fff152ecd3d9fc7508f48da982b35e5c5667842bc0680a42c2383b82",
+  "glb_sha256": "a3844be47f5b10e28911cbb3c12d42f65efd279f94be3479111645c76479fe70",
   "camera_sha256": "6222a0879a57a2c0bd3f87866f0fd82d3834acd772c43f2cb1c31c72deb02a7b",
   "photo_sha256": "1cfa3530dc7d503da3dbdce12040859675ae7f1142f9336c1102d4b55f8c6f57",
   "side_by_side": "docs/RESEARCH/photo-match/house_1621_prairie/building_budget_front-side-by-side.jpg",
@@ -99,5 +99,5 @@
       "how": "T-3221: the front built open (form.boundary layout open, carried to 1904 on this drawing) and a flagged walk laid from the flight's foot, its 1.2 m width, straight out to the public walk; the drawing hatches the ground and shows no walk's line or material, so its flags and line are the K14 kit's (L-k14-walks-1600-block-3215)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

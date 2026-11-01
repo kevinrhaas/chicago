@@ -30207,6 +30207,11 @@ short sprout that forks up to three times into ascending twig (14-40 degrees off
 fork about two thirds of its parent's length). The habit is read off Taylor's winter 16554, whose
 elms fork again and again into fine rising twig; the angles, lengths and fork counts are this
 file's, and the summer and winter crowns of one tree therefore differ in their finest wood (T-1934).
+Between about 10 and 44 m (the `mid` level) each of those winter twigs is drawn as a single
+three-sided spike from its foot to its tip, at least 0.02 m across at the foot, rather than an even
+stroke: a twig is under a pixel there, the spike costs half the stroke's triangles, and the same
+budget draws twice the twigs, so the crowns grey in more as Taylor's 16554 prints them; the width
+and the taper are this file's (T-1934).
 **How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
 Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
 **Ticket:** T-2743.

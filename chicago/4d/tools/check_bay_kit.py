@@ -30,6 +30,9 @@ clause is a rule here:
              fraction of its triangles (T-1890: a bay holding an open opening, a loggia's,
              may state its own fraction up to 0.65, with its reason)
   costs      every variant inside its triangle budget, at both tiers
+  winding    every face wound outward, the way its own normals point, at both tiers
+             (T-3289: a segmental bow's cone faced into the bow, so the renderer, which
+             culls back faces, drew it from below and lost it from above)
   specimen   the committed specimen GLB is the generator's bytes
 """
 
@@ -696,6 +699,31 @@ def rule_light(full, light, data, v=None):
     return fails
 
 
+def rule_winding(b, tier):
+    """T-3289: a triangle's corners run anticlockwise seen from the side its normals face, so
+    the renderer's back-face cull keeps it from outside. Every role, the roof's first among them:
+    a cone wound against its normals is lit as a roof and drawn as its own underside."""
+    fails = []
+    for role, pr in sorted(b.prims.items()):
+        bad, first = 0, None
+        for t in range(0, len(pr.idx), 3):
+            ia, ib, ic = pr.idx[t:t + 3]
+            a, p, q = pr.pos[ia], pr.pos[ib], pr.pos[ic]
+            u = (p[0] - a[0], p[1] - a[1], p[2] - a[2])
+            w = (q[0] - a[0], q[1] - a[1], q[2] - a[2])
+            g = (u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0])
+            if g[0] * g[0] + g[1] * g[1] + g[2] * g[2] < 1e-16:   # a sliver has no side to face
+                continue
+            n = [pr.nrm[ia][k] + pr.nrm[ib][k] + pr.nrm[ic][k] for k in range(3)]
+            if g[0] * n[0] + g[1] * n[1] + g[2] * n[2] <= 0:
+                bad += 1
+                first = first or tuple(round((a[k] + p[k] + q[k]) / 3, 3) for k in range(3))
+        if bad:
+            fails.append(f"winding: {bad} of the {tier} tier's {role} triangles are wound against their own "
+                         f"normals (the first at {first}), so the renderer culls them from the side they face")
+    return fails
+
+
 def rule_costs(b, data, tier):
     t = K.triangles(b)
     cap = data["costs"]["max_triangles"][tier]
@@ -709,7 +737,8 @@ def check_variant(v, data, full=None, light=None):
     return (rule_data(v, data, full) + rule_keyed(full, v) + rule_closed(full, tracer) + rule_windows(full, tracer)
             + rule_recesses(full, v, data) + rule_doubled(full) + rule_curves(full, data, "full")
             + rule_curves(light, data, "light") + rule_support(full, v, data) + rule_light(full, light, data, v)
-            + rule_costs(full, data, "full") + rule_costs(light, data, "light"))
+            + rule_costs(full, data, "full") + rule_costs(light, data, "light")
+            + rule_winding(full, "full") + rule_winding(light, "light"))
 
 
 def house_bays():
@@ -881,6 +910,10 @@ def self_test(data) -> int:
     b = built()
     b.prims["wall"].pos = [(p[0], p[1], p[2] + 0.01) for p in b.prims["wall"].pos]
     geo.append(("a wall moved off its declared plan", rule_keyed(b, v), "footprint:"))
+    b = built(vb)
+    rf = b.prims["roof"]
+    rf.idx = [i for t in range(0, len(rf.idx), 3) for i in (rf.idx[t], rf.idx[t + 2], rf.idx[t + 1])]
+    geo.append(("a bow's roof wound into the bow (T-3289)", rule_winding(b, "full"), "winding:"))
     for name, got, want in geo:
         hit = any(want in f for f in got)
         print(f"self-test | {'ok  ' if hit else 'FAIL'} {name} -> "

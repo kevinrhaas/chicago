@@ -2,8 +2,9 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1812-1808-1800-mid1950s",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
+  "glb_sha256": "3124dd7ad02a4437bc20e27025c4930f61cbf2ee48f47f2ce1783978b4ebc084",
   "camera_sha256": "c5804648e2982d9c24cf7038d4d840c4e09a7b036f9f0e534bd2340d713033c1",
+  "photo_sha256": "9459062d4be05a24b28525ceda0558b66a811f160c22de933370e0754c4b181e",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1812-1808-1800-mid1950s-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -28,7 +29,7 @@
       "status": "not shown"
     },
     {
-      "what": "The later chimney, iron fence, vegetation, cars and altered neighbours are evidence of the photograph’s date and are not automatically backdated to 1904.",
+      "what": "The later chimney, iron fence, vegetation, cars and altered neighbours are evidence of the photograph\u2019s date and are not automatically backdated to 1904.",
       "status": "not shown"
     },
     {
@@ -68,5 +69,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
