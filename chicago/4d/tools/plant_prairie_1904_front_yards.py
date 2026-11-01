@@ -134,7 +134,9 @@ PICTURED = {
              # y 411 and 418): the model's own, so the mantle keeps clear of them where they stand
              "clear_windows": {"sidecar": "pullman_house_1729_prairie", "storey": 0, "face_u_m": 27.75,
                                "margin_m": 0.0}},
-            {"face": "high_s", "span_m": [16.6, 24.4], "height_m": [6.4, 7.0]},
+            # T-1881 round 3: to the 18th Street section's west face, now at d 24.0 (s 7.2 from the
+            # corner), so the stretch stays on the flank's own face and off the section's return
+            {"face": "high_s", "span_m": [16.6, 23.9], "height_m": [6.4, 7.0]},
         ],
         # T-1934 (the owner, 2026-10-30: the carriage ways with "no plants blocking it"): the border
         # starts at the house's east wall (d 45.5), where the print shows it, not along the house's
