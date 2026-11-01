@@ -1,0 +1,4517 @@
+{
+ "total_bytes": 41280654,
+ "entries": [
+  {
+   "url": "/data/prebuilt/1835/ground.bin.gz",
+   "bytes": 11414933
+  },
+  {
+   "url": "/data/prebuilt/1835/frontage.bin.gz",
+   "bytes": 7007267
+  },
+  {
+   "url": "/data/prebuilt/1835/streets.full.bin.gz",
+   "bytes": 4100323
+  },
+  {
+   "url": "/data/prebuilt/1835/yards.bin.gz",
+   "bytes": 3262593
+  },
+  {
+   "url": "/data/textures/trees/leaf_atlas.ktx2",
+   "bytes": 998118
+  },
+  {
+   "url": "/data/prebuilt/1835/base.bin.gz",
+   "bytes": 727720
+  },
+  {
+   "url": "/data/textures/trees/bark_normal.ktx2",
+   "bytes": 584291
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_normal_gl.ktx2",
+   "bytes": 473771
+  },
+  {
+   "url": "/data/terrain/epochs/e1834_harbor_cut/heightfield.bin",
+   "bytes": 459328
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.ktx2",
+   "bytes": 370903
+  },
+  {
+   "url": "/data/textures/trees/bark_basecolor.ktx2",
+   "bytes": 368464
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_orm.ktx2",
+   "bytes": 367934
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_normal_gl.ktx2",
+   "bytes": 288596
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/three.core.js",
+   "bytes": 284852
+  },
+  {
+   "url": "/data/sidecars/1835/people.json",
+   "bytes": 275612
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_normal_gl.ktx2",
+   "bytes": 264629
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/libs/basis/basis_transcoder.wasm",
+   "bytes": 247619
+  },
+  {
+   "url": "/data/prebuilt/1835/ground.json",
+   "bytes": 235179
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-0.json",
+   "bytes": 196437
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.ktx2",
+   "bytes": 189027
+  },
+  {
+   "url": "/data/reconstruction/1835_address_book.json",
+   "bytes": 175102
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orl.ktx2",
+   "bytes": 169644
+  },
+  {
+   "url": "/walk/js/flora.js",
+   "bytes": 152770
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-13.json",
+   "bytes": 149834
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-2.json",
+   "bytes": 132925
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/three.module.js",
+   "bytes": 129633
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-1.json",
+   "bytes": 118392
+  },
+  {
+   "url": "/walk/js/main.js",
+   "bytes": 111134
+  },
+  {
+   "url": "/walk/js/trees.js",
+   "bytes": 91343
+  },
+  {
+   "url": "/data/sidecars/1835/boot/shared.json",
+   "bytes": 90503
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_grain.ktx2",
+   "bytes": 87982
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orl.ktx2",
+   "bytes": 82691
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_grain.webp",
+   "bytes": 80407
+  },
+  {
+   "url": "/data/frontage/town_street_edge.json",
+   "bytes": 78721
+  },
+  {
+   "url": "/data/sidecars/1835/index.json",
+   "bytes": 73583
+  },
+  {
+   "url": "/data/gltf/chicago_lighthouse_1832__tower_1832.glb",
+   "bytes": 73272
+  },
+  {
+   "url": "/data/residents/employment_coverage.json",
+   "bytes": 72542
+  },
+  {
+   "url": "/data/enclosures/town_entrance_aprons.json",
+   "bytes": 64523
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_palisade__picket_1816.glb",
+   "bytes": 64076
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_grain.webp",
+   "bytes": 62637
+  },
+  {
+   "url": "/data/prebuilt/1835/streets.json",
+   "bytes": 58526
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orm.ktx2",
+   "bytes": 55445
+  },
+  {
+   "url": "/walk/js/yard.js",
+   "bytes": 54830
+  },
+  {
+   "url": "/walk/js/terrain.js",
+   "bytes": 51549
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/timber/heavy_timber_weathered/heavy_timber_weathered_normal_turned.webp",
+   "bytes": 51126
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/props/signboard_weathered/signboard_weathered_normal_turned.webp",
+   "bytes": 50270
+  },
+  {
+   "url": "/data/prebuilt/1835/frontage.json",
+   "bytes": 48980
+  },
+  {
+   "url": "/data/residents/directories.json",
+   "bytes": 48558
+  },
+  {
+   "url": "/data/reconstruction/1835_population_profile.json",
+   "bytes": 48286
+  },
+  {
+   "url": "/data/businesses/index.json",
+   "bytes": 47366
+  },
+  {
+   "url": "/walk/js/residents.js",
+   "bytes": 46597
+  },
+  {
+   "url": "/data/modern/streets.json",
+   "bytes": 44479
+  },
+  {
+   "url": "/data/residents/index.json",
+   "bytes": 43291
+  },
+  {
+   "url": "/data/residents/reconstructed_seating.json",
+   "bytes": 43203
+  },
+  {
+   "url": "/data/sidecars/1835/residents_sources.json",
+   "bytes": 43025
+  },
+  {
+   "url": "/data/signage/town_business_signboards.json",
+   "bytes": 42951
+  },
+  {
+   "url": "/walk/js/streets.js",
+   "bytes": 41943
+  },
+  {
+   "url": "/walk/js/frontage.js",
+   "bytes": 40595
+  },
+  {
+   "url": "/walk/js/signage.js",
+   "bytes": 37015
+  },
+  {
+   "url": "/walk/js/tree-model.js",
+   "bytes": 35820
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-6.json",
+   "bytes": 34554
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-12.json",
+   "bytes": 34516
+  },
+  {
+   "url": "/data/residents/research_pilot.json",
+   "bytes": 34343
+  },
+  {
+   "url": "/data/prebuilt/1835/yards.json",
+   "bytes": 33722
+  },
+  {
+   "url": "/walk/css/walk.css",
+   "bytes": 32255
+  },
+  {
+   "url": "/data/yard/town_woodpiles.json",
+   "bytes": 31421
+  },
+  {
+   "url": "/data/reconstruction/1835_reconstruction_order_book.json",
+   "bytes": 31295
+  },
+  {
+   "url": "/data/enclosures/town_lot_line_rails.json",
+   "bytes": 30515
+  },
+  {
+   "url": "/data/yard/town_kept_ground.json",
+   "bytes": 29660
+  },
+  {
+   "url": "/walk/js/popup.js",
+   "bytes": 29474
+  },
+  {
+   "url": "/data/sidecars/1835/terrain.json",
+   "bytes": 29010
+  },
+  {
+   "url": "/data/sidecars/1835/exclusions.json",
+   "bytes": 28428
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-10.json",
+   "bytes": 28155
+  },
+  {
+   "url": "/data/enclosures/town_alley_lanes.json",
+   "bytes": 27966
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-11.json",
+   "bytes": 27415
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-3.json",
+   "bytes": 27306
+  },
+  {
+   "url": "/walk/js/street-grid.js",
+   "bytes": 27143
+  },
+  {
+   "url": "/walk/js/buildings.js",
+   "bytes": 26050
+  },
+  {
+   "url": "/walk/fonts/sign-old-standard-400-italic.woff2",
+   "bytes": 25588
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-5.json",
+   "bytes": 25504
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/loaders/GLTFLoader.js",
+   "bytes": 25243
+  },
+  {
+   "url": "/data/yard/town_trade_goods.json",
+   "bytes": 24454
+  },
+  {
+   "url": "/walk/fonts/sign-old-standard-700.woff2",
+   "bytes": 24044
+  },
+  {
+   "url": "/walk/js/railway.js",
+   "bytes": 24043
+  },
+  {
+   "url": "/walk/fonts/sign-old-standard-400.woff2",
+   "bytes": 23704
+  },
+  {
+   "url": "/walk/js/world.js",
+   "bytes": 23189
+  },
+  {
+   "url": "/walk/fonts/barlow-semi-condensed-600.woff2",
+   "bytes": 23012
+  },
+  {
+   "url": "/walk/fonts/barlow-400.woff2",
+   "bytes": 22224
+  },
+  {
+   "url": "/walk/js/yards.js",
+   "bytes": 22088
+  },
+  {
+   "url": "/walk/fonts/barlow-500.woff2",
+   "bytes": 22036
+  },
+  {
+   "url": "/data/residents/person_facts_withheld.json",
+   "bytes": 21264
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-4.json",
+   "bytes": 19977
+  },
+  {
+   "url": "/walk/fonts/sign-alfa-slab-one-400.woff2",
+   "bytes": 19080
+  },
+  {
+   "url": "/data/flora/index.json",
+   "bytes": 19075
+  },
+  {
+   "url": "/walk/fonts/sign-anton-400.woff2",
+   "bytes": 18640
+  },
+  {
+   "url": "/data/enclosures/town_lot_line_pickets.json",
+   "bytes": 18462
+  },
+  {
+   "url": "/data/enclosures/town_yard_paths.json",
+   "bytes": 18301
+  },
+  {
+   "url": "/walk/js/people.js",
+   "bytes": 18066
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-8.json",
+   "bytes": 17896
+  },
+  {
+   "url": "/walk/js/enclosures.js",
+   "bytes": 17770
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-9.json",
+   "bytes": 17760
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/libs/zstddec.module.js",
+   "bytes": 17027
+  },
+  {
+   "url": "/walk/js/route.js",
+   "bytes": 16913
+  },
+  {
+   "url": "/data/enclosures/town_dooryard_pickets.json",
+   "bytes": 16907
+  },
+  {
+   "url": "/data/sidecars/1835/boot/part-7.json",
+   "bytes": 16761
+  },
+  {
+   "url": "/walk/js/businesses.js",
+   "bytes": 16240
+  },
+  {
+   "url": "/data/gltf/land_sale_camp_shore__camp_1835.glb",
+   "bytes": 15954
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/libs/basis/basis_transcoder.js",
+   "bytes": 15169
+  },
+  {
+   "url": "/walk/fonts/ibm-plex-mono-500.woff2",
+   "bytes": 14911
+  },
+  {
+   "url": "/walk/fonts/ibm-plex-mono-400.woff2",
+   "bytes": 14731
+  },
+  {
+   "url": "/data/gltf/tremont_house_1__frame_1833.glb",
+   "bytes": 14716
+  },
+  {
+   "url": "/walk/js/confidence.js",
+   "bytes": 14700
+  },
+  {
+   "url": "/walk/js/hud.js",
+   "bytes": 14638
+  },
+  {
+   "url": "/walk/",
+   "bytes": 14598
+  },
+  {
+   "url": "/data/gltf/dearborn_street_drawbridge__draw_1834.glb",
+   "bytes": 14285
+  },
+  {
+   "url": "/data/flora/plantings/town_dooryard_plantings.json",
+   "bytes": 14254
+  },
+  {
+   "url": "/data/gltf/emigrant_camp_shore__camp_1835.glb",
+   "bytes": 14002
+  },
+  {
+   "url": "/walk/fonts/sign-abril-fatface-400.woff2",
+   "bytes": 13179
+  },
+  {
+   "url": "/data/enclosures/town_lot_line_boards.json",
+   "bytes": 13010
+  },
+  {
+   "url": "/walk/js/context.js",
+   "bytes": 12603
+  },
+  {
+   "url": "/walk/css/navigator.css",
+   "bytes": 12569
+  },
+  {
+   "url": "/data/gltf/st_marys_church__frame_1833.glb",
+   "bytes": 11835
+  },
+  {
+   "url": "/walk/js/street-furniture.js",
+   "bytes": 11229
+  },
+  {
+   "url": "/walk/js/working-bank.js",
+   "bytes": 11208
+  },
+  {
+   "url": "/data/gltf/west_approach_wagon_camp__camp_1835.glb",
+   "bytes": 10751
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_w5_040__inferred_1835.glb",
+   "bytes": 10741
+  },
+  {
+   "url": "/data/gltf/western_hotel_stable__stable_1834.glb",
+   "bytes": 10453
+  },
+  {
+   "url": "/data/gltf/wolf_point_tavern__log_frame_1828.glb",
+   "bytes": 10413
+  },
+  {
+   "url": "/walk/js/tree-instances.js",
+   "bytes": 10176
+  },
+  {
+   "url": "/walk/js/humans.js",
+   "bytes": 9931
+  },
+  {
+   "url": "/data/gltf/green_tree_tavern__frame_1833.glb",
+   "bytes": 9928
+  },
+  {
+   "url": "/walk/js/navigation.js",
+   "bytes": 9918
+  },
+  {
+   "url": "/walk/js/compact-streams.js",
+   "bytes": 9869
+  },
+  {
+   "url": "/walk/js/wharves.js",
+   "bytes": 9847
+  },
+  {
+   "url": "/data/flora/zones/z10_settled_town.json",
+   "bytes": 9760
+  },
+  {
+   "url": "/walk/js/front-yards.js",
+   "bytes": 9634
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_036__inferred_1835.glb",
+   "bytes": 9541
+  },
+  {
+   "url": "/walk/js/scene-loader.js",
+   "bytes": 9527
+  },
+  {
+   "url": "/data/gltf/north_bank_shed_dearborn_e3__shed_1835.glb",
+   "bytes": 9525
+  },
+  {
+   "url": "/data/gltf/kinzie_hunter_warehouse__warehouse_1834.glb",
+   "bytes": 9487
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_branch_lumber_f4_001__inferred_1835.glb",
+   "bytes": 9451
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_f1_038__inferred_1835.glb",
+   "bytes": 9367
+  },
+  {
+   "url": "/data/wharves/river_landings.json",
+   "bytes": 9160
+  },
+  {
+   "url": "/data/gltf/sauganash_hotel__frame_1831.glb",
+   "bytes": 9064
+  },
+  {
+   "url": "/data/gltf/newberry_dole_slaughterhouse_south_branch__works_1834.glb",
+   "bytes": 9059
+  },
+  {
+   "url": "/walk/js/walker.js",
+   "bytes": 9058
+  },
+  {
+   "url": "/walk/js/gpu-pick.js",
+   "bytes": 9036
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/loaders/KTX2Loader.js",
+   "bytes": 9033
+  },
+  {
+   "url": "/data/gltf/north_bank_shed_dearborn_e1__shed_1835.glb",
+   "bytes": 8879
+  },
+  {
+   "url": "/data/yard/town_yard_outbuildings.json",
+   "bytes": 8835
+  },
+  {
+   "url": "/walk/js/travel.js",
+   "bytes": 8797
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/utils/BufferGeometryUtils.js",
+   "bytes": 8665
+  },
+  {
+   "url": "/data/gltf/tremont_house_1_stable__stable_1833.glb",
+   "bytes": 8540
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_officers_quarters__log_1816.glb",
+   "bytes": 8484
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_w1_10__inferred_1835.glb",
+   "bytes": 8375
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_w3_062__inferred_1835.glb",
+   "bytes": 8346
+  },
+  {
+   "url": "/walk/js/boats.js",
+   "bytes": 8256
+  },
+  {
+   "url": "/walk/js/flags.js",
+   "bytes": 8231
+  },
+  {
+   "url": "/data/gltf/elston_soap_candle_manufactory__works_1833.glb",
+   "bytes": 8217
+  },
+  {
+   "url": "/data/gltf/south_bank_shed_dearborn_e2__shed_1835.glb",
+   "bytes": 8187
+  },
+  {
+   "url": "/data/gltf/wabansia_doctors_barn__documented_1834.glb",
+   "bytes": 8162
+  },
+  {
+   "url": "/data/gltf/recon_1835_canal_trade_w1_003__inferred_1835.glb",
+   "bytes": 8148
+  },
+  {
+   "url": "/data/gltf/exchange_coffee_house_stable__stable_1834.glb",
+   "bytes": 8142
+  },
+  {
+   "url": "/walk/js/navigator.js",
+   "bytes": 8141
+  },
+  {
+   "url": "/data/gltf/steamboat_hotel_stable__stable_1835.glb",
+   "bytes": 8131
+  },
+  {
+   "url": "/walk/js/facades.js",
+   "bytes": 8113
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_h3_09__inferred_1835.glb",
+   "bytes": 8109
+  },
+  {
+   "url": "/walk/js/view-occlusion.js",
+   "bytes": 8107
+  },
+  {
+   "url": "/data/reconstruction/1835_hay_limits.json",
+   "bytes": 8087
+  },
+  {
+   "url": "/data/gltf/north_bank_shed_dearborn_w__shed_1835.glb",
+   "bytes": 8066
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_h3_11__inferred_1835.glb",
+   "bytes": 8023
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_h2_01__inferred_1835.glb",
+   "bytes": 7975
+  },
+  {
+   "url": "/walk/js/plants.js",
+   "bytes": 7972
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_h3_06__inferred_1835.glb",
+   "bytes": 7964
+  },
+  {
+   "url": "/data/fauna/zones/f04_marsh.json",
+   "bytes": 7964
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_h3_01__inferred_1835.glb",
+   "bytes": 7942
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_h3_04__inferred_1835.glb",
+   "bytes": 7937
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_barracks__log_1816.glb",
+   "bytes": 7914
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_market_h3_02__inferred_1835.glb",
+   "bytes": 7909
+  },
+  {
+   "url": "/walk/js/flora-zones.js",
+   "bytes": 7908
+  },
+  {
+   "url": "/walk/js/device-profile.js",
+   "bytes": 7877
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_h3_05__inferred_1835.glb",
+   "bytes": 7869
+  },
+  {
+   "url": "/walk/js/near-field.js",
+   "bytes": 7836
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_h3_01__inferred_1835.glb",
+   "bytes": 7820
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/libs/meshopt_decoder.module.js",
+   "bytes": 7812
+  },
+  {
+   "url": "/walk/js/texture-residency.js",
+   "bytes": 7807
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a2_048__inferred_1835.glb",
+   "bytes": 7807
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_h3_02__inferred_1835.glb",
+   "bytes": 7771
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_h2_07__inferred_1835.glb",
+   "bytes": 7761
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a2_094__inferred_1835.glb",
+   "bytes": 7707
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_a2_09__inferred_1835.glb",
+   "bytes": 7692
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_a2_15__inferred_1835.glb",
+   "bytes": 7676
+  },
+  {
+   "url": "/data/gltf/newberry_dole_packing_house_south_branch__works_1834.glb",
+   "bytes": 7673
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_119_d7_07__inferred_1835.glb",
+   "bytes": 7604
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_h2_05__inferred_1835.glb",
+   "bytes": 7549
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_c4_01__inferred_1835.glb",
+   "bytes": 7542
+  },
+  {
+   "url": "/data/gltf/miller_house__log_frame_1827.glb",
+   "bytes": 7531
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a2_13__inferred_1835.glb",
+   "bytes": 7519
+  },
+  {
+   "url": "/data/flora/zones/z08_lakeshore.json",
+   "bytes": 7504
+  },
+  {
+   "url": "/data/gltf/recon_1835_canal_trade_c4_002__inferred_1835.glb",
+   "bytes": 7490
+  },
+  {
+   "url": "/data/gltf/peck_store__frame_1833.glb",
+   "bytes": 7482
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_a2_08__inferred_1835.glb",
+   "bytes": 7479
+  },
+  {
+   "url": "/data/gltf/harmon_loomis_store__frame_1833.glb",
+   "bytes": 7475
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_a2_08__inferred_1835.glb",
+   "bytes": 7472
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a2_10__inferred_1835.glb",
+   "bytes": 7465
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a2_12__inferred_1835.glb",
+   "bytes": 7461
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_a2_10__inferred_1835.glb",
+   "bytes": 7460
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a2_097__inferred_1835.glb",
+   "bytes": 7454
+  },
+  {
+   "url": "/walk/js/census.js",
+   "bytes": 7449
+  },
+  {
+   "url": "/walk/js/evidence.js",
+   "bytes": 7448
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_a2_17__inferred_1835.glb",
+   "bytes": 7445
+  },
+  {
+   "url": "/data/gltf/thomas_church_store__frame_1834.glb",
+   "bytes": 7432
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a2_095__inferred_1835.glb",
+   "bytes": 7431
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_024__inferred_1835.glb",
+   "bytes": 7430
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a2_059__inferred_1835.glb",
+   "bytes": 7425
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_055__inferred_1835.glb",
+   "bytes": 7421
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a2_19__inferred_1835.glb",
+   "bytes": 7409
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a2_037__inferred_1835.glb",
+   "bytes": 7397
+  },
+  {
+   "url": "/data/yard/town_trade_yards.json",
+   "bytes": 7391
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_d7_07__inferred_1835.glb",
+   "bytes": 7376
+  },
+  {
+   "url": "/data/gltf/newberry_dole_stock_shed_south_branch__works_1834.glb",
+   "bytes": 7376
+  },
+  {
+   "url": "/data/gltf/recon_1835_branch_freight_f2_001__inferred_1835.glb",
+   "bytes": 7366
+  },
+  {
+   "url": "/data/gltf/chicago_democrat_office__frame_1833.glb",
+   "bytes": 7356
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_h2_039__inferred_1835.glb",
+   "bytes": 7353
+  },
+  {
+   "url": "/data/gltf/recon_1835_forks_freight_f2_001__inferred_1835.glb",
+   "bytes": 7343
+  },
+  {
+   "url": "/walk/js/pacing-read.js",
+   "bytes": 7315
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d7_031__inferred_1835.glb",
+   "bytes": 7311
+  },
+  {
+   "url": "/data/gltf/newberry_dole_warehouse__frame_1833.glb",
+   "bytes": 7294
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_f2_10__inferred_1835.glb",
+   "bytes": 7290
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_a2_05__inferred_1835.glb",
+   "bytes": 7285
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a2_096__inferred_1835.glb",
+   "bytes": 7285
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_f2_11__inferred_1835.glb",
+   "bytes": 7268
+  },
+  {
+   "url": "/data/gltf/new_york_house_stable__stable_1834.glb",
+   "bytes": 7265
+  },
+  {
+   "url": "/data/gltf/sauganash_hotel_stable__stable_1831.glb",
+   "bytes": 7261
+  },
+  {
+   "url": "/data/gltf/mansion_house_stable__stable_1833.glb",
+   "bytes": 7257
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_c4_067__inferred_1835.glb",
+   "bytes": 7257
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_a2_09__inferred_1835.glb",
+   "bytes": 7254
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a2_033__inferred_1835.glb",
+   "bytes": 7249
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a2_047__inferred_1835.glb",
+   "bytes": 7248
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a2_098__inferred_1835.glb",
+   "bytes": 7226
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_h2_02__inferred_1835.glb",
+   "bytes": 7224
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a2_15__inferred_1835.glb",
+   "bytes": 7216
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a2_08__inferred_1835.glb",
+   "bytes": 7195
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d7_076__inferred_1835.glb",
+   "bytes": 7176
+  },
+  {
+   "url": "/data/gltf/inf_teamster_stable_west__inferred_1835.glb",
+   "bytes": 7166
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_clark_f2_01__inferred_1835.glb",
+   "bytes": 7155
+  },
+  {
+   "url": "/walk/js/far-merge.js",
+   "bytes": 7148
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d7_088__inferred_1835.glb",
+   "bytes": 7139
+  },
+  {
+   "url": "/data/gltf/inf_sawpit_shed__inferred_1835.glb",
+   "bytes": 7132
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_d7_01__inferred_1835.glb",
+   "bytes": 7128
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_d7_05__inferred_1835.glb",
+   "bytes": 7121
+  },
+  {
+   "url": "/walk/js/inspect-sources.js",
+   "bytes": 7109
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_h1_007__inferred_1835.glb",
+   "bytes": 7105
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_blockhouse__log_1816.glb",
+   "bytes": 7103
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_c3_064__inferred_1835.glb",
+   "bytes": 7087
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_c3_02__inferred_1835.glb",
+   "bytes": 7066
+  },
+  {
+   "url": "/data/flora/zones/z11_lot_remnant.json",
+   "bytes": 7059
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_clark_c3_03__inferred_1835.glb",
+   "bytes": 7041
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_h2_01__inferred_1835.glb",
+   "bytes": 7038
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_d7_04__inferred_1835.glb",
+   "bytes": 7038
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_d7_04__inferred_1835.glb",
+   "bytes": 7019
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_c3_01__inferred_1835.glb",
+   "bytes": 7000
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_d7_06__inferred_1835.glb",
+   "bytes": 6999
+  },
+  {
+   "url": "/data/fauna/zones/f10_settled_town.json",
+   "bytes": 6950
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_019__inferred_1835.glb",
+   "bytes": 6948
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_053__inferred_1835.glb",
+   "bytes": 6929
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_d7_01__inferred_1835.glb",
+   "bytes": 6925
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_d7_04__inferred_1835.glb",
+   "bytes": 6921
+  },
+  {
+   "url": "/walk/js/flora-gpu-far.js",
+   "bytes": 6915
+  },
+  {
+   "url": "/walk/js/street-trees.js",
+   "bytes": 6903
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_h1_03__inferred_1835.glb",
+   "bytes": 6891
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_c3_13__inferred_1835.glb",
+   "bytes": 6884
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_c3_12__inferred_1835.glb",
+   "bytes": 6878
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_c3_066__inferred_1835.glb",
+   "bytes": 6872
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_big_barn__barn_1830.glb",
+   "bytes": 6867
+  },
+  {
+   "url": "/data/sidecars/1835/flora_sources.json",
+   "bytes": 6855
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_c3_015__inferred_1835.glb",
+   "bytes": 6849
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_c3_02__inferred_1835.glb",
+   "bytes": 6846
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_d7_09__inferred_1835.glb",
+   "bytes": 6834
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_d7_04__inferred_1835.glb",
+   "bytes": 6814
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_c3_040__inferred_1835.glb",
+   "bytes": 6812
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_h1_02__inferred_1835.glb",
+   "bytes": 6774
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d7_035__inferred_1835.glb",
+   "bytes": 6765
+  },
+  {
+   "url": "/data/gltf/recon_1835_canal_trade_c3_001__inferred_1835.glb",
+   "bytes": 6750
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_washington_canal_d7_05__inferred_1835.glb",
+   "bytes": 6746
+  },
+  {
+   "url": "/data/gltf/recon_1835_bank_freight_f3_001__inferred_1835.glb",
+   "bytes": 6739
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_h1_03__inferred_1835.glb",
+   "bytes": 6733
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_82_h1_06__inferred_1835.glb",
+   "bytes": 6714
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_h1_02__inferred_1835.glb",
+   "bytes": 6705
+  },
+  {
+   "url": "/data/flora/zones/z06_dense_forest.json",
+   "bytes": 6703
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_w2_065__inferred_1835.glb",
+   "bytes": 6700
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_023__inferred_1835.glb",
+   "bytes": 6697
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_006__inferred_1835.glb",
+   "bytes": 6692
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_037__inferred_1835.glb",
+   "bytes": 6673
+  },
+  {
+   "url": "/data/gltf/inf_blacksmith_shop_west__inferred_1835.glb",
+   "bytes": 6672
+  },
+  {
+   "url": "/data/gltf/inf_cooperage_south__inferred_1835.glb",
+   "bytes": 6646
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_d7_08__inferred_1835.glb",
+   "bytes": 6635
+  },
+  {
+   "url": "/data/gltf/mason_blacksmith_shop__documented_1835.glb",
+   "bytes": 6619
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_w2_18__inferred_1835.glb",
+   "bytes": 6603
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_047__inferred_1835.glb",
+   "bytes": 6591
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_w2_10__inferred_1835.glb",
+   "bytes": 6590
+  },
+  {
+   "url": "/data/gltf/wabansia_doctors_house__documented_1834.glb",
+   "bytes": 6584
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_022__inferred_1835.glb",
+   "bytes": 6571
+  },
+  {
+   "url": "/data/gltf/temple_lake_st_building__documented_1835.glb",
+   "bytes": 6550
+  },
+  {
+   "url": "/walk/js/upload-release.js",
+   "bytes": 6548
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_h1_03__inferred_1835.glb",
+   "bytes": 6521
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a1_050__inferred_1835.glb",
+   "bytes": 6515
+  },
+  {
+   "url": "/data/gltf/inf_cooperage_south_branch__inferred_1835.glb",
+   "bytes": 6513
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_h2_01__inferred_1835.glb",
+   "bytes": 6508
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_h1_029__inferred_1835.glb",
+   "bytes": 6508
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_branch_freight_f3_002__inferred_1835.glb",
+   "bytes": 6475
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_branch_freight_f3_001__inferred_1835.glb",
+   "bytes": 6473
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_h2_02__inferred_1835.glb",
+   "bytes": 6468
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_h1_07__inferred_1835.glb",
+   "bytes": 6462
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_h1_06__inferred_1835.glb",
+   "bytes": 6455
+  },
+  {
+   "url": "/data/gltf/recon_1835_canal_trade_w2_004__inferred_1835.glb",
+   "bytes": 6450
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a1_036__inferred_1835.glb",
+   "bytes": 6433
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_h1_03__inferred_1835.glb",
+   "bytes": 6403
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_randolph_des_plaines_w2_01__inferred_1835.glb",
+   "bytes": 6400
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_h1_14__inferred_1835.glb",
+   "bytes": 6390
+  },
+  {
+   "url": "/data/gltf/pierce_blacksmith_shop__shop_1833.glb",
+   "bytes": 6356
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a1_047__inferred_1835.glb",
+   "bytes": 6354
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_c2_10__inferred_1835.glb",
+   "bytes": 6348
+  },
+  {
+   "url": "/walk/js/wells.js",
+   "bytes": 6346
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_w2_09__inferred_1835.glb",
+   "bytes": 6344
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_c2_08__inferred_1835.glb",
+   "bytes": 6329
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a1_032__inferred_1835.glb",
+   "bytes": 6302
+  },
+  {
+   "url": "/data/gltf/inf_wheelwright_shop_west__inferred_1835.glb",
+   "bytes": 6295
+  },
+  {
+   "url": "/data/gltf/inf_harness_shop__inferred_1835.glb",
+   "bytes": 6284
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_h2_022__inferred_1835.glb",
+   "bytes": 6262
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_c2_11__inferred_1835.glb",
+   "bytes": 6261
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_c2_01__inferred_1835.glb",
+   "bytes": 6259
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_c2_01__inferred_1835.glb",
+   "bytes": 6257
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_c2_07__inferred_1835.glb",
+   "bytes": 6238
+  },
+  {
+   "url": "/walk/js/destinations.js",
+   "bytes": 6229
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_clark_c2_02__inferred_1835.glb",
+   "bytes": 6216
+  },
+  {
+   "url": "/data/yard/town_water_cart.json",
+   "bytes": 6188
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_franklin_c2_01__inferred_1835.glb",
+   "bytes": 6183
+  },
+  {
+   "url": "/data/fauna/zones/f01_wet_prairie.json",
+   "bytes": 6177
+  },
+  {
+   "url": "/data/gltf/inf_gunsmith_shop__inferred_1835.glb",
+   "bytes": 6168
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_market_c2_01__inferred_1835.glb",
+   "bytes": 6165
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a1_008__inferred_1835.glb",
+   "bytes": 6164
+  },
+  {
+   "url": "/data/fauna/zones/f06_north_timber.json",
+   "bytes": 6149
+  },
+  {
+   "url": "/walk/js/glass.js",
+   "bytes": 6141
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_c2_09__inferred_1835.glb",
+   "bytes": 6136
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_clark_c2_06__inferred_1835.glb",
+   "bytes": 6131
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_h2_045__inferred_1835.glb",
+   "bytes": 6131
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_035__inferred_1835.glb",
+   "bytes": 6127
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_h2_030__inferred_1835.glb",
+   "bytes": 6114
+  },
+  {
+   "url": "/data/reader/flora.json",
+   "bytes": 6108
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_h2_028__inferred_1835.glb",
+   "bytes": 6083
+  },
+  {
+   "url": "/walk/js/parked-transport.js",
+   "bytes": 6081
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_h1_05__inferred_1835.glb",
+   "bytes": 6076
+  },
+  {
+   "url": "/data/flora/zones/z03_sedge_meadow.json",
+   "bytes": 6073
+  },
+  {
+   "url": "/walk/css/evidence.css",
+   "bytes": 6072
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_020__inferred_1835.glb",
+   "bytes": 6057
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_wash_house__wash_house_1830.glb",
+   "bytes": 6034
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_h1_02__inferred_1835.glb",
+   "bytes": 6027
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_005__inferred_1835.glb",
+   "bytes": 6027
+  },
+  {
+   "url": "/data/gltf/clybourn_slaughterhouse__log_1827.glb",
+   "bytes": 6017
+  },
+  {
+   "url": "/data/yard/lot_building_material.json",
+   "bytes": 6002
+  },
+  {
+   "url": "/data/fauna/zones/f09_river.json",
+   "bytes": 5983
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_81_d6_06__inferred_1835.glb",
+   "bytes": 5959
+  },
+  {
+   "url": "/walk/js/goto.js",
+   "bytes": 5957
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_119_d6_01__inferred_1835.glb",
+   "bytes": 5950
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_franklin_d6_01__inferred_1835.glb",
+   "bytes": 5943
+  },
+  {
+   "url": "/data/gltf/jb_beaubien_homestead__log_1822.glb",
+   "bytes": 5942
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d6_021__inferred_1835.glb",
+   "bytes": 5942
+  },
+  {
+   "url": "/data/gltf/chicago_american_office__frame_1835.glb",
+   "bytes": 5924
+  },
+  {
+   "url": "/data/gltf/inf_grocery_west__inferred_1835.glb",
+   "bytes": 5921
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d6_07__inferred_1835.glb",
+   "bytes": 5912
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d6_012__inferred_1835.glb",
+   "bytes": 5907
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d6_036__inferred_1835.glb",
+   "bytes": 5877
+  },
+  {
+   "url": "/data/gltf/jh_kinzie_forwarding_store__frame_1830s.glb",
+   "bytes": 5862
+  },
+  {
+   "url": "/data/gltf/h_jones_store__frame_1833.glb",
+   "bytes": 5860
+  },
+  {
+   "url": "/walk/js/flora-gpu-deal.js",
+   "bytes": 5852
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_franklin_a1_07__inferred_1835.glb",
+   "bytes": 5842
+  },
+  {
+   "url": "/walk/js/wall-relief.js",
+   "bytes": 5839
+  },
+  {
+   "url": "/data/gltf/temple_building__frame_1833.glb",
+   "bytes": 5837
+  },
+  {
+   "url": "/data/gltf/watkins_school_house__house_1833.glb",
+   "bytes": 5826
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_randolph_canal_d6_04__inferred_1835.glb",
+   "bytes": 5824
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a1_07__inferred_1835.glb",
+   "bytes": 5821
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d6_058__inferred_1835.glb",
+   "bytes": 5821
+  },
+  {
+   "url": "/walk/js/orderbook.js",
+   "bytes": 5819
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d6_093__inferred_1835.glb",
+   "bytes": 5806
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_a1_09__inferred_1835.glb",
+   "bytes": 5801
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d6_031__inferred_1835.glb",
+   "bytes": 5796
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_c1_08__inferred_1835.glb",
+   "bytes": 5791
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_shop__shop_1830.glb",
+   "bytes": 5761
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_034__inferred_1835.glb",
+   "bytes": 5749
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_h1_03__inferred_1835.glb",
+   "bytes": 5746
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_a1_08__inferred_1835.glb",
+   "bytes": 5746
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_washington_canal_d6_01__inferred_1835.glb",
+   "bytes": 5740
+  },
+  {
+   "url": "/data/gltf/kelsey_boarding_house__frame_1835.glb",
+   "bytes": 5738
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_a1_11__inferred_1835.glb",
+   "bytes": 5736
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a1_09__inferred_1835.glb",
+   "bytes": 5734
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_a1_08__inferred_1835.glb",
+   "bytes": 5718
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d6_06__inferred_1835.glb",
+   "bytes": 5711
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a1_06__inferred_1835.glb",
+   "bytes": 5707
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d6_10__inferred_1835.glb",
+   "bytes": 5706
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a1_05__inferred_1835.glb",
+   "bytes": 5706
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_c1_08__inferred_1835.glb",
+   "bytes": 5698
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/libs/ktx-parse.module.js",
+   "bytes": 5692
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d6_027__inferred_1835.glb",
+   "bytes": 5688
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_007__inferred_1835.glb",
+   "bytes": 5674
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_clark_c1_01__inferred_1835.glb",
+   "bytes": 5672
+  },
+  {
+   "url": "/data/gltf/first_presbyterian_church__frame_1834.glb",
+   "bytes": 5670
+  },
+  {
+   "url": "/data/gltf/kimberly_residence__frame_1835.glb",
+   "bytes": 5669
+  },
+  {
+   "url": "/walk/js/compact-attributes.js",
+   "bytes": 5667
+  },
+  {
+   "url": "/data/gltf/goss_cobb_saddlery__shop_1833.glb",
+   "bytes": 5665
+  },
+  {
+   "url": "/data/gltf/pruyne_kimball_drugstore__frame_1830s.glb",
+   "bytes": 5664
+  },
+  {
+   "url": "/data/gltf/carpenter_south_water_store__frame_1833.glb",
+   "bytes": 5654
+  },
+  {
+   "url": "/data/flora/zones/z01_wet_prairie.json",
+   "bytes": 5652
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_d2_07__inferred_1835.glb",
+   "bytes": 5636
+  },
+  {
+   "url": "/data/gltf/brickyard_north_side__yard_1833.glb",
+   "bytes": 5635
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_a1_10__inferred_1835.glb",
+   "bytes": 5635
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d6_080__inferred_1835.glb",
+   "bytes": 5635
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_d6_04__inferred_1835.glb",
+   "bytes": 5633
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a1_046__inferred_1835.glb",
+   "bytes": 5631
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_a1_09__inferred_1835.glb",
+   "bytes": 5630
+  },
+  {
+   "url": "/data/enclosures/sauganash_yard.json",
+   "bytes": 5626
+  },
+  {
+   "url": "/walk/js/welcome.js",
+   "bytes": 5618
+  },
+  {
+   "url": "/data/gltf/frederick_thomas_shop__frame_1835.glb",
+   "bytes": 5617
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_a1_14__inferred_1835.glb",
+   "bytes": 5599
+  },
+  {
+   "url": "/data/gltf/landing_camp_west__camp_1835.glb",
+   "bytes": 5598
+  },
+  {
+   "url": "/walk/css/people.css",
+   "bytes": 5596
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_sutlers_store__log_1816.glb",
+   "bytes": 5593
+  },
+  {
+   "url": "/data/gltf/john_holbrook_store__frame_1835.glb",
+   "bytes": 5588
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_lake_canal_d2_03__inferred_1835.glb",
+   "bytes": 5584
+  },
+  {
+   "url": "/data/gltf/cobweb_castle__log_1820.glb",
+   "bytes": 5577
+  },
+  {
+   "url": "/walk/js/standing-horses.js",
+   "bytes": 5574
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_a1_02__inferred_1835.glb",
+   "bytes": 5573
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d6_084__inferred_1835.glb",
+   "bytes": 5572
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d2_046__inferred_1835.glb",
+   "bytes": 5571
+  },
+  {
+   "url": "/walk/js/fauna.js",
+   "bytes": 5566
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d6_070__inferred_1835.glb",
+   "bytes": 5555
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_041__inferred_1835.glb",
+   "bytes": 5549
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_118_d6_06__inferred_1835.glb",
+   "bytes": 5543
+  },
+  {
+   "url": "/walk/js/arrival.js",
+   "bytes": 5540
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_a1_07__inferred_1835.glb",
+   "bytes": 5535
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_a1_10__inferred_1835.glb",
+   "bytes": 5522
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_a1_08__inferred_1835.glb",
+   "bytes": 5519
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_market_a1_06__inferred_1835.glb",
+   "bytes": 5512
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_82_d2_01__inferred_1835.glb",
+   "bytes": 5509
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_clinton_a1_03__inferred_1835.glb",
+   "bytes": 5504
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_a1_06__inferred_1835.glb",
+   "bytes": 5500
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_021__inferred_1835.glb",
+   "bytes": 5500
+  },
+  {
+   "url": "/walk/css/skins.css",
+   "bytes": 5489
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a1_12__inferred_1835.glb",
+   "bytes": 5483
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_d2_06__inferred_1835.glb",
+   "bytes": 5476
+  },
+  {
+   "url": "/data/gltf/wolf_point_tavern_stable__stable_1831.glb",
+   "bytes": 5476
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d2_029__inferred_1835.glb",
+   "bytes": 5474
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_018__inferred_1835.glb",
+   "bytes": 5468
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d6_044__inferred_1835.glb",
+   "bytes": 5457
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d6_020__inferred_1835.glb",
+   "bytes": 5454
+  },
+  {
+   "url": "/data/boats/era_boats.json",
+   "bytes": 5454
+  },
+  {
+   "url": "/walk/js/flora-gpu-farshrub.js",
+   "bytes": 5452
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d6_02__inferred_1835.glb",
+   "bytes": 5452
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_franklin_d2_05__inferred_1835.glb",
+   "bytes": 5447
+  },
+  {
+   "url": "/data/gltf/western_hotel__frame_1834.glb",
+   "bytes": 5444
+  },
+  {
+   "url": "/data/gltf/bates_auction_room__frame_1834.glb",
+   "bytes": 5443
+  },
+  {
+   "url": "/walk/js/roof-relief.js",
+   "bytes": 5434
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_a1_06__inferred_1835.glb",
+   "bytes": 5434
+  },
+  {
+   "url": "/data/gltf/exchange_coffee_house__frame_1834.glb",
+   "bytes": 5431
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_118_d4_04__inferred_1835.glb",
+   "bytes": 5429
+  },
+  {
+   "url": "/data/gltf/new_york_house__frame_1834.glb",
+   "bytes": 5424
+  },
+  {
+   "url": "/data/gltf/old_bank_building__frame_1834.glb",
+   "bytes": 5415
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d2_09__inferred_1835.glb",
+   "bytes": 5409
+  },
+  {
+   "url": "/data/flora/zones/z09_sand_prairie.json",
+   "bytes": 5401
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d2_05__inferred_1835.glb",
+   "bytes": 5392
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d2_003__inferred_1835.glb",
+   "bytes": 5391
+  },
+  {
+   "url": "/walk/js/nav-rail.js",
+   "bytes": 5386
+  },
+  {
+   "url": "/walk/js/season.js",
+   "bytes": 5383
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_028__inferred_1835.glb",
+   "bytes": 5383
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d2_005__inferred_1835.glb",
+   "bytes": 5379
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_randolph_des_plaines_d6_03__inferred_1835.glb",
+   "bytes": 5372
+  },
+  {
+   "url": "/data/wells/fort_dearborn_well.json",
+   "bytes": 5363
+  },
+  {
+   "url": "/data/gltf/mansion_house__log_frame_1833.glb",
+   "bytes": 5357
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_015__inferred_1835.glb",
+   "bytes": 5356
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_franklin_a1_03__inferred_1835.glb",
+   "bytes": 5353
+  },
+  {
+   "url": "/walk/css/inspect.css",
+   "bytes": 5344
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d2_05__inferred_1835.glb",
+   "bytes": 5344
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d2_06__inferred_1835.glb",
+   "bytes": 5336
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a1_02__inferred_1835.glb",
+   "bytes": 5333
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d2_09__inferred_1835.glb",
+   "bytes": 5328
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d2_091__inferred_1835.glb",
+   "bytes": 5326
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_washington_canal_d2_06__inferred_1835.glb",
+   "bytes": 5324
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_82_d4_03__inferred_1835.glb",
+   "bytes": 5313
+  },
+  {
+   "url": "/walk/css/drawer.css",
+   "bytes": 5301
+  },
+  {
+   "url": "/data/gltf/beaubien_barn__converted_1817.glb",
+   "bytes": 5301
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d5_02__inferred_1835.glb",
+   "bytes": 5295
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb",
+   "bytes": 5295
+  },
+  {
+   "url": "/data/loading/statuses.json",
+   "bytes": 5287
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d2_014__inferred_1835.glb",
+   "bytes": 5281
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_d4_02__inferred_1835.glb",
+   "bytes": 5271
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_032__inferred_1835.glb",
+   "bytes": 5266
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_082__inferred_1835.glb",
+   "bytes": 5263
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_d2_04__inferred_1835.glb",
+   "bytes": 5262
+  },
+  {
+   "url": "/data/gltf/inf_sawyer_dwelling_b__inferred_1835.glb",
+   "bytes": 5262
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_d2_05__inferred_1835.glb",
+   "bytes": 5261
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_t1_061__inferred_1835.glb",
+   "bytes": 5259
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_washington_canal_d4_03__inferred_1835.glb",
+   "bytes": 5258
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_009__inferred_1835.glb",
+   "bytes": 5248
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_81_d2_05__inferred_1835.glb",
+   "bytes": 5245
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_d4_02__inferred_1835.glb",
+   "bytes": 5244
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d5_01__inferred_1835.glb",
+   "bytes": 5243
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_store_house__log_1816.glb",
+   "bytes": 5243
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_118_d2_01__inferred_1835.glb",
+   "bytes": 5242
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_119_d5_06__inferred_1835.glb",
+   "bytes": 5242
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_038__inferred_1835.glb",
+   "bytes": 5239
+  },
+  {
+   "url": "/data/gltf/wolf_point_trading_camp__camp_1835.glb",
+   "bytes": 5236
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_046__inferred_1835.glb",
+   "bytes": 5235
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d2_024__inferred_1835.glb",
+   "bytes": 5233
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_d5_02__inferred_1835.glb",
+   "bytes": 5227
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_d2_05__inferred_1835.glb",
+   "bytes": 5221
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_019__inferred_1835.glb",
+   "bytes": 5221
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d4_030__inferred_1835.glb",
+   "bytes": 5219
+  },
+  {
+   "url": "/data/gltf/inf_labourer_shanty_north_b__inferred_1835.glb",
+   "bytes": 5217
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_041__inferred_1835.glb",
+   "bytes": 5217
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_commandants_quarters__brick_1816.glb",
+   "bytes": 5212
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_004__inferred_1835.glb",
+   "bytes": 5210
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_82_d4_04__inferred_1835.glb",
+   "bytes": 5209
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_d4_09__inferred_1835.glb",
+   "bytes": 5202
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_057__inferred_1835.glb",
+   "bytes": 5201
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d2_05__inferred_1835.glb",
+   "bytes": 5196
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d5_034__inferred_1835.glb",
+   "bytes": 5196
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_randolph_des_plaines_d5_04__inferred_1835.glb",
+   "bytes": 5194
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_033__inferred_1835.glb",
+   "bytes": 5192
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d2_077__inferred_1835.glb",
+   "bytes": 5191
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_015__inferred_1835.glb",
+   "bytes": 5190
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_guard_house__log_1816.glb",
+   "bytes": 5181
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_031__inferred_1835.glb",
+   "bytes": 5180
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d2_05__inferred_1835.glb",
+   "bytes": 5179
+  },
+  {
+   "url": "/data/gltf/inf_labourer_shanty_north_a__inferred_1835.glb",
+   "bytes": 5179
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d2_085__inferred_1835.glb",
+   "bytes": 5174
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb",
+   "bytes": 5171
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_006__inferred_1835.glb",
+   "bytes": 5171
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d4_002__inferred_1835.glb",
+   "bytes": 5171
+  },
+  {
+   "url": "/data/gltf/inf_labourer_shanty_west_b__inferred_1835.glb",
+   "bytes": 5167
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_out_building_a__out_building_a_1830.glb",
+   "bytes": 5166
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_037__inferred_1835.glb",
+   "bytes": 5165
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb",
+   "bytes": 5164
+  },
+  {
+   "url": "/data/gltf/steamboat_hotel__frame_1835.glb",
+   "bytes": 5164
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_092__inferred_1835.glb",
+   "bytes": 5161
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_119_d5_02__inferred_1835.glb",
+   "bytes": 5158
+  },
+  {
+   "url": "/data/gltf/inf_labourer_shanty_west_a__inferred_1835.glb",
+   "bytes": 5155
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_074__inferred_1835.glb",
+   "bytes": 5153
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d4_026__inferred_1835.glb",
+   "bytes": 5152
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_d3_06__inferred_1835.glb",
+   "bytes": 5150
+  },
+  {
+   "url": "/data/gltf/lasalle_lake_house__documented_1834.glb",
+   "bytes": 5144
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_clinton_d4_01__inferred_1835.glb",
+   "bytes": 5142
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_d5_03__inferred_1835.glb",
+   "bytes": 5142
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_039__inferred_1835.glb",
+   "bytes": 5141
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_market_d2_04__inferred_1835.glb",
+   "bytes": 5140
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_d5_01__inferred_1835.glb",
+   "bytes": 5137
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d4_12__inferred_1835.glb",
+   "bytes": 5135
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_086__inferred_1835.glb",
+   "bytes": 5135
+  },
+  {
+   "url": "/data/flora/zones/z02_mesic_prairie.json",
+   "bytes": 5135
+  },
+  {
+   "url": "/walk/js/tree-surface.js",
+   "bytes": 5134
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_002__inferred_1835.glb",
+   "bytes": 5132
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_d4_08__inferred_1835.glb",
+   "bytes": 5131
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_81_d5_01__inferred_1835.glb",
+   "bytes": 5130
+  },
+  {
+   "url": "/walk/js/year-pack.js",
+   "bytes": 5128
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_008__inferred_1835.glb",
+   "bytes": 5126
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d4_009__inferred_1835.glb",
+   "bytes": 5124
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_069__inferred_1835.glb",
+   "bytes": 5123
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_d4_05__inferred_1835.glb",
+   "bytes": 5120
+  },
+  {
+   "url": "/walk/js/photos-tab.js",
+   "bytes": 5119
+  },
+  {
+   "url": "/data/gltf/dole_warehouse_south__frame_1832.glb",
+   "bytes": 5115
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_81_d5_07__inferred_1835.glb",
+   "bytes": 5113
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_randolph_canal_d5_01__inferred_1835.glb",
+   "bytes": 5110
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_087__inferred_1835.glb",
+   "bytes": 5110
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_81_d4_03__inferred_1835.glb",
+   "bytes": 5109
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d4_07__inferred_1835.glb",
+   "bytes": 5107
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_090__inferred_1835.glb",
+   "bytes": 5105
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d5_004__inferred_1835.glb",
+   "bytes": 5104
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_118_d5_02__inferred_1835.glb",
+   "bytes": 5098
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_068__inferred_1835.glb",
+   "bytes": 5090
+  },
+  {
+   "url": "/data/gltf/log_jail__log_1833.glb",
+   "bytes": 5084
+  },
+  {
+   "url": "/data/flora/zones/z05_riverbank_timber.json",
+   "bytes": 5084
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d5_011__inferred_1835.glb",
+   "bytes": 5077
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_d4_11__inferred_1835.glb",
+   "bytes": 5070
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_randolph_des_plaines_d4_02__inferred_1835.glb",
+   "bytes": 5069
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_d4_14__inferred_1835.glb",
+   "bytes": 5065
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_118_d4_03__inferred_1835.glb",
+   "bytes": 5061
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d5_007__inferred_1835.glb",
+   "bytes": 5056
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_randolph_canal_d5_03__inferred_1835.glb",
+   "bytes": 5055
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_81_d4_04__inferred_1835.glb",
+   "bytes": 5052
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d4_02__inferred_1835.glb",
+   "bytes": 5050
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_franklin_d4_03__inferred_1835.glb",
+   "bytes": 5045
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_d4_09__inferred_1835.glb",
+   "bytes": 5044
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_075__inferred_1835.glb",
+   "bytes": 5036
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_071__inferred_1835.glb",
+   "bytes": 5036
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_lake_canal_d5_01__inferred_1835.glb",
+   "bytes": 5035
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d5_02__inferred_1835.glb",
+   "bytes": 5034
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_072__inferred_1835.glb",
+   "bytes": 5031
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_045__inferred_1835.glb",
+   "bytes": 5031
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_078__inferred_1835.glb",
+   "bytes": 5024
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d5_026__inferred_1835.glb",
+   "bytes": 5023
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_017__inferred_1835.glb",
+   "bytes": 5023
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_market_d5_01__inferred_1835.glb",
+   "bytes": 5022
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d5_01__inferred_1835.glb",
+   "bytes": 5015
+  },
+  {
+   "url": "/data/gltf/inf_carpenter_dwelling_north__inferred_1835.glb",
+   "bytes": 5014
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_us_factors_house__us_factors_house_1818.glb",
+   "bytes": 5012
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_washington_canal_d5_02__inferred_1835.glb",
+   "bytes": 5012
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_d5_01__inferred_1835.glb",
+   "bytes": 5011
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_d4_04__inferred_1835.glb",
+   "bytes": 5011
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_franklin_d5_02__inferred_1835.glb",
+   "bytes": 5010
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_056__inferred_1835.glb",
+   "bytes": 5009
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_081__inferred_1835.glb",
+   "bytes": 4997
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_005__inferred_1835.glb",
+   "bytes": 4994
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_079__inferred_1835.glb",
+   "bytes": 4992
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_d4_02__inferred_1835.glb",
+   "bytes": 4978
+  },
+  {
+   "url": "/data/gltf/heacock_house_monroe__documented_1835.glb",
+   "bytes": 4974
+  },
+  {
+   "url": "/data/gltf/inf_teamster_dwelling_west__inferred_1835.glb",
+   "bytes": 4972
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_d4_06__inferred_1835.glb",
+   "bytes": 4968
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_017__inferred_1835.glb",
+   "bytes": 4966
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d4_025__inferred_1835.glb",
+   "bytes": 4962
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_artillery_house__log_1816.glb",
+   "bytes": 4959
+  },
+  {
+   "url": "/walk/js/lakeshore.js",
+   "bytes": 4954
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d5_016__inferred_1835.glb",
+   "bytes": 4946
+  },
+  {
+   "url": "/data/gltf/wright_building_to_let_b__documented_1835.glb",
+   "bytes": 4936
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_81_d5_02__inferred_1835.glb",
+   "bytes": 4930
+  },
+  {
+   "url": "/data/gltf/wright_building_to_let_a__documented_1835.glb",
+   "bytes": 4928
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_012__inferred_1835.glb",
+   "bytes": 4925
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_083__inferred_1835.glb",
+   "bytes": 4921
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d5_01__inferred_1835.glb",
+   "bytes": 4919
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb",
+   "bytes": 4911
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_d5_03__inferred_1835.glb",
+   "bytes": 4909
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d4_019__inferred_1835.glb",
+   "bytes": 4902
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_a4_12__inferred_1835.glb",
+   "bytes": 4899
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_d5_01__inferred_1835.glb",
+   "bytes": 4896
+  },
+  {
+   "url": "/data/gltf/inf_mason_dwelling_north__inferred_1835.glb",
+   "bytes": 4895
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_011__inferred_1835.glb",
+   "bytes": 4887
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_market_d4_02__inferred_1835.glb",
+   "bytes": 4884
+  },
+  {
+   "url": "/data/enclosures/wolf_point_tavern_yard.json",
+   "bytes": 4882
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d5_023__inferred_1835.glb",
+   "bytes": 4879
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_003__inferred_1835.glb",
+   "bytes": 4873
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_118_d5_07__inferred_1835.glb",
+   "bytes": 4869
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_013__inferred_1835.glb",
+   "bytes": 4867
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_82_d5_02__inferred_1835.glb",
+   "bytes": 4843
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_119_d4_04__inferred_1835.glb",
+   "bytes": 4841
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d4_03__inferred_1835.glb",
+   "bytes": 4837
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d1_053__inferred_1835.glb",
+   "bytes": 4837
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_randolph_canal_d4_02__inferred_1835.glb",
+   "bytes": 4835
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_d5_03__inferred_1835.glb",
+   "bytes": 4834
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_043__inferred_1835.glb",
+   "bytes": 4830
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_a4_04__inferred_1835.glb",
+   "bytes": 4829
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d4_014__inferred_1835.glb",
+   "bytes": 4828
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_d4_04__inferred_1835.glb",
+   "bytes": 4822
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_016__inferred_1835.glb",
+   "bytes": 4822
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_82_d1_05__inferred_1835.glb",
+   "bytes": 4818
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d1_010__inferred_1835.glb",
+   "bytes": 4818
+  },
+  {
+   "url": "/walk/css/card.css",
+   "bytes": 4808
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_044__inferred_1835.glb",
+   "bytes": 4808
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_d1_04__inferred_1835.glb",
+   "bytes": 4803
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_d4_12__inferred_1835.glb",
+   "bytes": 4802
+  },
+  {
+   "url": "/data/prebuilt/1835/base.json",
+   "bytes": 4801
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_d3_07__inferred_1835.glb",
+   "bytes": 4797
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_d4_04__inferred_1835.glb",
+   "bytes": 4796
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_market_d1_05__inferred_1835.glb",
+   "bytes": 4794
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_004__inferred_1835.glb",
+   "bytes": 4794
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_052__inferred_1835.glb",
+   "bytes": 4794
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_025__inferred_1835.glb",
+   "bytes": 4793
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_a4_11__inferred_1835.glb",
+   "bytes": 4791
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_119_d4_03__inferred_1835.glb",
+   "bytes": 4784
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_95_d4_04__inferred_1835.glb",
+   "bytes": 4781
+  },
+  {
+   "url": "/data/gltf/brown_boarding_house__documented_1835.glb",
+   "bytes": 4781
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d5_028__inferred_1835.glb",
+   "bytes": 4778
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_d1_03__inferred_1835.glb",
+   "bytes": 4770
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_lake_canal_d4_02__inferred_1835.glb",
+   "bytes": 4770
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_048__inferred_1835.glb",
+   "bytes": 4770
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a4_010__inferred_1835.glb",
+   "bytes": 4764
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_001__inferred_1835.glb",
+   "bytes": 4764
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_franklin_d1_02__inferred_1835.glb",
+   "bytes": 4763
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_clark_d1_04__inferred_1835.glb",
+   "bytes": 4763
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d1_032__inferred_1835.glb",
+   "bytes": 4757
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_118_d3_05__inferred_1835.glb",
+   "bytes": 4756
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_040__inferred_1835.glb",
+   "bytes": 4756
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_054__inferred_1835.glb",
+   "bytes": 4753
+  },
+  {
+   "url": "/walk/js/display-name.js",
+   "bytes": 4749
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_d1_07__inferred_1835.glb",
+   "bytes": 4749
+  },
+  {
+   "url": "/data/enclosures/miller_house_yard.json",
+   "bytes": 4743
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_042__inferred_1835.glb",
+   "bytes": 4741
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_014__inferred_1835.glb",
+   "bytes": 4740
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d1_021__inferred_1835.glb",
+   "bytes": 4738
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_d1_05__inferred_1835.glb",
+   "bytes": 4732
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_d1_05__inferred_1835.glb",
+   "bytes": 4732
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d1_001__inferred_1835.glb",
+   "bytes": 4730
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d1_023__inferred_1835.glb",
+   "bytes": 4729
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d4_018__inferred_1835.glb",
+   "bytes": 4727
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_franklin_d1_06__inferred_1835.glb",
+   "bytes": 4724
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_d1_06__inferred_1835.glb",
+   "bytes": 4723
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d1_054__inferred_1835.glb",
+   "bytes": 4723
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_027__inferred_1835.glb",
+   "bytes": 4722
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d1_04__inferred_1835.glb",
+   "bytes": 4719
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d1_12__inferred_1835.glb",
+   "bytes": 4719
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d1_003__inferred_1835.glb",
+   "bytes": 4719
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d4_006__inferred_1835.glb",
+   "bytes": 4719
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_d1_06__inferred_1835.glb",
+   "bytes": 4716
+  },
+  {
+   "url": "/data/enclosures/fort_dearborn_jouett_grave_pickets.json",
+   "bytes": 4716
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_042__inferred_1835.glb",
+   "bytes": 4715
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_026__inferred_1835.glb",
+   "bytes": 4712
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_049__inferred_1835.glb",
+   "bytes": 4712
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d4_03__inferred_1835.glb",
+   "bytes": 4710
+  },
+  {
+   "url": "/data/gltf/inf_boatman_cabin_north__inferred_1835.glb",
+   "bytes": 4710
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_050__inferred_1835.glb",
+   "bytes": 4709
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_029__inferred_1835.glb",
+   "bytes": 4705
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_030__inferred_1835.glb",
+   "bytes": 4704
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_d3_05__inferred_1835.glb",
+   "bytes": 4703
+  },
+  {
+   "url": "/walk/js/ground-strip-mask.js",
+   "bytes": 4698
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_038__inferred_1835.glb",
+   "bytes": 4697
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d1_013__inferred_1835.glb",
+   "bytes": 4692
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a4_11__inferred_1835.glb",
+   "bytes": 4691
+  },
+  {
+   "url": "/walk/js/crash-guard.js",
+   "bytes": 4683
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d1_10__inferred_1835.glb",
+   "bytes": 4683
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_051__inferred_1835.glb",
+   "bytes": 4683
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_d3_06__inferred_1835.glb",
+   "bytes": 4682
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d1_16__inferred_1835.glb",
+   "bytes": 4681
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d1_033__inferred_1835.glb",
+   "bytes": 4674
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d1_060__inferred_1835.glb",
+   "bytes": 4673
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_d3_04__inferred_1835.glb",
+   "bytes": 4670
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_039__inferred_1835.glb",
+   "bytes": 4669
+  },
+  {
+   "url": "/data/gltf/hogan_store__log_1831.glb",
+   "bytes": 4668
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d1_018__inferred_1835.glb",
+   "bytes": 4662
+  },
+  {
+   "url": "/walk/js/far-shadow.js",
+   "bytes": 4661
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_a4_10__inferred_1835.glb",
+   "bytes": 4656
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d1_04__inferred_1835.glb",
+   "bytes": 4649
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a4_048__inferred_1835.glb",
+   "bytes": 4644
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_d3_01__inferred_1835.glb",
+   "bytes": 4642
+  },
+  {
+   "url": "/data/fauna/zones/f08_lakeshore.json",
+   "bytes": 4642
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_a4_11__inferred_1835.glb",
+   "bytes": 4641
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_a5_10__inferred_1835.glb",
+   "bytes": 4624
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_d3_06__inferred_1835.glb",
+   "bytes": 4622
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_043__inferred_1835.glb",
+   "bytes": 4619
+  },
+  {
+   "url": "/data/enclosures/estray_pen.json",
+   "bytes": 4619
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a5_049__inferred_1835.glb",
+   "bytes": 4618
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_west_washington_canal_d3_04__inferred_1835.glb",
+   "bytes": 4617
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_94_d3_05__inferred_1835.glb",
+   "bytes": 4615
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_073__inferred_1835.glb",
+   "bytes": 4614
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_010__inferred_1835.glb",
+   "bytes": 4614
+  },
+  {
+   "url": "/data/gltf/inf_sawyer_dwelling_a__inferred_1835.glb",
+   "bytes": 4610
+  },
+  {
+   "url": "/data/enclosures/western_hotel_wagon_yard.json",
+   "bytes": 4610
+  },
+  {
+   "url": "/data/gltf/north_pier__crib_1835.glb",
+   "bytes": 4603
+  },
+  {
+   "url": "/data/gltf/harmon_log_cabin__documented_1835.glb",
+   "bytes": 4602
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_market_d3_03__inferred_1835.glb",
+   "bytes": 4600
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d3_11__inferred_1835.glb",
+   "bytes": 4589
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_016__inferred_1835.glb",
+   "bytes": 4583
+  },
+  {
+   "url": "/data/gltf/inf_teamster_dwelling_south__inferred_1835.glb",
+   "bytes": 4575
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_d3_05__inferred_1835.glb",
+   "bytes": 4575
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb",
+   "bytes": 4573
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_a4_13__inferred_1835.glb",
+   "bytes": 4567
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_d3_06__inferred_1835.glb",
+   "bytes": 4564
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_024__inferred_1835.glb",
+   "bytes": 4558
+  },
+  {
+   "url": "/data/frontage/river_walk_frontage.json",
+   "bytes": 4558
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_d3_05__inferred_1835.glb",
+   "bytes": 4554
+  },
+  {
+   "url": "/data/gltf/inf_artisan_dwelling_west_a__inferred_1835.glb",
+   "bytes": 4553
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_d3_07__inferred_1835.glb",
+   "bytes": 4550
+  },
+  {
+   "url": "/walk/js/flora-gpu-near.js",
+   "bytes": 4542
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_clinton_d3_02__inferred_1835.glb",
+   "bytes": 4542
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d3_022__inferred_1835.glb",
+   "bytes": 4541
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a4_12__inferred_1835.glb",
+   "bytes": 4539
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_089__inferred_1835.glb",
+   "bytes": 4537
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_d3_04__inferred_1835.glb",
+   "bytes": 4529
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_d3_03__inferred_1835.glb",
+   "bytes": 4527
+  },
+  {
+   "url": "/data/gltf/agency_striker_log_house__log_1830.glb",
+   "bytes": 4526
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a4_14__inferred_1835.glb",
+   "bytes": 4521
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_055__inferred_1835.glb",
+   "bytes": 4521
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_d3_15__inferred_1835.glb",
+   "bytes": 4517
+  },
+  {
+   "url": "/data/gltf/inf_barber_shop__inferred_1835.glb",
+   "bytes": 4510
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d3_008__inferred_1835.glb",
+   "bytes": 4510
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_d3_01__inferred_1835.glb",
+   "bytes": 4505
+  },
+  {
+   "url": "/walk/js/planar-occluders.js",
+   "bytes": 4498
+  },
+  {
+   "url": "/data/gltf/north_side_school_1833__log_1833.glb",
+   "bytes": 4492
+  },
+  {
+   "url": "/data/gltf/inf_packer_dwelling__inferred_1835.glb",
+   "bytes": 4492
+  },
+  {
+   "url": "/data/gltf/chappel_infant_school__log_1833.glb",
+   "bytes": 4491
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_clark_d3_03__inferred_1835.glb",
+   "bytes": 4487
+  },
+  {
+   "url": "/walk/js/frame-governor.js",
+   "bytes": 4482
+  },
+  {
+   "url": "/data/gltf/inf_artisan_dwelling_west_b__inferred_1835.glb",
+   "bytes": 4481
+  },
+  {
+   "url": "/data/gltf/robert_kinzie_store__store_1830.glb",
+   "bytes": 4481
+  },
+  {
+   "url": "/data/gltf/philo_carpenter_log_shop__log_1832.glb",
+   "bytes": 4473
+  },
+  {
+   "url": "/walk/js/flora-gpu-mid.js",
+   "bytes": 4467
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a5_07__inferred_1835.glb",
+   "bytes": 4466
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_d3_020__inferred_1835.glb",
+   "bytes": 4464
+  },
+  {
+   "url": "/data/gltf/walker_meeting_house__log_1831.glb",
+   "bytes": 4464
+  },
+  {
+   "url": "/data/gltf/inf_brickmaker_dwelling_north__inferred_1835.glb",
+   "bytes": 4459
+  },
+  {
+   "url": "/data/gltf/inf_butcher_market__inferred_1835.glb",
+   "bytes": 4459
+  },
+  {
+   "url": "/data/gltf/clybourn_cabins__log_1824.glb",
+   "bytes": 4455
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_d3_07__inferred_1835.glb",
+   "bytes": 4453
+  },
+  {
+   "url": "/data/gltf/caldwell_agency_log_house__log_1830.glb",
+   "bytes": 4450
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_d3_13__inferred_1835.glb",
+   "bytes": 4448
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a5_17__inferred_1835.glb",
+   "bytes": 4446
+  },
+  {
+   "url": "/data/gltf/blacksmith_shop_state_st__log_1823.glb",
+   "bytes": 4443
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d3_017__inferred_1835.glb",
+   "bytes": 4443
+  },
+  {
+   "url": "/data/gltf/mckee_log_house__log_1823.glb",
+   "bytes": 4442
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_a4_10__inferred_1835.glb",
+   "bytes": 4442
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_d3_02__inferred_1835.glb",
+   "bytes": 4441
+  },
+  {
+   "url": "/data/gltf/inf_tailor_shop__inferred_1835.glb",
+   "bytes": 4435
+  },
+  {
+   "url": "/data/gltf/physicians_office__inferred_1835.glb",
+   "bytes": 4433
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d3_013__inferred_1835.glb",
+   "bytes": 4431
+  },
+  {
+   "url": "/data/gltf/inf_shoemaker_shop__inferred_1835.glb",
+   "bytes": 4430
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_d3_08__inferred_1835.glb",
+   "bytes": 4429
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d3_01__inferred_1835.glb",
+   "bytes": 4428
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d3_001__inferred_1835.glb",
+   "bytes": 4424
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a5_13__inferred_1835.glb",
+   "bytes": 4422
+  },
+  {
+   "url": "/data/gltf/inf_bakery_lake__inferred_1835.glb",
+   "bytes": 4421
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d3_03__inferred_1835.glb",
+   "bytes": 4417
+  },
+  {
+   "url": "/walk/js/exclusions.js",
+   "bytes": 4415
+  },
+  {
+   "url": "/data/gltf/miller_tannery__log_1831.glb",
+   "bytes": 4415
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_002__inferred_1835.glb",
+   "bytes": 4405
+  },
+  {
+   "url": "/data/gltf/robinson_caldwell_cabins__log_1831.glb",
+   "bytes": 4401
+  },
+  {
+   "url": "/walk/js/boot-forecast.js",
+   "bytes": 4400
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_franklin_d3_04__inferred_1835.glb",
+   "bytes": 4400
+  },
+  {
+   "url": "/data/gltf/james_kinzie_house__dwelling_1830.glb",
+   "bytes": 4399
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_d3_10__inferred_1835.glb",
+   "bytes": 4399
+  },
+  {
+   "url": "/data/gltf/chicago_lighthouse_keepers_quarters__quarters_1832.glb",
+   "bytes": 4398
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a4_052__inferred_1835.glb",
+   "bytes": 4398
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_a4_07__inferred_1835.glb",
+   "bytes": 4394
+  },
+  {
+   "url": "/data/gltf/elston_ash_house__works_1833.glb",
+   "bytes": 4391
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_d3_05__inferred_1835.glb",
+   "bytes": 4390
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_d3_15__inferred_1835.glb",
+   "bytes": 4377
+  },
+  {
+   "url": "/data/gltf/madore_beaubien_house__log_1831.glb",
+   "bytes": 4366
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_a5_08__inferred_1835.glb",
+   "bytes": 4365
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_d3_02__inferred_1835.glb",
+   "bytes": 4358
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a4_16__inferred_1835.glb",
+   "bytes": 4354
+  },
+  {
+   "url": "/walk/js/liberties.js",
+   "bytes": 4347
+  },
+  {
+   "url": "/data/humans/contract.json",
+   "bytes": 4327
+  },
+  {
+   "url": "/data/gltf/council_house__log_1834.glb",
+   "bytes": 4322
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_d3_06__inferred_1835.glb",
+   "bytes": 4320
+  },
+  {
+   "url": "/data/gltf/inf_laundry_north__inferred_1835.glb",
+   "bytes": 4318
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_a4_07__inferred_1835.glb",
+   "bytes": 4313
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_school_section_tier_119_d3_05__inferred_1835.glb",
+   "bytes": 4309
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a5_044__inferred_1835.glb",
+   "bytes": 4306
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_a4_06__inferred_1835.glb",
+   "bytes": 4304
+  },
+  {
+   "url": "/walk/js/fallback-summary.js",
+   "bytes": 4298
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_d3_027__inferred_1835.glb",
+   "bytes": 4281
+  },
+  {
+   "url": "/walk/js/pictures.js",
+   "bytes": 4257
+  },
+  {
+   "url": "/walk/js/turf-tile.js",
+   "bytes": 4255
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_012__inferred_1835.glb",
+   "bytes": 4255
+  },
+  {
+   "url": "/data/gltf/miller_tanyard_drying_shed__yard_1831.glb",
+   "bytes": 4249
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_a4_03__inferred_1835.glb",
+   "bytes": 4245
+  },
+  {
+   "url": "/data/gltf/north_branch_bridge__log_1832.glb",
+   "bytes": 4236
+  },
+  {
+   "url": "/data/gltf/south_branch_raft_bridge__log_1833.glb",
+   "bytes": 4229
+  },
+  {
+   "url": "/walk/js/batch-frustum-box.js",
+   "bytes": 4212
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a5_011__inferred_1835.glb",
+   "bytes": 4210
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a4_20__inferred_1835.glb",
+   "bytes": 4175
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_a4_11__inferred_1835.glb",
+   "bytes": 4171
+  },
+  {
+   "url": "/data/fauna/zones/f02_mesic_prairie.json",
+   "bytes": 4167
+  },
+  {
+   "url": "/data/gltf/north_bank_shed_dearborn_e2__shed_1835.glb",
+   "bytes": 4152
+  },
+  {
+   "url": "/data/scenes/1835.json",
+   "bytes": 4133
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_a4_07__inferred_1835.glb",
+   "bytes": 4125
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a4_09__inferred_1835.glb",
+   "bytes": 4110
+  },
+  {
+   "url": "/data/gltf/newberry_dole_salt_house_south_branch__works_1834.glb",
+   "bytes": 4089
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a5_14__inferred_1835.glb",
+   "bytes": 4084
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a4_035__inferred_1835.glb",
+   "bytes": 4052
+  },
+  {
+   "url": "/data/gltf/beaubien_trading_post__log_1822.glb",
+   "bytes": 4051
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a4_042__inferred_1835.glb",
+   "bytes": 4025
+  },
+  {
+   "url": "/data/fauna/zones/f05_gallery_timber.json",
+   "bytes": 3993
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a4_04__inferred_1835.glb",
+   "bytes": 3992
+  },
+  {
+   "url": "/walk/js/ground.js",
+   "bytes": 3991
+  },
+  {
+   "url": "/data/flora/plantings/fort_dearborn_wood.json",
+   "bytes": 3975
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a5_16__inferred_1835.glb",
+   "bytes": 3969
+  },
+  {
+   "url": "/walk/js/ktx2.js",
+   "bytes": 3939
+  },
+  {
+   "url": "/walk/js/shrub-grain.js",
+   "bytes": 3933
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a5_18__inferred_1835.glb",
+   "bytes": 3931
+  },
+  {
+   "url": "/walk/js/flora-gpu-lattice.js",
+   "bytes": 3930
+  },
+  {
+   "url": "/data/flora/plantings/fort_company_garden_1835.json",
+   "bytes": 3890
+  },
+  {
+   "url": "/data/frontage/sauganash_frontage.json",
+   "bytes": 3862
+  },
+  {
+   "url": "/walk/js/controls/touch.js",
+   "bytes": 3859
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/objects/Sky.js",
+   "bytes": 3845
+  },
+  {
+   "url": "/walk/js/target-tag.js",
+   "bytes": 3801
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_out_building_b__out_building_b_1830.glb",
+   "bytes": 3766
+  },
+  {
+   "url": "/walk/js/settings-app.js",
+   "bytes": 3759
+  },
+  {
+   "url": "/walk/js/far-roof-relief.js",
+   "bytes": 3723
+  },
+  {
+   "url": "/walk/js/seat.js",
+   "bytes": 3681
+  },
+  {
+   "url": "/data/gltf/miller_tanyard_bark_shed__yard_1831.glb",
+   "bytes": 3668
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a3_051__inferred_1835.glb",
+   "bytes": 3661
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_franklin_a3_13__inferred_1835.glb",
+   "bytes": 3639
+  },
+  {
+   "url": "/walk/js/flora-gpu-forb.js",
+   "bytes": 3592
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_clark_a3_07__inferred_1835.glb",
+   "bytes": 3583
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_clark_a3_04__inferred_1835.glb",
+   "bytes": 3582
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_a3_11__inferred_1835.glb",
+   "bytes": 3573
+  },
+  {
+   "url": "/data/enclosures/fort_dearborn_apron.json",
+   "bytes": 3559
+  },
+  {
+   "url": "/walk/js/prairie-macro.js",
+   "bytes": 3554
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a3_10__inferred_1835.glb",
+   "bytes": 3546
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_a3_10__inferred_1835.glb",
+   "bytes": 3540
+  },
+  {
+   "url": "/walk/js/recall.js",
+   "bytes": 3539
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_dearborn_a3_09__inferred_1835.glb",
+   "bytes": 3533
+  },
+  {
+   "url": "/data/gltf/lasalle_slough_crossing__crossing_1835.glb",
+   "bytes": 3533
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_lake_market_a3_07__inferred_1835.glb",
+   "bytes": 3532
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a3_15__inferred_1835.glb",
+   "bytes": 3532
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_a3_11__inferred_1835.glb",
+   "bytes": 3526
+  },
+  {
+   "url": "/walk/js/citations.js",
+   "bytes": 3523
+  },
+  {
+   "url": "/data/yard/bridge_head_timber.json",
+   "bytes": 3510
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clark_a3_08__inferred_1835.glb",
+   "bytes": 3508
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_dearborn_a3_03__inferred_1835.glb",
+   "bytes": 3495
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clinton_a3_16__inferred_1835.glb",
+   "bytes": 3492
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a3_041__inferred_1835.glb",
+   "bytes": 3489
+  },
+  {
+   "url": "/data/gltf/recon_1835_west_025__inferred_1835.glb",
+   "bytes": 3486
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a3_045__inferred_1835.glb",
+   "bytes": 3485
+  },
+  {
+   "url": "/walk/js/zone-blend.js",
+   "bytes": 3483
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_clinton_a3_07__inferred_1835.glb",
+   "bytes": 3480
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb",
+   "bytes": 3476
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a3_009__inferred_1835.glb",
+   "bytes": 3474
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a3_03__inferred_1835.glb",
+   "bytes": 3464
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_market_a3_06__inferred_1835.glb",
+   "bytes": 3456
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_dearborn_a3_06__inferred_1835.glb",
+   "bytes": 3454
+  },
+  {
+   "url": "/data/gltf/recon_1835_north_a3_034__inferred_1835.glb",
+   "bytes": 3451
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_a3_09__inferred_1835.glb",
+   "bytes": 3448
+  },
+  {
+   "url": "/data/gltf/south_pier__crib_1835.glb",
+   "bytes": 3445
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_franklin_a3_07__inferred_1835.glb",
+   "bytes": 3442
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_franklin_a3_08__inferred_1835.glb",
+   "bytes": 3431
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a3_13__inferred_1835.glb",
+   "bytes": 3430
+  },
+  {
+   "url": "/data/fauna/zones/f03_sedge_meadow.json",
+   "bytes": 3427
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a3_03__inferred_1835.glb",
+   "bytes": 3421
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_a3_08__inferred_1835.glb",
+   "bytes": 3421
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_clark_a3_05__inferred_1835.glb",
+   "bytes": 3389
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_cass_a3_03__inferred_1835.glb",
+   "bytes": 3388
+  },
+  {
+   "url": "/walk/js/modern-streets.js",
+   "bytes": 3385
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_clark_a3_08__inferred_1835.glb",
+   "bytes": 3385
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_wells_a3_09__inferred_1835.glb",
+   "bytes": 3382
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_indiana_north_wolcott_a3_08__inferred_1835.glb",
+   "bytes": 3376
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_lasalle_a3_07__inferred_1835.glb",
+   "bytes": 3366
+  },
+  {
+   "url": "/data/gltf/recon_1835_south_a3_043__inferred_1835.glb",
+   "bytes": 3361
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_randolph_wells_a3_09__inferred_1835.glb",
+   "bytes": 3360
+  },
+  {
+   "url": "/data/wharves/working_bank.json",
+   "bytes": 3340
+  },
+  {
+   "url": "/walk/js/jobs/lattice-kernel.js",
+   "bytes": 3333
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_washington_lasalle_a3_10__inferred_1835.glb",
+   "bytes": 3318
+  },
+  {
+   "url": "/walk/js/time-stream.js",
+   "bytes": 3296
+  },
+  {
+   "url": "/data/gltf/recon_1835_blk_south_water_wells_a3_08__inferred_1835.glb",
+   "bytes": 3294
+  },
+  {
+   "url": "/data/frontage/green_tree_frontage.json",
+   "bytes": 3287
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_garrison_garden__fence_1816.glb",
+   "bytes": 3266
+  },
+  {
+   "url": "/walk/js/reader-text.js",
+   "bytes": 3250
+  },
+  {
+   "url": "/data/fauna/zones/f07_bur_oak_savanna.json",
+   "bytes": 3205
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/utils/SkeletonUtils.js",
+   "bytes": 3201
+  },
+  {
+   "url": "/walk/js/tour.js",
+   "bytes": 3198
+  },
+  {
+   "url": "/walk/js/batch-coalesce.js",
+   "bytes": 3163
+  },
+  {
+   "url": "/walk/js/where.js",
+   "bytes": 3147
+  },
+  {
+   "url": "/data/flora/plantings/town_planted_rows.json",
+   "bytes": 3133
+  },
+  {
+   "url": "/data/flora/plantings/shore_cottonwood_grove_1835.json",
+   "bytes": 3126
+  },
+  {
+   "url": "/walk/js/show-me.js",
+   "bytes": 3121
+  },
+  {
+   "url": "/walk/js/skin.js",
+   "bytes": 3105
+  },
+  {
+   "url": "/walk/js/flora-gpu-carry.js",
+   "bytes": 3000
+  },
+  {
+   "url": "/data/gltf/slough_log_bridge__log_1833.glb",
+   "bytes": 2987
+  },
+  {
+   "url": "/data/reconstruction/1835_agencies.json",
+   "bytes": 2966
+  },
+  {
+   "url": "/data/frontage/lasalle_crossing_frontage.json",
+   "bytes": 2945
+  },
+  {
+   "url": "/walk/js/standing-horse-planted-idle.js",
+   "bytes": 2908
+  },
+  {
+   "url": "/data/sidecars/1835/fauna_sources.json",
+   "bytes": 2899
+  },
+  {
+   "url": "/walk/js/foliage-atlas.js",
+   "bytes": 2891
+  },
+  {
+   "url": "/walk/js/jobs/zone-kernel.js",
+   "bytes": 2882
+  },
+  {
+   "url": "/walk/js/controls/pointerlock.js",
+   "bytes": 2862
+  },
+  {
+   "url": "/data/flora/zones/z04_marsh.json",
+   "bytes": 2855
+  },
+  {
+   "url": "/walk/js/shared-images.js",
+   "bytes": 2792
+  },
+  {
+   "url": "/walk/js/grass-grain.js",
+   "bytes": 2780
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_magazine__brick_1816.glb",
+   "bytes": 2760
+  },
+  {
+   "url": "/walk/js/place-kinds.js",
+   "bytes": 2757
+  },
+  {
+   "url": "/walk/js/agencies.js",
+   "bytes": 2751
+  },
+  {
+   "url": "/walk/js/prairie-tile.js",
+   "bytes": 2733
+  },
+  {
+   "url": "/walk/js/apps/drawer-host.js",
+   "bytes": 2710
+  },
+  {
+   "url": "/walk/js/arrival-telemetry.js",
+   "bytes": 2707
+  },
+  {
+   "url": "/data/gltf/north_water_slough_crossing__crossing_1835.glb",
+   "bytes": 2700
+  },
+  {
+   "url": "/data/enclosures/wabansia_doctors_garden.json",
+   "bytes": 2699
+  },
+  {
+   "url": "/walk/js/travel-settings.js",
+   "bytes": 2695
+  },
+  {
+   "url": "/walk/js/kept-ground.js",
+   "bytes": 2674
+  },
+  {
+   "url": "/walk/js/flora-ground.js",
+   "bytes": 2568
+  },
+  {
+   "url": "/walk/js/confidence-presets.js",
+   "bytes": 2557
+  },
+  {
+   "url": "/data/enclosures/log_jail_palisade.json",
+   "bytes": 2556
+  },
+  {
+   "url": "/data/flora/plantings/harmon_orchard_1835.json",
+   "bytes": 2548
+  },
+  {
+   "url": "/walk/js/building-body-bounds.js",
+   "bytes": 2546
+  },
+  {
+   "url": "/walk/js/gates.js",
+   "bytes": 2544
+  },
+  {
+   "url": "/data/enclosures/index.json",
+   "bytes": 2526
+  },
+  {
+   "url": "/walk/js/jobs/pool.js",
+   "bytes": 2509
+  },
+  {
+   "url": "/walk/js/blackbox.js",
+   "bytes": 2503
+  },
+  {
+   "url": "/walk/js/confidence-rows.js",
+   "bytes": 2488
+  },
+  {
+   "url": "/walk/js/whatsnew.js",
+   "bytes": 2477
+  },
+  {
+   "url": "/walk/js/gesture-gate.js",
+   "bytes": 2475
+  },
+  {
+   "url": "/walk/js/nav-telemetry.js",
+   "bytes": 2473
+  },
+  {
+   "url": "/walk/css/recall.css",
+   "bytes": 2467
+  },
+  {
+   "url": "/data/flora/plantings/sauganash_yard.json",
+   "bytes": 2454
+  },
+  {
+   "url": "/walk/js/why-tips.js",
+   "bytes": 2451
+  },
+  {
+   "url": "/data/timestream/1835.json",
+   "bytes": 2444
+  },
+  {
+   "url": "/walk/js/portable-math.js",
+   "bytes": 2438
+  },
+  {
+   "url": "/walk/js/gate-frame.js",
+   "bytes": 2430
+  },
+  {
+   "url": "/walk/js/structure-versions.js",
+   "bytes": 2416
+  },
+  {
+   "url": "/walk/js/spatial-batch.js",
+   "bytes": 2368
+  },
+  {
+   "url": "/walk/js/boot-phases.js",
+   "bytes": 2362
+  },
+  {
+   "url": "/data/flora/zones/z07_bur_oak_savanna.json",
+   "bytes": 2362
+  },
+  {
+   "url": "/data/transport/parked/placements.json",
+   "bytes": 2333
+  },
+  {
+   "url": "/walk/js/target.js",
+   "bytes": 2323
+  },
+  {
+   "url": "/walk/css/goto.css",
+   "bytes": 2303
+  },
+  {
+   "url": "/walk/js/researcher.js",
+   "bytes": 2293
+  },
+  {
+   "url": "/walk/js/field-log.js",
+   "bytes": 2277
+  },
+  {
+   "url": "/walk/js/loading-content.js",
+   "bytes": 2251
+  },
+  {
+   "url": "/walk/js/ordinances.js",
+   "bytes": 2246
+  },
+  {
+   "url": "/data/gltf/lake_house_construction__shell_1835.glb",
+   "bytes": 2235
+  },
+  {
+   "url": "/walk/js/population.js",
+   "bytes": 2219
+  },
+  {
+   "url": "/walk/js/wall-grain.js",
+   "bytes": 2206
+  },
+  {
+   "url": "/walk/js/controls/intent.js",
+   "bytes": 2183
+  },
+  {
+   "url": "/walk/css/businesses.css",
+   "bytes": 2170
+  },
+  {
+   "url": "/data/reader/fauna.json",
+   "bytes": 2130
+  },
+  {
+   "url": "/walk/js/term-tips.js",
+   "bytes": 2047
+  },
+  {
+   "url": "/walk/js/strings/index.js",
+   "bytes": 2002
+  },
+  {
+   "url": "/walk/css/confidence-overlays.css",
+   "bytes": 1972
+  },
+  {
+   "url": "/walk/js/range-words.js",
+   "bytes": 1947
+  },
+  {
+   "url": "/walk/js/tour-offer.js",
+   "bytes": 1943
+  },
+  {
+   "url": "/data/datum.json",
+   "bytes": 1917
+  },
+  {
+   "url": "/data/yard/index.json",
+   "bytes": 1894
+  },
+  {
+   "url": "/walk/js/confidence-store.js",
+   "bytes": 1861
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/controls/PointerLockControls.js",
+   "bytes": 1861
+  },
+  {
+   "url": "/data/render/town_completion_1835.json",
+   "bytes": 1853
+  },
+  {
+   "url": "/walk/js/jobs/spatial-kernel.js",
+   "bytes": 1851
+  },
+  {
+   "url": "/walk/js/driver-draws.js",
+   "bytes": 1842
+  },
+  {
+   "url": "/walk/js/yard-static-support.js",
+   "bytes": 1840
+  },
+  {
+   "url": "/walk/js/shadow-casters.js",
+   "bytes": 1839
+  },
+  {
+   "url": "/walk/js/letter-list-roster.js",
+   "bytes": 1801
+  },
+  {
+   "url": "/walk/js/menu-icons.js",
+   "bytes": 1782
+  },
+  {
+   "url": "/data/reader/residents_index.json",
+   "bytes": 1770
+  },
+  {
+   "url": "/walk/js/deck-surface.js",
+   "bytes": 1739
+  },
+  {
+   "url": "/walk/js/terrain-apron.js",
+   "bytes": 1736
+  },
+  {
+   "url": "/walk/js/flag-anchors.js",
+   "bytes": 1728
+  },
+  {
+   "url": "/walk/js/terrain-base.js",
+   "bytes": 1726
+  },
+  {
+   "url": "/walk/js/building-feet.js",
+   "bytes": 1720
+  },
+  {
+   "url": "/data/terrain/epochs/e1834_harbor_cut/heightfield.json",
+   "bytes": 1701
+  },
+  {
+   "url": "/data/fauna/index.json",
+   "bytes": 1666
+  },
+  {
+   "url": "/walk/js/confidence-legend.js",
+   "bytes": 1663
+  },
+  {
+   "url": "/walk/js/batch-material.js",
+   "bytes": 1656
+  },
+  {
+   "url": "/walk/js/glessner-roof-filter.js",
+   "bytes": 1654
+  },
+  {
+   "url": "/walk/js/attribute-tiers.js",
+   "bytes": 1632
+  },
+  {
+   "url": "/walk/js/relief-pack.js",
+   "bytes": 1593
+  },
+  {
+   "url": "/walk/js/passage-ground.js",
+   "bytes": 1561
+  },
+  {
+   "url": "/data/transport/parked/standing-horses.json",
+   "bytes": 1539
+  },
+  {
+   "url": "/walk/js/nav-link.js",
+   "bytes": 1478
+  },
+  {
+   "url": "/walk/js/resident-estimate.js",
+   "bytes": 1459
+  },
+  {
+   "url": "/data/flora/plantings/kinzie_cottonwoods_1835.json",
+   "bytes": 1450
+  },
+  {
+   "url": "/walk/css/handout.css",
+   "bytes": 1445
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_root_house_b__cellar_1816_b.glb",
+   "bytes": 1442
+  },
+  {
+   "url": "/walk/js/license.js",
+   "bytes": 1441
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_root_house__cellar_1816.glb",
+   "bytes": 1437
+  },
+  {
+   "url": "/walk/js/getting-there.js",
+   "bytes": 1403
+  },
+  {
+   "url": "/walk/js/scene-presentation.js",
+   "bytes": 1397
+  },
+  {
+   "url": "/walk/js/move-modes.js",
+   "bytes": 1381
+  },
+  {
+   "url": "/walk/js/apps/guide.js",
+   "bytes": 1353
+  },
+  {
+   "url": "/walk/js/street-verge.js",
+   "bytes": 1324
+  },
+  {
+   "url": "/walk/js/strings/terms.js",
+   "bytes": 1318
+  },
+  {
+   "url": "/walk/js/human-identity.js",
+   "bytes": 1297
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_parade__parade_1816.glb",
+   "bytes": 1295
+  },
+  {
+   "url": "/walk/js/strings/guide-about.js",
+   "bytes": 1250
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/math/ColorSpaces.js",
+   "bytes": 1239
+  },
+  {
+   "url": "/walk/js/coast-extension.js",
+   "bytes": 1190
+  },
+  {
+   "url": "/walk/js/journey.js",
+   "bytes": 1185
+  },
+  {
+   "url": "/walk/js/field-log-view.js",
+   "bytes": 1179
+  },
+  {
+   "url": "/walk/js/strings/inspect-sources.js",
+   "bytes": 1173
+  },
+  {
+   "url": "/data/wharves/index.json",
+   "bytes": 1155
+  },
+  {
+   "url": "/walk/css/tour.css",
+   "bytes": 1149
+  },
+  {
+   "url": "/data/wells/index.json",
+   "bytes": 1142
+  },
+  {
+   "url": "/walk/js/strings/arrival.js",
+   "bytes": 1136
+  },
+  {
+   "url": "/walk/js/glessner-stone.js",
+   "bytes": 1122
+  },
+  {
+   "url": "/walk/js/geometry.js",
+   "bytes": 1115
+  },
+  {
+   "url": "/walk/css/photos.css",
+   "bytes": 1106
+  },
+  {
+   "url": "/walk/js/standing-horse-card.js",
+   "bytes": 1099
+  },
+  {
+   "url": "/walk/vendor/three-0.185.1/addons/utils/WorkerPool.js",
+   "bytes": 1064
+  },
+  {
+   "url": "/data/gltf/fort_dearborn_flagstaff__staff_1833_37.glb",
+   "bytes": 1062
+  },
+  {
+   "url": "/walk/js/boot-weights.js",
+   "bytes": 1052
+  },
+  {
+   "url": "/walk/js/about.js",
+   "bytes": 1028
+  },
+  {
+   "url": "/walk/js/prebuilt-index.js",
+   "bytes": 1006
+  },
+  {
+   "url": "/walk/js/units.js",
+   "bytes": 1000
+  },
+  {
+   "url": "/walk/js/tour-overlay.js",
+   "bytes": 993
+  },
+  {
+   "url": "/walk/js/strings/research.js",
+   "bytes": 992
+  },
+  {
+   "url": "/data/signage/index.json",
+   "bytes": 957
+  },
+  {
+   "url": "/walk/js/claim-value.js",
+   "bytes": 951
+  },
+  {
+   "url": "/walk/js/strings/hud.js",
+   "bytes": 950
+  },
+  {
+   "url": "/data/humans/instances/1835/hi_rc_bardwell_otis_1835.json",
+   "bytes": 918
+  },
+  {
+   "url": "/walk/js/roam-tip.js",
+   "bytes": 915
+  },
+  {
+   "url": "/walk/js/machine-drift.js",
+   "bytes": 901
+  },
+  {
+   "url": "/data/sidecars/1835/flora_clamp.json",
+   "bytes": 878
+  },
+  {
+   "url": "/walk/js/strings/photos.js",
+   "bytes": 870
+  },
+  {
+   "url": "/data/gltf/water__e1834_harbor_cut.glb",
+   "bytes": 858
+  },
+  {
+   "url": "/walk/js/loading-early.js",
+   "bytes": 857
+  },
+  {
+   "url": "/data/boats/index.json",
+   "bytes": 846
+  },
+  {
+   "url": "/walk/js/strings/confidence.js",
+   "bytes": 842
+  },
+  {
+   "url": "/walk/js/keith-stone.js",
+   "bytes": 825
+  },
+  {
+   "url": "/data/frontage/index.json",
+   "bytes": 735
+  },
+  {
+   "url": "/walk/js/apps/inspect.js",
+   "bytes": 724
+  },
+  {
+   "url": "/walk/js/apps/people.js",
+   "bytes": 719
+  },
+  {
+   "url": "/walk/js/jobs/inflate-kernel.js",
+   "bytes": 703
+  },
+  {
+   "url": "/walk/js/angles.js",
+   "bytes": 686
+  },
+  {
+   "url": "/data/flora/palettes/july_lake_sand.json",
+   "bytes": 680
+  },
+  {
+   "url": "/walk/js/strings/settings.js",
+   "bytes": 675
+  },
+  {
+   "url": "/walk/js/sharpness.js",
+   "bytes": 674
+  },
+  {
+   "url": "/walk/js/strings/navigator.js",
+   "bytes": 672
+  },
+  {
+   "url": "/data/flora/palettes/july_town_ruderal.json",
+   "bytes": 671
+  },
+  {
+   "url": "/data/flora/palettes/july_wet_prairie.json",
+   "bytes": 636
+  },
+  {
+   "url": "/data/flora/palettes/july_floodplain_timber.json",
+   "bytes": 635
+  },
+  {
+   "url": "/data/flora/palettes/july_marsh.json",
+   "bytes": 622
+  },
+  {
+   "url": "/data/flora/palettes/july_wet_woods.json",
+   "bytes": 611
+  },
+  {
+   "url": "/data/flora/palettes/july_sedge_meadow.json",
+   "bytes": 608
+  },
+  {
+   "url": "/data/flora/palettes/july_mesic_prairie.json",
+   "bytes": 598
+  },
+  {
+   "url": "/walk/js/apps/settings.js",
+   "bytes": 594
+  },
+  {
+   "url": "/data/flora/palettes/july_oak_savanna.json",
+   "bytes": 589
+  },
+  {
+   "url": "/walk/js/human-role-card.js",
+   "bytes": 570
+  },
+  {
+   "url": "/walk/js/strings/field-log.js",
+   "bytes": 545
+  },
+  {
+   "url": "/walk/js/jobs/kernels.js",
+   "bytes": 537
+  },
+  {
+   "url": "/walk/js/apps/move.js",
+   "bytes": 527
+  },
+  {
+   "url": "/walk/js/apps/confidence.js",
+   "bytes": 521
+  },
+  {
+   "url": "/walk/js/apps/jaunts.js",
+   "bytes": 502
+  },
+  {
+   "url": "/walk/css/travel.css",
+   "bytes": 501
+  },
+  {
+   "url": "/walk/js/render-budget.js",
+   "bytes": 498
+  },
+  {
+   "url": "/walk/js/apps/home.js",
+   "bytes": 488
+  },
+  {
+   "url": "/walk/js/strings/license.js",
+   "bytes": 482
+  },
+  {
+   "url": "/walk/js/strings/tour.js",
+   "bytes": 465
+  },
+  {
+   "url": "/walk/js/apps/map.js",
+   "bytes": 461
+  },
+  {
+   "url": "/walk/js/apps/jump.js",
+   "bytes": 454
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/clapboard_board_face/material.json",
+   "bytes": 451
+  },
+  {
+   "url": "/walk/js/strings/recall.js",
+   "bytes": 449
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered/material.json",
+   "bytes": 442
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/hewn_log_face/material.json",
+   "bytes": 439
+  },
+  {
+   "url": "/walk/js/boot-bytes.js",
+   "bytes": 435
+  },
+  {
+   "url": "/walk/js/jobs/worker.js",
+   "bytes": 429
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/props/signboard_weathered/material.json",
+   "bytes": 407
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/timber/heavy_timber_weathered/material.json",
+   "bytes": 396
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/roofs/roof_boards_weathered/material.json",
+   "bytes": 395
+  },
+  {
+   "url": "/walk/js/apps/index.js",
+   "bytes": 354
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/clapboard_board_face/clapboard_board_face_orl.json",
+   "bytes": 350
+  },
+  {
+   "url": "/data/textures/chicago_1835_pbr/walls/hewn_log_face/hewn_log_face_orl.json",
+   "bytes": 349
+  },
+  {
+   "url": "/packs/index.json",
+   "bytes": 153
+  },
+  {
+   "url": "/build.json",
+   "bytes": 111
+  },
+  {
+   "url": "/data/prebuilt/index.json",
+   "bytes": 109
+  },
+  {
+   "url": "/data/humans/instances/1835/index.json",
+   "bytes": 90
+  }
+ ]
+}
