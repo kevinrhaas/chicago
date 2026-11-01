@@ -1,97 +1,329 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>4D Chicago — Chicago Building Atlas</title>
-  <meta name="description" content="Explore source-identifiable Chicago buildings and historical maps from the city's beginnings through the Great Fire, the rebuilding decade, and Prairie Avenue in 1904.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%99%EF%B8%8F%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="css/site.css">
-  <link rel="stylesheet" href="/notes/notes.css">
-  <script src="/notes/notes.js" data-page="home" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>4D Chicago — walk the city as the record describes it</title>
+<meta name="description" content="A walkable, source-cited reconstruction of early Chicago: Fort Dearborn in 1812, the river town of 1835 and Prairie Avenue in 1904 — with a building atlas from 1674 through the Great Fire and the rebuilding decade.">
+<meta name="theme-color" content="#07090f">
+<meta property="og:title" content="4D Chicago — walk the city as the record describes it">
+<meta property="og:description" content="Fort Dearborn in 1812, the river town of 1835, Prairie Avenue in 1904. Every surface carries its evidence.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://chicago.polecat.live/media/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2307090f'/%3E%3Cpath fill='%23ff3b4f' d='M24 7l3.4 10.4L38.2 15l-7.3 8.2 7.3 8.2-10.8-2.3L24 39.5l-3.4-10.4L9.8 31.4l7.3-8.2-7.3-8.2 10.8 2.4z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="/notes/notes.css">
+<script>
+/* Pre-paint: the saved theme (chicago.theme, the key this page has always used), else dark. */
+(function () { var r = document.documentElement, t = null; r.classList.add('js');
+  try { t = localStorage.getItem('chicago.theme'); } catch (e) {}
+  r.setAttribute('data-theme', t === 'light' ? 'light' : 'dark'); })();
+</script>
+<script src="/notes/notes.js" data-page="home" defer></script>
 </head>
 <body>
-  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-  <div class="grain" aria-hidden="true"></div>
 
-  <nav class="nav">
-    <a class="brand" href="./"><span class="brand-mark">🏙️</span><span>Chi<span class="grad">cago</span></span></a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 48 48"><path d="M24 4l4.2 12.7L41.3 14l-8.9 10 8.9 10-13.1-2.7L24 44l-4.2-12.7L6.7 34l8.9-10-8.9-10 13.1 2.7z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13.4A8.5 8.5 0 1 1 10.6 3.5a6.6 6.6 0 0 0 9.9 9.9z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5L15 20l-6-2.5L3 20zM9 4v13.5M15 6.5V20"/></symbol>
+    <symbol id="i-crane" viewBox="0 0 24 24"><path d="M7 21V3.5M3 3.5h18M7 3.5l-4 3M7 7.5l3.5-4M17.5 3.5v6M15.5 9.5h4v3.5h-4zM3.5 21h7"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="M4 21V10.5l8-6.5 8 6.5V21M3 21h18M9.5 21v-5.5h5V21M7 12.5h2.5M14.5 12.5H17M15.5 6.8V3.5h2v4.9"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 7l-5 5 5 5M15.5 7l5 5-5 5"/></symbol>
+  </defs>
+</svg>
+
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="wrap nav-in">
+    <a class="brand" href="./" aria-label="4D Chicago, home"><svg class="ic fill brand-mark" aria-hidden="true"><use href="#i-star"/></svg><b>4D Chicago</b></a>
     <div class="nav-links">
-      <a href="https://polecat.live/">Polecat</a>
-      <a href="https://github.com/kevinrhaas/chicago/tree/main/chicago">Research files</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light/dark">🌙</button>
+      <a href="#films">Films</a>
+      <a href="#record">The record</a>
+      <a href="#prairie">Prairie Avenue</a>
+      <a href="#atlas">Atlas</a>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch between light and dark">
+        <svg class="ic theme-moon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="ic theme-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-light" href="4d/">Enter <span class="long">4D Chicago</span><svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <header class="hero">
-    <span class="hero-mascot">🏙️</span>
-    <div class="kicker">Historical research browser · 1674–1911</div>
-    <h1>Chicago through<br><span class="bloomgrad">buildings and maps.</span></h1>
-    <p class="hero-sub">Four interactive, source-aware projects follow Chicago from its earliest recorded structures through the Great Fire, the rebuilding years, and Prairie Avenue in 1904. Move year by year, inspect dated city views, and search the buildings known to the surviving record.</p>
-  </header>
+<header class="hero" id="top">
+  <video class="hero-video" id="heroVideo" poster="media/hero.jpg" muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="media/hero.webm" type="video/webm"><source src="media/hero.mp4" type="video/mp4">
+  </video>
+  <div class="wrap hero-in">
+    <span class="rec"><i></i>Filmed in the app · a walkable reconstruction</span>
+    <h1>
+      <span class="line"><span class="w" style="--i:0">Walk</span> <span class="w" style="--i:1">Chicago</span></span>
+      <span class="line"><em class="w" style="--i:2">as</em> <em class="w" style="--i:3">the</em> <em class="w" style="--i:4">record</em> <em class="w" style="--i:5">describes</em> <em class="w" style="--i:6">it.</em></span>
+    </h1>
+    <p class="hero-sub">4D Chicago rebuilds the city at fixed moments in time — Fort Dearborn in 1812, the river town of 1835,
+    Prairie Avenue in 1904 — from maps, directories, memoirs and photographs. Every building carries its sources, and shows
+    you how sure they are.</p>
+    <div class="hero-cta">
+      <a class="btn btn-light" href="4d/">Enter 4D Chicago <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="btn btn-glass" type="button" data-film="chicago-walk"><span class="play-dot" style="background:#fff"><svg class="ic fill" aria-hidden="true" style="color:#07090f"><use href="#i-play"/></svg></span>Watch the film <small>1:20</small></button>
+    </div>
+    <nav class="years" aria-label="Go straight to a year">
+      <a class="year" href="4d/1812/"><b>1812</b><span>Fort Dearborn</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      <a class="year" href="4d/1835/"><b>1835</b><span>The river town</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      <a class="year" href="4d/1904/"><b>1904</b><span>Prairie Avenue</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section class="wrap" style="padding-top:20px">
-      <div class="apps-grid">
-        <a class="app-card reveal" href="pre-fire/viewer/" style="--c:#207c91">
-          <div class="app-top"><span class="app-glyph">🗺️</span><div><div class="app-name">Chicago Before the Fire</div><div class="app-sub">1674–1871 · 324 records · 14 maps</div></div></div>
-          <p class="app-tagline">Choose any year to see the closest dated map, source-identifiable structures active by that year, city-boundary changes, landscape events, and documented 1871 fire outcomes.</p>
-          <div class="app-status"><span class="app-dot"></span>Live · open the explorer →</div>
-        </a>
+<main>
 
-        <a class="app-card reveal" href="rebuilding-1870s/viewer/" style="--c:#aa3c27">
-          <div class="app-top"><span class="app-glyph">🏗️</span><div><div class="app-name">Chicago Rebuilds</div><div class="app-sub">1872–1879 · 312 records · 9 maps</div></div></div>
-          <p class="app-tagline">Explore each post-fire year through its annual map, construction and reconstruction projects, predecessor relationships, city-model notes, and the separate 1874 fire view.</p>
-          <div class="app-status"><span class="app-dot"></span>Live · open the explorer →</div>
-        </a>
+<!-- THE FILMS ---------------------------------------------------------------- -->
+<section class="sec" id="films">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kick">Three summers · filmed in the app</div>
+      <h2>Ninety-two years of one city, <em>walkable.</em></h2>
+      <p>Each film is shot inside 4D Chicago itself, frame by frame, at the scene date the app is built to. Press play — or
+      step through and walk it yourself.</p>
+    </div>
 
-        <a class="app-card reveal" href="prairie-1904/viewer/" style="--c:#aa3c27">
-          <div class="app-top"><span class="app-glyph">🏛️</span><div><div class="app-name">Prairie Avenue, 1904</div><div class="app-sub">Building histories · Glessner House · maps to 1911</div></div></div>
-          <p class="app-tagline">Explore Prairie Avenue house by house through construction and demolition dates, archival sources, fire insurance maps, and a dedicated Glessner House research collection.</p>
-          <div class="app-status"><span class="app-dot"></span>Research library · open the collection →</div>
-        </a>
-
-        <a class="app-card reveal" href="4d/1835/" style="--c:#7a5c2e">
-          <div class="app-top"><span class="app-glyph">🚶</span><div><div class="app-name">4D Chicago</div><div class="app-sub">Summer 1835 · walkable · evidence-shaded</div></div></div>
-          <p class="app-tagline">Walk the town as the sources describe it, then switch on the confidence view: documented geometry renders solid, inferred is tinted, and anything we are guessing at turns to translucent massing. Click a building for its attributes and citations.</p>
-          <div class="app-status"><span class="app-dot"></span>Early build · one building so far →</div>
-        </a>
-      </div>
-
-      <div class="section-head center" style="margin-top:56px">
-        <div class="kicker">Evidence first</div>
-        <h2>A research index, not invented certainty</h2>
-        <p class="lead narrow" style="margin-inline:auto">The browsers distinguish individually identifiable buildings from anonymous permit and construction totals. Confidence flags, unresolved dates, source links, and explicit research gaps remain visible so the collection can improve without obscuring uncertainty.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="https://github.com/kevinrhaas/chicago/tree/main/chicago">Browse source data</a>
-          <a class="btn btn-ghost" href="https://custom.polecat.live/">Custom workshop</a>
+    <article class="film-row" style="--fc:#e0a050">
+      <button class="film-media reveal" type="button" data-film="chicago-1812" aria-label="Play the 1812 film: Fort Dearborn">
+        <img src="media/chicago-1812.jpg" alt="The stockade and blockhouse of Fort Dearborn under the flag, approached across the prairie" loading="lazy">
+        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:49</span>
+      </button>
+      <div class="film-copy reveal" style="--d:1">
+        <div class="yr">1812</div>
+        <h3>Fort Dearborn</h3>
+        <div class="date">14 August 1812 · the eve of the evacuation</div>
+        <p>The stockade and its blockhouses, the barracks and the parade, the Kinzie house across the river and the river
+        bending to the lake. Open any structure and it lists what is attested, what is inferred and what is reconstructed.</p>
+        <div class="acts">
+          <button class="btn btn-solid" type="button" data-film="chicago-1812"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:49</small></button>
+          <a class="btn btn-ghost" href="4d/1812/">Walk 1812 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
         </div>
       </div>
-    </section>
-  </main>
+    </article>
 
-  <footer class="foot">
-    <div class="foot-brand">Chicago Building Atlas</div>
-    <div class="foot-links"><a href="pre-fire/viewer/">Before the Fire</a><a href="rebuilding-1870s/viewer/">Rebuilding</a><a href="prairie-1904/viewer/">Prairie Avenue, 1904</a><a href="4d/1835/">4D Chicago</a></div>
-    <div class="foot-meta">Historical maps retain their source credits and rights statements in each dataset.</div>
-  </footer>
+    <article class="film-row flip" style="--fc:#7ec8e3">
+      <button class="film-media reveal" type="button" data-film="chicago-1835" aria-label="Play the 1835 film: the river town">
+        <img src="media/chicago-1835.jpg" alt="The forks of the Chicago River and the platted town, seen from above" loading="lazy">
+        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:58</span>
+      </button>
+      <div class="film-copy reveal" style="--d:1">
+        <div class="yr">1835</div>
+        <h3>The river town</h3>
+        <div class="date">1 July 1835 · the forks to the lake</div>
+        <p>The town plat block by block, Wolf Point at the forks, the wharves along the main stem, the Sauganash Hotel at Lake
+        and Market, and the second Fort Dearborn at the river mouth — then the same town in the confidence view.</p>
+        <p class="note">The final removal of the Potawatomi from Chicago came in August 1835, weeks after this scene date. The
+        project researches it carefully, flags every record that touches it, and does not stage events the scene date has not reached.</p>
+        <div class="acts">
+          <button class="btn btn-solid" type="button" data-film="chicago-1835"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:58</small></button>
+          <a class="btn btn-ghost" href="4d/1835/">Walk 1835 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        </div>
+      </div>
+    </article>
 
-  <script>
-  (function () {
-    var root = document.documentElement, btn = document.getElementById('themeToggle'), saved = null;
-    try { saved = localStorage.getItem('chicago.theme'); } catch (e) {}
-    if (!saved && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) saved = 'dark';
-    if (saved) root.setAttribute('data-theme', saved);
-    function paint() { btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙'; }
-    paint();
-    btn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('chicago.theme', next); } catch (e) {}
-      paint();
-    });
-    document.querySelectorAll('.reveal').forEach(function (element) { element.classList.add('in'); });
-  })();
-  </script>
+    <article class="film-row" style="--fc:#c9a46a">
+      <button class="film-media reveal" type="button" data-film="chicago-1904" aria-label="Play the 1904 film: Prairie Avenue">
+        <img src="media/chicago-1904.jpg" alt="Prairie Avenue under its parkway elms, mansions on both sides" loading="lazy">
+        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:51</span>
+      </button>
+      <div class="film-copy reveal" style="--d:1">
+        <div class="yr">1904</div>
+        <h3>Prairie Avenue</h3>
+        <div class="date">1 July 1904 · Prairie and Eighteenth</div>
+        <p>Up the avenue under the elms to Glessner House, around its granite corner and arched entrance, along the
+        mansion fronts and out over the district to the Illinois Central and the lake.</p>
+        <div class="acts">
+          <button class="btn btn-solid" type="button" data-film="chicago-1904"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:51</small></button>
+          <a class="btn btn-ghost" href="4d/1904/">Walk 1904 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- THE RECORD ------------------------------------------------------------------ -->
+<section class="sec evidence" id="record">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kick">The record</div>
+      <h2>Every surface <em>carries its evidence.</em></h2>
+      <p>This is a research dataset with a renderer attached. Each building is broken into facts — its walls, its roof, its
+      date, its occupants — and every fact is graded by what stands behind it.</p>
+    </div>
+    <div class="ev-grid">
+      <div class="tiers">
+        <div class="tier reveal"><div class="n">i</div><div><h4>Attested</h4><p>A source speaks to it at the scene date — a map, a directory, a letter, a photograph — and the citation is one click away.</p></div></div>
+        <div class="tier reveal" style="--d:1"><div class="n">ii</div><div><h4>Inferred</h4><p>Reasoned from the evidence, with the reasoning written down beside it. You can read why.</p></div></div>
+        <div class="tier reveal" style="--d:2"><div class="n">iii</div><div><h4>Reconstructed</h4><p>No source speaks to it, so it is built to the most defensible standard and declared as such — never passed off as evidence.</p></div></div>
+      </div>
+      <div class="shots reveal" style="--d:1">
+        <div class="shot-tabs" role="tablist" aria-label="Screens from the app">
+          <button type="button" role="tab" aria-selected="true" data-shot="0">A building's record</button>
+          <button type="button" role="tab" aria-selected="false" data-shot="1">The confidence view</button>
+          <button type="button" role="tab" aria-selected="false" data-shot="2">1812, graded</button>
+        </div>
+        <div class="shot-frame">
+          <img class="on" src="media/ui-panel-1904.jpg" alt="Glessner House's record in the app, with its c. 1889 photograph" loading="lazy">
+          <img src="media/ui-confidence-1835.jpg" alt="The Sauganash Hotel's record over the confidence view of 1835" loading="lazy">
+          <img src="media/ui-confidence-1812.jpg" alt="The commanding officer's barracks at Fort Dearborn, 14 facts graded" loading="lazy">
+        </div>
+        <p class="shot-cap" id="shotCap">Glessner House, 1904: still standing, built 1887 — with the archival photograph the record cites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRAIRIE AVENUE ----------------------------------------------------------------- -->
+<section class="prairie" id="prairie">
+  <img src="media/still-glessner.jpg" alt="" loading="lazy" id="prairieImg">
+  <div class="wrap prairie-in reveal">
+    <div class="kick">Prairie Avenue · 1904</div>
+    <h2>The grandest street in Chicago, <em>house by house.</em></h2>
+    <p>A research library behind the 1904 scene: every house's construction and demolition dates, its owners and
+    occupants, fire-insurance maps to 1911, and a dedicated Glessner House collection.</p>
+    <div class="stats">
+      <div class="stat"><b data-count="62">62</b><span>buildings researched</span></div>
+      <div class="stat"><b data-count="138">138</b><span>sources</span></div>
+      <div class="stat"><b data-count="38">38</b><span>maps</span></div>
+    </div>
+    <div class="hero-cta" style="opacity:1;animation:none;margin-top:0">
+      <a class="btn btn-light" href="prairie-1904/viewer/">Open the Prairie Avenue library <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-glass" href="4d/1904/">Walk it in 4D</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE ATLAS ------------------------------------------------------------------------ -->
+<section class="sec" id="atlas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kick">The atlas</div>
+      <h2>From the first cabins <em>to the fire, and after.</em></h2>
+      <p>Behind the walkable scenes sits a building atlas: year-by-year browsers of every source-identifiable structure,
+      the dated maps that show them, and the gaps that remain.</p>
+    </div>
+
+    <div class="timeline reveal" aria-hidden="true">
+      <div class="tl-axis">
+        <span class="tl-tick" style="left:12.24%">1700</span><span class="tl-tick" style="left:32.65%">1750</span>
+        <span class="tl-tick" style="left:53.06%">1800</span><span class="tl-tick" style="left:73.47%">1850</span>
+        <span class="tl-tick" style="left:93.88%">1900</span>
+      </div>
+      <div class="tl-rows" style="position:relative">
+        <div class="tl-fire" style="left:81.63%"><span>1871 fire</span></div>
+        <div class="tl-row"><span class="tl-bar" style="--bc:#1f7ea6;left:1.63%;width:80.4%">Before the Fire · 1674–1871</span></div>
+        <div class="tl-row">
+          <span class="tl-label" style="left:1.63%">4D Chicago · walkable scenes</span>
+          <span class="tl-bar dot" style="--bc:#e0a050;--d:1;left:57.96%"></span>
+          <span class="tl-bar dot" style="--bc:#7ec8e3;--d:2;left:67.35%"></span>
+          <span class="tl-bar dot" style="--bc:#c9a46a;--d:3;left:95.51%"></span>
+        </div>
+        <div class="tl-row"><span class="tl-label" style="right:calc(17.14% + 10px)">Chicago Rebuilds · 1872–1879</span><span class="tl-bar" style="--bc:#d23a4c;--d:2;left:82.86%;width:2.86%"></span></div>
+        <div class="tl-row"><span class="tl-label" style="right:calc(4.49% + 10px)">Prairie Avenue · 1904, maps to 1911</span><span class="tl-bar" style="--bc:#a07d40;--d:3;left:95.51%;width:2.86%"></span></div>
+      </div>
+    </div>
+
+    <div class="atlas">
+      <a class="acard reveal" href="pre-fire/viewer/" style="--cc:#41b6e6">
+        <svg class="ic" aria-hidden="true"><use href="#i-map"/></svg>
+        <span class="span">1674 – 1871</span>
+        <h3>Chicago Before the Fire</h3>
+        <p>Pick any year: the closest dated map, every source-identifiable structure standing by then, boundary changes,
+        landscape events — and what the 1871 fire took.</p>
+        <div class="foot"><span>324 records · 14 maps</span><span class="arrow"><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+      <a class="acard reveal" href="rebuilding-1870s/viewer/" style="--cc:#ff3b4f;--d:1">
+        <svg class="ic" aria-hidden="true"><use href="#i-crane"/></svg>
+        <span class="span">1872 – 1879</span>
+        <h3>Chicago Rebuilds</h3>
+        <p>Each post-fire year through its annual map: construction and reconstruction, which building replaced which,
+        and a separate view of the 1874 fire.</p>
+        <div class="foot"><span>312 records · 9 maps</span><span class="arrow"><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+      <a class="acard reveal" href="prairie-1904/viewer/" style="--cc:#c9a46a;--d:2">
+        <svg class="ic" aria-hidden="true"><use href="#i-house"/></svg>
+        <span class="span">1904 · maps to 1911</span>
+        <h3>Prairie Avenue</h3>
+        <p>The avenue house by house — construction and demolition dates, archival sources, fire-insurance maps, and the
+        Glessner House collection.</p>
+        <div class="foot"><span>62 buildings · 138 sources</span><span class="arrow"><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec closer">
+  <div class="wrap reveal">
+    <h2>Step <em>through.</em></h2>
+    <p>Runs in the browser, on a phone or a desktop. No install, no account.</p>
+    <div class="acts">
+      <a class="btn btn-solid" href="4d/">Enter 4D Chicago <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-ghost" href="https://github.com/kevinrhaas/chicago/tree/main/chicago"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>Browse the research files</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <a class="brand" href="#top"><svg class="ic fill brand-mark" aria-hidden="true"><use href="#i-star"/></svg><b>4D Chicago</b></a>
+      <p class="foot-meta">A source-cited reconstruction of early Chicago. Historical maps keep their source credits and rights
+      statements in each dataset.</p>
+    </div>
+    <div class="foot-cols">
+      <div><h5>Walk</h5><ul>
+        <li><a href="4d/">The observatory</a></li>
+        <li><a href="4d/1812/">1812 · Fort Dearborn</a></li>
+        <li><a href="4d/1835/">1835 · The river town</a></li>
+        <li><a href="4d/1904/">1904 · Prairie Avenue</a></li>
+      </ul></div>
+      <div><h5>Atlas</h5><ul>
+        <li><a href="pre-fire/viewer/">Before the Fire</a></li>
+        <li><a href="rebuilding-1870s/viewer/">Chicago Rebuilds</a></li>
+        <li><a href="prairie-1904/viewer/">Prairie Avenue library</a></li>
+      </ul></div>
+      <div><h5>More</h5><ul>
+        <li><a href="https://github.com/kevinrhaas/chicago/tree/main/chicago">Research files</a></li>
+        <li><a href="https://custom.polecat.live/">Custom workshop</a></li>
+        <li><a href="https://polecat.live/">polecat.live</a></li>
+      </ul></div>
+    </div>
+  </div>
+</footer>
+
+<dialog class="film" id="film" aria-label="4D Chicago film">
+  <div class="film-bar">
+    <span id="filmTitle">4D Chicago</span>
+    <button class="icon-btn" type="button" id="closeFilm" aria-label="Close the film"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <video id="filmVideo" controls playsinline preload="none"></video>
+  <div class="film-foot">
+    <div class="film-tabs" role="group" aria-label="Choose a film">
+      <button type="button" data-tab="chicago-walk">All three · 1:20</button>
+      <button type="button" data-tab="chicago-1812">1812</button>
+      <button type="button" data-tab="chicago-1835">1835</button>
+      <button type="button" data-tab="chicago-1904">1904</button>
+    </div>
+    <a class="btn btn-light" id="filmWalk" href="4d/">Walk it yourself <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</dialog>
+
+<script src="js/home.js" defer></script>
 </body>
 </html>
