@@ -24357,7 +24357,6 @@ belt sweeps round the turret (no picture shows a corbel under it, and K08's six 
 lights; the turret's walling, in the house's brownstone.
 **How to resolve:** a K01 eave that dies into a side wall's oriel under a mansard would carry the turret
 up to the cornice; T-1900 brings every 1912 match record to `matches`.
-**Covers:** `moulton_lowden_house_1912_prairie.as_mapped_1904.form.bays`
 **Ticket:** T-3290 (piece 1 of T-3290).
 **Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-3290).

@@ -35448,14 +35448,7 @@
       "subjects": [
         "moulton_lowden_house_1912_prairie"
       ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "moulton_lowden_house_1912_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-11-01",
       "revised": null,
       "fields": [
@@ -35466,10 +35459,6 @@
         {
           "label": "How to resolve",
           "text": "a K01 eave that dies into a side wall's oriel under a mansard would carry the turret up to the cornice; earlier work brings every 1912 match record to `matches`."
-        },
-        {
-          "label": "Covers",
-          "text": "`moulton_lowden_house_1912_prairie.as_mapped_1904.form.bays`"
         },
         {
           "label": "Review",
