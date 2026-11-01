@@ -91,3 +91,23 @@ elevation closed, every opening cut through. The web derivatives are 29.4 KB (16
 
 `lay_prairie_1904_street_furniture.py`, re-run against the two baked models, moves no pole: the alley's poles
 #02 and #03 stand 6.5 m north of 1626's gable and 12.2 m south of 1628's, and the wire between them clears both eaves.
+
+## In the app
+
+`QA_TARGET=1626 node tools/qa_k12_t1932.mjs` reads the published `/1904/` app at four stands (down the alley from
+the north, at 1626's gable, and from the south, past 1628's; the yard faces from 1628's back yard; and the air) at
+1280x800 full and 390x780 light: `browser-validation-after.json` and `after-<viewport>-<stand>.jpg` in this folder.
+Both viewports: 0 page errors, 0 failed requests, all four records placed.
+
+| viewport | load to ready | JS heap | stand | draw calls | triangles | in budget |
+|---|---|---|---|---|---|---|
+| desktop, full | 96.9 s | 83.4 MB | alley from the north | 7,350 | 4.58 M | yes |
+| | | | alley from the south | 1,911 | 1.55 M | yes |
+| | | | yard faces | 2,250 | 0.85 M | yes |
+| | | | air | 1,662 | 1.30 M | yes |
+| mobile, light | 47.3 s | 109.4 MB | alley from the north | 4,191 | 0.75 M | yes |
+| | | | alley from the south | 1,281 | 0.52 M | yes |
+| | | | yard faces | 893 | 0.21 M | yes |
+| | | | air | 1,776 | 0.54 M | yes |
+
+Load times are this runner's software GL, relative only.
