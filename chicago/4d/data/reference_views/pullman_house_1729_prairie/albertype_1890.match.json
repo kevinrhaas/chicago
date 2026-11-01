@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ac5cd2b83e0171b1f50722e7fd31a31fa80f1df2d342f84da12bec1682a5abbc",
+  "glb_sha256": "e77fcf2ab690a23922af90357e97f7f65d4bc915e75c63b77bd0d5f629737955",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "85f1f563c854e11abf2f28e2c92b981f36ecd7cf1d6bf9b16762626ef32ddc25"
+      "sha256": "c7f41f5072de7f373bb1a2544baaba856a5212953c42924a7e30c500d23e64b7"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "f9cb013961d34968293a6365ed80f42ec9b6f0693dd89e53e72a08b368b93607",
+  "flora_sha256": "ba66e97d9a6e16cac61b785d65a1d06fb5db9357f8bbdb21bfb2ab0002325e18",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

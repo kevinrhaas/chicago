@@ -37960,3 +37960,13 @@ tells them apart.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
+
+### L-pullman-1729-rear-dormers-1881 — 1729 Prairie's two rear dormers set over the rear wall's window bays, off Taylor's no. 16554; their places reconstructed
+
+**Decision:** the owner, on 2026-10-30, on Taylor's no. 16554: "the whole back of the pullman house needs to be worked". The rear (east) face of the main mansard carried no dormer. Two are laid on it (`mansard.dormers`, face `rear`, v 14.93 and 10.93), each over one of the rear wall's two window bays (`rear_bays`, s 3.0 and 7.0), in the 18th Street flank's dormer: a 0.8 x 1.6 m arched light in a 0.3 m surround under its eared hood.
+**What is read, not invented.** Taylor's no. 16554, the one picture that sees the rear roof, through the conservatory's solved camera: two round-headed dormers on that face under the deck's cresting (x about 503-512 and 537-548 px), between the south-east hip (x about 470) and the face's north end (about 550), each standing over one of the two bays of lights in the wall below (x 509-515 and 543-548). Their count, their round heads and their relation to the lights are the print's.
+**What is invented.** Their places along the face. That camera is fitted to the conservatory and draws the house 20-40 px off the print, and a level refit to the house's own corners and stacks leaves about 8 px rms, so the print does not place them to better than 2-4 m; they are set over the build's rear lights, which are themselves reconstructed (`rear_bays`). Their size and hood are the flank dormer's, which the print draws them like at about 10 px a metre.
+**How to resolve:** a camera for no. 16554 fitted to the house itself (its corners, the porte-cochere's arches, the flank's stacks) reads the rear lights' and dormers' places together; a fourth stack the print shows rising behind the rear face (x 513-522 px) is read with them.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).

@@ -1,0 +1,45 @@
+{
+  "structure_id": "moulton_lowden_house_1912_prairie",
+  "view": "elevations_c1914_front",
+  "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
+  "glb_sha256": "f68f7c6d97740280d0e816bec469e3795da789d33c190676764ca691d25e3a3c",
+  "camera_sha256": "babc3fe528caaee1f49ed568584eeb4e22f550aab2fbb214fca77b4ed75e4742",
+  "photo_sha256": "6a188ecf12322445de8c9a8621968131cd2d74be06183f548a87054051efa97e",
+  "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/elevations_c1914_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "composition: the arched pair at the front's south end, the round bay in the middle rising to a cone with a finial (a triangle in elevation), the door at the north end, the steep slated roof with a dormer at each end and the cornice's line; each lands within a few pixels of its place in the drawing",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's width: the drawing draws it about 13.8 m across at its own scale (132 px), the 1911 sheet 13.0 m; the sheet is kept, so the render runs about 4 px inside the drawing at each end",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the storeys: at the drawing's scale (9.58 px a metre from the cornice and the belts) the principal storey reads about 4.8 m and the chamber storey about 3.6 m where the record builds 4.3 and 4.35 m, so the chamber belt sits about 0.6 m low and the attic belt about 0.2 m high; the 1883 plate (album_1883) draws the same shape",
+      "status": "open"
+    },
+    {
+      "what": "the openings at the principal floor: the drawing's south pair has round heads under one arch and the door an arched head; built square-headed",
+      "status": "open"
+    },
+    {
+      "what": "the tower's lights: three a storey across the round bay, a broad centre light between two narrow ones; built two a storey",
+      "status": "open"
+    },
+    {
+      "what": "the dormers: drawn as crocketed wall dormers rising off the front at both ends with pinnacles and finials; built small gabled dormers in the slate",
+      "status": "open"
+    },
+    {
+      "what": "the stacks: the drawing's one tall stack stands just south of the cone, behind the south dormer (x 239-252 px of the copy), with a pinnacle at the front's south corner; the build's south stack stands at the front's south end. The photograph and the 1883 plate, both from the north-east, show no stack there, so this is the drawing's reading against theirs",
+      "status": "open"
+    },
+    {
+      "what": "colour and materials: the drawing is monochrome line work",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
