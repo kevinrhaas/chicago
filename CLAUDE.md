@@ -21,7 +21,8 @@ visible-progress rule, the What's-New length budget). `README.md` has the URL ma
 
 ## Non-negotiables
 
-- **Gate before every commit**: `cd chicago/4d && ./tools/check.sh` (read its last
+- **Gate before every commit**: `cd chicago/4d && ./tools/check.sh --part k/4` for k
+  = 1..4, one foreground call each (whole, it outgrew the 600 s cap; T-3299; read its last
   lines — tagged `self-test |` FAIL lines are meant to fire), then the smoke by parts
   (`node tools/smoke_budget.mjs --for-diff`). Mobile (390×780) is a release gate.
 - **Pipeline**: branch from `dev`, PR into `dev`, merge on a green gate. Production
