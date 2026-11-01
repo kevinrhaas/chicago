@@ -30212,6 +30212,12 @@ three-sided spike from its foot to its tip, at least 0.02 m across at the foot, 
 stroke: a twig is under a pixel there, the spike costs half the stroke's triangles, and the same
 budget draws twice the twigs, so the crowns grey in more as Taylor's 16554 prints them; the width
 and the taper are this file's (T-1934).
+A bare elm at `mid` and `far` spends what its own summer leaf at that level costs (a two-triangle
+card for each clump the level keeps) rather than the bare crown's general share, and draws its
+skipped limbs and branches as spikes too; at `far` (past about 44 m) it keeps half of that budget
+for its fringe, one spike off each limb tip it reaches, at least 0.08 m across at the foot (a pixel
+near the ring's edge), and at `mid` what is left once every sprout is drawn goes on the next fork;
+the split and the widths are this file's (T-1934).
 **How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
 Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
 **Ticket:** T-2743.

@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "d86d46a592cdd73924e42537e760eeece94bd891466360bfe8261cbb96a18aa2"
+      "sha256": "b0871a49313e101b4927afa73e5f8c116201daedcfe3a599ad4166b5ed6a256c"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "fde04c7109f7e216ee42d1208f7d7d03db79cfadaeac876e63370510dc2f6c30",
+  "flora_sha256": "daa1ca7465054c18c856d88810f8c625059480f3ca6396709518b3ac7b74546b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

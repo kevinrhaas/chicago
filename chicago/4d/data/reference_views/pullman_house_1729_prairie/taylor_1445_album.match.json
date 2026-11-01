@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "d86d46a592cdd73924e42537e760eeece94bd891466360bfe8261cbb96a18aa2"
+      "sha256": "b0871a49313e101b4927afa73e5f8c116201daedcfe3a599ad4166b5ed6a256c"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "007bd19700ba939d74fe999a8b5ce3d554ddfb4b85001ed328d192ddbbbfa51f",
+  "flora_sha256": "5c5d5aa5f439dd4607eca0cef1afb542e4f91902f68facc84eebdb738d270410",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
