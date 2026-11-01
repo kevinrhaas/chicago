@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "gatlin_programme_1919",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b5f570f37b6a16c6e32f473a1aaf0b574e970f0be481b7b0098bd7fc69637234",
+  "glb_sha256": "865d7fb09494c0f655a4e56d32ca2fb6e8fa79c91046ab9b642c5771b9ac37ed",
   "camera_sha256": "5761231c09122f5ce6c9fd950c12b502e4ff369c817aedbdd46f780f691c9a20",
   "photo_sha256": "ea845bca0465b8b2d11fc97efe3f9b21ac4b569ee9a9b1c8743d605bf00b8f5e",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg",
@@ -29,12 +29,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the smaller one-light street dormer near the front's south end and the stack rising behind the broad dormer at the front block's south side: not built (K01 carries one street dormer)",
-      "status": "open"
+      "what": "the smaller one-light street dormer near the front's south end, under its own steep gable, and the stack rising behind the street dormers at the front block's south side: T-3301 built the dormer 1.6 m wide at v 8.05 m with one light (K01's `dormer.also`) and the stack at u 14.5 m, v 7.5 m; through this camera the small dormer stands beside the broad one where the plate draws it, and the stack rises behind the broad dormer's gable within about 1 m of the plate's, just north of where the plate draws it at the gable's south slope",
+      "status": "fixed"
     },
     {
-      "what": "the broad dormer's stone-coped gable with kneelers and finial: built with the kit's plain slated verges",
-      "status": "open"
+      "what": "the broad dormer's stone-coped gable with kneelers and finial: T-3301 built a stone coping along each rake over the slate, a kneeler block at each foot and a small turned finial at the apex (K01's `dormer.coping`), the small dormer coped the same way; the plate's gable reads a little steeper than the built 45 degrees (about 0.5 m higher at the apex), which the 2004 photograph does not bear out, so it stays",
+      "status": "fixed"
     },
     {
       "what": "the rear ranges' roofs: the plate draws a broad gable over the rear range, steep gables stepping down the flank and a row of small gabled dormers with pinnacles between them; built as two plain slated gables (T-3279)",
