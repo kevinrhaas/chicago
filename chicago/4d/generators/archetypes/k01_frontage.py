@@ -3808,6 +3808,8 @@ class Assembly:
 
         # the front: from end to end of the hood, its arches between the capitals
         spans = [(a + cw, b - cw) for a, b in zip(at, at[1:])]
+        if A.get("over") is not None:   # T-3283: only the spans named, the rest left solid (paired columns)
+            spans = [sp for i, sp in enumerate(spans) if i in A["over"]]
         front = lambda x, y, t, vec=False: R_ if vec else P(x, y, t)
         if "front" in A["faces"]:
             wall(spans, s0, s1, front, cd - cw, cd + cw, N_, bf)
