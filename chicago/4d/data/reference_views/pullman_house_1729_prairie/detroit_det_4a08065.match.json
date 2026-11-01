@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88",
+  "glb_sha256": "ac5cd2b83e0171b1f50722e7fd31a31fa80f1df2d342f84da12bec1682a5abbc",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -13,7 +13,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 23
+        "creeper": 19
       }
     ],
     "street_trees": 35,
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "5016755e20215c016a3ae00db87c3ee2f81daabf26431b0774ed5500831cd233",
+  "flora_sha256": "4aa03295e87df1e210e0de06390dac07a6414b508983c4ec1a6e0be0f09d1a71",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -291,6 +291,16 @@
       "what": "the door's pale leaves and the portico's inner columns, read on 2026-10-29 at v 5.0 (x 355-371 px), against the build's axis at v 6.4",
       "status": "open",
       "how": "T-1881 (2026-10-31): the axis follows the owner's three-bay reading and the piers; the leaves sit behind ivy and the portico's columns, and a closer view of the portico (the CHM 1905 views, once solved) settles it (L-pullman-1729-front-bays-1881)"
+    },
+    {
+      "what": "the owner's report, 2026-11-01: the Prairie front's centre steps in, with the walk leading up to it; the build had the centre standing forward as a block",
+      "status": "fixed",
+      "how": "T-1881 (2026-11-01): two pavilions 1.2 m proud stand either side of a stepped-in centre. The north one (v 0.3-5.0) has its dormer and lights; the south one (v 8.85-13.6) has the big lights and the pedimented dormer. The door, portico, stoop, walk and gate stand in the centre at v 6.875. Laid over the print through this camera, the big dormer, the big window and the corner bay's dormer and light fall on the print's. (L-pullman-1729-recessed-centre-1881)"
+    },
+    {
+      "what": "the pavilions' depth: the print's north return suggests 1.2-2 m, and the build's 1.2 m is K08's most for a pavilion; the portico and its balcony reach further north in the print (x 310-425 px) than the build's 3.1 m hood in the recess",
+      "status": "open",
+      "how": "T-1881 (2026-11-01): a re-solved Taylor no. 1445 camera triangulated against this one settles the depth; the balcony's run needs a portico across the north pavilion's front, which K07 does not build (L-pullman-1729-recessed-centre-1881)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

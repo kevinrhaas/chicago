@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88"
+      "glb_sha256": "ac5cd2b83e0171b1f50722e7fd31a31fa80f1df2d342f84da12bec1682a5abbc"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "5c47aea6d8da5ce9f97b4b1a75f934d71f4ded9738555771a624abe623d31891",
+  "group_sha256": "65dfecc8f60020637b4a63ef657cf7145bb13b99267b32642ce6b7a974246e84",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -73,7 +73,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 23
+        "creeper": 19
       }
     ],
     "street_trees": 30,
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "53fc7a342b500164567d3b97a5ffae0929250b2cae94169d5d1c1027a2085380",
+  "flora_sha256": "31314ab4f6019b89d2ef689ea900ffba0214107ded04f3e5de3b36608c563a19",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -184,8 +184,8 @@
     },
     {
       "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled [T-1934, 2026-10-30: the wing, its rustication and pilasters and the stable are now one stone, read from the winter print 16554, where the two print alike; this print's darker wing is left to the trees' shade. Still open here, since this print alone cannot tell stone from shade.]",
-      "status": "open",
-      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print) [T-1934, 2026-10-30 (the owner on Taylor's 16554): the drum's stone now prints with the wing's and the stable's; the wing's face itself is unchanged]"
+      "status": "within tolerance",
+      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print) [T-1934, 2026-10-30 (the owner on Taylor's 16554): the drum's stone now prints with the wing's and the stable's; the wing's face itself is unchanged] [T-1934, 2026-10-31: a gap two pictures disagree about (AGENTS.md rule 11, T-3153): the 1894 Inland plate and Taylor's winter 16554 print the wing and the stable in one light stone, which the build follows; this summer print alone darkens the wing, under the trees' shade.]"
     },
     {
       "what": "the dome's covering: glass or metal sheets between the ribs",

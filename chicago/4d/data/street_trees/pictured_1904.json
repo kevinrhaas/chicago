@@ -72,6 +72,16 @@
    ]
   },
   {
+   "face": "calumet__prairie_ic_16_18",
+   "from_m": 13.3,
+   "to_m": 22.8,
+   "seen_by": ["taylor_16554 x 918-1200 (13.0 m to 22.8 m at the print's right edge, its feet on this line at y 582-590)"],
+   "note": "The parkway's curve from 18th Street into Calumet Avenue beyond Taylor's 16555's right edge, before the stable's east end and its stack (T-1934). The rule stood a grown elm at 19.4 m, which drew through 16554's camera at x 1091 as a thick forked trunk against the stable's stack, where the print shows the stack and the sky clear; the print's one trunk on this stretch stands at x 996-1006, its foot at y 589 on the walk's far edge (this camera reads the parkway's feet about 5 px under the line's, as it does on Calumet's west parkway), 10 px across at about 41 m (about 0.35 m), behind the leader of the young tree at 248.8 m on the near parkway. The Detroit print of c. 1897-1901 sees this stretch at 115 m (x 902-941): a trunk rises behind the Fort Dearborn monument at x about 922, its foot hidden by the monument, so it cannot be put on this parkway or the lot behind it, and is a check, not a reading.",
+   "trees": [
+    {"at_m": 16.1, "kind": "mature", "scale": 0.65, "form": "broad_head", "form_read": "taylor_16554 (winter): a straight trunk about 0.35 m across (10 px at 41 m), stouter than the young trees on the near parkway, its crown lost among theirs; drawn on the young elm's broad head as the 18th Street file beside it is, its bole about 0.05 m slighter than the print's (within tolerance)", "read": ["taylor_16554 x 1001 (base y 589, the line's 584): 16.1 m"], "note": "In place of the rule's grown elm at 19.4 m, which the print shows clear."}
+   ]
+  },
+  {
    "face": "e18th__prairie_calumet_18_20",
    "from_m": 0.0,
    "to_m": 21.9,
