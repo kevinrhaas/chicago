@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2546, ts: '2026-11-01T20:52:55.581Z', date: 'Nov 1, 2026, 2:52 PM CT', title: 'Pullman house rebuilt to the owner\'s plan and elevation sketches', kind: 'fix',
+    items: [
+      'The Prairie Avenue front is now three parts: the north block standing forward, the entry stepped back with the door, portico and stairs, and the south part stepped back again with the big windows and the pedimented dormer. Every arched window keeps its moulded frame.',
+      'The 18th Street side follows the four sections in the sketch: two windows a floor and two dormers either side of the chimney, the pair and triple over the porte-cochère, and the pair over one large arched window at the east end. Its middle section now stands 1.3 m out, as two Taylor photographs measure it.',
+      'The side door inside the porte-cochère is built, up a flight of stone steps, and the porte-cochère\'s end arches are widened to the photograph\'s span.',
+      'The rear keeps three arched windows a floor over the terrace.',
+      'The clipped standards on the conservatory lawn have round heads and stand in square planting boxes on legs, as Lowe\'s print shows them.',
+    ] },
   { v: 2545, ts: '2026-11-01T20:12:45.680Z', date: 'Nov 1, 2026, 2:12 PM CT', title: 'A brick coach house behind 1726 Prairie', kind: 'feature',
     items: [
       'The alley behind 1726 Prairie now has its two-storey brick building: 14 m along the alley and 11.7 m deep, with a fire wall on the lot line to the south and a window pair on its alley wall. Its outline, storeys, brick and window place come from the 1911 Sanborn sheet, which calls it a garage; in 1904 it is built as a stable and coach house, and Robinson\'s 1886 atlas shows a smaller frame building there instead, so its date is uncertain. The doors, loft hatch, other windows and roof come from the shared coach-house kit and are reconstructed.',
