@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 938,
+  "count": 939,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -64159,6 +64159,36 @@
         "T-1906",
         "T-3280",
         "T-1907"
+      ]
+    },
+    {
+      "id": "L-k03-brick-shuffle-3295",
+      "title": "A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the renderer no longer repeats a K03 brick panel (the panel model, 4 modules by 12 courses, 0.86 by 0.80 m) as a tile. On every wall that wears one, each brick takes its face, grain, arris and joints from another brick of the same length in the same panel, picked by a hash of its place on the wall and of the building it is on; each brick then takes its own spread of up to 7 % lighter or darker and 3 % warmer or cooler, off the mortar; and the whole wall a mottle of up to 5 %, a couple of metres across. the walkthrough's brick bond code. **What is attested.** Nothing about any house's brick: the panel itself is “The Prairie brick library: four brick bodies, two mortars, their joints and bonds, all reconstructed”. The owner asked for it, 2026-11-01: the walls \"appear as a pattern and are too consistent and repetitive\". **What is invented.** Which brick stands where; the spread and the mottle and their sizes. They are bounded by the library's own firing variants (tints 0.87 to 1.04 of the body), and they are mean-neutral, so a wall's colour as a whole, and every photo-match verdict read off it, is unchanged."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph close enough to read one house's brick (its burnt-header rate, its colour range, its weathering) replaces the spread for that house."
+        },
+        {
+          "label": "Review",
+          "text": "the before/after stills in the this work PR (the brick bond shots tool)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-01 (T-3295)."
+        }
+      ],
+      "work_refs": [
+        "T-3295"
       ]
     },
     {
