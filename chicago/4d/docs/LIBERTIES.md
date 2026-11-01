@@ -35373,7 +35373,8 @@ sheet's plan holds. Each is open on its match record; no ticket is filed for the
 elevation's 4.9 m on a 4.8 m stoop and turns a round arch between its columns (the vignette's); the stoop's cheeks
 sweep down and out to capped newels at the walk (the vignette's round-capped posts); the chamber storey leaves the
 door's column blind, the elevation's plain panel over the entrance; the chamber lights are 3.2 m from a 0.1 m sill,
-the tallest K09's hood allows under K10's frieze. These are read off the pictures (inferred) and add nothing to the
+the tallest K09's hood allows under K10's frieze (the corner bay's 3.1 m from 0.2 m, heads level, the clearance
+K08 keeps over a storey's floor). These are read off the pictures (inferred) and add nothing to the
 invented list above. Front, oblique, rear and roof views with their costs, in the published app at 1280x800 and
 390x780: `docs/RESEARCH/k01-1923-1945-views-3283/`.
 **Covers:** `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_front_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_side_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.service_wall_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_pitch_deg`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_covering`, `kellogg_house_1923_prairie.as_mapped_1904.form.stair_tread_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.side_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.north_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.rear_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.chimneys`, `kellogg_house_1923_prairie.as_mapped_1904.form.rainwater`, `kellogg_house_1923_prairie.as_mapped_1904.form.window_kit`, `kellogg_house_1923_prairie.as_mapped_1904.form.yard`

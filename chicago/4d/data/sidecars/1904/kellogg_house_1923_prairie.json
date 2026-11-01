@@ -541,24 +541,24 @@
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 0.75,
-                  "clear_height_m": 3.2,
-                  "sill_m": 0.1,
+                  "clear_height_m": 3.1,
+                  "sill_m": 0.2,
                   "at": [
                     0.117,
                     0.883
                   ],
                   "recess_m": 0.35,
-                  "why_not_ordinary": "the elevation's chamber light in each of the bay's cheeks, 3.2 m from a 0.1 m sill as the front's (T-3283)"
+                  "why_not_ordinary": "the elevation's chamber light in each of the bay's cheeks, 3.1 m from a 0.2 m sill, its head level with the front's 3.3 m: K08 keeps a bay's sash 0.18 m over its storey's floor (T-3283)"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 1.1,
-                  "clear_height_m": 3.2,
-                  "sill_m": 0.1,
+                  "clear_height_m": 3.1,
+                  "sill_m": 0.2,
                   "at": [
                     0.5
                   ],
-                  "why_not_ordinary": "the elevation's chamber light in the bay's front, 3.2 m from a 0.1 m sill as the front's (T-3283)"
+                  "why_not_ordinary": "the elevation's chamber light in the bay's front, 3.1 m from a 0.2 m sill, its head level with the front's 3.3 m: K08 keeps a bay's sash 0.18 m over its storey's floor (T-3283)"
                 }
               ]
             }

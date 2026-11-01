@@ -2,7 +2,7 @@
  "structure_id": "kellogg_house_1923_prairie",
  "view": "elevations_c1914_front",
  "glb": "assets/gltf/kellogg_house_1923_prairie__as_mapped_1904.glb",
- "glb_sha256": "dc03505a6de841d610a1f6cac7ed52dae9069aa0317e5a12f243c2144efb5d00",
+ "glb_sha256": "df8e408f6322798f3071b16fc0725922f96b729b9f261a4c7dd3387189c0f8ea",
  "camera_sha256": "8b32a62e25aa93499752730b3284b81a5db84754fd11fbc32219601530d81b47",
  "photo_sha256": "54d7697d1855792e47cfc046a55c7ee2bbdbca06f894f0bdb162196cd2681d9b",
  "side_by_side": "docs/RESEARCH/photo-match/kellogg_house_1923_prairie/elevations_c1914_front-side-by-side.jpg",
@@ -33,7 +33,7 @@
    "status": "fixed"
   },
   {
-   "what": "the chamber windows: drawn with their hoods about 4.0 m from the band to the frieze; T-3283 builds them 3.2 m from a 0.1 m sill under K09's hood, sash and hood together about 3.7 m, the tallest K09's hood allows under K10's frieze. What is left is about 0.3 m, some 2 px on the drawing's 125 px copy",
+   "what": "the chamber windows: drawn with their hoods about 4.0 m from the band to the frieze; T-3283 builds them 3.2 m from a 0.1 m sill under K09's hood (the corner bay's 3.1 m from 0.2 m, heads level, K08's clearance over the band), sash and hood together about 3.7 m, the tallest K09's hood allows under K10's frieze. What is left is about 0.3 m, some 2 px on the drawing's 125 px copy",
    "status": "within tolerance"
   },
   {
