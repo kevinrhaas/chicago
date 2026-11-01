@@ -1,0 +1,7 @@
+{
+  "title": "Glessner's distant roof is lighter on its shadow too",
+  "kind": "change",
+  "items": [
+    "From far off, Glessner House's tile roof now casts its shadow from the roof's outline only, without the tile edges you can't see from there. That draws about 247,000 fewer triangles in every far view, and almost every pixel stays the same."
+  ]
+}
