@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2531, ts: '2026-11-01T12:12:48.844Z', date: 'Nov 1, 2026, 6:12 AM CT', title: 'Winter elms keep their fine twigs farther off', kind: 'improvement',
+    items: [
+      'With the Season set to winter, the elms beyond about 45 m now carry a fringe of fine twigs above their limbs. Until now they stood as bare branches with no twigs at all.',
+      'Elms a short walk away (about 10 to 45 m) carry about 40% more twigs, so their crowns grey in further against the sky, as the elms do in Taylor\'s winter photograph of the Pullman estate.',
+      'No tree costs more to draw than it does in summer: a bare elm now spends exactly what its summer leaves would, and draws its thinner branches as tapers.',
+    ] },
+  { v: 2530, ts: '2026-11-01T12:11:49.396Z', date: 'Nov 1, 2026, 6:11 AM CT', title: 'A brick stable behind 1712 Prairie', kind: 'feature',
+    items: [
+      'The alley behind 1712 Prairie now has its two-storey brick stable: 12 m along the alley and 7.6 m deep, with a fire wall on the lot line to the north and a window pair at the middle of its alley wall. Its outline, storeys, brick and window place come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas draws the same stable, so it stood through 1904. The doors, loft hatch, other windows and roof come from the shared coach-house kit and are reconstructed.',
+    ] },
   { v: 2529, ts: '2026-11-01T11:02:33.663Z', date: 'Nov 1, 2026, 5:02 AM CT', title: 'Rounded bay-window caps no longer vanish when seen from above', kind: 'fix',
     items: [
       'Ten shallow, rounded bay-window caps on eight Prairie Avenue houses (1619, 1621, 1637, 1721, 1801, 1808, 1828 and 1905) were built inside out. From above they disappeared, leaving the bay open to the sky. Each now shows its roof from every side. From the street they look the same as before, and every picture these houses are checked against still matches.',
