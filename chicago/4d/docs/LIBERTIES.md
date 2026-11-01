@@ -24321,8 +24321,8 @@ sheet's chimney breast; the rainwater; the rear ranges' storeys, windows and fla
 gates and the front walk (K14's flags, width and wear) and the cinder service walk.
 **What is not built.** The sheet's stone wing on the south flank's rear half (u 0.3-8.9, 2.05 m out),
 which K01's rear wings and pavilions cannot carry and no picture shows; the corbelled corner turret on
-the north flank (since built by T-3290, `L-k01-1912-moulton-turret-3290`); the dormers' and gable's crockets and carving; the entrance's arched recess, its
-carved capitals and the striped awning; the ivy's undated reach: open for T-3278 and T-1900.
+the north flank (since built by T-3290, `L-k01-1912-moulton-turret-3290`); the dormers' and gable's crockets and carving; the entrance's arched recess (since built by T-3292,
+`L-k01-1912-moulton-entrance-1900`), its carved capitals and the striped awning; the ivy's undated reach: open for T-3278 and T-1900.
 **How to resolve:** T-3278 solves the vignette's and the 1800-1900 elevation drawing's cameras beside
 the photograph's and builds what they show; T-1900 brings every 1912 match record to `matches`.
 **Covers:** `moulton_lowden_house_1912_prairie.as_mapped_1904.form.wall_thickness_front_m`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.wall_thickness_side_m`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.service_wall_brick`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.roof_pitch_deg`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.stair_tread_m`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.side_bays`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.rear_bays`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.rainwater`, `moulton_lowden_house_1912_prairie.as_mapped_1904.form.yard`
@@ -24360,6 +24360,33 @@ up to the cornice; T-1900 brings every 1912 match record to `matches`.
 **Ticket:** T-3290 (piece 1 of T-3290).
 **Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-3290).
+
+### L-k01-1912-moulton-entrance-1900 — 1912 Prairie's arched entrance and round-headed south pair, built from its pictures
+
+**Decision:** the principal floor's two arched openings the photograph, the 1883 plate and the c. 1914
+elevations drawing all show (T-3292, piece 1 of T-1900) are built round-headed. The door in the north
+corner block stands in a deep round-arched recess (K07 `double_door_deep_arch`): a 1.7 m arch rising
+3.4 m over the principal floor, the leaves 0.6 m back in the reveal, under a 0.3 m voussoir ring with a
+moulded inner edge and a keystone stopping at 5.65 m, under the chamber floor's belt. The south gable's
+principal pair is two round-headed lights either side of a stone mullion (K06 `sash_paired_round`), in
+place of the square-headed transomed pair.
+**What is read, not invented.** From the photograph (`chicagology_1912_prairie_exterior_photo`, rights
+check_required: forms and proportions only), through its solved camera: the door's arched head, its
+crown just over the awning (y 1200-1225 px), about 3.4 m over the principal floor and level with the
+tower's principal lights' heads; the pair's two round heads either side of a mullion (x 95-265,
+y 1290-1545 px). The 1883 plate draws the same arched recess and pair; the elevations drawing heads both.
+**What is invented.** The arch's width (the kit's 1.7 m; the photograph's pilasters stand about 1.9 m
+apart, read across a foreshortened front and hidden behind the awning); the reveal's depth; the pair of
+panelled leaves and the radial fanlight (the recess is in shadow in the photograph and solid black in
+the plate); the voussoir ring's width and its moulding; the pair's glazing, one over one under each
+round head, where the photograph's heads look glazed as fanlights.
+**What is not built.** The enclosing arch and hood over the south pair, the carved capitals on the
+entrance's pilasters, and the striped canvas awning over the door (a seasonal fitting of undated state,
+kept off the 1904 build as T-1900's phase guard asks). All are on the match records.
+**How to resolve:** T-3294 (the last piece of T-1900) works every 1912 match record to `matches`.
+**Ticket:** T-3292 (piece 1 of T-1900).
+**Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-3292).
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
 **Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
@@ -35417,11 +35444,19 @@ them), the stacks but the south one, the deck's pitch and the coverings (the pic
 the rainwater, the sash pattern and the yard's walk; the porch's balustrade and the hood's depth; the south flank
 bay's windows and roof; the rear ranges' floors, heights, windows and decks; the one attic dormer on the south face.
 **What is not built.** The sheet's one-storey strip along the north wall's front half ('1B.'); the mansard the sheet's
-dashed line runs round the rear ranges; the vignette's arch between the porch's columns and the stoop's curved stone
-cheeks with round-capped posts at their foot; the carving the vignette's hoods and cornice suggest: open on the match
-records for T-3283.
-**How to resolve:** T-3283 works both pictures to matches and builds the rear, roof and cost views T-1908's
-acceptance asks for.
+dashed line runs round the rear ranges; the vignette's pairing of the porch's columns; the vignette's large-scroll fence panels (K11 has no
+such panel); the carving the vignette's hoods and cornice suggest: open on the match records.
+**How to resolve:** the porch's paired columns need a hood that stands on two columns at each end; the fence
+panels a K11 panel of large scrolls between posts; the corner bay's width a ruling on whether the elevation or the
+sheet's plan holds. Each is open on its match record; no ticket is filed for them (AGENTS.md rule 11).
+**Revised (T-3283, piece 3 of T-1908, 2026-11-01):** worked against both pictures. The porch is widened to the
+elevation's 4.9 m on a 4.8 m stoop and turns a round arch between its columns (the vignette's); the stoop's cheeks
+sweep down and out to capped newels at the walk (the vignette's round-capped posts); the chamber storey leaves the
+door's column blind, the elevation's plain panel over the entrance; the chamber lights are 3.2 m from a 0.1 m sill,
+the tallest K09's hood allows under K10's frieze (the corner bay's 3.1 m from 0.2 m, heads level, the clearance
+K08 keeps over a storey's floor). These are read off the pictures (inferred) and add nothing to the
+invented list above. Front, oblique, rear and roof views with their costs, in the published app at 1280x800 and
+390x780: `docs/RESEARCH/k01-1923-1945-views-3283/`.
 **Covers:** `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_front_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_side_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.service_wall_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_pitch_deg`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_covering`, `kellogg_house_1923_prairie.as_mapped_1904.form.stair_tread_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.side_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.north_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.rear_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.chimneys`, `kellogg_house_1923_prairie.as_mapped_1904.form.rainwater`, `kellogg_house_1923_prairie.as_mapped_1904.form.window_kit`, `kellogg_house_1923_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3282 (piece 2 of T-1908).
 **Review:** `docs/RESEARCH/photo-match/kellogg_house_1923_prairie/`.
@@ -38268,6 +38303,16 @@ The rear, the plan's stair block and service range, stays the draft's.
 **How to resolve:** a camera for no. 16554 fitted to the house itself (its corners, the porte-cochere's arches, the flank's stacks) reads the rear lights' and dormers' places together; a fourth stack the print shows rising behind the rear face (x 513-522 px) is read with them.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).
+
+### L-pullman-1729-rear-step-1881 — 1729 Prairie's rear (east) wall stepped: its north section standing out under its own mansard, off Taylor's no. 16554; the step's depth reconstructed
+
+**Decision:** the owner, on 2026-10-30, on Taylor's no. 16554: "the whole back of the pullman house needs to be worked, stepped". The rear wall was one flat face under one mansard. Its north section, from the north corner to v 11.48, now stands out of it as a K08 projection (`bays`, `p_rear`) under its own mansard and cornice, with two round-headed lights a storey and a dormer over each; the light and the dormer the build had at v 10.93 are taken off.
+**What is read, not invented.** Taylor's no. 16554 through a camera re-anchored into the house's own frame (`data/reference_views/pullman_house_1729_prairie/taylor_16554_from_south.json`; the house's scale and offset set by its two 18th Street corners): the rear face in two sections, the south one (x 432-477 px) with one light a storey and one dormer, the north one (x 495-560) with two lights a storey (x about 512 and 545, v 7.7 and 2.9) and two dormers; between them a lit, banded strip under a hip in the mansard (x 477-495, v about 12.3-10.0). Lit as the 18th Street face is, it faces south, so it is the north section's south return; the raised terrace stands in the angle.
+**What is invented.** The step's depth, 0.9 m: at the scale the 18th Street face's corners give the camera, the strip's 18 px are the return (11 px at 0.9 m) and the face of the 0.9 m banded pilaster at the section's corner (7 px); 0.6 m draws it 14 px and 1.2 m 22 px, and the corners alone hold 0.5-1.8 m. Also invented: the step's place at v 11.48 (set 0.15 m short of the terrace's north end; the print reads 10.0-12.3), the lights' places set symmetric on the section (v 8.04 and 3.44, the print's 7.7 and 2.9), their round heads and sizes (the flank's), the banded pilasters at the section's corners, and its dormers' size (the rear dormer's).
+**How to resolve:** a camera for no. 16554 fitted to the house alone, free in scale, fixes the return's depth; the 1911 sheet's east line, read at full resolution, may show a step of over about 0.5 m.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
 
 ### L-k01-1919-field-jr-3279 — 1919 Prairie refined from the district draft to a K01 brick house with a bowed front, a round tower and tall stacks, read off the 1912 and 1913 Gatlin Institute plates

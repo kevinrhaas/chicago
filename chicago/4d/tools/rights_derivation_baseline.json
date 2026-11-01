@@ -2729,6 +2729,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.front_bays_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "kellogg_house_1923_prairie/as_mapped_1904/form.mansard": {
       "kind": "structure",
       "blocked_sources": [
@@ -2759,6 +2767,14 @@
         "glessner_blog_2011_prairie_1800_1900_elevations"
       ],
       "sole_support": true,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
       "confidence": "inferred"
     },
     "kellogg_house_1923_prairie/as_mapped_1904/form.storey_heights_m": {

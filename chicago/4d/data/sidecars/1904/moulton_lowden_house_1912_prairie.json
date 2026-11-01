@@ -443,7 +443,7 @@
     "entrance_kit": {
       "value": {
         "k01.opening.door_leaf": {
-          "variant": "k07.entrance.panel_door_stoop",
+          "variant": "k07.entrance.double_door_deep_arch",
           "front_yard_m": 7.69,
           "balustrade": {
             "height_m": 0.9,
@@ -501,6 +501,29 @@
                 1.0
               ]
             ]
+          },
+          "opening_m": [
+            1.7,
+            3.4
+          ],
+          "reveal_depth_m": 0.6,
+          "arch": {
+            "ring_m": 0.3,
+            "keystone_top_m": 5.65,
+            "keystone_m": [
+              0.3,
+              0.4
+            ],
+            "moulding": {
+              "steps_m": [
+                0.08,
+                0.08
+              ],
+              "proud_m": [
+                0.06,
+                0.03
+              ]
+            }
           }
         }
       },
@@ -509,7 +532,7 @@
         "chicagology_1912_prairie_exterior_photo",
         "newberry_new_chicago_album_1883_residences"
       ],
-      "note": "The door at the stoop's head in the north corner block, in the photograph and the vignette; the stoop's solid stone cheek walls end in block newels at the foot. The arched recess, its carved capitals and the striped awning are T-3278's."
+      "note": "The door at the stoop's head in the north corner block, in the photograph and the vignette; the stoop's solid stone cheek walls end in block newels at the foot. T-1900: the door stands in a deep round-arched recess, as the photograph (x 720-890, y 1195-1545 px, the arch's crown just over the awning at y 1205-1225 px, about 3.4 m over the principal floor through the solved camera) and the 1883 plate draw it, and as the c. 1914 elevations drawing heads it: a pair of panelled leaves 0.6 m back in a 1.7 m arch, under a 0.3 m voussoir ring with a moulded edge and a keystone that stops under the chamber floor's belt. The mouth's width is the kit's (the photograph's pilasters stand about 1.9 m apart, read across a foreshortened front); the leaves, the reveal's depth and the moulding are reconstructed, in L-k01-1912-moulton-entrance-1900. The carved capitals on the pilasters either side, and the striped canvas awning (a seasonal fitting, kept off the 1904 build), are not built."
     },
     "bays": {
       "value": [
@@ -606,20 +629,14 @@
               "height_m": 6.15,
               "windows": [
                 {
-                  "opening": "k06.opening.casement_pair_transom_plate",
+                  "opening": "k06.opening.sash_paired_round",
                   "clear_width_m": 1.7,
                   "clear_height_m": 2.9,
                   "sill_m": 2.6,
                   "at": [
                     0.5
                   ],
-                  "why_not_ordinary": "the gable's paired round-headed lights under one arch in the photograph and the vignette",
-                  "surround": {
-                    "band_m": 0.2,
-                    "proud_m": 0.04,
-                    "head_m": 0.2,
-                    "head_proud_m": 0.08
-                  },
+                  "why_not_ordinary": "the gable's principal pair in the photograph (x 95-265, y 1290-1545 px) and the 1883 plate: two lights, each under its own round head glazed as a fanlight over a one-over-one sash, either side of a stone mullion, under one arch (T-1900: built round-headed; the enclosing arch over the pair is not built, a remaining difference on both match records)",
                   "recess_m": 0.33
                 }
               ]

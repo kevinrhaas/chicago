@@ -2,7 +2,7 @@
   "structure_id": "moulton_lowden_house_1912_prairie",
   "view": "album_1883",
   "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ce45eb3f1ebd29fc40700e4e719a1c1774c51d639594f627164051414da17b60",
+  "glb_sha256": "c471eb5bb0ec58a2590fea5f36d6d1600f853f132488950bc859a78ad93a0430",
   "camera_sha256": "d42ede24e6ae28edde7a487e1208c12195fd9938583f98011e33119bfccce2d5",
   "photo_sha256": "8479c93215df5e498fcfa87e9cc4829a43aab228919383ac1d358845352981d9",
   "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/album_1883-side-by-side.jpg",
@@ -21,7 +21,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the south gable: drawn as a tall stone wall gable rising through the roof with crockets, pinnacles and a finial, over a chamber pair and the arched pair of the principal floor (two round heads with colonnettes under one arch); built a low gable at the eave over square-headed pairs",
+      "what": "the south gable: drawn as a tall stone wall gable rising through the roof with crockets, pinnacles and a finial (T-3293), over a chamber pair and the arched pair of the principal floor, two round heads with colonnettes under one arch; built a low gable at the eave, its principal pair now round-headed (T-3292) without the enclosing arch (T-3294)",
       "status": "open"
     },
     {
@@ -33,8 +33,8 @@
       "status": "open"
     },
     {
-      "what": "the entrance: the plate's door stands in a deep arched recess between carved capitals; built a flat-headed door at the stoop's head",
-      "status": "open"
+      "what": "the entrance: the door now stands in a deep round-arched recess under a moulded voussoir ring and keystone (T-3292), as the plate draws it; the plate's carved capitals either side are not built (T-3294, on the photograph's record)",
+      "status": "fixed"
     },
     {
       "what": "the corbelled corner turret at the north flank's front end (x 350-372, y 150-310 px of the cut): built (T-3290) from the photograph, a round of one storey over the attic belt under a slated cone, which the plate's camera puts behind the north stack; the plate draws it taller, two stages corbelled out from the chamber floor with a pendant under the corbel, where the photograph (chicagology_photo), thirty years later and from the same place, shows one stage rising off the attic belt: the pictures disagree, so within tolerance (T-3153), and the photograph's turret is built",

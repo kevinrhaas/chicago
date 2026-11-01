@@ -92,9 +92,10 @@ lot 3's stable (1712's) as columns 346.4-369.8, its published reading.
 closed, every opening cut through. The master is 123.6 KB and the web derivative 30.7 KB, 1,620 triangles (the
 draft's seven blocks were 1,436).
 
-`lay_prairie_1904_street_furniture.py`, re-run with the baked model tracked, found the wire from the alley's pole
-#05 to #06 running through the stable's party wall 2.3 m along, and stepped both poles 1.0 m further into the alley
-(insets 0.9 to 1.9 m); no other pole moves.
+`lay_prairie_1904_street_furniture.py --check`, with the baked model tracked: every pole, crossarm and wire of the
+alley clears the stable and its range, and no pole moves. (Run before the new GLB was tracked, the tool walls the
+building to 15 m as it does any model git does not carry, and moves poles #05 and #06 into the alley; that reading
+was wrong and is not committed.)
 
 ## In the app
 
