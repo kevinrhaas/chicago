@@ -9,6 +9,17 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 
 const REACH = { full: 100, balanced: 65, light: 0 };
+
+/** T-3300: with `loadWithin` set, a vehicle's GLB is fetched only once the camera
+ * comes within its tier's REACH plus that many metres, not at boot. The 1835 boot
+ * fetched all three wagon models (2.0 MB on the wire) for stands 204-307 m from
+ * where a first visitor stands, every one beyond the 100 m it is drawn within. The
+ * yard's own legacy vehicle keeps the stand until the parked model arrives — the
+ * same fallback a failed load and the Light tier already use. Unset, every row
+ * still loads at creation, as the Brougham LOD gate expects.
+ */
+const horizontalDistance = (camera, row) => Math.hypot(
+  camera.position.x - row.at_local_enu_m[0], -camera.position.z - row.at_local_enu_m[1]);
 const yawOf = (bearing) => Math.PI - bearing * Math.PI / 180;
 
 /** Candidate wheel-ring screen-size estimate, not visual/photographic acceptance.
@@ -141,16 +152,24 @@ function parkTongue(root, row, terrain, base) {
 
 export async function createParkedTransport({ dataBase, sceneId, terrain, confidence,
   detail = 'full', problems = [], hostMissing = () => false, groundHeight = null,
-  getDrawingBufferHeight = () => null } = {}) {
+  getDrawingBufferHeight = () => null, loadWithin = null } = {}) {
   const group = new THREE.Group(); group.name = 'parked-transport';
   const instances = [], assets = new Map(), replacementIds = new Set();
   let tier = detail, fallback = () => {}, lastCamera = null, disposed = false, loading = null;
   const ray = new THREE.Raycaster();
-  const out = { group, instances, replacementIds, records: [],
+  const deferred = Number.isFinite(loadWithin) && loadWithin >= 0;
+  const requested = new Set(), finished = new Set();
+  const out = { group, instances, replacementIds, records: [], requested,
+    // Vehicles asked for and not yet placed (or refused): a scripted view waits on 0.
+    get pending() { return requested.size - finished.size; },
     setFallback(callback) { fallback = callback; },
     update(camera) {
       if (disposed) return;
       lastCamera = camera;
+      if (deferred && (REACH[tier] ?? REACH.full) > 0) {
+        const within = (REACH[tier] ?? REACH.full) + loadWithin;
+        void load(row => horizontalDistance(camera, row) < within);
+      }
       for (const instance of instances) {
         const visible = (REACH[tier] ?? REACH.full) > 0
           && camera.position.distanceTo(instance.group.position) < REACH[tier];
@@ -168,7 +187,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     },
     async setTier(next) {
       tier = next;
-      if (next !== 'light') await load();
+      if (next !== 'light' && !deferred) await load();
       if (lastCamera) out.update(lastCamera);
     },
     pickAt(ndc, camera) {
@@ -205,109 +224,116 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   const rows = (record.scenes[String(sceneId)] ?? []).filter(row => !hostMissing(row.belongs_to));
   for (const row of rows) if (row.replaces) replacementIds.add(row.replaces);
   out.records = rows;
-  async function load() {
-    if (loading || disposed) return loading;
-    loading = (async () => {
-      for (const row of rows) {
-        if (disposed) break;
-        const spec = record.models[row.model];
-        try {
-          let pending = assets.get(row.model);
-          if (!pending) {
-            pending = row.model === 'studebaker_brougham_1893' ? loadBrougham(spec.file)
-              : new GLTFLoader().loadAsync(new URL(spec.file, new URL('../', import.meta.url)).href);
-            assets.set(row.model, pending);
-          }
-          const asset = await pending;
-          if (disposed) break;
-          const root = asset.scene.clone(true);
-          if (spec.support_file) {
-            const supportKey = `${row.model}:support`;
-            let support = assets.get(supportKey);
-            if (!support) {
-              support = new GLTFLoader().loadAsync(new URL(spec.support_file, new URL('../', import.meta.url)).href);
-              assets.set(supportKey, support);
-            }
-            const supportAsset = await support;
-            if (disposed) break;
-            root.add(supportAsset.scene.clone(true));
-          }
-          root.updateMatrixWorld(true);
-          const yaw = yawOf(row.bearing_deg), sin = Math.sin(yaw), cos = Math.cos(yaw);
-          const heights = spec.wheel_contacts_m.map(([x, z]) => heightAt(
-            row.at_local_enu_m[0] + cos * x + sin * z,
-            row.at_local_enu_m[1] - (-sin * x + cos * z)));
-          if (!heights.every(Number.isFinite)) throw Error('No ground under all four wheels');
-          let base = Math.max(...heights);
-          let wheelGap = base - Math.min(...heights);
-          if (wheelGap > 0.03) throw Error(`Stand exceeds 30mm wheel-plane variation (${wheelGap})`);
-          // A pre-authored static pole shoe is not a hinge. Qualify its actual support
-          // points on the SAME rendered surface provider as the four wheel contacts.
-          let staticSupport = null;
-          if (spec.static_support_contacts_m) {
-            const contacts = spec.static_support_contacts_m;
-            if (!Array.isArray(contacts) || !contacts.length || contacts.some(p => !Array.isArray(p) || p.length !== 3 || !p.every(Number.isFinite))) throw Error('Invalid static support contacts');
-            const supportGrounds = contacts.map(([x, y, z]) => heightAt(
-              row.at_local_enu_m[0] + cos * x + sin * z,
-              row.at_local_enu_m[1] - (-sin * x + cos * z)));
-            // Missing carriageway is null; reject BEFORE subtraction can coerce it to zero.
-            if (!supportGrounds.every(Number.isFinite)) throw Error('No rendered ground under all static support contacts');
-            if (row.model === 'studebaker_brougham_1893') {
-              // This rigid parked model also rests on its fixed pole shoe. Solve
-              // the least vertical base clearing all four declared shoe corners
-              // and wheels, then retain the SAME wheel and shoe gap limits.
-              base = Math.max(base, ...contacts.map((point, index) => supportGrounds[index] - point[1]));
-              wheelGap = base - Math.min(...heights);
-              if (wheelGap > 0.03) throw Error(`Stand exceeds 30mm wheel-plane variation (${wheelGap})`);
-            }
-            const gaps = contacts.map((point, index) => base + point[1] - supportGrounds[index]);
-            if (!gaps.every(Number.isFinite) || Math.min(...gaps) < -0.001 || Math.max(...gaps) > 0.03) throw Error('Static support exceeds 1mm penetration/30mm gap limits');
-            staticSupport = { minimum_gap_m: Math.min(...gaps), maximum_gap_m: Math.max(...gaps) };
-          }
-          const parking = parkTongue(root, row, terrain, base);
-          let midAsset = null;
-          if (row.model === 'studebaker_brougham_1893'
-            && spec.delivery_lods?.runtime_distance_selection_enabled) {
-            try {
-              const key = `${row.model}:mid`;
-              let pendingMid = assets.get(key);
-              if (!pendingMid) {
-                pendingMid = loadBrougham(spec.delivery_lods.mid);
-                assets.set(key, pendingMid);
-              }
-              midAsset = await pendingMid;
-              if (disposed) break;
-            } catch (error) { problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`); }
-          }
-          const near = staticBatches(root, confidence);
-          let model = near, lod = null;
-          if (midAsset) {
-            try {
-              const mid = staticBatches(midAsset.scene.clone(true), confidence);
-              lod = new THREE.LOD();
-              // Selection happens with the same camera as reach/picking. Avoid
-              // the renderer independently reselecting during shadow passes.
-              lod.autoUpdate = false;
-              lod.addLevel(near, 0);
-              lod.addLevel(mid, 24, 0.05);
-              near.visible = true; mid.visible = false;
-              model = lod;
-            } catch (error) { problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`); }
-          }
-          model.name = row.id; model.userData.parkedId = row.id;
-          model.position.set(row.at_local_enu_m[0], base, -row.at_local_enu_m[1]);
-          model.rotation.y = yaw;
-          model.visible = false;
-          group.add(model);
-          instances.push({ row, group: model, card: card(row, spec), parking,
-            wheel_clearance_m: wheelGap, static_support: staticSupport, draw_batches: near.children.length,
-            ...(lod ? { lod, active_lod: 'near', active_triangles: 45338 } : {}) });
-        } catch (error) { problems.push(`parked transport ${row.id}: ${error.message}; ${row.replaces ? 'existing yard vehicle retained' : 'vehicle not shown'}`); }
-      }
-      if (lastCamera) out.update(lastCamera);
-    })();
+  // Each row is requested once; a later call loads only rows not yet asked for,
+  // after whatever is already in flight, so the order and the caches are as before.
+  function load(want = () => true) {
+    if (disposed) return loading;
+    const batch = rows.filter(row => !requested.has(row.id) && want(row));
+    if (!batch.length) return loading;
+    for (const row of batch) requested.add(row.id);
+    loading = (loading ?? Promise.resolve()).then(() => loadRows(batch))
+      .finally(() => { for (const row of batch) finished.add(row.id); });
     return loading;
   }
-  if (tier !== 'light') await load();
+  async function loadRows(batch) {
+    for (const row of batch) {
+      if (disposed) break;
+      const spec = record.models[row.model];
+      try {
+        let pending = assets.get(row.model);
+        if (!pending) {
+          pending = row.model === 'studebaker_brougham_1893' ? loadBrougham(spec.file)
+            : new GLTFLoader().loadAsync(new URL(spec.file, new URL('../', import.meta.url)).href);
+          assets.set(row.model, pending);
+        }
+        const asset = await pending;
+        if (disposed) break;
+        const root = asset.scene.clone(true);
+        if (spec.support_file) {
+          const supportKey = `${row.model}:support`;
+          let support = assets.get(supportKey);
+          if (!support) {
+            support = new GLTFLoader().loadAsync(new URL(spec.support_file, new URL('../', import.meta.url)).href);
+            assets.set(supportKey, support);
+          }
+          const supportAsset = await support;
+          if (disposed) break;
+          root.add(supportAsset.scene.clone(true));
+        }
+        root.updateMatrixWorld(true);
+        const yaw = yawOf(row.bearing_deg), sin = Math.sin(yaw), cos = Math.cos(yaw);
+        const heights = spec.wheel_contacts_m.map(([x, z]) => heightAt(
+          row.at_local_enu_m[0] + cos * x + sin * z,
+          row.at_local_enu_m[1] - (-sin * x + cos * z)));
+        if (!heights.every(Number.isFinite)) throw Error('No ground under all four wheels');
+        let base = Math.max(...heights);
+        let wheelGap = base - Math.min(...heights);
+        if (wheelGap > 0.03) throw Error(`Stand exceeds 30mm wheel-plane variation (${wheelGap})`);
+        // A pre-authored static pole shoe is not a hinge. Qualify its actual support
+        // points on the SAME rendered surface provider as the four wheel contacts.
+        let staticSupport = null;
+        if (spec.static_support_contacts_m) {
+          const contacts = spec.static_support_contacts_m;
+          if (!Array.isArray(contacts) || !contacts.length || contacts.some(p => !Array.isArray(p) || p.length !== 3 || !p.every(Number.isFinite))) throw Error('Invalid static support contacts');
+          const supportGrounds = contacts.map(([x, y, z]) => heightAt(
+            row.at_local_enu_m[0] + cos * x + sin * z,
+            row.at_local_enu_m[1] - (-sin * x + cos * z)));
+          // Missing carriageway is null; reject BEFORE subtraction can coerce it to zero.
+          if (!supportGrounds.every(Number.isFinite)) throw Error('No rendered ground under all static support contacts');
+          if (row.model === 'studebaker_brougham_1893') {
+            // This rigid parked model also rests on its fixed pole shoe. Solve
+            // the least vertical base clearing all four declared shoe corners
+            // and wheels, then retain the SAME wheel and shoe gap limits.
+            base = Math.max(base, ...contacts.map((point, index) => supportGrounds[index] - point[1]));
+            wheelGap = base - Math.min(...heights);
+            if (wheelGap > 0.03) throw Error(`Stand exceeds 30mm wheel-plane variation (${wheelGap})`);
+          }
+          const gaps = contacts.map((point, index) => base + point[1] - supportGrounds[index]);
+          if (!gaps.every(Number.isFinite) || Math.min(...gaps) < -0.001 || Math.max(...gaps) > 0.03) throw Error('Static support exceeds 1mm penetration/30mm gap limits');
+          staticSupport = { minimum_gap_m: Math.min(...gaps), maximum_gap_m: Math.max(...gaps) };
+        }
+        const parking = parkTongue(root, row, terrain, base);
+        let midAsset = null;
+        if (row.model === 'studebaker_brougham_1893'
+          && spec.delivery_lods?.runtime_distance_selection_enabled) {
+          try {
+            const key = `${row.model}:mid`;
+            let pendingMid = assets.get(key);
+            if (!pendingMid) {
+              pendingMid = loadBrougham(spec.delivery_lods.mid);
+              assets.set(key, pendingMid);
+            }
+            midAsset = await pendingMid;
+            if (disposed) break;
+          } catch (error) { problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`); }
+        }
+        const near = staticBatches(root, confidence);
+        let model = near, lod = null;
+        if (midAsset) {
+          try {
+            const mid = staticBatches(midAsset.scene.clone(true), confidence);
+            lod = new THREE.LOD();
+            // Selection happens with the same camera as reach/picking. Avoid
+            // the renderer independently reselecting during shadow passes.
+            lod.autoUpdate = false;
+            lod.addLevel(near, 0);
+            lod.addLevel(mid, 24, 0.05);
+            near.visible = true; mid.visible = false;
+            model = lod;
+          } catch (error) { problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`); }
+        }
+        model.name = row.id; model.userData.parkedId = row.id;
+        model.position.set(row.at_local_enu_m[0], base, -row.at_local_enu_m[1]);
+        model.rotation.y = yaw;
+        model.visible = false;
+        group.add(model);
+        instances.push({ row, group: model, card: card(row, spec), parking,
+          wheel_clearance_m: wheelGap, static_support: staticSupport, draw_batches: near.children.length,
+          ...(lod ? { lod, active_lod: 'near', active_triangles: 45338 } : {}) });
+      } catch (error) { problems.push(`parked transport ${row.id}: ${error.message}; ${row.replaces ? 'existing yard vehicle retained' : 'vehicle not shown'}`); }
+    }
+    if (lastCamera) out.update(lastCamera);
+  }
+  if (tier !== 'light' && !deferred) await load();
   return out;
 }
