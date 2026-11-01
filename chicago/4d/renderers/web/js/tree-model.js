@@ -1224,11 +1224,44 @@ function winterElm(sk, rnd) {
 
 /** The winter elm's fringe, sprout by sprout (a sprout is drawn whole or not at all, so no
  *  twig floats free of its fork), taken evenly round the crown within `budget` triangles:
- *  each twig as `segs` three-sided strokes, its forks to `depth`, held to `floor` metres. */
-const ELM_FRINGE = { near: { segs: 2, depth: 3, floor: 0 }, mid: { segs: 1, depth: 1, floor: 0.010 },
+ *  each twig as `segs` three-sided strokes, its forks to `depth`, held to `floor` metres.
+ *
+ *  T-1934 — `spike`: at the mid ring (10-44 m, where most of Taylor's 16554's parkway elms
+ *  stand) a twig is under a pixel wide, and the stroke's six triangles bought it nothing a
+ *  pyramid's three do not: so there each twig is one three-sided spike from its foot to its
+ *  tip, its foot `spike` metres across at least (twice the stroke's floor, so a tapering
+ *  twig covers about what the even stroke did), and the summer leaf's budget draws twice
+ *  the twigs. The crowns at that ring had a few dozen strokes a tree against the print's
+ *  hundreds. */
+const ELM_FRINGE = { near: { segs: 2, depth: 3, floor: 0 }, mid: { segs: 1, depth: 1, floor: 0.010, spike: 0.020 },
   far: { segs: 1, depth: 0, floor: 0.04 } };
 
-function drawFringe(buf, groups, budget, { segs, depth, floor }, barkTile, tint, flexOf, rnd) {
+/** T-1934 — one twig as a three-sided pyramid: a ring of three at its foot (`r` across at
+ *  least its own radius) and its tip, each face lit by its own outward normal. Three
+ *  triangles where `tube` spends six on one segment. */
+function spike(buf, b, r, barkTile, tint, flexOf) {
+  const a = b.pts[0];
+  const tip = b.pts[b.pts.length - 1];
+  const t = norm(sub(tip, a));
+  const u = norm(cross(t, Math.abs(t[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0]));
+  const w = cross(t, u);
+  const at = (k) => add(mul(u, Math.cos((k / 3) * Math.PI * 2)), mul(w, Math.sin((k / 3) * Math.PI * 2)));
+  const ao = (p, nrm) => 0.72 + 0.28 * clamp01((p[1] + 1.5) / 6) * (0.80 + 0.20 * (nrm[1] * 0.5 + 0.5));
+  const base = buf.count;
+  for (let s = 0; s < 3; s++) {
+    const nrm = at(s);
+    const p = add(a, mul(nrm, r));
+    buf.vert(p, nrm, mul(tint, ao(p, nrm)), atlasUV(BARK_GRID, barkTile, s / 3, 0), flexOf(p));
+  }
+  for (let s = 0; s < 3; s++) {
+    // The tip once per face, carrying that face's normal, so the faces stay apart in the light.
+    const nrm = at(s + 0.5);
+    buf.vert(tip, nrm, mul(tint, ao(tip, nrm)), atlasUV(BARK_GRID, barkTile, (s + 0.5) / 3, 1), flexOf(tip));
+  }
+  for (let s = 0; s < 3; s++) buf.tri(base + s, base + ((s + 1) % 3), base + 3 + s);
+}
+
+function drawFringe(buf, groups, budget, { segs, depth, floor, spike: spikeR = 0 }, barkTile, tint, flexOf, rnd) {
   const order = groups.map((g, i) => i);
   for (let i = order.length - 1; i > 0; i--) {
     const j = Math.floor(rnd() * (i + 1));
@@ -1236,9 +1269,13 @@ function drawFringe(buf, groups, budget, { segs, depth, floor }, barkTile, tint,
   }
   for (const gi of order) {
     const twigs = groups[gi].filter((b) => b.level <= depth);
-    const cost = twigs.reduce((c, b) => c + Math.min(segs, b.pts.length - 1) * 6, 0);
+    const cost = spikeR ? twigs.length * 3 : twigs.reduce((c, b) => c + Math.min(segs, b.pts.length - 1) * 6, 0);
     if (cost > budget) continue;
     for (const b of twigs) {
+      if (spikeR) {
+        spike(buf, b, Math.max(spikeR, b.rad[0]), barkTile, tint, flexOf);
+        continue;
+      }
       const n = Math.min(segs, b.pts.length - 1);
       const pts = [];
       const rad = [];
