@@ -407,7 +407,13 @@
                 0.5
               ],
               "capital_m": 0.45,
-              "respond_m": 0.2
+              "respond_m": 0.2,
+              "at_v_m": [
+                6.8,
+                7.6,
+                10.4,
+                11.2
+              ]
             },
             "railing_fabric": "stone",
             "fabric": "stone",
@@ -416,7 +422,10 @@
                 "front"
               ],
               "spring_m": 5.0,
-              "rise_m": 0.8
+              "rise_m": 0.8,
+              "over": [
+                1
+              ]
             }
           },
           "cheek_form": {
@@ -451,7 +460,7 @@
         "glessner_blog_2011_prairie_1800_1900_elevations",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The vignette's porch at the stoop's head: columns standing before the door under a round arch, a balustrade over it, and the elevation's broad framed entrance, about 4.9 m across, in the principal storey. Built as K01's columned door hood in stone with a stone balustrade on its top, its soffit 3.6 m over the principal floor; T-3283 widens it from the stoop's former 3.4 m to the elevation's 4.9 m and turns a round arch (0.8 m rise, springing 2.5 m over the porch floor) between its columns on the front face (hood.arches, T-3210's), as the vignette draws it. The stoop's cheeks are K07's swept cheeks (cheek_form swept, T-3134's), sweeping down and out 0.6 m each side to a newel at the walk under a cap and a round knob, the vignette's stone cheek walls running down to round-capped posts. The vignette's columns are paired; the hood's are single (open in its match record). The front yard to the street line is the 1904 parcel's (street_u 27.715 in the draft's frame, the front at 18.25 m)."
+      "note": "The vignette's porch at the stoop's head: columns standing before the door under a round arch, a balustrade over it, and the elevation's broad framed entrance, about 4.9 m across, in the principal storey. Built as K01's columned door hood in stone with a stone balustrade on its top, its soffit 3.6 m over the principal floor; T-3283 widens it from the stoop's former 3.4 m to the elevation's 4.9 m and turns a round arch (0.8 m rise, springing 2.5 m over the porch floor) between its columns on the front face (hood.arches, T-3210's), as the vignette draws it. The stoop's cheeks are K07's swept cheeks (cheek_form swept, T-3134's), sweeping down and out 0.6 m each side to a newel at the walk under a cap and a round knob, the vignette's stone cheek walls running down to round-capped posts. The vignette's columns are paired, two shafts to a side on the landing either side of the door (the panel's x 77-97 and 140-160 px, each pair about 20 px or 1.3 m across at the front's 15.7 px a metre, the door's axis between them); T-3283 stands them so (columns.at_v_m, T-3159's): a pair at each end of the porch, 0.8 m between the shafts' centres, and the round arch turned only over the wide span between the pairs (arches.over), the spandrel left whole over each pair. The pairs' spacing is this record's, bounded by the sketch's scale. The front yard to the street line is the 1904 parcel's (street_u 27.715 in the draft's frame, the front at 18.25 m)."
     },
     "boundary": {
       "value": {
@@ -460,7 +469,7 @@
           -1.041,
           29.521
         ],
-        "fence": "k11.fence.scroll_band",
+        "fence": "k11.fence.scroll_panel",
         "entrance_gate": {
           "variant": "k11.gate.walk_gate_on_piers",
           "leaves": 2,
@@ -470,13 +479,14 @@
         "posts": {
           "section_m": 0.12,
           "height_m": 1.55
-        }
+        },
+        "scroll_pitch_m": 0.4
       },
       "confidence": "inferred",
       "sources": [
         "chicago_tribune_1898_01_09_residence_district"
       ],
-      "note": "The vignette's cast-iron fence either side of the walk, panels of scrolls between posts, as K11's scroll-band fence (the nearest K11 has); its stone posts with rounded caps at the stoop's foot are the gate's piers here. The line stands 9.25 m before the front, just inside the parcel's street line; the lot's sides are the parcel's (data/street_grid/1904.json prairie_1923), 2.281 m north of the draft's frame and 28.281 m south of it, moved 1.24 m into this frame."
+      "note": "The vignette's cast-iron fence either side of the walk: panels of large S-scrolls between posts with ball finials, no pickets. T-3283 builds it as K11's scroll-panel fence (k11.fence.scroll_panel): the kit's curb, posts and rails, the panel parted by plain bars into bays of at most 0.4 m and a tall S of the kit's 14 mm scroll bar in each, every other one mirrored. The bay is read off the panel: the posts on the right of the walk stand about 23 px apart where the fence, about 10.75 m from the eye against the front's 20 m, is drawn at about 29 px a metre, so about 0.8 m, and the sketch fills each such span with two scrolls facing each other; the scrolls' turn, their bar and the rails' heights are the kit's, RECONSTRUCTED. (T-3282 had laid K11's scroll-band fence, pickets under a band of C-scrolls, the nearest K11 then had.) its stone posts with rounded caps at the stoop's foot are the gate's piers here. The line stands 9.25 m before the front, just inside the parcel's street line; the lot's sides are the parcel's (data/street_grid/1904.json prairie_1923), 2.281 m north of the draft's frame and 28.281 m south of it, moved 1.24 m into this frame."
     },
     "bays": {
       "value": [

@@ -6233,10 +6233,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             # `spring_m` off the capitals, under a spandrel wall to the soffit
             if "arches" in hd:
                 ar = hd["arches"]
-                if not {"faces", "spring_m", "rise_m"} <= set(ar) <= {"faces", "spring_m", "rise_m"} or \
+                if not {"faces", "spring_m", "rise_m"} <= set(ar) <= {"faces", "spring_m", "rise_m", "over"} or \
                         not ar["faces"] or not set(ar["faces"]) <= {"front", "left", "right"} or \
                         len(set(ar["faces"])) != len(ar["faces"]):
-                    raise ParamError("entrance_kit.hood.arches takes faces (front, left, right), spring_m and rise_m")
+                    raise ParamError("entrance_kit.hood.arches takes faces (front, left, right), spring_m and "
+                                     "rise_m, and optionally over")
                 sp, ri = float(ar["spring_m"]), float(ar["rise_m"])
                 floor = float(val("principal_floor_m"))
                 if not 0.1 <= ri <= 1.5 or sp - cap < floor + ph + 0.5 or sp + ri > float(hd["soffit_m"]) - 0.05:
@@ -6244,6 +6245,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                      f"clear the columns' plinths with a shaft and stand under the soffit "
                                      f"({hd['soffit_m']} m) by 0.05 m")
                 door_kit["hood"]["arches"] = {"faces": list(ar["faces"]), "spring_m": sp, "rise_m": ri}
+                # T-3283: or only over the spans `over` names, counted from 0 between the columns
+                # in order, the spandrel left whole over the rest: a porch on PAIRED columns
+                # (1923's, the 1898 Tribune sketch) arches the wide span between its pairs, not
+                # the narrow one inside each pair
+                if "over" in ar:
+                    n_sp = len(co.get("at_v_m", (0, 0))) - 1
+                    ov = ar["over"]
+                    if "front" not in ar["faces"] or not isinstance(ov, list) or not ov or \
+                            any(not isinstance(i, int) or not 0 <= i < n_sp for i in ov) or len(set(ov)) != len(ov):
+                        raise ParamError(f"entrance_kit.hood.arches.over: distinct spans 0-{n_sp - 1} between the "
+                                         f"columns, on an arcaded front")
+                    door_kit["hood"]["arches"]["over"] = sorted(ov)
         if "centre_v_m" in hd:
             # T-1871: the porch's centre along the front, the door under it but off its axis
             off = float(hd["centre_v_m"]) - door_s
