@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2539, ts: '2026-11-01T16:03:36.114Z', date: 'Nov 1, 2026, 10:03 AM CT', title: 'Pullman\'s conservatory filled with palms behind its great arch', kind: 'improvement',
+    items: [
+      'Pullman\'s conservatory at 1800 Calumet Avenue is now planted behind its great arched glass front. Twenty more palms stand in rows across the house, rising toward the back, so the arch\'s lowest tier reads dark with fronds from side to side. The 1894 Inland Architect plate and Lowe\'s photograph both show it that way. Before, the far glass showed through between a few crowns.',
+      'Both pictures of the conservatory now match the model. The planting is a reconstruction, because no picture of the inside is known.',
+    ] },
   { v: 2538, ts: '2026-11-01T15:12:55.943Z', date: 'Nov 1, 2026, 9:12 AM CT', title: '1923 Prairie: the Kellogg house\'s porch and stoop as the 1898 sketch draws them', kind: 'feature',
     items: [
       'The Kellogg house\'s porch at 1923 Prairie Avenue now turns a round arch between its columns under its stone balustrade, and is as broad as the row drawing of the block frames it, about 4.9 m across over a wider stoop.',
