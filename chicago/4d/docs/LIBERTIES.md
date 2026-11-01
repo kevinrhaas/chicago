@@ -37636,6 +37636,30 @@ is not put back).
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 
+### L-pullman-pavilion-arch-planting-1934 — The Pullman conservatory planted across its north arch's lower register
+**Recorded:** 2026-11-01.
+
+**Decision:** both match records' last open difference (T-1934): "the north arch's lower register (its
+springing to the first transom): both pictures read it dark with planting from side to side, where the
+render's fronds stand over the sky seen through the house's far glass". Twenty more palms stand behind the
+north glass in four rows across the nave, so the fronds, not the far glass, fill the register: a low row
+2.3 m in (3.9-4.1 m to their crowns), a row 2.9 m in (4.7-5.2 m), two palms against each side wall 0.9, 3.8
+and 6.8 m in, a row in the crossing 5.6 m in (5.3-6.0 m) and a back row 10 m in (5.7-6.4 m), each crown
+rising as it stands deeper because the sight lines through the register climb as they go in. Every frond
+is kept at least 0.14 m clear of the glass and the vault. The nine palms before them are unchanged.
+**What is read, not invented.** That the register reads dark with planting from side to side in the Inland
+plate and in Lowe's print, and that the planting reaches the first transom. **What is invented.** Every
+plant: its species (all are drawn as the kit's palm), number, height, spread and place, as the nine before
+them (L-pullman-conservatory-glazing-3273, L-pullman-pavilion-arch-transoms-1934); no picture of the
+interior is known. No shaded block is put back behind the glass (the owner's "black box", 2026-10-31). In
+Lowe's print, whose camera is diagnostic only (its fit is a line of solutions from u -30 to -50), a strip
+about 1 m wide at the arch's west edge still shows the side glass, where its sight lines leave the house
+within a metre of the front; the plate, the solved camera, shows the register filled to both edges.
+**How to resolve:** a picture of the conservatory's interior, or of its north front nearer or face on.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+
 ### L-kimball-1801-cone-slate-1890 — 1801 Prairie's tower and turret cones slated in the mansard's own coursed slate
 **Recorded:** 2026-10-30.
 
