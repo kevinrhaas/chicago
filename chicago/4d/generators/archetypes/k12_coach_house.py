@@ -340,7 +340,7 @@ class Variant:
         # T-2321: the fittings are the variant's to ask for. The specimen asks for all four;
         # a named lot builds only what its own sheet leaves room for
         for part, build in (("ramp", self.ramp), ("stair", self.stair), ("lean_to", self.lean_to),
-                            ("wing", self.wing)):
+                            ("wing", self.wing), ("range", self.range_)):
             if v.get(part):
                 build()
         if v.get("workyard"):
@@ -612,6 +612,38 @@ class Variant:
         box(roof.mesh, x0 - ov, x1 + ov, yw, yw + WP["roof_m"], -D - Lw, -D, skip=("front", "back"))
         self.meta["wing"] = {"z_house": -D - Lw}
 
+    def range_(self):
+        """T-1932: a one-storey brick range carried on along the alley past the open gable
+        (1720 Prairie's, which the 1911 sheet and Robinson's 1886 plate both draw south of its
+        stable). Its alley wall continues the coach house's alley wall line, its end standing on
+        that wall's end; its yard wall's end stands on the gable's face; a closed end wall
+        between the two at the far end; a flat roof over all three, flush with the alley face,
+        its end dying into the gable and the alley wall's end, past the far end and the yard
+        wall by the overhang. Every opening on it is the variant's (walls range_alley,
+        range_yard, range_end)."""
+        d, RP, rv = self.dims, self.P["range"], self.v["range"]
+        W = d["W"]
+        if d["east"] != "gable":
+            raise ValueError(f"{self.v['id']}: a range stands only against an open gable")
+        Lr, Dr = rv["length_m"], rv["depth_m"]
+        yr = rv.get("height_m", RP["height_m"])
+        rt = self.P["wall"]["service_brick_m"]
+        if not rt < d["t"] < Dr < d["D"] - d["t"]:
+            raise ValueError(f"{self.v['id']}: a range {Dr} m deep does not stand on the gable's face")
+        x0 = W / 2
+        rect = [(0.0, 0.0), (Lr, 0.0), (Lr, yr), (0.0, yr)]
+        self.wall("range_alley", Frame((x0, 0.0, 0.0), X, Z), rect, rt, open_edges={0, 2, 3},
+                  name="range alley wall")
+        self.wall("range_yard", Frame((x0 + Lr, 0.0, -Dr), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)), rect, rt,
+                  open_edges={0, 1, 2}, name="range yard wall")
+        self.wall("range_end", Frame((x0 + Lr, 0.0, 0.0), (0.0, 0.0, -1.0), X),
+                  [(rt, 0.0), (Dr - rt, 0.0), (Dr - rt, yr), (rt, yr)], rt,
+                  open_edges=set(range(4)), name="range end wall")
+        ov = RP["overhang_m"]
+        roof = self.piece("range roof", "lean_roof", "open")
+        box(roof.mesh, x0, x0 + Lr + ov, yr, yr + RP["roof_m"], -Dr - ov, 0.0, skip=("left",))
+        self.meta["range"] = {"x": (x0, x0 + Lr), "depth_m": Dr, "height_m": yr}
+
     # -- the specimen lot --------------------------------------------------------------------
 
     def boards(self):
@@ -719,6 +751,10 @@ class Variant:
             ("carriage bay, 3 m, raking", (cs + 1.4, 1.6, 2.7), (cs, 1.7, 0.0), "raking"),
             ("party wall return and coping, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0), (-W / 2, E + 0.4, 0.2), "diffuse"),
         ]
+        if self.v.get("range"):
+            rx0, rx1 = self.meta["range"]["x"]
+            self.meta["stands"].append(("range on the alley, 6 m", ((rx0 + rx1) / 2 + 2.0, 1.6, 6.0),
+                                        ((rx0 + rx1) / 2, 1.8, -1.0), "diffuse"))
         self.meta["focus"] = [0.0, E / 2, -D / 2]
 
 
