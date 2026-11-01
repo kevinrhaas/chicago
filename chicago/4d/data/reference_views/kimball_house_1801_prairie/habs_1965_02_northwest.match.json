@@ -2,19 +2,19 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5f98350ab0badc246d67c61ed8af76ebbc3d01b37b0f75ff10938b793268c0b5",
+  "glb_sha256": "4e43237d72d7c851ed9c437a70e56649a9db2c6559f4e2e8ed32b996e3eab13e",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the east range's frontispiece over its side door (T-3110): the print's stone frontispiece between pilaster strips from grade (x 345-398 px) carries a small round-arched light filled with an ornamental grille (x 362-382, y 1045-1070, about 2.4-3.1 m), a paired light in the upper storey (x 355-385, y 940-985, about 4.7-5.9 m) and, through the eave, a coped gable between pinnacles with a finial (apex x 372, y 835, about 8.65 m); the build's range wall ran plain under its hip with two rows of reconstructed sash. Built (bays.p_door): 3.0 m wide, 0.1 m proud, the grilled round-headed light and the mullioned pair on its axis, a coped gable of pitch 1.5 between pinnacles; its lights render within about 5 px of the print's rows",
       "status": "fixed"
     },
     {
-      "what": "the frontispiece's place along the range: its axis renders at x 394 against the print's 373, about 1.15 m west, because r3b's 18th Street wall (u -8.5 to -4.6, the 1911 sheet's rectangle) holds it; the print's frontispiece straddles the sheet's junction of r3b and r2, which nothing on the print marks. A K08 bay stands on one wing's wall, so moving it onto the print's axis means re-cutting the wings or carrying a bay across a junction",
-      "status": "open"
+      "what": "the frontispiece's place along the range: its axis renders at x 394 against the print's 373, about 1.15 m west, because r3b's 18th Street wall (u -8.5 to -4.6, the 1911 sheet's rectangle) holds it; the print's frontispiece straddles the sheet's junction of r3b and r2, which nothing on the print marks. A K08 bay stands on one wing's wall, so moving it onto the print's axis means re-cutting the wings or carrying a bay across a junction. Fixed (T-1890): bays.p_door stands at s 0.65 on r3b's 18th Street wall (it stood at s 1.8), its axis 1.15 m east, and runs 0.85 m past the wall's east end onto r2's (past_end: a shallow projection's face carried onto the next wing's wall where that wing stands on the same wall line, floors and wall top, the wall behind it cut so nothing doubles); its door, grilled light and paired light stay on r3b's wall. Re-rendered, the door's axis falls at about x 371 against the print's 373-375 (it rendered at 394), and its gable's west pinnacle now stands close by the second frontispiece's east one, as the print's do (L-kimball-1801-frontispiece-junction-1890)",
+      "status": "fixed"
     },
     {
       "what": "the side door under the frontispiece's round-arched light: a narrow door at the walk (x 368-382, y 1092-1170, its head about 1.8 m) with a glazed panel; the build has none there (no K01 wing or K08 bay cuts a door)",

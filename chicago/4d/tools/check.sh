@@ -203,6 +203,8 @@ step "The drawn cells of one structure mesh join into one draw, drawing the same
   node tools/test_batch_coalesce.mjs
 selftest "Directional shadow culling retains toward-view and filter-near casters, preserves colour lists, and fails open on unknown light, camera or map state" \
   node tools/test_batch_shadow_cull.mjs
+step "A far structure piece casts from its clustered shadow twin only where the twin's edge moves under a pixel, never pools two confidences, and is put back after the sun's pass (T-3286)" \
+  node tools/test_far_shadow.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
 step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
@@ -1139,6 +1141,13 @@ step "a K01 mansard deck's cross roof may end under a slated hood, its finial on
 # at the sides' own pitch builds K05's hip exactly; a wing without either as before.
 step "a K01 wing's hip may pitch its ends steeper, and a wing may carry its own stacks (T-1890)" \
   python3 tools/test_k01_wing_stack.py
+
+# T-1890. 1801 Prairie's east range frontispiece (HABS photograph 2) straddles the 1911 sheet's
+# junction of two ranges on one wall line: a wing's shallow projection may run past its wall's
+# end onto the next wing's wall (`past_end`), that wall cut behind it; refused on a deep bay,
+# onto a wing on other floors, past 1.5 m, or near the other wall's lights and bays.
+step "a wing's shallow projection may run past its wall's end onto the next wing's wall (T-1890)" \
+  python3 tools/test_k01_past_end.py
 
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared

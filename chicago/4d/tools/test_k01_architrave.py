@@ -7,10 +7,9 @@ with an impost block at the springing, and the principal storey's under a keysto
 `architrave` key on a `street_front_windows` entry builds them. This holds the committed
 record's assembly to that:
 
-  * the six named lights the front shows are framed, the principal storey's three keyed, the
-    second storey's not (T-1881, 2026-10-31: the north bay's pair are back on the front and the
-    light that stood behind the forward block is gone; the block's own lights are K08 lights,
-    which this key does not reach);
+  * the three named lights left on the front's own wall are framed, the principal storey's
+    keyed, the second storey's not (T-1881, 2026-11-01: the north and south bays' lights stand on
+    the two pavilions either side of the stepped-in centre, as K08 lights this key does not reach);
   * each architrave's band springs where its light's round head springs and wraps the light,
     and stands clear of the front's rusticated piers (street_front_pavilions);
   * refused: voussoirs and an architrave on one light, an architrave over a flat head, a band
@@ -64,7 +63,7 @@ st, phase = record()
 wins = phase["form"]["street_front_windows"]["value"]["windows"]
 p = KP.from_phase(phase, st)
 arcs = p.street_dress.get("architraves", ())
-check(len(arcs) == 6 and len(wins) == 6, f"all six of the Prairie front's named lights are framed ({len(arcs)})")
+check(len(arcs) == 3 and len(wins) == 3, f"all three of the front wall's named lights are framed ({len(arcs)})")
 check(not p.street_dress.get("voussoirs"), "no light on the front is still turned in voussoirs")
 keyed = sorted(a["s_m"] for a in arcs if a.get("key_m"))
 check(keyed == sorted(w["s_m"] for w in wins if w["storey"] == 0 and "architrave" in w),
@@ -72,7 +71,7 @@ check(keyed == sorted(w["s_m"] for w in wins if w["storey"] == 0 and "architrave
 check(all(a.get("impost_m") for a in arcs), "every architrave steps out in an impost at its springing")
 a = K1.build(p, st["id"])
 meta = getattr(a, "architrave_meta", [])
-check(len(meta) == 6, f"the assembly framed six lights ({len(meta)})")
+check(len(meta) == 3, f"the assembly framed three lights ({len(meta)})")
 for m in meta:
     w = next(w for w in wins if "architrave" in w and abs(w["s_m"] - m["s_m"]) < 1e-6 and abs(w["sill_m"] - m["sill_m"]) < 1e-6)
     spring = w["sill_m"] + w["height_m"] - w["width_m"] / 2
@@ -88,12 +87,12 @@ for r in arcs:
     lo, hi = r["s_m"] - r["half_m"], r["s_m"] + r["half_m"]
     check(all(hi <= p0 or lo >= p1 for p0, p1 in piers), f"s {r['s_m']}: clear of the piers ({lo:.2f}-{hi:.2f} m)")
 
-refused(lambda ws: ws[3].update(voussoirs={"ring_m": 0.25, "stones": 13, "proud_m": 0.05, "key_m": [0.22, 0.3]}),
+refused(lambda ws: ws[2].update(voussoirs={"ring_m": 0.25, "stones": 13, "proud_m": 0.05, "key_m": [0.22, 0.3]}),
         "not both", "voussoirs and an architrave on one light")
 refused(lambda ws: ws[0]["architrave"].update(band_m=0.6), "architrave: a 0.1-0.45 m band", "a band out of range")
 refused(lambda ws: ws[0]["architrave"].update(hood=True), "architrave takes", "an unknown key")
 refused(lambda ws: ws[0]["architrave"].update(key_m=[0.3, 0.1]), "key_m", "a keystone lower than the band")
-refused(lambda ws: ws[2].update(s_m=12.85), "overlap", "two architraves run into one another")
+refused(lambda ws: ws[2].update(s_m=8.0), "overlap", "two architraves run into one another")
 
 print(f"\n{'FAIL' if failures else 'PASS'}: test_k01_architrave — {len(failures)} failure(s)")
 sys.exit(1 if failures else 0)

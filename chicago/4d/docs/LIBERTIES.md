@@ -37768,6 +37768,7 @@ moulding's profile; a K08 bay-light architrave frames the forward block's light.
 
 ### L-pullman-1729-front-bays-1881 — 1729 Prairie's Prairie front laid as three bays off the Detroit print: the forward block narrowed onto the door, the north bay's windows and dormer put back, a landing in the flight, urns on the gate piers and a black deck
 
+**Superseded in part (2026-11-01):** the forward block is replaced by two pavilions either side of a stepped-in centre (L-pullman-1729-recessed-centre-1881).
 **Decision:** the owner, on 2026-10-31, read the Detroit print (LC-D4-12551) against the scene: a full
 mansard with no peak in the centre; a dormer north and south but none in the centre; three windows on
 the second storey (north, centre, south); on the main storey a window, the entry and a window to the
@@ -37796,6 +37797,7 @@ door, the columns and the landing; a view over the cresting fixes the deck.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-31 (T-1881).
+
 ### L-kimball-1801-flank-shallow-1890 — 1801 Prairie's 18th Street section stood at the 1911 sheet's 0.1 m as a shallow projection, 6.97 m across
 
 **Decision:** the 18th Street wall's three-storey section with the corbel table (`bays.p_flank`, T-1890)
@@ -37830,3 +37832,41 @@ the main eave is not modelled; its back is closed on the plane as before.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-31 (T-1890).
+
+### L-kimball-1801-frontispiece-junction-1890 — 1801 Prairie's east range frontispiece moved onto HABS photograph 2's axis, its face carried across the 1911 sheet's junction
+
+**Decision:** the east range's frontispiece over the side door (`bays.p_door`, built by T-3110,
+L-kimball-1801-east-frontispiece-3110) stands on HABS photograph 2's axis (T-1890): at s 0.65 on r3b's
+18th Street wall, u about -7.85, where it stood at s 1.8 (u -6.7), about 1.15 m west of the print's,
+because a K08 bay stood on one wing's wall and r3b's (u -8.5 to -4.6, the 1911 sheet's rectangle) held
+it. The print's frontispiece straddles the sheet's junction of r3b and r2, and nothing on the print
+marks that junction: the two ranges stand on one wall line, at one height, in one walling. So its face
+now runs 0.85 m past r3b's east end onto r2's wall (K01's new `past_end`, allowed only on a shallow
+full-height projection on a wing's south or north wall where the wing beyond stands on the same wall
+line on the same floors to the same wall top, up to 1.5 m, and 0.3 m clear of that wall's lights and
+bays; the wall behind the overrun is cut, so no face doubles). Its door, grilled light and paired light
+stay on r3b's wall. Every other house is untouched (no other record names `past_end`; every other
+K01, K12, K13, K16 and draft GLB re-emits byte-identical).
+**What is read, not invented.** The axis is the print's: re-rendered through the solved camera the
+door's axis falls at about x 371 against the print's 373-375 (it rendered at 394), and the Taylor
+print's side door, under a tree there, now renders at about x 313 against the print's 307-317 (it
+rendered at about 327). The sheet's two rectangles and r2's front wall on the junction's line past
+r3b are unchanged.
+**What is invented.** How the two ranges meet behind the frontispiece: the build keeps the sheet's
+junction at u -8.5 and stands the frontispiece's face across it, where the house may have been built
+with the frontispiece on one range or the junction elsewhere inside; nothing seen from the street
+tells them apart.
+**How to resolve:** a measured plan of the east range, or the HABS drawings' first-floor plan.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1890).
+
+### L-pullman-1729-recessed-centre-1881 — 1729 Prairie's Prairie front laid as two pavilions with the entry in a stepped-in centre, off the owner's reading of the Detroit print; the depth reconstructed
+
+**Decision:** the owner, on 2026-11-01, looked again at the photographs: "the center area steps in and there is the walkway that leads up to it". The forward block centred on the door (L-pullman-1729-front-bays-1881) is replaced by two K08 pavilions. `p_north` (v 0.3-5.0) carries the north bay's two lights and its round dormer. `p_south` (v 8.85-13.6) carries the big lights and the big dormer with its broken pediment. Between them the centre stays on the front's plane with one second-storey light, no dormer, and the door at v 6.875. The portico (two columns, 3.1 m), the stoop with its mid landing, the walk and the urned gate stand on the door's line in the recess.
+**What is read, not invented.** The Detroit print (LC-D4-12551) through its solved camera, unwarped onto the front's plane: a hip in the mansard either side of the plain centre (x 365-382 and 415-432 px), a dormer north and south of it and none over it, the north pavilion's south return lit beside the portico, and the centre's light reading at v 6.4. Laid over the render through the same camera, the big dormer, the big window and the corner bay's dormer and light fall on the print's.
+**What is invented.** The pavilions' 1.2 m projection, the most K08 lets a pavilion stand (the print's return suggests 1.2-2 m; the 1911 sheet's front lines are 1.65 and 3.05 m but draw the portico's 3 m with them). Also invented: their exact ends (0.3 m clear of the north corner and of the corner pier at v 13.6), and the loss of the K01 architraves on the pavilions' lights, which are K08 lights.
+**How to resolve:** a re-solved camera for Taylor's no. 1445, the closest view, triangulated against the Detroit print, fixes the pavilions' depth and ends; a K08 light architrave restores the frames.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).
