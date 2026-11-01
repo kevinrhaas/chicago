@@ -36958,6 +36958,21 @@ as a dead trunk in a guard, stays the grown elm. **Review:**
 `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg`
 and their match records.
+**Extended (T-1934, 2026-10-31), Calumet's curve past Taylor's 16555:** the parkway's turn from
+18th Street into Calumet Avenue beyond 16555's right edge (13.3-22.8 m along
+`calumet__prairie_ic_16_18`) is planted off Taylor's winter 16554, which sees it at 36-43 m. The
+rule's grown elm at 19.4 m drew through that camera as a thick forked trunk against the stable's
+stack where the print shows the stack and sky clear; it is withdrawn, and the print's one trunk on
+the stretch (x 996-1006, its foot at y 589, about 0.35 m across) is planted at 16.1 m. **What is
+read:** its place, through 16554's camera, and that the stretch holds no other trunk the print
+shows. **What is chosen:** its habit, the young elm's broad head at scale 0.65 like the 18th Street
+file beside it, its bole about 0.05 m slighter than the print's; its crown is lost in the print
+among the near trees'. The c. 1900 Detroit print sees the stretch at 115 m and shows a trunk
+behind the Fort Dearborn monument (x about 922) whose foot the monument hides; it is a check, not a
+reading. **Review:**
+`docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`
+and its match record.
+
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 

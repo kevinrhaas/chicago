@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "53fc7a342b500164567d3b97a5ffae0929250b2cae94169d5d1c1027a2085380",
+  "flora_sha256": "be5d735770fd7ba4788d7b0c923e662f004418d0bba681fb9aad83946a42ec1b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -184,8 +184,8 @@
     },
     {
       "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled [T-1934, 2026-10-30: the wing, its rustication and pilasters and the stable are now one stone, read from the winter print 16554, where the two print alike; this print's darker wing is left to the trees' shade. Still open here, since this print alone cannot tell stone from shade.]",
-      "status": "open",
-      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print) [T-1934, 2026-10-30 (the owner on Taylor's 16554): the drum's stone now prints with the wing's and the stable's; the wing's face itself is unchanged]"
+      "status": "within tolerance",
+      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print) [T-1934, 2026-10-30 (the owner on Taylor's 16554): the drum's stone now prints with the wing's and the stable's; the wing's face itself is unchanged] [T-1934, 2026-10-31: a gap two pictures disagree about (AGENTS.md rule 11, T-3153): the 1894 Inland plate and Taylor's winter 16554 print the wing and the stable in one light stone, which the build follows; this summer print alone darkens the wing, under the trees' shade.]"
     },
     {
       "what": "the dome's covering: glass or metal sheets between the ribs",
