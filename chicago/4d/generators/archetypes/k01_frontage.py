@@ -1424,6 +1424,11 @@ class Assembly:
             self.enter(op, frame, body_mat, seed, conf)
             if p.entrance_kit.get("hood"):
                 self.door_hood(op, frame)   # T-2480
+            if getattr(op, "round_head", False):
+                # T-3283: a brick front's round-headed door (1945's, the 1928 photograph) under
+                # the arch band and key its round lights beside it carry, and no lintel
+                self.round_door_head(op, frame, stone_trim, seed, max(conf, p.conf("street_front_round_heads")))
+                return
         street_brick = p.street_front_trim.get("brick_heads") if op.wall == "k01.wall.street_front" else None
         brick_head = op.wall != "k01.wall.street_front" or street_brick in ("segmental", "flat")
         if MATERIALS[body_mat].get("courses") and not door and brick_head:
@@ -2711,6 +2716,28 @@ class Assembly:
         if o.v.get("tiers"):   # T-1890: a tier's bar is the wall's dressed stone, as K08's is the bay's
             roles["mullion"] = stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
+
+    def round_door_head(self, op, frame, stone_trim, seed, conf):
+        """T-3283: the arch band over a round-headed door in a brick front: K06's own band for the
+        front's round-headed light (`k01.opening.sash_round_hooded`), cut to the door's span and
+        spring, laid spring to spring as that light's is, and the round heads' key on its crown.
+        Only the band is taken from K06; the door, its fanlight and its reveal are K07's."""
+        from . import k06_windows
+        p = self.p
+        if ROUND_HOODED not in p.window_kit:
+            raise ValueError("street_front_round_heads.door: the window kit names no round-headed street light "
+                             f"({ROUND_HOODED}) whose arch band dresses the door")
+        light = dataclasses.replace(op, component=ROUND_HOODED, round_head=False)
+        o = k06_windows.Opening(self.kit_variant(light), self._kit)
+        o.seed = seed
+        o.build()
+        keep = {"head"}
+        self.graft(o, "K06", {"head": stone_trim}, frame, op, lambda role: (seed, conf),
+                   tuple(r for r in o.prims if r not in keep), True)
+        k = p.round_heads.get("key")
+        if k:
+            self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
+                           op.head_m, op.head_m + k["height_m"], k["proud_m"], seed, conf)
 
     def front_tympanum(self, op):
         """T-3197: the `street_front_trim.tympana` entry that dresses this street light, or None."""
@@ -5688,7 +5715,7 @@ def hole(o):
     """An opening's hole in its wall: (s0, s1, sill, head), or for a round-headed one (T-2410)
     (s0, s1, sill, spring, its head right -> left) on K06's own curve for that span."""
     s0, s1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
-    if o.component not in ROUND_CUT:
+    if o.component not in ROUND_CUT and not getattr(o, "round_head", False):   # T-3283: a round door
         return (s0, s1, o.sill_m, o.head_m)
     from . import k06_windows
     if o.rise_over_span:   # T-2960: cut segmental, on its K06 sash's own rise

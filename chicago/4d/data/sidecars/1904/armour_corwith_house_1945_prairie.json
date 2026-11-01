@@ -322,13 +322,14 @@
           "width_m": 0.2,
           "height_m": 0.25,
           "proud_m": 0.05
-        }
+        },
+        "door": true
       },
       "confidence": "inferred",
       "sources": [
         "chicago_tribune_1928_07_29_famous_homes_corwith"
       ],
-      "note": "The principal storey's lights stand under round heads in the photograph, on the front and the corner block alike. A plain key block on each crown: the halftone shows the heads but not their dressing (reconstructed)."
+      "note": "The principal storey's lights stand under round heads in the photograph, on the front and the corner block alike. A plain key block on each crown: the halftone shows the heads but not their dressing (reconstructed). T-3283: the door is cut round-headed in the same brick under the same arch band and key, as the photograph draws its arch beside the corner block's lights."
     },
     "stair_tread_m": {
       "value": 0.3,
@@ -655,15 +656,19 @@
     "entrance_kit": {
       "value": {
         "k01.opening.door_leaf": {
-          "variant": "k07.entrance.panel_door_stoop",
-          "front_yard_m": 9.5
+          "variant": "k07.entrance.double_door_deep_arch",
+          "front_yard_m": 9.5,
+          "opening_m": [
+            1.3,
+            3.4
+          ]
         }
       },
       "confidence": "inferred",
       "sources": [
         "chicago_tribune_1928_07_29_famous_homes_corwith"
       ],
-      "note": "The door at the head of a straight stoop climbing to the front between cheek walls, as the photograph shows it; K07's panel door and stoop. The door's round arch is open in the match record."
+      "note": "The door at the head of a straight stoop climbing to the front between cheek walls, as the photograph shows it. T-3283: it stands under a round arch, a pair of lit leaves under a fanlight in a reveal set back from the wall's face: K07's round-headed double door. Its hole read through the solved camera against the corner block's round lights (1.1 m across, 3.0 m tall, the nearest dimensioned thing in the picture): about 50 px across inside the arch and 145 px from the sill under it (x 507, y 840) to its crown, against the lights' 43 and 130 px, so about 1.3 m wide and 3.4 m to the crown, level with the round lights' heads beside it, to about 0.15 m. The leaves' panels and the reveal's depth are K07's (reconstructed)."
     },
     "boundary": {
       "value": {
