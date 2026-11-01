@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88"
+      "glb_sha256": "ac5cd2b83e0171b1f50722e7fd31a31fa80f1df2d342f84da12bec1682a5abbc"
     }
   ],
-  "group_sha256": "9ca75085e29aa8c71497daacd85b95edcfabb79fe7b9a9a4f1584999e2c51bff",
+  "group_sha256": "2391c9775dbb0e08001e78512c7f09cc52238f97509e3aa693ef96141f5b3926",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -73,7 +73,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 23
+        "creeper": 19
       }
     ],
     "street_trees": 37,
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "681f61e3747d3143661585f03c8e0ba75e24a787014f5df69536e7b1f41fe436",
+  "flora_sha256": "b532264e8ced1650faa512bb6c8f40e37cc74e4e7be98a11f581863cf0aa7a00",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
