@@ -1,0 +1,164 @@
+{
+  "method": "Actual published /1904/ app at 390x780, `full`; animation paused after readiness; each stand renders the same held frame with the far shadow twins off (buildings.farShadow.on=false), off again (control), on, and with no structure casting (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 390,
+    "height": 780
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0",
+    "twins": 334,
+    "twinTriangles": 355080,
+    "twinVertices": 291609,
+    "buildMs": 821,
+    "readyMs": 39336
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "glessner-prairie-front",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 36,
+      "saved": 48582,
+      "off": {
+        "triangles": 3265279,
+        "drawCalls": 651
+      },
+      "on": {
+        "triangles": 3219309,
+        "drawCalls": 681,
+        "withinBudget": true,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 304200,
+      "pixelsDiffering": 0,
+      "pixelsDifferingOver8": 0,
+      "maxChannelDelta": 0,
+      "differingAt": [],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 21233,
+      "problems": 0
+    },
+    {
+      "name": "glessner-prairie-se",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 185,
+      "saved": 370769,
+      "off": {
+        "triangles": 3421546,
+        "drawCalls": 937
+      },
+      "on": {
+        "triangles": 3328519,
+        "drawCalls": 961,
+        "withinBudget": true,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 304200,
+      "pixelsDiffering": 10,
+      "pixelsDifferingOver8": 0,
+      "maxChannelDelta": 4,
+      "differingAt": [
+        [
+          376,
+          431,
+          1
+        ],
+        [
+          377,
+          431,
+          4
+        ],
+        [
+          389,
+          420,
+          1
+        ],
+        [
+          389,
+          418,
+          1
+        ],
+        [
+          380,
+          411,
+          1
+        ],
+        [
+          369,
+          410,
+          3
+        ],
+        [
+          380,
+          410,
+          1
+        ],
+        [
+          379,
+          409,
+          2
+        ],
+        [
+          380,
+          409,
+          4
+        ],
+        [
+          381,
+          409,
+          3
+        ]
+      ],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 18039,
+      "problems": 0
+    },
+    {
+      "name": "glessner-roof-close",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 52,
+      "saved": 350831,
+      "off": {
+        "triangles": 3607237,
+        "drawCalls": 1787
+      },
+      "on": {
+        "triangles": 3367217,
+        "drawCalls": 1777,
+        "withinBudget": true,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 304200,
+      "pixelsDiffering": 0,
+      "pixelsDifferingOver8": 0,
+      "maxChannelDelta": 0,
+      "differingAt": [],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 41230,
+      "problems": 0
+    }
+  ]
+}
