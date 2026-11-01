@@ -168,8 +168,8 @@ check(bool(p.pavilions.get("belt")) and len(p.pavilions["belt"]["runs"]) == 3, "
 bay_dorms = [d for b in p.bays for d in (b.get("mansard_dormers") or ())]
 check(all("eared_hood" in d for d in list(p.mansard["dormers"]) + bay_dorms), "every one of 1729's dormers is hooded")
 check(sum(1 for d in list(p.mansard["dormers"]) + bay_dorms if d["eared_hood"].get("pediment")) == 1
-      and any(d["eared_hood"].get("pediment") for b in p.bays if b["id"] == "p_south" for d in b["mansard_dormers"]),
-      "1729's large Prairie dormer, on its south pavilion, and it alone, carries the broken pediment")
+      and any(d["eared_hood"].get("pediment") for d in p.mansard["dormers"] if d["face"] == "street"),
+      "1729's large Prairie dormer, over the front's south part, and it alone, carries the broken pediment")
 check(p.mansard.get("dormer_fabric") == "front_stone", "1729's dormers are faced in its brownstone")
 
 # a square projection's own mansard dormers
@@ -188,23 +188,52 @@ refused(lambda: KP._bay_mansard_dormers({"id": "p", "mansard_dormers": [dorm(0.0
                                         {**proj, "roof": {"kind": "hip", "pitch": 0.1, "mansard": {"rise_m": 2.5, "lower_pitch_deg": 75}}}),
         "a dormer whose head meets the curb is refused")
 bays_ = {b["id"]: b for b in p.bays}
-# T-1881 (2026-11-01, the owner's reading of the Detroit print): the Prairie front's centre
-# steps in between two pavilions, a dormer on each pavilion's own mansard and none over the
-# recessed centre, where the door is
-check(len(bays_["p_north"].get("mansard_dormers", ())) == 1 and len(bays_["p_south"].get("mansard_dormers", ())) == 1
+# T-1881 round 3 (2026-11-01, the owner's sketch): the Prairie front is three parts, the north
+# block forward with its own dormer, the entry stepped back with the door and no dormer, the south
+# part stepped back again with the large dormer on the main mansard
+check(len(bays_["p_block"].get("mansard_dormers", ())) == 1 and not bays_["p_entry"].get("mansard_dormers")
       and len(bays_["p_18th"].get("mansard_dormers", ())) == 2,
-      "1729's two Prairie pavilions carry a dormer each and its 18th Street pavilion two")
-check(not any(d["face"] == "street" and d["along_m"] < 13.6 for d in p.mansard["dormers"]),
-      "no dormer on the main mansard over the recessed centre")
+      "1729's forward block carries a dormer, its entry none and its 18th Street section two")
+ent = next(b for b in st["phases"][0]["form"]["bays"]["value"] if b["id"] == "p_entry")
+lo, hi = ent["s_m"] - ent["plan"]["width_m"] / 2, ent["s_m"] + ent["plan"]["width_m"] / 2
+check(not any(d["face"] == "street" and lo < d["along_m"] < hi for d in p.mansard["dormers"]),
+      "no dormer on the main mansard over the entry")
 asm = K1.build(p, SID)
 face = asm.prims["dormer_stone"].pos
-nd = [q for q in face if 27.5 < q[0] < 30.0 and 2.0 < -q[2] < 3.3 and q[1] > 10.0]
-sd = [q for q in face if 27.5 < q[0] < 30.0 and 10.4 < -q[2] < 12.0 and q[1] > 10.0]
-cd = [q for q in face if 27.0 < q[0] < 31.0 and 5.2 < -q[2] < 8.6 and q[1] > 10.0]
-pv = [q for q in face if abs(q[2] + 20.62) < 0.03 and (17.0 < q[0] < 18.5 or 11.6 < q[0] < 13.1)]
+nd = [q for q in face if 30.0 < q[0] < 31.5 and 2.5 < -q[2] < 5.0 and q[1] > 10.0]
+sd = [q for q in face if 27.5 < q[0] < 29.0 and 13.0 < -q[2] < 16.0 and q[1] > 10.0]
+cd = [q for q in face if 27.0 < q[0] < 32.0 and lo + 0.3 < -q[2] < hi - 0.3 and q[1] > 10.0]
+pv = [q for q in face if abs(q[2] + 19.45) < 0.03 and (15.0 < q[0] < 17.2 or 9.8 < q[0] < 12.0)]
 check(len(nd) > 20 and len(sd) > 20 and not cd,
-      f"the pavilions' dormer faces stand on their fronts ({len(nd)}, {len(sd)} vertices), none over the centre ({len(cd)})")
-check(len(pv) > 40, f"the pavilion's two dormer faces stand on its front ({len(pv)} vertices)")
+      f"the block's and the south part's dormer faces stand on their fronts ({len(nd)}, {len(sd)} vertices), none over the entry ({len(cd)})")
+check(len(pv) > 40, f"the 18th Street section's two dormer faces stand on its front ({len(pv)} vertices)")
+
+# T-1881 round 3: the side door in the porte-cochere (the owner's sketch's section-2 entry, Taylor's
+# no. 1445 through the west arch) is a raised K08 door on its own flight of steps
+import copy  # noqa: E402
+dr = next(w for b in st["phases"][0]["form"]["bays"]["value"] if b["id"] == "p_18th"
+          for w in b["storeys"][0]["windows"] if w.get("door"))
+check(dr["sill_m"] > 0.6 and dr["steps"]["risers"] * 0.2 >= dr["sill_m"],
+      f"1729's side door stands {dr['sill_m']} m up on {dr['steps']['risers']} risers")
+plin = [q for q in asm.prims["bay_stone"].pos if 15.0 < q[0] < 17.3 and 19.3 < -q[2] < 21.1 and q[1] < 1.25]
+check(any(abs(q[1] - dr["sill_m"]) < 1e-3 for q in plin) and max(-q[2] for q in plin) > 19.23 + 1.7,
+      f"its flight climbs from the drive to the sill, {dr['steps']['risers'] * dr['steps']['tread_m']} m out ({len(plin)} vertices)")
+
+
+def door_refused(edit, what):
+    st_ = copy.deepcopy(st)
+    w_ = next(w for b in st_["phases"][0]["form"]["bays"]["value"] if b["id"] == "p_18th"
+              for w in b["storeys"][0]["windows"] if w.get("door"))
+    edit(w_)
+    refused(lambda: KP.from_phase(st_["phases"][0], st_), what)
+
+
+door_refused(lambda w: w.pop("steps"), "a raised door without its steps is refused")
+door_refused(lambda w: w["steps"].update(risers=4), "a flight whose risers stand over 0.2 m is refused")
+door_refused(lambda w: w["steps"].update(width_m=1.3), "a flight no wider than the door is refused")
+door_refused(lambda w: w["steps"].update(tread_m=0.5), "a tread over 0.4 m is refused")
+door_refused(lambda w: w.update(sill_m=0.42, steps={"risers": 3, "tread_m": 0.3, "width_m": 1.9}),
+             "a raised door under the plinth's top is refused")
 
 if failures:
     print(f"\n{len(failures)} failure(s)")
