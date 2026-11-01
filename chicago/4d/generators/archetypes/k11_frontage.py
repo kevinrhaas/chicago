@@ -158,6 +158,12 @@ def spec(params) -> dict | None:
                 or t.get("side_fence"):
             raise ValueError(f"boundary.fence_end {fe}: s_m, from a metre inside the front's end to a pier's "
                              f"width short of the lot line, on an iron front with no side fence")
+    # T-3271: an iron street line taller than the kit's (1905 Prairie's c. 1905 Daily News
+    # negative: close-set spear pickets standing nearly to the water table): the top rail raised
+    # to `fence_rail_top_m` over the curb, as a front garden's may be, and the gates with it
+    top = t.get("fence_rail_top_m")
+    if top is not None and (FENCES[t["fence"]] in ("boards", "lattice") or not 0.8 <= top <= 2.2):
+        raise ValueError(f"boundary.fence_rail_top_m {top}: an iron railing's top rail stands 0.8-2.2 m over the curb")
     if FENCES[t["fence"]] == "lattice" and not 0.2 <= t.get("lattice_pitch_m", 0) <= 0.6:
         raise ValueError("a lattice fence names its bay, boundary.lattice_pitch_m, 0.2-0.6 m")
     if t.get("lattice_span_bays", 2) not in (2, 3, 4):
@@ -243,6 +249,15 @@ def dress(a):
         return open_front(a, t)
     K = _kit()
     data = K.load()
+    if t.get("fence_rail_top_m") is not None:   # T-3271: a taller railing, its gates as tall
+        import copy
+        data = copy.deepcopy(data)
+        R0 = data["parts"]["rail"]["top_m"]
+        lift = t["fence_rail_top_m"] - R0
+        data["parts"]["rail"]["top_m"] = t["fence_rail_top_m"]
+        g = data["parts"]["gate"]
+        g["hinges"] = [g["hinges"][0], round(g["hinges"][-1] + lift, 4)]
+        g["height_m"] = round(g["height_m"] + lift, 4)
     P = data["parts"]
     conf = p.conf("boundary")
     D = p.depth_m
