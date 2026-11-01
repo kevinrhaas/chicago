@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2521, ts: '2026-11-01T07:00:55.366Z', date: 'Nov 1, 2026, 1:00 AM CT', title: '1923 Prairie: the Kellogg house stands', kind: 'feature',
+    items: [
+      'The Kellogg house at 1923 Prairie Avenue is no longer a plain draft block: two storeys of brick over a high basement under a crested mansard, a canted bay at the north corner rising past the cornice under its own crown, hooded windows, a columned porch over a broad high stoop and iron fences either side of the walk, built from the Chicago Tribune\'s 1898 sketch of its front and a row drawing of the block\'s fronts, on the 1911 map\'s plan.',
+      'Still to come: the porch\'s arch, the stoop\'s sweeping stone cheeks and the scroll-panel fence the 1898 sketch draws.',
+    ] },
   { v: 2520, ts: '2026-11-01T06:26:26.921Z', date: 'Nov 1, 2026, 1:26 AM CT', title: '1612 Prairie\'s big brick stable on the alley', kind: 'feature',
     items: [
       'The Goodman house at 1612 Prairie now has its own stable on the alley, north of 1616\'s: a two-storey brick building 15.2 m along the alley and 14 m deep, with a window in its north gable facing the open yard. Its outline, storeys, brick and both windows come from the 1911 Sanborn sheet. Robinson\'s 1886 atlas shows a stable half as deep on the same spot, so the alley half is older and the yard half was added later. The carriage doors, loft hatch, other windows and roof come from the shared coach-house kit and are reconstructed.',
