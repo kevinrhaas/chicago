@@ -81,13 +81,45 @@
           "note": "Two storeys of brick over a raised stone basement, under a mansard: the plate's walls stop at a bracketed cornice over the second storey and the roof's steep slated faces rise over it with dormers. The 1911 sheet's '3S.B.' counts the mansard's attic as its third storey, as it does at 1816."
         },
         "construction": {
-          "value": "brick",
+          "value": "brick_with_stone_front",
           "confidence": "attested",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28",
             "rand_mcnally_pictorial_chicago_1893_field"
           ],
-          "note": "The sheet colours the house as brick; the plate shows brick walls (dark) dressed in light stone: the basement, the belts, the window surrounds, the frieze and the corner strips."
+          "note": "The sheet colours the house as brick; the plate shows brick walls (dark) dressed in light stone: the basement, the belts, the window surrounds, the frieze and the corner strips. T-3271 (the sign-off): K01's brick front over a K02 stone basement (brick_with_stone_front, stone_front.brick_above_m at the principal floor), the walls brick from the water table up as the sheet colours them."
+        },
+        "stone_front": {
+          "value": {
+            "fabric": "limestone_lemont",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 1,
+            "coping_height_m": 0.3,
+            "corner_bond": [],
+            "brick_above_m": 2.0
+          },
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field",
+            "cdn_dn0003324_field_residence"
+          ],
+          "note": "T-3271 (the sign-off): every picture of the house stands it on a pale dressed-stone basement (the 923 Prairie photograph and the engraving are cited in text only, their rights unresolved) from grade to the water table at the principal floor (2.0 m), its round-headed lights cut in it, the brick only over it: the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative all print the basement as light as the window surrounds and lighter than the brick. Built as K02's smooth stone stopped at the principal floor (brick_above_m 2.0, T-1888), one plinth course and its 0.3 m coping to 0.7 m, under the round-headed lights' spring (base_top_m, as 1834 Jones's, T-3184), and the smooth stone over it to the water table, K01's belts kept across the brick. The pictures are monochrome and no source names the stone: the local Lemont limestone is RECONSTRUCTED (liberty L-k01-field-1905-basement-3271). Before: the walls' brick carried down to grade."
+        },
+        "side_base": {
+          "value": [
+            {
+              "wall": "k01.wall.side.north",
+              "to_m": 2.0,
+              "proud_m": 0.03
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "rand_mcnally_pictorial_chicago_1893_field",
+            "cdn_dn0003324_field_residence"
+          ],
+          "note": "T-3271 (the sign-off): the 1893 plate and the Daily News negative (and the 923 Prairie photograph, cited in text only while its rights are unresolved) carry the same pale stone basement and its water table round the canted corner and along the south flank (K01's 'north' wall on this east-side house), the brick only over it. No picture shows the north flank, which stays brick to grade."
         },
         "principal_floor_m": {
           "value": 2.0,
@@ -144,7 +176,7 @@
             "downpipes": [
               {
                 "wall": "k01.wall.side.south",
-                "s_m": 9.0
+                "s_m": 11.8
               },
               {
                 "wall": "k01.wall.side.south",
@@ -153,7 +185,7 @@
             ]
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: K04 half-round copper gutters and round pipes to splash stones, as 1620's."
+          "note": "RECONSTRUCTED: K04 half-round copper gutters and round pipes to splash stones, as 1620's. T-3271: the north flank's first pipe moved from s 9.0 to 11.8, between the drawing room's projection and the parlour's rear window, where the projection now stands (reconstructed, as before)."
         },
         "window_kit": {
           "value": {
@@ -168,7 +200,7 @@
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1620 wears; the photograph shows two-over-two sash in the principal windows. T-3271: the round-headed basement lights (the plate, the engraving and the 923 Prairie photograph) take K06's fixed round-headed basement light, as 1811's do; their bars are not modelled."
+          "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1620 wears; the photograph shows two-over-two sash in the principal windows. T-3271: the round-headed basement lights (the plate, the engraving and the 923 Prairie photograph) take K06's fixed round-headed basement light, as 1811's do; their bars are not modelled. T-3271: cut in the stone basement now (stone_front), they rise through its one plinth course, whose top stands at 0.7 m under their spring (base_top_m)."
         },
         "street_front_trim": {
           "value": {
@@ -492,7 +524,8 @@
             "sill_m": 0.5,
             "width_m": 1.0,
             "height_m": 1.0,
-            "head": "round"
+            "head": "round",
+            "base_top_m": 0.7
           },
           "confidence": "inferred",
           "sources": [
@@ -504,11 +537,14 @@
         },
         "side_bays": {
           "value": [
-            6.0,
-            12.0
+            19.02,
+            14.09
           ],
-          "confidence": "reconstructed",
-          "note": "The north flank (K01's 'south' wall on this east-side house) is out of every picture's sight: two window columns, the kit's rule."
+          "confidence": "inferred",
+          "sources": [
+            "hunt_field_1905_principal_floor_plan"
+          ],
+          "note": "The north flank (K01's 'south' wall on this east-side house, its window centres measured from the main body's rear wall, u 0, where the front stands at 21.0). Out of every picture's sight, so it is read off Hunt's plan of the principal floor (T-3271, the sign-off), whose north-flank dimension string runs from the front 6 ft 6 in to the parlour's first window's centre, 8 ft 1 in to its chimney breast, 8 ft 1 in to its second window and 6 ft 6 in to the drawing room's partition (29 ft 2 in): windows 1.98 and 6.91 m behind the front, built at s 19.02 and 14.09. The drawing room's two windows stand in its projection (bays: north_drawing_room_box). The plan is Hunt's design of 1871-1873 and draws only the principal floor, so the chamber storey's windows are carried up over the principal ones, the kit's rule; their sashes are the street front's. Before: two window columns at s 6 and 12, the kit's rule (reconstructed)."
         },
         "north_bays": {
           "value": [
@@ -619,7 +655,7 @@
               "variant": "k08.bay.bowed",
               "wall": "k01.wall.side.north",
               "s_m": 9.0,
-              "fabric": "stone",
+              "fabric": "front_stone",
               "plan": {
                 "kind": "bow",
                 "chord_m": 8.4,
@@ -648,6 +684,74 @@
                 "covering": "tin_flat_seam_painted"
               },
               "plinth_m": 0.1
+            },
+            {
+              "id": "north_drawing_room_box",
+              "variant": "k08.bay.rectangular",
+              "wall": "k01.wall.side.south",
+              "s_m": 7.57,
+              "fabric": "brick",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -2.135,
+                    0.0
+                  ],
+                  [
+                    -2.12,
+                    0.8
+                  ],
+                  [
+                    2.12,
+                    0.8
+                  ],
+                  [
+                    2.135,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 6.1,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 2.75,
+                      "sill_m": 2.4,
+                      "at": [
+                        0.29,
+                        0.71
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the drawing room's two windows in its projection on Hunt's plan, the principal storey's sash (sash_by_storey); no picture shows the north flank"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.15,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 2.6,
+                      "sill_m": 0.3,
+                      "at": [
+                        0.29,
+                        0.71
+                      ],
+                      "why_not_ordinary": "the chamber lights over them, carried up as the flank's other columns are (reconstructed)"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "slate_pennsylvania"
+              }
             }
           ],
           "confidence": "inferred",
@@ -656,7 +760,7 @@
             "rand_mcnally_pictorial_chicago_1893_field",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The south flank's conservatory: the 1911 sheet's bulge off the south wall between about 7 and 16 m behind the front, 'Greenhouse' written at the front's bay, and the plate's curved glasshouse on a stone base with a balcony over it, at x 955-1180 px. Built as K08's bowed bay over the basement: 8.4 m on its chord and 2.7 m out (the sheet's bulge reaches about 3.6 m off the wall; K08 holds a bow's facets to its radius). T-1905: the bow is the glasshouse's stone base only, a storey high in the house's stone with its basement light, decked flat at the principal floor, 2.0 m over grade since T-3271 (2.4 m before); the glass that stands on it, a ring of tall lights under a curved glass roof, is its own record on the K13 kit (data/structures/marshall_field_house_1905_prairie_conservatory.json, L-field-1905-conservatory-1905). The railed deck the plate shows on its roof is the conservatory record's (T-3270). T-3271: centred 9.0 m behind the front (12.0 m before): through the 923 Prairie photograph's camera, fitted to Hunt's plan, the glass runs from about 4.5 to 13.5 m back, so the 8.4 m chord stands 4.8-13.2 m, within 0.3 m of both ends; Hunt's south-flank dimension string 11 ft 0 in, 37 ft 4 in from the front (3.35 m, then 11.4 m) brackets the same stretch."
+          "note": "The south flank's conservatory: the 1911 sheet's bulge off the south wall between about 7 and 16 m behind the front, 'Greenhouse' written at the front's bay, and the plate's curved glasshouse on a stone base with a balcony over it, at x 955-1180 px. Built as K08's bowed bay over the basement: 8.4 m on its chord and 2.7 m out (the sheet's bulge reaches about 3.6 m off the wall; K08 holds a bow's facets to its radius). T-1905: the bow is the glasshouse's stone base only, a storey high in the house's stone with its basement light, decked flat at the principal floor, 2.0 m over grade since T-3271 (2.4 m before); the glass that stands on it, a ring of tall lights under a curved glass roof, is its own record on the K13 kit (data/structures/marshall_field_house_1905_prairie_conservatory.json, L-field-1905-conservatory-1905). The railed deck the plate shows on its roof is the conservatory record's (T-3270). T-3271: centred 9.0 m behind the front (12.0 m before): through the 923 Prairie photograph's camera, fitted to Hunt's plan, the glass runs from about 4.5 to 13.5 m back, so the 8.4 m chord stands 4.8-13.2 m, within 0.3 m of both ends; Hunt's south-flank dimension string 11 ft 0 in, 37 ft 4 in from the front (3.35 m, then 11.4 m) brackets the same stretch. T-3271 (the sign-off): its base laid in the front's own stone (fabric front_stone, the K02 Lemont limestone of the basement), where it had been K08's tan stone: the 1893 plate prints the bow's base as pale as the house's basement all round, and the 923 Prairie photograph the same. T-3271 (the sign-off): and the drawing room's projection on the north flank (north_drawing_room_box, K01's 'south' wall), read off Hunt's plan of the principal floor: the flank's dimension string runs 29 ft 2 in from the front to the parlour's end and 7 ft 11 in on, then the projection, 14 ft 0 in long (4.27 m, 11.3-15.6 m behind the front, centred s 7.57 from the rear wall) and standing out about 2 ft 8 in (0.8 m, scaled at the sheet's quarter inch), its two windows of 4 ft 8 in clear between 1 ft 2 in piers (built at 0.29 and 0.71 of its face, the principal storey's 1.1 m sash). The plan draws only the principal floor: the box is carried up both storeys in the flank's brick to 9.25 m, its hip clear under the cornice's bed moulding (9.84 m), and capped with a low slated hip, as the north box of 1901 Prairie next door stands, and that is RECONSTRUCTED (L-k01-field-1905-north-flank-3271). No picture shows it."
         },
         "cant_corner": {
           "value": {

@@ -1893,7 +1893,8 @@ class Assembly:
         if af:
             k01_arched_front.lay(self, frame, yf, length, conf, r_wall)
         if beds is None and p.street_iron:   # T-3184: a brick front's balconettes and stoop rails
-            k01_arched_front.street_iron(self, frame, p.street_iron, conf)
+            # T-3271: the front's own; a balconette naming a side wall is laid on that wall (build)
+            k01_arched_front.street_iron(self, frame, _front_iron(p.street_iron), conf)
         if beds is None:   # T-3270: the frieze's carved roundels, where street_front_trim names them
             k09_frontage.frieze(self, frame, max(conf, p.conf("street_front_trim")))
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
@@ -1907,7 +1908,7 @@ class Assembly:
             s_lo, s_hi = (max(s_lo, c1), s_hi) if c0 <= 1e-9 else (s_lo, min(s_hi, c0))
         if E - yf > 1e-6:
             if brick is not None:   # T-2914: brick up to the eave
-                self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
+                self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(s_hi, yf, 0.0), P(s_hi, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
             else:
                 self.prim("rough_stone_trim").face([P(s_lo, yf, 0.0), P(s_hi, yf, 0.0), P(s_hi, E, 0.0), P(s_lo, E, 0.0)],
                                                    N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
@@ -5691,6 +5692,16 @@ def loggia_side_arch(p):
                                   "top_m": sa["keystone_top_m"], "width_m": tuple(sa["keystone_m"])}}}
 
 
+def _front_iron(iron: dict) -> dict:
+    """T-3271: the street iron the street front itself carries: every balconette but those naming
+    a side wall. Unchanged (the same dict) where none does, so no other front re-emits."""
+    bals = iron.get("balconettes", ())
+    if all(b.get("wall", "k01.wall.street_front") == "k01.wall.street_front" for b in bals):
+        return iron
+    return {**iron, "balconettes": tuple(b for b in bals if b.get("wall", "k01.wall.street_front")
+                                         == "k01.wall.street_front")}
+
+
 def build(params, structure_id: str):
     """The assembly: walls with their openings cut, the entrance and its stoop, the roof."""
     p = params
@@ -5774,8 +5785,12 @@ def build(params, structure_id: str):
     }
     if cant:   # T-3186: the canted face, from the end of the wall before it to the start of the next
         (u0, v0), (u1, v1) = cant["ends"]
+        # T-3271: on a brick front over a stone basement its brick stands on the basement's
+        # stone, run round the face from grade to the front's stone top as a side_base is
+        cb = p.cant_corner.get("base_top_m")
         walls[k01_frontage_params.CANT_WALL] = (side, (u0, 0.0, -v0), _unit((u1 - u0, 0.0, v0 - v1)),
-                                                p.cant_corner["face_m"], p.front_thickness_m, belts)
+                                                p.cant_corner["face_m"], p.front_thickness_m,
+                                                tuple(belts) + (((0.0, cb, 0.03, ()),) if cb else ()))
     gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid]
                  + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid]
                  + ([p.rear_section["host_span_m"]] if p.rear_section and p.rear_section["host_wall"] == cid else [])
@@ -5863,6 +5878,13 @@ def build(params, structure_id: str):
                                      {**p.street_iron, "balconettes": tuple(
                                          b for b in bals if b.get("wall", "k01.wall.street_front") == "k01.wall.street_front")}, iconf)
         for b in bals:
+            if b.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
+                k01_arched_front.street_iron(a, frames[b["wall"]][0][0], {"balconettes": (b,)}, iconf)
+    elif p.street_iron:
+        # T-3271: a brick front over a stone basement (stone_front lays its front's iron): each
+        # balconette that names a side wall on that wall (1905's south flank carries two)
+        iconf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
+        for b in p.street_iron.get("balconettes", ()):
             if b.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
                 k01_arched_front.street_iron(a, frames[b["wall"]][0][0], {"balconettes": (b,)}, iconf)
     if p.cant_corner.get("strips"):

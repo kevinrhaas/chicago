@@ -2,7 +2,7 @@
  "structure_id": "marshall_field_house_1905_prairie",
  "view": "chicagology_923_photo",
  "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
- "glb_sha256": "badef2d4fee25212961656ebfc55438ba57b7e79108139c49e9e4ffd41e111a2",
+ "glb_sha256": "07c2ce7d63f5405111c4b70b6aafd8ece665a24729123d0342023db485edf58d",
  "camera_sha256": "900263f898b0801fdcc26794446f448c165c324f4ece05ab31d6d79e98c77548",
  "photo_sha256": "de5ec221368f99f6ae1fb4918204849e199566266c2f8bdb158e35204d9a494d",
  "rendered_members": [
@@ -23,7 +23,7 @@
     0
    ],
    "rotation_y": 0,
-   "glb_sha256": "badef2d4fee25212961656ebfc55438ba57b7e79108139c49e9e4ffd41e111a2"
+   "glb_sha256": "07c2ce7d63f5405111c4b70b6aafd8ece665a24729123d0342023db485edf58d"
   },
   {
    "structure_id": "marshall_field_house_1905_prairie_conservatory",
@@ -45,9 +45,9 @@
    "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
   }
  ],
- "group_sha256": "3d91ebcc29fd14afcd0501cc104e4e8e5cfcf0bb6f604d742f332c20226a1055",
+ "group_sha256": "ff53b26a2738ab702a4c09f219c43e32705f77d9efc0cdd503aee2c3054f67ae",
  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/chicagology_923_photo-side-by-side.jpg",
- "verdict": "differs",
+ "verdict": "matches",
  "differences": [
   {
    "what": "the front's length: through Hunt's plan of the principal floor (hunt_field_1905_principal_floor_plan), which this camera is fitted to, the front runs 55 ft (16.8 m) and its canted corner starts about 14.4 m from the north end. T-3271 builds the front 16.8 m, its extra 1.55 m laid at the south, so the cut starts 14.65 m along it and the canted face, the south flank and the conservatory stand where the picture has them, within a few pixels",
@@ -106,12 +106,12 @@
    "status": "not shown"
   },
   {
-   "what": "the north flank, the rear and the rear ranges: out of the picture's sight",
+   "what": "the north flank, the rear and the rear ranges: out of the picture's sight T-3271 (the sign-off): the north flank is now built to Hunt's plan of the principal floor (the parlour's two windows; the drawing room's projection, 14 ft long and about 0.8 m out, with two lights). The rear stays the draft's: the plan's rear is its stair block and service range, which no picture shows.",
    "status": "not shown"
   },
   {
-   "what": "the basement: the picture shows the house standing on a pale dressed-stone basement up to the water table (2.0 m), its round-headed lights cut in it; the render's basement is the walls' brick carried down to grade, as K01 lays a brick front with no K02 stone below it. Building it wants the front as a stone basement under brick (stone_front with brick_above_m at the water table), which T-3271 did not reach: a wrong material a visitor would see.",
-   "status": "open"
+   "what": "the basement: the picture shows the house standing on a pale dressed-stone basement up to the water table (2.0 m), its round-headed lights cut in it; the render's basement is the walls' brick carried down to grade, as K01 lays a brick front with no K02 stone below it. Building it wants the front as a stone basement under brick (stone_front with brick_above_m at the water table), which T-3271 did not reach: a wrong material a visitor would see. T-3271 (the sign-off): built. The house now stands on K02's smooth Lemont limestone from grade to the water table at 2.0 m (construction brick_with_stone_front, stone_front.brick_above_m 2.0): one plinth course and its coping to 0.7 m, under the round-headed lights' spring, smooth stone over it, the brick from the water table up. The same stone runs round the canted face (cant_corner, its base to the front's stone top) and along the south flank (side_base), and the conservatory's bow base is laid in it (front_stone), so the basement reads as one pale band all round under the brick, as the picture shows it.",
+   "status": "fixed"
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
