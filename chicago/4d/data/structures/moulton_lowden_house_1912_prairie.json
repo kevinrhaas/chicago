@@ -329,7 +329,7 @@
         },
         "north_bays": {
           "value": [
-            1.7,
+            2.8,
             9.0,
             15.5
           ],
@@ -337,7 +337,7 @@
           "sources": [
             "chicagology_1912_prairie_exterior_photo"
           ],
-          "note": "The north flank: the window column by the front corner (s 1.7) that the photograph shows under the corbelled corner turret (x 1060-1120 px); the two behind it are reconstructed."
+          "note": "The north flank: the window column the photograph shows under the corbelled corner turret (x 1060-1120 px), which the photograph's camera (T-3277) puts at s 2.6-4.0 from the front corner, so at s 2.8 under the turret's axis (T-3290; first read as s 1.7); the two behind it are reconstructed. The attic light of that column is the turret's own."
         },
         "rear_bays": {
           "value": [
@@ -701,6 +701,51 @@
                   }
                 }
               }
+            },
+            {
+              "id": "north_turret",
+              "variant": "k08.oriel.canted_corbelled",
+              "wall": "k01.wall.side.north",
+              "s_m": 2.8,
+              "fabric": "front_stone",
+              "base_m": 10.5,
+              "plan": {
+                "kind": "bow",
+                "chord_m": 1.4,
+                "rise_m": 0.7
+              },
+              "apron": {
+                "foot_m": 10.25,
+                "fabric": "front_stone",
+                "form": "round",
+                "radius_m": 0.3
+              },
+              "storeys": [
+                {
+                  "height_m": 1.75,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.65,
+                      "clear_height_m": 1.25,
+                      "sill_m": 0.3,
+                      "at_deg": [
+                        -45
+                      ],
+                      "why_not_ordinary": "the corner turret's one light, about 0.65 x 1.45 m in the photograph (x 1063-1107, y 595-725 px), narrower than the flank's sashes so it stands on the turret's face; built 1.25 m tall under the turret's lowered wall top"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "cone",
+                "pitch": 3.0,
+                "covering": "slate_pennsylvania",
+                "slated_as_house": true
+              },
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
+              }
             }
           ],
           "confidence": "inferred",
@@ -709,7 +754,7 @@
             "chicagology_1912_prairie_exterior_photo",
             "newberry_new_chicago_album_1883_residences"
           ],
-          "note": "Two K08 pieces on the 1911 sheet's trace (s28fp-1912-b1) in the house's frame, read with the photograph and the 1883 vignette. The round tower on the sheet's front bulge (v 5.85-9.75, about 1.4 m out; built a 1.95 m round centred 0.17 m in front of the wall line, so 0.72 m further out than the sheet draws it, the least that holds its finial clear of the wall's plane): three stages of bent sashes to a slated cone with a plain finial (the photograph's is turned, with knobs: an open difference on the match record), its third stage 1.0 m taller than the photograph's, whose cone springs at the main cornice's level, because K01 stands a tower's wall top at least 1.0 m over its host's eave. The south gable (v 0.5-4.1): a stone projection 0.4 m proud (the sheet draws the front flush there, under its resolution), the least that holds its windows' recesses, cut to the kit's 0.33 m minimum, in front of the wall with its arched pair, its chamber pair and its attic light, its coped gable with pinnacles and a finial rising from just over the attic floor (its kneelers at y 720 px, under the main cornice) to an apex near 14 m (y 470 px)."
+          "note": "Two K08 pieces on the 1911 sheet's trace (s28fp-1912-b1) in the house's frame, read with the photograph and the 1883 vignette. The round tower on the sheet's front bulge (v 5.85-9.75, about 1.4 m out; built a 1.95 m round centred 0.17 m in front of the wall line, so 0.72 m further out than the sheet draws it, the least that holds its finial clear of the wall's plane): three stages of bent sashes to a slated cone with a plain finial (the photograph's is turned, with knobs: an open difference on the match record), its third stage 1.0 m taller than the photograph's, whose cone springs at the main cornice's level, because K01 stands a tower's wall top at least 1.0 m over its host's eave. The south gable (v 0.5-4.1): a stone projection 0.4 m proud (the sheet draws the front flush there, under its resolution), the least that holds its windows' recesses, cut to the kit's 0.33 m minimum, in front of the wall with its arched pair, its chamber pair and its attic light, its coped gable with pinnacles and a finial rising from just over the attic floor (its kneelers at y 720 px, under the main cornice) to an apex near 14 m (y 470 px). T-3290: the corbelled corner turret on the north flank (`north_turret`), read off the photograph through its solved camera (x 1050-1145 px, the flank's front corner at x 960): a round oriel 1.4 m across, its centre on the wall's plane at s 2.8 from the front corner (its two silhouettes land within 6 px of the photograph's), standing on the attic floor (10.5 m) on a turned stone foot where the photograph's attic belt sweeps round it (y 745-800 px), one storey with one light turned toward the avenue (x 1063-1107, y 595-725 px), under a moulded stone cornice and a steep slated cone (pitch 3.0, to about 15.7 m) that leans on the mansard as the photograph's leans on its slate and its stack (y 365-520 px). Its wall top is 12.25 m, about 0.55 m under the photograph's (whose turret cornice runs level with the main cornice), because K01 holds an oriel's wall top a metre under the main eave unless the eave dies into it, which the kit does only on a street front under a hip or gable: an open difference on the match record. The 1883 plate draws it taller, two stages corbelled out from the chamber floor; the photograph's one stage over the attic belt is built, and the disagreement is within tolerance on the plate's match record."
         },
         "rear_wings": {
           "value": [

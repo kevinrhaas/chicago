@@ -2,7 +2,7 @@
   "structure_id": "moulton_lowden_house_1912_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f68f7c6d97740280d0e816bec469e3795da789d33c190676764ca691d25e3a3c",
+  "glb_sha256": "ce45eb3f1ebd29fc40700e4e719a1c1774c51d639594f627164051414da17b60",
   "camera_sha256": "c517d22d93ccfb5413bddb08607b87d5dc1519475b4d04fb458f2b545810422c",
   "photo_sha256": "edfbb93fb891e8f549e6aa782b2609f7a7b6fcde87847a46fbce72e00c350010",
   "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg",
@@ -29,8 +29,20 @@
       "status": "open"
     },
     {
-      "what": "the corbelled corner turret at the north corner block's front corner on the north flank (x 1040-1150, y 480-720 px), with its little cone",
+      "what": "the corbelled corner turret on the north flank behind the corner block's front corner (x 1050-1145, y 520-760 px): built (T-3290) a round 1.4 m across on the wall's plane at s 2.8 from the front corner, its two silhouettes within 6 px of the photograph's, standing on the attic belt, one light turned toward the avenue, a moulded cornice and a steep slated cone leaning on the mansard and toward the stack",
+      "status": "fixed"
+    },
+    {
+      "what": "the corner turret stands about 0.55 m low: its wall top 12.25 m where the photograph's cornice runs level with the main cornice (about 12.8 m to its bed), so its cornice draws about 45 px under the photograph's and its light is 1.25 m tall against about 1.45 m; K01 holds an oriel's wall top a metre under the main eave unless the eave dies into it, which the kit does only on a street front under a hip or gable",
       "status": "open"
+    },
+    {
+      "what": "the corner turret's foot: built a turned stone foot (a 0.3 m round, from 10.25 m to the attic floor) where the photograph's attic belt sweeps round the turret (y 745-800 px); the 1883 plate draws a corbel with a pendant (album_1883), under the bar either way",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the north flank's front window column under the turret (x 1060-1120 px): first built at s 1.7, 1.1 m nearer the corner than the photograph's camera puts it; now at s 2.8, under the turret's axis",
+      "status": "fixed"
     },
     {
       "what": "the dormers: built plain gabled dormers in the slate; the photograph's are stone wall dormers with crocketed gables, pinnacles and finials, the south one tall (x 270-400, y 120-500 px) between the gable and the tower",

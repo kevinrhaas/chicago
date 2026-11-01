@@ -2,8 +2,9 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1800-block-looking-sw-c1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
+  "glb_sha256": "3124dd7ad02a4437bc20e27025c4930f61cbf2ee48f47f2ce1783978b4ebc084",
   "camera_sha256": "750d123c485475d631bccadd32ea08df00f563e357d82d83499fbf2a640d0c51",
+  "photo_sha256": "3bc229a77fe705ac47ae9393f744b219bd11424c45da947bd532ab5e348271e6",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -56,7 +57,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580). T-2712: fixed — the hall stack now stops at 16.1 m, under the return's coping, and the render shows sky over the coping beside the cowl as the picture does; the cowl's pipe rises from the stack's top.",
+      "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580). T-2712: fixed \u2014 the hall stack now stops at 16.1 m, under the return's coping, and the render shows sky over the coping beside the cowl as the picture does; the cowl's pipe rises from the stack's top.",
       "status": "fixed"
     },
     {
@@ -92,5 +93,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
