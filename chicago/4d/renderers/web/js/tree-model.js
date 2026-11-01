@@ -1075,8 +1075,56 @@ const BLOOM_FLAT_GAIN = 2.6;
  *  70 m off). A `distant` shrub is not drawn at all. */
 const CORE_SEGS = { near: [8, 8], mid: [6, 5], far: [5, 4] };
 
+/**
+ * T-1934 — A BARE CROWN'S TWIGS AT THE COARSE LEVELS. The `mid` and `far` levels leave
+ * out the wood a summer crown covers (the third order, and anything thinner than the
+ * level's `minRad`), because their leaf cards stand where it is. A winter crown has no
+ * cards, so it was left a trunk and a few long limbs: Taylor's 16554 prints the parkway
+ * elms at 15-70 m as dense fringes of fine twig, and the render drew them as poles and
+ * sticks. So a bare crown at those levels draws the wood it was missing, as single
+ * three-sided strokes held to at least `floor` metres of radius (a twig the level's ring
+ * would otherwise show at under a pixel, so the antialiased fringe greys in as the
+ * print's does), skipped limbs first, then branches, then a share of the twigs taken
+ * evenly round the crown. `perClump` is its triangle budget per summer clump, which keeps
+ * the bare tree at or under what the same level draws in leaf (measured over the elms,
+ * oaks, ash, maple, cottonwood and willow: mid's leaf is 1.0-1.25 triangles a clump,
+ * far's 0.04-0.22), so winter costs no more than summer.
+ */
+const BARE_TWIGS = { mid: { floor: 0.010, perClump: 1.0, segs: 2 }, far: { floor: 0.04, perClump: 0.04, segs: 1 } };
+
+function bareTwigs(buf, sk, { floor, perClump, segs }, drawn, barkTile, tint, flexOf, rnd) {
+  let budget = Math.floor(sk.clumps.length * perClump);
+  const byOrder = [[], [], [], []];
+  for (const b of sk.branches) if (b.order > 0 && !drawn(b)) byOrder[Math.min(3, b.order)].push(b);
+  // The twigs are taken evenly round the crown (shuffled once from the template's seed),
+  // the rising ones first: a twig hangs under its leaf, and a bare one, seen as a single
+  // chord from its foot to its tip, would cross the crown as a downward slash.
+  const shuffled = (list) => {
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(rnd() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+    return list;
+  };
+  const rises = (b) => b.pts[b.pts.length - 1][1] >= b.pts[0][1];
+  const twigs = [...shuffled(byOrder[3].filter(rises)), ...shuffled(byOrder[3].filter((b) => !rises(b)))];
+  for (const b of [...byOrder[1], ...byOrder[2], ...twigs]) {
+    const n = Math.min(b.pts.length - 1, b.order >= 3 ? 1 : segs);
+    if (n < 1 || budget < n * 6) continue;
+    const pts = [];
+    const rad = [];
+    for (let i = 0; i <= n; i++) {
+      const k = Math.round((i / n) * (b.pts.length - 1));
+      pts.push(b.pts[k]);
+      rad.push(Math.max(floor, b.rad[k]));
+    }
+    tube(buf, { ...b, pts, rad }, 3, barkTile, tint, flexOf);
+    budget -= n * 6;
+  }
+}
+
 // `distant` (T-2808): the trunk alone, three-sided, under a crown of a few masses.
-const SIDES = { near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0], distant: [3, 0, 0, 0] };
+const SIDES ={ near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0], distant: [3, 0, 0, 0] };
 
 function linearRGB(hex) {
   const c = new THREE.Color().setHex(hex);
@@ -1368,7 +1416,11 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   const clumps = leafCover >= 1 ? sk.clumps : sk.clumps.filter(() => lrnd() < leafCover);
   const elmShare = coarse ? ELM_SHARE_COARSE : ELM_SHARE;
   if (!clumps.length) {
-    // bare: the wood alone
+    // bare: the wood alone, and at the coarse levels the twigs the leaf hid (T-1934)
+    if (sk.clumps.length && !spec.dead && !arch.core && BARE_TWIGS[lod]) {
+      bareTwigs(wood, sk, BARE_TWIGS[lod], (b) => sides[Math.min(3, b.order)] && (b.rad[0] >= minRad || b === keep),
+        barkTile, barkUpper, flexOf, mulberry32(seed ^ 0x1934));
+    }
   } else if (sk.elm && lod === 'far') {
     // T-3017: the elm's far crown is its own sprays, a few and large, not a
     // ring of binned fans: at the far ring's near edge it still fills a third

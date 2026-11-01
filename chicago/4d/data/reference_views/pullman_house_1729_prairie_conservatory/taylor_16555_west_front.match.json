@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "fa2a197e4ae38a0e697919dc61564c655b0f6796772b5b3f391ce1871c9f7d88"
+      "glb_sha256": "ac5cd2b83e0171b1f50722e7fd31a31fa80f1df2d342f84da12bec1682a5abbc"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "5c47aea6d8da5ce9f97b4b1a75f934d71f4ded9738555771a624abe623d31891",
+  "group_sha256": "65dfecc8f60020637b4a63ef657cf7145bb13b99267b32642ce6b7a974246e84",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -73,7 +73,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 23
+        "creeper": 19
       }
     ],
     "street_trees": 30,
@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "85f1f563c854e11abf2f28e2c92b981f36ecd7cf1d6bf9b16762626ef32ddc25"
+      "sha256": "c7f41f5072de7f373bb1a2544baaba856a5212953c42924a7e30c500d23e64b7"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "8b2e3ef230972c60ea35d77df53d5380262cf87465b4e43721eab21e2da1836f",
+  "flora_sha256": "373ace0d8fec8a84bb35f2fbab49692489789deb8a3d80e3484f252328355179",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

@@ -36,6 +36,8 @@ import * as THREE from 'three';
 import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
 import { crestTwin, drawFarReliefAsCrests, farReliefFromSearch } from './far-roof-relief.js';
+import { CELL_M, MAX_PIXELS as FAR_SHADOW_MAX_PIXELS, shadowTwin, twinReachM, drawFarShadowAsTwins,
+  farShadowFromSearch } from './far-shadow.js';
 import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
 import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
@@ -520,6 +522,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    *  (far-roof-relief.js). One state for the layer; each batch fills its own pairs. */
   // T-3285: `sun` lets the sun's pass keep the relief whole while the colour pass swaps.
   const farRelief = { on: farReliefFromSearch(globalThis.location?.search), sun: true, batches: [] };
+  // T-3286: far pieces cast from a clustered twin (far-shadow.js); one state per batch.
+  const farShadow = { on: farShadowFromSearch(globalThis.location?.search), maxPixels: FAR_SHADOW_MAX_PIXELS,
+    batches: [], twinTriangles: 0, twinVertices: 0, buildMs: 0 };
   /** structure id -> its footprint extent in its own local frame, so a building
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
@@ -849,6 +854,25 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
           occludesView: false, planar: null }] : [e];
       });
     }
+    // T-3286: each heavy piece's clustered shadow twin, appended after every piece so
+    // the pieces keep their order (and their coalesced runs) in the colour pass.
+    if (shadowCasters) {
+      const twins = [];
+      for (const e of bucket.entries) {
+        if (e.twinOf) continue;
+        const pause = checkpoint(); if (pause) await pause;
+        const scale = placements.get(e.record.id)?.getMaxScaleOnAxis?.() ?? 1;
+        const t0 = performance.now();
+        const twin = shadowTwin(e.geo, CELL_M / (scale > 0 ? scale : 1));
+        farShadow.buildMs += performance.now() - t0;
+        if (!twin) continue;
+        farShadow.twinTriangles += twin.twinTriangles;
+        farShadow.twinVertices += twin.geo.getAttribute('position').count;
+        twins.push({ ...e, geo: twin.geo, shadowOf: e, saved: twin.triangles - twin.twinTriangles,
+          occludesView: false, planar: null });
+      }
+      bucket.entries.push(...twins);
+    }
     const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
     const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
     // The normals and uvs stored compact, in one format across the batch, and
@@ -891,6 +915,16 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         set swapped(n) { farRelief.swapped = n; }, set sunSwapped(n) { farRelief.sunSwapped = n; } });
       farRelief.batches.push({ batch, pairs: farPairs });
     }
+    // T-3286: after the relief swap (a piece hidden here is passed over there) and
+    // before the narrow phase below, which trusts only the hook it wrapped.
+    let shadowPairs = null;
+    if (bucket.entries.some((e) => e.shadowOf)) {
+      shadowPairs = [];
+      const state = { get on() { return farShadow.on; }, sun: shadowCasters.sun, pairs: shadowPairs,
+        get maxPixels() { return farShadow.maxPixels; }, swapped: 0, saved: 0 };
+      drawFarShadowAsTwins(batch, state);
+      farShadow.batches.push({ batch, state });
+    }
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -918,6 +952,24 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       const geometryId = batch.addGeometry(geo);
       const instanceId = batch.addInstance(geometryId);
       entry.instanceId = instanceId;
+      if (entry.shadowOf) {
+        // T-3286: a shadow twin is drawn only in the sun's pass, in its piece's place.
+        const piece = entry.shadowOf.instanceId;
+        batch.setMatrixAt(instanceId, frame.matrix);
+        batch.userData.positionScale[instanceId] = frame.scale;
+        batch.userData.batchIndex[instanceId] = record.id;
+        const pieceRange = batch.userData.confidenceRanges[piece];
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange.slice();
+        batch.setVisibleAt(instanceId, false);
+        // culled by its piece's sphere, larger than its own, so the cull stays conservative
+        const twinInfo = batch._geometryInfo?.[geometryId];
+        if (twinInfo && 'boundingSphere' in twinInfo) {
+          twinInfo.boundingSphere = batch.getBoundingSphereAt(batch.getGeometryIdAt(piece), new THREE.Sphere());
+        }
+        shadowPairs.push({ piece, twin: instanceId, reachM: twinReachM(), saved: entry.saved });
+        geo.dispose();
+        continue;
+      }
       if (entry.twinOf) {
         // T-3272: a twin is the piece's own triangles, drawn only in its place. It
         // keeps no tone row, roll or channel of its own: it is not another surface.
@@ -1193,6 +1245,21 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     /** T-3272: far relief pieces drawn as their crests, on or off, for the on/off pixel
      *  proof; `swapped` is how many the last colour pass swapped. T-3285: `sun` takes
      *  the sun's pass alone back to the whole relief; `sunSwapped` is its count. */
+    // T-3286: the sun's far shadow twins (far-shadow.js), summed over the batches
+    // as of the last shadow render; `on = false` casts every piece whole.
+    farShadow: {
+      get on() { return farShadow.on; },
+      set on(v) { farShadow.on = !!v; },
+      get maxPixels() { return farShadow.maxPixels; },
+      set maxPixels(v) { farShadow.maxPixels = Number.isFinite(v) && v >= 0 ? v : FAR_SHADOW_MAX_PIXELS; },
+      get pieces() { return farShadow.batches.reduce((n, b) => n + b.state.pairs.length, 0); },
+      get swapped() { return farShadow.batches.reduce((n, b) => n + (b.state.swapped ?? 0), 0); },
+      get saved() { return farShadow.batches.reduce((n, b) => n + (b.state.saved ?? 0), 0); },
+      get twinTriangles() { return farShadow.twinTriangles; },
+      get twinVertices() { return farShadow.twinVertices; },
+      /** main-thread time spent cutting the twins at load */
+      get buildMs() { return farShadow.buildMs; },
+    },
     farRelief: {
       get on() { return farRelief.on; },
       set on(v) { farRelief.on = !!v; },

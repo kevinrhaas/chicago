@@ -1303,7 +1303,22 @@ const GLESSNER_V4_FULL_TRIANGLES = 4700000;
 // Glessner's inspection asset only), for a harness that frames a far view
 // (tools/qa_t3272_far_relief.mjs); the tier table T-3084 pins is untouched.
 // Readings: docs/RESEARCH/alley-budget-3272/README.md § T-3285.
-const GLESSNER_V4_FULL_FAR_TRIANGLES = 7325000;
+// T-3286, 2026-11-01: RE-BASED DOWN, 7,325,000 -> 6,670,000. The far shadow level
+// of detail named above landed: a far structure piece casts from its clustered
+// shadow twin wherever the twin's edge moves under a pixel (far-shadow.js). On the
+// published 1904 app, Full, every pixel of each held frame read back off and on
+// (tools/qa_t3286_far_shadow.mjs):
+//   desktop  alley 5,539,477 -> 4,648,930   18th 150 m W 6,216,086 -> 5,195,660
+//            Prairie 60 m E / 120 m S 7,294,865 -> 6,650,853   (0 / 2 / 0 px changed)
+//   mobile   alley 5,421,138 -> 4,446,393   18th 150 m W 5,228,965 -> 4,382,751
+//            Prairie 60 m E / 120 m S 6,997,527 -> 6,205,942   (0 / 9 / 108 of 304,200 px)
+// By the same rule: 6,650,853 + 18,059 -> 6,670,000. Draws: the worst is still the
+// alley, 8,092 (8,065 off: a swapped piece can split a coalesced sun-pass run),
+// + about 5% -> 8,500, unchanged. NOT RETIRED: the far stands toward Glessner up
+// Prairie and along 18th still read over 4.7 M, and what carries them now is the
+// colour pass (4.2 M of the Prairie stand's 6.65 M is not structures' sun pass).
+// Readings: docs/RESEARCH/far-shadow-3286/README.md.
+const GLESSNER_V4_FULL_FAR_TRIANGLES = 6670000;
 const GLESSNER_V4_FULL_FAR_DRAWS = 8500;
 // T-2217, 2026-10-14: the previously unmeasured carriage-door close-up
 // already draws 340 calls on dev, before the door change (4,443,344 tris).

@@ -140,7 +140,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "554056ca2c08390bb896f4c1e96c61f3112a8d179e01e9e708c91c9ebd13cfe5"
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -148,7 +148,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "21f7123cd8fba73122d5e1553a29a23bb154e103da950ed14b8e03dd9d928ed2"
+      "sha256": "c7f41f5072de7f373bb1a2544baaba856a5212953c42924a7e30c500d23e64b7"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -163,7 +163,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "01bcfc49a1efcd940d9d9ab407460e7c7f6765598bcde7c0be6172b1b48bc931",
+  "flora_sha256": "1a122424538a58d89ed21a74487bde98f9d3249dc0c282eb865d795b5db29e60",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
