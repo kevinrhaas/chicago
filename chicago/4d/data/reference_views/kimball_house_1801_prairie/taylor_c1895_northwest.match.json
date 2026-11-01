@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5f98350ab0badc246d67c61ed8af76ebbc3d01b37b0f75ff10938b793268c0b5",
+  "glb_sha256": "4e43237d72d7c851ed9c437a70e56649a9db2c6559f4e2e8ed32b996e3eab13e",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -290,6 +290,10 @@
     {
       "what": "the east range's stack and its steep 18th Street end (T-1890, HABS photograph 2): through this camera they stand at about x 310-350, y 740-790 px, where the print shows the tree's crown and branches over a dark roof slope it does not resolve; nothing else this picture shows changed",
       "status": "not shown"
+    },
+    {
+      "what": "the side door's place (T-1890, with HABS photograph 2's frontispiece moved 1.15 m east onto that print's axis): the print's round-arched light and tall framed opening under it stand at about x 307-317 px; the build's rendered at about x 327 and now at about x 313",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
