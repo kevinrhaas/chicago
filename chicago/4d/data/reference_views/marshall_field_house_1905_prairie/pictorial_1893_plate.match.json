@@ -2,8 +2,8 @@
  "structure_id": "marshall_field_house_1905_prairie",
  "view": "pictorial_1893_plate",
  "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
- "glb_sha256": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5",
- "camera_sha256": "d5203d93f29bc9cf1a519b1f27b759e267603675f302fc2d3b99e0f92bb7ec11",
+ "glb_sha256": "badef2d4fee25212961656ebfc55438ba57b7e79108139c49e9e4ffd41e111a2",
+ "camera_sha256": "32b4e00eab030946f8c514ed718358cff628b0943d2d3b676aafd05a04f0801c",
  "photo_sha256": "d49b47b1f31f50b0ce0d4e99b234d0ae9c80f42c57cab75f8338ed0396d397dd",
  "rendered_members": [
   {
@@ -23,7 +23,7 @@
     0
    ],
    "rotation_y": 0,
-   "glb_sha256": "ca194510b1382d4fd99a6f557d737b56ae64b59330e49e6780ecb877683999f5"
+   "glb_sha256": "badef2d4fee25212961656ebfc55438ba57b7e79108139c49e9e4ffd41e111a2"
   },
   {
    "structure_id": "marshall_field_house_1905_prairie_conservatory",
@@ -45,13 +45,13 @@
    "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
   }
  ],
- "group_sha256": "93c2b82b2c74839f74a7d81676feefd058825b9434ab981773f8a6e5a58e67df",
+ "group_sha256": "3d91ebcc29fd14afcd0501cc104e4e8e5cfcf0bb6f604d742f332c20226a1055",
  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
   {
-   "what": "the camera: T-3260 fitted it to the 1911 sheet's 15.25 m front with the heights held at 2.2 and 11.6 m; T-3271 rebuilds the house to Hunt's plan (a 16.8 m front, the walls about 1.5 m lower), which the two photographs' cameras fit and this one does not, so its render now stands small and to the right of the plate's house. The camera wants re-solving against the rebuilt house before this view can be judged; until then the front's length, the walls' height, the cut and the columns are judged on the two photographs (chicagology_923_photo, daily_news_dn0003324)",
-   "status": "open"
+   "what": "the camera: T-3260 fitted it to the 1911 sheet's 15.25 m front with the heights held at 2.2 and 11.6 m; T-3271 rebuilds the house to Hunt's plan (a 16.8 m front, the walls about 1.5 m lower), which the two photographs' cameras fit and this one does not, so its render now stands small and to the right of the plate's house. The camera wants re-solving against the rebuilt house before this view can be judged; until then the front's length, the walls' height, the cut and the columns are judged on the two photographs (chicagology_923_photo, daily_news_dn0003324) T-3271 (the sign-off): re-solved on the same six points against the rebuilt house (16.8 m front, water table 2.0 m, frieze's foot 9.6 m, cut 2.15 m), the plate's north end held on the house's: 13.8 px RMS, worst 21 px at the cant's ends (the plate draws the cut broader). The render's house now stands where the plate's does, so the front's length, the walls' height and the columns are judged on this view again.",
+   "status": "fixed"
   },
   {
    "what": "massing: the draft's generic block is now the plate's house, two storeys of brick over a raised light stone basement under a bracketed cornice and a tall slated mansard, its wall head about 11.6 m; the plate's house fills x 60-860 px of the side-by-side's left half, the render's x 150-750 px",
@@ -74,8 +74,8 @@
    "status": "fixed"
   },
   {
-   "what": "the scroll-pattern iron fence on a stone curb along the street line, with its gate before the stoop",
-   "status": "fixed"
+   "what": "the scroll-pattern iron fence on a stone curb along the street line, with its gate before the stoop T-3271 (the sign-off): The render now builds the c. 1905 Daily News negative's tall spear fence for 1904; the plate's scroll fence is 1893's, replaced by c. 1905.",
+   "status": "not shown"
   },
   {
    "what": "the south-west corner: the plate cuts it on a broad canted face, blank brick in both storeys, the bracketed cornice and the slated mansard carried round it and the largest dormer standing over it (x 683-900 px); the render's corner is cut on K01's canted face (T-3261) 3.2 m back each way, blank brick on the front's stone belt, the cornice's paired brackets turned onto it and the large dormer centred on its slope",
@@ -86,20 +86,20 @@
    "status": "within tolerance"
   },
   {
-   "what": "the light stone strips that frame the canted face's brick at its two angles, from the basement to the frieze: the render's brick meets the front and the flank at plain angles",
-   "status": "open"
+   "what": "the light stone strips that frame the canted face's brick at its two angles, from the basement to the frieze: the render's brick meets the front and the flank at plain angles T-3271 (the sign-off): built at both angles, 0.3 m wide, 2.0-9.6 m.",
+   "status": "fixed"
   },
   {
    "what": "the wide column's iron balcony: built 1.9 m, stopped 0.2 m short of the canted corner's cut, where the plate's runs about 2.5 m centred on its window; the balcony cannot run on past the cut until the front's length is re-read (the open item below) T-3271: with the front re-read it runs 2.4 m (12.05-14.45 m), centred on its window, 0.2 m short of the cut.",
    "status": "fixed"
   },
   {
-   "what": "the front's length: through the camera the plate's north end lands about 3 m north of the sheet's north wall, so the render's front runs about 120 px short at its north end and its window columns stand up to a column's width off the plate's; the camera holds the eye at 1.6 m and the heights at 2.2 and 11.6 m, and both it and the sheet are to be re-read against the Daily News view (T-3261). RE-READ by T-3271 against Hunt's plan of the principal floor (hunt_field_1905_principal_floor_plan): the front runs 55 ft (16.8 m) over all, its corner cut about 1.9 m back each way, and the 923 Prairie and Daily News photographs fit that plan (3.0 and 1.6 px RMS) and not the sheet; they also read the walls about 1.8 m lower than this camera's held heights, which is why the plate reads the front longer still. Still to build T-3271 builds the front 16.8 m; this view waits on its camera (above).",
+   "what": "the front's length: through the camera the plate's north end lands about 3 m north of the sheet's north wall, so the render's front runs about 120 px short at its north end and its window columns stand up to a column's width off the plate's; the camera holds the eye at 1.6 m and the heights at 2.2 and 11.6 m, and both it and the sheet are to be re-read against the Daily News view (T-3261). RE-READ by T-3271 against Hunt's plan of the principal floor (hunt_field_1905_principal_floor_plan): the front runs 55 ft (16.8 m) over all, its corner cut about 1.9 m back each way, and the 923 Prairie and Daily News photographs fit that plan (3.0 and 1.6 px RMS) and not the sheet; they also read the walls about 1.8 m lower than this camera's held heights, which is why the plate reads the front longer still. Still to build T-3271 builds the front 16.8 m; this view waits on its camera (above). T-3271 (the sign-off): The re-solved camera holds the plate's north end on the house's north end (Hunt's 16.8 m front) and closes there within 3 px.",
    "status": "within tolerance"
   },
   {
-   "what": "the mansard: the plate's rises about 5 m over the cornice, the render's 4.5 m (K05's ceiling for a face holding one storey); its slate in bands is plain in the render",
-   "status": "open"
+   "what": "the mansard: the plate's rises about 5 m over the cornice, the render's 4.5 m (K05's ceiling for a face holding one storey); its slate in bands is plain in the render T-3271 (the sign-off): Through the re-solved camera the plate's mansard rises about 145-175 px over the cornice and the render's 150-165 px (display scale, about 0.27 m to the 10 px): the 5 m reading was the old camera's, fitted to walls 1.5 m too tall. The slate's bands are a pattern under a foot.",
+   "status": "within tolerance"
   },
   {
    "what": "the front's three iron balconies (T-3261): before the chamber windows of the north, door and wide columns and none before the narrow one, each on the stone belt at the chamber floor on two scrolled consoles, its pierced guard before the foot of the light; the door hood that stood in for the door column's, about 1.4 m low, is withdrawn, so the door stands in its surround with nothing over it, as in the plate",
@@ -114,8 +114,8 @@
    "status": "fixed"
   },
   {
-   "what": "the iron balcony before the window behind the canted south-west corner: K01 lays balconettes on the street front only, and the corner's window waits on the corner's own re-read (T-3261)",
-   "status": "open"
+   "what": "the iron balcony before the window behind the canted south-west corner: K01 lays balconettes on the street front only, and the corner's window waits on the corner's own re-read (T-3261) T-3271 (the sign-off): built: K01 now lays a balconette on a side wall (wall), 1.4 m long, 0.5 m proud, on two consoles.",
+   "status": "fixed"
   },
   {
    "what": "the conservatory: the plate's is glass, a ring of tall lights on fine bars on a stone sill over the stone base, under a glass roof that curves up from their head to the house's wall; the render's is now glass too (T-1905), the K13 kit's segmental bay on the bow's top, its head about 5.4 m and its curved roof rising to a railed deck about 6.8 m over grade (T-3270), where it had stood under a flat tin cone with three tall sashes in brick",
@@ -160,6 +160,10 @@
   {
    "what": "the window heads' carved crests and the frieze's roundels (T-3270): a palmette between two scroll volutes on each chamber window's cornice hood, under the frieze, and pairs of carved rings in the frieze at the north end, either side of the north pier's bracket pair and over the narrow-wide pier",
    "status": "fixed"
+  },
+  {
+   "what": "the basement: the picture shows the house standing on a pale dressed-stone basement up to the water table (2.0 m), its round-headed lights cut in it; the render's basement is the walls' brick carried down to grade, as K01 lays a brick front with no K02 stone below it. Building it wants the front as a stone basement under brick (stone_front with brick_above_m at the water table), which T-3271 did not reach: a wrong material a visitor would see; the plate's basement is the pale band its round-headed lights stand in, the conservatory's base the same stone (the item above).",
+   "status": "open"
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

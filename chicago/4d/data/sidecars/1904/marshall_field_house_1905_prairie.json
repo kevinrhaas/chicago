@@ -175,10 +175,14 @@
         "k01.opening.area_light": {
           "variant": "k06.opening.area_light",
           "well": false
+        },
+        "k01.opening.sash_round_plain": {
+          "variant": "k06.opening.basement_round",
+          "well": false
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1620 wears; the photograph shows two-over-two sash in the principal windows."
+      "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1620 wears; the photograph shows two-over-two sash in the principal windows. T-3271: the round-headed basement lights (the plate, the engraving and the 923 Prairie photograph) take K06's fixed round-headed basement light, as 1811's do; their bars are not modelled."
     },
     "street_front_trim": {
       "value": {
@@ -249,15 +253,38 @@
             "slab_m": 0.2,
             "consoles": 2,
             "before_light": true
+          },
+          {
+            "wall": "k01.wall.side.north",
+            "from_s_m": 2.4,
+            "to_s_m": 3.8,
+            "floor_m": 6.1,
+            "proud_m": 0.5,
+            "height_m": 0.9,
+            "slab_m": 0.2,
+            "consoles": 2,
+            "before_light": true
+          },
+          {
+            "wall": "k01.wall.side.north",
+            "from_s_m": 14.0,
+            "to_s_m": 15.4,
+            "floor_m": 6.1,
+            "proud_m": 0.5,
+            "height_m": 0.9,
+            "slab_m": 0.2,
+            "consoles": 2,
+            "before_light": true
           }
         ]
       },
       "confidence": "inferred",
       "sources": [
-        "rand_mcnally_pictorial_chicago_1893_field",
-        "hunt_field_1905_principal_floor_plan"
+        "chicagology_1905_field_photo",
+        "hunt_field_1905_principal_floor_plan",
+        "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "T-3261: the plate's three iron balconies on the front, read against its window columns: one before the chamber window of the north column, one before the door column's (over the door) and one before the wide column's, none before the narrow column's. Each stands on the stone belt at the chamber floor (2.0 + 4.1 = 6.1 m, T-3271) on two scrolled stone consoles, its guard about 0.9 m high before a chamber light that runs down behind it to a sill 0.3 m over the floor. Lengths from the plate's pixels scaled by the column spacing (47-52 px a metre locally): the north one about 2.3 m, the door column's about 3.5 m, the wide column's about 2.5 m, each centred on its window (their fronts read north of the windows only by the oblique view's parallax); T-3270: the door column's is built at the plate's 3.5 m, centred on its window (5.9-9.4 m since T-3271), on the plate's tall scrolled consoles, run 0.9 m down the wall beside the door's surround. About 0.7 m proud and the slab 0.2 m deep, inferred from the plate's consoles. The undated photograph from the west side of the avenue (chicagology_1905_field_photo, cross-check only, not a source of this) shows the same three and the narrow column without one. The pierced panels' scroll pattern is the kit's, RECONSTRUCTED. T-3271: with the front re-read to Hunt's 16.8 m and the cut to 2.15 m, each is laid centred on its column's new place (the north one 2.0-4.4 m, the wide one 12.05-14.45 m, 2.4 m long and 0.2 m short of the cut), so the wide column's runs its plate length where it had been stopped at 1.9 m."
+      "note": "T-3261: the plate's three iron balconies on the front, read against its window columns: one before the chamber window of the north column, one before the door column's (over the door) and one before the wide column's, none before the narrow column's. Each stands on the stone belt at the chamber floor (2.0 + 4.1 = 6.1 m, T-3271) on two scrolled stone consoles, its guard about 0.9 m high before a chamber light that runs down behind it to a sill 0.3 m over the floor. Lengths from the plate's pixels scaled by the column spacing (47-52 px a metre locally): the north one about 2.3 m, the door column's about 3.5 m, the wide column's about 2.5 m, each centred on its window (their fronts read north of the windows only by the oblique view's parallax); T-3270: the door column's is built at the plate's 3.5 m, centred on its window (5.9-9.4 m since T-3271), on the plate's tall scrolled consoles, run 0.9 m down the wall beside the door's surround. About 0.7 m proud and the slab 0.2 m deep, inferred from the plate's consoles. The undated photograph from the west side of the avenue (chicagology_1905_field_photo, cross-check only, not a source of this) shows the same three and the narrow column without one. The pierced panels' scroll pattern is the kit's, RECONSTRUCTED. T-3271: with the front re-read to Hunt's 16.8 m and the cut to 2.15 m, each is laid centred on its column's new place (the north one 2.0-4.4 m, the wide one 12.05-14.45 m, 2.4 m long and 0.2 m short of the cut), so the wide column's runs its plate length where it had been stopped at 1.9 m. T-3271 (the sign-off): the south flank's two chamber balconies the 923 Prairie photograph shows (the 1893 plate and the engraving show the first): before the chamber window of the column just behind the canted corner (3.1 m back) and before the one about 14.7 m back, each the front's kind on two consoles on the chamber floor's belt, 1.4 m long centred on its window, 0.5 m proud (read shallower than the front's in the photograph). The chamber window over the conservatory at 9.2 m stands behind the conservatory's own railed deck, which is the iron the photograph shows before it."
     },
     "wall_head": {
       "value": {
@@ -478,13 +505,16 @@
       "value": {
         "sill_m": 0.5,
         "width_m": 1.0,
-        "height_m": 1.0
+        "height_m": 1.0,
+        "head": "round"
       },
       "confidence": "inferred",
       "sources": [
+        "chicagology_1905_field_engraving",
+        "chicagology_1905_field_photo",
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "The plate's basement lights under the principal windows, round-headed and barred behind the fence (their arched heads and bars are not modelled)."
+      "note": "The plate's basement lights under the principal windows, round-headed and barred behind the fence. T-3271 (the sign-off): cut round-headed (head: round), as the plate, the engraving and the 923 Prairie photograph (x 640, 770 and 940 px) all show them, 1.0 m across from a sill 0.5 m over grade to a crown 1.5 m up, about half a metre under the 2.0 m water table, as the plate's read through its re-solved camera; their bars are not modelled."
     },
     "side_bays": {
       "value": [
@@ -497,6 +527,18 @@
     "north_bays": {
       "value": [
         3.1,
+        {
+          "s_m": 5.6,
+          "sill_m": 6.4,
+          "width_m": 1.1,
+          "height_m": 2.6
+        },
+        {
+          "s_m": 9.2,
+          "sill_m": 6.4,
+          "width_m": 1.1,
+          "height_m": 2.6
+        },
         14.7,
         18.8
       ],
@@ -505,7 +547,7 @@
         "rand_mcnally_pictorial_chicago_1893_field",
         "chicagology_1905_field_photo"
       ],
-      "note": "The south flank (K01's 'north' wall on this east-side house, measured from the front). T-3271, read through the 923 Prairie photograph's camera, fitted to Hunt's plan of the principal floor (data/reference_views/marshall_field_house_1905_prairie/chicagology_923_photo.json), with the render's own windows as the ruler: a window column just behind the canted corner, about 3.0 m back (built 3.1 m, its surround clear of the cut at 2.15 m), and two past the conservatory, about 14.7 and 18.8 m back, on both storeys. The photograph also has two chamber windows over the conservatory (about 5.6 and 9.2 m back), which K01's bay takes no openings above: open on its match record. Before: 7.0 and 17.5 m, the 1893 plate's column read through its camera with the heights held."
+      "note": "The south flank (K01's 'north' wall on this east-side house, measured from the front). T-3271, read through the 923 Prairie photograph's camera, fitted to Hunt's plan of the principal floor (data/reference_views/marshall_field_house_1905_prairie/chicagology_923_photo.json), with the render's own windows as the ruler: a window column just behind the canted corner, about 3.0 m back (built 3.1 m, its surround clear of the cut at 2.15 m), and two past the conservatory, about 14.7 and 18.8 m back, on both storeys. T-3271 (the sign-off): the photograph's two chamber windows over the conservatory, about 5.6 and 9.2 m back (x 910 and 1090 px), are laid as read windows on the chamber storey alone (the conservatory stands before the principal storey there), at the chamber's own sill and sash (6.4 m, 1.1 by 2.6 m), their sills clear over the conservatory's railed deck. Before: 7.0 and 17.5 m, the 1893 plate's column read through its camera with the heights held."
     },
     "rear_bays": {
       "value": [
@@ -559,7 +601,7 @@
           -11.161,
           39.661
         ],
-        "fence": "k11.fence.scroll_band",
+        "fence": "k11.fence.spear_on_curb",
         "entrance_gate": {
           "variant": "k11.gate.walk_gate_on_piers",
           "leaves": 2,
@@ -573,14 +615,16 @@
         },
         "posts": {
           "section_m": 0.12,
-          "height_m": 1.55
-        }
+          "height_m": 2.15
+        },
+        "fence_rail_top_m": 1.75
       },
       "confidence": "inferred",
       "sources": [
+        "cdn_dn0003324_field_residence",
         "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "The plate's cast-iron fence on a stone curb along the street line, spear-topped posts between panels of scrolls the full height of the fence, as K11's scroll-band fence (the nearest K11 has; the pattern the kit's). The 1893 scroll fence is the plate's; the register's taller c. 1905 fence is not taken, so the 1904 state is the 1893 one, an inference (T-3261 weighs the c. 1905 photograph). The line stands 9.2 m before the front, just inside the parcel's street line (9.4 m); the lot's sides are the parcel's (data/street_grid/1904.json prairie_1905)."
+      "note": "T-3271 (the sign-off): the Daily News negative DN-0003324, c. 1905 and the picture nearest the 1904 scene, shows a tall iron picket fence on a stone curb along the street line and round the south yard: close-set pickets, each spear-topped, standing nearly to the house's water table (about 2 m), on cast-iron posts. Built as K11's spear fence on its curb, its top rail raised to 1.75 m over the curb (fence_rail_top_m) so its spears stand about 1.95 m, its gates raised with it and hung on iron posts 2.15 m high; the pickets keep the kit's 0.125 m centres, as close-set as the negative's read. Before: the 1893 plate's cast-iron scroll fence (K11's scroll-band), which the 923 Prairie photograph and the engraving show too; it is the fence of those pictures' dates, replaced by c. 1905, and the negative is followed for 1904 (an inference: the replacement's year is not read). The line stands 9.2 m before the front, just inside the parcel's street line (9.4 m); the lot's sides are the parcel's (data/street_grid/1904.json prairie_1905)."
     },
     "bays": {
       "value": [
@@ -632,14 +676,22 @@
       "value": {
         "corner": "north",
         "cut_m": 2.15,
-        "blank": true
+        "blank": true,
+        "strips": {
+          "width_m": 0.3,
+          "proud_m": 0.03,
+          "from_m": 2.0,
+          "to_m": 9.6
+        }
       },
       "confidence": "inferred",
       "sources": [
-        "rand_mcnally_pictorial_chicago_1893_field",
-        "hunt_field_1905_principal_floor_plan"
+        "cdn_dn0003324_field_residence",
+        "chicagology_1905_field_photo",
+        "hunt_field_1905_principal_floor_plan",
+        "rand_mcnally_pictorial_chicago_1893_field"
       ],
-      "note": "The plate cuts the house's south-west corner (K01's 'north' on this east-side house) on a broad canted face square to the corner, blank brick in both storeys between light stone strips, the bracketed cornice and the slated mansard carried round it and the largest dormer standing over it (x 683-900 px). T-3271: Hunt's plan of the principal floor draws the octagonal library's diagonal here, 6 ft 3 in (1.9 m) back each way, and the 923 Prairie photograph's camera reads the cut about 2.4 m along the front and 1.9 m along the flank; K01's cut is one length both ways, so it is built 2.15 m, within 0.3 m of both readings (it was 3.2 m, the 1893 plate's camera's reading with its heights held). The 1911 sheet draws this corner square: at its 50-foot scale a cut this size could be drawn either way, and the plate and the plan are followed (L-k01-field-1905-cant-3261)."
+      "note": "The plate cuts the house's south-west corner (K01's 'north' on this east-side house) on a broad canted face square to the corner, blank brick in both storeys between light stone strips, the bracketed cornice and the slated mansard carried round it and the largest dormer standing over it (x 683-900 px). T-3271: Hunt's plan of the principal floor draws the octagonal library's diagonal here, 6 ft 3 in (1.9 m) back each way, and the 923 Prairie photograph's camera reads the cut about 2.4 m along the front and 1.9 m along the flank; K01's cut is one length both ways, so it is built 2.15 m, within 0.3 m of both readings (it was 3.2 m, the 1893 plate's camera's reading with its heights held). The 1911 sheet draws this corner square: at its 50-foot scale a cut this size could be drawn either way, and the plate and the plan are followed (L-k01-field-1905-cant-3261). T-3271 (the sign-off): the face's brick is framed at both its angles by light stone strips from the water table to the frieze's foot, as the 923 Prairie photograph and the Daily News negative show them and the plate draws them; built as two dressed bands 0.3 m wide, 0.03 m proud, from 2.0 to 9.6 m (strips). Their width is read off the photographs at about a pier's breadth; their projection is not read and is the kit's."
     },
     "rear_wings": {
       "value": [
@@ -725,6 +777,41 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "cdn_dn0003324_field_residence",
+      "citation": "Marshall Field Residence (Marshall Field, Sr., residence at 1905 South Prairie Avenue). Chicago Daily News staff photographer, c. 1905. Chicago Daily News negative DN-0003324.",
+      "url": "https://commons.wikimedia.org/wiki/File:Marshall_Field_Residence.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the house c. 1905: the street front's columns, the blank canted corner, the south flank's first window column and the glass conservatory",
+        "the tall iron picket fence on a stone curb that stood by c. 1905 in place of the scroll fence",
+        "the walls' height against Hunt's plan, through its camera"
+      ],
+      "what_it_does_not_supply": [
+        "colour: a monochrome negative",
+        "the north flank and the rear",
+        "fine detail: the copy is 640 px wide"
+      ]
+    },
+    {
+      "source_id": "chicagology_1905_field_engraving",
+      "citation": "'MARSHALL FIELD PRAIRIE AVE.' Engraving of the house from Prairie Avenue, publication not named (file '1893marshallfieldhouse'). Reproduced on chicagology.com, Prairie Avenue, 1905 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1905prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the street front's north column and door, the stoop, the canted corner and its balcony, the conservatory's curved roof and railed deck, the arched basement lights, the scroll fence, by 1893"
+      ],
+      "what_it_does_not_supply": [
+        "colour",
+        "lengths: a drawing",
+        "the front's middle, hidden by a tree",
+        "the north flank and the rear"
+      ]
+    },
     {
       "source_id": "chicagology_1905_field_photo",
       "citation": "[1905 S. Prairie Ave. (Marshall Field residence).] Photograph of the house from the west side of the avenue; unknown photographer, undated (file '923prairiefieldhome', the pre-1880 number). Reproduced on chicagology.com, Prairie Avenue, 1905 S. Prairie.",
