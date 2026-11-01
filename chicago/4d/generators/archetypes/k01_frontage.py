@@ -1405,6 +1405,11 @@ class Assembly:
             self.enter(op, frame, body_mat, seed, conf)
             if p.entrance_kit.get("hood"):
                 self.door_hood(op, frame)   # T-2480
+            if getattr(op, "round_head", False):
+                # T-3283: a brick front's round-headed door (1945's, the 1928 photograph) under
+                # the arch band and key its round lights beside it carry, and no lintel
+                self.round_door_head(op, frame, stone_trim, seed, max(conf, p.conf("street_front_round_heads")))
+                return
         brick_head = op.wall != "k01.wall.street_front" or p.street_front_trim.get("brick_heads") == "segmental"
         if MATERIALS[body_mat].get("courses") and not door and brick_head:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
@@ -2688,6 +2693,28 @@ class Assembly:
             roles["mullion"] = stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
 
+    def round_door_head(self, op, frame, stone_trim, seed, conf):
+        """T-3283: the arch band over a round-headed door in a brick front: K06's own band for the
+        front's round-headed light (`k01.opening.sash_round_hooded`), cut to the door's span and
+        spring, laid spring to spring as that light's is, and the round heads' key on its crown.
+        Only the band is taken from K06; the door, its fanlight and its reveal are K07's."""
+        from . import k06_windows
+        p = self.p
+        if ROUND_HOODED not in p.window_kit:
+            raise ValueError("street_front_round_heads.door: the window kit names no round-headed street light "
+                             f"({ROUND_HOODED}) whose arch band dresses the door")
+        light = dataclasses.replace(op, component=ROUND_HOODED, round_head=False)
+        o = k06_windows.Opening(self.kit_variant(light), self._kit)
+        o.seed = seed
+        o.build()
+        keep = {"head"}
+        self.graft(o, "K06", {"head": stone_trim}, frame, op, lambda role: (seed, conf),
+                   tuple(r for r in o.prims if r not in keep), True)
+        k = p.round_heads.get("key")
+        if k:
+            self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
+                           op.head_m, op.head_m + k["height_m"], k["proud_m"], seed, conf)
+
     def front_tympanum(self, op):
         """T-3197: the `street_front_trim.tympana` entry that dresses this street light, or None."""
         p = self.p
@@ -3922,10 +3949,15 @@ class Assembly:
                 # frame, sashes and dark room stand (`window`, never emitted; dormer_sash)
                 from types import SimpleNamespace
                 rev = self.kit_reveal(SimpleNamespace(component="k01.opening.sash_flat", width_m=sw, height_m=sh))
-                recess = k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
-                                     (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
-                                    zc - sw / 2, zc + sw / 2, P,
-                                    lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+                # T-3280: a broad dormer's row of lights, one recess each (`sash.at_m`)
+                at = d["sash"].get("at_m", [0.0])
+                cuts = [k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
+                                    (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
+                                   zc + a - sw / 2, zc + a + sw / 2, P,
+                                   lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+                        for a in at]
+                recess = cuts[0]
+                recesses += cuts[1:]
         if p.rear_section:   # T-2820: the rear section's attic, its end parapets and dormers
             from . import k01_rear_section
             more, cut = k01_rear_section.elements(self, k5, f)
@@ -4934,13 +4966,15 @@ class Assembly:
         wd, hf = d["width_m"], d["face_height_m"]
         O = (g["xf"], g["ys"], g["zs"])
         R = (0.0, 0.0, -1.0)
+        at = d["sash"].get("at_m", [0.0])   # T-3280: a broad dormer's row of lights
         self.instance("k01.wall.dormer_face", "wall", {"length_m": wd, "height_m": hf,
                                                        "thickness_m": d["face_thickness_m"],
-                                                       "construction": "masonry", "openings": 1},
+                                                       "construction": "masonry", "openings": len(at)},
                       {"base": O, "top": _add(O, _mul(Y, hf))})
-        self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2, d["sash"]["sill_m"],
-                             d["sash"]["width_m"], d["sash"]["height_m"]), (O, R, _cross(R, Y)),
-                     d["face_thickness_m"], "dormer_stone", "limestone_trim", cut=True)
+        for a in at:
+            self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2 - a, d["sash"]["sill_m"],
+                                 d["sash"]["width_m"], d["sash"]["height_m"]), (O, R, _cross(R, Y)),
+                         d["face_thickness_m"], "dormer_stone", "limestone_trim", cut=True)
 
     # -- K04 on the K05 graph: caps on ridges and hips, flashing in valleys -------------
     def _line_planes(self, pts, tris, A, B):
@@ -5661,7 +5695,7 @@ def hole(o):
     """An opening's hole in its wall: (s0, s1, sill, head), or for a round-headed one (T-2410)
     (s0, s1, sill, spring, its head right -> left) on K06's own curve for that span."""
     s0, s1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
-    if o.component not in ROUND_CUT:
+    if o.component not in ROUND_CUT and not getattr(o, "round_head", False):   # T-3283: a round door
         return (s0, s1, o.sill_m, o.head_m)
     from . import k06_windows
     if o.rise_over_span:   # T-2960: cut segmental, on its K06 sash's own rise

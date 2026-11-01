@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2543, ts: '2026-11-01T19:27:21.950Z', date: 'Nov 1, 2026, 1:27 PM CT', title: '1919 Prairie: a steeper roof, flat-topped tower and broader dormer', kind: 'feature',
+    items: [
+      'Marshall Field Jr.\'s house at 1919 Prairie Avenue has been checked against a second picture, a 1919 theatre-programme photograph, and its street roof now rises as steeply as that picture shows, about 52 degrees.',
+      'The round tower on its north side now goes up past its third row of windows to a flat top, where it used to end in a slate cone.',
+      'The dormer over the front is now broad, with three windows under its gable instead of one.',
+      'Still to come: the smaller second dormer and the stack behind it, the stepped gables and two-storey bays along the north side, and the stone bands across the brick.',
+    ] },
+  { v: 2542, ts: '2026-11-01T18:32:53.564Z', date: 'Nov 1, 2026, 12:32 PM CT', title: '1945 Prairie\'s front door now stands under its round arch', kind: 'improvement',
+    items: [
+      'The Armour-Corwith house at 1945 Prairie gets the round-arched doorway its 1928 newspaper photograph shows: a pair of doors under a fanlight, set back in the brick.',
+      'The arch carries the same stone band and keystone as the round-headed windows beside it, so the principal storey reads as one row of arches.',
+    ] },
   { v: 2541, ts: '2026-11-01T17:54:29.185Z', date: 'Nov 1, 2026, 11:54 AM CT', title: 'Winter elms grey in with fine, forking twig', kind: 'improvement',
     items: [
       'In winter, elms seen from about 10 m and further now show a dense fringe of fine twigs that fork and rise. Before, their crowns were a few straight sticks.',
