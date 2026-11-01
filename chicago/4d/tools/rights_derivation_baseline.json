@@ -3279,6 +3279,14 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "pullman_house_1729_prairie/as_mapped_1904/form.mansard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_taylor_16554_pullman_from_sw"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "pullman_house_1729_prairie/as_mapped_1904/form.rear_terrace": {
       "kind": "structure",
       "blocked_sources": [

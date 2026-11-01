@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 922,
+  "count": 923,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -63396,6 +63396,39 @@
         {
           "label": "How to resolve",
           "text": "a re-solved camera for Taylor's no. 1445, the closest view, triangulated against the Detroit print, fixes the pavilions' depth and ends; a K08 light architrave restores the frames."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-01 (T-1881)."
+        }
+      ],
+      "work_refs": [
+        "T-1881"
+      ]
+    },
+    {
+      "id": "L-pullman-1729-rear-dormers-1881",
+      "title": "1729 Prairie's two rear dormers set over the rear wall's window bays, off Taylor's no. 16554; their places reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_conservatory"
+      ],
+      "covers": [],
+      "recorded": "2026-11-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, on 2026-10-30, on Taylor's no. 16554: \"the whole back of the pullman house needs to be worked\". The rear (east) face of the main mansard carried no dormer. Two are laid on it (`mansard.dormers`, face `rear`, v 14.93 and 10.93), each over one of the rear wall's two window bays (rear bays, s 3.0 and 7.0), in the 18th Street flank's dormer: a 0.8 x 1.6 m arched light in a 0.3 m surround under its eared hood. **What is read, not invented.** Taylor's no. 16554, the one picture that sees the rear roof, through the conservatory's solved camera: two round-headed dormers on that face under the deck's cresting (x about 503-512 and 537-548 px), between the south-east hip (x about 470) and the face's north end (about 550), each standing over one of the two bays of lights in the wall below (x 509-515 and 543-548). Their count, their round heads and their relation to the lights are the print's. **What is invented.** Their places along the face. That camera is fitted to the conservatory and draws the house 20-40 px off the print, and a level refit to the house's own corners and stacks leaves about 8 px rms, so the print does not place them to better than 2-4 m; they are set over the build's rear lights, which are themselves reconstructed (rear bays). Their size and hood are the flank dormer's, which the print draws them like at about 10 px a metre."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a camera for no. 16554 fitted to the house itself (its corners, the porte-cochere's arches, the flank's stacks) reads the rear lights' and dormers' places together; a fourth stack the print shows rising behind the rear face (x 513-522 px) is read with them."
         },
         {
           "label": "Review",

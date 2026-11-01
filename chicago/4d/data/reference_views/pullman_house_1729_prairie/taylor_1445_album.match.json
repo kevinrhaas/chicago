@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ac5cd2b83e0171b1f50722e7fd31a31fa80f1df2d342f84da12bec1682a5abbc",
+  "glb_sha256": "e77fcf2ab690a23922af90357e97f7f65d4bc915e75c63b77bd0d5f629737955",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -241,7 +241,7 @@
     {
       "what": "the Prairie front's north block with the portico and its balcony standing forward of the wall to the south",
       "status": "open",
-      "how": "T-1881 (2026-11-01): the north pavilion stands 1.2 m forward and the centre steps in behind the portico. This camera's solve puts the south-west corner about 110 px left of the photograph's (x 447 against about 560), so it cannot measure the depth until it is re-solved (L-pullman-1729-recessed-centre-1881)"
+      "how": "T-1881 (2026-11-01): the north pavilion stands 1.2 m forward and the centre steps in behind the portico. This camera's solve puts the south-west corner about 110 px left of the photograph's (x 447 against about 560), so it cannot measure the depth until it is re-solved (L-pullman-1729-recessed-centre-1881) [T-1881, 2026-11-01: re-read at the print's full size against a render without flora: the main cornice peaks at x 440-460, y about 300, and the render's corner stands at about x 450, so the south-west corner falls within about 10 px and this camera's solve there holds. The x 560 reading is the flank's first window bay (its arched lights at x 545-560, both storeys), not the corner. What the camera does not pin is still the perspective along the front, between its fitted ends, so the depth stays open here.]"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
