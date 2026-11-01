@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>4D Chicago — walk the city as the record describes it</title>
-<meta name="description" content="A walkable, source-cited reconstruction of early Chicago: Fort Dearborn in 1812, the river town of 1835 and Prairie Avenue in 1904 — with a building atlas from 1674 through the Great Fire and the rebuilding decade.">
+<meta name="description" content="A walkable, source-cited reconstruction of early Chicago: Prairie Avenue in 1904, the river town of 1835 and Fort Dearborn in 1812 — with a building atlas from 1674 through the Great Fire and the rebuilding decade.">
 <meta name="theme-color" content="#07090f">
 <meta property="og:title" content="4D Chicago — walk the city as the record describes it">
-<meta property="og:description" content="Fort Dearborn in 1812, the river town of 1835, Prairie Avenue in 1904. Every surface carries its evidence.">
+<meta property="og:description" content="Prairie Avenue in 1904, the river town of 1835, Fort Dearborn in 1812. Every surface carries its evidence.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://chicago.polecat.live/media/hero.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2307090f'/%3E%3Cpath fill='%23ff3b4f' d='M24 7l3.4 10.4L38.2 15l-7.3 8.2 7.3 8.2-10.8-2.3L24 39.5l-3.4-10.4L9.8 31.4l7.3-8.2-7.3-8.2 10.8 2.4z'/%3E%3C/svg%3E">
@@ -48,9 +48,9 @@
   <div class="wrap nav-in">
     <a class="brand" href="./" aria-label="4D Chicago, home"><svg class="ic fill brand-mark" aria-hidden="true"><use href="#i-star"/></svg><b>4D Chicago</b></a>
     <div class="nav-links">
+      <a href="#prairie">Prairie Avenue</a>
       <a href="#films">Films</a>
       <a href="#record">The record</a>
-      <a href="#prairie">Prairie Avenue</a>
       <a href="#atlas">Atlas</a>
       <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch between light and dark">
         <svg class="ic theme-moon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="ic theme-sun" aria-hidden="true"><use href="#i-sun"/></svg>
@@ -61,8 +61,8 @@
 </nav>
 
 <header class="hero" id="top">
-  <video class="hero-video" id="heroVideo" poster="media/hero.jpg" muted loop playsinline preload="metadata" aria-hidden="true">
-    <source src="media/hero.webm" type="video/webm"><source src="media/hero.mp4" type="video/mp4">
+  <video class="hero-video" id="heroVideo" poster="media/hero.jpg?v=2" muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="media/hero.webm?v=2" type="video/webm"><source src="media/hero.mp4?v=2" type="video/mp4">
   </video>
   <div class="wrap hero-in">
     <span class="rec"><i></i>Filmed in the app · a walkable reconstruction</span>
@@ -70,22 +70,42 @@
       <span class="line"><span class="w" style="--i:0">Walk</span> <span class="w" style="--i:1">Chicago</span></span>
       <span class="line"><em class="w" style="--i:2">as</em> <em class="w" style="--i:3">the</em> <em class="w" style="--i:4">record</em> <em class="w" style="--i:5">describes</em> <em class="w" style="--i:6">it.</em></span>
     </h1>
-    <p class="hero-sub">4D Chicago rebuilds the city at fixed moments in time — Fort Dearborn in 1812, the river town of 1835,
-    Prairie Avenue in 1904 — from maps, directories, memoirs and photographs. Every building carries its sources, and shows
+    <p class="hero-sub">4D Chicago rebuilds the city at fixed moments in time — Prairie Avenue in 1904, the river town of 1835,
+    Fort Dearborn in 1812 — from maps, directories, memoirs and photographs. Every building carries its sources, and shows
     you how sure they are.</p>
     <div class="hero-cta">
       <a class="btn btn-light" href="4d/">Enter 4D Chicago <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <button class="btn btn-glass" type="button" data-film="chicago-walk"><span class="play-dot" style="background:#fff"><svg class="ic fill" aria-hidden="true" style="color:#07090f"><use href="#i-play"/></svg></span>Watch the film <small>1:20</small></button>
+      <button class="btn btn-glass" type="button" data-film="chicago-walk"><span class="play-dot" style="background:#fff"><svg class="ic fill" aria-hidden="true" style="color:#07090f"><use href="#i-play"/></svg></span>Watch the film <small>1:24</small></button>
     </div>
     <nav class="years" aria-label="Go straight to a year">
-      <a class="year" href="4d/1812/"><b>1812</b><span>Fort Dearborn</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
-      <a class="year" href="4d/1835/"><b>1835</b><span>The river town</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
       <a class="year" href="4d/1904/"><b>1904</b><span>Prairie Avenue</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      <a class="year" href="4d/1835/"><b>1835</b><span>The river town</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      <a class="year" href="4d/1812/"><b>1812</b><span>Fort Dearborn</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
     </nav>
   </div>
 </header>
 
 <main>
+
+<!-- PRAIRIE AVENUE ----------------------------------------------------------------- -->
+<section class="prairie" id="prairie">
+  <img src="media/still-glessner.jpg" alt="" loading="lazy" id="prairieImg">
+  <div class="wrap prairie-in reveal">
+    <div class="kick">Prairie Avenue · 1904</div>
+    <h2>The grandest street in Chicago, <em>house by house.</em></h2>
+    <p>A research library behind the 1904 scene: every house's construction and demolition dates, its owners and
+    occupants, fire-insurance maps to 1911, and a dedicated Glessner House collection.</p>
+    <div class="stats">
+      <div class="stat"><b data-count="62">62</b><span>buildings researched</span></div>
+      <div class="stat"><b data-count="138">138</b><span>sources</span></div>
+      <div class="stat"><b data-count="38">38</b><span>maps</span></div>
+    </div>
+    <div class="hero-cta" style="opacity:1;animation:none;margin-top:0">
+      <a class="btn btn-light" href="prairie-1904/viewer/">Open the Prairie Avenue library <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-glass" href="4d/1904/">Walk it in 4D</a>
+    </div>
+  </div>
+</section>
 
 <!-- THE FILMS ---------------------------------------------------------------- -->
 <section class="sec" id="films">
@@ -97,20 +117,20 @@
       step through and walk it yourself.</p>
     </div>
 
-    <article class="film-row" style="--fc:#e0a050">
-      <button class="film-media reveal" type="button" data-film="chicago-1812" aria-label="Play the 1812 film: Fort Dearborn">
-        <img src="media/chicago-1812.jpg" alt="The stockade and blockhouse of Fort Dearborn under the flag, approached across the prairie" loading="lazy">
-        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:49</span>
+    <article class="film-row" style="--fc:#c9a46a">
+      <button class="film-media reveal" type="button" data-film="chicago-1904" aria-label="Play the 1904 film: Prairie Avenue">
+        <img src="media/chicago-1904.jpg" alt="Prairie Avenue under its parkway elms, mansions on both sides" loading="lazy">
+        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:51</span>
       </button>
       <div class="film-copy reveal" style="--d:1">
-        <div class="yr">1812</div>
-        <h3>Fort Dearborn</h3>
-        <div class="date">14 August 1812 · the eve of the evacuation</div>
-        <p>The stockade and its blockhouses, the barracks and the parade, the Kinzie house across the river and the river
-        bending to the lake. Open any structure and it lists what is attested, what is inferred and what is reconstructed.</p>
+        <div class="yr">1904</div>
+        <h3>Prairie Avenue</h3>
+        <div class="date">1 July 1904 · Prairie and Eighteenth</div>
+        <p>Up the avenue under the elms to Glessner House, around its granite corner and arched entrance, along the
+        mansion fronts and out over the district to the Illinois Central and the lake.</p>
         <div class="acts">
-          <button class="btn btn-solid" type="button" data-film="chicago-1812"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:49</small></button>
-          <a class="btn btn-ghost" href="4d/1812/">Walk 1812 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+          <button class="btn btn-solid" type="button" data-film="chicago-1904"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:51</small></button>
+          <a class="btn btn-ghost" href="4d/1904/">Walk 1904 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
         </div>
       </div>
     </article>
@@ -135,20 +155,20 @@
       </div>
     </article>
 
-    <article class="film-row" style="--fc:#c9a46a">
-      <button class="film-media reveal" type="button" data-film="chicago-1904" aria-label="Play the 1904 film: Prairie Avenue">
-        <img src="media/chicago-1904.jpg" alt="Prairie Avenue under its parkway elms, mansions on both sides" loading="lazy">
-        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:51</span>
+    <article class="film-row" style="--fc:#e0a050">
+      <button class="film-media reveal" type="button" data-film="chicago-1812" aria-label="Play the 1812 film: Fort Dearborn">
+        <img src="media/chicago-1812.jpg" alt="The stockade and blockhouse of Fort Dearborn under the flag, approached across the prairie" loading="lazy">
+        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:49</span>
       </button>
       <div class="film-copy reveal" style="--d:1">
-        <div class="yr">1904</div>
-        <h3>Prairie Avenue</h3>
-        <div class="date">1 July 1904 · Prairie and Eighteenth</div>
-        <p>Up the avenue under the elms to Glessner House, around its granite corner and arched entrance, along the
-        mansion fronts and out over the district to the Illinois Central and the lake.</p>
+        <div class="yr">1812</div>
+        <h3>Fort Dearborn</h3>
+        <div class="date">14 August 1812 · the eve of the evacuation</div>
+        <p>The stockade and its blockhouses, the barracks and the parade, the Kinzie house across the river and the river
+        bending to the lake. Open any structure and it lists what is attested, what is inferred and what is reconstructed.</p>
         <div class="acts">
-          <button class="btn btn-solid" type="button" data-film="chicago-1904"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:51</small></button>
-          <a class="btn btn-ghost" href="4d/1904/">Walk 1904 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+          <button class="btn btn-solid" type="button" data-film="chicago-1812"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:49</small></button>
+          <a class="btn btn-ghost" href="4d/1812/">Walk 1812 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
         </div>
       </div>
     </article>
@@ -183,26 +203,6 @@
         </div>
         <p class="shot-cap" id="shotCap">Glessner House, 1904: still standing, built 1887 — with the archival photograph the record cites.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRAIRIE AVENUE ----------------------------------------------------------------- -->
-<section class="prairie" id="prairie">
-  <img src="media/still-glessner.jpg" alt="" loading="lazy" id="prairieImg">
-  <div class="wrap prairie-in reveal">
-    <div class="kick">Prairie Avenue · 1904</div>
-    <h2>The grandest street in Chicago, <em>house by house.</em></h2>
-    <p>A research library behind the 1904 scene: every house's construction and demolition dates, its owners and
-    occupants, fire-insurance maps to 1911, and a dedicated Glessner House collection.</p>
-    <div class="stats">
-      <div class="stat"><b data-count="62">62</b><span>buildings researched</span></div>
-      <div class="stat"><b data-count="138">138</b><span>sources</span></div>
-      <div class="stat"><b data-count="38">38</b><span>maps</span></div>
-    </div>
-    <div class="hero-cta" style="opacity:1;animation:none;margin-top:0">
-      <a class="btn btn-light" href="prairie-1904/viewer/">Open the Prairie Avenue library <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="btn btn-glass" href="4d/1904/">Walk it in 4D</a>
     </div>
   </div>
 </section>
@@ -289,9 +289,9 @@
     <div class="foot-cols">
       <div><h5>Walk</h5><ul>
         <li><a href="4d/">The observatory</a></li>
-        <li><a href="4d/1812/">1812 · Fort Dearborn</a></li>
-        <li><a href="4d/1835/">1835 · The river town</a></li>
         <li><a href="4d/1904/">1904 · Prairie Avenue</a></li>
+        <li><a href="4d/1835/">1835 · The river town</a></li>
+        <li><a href="4d/1812/">1812 · Fort Dearborn</a></li>
       </ul></div>
       <div><h5>Atlas</h5><ul>
         <li><a href="pre-fire/viewer/">Before the Fire</a></li>
@@ -315,10 +315,10 @@
   <video id="filmVideo" controls playsinline preload="none"></video>
   <div class="film-foot">
     <div class="film-tabs" role="group" aria-label="Choose a film">
-      <button type="button" data-tab="chicago-walk">All three · 1:20</button>
-      <button type="button" data-tab="chicago-1812">1812</button>
-      <button type="button" data-tab="chicago-1835">1835</button>
+      <button type="button" data-tab="chicago-walk">All three · 1:24</button>
       <button type="button" data-tab="chicago-1904">1904</button>
+      <button type="button" data-tab="chicago-1835">1835</button>
+      <button type="button" data-tab="chicago-1812">1812</button>
     </div>
     <a class="btn btn-light" id="filmWalk" href="4d/">Walk it yourself <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
