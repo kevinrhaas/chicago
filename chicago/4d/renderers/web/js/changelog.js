@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2514, ts: '2026-11-01T03:15:55.488Z', date: 'Oct 31, 2026, 10:15 PM CT', title: 'The Field house gets its tall 1904 fence and south-side balconies', kind: 'improvement',
+    items: [
+      '1905 Prairie now stands behind the tall spear-topped iron fence of the c. 1905 Daily News photograph, nearly 2 m high, in place of the lower scroll fence of the 1880s and 1890s pictures.',
+      'The south side gains the two upstairs windows over the conservatory and two iron balconies on consoles, as the 1880s photograph shows them.',
+      'Light stone strips now frame the brick of the canted corner, and the basement windows under the front are round-headed, as every picture of the house draws them.',
+      'The 1893 Pictorial Chicago view is re-fitted to the rebuilt house, and through it the mansard\'s height already matches.',
+    ] },
   { v: 2513, ts: '2026-11-01T01:57:05.784Z', date: 'Oct 31, 2026, 8:57 PM CT', title: 'A tree moved off Pullman\'s stable on 18th Street', kind: 'fix',
     items: [
       'At the turn of 18th Street into Calumet Avenue, a large elm stood in front of the Pullman stable\'s chimney stack. Taylor\'s photograph shows the stack and the sky clear there.',
