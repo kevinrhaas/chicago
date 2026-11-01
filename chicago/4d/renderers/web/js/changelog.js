@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2539, ts: '2026-11-01T16:03:36.114Z', date: 'Nov 1, 2026, 10:03 AM CT', title: 'Pullman\'s conservatory filled with palms behind its great arch', kind: 'improvement',
+    items: [
+      'Pullman\'s conservatory at 1800 Calumet Avenue is now planted behind its great arched glass front. Twenty more palms stand in rows across the house, rising toward the back, so the arch\'s lowest tier reads dark with fronds from side to side. The 1894 Inland Architect plate and Lowe\'s photograph both show it that way. Before, the far glass showed through between a few crowns.',
+      'Both pictures of the conservatory now match the model. The planting is a reconstruction, because no picture of the inside is known.',
+    ] },
+  { v: 2538, ts: '2026-11-01T15:12:55.943Z', date: 'Nov 1, 2026, 9:12 AM CT', title: '1923 Prairie: the Kellogg house\'s porch and stoop as the 1898 sketch draws them', kind: 'feature',
+    items: [
+      'The Kellogg house\'s porch at 1923 Prairie Avenue now turns a round arch between its columns under its stone balustrade, and is as broad as the row drawing of the block frames it, about 4.9 m across over a wider stoop.',
+      'The stoop\'s stone cheeks now sweep down and out to capped posts at the walk, and the upper storey\'s windows are taller, with plain brick over the entrance where the drawing shows a panel.',
+      'Still to come: paired porch columns and the scroll-panel fence on 1923, and 1945\'s taller corner roof, the north bay\'s own dormered roof and its arched door.',
+    ] },
+  { v: 2537, ts: '2026-11-01T15:10:32.108Z', date: 'Nov 1, 2026, 9:10 AM CT', title: '1912 Prairie\'s front door now stands in a deep stone arch', kind: 'feature',
+    items: [
+      'The Moulton house at 1912 Prairie now has its front door set back in a deep round arch, with a moulded stone ring and a keystone, as its photograph and the 1883 engraving show. A pair of panelled doors stands under a fan-shaped window in the arch.',
+      'The pair of tall windows on the ground floor of the south gable now has round tops, as all three pictures of the house show.',
+      'Still to come: the single arch over that pair, the carved capitals beside the door, and the stone dormers and carving on the roof.',
+    ] },
+  { v: 2536, ts: '2026-11-01T15:10:32.108Z', date: 'Nov 1, 2026, 9:10 AM CT', title: 'The back of the Pullman house steps out', kind: 'fix',
+    items: [
+      'The rear wall of the Pullman house is no longer one flat face: its north half now stands forward under its own mansard roof, with the raised terrace in the corner, as J. W. Taylor\'s photograph from 18th Street shows it.',
+      'That forward half has two windows on each floor and a dormer over each pair. The south half keeps one window and one dormer, matching the photograph.',
+    ] },
   { v: 2535, ts: '2026-11-01T13:55:52.457Z', date: 'Nov 1, 2026, 7:55 AM CT', title: 'A brick stable behind the 1700-1706 Prairie pair', kind: 'feature',
     items: [
       'The alley behind the Glessner-Lee and George Glessner townhouses at 1700-1706 Prairie now has its two-storey brick stable, the longest on that alley: 19.4 m along it and 10.4 m deep, with a fire wall on the lot line to the north and a window pair at the middle of its alley wall. Its outline, storeys, brick and window place come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas draws the same stable, so it stood through 1904. The doors, loft hatch, other windows and roof are reconstructed from the shared coach-house kit and listed in the liberties.',

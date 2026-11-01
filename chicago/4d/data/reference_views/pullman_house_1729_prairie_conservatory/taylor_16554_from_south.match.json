@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "d973c0990449edad714b7616be1ecb5ade6f83c091a5466026aff717a3cf8eb3"
+      "glb_sha256": "d98ec6905771b7e082d70819bd843c1dc25451baf09736c1754b568df704fe8e"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
     }
   ],
-  "group_sha256": "cf4e26f7506093c6e53ed5fa268dbc8c4ccd5ad94568a1a880da57af73296760",
+  "group_sha256": "ea18726febd12396b9740631e8950921e26b23ad9570c3116c406a9d1f0f7a61",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "e2a1b3ccba974cd96d1257eaa3aeab191493a5b026e3a7e6cd4f41de1c56ae27",
+  "flora_sha256": "fb91b04e56e926447d04ccd48051d193c2ca449d98acfa616ef198ee1ceea602",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
