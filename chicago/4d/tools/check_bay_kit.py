@@ -340,10 +340,13 @@ def inside_point(b):
     # door to close, so a ray out through it is the doorway, not a gap; with the door on the
     # block's axis (1729's p_forward) every point above stands behind it, so the points
     # halfway between its jambs and the block's sides are tried too
+    # (T-1881 round 3: and, on a front step as shallow as 1729's entry, 1.6 m, the same points
+    # 0.3 m behind its front, where no 45-degree ray reaches across to the door)
     dh = b.v.get("door_hole")
     if dh:
-        (xa, _), (xb, _) = b.v["plan"]["points"][1:3]
-        cands = (*cands, ((dh["x_m"][1] + xb) / 2, 0.1), ((dh["x_m"][0] + xa) / 2, 0.1))
+        (xa, zf_), (xb, _) = b.v["plan"]["points"][1:3]
+        cands = (*cands, ((dh["x_m"][1] + xb) / 2, 0.1), ((dh["x_m"][0] + xa) / 2, 0.1),
+                 ((dh["x_m"][1] + xb) / 2, zf_ - 0.3), ((dh["x_m"][0] + xa) / 2, zf_ - 0.3))
     lv = b.meta["levels_m"]
 
     def points(cand):
