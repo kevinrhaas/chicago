@@ -587,14 +587,35 @@ class Variant:
         self.wall("lean_to_east", Frame((x1, 0.0, -D), (0.0, 0.0, -1.0), X),
                   [(0.0, 0.0), (dl - lt, 0.0), (dl - lt, yl), (dl, yl), (0.0, yh)], lt,
                   open_edges=set(range(5)), name="lean-to east wall")
-        self.wall("lean_to_west", Frame((x0, 0.0, -D - dl), Z, (-1.0, 0.0, 0.0)),
-                  [(lt, 0.0), (dl, 0.0), (dl, yh), (0.0, yl), (lt, yl)], lt,
-                  open_edges=set(range(5)), name="lean-to west wall")
+        # T-1932: a lean-to may stand on the lot line against the party wall (1730 Prairie's
+        # one-storey piece, whose north wall the 1911 sheet draws on the line). Its west wall then
+        # stops at the party wall's return, its end standing on the return's end face, and its
+        # roof steps round the return: over the return's thickness it starts where the return
+        # ends, beyond it it dies into the yard wall; no verge passes the lot line.
+        W, tp, ret = d["W"], d["tp"], self.P["party_wall"]["return_m"]
+        on_party = abs(x0 + W / 2) < 1e-9
+        if not on_party and x0 < -W / 2 + tp:
+            raise ValueError(f"{self.v['id']}: a lean-to at x0 {x0} runs into the party wall; stand it "
+                             f"on the lot line (x0 {-W / 2}) or clear of the wall")
+        sw = dl - ret if on_party else dl
         e, dr = LP["eave_m"], LP["thickness_m"] / math.cos(math.radians(LP["pitch_deg"]))
+        ys = yh - (dl - sw) * tan
+        self.wall("lean_to_west", Frame((x0, 0.0, -D - dl), Z, (-1.0, 0.0, 0.0)),
+                  [(lt, 0.0), (sw, 0.0), (sw, ys), (0.0, yl), (lt, yl)], lt,
+                  open_edges=set(range(5)), name="lean-to west wall")
         ye = yh - (dl + e) * tan
         roof = self.piece("lean-to roof", "lean_roof", "open")
-        prism(roof.mesh, [(D, yh), (D + dl + e, ye), (D + dl + e, ye + dr), (D, yh + dr)],
-              x0 - LP["verge_m"], x1 + LP["verge_m"], back=True, open_edges={3})
+        if on_party:
+            prism(roof.mesh, [(D, yh), (D + dl + e, ye), (D + dl + e, ye + dr), (D, yh + dr)],
+                  x0 + tp, x1 + LP["verge_m"], back=False, open_edges={3})
+            yr = yh - ret * tan
+            end = self.piece("lean-to roof over the return", "lean_roof", "open")
+            prism(end.mesh, [(D + ret, yr), (D + dl + e, ye), (D + dl + e, ye + dr), (D + ret, yr + dr)],
+                  x0, x0 + tp, back=True, open_edges={3})
+            WORLD_E.apply(end.mesh)
+        else:
+            prism(roof.mesh, [(D, yh), (D + dl + e, ye), (D + dl + e, ye + dr), (D, yh + dr)],
+                  x0 - LP["verge_m"], x1 + LP["verge_m"], back=True, open_edges={3})
         WORLD_E.apply(roof.mesh)
 
     def wing(self):
@@ -628,7 +649,12 @@ class Variant:
         Lr, Dr = rv["length_m"], rv["depth_m"]
         yr = rv.get("height_m", RP["height_m"])
         rt = self.P["wall"]["service_brick_m"]
-        if not rt < d["t"] < Dr < d["D"] - d["t"]:
+        # T-1932: or a range as deep as the coach house (1730 Prairie's, whose yard wall the 1911
+        # sheet draws on one line with the stable's): its yard wall's end then stands on the yard
+        # wall's end, as its alley wall's does on the alley wall's, and its roof is flush with
+        # both faces
+        full = abs(Dr - d["D"]) < 1e-9
+        if not (rt < d["t"] < Dr < d["D"] - d["t"] or full):
             raise ValueError(f"{self.v['id']}: a range {Dr} m deep does not stand on the gable's face")
         x0 = W / 2
         rect = [(0.0, 0.0), (Lr, 0.0), (Lr, yr), (0.0, yr)]
@@ -641,7 +667,7 @@ class Variant:
                   open_edges=set(range(4)), name="range end wall")
         ov = RP["overhang_m"]
         roof = self.piece("range roof", "lean_roof", "open")
-        box(roof.mesh, x0, x0 + Lr + ov, yr, yr + RP["roof_m"], -Dr - ov, 0.0, skip=("left",))
+        box(roof.mesh, x0, x0 + Lr + ov, yr, yr + RP["roof_m"], -Dr - (0.0 if full else ov), 0.0, skip=("left",))
         self.meta["range"] = {"x": (x0, x0 + Lr), "depth_m": Dr, "height_m": yr}
 
     # -- the specimen lot --------------------------------------------------------------------
@@ -699,6 +725,9 @@ class Variant:
         east = d["east"] == "party"
         gap = WP["clear_of_walls_m"]
         x0, x1 = -W / 2 + tp + gap, ((W / 2 - tp) if east else W / 2) - gap
+        if self.v.get("lean_to"):
+            # T-1932: the apron starts clear of a lean-to on the yard wall (1730's), not under it
+            x0 = max(x0, self.v["lean_to"]["x1"] + gap)
         th = WP["paving_m"]
         za = -D - wv["apron_m"]
         zh = -D - wv["to_house_m"]

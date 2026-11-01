@@ -1,0 +1,591 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of 3 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 39841,
+      "js_heap_used_bytes": 83959064,
+      "js_heap_total_bytes": 85741568,
+      "draft_records_in_registry": 189,
+      "placed": [
+        "house_1730_prairie_coach_house",
+        "house_1730_prairie",
+        "house_1726_prairie_coach_house",
+        "house_1736_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "alley-from-north",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 6938,
+            "rendererCalls": 434,
+            "multiDraw": true,
+            "triangles": 4376546,
+            "programs": 92,
+            "geometries": 540,
+            "textures": 1296,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 77455580,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 6815.8,
+          "camera": [
+            1331,
+            -3160,
+            5.95
+          ],
+          "target": [
+            1335,
+            -3178,
+            8.29
+          ]
+        },
+        {
+          "name": "alley-from-south",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 3171,
+            "rendererCalls": 464,
+            "multiDraw": true,
+            "triangles": 2697041,
+            "programs": 92,
+            "geometries": 595,
+            "textures": 1588,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 77455580,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 5483.5,
+          "camera": [
+            1331,
+            -3200,
+            6.03
+          ],
+          "target": [
+            1335,
+            -3182,
+            7.29
+          ]
+        },
+        {
+          "name": "yard-face",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 3842,
+            "rendererCalls": 113,
+            "multiDraw": true,
+            "triangles": 1098786,
+            "programs": 92,
+            "geometries": 595,
+            "textures": 1588,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 77455580,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 5128.2,
+          "camera": [
+            1358,
+            -3176,
+            5.97
+          ],
+          "target": [
+            1345,
+            -3178,
+            7.27
+          ]
+        },
+        {
+          "name": "air",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 2659,
+            "rendererCalls": 289,
+            "multiDraw": true,
+            "triangles": 2582562,
+            "programs": 92,
+            "geometries": 595,
+            "textures": 1589,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 77455580,
+            "fps": 0,
+            "cameraNear": 1.75,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4700000
+            },
+            "withinBudget": true,
+            "farBudget": {
+              "triangles": 6670000,
+              "drawCalls": 8500
+            }
+          },
+          "frame_ms_median": 5423.7,
+          "camera": [
+            1375,
+            -3210,
+            48.32
+          ],
+          "target": [
+            1340,
+            -3180,
+            4.28
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 27958,
+      "js_heap_used_bytes": 110662108,
+      "js_heap_total_bytes": 112123904,
+      "draft_records_in_registry": 189,
+      "placed": [
+        "house_1730_prairie_coach_house",
+        "house_1730_prairie",
+        "house_1726_prairie_coach_house",
+        "house_1736_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "alley-from-north",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 4397,
+            "rendererCalls": 253,
+            "multiDraw": true,
+            "triangles": 852204,
+            "programs": 49,
+            "geometries": 533,
+            "textures": 1525,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 48398048,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true,
+            "farBudget": null
+          },
+          "frame_ms_median": 1245.1,
+          "camera": [
+            1331,
+            -3160,
+            5.95
+          ],
+          "target": [
+            1335,
+            -3178,
+            8.29
+          ]
+        },
+        {
+          "name": "alley-from-south",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 2118,
+            "rendererCalls": 252,
+            "multiDraw": true,
+            "triangles": 583175,
+            "programs": 49,
+            "geometries": 581,
+            "textures": 1625,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 48398048,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true,
+            "farBudget": null
+          },
+          "frame_ms_median": 1073,
+          "camera": [
+            1331,
+            -3200,
+            6.03
+          ],
+          "target": [
+            1335,
+            -3182,
+            7.29
+          ]
+        },
+        {
+          "name": "yard-face",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1008,
+            "rendererCalls": 79,
+            "multiDraw": true,
+            "triangles": 231107,
+            "programs": 49,
+            "geometries": 581,
+            "textures": 1625,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 48398048,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true,
+            "farBudget": null
+          },
+          "frame_ms_median": 987.7,
+          "camera": [
+            1358,
+            -3176,
+            5.97
+          ],
+          "target": [
+            1345,
+            -3178,
+            7.27
+          ]
+        },
+        {
+          "name": "air",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 2241,
+            "rendererCalls": 172,
+            "multiDraw": true,
+            "triangles": 583542,
+            "programs": 49,
+            "geometries": 581,
+            "textures": 1627,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 48398048,
+            "fps": 0,
+            "cameraNear": 1.75,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true,
+            "farBudget": null
+          },
+          "frame_ms_median": 1697.2,
+          "camera": [
+            1375,
+            -3210,
+            48.32
+          ],
+          "target": [
+            1340,
+            -3180,
+            4.28
+          ]
+        }
+      ]
+    }
+  ]
+}
