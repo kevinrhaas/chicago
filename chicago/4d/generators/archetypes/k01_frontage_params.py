@@ -1123,8 +1123,12 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         raise ParamError(f"{what}: a 0.1-0.4 m surround, its face on the lower face")
     # T-3000: a hood's light is the short one at its foot (1801's read about 0.9 m)
     low = 0.6 if head == "hood" else 1.0
-    if not 0.5 <= sw <= 1.2 or not low <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
-        raise ParamError(f"{what}.sash: 0.5-1.2 m wide, {low}-2.4 m high, on a 0.1-0.6 m sill")
+    # T-3297: a grouped light's width is its bays' and mullions' (1700-1706's paired sash, about
+    # 1.45 m in Chicagology's photograph, had been held to one light's 1.2 m)
+    v_ = kit.get(sh.get("variant"), {})
+    wide = 1.2 if v_.get("bays", 1) == 1 else round(1.2 * v_["bays"] + v_.get("mullion_m", 0.0) * (v_["bays"] - 1), 4)
+    if not 0.5 <= sw <= wide or not low <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
+        raise ParamError(f"{what}.sash: 0.5-{wide} m wide, {low}-2.4 m high, on a 0.1-0.6 m sill")
     out = {"variant": sh["variant"], "head": head, "sash_width_m": sw, "sash_height_m": sht, "sill_m": sill,
            "surround_m": ring, "face_setback_m": sb, "width_m": round(sw + 2 * ring, 4),
            "head_m": round(sht + ring, 4)}
@@ -6533,11 +6537,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # rear walls do (two rowlock rings on a segmental arch), instead of the stone lintel or
     # K09 head `by_storey` names; the hole stays the K01 rectangle, so the sash stays flat
     trim = dict(val("street_front_trim", {}) or {})
-    if trim.get("brick_heads") not in (None, "segmental"):
-        raise ParamError("street_front_trim.brick_heads builds 'segmental' alone")
+    if trim.get("brick_heads") not in (None, "segmental", "flat"):
+        raise ParamError("street_front_trim.brick_heads builds 'segmental' or 'flat'")
     if trim.get("brick_heads") and construction != "brick":
         raise ParamError("street_front_trim.brick_heads arches the brick; a stone front is laid "
                          "by its K02 stone_front")
+    # T-3297: a stone key over each brick head, its foot on the head (1700-1706's upper lights
+    # in Chicagology's photograph: a tapered block wider at its top, its top corners cut)
+    if "head_key" in trim:
+        hk = trim["head_key"]
+        keys = {"foot_m", "top_m", "height_m", "proud_m", "chamfer_m"}
+        if not trim.get("brick_heads") or not isinstance(hk, dict) or set(hk) != keys:
+            raise ParamError(f"street_front_trim.head_key takes {sorted(keys)}, over brick_heads")
+        hk = {k: float(v) for k, v in hk.items()}
+        if not (0.15 <= hk["foot_m"] <= hk["top_m"] <= 0.6 and 0.2 <= hk["height_m"] <= 0.8
+                and 0.02 <= hk["proud_m"] <= 0.12 and 0.0 <= hk["chamfer_m"] <= min(hk["top_m"] / 4, hk["height_m"] / 4)):
+            raise ParamError("street_front_trim.head_key: a key 0.15-0.6 m across, no narrower at its top than "
+                             "its foot, 0.2-0.8 m high, 0.02-0.12 m proud, its top corners cut up to a quarter")
+        trim["head_key"] = hk
     # T-3197: a front bay's lights under a carved tympanum on a stone lintel, in place of the
     # K09 head its storey names (1827's window bay south of the pavilion, the Doane photograph)
     if "tympana" in trim:
