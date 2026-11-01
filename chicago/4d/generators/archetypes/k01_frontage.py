@@ -1118,7 +1118,9 @@ class Assembly:
             # behind it as a main wall does behind its oriel — 1701's range, its rear photograph)
             cover = (on_rear if side == "rear" else on_host if side == "front" else []) \
                 + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays
-                   if b["wall"] == cid and b["variant"]["kind"] != "oriel"]
+                   if b["wall"] == cid and b["variant"]["kind"] != "oriel"] \
+                + [(*b["past_end"]["span_m"], 0.0, w["top_m"]) for b in p.bays
+                   if (b.get("past_end") or {}).get("wall") == cid]   # T-1890: a face run onto it
             # T-3133: a round-headed light is cut on its head's curve, as the main walls cut it
             hs = [hole(o) for o in ops] + cover
             if frame_wing:
