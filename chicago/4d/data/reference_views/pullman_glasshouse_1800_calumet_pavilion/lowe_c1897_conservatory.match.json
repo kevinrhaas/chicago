@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "91e00b6e1dd97c96a945edcb515ba426f24816a99c92e97d3c07fd20f9fb28b8",
+  "glb_sha256": "73804318ecf5d670d5be4b76d30e4fa79087b6da1bd9cdea79bedfa27cbc5969",
   "camera_sha256": "f72dc5d5006a4cbd513abe0b1afc875d574b75a8fce011cb6e2fe1d1c19dff69",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "91e00b6e1dd97c96a945edcb515ba426f24816a99c92e97d3c07fd20f9fb28b8"
+      "glb_sha256": "73804318ecf5d670d5be4b76d30e4fa79087b6da1bd9cdea79bedfa27cbc5969"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312"
     }
   ],
-  "group_sha256": "6af52aa74c841176d4fc58b9f2590c6da3d45334a3becb43b9b80d9ba60242a1",
+  "group_sha256": "a336b06ced98f71e4810ee5f557b1fe208b1aa116be48a91ff6a9fa61ed1ebaa",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -165,7 +165,7 @@
   ],
   "flora_sha256": "b71b99291ae6121e512d4feeb5173067e736c3172a1fe275e9ed712bcd6f2d44",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the east range's eight windows glazed in small panes, a sunk panel under each, a sill course, a base course under the panels, a band over the heads and a cornice line under the coping; the windows narrower than built and set closer to the lodge, with a broad pier at the round end",
@@ -380,9 +380,13 @@
       "how": "it stood where the 1911 sheet's north range (built after the pictures) has its base wall in 1904; the two standards and boxed masses before the conservatory's front are drawn (data/front_yards/1904.json, calumet_1800)"
     },
     {
-      "what": "the north arch's lower register (its springing to the first transom): both pictures read it dark with planting from side to side, where the render's fronds stand over the sky seen through the house's far glass, so the register reads a few tones lighter than the pictures",
-      "status": "open",
+      "what": "the north arch's lower register (its springing to the first transom): both pictures read it dark with planting from side to side, where the render's fronds stand over the sky seen through the house's far glass, so the register reads a few tones lighter than the pictures [T-1934, 2026-11-01: twenty more palms in four rows across the nave and against both side walls (L-pullman-pavilion-arch-planting-1934); through this camera the fronds fill the register from its east edge across the entrance's axis to the west, where the far glass showed between six crowns. Fixed; the strip left at the west edge is the next item.]",
+      "status": "fixed",
       "how": "T-1934, 2026-11-01: left open; a shade behind the glass is what the owner called a black box (2026-10-31, T-3273), and planting the register solid would more than double the palms' triangles"
+    },
+    {
+      "what": "the north arch's lower register at its west edge (T-1934, 2026-11-01): a strip about 35 px (about 1 m at the front's 34 px a metre) inside the arch's west frame, from the springing to the first transom, still shows the side glass, where the print reads it dark. Through this camera, standing east of the nave's axis, the sight lines through that strip leave the house by its west flank's glass within about a metre of the front, so only a plant standing in the glass could fill it. This camera is diagnostic only: the cropped print fixes a line of solutions (u -30 to -50) rather than one, and where its sight lines cross the west flank moves along it. The Inland plate, the solved camera, shows the register filled to both edges. Within tolerance: two camera fits disagree",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
