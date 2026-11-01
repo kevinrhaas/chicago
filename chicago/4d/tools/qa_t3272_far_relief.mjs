@@ -1,4 +1,4 @@
-// T-3272: Glessner's relief roof pieces drawn as their crests only past the relief's last visible
+// T-3272, T-3285: Glessner's relief roof pieces drawn as their crests only past the relief's last visible
 // pixel (renderers/web/js/far-roof-relief.js) — the triangles it saves and the proof that no pixel
 // moves. The actual published /1904/ app at full: each stand renders the same held frame with the
 // swap off and on and reads every pixel back with gl.readPixels; as a positive control it renders
@@ -60,36 +60,56 @@ try{
    // inside the same task, before the browser can present and clear the buffer.
    const frame=()=>{let tris=0;for(let k=0;k<2;k++){a.camera.position.set(p[0],p[2],-p[1]);a.camera.lookAt(t[0],t[2],-t[1]);a.camera.updateMatrixWorld();a.world.follow(a.camera.position);a.world.aim(a.camera);a.renderer.render(a.scene3d,a.camera);tris=a.renderer.info.render.triangles;}
      const px=new Uint8Array(w*h*4);gl.readPixels(0,0,w,h,gl.RGBA,gl.UNSIGNED_BYTE,px);return {triangles:tris,stats:a.stats(),px};};
-   const diff=(x,y)=>{let differ=0,maxDelta=0;for(let i=0;i<x.length;i+=4){let d=0;for(let c=0;c<3;c++)d=Math.max(d,Math.abs(x[i+c]-y[i+c]));if(d){differ++;maxDelta=Math.max(maxDelta,d);}}return {differ,maxDelta};};
-   const fr=a.buildings.farRelief,before=fr.on;
+   const diff=(x,y)=>{let differ=0,maxDelta=0;const at=[];for(let i=0;i<x.length;i+=4){let d=0;for(let c=0;c<3;c++)d=Math.max(d,Math.abs(x[i+c]-y[i+c]));if(d){differ++;maxDelta=Math.max(maxDelta,d);if(at.length<24)at.push([(i/4)%w,h-1-Math.floor(i/4/w),d]);}}return {differ,maxDelta,at};};
+   const fr=a.buildings.farRelief,before=fr.on,sunBefore=fr.sun;
    fr.on=false;const off=frame(),off2=CONTROL?frame():off;
-   fr.on=true;const on=frame();const swapped=fr.swapped;
+   // T-3285: the colour pass swapped and the sun's pass whole (T-3284's state), then both
+   fr.on=true;fr.sun=false;const colourOnly=frame();
+   fr.sun=true;const on=frame();const swapped=fr.swapped,sunSwapped=fr.sunSwapped;
+   // The sun's positive control: the relief batches cast nothing at all, which has to change
+   // the frame wherever the roof's shadow is on screen (or "no pixel changed" could not see it).
+   const reliefBatches=a.buildings.batches.filter(b=>b.material?.userData?.roofFilter==='course-pixels-v1');
+   for(const b of reliefBatches)b.castShadow=false;const noCast=frame();for(const b of reliefBatches)b.castShadow=true;
    // The positive control: the three relief pieces left out outright.
    const pairs=a.buildings.batches.filter(b=>b.material?.userData?.roofFilter==='course-pixels-v1');
    fr.on=false;const hide=[];for(const b of pairs){const info=b._instanceInfo;for(let i=0;i<info.length;i++){if(info[i]?.active!==false&&b.getVisibleAt(i)){hide.push([b,i]);b.setVisibleAt(i,false);}}}
    const gone=frame();for(const [b,i] of hide)b.setVisibleAt(i,true);
-   fr.on=before;frame();
-   const d=diff(off.px,on.px),c=diff(off.px,gone.px),r=diff(off.px,off2.px);
-   return {tierHasItOn:before,pieces:fr.pieces,swapped,off:{triangles:off.triangles,drawCalls:off.stats.drawCalls},on:{triangles:on.triangles,drawCalls:on.stats.drawCalls,withinBudget:on.triangles<=on.stats.budget.triangles&&on.stats.drawCalls<=on.stats.budget.drawCalls},
-     saved:off.triangles-on.triangles,pixels:w*h,pixelsDiffering:d.differ,maxChannelDelta:d.maxDelta,
+   fr.on=before;fr.sun=sunBefore;frame();
+   const d=diff(off.px,on.px),dc=diff(off.px,colourOnly.px),c=diff(off.px,gone.px),r=diff(off.px,off2.px),ds=diff(colourOnly.px,on.px),cs=diff(on.px,noCast.px);
+   return {tierHasItOn:before,sunHasItOn:sunBefore,pieces:fr.pieces,swapped,sunSwapped,off:{triangles:off.triangles,drawCalls:off.stats.drawCalls},
+     colourOnly:{triangles:colourOnly.triangles},on:{triangles:on.triangles,drawCalls:on.stats.drawCalls,withinBudget:on.triangles<=on.stats.budget.triangles&&on.stats.drawCalls<=on.stats.budget.drawCalls,
+     farBudget:on.stats.farBudget,withinFarBudget:on.stats.farBudget?on.triangles<=on.stats.farBudget.triangles&&on.stats.drawCalls<=on.stats.farBudget.drawCalls:null},
+     colourPixelsDiffering:dc.differ,saved:off.triangles-on.triangles,savedBySun:colourOnly.triangles-on.triangles,pixels:w*h,pixelsDiffering:d.differ,maxChannelDelta:d.maxDelta,
+     sunPixelsDiffering:ds.differ,sunMaxChannelDelta:ds.maxDelta,sunDifferingAt:ds.at,controlPixelsDifferingWithReliefCastingNothing:cs.differ,
      controlOffOffPixelsDiffering:CONTROL?r.differ:null,controlPixelsDifferingWithRoofReliefHidden:c.differ,problems:a.problems.length};
   },{pos,target,rel,CONTROL:!!process.env.QA_CONTROL});
   if(process.env.QA_SHOTS)await page.screenshot({path:path.join(out,`after-${tag}-${name}.jpg`),type:'jpeg',quality:82});
   stands.push({name,...o});
-  console.log(`${name}: ${o.off.triangles} -> ${o.on.triangles} triangles (-${o.saved}; budget ${boot.budget.triangles}), ${o.swapped} of ${o.pieces} pieces swapped, ${o.pixelsDiffering} of ${o.pixels} pixels differ (off/off control ${o.controlOffOffPixelsDiffering}; relief hidden ${o.controlPixelsDifferingWithRoofReliefHidden}), draws ${o.on.drawCalls}`);
+  console.log(`${name}: ${o.off.triangles} -> ${o.colourOnly.triangles} (colour pass) -> ${o.on.triangles} triangles (both; -${o.saved}, sun -${o.savedBySun}; budget ${boot.budget.triangles}), ${o.swapped}/${o.sunSwapped} of ${o.pieces} pieces swapped (colour/sun), ${o.pixelsDiffering} of ${o.pixels} pixels differ off/on, ${o.sunPixelsDiffering} colour-only/both (off/off control ${o.controlOffOffPixelsDiffering}; relief hidden ${o.controlPixelsDifferingWithRoofReliefHidden}; relief casting nothing ${o.controlPixelsDifferingWithReliefCastingNothing}), draws ${o.on.drawCalls}; far allowance ${o.on.withinFarBudget===null?'none':o.on.withinFarBudget?'within':'OVER'}`);
  }
 }finally{
- fs.writeFileSync(process.env.QA_OUT||path.join(out,`browser-validation-${tag}${process.env.QA_TAG?'-'+process.env.QA_TAG:''}.json`),JSON.stringify({method:`Actual published /1904/ app at ${vw}x${vh}, \`full\`; animation paused after readiness; each stand renders the same held frame with the far-relief swap off (buildings.farRelief.on=false), off again (QA_CONTROL), on, and with the three relief pieces hidden outright (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.`,...row},null,2)+'\n');
+ fs.writeFileSync(process.env.QA_OUT||path.join(out,`browser-validation-${tag}${process.env.QA_TAG?'-'+process.env.QA_TAG:''}.json`),JSON.stringify({method:`Actual published /1904/ app at ${vw}x${vh}, \`full\`; animation paused after readiness; each stand renders the same held frame with the far-relief swap off (buildings.farRelief.on=false), off again (QA_CONTROL), on in the colour pass only (farRelief.sun=false, T-3284), on in both passes (T-3285), with the relief batches casting nothing (the sun's positive control), and with the three relief pieces hidden outright (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.`,...row},null,2)+'\n');
  await browser.close();server.close();
 }
 const fail=[];
+const SUN_PIXEL_BOUND=1e-4,notes=[];
 if(errors.length)fail.push(`page errors: ${errors.join(' | ')}`);
 if(bad.length)fail.push(`failed requests: ${bad.join(' ')}`);
 for(const s of row?.stands??[]){
- if(!s.controlPixelsDifferingWithRoofReliefHidden)fail.push(`${s.name}: the control (relief pieces hidden) changed no pixel, so the comparison cannot see the roof`);
- if(!s.tierHasItOn)fail.push(`${s.name}: the swap was not on`);
- if(s.pixelsDiffering)fail.push(`${s.name}: ${s.pixelsDiffering} pixels changed (max ${s.maxChannelDelta})`);
  if(s.on.triangles>s.off.triangles)fail.push(`${s.name}: the swap added triangles`);
+ // T-3285: every stand here is held to the far-view allowance Full declares (main.js)
+ if(s.on.withinFarBudget===false)fail.push(`${s.name}: ${s.on.triangles} triangles / ${s.on.drawCalls} draws over the far-view allowance ${JSON.stringify(s.on.farBudget)}`);
+ // A stand whose roof is off screen (hidden outright changes nothing: T-3284's 'alley from the
+ // south' and 'Prairie 60 m E / 120 m S' read 0 too) proves the triangles only, and says so.
+ if(!s.controlPixelsDifferingWithRoofReliefHidden){notes.push(`${s.name}: the roof is not on screen (relief hidden changes no pixel): its triangles are read, its pixels prove nothing`);continue;}
+ if(!s.tierHasItOn)fail.push(`${s.name}: the swap was not on`);
+ if(!s.sunHasItOn)fail.push(`${s.name}: the sun's swap was not on`);
+ // T-3285: the sun's swap is an LOD of the shadow map, not a proof: its change is held to
+ // SUN_PIXEL_BOUND of the frame (1 in 10,000), and a frame over it fails.
+ if(s.sunPixelsDiffering>s.pixels*SUN_PIXEL_BOUND)fail.push(`${s.name}: the sun's swap changed ${s.sunPixelsDiffering} pixels (max ${s.sunMaxChannelDelta}), over ${SUN_PIXEL_BOUND*s.pixels}`);
+ // the colour pass's own swap stays a proof (T-3284): off against colour-only reads the same
+ if(s.colourPixelsDiffering)fail.push(`${s.name}: the colour pass's swap changed ${s.colourPixelsDiffering} pixels`);
 }
+if(notes.length)console.log('NOTE\n '+notes.join('\n '));
 if(fail.length){console.error('FAIL\n '+fail.join('\n '));process.exit(1);}
 console.log('PASS');
