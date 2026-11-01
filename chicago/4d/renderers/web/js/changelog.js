@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2549, ts: '2026-11-01T21:48:28.101Z', date: 'Nov 1, 2026, 3:48 PM CT', title: 'The gate runs in four parts that each fit a run\'s limit', kind: 'chore',
+    items: [
+      'tools/check.sh --part k/N runs every N-th check, so a run gets a verdict in four calls of five to eight minutes instead of none from one call cut off at ten.',
+      'The four parts cover exactly the checks of the whole gate, each publishing the site for itself, and a part\'s pass says it is one part of four.',
+    ] },
+  { v: 2548, ts: '2026-11-01T21:35:26.049Z', date: 'Nov 1, 2026, 3:35 PM CT', title: '1637 Prairie\'s front door now centred between its bay and wing', kind: 'fix',
+    items: [
+      'The Spalding house\'s front door at 1637 Prairie, the window over it and the dormer above now stand in the middle of the wall between the round bay and the forward wing. They had sat about half a metre toward the bay.',
+      'The stoop, its rails, the iron fence\'s first post and the flagged walk to the sidewalk moved with the door, so the walk still meets the sidewalk.',
+      'The engraving of the house as Spalding remodelled it draws the door in the middle of that wall, so the model still matches it.',
+    ] },
+  { v: 2547, ts: '2026-11-01T21:23:15.534Z', date: 'Nov 1, 2026, 3:23 PM CT', title: 'Brick walls no longer repeat the same small patch of bricks', kind: 'improvement',
+    items: [
+      'Every brick wall on Prairie Avenue in 1904 used to repeat one patch of 48 bricks, less than a metre square, so its darker bricks lined up into a visible grid. Now each brick takes its face from another brick at random, so no two stretches of wall look alike.',
+      'Each brick also has its own slight shade, lighter or darker and warmer or cooler, and whole walls carry a gentle uneven weathering. The wall\'s overall colour is unchanged. It costs no extra memory, so phones are not affected.',
+    ] },
   { v: 2546, ts: '2026-11-01T20:52:55.581Z', date: 'Nov 1, 2026, 2:52 PM CT', title: 'Pullman house rebuilt to the owner\'s plan and elevation sketches', kind: 'fix',
     items: [
       'The Prairie Avenue front is now three parts: the north block standing forward, the entry stepped back with the door, portico and stairs, and the south part stepped back again with the big windows and the pedimented dormer. Every arched window keeps its moulded frame.',
