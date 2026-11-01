@@ -2229,14 +2229,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"front, 1.0-4.0 m wide and 1.2-3.0 m proud (has {w} m and {d} m)")
             # T-3191: or a flank's STEP (`step`), the rear part of a side wall standing out from its
             # front part (1827's south flank on the 1911 sheet: u 0-14.6 stands 1.6 m out), a plain
-            # full-height projection on a side wall, longer and further out than a pavilion
+            # full-height projection on a side wall, longer and further out than a pavilion.
+            # T-1881: or on the rear wall (1729's north section standing out of its east wall
+            # in Taylor's no. 16554, the raised terrace in the angle)
             elif q.get("step") is not None:
                 if q["step"] is not True or not (6.0 < w <= 16.0 and 0.1 <= d <= 2.5) \
                         or e.get("variant") != "k08.projection.full_height" \
-                        or e.get("wall") not in ("k01.wall.side.north", "k01.wall.side.south") \
+                        or e.get("wall") not in ("k01.wall.side.north", "k01.wall.side.south",
+                                                 "k01.wall.rear_service") \
                         or set(q) - {"width_m", "proud_m", "step"}:
                     raise ParamError(f"bays: {e['id']} is a flank's step: a full-height projection on a side "
-                                     f"wall, 6-16 m wide and 0.1-2.0 m proud (has {w} m and {d} m)")
+                                     f"or rear wall, 6-16 m wide and 0.1-2.0 m proud (has {w} m and {d} m)")
             # T-3241: or a LOWER RANGE (`range`), a low block standing well out from a side wall
             # under its own flat top (1701's lower south range in the Chicagology photograph: 3.6 m
             # along the wall, 3.1 m out, one storey over the basement under a railed balcony)

@@ -82,12 +82,26 @@ if comp:
 # behind the rear wall. The stone and iron slots are shared with the house's other dressings
 # (the cornice's and the deck's cresting overhang the wall), so read those up to the
 # pedestals' caps only; the canvas slots carry nothing else behind the wall.
+# T-1881: a step standing out of the rear wall (1729's north section, `bays` p_rear) lays its
+# own pilasters and plinth in the same stone slot, behind the wall and along its own run, which
+# ends short of the terrace's: those are the step's, read off by the step's run and depth.
 top = T["floor_m"] + T["balustrade"]["height_m"] + 0.12
+depth = st["phases"][-1]["footprint"]["polygon"][2][1]
+steps = [((depth - b["s_m"] - b["plan"]["width_m"] / 2, depth - b["s_m"] + b["plan"]["width_m"] / 2),
+          b["plan"]["proud_m"])
+         for b in phase["form"]["bays"]["value"] if b.get("wall") == "k01.wall.rear_service"]
+check(all(v1 <= T["v_m"][0] for (v0, v1), _ in steps), "a step out of the rear wall ends short of the terrace")
+
+
+def steps_own(q):
+    return any(-q[2] < min(v1 + 0.05, T["v_m"][0] - 0.1) and q[0] >= -(d + 0.3) for (v0, v1), d in steps)
+
+
 behind = []
 for name in (RT.STONE, RT.IRON) + RT.CANVAS:
     pr = a.prims.get(name)
     for q in (pr.pos if pr is not None else []):
-        if q[0] < -1e-6 and (name in RT.CANVAS or q[1] <= top + 1e-6):
+        if q[0] < -1e-6 and (name in RT.CANVAS or q[1] <= top + 1e-6) and not steps_own(q):
             behind.append(q)
 check(len(behind) > 1000, f"the terrace's faces are laid behind the rear wall ({len(behind)} vertices)")
 if behind:

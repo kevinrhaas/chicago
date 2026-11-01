@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e77fcf2ab690a23922af90357e97f7f65d4bc915e75c63b77bd0d5f629737955",
+  "glb_sha256": "d98ec6905771b7e082d70819bd843c1dc25451baf09736c1754b568df704fe8e",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "daa1ca7465054c18c856d88810f8c625059480f3ca6396709518b3ac7b74546b",
+  "flora_sha256": "4867c393d8c04b3a651f2475408305c1c829486d458ae2954769e7dbd9db9011",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
