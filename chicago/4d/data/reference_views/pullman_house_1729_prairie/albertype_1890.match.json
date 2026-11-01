@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "eb2b97698e243c36fc1e1cd5f5e2bd32a13bb1c70d8a1e0dcb33182efc57908d"
+      "sha256": "3bdd25d27199219843d748dc878a962ab7bdbdde1ee75f951a8472f9be47995b"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "5d9436cb4e3dfd12fbcf1ba899e4250c81798cb2bb2dfe793db610f4d80cf0c2",
+  "flora_sha256": "279073a23d545dbe8a240c7b09734b9df64a5e2986183287d7b57a9756da007e",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

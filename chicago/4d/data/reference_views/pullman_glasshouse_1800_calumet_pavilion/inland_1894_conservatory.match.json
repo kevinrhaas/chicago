@@ -148,7 +148,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "eb2b97698e243c36fc1e1cd5f5e2bd32a13bb1c70d8a1e0dcb33182efc57908d"
+      "sha256": "3bdd25d27199219843d748dc878a962ab7bdbdde1ee75f951a8472f9be47995b"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -163,7 +163,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "58cceae8a36c20ebcab5973808fa13ed03f3ca80125e1849ad271f60f42f9f62",
+  "flora_sha256": "2a7ba794586e3ccfe8f567adc96efcdd4a3bee0fd2bc6dfdfa07f9f74e7cbc5a",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
