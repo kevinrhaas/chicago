@@ -1,0 +1,191 @@
+{
+  "structure_id": "pullman_house_1729_prairie",
+  "view": "taylor_16554_from_south",
+  "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+  "glb_sha256": "d98ec6905771b7e082d70819bd843c1dc25451baf09736c1754b568df704fe8e",
+  "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
+  "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "d98ec6905771b7e082d70819bd843c1dc25451baf09736c1754b568df704fe8e"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_ranges",
+      "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+      "placement": {
+        "local_e": 1456.387,
+        "local_n": -3169.972,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        0.0004983158329692067,
+        0,
+        -2.430052623233238
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_conservatory",
+      "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1467.58,
+        "local_n": -3167.464,
+        "rotation_deg": -0.815,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        -11.20927122522742,
+        0,
+        0.0018971781228114964
+      ],
+      "rotation_y": 3.1490277562032887,
+      "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5"
+    }
+  ],
+  "group_sha256": "1f7f35cba93cf7a452042fcde0f756f7e685d490991310c9e50e7eb2f91a5bdb",
+  "rendered_flora": {
+    "season": "winter",
+    "lots": [
+      {
+        "parcel": "prairie_1729",
+        "shrubs": 30,
+        "trees": 3,
+        "beds": 0,
+        "creeper": 19
+      }
+    ],
+    "street_trees": 35,
+    "street_trees_m": 70,
+    "street_furniture": [
+      "hydrant.pictured.pullman",
+      "hydrant.pictured.pullman_stable",
+      "lamp.corner.prairie.e18th.ne",
+      "lamp.corner.prairie.e18th.nw",
+      "lamp.corner.prairie.e18th.se",
+      "lamp.pictured.opposite_1721",
+      "lamp.pictured.pullman_court",
+      "lamp.rule.calumet__prairie_ic_16_18#00",
+      "lamp.rule.prairie__prairie_ic_16_18#03",
+      "lamp.rule.prairie__prairie_ic_16_18#04"
+    ],
+    "street_furniture_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1456.371,
+    "local_n": -3167.542,
+    "rotation_deg": 179.611,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "e2042326390ad458b5ba7a53d364e1f8a3164690c7fec2270d283e374461eb89"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "c7f41f5072de7f373bb1a2544baaba856a5212953c42924a7e30c500d23e64b7"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+    },
+    {
+      "file": "renderers/web/js/street-furniture.js",
+      "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
+    }
+  ],
+  "flora_sha256": "070dc317df8db81637586bae3202140faba2b5c7f0ca018ede0a980fb493de6c",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the camera: re-anchored from the conservatory's (fitted on the ground, the stable and the drum), it draws the house about 7% larger than the print (the 18th Street face's two corners 321 px apart against the print's 301, x 131 and 432) and 10-20 px east; the readings below are made at the scale those two corners give. A gap two camera fits disagree about (T-3153)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the owner's report, 2026-10-30, on this print: the rear (east) face 'stepped'. The print reads it in two sections, the south one (x 432-477 px) with one light a storey and one dormer and the north one (x 495-560) with two lights a storey and two dormers, divided by a lit, banded return under a hip in the mansard (x 477-495); the build's rear was one flat face under one mansard. Built: the north section (v 0-11.48) stands 0.9 m out under its own mansard and cornice, banded pilasters at its corners, the raised terrace in the angle (p_rear; the depth reconstructed, L-pullman-1729-rear-step-1881)",
+      "status": "fixed"
+    },
+    {
+      "what": "the rear face's lights and dormers: the print's one light a storey on the south section (x about 457, v about 14.7) and one dormer over it (x about 450), and two lights a storey on the north section (x about 512 and 545, v 7.7 and 2.9) with a dormer over each (x 503-512 and 537-548); the build had two lights and two dormers at v 14.93 and 10.93. Now one and one at v 14.93, and two and two on p_rear at v 8.04 and 3.44, set symmetric on the section (within about 0.5 m of the print's)",
+      "status": "fixed"
+    },
+    {
+      "what": "the step's depth: the lit return's 18 px (with the corner pilaster's face) are drawn by a 0.9 m step at the 18th Street face's scale; the corners alone hold 0.5-1.8 m. Under this camera's overcast light the build's return reads the same tone as the faces either side of it, where the print's is lit",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the porte-cochere on the 18th Street flank (x 206-252 px): the print draws a block standing before the flank with a deep, dark arch and its own cornice and balcony at y 475-480; through this camera the render draws its arches (x about 143-214) as shallow recesses in the flank's plane, without the block's shadowed returns. Its form and place were worked against Taylor's no. 1445, which sees it squarely; whether the gap here is the camera's scale and offset or the block's depth is not read",
+      "status": "open"
+    },
+    {
+      "what": "the parkway and lawn trees: the print's are slender trees with fine crowns; the render draws the app's winter trees as a few coarse limbs, thicker, and not at the print's places. As in the house's other three views",
+      "status": "open"
+    },
+    {
+      "what": "the 18th Street boundary in the foreground (x 100-560): the print, of the early 1890s, shows the earlier wall with its piers and urns and the low walls sweeping between them; the build is the wall as the Detroit view of about 1900 shows it, nearest 1 July 1904 (the boundary's note, L-pullman-18th-street-wall-c1900-1934), so this print cannot show the 1904 wall",
+      "status": "not shown"
+    },
+    {
+      "what": "colour and the ivy: the print is monochrome and of winter, with no leaf on the walls",
+      "status": "not shown"
+    },
+    {
+      "what": "the mansard's cresting: the print's is taller and finialled at each hip (y 315-330 px); the build's is plain iron about 0.8 m high round the deck and the sections",
+      "status": "open"
+    },
+    {
+      "what": "the main block's height through this camera: the cornice at the south-east corner at y about 394 px and the deck's cresting at about 325 in the print, against about 358 and 300 in the render, which is the camera's scale (above), not a storey",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

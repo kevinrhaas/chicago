@@ -37963,3 +37963,13 @@ tells them apart.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
+
+### L-pullman-1729-rear-step-1881 — 1729 Prairie's rear (east) wall stepped: its north section standing out under its own mansard, off Taylor's no. 16554; the step's depth reconstructed
+
+**Decision:** the owner, on 2026-10-30, on Taylor's no. 16554: "the whole back of the pullman house needs to be worked, stepped". The rear wall was one flat face under one mansard. Its north section, from the north corner to v 11.48, now stands out of it as a K08 projection (`bays`, `p_rear`) under its own mansard and cornice, with two round-headed lights a storey and a dormer over each; the light and the dormer the build had at v 10.93 are taken off.
+**What is read, not invented.** Taylor's no. 16554 through a camera re-anchored into the house's own frame (`data/reference_views/pullman_house_1729_prairie/taylor_16554_from_south.json`; the house's scale and offset set by its two 18th Street corners): the rear face in two sections, the south one (x 432-477 px) with one light a storey and one dormer, the north one (x 495-560) with two lights a storey (x about 512 and 545, v 7.7 and 2.9) and two dormers; between them a lit, banded strip under a hip in the mansard (x 477-495, v about 12.3-10.0). Lit as the 18th Street face is, it faces south, so it is the north section's south return; the raised terrace stands in the angle.
+**What is invented.** The step's depth, 0.9 m: at the scale the 18th Street face's corners give the camera, the strip's 18 px are the return (11 px at 0.9 m) and the face of the 0.9 m banded pilaster at the section's corner (7 px); 0.6 m draws it 14 px and 1.2 m 22 px, and the corners alone hold 0.5-1.8 m. Also invented: the step's place at v 11.48 (set 0.15 m short of the terrace's north end; the print reads 10.0-12.3), the lights' places set symmetric on the section (v 8.04 and 3.44, the print's 7.7 and 2.9), their round heads and sizes (the flank's), the banded pilasters at the section's corners, and its dormers' size (the rear dormer's).
+**How to resolve:** a camera for no. 16554 fitted to the house alone, free in scale, fixes the return's depth; the 1911 sheet's east line, read at full resolution, may show a step of over about 0.5 m.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).
