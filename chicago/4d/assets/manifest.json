@@ -3808,9 +3808,9 @@
     "moulton_lowden_house_1912_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 12140008,
+      "bytes": 12708060,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "f0050efba79c7d62c2569984044563abbda6cb110053de2ce3ff54cf7a86230d",
+      "inputs_sha256": "64997e7aafa3f4696f876e796aeb684d751eba9d41d129578458d228ea5289df",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "moulton_lowden_house_1912_prairie"

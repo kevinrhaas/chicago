@@ -24321,7 +24321,7 @@ sheet's chimney breast; the rainwater; the rear ranges' storeys, windows and fla
 gates and the front walk (K14's flags, width and wear) and the cinder service walk.
 **What is not built.** The sheet's stone wing on the south flank's rear half (u 0.3-8.9, 2.05 m out),
 which K01's rear wings and pavilions cannot carry and no picture shows; the corbelled corner turret on
-the north flank; the dormers' and gable's crockets and carving; the entrance's arched recess, its
+the north flank (since built by T-3290, `L-k01-1912-moulton-turret-3290`); the dormers' and gable's crockets and carving; the entrance's arched recess, its
 carved capitals and the striped awning; the ivy's undated reach: open for T-3278 and T-1900.
 **How to resolve:** T-3278 solves the vignette's and the 1800-1900 elevation drawing's cameras beside
 the photograph's and builds what they show; T-1900 brings every 1912 match record to `matches`.
@@ -24329,6 +24329,38 @@ the photograph's and builds what they show; T-1900 brings every 1912 match recor
 **Ticket:** T-3277 (piece 1 of T-1899).
 **Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-10-31 (T-3277).
+
+### L-k01-1912-moulton-turret-3290 — 1912 Prairie's corbelled corner turret on the north flank, built from the photograph
+
+**Decision:** the corner turret the photograph shows on the north flank just behind the north corner
+block's front corner (T-3290, piece 1 of T-3288) is built as a K08 round oriel (`north_turret` in the
+record's `bays`): 1.4 m across, its centre on the wall's plane at s 2.8 from the front corner, standing
+on the attic floor (10.5 m), one storey with one light, a moulded stone cornice and a steep slated cone.
+**What is read, not invented.** From the photograph (`chicagology_1912_prairie_exterior_photo`, rights
+check_required: forms and proportions only), through its solved camera: the turret's place along the
+flank and its width (its silhouettes, x 1050-1145 px, land within 6 px of the render's), its foot on the
+attic belt (y 745-800 px), its one light turned toward the avenue (x 1063-1107, y 595-725 px), the
+moulded cornice, and the slated cone leaning on the mansard toward the stack. The north flank's front
+window column is moved under the turret's axis (s 2.8, first built at s 1.7), where the photograph's
+camera puts its windows (x 1060-1120 px).
+**Where the pictures and the kit disagree.** The turret's wall top is 12.25 m, about 0.55 m under the
+photograph's, whose cornice runs level with the main cornice: K01 holds an oriel's wall top a metre
+under the main eave unless the eave dies into it, which the kit does only on a street front under a hip
+or gable. Its light is 1.25 m tall against the photograph's 1.45 m for the same reason. The 1883 plate
+draws the turret taller, two stages corbelled out from the chamber floor over a pendant; the
+photograph, thirty years later and from the same place, shows one stage over the attic belt, and the
+photograph's is built. All are on the match records.
+**What is invented.** The cone's pitch past what the photograph shows (its top is hidden behind the
+stack: built to about 15.7 m); the foot's form, a turned stone round 0.3 m deep where the photograph's
+belt sweeps round the turret (no picture shows a corbel under it, and K08's six corbel courses for a
+0.7 m reach would have covered the chamber window the photograph shows below); the sash's two-over-two
+lights; the turret's walling, in the house's brownstone.
+**How to resolve:** a K01 eave that dies into a side wall's oriel under a mansard would carry the turret
+up to the cornice; T-1900 brings every 1912 match record to `matches`.
+**Covers:** `moulton_lowden_house_1912_prairie.as_mapped_1904.form.bays`
+**Ticket:** T-3290 (piece 1 of T-3290).
+**Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-3290).
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
 **Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
