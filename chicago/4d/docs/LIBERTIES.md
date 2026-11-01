@@ -24321,7 +24321,7 @@ sheet's chimney breast; the rainwater; the rear ranges' storeys, windows and fla
 gates and the front walk (K14's flags, width and wear) and the cinder service walk.
 **What is not built.** The sheet's stone wing on the south flank's rear half (u 0.3-8.9, 2.05 m out),
 which K01's rear wings and pavilions cannot carry and no picture shows; the corbelled corner turret on
-the north flank (since built by T-3290, `L-k01-1912-moulton-turret-3290`); the dormers' and gable's crockets and carving; the entrance's arched recess (since built by T-3292,
+the north flank (since built by T-3290, `L-k01-1912-moulton-turret-3290`); the dormers' and gable's crockets and carving (since built by T-3293, `L-k01-1912-moulton-roof-ornament-3293`); the entrance's arched recess (since built by T-3292,
 `L-k01-1912-moulton-entrance-1900`), its carved capitals and the striped awning; the ivy's undated reach: open for T-3278 and T-1900.
 **How to resolve:** T-3278 solves the vignette's and the 1800-1900 elevation drawing's cameras beside
 the photograph's and builds what they show; T-1900 brings every 1912 match record to `matches`.
@@ -24387,6 +24387,37 @@ kept off the 1904 build as T-1900's phase guard asks). All are on the match reco
 **Ticket:** T-3292 (piece 1 of T-1900).
 **Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-3292).
+
+### L-k01-1912-moulton-roof-ornament-3293 — 1912 Prairie's crocketed stone dormers, gable crockets and turned tower finial, built from its pictures
+
+**Decision:** the roof ornament the photograph, the 1883 plate and the c. 1914 elevations drawing all
+show (T-3293, piece 2 of T-1900) is built. The mansard's two street dormers are faced in the front's
+stone, and each carries a stone coping up both rakes (0.15 m wide, 0.06 m proud of the face, 0.3 m back
+over the slated slopes) with hooked crockets 0.24 m tall along its back (two a rake on the north dormer,
+three on the taller south one), a square pinnacle 0.22 m across engaged at each edge of the face from the
+cornice to 0.5 m (north) or 0.7 m (south) past the gable's foot under a 0.08 m cap and a 0.45 m pyramid,
+and a turned finial 0.8 m (north) or 1.0 m (south) tall on the copings' apex. The south gable's copings
+carry three crockets a rake, 0.26 m tall, between its kneelers' pinnacles and its finial. The tower's
+finial is turned (the K08 turned profile, knobs on a waisted shaft, 2.4 m over the cone's apex) in place
+of the plain spike.
+**What is read, not invented.** From the photograph (`chicagology_1912_prairie_exterior_photo`, rights
+check_required: forms and proportions only): both dormers are stone, with crocketed gables, a pinnacle at
+each side and a finial at the apex (the north one x 600-720, the south one x 270-400, y 120-500 px); the
+south gable's rakes are crocketed; the tower's finial is turned with knobs (x 420-450, y 0-110 px). The
+1883 plate and the elevations drawing show the same crocketed, pinnacled dormers.
+**What is invented.** Every size above: the copings', the crockets' (their number, size and hooked-leaf
+shape: the kit carves no foliage at this scale), the pinnacles' and the finials' (their turnings); the
+faces' stone is the front's brownstone, where the monochrome pictures cannot give its colour; the tower's turned finial is
+lathed in six sides rather than round, to hold the tower inside the K08 kit's triangle budget, and the
+south gable's crockets are left off the K08 kit's light tier.
+**What is not built.** The south dormer's height (the photograph's rises nearly to the cone's shoulder;
+the record's stands lower) and the faces' plane (the plate's rise in the wall's plane, the build's stand
+on the cornice 0.2 m in front of it); the plate's second dormer on the north flank; the south gable's
+rise through the roof as a tall wall gable. All are on the match records for T-3294.
+**How to resolve:** T-3294 (the last piece of T-1900) works every 1912 match record to `matches`.
+**Ticket:** T-3293 (piece 2 of T-1900).
+**Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-3293).
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
 **Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
