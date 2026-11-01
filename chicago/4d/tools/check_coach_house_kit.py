@@ -192,6 +192,8 @@ def rule_grade(var, data):
         feet += ["lean-to front wall", "lean-to east wall", "lean-to west wall"]
     if v.get("wing"):
         feet += ["wing east wall", "wing west wall"]
+    if v.get("range"):
+        feet += ["range alley wall", "range yard wall", "range end wall"]
     if v.get("workyard"):
         out += grade_workyard(var, ys)
     for name in feet:
@@ -395,6 +397,21 @@ def self_test(data) -> int:
     def g_named_open(built):    # the east party wall left out
         built[0].pieces = [p for p in built[0].pieces if p.name != "east party wall"]
 
+    # T-1932: 1720's stable, with the one-storey range carried on past its gable
+    def ranged(d):
+        st = json.loads((ROOT / "data" / "structures" / "walker_house_1720_prairie_coach_house.json").read_text())
+        d["variants"][0] = copy.deepcopy(st["phases"][0]["form"]["coach_house"]["value"])
+        return d["variants"][0]
+
+    def g_range_gap(built):     # the range's yard wall pulled 5 mm off the gable
+        p = piece(built, "range yard wall")
+        p.mesh.pos = [(x + 0.005, y, z) for x, y, z in p.mesh.pos]
+
+    def d_range_crowd(d):       # the range's sash run into its end wall
+        op = next(o for o in ranged(d)["openings"] if o["id"] == "range_sash")
+        op["s0"] += 0.2
+        op["s1"] += 0.2
+
     def g_lift(built):      # the stair's stringers stood 50 mm above the ground
         for name in ("stringer wall", "stringer outer"):
             p = piece(built, name)
@@ -416,7 +433,9 @@ def self_test(data) -> int:
              ("the stair standing off the ground", None, g_lift, "grade"),
              ("1812: the yard door's sill under the paving", d_named_sill, None, "grade"),
              ("1812: the workyard walk short of the house", named, g_named_walk, "grade"),
-             ("1812: the east party wall left out", named, g_named_open, "shell")]
+             ("1812: the east party wall left out", named, g_named_open, "shell"),
+             ("1720: the range 5 mm off the gable", ranged, g_range_gap, "seated"),
+             ("1720: the range's sash at its end wall", d_range_crowd, None, "openings")]
     bad = 0
     for label, dmut, gmut, rule in cases:
         d = copy.deepcopy(data)
