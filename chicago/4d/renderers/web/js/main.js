@@ -5432,6 +5432,8 @@ async function boot() {
         batches: buildings.batches.length,
         // T-1963: what the walls were bound with, or `{ off: true }` under ?walls=flat.
         wallRelief: buildings.wallRelief,
+        // T-3295: the K03 brick panels shuffled per brick, by panel.
+        brickBond: buildings.brickBond,
         structures: loaded.registry.size,
         // T-1126 § 4: drawn against indexed. `structures` above counts what the
         // scene was TOLD to place; these two count what it managed to.

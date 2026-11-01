@@ -38444,3 +38444,23 @@ match records to `matches`; T-1907 finishes the architecture.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg`.
 **Recorded:** 2026-10-31 (T-3279).
 **Revised:** 2026-11-01 (T-3280): the street hip's pitch is no longer invented here: the 1919 programme plate, through its solved camera (`data/reference_views/marshall_field_jr_house_1919_prairie/gatlin_programme_1919.json`), puts the hip's apex at about 15.9 m, so the roof is built at 52 degrees, inferred from that reading, and the stacks' rise is lowered to keep their tops where they stood. The tower's low slated cap gives way to the flat top both plates show, and the street dormer carries its three lights; their sizes stay readings through two cameras, not measurements.
+
+### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
+
+**Decision:** the renderer no longer repeats a K03 brick panel (`assets/textures/prairie_1904_brick/panel/`,
+4 modules by 12 courses, 0.86 by 0.80 m) as a tile. On every wall that wears one, each brick takes its
+face, grain, arris and joints from another brick of the same length in the same panel, picked by a hash
+of its place on the wall and of the building it is on; each brick then takes its own spread of up to
+7 % lighter or darker and 3 % warmer or cooler, off the mortar; and the whole wall a mottle of up to 5 %,
+a couple of metres across. `renderers/web/js/brick-bond.js`.
+**What is attested.** Nothing about any house's brick: the panel itself is L-k03-brick-library-2290.
+The owner asked for it, 2026-11-01: the walls "appear as a pattern and are too consistent and
+repetitive".
+**What is invented.** Which brick stands where; the spread and the mottle and their sizes. They are
+bounded by the library's own firing variants (tints 0.87 to 1.04 of the body), and they are
+mean-neutral, so a wall's colour as a whole, and every photo-match verdict read off it, is unchanged.
+**How to resolve:** a photograph close enough to read one house's brick (its burnt-header rate, its
+colour range, its weathering) replaces the spread for that house.
+**Ticket:** T-3295.
+**Review:** the before/after stills in the T-3295 PR (`tools/brick_bond_shots.mjs`).
+**Recorded:** 2026-11-01 (T-3295).

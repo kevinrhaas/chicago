@@ -1,0 +1,8 @@
+{
+  "title": "Brick walls no longer repeat the same small patch of bricks",
+  "kind": "improvement",
+  "items": [
+    "Every brick wall on Prairie Avenue in 1904 used to repeat one patch of 48 bricks, less than a metre square, so its darker bricks lined up into a visible grid. Now each brick takes its face from another brick at random, so no two stretches of wall look alike.",
+    "Each brick also has its own slight shade, lighter or darker and warmer or cooler, and whole walls carry a gentle uneven weathering. The wall's overall colour is unchanged. It costs no extra memory, so phones are not affected."
+  ]
+}

@@ -243,6 +243,15 @@ chimney, by its material name. Those names have no single writer and no pin, and
 | what a renderer must do with it | draw it behind whatever face lies in its plane. `buildings.js` gives it a depth offset away from the eye (`JOINT_FLOOR`, polygon offset factor 1, units 4): depth only, no vertex, colour or light moves. Without it, the 14-bit web lattice (2.8 mm a rung on a 46 m house) rounds the recess onto the face, and past about 50 m a 24-bit depth buffer cannot part 5 mm anyway, so floor and face fight: the owner's "speckled" flanks on 1827 and 1801 Prairie. |
 | what it is NOT a licence for | finding any other part of a wall by name. `tools/check_joint_floor.mjs` holds the offset and refuses a `mortar` material in any shipped file but the K02 houses and Glessner. |
 
+### Brick panels — read from the base colour's image name (PROPOSED 2026-11-01, T-3295)
+
+| thing | convention |
+|---|---|
+| which material is a K03 brick panel | any material whose `baseColorTexture` image is named `<panel id>_basecolor`, `<panel id>` one of `assets/textures/prairie_1904_brick/profiles.json` `panels`. `k01_frontage.to_glb` names each embedded image from its source file's stem, and the web derivative keeps the name (KTX2 included). The material's own name (`brick`, `bay_brick`, `area_brick`, `k11_wall_brick`, …) is NOT read. |
+| what a renderer may assume of its map coordinate | the panel's own layout, in the panel's own UV: v = 0 on a bed joint at the panel's foot, courses up the wall as v falls (glTF's v runs down the image), units along a course starting at `-offset + k * unit` modules (the generator's `course_layout`). It is the texture's space, so it holds whatever offset or phase a wall is mapped at. |
+| what a renderer does with it | `renderers/web/js/brick-bond.js` draws each brick's face from another brick of its own length in the panel, picked by a hash of its place and its building, and gives it a small mean-neutral colour spread (L-k03-brick-shuffle-3295), so the 0.86 m tile stops showing. `?bricks=tiled` draws the panel as laid. |
+| what holds the two in step | `tools/check_brick_bond.mjs`, a `check.sh` step: the renderer's bonds, repeats and joints against `profiles.json` and each panel's `material.json`, and every panel a shipped GLB wears against the shuffled set. |
+
 ### Wall substrates — read from the record (PROPOSED 2026-10-02, T-1963)
 
 The paragraph above refuses a wall's material name as a licence, and this section does not
