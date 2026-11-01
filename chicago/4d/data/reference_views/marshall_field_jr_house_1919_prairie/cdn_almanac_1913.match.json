@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "cdn_almanac_1913",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "042431a4183171730a82f2d620bc18b66416f7ec3777158cf9655ff6be394ccc",
+  "glb_sha256": "b5f570f37b6a16c6e32f473a1aaf0b574e970f0be481b7b0098bd7fc69637234",
   "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
   "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
@@ -10,6 +10,10 @@
   "differences": [
     {
       "what": "massing: the draft's generic block is now the plate's house: a narrow red brick front two storeys over a stone basement under a steep slated hip with a street dormer, its long north flank running back past a round tower to steep-gabled half-storey ranges and a two-storey garage; the two tall stacks, the tower, the dormer and the front's corners lie within about 15-25 px of the plate (16 px RMS on the fitted points)",
+      "status": "fixed"
+    },
+    {
+      "what": "the street hip's pitch: the plate and the 1919 programme plate draw the front block's roof steeper than T-3279's 45 degrees; T-3280 built it at 52 degrees, read off the programme plate's camera (the hip's apex at about 15.9 m), the stacks' rise lowered by as much so their tops stay at about 17.4 m",
       "status": "fixed"
     },
     {
@@ -25,8 +29,8 @@
       "status": "open"
     },
     {
-      "what": "the round tower: the plate takes it about 2 m higher than built, with a broader, more solid top; the build's low slated cone is the kit's",
-      "status": "open"
+      "what": "the round tower: the plate takes it about 2 m higher than T-3279's cone and broader-topped; T-3280 carried it up a fourth, windowless 1.9 m band to a flat top at 14.0 m under K08's nearly flat tin cap, its eaves the heavy edge, which this camera reads within about 1 m of the plate's top (14.9 m) and the 1919 programme plate's at 13.7 m; a parapet's own coping and mouldings are not drawn",
+      "status": "fixed"
     },
     {
       "what": "the north flank's two-storey bays with flat tops (balconies over them) across the rear ranges, and the rear range's canted north bay the sheet draws: not built, the ranges' north walls are flat",
@@ -37,8 +41,8 @@
       "status": "open"
     },
     {
-      "what": "the street dormer: the plate's is broad, three lights under its gable; built with one sash at the K01 contract's widest",
-      "status": "open"
+      "what": "the street dormer: the plate's is broad, three lights under its gable; T-3280 built it 3.3 m wide with three lights (K01's `sash.at_m`) where T-3279's carried one sash; its stone-coped gable and kneelers are still the kit's plain verges, under the 1 ft bar at this distance",
+      "status": "fixed"
     },
     {
       "what": "the entrance at the stoop's head: the plate shows an arched opening beside the south neighbour; built as K07's square-headed panelled door",
@@ -51,6 +55,10 @@
     {
       "what": "windows: their count and places along the front and the flank are the kit's, not read (the plate is too coarse and the trees hide the lower storey)",
       "status": "within tolerance"
+    },
+    {
+      "what": "a second, smaller street dormer near the front's south end, one light under its own gable (here behind the south neighbour's mansard edge; clearer in the 1919 programme plate), and the stack rising behind the street dormers at the front block's south side: neither built (K01 carries one street dormer)",
+      "status": "open"
     },
     {
       "what": "colour: the brick's red, the stone's tone and the slate are read from later photographs and the trade's materials; the plate is monochrome",
