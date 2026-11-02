@@ -73,7 +73,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 20
+        "creeper": 24
       }
     ],
     "street_trees": 35,
@@ -142,7 +142,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "3bd4aaf28951d296b02320e7dd266d596f6c0f1c1ab0c05e6be8213d8791b46f",
+  "flora_sha256": "cee982d6769cd07b4d8407efc6af37794c8a42b813b9ee5b4132582ff0f70404",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
