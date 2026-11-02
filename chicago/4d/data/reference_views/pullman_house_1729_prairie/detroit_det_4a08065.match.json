@@ -14,7 +14,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 19
+        "creeper": 20
       }
     ],
     "street_trees": 35,
@@ -66,7 +66,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "070967f1b6d66177e5d02ba16866877d9fa82f46fdab9d23bcb2e2b8e6d808f9",
+  "flora_sha256": "6a041ad797c0dd201e35136364ad4bea9945a75a1b7b7d1519ae7cb7997259bc",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

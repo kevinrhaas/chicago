@@ -73,7 +73,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 19
+        "creeper": 20
       }
     ],
     "street_trees": 30,
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "25ce41b34ae068c7c832e6e57b324e7f90c3b21a7452af8ae37d9a68f51a05c2",
+  "flora_sha256": "9f9bb5a47bb36862c403ca631aa974c0f7ba8b0aca340ab8e00224195bb9248b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
