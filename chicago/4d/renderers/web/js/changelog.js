@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2581, ts: '2026-11-02T21:21:22.262Z', date: 'Nov 2, 2026, 3:21 PM CT', title: 'Pullman\'s roof joined under one rail; ivy off the corner windows', kind: 'fix',
+    items: [
+      '1729 Prairie\'s mansard is now one roof: the north block, the entry, the 18th Street and rear sections run back into the house\'s roof instead of standing under their own, so the notch between the north block and the entry is gone',
+      'One rail of iron cresting runs round the whole deck, with a finial at each corner, as the Detroit photograph shows',
+      'The ivy at the south-west corner is cut back: it keeps clear of the ground-floor windows on both faces and stops at their heads',
+    ] },
   { v: 2580, ts: '2026-11-02T20:47:13.053Z', date: 'Nov 2, 2026, 2:47 PM CT', title: 'Pullman house\'s 1905 photograph gains From this spot', kind: 'add',
     items: [
       'On the Pullman house\'s Photos tab, Charles R. Clark\'s 1905 photograph, taken a year after the scene, now has From this spot. It stands you at the Prairie Avenue and 18th Street crossing, where the picture was taken.',
