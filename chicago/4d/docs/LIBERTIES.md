@@ -24668,7 +24668,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`.
+**Covers:** `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24744,6 +24744,10 @@ brick frontage read off the engraving of Jesse Spalding's remodel of the Grosven
 stays a draft here.
 **1637's building by the tracks retired from this liberty by T-3309 (2026-11-02):**
 `spalding_house_1637_prairie_coach_house` now stands as the K12 coach house under `L-k12-1637-stable-3309`,
+under the same id, on the parallelogram outline, two storeys and brick the sheet draws, its long walls on the
+slant of the right-of-way, as the crossed brick stable Robinson's 1886 plate draws there; its draft attributes are gone.
+**1721's building by the tracks retired from this liberty by T-3310 (2026-11-02):**
+`dexter_house_1721_prairie_coach_house` now stands as the K12 coach house under `L-k12-1721-stable-3310`,
 under the same id, on the parallelogram outline, two storeys and brick the sheet draws, its long walls on the
 slant of the right-of-way, as the crossed brick stable Robinson's 1886 plate draws there; its draft attributes are gone.
 **1635 added to this liberty by T-2443 (2026-10-13):** "1635, nothing" above no longer holds. T-2443
@@ -38771,6 +38775,7 @@ match records to `matches`; T-1907 finishes the architecture.
 **Recorded:** 2026-10-31 (T-3279).
 **Revised:** 2026-11-01 (T-3280): the street hip's pitch is no longer invented here: the 1919 programme plate, through its solved camera (`data/reference_views/marshall_field_jr_house_1919_prairie/gatlin_programme_1919.json`), puts the hip's apex at about 15.9 m, so the roof is built at 52 degrees, inferred from that reading, and the stacks' rise is lowered to keep their tops where they stood. The tower's low slated cap gives way to the flat top both plates show, and the street dormer carries its three lights; their sizes stay readings through two cameras, not measurements.
 **Revised:** 2026-11-02 (T-3305): the entrance is no longer K07's square-headed panelled door: the 1912 and 1913 plates' round-arched opening at the stoop's head is built as K07's round-arched entrance (`entrance_kit` now inferred on the plates); what that piece invents is in `L-k01-1919-stone-3305`.
+**Revised:** 2026-11-02 (T-3313): the bow no longer stops under the cornice's bed: the 1913 plate and the 1919 programme plate run the main cornice round it, so it is carried up to the eave, its upper storey 2.8 m to the bed moulding's foot (8.6 m) with the cornice's bed moulding, the 0.5 m soffit and the fascia carried round its plan at the main eave's line, and its centre moved 0.2 m south (s 4.1 m) to leave the front's north corner bracket room, still inside the 1911 sheet's swell. That the cornice runs round it is read; its upper storey's height and lights (the house's upper ones, sill 0.6 m, 1.8 m high) stay invented here, and the rounded north corner is still open (T-3314).
 
 ### L-k01-1919-coped-dormers-3301 — 1919 Prairie's second street dormer, its third stack and its dormers' stone-coped gables, read off the Gatlin plates and the 2004 photograph
 
@@ -38907,6 +38912,44 @@ form, dates the outline, and says where its carriages came in.
 **Covers:** `spalding_house_1637_prairie_coach_house.as_standing_1904.form.coach_house`, `spalding_house_1637_prairie_coach_house.as_standing_1904.form.stories`, `spalding_house_1637_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-3309.
 **Recorded:** 2026-11-02 (T-3309).
+
+### L-k12-1721-stable-3310 — The two-storey brick stable behind 1721 Prairie, by the Illinois Central tracks, built from the K12 kit on the slanting plan the 1911 sheet draws, with its carriage front to the house's yard
+
+**Decision:** the district draft's building by the tracks behind 1721 Prairie Avenue (T-3310, the last piece of T-1933)
+is refined in place, under its own id `dexter_house_1721_prairie_coach_house`, onto the K12 coach-house kit
+(L-k12-coach-house-kit-2320) on the slanting plan 1637's took (T-3309). **What is read.** From sheet 20 of the 1911
+Sanborn: one pink building lettered '2B' and GARAGE, with '12' over '8' inside its north and south walls and the key's
+fire-wall sign at the east end of each, against the Illinois Central right-of-way. It is a parallelogram: its north wall
+(row 4798.63; the 1709/1721 lot line west of it reads 4784.60, so the wall stands 0.71 m inside it) and south wall (row
+5090.89; no lot line west of it) are median darkness profiles, and its west wall (column 3567.799 + 0.294201 a row, 120
+rows) and east wall, the right-of-way's line (3786.806 + 0.295768 a row, 120 rows), are least-squares lines through each
+row's darkness peak, all on the committed raster carried by the sheet's fitted similarity: 14.84 m north to south, 11.50
+m deep along the north wall and 11.53 m along the south, the long walls slanting 0.302 and 0.304 m east for every metre
+south. From Robinson's 1886 plate 10: a pink building crossed by an X (the atlas's stable) in the same place on the same
+slant, its pink running plate rows 1502-1547 (about 15.9 m) and 25-27 of the plate's pixels across (8.7-9.3 m), against
+the 1911 outline's 14.8 by 11.5 m. **What is invented.** The kit's rectangle sheared onto the parallelogram
+(`skew_per_m` 0.303, the two walls' mean; depth 11.514 m, the mean), which leaves every corner within 0.02 m of the read
+lines. With no alley, the kit's alley wall, which carries the carriage bay, faces WEST into the house's yard and the kit's
+yard wall is the back wall to the tracks; neither map draws a drive to it and none is built. The kit's party wall stands at
+the north end and its open gable faces south; the gable is built without openings, because the sheet marks that wall with
+the fire-wall sign. Every opening is the kit's, laid out for this lot, as the sheet marks none: on the west wall the
+carriage bay (3.0 m clear) under a loft hatch, a stable sash, a man door and a second stable sash, each under a loft sash;
+on the back wall two sash under two loft sash. The kit's two storeys (3.6 m and 2.7 m to the eave) and its 40-degree gable
+roof, its ridge along the slant; the basement the '2B' records is not built. The 1911 outline is built for 1904 though the
+1886 plate draws a building a little longer and narrower: nothing read dates a rebuilding between them, the census rules
+the 1911 outline present, and the plate's outlines are not this file's measure of a building's size. The kit's 0.4 m eave
+overhangs the right-of-way's line, as 1709's and 1637's do. Flat colours. **Left out.** The draft stood the building at
+one storey; the sheet's '2B' is two, and two are built. **What is not.** The outline, its slant, its place on the lot, its
+two storeys, its brick, the 1886 building and the use are the maps'. **The pictures.** The Prairie library links two
+pictures to 1721 (the Detroit Publishing photograph of the Pullman house and the c. 1887 view north along the avenue);
+neither shows this building, which stands about 130 m from the first camera directly behind the Pullman house, and the
+match record of the first says so.
+**How to resolve:** a photograph of the backs of the 1700 block's east side from the Illinois Central tracks, or a
+building permit for the lot between 1886 and 1911, entered as a source, gives its openings, roof and front their true
+form, dates the outline, and says where its carriages came in.
+**Covers:** `dexter_house_1721_prairie_coach_house.as_standing_1904.form.coach_house`, `dexter_house_1721_prairie_coach_house.as_standing_1904.form.stories`, `dexter_house_1721_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-3310.
+**Recorded:** 2026-11-02 (T-3310).
 
 ### L-t1936-doane-coach-house — The Doane coach house's yard front read off the one print that shows its north end, the rest of the building still the district draft's
 
