@@ -2028,6 +2028,22 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "hibbard_house_1701_prairie_coach_house/draft_1904/form.draft_elevation": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "hibbard_house_1701_prairie_coach_house/draft_1904/form.draft_plan": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "hogan_store/log_1831/form.construction": {
       "kind": "structure",
       "blocked_sources": [

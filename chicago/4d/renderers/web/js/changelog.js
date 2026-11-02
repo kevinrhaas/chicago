@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2576, ts: '2026-11-02T18:28:53.731Z', date: 'Nov 2, 2026, 12:28 PM CT', title: '1919 Prairie: the curved front bay now rises to the roof', kind: 'feature',
+    items: [
+      'The curved bay on the front of Marshall Field Jr.\'s house at 1919 Prairie Avenue now rises the full height of the wall, and the main roof\'s eave and moulding sweep round it, as the house\'s 1913 and 1919 pictures show. Before, it stopped short under the eave with a low cap of its own.',
+      'Its upper windows now line up with the rest of the upper floor. Still to come: the rounded north corner, then the stepped gables and two-storey bays along the north side.',
+    ] },
   { v: 2575, ts: '2026-11-02T17:26:01.430Z', date: 'Nov 2, 2026, 11:26 AM CT', title: '1721 Prairie: a two-storey brick stable on the railway\'s slant', kind: 'feature',
     items: [
       'The one-storey box behind 1721 Prairie is now a two-storey brick stable, slanted the way the 1911 fire-insurance map draws it, its long walls following the Illinois Central tracks. Carriage doors, a loft hatch and stable windows face the house\'s yard; its south wall, which the map marks as a fire wall, has none. An 1886 atlas marks a brick stable in the same place. The doors, windows and roof are reconstructed.',
