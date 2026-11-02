@@ -3984,9 +3984,15 @@ class Assembly:
                                                cr["end_pitch_deg"], cr["overhang_m"], f)
             solids.append(crown)
         elif cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
+            # T-3283: a crown over the front's stretch onto a canted corner is cut on its line too
+            co = cr["overhang_m"]
+            ccut = ((lambda ring, out: k01_frontage_params.cant_ring(ring, p.cant_corner, D, W, out)),
+                    co + p.cant_corner["cut_m"] / (2.0 - math.sqrt(2.0)),
+                    k01_frontage_params.cant_end_inset(p.cant_corner, D, W, cr["x0"] - co, cr["z0"] - co,
+                                                       cr["z1"] + co, co)) if cr.get("cant") else None
             crown, _, _ = k5.mansard_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["lower_pitch_deg"],
                                              p.roof_pitch_deg, cr["lower_rise_m"], cr["bulge"], m["segments"],
-                                             m["profile"], cr["overhang_m"], f)
+                                             m["profile"], cr["overhang_m"], f, cut=ccut)
             solids.append(crown)
         recess, recesses = None, []
         self.round_dormers = []
@@ -3994,6 +4000,11 @@ class Assembly:
             g = self.crown_dormer_body(cr, E, f)
             solids.append(g["body"])
             recesses += g["recesses"]
+        if cr and cr.get("dormers"):   # T-3283: a front crown's own dormers, on its faces
+            for g in self.front_crown_dormer_bodies(cr, E):
+                solids.append(g["body"])
+                solids += g.get("hood", [])
+                recesses += g["recesses"]
         if m and m.get("dormers"):   # T-2411: the main mansard's lower-face dormers
             for g in self.mansard_dormer_bodies(m, E):
                 solids.append(g["body"])
@@ -5035,13 +5046,29 @@ class Assembly:
             out.append(g)
         return out
 
-    def cant_dormer_body(self, d, m, E):
+    def front_crown_dormer_bodies(self, cr, E):
+        """T-3283: the dormers of a crown over a stretch of the front (1945's corner block): each
+        the main mansard's lower-face dormer built on the crown's own face, its fascia `overhang_m`
+        out and its rise the crown's, on the street face or turned onto the cant."""
+        out = []
+        for d in cr["dormers"]:
+            if d["face"] == "cant":
+                g = self.cant_dormer_body(d, cr, E, o=cr["overhang_m"])
+            else:
+                g = self.round_dormer_body(d, "street", cr["x1"] + cr["overhang_m"], -d["along_m"],
+                                           cr["lower_rise_m"], cr["lower_pitch_deg"], cr["bulge"], E)
+            self.round_dormers.append(g["geom"])
+            out.append(g)
+        return out
+
+    def cant_dormer_body(self, d, m, E, o=None):
         """T-3186: the canted corner's dormer: built as a street dormer whose face's fascia line
         crosses the axis at the origin, then turned about the vertical onto the canted face's
         normal and moved to the middle of the face's fascia line, its sash's frame with it. A
         gabled one's plan box goes with its turn (`gable_dormer_turns`), so its cheeks are slated."""
         from . import k05_roofs as k5
-        D, W, o = self.p.depth_m, self.p.width_m, self.p.eave_overhang_m
+        D, W = self.p.depth_m, self.p.width_m
+        o = self.p.eave_overhang_m if o is None else o   # T-3283: or a front crown's fascia
         plan = k01_frontage_params.cant_corner_plan(self.p.cant_corner, D, W)
         (u0, v0), (u1, v1) = plan["ends"]
         nx, nz = plan["normal"][0], -plan["normal"][1]
@@ -6201,6 +6228,9 @@ def build(params, structure_id: str):
                         D + k03_brick.STRING_PROUD))
     if all_round:
         courses = []   # T-2788: no brick to run a brick course in; the front's belts go round
+    # T-3305: a windowed side wall that names its own stone belts lays those in place of the brick course
+    belted = {b["wall"] for b in p.side_belts}
+    courses = [c for c in courses if c[0] not in belted]
     for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay
