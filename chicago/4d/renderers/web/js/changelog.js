@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2579, ts: '2026-11-02T20:23:25.575Z', date: 'Nov 2, 2026, 2:23 PM CT', title: 'The Miller House sign is readable again', kind: 'fix',
+    items: [
+      'The Miller House board had been hung across the corner where the low log wing meets the two-storey range, so the notched log ends stood in front of its lettering.',
+      'It now hangs on the log wing\'s blank face between its door and window, clear of the logs. Signs on other log fronts with a mid-wall corner are kept off it the same way.',
+    ] },
   { v: 2578, ts: '2026-11-02T19:21:36.465Z', date: 'Nov 2, 2026, 1:21 PM CT', title: '1816 Prairie\'s long brick stable on the alley', kind: 'feature',
     items: [
       'The alley building behind 1816 Prairie Avenue is no longer a rough draft. It now stands as a long two-and-a-half-storey brick stable, 22.4 m along the alley and 10.7 m deep, drawn from the 1911 fire-insurance map.',
