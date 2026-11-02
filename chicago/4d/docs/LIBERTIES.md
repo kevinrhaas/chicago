@@ -24610,7 +24610,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24704,6 +24704,10 @@ K01 brick frontage read off the 1911 sheet and the 1893 Rand McNally drawing, un
 `L-k01-1709-kellogg-drawing-led-1877`, under the same id; its draft attributes are gone. The draft had
 stood a 18.75 m deep hip-roofed body with the sheet's corner bays as plain projections; the sheet's plan
 and the drawing's mansard, porch and corner bay replace it. Its alley building stays a draft here.
+**1709's building by the tracks retired from this liberty by T-3308 (2026-11-02):**
+`kellogg_house_1709_prairie_coach_house` now stands as the K12 coach house under `L-k12-1709-stable-3308`,
+under the same id, on the outline, storey and a half, brick and fire-wall sign the sheet draws, as the crossed
+brick stable Robinson's 1886 plate draws there; its draft attributes are gone.
 **Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
@@ -33267,6 +33271,42 @@ or a garage built after 1904) and the range's extension across the lot line.
 **Ticket:** T-1932.
 **Review:** `docs/RESEARCH/k12-1726-stable-1932/README.md`.
 **Recorded:** 2026-11-01 (T-1932).
+
+### L-k12-1709-stable-3308 — The storey-and-a-half brick stable behind 1709 Prairie, by the Illinois Central tracks, built from the K12 kit with its carriage front to the house's yard
+
+**Decision:** the district draft's building by the tracks behind 1709 Prairie Avenue (T-3308, a piece of T-1933) is
+refined in place, under its own id `kellogg_house_1709_prairie_coach_house`, onto the K12 coach-house kit
+(L-k12-coach-house-kit-2320), the first on the east side of the avenue, where the lots run back to the Illinois
+Central right-of-way and there is no alley. **What is read.** From sheet 20 of the 1911 Sanborn: one pink building
+lettered '1½' and GARAGE, with '12' inside its north and south walls, the key's fire-wall sign (three ticks) at the
+east end of its north wall, and an open circle inside its south-west corner. Its west wall (column 4718.65), north wall
+(row 4185.18, on the 1701/1709 lot line, which reads row 4183.93 west of it) and south wall (row 4372.97) are median
+darkness profiles on the committed raster carried by the sheet's fitted similarity: 9.54 m along the west wall. Its
+east wall is the right-of-way's slanting line, so it is 15.57 m deep on the north side and 18.41 m on the south.
+From Robinson's 1886 plate 10: a pink building crossed by an X (the atlas's stable) in the same place, on the lot's
+north line at the right-of-way, its west wall within one of the plate's 0.346 m pixels of the 1911 line and about
+9.2 m along the lot line. Inferred for 1904 as every reading of these sheets is; both maps put it there, either side
+of it, and the 1886 cross makes it a stable (the 1911 GARAGE is not read as its 1904 use). **What is invented.** With
+no alley, the kit's alley wall, which carries the carriage bay, is turned to face WEST into the house's yard, and the
+kit's yard wall is the back wall to the tracks; neither map draws a drive to it and none is built. The kit builds a
+rectangle, and the one built is the largest inside the sheet's outline, 15.57 m deep, so nothing stands on railway
+ground; the wedge between it and the slanting east wall, nothing at the north wall and 2.84 m at the south, is not
+built. The party wall stands at the north end on the lot line where the sheet's fire-wall sign is, rising the kit's
+0.45 m above the roof; the south end is the kit's open gable. The storey and a half is the kit's 3.6 m carriage room
+under a half-storey whose walls rise 1.2 m more to the eave (the kit's new `loft_m`), so the loft lies mostly in the
+roof. Every opening is the kit's, laid out for this lot, as the sheet marks none: on the west wall the carriage bay
+(3.0 m clear), a man door and a stable sash; on the south gable a stable door under the loft hatch, between two stable
+sash; on the back wall two stable sash. The roof is a single gable with its ridge along the west wall at 30 degrees,
+about 4.5 m from eave to ridge over the 15.57 m span, as the deep stables across the avenue took. The kit's 1.8 m
+basement, reached by nothing. No workyard: the kit's would pave toward the tracks, away from the house. Flat colours.
+**Left out.** The open circle inside the south-west corner, a key sign this entry does not read. **What is not.** The
+outline, its place on the lot, its storey and a half, its brick, its fire wall, the 1886 building's extent and the
+use are the maps'.
+**How to resolve:** a photograph of the backs of the 1700 block's east side from the Illinois Central tracks, entered
+as a source, gives its openings, roof and front their true form and says where its carriages came in.
+**Covers:** `kellogg_house_1709_prairie_coach_house.as_standing_1904.form.coach_house`, `kellogg_house_1709_prairie_coach_house.as_standing_1904.form.stories`, `kellogg_house_1709_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-3308.
+**Recorded:** 2026-11-02 (T-3308).
 
 ### L-k01-1736-roof-rear-2995 — 1736 Prairie's mansard taken off the north wall, the rear and the 18th Street wall behind the brick bay, which rise as a straight brick third storey, built blank and coped
 
