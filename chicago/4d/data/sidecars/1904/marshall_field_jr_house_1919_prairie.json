@@ -488,7 +488,7 @@
           "id": "front_bow",
           "variant": "k08.bay.bowed",
           "wall": "k01.wall.street_front",
-          "s_m": 3.9,
+          "s_m": 4.2,
           "fabric": "brick",
           "plan": {
             "kind": "bow",
@@ -513,13 +513,13 @@
               ]
             },
             {
-              "height_m": 2.4,
+              "height_m": 2.8,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 0.8,
-                  "clear_height_m": 1.7,
-                  "sill_m": 0.4,
+                  "clear_height_m": 1.8,
+                  "sill_m": 0.6,
                   "at_deg": [
                     -25,
                     0,
@@ -533,6 +533,9 @@
             "kind": "cone",
             "pitch": 0.05,
             "covering": "tin_flat_seam_painted"
+          },
+          "eaves": {
+            "cornice": "k10.cornice.bracketed_timber"
           },
           "plinth_m": 1.7
         },
@@ -610,7 +613,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "gatlin_programme_1919_field_jr_plate"
       ],
-      "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top. T-3280: (2) NORTH_TOWER's top: the 1919 programme plate and the 1913 plate both show the tower carried up past its third tier of windows as a plain band to a flat top with a heavy edge, its top at about 13.7 m and 14.9 m through their cameras, where T-3279's slated cone rose from 12.1 m to a finial at 14.4 m; built by carrying its third storey up 1.9 m, plain over its windows, to 14.0 m under K08's nearly flat tin cap (its eaves the heavy edge), and the cone and finial taken off. (3) FRONT_BOW's upper storey 2.4 m and its lights 1.7 m, 0.2 and 0.1 m under T-3279's, so the bow still stops under the cornice's bed, which the steeper hip's soffit brings 0.1 m lower. T-3305: the bow and the tower stand on the house's stone basement (plinth_m 1.7, the basement's top), the plates' pale base carried round both under their brick."
+      "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top. T-3280: (2) NORTH_TOWER's top: the 1919 programme plate and the 1913 plate both show the tower carried up past its third tier of windows as a plain band to a flat top with a heavy edge, its top at about 13.7 m and 14.9 m through their cameras, where T-3279's slated cone rose from 12.1 m to a finial at 14.4 m; built by carrying its third storey up 1.9 m, plain over its windows, to 14.0 m under K08's nearly flat tin cap (its eaves the heavy edge), and the cone and finial taken off. (3) FRONT_BOW's upper storey 2.4 m and its lights 1.7 m, 0.2 and 0.1 m under T-3279's, so the bow still stops under the cornice's bed, which the steeper hip's soffit brings 0.1 m lower. T-3305: the bow and the tower stand on the house's stone basement (plinth_m 1.7, the basement's top), the plates' pale base carried round both under their brick. T-3313: (1) FRONT_BOW carried up to the eave: the 1913 plate and the 1919 programme plate both run the main cornice round the bow, its wall rising to the eave with the front's, where T-3279's bow stopped under the cornice's bed. Built as K08's bow carrying the bracketed cornice's own section as its eaves (eaves.cornice, T-2472's rule, as 1816's and 1923's bays): its upper storey 2.8 m, so its wall top is the cornice's bed foot at 8.6 m, and the bed moulding, the house's 0.5 m soffit and its fascia run round the bow at the main eave's line, its nearly flat cap dying into the hip behind. Its upper lights take the house's upper storey's (sill 0.6 m over the floor, 1.8 m high). Its centre moved 0.2 m south along the front (s 4.1 m) so its eave, now 0.5 m out past each junction, leaves the corner bracket room at the front's north corner; the bow (1.1-7.1 m along the front) stays inside the sheet's swell (about 1.2-9.6 m). INFERRED: that the cornice runs round the bow is the plates'; the bow's upper storey and lights are RECONSTRUCTED, the eave's section the kit's."
     },
     "rear_wings": {
       "value": [
