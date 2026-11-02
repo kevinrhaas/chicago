@@ -6164,6 +6164,9 @@ def build(params, structure_id: str):
                         D + k03_brick.STRING_PROUD))
     if all_round:
         courses = []   # T-2788: no brick to run a brick course in; the front's belts go round
+    # T-3305: a windowed side wall that names its own stone belts lays those in place of the brick course
+    belted = {b["wall"] for b in p.side_belts}
+    courses = [c for c in courses if c[0] not in belted]
     for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay

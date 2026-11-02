@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "gatlin_programme_1919",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "865d7fb09494c0f655a4e56d32ca2fb6e8fa79c91046ab9b642c5771b9ac37ed",
+  "glb_sha256": "891596da089597e56a3196e115ee6ab783c56d73cd036f014b64cd02ef1ddeb9",
   "camera_sha256": "5761231c09122f5ce6c9fd950c12b502e4ff369c817aedbdd46f780f691c9a20",
   "photo_sha256": "ea845bca0465b8b2d11fc97efe3f9b21ac4b569ee9a9b1c8743d605bf00b8f5e",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg",
@@ -45,8 +45,8 @@
       "status": "open"
     },
     {
-      "what": "stone belts and dressings: the plate shows pale stone string courses, quoins and window dressings across the brick; built with stone lintels and a single sill course",
-      "status": "open"
+      "what": "stone belts and dressings on the front block: the plate shows pale stone courses across the brick and a pale basement; T-3305 lays the basement to the principal floor under the front, the bow, the tower and the north flank, and three stone courses on the front carried round the main block's north flank (under the principal sills, at the second floor, under the chamber sills) in place of K03's brick string course. Through this camera the main block's flank stands mostly behind the lamp and the ivy, so the courses' lines there are judged by eye against the pale bands the plate shows on the front block, not measured; the plainest stone in the plate, on the rear ranges' bays, is the next item's",
+      "status": "fixed"
     },
     {
       "what": "the front's lower storeys, its bow and the stoop: the parkway trees hide them",
@@ -59,6 +59,10 @@
     {
       "what": "the electric street lamp, the automobile, the parkway trees and the fence's pattern: not part of this record",
       "status": "not shown"
+    },
+    {
+      "what": "the rear ranges' stone: quoins up the corners of the north flank's two-storey bays, the stone surrounds and mullions of their windows and the pale courses across them, which this plate draws plainest of all; they stand on the bays, which are not built, and the ranges' walls still carry K03's brick course (the flat-topped bays item; T-3303)",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
