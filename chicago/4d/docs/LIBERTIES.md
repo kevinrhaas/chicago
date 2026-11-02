@@ -35648,7 +35648,16 @@ the storeys' proportions, the mansard and its dormers' places, the stoop, the ca
 flank's bay, the fence.
 **Where the picture says more than is built.** The corner block's mansard stands higher than the rest
 in the photograph, the north bay rises under its own curved roof, the door is round-arched, and the
-walls are under creeper in 1928: open on the match record for T-3283. The canted corner's face is pale
+walls are under creeper in 1928: open on the match record for T-3283. **Built by T-3283 (2026-11-01 to
+2026-11-02):** the round-arched door, the north bay's own mansard with its two dormers, and the corner
+block's mansard as a crown over the front from s 6.95 m onto the canted corner, its curb 1.4 m over the
+house's, carrying the corner block's two dormers and the cant's (K01 `mansard.crown.over_front`). What
+that crown invents: its depth back from the front (3.8 m, enough to hold its dormers and clear the 20th
+Street face's rear dormer, which moved from u 11.0 to the face's window column at 10.5), its lower faces'
+80 degrees and its cornice's 0.05 m past the house's; the photograph sees only its front and its cant.
+The creeper stays off the 1904 build (its 1904 extent is not known). The match record now reads
+`matches`: the camera's flank and north-half fit is marked within tolerance, a stand the halftone cannot
+fix and not a difference in the house (the sweep and its numbers are on the record). The canted corner's face is pale
 and blank-looking in the halftone, which cannot resolve an opening in it; it carries the kit's window
 column. The library's other picture of the house, Chicagology's undated stereoview
 (`a19-cgy-1945-armour`, rights unknown, link only), is not built from.
@@ -35656,8 +35665,9 @@ column. The library's other picture of the house, Chicagology's undated stereovi
 (no picture sees them), the stacks, the deck's pitch, the treads and landing, the basement lights, the
 sash pattern, the rainwater and the yard's walk; the rear wing's and range's heights, lights and decks;
 the north bay's cant and the flank bay's depth.
-**How to resolve:** T-3283 works the match record's open differences down, adds the rear, roof and cost
-views T-1908's acceptance asks for, and brings the 1945 match record to `matches`.
+**How to resolve:** a picture of the house's 20th Street flank or its roof (the crown's depth), or one
+whose camera can be fitted (the Chicagology stereoview, once its rights are known). T-3283 brought the
+1945 match record to `matches` on 2026-11-02.
 **Covers:** `armour_corwith_house_1945_prairie.as_mapped_1904.form.wall_thickness_front_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.wall_thickness_side_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.service_wall_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.roof_pitch_deg`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.stair_tread_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.stair_landing_depth_m`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.basement_lights`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.window_kit`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.side_bays`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.rear_bays`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.chimneys`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.rainwater`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3281 (piece 1 of T-1908).
 **Review:** `docs/RESEARCH/photo-match/armour_corwith_house_1945_prairie/tribune_1928_famous_homes-side-by-side.jpg`.
