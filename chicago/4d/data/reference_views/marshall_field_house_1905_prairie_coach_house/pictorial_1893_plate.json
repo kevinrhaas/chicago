@@ -1,0 +1,32 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie_coach_house",
+ "scene": "1904",
+ "also_render": [
+  "marshall_field_house_1905_prairie",
+  "marshall_field_house_1905_prairie_conservatory"
+ ],
+ "source_id": "rand_mcnally_pictorial_chicago_1893_field",
+ "library_image": "a19-pictorial-1893-field",
+ "photo": "../../sources/assets/field_1905_pictures_t3260/pictorial_1893_field_plate.jpg",
+ "image_px": [
+  1438,
+  1080
+ ],
+ "principal_px": [
+  719.0,
+  923.3
+ ],
+ "focal_px": 1880.5,
+ "eye": [
+  70.11,
+  41.79,
+  1.6
+ ],
+ "yaw_deg": 237.79,
+ "sun_uvy": [
+  0.6,
+  0.8,
+  1.0
+ ],
+ "solve": "T-1936: the house's own camera on this plate (data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json), moved into the coach house's footprint frame and nothing else: both records stand at rotation 179.444 in the 1904 scene, and the house's origin lies at u +23.25, v +10.5 in this frame (their sidecar placements, local e/n 1443.678/-3356.596 against 1466.825/-3345.871), so the eye moves by that much at the same height, the heading and the light unchanged. The house is drawn with it (also_render) because it hides the coach house's north part in every picture of it. The coach house shows at the plate's right edge past the house's rear, behind a tree (x about 1180-1438 px): the same bracketed cornice, stone frieze, mansard and dormers as the 1870s photograph. Checked, not fitted: the plate shows the barn's south corner at about x 1387-1393 px, where the sheet's party wall falls at x 1321-1330, about 1.7 m apart at this depth; the 923 photograph's camera puts the same corner 0.6 m from the wall, so the two fits disagree here and the sheet holds it."
+}

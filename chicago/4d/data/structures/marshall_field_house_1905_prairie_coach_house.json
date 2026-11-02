@@ -1,6 +1,6 @@
 {
   "id": "marshall_field_house_1905_prairie_coach_house",
-  "name": "1905 S. Prairie Avenue — the alley building of the house at 1905 (district draft; refined by T-1936)",
+  "name": "1905 S. Prairie Avenue — Marshall Field's mansard stable and the building south of it (draft refined by T-1936 from the 1870s photograph and the 1893 plate)",
   "aka": [
     "1905 S. Prairie Avenue"
   ],
@@ -14,7 +14,7 @@
     "note": "The 1911 sheet reads '2-storey brick BARN on the alley'. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. The period description puts Field's \"stables and other out-buildings ... in the rear, on the side nearest the lake\"."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1936 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1905-b2), the T-1841 census (s28-1905-rear) and the T-1837 register row frontage-28-055; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1936 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1905-b2), the T-1841 census (s28-1905-rear) and the T-1837 register row frontage-28-055; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330). T-1936 refines it from the pictures that show it: the 1870s photograph of the Field house (a19-cgy-1905-field-923, source chicagology_1905_field_photo), whose right edge shows the south 9 m of the barn's yard face and the west part of its south end past the house's rear, read through the house's own solved camera (T-3271) carried into this frame; the 1893 Pictorial plate and the 1893 engraving, which show the same mansard; and the Daily News negative DN-0003324, c. 1905, which shows its snow-covered mansard and dormers behind the conservatory. The 1911 sheet draws two outlines here, the BARN and a separate two-storey building south of its party wall; the pictures show the barn alone, so the south building dates from 1893-1911 (liberty L-t1936-field-coach-house).",
   "phases": [
     {
       "id": "draft_1904",
@@ -46,19 +46,27 @@
       "footprint": {
         "polygon": [
           [
-            0.0,
-            0.0
+            -0.95,
+            0.3
           ],
           [
-            7.75,
-            0.0
+            8.85,
+            0.3
           ],
           [
-            7.75,
+            8.85,
+            26.1
+          ],
+          [
+            7.9,
+            26.1
+          ],
+          [
+            7.9,
             36.5
           ],
           [
-            0.0,
+            -0.95,
             36.5
           ]
         ],
@@ -66,7 +74,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan. T-1936: the sheet's two outlines on the trace's own wall lines (r1 and r2 of the plan), no longer the rules' one inscribed rectangle."
       },
       "form": {
         "stories": {
@@ -91,15 +99,75 @@
               {
                 "id": "r1",
                 "role": "main",
-                "storeys": 2,
-                "roof": "gable",
+                "storeys": 1,
+                "roof": "mansard",
                 "rect": [
-                  0.0,
-                  0.0,
-                  7.75,
+                  -0.95,
+                  0.3,
+                  8.85,
+                  26.1
+                ],
+                "from": "s28fp-1905-b2 p1 (main, brick): the sheet's BARN, its own outline from the north wall to the party wall at the trace's notch (sheet px y 4276-4285), walls at the trace's lines (T-1936)",
+                "lower_m": 3.2,
+                "cornice_out_m": 0.4,
+                "cornice_h_m": 0.8,
+                "modillions": {
+                  "faces": [
+                    "u1",
+                    "v1",
+                    "u0",
+                    "v0"
+                  ],
+                  "every_m": 1.2,
+                  "w_m": 0.15,
+                  "h_m": 0.3,
+                  "out_m": 0.3,
+                  "margin_m": 0.3
+                },
+                "dormers": {
+                  "w_m": 0.7,
+                  "h_m": 0.75,
+                  "sill_m": 1.25,
+                  "faces": {
+                    "u1": [
+                      3.6,
+                      7.1,
+                      10.6,
+                      14.1,
+                      17.6,
+                      21.1,
+                      24.6
+                    ],
+                    "u0": [
+                      3.6,
+                      7.1,
+                      10.6,
+                      14.1,
+                      17.6,
+                      21.1,
+                      24.6
+                    ],
+                    "v1": [
+                      3.95
+                    ],
+                    "v0": [
+                      3.95
+                    ]
+                  }
+                }
+              },
+              {
+                "id": "r2",
+                "role": "wing",
+                "storeys": 2,
+                "roof": "flat",
+                "rect": [
+                  -0.95,
+                  26.1,
+                  7.9,
                   36.5
                 ],
-                "from": "s28fp-1905-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
+                "from": "s28fp-1905-b2 p1 (main, brick): the sheet's separate two-storey building south of the barn's party wall, its west wall 0.9 m in from the barn's (T-1936)"
               }
             ],
             "lot_v": [
@@ -112,7 +180,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1905-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1905-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed). T-1936: the plan is no longer the rules' fit. The sheet (sanborn_1911_vol3_sheet_28.jpg, px x 2905-3110, y 3760-4495) draws two outlines here: the BARN, '2', from the north wall to a party wall at y 4280 (trace notches at y 4276-4285), and a separate '2' building south of it whose west wall stands about 0.9 m east of the barn's. The rules' one 7.75 by 36.5 m rectangle had been held inside the trace's label ticks; r1 and r2 now stand on the trace's own wall lines (r1 u -0.95 to 8.85, v 0.3 to 26.1; r2 u -0.95 to 7.9, v 26.1 to 36.5). Inferred: the outline is the sheet's, the split is the sheet's party wall, and both pictures that show the barn put its south corner within 0.6-1.7 m of that wall (reference views chicagology_923_photo, pictorial_1893_plate)."
         },
         "draft_elevation": {
           "value": {
@@ -120,7 +188,7 @@
             "seed": 1178604403,
             "principal_floor_m": 0.0,
             "storey_heights_m": [
-              3.4,
+              4.25,
               2.8,
               2.6
             ],
@@ -133,7 +201,212 @@
             "brackets": false,
             "attic_dormers": false,
             "stone": "stone",
-            "features": [],
+            "features": [
+              {
+                "kind": "stable_dress",
+                "dressed_faces": [
+                  "r1:u1"
+                ],
+                "sash": {
+                  "lights": 2,
+                  "architrave_m": 0.06,
+                  "architrave_out_m": 0.04,
+                  "sill_out_m": 0.08,
+                  "sill_m": 0.1,
+                  "lintel_m": 0.06,
+                  "rail_at": 0.5
+                },
+                "windows": [
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 3.1,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 6.1,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 9.1,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 12.1,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 15.1,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 18.1,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 20.5,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 21.5,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 24.0,
+                    "sill_m": 1.72,
+                    "w_m": 0.7,
+                    "h_m": 0.84
+                  }
+                ],
+                "courses": [
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s0": 0.3,
+                    "s1": 26.1,
+                    "y_m": 2.6,
+                    "h_m": 0.5,
+                    "out_m": 0.05
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u0",
+                    "s0": 0.3,
+                    "s1": 26.1,
+                    "y_m": 2.6,
+                    "h_m": 0.5,
+                    "out_m": 0.05
+                  },
+                  {
+                    "part": "r1",
+                    "side": "v0",
+                    "s0": -0.95,
+                    "s1": 8.85,
+                    "y_m": 2.6,
+                    "h_m": 0.5,
+                    "out_m": 0.05
+                  },
+                  {
+                    "part": "r1",
+                    "side": "v1",
+                    "s0": 7.9,
+                    "s1": 8.85,
+                    "y_m": 2.6,
+                    "h_m": 0.5,
+                    "out_m": 0.05
+                  }
+                ],
+                "lantern": {
+                  "at": [
+                    3.95,
+                    17.3
+                  ],
+                  "radius_m": 2.24,
+                  "base_m": 8.3,
+                  "drum_m": 1.0,
+                  "dome_m": 1.0,
+                  "finial_m": 0.8,
+                  "sides": 4,
+                  "dome_profile": [
+                    [
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      0.06,
+                      1.0
+                    ]
+                  ],
+                  "panels": 4
+                },
+                "stacks": [
+                  {
+                    "at": [
+                      3.95,
+                      21.7
+                    ],
+                    "w_m": 0.55,
+                    "d_m": 0.8,
+                    "from_m": 6.5,
+                    "top_m": 10.3
+                  },
+                  {
+                    "at": [
+                      2.0,
+                      25.6
+                    ],
+                    "w_m": 0.55,
+                    "d_m": 0.8,
+                    "from_m": 6.5,
+                    "top_m": 9.0
+                  },
+                  {
+                    "at": [
+                      0.2,
+                      16.5
+                    ],
+                    "w_m": 0.55,
+                    "d_m": 0.8,
+                    "from_m": 6.5,
+                    "top_m": 10.9
+                  }
+                ],
+                "pinnacles": [
+                  {
+                    "at": [
+                      3.95,
+                      24.7
+                    ],
+                    "w_m": 1.0,
+                    "from_m": 7.9,
+                    "top_m": 10.0,
+                    "spike_m": 0.4
+                  },
+                  {
+                    "at": [
+                      3.95,
+                      25.5
+                    ],
+                    "w_m": 0.35,
+                    "from_m": 7.5,
+                    "top_m": 8.6,
+                    "spike_m": 0.3
+                  }
+                ]
+              }
+            ],
             "draft_label": {
               "pass": "T-2330",
               "refined_by": [
@@ -143,26 +416,11 @@
             "v_toward": "south"
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: Second Empire: the register's 'broad brick/stone mansion, mansard and angular corner bay, dormers' and 'central portico'; the conservatory bay and the 1904 fence are T-1904's and T-1905's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1178604403 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2330",
-            "liberty": "L-draft-prairie-18-20-east-2330",
-            "register_row": "frontage-28-055",
-            "census_ids": [
-              "s28-1905-rear"
-            ],
-            "trace_building": "s28fp-1905-b2",
-            "seed": 1178604403,
-            "replaceable_by": [
-              "T-1936"
-            ],
-            "card": "District draft — refined by T-1936."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "T-1936, from the 1870s photograph of the Field house (a19-cgy-1905-field-923; source chicagology_1905_field_photo), whose right edge (x about 1595-2000 px) shows the barn's west (yard) face from v about 17.5 m to its south corner and the west part of its south end, read through the house's solved camera carried into this frame (reference view chicagology_923_photo) at about 36 px a metre on the face, every height from the camera's grade. READ FROM THE PHOTOGRAPH (the tier stays reconstructed: this attribute still carries the rules' choices for every face no picture shows): r1, the sheet's BARN, is ONE brick storey to a cornice whose top is 4.25 m up, with a mansard as its second storey (the sheet's '2'): the lower face to a curb about 7.4 m (lower_m 3.2), the deck the rules' 18-degree hip; the cornice 0.8 m deep on small brackets about every 1.2 m (y 938-951 px), over a pale stone frieze 2.6-3.1 m (y 953-970); four small windows 0.7 by 0.84 m with sills at 1.72 m at v 18.1, 20.5, 21.5 and 24.0 (x 1611-1815 px); three small pedimented dormers on the west face at v 17.6, 21.1 and 24.6 and one in the middle of the south end; a square louvred ventilator about 3.2 m across on the ridge at v 17.3 (x 1617-1747 px), four panels a face, its drum to about 9.3 m under a pyramidal cap to 10.5 m and a finial; three stacks and two spirelets on the roof (x 1722-1992 px). The 1893 plate shows the same cornice, frieze, mansard and dormers. STILL THE RULES' OR INVENTED: the face's north 17 m, behind the house in every picture, carries five more windows at a 3 m rhythm and four more dormers at the photograph's 3.5 m pitch; the alley face and north end take the rules' openings, the photograph's dormers mirrored and the cornice, brackets and frieze carried round; the stacks' places across the roof (one view gives their x, not their depth); the colours (the pictures are monochrome: red brick per the sheet, slate); and r2, the sheet's south building, the rules' two flat-roofed storeys. Liberty L-t1936-field-coach-house; the draft's L-draft-prairie-18-20-east-2330 no longer covers this record.",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "chicagology_1905_field_photo"
+          ]
         }
       }
     }
