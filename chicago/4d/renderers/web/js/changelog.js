@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2578, ts: '2026-11-02T19:21:36.465Z', date: 'Nov 2, 2026, 1:21 PM CT', title: '1816 Prairie\'s long brick stable on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1816 Prairie Avenue is no longer a rough draft. It now stands as a long two-and-a-half-storey brick stable, 22.4 m along the alley and 10.7 m deep, drawn from the 1911 fire-insurance map.',
+      'Both ends are fire walls rising above the roof, where the map marks them. Paired windows sit where the map marks windows, with two carriage doors and a hay-loft hatch between them. A paved walk runs from the yard door to the house\'s back wing.',
+      'The doors, roof pitch and most windows are reconstructed and are listed on the building\'s card.',
+    ] },
+  { v: 2577, ts: '2026-11-02T18:34:17.826Z', date: 'Nov 2, 2026, 12:34 PM CT', title: '1701 Prairie\'s stable by the tracks, lantern and all', kind: 'feature',
+    items: [
+      'The Hibbard stable behind 1701 Prairie now stands on the slanting plan the 1911 map draws: both of its buildings lean with the railroad\'s right-of-way instead of standing as plain boxes.',
+      'Its yard front follows the old photograph of the Hibbard house: a hipped slate roof on a bracketed cornice, a square lantern with three arched lights a side and a pointed cap, a curved gable over a stone-framed window, and round portholes low in the wall.',
+      'The lower stable to the south shows its gable to the yard, with a half-moon window in it and a porthole below.',
+      'Still open: the photograph puts the stable about 4 m north of where the map does, and the side-by-side says so.',
+    ] },
   { v: 2576, ts: '2026-11-02T18:28:53.731Z', date: 'Nov 2, 2026, 12:28 PM CT', title: '1919 Prairie: the curved front bay now rises to the roof', kind: 'feature',
     items: [
       'The curved bay on the front of Marshall Field Jr.\'s house at 1919 Prairie Avenue now rises the full height of the wall, and the main roof\'s eave and moulding sweep round it, as the house\'s 1913 and 1919 pictures show. Before, it stopped short under the eave with a low cap of its own.',
