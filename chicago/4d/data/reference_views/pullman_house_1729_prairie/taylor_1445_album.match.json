@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7b1f0088762be801519d4cc4b19280a0754eb908891108a7239c2b151e327ebc",
+  "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -10,7 +10,7 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 30,
+        "shrubs": 26,
         "trees": 3,
         "beds": 0,
         "creeper": 19
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "2902af5b749a6578e511d926081e63b5f4da4789a5e6bcf14ac2685a6296ca41",
+  "flora_sha256": "d077ff92d868d9bdadef1b61a441ba1b3a79b2406e481160ba75f045985547c1",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
