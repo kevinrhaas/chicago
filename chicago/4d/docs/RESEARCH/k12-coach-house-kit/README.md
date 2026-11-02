@@ -94,6 +94,16 @@ A named lot may set `mirror` (T-1932, first at 1612 Prairie): the kit is built i
 wall at the other end of the alley run, for a stable whose neighbour stands against that end. The
 variant is built and gated in the kit's own frame; only the structure GLB is reflected (and rewound).
 
+A named lot may set `skew_per_m` (T-3309, first at 1637 Prairie): the kit is built on a parallelogram
+plan, for a building whose long walls follow a slanting line (1637's, on the Illinois Central
+right-of-way) while its ends stay on the lot lines. Every point is sheared in the ground plane,
+z' = z - k x in the kit's frame, so each metre along the alley wall away from the party wall steps the
+alley and yard walls k metres back from the alley side; `width_m` and `depth_m` and every opening's `s`
+are then measured along the lot lines, not square to the slanting walls. As with `mirror`, the variant is
+built and gated unsheared in the kit's own frame and only the structure GLB is sheared: a shear is affine
+with determinant 1, so every piece still meets what it met and no triangle turns over. It defaults to 0,
+and every other coach house builds byte-identical.
+
 A named lot may set `range` (T-1932, first at 1720 Prairie): a one-storey brick range carried on along
 the alley past the open gable, its `length_m` along the alley and `depth_m` back from it (less than the
 coach house's). Its alley wall continues the coach house's alley wall line and stands on that wall's end;

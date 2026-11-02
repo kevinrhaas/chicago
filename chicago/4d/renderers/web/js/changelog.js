@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2566, ts: '2026-11-02T11:54:13.410Z', date: 'Nov 2, 2026, 5:54 AM CT', title: '1637 Prairie: a brick stable on the railway\'s slant', kind: 'feature',
+    items: [
+      'The plain boxes behind 1637 Prairie are now one two-storey brick stable. It is built slanted, the way the 1911 fire-insurance map draws it, because its long walls follow the Illinois Central tracks. Carriage doors, a loft hatch and stable windows face the house\'s yard. An 1886 atlas marks a smaller brick stable in the same place. The doors, windows and roof are reconstructed.',
+    ] },
   { v: 2565, ts: '2026-11-02T11:05:14.924Z', date: 'Nov 2, 2026, 5:05 AM CT', title: '1630 Prairie\'s alley shed is built, finishing the north-west alley', kind: 'feature',
     items: [
       'The small one-storey frame shed behind 1630 Prairie now stands in clapboard, built board by board like the house in front of it, on the outline the 1911 fire-insurance map draws.',
