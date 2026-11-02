@@ -38,6 +38,8 @@ import { castOnlyTowardView } from './shadow-casters.js';
 import { crestTwin, drawFarReliefAsCrests, farReliefFromSearch } from './far-roof-relief.js';
 import { CELL_M, MAX_PIXELS as FAR_SHADOW_MAX_PIXELS, shadowTwin, twinReachM, drawFarShadowAsTwins,
   farShadowFromSearch } from './far-shadow.js';
+import { drawFarColourAsTwins, farColourFromSearch, MAX_PIXELS as FAR_COLOUR_MAX_PIXELS,
+  CELL_M as FAR_COLOUR_CELL_M, KEEP_RATIO as FAR_COLOUR_KEEP_RATIO } from './far-colour.js';
 import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
 import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
@@ -463,7 +465,8 @@ export function seatJointFloor(material) {
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
   onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS,
-  spatialCells = null, collectViewBackings = false, shadowCasters = null }) {
+  spatialCells = null, collectViewBackings = false, shadowCasters = null,
+  colourTwins = false, farColourTier = null }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
@@ -569,6 +572,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   // T-3286: far pieces cast from a clustered twin (far-shadow.js); one state per batch.
   const farShadow = { on: farShadowFromSearch(globalThis.location?.search), maxPixels: FAR_SHADOW_MAX_PIXELS,
     batches: [], twinTriangles: 0, twinVertices: 0, buildMs: 0 };
+  // T-3312: at `light`, far pieces draw in the colour pass from a clustered twin that
+  // keeps each face's normal (far-colour.js). Cut only when `colourTwins` (a build for
+  // a tier below `full`); drawn only while the tier says so (`farColourTier.on`).
+  const farColour = { on: farColourFromSearch(globalThis.location?.search), maxPixels: FAR_COLOUR_MAX_PIXELS,
+    control: false, batches: [], twinTriangles: 0, twinVertices: 0, buildMs: 0 };
   /** structure id -> its footprint extent in its own local frame, so a building
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
@@ -921,6 +929,26 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       bucket.entries.push(...twins);
     }
+    // T-3312: and each heavy piece's colour twin, cut by pools that never mix two
+    // normals, after the shadow twins so the pieces keep their order. Not for a relief
+    // roof (far-roof-relief.js owns its far draw) nor a transparent batch (sorted by sphere).
+    if (colourTwins && bucket.material.userData.roofFilter !== 'course-pixels-v1' && !bucket.material.transparent) {
+      const twins = [];
+      for (const e of bucket.entries) {
+        if (e.twinOf || e.shadowOf) continue;
+        const pause = checkpoint(); if (pause) await pause;
+        const scale = placements.get(e.record.id)?.getMaxScaleOnAxis?.() ?? 1;
+        const t0 = performance.now();
+        const twin = shadowTwin(e.geo, FAR_COLOUR_CELL_M / (scale > 0 ? scale : 1), { byNormal: true, keepRatio: FAR_COLOUR_KEEP_RATIO });
+        farColour.buildMs += performance.now() - t0;
+        if (!twin) continue;
+        farColour.twinTriangles += twin.twinTriangles;
+        farColour.twinVertices += twin.geo.getAttribute('position').count;
+        twins.push({ ...e, geo: twin.geo, colourOf: e, saved: twin.triangles - twin.twinTriangles,
+          occludesView: false, planar: null });
+      }
+      bucket.entries.push(...twins);
+    }
     const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
     const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
     // The normals and uvs stored compact, in one format across the batch, and
@@ -973,6 +1001,17 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       drawFarShadowAsTwins(batch, state);
       farShadow.batches.push({ batch, state });
     }
+    // T-3312: after the relief swap (this one runs first, and the relief passes over a
+    // piece hidden here) and before the narrow phase below, which trusts only the hook it wrapped.
+    let colourPairs = null;
+    if (bucket.entries.some((e) => e.colourOf)) {
+      colourPairs = [];
+      const state = { get on() { return farColour.on && farColourTier?.on === true; }, pairs: colourPairs,
+        get maxPixels() { return farColour.maxPixels; }, get control() { return farColour.control; },
+        swapped: 0, saved: 0 };
+      drawFarColourAsTwins(batch, state);
+      farColour.batches.push({ batch, state });
+    }
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -1015,6 +1054,27 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
           twinInfo.boundingSphere = batch.getBoundingSphereAt(batch.getGeometryIdAt(piece), new THREE.Sphere());
         }
         shadowPairs.push({ piece, twin: instanceId, reachM: twinReachM(), saved: entry.saved });
+        geo.dispose();
+        continue;
+      }
+      if (entry.colourOf) {
+        // T-3312: a colour twin is drawn only in the colour pass, in its piece's place,
+        // wearing its piece's paint (far-colour.js copies it at the swap, as weathering
+        // repaints the piece only). No tone row, roll or channel of its own.
+        const piece = entry.colourOf.instanceId;
+        batch.setColorAt(instanceId, batch.getColorAt(piece, new THREE.Color()));
+        batch.setMatrixAt(instanceId, frame.matrix);
+        batch.userData.positionScale[instanceId] = frame.scale;
+        batch.userData.batchIndex[instanceId] = record.id;
+        const pieceRange = batch.userData.confidenceRanges[piece];
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange;
+        batch.setVisibleAt(instanceId, false);
+        // culled and sorted by its piece's sphere, which holds it, so the cull stays conservative
+        const twinInfo = batch._geometryInfo?.[geometryId];
+        if (twinInfo && 'boundingSphere' in twinInfo) {
+          twinInfo.boundingSphere = batch.getBoundingSphereAt(batch.getGeometryIdAt(piece), new THREE.Sphere());
+        }
+        colourPairs.push({ piece, twin: instanceId, reachM: twinReachM(FAR_COLOUR_CELL_M), saved: entry.saved });
         geo.dispose();
         continue;
       }
@@ -1321,6 +1381,24 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       get twinVertices() { return farShadow.twinVertices; },
       /** main-thread time spent cutting the twins at load */
       get buildMs() { return farShadow.buildMs; },
+    },
+    // T-3312: the colour pass's far twins at `light` (far-colour.js), summed over the
+    // batches as of the last colour render; `on = false` draws every piece whole.
+    farColour: {
+      get on() { return farColour.on; },
+      set on(v) { farColour.on = !!v; },
+      get active() { return farColour.on && farColourTier?.on === true; },
+      get maxPixels() { return farColour.maxPixels; },
+      set maxPixels(v) { farColour.maxPixels = Number.isFinite(v) && v >= 0 ? v : FAR_COLOUR_MAX_PIXELS; },
+      get pieces() { return farColour.batches.reduce((n, b) => n + b.state.pairs.length, 0); },
+      get swapped() { return farColour.batches.reduce((n, b) => n + (b.state.swapped ?? 0), 0); },
+      get saved() { return farColour.batches.reduce((n, b) => n + (b.state.saved ?? 0), 0); },
+      get twinTriangles() { return farColour.twinTriangles; },
+      get twinVertices() { return farColour.twinVertices; },
+      get buildMs() { return farColour.buildMs; },
+      /** the on/off proof's positive control: the swapped pieces hidden, no twin drawn */
+      get control() { return farColour.control; },
+      set control(v) { farColour.control = !!v; },
     },
     farRelief: {
       get on() { return farRelief.on; },
