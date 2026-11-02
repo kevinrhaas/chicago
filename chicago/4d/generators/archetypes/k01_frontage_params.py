@@ -1137,6 +1137,39 @@ def _dormer_ornament(o, what: str, d: dict) -> dict:
     return out
 
 
+def _dormer_dress(dr: dict, what: str, sw: float, ring: float, frieze: float) -> dict:
+    """T-3307: a gabled lower-face dormer dressed as a classical pediment (1700-1706 Prairie's in
+    Chicagology's photograph): a moulded level cornice `cornice_m` [height, projection] across the
+    face at the pediment's foot, returned `return_m` along both cheeks; raking cornice `rake`
+    bands [[width, proud], ...] up both slopes, the first the crown; a pilaster either side of
+    the sash, `pilasters` {width_m, proud_m, cap_m}, from its sill to the cornice; and the
+    cheeks painted as the face is (`cheeks`: painted) where a plain gable's are slated."""
+    keys = {"cornice_m", "return_m", "rake", "pilasters", "cheeks"}
+    if not isinstance(dr, dict) or set(dr) != keys:
+        raise ParamError(f"{what}.dress takes {sorted(keys)}")
+    h, pj = (float(x) for x in dr["cornice_m"])
+    rt = float(dr["return_m"])
+    if not 0.1 <= h <= 0.4 or not 0.1 <= pj <= 0.4 or not 0.05 <= rt <= 0.4:
+        raise ParamError(f"{what}.dress: a 0.1-0.4 m cornice 0.1-0.4 m out, returned 0.05-0.4 m")
+    if h > frieze + ring - 0.1:
+        raise ParamError(f"{what}.dress.cornice_m: a {h} m cornice leaves under 0.1 m of frieze over the sash "
+                         f"(surround {ring} + frieze_m {frieze})")
+    rake = [(float(w), float(q)) for w, q in dr["rake"]]
+    if not 1 <= len(rake) <= 3 or not all(0.04 <= w <= 0.2 and 0.03 <= q <= pj for w, q in rake):
+        raise ParamError(f"{what}.dress.rake: one to three bands 0.04-0.2 m wide, standing 0.03 m up to the "
+                         f"cornice's projection")
+    pl = dr["pilasters"]
+    if not isinstance(pl, dict) or set(pl) != {"width_m", "proud_m", "cap_m"}:
+        raise ParamError(f"{what}.dress.pilasters takes width_m, proud_m and cap_m")
+    pl = {k: float(x) for k, x in pl.items()}
+    if not 0.08 <= pl["width_m"] <= ring - 0.02 or not 0.02 <= pl["proud_m"] <= 0.08 or not 0.04 <= pl["cap_m"] <= 0.2:
+        raise ParamError(f"{what}.dress.pilasters: 0.08 m wide up to 0.02 m short of the surround ({ring} m), "
+                         f"0.02-0.08 m proud, a 0.04-0.2 m capital")
+    if dr["cheeks"] not in ("painted", "slate"):
+        raise ParamError(f"{what}.dress.cheeks: painted or slate")
+    return {"cornice_m": [h, pj], "return_m": rt, "rake": rake, "pilasters": pl, "cheeks": dr["cheeks"]}
+
+
 def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False) -> dict:
     """A lower-face dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones,
     T-2452's gabled ones): a K06 sash in a stone face `surround_m` round it, its face
@@ -1174,14 +1207,30 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
            "head_m": round(sht + ring, 4)}
     if head == "gable":
         gp = float(d["gable_pitch_deg"])
-        if not 30.0 <= gp <= 60.0:
-            raise ParamError(f"{what}.gable_pitch_deg {gp}: a dormer's pediment is pitched 30-60 deg")
+        # T-3307: a dressed pediment may be pitched as low as a classical one (1700-1706's,
+        # about 25 degrees in Chicagology's photograph); a plain one keeps the slated gable's 30
+        if not (20.0 if d.get("dress") else 30.0) <= gp <= 60.0:
+            raise ParamError(f"{what}.gable_pitch_deg {gp}: a dormer's pediment is pitched 30-60 deg "
+                             f"(20-60 under a dressed pediment)")
         out["gable_pitch_deg"] = gp
-        out["head_m"] = round(sht + ring + (sw / 2 + ring) * math.tan(math.radians(gp)), 4)
+        # T-3307: an entablature between the sash's head and the pediment's foot, `frieze_m` over
+        # the surround, carrying the dressed pediment's level cornice
+        fz = float(d.get("frieze_m", 0.0))
+        if not (fz == 0.0 or 0.05 <= fz <= 0.6):
+            raise ParamError(f"{what}.frieze_m {fz}: a gabled dormer's frieze is 0.05-0.6 m over its surround")
+        if fz:
+            out["frieze_m"] = fz
+        out["head_m"] = round(sht + ring + fz + (sw / 2 + ring) * math.tan(math.radians(gp)), 4)
+        if "dress" in d and "ornament" in d:
+            raise ParamError(f"{what}: a dressed pediment or an ornamented gable, not both")
+        if "dress" in d:
+            out["dress"] = _dormer_dress(d["dress"], what, sw, ring, fz)
         if "ornament" in d:
             out["ornament"] = _dormer_ornament(d["ornament"], what, out)
     elif "ornament" in d:
         raise ParamError(f"{what}.ornament: a gabled dormer's coping, crockets, pinnacles and finial")
+    elif "dress" in d or "frieze_m" in d and head != "flat":
+        raise ParamError(f"{what}: a dressed pediment and its frieze stand on a gable head")
     if head == "hip":
         # T-2866: the face's wall head stands `surround_m` over the sash, as its jambs do; the
         # hip over it is K05's (k05_roofs.hip_element), its eaves the kit's dormer overhang
@@ -1751,6 +1800,8 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
             # photographs), centred on the face's lower slope and clear of its two hips under the
             # curb, where the face is narrowest; k01_frontage turns a street dormer onto it
             d = _round_dormer(e, what, run, hood=False)
+            if "dress" in d:
+                raise ParamError(f"{what}.dress: a cant dormer's pediment is not dressed")
             if not cant or float(e["along_m"]) != 0.0 or d["head"] not in ("gable", "round"):
                 raise ParamError(f"{what}: a cant dormer stands on a cant_corner, centred (along_m 0), "
                                  f"under a gable or round head")
