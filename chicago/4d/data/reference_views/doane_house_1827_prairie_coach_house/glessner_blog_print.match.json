@@ -1,0 +1,99 @@
+{
+  "structure_id": "doane_house_1827_prairie_coach_house",
+  "view": "glessner_blog_print",
+  "glb": "assets/gltf/doane_house_1827_prairie_coach_house__draft_1904.glb",
+  "glb_sha256": "b0b6349e9910aa7064763281e20625f7b890aadbe27084707a0d0756a223fec5",
+  "camera_sha256": "86f575d9cf0c7b07ddfb5ab47e65443374fedf418656cd7e1997ecb5ea98266b",
+  "photo_sha256": "9c2686002d5fd54c90cc027c2a49a442050867e9f2d55617e437c8d7acf7d720",
+  "rendered_members": [
+    {
+      "structure_id": "doane_house_1827_prairie_coach_house",
+      "glb": "assets/gltf/doane_house_1827_prairie_coach_house__draft_1904.glb",
+      "placement": {
+        "local_e": 1463.386,
+        "local_n": -3306.343,
+        "rotation_deg": 179.449,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "b0b6349e9910aa7064763281e20625f7b890aadbe27084707a0d0756a223fec5"
+    },
+    {
+      "structure_id": "doane_house_1827_prairie",
+      "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1446.557,
+        "local_n": -3298.255,
+        "rotation_deg": 179.449,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        16.7504426251205,
+        0,
+        8.249464034865557
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "bdcaa16613743f0c7c693aecf8afec1f3a098828dd476c5fde1ac0d5cba668a6"
+    }
+  ],
+  "group_sha256": "ef3fb602451cc5cf2d73c6c043432e04060a7821d0f2b1642784a7bbe09b19bf",
+  "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie_coach_house/glessner_blog_print-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the house's south flank stands in front of the coach house in the render: the build's flank and rear step run on to x about 627-658 px, where the print's flank closes at about x 510 and the coach house's front shows past it (x 510-561)",
+      "status": "open",
+      "how": "T-1936: not the coach house's to fix. It is the house's own open item (doane_house_1827_prairie/chicagology_doane_exterior.match.json, 'the south flank past the tower': no camera that holds the front holds the flank), and until the house's flank or this camera is re-read this view cannot show the coach house at all. Every item below is read on the coach house rendered alone through the same camera (glessner_blog_print-coach-house-alone.jpg beside the side-by-side: print | render, x 470-561, y 370-510, five times up)"
+    },
+    {
+      "what": "the yard front's walls: the print's are pale, far paler than the house's stone; the draft's were red brick",
+      "status": "fixed",
+      "how": "T-1936: cream brick tint (L-t1936-doane-coach-house)"
+    },
+    {
+      "what": "the flat top's cornice: a thin moulding in the print (y about 400-404 px), the draft's a 0.4 m slab projecting 0.35 m",
+      "status": "fixed",
+      "how": "T-1936: r2's cornice 0.25 m deep, 0.12 m out (cornice_h_m, cornice_out_m)"
+    },
+    {
+      "what": "the loft sash under its eared stone hood (x 525-550 px, y 409-436), where the draft drew two plain sash on this face",
+      "status": "fixed",
+      "how": "T-1936: one framed sash 0.75 by 1.18 m on the belt, s -2.3 m, under a hood 1.55 m across with ears; it lands on the print's columns (render x 531-543 against 531-543)"
+    },
+    {
+      "what": "the carriage opening under a flat segmental head (x 522-557 px), its leaves near-black, with a pale panel in them (x 531-541, y 456-475)",
+      "status": "fixed",
+      "how": "T-1936: carriage_doors on r2:u1, 2.3 m wide springing at 2.25 m, 0.15 m rise, stone band; leaves in the dark door tint; the panel drawn pale; render x 521-556 against 522-557"
+    },
+    {
+      "what": "the belt course at the loft floor (y 438-443 px), about 0.3 m deep and shadowed under its projection",
+      "status": "within tolerance",
+      "how": "T-1936: built as the dressing's 0.2 m course at 2.85 m; it reads as a thinner line than the print's shadowed band, under 0.1 m"
+    },
+    {
+      "what": "the loft sash's bars: the print shows a meeting rail and a central bar; the render's sash frame is in the same dark as the glass",
+      "status": "within tolerance",
+      "how": "T-1936: under 0.1 m, the dark door tint the leaves needed also darkens the sash frames"
+    },
+    {
+      "what": "the whole front stands about 8 px (0.47 m) lower in the render than in the print: the camera's grade at this depth is about y 498 px, the print's foot y 490",
+      "status": "within tolerance",
+      "how": "T-1936: a camera disagreement, not a build one; the camera is the house's (T-3191) and is the one that misplaces the house's flank and stacks at this depth. Heights were taken from the face's own foot in the print, so every height on the front agrees with the print to within a few pixels once the offset is taken out"
+    },
+    {
+      "what": "the face's south part (v -5.75 to -4.2 m) and everything south of x 561 px",
+      "status": "not shown",
+      "how": "behind the house's flank, and past the print's right edge"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
