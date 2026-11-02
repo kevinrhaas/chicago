@@ -46,7 +46,7 @@
  */
 
 import * as THREE from 'three';
-import { isSharedImage, retireSharedImage } from './shared-images.js';
+import { isSharedImage, retireSharedImage, sourceTextureSlots } from './shared-images.js';
 import { compactBatchBounds } from './batch-bounds.js';
 
 /** Layer → attributes it must keep for a tap. Unlisted layers keep nothing. */
@@ -348,12 +348,13 @@ export function releaseSources(registry) {
 function collapseScene(row) {
   const scene = row.gltf.scene;
   if (!scene || scene.collapsed) return;
+  const requiredTextureSlots = [...sourceTextureSlots(scene)];
   const materials = new Set();
   scene.traverse((o) => {
     for (const material of (Array.isArray(o.material) ? o.material : [o.material])) if (material) materials.add(material);
   });
   const carrier = { material: [...materials] };
-  const collapsed = { name: scene.name, collapsed: true, traverse(visit) { visit(carrier); } };
+  const collapsed = { name: scene.name, collapsed: true, requiredTextureSlots, traverse(visit) { visit(carrier); } };
   row.gltf.scene = collapsed;
   if (Array.isArray(row.gltf.scenes)) row.gltf.scenes = [collapsed];
   row.node = null;

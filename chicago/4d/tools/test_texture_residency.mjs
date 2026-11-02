@@ -218,6 +218,53 @@ check('phone true/all mode decodes, uploads and closes returning image', phone.d
 if (hadDocument) globalThis.document = oldDocument; else delete globalThis.document;
 if (hadBitmap) globalThis.ImageBitmap = oldBitmap; else delete globalThis.ImageBitmap;
 
+// The real phone release replaces the GLTF node tree with one disposal carrier.
+// Its required slots still name the original mesh/material ordinals, not that carrier.
+const { releaseSources } = await moduleFor('upload-release.js');
+const { hasRequiredSourceTextures } = await moduleFor('texture-residency.js');
+const rowToRelease = { gltf: realA, node: realA.scene.children[0] };
+const requiredBefore = [...(await import(sharedUrl)).sourceTextureSlots(realA.scene)];
+releaseSources(new Map([['actual-parser-fixture', rowToRelease]]));
+check('real source release collapses the node tree and clears the row node',
+  realA.scene.collapsed && rowToRelease.node === null && rowToRelease.sourceReleased);
+check('collapsed source retains only primitive original texture-slot keys and counts',
+  JSON.stringify(realA.scene.requiredTextureSlots) === JSON.stringify(requiredBefore)
+  && realA.scene.requiredTextureSlots.every(([key, count]) => typeof key === 'string' && Number.isInteger(count)));
+check('actual released GLTF accepts an intact raw GLTF reread', hasRequiredSourceTextures(realA, realB));
+const savedMap = matB.map; matB.map = null;
+check('actual released GLTF still refuses a reread missing the base-color slot', !hasRequiredSourceTextures(realA, realB));
+matB.map = savedMap;
+const savedEmissive = matB.emissiveMap; matB.emissiveMap = null;
+check('actual released GLTF still refuses a reread missing the second sampler slot', !hasRequiredSourceTextures(realA, realB));
+matB.emissiveMap = savedEmissive;
+const wrongNode = new THREE.Group(); realB.scene.add(wrongNode);
+wrongNode.material = new THREE.MeshBasicMaterial({ map: matB.map }); matB.map = null;
+check('a required texture on the wrong node cannot replace its original slot', !hasRequiredSourceTextures(realA, realB));
+matB.map = savedMap; realB.scene.remove(wrongNode); wrongNode.material.dispose();
+check('restored raw GLTF reread passes the unchanged required-slot contract', hasRequiredSourceTextures(realA, realB));
+
+// A repeated material still owes each original material slot and node placement.
+const repeatedScene = new THREE.Group();
+const firstRepeated = new THREE.Mesh(new THREE.BoxGeometry(), [matB, matB]);
+const otherMaterial = matB.clone(); otherMaterial.name = 'other original material';
+const secondRepeated = new THREE.Mesh(new THREE.BoxGeometry(), otherMaterial);
+repeatedScene.add(firstRepeated, secondRepeated);
+const repeatedRaw = { scene: repeatedScene.clone(true) };
+const repeatedReleased = { gltf: { scene: repeatedScene } };
+releaseSources(new Map([['repeated-material-fixture', repeatedReleased]]));
+check('collapsed source preserves repeated original material-slot multiplicity',
+  hasRequiredSourceTextures(repeatedReleased.gltf, repeatedRaw));
+repeatedRaw.scene.children[0].material = [matB];
+check('deduplicating a required original material slot is refused',
+  !hasRequiredSourceTextures(repeatedReleased.gltf, repeatedRaw));
+repeatedRaw.scene.children[0].material = [matB, matB];
+repeatedRaw.scene.children.reverse();
+check('reordering distinct original material nodes is refused',
+  !hasRequiredSourceTextures(repeatedReleased.gltf, repeatedRaw));
+repeatedRaw.scene.children.reverse();
+check('restoring every repeated slot and original node restores acceptance',
+  hasRequiredSourceTextures(repeatedReleased.gltf, repeatedRaw));
+
 console.log(`${tests.length} controls PASS; NO actual-browser/GPU/memory/visual qualification claimed`);
 if(hadLoader)globalThis.__T3173KTX2Loader=previousLoader;else delete globalThis.__T3173KTX2Loader;
 if(hadSelf)globalThis.self=previousSelf;else delete globalThis.self;
