@@ -1936,6 +1936,26 @@ class Bay:
         mn = self.v["roof"].get("mansard")
         if mn and (tower or flare or pitch == 0 or self.plan["kind"] != "polyline"):
             raise ValueError(f"{self.v['id']}: a mansard is a polyline bay's pitched hip, unflared")
+        # T-1881 (2026-11-02): a mansard JOINED to the house's (1729's sections, one curb and one
+        # rail in every photograph): `back_m` carries its planes back through the wall plane to
+        # that depth behind it, to the house's curb, so its side faces meet the house's lower
+        # face in a valley and its deck runs into the house's deck; and `open` runs its front
+        # face and deck past an end, `open.<left|right>` metres beyond that end's eaves line,
+        # with no hip there (into a taller neighbour's roof: 1729's entrance section under the
+        # forward block's south face). The end's line still bounds the roof, as a vertical cut.
+        z0, cut = 0.0, set()
+        if mn and (mn.get("back_m") is not None or mn.get("open")):
+            z0 = -float(mn.get("back_m", 0.0)) or 0.0
+            if not -2.0 <= z0 <= 0.0:
+                raise ValueError(f"{self.v['id']}: a joined mansard runs back 0-2 m behind its wall plane")
+            for side, reach in (mn.get("open") or {}).items():
+                i = {"left": 0, "right": len(lines) - 1}.get(side)
+                if i is None or len(lines) < 3 or not 0.0 <= float(reach) <= 2.0:
+                    raise ValueError(f"{self.v['id']}: a mansard opens its left or right end 0-2 m past its eaves")
+                (ax, az), (nx, nz) = lines[i]
+                lines[i] = ((ax - float(reach) * nx, az - float(reach) * nz), (nx, nz))
+                cut.add(i)
+        planes = [i for i in range(len(lines)) if i not in cut]
         if tower:
             ring = self.plan["ring"]
             k = len(ring)
@@ -1948,10 +1968,10 @@ class Bay:
             # T-3176: a tower set across its corner stands past the main eave on both its walls,
             # so its cap is the whole ring's (as a corner turret's cone is, T-2900)
         else:
-            dom = [self._offset_corner(None, lines[0], ov)]
+            dom = [self._offset_corner(None, lines[0], ov, z0)]
             for i in range(len(lines) - 1):
                 dom.append(self._offset_corner(lines[i], lines[i + 1], ov))
-            dom.append(self._offset_corner(lines[-1], None, ov))
+            dom.append(self._offset_corner(lines[-1], None, ov, z0))
         if area(dom) < 0:
             dom.reverse()
         d = lambda L, p: L[1][0] * (p[0] - L[0][0]) + L[1][1] * (p[1] - L[0][1])
@@ -1965,9 +1985,11 @@ class Bay:
         if pitch == 0:
             faces.append((dom, lambda p: y_e))
         else:
-            for i, Li in enumerate(lines):
+            for i in planes:
+                Li = lines[i]
                 reg = dom
-                for j, Lj in enumerate(lines):
+                for j in planes:
+                    Lj = lines[j]
                     if j != i and reg:
                         reg = clip_half(reg, lambda p, Lj=Lj: d(Lj, p) - d(Li, p))
                 if reg and deck is not None:
@@ -1988,9 +2010,15 @@ class Bay:
                     apex = q
             if tower or mn:
                 for a, b in zip(reg, reg[1:] + reg[:1]):
-                    if abs(a[1]) < 1e-9 and abs(b[1]) < 1e-9:
-                        world.face("roof_back", [(a[0], y_e, 0.0), (b[0], y_e, 0.0), (b[0], hgt(b), 0.0),
-                                                 (a[0], hgt(a), 0.0)], (0.0, 0.0, -1.0))
+                    if abs(a[1] - z0) < 1e-9 and abs(b[1] - z0) < 1e-9:
+                        world.face("roof_back", [(a[0], y_e, z0), (b[0], y_e, z0), (b[0], hgt(b), z0),
+                                                 (a[0], hgt(a), z0)], (0.0, 0.0, -1.0))
+                    # an open end is closed on its cut, as the back is, inside the neighbour's roof
+                    for i in cut:
+                        L = lines[i]
+                        if abs(d(L, a)) < 1e-9 and abs(d(L, b)) < 1e-9 and math.dist(a, b) > 1e-9:
+                            world.face("roof_back", [(a[0], y_e, a[1]), (b[0], y_e, b[1]), (b[0], hgt(b), b[1]),
+                                                     (a[0], hgt(a), a[1])], (-L[1][0], 0.0, -L[1][1]))
         self.meta["roof"] = {"kind": "flat" if pitch == 0 else "hip", "pitch": pitch, "planes": len(faces),
                              "apex": [round(c, 4) for c in apex]}
         if deck is not None:
@@ -2010,14 +2038,17 @@ class Bay:
             # the curb: the eaves lines offset in by the lower faces' run, met pairwise and at
             # the wall plane, so a host can stand cresting on it (k01_frontage.bay)
             run = float(mn["rise_m"]) / math.tan(math.radians(float(mn["lower_pitch_deg"])))
-            inner = [((a[0] + run * n[0], a[1] + run * n[1]), n) for a, n in lines]   # n points inward
-            curb = [self._offset_corner(None, inner[0], 0.0)]
+            inner = [((a[0] + run * n[0], a[1] + run * n[1]) if i not in cut else a, n)   # n points inward
+                     for i, (a, n) in enumerate(lines)]
+            curb = [self._offset_corner(None, inner[0], 0.0, z0)]
             for i in range(len(inner) - 1):
                 curb.append(self._offset_corner(inner[i], inner[i + 1], 0.0))
-            curb.append(self._offset_corner(inner[-1], None, 0.0))
+            curb.append(self._offset_corner(inner[-1], None, 0.0, z0))
             self.meta["roof"]["mansard"] = {"rise_m": float(mn["rise_m"]), "lower_pitch_deg": float(mn["lower_pitch_deg"]),
                                             "curb_m": round(y_e + float(mn["rise_m"]), 4),
                                             "curb": [[round(c, 4) for c in q] for q in curb]}
+            if mn.get("back_m") is not None or cut:   # a joined mansard's reach and its open runs
+                self.meta["roof"]["mansard"].update(back_m=round(-z0, 4), open_runs=sorted(cut))
 
     def _gable(self, world, y_top, y_e, ov):
         """T-2998: a coped stone gable (1801 Prairie's south pavilion, the Taylor photograph).
@@ -2740,13 +2771,14 @@ class Bay:
         return out
 
     @staticmethod
-    def _offset_corner(L1, L2, ov):
-        """Where two eaves lines meet; a line with no neighbour meets the wall plane z = 0."""
+    def _offset_corner(L1, L2, ov, z0=0.0):
+        """Where two eaves lines meet; a line with no neighbour meets the wall plane z = 0
+        (or the plane z = z0 behind it a joined mansard runs back to)."""
         if L1 is None or L2 is None:
             (a, n) = L2 if L1 is None else L1
             e = (n[1], -n[0])
-            t = -a[1] / e[1]
-            return (a[0] + t * e[0], 0.0)
+            t = (z0 - a[1]) / e[1]
+            return (a[0] + t * e[0], z0)
         (a1, n1), (a2, n2) = L1, L2
         e1, e2 = (n1[1], -n1[0]), (n2[1], -n2[0])
         den = e1[0] * e2[1] - e1[1] * e2[0]

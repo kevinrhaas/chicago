@@ -4287,6 +4287,22 @@ async function boot() {
     return inspect(null);
   }
 
+  /** Water-anchored meshes are walkable decks, deliberately absent from the
+   *  obstruction footprints. Frame their rendered bounds, not the placement
+   *  corner or the river bed; the placement matrix includes their water datum. */
+  function waterStructureFrame(id) {
+    if (loaded.registry.get(id)?.sidecar?.placement?.vertical_anchor !== 'water') return null;
+    const box = buildingBounds[id];
+    const matrix = buildings.matrixOf(id);
+    if (!box || !matrix) return null;
+    const centre = new THREE.Vector3(
+      (box.min[0] + box.max[0]) / 2,
+      (box.min[1] + box.max[1]) / 2,
+      (box.min[2] + box.max[2]) / 2,
+    ).applyMatrix4(matrix);
+    return { centre, radius: Math.max(2, Math.hypot(box.size[0], box.size[2]) / 2) };
+  }
+
   /** Stand back and look at a structure — used by anchors and by the harness. */
   /**
    * THE ONE FRAMING RULE (T-0824). Where you stand when you arrive at a building
@@ -4298,11 +4314,12 @@ async function boot() {
    * from a fixed number, so a privy and a long store are each framed to fit.
    */
   function framing(id, { card = popup.openId !== null || (handInspect ? 'inspect' : false), mode = travel?.mode ?? 'walk' } = {}) {
-    const centre = structurePosition(id);
+    const visual = waterStructureFrame(id);
+    const centre = visual ? { e: visual.centre.x, n: -visual.centre.z } : structurePosition(id);
     const aim = focusPoint(id);
     if (!centre || !aim) return null;
     const fp = footprints.find((f) => f.id === id);
-    let r = 6;
+    let r = visual?.radius ?? 6;
     if (fp?.pts?.length) {
       let e0 = Infinity, n0 = Infinity, e1 = -Infinity, n1 = -Infinity;
       for (const [e, n] of fp.pts) { e0 = Math.min(e0, e); e1 = Math.max(e1, e); n0 = Math.min(n0, n); n1 = Math.max(n1, n); }
@@ -4349,7 +4366,7 @@ async function boot() {
     if (!stand) return null;
     // Aim at the street facade rather than the footprint centroid, which can
     // be deep in a courtyard. The parcel supplies the front on corner lots.
-    if (stand.front) { aim.x = stand.front.e; aim.z = -stand.front.n; }
+    if (stand.front && !visual) { aim.x = stand.front.e; aim.z = -stand.front.n; }
     const bearingDeg = ((Math.atan2(stand.e - centre.e, stand.n - centre.n) / DEG) + 360) % 360;
     return { e: stand.e, n: stand.n, distance: Math.hypot(stand.e - centre.e, stand.n - centre.n), bearingDeg, aim, radius: r, height: h,
       yawOffsetDeg, pitchOffsetDeg, free, front: stand.front ?? null };
@@ -4400,6 +4417,8 @@ async function boot() {
   }
 
   function focusPoint(id) {
+    const visual = waterStructureFrame(id);
+    if (visual) return visual.centre;
     const fp = footprints.find((f) => f.id === id);
     const record = loaded.registry.get(id);
     // A structure drawn by the enclosure layer has neither an obstruction

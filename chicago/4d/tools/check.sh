@@ -1294,6 +1294,13 @@ step "a K01 house carries a two-level veranda on its rear wall, and a wing's wal
 step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
   python3 tools/test_k01_rear_terrace.py
 
+# T-1881 (2026-11-02). A K01 house's mansarded K08 sections joined to its own mansard under one
+# rail (k08_bays._hip back_m/open, k01_mansard_deck.dress_joined), held on 1729 Prairie's
+# record: every section joined at the house's curb, no rail of its own, the rail closing round
+# the joined curb, the entry's deck meeting the north block's; bad reaches and curbs refused.
+step "a K01 house's mansarded sections join its mansard under one rail of cresting (T-1881)" \
+  python3 tools/test_k01_joined_mansard.py
+
 # T-1881. A K01 named street window's round head framed by a moulded architrave (jambs, arch,
 # impost and keystone), held on 1729 Prairie's record off the 1890 Albertype plate: the four
 # lights the front shows framed, the one behind the forward block left in its voussoirs, every
@@ -2587,6 +2594,14 @@ step "the 1835 company-garden and Harmon orchard plantings re-derive from their 
 # this frontage" (ROADMAP K5 (b), T-0039).
 step "the business signboards re-derive from the rule that chose their frontages" \
   python3 tools/generate_business_signboards.py --check
+
+# ...AND NO FLAT BOARD HANGS ACROSS A LOG FRONT'S MID-WALL NOTCHES (T-3268). The T-2381
+# Miller House front joins a log core to a two-storey range mid-wall, and its board was
+# hung across the junction's notched log ends: dev's desktop smoke part 1 found 4 of 35
+# lettering rays behind them. The front-wall reader now names the notch; this holds that
+# reading to the module that lays the notches, and every committed board clear of it.
+step "no flat signboard hangs across a log front's mid-wall corner notches (T-3268)" \
+  python3 tools/test_log_notch_front.py
 
 # ...AND THE RULE IS LOCAL (T-0405). "Re-derives" only says the committed file matches the
 # rule; it says nothing about how far one frontage reaches. Until T-0405 the mounting was

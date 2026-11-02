@@ -24174,7 +24174,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24230,7 +24230,10 @@ plate, plan or measured drawing; the alley buildings are T-1935's.
 now stands as the K12 coach house under `L-k12-1816-stable-1935`, under the same id, on the outline, storeys,
 brick, two window marks and fire-wall signs the sheet draws; its draft attributes are gone.
 **Retired in part:** 1828 Shipman's house by T-3166 (piece 1 of T-1887), which refined it in place on the K01 frontage kit under `L-k01-1828-shipman-1887`; its stable is still this draft's.
-**Retired in part:** 1824 Pomeroy/Marsh's house by T-3167 (piece 2 of T-1887), which refined it in place on the K01 frontage kit under `L-k01-1824-marsh-1887`; its stable is still this draft's.
+**Retired in part:** 1824 Pomeroy/Marsh's house by T-3167 (piece 2 of T-1887), which refined it in place on the K01 frontage kit under `L-k01-1824-marsh-1887`; its stable by T-1935, on the K12 coach-house kit under `L-k12-1824-stable-1935`.
+**1824's stable retired from this liberty by T-1935 (2026-11-02):** `marsh_house_1824_prairie_coach_house`
+now stands as the K12 coach house under `L-k12-1824-stable-1935`, under the same id, on the outline, storeys,
+brick, window mark and fire-wall signs the sheet draws; its draft attributes are gone.
 **Retired in part:** 1834 Jones's house by T-3183 (piece 1 of T-1888), which refined it in place on the K01 frontage kit under `L-k01-1834-jones-1888`; its alley building is still this draft's.
 **Retired in part:** 1900 Elbridge G. Keith's house by T-3207 (piece 1 of T-1897), which refined it in place on the K01 frontage kit under `L-k01-1900-keith-3207`; its coach house is still this draft's.
 **Retired in part:** 1906 Edson Keith's house, with its attached 1908, by T-3238 (piece 1 of T-1898), which refined it in place on the K01 frontage kit under `L-k01-1906-keith-3238`; its coach house is still this draft's.
@@ -38713,6 +38716,16 @@ The rear, the plan's stair block and service range, stays the draft's.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
 
+### L-pullman-1729-joined-roof-1881 — 1729 Prairie's mansard built as one roof over its sections, under one rail of cresting, and the ivy at its south-west corner held off the windows
+
+**Decision:** the owner, on 2026-11-02, from the photographs: "the roof is contiguous, not broken in the center towards the north, and make sure that decorative rail is contiguous as well", and "pull back on the vine covered south west corner of the building, you can have some but it covers the windows". Each of the house's four mansarded sections (the north block and the entry on the Prairie front, the 18th Street section, the rear section) had stood under its own small hipped mansard with its own crested deck, closed on the wall plane, so the roof broke into a notch between the north block and the entry and four rails stood apart from the house's own. Now each section's roof runs 0.5 m back through the wall plane into the house's (`roof.mansard.back_m`), so its side faces meet the house's lower face in valleys and its deck runs into the house's deck; the entry's front face and deck run on 0.29 m past its north end (`roof.mansard.open.left`), up under the north block's south face, where the notch was; the sections' lower faces rise 3.64 m, not 4.0, so every curb stands at the house's 16.6 m; and one rail of the K10 cresting runs round the joined deck (`mansard.deck.cresting.joined`), with a turned finial at each of its corners (one at the middle of the two 0.18 m jogs where a section stands flush with a corner). The ivy on the Prairie front south of the portico and on the 18th Street flank west of the porte-cochere keeps 0.4 m clear of each ground-storey light, stops at about the lights' heads (5.0-5.6 m, not the balcony's belt at 6.4-7.0 m) and no longer runs over their heads (an owner ruling over LC-D4-12551, which shows the mantle whole).
+**What is read, not invented.** The Detroit print (LC-D4-4a08065) shows one curb and one rail of cresting running round the north block, the entry and the south part, the curb's step between them about 0.15 m (2-3 px, L-pullman-1729-pavilions-3158), and finials where the sections' corners meet; the deck sits level behind it.
+**What is invented.** How far each section's roof runs back into the house's (0.5 m, to the house's curb), the sections' decks' 0.02 pitch, which no picture sees; the finials at every corner of the joined rail, the print resolving only some; the rail's 1 m height and 0.08 m inset are the house's deck's.
+**How to resolve:** a view down onto the roof, or Taylor's no. 16554 at a larger size, shows the sections' decks and where the rail turns.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-11-02 (T-1881).
+
 ### L-pullman-1729-side-door-1881 — 1729 Prairie's side door in its porte-cochere raised on a flight of seven steps; the flight reconstructed
 
 **Decision:** the owner's elevation of the 18th Street side (2026-11-01) draws an arched entry in section 2, under the porte-cochere, and asked that "the entry points around the portico … be properly built, match to the photos". The door is built on the 18th Street section's face under the second storey's pair (s 11.63), 1.3 m wide and 2.6 m high, as a raised K08 door (`door` with `steps`, a kit key written for it), its sill 1.2 m up a stone flight of seven steps, 0.25 m deep and 1.9 m wide, square to the face. The porte-cochere's end arches are widened from 2.5 to 2.8 m and stay centred on the faces they show (the owner's 2026-10-30 ruling).
@@ -39059,6 +39072,45 @@ resolve:** a photograph of the alley behind 1812-1824 Prairie, or a building per
 source, gives its openings, roof and date their true form. The two pictures T-1935's image gate names for it
 (Clark's c. 1905 view north from 1936 and Taylor's 9974 south from 18th) show the house fronts and not the alley.
 **Covers:** `henderson_house_1816_prairie_coach_house.function`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.coach_house`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.stories`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-1935.
+**Recorded:** 2026-11-02 (T-1935).
+
+### L-k12-1824-stable-1935 — The brick stable on the alley behind 1824 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and both party walls
+
+**Decision:** the district draft's alley building behind 1824 Prairie Avenue, the Pomeroy/Marsh house (T-1935),
+is refined in place, under its own id `marsh_house_1824_prairie_coach_house`, onto the K12 coach-house kit
+(L-k12-coach-house-kit-2320): the second of T-1935's seven alley buildings on the west side of Prairie Avenue,
+18th to 20th, after 1816's next door (L-k12-1816-stable-1935).
+**What is read.** From sheet 28 of the 1911 Sanborn: its outline, 10.62 m deep from the alley line by 17.60 m
+along it, measured between line centres on the committed raster (median darkness profiles: the alley line at
+column 574.90 and the east wall at 785.04 at the middle row, the north and south walls at rows 2483.98 and
+2832.18) and carried by the sheet's fitted similarity; its '2' storeys; its brick; the wall figures '12 8' inside
+its north and south walls; the key's fire-wall sign at the alley end of both of those walls; its north wall on the
+line it shares with 1816's building, and an open strip about 3 m wide south of it to the 1828 lot line; one of the
+key's window marks on the alley wall, the sign 1816's wall carries twice, 8.34 m from the north wall; and the
+house's brick body 9.08 m east of the yard wall. The draft had stood it 9.75 m deep and 17.25 m long, 0.75 m in
+from the alley, the fit of a trace; the sheet draws one plain rectangle on the alley line. Inferred for 1904 as
+every reading of these sheets is.
+**The date.** Robinson's 1886 plate 10 stops at 18th Street, so nothing read here dates the building before the
+1911 sheet; that it stood by 1904 is the census's carry-back, which the district draft already made.
+**What is invented.** Its USE: the sheet letters it GARAGE, a 1911 use not read as the 1904 one (restriction no
+1911 use labels), and it is built as the house's stable and coach house. Both ends are party walls rising the
+kit's 0.45 m over the roof and returning 0.5 m past the eaves; the north one stands back to back with 1816's own
+on the line the sheet draws once, as 1626's and 1628's do. Every opening but the mark is the kit's laid out for a
+building this long: on the alley, two carriage bays 3.0 m clear with the loft hatch and hoist over the northern
+one and a loft sash over the other, a man door between the northern bay and the mark, and a stable sash with a
+loft sash over it toward the south end; on the yard side a door where the walk to the house meets it and three
+stable sash with loft sash over them. The mark is built as a stable sash with a loft sash over it. The roof is the
+kit's gable at its own 40 degrees with the ridge along the alley, 4.5 m from eave to ridge over the 10.62 m span,
+with no dormer, as the sheet draws none. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m
+basement, reached by nothing. The workyard is paved from the yard door to the house's west wall, the walk on that
+wall's middle. Flat colours. **Left out.** A small ring the sheet draws inside the south-west corner, which is not
+read. **What is not.** The outline, its place on the lot, its storeys, its brick, the mark's place, the party
+walls' places and the use are the maps'. **How to resolve:** a photograph of the alley behind 1816-1828 Prairie,
+or a building permit for the building, entered as a source, gives its openings, roof and date their true form. The
+picture T-1935's image gate names for it (Clark's c. 1905 view north from 1936) shows the house fronts and not
+the alley.
+**Covers:** `marsh_house_1824_prairie_coach_house.function`, `marsh_house_1824_prairie_coach_house.as_standing_1904.form.coach_house`, `marsh_house_1824_prairie_coach_house.as_standing_1904.form.stories`, `marsh_house_1824_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1935.
 **Recorded:** 2026-11-02 (T-1935).
 
