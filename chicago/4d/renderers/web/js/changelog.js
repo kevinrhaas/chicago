@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2563, ts: '2026-11-02T08:59:27.199Z', date: 'Nov 2, 2026, 2:59 AM CT', title: 'A brick stable and its range behind 1730 Prairie', kind: 'feature',
+    items: [
+      'The alley behind 1730 Prairie now has its brick stable, two storeys, 9.8 m along the alley and 7.8 m deep, standing against 1726\'s building on the lot line. Its one-storey range runs on 8.3 m south to 1736\'s coach house, and a small one-storey room stands against its yard side. Their outlines, storeys, brick and window places come from the 1911 Sanborn sheet. Robinson\'s 1886 atlas shows the same stable and range, so they are firmly dated. The small room appears only in 1911. The doors, loft hatch, other windows and roofs come from the shared coach-house kit and are reconstructed.',
+    ] },
   { v: 2562, ts: '2026-11-02T08:11:53.492Z', date: 'Nov 2, 2026, 2:11 AM CT', title: '1729 Prairie\'s porte-cochère corner pier wears its ivy', kind: 'improvement',
     items: [
       'Ivy now clothes the Pullman house porte-cochère\'s corner pier on 18th Street, both faces, from the ground to the entablature, as the Detroit Publishing photograph shows it. The inner pier stays bare stone, as in the print. Like the rest of the house\'s ivy, it drops its leaves in the winter view.',
