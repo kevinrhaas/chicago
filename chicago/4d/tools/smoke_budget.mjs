@@ -460,6 +460,7 @@ const COVERAGE = [
   ['renderers/web/js/wall-relief.js', [8, 9], 'T-1963, the walls\' relief maps — bound inside buildings.js\'s load loop like the roofs\', and two more batches for the merge part 8 counts'],
   ['renderers/web/js/batch-bounds.js', [8, 9, 14], 'T-3173, a phone\'s BatchedMesh bounds kept as float32 figures once upload-release.js has computed them — read by every cull, sort and pick of the structures (8-9) and of the 1904 street grid it was measured on (14)'],
   ['renderers/web/js/far-shadow.js', [8, 9], 'T-3286, the far structure pieces\' clustered shadow twins — swapped in for buildings.js\'s pieces inside the sun\'s pass, so it is read where the facades and their shadows are'],
+  ['renderers/web/js/far-colour.js', [8, 9], 'T-3312, the far structure pieces\' colour twins at light — swapped in for buildings.js\'s pieces inside the colour pass, so it is read where the facades are'],
   ['renderers/web/js/far-roof-relief.js', [8, 9], 'T-3284, the roof relief\'s far twins — swapped in for roof-relief.js\'s pieces inside buildings.js\'s colour pass, so it is read where those batches are'],
   ['renderers/web/js/relief-pack.js', [2, 8, 9], 'T-2300, the orl and board grain both relief layers pack at load — the walls (8, 9) and the frontage walks (2)'],
   ['renderers/web/js/wall-grain.js', [8, 9], 'T-1963, which walls take the relief and how much grain their finish shows'],

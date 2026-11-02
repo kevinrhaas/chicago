@@ -36751,6 +36751,20 @@ solved, which see the court nearer.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and `inland_1894_plate-side-by-side.jpg`; the plan and its evidence at `docs/RESEARCH/pullman-court-T-1934/`.
 **Recorded:** 2026-11-02 (T-1934).
+**Revised:** 2026-11-02 (T-1934). The house terrace's south front, and the west gate's flights, landing
+and bench before it, stand 3.35 m further north than recorded above: the front at v -19.7, not -23.05.
+That place was fixed through 16555 alone, which looks nearly due north and so cannot tell depth along its
+rays; through the 1894 plate's camera the built urn pedestal drew 170 px east of the plate's. Read in both
+pictures, the same features cross at one place: the urn on the pedestal at the stair's head (plate x 462,
+16555 x 216) at u -5.7, v -19.2; that pedestal's east edge (512, 227) at u -5.3, v -19.6; and the east
+jamb of the arched light (370, 181) at u -6.7, v -19.4. 16555's own heights then agree better: the stair's
+foot at y 696 against the print's 686 (705 before), its top at y 622 against 620. The plate shows both
+pedestals about 0.8 m square (u -9.8 to -8.9 and -6.0 to -5.2 on that face), the balustrade running
+between them, so the plain pedestal moves from u -8.0 to -9.36 and the urn's from -4.96 to -5.6. The
+arched light is 1.25 m wide, from 0.55 to 1.45 m over grade, its centre at u -7.25 (16555's two jambs at
+that depth; the plate's pier hides its west jamb). The stair and its landing move 0.55 m west with the urn
+pedestal, so a flagged walk 1.8 m wide (invented) now runs from the 18th Street wall's west gate to the
+flight's foot. The terrace's long east edge along the court (u -4.66) is unchanged: neither picture sees it.
 
 ### L-k01-1729-pullman-massing-1881 — 1729 Prairie's forward block, 18th Street pavilion, porte-cochere and 18th Street wall re-read off the 1911 sheet and both photographs
 

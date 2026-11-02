@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2574, ts: '2026-11-02T16:02:10.941Z', date: 'Nov 2, 2026, 10:02 AM CT', title: 'Phones see far houses from the air with lighter detail', kind: 'improvement',
+    items: [
+      'At the Light detail setting, a far house now draws from a simplified copy of itself wherever the difference is under a pixel on screen. Mouldings, sash bars and carved courses too small to see close up, and every wall and roof keeps its own shading.',
+      'From 60 m above the 18th Street alley corner, a phone now draws 1.24 million triangles instead of 1.60 million, back inside the Light setting\'s 1.27 million. 722 of the frame\'s 304,200 pixels change, all on the thin rims of distant roofs.',
+      'The Full and Balanced settings are unchanged and draw every house whole.',
+    ] },
+  { v: 2573, ts: '2026-11-02T15:47:28.940Z', date: 'Nov 2, 2026, 9:47 AM CT', title: 'Pullman\'s east porch moved to where both old pictures put it', kind: 'fix',
+    items: [
+      'The raised porch on the Pullman house\'s east side, beside the palm house, now stands about 3 m further back from 18th Street. That is where the 1894 Inland Architect plate and Taylor\'s photograph of the court both place it.',
+      'The west gate\'s two flights of steps, their landing and the bench moved back with it. A short flagged walk now leads from the gate to the foot of the stairs.',
+      'The porch\'s two corner pedestals are now as broad as the plate draws them, and the arched window below its balustrade is now the size and height both pictures show.',
+    ] },
   { v: 2572, ts: '2026-11-02T15:12:12.433Z', date: 'Nov 2, 2026, 9:12 AM CT', title: '1945 Prairie\'s corner block rises under its own taller roof', kind: 'feature',
     items: [
       'In 1904, the Armour/Corwith house at 20th Street and Prairie now carries its corner block\'s mansard about a storey above the rest of its roof, as the Tribune\'s 1928 photograph shows. The taller roof turns the cut corner with it, and its three dormers stand high in it. 1945 Prairie now matches its photograph',
