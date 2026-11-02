@@ -1440,6 +1440,16 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1630_prairie"
     },
+    "house_1630_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k16_timber",
+      "baked_ao": false,
+      "bytes": 284480,
+      "generator": "generators/k16_emit.py",
+      "inputs_sha256": "82b1f2d4ff84b78dacbaba26e01ac1c9b265a34ce5776154b07f6d0bd0ce39e5",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "house_1630_prairie_coach_house"
+    },
     "house_1634_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
@@ -9590,16 +9600,6 @@
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "wright_building_to_let_b"
-    },
-    "house_1630_prairie_coach_house__as_standing_1904.glb": {
-      "archetype": "k16_timber",
-      "baked_ao": false,
-      "bytes": 284480,
-      "generator": "generators/k16_emit.py",
-      "inputs_sha256": "82b1f2d4ff84b78dacbaba26e01ac1c9b265a34ce5776154b07f6d0bd0ce39e5",
-      "kind": "generated",
-      "phase_id": "as_standing_1904",
-      "structure_id": "house_1630_prairie_coach_house"
     }
   },
   "blender": "4.5.3",
