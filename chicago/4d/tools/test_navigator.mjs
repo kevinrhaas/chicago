@@ -1207,8 +1207,12 @@ for (const phone of [true, false]) {
   // T-2627: the quick column holds the Inspect key alone — T-2977 moved Walk/Fly into the
   // instrument's heading row, so the key appearing no longer shifts it.
   const quick = html.slice(html.indexOf('<div class="quick-column"'), html.indexOf('</div>', html.indexOf('<div class="quick-column"')));
-  assert.equal((quick.match(/<button\b/g) ?? []).length, 1, 'the quick column holds the Inspect key alone');
+  // T-3319: and the Interact key under it, there only while a gate is in reach — both
+  // keep their places while hidden (walk.css), so neither appearing shifts the other.
+  assert.equal((quick.match(/<button\b/g) ?? []).length, 2, 'the quick column holds the Inspect key and the Interact key');
   assert.match(quick, /id="btn-inspect"[^>]*hidden/);
+  assert.match(quick, /id="btn-interact"[^>]*hidden/);
+  assert(quick.indexOf('btn-inspect') < quick.indexOf('btn-interact'), 'Interact sits under Inspect');
   const row = html.slice(html.indexOf('<div class="compass-row">'), html.indexOf('<div id="compass"'));
   assert.match(row, /<button type="button" id="btn-fly" class="fly-key" aria-pressed="false"/, 'T-2977: Walk/Fly is the heading row\'s round key');
   assert.match(row, /id="fly-label">Fly</, 'T-2977: the key keeps its Walk/Fly name for a screen reader');

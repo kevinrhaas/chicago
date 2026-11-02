@@ -29,6 +29,15 @@
  * pushed out of the building, so a visitor on foot walks through and a rider who would
  * strike the soffit does not. The open ends run LANE_REACH_M past the façade, so the
  * passage takes over before the façade's own push-out would turn you back.
+ *
+ * The one footprint that is not solid: **an enclosure** (T-3319). A stockade's
+ * footprint is the ground it closes in, not a wall, so a footprint may carry `walls` —
+ * segments in world metres, each with a half-thickness and, for a gate, a `blocks()`
+ * that says whether it stands across the way right now. The capsule is held off every
+ * wall that blocks and may never step across one; inside the enclosure the walk is
+ * ordinary ground. And a footprint marked `ground` (a fort's parade, six centimetres of
+ * trodden earth) is no obstruction at all. Both stay in the array whole, so the planters,
+ * the router and the framing read the same polygon they always did.
  */
 
 import * as THREE from 'three';
@@ -154,6 +163,8 @@ export function footprintsFrom(registry, { camps = false } = {}) {
     // Compass-bearing rotation, matching bearingToYaw(): clockwise from north.
     const toWorld = ([u, v]) => [e0 + u * cos + v * sin, n0 - u * sin + v * cos];
     const fp = { id: record.id, pts: poly.map(toWorld) };
+    // T-3319: a parade is ground the visitor walks on (see the header).
+    if (record.sidecar?.attributes?.kind?.value === 'parade') fp.ground = true;
     // T-2943: the openings through it a visitor may walk (see the header).
     const lanes = (Array.isArray(raw?.passages) ? raw.passages : []).map((p) => passageLane(p, toWorld)).filter(Boolean);
     if (lanes.length) fp.passages = lanes;
@@ -161,6 +172,27 @@ export function footprintsFrom(registry, { camps = false } = {}) {
   }
   return out;
 }
+
+/** A structure's footprint frame [u, v] to local ENU [e, n] — the same compass-bearing
+ * rotation footprintsFrom() places every footprint with (T-3319 shares it). */
+export function footprintToWorld(placement = {}) {
+  const th = (placement.rotation_deg ?? 0) * DEG;
+  const cos = Math.cos(th), sin = Math.sin(th);
+  const e0 = placement.local_e ?? 0, n0 = placement.local_n ?? 0;
+  return ([u, v]) => [e0 + u * cos + v * sin, n0 - u * sin + v * cos];
+}
+
+/** T-3319: does the segment p0-p1 cross the segment a-b (touching counts)? */
+export function segmentsCross(p0, p1, a, b) {
+  const d = (p, q, r) => (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]);
+  const d1 = d(a, b, p0), d2 = d(a, b, p1), d3 = d(p0, p1, a), d4 = d(p0, p1, b);
+  return ((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0) || d1 === 0 || d2 === 0)
+    && ((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0) || d3 === 0 || d4 === 0)
+    && !(d1 === 0 && d2 === 0 && d3 === 0 && d4 === 0);
+}
+
+/** T-3319: whether an enclosure's wall stands in the way now (a gate may be open). */
+export const wallBlocks = (w) => (typeof w.blocks === 'function' ? w.blocks() !== false : true);
 
 /**
  * The surfaces a visitor may stand ON TOP OF, as opposed to the ground, THAT THE
@@ -303,9 +335,54 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
     return { e, n };
   }
 
+  /** T-3319: held WALK.radius (plus the wall's own half-thickness) off every wall of
+   *  an enclosure that blocks. Never crossed (tryStep), so the side it is on is the
+   *  side it stays on, and the push is straight away from the nearest point. */
+  function keepOffWalls(walls, e, n) {
+    for (const w of walls) {
+      if (!wallBlocks(w)) continue;
+      const near = nearestOnBoundary(e, n, [w.a, w.b]);
+      const r = WALK.radius + (w.half ?? 0);
+      if (!near || near.d >= r) continue;
+      let dx = e - near.e, dy = n - near.n;
+      let len = Math.hypot(dx, dy);
+      if (len < 1e-6) { dx = -(w.b[1] - w.a[1]); dy = w.b[0] - w.a[0]; len = Math.hypot(dx, dy) || 1; }
+      e = near.e + (dx / len) * r;
+      n = near.n + (dy / len) * r;
+    }
+    return { e, n };
+  }
+
+  /** T-3319: the enclosures among the footprints (the array may grow, so re-read on change). */
+  // A layer that gives a footprint walls after the walker exists bumps
+  // `footprints.wallsVersion` (fort-gates.js), so the list is read again.
+  let walledCount = -1, walledVersion = -1;
+  let walled = [];
+  function enclosures() {
+    if (footprints.length !== walledCount || (footprints.wallsVersion ?? 0) !== walledVersion) {
+      walled = footprints.filter((fp) => Array.isArray(fp.walls));
+      walledCount = footprints.length;
+      walledVersion = footprints.wallsVersion ?? 0;
+    }
+    return walled;
+  }
+
+  /** T-3319: does a step from (e0, n0) to (e1, n1) pass through a wall that blocks? */
+  function crossesWall(e0, n0, e1, n1) {
+    for (const fp of enclosures()) {
+      for (const w of fp.walls) {
+        if (wallBlocks(w) && segmentsCross([e0, n0], [e1, n1], w.a, w.b)) return true;
+      }
+    }
+    return false;
+  }
+
   /** Slide the capsule out of any footprint it has ended up inside. */
   function pushOut(e, n) {
     for (const fp of footprints) {
+      // T-3319: a parade is ground; an enclosure is its walls, not its plan.
+      if (fp.ground) continue;
+      if (fp.walls) { ({ e, n } = keepOffWalls(fp.walls, e, n)); continue; }
       const lane = laneAt(fp, e, n);
       if (lane) { ({ e, n } = keepInLane(lane, e, n)); continue; }
       const near = nearestOnBoundary(e, n, fp.pts);
@@ -332,14 +409,15 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
     const here = surfaceAt(e, n);
     let next = { e, n };
 
+    // T-3319: and never through an enclosure's wall, or a gate that is shut.
     if (de !== 0) {
       const cand = { e: e + de, n };
-      if (surfaceAt(cand.e, cand.n) - here <= WALK.stepUp) next = cand;
+      if (surfaceAt(cand.e, cand.n) - here <= WALK.stepUp && !crossesWall(e, n, cand.e, cand.n)) next = cand;
       else ok = false;
     }
     if (dn !== 0) {
       const cand = { e: next.e, n: n + dn };
-      if (surfaceAt(cand.e, cand.n) - here <= WALK.stepUp) next = cand;
+      if (surfaceAt(cand.e, cand.n) - here <= WALK.stepUp && !crossesWall(next.e, n, cand.e, cand.n)) next = cand;
       else ok = false;
     }
     return { ...next, ok };
