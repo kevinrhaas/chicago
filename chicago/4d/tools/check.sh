@@ -1290,6 +1290,13 @@ step "a K01 house carries a two-level veranda on its rear wall, and a wing's wal
 step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
   python3 tools/test_k01_rear_terrace.py
 
+# T-1881 (2026-11-02). A K01 house's mansarded K08 sections joined to its own mansard under one
+# rail (k08_bays._hip back_m/open, k01_mansard_deck.dress_joined), held on 1729 Prairie's
+# record: every section joined at the house's curb, no rail of its own, the rail closing round
+# the joined curb, the entry's deck meeting the north block's; bad reaches and curbs refused.
+step "a K01 house's mansarded sections join its mansard under one rail of cresting (T-1881)" \
+  python3 tools/test_k01_joined_mansard.py
+
 # T-1881. A K01 named street window's round head framed by a moulded architrave (jambs, arch,
 # impost and keystone), held on 1729 Prairie's record off the 1890 Albertype plate: the four
 # lights the front shows framed, the one behind the forward block left in its voussoirs, every

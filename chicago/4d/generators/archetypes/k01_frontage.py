@@ -2931,7 +2931,17 @@ class Assembly:
         # T-2964: a mansard bay's iron cresting along its curb (1816's two crowns)
         mn = (built.meta.get("roof") or {}).get("mansard")
         if mn and (v["roof"].get("mansard") or {}).get("cresting"):
+            if mn.get("back_m") is not None:
+                raise ValueError(f"{b['id']}'s mansard is joined to the house's: the house's deck rail runs round it")
             self.bay_cresting(v, mn, W, R, N, conf)
+        # T-1881 (2026-11-02): a mansard joined to the house's hands its deck to the house's, whose
+        # rail runs round the two as one (k01_mansard_deck.dress, `cresting.joined`): its curb in
+        # the plan's (u, v), and the pitch its deck rises at off it
+        if mn and mn.get("back_m") is not None:
+            pl = [W((x, mn["curb_m"], z)) for x, z in mn["curb"]]
+            self.joined_decks = getattr(self, "joined_decks", []) + [
+                {"bay": b["id"], "curb_m": mn["curb_m"], "pitch": float(v["roof"]["pitch"]),
+                 "curb": [(round(q[0], 4), round(-q[2], 4)) for q in pl]}]
         # T-2451: the strips down its corners, each a box proud of one run of the plan
         if b.get("strips"):
             pts = v["plan"]["points"]
@@ -4857,10 +4867,15 @@ class Assembly:
         low = [q for q in roof.pos if abs(q[1] - y_e) < 1e-6]
         x0, x1, z1 = min(q[0] for q in low), max(q[0] for q in low), max(q[2] for q in low)
         y0 = y_e - self.BAY_SKIRT_M
-        prof = sorted({(round(q[0], 6), round(q[1], 6)) for q in roof.pos if abs(q[2]) < 1e-6})
-        solid.append(k5.oriented([snap((x, y, 0.0)) for x, y in prof], "roof_back", _mul(N, -1)))
+        # T-1881 (2026-11-02): a mansard joined to the house's has its back that far behind the
+        # wall plane, inside the house's roof (k08_bays._hip `back_m`)
+        zb = -float(mn.get("back_m", 0.0)) or 0.0
+        if mn.get("open_runs"):
+            raise ValueError(f"{b['id']}: a mansard opened into its neighbour's carries no dormers of its own")
+        prof = sorted({(round(q[0], 6), round(q[1], 6)) for q in roof.pos if abs(q[2] - zb) < 1e-6})
+        solid.append(k5.oriented([snap((x, y, zb)) for x, y in prof], "roof_back", _mul(N, -1)))
         # the skirt: the eaves outline carried down from the eave, its back on the wall plane, its floor
-        ring = [(x0, 0.0), (x0, z1), (x1, z1), (x1, 0.0)]
+        ring = [(x0, zb), (x0, z1), (x1, z1), (x1, zb)]
         pts_ = v["plan"]["points"]
         if abs(pts_[0][0] - pts_[1][0]) > 1e-9:
             # T-3283: under a canted bay's crown the skirt follows its eaves outline, cants and
