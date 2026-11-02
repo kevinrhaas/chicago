@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2575, ts: '2026-11-02T17:26:01.430Z', date: 'Nov 2, 2026, 11:26 AM CT', title: '1721 Prairie: a two-storey brick stable on the railway\'s slant', kind: 'feature',
+    items: [
+      'The one-storey box behind 1721 Prairie is now a two-storey brick stable, slanted the way the 1911 fire-insurance map draws it, its long walls following the Illinois Central tracks. Carriage doors, a loft hatch and stable windows face the house\'s yard; its south wall, which the map marks as a fire wall, has none. An 1886 atlas marks a brick stable in the same place. The doors, windows and roof are reconstructed.',
+    ] },
   { v: 2574, ts: '2026-11-02T16:02:10.941Z', date: 'Nov 2, 2026, 10:02 AM CT', title: 'Phones see far houses from the air with lighter detail', kind: 'improvement',
     items: [
       'At the Light detail setting, a far house now draws from a simplified copy of itself wherever the difference is under a pixel on screen. Mouldings, sash bars and carved courses too small to see close up, and every wall and roof keeps its own shading.',

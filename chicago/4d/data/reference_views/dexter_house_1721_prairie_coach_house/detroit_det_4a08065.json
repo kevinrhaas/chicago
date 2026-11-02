@@ -1,0 +1,33 @@
+{
+ "structure_id": "dexter_house_1721_prairie_coach_house",
+ "scene": "1904",
+ "also_render": [
+  "pullman_house_1729_prairie",
+  "dexter_house_1721_prairie"
+ ],
+ "source_id": "loc_det_4a08065_pullman_residence",
+ "library_image": "a16-pullman-det-4a08065",
+ "photo": "../../sources/assets/pullman_1729_photo_t1880/loc_det_4a08065_pullman_residence.jpg",
+ "image_px": [
+  1024,
+  804
+ ],
+ "principal_px": [
+  512,
+  478
+ ],
+ "focal_px": 1093,
+ "near_m": 10,
+ "eye": [
+  -109.81,
+  -71.99,
+  1.6
+ ],
+ "yaw_deg": 65.0,
+ "sun_uvy": [
+  -1.0,
+  -0.8,
+  1.0
+ ],
+ "solve": "T-3310: the Pullman house's own camera on this photograph (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json, T-1880), moved into the coach house's footprint frame and nothing else: the house stands at rotation 179.611 and the coach house at -0.393 in the 1904 scene, and the house's origin lies at u -21.51, v -29.07 in this frame (their sidecar placements, local e/n 1456.371/-3167.542 against 1477.678/-3138.326), so the eye is carried by that offset and turned by the difference of the two bearings, at the same height, and the heading and the light are turned with it. The Pullman house and the Dexter house at 1721 are drawn with it (also_render) because they stand between the camera and the coach house. WHAT THE PICTURE CAN SAY: the camera stands at the south-west corner of Prairie Avenue and 18th Street looking north-east, about 130 m from the coach house; the coach house's plan corners project to x 290-462 px and its eave and ridge to y 415-445 px, which is inside the Pullman house's own silhouette (its walls x about 290-690, its cornice about y 300), so nothing of the coach house is in the picture. The view is kept so the image gate reads this picture of the lot as looked at, and its match record says it does not show the building."
+}
