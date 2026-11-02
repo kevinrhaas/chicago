@@ -441,6 +441,90 @@ def _dormer(a, K, data, conf):
     _lay(a, var.pieces, conf, DORMER)
 
 
+#: T-3307: a classical level cornice's section, (out, up) as fractions of its projection and
+#: height — a fillet and cove of bed mould, the corona's soffit and face, a fillet, and a cyma
+#: recta to the top — its last point the wall at the top, which closes each cap
+LOWER_DORMER_CORNICE = [(0.0, 0.0), (0.12, 0.0), (0.12, 0.12), (0.3, 0.25), (0.3, 0.32), (0.92, 0.36),
+                        (0.92, 0.68), (1.0, 0.71), (1.0, 0.78), (0.9, 0.86), (0.78, 0.93), (0.7, 1.0),
+                        (0.0, 1.0)]
+
+
+def dress_lower_dormer(a, g, conf):
+    """T-3307: a gabled lower-face dormer dressed as a classical pediment (1700-1706 Prairie's in
+    Chicagology's photograph): the level cornice across the face at the pediment's foot,
+    returned along both cheeks and capped, its top washed; the raking cornice's bands up both
+    slopes standing on it, built as the kit's pediment builds them (`_dormer`); and a pilaster
+    with its capital either side of the sash, from its sill to the cornice. Built in the face's
+    own frame (x to a viewer's right, y up, z out of the face) and turned onto the house."""
+    K = _kit()
+    d, dr = g["d"], g["d"]["dress"]
+    axis, sg, ra, centre, nf = g["face"]
+    r = g["width"] / 2
+    sw, ring = d["sash_width_m"], d["surround_m"]
+    t = math.tan(math.radians(d["gable_pitch_deg"]))
+    hs = g["sill"] + d["sash_height_m"] + ring + d.get("frieze_m", 0.0)   # the pediment's foot
+    h, pj = dr["cornice_m"]
+    rt = dr["return_m"]
+    corn = [(n * pj, u * h) for n, u in LOWER_DORMER_CORNICE]
+    seed = a.instance("k10.dormer.lower_face_pediment", "cornice",
+                      {"face_width_m": round(2 * r, 4), "cornice_m": h, "projection_m": pj, "return_m": rt,
+                       "pitch_deg": d["gable_pitch_deg"], "rake_bands": len(dr["rake"])},
+                      {"eave": a_point(axis, sg, ra, centre, nf, (0.0, hs, 0.0))})
+    var = K.Variant({"id": "k10.dormer.lower_face_pediment", "kind": "dormer", "material": "timber"}, K.load())
+    var.seed, var.rng = seed, random.Random(seed)
+    druns = [K.Run("dormer left", (-r, -rt), (-r, 0.0), (False, True)),
+             K.Run("dormer front", (-r, 0.0), (r, 0.0), (True, True)),
+             K.Run("dormer right", (r, 0.0), (r, -rt), (True, False))]
+    path = [druns[0].at(0.0, hs - h)] + [q.at(q.L, hs - h) for q in druns]
+    c = var.piece("dormer cornice", "timber", "open", run_names=[q.name for q in druns])
+    K.sweep(c.mesh, path, K.Y, corn[:-1], side=1.0, caps=(True, True), cap_close=[corn[-1]])
+    wash = corn[-2][0]
+    top = var.piece("dormer cornice top", "timber", "open")
+    top.mesh.poly([(-r - wash, hs, -rt), (-r - wash, hs, wash), (r + wash, hs, wash), (r + wash, hs, -rt)], K.Y)
+    # the raking cornice: its crown's top line meets the cornice's top `0.85 pj` out past the
+    # face's corner, so it covers the slated slope's front edge; each band stops on that top
+    cq = math.sqrt(1 + t * t)
+    apex = hs + (r + 0.85 * pj) * t
+    xe = r + wash
+    off = 0.0
+    for i, (w, q) in enumerate(dr["rake"]):
+        yo, yi = apex - off * cq, apex - (off + w) * cq
+        xo, xi = (yo - hs) / t, (yi - hs) / t
+        if xi <= 0.0:
+            raise ValueError("the dressed pediment's raking bands meet below its apex")
+        if xo > xe:
+            ye = hs + (xo - xe) * t
+            poly = [(-xe, hs), (-xe, ye), (0.0, yo), (xe, ye), (xe, hs), (xi, hs), (0.0, yi), (-xi, hs)]
+        else:
+            poly = [(-xo, hs), (0.0, yo), (xo, hs), (xi, hs), (0.0, yi), (-xi, hs)]
+        pc = var.piece(f"rake {'crown' if i == 0 else 'fascia'}", "timber", "open")
+        K.prism(pc.mesh, poly, 0.0, q, back=True)
+        off += w
+    # the pilasters: each centred in its jamb's surround, its capital a block standing out
+    # past it under the cornice
+    pl = dr["pilasters"]
+    for side in (-1.0, 1.0):
+        xc = side * (sw / 2 + ring / 2)
+        x0, x1 = xc - pl["width_m"] / 2, xc + pl["width_m"] / 2
+        pc = var.piece("pilaster", "timber", "open")
+        K.box(pc.mesh, x0, x1, g["sill"], hs - h - pl["cap_m"], 0.0, pl["proud_m"], skip=("back",))
+        cap = var.piece("pilaster capital", "timber", "open")
+        K.box(cap.mesh, x0 - 0.02, x1 + 0.02, hs - h - pl["cap_m"], hs - h, 0.0, pl["proud_m"] + 0.025,
+              skip=("back",))
+    for pc in var.pieces:
+        m = pc.mesh
+        m.pos = [a_point(axis, sg, ra, centre, nf, q) for q in m.pos]
+        m.nrm = [a_point(axis, sg, ra, 0.0, 0.0, n) for n in m.nrm]
+    _lay(a, var.pieces, conf, "k10.dormer.lower_face_pediment")
+
+
+def a_point(axis, sg, ra, centre, nf, q):
+    """T-3307: a point (x, y, z) in a lower-face dormer's own frame onto the assembly's: x along
+    the face (`ra` its sign on the face's coordinate), z out of it (`sg`, on the face's axis)."""
+    along, n = centre + ra * q[0], nf + sg * q[2]
+    return (n, q[1], along) if axis == "x" else (along, q[1], n)
+
+
 def _cornice(a, K, data, bays, conf):
     p = a.p
     B = dict(data["parts"]["bracket"], **{k: float(x) for k, x in (p.wall_head.get("bracket_m") or {}).items()})   # T-3184
