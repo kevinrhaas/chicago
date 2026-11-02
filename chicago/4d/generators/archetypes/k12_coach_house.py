@@ -786,6 +786,30 @@ def structure_glb(var: Variant, data: dict, structure_id: str, phase_id: str, sc
     """The structure's GLB: no boards, turned into the structure frame, its origin the middle
     of the alley wall's outer face at grade — the point the record's position names."""
     turn = FACING[var.v["alley_side"]]
+    k = var.v.get("skew_per_m", 0.0)
+    if k:
+        # T-3309: a lot whose building stands on a slanting line (1637 Prairie's, its alley and
+        # yard walls both on the slant of the Illinois Central right-of-way, its end walls on the
+        # lot lines) builds the kit on a parallelogram plan: every point is sheared in the
+        # ground plane, z' = z - k * x, so each metre along the alley wall away from the party
+        # wall's end steps the alley and yard walls k metres back from the alley side. The end
+        # walls keep their line across the lot (x is unchanged), and the middle of the alley
+        # wall, the record's position, stays where it is (x = 0). A shear is affine with
+        # determinant 1, so every piece still meets what it met and no triangle turns over; the
+        # kit's own checks are taken on the unsheared build. Normals take the inverse
+        # transpose, n' = (n_x + k * n_z, n_y, n_z), made unit again.
+        shear_p = lambda p: (p[0], p[1], p[2] - k * p[0])
+
+        def shear_n(n):
+            q = (n[0] + k * n[2], n[1], n[2])
+            L = math.sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2]) or 1.0
+            return (q[0] / L, q[1] / L, q[2] / L)
+
+        for p in var.pieces:
+            p.mesh.pos = [shear_p(q) for q in p.mesh.pos]
+            p.mesh.nrm = [shear_n(q) for q in p.mesh.nrm]
+        var.meta["stands"] = [(n, shear_p(e), shear_p(a), li) for n, e, a, li in var.meta["stands"]]
+        var.meta["focus"] = list(shear_p(var.meta["focus"]))
     if var.v.get("mirror"):
         # T-1932: a lot whose neighbour stands against the OTHER end (1612's stable, built
         # against 1616's party wall, with its open gable and window to the north) builds the
