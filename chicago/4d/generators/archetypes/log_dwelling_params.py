@@ -93,6 +93,12 @@ WIN_AT_FRAC = 0.28
 #: The frame addition's own half-width: a sawn-frame wall takes a larger light than a
 #: log one, and the gable end the builder pierces takes the same window as the facade.
 ADDITION_WIN_HALF_M = 0.36
+#: T-3268: how far a corner's notched log ends reach along the wall from the corner
+#: (`common/logwork.py` NOTCH_D) and how far they stand proud of it (NOTCH_OUT). Copied
+#: rather than imported because logwork pulls in bpy through `common.mesh`, and this
+#: module must not; `tools/test_log_notch_front.py` holds the two copies equal.
+NOTCH_REACH_M = 0.20
+NOTCH_OUT_M = 0.24
 
 # How a signboard is displayed. `bracket` is an arm off the wall; `sapling_pole` is
 # a slender trunk set in the ground with a cross-arm at its head, which is what the
@@ -1200,6 +1206,18 @@ def front_wall(p: "LogDwellingParams") -> dict:
         if p.frame_addition and p.frame_addition_side == "end":
             rects += addition_front_rects(p)
             u1 = p.width_m
+            # T-3268: where the end addition meets the core, mid-front, the core's
+            # notched log ends stand NOTCH_OUT_M proud of the wall every other course
+            # (and the addition's own beside them where its lower storey is log). A
+            # corner at a wall's END is the end clearance's to keep a board off; this
+            # one is in the middle of the front, so it is named like an opening — not
+            # a hole (HOLE_KINDS), so no builder or entrance reader cuts it. A wall
+            # board hung across it had its lettering behind the log heads (the T-2381
+            # Miller House, 4 of 35 rays).
+            log_lower = p.frame_addition_cladding == "log_lower_vertical_upper"
+            notch_top = max(p.wall_height_m, p.addition_height_m / 2.0 if log_lower else 0.0)
+            rects.append(("log_notch", cx1 - NOTCH_REACH_M,
+                          cx1 + (NOTCH_REACH_M if log_lower else 0.04), 0.0, notch_top))
             if p.frame_addition_front_set_out is not None:
                 # Bounding envelope of the explicitly mixed-height front.
                 top = max(top, p.addition_height_m)
