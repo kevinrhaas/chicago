@@ -156,7 +156,7 @@
   "shrubs": 149,
   "trees": 14,
   "beds": 11,
-  "creeper_patches": 21,
+  "creeper_patches": 25,
   "attested_plants": 35,
   "lots_with_a_door": 111,
   "schemes": {
@@ -4783,6 +4783,38 @@
      1.14,
      6.67,
      "mantle"
+    ],
+    [
+     1438.03,
+     -3190.87,
+     269.61,
+     0.61,
+     6.63,
+     "mantle"
+    ],
+    [
+     1438.03,
+     -3191.33,
+     269.61,
+     0.61,
+     6.69,
+     "mantle"
+    ],
+    [
+     1438.45,
+     -3191.61,
+     179.61,
+     0.94,
+     6.67,
+     "mantle"
+    ],
+    [
+     1439.17,
+     -3191.61,
+     179.61,
+     0.94,
+     6.8,
+     "mantle"
     ]
    ],
    "pictured": {
@@ -4801,7 +4833,7 @@
    "pictured_notes": {
     "creeper": {
      "grade": "attested",
-     "note": "Ivy over the west front and the porch, to about the second storey's sills and past them on the porch's piers (both Detroit Publishing views); a solid mantle over the whole ground storey of the front south of the portico and of the 18th Street flank west of the porte-cochere, up to the balcony's belt course (LC-D4-12551)."
+     "note": "Ivy over the west front and the porch, to about the second storey's sills and past them on the porch's piers (both Detroit Publishing views); a solid mantle over the whole ground storey of the front south of the portico and of the 18th Street flank west of the porte-cochere, up to the balcony's belt course, and the porte-cochere's corner pier clothed to its entablature (LC-D4-12551)."
     },
     "border": {
      "grade": "attested",

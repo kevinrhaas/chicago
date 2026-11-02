@@ -13,7 +13,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 20
+        "creeper": 24
       }
     ],
     "street_trees": 35,
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "e74f7dd20f65dbebbf08b0fc0e764776e90ccaa346e502d9ace180e4770764f4",
+  "flora_sha256": "993224d94c9881b33e8c6e76a0316b5034058dad2c6d45fb36ef0b7e361a21fa",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
