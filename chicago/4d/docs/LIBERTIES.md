@@ -24668,7 +24668,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`.
+**Covers:** `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24782,6 +24782,12 @@ brick stable Robinson's 1886 plate draws there; its draft attributes are gone.
 1874 rear range now stand on K01, read off the 1911 sheet and two photographs, recorded as
 `L-k01-hibbard-1701-3240`, under the same id; its draft attributes are gone. Its coach house stays a
 draft.
+**1701's building by the tracks retired from this liberty by T-3316 (2026-11-02):**
+`hibbard_house_1701_prairie_coach_house` is refined in place on the draft builder under
+`L-t3316-hibbard-1701-stable`, under the same id: the sheet's two parallelogram outlines (the two-storey
+building and the crossed storey-and-a-half stable south of it) on the slant of the right-of-way, and the
+elevation read off the Chicagology photograph of the house; the rules skip `s20-1701-r1` and `s20-1701-r2`,
+and its draft attributes are gone.
 
 ### L-draft-prairie-20-22-west-2351 — The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state
 
@@ -39055,3 +39061,47 @@ source, gives its openings, roof and date their true form. The two pictures T-19
 **Covers:** `henderson_house_1816_prairie_coach_house.function`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.coach_house`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.stories`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1935.
 **Recorded:** 2026-11-02 (T-1935).
+
+### L-t3316-hibbard-1701-stable — 1701 Hibbard's stable by the tracks on the sheet's parallelogram, its yard front read off the Chicagology photograph
+
+**Decision:** the district draft's building by the tracks behind 1701 Prairie Avenue (T-3316, piece 2 of T-3310, a
+piece of T-1933) is refined in place, under its own id `hibbard_house_1701_prairie_coach_house`, still on the draft
+archetype: the K12 coach-house kit, which already builds a parallelogram plan (T-3309), has no hipped roof or
+lantern, and the draft builder has both. **What the sheet says.** The 1911 sheet (vol. 3 sheet 20, px x 4660-4950,
+y 3553-3936) draws a pink '2' building by the tracks from the lot's north line to sheet y 3816, and joined to its
+south end a crossed '1½' brick stable to the 1701/1709 line, its west wall about 2.4 m west of the first's. Both are
+parallelograms on the slant of the Illinois Central right-of-way: read through the trace's own pixel-to-metre fit,
+the two-storey part's west wall steps 0.277 m east a metre south and its east wall 0.304. The draft builder now takes
+`skew_per_m` (here 0.29, every corner within 0.2 m of the sheet's) and builds the plan sheared, u' = u - k v, the
+north and south walls keeping their line, anchored pieces (the lantern, the stacks) moved whole so they stay square.
+Robinson's 1886 plate 10 crosses a brick stable over the outline. **What is read.** The Chicagology photograph of the
+Hibbard house (`cgn-1701-hibbard-photo-wide`, source `chicagology_1701_hibbard_photo`) shows at its right edge
+(x 1590-1945 px) the stable's yard front 57-68 m off, read through the house's own solved camera (T-3240) carried
+into this frame unchanged
+(`data/reference_views/hibbard_house_1701_prairie_coach_house/chicagology_front.json`), about 35 px a metre: a
+hipped slate roof on a bracketed cornice about 4.5 m up, rising about 1.8 m; a square lantern about 2 m across on the
+roof's north part, three round-headed lights a face, its cornice about 8.6 m up, a pyramidal cap to about 9.9 m and a
+finial; a wall gable on the yard front with a curved head about 0.95 m over the cornice and a small oculus in it, over
+a two-light window in a pale stone frame under a hood; three round oculi about 1 m up the wall; two short capped
+stacks on the roof's south part; and the lower wing's gable to the yard, eave about 3.9 m, a lunette in it, an oculus
+under it and a pale band low on its wall. **What is not reconciled.** Through that camera the sheet puts the crossed
+stable's north-west corner at x 2035 px, where the photograph's wing begins at x 1867: about 4 m along the wall. No
+camera fits the house's corners and the wing's corner both (a search over the eye's place and heading leaves the
+house 25-63 px out and the wing 46-76 px out), and the house's own record has the fit and the sheet disagreeing by
+up to 2.5 m on its bay. The stable stands where the sheet draws it, and its yard-front features are placed by their
+offsets from the wing's corner as the photograph shows them, so the side-by-side shows the stable whole about 150 px
+right of the print's; the photograph's wing gable reads about 2.4-3.3 m across where the sheet's end is 6.1 m.
+Both are open in the match record. **What is invented.** The carriage door in the two-storey part's yard front at its
+north end (behind the house in the picture; a stable's yard needs one and the sheet draws no drive); the lantern's
+and the stacks' places across the roof (one view gives x, not depth) and the stacks' heights; the faces the picture
+does not see (the north end, the east face to the tracks, blank, and the wing's south face, the rules' openings); the
+wing's gable pitch carried over the sheet's whole 6.1 m end; the colours (the print is monochrome: brick per the
+sheet, slate). **How it was measured.** Every height on the face's own plane through the house's camera at the
+offset that puts the wing's corner where the print has it (eye moved 3.9 m along the stable's axis for the reading
+only; the view file keeps the house's pose).
+**How to resolve:** a second picture of the stable, or a camera solve on the house with more points than T-3240's
+four, says whether the sheet or the photograph has the stable's place; the alley or tracks side would give its east face.
+**Covers:** `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`
+**Ticket:** T-3316.
+**Review:** `docs/RESEARCH/photo-match/hibbard_house_1701_prairie_coach_house/chicagology_front-side-by-side.jpg`.
+**Recorded:** 2026-11-02 (T-3316).
