@@ -277,7 +277,11 @@ class Variant:
         W, D = v["width_m"], v["depth_m"]
         t, tp = P["wall"]["brick_m"], P["wall"]["brick_m"]
         B = P["basement"]["depth_m"]
-        E = P["storeys"]["ground_m"] + P["storeys"]["loft_m"]
+        # T-3308: a named lot may state its own loft height, for a building the sheet counts a
+        # storey and a half (1709 Prairie's by the tracks): the loft is a half-storey under the
+        # roof, its walls rising only `loft_m` over the carriage room before the eave. The kit's
+        # two full storeys stand wherever a record does not say otherwise.
+        E = P["storeys"]["ground_m"] + v.get("loft_m", P["storeys"]["loft_m"])
         R = P["roof"]
         # T-2321: a named lot may state its own pitch (a deep coach house would otherwise
         # carry a roof as tall as its walls), and may close its east end with a second party
