@@ -272,6 +272,15 @@ def rule_keyed(b, v):
     # T-1890: a shallow pavilion's roof behind its gable (`roof.gable.behind`, 1801's south
     # pavilion) runs back into its host's roof, as deep as `run_back_m` and no deeper (below)
     behind_roof = (((v.get("roof") or {}).get("gable") or {}).get("behind")) if v.get("shallow") else None
+    # T-1881 (2026-11-02): a mansard joined to its host's (`roof.mansard.back_m`, 1729's sections)
+    # runs its roof back through the plane into the host's, as deep as back_m and no deeper
+    joined = ((v.get("roof") or {}).get("mansard") or {}).get("back_m")
+    if joined is not None:
+        whole = (*whole, "roof", "roof_back")
+        far = min((p[2] for r in ("roof", "roof_back") for p in b.prims.get(r, K.Prim(r)).pos), default=0.0)
+        if far < -float(joined) - 1e-6:
+            fails.append(f"behind: a joined mansard stands {-far:.4f} m behind the host wall's face, "
+                         f"past its back_m {joined}")
     if behind_roof:
         whole = (*whole, "roof")
         far = min((p[2] for p in b.prims["roof"].pos), default=0.0) if "roof" in b.prims else 0.0

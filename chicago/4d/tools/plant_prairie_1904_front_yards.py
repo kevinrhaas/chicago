@@ -130,15 +130,22 @@ PICTURED = {
         # Taylor's no. 1445, earlier, shows younger ivy on the same two stretches. `face` "street" is
         # the front (`span_m` in s), "high_s" the side wall that faces the lot's high-s line, 18th
         # Street here (`span_m` in d). Every cell of a stretch is planted (no `cover` roll).
+        # T-1881 (the owner, 2026-11-02, of the south-west corner: "pull back on the vine ... you
+        # can have some but it covers the windows"): an OWNER RULING over the print's full mantle.
+        # Both stretches keep their ground-storey lights clear by 0.4 m a side (`margin_m`), the
+        # flank's as the front's, with leaves under the sills but none over the heads
+        # (`over_heads`), and the mantle stops at about the lights' heads (5.0-5.6 m), not the belt.
         "creeper_walls": [
-            {"face": "street", "span_m": [25.0, 34.6], "height_m": [6.4, 7.0],
+            {"face": "street", "span_m": [25.0, 34.6], "height_m": [5.0, 5.6], "over_heads": False,
              # the print's leaves stop at the principal storey's two round-arched lights (heads at
              # y 411 and 418): the model's own, so the mantle keeps clear of them where they stand
              "clear_windows": {"sidecar": "pullman_house_1729_prairie", "storey": 0, "face_u_m": 27.75,
-                               "margin_m": 0.0}},
+                               "margin_m": 0.4}},
             # T-1881 round 3: to the 18th Street section's west face, now at d 24.0 (s 7.2 from the
             # corner), so the stretch stays on the flank's own face and off the section's return
-            {"face": "high_s", "span_m": [16.6, 23.9], "height_m": [6.4, 7.0]},
+            {"face": "high_s", "span_m": [16.6, 23.9], "height_m": [5.0, 5.6], "over_heads": False,
+             "clear_windows": {"sidecar": "pullman_house_1729_prairie", "attribute": "north_bays",
+                               "under_m": 4.6, "face_u_m": 27.75, "face_v_m": 17.93, "margin_m": 0.4}},
         ],
         # T-1881: the porte-cochere's corner pier, clothed from the ground to the entablature's
         # soffit (6.85 m) in the Detroit print: its west face, seen square through the solved
@@ -746,16 +753,25 @@ def window_spans(y, cw):
     rd = math.radians(pl.get("rotation_deg") or 0.0)
     cd, sd = math.cos(rd), math.sin(rd)
     out = []
-    for wnd in sc["attributes"]["street_front_windows"]["value"]["windows"]:
-        if wnd["storey"] != cw["storey"]:
+    # T-1881 (the owner, 2026-11-02: the ivy at the south-west corner covers the windows): or the
+    # side wall's (`north_bays`, s_m from the street corner at face_u_m along the wall at
+    # face_v_m), its storey the ground storey's lights (sill under the principal floor's storey
+    # line, `under_m`), each span in the lot's d, the side wall's run
+    side = cw.get("attribute") == "north_bays"
+    wins = (sc["attributes"]["north_bays"]["value"] if side
+            else sc["attributes"]["street_front_windows"]["value"]["windows"])
+    for wnd in wins:
+        if (wnd["sill_m"] >= cw["under_m"]) if side else wnd["storey"] != cw["storey"]:
             continue
         half = wnd["width_m"] / 2 + cw["margin_m"]
         ends = []
         for v in (wnd["s_m"] - half, wnd["s_m"] + half):
             # the K01 frame's (u, v) as lay_structure places a model's (x, -z)
-            e = pl["local_e"] + cw["face_u_m"] * cd + v * sd
-            n = pl["local_n"] - cw["face_u_m"] * sd + v * cd
-            ends.append((e - y.A[0]) * y.su[0] + (n - y.A[1]) * y.su[1])
+            u_, v_ = (cw["face_u_m"] - v, cw["face_v_m"]) if side else (cw["face_u_m"], v)
+            e = pl["local_e"] + u_ * cd + v_ * sd
+            n = pl["local_n"] - u_ * sd + v_ * cd
+            ax = y.nu if side else y.su
+            ends.append((e - y.A[0]) * ax[0] + (n - y.A[1]) * ax[1])
         head = wnd["sill_m"] + wnd["height_m"] + (wnd.get("architrave") or {}).get("band_m", 0.0)
         out.append((min(ends), max(ends), wnd["sill_m"], head))
     return out
@@ -1099,7 +1115,7 @@ def plant_lot(p, plan: Plan, house, sids):
                 # as wide as the head's ring, but held to the door-way room at its foot like every patch
                 # (the collision check reads the foot's cell, whatever the patch's height)
                 wh = min(g1 - g0 + 0.8, 2 * float(y.terms["a door or the way to it"].flat[i]))
-                if top - head >= 0.3 and wh >= g1 - g0:
+                if top - head >= 0.3 and wh >= g1 - g0 and wl.get("over_heads", True):
                     creeper.append([e, n, facing, r2(wh - 0.01), r2(top - head), "mantle_head", r2(head)])
         # ...and the piers a picture shows wholly clothed (T-1881), placed off the model's own
         # porte-cochere rather than the raster, whose filled plan runs past the arcade's open

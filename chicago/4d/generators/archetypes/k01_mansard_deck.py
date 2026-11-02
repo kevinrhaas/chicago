@@ -72,6 +72,13 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
             if not sd or set(sd) - set(SIDES) or len(set(sd)) != len(sd):
                 raise ParamError(f"mansard.deck.cresting.sides: some of {', '.join(SIDES)}, once each")
             out["cresting"]["sides"] = list(sd)
+        # T-1881 (2026-11-02): or one rail round the deck and the decks of the K08 sections whose
+        # mansards are joined to it (1729's: one curb and one rail over every section in the
+        # Detroit print), a finial at each of the joined curb's corners (dress_joined)
+        if cr.get("joined") is not None:
+            if cr["joined"] is not True or sd is not None or cr.get("painted") is not None:
+                raise ParamError("mansard.deck.cresting.joined: true, round the whole joined curb (no sides, iron)")
+            out["cresting"]["joined"] = True
         # T-1871: or the kit's pattern in the eave's painted timber, not iron (1700-1706's
         # deck railing, a white fret in Chicagology's photograph)
         if cr.get("painted") is not None:
@@ -98,6 +105,8 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
         out["hoods"] = {"corners": at, "base_m": b, "rise_m": r}
     if not out.keys() & {"cresting", "finials"}:
         raise ParamError("mansard.deck names its cresting, its finials or both")
+    if (out.get("cresting") or {}).get("joined") and (deck.get("hoods") or deck.get("cross_roof") or not fn):
+        raise ParamError("mansard.deck.cresting.joined: a finial at every corner (finials), no hoods or cross roof")
     if deck.get("cross_roof"):
         out["cross_roof"] = _cross_roof(deck["cross_roof"], out, bays, depth)
     # a stack across the curb line would cut the rail: none may stand on it
@@ -312,8 +321,142 @@ def _aim(pieces, x, z, d):
         m.nrm = [(n[0] * d[0] - n[2] * d[1], n[1], n[0] * d[1] + n[2] * d[0]) for n in m.nrm]
 
 
+#: T-1881: on a joined curb, a jog shorter than this (a section's face set a little in from the
+#: house's at a flush corner) carries no rail and one finial at its middle, not one at each end
+JOG_M = 0.6
+#: ... and a run of the joined rail as short as this is laid (a section's return between its
+#: finials, 0.3-1 m on 1729's), where K10's own minimum would leave a gap in the one rail
+JOINED_MIN_M = 0.25
+
+
+def joined_outline(dk, decks):
+    """T-1881: the joined curb: the union of the house's curb rectangle and each joined section's
+    curb (each square to the plan) as one loop of (u, v) corners, walked with the decks on its
+    left, collinear corners dropped. A section clear of the house's curb is refused."""
+    u0, u1, v0, v1 = dk["curb"]
+    rects = [(u0, v0, u1, v1)]
+    for d in decks:
+        us, vs = [q[0] for q in d["curb"]], [q[1] for q in d["curb"]]
+        for q in d["curb"]:   # a section's curb is square to the plan: its corners on two u's and two v's
+            if min(abs(q[0] - x) for x in (min(us), max(us))) > 1e-3 or min(abs(q[1] - y) for y in (min(vs), max(vs))) > 1e-3:
+                raise ValueError(f"{d['bay']}: a joined section's curb stands square to the house's")
+        rects.append((min(us), min(vs), max(us), max(vs)))
+    xs = sorted({round(c, 4) for r in rects for c in (r[0], r[2])})
+    ys = sorted({round(c, 4) for r in rects for c in (r[1], r[3])})
+    inside = lambda x, y: any(r[0] < x < r[2] and r[1] < y < r[3] for r in rects)
+    cov = {(i, j): inside((xs[i] + xs[i + 1]) / 2, (ys[j] + ys[j + 1]) / 2)
+           for i in range(len(xs) - 1) for j in range(len(ys) - 1)}
+    c = lambda i, j: cov.get((i, j), False)
+    nxt = {}   # directed boundary edges, the covered cell on the left in (u, v)
+    for (i, j), on in cov.items():
+        if not on:
+            continue
+        if not c(i, j - 1):
+            nxt[(i, j)] = (i + 1, j)
+        if not c(i + 1, j):
+            nxt[(i + 1, j)] = (i + 1, j + 1)
+        if not c(i, j + 1):
+            nxt[(i + 1, j + 1)] = (i, j + 1)
+        if not c(i - 1, j):
+            nxt[(i, j + 1)] = (i, j)
+    start = min(nxt)
+    loop, k = [start], nxt[start]
+    while k != start:
+        if len(loop) > len(nxt):
+            raise ValueError("the joined curb is not one loop")
+        loop.append(k)
+        k = nxt[k]
+    if len(loop) != len(nxt):
+        raise ValueError("the joined curb is not one loop (a section stands clear of the house's curb)")
+    pts = [(xs[i], ys[j]) for i, j in loop]
+    keep = []
+    for n, p in enumerate(pts):
+        a, b = pts[n - 1], pts[(n + 1) % len(pts)]
+        if abs((p[0] - a[0]) * (b[1] - p[1]) - (p[1] - a[1]) * (b[0] - p[0])) > 1e-9:
+            keep.append(p)
+    return keep
+
+
+def dress_joined(a, dk, conf):
+    """T-1881 (2026-11-02): one rail of the K10 kit's iron cresting round the house's deck and
+    the decks of the sections joined to it (1729's, one curb and one rail over every section in
+    the Detroit print), `inset_m` in from the joined curb, with a turned finial at each of its
+    corners where the two runs' rail lines cross; the rail stops short of each finial. A short
+    jog (JOG_M) carries one finial at its middle instead of two and no rail."""
+    from . import k10_frontage
+    from .k09_trim import lathe, Piece
+    K = k10_frontage._kit()
+    data = K.load()
+    decks = getattr(a, "joined_decks", [])
+    for d in decks:
+        if abs(d["curb_m"] - dk["curb_m"]) > 1e-3:
+            raise ValueError(f"{d['bay']}: a joined section's curb ({d['curb_m']} m) stands at the house's "
+                             f"({dk['curb_m']} m)")
+    cr, fn = dk["cresting"], dk["finials"]
+    ins = cr["inset_m"]
+    pitch = min([math.tan(math.radians(dk["deck_pitch_deg"]))] + [d["pitch"] for d in decks])
+    y_cap = dk["curb_m"] + pitch * ins
+    pts = joined_outline(dk, decks)
+    n = len(pts)
+    # the rail's loop: each corner moved `ins` in along both its runs' inward normals
+    tan = [((pts[(k + 1) % n][0] - pts[k][0]), (pts[(k + 1) % n][1] - pts[k][1])) for k in range(n)]
+    tan = [(t[0] / math.hypot(*t), t[1] / math.hypot(*t)) for t in tan]
+    nin = [(-t[1], t[0]) for t in tan]          # the inside is on the left of each run
+    rail = [(pts[k][0] + ins * (nin[k - 1][0] + nin[k][0]), pts[k][1] + ins * (nin[k - 1][1] + nin[k][1]))
+            for k in range(n)]
+    seg = [math.dist(rail[k], rail[(k + 1) % n]) for k in range(n)]
+    jog = [s < JOG_M for s in seg]
+    posts = {}   # where finials stand, keyed by corner (or by a jog's run, at its middle)
+    for k in range(n):
+        if jog[k] and jog[k - 1]:
+            raise ValueError("the joined curb turns twice in a jog's length")
+        if jog[k]:
+            q0, q1 = rail[k], rail[(k + 1) % n]
+            posts[("jog", k)] = ((q0[0] + q1[0]) / 2, (q0[1] + q1[1]) / 2)
+        elif not jog[k - 1]:
+            posts[("corner", k)] = rail[k]
+    clear = fn["radius_m"] + FINIAL_CLEAR_M
+    laid = {"cresting": [], "finials": [], "joined": [d["bay"] for d in decks]}
+    for k in range(n):
+        if jog[k]:
+            continue
+        q0, q1 = rail[k], rail[(k + 1) % n]
+        s0 = clear + (seg[k - 1] / 2 if jog[k - 1] else 0.0)
+        s1 = clear + (seg[(k + 1) % n] / 2 if jog[(k + 1) % n] else 0.0)
+        L = seg[k] - s0 - s1
+        if L < JOINED_MIN_M:   # a short return still carries its rail between its two finials
+            continue
+        t = tan[k]
+        mu, mv = q0[0] + t[0] * (s0 + L / 2), q0[1] + t[1] * (s0 + L / 2)
+        seed = a.instance(CRESTING, "cresting", {"length_m": round(L, 4), "ridge_cap_top_m": round(y_cap, 4),
+                                                 "height_m": cr["height_m"], "host": "joined mansard deck",
+                                                 "run": k}, {"ridge": (mu, y_cap, -mv)})
+        var = K.Variant(dict(next(v for v in data["variants"] if v["id"] == CRESTING)), data)
+        var.seed, var.rng = seed, random.Random(seed)
+        got = var.cresting(0.0, L, y_cap, 0.0, host="joined mansard deck")
+        _aim(var.pieces, mu, -mv, (t[0], -t[1]))     # the plan's (x, z) = (u, -v)
+        top = max(q[1] for pc in var.pieces for q in pc.mesh.pos)
+        _stretch(var.pieces, y_cap - 0.007, cr["height_m"] / (top - (y_cap - 0.007)))
+        laid["cresting"].append({"run": k, "from": [round(c, 3) for c in q0], "to": [round(c, 3) for c in q1],
+                                 "length_m": round(L, 3), "posts": len(got)})
+        k10_frontage._lay(a, var.pieces, conf, CRESTING)
+    foot = y_cap - LET_IN_M
+    for key in sorted(posts):
+        u, v = posts[key]
+        name = f"{key[0]} {key[1]}"
+        a.instance("k01.roof.deck_finial", "finial", {"height_m": fn["height_m"], "corner": name,
+                                                       "host": "joined mansard deck"}, {"foot": (u, foot, -v)})
+        pc = Piece(f"finial {name}", "iron", "rooted", host="joined mansard deck")
+        lathe(pc.mesh, (u, -v), [(fn["radius_m"] * r, foot + fn["height_m"] * y) for r, y in FINIAL], FINIAL_SEGS)
+        k10_frontage._lay(a, [pc], conf, "k01.roof.deck_finial")
+        laid["finials"].append({"corner": name, "at": [round(u, 3), round(v, 3)], "foot_m": round(foot, 3)})
+    a.deck = laid
+
+
 def dress(a, dk, conf):
     """The cresting along each side of the curb and a finial at every corner (module doc)."""
+    if (dk.get("cresting") or {}).get("joined"):
+        return dress_joined(a, dk, conf)
     from . import k10_frontage
     K = k10_frontage._kit()
     data = K.load()
