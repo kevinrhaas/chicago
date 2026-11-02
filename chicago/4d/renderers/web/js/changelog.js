@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2556, ts: '2026-11-02T03:54:54.313Z', date: 'Nov 1, 2026, 9:54 PM CT', title: '1700-1706 Prairie\'s dormers get their classical pediments', kind: 'feature',
+    items: [
+      'Each roof dormer on the Glessner townhouses now has a pediment like the ones in Chicagology\'s photograph. It has a moulded cornice that wraps round the dormer\'s sides, a raking cornice up both slopes, and a lower, classical pitch.',
+      'Slim pilasters with capitals frame each pair of windows. The dormers\' sides are painted white like their faces, as the photographs print them, and are no longer slated.',
+    ] },
   { v: 2555, ts: '2026-11-02T02:44:47.372Z', date: 'Nov 1, 2026, 8:44 PM CT', title: 'Pullman house\'s roof cresting gains its finialled corner posts', kind: 'improvement',
     items: [
       'At 1729 Prairie, a tall turned iron finial now stands on every corner of the mansard roofs, as two period photographs show.',
