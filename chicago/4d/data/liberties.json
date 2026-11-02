@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 942,
+  "count": 943,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -35543,6 +35543,39 @@
         "T-3293",
         "T-1900",
         "T-3294"
+      ]
+    },
+    {
+      "id": "L-k01-1912-moulton-signoff-3294",
+      "title": "1912 Prairie's sign-off: the tower and corner turret capped at the cornice, the tall south gable, the enclosing arch and the entrance's capitals",
+      "section": "per_subject",
+      "subjects": [
+        "moulton_lowden_house_1912_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the last differences over the bar on 1912 Prairie's three match records are built (the last piece). The round tower's third stage is the attic storey's 2.75 m, so its cornice runs on the main cornice's line and its cone springs there; the corbelled corner turret on the north flank stands to 12.8 m, its cornice level with the main cornice, its light 1.45 m tall, its cone rising past the eave against the mansard and closed at its back on the wall's plane (K01/K08 cap at eave). The south gable rises as a tall wall gable through the eave, its pitch 2.2 where it was 1.4, so its apex stands near 15.5 m, and the main eave, gutter and cornice stop at its face (gable through eave). Its principal pair stands under one enclosing arch springing at the lights' springing, framed by a moulded architrave 0.2 m broad and 0.08 m proud (K08 architrave rise (m)), its lights 2.8 m tall. The door's arch is flanked by a plain stone pilaster each side, 0.3 m broad and 0.08 m proud, 0.02 m outside its moulded ring, from the floor to the keystone's top, under a capital 0.35 m tall in two grades (entrance arch `pilasters`). **What is read, not invented.** From the photograph ([1912 S. Prairie Ave. (Moulton / Lowden residence).] Photograph of the house's…, rights check required: forms and proportions only): the tower's and the turret's cornices on the main cornice's line (x 380-560 and 1050-1145, y 430-545 px); the south gable's height, its rise about twice its half-width, which the 1883 plate ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…) also draws; the arch with a moulded hood over the south pair (x 95-265, y 1235-1290 px), which the plate and the c. 1914 elevations drawing also draw; the pilasters' capitals either side of the door (x 680-710 and 880-915, y 1195-1225 px). The c. 1914 drawing puts the cone on the cornice too. **What is invented.** The architrave's and the pilasters' sections, the capitals' two-grade blocks (the photograph's carved leafage, finer than the 1 ft bar, is not modelled), the lights' 0.1 m shortening that the enclosing arch needs inside the storey, and the gable's exact pitch (the camera is weakest at that end; 2.2 is the two pictures' proportion, not a measurement). **What is not built.** The 1883 plate's taller tower (a full stage over the cornice under a spire) and its corner turret in two stages from the chamber floor, which the photograph and the c. 1914 drawing, both nearer 1904, do not show; the plate's second dormer on the north flank; the ivy and the awning, an undated state earlier work's phase guard keeps off the 1904 geometry."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated picture of the house nearer 1904, or one of its south flank and rear."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-01 (T-3294)."
+        }
+      ],
+      "work_refs": [
+        "T-3294",
+        "T-1900"
       ]
     },
     {

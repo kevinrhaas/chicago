@@ -1056,6 +1056,12 @@ def architrave(o, ar: dict, op, s: float, tier: str) -> list:
     x0, x1 = min(q[0] for q in pts), max(q[0] for q in pts)
     r0, cx = (x1 - x0) / 2, (x0 + x1) / 2
     ys = max(q[1] for q in pts) - r0
+    if ar.get("rise_m"):
+        # T-3294: one arch over a grouped light (1912's south pair), its crown `rise_m` over the
+        # lights' heads, every point of their holes inside its intrados
+        ys += ar["rise_m"]
+        if any(q[1] > ys and math.hypot(q[0] - cx, q[1] - ys) > r0 + ARCHITRAVE_TUCK_M for q in pts):
+            raise ValueError(f"an enclosing architrave rising {ar['rise_m']} m over its lights cuts their heads")
     # the foot a little under the sill's top, which falls outward (as `surround`'s does)
     y0 = op.O[1] - 0.016
     b, F = ar["band_m"], ar["proud_m"]
@@ -2812,6 +2818,19 @@ class Bay:
                            (0.0, 0.0, -1.0))
         self.meta["roof"] = {"kind": "cone", "pitch": pitch, "eave_radius_m": round(Re, 4), "segments": len(phis) - 1,
                              "apex": [round(c[0], 4), round(apex_y, 4), round(cz, 4)] if tower else None}
+        yb = self.v.get("cone_back_from_m")
+        if yb is not None:
+            # T-3294: a half round's cone carried past its house's eave (1912's corner turret) has
+            # no wall behind it over that eave: its back, the triangle the wall plane cuts from the
+            # cone, is closed there from the eave (or the cone's own eaves, if higher) to the apex
+            if tower or cz != 0.0:
+                raise ValueError(f"{self.v['id']}: only a half round's cone is closed at its back over an eave")
+            yb = max(float(yb), y_e)
+            rb = Re - (yb - y_e) / pitch
+            if rb > 1e-6:
+                world.face("roof_back", [(c[0] + rb, yb, 0.0), (c[0] - rb, yb, 0.0), (c[0], y_e + pitch * Re, 0.0)],
+                           (0.0, 0.0, -1.0))
+            self.meta["roof"]["back_from_m"] = round(yb, 4)
 
     def _deck_cresting(self, world, top, y_d, cr):
         """T-3176: the deck's cresting, an iron band `height_m` tall and `thickness_m` thick

@@ -3000,6 +3000,8 @@ class Assembly:
                 on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
                 closes.append(((min(on), max(on)), (wall_top, eave)))
             for (x0, x1), (y0, y1) in closes:
+                if y1 - y0 < 1e-6:   # T-3294: a tower capped at the eave has no wall over the wall head
+                    continue
                 for (xa, xb), (ya, yb) in K8.host_cells((x0, x1), (y0, y1), built.host_holes):
                     pr.face([snap(x, y) for x, y in ((xa, ya), (xb, ya), (xb, yb), (xa, yb))], back, bb, conf)
             # T-3048: a shallow pavilion flush with a corner: over the eave the main roof is cut
@@ -4389,6 +4391,23 @@ class Assembly:
                         ring.reverse()
                     head = max(hi for _, hi, _ in lit) + 0.5
                     out.append(k5.extrude(ring, bot, head if ct is None else min(head, ct), P, "wall", floor, "wall"))
+        # T-3294: a projection's wall gable carried up through a mansard's eave (1912's south
+        # gable, the 1883 plate and the photograph): the gable rises from under the eave, so the
+        # eave box, gutter and covering's lip would run across its face. In front of its face they
+        # are cut away, the box stopping square a centimetre behind the face (`return`), so the
+        # cornice dies into the gable's rakes
+        for b in self.p.bays:
+            if not b.get("gable_through_eave"):
+                continue
+            v = b["variant"]
+            if b["wall"] != "k01.wall.street_front" or not self.p.mansard or v["kind"] != "projection" \
+                    or v["roof"]["kind"] != "gable":
+                raise ValueError(f"{b['id']}: a wall gable carried through the eave is a gabled projection on "
+                                 f"a mansard's street front")
+            proud = max(float(q[1]) for q in v["plan"]["points"]) - 0.01
+            s0, s1 = b["span_m"]
+            outer = [(D + proud, s0), (D + 2.0, s0), (D + 2.0, s1), (D + proud, s1)]
+            out.append(k5.extrude(outer, yf - 0.5, self.p.eave_m + 0.3, P, "return", "wall", "wall"))
         return out
 
     @staticmethod
@@ -5563,6 +5582,13 @@ class Assembly:
             else:
                 dead.append((d0, d1))
             stop_ends += [(d0 % P, 1.0), (d1 % P, -1.0)]
+        # T-3294: and across a wall gable carried up through the eave, from cheek to cheek, each
+        # end stopped where the eave box stops (shallow_bay_cutters)
+        for b in p.bays:
+            if b.get("gable_through_eave"):
+                d0, d1 = A + b["span_m"][0], A + b["span_m"][1]
+                dead.append((d0, d1))
+                stop_ends += [(d0 % P, 1.0), (d1 % P, -1.0)]
         if (p.shaped_gable or {}).get("takes_gutter"):
             # T-2889: no gutter across a front carried up as a shaped gable: the street run is
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)

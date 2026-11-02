@@ -2,11 +2,11 @@
   "structure_id": "moulton_lowden_house_1912_prairie",
   "view": "elevations_c1914_front",
   "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4264a886d77478f1ef9d191959b1b0093ffc90dcd62fdc3ee167f2332b4ede21",
+  "glb_sha256": "a6abfe04b79118a9a8a0fa8b2e0a0433ac2fba0d76c2b45a51805584a4755b66",
   "camera_sha256": "babc3fe528caaee1f49ed568584eeb4e22f550aab2fbb214fca77b4ed75e4742",
   "photo_sha256": "6a188ecf12322445de8c9a8621968131cd2d74be06183f548a87054051efa97e",
   "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/elevations_c1914_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "composition: the arched pair at the front's south end, the round bay in the middle rising to a cone with a finial (a triangle in elevation), the door at the north end, the steep slated roof with a dormer at each end and the cornice's line; each lands within a few pixels of its place in the drawing",
@@ -21,15 +21,15 @@
       "status": "within tolerance"
     },
     {
-      "what": "the openings at the principal floor: the drawing's south pair has round heads and the door an arched head; both now built round-headed (T-3292). The drawing's one broad arch over the south pair is on the photograph's record as open (T-3294)",
+      "what": "the openings at the principal floor: the drawing's south pair has round heads and the door an arched head; both now built round-headed (T-3292); and the drawing's one broad arch over the south pair is now built over it, a moulded architrave springing at the lights' springing (T-3294)",
       "status": "fixed"
     },
     {
-      "what": "the tower's lights: three a storey across the round bay, a broad centre light between two narrow ones; built two a storey",
-      "status": "open"
+      "what": "the tower's lights: three a storey across the round bay, a broad centre light between two narrow ones foreshortened on the curve, as the drawing draws them (at -50, 0 and 50 degrees on the round)",
+      "status": "fixed"
     },
     {
-      "what": "the dormers' ornament: drawn as crocketed wall dormers rising off the front at both ends with pinnacles and finials; now built faced in the front's stone, a stone coping up each rake with crockets on its back (two a rake on the north dormer, three on the south), a square pinnacle engaged at each edge of the face from the cornice past the gable's foot under a cap and a pyramid, and a turned finial at the apex (T-3293); the drawing's dormers stand taller than the build's (T-3294, on the photograph's record)",
+      "what": "the dormers' ornament: drawn as crocketed wall dormers rising off the front at both ends with pinnacles and finials; now built faced in the front's stone, a stone coping up each rake with crockets on its back (two a rake on the north dormer, three on the south), a square pinnacle engaged at each edge of the face from the cornice past the gable's foot under a cap and a pyramid, and a turned finial at the apex (T-3293); and the south gable, which the drawing draws as the tall pinnacled gable at the front's south end, now rises through the eave to near the drawing's apex (T-3294)",
       "status": "fixed"
     },
     {

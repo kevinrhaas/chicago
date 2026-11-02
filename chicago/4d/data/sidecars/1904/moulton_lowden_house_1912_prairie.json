@@ -282,7 +282,7 @@
         "chicagology_1912_prairie_exterior_photo",
         "newberry_new_chicago_album_1883_residences"
       ],
-      "note": "The north corner block's roof in the photograph: straight slate faces at about 72 degrees from the cornice to the cresting (y 500-210 px), about 4.5 m through the camera (K01's most for a face over one storey); and two pinnacled stone dormers in the street face: a small one over the corner block's window column (x 340-480, y 290-500 px; built 10.9 m along, 0.5 m south of the column, the nearest the hip lets a dormer stand) and the taller crocketed one between the south gable and the tower (x 740-880, y 150-500 px). T-3293: both are faced in the front's stone (dormer_fabric), each with a stone coping up its rakes carrying hooked crockets (two a rake on the small one, three on the tall one), a square pinnacle engaged at each edge of its face from the cornice past the gable's foot, and a turned finial at its apex, as the photograph, the 1883 plate and the c. 1914 elevations drawing show; their sizes are reconstructed, in L-k01-1912-moulton-roof-ornament-3293. The tall one's height (the photograph's rises nearly to the cone's shoulder) is an open difference for T-3294."
+      "note": "The north corner block's roof in the photograph: straight slate faces at about 72 degrees from the cornice to the cresting (y 500-210 px), about 4.5 m through the camera (K01's most for a face over one storey); and two pinnacled stone dormers in the street face: a small one over the corner block's window column (x 340-480, y 290-500 px; built 10.9 m along, 0.5 m south of the column, the nearest the hip lets a dormer stand) and the taller crocketed one between the south gable and the tower (x 740-880, y 150-500 px). T-3293: both are faced in the front's stone (dormer_fabric), each with a stone coping up its rakes carrying hooked crockets (two a rake on the small one, three on the tall one), a square pinnacle engaged at each edge of its face from the cornice past the gable's foot, and a turned finial at its apex, as the photograph, the 1883 plate and the c. 1914 elevations drawing show; their sizes are reconstructed, in L-k01-1912-moulton-roof-ornament-3293. The tall one's height: the photograph's measures about 4.1 m from the cornice to its finial's top at that end's scale, the build's about 4.0 m; T-3294 found it under the bar, and with the tower's third stage lowered it now stands clear of the cone from the photograph's camera."
     },
     "roof_covering": {
       "value": {
@@ -566,6 +566,13 @@
                 0.06,
                 0.03
               ]
+            },
+            "pilasters": {
+              "width_m": 0.3,
+              "proud_m": 0.08,
+              "gap_m": 0.02,
+              "capital_m": 0.35,
+              "abacus_m": 0.1
             }
           }
         }
@@ -575,7 +582,7 @@
         "chicagology_1912_prairie_exterior_photo",
         "newberry_new_chicago_album_1883_residences"
       ],
-      "note": "The door at the stoop's head in the north corner block, in the photograph and the vignette; the stoop's solid stone cheek walls end in block newels at the foot. T-1900: the door stands in a deep round-arched recess, as the photograph (x 720-890, y 1195-1545 px, the arch's crown just over the awning at y 1205-1225 px, about 3.4 m over the principal floor through the solved camera) and the 1883 plate draw it, and as the c. 1914 elevations drawing heads it: a pair of panelled leaves 0.6 m back in a 1.7 m arch, under a 0.3 m voussoir ring with a moulded edge and a keystone that stops under the chamber floor's belt. The mouth's width is the kit's (the photograph's pilasters stand about 1.9 m apart, read across a foreshortened front); the leaves, the reveal's depth and the moulding are reconstructed, in L-k01-1912-moulton-entrance-1900. The carved capitals on the pilasters either side, and the striped canvas awning (a seasonal fitting, kept off the 1904 build), are not built."
+      "note": "The door at the stoop's head in the north corner block, in the photograph and the vignette; the stoop's solid stone cheek walls end in block newels at the foot. T-1900: the door stands in a deep round-arched recess, as the photograph (x 720-890, y 1195-1545 px, the arch's crown just over the awning at y 1205-1225 px, about 3.4 m over the principal floor through the solved camera) and the 1883 plate draw it, and as the c. 1914 elevations drawing heads it: a pair of panelled leaves 0.6 m back in a 1.7 m arch, under a 0.3 m voussoir ring with a moulded edge and a keystone that stops under the chamber floor's belt. The mouth's width is the kit's (the photograph's pilasters stand about 1.9 m apart, read across a foreshortened front); the leaves, the reveal's depth and the moulding are reconstructed, in L-k01-1912-moulton-entrance-1900. The carved capitals on the pilasters either side, and the striped canvas awning (a seasonal fitting, kept off the 1904 build), are not built. T-3294: a plain stone pilaster 0.3 m broad each side of the arch, 0.02 m outside its moulded ring, from the floor to the keystone's top, under a capital 0.35 m tall in two tiers (a bell and an abacus stepping out past the shaft), as the photograph draws them (x 680-710 and 880-915, y 1195-1225 px); the capitals' carved leafage is finer than the 1 ft bar and is not modelled."
     },
     "bays": {
       "value": [
@@ -625,7 +632,7 @@
               ]
             },
             {
-              "height_m": 3.75,
+              "height_m": 2.75,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -637,7 +644,7 @@
                     0,
                     50
                   ],
-                  "why_not_ordinary": "the third stage's short lights under the cone in the photograph (y 580-710 px)"
+                  "why_not_ordinary": "the third stage's short lights under the cone in the photograph (y 580-710 px), the stage now the attic storey's, under the main cornice's line (T-3294)"
                 }
               ]
             }
@@ -657,7 +664,8 @@
             "radius_m": 0.14,
             "form": "turned",
             "segments": 6
-          }
+          },
+          "cap_at_eave": true
         },
         {
           "id": "south_gable",
@@ -676,13 +684,18 @@
                 {
                   "opening": "k06.opening.sash_paired_round",
                   "clear_width_m": 1.7,
-                  "clear_height_m": 2.9,
+                  "clear_height_m": 2.8,
                   "sill_m": 2.6,
                   "at": [
                     0.5
                   ],
-                  "why_not_ordinary": "the gable's principal pair in the photograph (x 95-265, y 1290-1545 px) and the 1883 plate: two lights, each under its own round head glazed as a fanlight over a one-over-one sash, either side of a stone mullion, under one arch (T-1900: built round-headed; the enclosing arch over the pair is not built, a remaining difference on both match records)",
-                  "recess_m": 0.33
+                  "why_not_ordinary": "the gable's principal pair in the photograph (x 95-265, y 1290-1545 px), the 1883 plate and the c. 1914 elevations: two lights, each under its own round head glazed as a fanlight over a one-over-one sash, either side of a stone mullion, under one enclosing arch with a moulded hood springing at the lights' springing (T-3294)",
+                  "recess_m": 0.33,
+                  "architrave": {
+                    "band_m": 0.2,
+                    "proud_m": 0.08,
+                    "rise_m": 0.475
+                  }
                 }
               ]
             },
@@ -727,7 +740,7 @@
           ],
           "roof": {
             "kind": "gable",
-            "pitch": 1.4,
+            "pitch": 2.2,
             "covering": "slate_pennsylvania",
             "gable": {
               "inset_m": [
@@ -759,7 +772,8 @@
                 "size_m": 0.26
               }
             }
-          }
+          },
+          "gable_through_eave": true
         },
         {
           "id": "north_turret",
@@ -781,17 +795,17 @@
           },
           "storeys": [
             {
-              "height_m": 1.75,
+              "height_m": 2.3,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 0.65,
-                  "clear_height_m": 1.25,
+                  "clear_height_m": 1.45,
                   "sill_m": 0.3,
                   "at_deg": [
                     -45
                   ],
-                  "why_not_ordinary": "the corner turret's one light, about 0.65 x 1.45 m in the photograph (x 1063-1107, y 595-725 px), narrower than the flank's sashes so it stands on the turret's face; built 1.25 m tall under the turret's lowered wall top"
+                  "why_not_ordinary": "the corner turret's one light, about 0.65 x 1.45 m in the photograph (x 1063-1107, y 595-725 px), narrower than the flank's sashes so it stands on the turret's face"
                 }
               ]
             }
@@ -804,7 +818,8 @@
           },
           "eaves": {
             "cornice": "k10.cornice.moulded_stone"
-          }
+          },
+          "cap_at_eave": true
         }
       ],
       "confidence": "inferred",
@@ -813,7 +828,7 @@
         "chicagology_1912_prairie_exterior_photo",
         "newberry_new_chicago_album_1883_residences"
       ],
-      "note": "Two K08 pieces on the 1911 sheet's trace (s28fp-1912-b1) in the house's frame, read with the photograph and the 1883 vignette. The round tower on the sheet's front bulge (v 5.85-9.75, about 1.4 m out; built a 1.95 m round centred 0.17 m in front of the wall line, so 0.72 m further out than the sheet draws it, the least that holds its finial clear of the wall's plane): three stages of bent sashes to a slated cone with a turned finial with knobs, as the photograph's is (T-3293: no collar on the cone, so nothing of it is clipped at the wall's plane, and lathed in six sides, which holds the tower inside the K08 kit's triangle budget), its third stage 1.0 m taller than the photograph's, whose cone springs at the main cornice's level, because K01 stands a tower's wall top at least 1.0 m over its host's eave. The south gable (v 0.5-4.1): a stone projection 0.4 m proud (the sheet draws the front flush there, under its resolution), the least that holds its windows' recesses, cut to the kit's 0.33 m minimum, in front of the wall with its arched pair, its chamber pair and its attic light, its coped gable with pinnacles, three crockets a rake on its copings (T-3293) and a finial rising from just over the attic floor (its kneelers at y 720 px, under the main cornice) to an apex near 14 m (y 470 px). T-3290: the corbelled corner turret on the north flank (`north_turret`), read off the photograph through its solved camera (x 1050-1145 px, the flank's front corner at x 960): a round oriel 1.4 m across, its centre on the wall's plane at s 2.8 from the front corner (its two silhouettes land within 6 px of the photograph's), standing on the attic floor (10.5 m) on a turned stone foot where the photograph's attic belt sweeps round it (y 745-800 px), one storey with one light turned toward the avenue (x 1063-1107, y 595-725 px), under a moulded stone cornice and a steep slated cone (pitch 3.0, to about 15.7 m) that leans on the mansard as the photograph's leans on its slate and its stack (y 365-520 px). Its wall top is 12.25 m, about 0.55 m under the photograph's (whose turret cornice runs level with the main cornice), because K01 holds an oriel's wall top a metre under the main eave unless the eave dies into it, which the kit does only on a street front under a hip or gable: an open difference on the match record. The 1883 plate draws it taller, two stages corbelled out from the chamber floor; the photograph's one stage over the attic belt is built, and the disagreement is within tolerance on the plate's match record."
+      "note": "Two K08 pieces on the 1911 sheet's trace (s28fp-1912-b1) in the house's frame, read with the photograph and the 1883 vignette. The round tower on the sheet's front bulge (v 5.85-9.75, about 1.4 m out; built a 1.95 m round centred 0.17 m in front of the wall line, so 0.72 m further out than the sheet draws it, the least that holds its finial clear of the wall's plane): three stages of bent sashes to a slated cone with a turned finial with knobs, as the photograph's is (T-3293: no collar on the cone, so nothing of it is clipped at the wall's plane, and lathed in six sides, which holds the tower inside the K08 kit's triangle budget), its third stage the attic storey's 2.75 m, so its cornice runs on the main cornice's line and its cone springs there, as the photograph and the c. 1914 elevations draw it (T-3294: `cap_at_eave`; it was built 1.0 m taller, K01's least for a tower, until then). The 1883 plate carries the tower a full stage higher under a spire; the two later pictures are preferred for 1904. The south gable (v 0.5-4.1): a stone projection 0.4 m proud (the sheet draws the front flush there, under its resolution), the least that holds its windows' recesses, cut to the kit's 0.33 m minimum, in front of the wall with its arched pair, its chamber pair and its attic light, its coped gable with pinnacles, three crockets a rake on its copings (T-3293) and a finial rising from just over the attic floor (its kneelers at y 720 px, under the main cornice) through the eave to an apex near 15.5 m (y 470 px): T-3294 steepened it from pitch 1.4 to 2.2, the tall wall gable the 1883 plate and the photograph draw (its rise about twice its half-width in both, and the camera's 99 px residual at its apex read the old 14 m apex about 1.3 m low), and the main eave, gutter and cornice stop at its face (`gable_through_eave`) where they had run across it. Its principal pair now stands under ONE enclosing arch springing at the lights' springing, a moulded architrave 0.2 m broad round it (T-3294), as all three pictures draw it. T-3290: the corbelled corner turret on the north flank (`north_turret`), read off the photograph through its solved camera (x 1050-1145 px, the flank's front corner at x 960): a round oriel 1.4 m across, its centre on the wall's plane at s 2.8 from the front corner (its two silhouettes land within 6 px of the photograph's), standing on the attic floor (10.5 m) on a turned stone foot where the photograph's attic belt sweeps round it (y 745-800 px), one storey with one light turned toward the avenue (x 1063-1107, y 595-725 px), under a moulded stone cornice and a steep slated cone (pitch 3.0, to about 15.7 m) that leans on the mansard as the photograph's leans on its slate and its stack (y 365-520 px). Its wall top is 12.8 m, its cornice level with the main cornice as the photograph's is, its one light 1.45 m tall, and its cone rises past the eave against the mansard, closed at its back on the wall's plane from the eave up (T-3294: `cap_at_eave`; it stood at 12.25 m, a metre under the eave, until then). The 1883 plate draws it taller, two stages corbelled out from the chamber floor; the photograph's one stage over the attic belt is built, and the disagreement is within tolerance on the plate's match record."
     },
     "rear_wings": {
       "value": [
