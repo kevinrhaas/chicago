@@ -9,7 +9,8 @@ future" half. It reads what was BUILT, not what a record says: the component ins
 `k01_frontage.to_glb` writes into each GLB's node extras (the K14 front walk's sockets and legs,
 the K11 boundary's runs, gates and coping), and the sidecars the walker turns into solid
 footprints (renderers/web/js/walker.js footprintsFrom). For every worked house — a
-`k01_frontage` or `k16_timber` record with a phase in the 1904 scene; a `prairie_draft` is not
+`k01_frontage` or `k16_timber` record with a phase in the 1904 scene (a dwelling: an alley
+outbuilding built from the same kit, T-1932, has no front walk to require); a `prairie_draft` is not
 worked, and Glessner (`masonry_house`, its own pipeline and bake notes) is not one of these —
 it requires:
 
@@ -268,6 +269,8 @@ def worked_houses():
             continue
         if not isinstance(st, dict) or st.get("archetype") not in WORKED:
             continue
+        if (st.get("function") or {}).get("value", "residence") != "residence":
+            continue     # T-1932: an alley outbuilding built from a house kit has no front door to walk to
         for ph in st.get("phases", []):
             if _covers(ph):
                 yield st["id"], ph["id"], _front_yard(ph)

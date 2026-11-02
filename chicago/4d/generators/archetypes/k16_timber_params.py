@@ -24,6 +24,7 @@ OR, since T-2357, a WHOLE small frame house closed on every face from the kit:
                  boxed, bracketed eave and a hip or flat roof; the kit porch on the street
                  wall with its steps; one brick stack
     roof_covering optional: the roof's colour
+    (a block's `brackets: false`, T-1932, gives an outbuilding a plain boxed eave)
     boundary     optional (T-3205): a `stone_coping_wall` on the street line, its kerb runs,
                  posts and openings (archetypes/k16_yard.py)
     yard         optional (T-3205): the front walk and service walk through those openings
@@ -473,6 +474,10 @@ def _frame_upper_errors(fh: dict) -> list[str]:
         ev = b.get("eave")
         if ev is not None and not (_num(ev.get("projection_m")) and 0.2 <= ev["projection_m"] <= 1.2):
             out.append(f"{bid}: eave.projection_m must lie in 0.2-1.2 m")
+        if "brackets" in b and (b["brackets"] is not False or "bracket" in b
+                                or any("bracket_pairs_m" in w for w in b.get("walls") or [])):
+            out.append(f"{bid}: brackets may only be false (T-1932: a plain eave), and then names no bracket "
+                       "sizes or pairs")
         fg = b.get("front_gable")
         if fg is not None:
             if (b.get("roof") or {}).get("kind") != "hip":
