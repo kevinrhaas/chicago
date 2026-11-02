@@ -2589,6 +2589,14 @@ step "the 1835 company-garden and Harmon orchard plantings re-derive from their 
 step "the business signboards re-derive from the rule that chose their frontages" \
   python3 tools/generate_business_signboards.py --check
 
+# ...AND NO FLAT BOARD HANGS ACROSS A LOG FRONT'S MID-WALL NOTCHES (T-3268). The T-2381
+# Miller House front joins a log core to a two-storey range mid-wall, and its board was
+# hung across the junction's notched log ends: dev's desktop smoke part 1 found 4 of 35
+# lettering rays behind them. The front-wall reader now names the notch; this holds that
+# reading to the module that lays the notches, and every committed board clear of it.
+step "no flat signboard hangs across a log front's mid-wall corner notches (T-3268)" \
+  python3 tools/test_log_notch_front.py
+
 # ...AND THE RULE IS LOCAL (T-0405). "Re-derives" only says the committed file matches the
 # rule; it says nothing about how far one frontage reaches. Until T-0405 the mounting was
 # dealt from a counter walked down the town in id order, so admitting one frontage in the
