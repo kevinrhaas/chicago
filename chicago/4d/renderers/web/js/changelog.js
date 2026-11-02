@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2570, ts: '2026-11-02T13:55:45.660Z', date: 'Nov 2, 2026, 7:55 AM CT', title: '1729 Prairie\'s ivy judged in leaf against its photograph', kind: 'chore',
+    items: [
+      'Nothing you can see in the walkthrough changes: its July ivy was already in leaf. The change is in how the Pullman house is checked against the Detroit Publishing photograph. That photograph\'s trees are bare but its ivy is in full leaf, so the review render now draws the ivy in leaf beside bare trees, not as bare stems. Matched that way, the ivy on the Prairie front and the 18th Street side now agrees with the photograph.',
+    ] },
   { v: 2569, ts: '2026-11-02T13:45:47.498Z', date: 'Nov 2, 2026, 7:45 AM CT', title: 'Nothing you can see changed: the east side\'s alley buildings signed off', kind: 'chore',
     items: [
       'The four refined alley buildings behind 1811 to 1905 Prairie Avenue were checked in the live 1904 town, from the yards, the alley and the air, on desktop and phone, with no errors.',
