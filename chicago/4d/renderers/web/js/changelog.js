@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2578, ts: '2026-11-02T19:21:36.465Z', date: 'Nov 2, 2026, 1:21 PM CT', title: '1816 Prairie\'s long brick stable on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1816 Prairie Avenue is no longer a rough draft. It now stands as a long two-and-a-half-storey brick stable, 22.4 m along the alley and 10.7 m deep, drawn from the 1911 fire-insurance map.',
+      'Both ends are fire walls rising above the roof, where the map marks them. Paired windows sit where the map marks windows, with two carriage doors and a hay-loft hatch between them. A paved walk runs from the yard door to the house\'s back wing.',
+      'The doors, roof pitch and most windows are reconstructed and are listed on the building\'s card.',
+    ] },
   { v: 2577, ts: '2026-11-02T18:34:17.826Z', date: 'Nov 2, 2026, 12:34 PM CT', title: '1701 Prairie\'s stable by the tracks, lantern and all', kind: 'feature',
     items: [
       'The Hibbard stable behind 1701 Prairie now stands on the slanting plan the 1911 map draws: both of its buildings lean with the railroad\'s right-of-way instead of standing as plain boxes.',
