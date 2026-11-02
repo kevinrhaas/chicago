@@ -39087,6 +39087,26 @@ neighbour, gives the south building's date and form and the stable's alley front
 **Review:** `docs/RESEARCH/photo-match/marshall_field_house_1905_prairie_coach_house/chicagology_923_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-1936).
 
+### L-t3319-fort-gate-leaves — Fort Dearborn's gate leaves planked, ledged and braced, swinging inward, shut until a visitor opens them
+
+**Decision:** the main gates of both forts (1835: the second fort's north and south gates; 1812: the first fort's
+main gate through both picket rows) are hung by `renderers/web/js/fort-gates.js` so a visitor can open and shut them
+with the Interact key (T-3319). Each gateway takes two leaves on the jambs the palisade archetype already draws, each
+leaf butted vertical boards about 0.28 m wide with two ledges and a diagonal brace on the side facing into the fort,
+the leaves swinging inward through 90 degrees over 1.4 s. Every gate stands shut when the page opens, as the baked
+leaves stood before. **Why:** the owner, 2026-11-02: *"you should be able to enter the fort in both 1812 and 1835, be
+able to walk through the gate ... the gate by default is closed and you can click on interact"*. **What is recorded and
+what is not:** that there were gates and where is attested (Kinzie and Andreas for the second fort's north and south
+gates; Whistler's index no. 7, "Main Gate", for the first). Their size is the records' (`gate_width_m`). Nothing
+reached describes how either fort's leaves were made, how they hung, or which way they swung; the boards, ledges,
+brace, inward swing, its angle and its speed are ours, and so is a visitor's power to open a garrison's gate. The
+1812 gates' place along the south rows (`gate_offset_m`) is the draught's, not this liberty's.
+**How to resolve:** a description or drawing of either fort's gates replaces the leaf; any garrison order on the
+gates' hours would say whether they stood open by day.
+**Covers:** `fort_dearborn_palisade.picket_1816.form.gate_width_m`
+**Ticket:** T-3319.
+**Recorded:** 2026-11-02 (T-3319).
+
 ### L-k12-1816-stable-1935 — The long brick stable on the alley behind 1816 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its two window marks and both party walls
 
 **Decision:** the district draft's alley building behind 1816 Prairie Avenue, the Henderson house (T-1935), is
