@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2552, ts: '2026-11-01T23:28:25.234Z', date: 'Nov 1, 2026, 5:28 PM CT', title: '1923 Prairie: paired porch columns and a scroll-panel fence', kind: 'feature',
+    items: [
+      'The Kellogg house at 1923 Prairie Avenue now stands its porch on pairs of columns, two at each side of the door, with the round arch turned only over the wide middle span, as the 1898 Tribune sketch draws it.',
+      'Its front fence is now panels of tall S-shaped iron scrolls between the posts, every other one mirrored, instead of spear railings.',
+      'Both of the house\'s pictures now match the model. 1945 Prairie\'s taller corner roof and its north bay\'s own dormered roof are still to come.',
+    ] },
   { v: 2551, ts: '2026-11-01T22:15:25.051Z', date: 'Nov 1, 2026, 4:15 PM CT', title: 'The first visit downloads 2 MB less', kind: 'improvement',
     items: [
       'The parked wagons at the Western Hotel and Wolf Point now load as you walk toward them, not before you arrive. A first visit to 1835 downloads 39.4 MB, down from 41.4 MB.',

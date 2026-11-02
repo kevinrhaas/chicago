@@ -71,7 +71,7 @@ BOARDS = "k11.fence.side_boards"
 # fence_run); the scroll band is the register's "lattice/iron boundary" at 1620. T-2455:
 # the boards may close a street line too (1616's, drawn past 1620's corner in 1874)
 FENCES = {FENCE: "spear", "k11.fence.scroll_band": "scroll", "k11.fence.lattice_arcade": "lattice",
-          BOARDS: "boards"}
+          BOARDS: "boards", "k11.fence.scroll_panel": "scroll_panel"}
 GATE = "k11.gate.walk_gate_on_piers"
 WALL = "k11.wall.brick_with_piers"
 STREET_FRONT = "k01.wall.street_front"
@@ -166,6 +166,8 @@ def spec(params) -> dict | None:
         raise ValueError(f"boundary.fence_rail_top_m {top}: an iron railing's top rail stands 0.8-2.2 m over the curb")
     if FENCES[t["fence"]] == "lattice" and not 0.2 <= t.get("lattice_pitch_m", 0) <= 0.6:
         raise ValueError("a lattice fence names its bay, boundary.lattice_pitch_m, 0.2-0.6 m")
+    if FENCES[t["fence"]] == "scroll_panel" and not 0.3 <= t.get("scroll_pitch_m", 0) <= 0.8:
+        raise ValueError("a scroll-panel fence names its bay, boundary.scroll_pitch_m, 0.3-0.8 m")
     if t.get("lattice_span_bays", 2) not in (2, 3, 4):
         raise ValueError("boundary.lattice_span_bays: an arch spans 2, 3 or 4 bays")
     b = t.get("side_fence")
@@ -287,7 +289,8 @@ def dress(a):
     foot = max(q[0] for q in stoop)
 
     fence, style = t["fence"], FENCES[t["fence"]]
-    var = K.Variant({"id": fence, "kind": "fence", "pitch_m": t.get("lattice_pitch_m"),
+    var = K.Variant({"id": fence, "kind": "fence", "pitch_m": t.get("scroll_pitch_m" if style == "scroll_panel"
+                                                                    else "lattice_pitch_m"),
                      "span_bays": t.get("lattice_span_bays", 2)}, data)
     B = t.get("side_fence")
     n_end = B["from_s_m"] - 0.06 if B else s_north - 0.12     # T-2406: the boards take the north end
