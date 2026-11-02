@@ -412,6 +412,20 @@ def self_test(data) -> int:
         op["s0"] += 0.2
         op["s1"] += 0.2
 
+    # T-1932: 1730's stable, its range as deep as it and its one-storey piece on the lot line
+    def lined(d):
+        st = json.loads((ROOT / "data" / "structures" / "house_1730_prairie_coach_house.json").read_text())
+        d["variants"][0] = copy.deepcopy(st["phases"][0]["form"]["coach_house"]["value"])
+        return d["variants"][0]
+
+    def g_return_gap(built):    # the lean-to's roof over the return pulled 5 mm off the return
+        p = piece(built, "lean-to roof over the return")
+        p.mesh.pos = [(x, y, z - 0.005) for x, y, z in p.mesh.pos]
+
+    def g_deep_gap(built):      # the full-depth range's yard wall pulled 5 mm off the yard wall's end
+        p = piece(built, "range yard wall")
+        p.mesh.pos = [(x + 0.005, y, z) for x, y, z in p.mesh.pos]
+
     def g_lift(built):      # the stair's stringers stood 50 mm above the ground
         for name in ("stringer wall", "stringer outer"):
             p = piece(built, name)
@@ -435,7 +449,9 @@ def self_test(data) -> int:
              ("1812: the workyard walk short of the house", named, g_named_walk, "grade"),
              ("1812: the east party wall left out", named, g_named_open, "shell"),
              ("1720: the range 5 mm off the gable", ranged, g_range_gap, "seated"),
-             ("1720: the range's sash at its end wall", d_range_crowd, None, "openings")]
+             ("1720: the range's sash at its end wall", d_range_crowd, None, "openings"),
+             ("1730: the lean-to's roof 5 mm off the party wall's return", lined, g_return_gap, "seated"),
+             ("1730: the full-depth range 5 mm off the yard wall", lined, g_deep_gap, "seated")]
     bad = 0
     for label, dmut, gmut, rule in cases:
         d = copy.deepcopy(data)
