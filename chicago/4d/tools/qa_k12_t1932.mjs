@@ -16,6 +16,7 @@
 //   QA_TARGET=1730 node tools/qa_k12_t1932.mjs       1730's stable, its full-depth range and its one-storey piece, the tenth (range and lean-to on the lot line)
 //   QA_TARGET=1630 node tools/qa_k12_t1932.mjs       1630's one-storey frame shed (on K16, the house's timber kit, not K12)
 //   QA_TARGET=1638 node tools/qa_k12_t1932.mjs       1638's stable, the last (the kit in mirror image, its gable window to the north)
+//   QA_TARGET=1816 node tools/qa_k12_t1932.mjs       T-1935: 1816's long stable on the 18th-20th alley (sheet 28), party walls both ends
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -81,6 +82,11 @@ const TARGETS={
   ['north-gable',[1352,-3058,1.7],[1340,-3071,3]],
   ['yard-face',[1352.5,-3079,1.7],[1345,-3075,3.5]],
   ['air',[1375,-3105,44],[1340,-3075,0]]]},
+ '1816':{dir:'k12-1816-henderson-stable-1935',ids:['henderson_house_1816_prairie_coach_house','henderson_house_1816_prairie','wheeler_house_1812_prairie_coach_house'],glb:'henderson_house_1816_prairie_coach',stands:[
+  ['alley-from-south',[1335.2,-3300,1.7],[1339,-3272,4]],
+  ['alley-from-north',[1335.2,-3244,1.7],[1339,-3272,4]],
+  ['yard-face',[1362,-3290,1.7],[1346,-3274,4]],
+  ['air',[1380,-3305,44],[1344,-3272,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
