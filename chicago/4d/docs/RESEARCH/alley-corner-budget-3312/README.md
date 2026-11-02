@@ -62,6 +62,10 @@ the positive control hides every piece the test swaps, with no twin in its place
 | rear alley south (1.7 m) | 1,000,647 | 931,767 | 296 | 0 | 0 |
 | air, T-2992's (110 m), *not gated* | 1,823,232 | 1,543,358 | 393 | 101 | 178 |
 
+Re-read after merging dev at 8af6fd991 (T-3283's 1945 Prairie mansard and T-3305's 1919 Prairie
+stonework landed meanwhile), roof stand only: **1,600,004 -> 1,243,092**, the same 722 pixels
+changed, PASS. The table above is the pre-merge run that `browser-validation-mobile.json` holds.
+
 Draw calls rise by 7-103 (a swapped piece leaves its coalesced run), against light's 7,800.
 No page errors or failed requests. `roof-diff.jpg` is the roof stand's off frame with every
 changed pixel in magenta (`QA_IMAGES=1` writes the off, on and diff frames as PNG), and
