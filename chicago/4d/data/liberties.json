@@ -53946,12 +53946,6 @@
         {
           "domain": "structure",
           "structure": "shortall_gregory_house_1638_prairie_coach_house",
-          "phase": null,
-          "aspect": "function"
-        },
-        {
-          "domain": "structure",
-          "structure": "shortall_gregory_house_1638_prairie_coach_house",
           "phase": "as_standing_1904",
           "aspect": "form.coach_house"
         },
@@ -53981,7 +53975,7 @@
         },
         {
           "label": "Covers",
-          "text": "`shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.coach_house`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.stories`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.construction`, `shortall_gregory_house_1638_prairie_coach_house.function`"
+          "text": "`shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.coach_house`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.stories`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.construction`"
         },
         {
           "label": "Review",

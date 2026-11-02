@@ -33409,7 +33409,7 @@ outline, its place on the lot, the storeys, the brick, the two marks' places, th
 are the maps'.
 **How to resolve:** a photograph of the alley behind 1630-1700 Prairie, entered as a source, gives its openings, roof
 and ends their true form.
-**Covers:** `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.coach_house`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.stories`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.construction`, `shortall_gregory_house_1638_prairie_coach_house.function`
+**Covers:** `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.coach_house`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.stories`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1932.
 **Review:** `docs/RESEARCH/k12-1638-stable-1932/README.md`.
 **Recorded:** 2026-11-02 (T-1932).
