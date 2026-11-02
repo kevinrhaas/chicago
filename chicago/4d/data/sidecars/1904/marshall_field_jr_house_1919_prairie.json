@@ -197,7 +197,19 @@
             0.0,
             1.0
           ]
-        }
+        },
+        "coping": {
+          "thickness_m": 0.18,
+          "depth_m": 0.35,
+          "kneeler_m": 0.35,
+          "finial_m": 0.45
+        },
+        "also": [
+          {
+            "v_m": 8.05,
+            "width_m": 1.6
+          }
+        ]
       },
       "confidence": "inferred",
       "sources": [
@@ -205,7 +217,7 @@
         "cdn_almanac_1913_gatlin_1919_plate",
         "chicago_blue_book_1912_gatlin_1919_plate"
       ],
-      "note": "The broad gabled dormer on the street slope over the front, which the 1919 programme plate shows with three lights under its gable, as the 1913 plate does: T-3280 built it 3.3 m wide with three K06 sashes at the contract's narrowest, 0.75 m, 1.0 m apart (K01's `sash.at_m`), still centred on the front. Where it stands along the front the pictures do not agree: through the programme plate's camera its face lies about 1.6 m south of the centre, while the 2004 photograph (unsolved) shows it about 1 m north of it, so it stays on the centre, between them, and the difference is within tolerance. Its gable's stone coping and kneelers, and the smaller one-light dormer both pictures show near the front's south end, are open differences in the view's match record."
+      "note": "The broad gabled dormer on the street slope over the front, which the 1919 programme plate shows with three lights under its gable, as the 1913 plate does: T-3280 built it 3.3 m wide with three K06 sashes at the contract's narrowest, 0.75 m, 1.0 m apart (K01's `sash.at_m`), still centred on the front. Where it stands along the front the pictures do not agree: through the programme plate's camera its face lies about 1.6 m south of the centre, while the 2004 photograph (unsolved) shows it about 1 m north of it, so it stays on the centre, between them, and the difference is within tolerance. T-3301 adds what both Gatlin plates draw beside and over it. The smaller one-light dormer near the front's south end (`also`): the programme plate's source record names it, and the 2004 photograph (unsolved; read at about 57 px to the metre across the 9.9 m front) puts its centre about 8.0 m from the north corner and its face about 1.6 m wide with one tall light; built at v 8.05 m, 1.6 m wide, one K06 sash of the broad dormer's size, its face, setback, pitch and verges the broad one's (K01's `dormer.also`). Its width and its light are INFERRED from the 2004 photograph, its existence and place from the plates. And the stone-coped gable (`coping`): both plates draw the broad dormer's gable pale against the slate, carried up over the roof with kneelers at its feet and a finial at its apex, and the 2004 photograph shows both dormers' gables coped in stone with kneelers. Built as an 0.18 m stone coping along each rake, 0.35 m back from the face, 0.35 m kneelers and a 0.45 m turned finial on the broad dormer's apex (the small dormer takes the same build): the coping's depth, the kneelers' size and the finial's height and turning are RECONSTRUCTED at the plates' scale, which does not resolve them (L-k01-1919-coped-dormers-3301)."
     },
     "stair_tread_m": {
       "value": 0.3,
@@ -325,14 +337,19 @@
               1.2,
               0.8
             ]
+          },
+          {
+            "u_m": 14.5,
+            "v_m": 7.5
           }
         ]
       },
       "confidence": "inferred",
       "sources": [
-        "cdn_almanac_1913_gatlin_1919_plate"
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "gatlin_programme_1919_field_jr_plate"
       ],
-      "note": "The two tall stacks the 1913 plate shows rising off the north flank well above the ridge: one between the round tower and the front's canted corner, one further back. Their places along the wall are read through the plate's camera; their plans and their height, 1.6 m over the ridge (K01 tops a hip's stacks off the ridge), is RECONSTRUCTED at about what the plates show: T-3280 steepened the hip to 52 degrees, lifting the ridge 1.4 m, and lowered the stacks' rise by as much, so their tops stand where T-3279 put them, about 17.4 m, which the 1913 plate's camera reads at 17.1 m and 17.7 m and the 1919 programme plate's at 16.8 m and 18.1 m (the near stack and the far one)."
+      "note": "The two tall stacks the 1913 plate shows rising off the north flank well above the ridge: one between the round tower and the front's canted corner, one further back. Their places along the wall are read through the plate's camera; their plans and their height, 1.6 m over the ridge (K01 tops a hip's stacks off the ridge), is RECONSTRUCTED at about what the plates show: T-3280 steepened the hip to 52 degrees, lifting the ridge 1.4 m, and lowered the stacks' rise by as much, so their tops stand where T-3279 put them, about 17.4 m, which the 1913 plate's camera reads at 17.1 m and 17.7 m and the 1919 programme plate's at 16.8 m and 18.1 m (the near stack and the far one). T-3301 adds the third, the stack both Gatlin plates draw rising behind the street dormers at the front block's south side (the programme plate's source record: 'a stack behind them'), which the 2004 photograph shows between the broad dormer and the small one, close behind them: built at u 14.5 m, v 7.5 m, just behind the small dormer's body and clear of the broad one's, where the programme plate's camera stands it at the broad dormer's south cheek, on the kit's 0.9 x 0.75 m plan and the stacks' shared 1.6 m over the ridge. Its place is INFERRED from the pictures (none of them is solved for it), its plan and height RECONSTRUCTED as the others'."
     },
     "rainwater": {
       "value": {
