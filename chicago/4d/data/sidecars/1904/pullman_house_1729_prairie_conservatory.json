@@ -221,7 +221,7 @@
               "rects_m": [
                 [
                   -11.16,
-                  23.05,
+                  19.7,
                   -4.66,
                   6.9
                 ],
@@ -233,19 +233,19 @@
                 ],
                 [
                   -4.66,
-                  23.05,
-                  -1.6,
-                  21.2
+                  19.7,
+                  -2.15,
+                  17.85
                 ]
               ],
               "top_m": 2.0,
               "lights": [
                 {
-                  "centre_m": -7.0,
-                  "width_m": 1.1,
-                  "sill_m": 0.35,
-                  "height_m": 1.2,
-                  "z_m": 23.05
+                  "centre_m": -7.25,
+                  "width_m": 1.25,
+                  "sill_m": 0.55,
+                  "height_m": 0.9,
+                  "z_m": 19.7
                 }
               ]
             },
@@ -271,10 +271,10 @@
               "id": "west_landing",
               "rects_m": [
                 [
-                  -5.0,
-                  26.25,
-                  -1.6,
-                  24.85
+                  -5.55,
+                  22.9,
+                  -2.15,
+                  21.5
                 ]
               ],
               "top_m": 1.0
@@ -284,12 +284,12 @@
             {
               "id": "west_lower",
               "x_m": [
-                -3.4,
-                -2.09
+                -3.95,
+                -2.64
               ],
               "z_m": [
-                27.85,
-                26.25
+                24.5,
+                22.9
               ],
               "from_m": 0.0,
               "to_m": 1.0,
@@ -299,12 +299,12 @@
             {
               "id": "west_upper",
               "x_m": [
-                -4.55,
-                -2.31
+                -5.1,
+                -2.86
               ],
               "z_m": [
-                24.85,
-                23.05
+                21.5,
+                19.7
               ],
               "from_m": 1.0,
               "to_m": 2.0,
@@ -349,7 +349,7 @@
               "rects_m": [
                 [
                   -4.64,
-                  21.18,
+                  17.83,
                   3.16,
                   8.58
                 ],
@@ -366,10 +366,28 @@
                   6.02
                 ],
                 [
-                  -1.58,
+                  -2.13,
                   27.63,
                   3.16,
-                  21.18
+                  17.83
+                ],
+                [
+                  -2.9,
+                  24.5,
+                  -2.13,
+                  19.7
+                ]
+              ],
+              "top_m": 0.05
+            },
+            {
+              "id": "west_gate_walk",
+              "rects_m": [
+                [
+                  -3.95,
+                  27.63,
+                  -2.13,
+                  24.5
                 ]
               ],
               "top_m": 0.05
@@ -417,47 +435,47 @@
           "balustrades": [
             {
               "a": [
-                -7.72,
-                22.75
+                -8.96,
+                19.4
               ],
               "b": [
-                -5.24,
-                22.75
+                -6.0,
+                19.4
               ],
-              "base_m": 2.0
+              "base_m": 2
             },
             {
               "a": [
-                -1.78,
-                22.47
+                -2.33,
+                19.12
               ],
               "b": [
-                -1.78,
-                21.54
+                -2.33,
+                18.19
               ],
-              "base_m": 2.0
+              "base_m": 2
             },
             {
               "a": [
-                -1.94,
-                21.38
+                -2.49,
+                18.03
               ],
               "b": [
                 -4.68,
-                21.38
+                18.03
               ],
-              "base_m": 2.0
+              "base_m": 2
             },
             {
               "a": [
                 -4.84,
-                21.22
+                17.87
               ],
               "b": [
                 -4.84,
                 7.48
               ],
-              "base_m": 2.0
+              "base_m": 2
             },
             {
               "a": [
@@ -495,42 +513,44 @@
           ],
           "pedestals": [
             {
-              "base_m": 2.0,
+              "base_m": 2,
+              "urn": true,
+              "width_m": 0.8,
+              "at": [
+                -5.6,
+                19.4
+              ]
+            },
+            {
+              "base_m": 2,
               "urn": true,
               "at": [
-                -4.96,
-                22.75
+                -2.45,
+                19.4
               ]
             },
             {
-              "base_m": 2.0,
-              "urn": true,
+              "base_m": 2,
+              "width_m": 0.8,
               "at": [
-                -1.9,
-                22.75
+                -9.36,
+                19.4
               ]
             },
             {
-              "base_m": 2.0,
-              "at": [
-                -8.0,
-                22.75
-              ]
-            },
-            {
-              "base_m": 2.0,
+              "base_m": 2,
               "width_m": 0.36,
               "at": [
-                -1.78,
-                21.38
+                -2.33,
+                18.03
               ]
             },
             {
-              "base_m": 2.0,
+              "base_m": 2,
               "width_m": 0.36,
               "at": [
                 -4.84,
-                21.38
+                18.03
               ]
             },
             {
@@ -590,8 +610,8 @@
               "length_m": 1.3,
               "depth_m": 0.45,
               "at": [
-                -4.5,
-                25.55
+                -5.05,
+                22.2
               ]
             }
           ],
@@ -627,7 +647,7 @@
             ],
             "high_posts_m": []
           },
-          "area_m2": 291.2
+          "area_m2": 273.0
         }
       },
       "confidence": "reconstructed",
@@ -635,7 +655,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "aic_taylor_16555_pullman_west_front"
       ],
-      "note": "The range the palm house stands in: its plan the sheet's (one storey and a basement, stone, 4.42 m deep), its run, height and dress read off Taylor's photograph through its camera: 7.1 m to the parapet's foot and a 0.9 m parapet, in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown), an arched door 6.8 m east of the drum's centre and an arched window 7.3 m west of it, and a terrace 1.4 m high and 6.0 m deep with a 0.9 m balustrade either side of a central flight of eight risers. T-1934 dressed the south face as the Inland plate and Taylor's 16555 show it: banded rustication from the terrace to a moulded cornice, a broad pilaster 4.4 m either side of the drum's centre, the parapet and the terrace's balustrades open balusters between dies and piers, and an urn on each terrace pier. Their sizes and the baluster's shape are reconstructed (L-pullman-palm-house-1934). T-1934 (2026-10-30): the range's stone darkened from (0.66, 0.62, 0.54) to the stable's, linear (0.332, 0.299, 0.241), and its rustication, pilasters and cornice with it (K13 `host_stone`): in Taylor's winter print 16554 the range prints 126-143, with the stable (141-148), not lighter (docs/RESEARCH/colour-pullman-stable-T-1934/); the plate's lit walls are clipped at the paper's white and cannot say. T-1934 (the owner, 2026-11-02: \"is that building and the stable the same material facing as the main building? ... it seems to be the same facing also\"): yes, on the evidence. The 1911 sheet letters the house, the range and the stable alike as stone, and every picture prints the three in one family of tone; only their lightness differs. So the hue is now the house's own sandstone_fawn (mean linear 0.287, 0.227, 0.156), not the draft's greyer stone, and the tone stays where Taylor's winter print 16554 puts it, a step lighter than the house's walls (docs/RESEARCH/colour-pullman-stable-T-1934/: the stable prints 1.37-1.47 times the house's wall, which through the print's tone curve is about 1.3 times its reflectance): the range's walls linear (0.370, 0.293, 0.201), the palm house's columns, entablature, balustrades and the court's stone a shade over them (0.414, 0.328, 0.225). Same stone, cleaner or better lit faces; whether the stable's 1891 permit 'brick' is a brick backing behind the stone face no picture can say. T-1934 (the owner, 2026-11-02: the terraced steps, walkways and landings round the conservatory \"per the photo\", and a top-down plan with all the levels): `court` builds what Taylor's 16555 and the 1894 plate show between the palm terrace and 18th Street, read through their cameras (16555's re-solved on the wall's piers) and triangulated within about 0.5 m: the house's east terrace at the principal floor (+2.0) out to u -4.66 and south to v -23.05 with its arched light; the west gate's flight in two runs (0 to +1.0, +1.0 to +2.0) about a half landing with a bench, urn pedestals at its head; the east gate's flight of nine risers to a +1.4 terrace walk (u 3.18-5.58) along to the palm terrace, cheek walls and urn pedestals at foot and head; the sunken flagged court at grade; balustrades round the open edges; and the striped awning, a lean-to off the house's east wall from 6.5 m to a 4.2 m eave 4.4 m out, its south end at v -12.5 closed by a striped side curtain (16555). The palm terrace's front is balustraded only where no stair or walk meets it (`terrace.runs_m`). Plan points are (x east, z south of the wing's face). The sections, the unseen link flight up from the palm terrace, the bench, the awning's north end and posts and the colours are reconstructed (L-pullman-court-1934; the plan in docs/RESEARCH/pullman-court-T-1934/)."
+      "note": "The range the palm house stands in: its plan the sheet's (one storey and a basement, stone, 4.42 m deep), its run, height and dress read off Taylor's photograph through its camera: 7.1 m to the parapet's foot and a 0.9 m parapet, in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown), an arched door 6.8 m east of the drum's centre and an arched window 7.3 m west of it, and a terrace 1.4 m high and 6.0 m deep with a 0.9 m balustrade either side of a central flight of eight risers. T-1934 dressed the south face as the Inland plate and Taylor's 16555 show it: banded rustication from the terrace to a moulded cornice, a broad pilaster 4.4 m either side of the drum's centre, the parapet and the terrace's balustrades open balusters between dies and piers, and an urn on each terrace pier. Their sizes and the baluster's shape are reconstructed (L-pullman-palm-house-1934). T-1934 (2026-10-30): the range's stone darkened from (0.66, 0.62, 0.54) to the stable's, linear (0.332, 0.299, 0.241), and its rustication, pilasters and cornice with it (K13 `host_stone`): in Taylor's winter print 16554 the range prints 126-143, with the stable (141-148), not lighter (docs/RESEARCH/colour-pullman-stable-T-1934/); the plate's lit walls are clipped at the paper's white and cannot say. T-1934 (the owner, 2026-11-02: \"is that building and the stable the same material facing as the main building? ... it seems to be the same facing also\"): yes, on the evidence. The 1911 sheet letters the house, the range and the stable alike as stone, and every picture prints the three in one family of tone; only their lightness differs. So the hue is now the house's own sandstone_fawn (mean linear 0.287, 0.227, 0.156), not the draft's greyer stone, and the tone stays where Taylor's winter print 16554 puts it, a step lighter than the house's walls (docs/RESEARCH/colour-pullman-stable-T-1934/: the stable prints 1.37-1.47 times the house's wall, which through the print's tone curve is about 1.3 times its reflectance): the range's walls linear (0.370, 0.293, 0.201), the palm house's columns, entablature, balustrades and the court's stone a shade over them (0.414, 0.328, 0.225). Same stone, cleaner or better lit faces; whether the stable's 1891 permit 'brick' is a brick backing behind the stone face no picture can say. T-1934 (the owner, 2026-11-02: the terraced steps, walkways and landings round the conservatory \"per the photo\", and a top-down plan with all the levels): `court` builds what Taylor's 16555 and the 1894 plate show between the palm terrace and 18th Street, read through their cameras (16555's re-solved on the wall's piers) and triangulated within about 0.5 m: the house's east terrace at the principal floor (+2.0) out to u -4.66 and south to v -19.7 with its arched light (T-1934, 2026-11-02: moved 3.35 m north from v -23.05, where 16555 alone had put it, onto the place the plate's and 16555's urn pedestal, its edge and the light's jamb cross; the west gate's flights, landing and bench with it, and 0.55 m west, a walk from the gate to the flight's foot; L-pullman-court-1934); the west gate's flight in two runs (0 to +1.0, +1.0 to +2.0) about a half landing with a bench, urn pedestals at its head; the east gate's flight of nine risers to a +1.4 terrace walk (u 3.18-5.58) along to the palm terrace, cheek walls and urn pedestals at foot and head; the sunken flagged court at grade; balustrades round the open edges; and the striped awning, a lean-to off the house's east wall from 6.5 m to a 4.2 m eave 4.4 m out, its south end at v -12.5 closed by a striped side curtain (16555). The palm terrace's front is balustraded only where no stair or walk meets it (`terrace.runs_m`). Plan points are (x east, z south of the wing's face). The sections, the unseen link flight up from the palm terrace, the bench, the awning's north end and posts and the colours are reconstructed (L-pullman-court-1934; the plan in docs/RESEARCH/pullman-court-T-1934/)."
     },
     "conservatory": {
       "value": {
