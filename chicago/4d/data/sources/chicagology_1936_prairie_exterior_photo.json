@@ -1,0 +1,27 @@
+{
+ "id": "chicagology_1936_prairie_exterior_photo",
+ "type": "photograph",
+ "citation": "[1936 S. Prairie Ave. (Daniel M. Thompson / Samuel W. Allerton residence).] Photograph of the house from the south-east, across the corner of Prairie Avenue and 20th Street, in winter; unknown photographer, undated (an electric street lamp and a fire hydrant stand at the curb). Reproduced on chicagology.com, Prairie Avenue, 1936 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (an electric street lamp: probably the 1890s to 1912)",
+ "describes_date": "undated; before the house was razed in 1915, the electric lamp placing it near 1904",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a19-cgy-1936-thompson-photo, recorded there as 'unknown - link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a19-cgy-1936-thompson-photo.jpg), committed at data/sources/assets/allerton_1936_photo_t1901/.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1936prairie/",
+ "locator": "The whole print: the house's south flank and its street front from the south-east, the belvedere tower, the verandah and the entrance porch at the tower's foot, the iron fence on its curb, and at the left the brick barn on the alley with its own cupola.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts and places are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy is unaltered.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-02 (T-1901) from the image store's reference copy, 1955 x 1080 px greyscale, sha256 7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a.",
+ "note": "The best view of the house the library holds: the low hipped roof behind a deep bracketed cornice with a railed deck, tall corniced chimney stacks, the attic's frieze lights between the brackets on the south flank, hooded windows, a pale stone basement under the darker brick, the square belvedere tower rising two stages past the cornice to a balustraded top, the columned verandah with its balustrade south of the tower and the entrance porch and stoop at its foot, the iron fence on a stone curb along both streets, and the snow-covered side lawn.",
+ "what_it_supplies": [
+  "the house's massing, roof, cornice, tower and verandah as they stood before 1915",
+  "the camera the image gate renders the house against (data/reference_views/house_1918_prairie/chicagology_photo.json)"
+ ],
+ "what_it_does_not_supply": [
+  "a date: undated, before 1915",
+  "colour: the print is monochrome",
+  "the north flank and the rear, which it does not see"
+ ]
+}
