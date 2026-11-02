@@ -526,6 +526,43 @@ def framed_window(m: Mesh, P, s, sill, w, h, sash: dict):
             obox(m, "door", Q, x_, x_ + 0.05, sill, sill + h, 0.0, 0.045)
 
 
+def hood(m: Mesh, P, s, y, half, out, spec: dict):
+    """A stone hood over a framed window (T-1936: the Doane coach house's loft light in the
+    Glessner House print): a flat entablature `h_m` tall standing on the lintel, carried
+    `ears_m` past the architrave at each side, its ends dropped `drop_m` below it as ears,
+    and capped by a thin projecting cornice. `y` is the lintel's top, `half` the
+    architrave's half-width, `out` its projection; every number but those is the spec's."""
+    Q = lambda x, y_, z: P(x, z, y_)  # noqa: E731  board order (along, up, out) for obox
+    ears, h = float(spec.get("ears_m", 0.2)), float(spec.get("h_m", 0.3))
+    drop, proud = float(spec.get("drop_m", 0.18)), float(spec.get("out_m", 0.1))
+    cap, cap_out = float(spec.get("cap_m", 0.06)), float(spec.get("cap_out_m", 0.05))
+    a, b = s - half - ears, s + half + ears
+    obox(m, "trim", Q, a, b, y, y + h - cap, 0.0, out + proud)
+    obox(m, "trim", Q, a - cap_out, b + cap_out, y + h - cap, y + h, 0.0, out + proud + cap_out)
+    if drop > 0:
+        for x0, x1 in ((a, a + min(ears, 0.16)), (b - min(ears, 0.16), b)):
+            obox(m, "trim", Q, x0, x1, y - drop, y, 0.0, out + proud * 0.6)
+
+
+def carriage_door(m: Mesh, P, cd: dict, inside) -> None:
+    """A carriage opening on a dressed face under a flattened (segmental) head (T-1936: the
+    Doane coach house's yard front in the Glessner House print): a stone surround `band_m`
+    wide round the opening, the paired leaves set back in it as one dark face, and any
+    glazed `lights` in the leaves, each {ds, sill_m, w_m, h_m} from the opening's middle (and
+    `mat`, glass unless the picture shows the panel pale).
+    `spring_m` is the springing line, `rise_m` the head's rise over it."""
+    s, w = float(cd["s"]), float(cd["w_m"])
+    spring, rise = float(cd["spring_m"]), float(cd.get("rise_m", 0.15))
+    band = float(cd.get("band_m", 0.18))
+    round_head(m, "trim", P, s, w + 2 * band, 0.0, spring, 0.02, inside, rise=rise + band)
+    round_head(m, "door", P, s, w, 0.0, spring, 0.04, inside, rise=rise)
+    for lt in cd.get("lights", []):
+        c, lw = s + float(lt.get("ds", 0.0)), float(lt["w_m"])
+        y0, y1 = float(lt["sill_m"]), float(lt["sill_m"]) + float(lt["h_m"])
+        m.face(lt.get("mat", "glass"), [P(c - lw / 2, 0.05, y0), P(c + lw / 2, 0.05, y0),
+                         P(c + lw / 2, 0.05, y1), P(c - lw / 2, 0.05, y1)], inside)
+
+
 def ashlar(m: Mesh, rects: dict, spec: dict, a: dict, windows: list, facts: dict):
     """The joints of an ashlar wall drawn on its face (T-1934, the owner, 2026-10-30: "the stable
     is still not have much surface detail"): a bed joint at every course and head joints
@@ -591,6 +628,10 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
             round_head(m, "glass", P, s, ww, sill, spring, 0.06, inside(s, sill))
         elif sash:
             framed_window(m, P, s, sill, ww, hh, sash)
+            if w.get("hood"):
+                hood(m, P, s, sill + hh + float(sash.get("lintel_m", 0.22)),
+                     ww / 2 + float(sash.get("architrave_m", 0.14)),
+                     float(sash.get("architrave_out_m", 0.07)), w["hood"])
         else:
             m.face("trim", [P(s - ww / 2 - 0.12, 0.03, sill - 0.1), P(s + ww / 2 + 0.12, 0.03, sill - 0.1),
                             P(s + ww / 2 + 0.12, 0.03, sill + hh + 0.15), P(s - ww / 2 - 0.12, 0.03, sill + hh + 0.15)],
@@ -598,6 +639,10 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
             m.face("glass", [P(s - ww / 2, 0.06, sill), P(s + ww / 2, 0.06, sill),
                              P(s + ww / 2, 0.06, sill + hh), P(s - ww / 2, 0.06, sill + hh)], inside(s, sill))
         windows += 1
+    for cd in f.get("carriage_doors", []):
+        P, inside, _ = face_of(cd)
+        carriage_door(m, P, cd, inside(float(cd["s"]), 0.5))
+        doors += 1
     for up in f.get("upper_walls", []):
         # an upper storey carried up through the roof's lower slope as one long wall
         # dormer with its own cornice, the stable's 18th Street front (T-3178)
@@ -1064,7 +1109,10 @@ def build(params, structure_id: str):
         pitch = float(p.get("pitch_deg", e.get("roof_pitch_deg", 40)))
         if roof == "flat":
             c = 0.35 if role in ("main", "wing", "bay", "stone_front") else 0.2
-            m.box("cornice", u0 - c, u1 + c, v0 - c, v1 + c, eave - 0.4, eave)
+            # a part read off a picture may state its own cornice (T-1936: the Doane coach
+            # house's thin moulding in the Glessner House print); the rules' slab otherwise
+            c = float(p.get("cornice_out_m", c))
+            m.box("cornice", u0 - c, u1 + c, v0 - c, v1 + c, eave - float(p.get("cornice_h_m", 0.4)), eave)
             m.box("roof", u0, u1, v0, v1, eave, eave + 0.06)
             if role in ("main", "stone_front") and is_house:
                 m.box(front_mat, u1 - 0.3, u1, v0, v1, eave, eave + 0.7)
