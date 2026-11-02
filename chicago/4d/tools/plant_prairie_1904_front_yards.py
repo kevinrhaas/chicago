@@ -117,7 +117,8 @@ PICTURED = {
                     "note": "Ivy over the west front and the porch, to about the second storey's sills and "
                             "past them on the porch's piers (both Detroit Publishing views); a solid mantle "
                             "over the whole ground storey of the front south of the portico and of the 18th "
-                            "Street flank west of the porte-cochere, up to the balcony's belt course "
+                            "Street flank west of the porte-cochere, up to the balcony's belt course, "
+                            "and the porte-cochere's corner pier clothed to its entablature "
                             "(LC-D4-12551)."},
         # T-1881: the stretches a picture shows wholly clothed, each read through the Detroit print's
         # solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json),
@@ -138,6 +139,18 @@ PICTURED = {
             # T-1881 round 3: to the 18th Street section's west face, now at d 24.0 (s 7.2 from the
             # corner), so the stretch stays on the flank's own face and off the section's return
             {"face": "high_s", "span_m": [16.6, 23.9], "height_m": [6.4, 7.0]},
+        ],
+        # T-1881: the porte-cochere's corner pier, clothed from the ground to the entablature's
+        # soffit (6.85 m) in the Detroit print: its west face, seen square through the solved
+        # camera at x 645-668 (the west arch's outer jamb to the corner), and its south face,
+        # seen edge-on, the leaves turning the corner to the south arch's jamb at x 668 and
+        # reaching over that arch's ring. The inner pier (x 592-610) shows its banded courses
+        # bare, so it is left bare. Each patch stands on the rustication's face (0.05 m proud).
+        "creeper_piers": [
+            {"sidecar": "pullman_house_1729_prairie", "face": "low_end", "pier": "outer",
+             "proud_m": 0.05, "height_m": [6.55, 6.85]},
+            {"sidecar": "pullman_house_1729_prairie", "face": "front", "pier": "low",
+             "proud_m": 0.05, "height_m": [6.55, 6.85]},
         ],
         # T-1934 (the owner, 2026-10-30: the carriage ways with "no plants blocking it"): the border
         # starts at the house's east wall (d 45.5), where the print shows it, not along the house's
@@ -748,6 +761,47 @@ def window_spans(y, cw):
     return out
 
 
+def porte_pier_face(cp):
+    """One pier face of a K01 porte-cochere (generators/archetypes/k01_porte_cochere.py), read
+    off its structure's sidecar: the face's two ends at grade, world (e, n), stood `proud_m` out
+    of the wall's plane onto its dressing, and the face's outward compass bearing. `face` is one
+    of the block's three walls ("low_end", "front", "high_end"); `pier` the side of that face's
+    arch the pier stands on ("low"/"high" along the front's s, "inner"/"outer" on an end, from
+    the wall it stands against out to the block's corner). T-1881: Pullman's corner pier, which
+    the Detroit print shows clothed to the entablature, whose arch's places the planting can
+    therefore never drift from."""
+    sc = json.loads((SIDECARS / f"{cp['sidecar']}.json").read_text())
+    pl = sc["placement"]
+    pc = sc["attributes"]["porte_cochere"]["value"]
+    poly = sc["footprint"]["polygon"]
+    D, W = max(q[0] for q in poly), max(q[1] for q in poly)
+    rd = math.radians(pl.get("rotation_deg") or 0.0)
+    cd, sd = math.cos(rd), math.sin(rd)
+    (s0, s1), out, back = pc["s_m"], pc["out_m"], pc.get("back_m", 0.0)
+    north = pc["wall"] == "k01.wall.side.north"
+    # the generator's P(s, y, d): model x = D - s and z = -(W + d) on the north wall, z = d on the
+    # south; the K01 frame's (u, v) is the model's (x, -z), as lay_structure places it
+    uv = lambda s_, d_: (D - s_, W + d_ if north else -d_)
+    arch = next((a for a in pc["arches"] if a["face"] == cp["face"]), None)
+    pr = cp.get("proud_m", 0.0)
+    if cp["face"] == "front":
+        c = arch["centre_m"] if arch else None
+        a0, a1 = ((s0, c - arch["span_m"] / 2) if cp["pier"] == "low" else (c + arch["span_m"] / 2, s1)) \
+            if arch else (s0, s1)
+        ends = [uv(a, out + pr) for a in (a0, a1)]
+        normal = (0.0, 1.0 if north else -1.0)
+    else:
+        sw = s0 - pr if cp["face"] == "low_end" else s1 + pr
+        c = arch["centre_m"] if arch else None
+        a0, a1 = ((back, c - arch["span_m"] / 2) if cp["pier"] == "inner" else (c + arch["span_m"] / 2, out)) \
+            if arch else (back, out)
+        ends = [uv(sw, a) for a in (a0, a1)]
+        normal = (1.0 if cp["face"] == "low_end" else -1.0, 0.0)
+    world = lambda u, v: (pl["local_e"] + u * cd + v * sd, pl["local_n"] - u * sd + v * cd)
+    de, dn = normal[0] * cd + normal[1] * sd, -normal[0] * sd + normal[1] * cd
+    return [world(*q) for q in ends], math.degrees(math.atan2(de, dn)) % 360
+
+
 def plant_lot(p, plan: Plan, house, sids):
     y = Yard(p, plan, house, sids)
     if not y.ok:
@@ -1047,6 +1101,22 @@ def plant_lot(p, plan: Plan, house, sids):
                 wh = min(g1 - g0 + 0.8, 2 * float(y.terms["a door or the way to it"].flat[i]))
                 if top - head >= 0.3 and wh >= g1 - g0:
                     creeper.append([e, n, facing, r2(wh - 0.01), r2(top - head), "mantle_head", r2(head)])
+        # ...and the piers a picture shows wholly clothed (T-1881), placed off the model's own
+        # porte-cochere rather than the raster, whose filled plan runs past the arcade's open
+        # ends: the face's width in patches no wider than the mantle's, with an rng of their own
+        # so every other planting on the lot keeps its draw
+        prng = random.Random(seed_of(p["id"] + ":piers"))
+        for cp in pic.get("creeper_piers", []):
+            (ea, na), (eb, nb) = (ends := porte_pier_face(cp))[0]
+            facing = r2(ends[1])
+            L = math.hypot(eb - ea, nb - na)
+            k = max(1, math.ceil(L / 0.9))
+            step = L / k
+            for j in range(k):
+                t = (j + 0.5) / k
+                w = r2(min(prng.uniform(1.4, 1.9), step * 1.3))
+                creeper.append([r2(ea + (eb - ea) * t), r2(na + (nb - na) * t), facing, w,
+                                r2(prng.uniform(*cp["height_m"])), "mantle"])
 
     out = {
         "parcel": p["id"], "street": p["street"], "side": p.get("side"),

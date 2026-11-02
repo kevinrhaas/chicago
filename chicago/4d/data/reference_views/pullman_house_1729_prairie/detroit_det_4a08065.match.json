@@ -13,7 +13,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 20
+        "creeper": 24
       }
     ],
     "street_trees": 35,
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "e74f7dd20f65dbebbf08b0fc0e764776e90ccaa346e502d9ace180e4770764f4",
+  "flora_sha256": "993224d94c9881b33e8c6e76a0316b5034058dad2c6d45fb36ef0b7e361a21fa",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -301,6 +301,10 @@
       "what": "the front parts' depth and ends: the print's north return suggests 1.2-2 m, the portico and its balcony reach further north in the print (x 310-425 px) than the build's",
       "status": "open",
       "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m and the entry 1.6 m forward, the 1911 sheet's lines, the portico 4.0 m wide before the entry and clear of the block; the parts' ends along the front are the sketch's proportions, read to about 0.5 m, so this stays open until a camera on the plate's own corners reads them (L-pullman-1729-three-part-front-1881)"
+    },
+    {
+      "what": "the ivy on the porte-cochere's corner pier (x 645-668): the print shows it clothed from the ground to the entablature's soffit, its west face square to the camera and its south face edge-on to the south arch's jamb at x 668, while the inner pier (x 592-610) shows its banded courses bare; planted on the model's own pier, both faces, 6.55-6.85 m (T-1881, 2026-11-02). The leaves this print also draws over the south arch's ring are not planted: under a foot of the ring's west half",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
