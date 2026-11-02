@@ -4769,6 +4769,12 @@ class Assembly:
         solid.append(k5.oriented([snap((x, y, 0.0)) for x, y in prof], "roof_back", _mul(N, -1)))
         # the skirt: the eaves outline carried down from the eave, its back on the wall plane, its floor
         ring = [(x0, 0.0), (x0, z1), (x1, z1), (x1, 0.0)]
+        pts_ = v["plan"]["points"]
+        if abs(pts_[0][0] - pts_[1][0]) > 1e-9:
+            # T-3283: under a canted bay's crown the skirt follows its eaves outline, cants and
+            # all (a box would stand out past the cants' cornice), its back on the wall plane
+            from .k08_bays import hull
+            ring = hull([(q[0], q[2]) for q in low])
         mid = snap(((x0 + x1) / 2, y_e - self.BAY_SKIRT_M / 2, z1 / 2))
         for (xa, za), (xb, zb) in zip(ring, ring[1:] + ring[:1]):
             quad = [snap((xa, y0, za)), snap((xb, y0, zb)), snap((xb, y_e, zb)), snap((xa, y_e, za))]
