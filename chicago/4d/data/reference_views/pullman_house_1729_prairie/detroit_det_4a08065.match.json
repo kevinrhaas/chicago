@@ -3,10 +3,11 @@
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
   "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037",
-  "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
+  "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
     "season": "winter",
+    "creeper_in_leaf": true,
     "lots": [
       {
         "parcel": "prairie_1729",
@@ -30,11 +31,11 @@
   "flora_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
     },
     {
       "file": "tools/photo_match_flora.mjs",
-      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
     },
     {
       "file": "renderers/web/js/front-yards.js",
@@ -65,7 +66,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "993224d94c9881b33e8c6e76a0316b5034058dad2c6d45fb36ef0b7e361a21fa",
+  "flora_sha256": "8e82c1182a8470b6804e15684b0e4128df72c39702ed9a5e9f878ca4f4b82d4e",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -245,8 +246,8 @@
       "how": "T-1881: the stretch is planted off Taylor's photograph no. 1445, which sees it at 20-30 px a metre against this print's 4-6 and which the house's record already rules governs along this flank (data/street_trees/pictured_1904.json); through this camera the trees render at x 705, 765, 805, 837 and 852. Three agree with this print's trunks within 2-14 px (806, 838, 846; the corner's at 691 is moved clear of the Prairie walk); its trunks at 735.5, 786 and 821.5 are the two pictures' disagreement along the flank, Taylor's view of those places showing the coping wall clear"
     },
     {
-      "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank)",
-      "status": "open",
+      "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank) [T-1881, 2026-11-02: the planted mantle stood over these stretches already, but this winter review drew it as a net of bare stems, where the print, its elms bare, shows the ivy in full leaf. The camera now draws the ivy in leaf among the bare trees (flora.creeper_in_leaf, its reading in the solve). Re-rendered: a close leaf mantle from the large light south of the portico (x 477) to the south-west corner and on along the flank to the porte-cochere (x 607), its top at the balcony's belt (y 391 against the print's 387-395) and the lights' heads under it, and the porte-cochere's corner pier clothed. The print's leaves also run on north to the portico's south column (x 390); in the build that stretch is the portico block itself, which reaches south to x 463, so the gap is the front parts' depth and ends item below, not the ivy. The leaves' tone is not judged: the print is monochrome.]",
+      "status": "fixed",
       "how": "T-1881 (2026-10-30): the stretches this print shows wholly clothed are now drawn as one mantle up to the balcony's belt course (data/front_yards/1904.json, `mantle` patches from tools/plant_prairie_1904_front_yards.py's creeper_walls): the front's ground storey from the portico's south column to the south-west corner (s 25-34.6 m, x 414-558 through this camera) and the flank west of the porte-cochere (x 570-605), each patch's top at 6.4-7.0 m (y 387-405, the print's 387-395), stopping at the two round-arched lights the print shows clear and clothed under their sills (a summer render through this camera checked it). Still open: this view's winter render draws the ivy leafless where the print shows it in leaf; the leaves over the two lights' heads (the mantle's patches rise from the ground, so the wall over each head, about 1 m, is bare); the ivy on the porte-cochere's piers and the porch's piers, which the generator keeps clear as part of the carriage way and the porch T-1881 (2026-11-02): the wall over the principal storey's round-arched light on this stretch (the one the front keeps there since its round-3 rebuild) is now clothed: a `mantle_head` patch stands on the light's head, 0.15 m over its architrave's outer edge (6.2 m), and runs level to the mantle's middle height (6.7 m), with no stems at its foot, so the leaves close over the head as the print shows them while the light's arch and glass stay clear (a summer render through this camera checked it; data/front_yards/1904.json from tools/plant_prairie_1904_front_yards.py). Still open: the winter render's leafless ivy, and the ivy on the porte-cochere's piers and the porch's piers."
     },
     {
