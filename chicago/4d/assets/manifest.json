@@ -2070,14 +2070,14 @@
       "phase_id": "draft_1904",
       "structure_id": "house_1917_indiana"
     },
-    "house_1918_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_1918_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 255032,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "7c1db2afadf0c86323e0d3d15839c714adbfe2b846e3432a322d8d1355a13873",
+      "bytes": 7729312,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "8258a427d7fa357bbafd5365deb43551ecabd0bc3c5d320df8739e774517bb17",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_1918_prairie"
     },
     "house_1918_prairie_coach_house__draft_1904.glb": {
@@ -3686,7 +3686,7 @@
       "baked_ao": false,
       "bytes": 141404,
       "generator": "generators/k12_emit.py",
-      "inputs_sha256": "2f4a4169ae1a17282c3b4a554a99819ea1b81bc58ee4a1fa84007829b1754dad",
+      "inputs_sha256": "e5403c0a5dffeb8bfcb035ac3dc4aeec7e5d5511923273747e22282bcf8ffbe1",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "marsh_house_1824_prairie_coach_house"
