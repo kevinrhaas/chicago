@@ -79,6 +79,10 @@ step "The flora lattice walk on a worker hands the deal the slots the in-frame w
 selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
   node tools/check_lattice_kernel.mjs --self-test
 
+# Costly continuous subreach travel must commit rather than repeatedly restart a jump.
+step "Nearby plants keep up during continuous horseback travel" \
+  node tools/test_flora_travel_commit.mjs
+
 # T-2697. The same walk as GLSL (flora-gpu-lattice.js), the first piece of T-2557's
 # GPU near grass. This step needs no browser: it holds the shader's constants to
 # flora.js's. The slot-for-slot readback is `--gpu`, in Chromium, and is filed at

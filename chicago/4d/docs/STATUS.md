@@ -25434,3 +25434,6 @@ claimed here. All 20 published invocations and 1,701 checks passed on f5609309c2
 only; that complete result is not reassigned to this changed runtime. Full
 current preflight and delivery are pending at this source checkpoint. Broader
 photographic, riding/driving, horse and Otis motion acceptance remains OPEN.
+
+
+T-2793 follow-up: costly continuous flora motion within each pass's existing reach and yaw step uses the original immediate producer path, so horseback travel does not repeatedly abandon an unfinished jump. Native scheduler regression controls retain teleport/snap-turn, pending/carry ownership and synchronous buffer reads. The original frame ceilings and plant algorithms are unchanged. Larger-than-reach motion at low frame rates retains its existing limitation. Actual cold flight-to-travel performance and current CI remain required; this source change is not a performance PASS.

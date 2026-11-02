@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_house_1905_prairie",
   "view": "pictorial_1893_plate",
   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b42b916f215826876558fc39099799afe6164fbe3fa7ebf71e715816ad707872",
+  "glb_sha256": "0ccc7aeedd9064bb6e3c201f19fcf1d8990301092adf5ce0f597515446fc26ca",
   "camera_sha256": "f41b5754d650dad29e0e6b1361ba4a03b35b6fd82524b514c9cb5f5115eec945",
   "photo_sha256": "d49b47b1f31f50b0ce0d4e99b234d0ae9c80f42c57cab75f8338ed0396d397dd",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg",
@@ -33,7 +33,19 @@
       "status": "fixed"
     },
     {
-      "what": "the south-west corner: the plate cuts it on a broad canted face, blank brick in both storeys between stone strips, with the largest dormer over it (x 683-900 px), about 3.4 m back each way through the camera; the render's corner is the sheet's square one, and that dormer stands on the street face at 13.2 m. K01's canted corner is built only on an all-stone house",
+      "what": "the south-west corner: the plate cuts it on a broad canted face, blank brick in both storeys, the bracketed cornice and the slated mansard carried round it and the largest dormer standing over it (x 683-900 px); the render's corner is cut on K01's canted face (T-3261) 3.2 m back each way, blank brick on the front's stone belt, the cornice's paired brackets turned onto it and the large dormer centred on its slope",
+      "status": "fixed"
+    },
+    {
+      "what": "the canted corner's cut: about 3.4 m back each way through the camera, built 3.2 m, the most the front's wide window column leaves a pier for until the front's length is re-read (T-3261)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the light stone strips that frame the canted face's brick at its two angles, from the basement to the frieze: the render's brick meets the front and the flank at plain angles",
+      "status": "open"
+    },
+    {
+      "what": "the wide column's iron balcony: built 1.9 m, stopped 0.2 m short of the canted corner's cut, where the plate's runs about 2.5 m centred on its window",
       "status": "open"
     },
     {
