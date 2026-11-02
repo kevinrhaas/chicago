@@ -1,9 +1,0 @@
-{
-  "title": "Phones see far houses from the air with lighter detail",
-  "kind": "improvement",
-  "items": [
-    "At the Light detail setting, a far house now draws from a simplified copy of itself wherever the difference is under a pixel on screen. Mouldings, sash bars and carved courses too small to see close up, and every wall and roof keeps its own shading.",
-    "From 60 m above the 18th Street alley corner, a phone now draws 1.24 million triangles instead of 1.60 million, back inside the Light setting's 1.27 million. 722 of the frame's 304,200 pixels change, all on the thin rims of distant roofs.",
-    "The Full and Balanced settings are unchanged and draw every house whole."
-  ]
-}
