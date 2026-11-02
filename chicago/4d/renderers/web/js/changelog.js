@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2583, ts: '2026-11-02T21:28:52.458Z', date: 'Nov 2, 2026, 3:28 PM CT', title: '1824 Prairie\'s brick stable on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1824 Prairie Avenue is no longer a rough draft. It now stands as a two-storey brick stable, 17.6 m along the alley and 10.6 m deep, drawn from the 1911 fire-insurance map. It sits right on the alley line, where the draft had set it back.',
+      'Both ends are fire walls rising above the roof, where the map marks them. The north one stands back to back with 1816\'s stable. A paired window sits where the map marks one, beside two carriage doors and a hay-loft hatch, and a paved walk runs from the yard door to the house.',
+      'The doors, roof pitch and most windows are reconstructed, and they are listed on the building\'s card. One alley pole moved half a metre out into the alley to clear the new eave.',
+    ] },
   { v: 2582, ts: '2026-11-02T21:27:38.458Z', date: 'Nov 2, 2026, 3:27 PM CT', title: 'Bridge arrivals show the whole crossing', kind: 'fix',
     items: [
       'Arriving at a bridge now frames its full rendered span at the correct water height.',
