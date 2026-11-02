@@ -6345,6 +6345,7 @@ def build(params, structure_id: str):
     from . import k01_stone_finish
     k01_stone_finish.dress(a)
     k11_frontage.dress(a)
+    k11_frontage.alley_wall(a)   # T-3321: a brick run on the alley line, behind the house
     # T-2360: the K14 yard inside that boundary — the lawn and its bare strip at the wall
     # foot, earth under the open stoop, the front walk's flags and the side passage's cinder
     k14_yard.dress(a)

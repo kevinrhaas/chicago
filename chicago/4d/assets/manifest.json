@@ -3289,9 +3289,9 @@
     "keith_house_1808_prairie__as_built_1886.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 7770084,
+      "bytes": 7773080,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "a76d867ac14821541c316e5e60ae52ba008ab99dc7be2acd9352dd163e868672",
+      "inputs_sha256": "5b367f721f57f4040416926ae843bd3d5187129d064f4bdd9876a67278f370a3",
       "kind": "generated",
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"
