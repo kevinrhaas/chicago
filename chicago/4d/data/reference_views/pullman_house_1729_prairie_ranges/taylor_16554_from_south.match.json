@@ -73,7 +73,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 20
+        "creeper": 24
       }
     ],
     "street_trees": 37,
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "d4b18281970832951c567bdc4b4f63e8d66ff7e48251a10607154fb0aa6dff20",
+  "flora_sha256": "6f91c7effe9d92de061666953ef7ec5d733bbd70fad9786cf774a78aff66e7a0",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
