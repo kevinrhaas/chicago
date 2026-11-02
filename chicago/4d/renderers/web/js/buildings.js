@@ -479,6 +479,28 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * 4 MB of a 1904 phone's heap.
    */
   const OCCLUDER_IDENTITY = new THREE.Matrix4(), occluderScratch = new THREE.Matrix4();
+  const occluderPlacementScratch = new THREE.Matrix4();
+  // T-3173: each occluding instance's placement, as the 16 float32 figures the batch's
+  // matrices texture holds it at (`getMatrixAt` reads that Float32Array, so they are
+  // exact), one slot apiece in one array: not a Matrix4 (an object, a 16-double
+  // array and their headers) in each of 12,632 closures on the /1904/ phone. Grown
+  // by doubling while the layer builds and trimmed to its slots once it is built.
+  let occluderPlacements = new Float32Array(16 * 256), occluderPlacementCount = 0;
+  const keepOccluderPlacement = (matrix) => {
+    if ((occluderPlacementCount + 1) * 16 > occluderPlacements.length) {
+      const grown = new Float32Array(occluderPlacements.length * 2);
+      grown.set(occluderPlacements);
+      occluderPlacements = grown;
+    }
+    occluderPlacements.set(matrix.elements, occluderPlacementCount * 16);
+    return occluderPlacementCount++;
+  };
+  /** `Matrix4.equals` against a kept slot: the same element-by-element `!==`. */
+  const sameOccluderPlacement = (matrix, slot) => {
+    const e = matrix.elements, at = slot * 16;
+    for (let k = 0; k < 16; k++) if (e[k] !== occluderPlacements[at + k]) return false;
+    return true;
+  };
   /** T-3152: one row per source mesh with proven planar cover — see the load loop. */
   const planarSources = [];
   let planarOn = true;
@@ -1044,7 +1066,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       if (occludesView) {
         // T-3213: `identity` and `current` are the layer's one pair (below the
         // occluder list), not two more matrices in every backing's closure.
-        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=occluderScratch;
+        const placement=batch.getMatrixAt(instanceId,occluderPlacementScratch), current=occluderScratch;
+        // Kept only once something holds `active` (a triangle below, or the planar
+        // cover): most occluding instances keep no triangle, and their test is let go.
+        let placementSlot=-1;
         const identity=OCCLUDER_IDENTITY, m=batch.material;
         const hooks=[m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey], side=m.side;
         // Only the existing opaque, aperture-cut backing, under its known
@@ -1053,7 +1078,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
           for(let o=batch;o;o=o.parent)if(!o.visible)return false;
           return batch.getVisibleAt(instanceId) && batch.getGeometryIdAt(instanceId)===geometryId
             && batch.material===m && m.side===side && batch.matrixWorld.equals(identity)
-            && batch.getMatrixAt(instanceId,current).equals(placement)
+            && sameOccluderPlacement(batch.getMatrixAt(instanceId,current),placementSlot)
             && batch.geometry.attributes.position.version===backingPositionVersion
             && batch.geometry.index.version===backingIndexVersion
             && batch.geometry.attributes[SCALARS].version===backingConfidenceVersion
@@ -1066,18 +1091,30 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && (m.depthFunc===THREE.LessDepth || m.depthFunc===THREE.LessEqualDepth)
             && !m.clippingPlanes?.length;
         };
-        const ranges=new Map();
+        // T-3173: one [lo, hi] and one test per distinct confidence range, and one
+        // normal per distinct (unnormalised) normal — a rectangle's two halves have
+        // the same one — rather than an array and a Vector3 in every triangle; and
+        // no `area`, which nothing reads past the cut below. All read-only downstream.
+        const ranges=new Map(), normals=new Map();
         for(const triangle of backingTriangles(geo,placement,m.side,packedConfidenceReader(scalar))) {
           // Small distant facade details are expensive candidates with little
           // coverage; the inspected house keeps its finer backing faces.
           if(record.id!=='glessner_house' && triangle.area<4)continue;
           const key=JSON.stringify(triangle.confidenceRange);
-          if(!ranges.has(key))ranges.set(key,()=>active()
-            && opaqueConfidenceRange(triangle.confidenceRange,confidence));
-          viewOccluders.push({...triangle,active:ranges.get(key)});
+          if(!ranges.has(key)){
+            const confidenceRange=triangle.confidenceRange;
+            ranges.set(key,{confidenceRange,active:()=>active()
+              && opaqueConfidenceRange(confidenceRange,confidence)});
+          }
+          const n=triangle.normal, normalKey=`${n.x},${n.y},${n.z}`;
+          if(!normals.has(normalKey))normals.set(normalKey,n);
+          const shared=ranges.get(key);
+          viewOccluders.push({points:triangle.points,normal:normals.get(normalKey),side:triangle.side,
+            confidenceRange:shared.confidenceRange,active:shared.active});
         }
         // Every piece of the source mesh has to stand as the backing's does.
         if (planar) planar.actives.push(active);
+        if (planar || ranges.size) placementSlot=keepOccluderPlacement(placement);
       }
       batch.userData.batchIndex[instanceId] = record.id;
       record.instanceId = instanceId;
@@ -1261,6 +1298,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     return { id, record: registry.get(id), point: hit.point, distance: hit.distance };
   });
 
+  occluderPlacements = occluderPlacements.slice(0, occluderPlacementCount * 16);
   return {
     group,
     batches,

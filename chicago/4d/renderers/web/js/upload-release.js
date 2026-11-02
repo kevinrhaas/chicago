@@ -322,10 +322,39 @@ export function releaseSources(registry) {
       geo.setIndex(null);
       geo.dispose();
     });
+    collapseScene(row);
     row.sourceReleased = true;
     census.sources += 1;
     for (const buffer of buffers) census.sourceBytes += buffer.byteLength;
   }
+}
+
+/**
+ * T-3173. A RELEASED ROW KEEPS ITS MATERIALS, NOT ITS NODE TREE. With the geometry
+ * gone, the GLB's Object3D tree was still held twice per building (`gltf.scene`,
+ * `gltf.scenes`, and `record.node` inside them): every node's matrices, children
+ * arrays and `extras` userData, about 9 MB of the 1904 phone's JS heap for 411
+ * structures. Nothing reads the tree once the batch is built — the card reads the
+ * record's sidecar, and a detail rebuild re-reads a released row's GLB first
+ * (main.js `rereadReleased`). What a retired gltf still owes is disposal of its
+ * materials and the textures they reach (`disposeLoadedAsset`, which walks the
+ * scene for them; the batches draw with those same materials). So the scene becomes
+ * one plain node carrying the list — not an Object3D apiece, each of which is three
+ * matrices and more — with a `traverse` that visits it: the same disposal, none of
+ * the tree.
+ */
+function collapseScene(row) {
+  const scene = row.gltf.scene;
+  if (!scene || scene.collapsed) return;
+  const materials = new Set();
+  scene.traverse((o) => {
+    for (const material of (Array.isArray(o.material) ? o.material : [o.material])) if (material) materials.add(material);
+  });
+  const carrier = { material: [...materials] };
+  const collapsed = { name: scene.name, collapsed: true, traverse(visit) { visit(carrier); } };
+  row.gltf.scene = collapsed;
+  if (Array.isArray(row.gltf.scenes)) row.gltf.scenes = [collapsed];
+  row.node = null;
 }
 
 /**
