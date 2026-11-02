@@ -2,11 +2,11 @@
   "structure_id": "moulton_lowden_house_1912_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4264a886d77478f1ef9d191959b1b0093ffc90dcd62fdc3ee167f2332b4ede21",
+  "glb_sha256": "a6abfe04b79118a9a8a0fa8b2e0a0433ac2fba0d76c2b45a51805584a4755b66",
   "camera_sha256": "c517d22d93ccfb5413bddb08607b87d5dc1519475b4d04fb458f2b545810422c",
   "photo_sha256": "edfbb93fb891e8f549e6aa782b2609f7a7b6fcde87847a46fbce72e00c350010",
   "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's generic hipped block is now the photograph's house: a stone front of two storeys and a short attic storey over a raised basement under a very steep slated roof with iron cresting, the cornice's top near 13.25 m; the front receding left to the south, the north flank at the right",
@@ -25,16 +25,16 @@
       "status": "fixed"
     },
     {
-      "what": "the tower's third stage: built 1.0 m over the main cornice (K01's least clearance for a tower), where the photograph springs the cone at the cornice's level, so the cone stands about 1 m high",
-      "status": "open"
+      "what": "the tower's third stage: now the attic storey's 2.75 m, so its cornice runs on the main cornice's line and its cone springs there, as the photograph draws it (T-3294, `cap_at_eave`; it was 1.0 m higher)",
+      "status": "fixed"
     },
     {
       "what": "the corbelled corner turret on the north flank behind the corner block's front corner (x 1050-1145, y 520-760 px): built (T-3290) a round 1.4 m across on the wall's plane at s 2.8 from the front corner, its two silhouettes within 6 px of the photograph's, standing on the attic belt, one light turned toward the avenue, a moulded cornice and a steep slated cone leaning on the mansard and toward the stack",
       "status": "fixed"
     },
     {
-      "what": "the corner turret stands about 0.55 m low: its wall top 12.25 m where the photograph's cornice runs level with the main cornice (about 12.8 m to its bed), so its cornice draws about 45 px under the photograph's and its light is 1.25 m tall against about 1.45 m; K01 holds an oriel's wall top a metre under the main eave unless the eave dies into it, which the kit does only on a street front under a hip or gable",
-      "status": "open"
+      "what": "the corner turret's height: its wall top now 12.8 m, its cornice level with the main cornice as the photograph's is, its light 1.45 m tall, its cone rising past the eave against the mansard (T-3294, `cap_at_eave`; it stood 0.55 m low)",
+      "status": "fixed"
     },
     {
       "what": "the corner turret's foot: built a turned stone foot (a 0.3 m round, from 10.25 m to the attic floor) where the photograph's attic belt sweeps round the turret (y 745-800 px); the 1883 plate draws a corbel with a pendant (album_1883), under the bar either way",
@@ -49,20 +49,20 @@
       "status": "fixed"
     },
     {
-      "what": "the south dormer's height: the photograph's rises from the cornice nearly to the cone's shoulder (x 270-400, y 120-500 px), its finial a cross-like knop; built on the record's 1.5 m sash under a 60 degree gable, so it stands lower and most of it falls behind the tower from this camera (T-3294)",
-      "status": "open"
+      "what": "the south dormer's height: the photograph's measures about 4.1 m from the cornice to its finial's top at that end's scale (x 270-400, y 120-500 px), the build's about 4.0 m; with the tower's third stage lowered (T-3294) it now stands clear of the cone from this camera, and what is left is the camera's fit at that end (54-99 px there), under the bar",
+      "status": "within tolerance"
     },
     {
-      "what": "the south gable: its copings now carry three crockets a rake between the kneelers' pinnacles and the apex finial (T-3293); the arched pair is two round-headed lights either side of a mullion (T-3292), where the photograph draws them under one enclosing arch with a hood, which is not built (T-3294)",
-      "status": "open"
+      "what": "the south gable: its copings carry three crockets a rake between the kneelers' pinnacles and the apex finial (T-3293); it now rises through the eave at pitch 2.2 to an apex near 15.5 m, the eave and gutter stopping at its face, and its arched pair, two round-headed lights either side of a mullion (T-3292), stands under one enclosing arch springing at the lights' springing with a moulded architrave, as the photograph draws it with its hood (T-3294)",
+      "status": "fixed"
     },
     {
       "what": "the entrance: the door now stands in a deep round-arched recess under a moulded voussoir ring with a keystone, a radial fanlight over a pair of leaves (T-3292), its crown just over the tower's principal lights' heads as the photograph's shows over the awning (x 760-830, y 1200-1225 px)",
       "status": "fixed"
     },
     {
-      "what": "the ivy over the south part of the front and the tower, to the attic floor",
-      "status": "open"
+      "what": "the ivy over the south part of the front and the tower, to the attic floor: a planting of undated extent in an undated photograph (the 1883 plate shows none), which T-1900's phase guard keeps off the 1904 geometry with the awning; the house's form under it is built",
+      "status": "within tolerance"
     },
     {
       "what": "the stone's tone: built the register's brownstone; the monochrome print reads lighter, which a print cannot settle",
@@ -85,8 +85,8 @@
       "status": "fixed"
     },
     {
-      "what": "the entrance's carved capitals on the pilasters either side of the arch (x 680-710 and 880-915, y 1195-1225 px) are not built (T-3294)",
-      "status": "open"
+      "what": "the entrance's capitals: a plain stone pilaster each side of the arch from the floor to the belt, under a capital 0.35 m tall in two tiers, now built where the photograph draws them (x 680-710 and 880-915, y 1195-1225 px; T-3294); the capitals' carved leafage is finer than the bar",
+      "status": "fixed"
     },
     {
       "what": "the striped canvas awning over the door: a seasonal fitting of undated state, kept off the 1904 build as T-1900's phase guard asks (separate the undated awning from the geometry)",
