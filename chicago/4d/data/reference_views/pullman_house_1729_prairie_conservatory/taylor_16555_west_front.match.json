@@ -2,8 +2,8 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5",
-  "camera_sha256": "3256272d16b906547b153fa4cd655768dba21389f2b4369884eb43aa58d9f9d2",
+  "glb_sha256": "008058259eeec7963078624cc365e44a0184e72e95ab0c4638b1e54a81e9d91f",
+  "camera_sha256": "5df66e6eb8c5ca751452ff083a300aa7b75f47317894576825ab061b13fab641",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
     {
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5"
+      "glb_sha256": "008058259eeec7963078624cc365e44a0184e72e95ab0c4638b1e54a81e9d91f"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "7b1f0088762be801519d4cc4b19280a0754eb908891108a7239c2b151e327ebc"
+      "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,16 +61,16 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
+      "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "b900a179d0f0ab0f93f7400ddd2e4cf17a77cd50f2886b774aa913d87d440a34",
+  "group_sha256": "c6fffd47bde7f48bb719a50b31ae21a813d4248cb33fddb888a4b34f8f48ec2c",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 30,
+        "shrubs": 26,
         "trees": 3,
         "beds": 0,
         "creeper": 19
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "55a6b487f74e1a306f09a0dcc5b200ae874d123773d8303d32b4c4165801fe41",
+  "flora_sha256": "9de4db3f313a15d2962a4c66d7dc661b410c8e8eb6889dac19a6b5bc87bbe110",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -330,6 +330,26 @@
     {
       "what": "the tree at 18th Street's Calumet corner (x 873 in the print, the render's x 750 through this camera's recorded disagreement): the print draws one slender leader, the bole about 14-20 px across at 16 m (about 0.2-0.27 m), clear to about 4.5-5 m (its first limbs at y 400-430) under a tall open head; the build drew the grown elm, a bole about 0.5 m across forking at about 3.6 m [T-1934, 2026-11-01: it now grows on the young elm's leader with its limbs from about 5 m and a 0.24-0.30 m bole (form limbed_head); the render draws a slender trunk under a head starting about where the print's does. Fixed.]",
       "status": "fixed"
+    },
+    {
+      "what": "T-1934 (owner, 2026-11-02): the court's flights, landing, terrace fronts, urn pedestals and sunken court",
+      "status": "fixed",
+      "how": "built through this camera re-solved on the 18th Street wall's piers (the earlier solve had taken pier C for pier B) and triangulated with the 1894 plate's camera (L-pullman-court-1934); the west flight's two runs and landing, the east flight to its +1.4 walk and the house terrace's front at +2.0 sit within about 0.5 m of the print"
+    },
+    {
+      "what": "the striped awning over the house's east terrace (x 110-232, y 505-570)",
+      "status": "fixed",
+      "how": "T-1934: a lean-to off the house's east wall at 6.5 m to a 4.2 m eave, its south end at v -12.5 closed by a striped side curtain, which is what the print draws; the K01 terrace's awning it replaces stood edge-on to this camera"
+    },
+    {
+      "what": "the palm house's top: dies over the columns in the drum's balustrade, the dome's crown ring and ornament",
+      "status": "fixed",
+      "how": "T-1934: a die over every column; the dome rises to a crown ring 1.7 m across with a curb and a turned ornament (10.73 m), as this print shows"
+    },
+    {
+      "what": "the house's east face behind the awning (the render's quoined corner about 35 px right of the print's)",
+      "status": "open",
+      "how": "T-1934: the house's own record (T-1881), not this court; noted for the house's next pass"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

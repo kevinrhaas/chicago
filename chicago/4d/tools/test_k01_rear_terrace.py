@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """T-1881: a raised stone terrace under a striped awning on a K01 house's rear wall.
 
-1729 Prairie's record carries one, off J. W. Taylor's photographs nos. 16555 and 16554: the
+1729 Prairie's record carried one, off J. W. Taylor's photographs nos. 16555 and 16554 (T-1934 moved
+it into the conservatory's court; the test holds the kit on its former value): the
 `rear_terrace` k01_rear_terrace builds against the main rear wall at its 18th Street end, where
 the 1911 sheet's one-storey block was built as a brick box until now. This holds the committed
 record's assembly to what the ticket says:
@@ -41,9 +42,15 @@ def check(ok, what):
         failures.append(what)
 
 
+# T-1934: the record's terrace now stands in the conservatory's court (K13 `court`, read off the
+# same pictures with the stairs and landings round it), so the kit is held on its former value
+FIXTURE = {"v_m": [11.63, 17.93], "out_m": 3.0, "floor_m": 2.0, "coping_m": 0.15, "balustrade": {"height_m": 0.9, "pedestal_m": 0.4, "rail_m": 0.25, "baluster_m": 0.1, "pitch_m": 0.2}, "light": {"width_m": 1.1, "sill_m": 0.35, "height_m": 1.2}, "awning": {"wall_m": 6.1, "eave_m": 4.3, "reach_m": 0.2, "valance_m": 0.35, "stripe_m": 0.3, "posts": 3, "post_m": 0.06}}
+
+
 def record(edit=None):
     st = copy.deepcopy(json.loads((ROOT / "data" / "structures" / f"{SID}.json").read_text()))
     phase = st["phases"][-1]
+    phase["form"].setdefault("rear_terrace", {"value": copy.deepcopy(FIXTURE), "confidence": "inferred", "sources": []})
     if edit:
         edit(phase["form"]["rear_terrace"]["value"])
     return st, phase
