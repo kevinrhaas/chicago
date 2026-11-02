@@ -152,34 +152,6 @@
         "dormers": [
           {
             "face": "street",
-            "along_m": 1.6,
-            "sash": {
-              "variant": "k06.opening.sash_2over2_flat",
-              "width_m": 0.9,
-              "height_m": 1.5,
-              "sill_m": 0.15
-            },
-            "surround_m": 0.25,
-            "face_setback_m": 0.05,
-            "head": "gable",
-            "gable_pitch_deg": 45
-          },
-          {
-            "face": "street",
-            "along_m": 3.4,
-            "sash": {
-              "variant": "k06.opening.sash_2over2_flat",
-              "width_m": 0.9,
-              "height_m": 1.5,
-              "sill_m": 0.15
-            },
-            "surround_m": 0.25,
-            "face_setback_m": 0.05,
-            "head": "gable",
-            "gable_pitch_deg": 45
-          },
-          {
-            "face": "street",
             "along_m": 5.6,
             "sash": {
               "variant": "k06.opening.sash_2over2_flat",
@@ -268,7 +240,7 @@
       "sources": [
         "chicago_tribune_1928_07_29_famous_homes_corwith"
       ],
-      "note": "The photograph's mansard: a dormer over each light of the front's columns (the north bay's two, the door's, the corner block's two) and dormers on the 20th Street face (K01's 'north' on this east-side house). Lower rise and pitch are the kit's convex mansard read through the camera to about 0.3 m. The corner block's mansard stands higher than the rest in the photograph; this piece carries it at the house's height (match record, open for T-3283). A dormer over the canted corner as over every other column (reconstructed: in the halftone the corner is lost behind the higher roof)."
+      "note": "The photograph's mansard: a dormer over each light of the front's columns (the door's and the corner block's two; the north bay's two stand on its own crown, T-3283) and dormers on the 20th Street face (K01's 'north' on this east-side house). Lower rise and pitch are the kit's convex mansard read through the camera to about 0.3 m. The corner block's mansard stands higher than the rest in the photograph; this piece carries it at the house's height (match record, open for T-3283). A dormer over the canted corner as over every other column (reconstructed: in the halftone the corner is lost behind the higher roof)."
     },
     "roof_covering": {
       "value": {
@@ -529,10 +501,46 @@
           ],
           "roof": {
             "kind": "hip",
-            "pitch": 0.25,
-            "covering": "slate_pennsylvania"
+            "pitch": 0.1,
+            "covering": "slate_pennsylvania",
+            "mansard": {
+              "rise_m": 3.0,
+              "lower_pitch_deg": 80
+            },
+            "slated_as_house": true
           },
-          "plinth_m": 0.05
+          "plinth_m": 0.05,
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "mansard_dormers": [
+            {
+              "head": "gable",
+              "gable_pitch_deg": 45,
+              "sash": {
+                "variant": "k06.opening.sash_2over2_flat",
+                "width_m": 0.6,
+                "height_m": 1.2,
+                "sill_m": 0.15
+              },
+              "surround_m": 0.15,
+              "face_setback_m": 0.05,
+              "at_m": -0.6
+            },
+            {
+              "head": "gable",
+              "gable_pitch_deg": 45,
+              "sash": {
+                "variant": "k06.opening.sash_2over2_flat",
+                "width_m": 0.6,
+                "height_m": 1.2,
+                "sill_m": 0.15
+              },
+              "surround_m": 0.15,
+              "face_setback_m": 0.05,
+              "at_m": 0.6
+            }
+          ]
         },
         {
           "id": "south_flank_bay",
@@ -608,7 +616,7 @@
       "sources": [
         "chicago_tribune_1928_07_29_famous_homes_corwith"
       ],
-      "note": "Two canted bays on K08, each its height in the house's storeys: at the front's north end the bay the photograph shows with a pair of lights in each storey under its own dormers (its faces' cant reconstructed: the halftone shows the bay's front face and a receding north face), and on the 20th Street flank the bay the photograph shows behind the canted corner (x 1050-1200 px in the box), one light a storey on its middle face. Places and widths read through the camera to about 0.4 m."
+      "note": "Two canted bays on K08, each its height in the house's storeys: at the front's north end the bay the photograph shows with a pair of lights in each storey carried up through the cornice under its own mansard with two dormers (T-3283: the photograph's bay rises past the house's cornice line into a crown of its own, its curb about level with the house's and its two lit dormer lights over the bay's pair, x 300 and 395 px, square-headed under a dark cap; the crown's rise of 3.0 m and its steep 80-degree lower faces are read through the camera to about 0.3 m, its moulded stone cornice is the house's, carried round the bay, and the dormers are the house's gabled ones, 0.6 m lights in 0.9 m faces, set 0.6 m either side of the bay's middle where the kit's hips leave room, about 0.15 m in from the lights below; its faces' cant reconstructed: the halftone shows the bay's front face and a receding north face), and on the 20th Street flank the bay the photograph shows behind the canted corner (x 1050-1200 px in the box), one light a storey on its middle face. Places and widths read through the camera to about 0.4 m."
     },
     "chimneys": {
       "value": {
