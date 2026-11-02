@@ -1217,6 +1217,14 @@ step "a K01 brick front's door may be cut round-headed under its round lights' a
 step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
   python3 tools/test_k08_canted_bay_dormers.py
 
+# T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
+# 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
+# on a canted corner's line when it runs onto it, carrying its own street and cant dormers; the
+# cut that eats a narrow crown's end side closes it at one point at its own ring; refused on the
+# cut, too short, across a hip, over the cut, with a stack in it.
+step "a mansard crown may stand over a stretch of the front and turn a canted corner (T-3283)" \
+  python3 tools/test_k01_front_crown.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;

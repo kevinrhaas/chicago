@@ -797,12 +797,15 @@ def _mansard_side_parapet(sp: dict, k5: dict, m: dict, eave: float, overhang: fl
 
 
 def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, eave: float, pitch: float,
-                   overhang: float) -> dict:
+                   overhang: float, cant=None, chimneys=()) -> dict:
     """T-2404: a taller mansard over a street-front pavilion — the 1874 engraving's crown
     on 1620 — as the main mansard's own profile with a higher curb and a fuller bow. It
     stands on the K08 projection it names, its front on that pavilion's face and its sides
     on the pavilion's junctions, and runs `depth_m` back into the main roof, which the
-    union swallows it into. Its cornice projects `overhang_m` past the pavilion's face."""
+    union swallows it into. Its cornice projects `overhang_m` past the pavilion's face.
+    T-3283: or over a stretch of the street front itself (`over_front`, _front_crown)."""
+    if "over_front" in c:
+        return _front_crown(c, m, depth, width, eave, pitch, overhang, cant, chimneys)
     bay = next((b for b in bays if b["id"] == c.get("over_bay")), None)
     if bay is None or bay["variant"]["kind"] != "projection" or bay["wall"] != "k01.wall.street_front":
         raise ParamError(f"mansard.crown.over_bay {c.get('over_bay')!r}: a K08 projection on the street front")
@@ -850,6 +853,102 @@ def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, ea
         out["dormer"] = _round_dormer(d, "mansard.crown.dormer", run + co)
         if out["dormer"]["width_m"] > (b - a) - 0.6:
             raise ParamError(f"mansard.crown.dormer: {out['dormer']['width_m']:.2f} m wide on a {b - a} m crown")
+    return out
+
+
+#: T-3283: what a crown over a stretch of the front takes, and the least stretch it spans
+FRONT_CROWN_KEYS = {"over_front", "depth_m", "rise_above_curb_m", "overhang_m", "lower_pitch_deg", "bulge",
+                    "dormers"}
+FRONT_CROWN_MIN_M = 3.0
+
+
+def _front_crown(c: dict, m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float,
+                 cant, chimneys) -> dict:
+    """T-3283: a taller mansard over a STRETCH of the street front with no projection under it
+    — 1945 Prairie's corner block in the Tribune's 1928 photograph, its mansard standing about a
+    storey over the rest from its pair of lights onto the canted corner. `over_front` is the
+    stretch [s0, s1] along the front (s as `front_bays` and the street dormers' along_m); the
+    crown's front is the street wall's own plane and its sides stand at the stretch's ends,
+    `depth_m` back into the main roof. A stretch that runs to the end a `cant_corner` cuts
+    turns the corner with it: its rings are cut on the cant's line out to its own fascia, as
+    the main mansard's are (cant_ring). Its `dormers` are the main mansard's lower-face dormers
+    (_mansard_dormers) on the crown's own faces — the street face, centred `along_m` along the
+    front, clear of the crown's hips and of the cut; and the cant's, centred on it — so a
+    dormer under the higher curb stands as high on its face as the photograph's do."""
+    if set(c) - FRONT_CROWN_KEYS:
+        raise ParamError(f"mansard.crown over_front takes {', '.join(sorted(FRONT_CROWN_KEYS))}, "
+                         f"not {', '.join(sorted(set(c) - FRONT_CROWN_KEYS))}")
+    try:
+        a, b = (float(x) for x in c["over_front"])
+    except (TypeError, ValueError):
+        raise ParamError(f"mansard.crown.over_front {c['over_front']!r}: [s0, s1] along the street front")
+    if not 0.0 <= a < b <= width or b - a < FRONT_CROWN_MIN_M:
+        raise ParamError(f"mansard.crown.over_front [{a}, {b}]: a stretch of the {width} m front, "
+                         f"{FRONT_CROWN_MIN_M} m at the least")
+    turns = False
+    if cant:
+        cc = float(cant["cut_m"])
+        north = cant["corner"] == "north"
+        if (b == width) if north else (a == 0.0):
+            turns = True
+        elif (b > width - cc - 0.5) if north else (a < cc + 0.5):
+            raise ParamError(f"mansard.crown.over_front [{a}, {b}]: it stops on the canted corner; "
+                             f"run it to the front's end, onto the cant, or stop it 0.5 m clear")
+    cd = float(c["depth_m"])
+    if not 1.5 <= cd <= depth / 2:
+        raise ParamError(f"mansard.crown.depth_m {cd}: 1.5 m to half the house's depth")
+    up = float(c.get("rise_above_curb_m", 0.0))
+    if not 0.3 <= up <= 2.0:
+        raise ParamError(f"mansard.crown.rise_above_curb_m {up}: a crown stands 0.3-2.0 m over the main curb")
+    co = float(c.get("overhang_m", overhang))
+    if not overhang < co <= overhang + 0.5:
+        raise ParamError(f"mansard.crown.overhang_m {co}: past the main cornice's {overhang} m, by at most 0.5 m "
+                         f"(an equal one would lay the two fascias in one plane on the corner)")
+    bulge = float(c.get("bulge", m["bulge"]))
+    if not 0.0 <= bulge <= 0.2:
+        raise ParamError(f"mansard.crown.bulge {bulge}: 0-0.2 of the chord")
+    k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
+    lower = float(c.get("lower_pitch_deg", m["lower_pitch_deg"]))
+    _within(lower, k5["ranges"]["mansard_lower_deg"], "mansard.crown.lower_pitch_deg")
+    rise = m["lower_rise_m"] + up
+    run = rise / math.tan(math.radians(lower))
+    half = min(cd, b - a) / 2 + co
+    if run >= half - 0.3:
+        raise ParamError(f"mansard.crown: its curb at {rise} m leaves no upper roof over {min(cd, b - a)} m")
+    for ch in chimneys:
+        sx, sz = ch["plan_m"]
+        if depth - cd - co < ch["u_m"] + sx / 2 and a - co < ch["v_m"] + sz / 2 and ch["v_m"] - sz / 2 < b + co:
+            raise ParamError(f"mansard.crown: the stack at ({ch['u_m']}, {ch['v_m']}) stands in it")
+    out = {"over_front": [a, b], "x0": round(depth - cd, 4), "x1": round(depth, 4), "z0": round(-b, 4),
+           "z1": round(-a, 4), "lower_pitch_deg": lower, "lower_rise_m": round(rise, 4), "bulge": bulge,
+           "overhang_m": co, "curb_m": round(eave + rise, 4),
+           "ridge_m": round(eave + rise + (half - run) * math.tan(math.radians(pitch)), 4)}
+    if turns:
+        out["cant"] = True
+    ds = c.get("dormers") or []
+    if ds:
+        cm = {k: v for k, v in m.items() if k not in ("crown", "dormers")}
+        cm.update(lower_rise_m=rise, lower_pitch_deg=lower, bulge=bulge)
+        got = _mansard_dormers(ds, cm, depth, width, eave, co, chimneys, cant if turns else None)
+        for i, d in enumerate(got):
+            what = f"mansard.crown.dormers[{i}]"
+            if d["face"] == "cant":
+                continue
+            if d["face"] != "street":
+                raise ParamError(f"{what}.face {d['face']!r}: a crown's dormers stand on its street face or the cant")
+            r = d["width_m"] / 2
+            lo, hi = a - co + run + 0.3 + r, b + co - run - 0.3 - r
+            if turns and cant["corner"] == "north":
+                hi = min(hi, width - float(cant["cut_m"]) - 0.5)
+            elif turns:
+                lo = max(lo, float(cant["cut_m"]) + 0.5)
+            if not lo <= d["along_m"] <= hi:
+                raise ParamError(f"{what}.along_m {d['along_m']}: its face stands clear of the crown's hips "
+                                 f"and the cut only for {lo:.2f}-{hi:.2f} m")
+            for j, q in enumerate(got[:i]):
+                if q["face"] == "street" and abs(q["along_m"] - d["along_m"]) < r + q["width_m"] / 2 + 0.3:
+                    raise ParamError(f"{what}: within 0.3 m of mansard.crown.dormers[{j}]")
+        out["dormers"] = got
     return out
 
 
@@ -4791,8 +4890,34 @@ def cant_ring(ring, cc: dict, depth: float, width: float, out: float):
         return ring[:i] + [ring[i], ring[i]] + ring[i + 1:]
     a = (cx, (k - nx * cx) / nz)                      # on the side x = cx
     b = ((k - nz * cz) / nx, cz)                      # on the side z = cz
+    # T-3283: on a ring narrower than the cut (a front crown's, 1945's corner block) the line
+    # can eat the whole end side z = cz: its far corner is then outside too, and both it and
+    # `b` stand where the line crosses the far side x = xa, so that end face closes to a point
+    j = 0 if cc["corner"] == "north" else 3
+    fx, fz = ring[j]
+    ring = list(ring)
+    if nx * fx + nz * fz > k + 1e-9:
+        b = (fx, (k - nx * fx) / nz)
+        ring[j] = b
     pair = [b, a] if cc["corner"] == "north" else [a, b]
     return ring[:i] + pair + ring[i + 1:]
+
+
+def cant_end_inset(cc: dict, depth: float, width: float, X0: float, Z0: float, Z1: float, o: float) -> float:
+    """T-3283: the inset at which cant_ring's line reaches the far corner of the end side it
+    cuts, on rings inset from the rectangle X0.. by Z0..Z1 whose fascia stands `o` out of the
+    wall line: past it that end's face is gone, so the ring stack takes a ring there and every
+    face stays planar (k05_roofs.mansard_element's `cut`)."""
+    (u0, v0), _ = cant_corner_plan(cc, depth, width)["ends"]
+    nu, nv = cant_corner_plan(cc, depth, width)["normal"]
+    nx, nz = nu, -nv
+    north = cc["corner"] == "north"
+
+    def g(t):   # the far corner's side of the line, at inset t
+        fx, fz = X0 + t, (Z0 + t if north else Z1 - t)
+        return nx * fx + nz * fz - (nx * u0 + nz * -v0 + o - t)
+    g0, g1 = g(0.0), g(1.0)
+    return -g0 / (g1 - g0)
 
 
 def _cant_corner(cc, depth, width, openings, bays, rainwater, chimneys, *, construction, roof_form,
@@ -4828,10 +4953,12 @@ def _cant_corner(cc, depth, width, openings, bays, rainwater, chimneys, *, const
         raise ParamError("cant_corner is laid round an all-stone house on the front's beds, round a brick "
                          "one in its brick, or blank round a brick front over a stone basement "
                          "(stone_front.brick_above_m) (construction: stone, brick or brick_with_stone_front)")
-    if roof_form != "mansard" or not mansard or mansard.get("crown") or mansard.get("straight") \
+    # T-3283: a crown over a stretch of the front (1945's corner block) is cut on the cant with it
+    crown = mansard.get("crown") if mansard else None
+    if roof_form != "mansard" or not mansard or (crown and "over_front" not in crown) or mansard.get("straight") \
             or mansard.get("side_parapet"):
         raise ParamError("cant_corner cuts a plain mansard's rings: not a hip, a gable or a flat roof, nor a "
-                         "crown, a straight wall or a side parapet")
+                         "pavilion's crown, a straight wall or a side parapet")
     if (mansard.get("deck") or {}).keys() & {"finials", "hoods"}:
         raise ParamError("cant_corner: the deck's finials and corner hoods stand on its square corners")
     walls = wall_head.get("walls") or []
@@ -6765,7 +6892,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         g["ops"] = tuple(at)
     if (val("mansard") or {}).get("crown"):
         mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, width, eave,
-                                               pitch, float(val("eave_overhang_m")))
+                                               pitch, float(val("eave_overhang_m")), val("cant_corner"), chimneys)
         cr = mansard_roof["crown"]
         if cr.get("form") == "hip":
             # T-2465: a stack through a hipped crown clears its ridge as a ridge stack does
