@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2559, ts: '2026-11-02T06:34:46.177Z', date: 'Nov 2, 2026, 12:34 AM CT', title: '1709 Prairie: a brick stable by the tracks, with carriage doors', kind: 'feature',
+    items: [
+      'The plain block behind 1709 Prairie, by the Illinois Central tracks, is now a storey-and-a-half brick stable: carriage doors, a man door and stable windows face the house\'s yard, a loft hatch is in its south gable, and a fire wall stands on the lot line with 1701. The outline is the 1911 fire-insurance map\'s, and an 1886 atlas marks a brick stable in the same place. The doors, windows and roof are reconstructed.',
+    ] },
   { v: 2558, ts: '2026-11-02T05:44:35.275Z', date: 'Nov 1, 2026, 11:44 PM CT', title: 'Pullman\'s court rebuilt to Taylor\'s photograph: terraces, stairs and landings', kind: 'improvement',
     items: [
       'The courtyard between the palm house and 18th Street now has its photographed levels: the house terrace at the principal floor, a sunken flagged court, and a raised walk to the east gate.',
