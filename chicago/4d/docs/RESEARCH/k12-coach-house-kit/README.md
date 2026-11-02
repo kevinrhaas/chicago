@@ -52,7 +52,7 @@ The gate (`tools/check_coach_house_kit.py`) measures this on the built geometry:
 - **grade**: the ramp is no steeper than 1 in 4, with its head at grade and its foot on the basement floor. Risers are at most 0.21 m and goings at least 0.22 m, and the risers add up to the landing, which is at the loft door's sill. Stringers, posts, newel, and the lean-to's and wing's walls all stand on the ground.
 - **ventilator**: the generator refuses one without a source.
 
-Its self-test breaks each rule and must see it refused (14 cases).
+Its self-test breaks each rule and must see it refused (19 cases since T-1932).
 
 One defect the gate's first build found was not in the kit but in the shared triangulator. A wall
 with several openings could bridge two of them to the same outline vertex, and the second bridge
@@ -89,6 +89,29 @@ pieces, and none is heavy. A lighter tier is not needed at this size. The first 
 - `never_replaces_landmark`: Glessner's stable is its own asset.
 
 T-2321 puts the first K12 coach house on a named lot, at its mapped rear footprint.
+
+A named lot may set `mirror` (T-1932, first at 1612 Prairie): the kit is built in mirror image, its party
+wall at the other end of the alley run, for a stable whose neighbour stands against that end. The
+variant is built and gated in the kit's own frame; only the structure GLB is reflected (and rewound).
+
+A named lot may set `skew_per_m` (T-3309, first at 1637 Prairie): the kit is built on a parallelogram
+plan, for a building whose long walls follow a slanting line (1637's, on the Illinois Central
+right-of-way) while its ends stay on the lot lines. Every point is sheared in the ground plane,
+z' = z - k x in the kit's frame, so each metre along the alley wall away from the party wall steps the
+alley and yard walls k metres back from the alley side; `width_m` and `depth_m` and every opening's `s`
+are then measured along the lot lines, not square to the slanting walls. As with `mirror`, the variant is
+built and gated unsheared in the kit's own frame and only the structure GLB is sheared: a shear is affine
+with determinant 1, so every piece still meets what it met and no triangle turns over. It defaults to 0,
+and every other coach house builds byte-identical.
+
+A named lot may set `range` (T-1932, first at 1720 Prairie): a one-storey brick range carried on along
+the alley past the open gable, its `length_m` along the alley and `depth_m` back from it (less than the
+coach house's). Its alley wall continues the coach house's alley wall line and stands on that wall's end;
+its yard wall stands on the gable's face; a closed end wall at the far end; a flat roof (the wing's) flush
+with the alley face, dying into the gable and past the far end and the yard wall by the overhang. Openings
+go on `range_alley`, `range_yard` and `range_end`. The gate holds its walls on the ground and seated like
+every other piece, and two self-test cases break it (the range 5 mm off the gable; its sash at its end
+wall).
 
 **Not done, said.**
 

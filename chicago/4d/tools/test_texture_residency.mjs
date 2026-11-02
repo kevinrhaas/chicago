@@ -10,6 +10,9 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const threeUrl=pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.core.js`).href;
 const THREE=await import(threeUrl);
 const sharedUrl=pathToFileURL(`${root}/renderers/web/js/shared-images.js`).href;
+// The real upload owner now imports the compact bounds implementation. Resolve
+// that dependency too when importing the owner from a data URL in this test.
+const boundsUrl='data:text/javascript;base64,'+Buffer.from((await fs.readFile(`${root}/renderers/web/js/batch-bounds.js`,'utf8')).replace("from 'three'",`from '${threeUrl}'`)).toString('base64');
 const {shareImageSources, glbImageSource}=await import(sharedUrl);
 let tests=[];
 function check(label,fn){assert.ok(fn,label);tests.push(label);console.log('PASS '+label)}
@@ -26,7 +29,7 @@ const previousSelf=globalThis.self;
 globalThis.__T3173KTX2Loader=FakeKTX2Loader;
 async function moduleFor(name){let src=await fs.readFile(`${root}/renderers/web/js/${name}`,'utf8');
  src=src.replace("from 'three'",`from '${threeUrl}'`).replace("import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';",'const KTX2Loader = globalThis.__T3173KTX2Loader;')
- .replace("from './shared-images.js'",`from '${sharedUrl}'`).replace("import { noteReleasedLevels } from './upload-release.js';",'const noteReleasedLevels = () => {};');
+ .replace("from './shared-images.js'",`from '${sharedUrl}'`).replace("from './batch-bounds.js'",`from '${boundsUrl}'`).replace("import { noteReleasedLevels } from './upload-release.js';",'const noteReleasedLevels = () => {};');
  return import(`data:text/javascript;base64,${Buffer.from(src).toString('base64')}`);}
 const kt=await moduleFor('ktx2.js');
 function texture(){const levels=Array.from({length:9},(_,i)=>{let width=256>>i;return{width,height:width,data:new Uint8Array(Math.max(16,width*width)).fill(i+1)}});let t=new THREE.CompressedTexture(levels,256,256,THREE.RGBA_BPTC_Format);t.wrapS=THREE.RepeatWrapping;t.anisotropy=4;t.colorSpace=THREE.SRGBColorSpace;return t;}

@@ -41,9 +41,19 @@ export function backingTriangles(geometry, matrix, side = THREE.DoubleSide, conf
   const confidence=confidenceAt ? { getX: confidenceAt } : attr;
   if (!p?.array || (ix && !ix.array)) return [];
   const result = [], count = ix?.count ?? p.count;
+  // T-3173: an indexed mesh's triangles share their corners (a wall's two halves share
+  // two of three), so each vertex is one Vector3 however many triangles stand on it.
+  // The points are read-only to every reader (projectOccluders, the tests build new
+  // ones), so the sharing is invisible but for about a third of 17k triangles' points
+  // on the /1904/ phone heap. An unindexed mesh shares nothing and is read as before.
+  const corners = ix ? new Map() : null;
+  const corner = (k) => {
+    let v = corners?.get(k);
+    if (!v) { v = new THREE.Vector3().fromBufferAttribute(p, k).applyMatrix4(matrix); corners?.set(k, v); }
+    return v;
+  };
   for (let i = 0; i < count; i += 3) {
-    const points = [0, 1, 2].map(j => new THREE.Vector3()
-      .fromBufferAttribute(p, ix ? ix.getX(i + j) : i + j).applyMatrix4(matrix));
+    const points = [0, 1, 2].map(j => corner(ix ? ix.getX(i + j) : i + j));
     const normal = new THREE.Vector3().subVectors(points[1], points[0])
       .cross(new THREE.Vector3().subVectors(points[2], points[0]));
     const area = normal.length() / 2;

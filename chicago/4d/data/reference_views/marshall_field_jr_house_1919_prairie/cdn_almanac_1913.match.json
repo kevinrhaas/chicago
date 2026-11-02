@@ -1,0 +1,77 @@
+{
+  "structure_id": "marshall_field_jr_house_1919_prairie",
+  "view": "cdn_almanac_1913",
+  "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
+  "glb_sha256": "b38d0b98d1f7bc23d0ffed280a435f841d802eb3589f2a572167e0b1860aa8ea",
+  "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
+  "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
+  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's generic block is now the plate's house: a narrow red brick front two storeys over a stone basement under a steep slated hip with a street dormer, its long north flank running back past a round tower to steep-gabled half-storey ranges and a two-storey garage; the two tall stacks, the tower, the dormer and the front's corners lie within about 15-25 px of the plate (16 px RMS on the fitted points)",
+      "status": "fixed"
+    },
+    {
+      "what": "the street hip's pitch: the plate and the 1919 programme plate draw the front block's roof steeper than T-3279's 45 degrees; T-3280 built it at 52 degrees, read off the programme plate's camera (the hip's apex at about 15.9 m), the stacks' rise lowered by as much so their tops stay at about 17.4 m",
+      "status": "fixed"
+    },
+    {
+      "what": "the broad bow across the front's north part, which the plate shows as the wall and eave sweeping round from the north corner: built as a K08 bow, 6.0 m on its chord and 1.0 m out, where the 1911 sheet draws the front swelling 0.8 m forward",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's north corner: the plate sweeps the eave round it in a curve and the sheet cuts it back about 0.85 by 1.2 m; built square (K01 cuts a canted corner only under a mansard and rounds one only in a stone front); the corner is T-3314's (K01's round_corner is laid in a stone front only and squares its eave out again)",
+      "status": "open"
+    },
+    {
+      "what": "the bow is carried up to the eave in the plate, the main cornice running round it; T-3313 carries it up: its upper storey rises to the cornice's bed (8.6 m) and the bed moulding, the house's soffit and fascia run round its plan at the main eave's line (K08's eaves.cornice, T-2472), its nearly flat cap dying into the hip; through this camera the eave sweeps out round the bow where the plate's does, and the bow stands 0.2 m further south (s 4.1 m) to leave the corner bracket room",
+      "status": "fixed"
+    },
+    {
+      "what": "the round tower: the plate takes it about 2 m higher than T-3279's cone and broader-topped; T-3280 carried it up a fourth, windowless 1.9 m band to a flat top at 14.0 m under K08's nearly flat tin cap, its eaves the heavy edge, which this camera reads within about 1 m of the plate's top (14.9 m) and the 1919 programme plate's at 13.7 m; a parapet's own coping and mouldings are not drawn",
+      "status": "fixed"
+    },
+    {
+      "what": "the north flank's two-storey bays with flat tops (balconies over them) across the rear ranges, and the rear range's canted north bay the sheet draws: not built, the ranges' north walls are flat",
+      "status": "open"
+    },
+    {
+      "what": "the steep gables over the rear ranges: the plate draws three or more, stepped and finialled at their peaks; built as two plain slated gables",
+      "status": "open"
+    },
+    {
+      "what": "the street dormer: the plate's is broad, three lights under its gable; T-3280 built it 3.3 m wide with three lights (K01's `sash.at_m`) where T-3279's carried one sash; T-3301 carried its gable up in a stone coping with kneelers and a finial (K01's `dormer.coping`), as the plate's pale gable and the 2004 photograph show",
+      "status": "fixed"
+    },
+    {
+      "what": "the entrance at the stoop's head: the plate shows an arched opening beside the south neighbour; T-3305 builds K07's round-arched entrance (1.3 by 3.3 m, stone ring and keystone, a pair of leaves under a fanlight), and through this camera its round head stands at the stoop's head at the front's south end, where the plate's arch is",
+      "status": "fixed"
+    },
+    {
+      "what": "stone belts and dressings: the plate shows a pale stone basement and pale courses across the brick; T-3305 lays the stone basement to the principal floor round the front, the bow, the tower and the north flank, and three stone belts across the brick (under the principal sills, at the second floor, under the chamber sills) on the front and carried round the north flank; through this camera the basement and the second-floor belt read across the bow and the front's return where the plate's pale bands do",
+      "status": "fixed"
+    },
+    {
+      "what": "windows: their count and places along the front and the flank are the kit's, not read (the plate is too coarse and the trees hide the lower storey)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "a second, smaller street dormer near the front's south end, one light under its own gable, and the stack rising behind the street dormers at the front block's south side: T-3301 built both (`dormer.also` at v 8.05 m, 1.6 m wide; a third stack at u 14.5 m, v 7.5 m), and through this camera the small dormer's gable stands at the front's south end against the south neighbour's mansard edge and the stack behind the broad dormer, each within about 1 m of the plate",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: the brick's red, the stone's tone and the slate are read from later photographs and the trade's materials; the plate is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the south neighbour (1923, the mansard at the plate's right edge), the street trees, the lamp post and the iron fence's pattern: not part of this record (the fence is K11's scroll band, its pattern unreadable)",
+      "status": "not shown"
+    },
+    {
+      "what": "the quoins and window dressings on the north flank's bays the programme plate shows (the bays themselves are not built yet, T-3303); this plate shows the flank too obliquely and under trees to read them",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

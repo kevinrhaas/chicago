@@ -306,11 +306,38 @@ jobs:
             echo "::notice::$(tr '\n' ' ' <"$WHY")"
           fi
 
+  # THE IMAGE IS PART OF THE RECIPE, AND THE CAP IS FIFTY (T-3296).
+  #
+  # This job floated on `ubuntu-latest` until 2026-11-01, and when that label moved
+  # from ubuntu-24.04 to ubuntu-26.04 the same pinned Blender started writing
+  # different UVs for the same code: recon_1835_bank_freight_f3_001 rebuilt from
+  # dev's generators AND from the 2026-10-16 nightly's generators gives one
+  # identical file on 26.04 and a different one from the committed (24.04) master,
+  # TEXCOORD_0 differing by up to 0.93. So every whole-town bake found 262 masters
+  # "moved" (stale_derivatives.py), re-derived them all — 14 min 13 s on the
+  # 2026-11-01 nightly, Glessner's two KTX2 passes about nine of it — and hit the
+  # 30-minute cap inside its embedded gate. The last green nightly is 2026-10-16
+  # (24.04: 4 masters moved, Bake step 18.5 min); every nightly since and 99 of
+  # 100 dev bakes were cancelled, so no bake ever landed the 26.04 bytes that
+  # would have let the next one find nothing moved, and every generator PR's
+  # carried `content build` verdict read `cancelled` (#1575, #1577).
+  #
+  # Pinned to ubuntu-26.04 because that is where the masters are made now: the
+  # steward runs that bake `--only` for each PR execute on polecat-platform's
+  # `ubuntu-latest`, which is 26.04, and a bake image that disagrees with them
+  # re-derives their work every night. Moving either side is a re-bake made on
+  # purpose (tools/check_runner_images.py refuses a floating label here).
+  #
+  # Fifty minutes is the measured worst case with room: checkout 3-5, setup 1,
+  # generate 3, derive the full drift 14, sidecars + publish 1, embedded gate 14
+  # (2026-10-16; still running at 9.3 when 11-01 was cancelled), push + bundle 1
+  # — about 38. Once a bake lands, derivation drops back to the few masters a
+  # change actually moved and the job returns to roughly twenty.
   bake:
     needs: warranted
     if: needs.warranted.outputs.bake == '1'
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
+    runs-on: ubuntu-26.04
+    timeout-minutes: 50
     outputs:
       branch: ${{ steps.push.outputs.branch }}
       changed: ${{ steps.push.outputs.changed }}

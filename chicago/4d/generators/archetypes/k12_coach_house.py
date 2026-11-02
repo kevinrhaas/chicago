@@ -277,7 +277,11 @@ class Variant:
         W, D = v["width_m"], v["depth_m"]
         t, tp = P["wall"]["brick_m"], P["wall"]["brick_m"]
         B = P["basement"]["depth_m"]
-        E = P["storeys"]["ground_m"] + P["storeys"]["loft_m"]
+        # T-3308: a named lot may state its own loft height, for a building the sheet counts a
+        # storey and a half (1709 Prairie's by the tracks): the loft is a half-storey under the
+        # roof, its walls rising only `loft_m` over the carriage room before the eave. The kit's
+        # two full storeys stand wherever a record does not say otherwise.
+        E = P["storeys"]["ground_m"] + v.get("loft_m", P["storeys"]["loft_m"])
         R = P["roof"]
         # T-2321: a named lot may state its own pitch (a deep coach house would otherwise
         # carry a roof as tall as its walls), and may close its east end with a second party
@@ -340,7 +344,7 @@ class Variant:
         # T-2321: the fittings are the variant's to ask for. The specimen asks for all four;
         # a named lot builds only what its own sheet leaves room for
         for part, build in (("ramp", self.ramp), ("stair", self.stair), ("lean_to", self.lean_to),
-                            ("wing", self.wing)):
+                            ("wing", self.wing), ("range", self.range_)):
             if v.get(part):
                 build()
         if v.get("workyard"):
@@ -587,14 +591,35 @@ class Variant:
         self.wall("lean_to_east", Frame((x1, 0.0, -D), (0.0, 0.0, -1.0), X),
                   [(0.0, 0.0), (dl - lt, 0.0), (dl - lt, yl), (dl, yl), (0.0, yh)], lt,
                   open_edges=set(range(5)), name="lean-to east wall")
-        self.wall("lean_to_west", Frame((x0, 0.0, -D - dl), Z, (-1.0, 0.0, 0.0)),
-                  [(lt, 0.0), (dl, 0.0), (dl, yh), (0.0, yl), (lt, yl)], lt,
-                  open_edges=set(range(5)), name="lean-to west wall")
+        # T-1932: a lean-to may stand on the lot line against the party wall (1730 Prairie's
+        # one-storey piece, whose north wall the 1911 sheet draws on the line). Its west wall then
+        # stops at the party wall's return, its end standing on the return's end face, and its
+        # roof steps round the return: over the return's thickness it starts where the return
+        # ends, beyond it it dies into the yard wall; no verge passes the lot line.
+        W, tp, ret = d["W"], d["tp"], self.P["party_wall"]["return_m"]
+        on_party = abs(x0 + W / 2) < 1e-9
+        if not on_party and x0 < -W / 2 + tp:
+            raise ValueError(f"{self.v['id']}: a lean-to at x0 {x0} runs into the party wall; stand it "
+                             f"on the lot line (x0 {-W / 2}) or clear of the wall")
+        sw = dl - ret if on_party else dl
         e, dr = LP["eave_m"], LP["thickness_m"] / math.cos(math.radians(LP["pitch_deg"]))
+        ys = yh - (dl - sw) * tan
+        self.wall("lean_to_west", Frame((x0, 0.0, -D - dl), Z, (-1.0, 0.0, 0.0)),
+                  [(lt, 0.0), (sw, 0.0), (sw, ys), (0.0, yl), (lt, yl)], lt,
+                  open_edges=set(range(5)), name="lean-to west wall")
         ye = yh - (dl + e) * tan
         roof = self.piece("lean-to roof", "lean_roof", "open")
-        prism(roof.mesh, [(D, yh), (D + dl + e, ye), (D + dl + e, ye + dr), (D, yh + dr)],
-              x0 - LP["verge_m"], x1 + LP["verge_m"], back=True, open_edges={3})
+        if on_party:
+            prism(roof.mesh, [(D, yh), (D + dl + e, ye), (D + dl + e, ye + dr), (D, yh + dr)],
+                  x0 + tp, x1 + LP["verge_m"], back=False, open_edges={3})
+            yr = yh - ret * tan
+            end = self.piece("lean-to roof over the return", "lean_roof", "open")
+            prism(end.mesh, [(D + ret, yr), (D + dl + e, ye), (D + dl + e, ye + dr), (D + ret, yr + dr)],
+                  x0, x0 + tp, back=True, open_edges={3})
+            WORLD_E.apply(end.mesh)
+        else:
+            prism(roof.mesh, [(D, yh), (D + dl + e, ye), (D + dl + e, ye + dr), (D, yh + dr)],
+                  x0 - LP["verge_m"], x1 + LP["verge_m"], back=True, open_edges={3})
         WORLD_E.apply(roof.mesh)
 
     def wing(self):
@@ -611,6 +636,43 @@ class Variant:
         roof = self.piece("wing roof", "lean_roof", "open")
         box(roof.mesh, x0 - ov, x1 + ov, yw, yw + WP["roof_m"], -D - Lw, -D, skip=("front", "back"))
         self.meta["wing"] = {"z_house": -D - Lw}
+
+    def range_(self):
+        """T-1932: a one-storey brick range carried on along the alley past the open gable
+        (1720 Prairie's, which the 1911 sheet and Robinson's 1886 plate both draw south of its
+        stable). Its alley wall continues the coach house's alley wall line, its end standing on
+        that wall's end; its yard wall's end stands on the gable's face; a closed end wall
+        between the two at the far end; a flat roof over all three, flush with the alley face,
+        its end dying into the gable and the alley wall's end, past the far end and the yard
+        wall by the overhang. Every opening on it is the variant's (walls range_alley,
+        range_yard, range_end)."""
+        d, RP, rv = self.dims, self.P["range"], self.v["range"]
+        W = d["W"]
+        if d["east"] != "gable":
+            raise ValueError(f"{self.v['id']}: a range stands only against an open gable")
+        Lr, Dr = rv["length_m"], rv["depth_m"]
+        yr = rv.get("height_m", RP["height_m"])
+        rt = self.P["wall"]["service_brick_m"]
+        # T-1932: or a range as deep as the coach house (1730 Prairie's, whose yard wall the 1911
+        # sheet draws on one line with the stable's): its yard wall's end then stands on the yard
+        # wall's end, as its alley wall's does on the alley wall's, and its roof is flush with
+        # both faces
+        full = abs(Dr - d["D"]) < 1e-9
+        if not (rt < d["t"] < Dr < d["D"] - d["t"] or full):
+            raise ValueError(f"{self.v['id']}: a range {Dr} m deep does not stand on the gable's face")
+        x0 = W / 2
+        rect = [(0.0, 0.0), (Lr, 0.0), (Lr, yr), (0.0, yr)]
+        self.wall("range_alley", Frame((x0, 0.0, 0.0), X, Z), rect, rt, open_edges={0, 2, 3},
+                  name="range alley wall")
+        self.wall("range_yard", Frame((x0 + Lr, 0.0, -Dr), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)), rect, rt,
+                  open_edges={0, 1, 2}, name="range yard wall")
+        self.wall("range_end", Frame((x0 + Lr, 0.0, 0.0), (0.0, 0.0, -1.0), X),
+                  [(rt, 0.0), (Dr - rt, 0.0), (Dr - rt, yr), (rt, yr)], rt,
+                  open_edges=set(range(4)), name="range end wall")
+        ov = RP["overhang_m"]
+        roof = self.piece("range roof", "lean_roof", "open")
+        box(roof.mesh, x0, x0 + Lr + ov, yr, yr + RP["roof_m"], -Dr - (0.0 if full else ov), 0.0, skip=("left",))
+        self.meta["range"] = {"x": (x0, x0 + Lr), "depth_m": Dr, "height_m": yr}
 
     # -- the specimen lot --------------------------------------------------------------------
 
@@ -667,6 +729,9 @@ class Variant:
         east = d["east"] == "party"
         gap = WP["clear_of_walls_m"]
         x0, x1 = -W / 2 + tp + gap, ((W / 2 - tp) if east else W / 2) - gap
+        if self.v.get("lean_to"):
+            # T-1932: the apron starts clear of a lean-to on the yard wall (1730's), not under it
+            x0 = max(x0, self.v["lean_to"]["x1"] + gap)
         th = WP["paving_m"]
         za = -D - wv["apron_m"]
         zh = -D - wv["to_house_m"]
@@ -719,6 +784,10 @@ class Variant:
             ("carriage bay, 3 m, raking", (cs + 1.4, 1.6, 2.7), (cs, 1.7, 0.0), "raking"),
             ("party wall return and coping, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0), (-W / 2, E + 0.4, 0.2), "diffuse"),
         ]
+        if self.v.get("range"):
+            rx0, rx1 = self.meta["range"]["x"]
+            self.meta["stands"].append(("range on the alley, 6 m", ((rx0 + rx1) / 2 + 2.0, 1.6, 6.0),
+                                        ((rx0 + rx1) / 2, 1.8, -1.0), "diffuse"))
         self.meta["focus"] = [0.0, E / 2, -D / 2]
 
 
@@ -750,6 +819,41 @@ def structure_glb(var: Variant, data: dict, structure_id: str, phase_id: str, sc
     """The structure's GLB: no boards, turned into the structure frame, its origin the middle
     of the alley wall's outer face at grade — the point the record's position names."""
     turn = FACING[var.v["alley_side"]]
+    k = var.v.get("skew_per_m", 0.0)
+    if k:
+        # T-3309: a lot whose building stands on a slanting line (1637 Prairie's, its alley and
+        # yard walls both on the slant of the Illinois Central right-of-way, its end walls on the
+        # lot lines) builds the kit on a parallelogram plan: every point is sheared in the
+        # ground plane, z' = z - k * x, so each metre along the alley wall away from the party
+        # wall's end steps the alley and yard walls k metres back from the alley side. The end
+        # walls keep their line across the lot (x is unchanged), and the middle of the alley
+        # wall, the record's position, stays where it is (x = 0). A shear is affine with
+        # determinant 1, so every piece still meets what it met and no triangle turns over; the
+        # kit's own checks are taken on the unsheared build. Normals take the inverse
+        # transpose, n' = (n_x + k * n_z, n_y, n_z), made unit again.
+        shear_p = lambda p: (p[0], p[1], p[2] - k * p[0])
+
+        def shear_n(n):
+            q = (n[0] + k * n[2], n[1], n[2])
+            L = math.sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2]) or 1.0
+            return (q[0] / L, q[1] / L, q[2] / L)
+
+        for p in var.pieces:
+            p.mesh.pos = [shear_p(q) for q in p.mesh.pos]
+            p.mesh.nrm = [shear_n(q) for q in p.mesh.nrm]
+        var.meta["stands"] = [(n, shear_p(e), shear_p(a), li) for n, e, a, li in var.meta["stands"]]
+        var.meta["focus"] = list(shear_p(var.meta["focus"]))
+    if var.v.get("mirror"):
+        # T-1932: a lot whose neighbour stands against the OTHER end (1612's stable, built
+        # against 1616's party wall, with its open gable and window to the north) builds the
+        # kit in mirror image: the kit's x (along the alley) is reversed before the turn, so
+        # the party wall lands at the far end. Every opening's s still counts from the party
+        # wall's inner face. A reflection turns every triangle inside out, so each is rewound.
+        face_on = turn
+        turn = lambda p: face_on((-p[0], p[1], p[2]))
+        for p in var.pieces:
+            ix = p.mesh.idx
+            p.mesh.idx = [i for k in range(0, len(ix), 3) for i in (ix[k], ix[k + 2], ix[k + 1])]
     for p in var.pieces:
         p.mesh.pos = [turn(q) for q in p.mesh.pos]
         p.mesh.nrm = [turn(q) for q in p.mesh.nrm]

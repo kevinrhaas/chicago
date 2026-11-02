@@ -1,0 +1,235 @@
+{
+  "ticket": "T-2546",
+  "measured": {
+    "on": "2026-11-02T08:39:18.999Z",
+    "build": "c4923d59",
+    "machine": "AMD EPYC 7763 64-Core Processor ×4",
+    "seconds": 134,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "tier": "light",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 111691792,
+        "arrayBuffers": 85087682,
+        "gpuBuffers": 184525031,
+        "gpuTextures": 61086829,
+        "gpuRenderbuffers": 3145728,
+        "total": 442391334
+      },
+      "gl": {
+        "gpuBuffers": 184525031,
+        "gpuTextures": 57941101,
+        "gpuRenderbuffers": 3145728,
+        "liveBuffers": 2421,
+        "liveTextures": 1443,
+        "liveRenderbuffers": 1,
+        "liveFramebuffers": 5,
+        "livePrograms": 49
+      },
+      "heapTotal": 114745344,
+      "shadowMapBytes": 8388608,
+      "textures": {
+        "distinct": 701,
+        "images": 126
+      },
+      "layers": [
+        {
+          "name": "structures",
+          "cpuKept": 0,
+          "gpuGeometry": 113398820,
+          "textureBytes": 188646352,
+          "textures": 651,
+          "geometries": 411,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "railway",
+          "cpuKept": 3722828,
+          "gpuGeometry": 22059944,
+          "textureBytes": 8912888,
+          "textures": 26,
+          "geometries": 22,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-grid",
+          "cpuKept": 4669752,
+          "gpuGeometry": 4669752,
+          "textureBytes": 1835568,
+          "textures": 21,
+          "geometries": 18,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "terrain",
+          "cpuKept": 8892948,
+          "gpuGeometry": 1775716,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 111,
+          "cpuNeverUploaded": 8892948
+        },
+        {
+          "name": "context",
+          "cpuKept": 3683292,
+          "gpuGeometry": 3683292,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 6,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "front-yards",
+          "cpuKept": 2217713,
+          "gpuGeometry": 2217713,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 6,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-trees",
+          "cpuKept": 684304,
+          "gpuGeometry": 684304,
+          "textureBytes": 0,
+          "textures": 2,
+          "geometries": 4,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-furniture",
+          "cpuKept": 318072,
+          "gpuGeometry": 318072,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 16,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 24189749,
+        "gpuGeometry": 148808453,
+        "textureBytes": 199482189,
+        "cpuNeverUploaded": 8892948
+      },
+      "uploadRelease": {
+        "geometries": 538,
+        "attributes": 2566,
+        "bytes": 181624830,
+        "keptForHarness": false,
+        "sources": 284,
+        "sourceBytes": 134393778,
+        "images": 0,
+        "imageBytes": 0,
+        "compressed": 69,
+        "compressedBytes": 20449072
+      },
+      "residency": {
+        "pendingAtRead": 0,
+        "settleMs": 71,
+        "resident": 66,
+        "sources": 69,
+        "residentBytes": 19924704,
+        "budgetBytes": 268435456,
+        "wantedBytes": 19924704,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 3,
+        "overBudget": 0
+      },
+      "ktx2": {
+        "enabled": true,
+        "reason": "on",
+        "dropTopMip": true,
+        "glb": "shared",
+        "formats": [
+          "dxt",
+          "bptc"
+        ],
+        "sheets": {
+          "ktx2": 31,
+          "fallback": 0,
+          "gpuBytes": 7428256,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 109,
+        "snapshot": 25
+      },
+      "snapshot": {
+        "arrayBufferBytes": 79905216,
+        "arrayBuffers": 9621
+      },
+      "retainers": [
+        {
+          "path": "Object.data ← Source.data ← DataTexture.source ← BatchedMesh._matricesTexture",
+          "bytes": 5261568,
+          "count": 413
+        },
+        {
+          "path": "Object.values ← Object.tieCache ← Array.[] ← system.(scope).zones",
+          "bytes": 4860636,
+          "count": 52
+        },
+        {
+          "path": "InstancedBufferAttribute.array ← InstancedMesh.instanceMatrix ← Array.[] ← Group.children  [in 'railway']",
+          "bytes": 2979584,
+          "count": 120
+        },
+        {
+          "path": "BufferAttribute.array ← Object.position ← BufferGeometry.attributes ← BatchedMesh.geometry  [in 'terrain']",
+          "bytes": 2932368,
+          "count": 95
+        },
+        {
+          "path": "BufferAttribute.array ← Object.normal ← BufferGeometry.attributes ← BatchedMesh.geometry  [in 'terrain']",
+          "bytes": 2932368,
+          "count": 95
+        },
+        {
+          "path": "Object.sat ← Array.[] ← Object.planarCovers ← Object.buildings",
+          "bytes": 2569372,
+          "count": 39
+        },
+        {
+          "path": "BufferAttribute.array ← BufferGeometry.index ← BatchedMesh.geometry ← Array.[]  [in 'terrain']",
+          "bytes": 2006706,
+          "count": 95
+        },
+        {
+          "path": "Memory.[] ← Object.memory ← Instance.exports ← system.(scope).instance",
+          "bytes": 1900544,
+          "count": 1
+        },
+        {
+          "path": "Object.values ← Object.tuftCache ← Array.[] ← system.(scope).zones",
+          "bytes": 1602592,
+          "count": 56
+        },
+        {
+          "path": "Object.data ← Source.data ← DataTexture.source ← BatchedMesh._colorsTexture",
+          "bytes": 1252720,
+          "count": 411
+        }
+      ]
+    }
+  ]
+}

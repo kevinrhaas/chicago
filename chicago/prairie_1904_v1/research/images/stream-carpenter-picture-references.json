@@ -1,0 +1,101 @@
+[
+  {
+    "id": "early-carpenter-trowbridge-1902",
+    "kind": "engraving",
+    "title": "Mark Beaubien's Tavern, the Sauganash, in 1835",
+    "building_ids": [],
+    "addresses": [],
+    "streetscape": true,
+    "view": "oblique front",
+    "facing": null,
+    "camera_position": null,
+    "date": "1902 publication; retrospective depiction",
+    "date_earliest": 1902,
+    "date_latest": 1902,
+    "period": "later",
+    "creator": "W. E. S. Trowbridge",
+    "repository": "Internet Archive; Edwin O. Gale, Reminiscences of Early Chicago and Vicinity",
+    "collection": "Gale (Chicago: Fleming H. Revell Company, 1902), plate facing printed page31",
+    "call_number": null,
+    "catalog_url": "https://archive.org/details/reminiscencesofe00ingale/page/n49/mode/1up",
+    "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/dd1dfd88808ee36187825706cb71a5ad70bdd262/chicago/reference/images/chicago/chicago_sauganash_tavern_1835.jpg",
+    "rights": "public domain",
+    "rights_basis": "The exact artwork was actually inspected in the US-published 1902 volume together with its title and copyright pages. The underlying 1902 illustration is public domain in the United States by publication age. This verified publication supersedes the old artwork-level check_required hold; it does not assert an item-specific licence for a separately offered modern stock reproduction, establish original colours, or promote this retrospective drawing to an independent 1835 witness.",
+    "verified": "viewed",
+    "found_via": "Existing verified source trowbridge_sauganash_hotel and credited held project reproduction; camera links this non-Prairie reference without invented Prairie building identities.",
+    "notes": "Retrospective plate; original publication independently verified in1902 title/copyright pages. The caption1835 does not date every fitting to1July1835. Dependent composition; annex camera does not accept whole hotel. Official fetch_image.py actually produced the display JPEG and thumbnail on2026-10-30. Source pixels are public-domain; JPEG derivation is disclosed, not described as byte-identical to the original.",
+    "measurements": [],
+    "local": {
+      "display": "research/images/files/early-carpenter-trowbridge-1902.jpg",
+      "display_bytes": 70507,
+      "thumb": "research/images/files/early-carpenter-trowbridge-1902-thumb.jpg",
+      "thumb_bytes": 20574,
+      "original_px": [
+        860,
+        508
+      ],
+      "original_sha256": "1a4ae4d29ca25b2cefba837ef992a3b00503ab6779f0274c6df01b06e95d217f",
+      "original_bytes": 256673,
+      "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/dd1dfd88808ee36187825706cb71a5ad70bdd262/chicago/reference/images/chicago/chicago_sauganash_tavern_1835.jpg",
+      "fetched": "2026-10-30"
+    }
+  },
+  {
+    "id": "early-carpenter-kurz-allison-1893-panel14",
+    "kind": "publication plate",
+    "title": "The Sauganash Hotel. Built in1831. Panel14",
+    "building_ids": [],
+    "addresses": [],
+    "streetscape": true,
+    "view": "oblique front",
+    "facing": null,
+    "camera_position": null,
+    "date": "1893 publication; retrospective depiction",
+    "date_earliest": 1893,
+    "date_latest": 1893,
+    "period": "later",
+    "creator": "Kurz & Allison",
+    "repository": "Library of Congress Prints and Photographs Division; project-held whole sheet",
+    "collection": "Chicago In Early Days,1779-1857 (Chicago:Kurz & Allison,1893), panel14",
+    "call_number": null,
+    "catalog_url": "https://www.loc.gov/pictures/item/2003656685/",
+    "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/dd1dfd88808ee36187825706cb71a5ad70bdd262/chicago/reference/photos/IMG_5382.png",
+    "rights": "public domain",
+    "rights_basis": "The sheet carries its own copyright line at the foot, read off the committed copy verbatim: \"Copyrighted 1893 by Kurz & Allison, 76 & 78 Wabash Avenue, Chicago, Ills.\" A US copyright first secured in 1893 has expired, which is why this record is public_domain rather than check_required, and it is the only plate in this project's pictorial set whose rights are settled ON THE OBJECT rather than by inference. The Library of Congress copy at the url carries no restriction of its own.",
+    "verified": "viewed",
+    "found_via": "Existing verified source kurz_allison_1893 and credited held project reproduction; camera links this non-Prairie reference without invented Prairie building identities.",
+    "notes": "Exact credited368x241 integer panelcrop; originalwhole-sheet SHA/cropbox andpixelidentity in adjacent sourceasset README. Dependent Andreas-family redraw; no independent1835 observation, historical pigment or metricdimensions. Annex camera does not accept whole hotel. Official fetch_image.py actually produced the display JPEG and thumbnail on2026-10-30. Source pixels are public-domain; JPEG derivation is disclosed, not described as byte-identical to the original.",
+    "measurements": [],
+    "local": {
+      "display": "research/images/files/early-carpenter-kurz-allison-1893-panel14.jpg",
+      "display_bytes": 26918,
+      "thumb": "research/images/files/early-carpenter-kurz-allison-1893-panel14-thumb.jpg",
+      "thumb_bytes": 26918,
+      "original_px": [
+        368,
+        241
+      ],
+      "original_sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+      "original_bytes": 208853,
+      "fetched_from": "file:///workspace/T2382-canonical-capture-prep-20261030/runtime/data/sources/assets/carpenter_log_shop_kurz_1893_panel14.png",
+      "fetched": "2026-10-30"
+    },
+    "source_crop": {
+      "source_id": "kurz_allison_1893",
+      "whole_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/dd1dfd88808ee36187825706cb71a5ad70bdd262/chicago/reference/photos/IMG_5382.png",
+      "whole_sha256": "c21d5f82be92c456f90bef3c1a861a7ed4a96b08f5f210131cf763bcfc9cc349",
+      "integer_box_left_top_right_bottom_px": [
+        1595,
+        915,
+        1963,
+        1156
+      ],
+      "crop_sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+      "crop_px": [
+        368,
+        241
+      ],
+      "method": "Exact decoded source rectangle, no resampling/colour transformation; native fetch_image.py read this alreadygenerated credited crop via the recorded file URL. That local fetch receipt is retained truthfully; it is not claimed to be a remote crop download."
+    }
+  }
+]

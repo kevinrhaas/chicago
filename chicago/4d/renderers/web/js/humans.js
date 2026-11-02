@@ -598,9 +598,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
  */
 export async function mountHumans({
   dataBase = null, assetBase, assets = null, sceneId, people = null, terrain = null, tier = 'full',
-  problems = [], fetchImpl = fetch, contract = null,
+  problems = [], fetchImpl = fetch, contract = null, groundHeight = null,
 } = {}) {
-  const heightAt = terrain ? (e, n) => terrain.surfaceHeight(e, n) : () => 0;
+  const heightAt = groundHeight ?? (terrain ? (e, n) => terrain.surfaceHeight(e, n) : () => 0);
   const layer = createHumanLayer({ assetBase, assets, heightAt, tier });
   const out = Object.assign(layer, { records: [], withheld: [], refused: [] });
   if (!dataBase) return out;

@@ -170,9 +170,13 @@ const groundFixture = (conf) => ({
   idx: [0,1,2,3,4,5], conf,
 });
 const releaseSource = await readFile(path.join(web,'js/upload-release.js'),'utf8');
+// T-3173: upload-release imports batch-bounds.js, which imports three by its bare name.
+const boundsURL = 'data:text/javascript;base64,' + Buffer.from((await readFile(path.join(web,'js/batch-bounds.js'),'utf8'))
+  .replace("from 'three'",`from '${threeURL}'`)).toString('base64');
 const {releaseAfterUpload} = await import('data:text/javascript;base64,' + Buffer.from(
   releaseSource.replace("from 'three'",`from '${threeURL}'`)
     .replace("from './shared-images.js'",`from '${pathToFileURL(path.join(web,'js/shared-images.js')).href}'`)
+    .replace("from './batch-bounds.js'",`from '${boundsURL}'`)
 ).toString('base64'));
 const groundKeys = new Set();
 let groundCases = 0;

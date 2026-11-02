@@ -1136,7 +1136,9 @@ the photograph at `data/sources/assets/bioimages_ulmus_americana_11688/`. The le
 adaptation of it and carries that attribution; everything else in these files is
 project-authored under the repository licence. They show what a species' leaf and bark
 generally look like; they are not evidence about any tree that stood (docs/LIBERTIES.md
-L-tree-architecture-2743).
+L-tree-architecture-2743). Since T-1934 the leaf atlas has a sixth row: a bare elm's winter
+twig (a branch end's, and a tuft of them), drawn by the same generator in code alone, no
+photograph sampled.
 
 
 ### Anonymous adult source and preparation — `authored/humans/makehuman_hm08/`

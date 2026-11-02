@@ -675,8 +675,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # them on `prairie_draft` (generators/draft_emit.py), all pure Python, restaling on none of the
 # shared rows above.
 #
+# 1030 -> 1031 on 2026-10-31 (T-3269): the Field house's conservatory at 1905 Prairie stood as its
+# own glass on `k13_conservatories` (generators/k13_emit.py), pure Python, restaling on none of the
+# shared rows above.
+#
 STATED = {
-    "assets": 1030,
+    "assets": 1031,
     "restales": {
         "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,

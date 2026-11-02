@@ -110,6 +110,8 @@ PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_fro
                                        "k01_hip_deck.py",
                                        # T-3242: a two-level veranda on the rear wall
                                        "k01_rear_veranda.py",
+                                       # T-1881: a raised stone terrace under an awning on the rear wall
+                                       "k01_rear_terrace.py",
                                        # T-3255: eared and crested hoods, and corner pilasters
                                        "k01_dressings.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers

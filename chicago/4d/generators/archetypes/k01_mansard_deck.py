@@ -32,6 +32,7 @@ SIDES = ("south", "north", "street", "rear")
 HOOD_INSET_M = 0.02        # a hood's base stands this far inside the curb's lines
 HOOD_FOOT_M = 0.05         # a hood's foot stands this far under the curb, buried in the roof
 CORNER_CLEAR_M = 0.05      # the cresting stops this far short of a hood's base
+CROSS_CLEAR_M = 0.1        # ... and this far short of a pavilion's cross roof (T-1890)
 FINIAL_CLEAR_M = 0.12      # ... and this far short of a plain finial's turning
 FINIAL_INSET_M = 0.15      # a plain finial stands this far inside both curb lines
 LET_IN_M = 0.03            # a finial's foot let into what carries it
@@ -48,7 +49,7 @@ class ParamError(ValueError):
 
 
 def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pitch: float,
-            chimneys) -> dict:
+            chimneys, bays=()) -> dict:
     """The record's `mansard.deck`, bounded. `m` is the resolved mansard (its curb), `pitch`
     the deck's (roof_pitch_deg). Returns what dress() builds from."""
     if m.get("crown"):
@@ -97,6 +98,8 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
         out["hoods"] = {"corners": at, "base_m": b, "rise_m": r}
     if not out.keys() & {"cresting", "finials"}:
         raise ParamError("mansard.deck names its cresting, its finials or both")
+    if deck.get("cross_roof"):
+        out["cross_roof"] = _cross_roof(deck["cross_roof"], out, bays, depth)
     # a stack across the curb line would cut the rail: none may stand on it
     for c in chimneys:
         sx, sz = c["plan_m"]
@@ -107,6 +110,70 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
             if cu is not None and abs(c["u_m"] - cu) < sx / 2 + 0.1 and lo < c["v_m"] < hi:
                 raise ParamError(f"chimney at ({c['u_m']}, {c['v_m']}) stands on the curb at u {cu:.2f}")
     return out
+
+
+def _cross_roof(c: dict, dk: dict, bays, depth: float) -> dict:
+    """T-1890: a street-front pavilion's cross roof run back through the deck's corner (1801's
+    south pavilion: the Taylor photograph and HABS photograph 1 both show its slated roof
+    running back from behind the coped gable over the curb, to a finial on its ridge's end
+    about 4.5 m behind the front, where the cresting along the front stops and the corner
+    has no finial of its own). `over_bay` names the K08 shallow projection whose gable carries
+    the roof (`roof.gable.behind`, k08_bays.Bay._gable_behind); its plan is read off the bay,
+    in the curb's (u, v): its cheeks' v, its ridge's v and height, and its end's u."""
+    u0, u1, v0, v1 = dk["curb"]
+    b = next((x for x in bays if x["id"] == c.get("over_bay")), None)
+    bh = (((b or {}).get("variant") or {}).get("roof") or {}).get("gable", {}).get("behind")
+    if b is None or b["wall"] != "k01.wall.street_front" or not b["variant"].get("shallow") or not bh:
+        raise ParamError(f"mansard.deck.cross_roof.over_bay {c.get('over_bay')!r}: a shallow projection on the "
+                         f"street front whose gable carries a roof behind it (roof.gable.behind)")
+    g = b["variant"]["roof"]["gable"]
+    pts = b["variant"]["plan"]["points"]
+    xl, xr = float(pts[1][0]), float(pts[2][0])
+    il, ir = (float(x) for x in g.get("inset_m", (0.0, 0.0)))
+    s = float(b["s_m"])
+    lo, hi, mid = s + xl, s + xr, s + (xl + il + xr - ir) / 2
+    end, ridge = depth - float(bh["run_back_m"]), float(bh["ridge_m"])
+    if hi >= v1 and v0 < lo:
+        corner = "street_north"
+    elif lo <= v0 and hi < v1:
+        corner = "street_south"
+    else:
+        raise ParamError("mansard.deck.cross_roof: the pavilion's roof runs back through one of the street "
+                         "front's curb corners, and only one")
+    if not (u0 + 1.0 <= end < u1 - 0.5 and ridge > dk["curb_m"]):
+        raise ParamError(f"mansard.deck.cross_roof: its ridge stands over the curb's {dk['curb_m']} m and its end "
+                         f"on the deck, 0.5 m or more behind the street curb at u {u1:.2f} (not u {end:.2f})")
+    out = {"over_bay": b["id"], "corner": corner, "v_m": [round(lo, 4), round(hi, 4)],
+           "ridge_v_m": round(mid, 4), "ridge_m": ridge, "end_u_m": round(end, 4)}
+    if c.get("hood") is not None:
+        out["hood"] = _cross_hood(c["hood"], dk, end, mid, ridge)
+    return out
+
+
+def _cross_hood(h: dict, dk: dict, end: float, mid: float, ridge: float) -> dict:
+    """T-1890: the slated hood over a cross roof's ridge end (HABS photograph 1 of 1801: a
+    small slated pyramid, its hips white-flashed, capping the end where the cross roof's
+    ridge meets the deck, the finial on its apex; on the Taylor print it stands behind the
+    ridge and only lifts the finial). A square `base_m` across, centred on the ridge's end,
+    rising to `rise_m` over the ridge; its foot HOOD_FOOT_M under the deck's lowest point
+    under it, so the deck behind and the cross roof's slopes in front bury it all round."""
+    if set(h) - {"base_m", "rise_m", "flashing_m"}:
+        raise ParamError(f"mansard.deck.cross_roof.hood takes base_m, rise_m and flashing_m, not {sorted(h)}")
+    b, r = float(h["base_m"]), float(h["rise_m"])
+    fl = float(h.get("flashing_m", 0.0))
+    u0, u1, v0, v1 = dk["curb"]
+    ua, ub, va, vb = end - b / 2, end + b / 2, mid - b / 2, mid + b / 2
+    if not 0.5 <= b <= 1.6 or not 0.3 <= r <= 2.0 or not (fl == 0.0 or 0.03 <= fl <= 0.12):
+        raise ParamError("mansard.deck.cross_roof.hood: a 0.5-1.6 m base rising 0.3-2.0 m over the ridge, "
+                         "its hips' flashing 0.03-0.12 m a side (or none)")
+    if not (u0 + HOOD_INSET_M <= ua and ub <= u1 - HOOD_INSET_M and v0 + HOOD_INSET_M <= va
+            and vb <= v1 - HOOD_INSET_M):
+        raise ParamError(f"mansard.deck.cross_roof.hood: its {b} m base on the ridge's end stands inside the "
+                         f"curb, {HOOD_INSET_M} m or more from each of its lines")
+    low = min(ua - u0, u1 - ub, va - v0, v1 - vb)   # the base's corner nearest a curb line
+    foot = dk["curb_m"] + low * math.tan(math.radians(dk["deck_pitch_deg"])) - HOOD_FOOT_M
+    return {"base_m": b, "rise_m": r, "flashing_m": fl, "u_m": [round(ua, 4), round(ub, 4)],
+            "v_m": [round(va, 4), round(vb, 4)], "foot_m": round(foot, 4), "apex_m": round(ridge + r, 4)}
 
 
 def _corner(dk, name):
@@ -130,6 +197,9 @@ def hoods(a, dk, conf):
     faces of their own rather than joined into the K05 union: the hood stands astride the
     deck's hip, and K05's roof graph would read the hood's inner hip and the deck's as one."""
     hd = dk.get("hoods")
+    xh = (dk.get("cross_roof") or {}).get("hood")
+    if xh:
+        _cross_hood_faces(a, dk, xh, conf)
     if not hd:
         return
     from .k01_frontage import _cross, _sub, _unit
@@ -151,6 +221,47 @@ def hoods(a, dk, conf):
                 n = _unit(_cross(_sub(q, p), _sub(apex, p)))
             up = _unit(_sub(apex, ((p[0] + q[0]) / 2, y0, (p[2] + q[2]) / 2)))
             a.prim(mat).face([p, q, apex], n, a.basis(mat, p, _unit(_sub(q, p)), up, seed), conf)
+
+
+def _cross_hood_faces(a, dk, xh, conf):
+    """T-1890: the cross roof's hood (_cross_hood): four slated faces from its square foot to
+    the apex over the ridge's end, laid as a corner hood's are, and along each hip a roll of
+    pale zinc `flashing_m` down each face either side, a centimetre proud of the slate."""
+    from .k01_frontage import _cross, _sub, _unit
+    xr = dk["cross_roof"]
+    (ua, ub), (va, vb), y0 = xh["u_m"], xh["v_m"], xh["foot_m"]
+    apex = (xr["end_u_m"], xh["apex_m"], -xr["ridge_v_m"])
+    mat = "mansard_slate" if a.fabric.get("mansard_slate") else "slate_covering"
+    seed = a.instance("k01.roof.deck_hood", "roof", {"base_m": xh["base_m"], "rise_m": xh["rise_m"],
+                                                      "corner": "cross_roof"}, {"apex": apex})
+    foot = [(ua, y0, -va), (ub, y0, -va), (ub, y0, -vb), (ua, y0, -vb)]
+    normals = []
+    for i in range(4):
+        p, q = foot[i], foot[(i + 1) % 4]
+        n = _unit(_cross(_sub(q, p), _sub(apex, p)))
+        if n[1] < 0:
+            p, q = q, p
+            n = _unit(_cross(_sub(q, p), _sub(apex, p)))
+        normals.append(n)
+        up = _unit(_sub(apex, ((p[0] + q[0]) / 2, y0, (p[2] + q[2]) / 2)))
+        a.prim(mat).face([p, q, apex], n, a.basis(mat, p, _unit(_sub(q, p)), up, seed), conf)
+    w = xh.get("flashing_m", 0.0)
+    if not w:
+        return
+    zinc = "k04_zinc_sheet"
+    for i in range(4):   # hip i runs from foot[i] up to the apex, between faces i-1 and i
+        c = foot[i]
+        along = _unit(_sub(apex, c))
+        for n, far in ((normals[i - 1], foot[i - 1]), (normals[i], foot[(i + 1) % 4])):
+            off = tuple(0.012 * x for x in n)
+            side = _unit(_cross(n, along))
+            if side[0] * (far[0] - c[0]) + side[1] * (far[1] - c[1]) + side[2] * (far[2] - c[2]) < 0:   # into the face, not off it
+                side = tuple(-x for x in side)
+            p0 = tuple(c[k] + off[k] for k in range(3))
+            p1 = tuple(apex[k] + off[k] for k in range(3))
+            q0 = tuple(p0[k] + w * side[k] for k in range(3))
+            q1 = tuple(p1[k] + w * 0.3 * side[k] for k in range(3))   # narrowing up to the apex
+            a.prim(zinc).face([p0, q0, q1, p1], n, a.basis(zinc, p0, along, side, seed), conf)
 
 
 def _stretch(pieces, y0, s):
@@ -219,6 +330,7 @@ def dress(a, dk, conf):
             return FINIAL_INSET_M + fn["radius_m"] + FINIAL_CLEAR_M
         return 0.25
 
+    xr = dk.get("cross_roof")
     cr = dk.get("cresting")
     if cr:
         ins = cr["inset_m"]
@@ -234,6 +346,14 @@ def dress(a, dk, conf):
             end, where = (cant or {"stops": {}})["stops"].get(side, (None, None))
             lo, hi = (where, hi) if end == "lo" else (lo, where) if end == "hi" else (lo, hi)
             s0, s1 = lo + stop(c_lo), hi - stop(c_hi)
+            if xr:   # T-1890: the run stops short of a pavilion's cross roof through its corner
+                if side == "street":
+                    s0, s1 = ((xr["v_m"][1] + CROSS_CLEAR_M, s1) if xr["corner"] == "street_south"
+                              else (s0, xr["v_m"][0] - CROSS_CLEAR_M))
+                elif xr["corner"] in (c_lo, c_hi):
+                    s1 = xr["end_u_m"] - CROSS_CLEAR_M
+                    if xr.get("hood"):   # ... and short of the hood on its end
+                        s1 = min(s1, xr["hood"]["u_m"][0] - CORNER_CLEAR_M)
             L = s1 - s0
             if L < k10_frontage.MIN_CRESTING_M:
                 continue
@@ -276,9 +396,20 @@ def dress(a, dk, conf):
             k10_frontage._lay(a, var.pieces, conf, CRESTING)
     if fn:
         from .k09_trim import lathe, Piece
-        for name in CORNERS:
-            u, v, su, sv = _corner(dk, name)
-            if name in hd["corners"]:
+        for name in CORNERS + (("cross_roof",) if xr else ()):
+            if xr and name == xr["corner"]:
+                continue   # T-1890: under the pavilion's cross roof, whose ridge's end carries it
+            if name == "cross_roof" and xr.get("hood"):   # on its hood's apex, over the end
+                x, z = xr["end_u_m"], -xr["ridge_v_m"]
+                foot, host = xr["hood"]["apex_m"] - LET_IN_M, "cross roof hood"
+            elif name == "cross_roof":
+                x, z = xr["end_u_m"] + fn["radius_m"], -xr["ridge_v_m"]
+                foot, host = xr["ridge_m"] - LET_IN_M, "cross roof"
+            else:
+                u, v, su, sv = _corner(dk, name)
+            if name == "cross_roof":
+                pass
+            elif name in hd["corners"]:
                 c = HOOD_INSET_M + hd["base_m"] / 2
                 foot = dk["curb_m"] + hd["rise_m"] - LET_IN_M
                 host = "corner hood"
@@ -286,7 +417,8 @@ def dress(a, dk, conf):
                 c = FINIAL_INSET_M
                 foot = deck_y(dk, c) - LET_IN_M
                 host = "mansard deck"
-            x, z = u + su * c, -(v + sv * c)
+            if name != "cross_roof":
+                x, z = u + su * c, -(v + sv * c)
             a.instance("k01.roof.deck_finial", "finial", {"height_m": fn["height_m"], "corner": name,
                                                            "host": host}, {"foot": (x, foot, z)})
             pc = Piece(f"finial {name}", "iron", "rooted", host=host)

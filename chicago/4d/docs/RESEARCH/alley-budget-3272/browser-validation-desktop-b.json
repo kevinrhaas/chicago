@@ -1,0 +1,43 @@
+{
+  "method": "Actual published /1904/ app at 1280x800, `full`; animation paused after readiness; each stand renders the same held frame with the far-relief swap off (buildings.farRelief.on=false), off again (QA_CONTROL), on, and with the three relief pieces hidden outright (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0"
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "glessner-roof-close",
+      "tierHasItOn": true,
+      "pieces": 3,
+      "swapped": 0,
+      "off": {
+        "triangles": 3903301,
+        "drawCalls": 7890
+      },
+      "on": {
+        "triangles": 3903301,
+        "drawCalls": 7890,
+        "withinBudget": false
+      },
+      "saved": 0,
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 6017,
+      "problems": 0
+    }
+  ]
+}

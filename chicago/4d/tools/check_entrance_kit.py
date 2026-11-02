@@ -145,6 +145,15 @@ def rule_risers(o, v, data):
             continue
         mid = [p for p in ps if abs(p[0] - o.O[0]) < 1e-6] or ps
         goings.append(max(p[2] for p in mid) - min(p[2] for p in mid))
+    # T-1881: a mid landing is one tread `depth_m` deep part way down the flight (1729's);
+    # it is held to its own depth, and the flight's other goings to the tread range
+    ml = (o.meta.get("stair") or {}).get("mid_landing")
+    if ml:
+        at = [i for i, g in enumerate(goings) if abs(g - ml["depth_m"]) < 1e-3]
+        if not at:
+            out.append(f"risers: no tread is the mid landing's {ml['depth_m']} m")
+        else:
+            goings.pop(at[0])
     glo, ghi = sr["tread_range_m"]
     if goings and max(goings) - min(goings) > 1e-3:
         out.append(f"risers: the goings are unequal ({[round(g, 4) for g in goings]} m)")

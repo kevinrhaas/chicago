@@ -208,7 +208,13 @@
       "phases[].form.frame_addition_ridge_stack.note",
       "phases[].form.frame_addition_roof_pitch_deg.note",
       "phases[].form.front_window_sill_m.note",
-      "phases[].form.ridge_stack_cap_m.note"
+      "phases[].form.ridge_stack_cap_m.note",
+      "phases[].form.draw_bearing_supports.note",
+      "phases[].form.draw_profile.note",
+      "phases[].form.draw_rise_m.note",
+      "phases[].form.gallows_shore_attach_m.note",
+      "phases[].form.draw_bearing_platform_m.note",
+      "phases[].form.draw_bearing_platform_offset_m.note"
     ],
     "households": [
       "arrival.note",

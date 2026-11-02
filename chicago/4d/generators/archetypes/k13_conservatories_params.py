@@ -57,6 +57,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K13ConservatoryParams
                          f"{form['conservatory']['value'].get('form')} stands against a wall, so form lacks host_wall")
     host = form["host_wall"]["value"] if "host_wall" in form else {}
     bad = [k for k in HOST_KEYS if not isinstance(host.get(k), (int, float)) or host[k] <= 0]
+    # T-1905: or the wall is another record's own, named and nothing else, and nothing is built for it
+    if "structure" in host:
+        if set(host) != {"structure"} or not isinstance(host["structure"], str) or not host["structure"]:
+            raise ParamError(f"{(record or {}).get('id')}: a host_wall naming the structure whose wall it is "
+                             f"names that and nothing else")
+        bad = []
     if hosted and bad:
         raise ParamError(f"{(record or {}).get('id')}: host_wall needs positive {', '.join(bad)}")
     return K13ConservatoryParams(

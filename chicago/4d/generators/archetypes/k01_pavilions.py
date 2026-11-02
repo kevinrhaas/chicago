@@ -230,6 +230,15 @@ def belt_path(run, r, y):
             pts += [(b, d)]
     if pts[-1][0] < b - eps:
         pts.append((b, 0.0))
+    # T-1881: two projections abutting (1729's forward block and its front step, one ending
+    # where the other starts) step the path straight from the one's face to the other's,
+    # never back to the wall and out again along the same line
+    j = 1
+    while j < len(pts) - 1:
+        if abs(pts[j - 1][0] - pts[j][0]) < eps and abs(pts[j][0] - pts[j + 1][0]) < eps:
+            del pts[j]
+        else:
+            j += 1
     out = []
     for s, n in pts:
         q = run.at(s, y, n)

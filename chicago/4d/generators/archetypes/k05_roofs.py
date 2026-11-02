@@ -502,8 +502,10 @@ def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, pro
         y = (1 - u) ** 2 * P0[1] + 2 * (1 - u) * u * P1[1] + u * u * P2[1]
         rings.append((y, inset_rect(X0, X1, Z0, Z1, ins)))
     d = min(X1 - X0, Z1 - Z0) / 2
-    if cut is not None and run < cut[1] < d:
-        rings.append((E + rise + (cut[1] - run) * ut, inset_rect(X0, X1, Z0, Z1, cut[1])))
+    # T-3283: a cut may name more insets (the one where it eats the end side it cuts)
+    for t in sorted((cut[1], *cut[2:]) if cut is not None else ()):
+        if run < t < d:
+            rings.append((E + rise + (t - run) * ut, inset_rect(X0, X1, Z0, Z1, t)))
     rings.append((E + rise + (d - run) * ut, inset_rect(X0, X1, Z0, Z1, d)))
     if cut is not None:
         rings = [(y, cut[0](ring, o - _ins(ring, X0, Z1))) for y, ring in rings]

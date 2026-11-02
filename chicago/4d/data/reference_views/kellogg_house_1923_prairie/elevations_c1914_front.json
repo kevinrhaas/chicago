@@ -1,0 +1,24 @@
+{
+  "structure_id": "kellogg_house_1923_prairie",
+  "source_id": "glessner_blog_2011_prairie_1800_1900_elevations",
+  "library_image": "a19-gh-prairie-1800-1900-elevations",
+  "photo": "../../sources/assets/kellogg_1923_pictures_t3282/row_elevations_1923_front.jpg",
+  "image_px": [
+    125,
+    165
+  ],
+  "principal_px": [
+    62.5,
+    110.6
+  ],
+  "focal_px": 2960.0,
+  "eye": [
+    412.4,
+    8.35,
+    6.0
+  ],
+  "yaw_deg": 270.0,
+  "near_m": 380,
+  "sky": "overcast",
+  "solve": "An elevation, so an orthographic camera far off on the front's normal (heading 270, due west in the footprint frame), solved with one length, as the HABS sheets at 1800 are: the eye 400 m before the front and a near plane at 380 m, so nothing between the camera and the house is drawn. The picture is the 1923 front in the east row of the undated row elevations (the image store's 1600 x 464 px copy, its pixels x 1325-1450, y 40-205 cropped unscaled into row_elevations_1923_front.jpg); the row's houses run north to south from left to right, 1905, 1919, 1923 and 1945 the last four, 1923 the third from the right at x 1340-1435 px. THE LENGTH IS THE ROW'S OWN SCALE, NOT THIS FRONT'S: 1905's front beside it, on the same baseline, draws its cornice's top 92 px over the walk and its mansard's curb 40 px over that against its record's 12.4 m and 5 m (T-3260, from the 1893 plate's camera), about 7.4 px a metre, and draws its front 110 px across against the sheet's 15.25 m, which agrees. At 7.4 px a metre (focal 2960 px at 400 m) 1923's front reads 12.8 m across where the sheet has 16.7 m, so the render runs about 30 px wider than the drawing, half at each end (the record keeps the sheet), and its heights read: the water table about 2.4 m over the walk (y 177 px of the copy), the band between the storeys about 6.7 m (y 145), the frieze's foot about 11.2 m (y 112), the cornice's top about 12.6 m (y 100) and the mansard's curb about 17.3 m (y 65), the walk at y 195. The principal point is the crop's middle across and the eye's height, 6.0 m, 44.4 px above the walk's line at y 155 of the crop. No shadow is drawn; it renders overcast."
+}

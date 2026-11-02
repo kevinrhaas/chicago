@@ -88,3 +88,25 @@ both pictures carry the walk level over the curb and set the slab beyond it, in 
 the Detroit view's south-west and south-east slabs show their thickness at their sides and foot.
 
 ![Taylor 2135's corner; the first build (the owner's screenshot); the slabs now, from Taylor's stand](prairie_1904_street_section/corner-ramps-before-after.jpg)
+
+## The walk joins (T-3274, 2026-10-31)
+
+The owner, 2026-10-31, with a phone screenshot from the 18th Street walk at Calumet Avenue (the
+Pullman glasshouse ground): *"there is a gap there between sidewalk and walkway. I see that all over
+the place ... make the walk connect correctly based on the photos"*. Measured on dev that day, every
+yard builder laid its walks to the lot line (`front_yard_m` before the house's street front), and
+the public walk starts a foot outside it (the `margin` band, sec. 2062: "All walks to be laid on a
+line one foot from and parallel with the lot line"; T-3233 made that foot the lot's own grass). So
+39 of the 48 worked houses' front walks, all 11 side service walks, 1729's two drives and the
+glasshouse ground's walk and drive stopped 0.18-1.6 m short on grass; the widest were 1812 Prairie
+(1.6 m: its traced front and recorded front yard leave more than the foot) and the glasshouse
+ground (0.8-0.9 m). Nine front walks already met the public walk.
+
+`tools/lay_prairie_1904_walk_joins.py` reads each walk's street end off what was built (the K14/K16
+instances in the GLBs' node extras, as `tools/check_house_walks.py` reads them, and the K13 record's
+`grounds` rows), carries it into the scene by the house's 1904 placement, and measures it to the
+nearest public walk band. An end 0.02-2.5 m off gets a join the walk's width, from 4 cm under its
+end square across to 4 cm into the public walk: 51 joins in `data/street_section/walk_joins_1904.json`,
+which `street-grid.js` draws as pieces of the face's walk band, in its paving and at its level. The
+houses' GLBs are untouched, so no house lane's work is restaled; a lane that moves a walk or a
+placement fails `--check` in the gate and reruns the tool. Liberty: L-prairie-walk-joins-3274.

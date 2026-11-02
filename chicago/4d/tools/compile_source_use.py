@@ -19,8 +19,9 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013; 192 000 from
 # T-2385 (dev's new Prairie sources and the Tremont's Gale record together read 184 255);
 # 200 000 from T-3188; 208 000 from T-3161; 216 000 from T-3251 (dev's new sources and the
-# women's jaunts' sources together read 209 289) — see outputs().
-INDEX_BUDGET = 216_000
+# women's jaunts' sources together read 209 289); 224 000 from T-2375's grouped early-picture
+# integration with canonical Blue Book sources (531 sources, 216 567 raw bytes) — see outputs().
+INDEX_BUDGET = 224_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -454,6 +455,13 @@ class Compiler:
         # 216 000 SINCE 2026-10-30 (T-3251): the women's jaunts' sources (T-3250, T-3251) merged
         # onto dev's new records took the index to 209 289 raw bytes with every citation whole.
         # Same bargain again.
+        # 224 000 SINCE 2026-10-31 (T-2375, grouped with T-2372/T-2378/T-2382): the two
+        # bridge attribution records plus canonical dev's fifteen Blue Book records produce
+        # 531 complete sources and 216 567 raw bytes. Native read-only pricing measured
+        # 49 928 gzip bytes for the index and 57 337 for index + sources.js + sources.css
+        # at Node's default gzip level. This is another 8 000-byte raw increment (+3.70%),
+        # not a wire-budget increase: the existing 120 000-byte compressed first-open
+        # assertion remains. No citation, schema field, grade/count or source edge is cut.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

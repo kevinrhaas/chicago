@@ -38,6 +38,10 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   doors        (T-1890) a window entry's `door`: a K06 door in a grade bay's lowest storey, its
                hole run down through the plinth to the step and the plinth broken square
                either side of it (1801's side door under its frontispiece, HABS photograph 2)
+               (T-1881) or, with `steps`, a raised door over the plinth: its hole cut as a
+               light's, the plinth unbroken under it, and a stone flight of `risers` steps
+               `tread_m` deep and `width_m` wide from grade up to its sill, square to the face
+               (1729's side door in its porte-cochere, Taylor's photograph no. 1445)
   floor balcony (T-2534) a projection's balcony on one of its floors, bowed out from its
                front under the window it serves: a stone slab and a stone balustrade on it
   frieze       (T-2778) a windowless storey's carved frieze: on every run a dressed panel
@@ -216,6 +220,9 @@ def hull(points):
 
 
 # -- runs: the plan cut into pieces a strip can be built on -----------------------------------
+
+
+BEHIND_CHEEK_IN_M = 0.01   # T-1890: a roof behind a gable keeps its cheeks this far inside the plan
 
 class Run:
     """One piece of the plan. Its frame: s along the outer face from its start, y up, z out
@@ -1025,6 +1032,88 @@ def surround(o, su: dict, op, s: float, tier: str) -> list:
     return out
 
 
+ARCHITRAVE_PIECES = 12    # T-1881: an architrave's arch in this many straight pieces (K01's)
+ARCHITRAVE_INNER = 0.55   # T-1881: the inner fascia's share of the band, next the light (K01's)
+ARCHITRAVE_TUCK_M = 0.01  # T-1881: how far an architrave's band stands off the light's edge
+
+
+def architrave(o, ar: dict, op, s: float, tier: str) -> list:
+    """T-1881: a round-headed light framed by a moulded architrave, as K01 frames a street
+    front's named lights (k01_frontage.street_architrave; 1729 Prairie's pavilion lights in the
+    1890 Albertype plate): a band `band_m` broad up each jamb from the sill to the springing and
+    on round the arch, in two fascias, the outer `proud_m` before the face and the inner, next
+    the light, half that, so the step between them draws the plate's shadow line; an impost
+    block (`impost_m`: height, how far past the band and before it) at the springing; and a
+    keystone (`key_m`: width, height over the crown) a little prouder. The light tier keeps one
+    fascia and half the arch's pieces.
+
+    The band is swept as one moulding (its section carried up the jamb, round the arch and down
+    the other jamb), so no two of its pieces meet face to face; it stands ARCHITRAVE_TUCK_M off
+    the light's edge, clear of K06's head band's inner face, and the impost a further step off,
+    its inner face inside the band: K08's doubled-face rule holds. The band has no back (it stands on the wall) and buries its feet in the sill.
+    Drawn into the strip `o`; returns the jambs' (s0, s1, y0, y1) for a coursed wall's cells."""
+    pts = [(q[0] + s, q[1] + op.O[1]) for h in op.holes for q in h]
+    x0, x1 = min(q[0] for q in pts), max(q[0] for q in pts)
+    r0, cx = (x1 - x0) / 2, (x0 + x1) / 2
+    ys = max(q[1] for q in pts) - r0
+    if ar.get("rise_m"):
+        # T-3294: one arch over a grouped light (1912's south pair), its crown `rise_m` over the
+        # lights' heads, every point of their holes inside its intrados
+        ys += ar["rise_m"]
+        if any(q[1] > ys and math.hypot(q[0] - cx, q[1] - ys) > r0 + ARCHITRAVE_TUCK_M for q in pts):
+            raise ValueError(f"an enclosing architrave rising {ar['rise_m']} m over its lights cuts their heads")
+    # the foot a little under the sill's top, which falls outward (as `surround`'s does)
+    y0 = op.O[1] - 0.016
+    b, F = ar["band_m"], ar["proud_m"]
+    e = ARCHITRAVE_TUCK_M
+    if tier == "full":
+        w = b * ARCHITRAVE_INNER
+        sec, n = [(0.0, 0.0), (0.0, F * 0.5), (w, F * 0.5), (w, F), (b, F), (b, 0.0)], ARCHITRAVE_PIECES
+    else:
+        sec, n = [(0.0, 0.0), (0.0, F), (b, F), (b, 0.0)], ARCHITRAVE_PIECES // 2
+    # the band's inner edge stands ARCHITRAVE_TUCK_M off the light's, so its inner face is not
+    # drawn in the plane of K06's head band (which it covers) round the arch
+    sec = [(e + t, d) for t, d in sec]
+    # the path's stations: (direction away from the light, ((x, y) at the band's inner edge))
+    # up the left jamb, round the arch from the left springing to the right, down the right jamb
+    stations = [((-1.0, 0.0), (x0, y0)), ((-1.0, 0.0), (x0, ys))]
+    stations += [((math.cos(math.pi * (1 - i / n)), math.sin(math.pi * (1 - i / n))), None) for i in range(n + 1)]
+    stations += [((1.0, 0.0), (x1, ys)), ((1.0, 0.0), (x1, y0))]
+
+    def at(k, t):
+        (ux, uy), base = stations[k]
+        if base is None:                                                    # on the arch
+            return (cx + (r0 + t) * ux, ys + (r0 + t) * uy)
+        return (base[0] + t * ux, base[1] + t * uy)
+    for k in range(len(stations) - 1):
+        if stations[k][1] is not None and stations[k + 1][1] is None or \
+                stations[k][1] is None and stations[k + 1][1] is not None:
+            continue                                                        # the springing: one point
+        ux, uy = (stations[k][0][0] + stations[k + 1][0][0]) / 2, (stations[k][0][1] + stations[k + 1][0][1]) / 2
+        for (ta, da), (tb, db) in zip(sec, sec[1:]):
+            pa0, pb0, pa1, pb1 = at(k, ta), at(k, tb), at(k + 1, ta), at(k + 1, tb)
+            nt, nd = -(db - da), (tb - ta)                                  # outward in the section
+            o.face("band", [o.P(pa0[0], pa0[1], -da), o.P(pb0[0], pb0[1], -db),
+                            o.P(pb1[0], pb1[1], -db), o.P(pa1[0], pa1[1], -da)], (nt * ux, nt * uy, nd))
+    # the feet, buried in the sill: each a convex piece of the section
+    for k, hy in ((0, -1.0), (len(stations) - 1, -1.0)):
+        for (ta, da), (tb, db) in zip(sec, sec[1:]):
+            if da == db and da > 0:
+                p0, p1 = at(k, ta), at(k, tb)
+                o.face("band", [o.P(p0[0], p0[1], 0.0), o.P(p1[0], p1[1], 0.0),
+                                o.P(p1[0], p1[1], -da), o.P(p0[0], p0[1], -da)], (0.0, hy, 0.0))
+    if ar.get("impost_m"):
+        ih, io = ar["impost_m"]
+        # raised ARCHITRAVE_TUCK_M, so its top is not drawn in the plane of K06's head band's
+        # feet at the springing
+        for a0, a1 in ((x0 - e - b - io, x0 - 2 * e), (x1 + 2 * e, x1 + e + b + io)):
+            o.proud("band", rect(a0, a1, ys - ih + e, ys + e), F + io)
+    if ar.get("key_m"):
+        kw, kh = ar["key_m"]
+        o.proud("band", rect(cx - kw / 2, cx + kw / 2, ys + r0, ys + r0 + kh), F + 0.03)
+    return [(x0 - b, x0, y0, ys), (x1, x1 + b, y0, ys)]
+
+
 def tympanum(o, ty: dict, x0: float, x1: float, y0: float, cx: float, tier: str) -> int:
     """T-3197: a carved tympanum over a light's lintel (1827's, from the Doane photograph): a
     stone panel standing on the lintel's top (`y0`) between its ends (`x0`, `x1`), `proud_m`
@@ -1201,6 +1290,12 @@ def window(w: dict, s: float, y_sill: float, recess: float):
         data6["parts"]["sill"]["horn_m"] = su["band_m"] + 0.01
         data6["parts"]["head_band"].update({"ear_m": su["band_m"] + 0.01, "width_m": su["head_m"],
                                              "proud_m": su["head_proud_m"]})
+    if w.get("architrave"):
+        # T-1881: an architrave's jambs stand on the sill's horns, as a surround's do, the horns
+        # running a little past the band (stood ARCHITRAVE_TUCK_M off the light) so their ends
+        # are not drawn in its outer face's plane
+        data6["parts"]["sill"]["horn_m"] = max(data6["parts"]["sill"]["horn_m"],
+                                               w["architrave"]["band_m"] + ARCHITRAVE_TUCK_M + 0.03)
     probe = K6.Opening(v6, data6).build()
     inner_glass = probe.meta["depth_backing_m"] - data6["parts"]["backing"]["depth_m"]
     data6["parts"]["backing"]["depth_m"] = recess - inner_glass
@@ -1262,6 +1357,8 @@ class Bay:
         for i, run in enumerate(self.runs):
             flat = strip(f"{v['id']}|run{i}")
             doors = []   # T-1890: the doors on grade in this run, (from, to) along it
+            flights = []   # T-1881: the raised doors' steps in this run, (from, to, rise, risers, tread)
+            sunk = []    # T-3257: the basement lights cut through this run's plinth
             cant = ct is not None and "side" in (run.start, run.end)
             for k in range(len(v["storeys"])):
                 holes = []
@@ -1288,7 +1385,23 @@ class Bay:
                         guard(o, w["guard"])
                     for h in o.holes:
                         sh = [(q[0] + s, q[1] + o.O[1]) for q in h]
-                        if w.get("door"):
+                        if w.get("in_plinth"):
+                            # T-3257: a basement light in a grade bay's stone plinth (1701's,
+                            # over the fence in Chicagology's photograph): its hole is cut in
+                            # the plinth's face, not in the wall over it
+                            if not (grade and k == 0 and max(q[1] for q in sh) < plinth["height_m"] - 0.05):
+                                raise ValueError(f"{v['id']}: a light in the plinth stands under its "
+                                                 f"{plinth['height_m']} m top, in a grade bay's lowest storey")
+                            sunk.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4, sh))
+                        elif w.get("door") and w.get("steps"):
+                            # T-1881: a raised door is cut as a light is, over the unbroken
+                            # plinth, and its flight laid from grade to its sill below
+                            st_ = w["steps"]
+                            c_ = (sh[0][0] + sh[1][0]) / 2
+                            flights.append((c_ - st_["width_m"] / 2, c_ + st_["width_m"] / 2, levels[k] + w["sill_m"],
+                                            int(st_["risers"]), st_["tread_m"]))
+                            holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
+                        elif w.get("door"):
                             # T-1890: a door on grade runs down through the plinth to the step;
                             # the wall over the plinth is opened from its foot, and the plinth is
                             # broken outside its surround's jambs, so they stand to the step
@@ -1317,6 +1430,12 @@ class Bay:
                         jambs = surround(flat, w["surround"], o, s, self.tier)
                         if v.get("masonry"):
                             trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
+                    if w.get("architrave"):
+                        # T-1881: a round head's moulded architrave, as K01 frames the front's lights
+                        jambs = architrave(flat, w["architrave"], o, s, self.tier)
+                        if v.get("masonry"):
+                            trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
+                        self.meta["architraves"] = self.meta.get("architraves", 0) + 1
                     if w.get("tympanum"):
                         # T-3197: a carved tympanum on the lintel, under the arc it names
                         hp = o.prims["head"].pos
@@ -1345,6 +1464,8 @@ class Bay:
                     drop = cv.get("drop_roles", ()) if self.tier == "light" else ()
                     if w.get("voussoirs"):     # T-2531: they are its head, in place of K06's lintel
                         drop = (*drop, "head")
+                    if w.get("in_plinth"):     # T-3257: the plinth's own stone is its surround
+                        drop = (*drop, "head", "sill")
                     merge(flat.prims, o.prims, drop)
                     self.windows.append(self._window_record(run, i, k, w, s, o, wall_t))
                 # T-2919: a bay rock-faced to a storey line (`to_m`) is smooth ashlar over it
@@ -1374,7 +1495,17 @@ class Bay:
                 self._chamfer_cornice(flat, run, ct, band)
             if v.get("pilasters"):
                 self._pilasters(flat, run, i, levels, y_wall0, band["height_m"])
-            if grade and doors:
+            if grade and sunk:
+                # T-3257: the plinth's face cut round its basement lights, and each light's
+                # reveal carried from that face back to the wall's, where K06's own begins
+                ph, pp = plinth["height_m"], plinth["proud_m"]
+                if doors:
+                    raise ValueError(f"{v['id']}: a run's plinth takes a door or basement lights, not both")
+                wall_cells(flat, "plinth", [q[:6] for q in sunk], run.s_start(pp), run.s_end(pp), 0.0, ph, -pp)
+                ledge(flat, "plinth", run, ph, 0.0, pp, Y)
+                for q in sunk:
+                    flat.tube("plinth", q[6], -pp, 0.0, inward=True)
+            elif grade and doors:
                 # T-1890: the plinth broken square either side of each door, its cut ends closed
                 ph, pp = plinth["height_m"], plinth["proud_m"]
                 cuts = [None, *[x for door in sorted(doors) for x in door[:2]], None]
@@ -1388,6 +1519,19 @@ class Bay:
                                              flat.P(x, ph, -d_)], (hx, 0.0, 0.0))
             elif grade:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
+            for x0, x1, rise, n, tr in flights:
+                # T-1881: the raised door's flight: each step's riser and tread, and on either
+                # side the strip each step adds to the stepped profile (open below and behind,
+                # as the plinth is)
+                for j in range(n):
+                    y0_, y1 = rise * j / n, rise * (j + 1) / n
+                    d1, d0 = tr * (n - j), tr * (n - j - 1)
+                    flat.plane("plinth", K6.box(x0, x1, y0_, y1), -d1)
+                    flat.face("plinth", [flat.P(x0, y1, -d1), flat.P(x1, y1, -d1), flat.P(x1, y1, -d0),
+                                         flat.P(x0, y1, -d0)], Y)
+                    for x, hx in ((x0, -1.0), (x1, 1.0)):
+                        flat.face("plinth", [flat.P(x, 0.0, -d0), flat.P(x, 0.0, -d1), flat.P(x, y1, -d1),
+                                             flat.P(x, y1, -d0)], (hx, 0.0, 0.0))
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
             if v.get("cap_band"):
                 self._cap_band(flat, run, y_top, v["cap_band"])
@@ -1521,7 +1665,8 @@ class Bay:
                 "y": [round(min(q[1] for q in bk), 4), round(max(q[1] for q in bk), 4)],
                 "recess_m": round(-z_lo, 4), "footprint": hull(foot), "panes": panes,
                 "why_not_ordinary": w.get("why_not_ordinary"),
-                **({"door": True} if w.get("door") else {})}
+                **({"door": True} if w.get("door") else {}),
+                **({"in_plinth": True} if w.get("in_plinth") else {})}
 
     # supports ----------------------------------------------------------------------------
     def _corbel_layout(self, y0):
@@ -1894,9 +2039,12 @@ class Bay:
         pts = self.v["plan"]["points"]
         xl, p, xr = float(pts[1][0]), float(pts[1][1]), float(pts[2][0])
         il, ir = (float(a) for a in g.get("inset_m", (0.0, 0.0)))
-        # T-1890: up to 1.5 m (1801's 18th Street section, its wall dormer about 3.2 m across a 6 m front)
-        if not (0.0 <= il <= 1.5 and 0.0 <= ir <= 1.5):
-            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-1.5 m in from the front's")
+        # T-1890: up to 1.5 m (1801's 18th Street section, its wall dormer about 3.2 m across a 6 m front),
+        # and on a shallow projection up to 2.5 m, which may be wider (the same section at the 1911
+        # sheet's 0.1 m, 7.0 m across, its wall dormer where the Taylor print stands it)
+        most = 2.5 if self.v.get("shallow") else 1.5
+        if not (0.0 <= il <= most and 0.0 <= ir <= most):
+            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-{most} m in from the front's")
         gl, gr = xl + il, xr - ir             # the gable's own corners (the front's unless inset)
         xc = (gl + gr) / 2
         up = float(g["upstand_m"])
@@ -1963,8 +2111,12 @@ class Bay:
                 o0, o1 = (a, e0) if a < xl else (e1, b)
             if not ((a < xl and chamfer == "left") or (a >= xl and chamfer == "right")):
                 world.face("band", [(o0, y_top, 0.0), (o1, y_top, 0.0), (o1, y_top, p), (o0, y_top, p)], D)
+        behind = self._gable_behind(world, g["behind"], shallow, xl, xr, xc, y_top, zb, under) \
+            if g.get("behind") else None
         meta = {"kind": "gable", "pitch": pitch, "planes": 0 if shallow else 2, "apex": [round(xc, 4), round(y_r, 4), 0.0],
                 "ridge_m": round(y_r, 4), "kneeler_m": round(y_k, 4), "gable_top_m": round(top(xc), 4)}
+        if behind:
+            meta["behind"] = behind
         if g.get("panel"):
             meta["panel"] = self._gable_panel(world, g["panel"], xa, xb, xc, y_top, under, p, pitch)
         zm = (zb + zf) / 2
@@ -1979,6 +2131,9 @@ class Bay:
             for x in spots:
                 self._spike(world, x, zm, w, y_k, sh, cap)
             meta["pinnacle_top_m"] = round(y_k + sh + cap, 4)
+        cr = g.get("crockets")
+        if cr and self.tier == "full":   # T-3293: carving, so the light tier keeps the coping
+            meta["crockets"] = self._gable_crockets(world, cr, (xa, xb), xc, top, pitch, zb, zf)
         fn = g.get("finial")
         if fn:
             w, sh, cap = (float(fn[k]) for k in ("width_m", "shaft_m", "cap_m"))
@@ -1989,6 +2144,88 @@ class Bay:
             self._spike(world, xc, zm, w, top(xc) - pitch * w / 2, sh + pitch * w / 2, cap)
             meta["finial_top_m"] = round(top(xc) + sh + cap, 4)
         self.meta["roof"] = meta
+
+    #: T-3293: a gable crocket's outline, (along the rake toward the apex, out of the coping's
+    #: back) as fractions of its size: a hooked leaf leaning up the rake, its root sunk in the stone
+    CROCKET_LEAF = ((-0.35, -0.05), (0.35, -0.05), (0.45, 0.55), (0.1, 1.0), (-0.3, 0.7))
+
+    def _gable_crockets(self, world, cr, kneelers, xc, top, pitch, zb, zf):
+        """T-3293: CROCKETS along a coped gable's rakes (1912 Prairie's south gable in its
+        photograph and the 1883 plate): `count` hooked stone leaves a rake, each `size_m` tall
+        off the coping's back, spaced evenly between the kneeler's pinnacle and the apex's
+        finial, each a closed slab across the coping's middle, its root let into the stone.
+        Returns the count built."""
+        if set(cr) != {"count", "size_m"} or not 1 <= int(cr["count"]) <= 8 or not 0.08 <= float(cr["size_m"]) <= 0.4:
+            raise ValueError(f"{self.v['id']}: a gable's crockets are 1-8 a rake, each 0.08-0.4 m")
+        n, z = int(cr["count"]), float(cr["size_m"])
+        zm, th = (zb + zf) / 2, min(z * 0.25, (zf - zb) / 2 - 0.01)
+        L = math.hypot(1.0, pitch)
+        for xs in kneelers:
+            sg = 1.0 if xs < xc else -1.0                       # along the rake, toward the apex
+            e = (sg / L, pitch / L)
+            nn = (-sg * pitch / L, 1.0 / L)                     # out of the coping's back
+            for i in range(n):
+                f = 0.15 + 0.7 * (i + 0.5) / n
+                x0 = xs + (xc - xs) * f
+                P0 = (x0, top(x0))
+                poly = [(P0[0] + z * (u * e[0] + v * nn[0]), P0[1] + z * (u * e[1] + v * nn[1]))
+                        for u, v in self.CROCKET_LEAF]
+                if sg < 0:
+                    poly.reverse()
+                world.face("band", [(x, y, zm + th) for x, y in poly], (0.0, 0.0, 1.0))
+                world.face("band", [(x, y, zm - th) for x, y in poly], (0.0, 0.0, -1.0))
+                for j in range(len(poly)):
+                    (x1, y1), (x2, y2) = poly[j], poly[(j + 1) % len(poly)]
+                    world.face("band", [(x1, y1, zm - th), (x2, y2, zm - th), (x2, y2, zm + th), (x1, y1, zm + th)],
+                               (y2 - y1, -(x2 - x1), 0.0))
+        return 2 * n
+
+    def _gable_behind(self, world, bh, shallow, xl, xr, xc, y_top, zb, under):
+        """T-1890: the slated cross roof a shallow pavilion's gable parapet stands in front of
+        (1801's south pavilion: on the Taylor photograph and HABS photograph 1 a roof runs back
+        from behind the coped gable, its level ridge on the gable's middle just under the
+        copings, about 4.5 m back into the main roof, where a finial stands on its end). Two
+        slopes, each from a side wall's top (`y_top`, over the plan's front corners `xl`, `xr`)
+        up to `ridge_m` on the gable's middle, run back from the parapet's back (`zb`) to
+        `run_back_m` behind the wall plane; under each a CHEEK hung in the same slate, as a
+        mansard dormer's are, from `cheek_from_m` (the host's eave: below it the house stands
+        round it; [left, right] where a chamfer's top stands over the eave) up to the slope's foot; and its end closed square, ridge to cheeks. A host's
+        mansard rises round it: where the main roof stands over a slope the two meet in a
+        valley, and where the cross roof stands over the main one (its ridge over the curb) it
+        is the cross roof that shows. The host stops its deck's cresting and corner finial at
+        it and stands a finial on its ridge's end (k01_mansard_deck). Returns its meta."""
+        if not shallow:
+            raise ValueError(f"{self.v['id']}: a roof behind the gable is a shallow pavilion's, whose parapet "
+                             f"is carried back past the wall plane (a deep one's roof is its own)")
+        y_rb, run = float(bh["ridge_m"]), float(bh["run_back_m"])
+        # the cheeks' feet [left, right], or one for both: over a chamfer (1801's south corner)
+        # the cheek stands from the canted face's top, clear of what its light looks into
+        cf = bh["cheek_from_m"]
+        y0s = [float(x) for x in cf] if isinstance(cf, (list, tuple)) else [float(cf)] * 2
+        if not (y_top + 0.5 <= y_rb <= under(xc) - 0.1):
+            raise ValueError(f"{self.v['id']}: the roof behind the gable rises 0.5 m or more over the wall top "
+                             f"{y_top:.3f} m to a ridge 0.1 m or more under the copings' beds ({under(xc):.3f} m), "
+                             f"not {y_rb} m")
+        if not (0.5 <= run <= 8.0 and -run <= zb - 0.3):
+            raise ValueError(f"{self.v['id']}: the roof behind the gable runs back 0.5-8 m behind the wall plane, "
+                             f"0.3 m or more past the parapet's back")
+        if len(y0s) != 2 or not all(0.0 < y0 <= y_top - 1.0 for y0 in y0s):
+            raise ValueError(f"{self.v['id']}: its cheeks rise from a host's eave (or a chamfer's top) a metre or "
+                             f"more under the wall top {y_top:.3f} m")
+        ze = -run
+        # the cheeks a centimetre inside the plan's corners, off the planes of the returns and a
+        # chamfer's cheek that end there
+        xl, xr = xl + BEHIND_CHEEK_IN_M, xr - BEHIND_CHEEK_IN_M
+        for xs, y0 in zip((xl, xr), y0s):
+            o = -1.0 if xs < xc else 1.0
+            world.face("roof", [(xs, y_top, zb), (xc, y_rb, zb), (xc, y_rb, ze), (xs, y_top, ze)],
+                       (o * (y_rb - y_top), abs(xc - xs), 0.0))
+            world.face("roof", [(xs, y0, zb), (xs, y_top, zb), (xs, y_top, ze), (xs, y0, ze)], (o, 0.0, 0.0))
+        world.face("roof", [(xl, y0s[0], ze), (xr, y0s[1], ze), (xr, y_top, ze), (xc, y_rb, ze), (xl, y_top, ze)],
+                   (0.0, 0.0, -1.0))
+        return {"ridge_m": round(y_rb, 4), "run_back_m": round(run, 4), "eaves_m": round(y_top, 4),
+                "x_m": [round(xl, 4), round(xc, 4), round(xr, 4)],
+                "pitch": round((y_rb - y_top) / max(xc - xl, xr - xc), 4)}
 
     def _gable_panel(self, world, pn, xa, xb, xc, y_top, under, p, pitch):
         """T-3002: the carved panel filling a gable's tympanum (1801's south pavilion: a tall
@@ -2525,7 +2762,9 @@ class Bay:
         whole = bool(self.v.get("cap_whole"))
         Re = R + ov
         step = math.radians(cv["max_seg_deg"])
-        cz = c[1]
+        # T-3289: a half round's centre is ON the wall plane, but chord 1.6 / rise 0.8 computes
+        # it at -1.1e-16 and so took the segmental path; within a micron of the wall is on it
+        cz = 0.0 if abs(c[1]) < 1e-6 else c[1]
         cross = []
         if abs(cz) < Re:
             a = math.asin(-cz / Re)
@@ -2568,13 +2807,30 @@ class Bay:
             if l0 == 0 and l1 == 0:
                 add_poly(pr, [q[0], q[3], q[2]][::-1], [n[0], n[3], n[2]][::-1], [uv[0], uv[3], uv[2]][::-1])
             else:
-                add_poly(pr, q[::-1], n[::-1], uv[::-1])
+                # T-3289: a segmental bow's slice is a quad from its ring (h) in to where the
+                # wall cuts it (l). In the order l0, l1, h1, h0 its ring edge runs f1 -> f0, the
+                # way the triangle path's does, so it is wound outward with the normals N writes;
+                # reversed (as it was) it faced into the bow and the renderer culled it from above
+                add_poly(pr, q, n, uv)
             if tower and h0 < Re - 1e-9 and h1 < Re - 1e-9:
                 a, b = P(f0, h0), P(f1, h1)
                 world.face("roof_back", [(a[0], y_e, 0.0), (b[0], y_e, 0.0), (b[0], b[1], 0.0), (a[0], a[1], 0.0)],
                            (0.0, 0.0, -1.0))
         self.meta["roof"] = {"kind": "cone", "pitch": pitch, "eave_radius_m": round(Re, 4), "segments": len(phis) - 1,
                              "apex": [round(c[0], 4), round(apex_y, 4), round(cz, 4)] if tower else None}
+        yb = self.v.get("cone_back_from_m")
+        if yb is not None:
+            # T-3294: a half round's cone carried past its house's eave (1912's corner turret) has
+            # no wall behind it over that eave: its back, the triangle the wall plane cuts from the
+            # cone, is closed there from the eave (or the cone's own eaves, if higher) to the apex
+            if tower or cz != 0.0:
+                raise ValueError(f"{self.v['id']}: only a half round's cone is closed at its back over an eave")
+            yb = max(float(yb), y_e)
+            rb = Re - (yb - y_e) / pitch
+            if rb > 1e-6:
+                world.face("roof_back", [(c[0] + rb, yb, 0.0), (c[0] - rb, yb, 0.0), (c[0], y_e + pitch * Re, 0.0)],
+                           (0.0, 0.0, -1.0))
+            self.meta["roof"]["back_from_m"] = round(yb, 4)
 
     def _deck_cresting(self, world, top, y_d, cr):
         """T-3176: the deck's cresting, an iron band `height_m` tall and `thickness_m` thick
@@ -2657,7 +2913,8 @@ class Bay:
         (`cap_whole`: a corner turret's, its axis maybe behind its wall's face) stands into no
         wall, so nothing of it is held in front of the wall's plane (1801's east turret)."""
         ax, ay, az = self.meta["roof"]["apex"]
-        r0, H, k = f["radius_m"], f["height_m"], self.TURNED_SEGS
+        # T-3293: a turning may be lathed in fewer `segments` (1912's tower: 6, inside its budget)
+        r0, H, k = f["radius_m"], f["height_m"], int(f.get("segments", self.TURNED_SEGS))
         clip = not self.v.get("cap_whole")
         self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=clip)
         top = {"top_m": round(ay + H, 4), "form": "turned"}

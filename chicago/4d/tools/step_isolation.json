@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-10-31",
+  "measured": "2026-11-02",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 861,
   "tools": {
@@ -2716,7 +2716,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_batch_bounds.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_bay_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_brick_bond.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2789,10 +2797,6 @@
       "wrote_ignored": []
     },
     "tools/check_far_slot_field.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_farm_box_master.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4231,6 +4235,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/lay_prairie_1904_walk_joins.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/letter_list_bucket.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5634,6 +5642,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_far_colour.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_far_shadow.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_field_log.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5643,10 +5659,6 @@
       "wrote_ignored": []
     },
     "tools/test_flag_form_contract.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_flora_travel_commit.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5846,6 +5858,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_architrave.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_belt_eared_hood.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5854,7 +5870,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_cross_roof_hood.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_dressings.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_front_crown.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5863,6 +5887,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_loggia_lights.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_past_end.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5882,11 +5910,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_rear_terrace.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_rear_veranda.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_k01_round_corner.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_round_door.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5910,11 +5946,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_wing_stack.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_wing_tower.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_k07_stair_foot.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k08_canted_bay_dormers.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6035,6 +6079,10 @@
       "wrote_ignored": []
     },
     "tools/test_pacing_read.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_parked_transport_empty_scene.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6451,6 +6499,14 @@
       "wrote_ignored": []
     },
     "{}": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_farm_box_master.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_flora_travel_commit.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }

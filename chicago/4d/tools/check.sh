@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# The per-commit gate. About four minutes on four cores, no Blender, runs in every
-# agent sandbox — and has to keep fitting the 600 s that is all a steward run's
-# single foreground command gets (T-1578).
+# The per-commit gate. No Blender, runs in every agent sandbox. Whole, it is about
+# nineteen minutes of pool on four cores (2026-11-01); a steward run's single
+# foreground command gets 600 s (T-1578), so a run takes it in four parts,
+# `--part 1/4` … `--part 4/4`, five to eight minutes each (T-3299, below).
 #
 # A gate that takes four minutes gets skipped, so this one deliberately does not
 # build geometry. Content builds live in tools/bake.sh and run on demand.
@@ -30,8 +31,35 @@
 # transcript is unchanged byte for byte. Measured on four cores: 484 s, 1,906
 # CPU-seconds. Each step's time sits in CHECK_TIMINGS. Read it before adding to the tail.
 #
-#   tools/check.sh            the gate
-#   tools/check.sh --strict   warnings are errors (used before a release)
+# THE THIRD TIME, IT WAS NOT A TAIL, SO THE GATE CAME IN PARTS (T-3299). On 2026-11-01
+# a four-core steward runner reached the publish at about 515 s and was cut off at
+# 585 s (rc 124), and CI's own `Run the gate` took 25.5 minutes on dev. Measured with
+# CHECK_TIMINGS across three capped calls: 1,111 steps, 4,593 CPU-seconds, so about
+# 1,150 s of pool, against T-2117's 1,906 four weeks earlier. That growth is not one
+# step to make cheaper. The slowest twenty steps are a third of it (each K-kit's
+# `--check` rebuilds every house it covers through k05_roofs' CSG, about 110 s apiece,
+# and some thirty test_k01_* files are 15-50 s each), and the remaining two-thirds are
+# spread across hundreds of tools. So the budget is re-argued here, as this header
+# asks: THE 600 s CEILING NOW BINDS A PART, NOT THE WHOLE GATE.
+#
+#   tools/check.sh --part k/N   runs every N-th step from the k-th, in declared order,
+#                               plus the `every_part` prerequisites (merge drivers,
+#                               tickets, publish). The N parts are a partition: all N
+#                               green is the gate green, and nothing less is.
+#
+# Four parts, measured on the same four-core runner the day they landed, each one
+# green: 305 s, 316 s, 473 s and 402 s, each including the ~57 s publish it pays for
+# itself (1,006 / 1,052 / 1,615 / 1,270 CPU-seconds; part 3 drew the 104 s block-infill
+# check and the 116 s entrance-kit self-test). The gate more than doubled in a month,
+# so that headroom will not last. When a part passes about 540 s, raise N; do not
+# lower the bar. CI still runs the gate whole, and the
+# harness's own check (tools/test_check_harness.sh) proves the parts are a partition.
+# Making the K-kit checks share their builds is the cut that would bring the WHOLE
+# gate back down, and it is a ticket of its own.
+#
+#   tools/check.sh                the gate, whole (CI runs it this way)
+#   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
+#   tools/check.sh --strict       warnings are errors (used before a release)
 #
 #   CHECK_JOBS=1              serial, for reproducing a step's red on a quiet tree
 #   CHECK_TIMINGS=<path>      append "<seconds>\t<kind>\t<command>\t<label>" per step
@@ -40,7 +68,16 @@ _check_tools="$(cd "$(dirname "$0")" && pwd)"
 cd "$_check_tools/.."
 
 STRICT=""
-[ "${1:-}" = "--strict" ] && STRICT="--strict"
+CHECK_PART="${CHECK_PART:-}"
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --strict) STRICT="--strict" ;;
+    --part) CHECK_PART="${2:-}"; shift ;;
+    --part=*) CHECK_PART="${1#--part=}" ;;
+    *) printf 'check: unknown argument "%s" (usage: tools/check.sh [--strict] [--part k/N])\n' "$1" >&2; exit 2 ;;
+  esac
+  shift
+done
 
 # The step harness — `step`, `selftest` and the end-of-run roll-up — lives in its own
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
@@ -66,6 +103,9 @@ selftest "Light GLB textures retain the device mip policy on initial decode and 
 
 selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
   node tools/test_rail_geometry_lifecycle.mjs --self-test
+
+selftest "Scenes with no parked vehicles boot: update, retier and dispose without a TDZ error (T-3311)" \
+  node tools/test_parked_transport_empty_scene.mjs --self-test
 
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
@@ -119,6 +159,14 @@ selftest "the kept-tile gate refuses a texel centre off, a wrap off and a strip 
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
+# T-3173. A phone keeps each BatchedMesh geometry's box and sphere as float32 figures,
+# not a Box3 and a Sphere apiece (batch-bounds.js): about 20 MB of /1904/'s heap.
+step "A batch's compact bounds hold three's own, rounded outward, and answer every reader with the positions gone (T-3173)" \
+  node tools/check_batch_bounds.mjs
+
+selftest "the compact-bounds gate refuses bounds rounded to nearest" \
+  node tools/check_batch_bounds.mjs --self-test
+
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
 
@@ -164,6 +212,12 @@ step "A coursed wall's mortar floor is drawn behind the stone faces lying on it,
 selftest "The joint-floor check refuses a missing seat, a forward offset and a batch key blind to the offset (T-3226)" \
   node tools/check_joint_floor.mjs --self-test
 
+step "A K03 brick wall's per-brick shuffle reads the library's own bonds, and every shipped brick panel is shuffled (T-3295)" \
+  node tools/check_brick_bond.mjs
+
+selftest "The brick-bond check refuses a bond with a course moved and a load loop that never binds the shuffle (T-3295)" \
+  node tools/check_brick_bond.mjs --self-test
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
@@ -207,6 +261,10 @@ step "The drawn cells of one structure mesh join into one draw, drawing the same
   node tools/test_batch_coalesce.mjs
 selftest "Directional shadow culling retains toward-view and filter-near casters, preserves colour lists, and fails open on unknown light, camera or map state" \
   node tools/test_batch_shadow_cull.mjs
+step "A far structure piece casts from its clustered shadow twin only where the twin's edge moves under a pixel, never pools two confidences, and is put back after the sun's pass (T-3286)" \
+  node tools/test_far_shadow.mjs
+step "At light, a far structure piece draws in the colour pass from a clustered twin that never pools two normals, only where its edge moves under a pixel, and is put back after the pass (T-3312)" \
+  node tools/test_far_colour.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
 step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
@@ -483,14 +541,14 @@ step "Every human GLB is the one the browser measured: sha256 and verdicts in da
 # in .git/config, so they cannot be committed and a fresh clone starts without them.
 # Unregistered they cost a hand-resolved changelog conflict per branch — four of them
 # in one session on 2026-09-24 — and nothing anywhere says so. This says so.
-step "the merge drivers this clone needs are registered (T-1548)" \
+every_part step "the merge drivers this clone needs are registered (T-1548)" \
   bash tools/check-merge-drivers.sh
 
-step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
+every_part step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
   bash tools/tickets.sh
 check_flush   # the publish below reads the clone; never race it under CHECK_JOBS>1
 
-step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
+every_part step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
   bash tools/publish.sh
 
 # THE ONE ORDERING THIS GATE HAS, and under CHECK_JOBS>1 it has to be said out loud.
@@ -872,6 +930,16 @@ step "the 1904 street section and carriage walks re-lay from the street grid (T-
 step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
   python3 tools/plant_prairie_1904_street_trees.py --check
 
+# T-3274. ...and every house walk carried on to the public walk: the code lays the public walk a
+# foot outside the lot line the yards are built to, so each walk's street end, read off its built
+# GLB (or a K13 record's grounds) and its placement, is joined across that foot. A house lane that
+# moves its walk or its placement reruns the tool.
+step "every 1904 house walk meets the public walk: the walk joins re-lay from the built walks (T-3274)" \
+  python3 tools/lay_prairie_1904_walk_joins.py --check
+
+selftest "…and a walk a foot short is joined, one that meets or is no street end is not, at a turned walk's, a gated service walk's, a drive's and a K13 ground's end" \
+  python3 tools/lay_prairie_1904_walk_joins.py --self-test
+
 # T-3199. ...and the street furniture on those parkways (the gas lamps at every corner and along
 # the faces, the pictured ones at their lots; T-3201 the fire hydrants, Pullman's and Tucker's where
 # their pictures put them; T-3202 the poles and wires on 18th Street, the alleys and 22nd Street's
@@ -1124,6 +1192,47 @@ step "a K08 finial may be turned on a crocketed collar and a hooded dormer's fac
 step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
   python3 tools/test_k01_hood_flare.py
 
+# T-1890. 1801 Prairie's cross roof ends under a slated hood with its finial on the apex
+# (HABS photograph 1; the Taylor print sets its rise through the finial's top).
+step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
+  python3 tools/test_k01_cross_roof_hood.py
+
+# T-1890. 1801 Prairie's east range (HABS photograph 2): its 18th Street end pitched steeper
+# than its sides to an apex 2.7 m back, and a stone stack standing on that apex — the first a
+# K01 wing carries: bad ends, a stack outside the wall line or under the slate refused; an end
+# at the sides' own pitch builds K05's hip exactly; a wing without either as before.
+step "a K01 wing's hip may pitch its ends steeper, and a wing may carry its own stacks (T-1890)" \
+  python3 tools/test_k01_wing_stack.py
+
+# T-1890. 1801 Prairie's east range frontispiece (HABS photograph 2) straddles the 1911 sheet's
+# junction of two ranges on one wall line: a wing's shallow projection may run past its wall's
+# end onto the next wing's wall (`past_end`), that wall cut behind it; refused on a deep bay,
+# onto a wing on other floors, past 1.5 m, or near the other wall's lights and bays.
+step "a wing's shallow projection may run past its wall's end onto the next wing's wall (T-1890)" \
+  python3 tools/test_k01_past_end.py
+
+# T-3283. 1945 Prairie's door under its round arch (the Tribune's 1928 photograph): a brick
+# front's principal door may be cut round-headed (`street_front_round_heads.door`) on the round
+# lights' curve, under their arch band and key, with K07's round-headed entrance in it; refused
+# on a stone front, with no key, on a segmental head or with a flat-headed K07 variant.
+step "a K01 brick front's door may be cut round-headed under its round lights' arch band (T-3283)" \
+  python3 tools/test_k01_round_door.py
+
+# T-3283. 1945 Prairie's north bay under its own mansard with two dormers (the Tribune's 1928
+# photograph): a symmetrical canted bay's mansard may carry dormers on its front run, clear of
+# hips that leave its corners at half the cant's turn; refused across a hip, meeting, under the
+# curb, hooded, with no mansard or on an unsymmetrical cant; a square projection's rule unchanged.
+step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
+  python3 tools/test_k08_canted_bay_dormers.py
+
+# T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
+# 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
+# on a canted corner's line when it runs onto it, carrying its own street and cant dormers; the
+# cut that eats a narrow crown's end side closes it at one point at its own ring; refused on the
+# cut, too short, across a hip, over the cut, with a stack in it.
+step "a mansard crown may stand over a stretch of the front and turn a canted corner (T-3283)" \
+  python3 tools/test_k01_front_crown.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
@@ -1177,6 +1286,21 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 # oriel; a veranda into a wing, a flight into a post and an over-high lower deck refused.
 step "a K01 house carries a two-level veranda on its rear wall, and a wing's wall stands behind its oriel (T-3242)" \
   python3 tools/test_k01_rear_veranda.py
+
+# T-1881. A raised stone terrace under a striped awning on a K01 house's rear wall
+# (k01_rear_terrace), held on 1729 Prairie's record: its podium, balustrade, posts and
+# striped canvas built where the record puts them, nothing inside the main block, the old
+# brick block gone; an over-high floor, a low eave, a run past the wall and an unknown key refused.
+step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
+  python3 tools/test_k01_rear_terrace.py
+
+# T-1881. A K01 named street window's round head framed by a moulded architrave (jambs, arch,
+# impost and keystone), held on 1729 Prairie's record off the 1890 Albertype plate: the four
+# lights the front shows framed, the one behind the forward block left in its voussoirs, every
+# band springing with its head and clear of the piers; voussoirs with an architrave, a band out
+# of range, a low keystone, an unknown key and two architraves run together refused.
+step "a K01 house's named round-arched street lights stand in moulded architraves (T-1881)" \
+  python3 tools/test_k01_architrave.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
@@ -4465,7 +4589,7 @@ selftest "the bake is skipped only when the freshness register says nothing stal
 # to install chromium there, so all eighteen content-build smoke legs died in
 # `Install Playwright` and no bake could open its PR. A job that installs Playwright
 # names an exact image — the one its timings and ceilings were measured on.
-step "every workflow job that installs Playwright runs on a pinned image (T-3169)" \
+step "every workflow job that installs Playwright or runs Blender runs on a pinned image (T-3169, T-3296)" \
   python3 tools/check_runner_images.py --gate
 
 selftest "…and a job on a moving label is refused, read per job and not from prose" \

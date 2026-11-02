@@ -201,19 +201,19 @@
      "note": "RECONSTRUCTED: the bracketed cornice's projection. T-3240 laid 0.75 m, as 1612's; under the 45 degree hip its soffit would drop onto the upper lights' heads, so it is 0.5 m (T-3241), still a deep cornice in the photograph's proportion."
     },
     "stair_tread_m": {
-     "value": 0.3,
+     "value": 0.27,
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: the K07 stoop's tread."
+     "note": "RECONSTRUCTED: T-3257: the stoop's going taken at 0.27 m, inside the K07 rule's 0.25-0.34 m, so its flight (with the short landing, stair_landing_depth_m) stays under the sightline from the photograph's camera to the porch podium's roundels, which the picture shows clear over the fence. The exact going is RECONSTRUCTED; the picture bounds it."
     },
     "stair_landing_depth_m": {
-     "value": 1.1,
+     "value": 0.4,
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: the K07 stoop's landing."
+     "note": "RECONSTRUCTED: T-3257: the photograph shows the corner porch's podium clear over the fence, two of its roundels (v about 3.2 and 4.3, 1.4 m up) among them, and only pale stone under the entrance arch's mouth, so nothing of the stoop stands past the sightline from the camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) to those roundels, which crosses the stoop's north edge about 1.9 m before the front and 1.4 m up. A landing of 1.1 m (T-3256's) carries the stoop's cheek over that line; the landing is taken short, 0.4 m before the arch, the arch's own 0.95 m reveal and its vestibule standing as the rest of the landing before the leaves, and the flight starts at the arch's mouth. The depth is an upper bound read off the picture, not a measurement; 0.4 m is RECONSTRUCTED inside it."
     },
     "stoop_width_m": {
      "value": 2.5,
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: the K07 stoop's width, the deep-arch entrance's own 2.5 m (k07_entrances.json), so the stair is as broad as the 2.2 m arch it climbs to (T-3256); it runs v 5.75-8.25, clear of the corner porch (to v 5.46) and the bay. The stone porch (corner_porch, T-3241) stands beside the door, not round it; the fence hides the stoop in the photograph."
+     "note": "RECONSTRUCTED: the K07 stoop's width, the deep-arch entrance's own 2.5 m (k07_entrances.json), so the stair is as broad as the 2.2 m arch it climbs to (T-3256); it runs v 5.75-8.25, clear of the corner porch (to v 5.46) and the bay. The stone porch (corner_porch, T-3241) stands beside the door, not round it; the fence hides the stoop's lower steps in the photograph; T-3257 shortens its landing and takes off its cheeks so the rest sits under the arch's mouth as the picture's pale stone."
     },
     "entrance_bay": {
      "value": "middle",
@@ -491,11 +491,12 @@
         ],
         "extrados": "curved",
         "ring_proud_m": 0.05
-       }
+       },
+       "cheeks": false
       }
      },
      "confidence": "inferred",
-     "note": "T-3256 (piece 3 of T-1876): the photograph's entrance is a tall dark round arch in the front's middle bay, between the corner porch and the stone bay. Read through the solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) on the front wall: its jambs at about v 5.9 and 8.15 (x 513-595 px) and its crown at y about 710 px, about 5.8 m over grade, 3.8 m over the principal floor; the leaves stand in shadow deep inside it. Built as K07's round-headed pair of leaves (double_door_deep_arch) in a 0.95 m reveal under K01's door arch (T-2526, laid over a brick front's stone basement as 1834's is, T-3184): opening_m 2.2 x 3.6 m, the kit's widest round mouth and its tallest crown, the crown so about 0.2 m under the reading, inside the camera's stated 0.3 m in heights. A narrow light stone ring round the arch (0.25 m, curved extrados, 0.05 m proud) and a small key at its crown are RECONSTRUCTED: the photograph shows the arch's face light against the brick but the tree and the shadow hide its mouldings (liberty L-k01-hibbard-1701-3256). The stoop is K07's straight stair from the walk, the front wall 7.74 m from the lot's street line (the sheet's lot, u 20.24); the fence hides it in the photograph.",
+     "note": "T-3256 (piece 3 of T-1876): the photograph's entrance is a tall dark round arch in the front's middle bay, between the corner porch and the stone bay. Read through the solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) on the front wall: its jambs at about v 5.9 and 8.15 (x 513-595 px) and its crown at y about 710 px, about 5.8 m over grade, 3.8 m over the principal floor; the leaves stand in shadow deep inside it. Built as K07's round-headed pair of leaves (double_door_deep_arch) in a 0.95 m reveal under K01's door arch (T-2526, laid over a brick front's stone basement as 1834's is, T-3184): opening_m 2.2 x 3.6 m, the kit's widest round mouth and its tallest crown, the crown so about 0.2 m under the reading, inside the camera's stated 0.3 m in heights. A narrow light stone ring round the arch (0.25 m, curved extrados, 0.05 m proud) and a small key at its crown are RECONSTRUCTED: the photograph shows the arch's face light against the brick but the tree and the shadow hide its mouldings (liberty L-k01-hibbard-1701-3256). The stoop is K07's straight stair from the walk, the front wall 7.74 m from the lot's street line (the sheet's lot, u 20.24); the fence hides it in the photograph. T-3257: the stoop has no stone cheeks (cheeks: false). The photograph shows the arch's dark mouth down to the principal floor and only pale stone under it, the podium beside it clear over the fence; a cheek standing 0.3 m over the nosings, level with the landing at 2.3 m, would show over both, so the flight is drawn as open steps between the porch and the bay, its landing short (stair_landing_depth_m) and its going 0.27 m (stair_tread_m) so it stays under the sightline to the podium's roundels. Whether it had iron rails the fence and the tree hide; none are drawn (liberty L-k01-hibbard-1701-stoop-basement-3257).",
      "sources": [
       "chicagology_1701_hibbard_photo"
      ]
@@ -508,6 +509,7 @@
        "wall": "k01.wall.street_front",
        "s_m": 11.4,
        "fabric": "stone",
+       "plinth_m": 2.0,
        "plan": {
         "kind": "polyline",
         "points": [
@@ -533,6 +535,18 @@
         {
          "height_m": 6.3,
          "windows": [
+          {
+           "opening": "k06.opening.basement_round",
+           "clear_width_m": 0.6,
+           "clear_height_m": 0.75,
+           "sill_m": 1.0,
+           "at": [
+            0.4,
+            0.6
+           ],
+           "in_plinth": true,
+           "why_not_ordinary": "the photograph's round-headed basement lights over the fence under the bay's pair, one under each, cut through the bay's stone basement"
+          },
           {
            "opening": "k06.opening.sash_round_fanlight",
            "clear_width_m": 0.6,
@@ -603,6 +617,17 @@
             0.532
            ],
            "why_not_ordinary": "the photograph's narrow round-headed light in the lower south range's south face, narrower than the wall's sash"
+          },
+          {
+           "opening": "k06.opening.basement_round",
+           "clear_width_m": 0.6,
+           "clear_height_m": 0.75,
+           "sill_m": 1.0,
+           "at": [
+            0.532
+           ],
+           "in_plinth": true,
+           "why_not_ordinary": "the photograph's round-headed basement light over the fence in the lower south range's south face, under its narrow light, cut through the range's stone basement"
           }
          ]
         }
@@ -702,7 +727,7 @@
       "sanborn_1911_chicago_v3_sheet_20",
       "chicagology_1701_hibbard_photo"
      ],
-     "note": "The photograph's two-storey bay in light stone on the front's south part, canted, two round-headed lights a storey in its face under a cornice at the second floor and another under the main cornice. The sheet draws a canted bay over v 8.3-11.0 (the K01 frame), 1.3 m out; through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) its junctions read about v 9.1 and 13.7. Laid at 10.4 by T-3240, between the two readings; T-3257 lays it on the photograph's centre, 11.4, 3.6 m at the wall and 1.2 m out (K08 holds a canted bay to 1.2 m), so the entrance arch shows whole with the pier the photograph shows before the bay. The lower south range (lower_south_range, T-3241): the photograph's one-storey brick block on the south flank, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): set back about 1.1 m from the front corner, 2.9 m along the flank and 3.1 m out from it, its walls to a moulded cornice about 5.2-5.7 m up and a low pierced parapet over it to about 6.1 m, a round-headed light in its west face and a narrower one in its south face. Built as a K08 projection's `range` plan. The 1911 sheet draws a strip only about 1.6 m wide on this side ('2S.B.'); the photograph is followed and the difference is liberty L-k01-hibbard-1701-3241. The parapet's pierced slots are drawn as the kit's stone balustrade. The range's oriel (range_oriel, T-3242): the rear photograph's corbelled oriel on the 1874 range's south face at the upper storey, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/ghm_rear.json): its front about u -12.1 to -15.2 and 0.8 m out, its east cheek meeting the wall at about -15.4, its floor at the range's second floor (6.3 m) on carved brackets reaching down to about 4.6 m, its top under the range's cornice, a pair of round-headed lights in its front and one in its cheek (drawn square-headed). Built as a K08 canted oriel on the wing's wall, s 13.65 from the main block; its stone, its 0.45 m cants, its seven corbel courses for the photograph's brackets and its low hip for the carved cresting are reconstructed (liberty L-k01-hibbard-1701-3242). T-3254: the lower south range stands on the house's stone basement, its plinth carried up to the water table at the principal floor (plinth_m 2.0), as the photograph shows it, brick only over it."
+     "note": "The photograph's two-storey bay in light stone on the front's south part, canted, two round-headed lights a storey in its face under a cornice at the second floor and another under the main cornice. The sheet draws a canted bay over v 8.3-11.0 (the K01 frame), 1.3 m out; through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) its junctions read about v 9.1 and 13.7. Laid at 10.4 by T-3240, between the two readings; T-3257 lays it on the photograph's centre, 11.4, 3.6 m at the wall and 1.2 m out (K08 holds a canted bay to 1.2 m), so the entrance arch shows whole with the pier the photograph shows before the bay. The lower south range (lower_south_range, T-3241): the photograph's one-storey brick block on the south flank, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): set back about 1.1 m from the front corner, 2.9 m along the flank and 3.1 m out from it, its walls to a moulded cornice about 5.2-5.7 m up and a low pierced parapet over it to about 6.1 m, a round-headed light in its west face and a narrower one in its south face. Built as a K08 projection's `range` plan. The 1911 sheet draws a strip only about 1.6 m wide on this side ('2S.B.'); the photograph is followed and the difference is liberty L-k01-hibbard-1701-3241. The parapet's pierced slots are drawn as the kit's stone balustrade. The range's oriel (range_oriel, T-3242): the rear photograph's corbelled oriel on the 1874 range's south face at the upper storey, read through its solved camera (data/reference_views/hibbard_house_1701_prairie/ghm_rear.json): its front about u -12.1 to -15.2 and 0.8 m out, its east cheek meeting the wall at about -15.4, its floor at the range's second floor (6.3 m) on carved brackets reaching down to about 4.6 m, its top under the range's cornice, a pair of round-headed lights in its front and one in its cheek (drawn square-headed). Built as a K08 canted oriel on the wing's wall, s 13.65 from the main block; its stone, its 0.45 m cants, its seven corbel courses for the photograph's brackets and its low hip for the carved cresting are reconstructed (liberty L-k01-hibbard-1701-3242). T-3254: the lower south range stands on the house's stone basement, its plinth carried up to the water table at the principal floor (plinth_m 2.0), as the photograph shows it, brick only over it. T-3257: the photograph's round-headed basement lights over the fence, a pair under the bay's pair of lights and one under the lower south range's narrow south light, read through the solved camera: their heads about 1.75 m over grade (y about 1006-1012 px against the eye's horizon at 1023 and the water table's 985), each about as broad as the light over it, the fence hiding their feet. Built as K08 lights cut through each projection's stone basement (in_plinth, its top carried to the water table at 2.0 m on the bay as on the range): K06's round-headed basement light 0.6 m across, 0.75 m clear on a sill at 1.0 m, the stone itself its surround. Their sills and any grilles are hidden by the fence and are RECONSTRUCTED (liberty L-k01-hibbard-1701-stoop-basement-3257)."
     },
     "rear_wings": {
      "value": [

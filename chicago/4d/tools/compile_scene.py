@@ -260,11 +260,37 @@ def walk_surface_m(structure: dict, phase: dict):
         sys.path.insert(0, gen)
     try:
         mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
-        value = getattr(mod.from_phase(phase), "deck_height_m", None)
+        params = mod.from_phase(phase)
+        value = getattr(params, "deck_height_m", None)
+        reader = getattr(mod, "walk_surface_profile", None)
+        if callable(reader):
+            profile = reader(params)
+            if profile is not None:
+                # A declared profile follows the mesh's exact parameter heights.
+                # Rounding only its scalar base would contradict its endpoints.
+                return float(profile["stations_m"][0][1])
     except Exception:  # noqa: BLE001
         return None
+    # Preserve the historical four-decimal scalar contract for every flat deck.
     return round(float(value), 4) if value is not None else None
 
+
+def walk_surface_profile(structure: dict, phase: dict):
+    """Optional archetype-owned local-span profile; omit for every flat default."""
+    arch = structure.get("archetype")
+    if not arch:
+        return None
+    gen = str(ROOT / "generators")
+    if gen not in sys.path:
+        sys.path.insert(0, gen)
+    try:
+        mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
+    except ImportError:
+        return None
+    reader = getattr(mod, "walk_surface_profile", None)
+    if not callable(reader):
+        return None
+    return reader(mod.from_phase(phase, structure))
 
 def walk_passages(structure: dict, phase: dict):
     """T-2943: the passages a visitor may walk THROUGH a building's footprint, or `None`.
@@ -3097,6 +3123,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 # for a building, whose walkable surface is the ground the walker
                 # is already standing on.
                 "walk_surface_m": walk_surface_m(st, phase),
+                **({"walk_surface_profile": profile}
+                   if (profile := walk_surface_profile(st, phase)) is not None else {}),
             },
             # Carry the footprint's own confidence, not just its geometry — a bare
             # polygon loses precisely the thing the confidence view exists to show.

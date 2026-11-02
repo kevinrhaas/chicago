@@ -129,6 +129,83 @@ _check_default_jobs() {
 }
 CHECK_JOBS="${CHECK_JOBS:-$(_check_default_jobs)}"
 
+# ---------------------------------------------------------------------------
+# T-3299. THE GATE IN PARTS, BECAUSE NO POOL MAKES IT FIT ONE CALL ANY MORE.
+#
+# Measured 2026-11-01 on a four-core steward runner, with CHECK_TIMINGS: 1,111 steps,
+# 4,593 CPU-seconds, so about 1,150 s of pool before the publish is counted. That is
+# nearly twice the 600 s a run's single foreground command gets, and no longer a heavy
+# tail to trim: the slowest twenty steps are a third of it, and the rest is spread
+# over hundreds of tools. CI's own `Run the gate` took 25.5 minutes on dev that day.
+# A run that called the gate whole got no verdict at all: rc 124 at 585 s, just after
+# the publish, with 354 of the steps behind it.
+#
+# So the gate can be asked for in parts, the way tools/smoke_budget.mjs already prices
+# the smoke. `CHECK_PART=k/N` (check.sh's `--part k/N`) runs every N-th step,
+# beginning at the k-th, counted in DECLARED order. That makes the N parts a partition
+# of the same steps: run all N and every step ran exactly once, so the N verdicts
+# together are the gate's verdict. One part's PASS is not a gate PASS, and the summary
+# says so in words.
+#
+# WHY IT IS SAFE TO CUT THE QUEUE AT ALL. Everything after the publish barrier
+# already runs in a pool, where any step may run beside any other or before the one
+# declared above it. So no step there may depend on another having run, and splitting
+# that queue across calls asks nothing of it that the pool did not already ask.
+# What a step CAN depend on is the prerequisites before the barrier (the merge
+# drivers, the tickets clone, the published mirror), so those are declared through
+# `every_part` and run in every part. Each part pays for its own publish, and that is
+# deliberate: a part gates the mirror its own tree produced, never one left over from
+# an earlier call.
+#
+# WHY ROUND-ROBIN AND NOT A COST TABLE. A committed table of step costs goes stale with
+# the next step added, and a stale table quietly unbalances the parts. Dealing steps
+# out in turn needs no table. A heavy `--check` and its `--self-test` sit next to each
+# other in the file, so they land in different parts, and the measured spread is small
+# (see check.sh's header).
+#
+# The variable is read once, here, and then unset. Nothing the gate starts can see it,
+# so a step that sources this file again (tools/test_check_harness.sh does, for its
+# fixtures) gets a whole harness rather than an accidental part of its own fixture.
+_CHECK_PART_K=0
+_CHECK_PART_N=0
+_CHECK_ORDINAL=0
+CHECK_PART_ELSEWHERE=0
+
+check_set_part() { # "k/N" (or empty) -> sets the part; 2 on a malformed spec
+  local spec="${1:-}"
+  if [ -z "$spec" ]; then _CHECK_PART_K=0; _CHECK_PART_N=0; return 0; fi
+  if [[ "$spec" =~ ^([0-9]{1,2})/([0-9]{1,2})$ ]]; then
+    local k=$((10#${BASH_REMATCH[1]})) n=$((10#${BASH_REMATCH[2]}))
+    if [ "$n" -ge 1 ] && [ "$n" -le 16 ] && [ "$k" -ge 1 ] && [ "$k" -le "$n" ]; then
+      _CHECK_PART_K=$k; _CHECK_PART_N=$n
+      return 0
+    fi
+  fi
+  printf 'check: a part is k/N with 1 <= k <= N <= 16, as in --part 2/4; got "%s"\n' "$spec" >&2
+  return 2
+}
+
+# Declared through this, a step runs in every part: the prerequisites a step after the
+# publish barrier may rely on. `local` is dynamically scoped in bash, so the step the
+# wrapper calls sees the flag and nothing after it does.
+every_part() { local _CHECK_EVERY_PART=1; "$@"; }
+
+# Called once for every step and self-test DECLARED, whichever part runs it, so the
+# ordinals (and therefore the partition) do not depend on which part is asking.
+_check_in_part() {
+  _CHECK_ORDINAL=$((_CHECK_ORDINAL + 1))
+  [ "$_CHECK_PART_N" -le 1 ] && return 0
+  [ -n "${_CHECK_EVERY_PART:-}" ] && return 0
+  [ $(( (_CHECK_ORDINAL - 1) % _CHECK_PART_N + 1 )) -eq "$_CHECK_PART_K" ] && return 0
+  CHECK_PART_ELSEWHERE=$((CHECK_PART_ELSEWHERE + 1))
+  return 1
+}
+
+if [ -n "${CHECK_PART:-}" ]; then
+  check_set_part "$CHECK_PART" || exit 2
+fi
+unset CHECK_PART
+
 _CHECK_Q_KIND=()
 _CHECK_Q_LABEL=()
 _CHECK_Q_CMD=()
@@ -242,6 +319,7 @@ CHECK_RACED_LABELS=()
 
 step() {
   local label="$1"; shift
+  _check_in_part || return 0
   if [ "$CHECK_JOBS" -gt 1 ]; then _check_enqueue step "$label" "$@"; return 0; fi
   CHECK_STEPS=$((CHECK_STEPS + 1))
   printf '\n\033[1m== %s\033[0m\n' "$label"
@@ -262,6 +340,7 @@ step() {
 # reads wrong.
 selftest() {
   local label="$1"; shift
+  _check_in_part || return 0
   if [ "$CHECK_JOBS" -gt 1 ]; then _check_enqueue selftest "$label" "$@"; return 0; fi
   CHECK_STEPS=$((CHECK_STEPS + 1))
   CHECK_SELFTESTS=$((CHECK_SELFTESTS + 1))
@@ -314,18 +393,41 @@ check_summary() {
   printf '\n'
   _check_report_races
   if [ "$CHECK_FAILED" -eq 0 ]; then
-    printf '\033[32mCHECK PASS\033[0m — %d steps, none red.\n' "$CHECK_STEPS"
+    if [ "$_CHECK_PART_N" -gt 1 ]; then
+      printf '\033[32mCHECK PASS\033[0m — part %d/%d: %d steps, none red.\n' \
+        "$_CHECK_PART_K" "$_CHECK_PART_N" "$CHECK_STEPS"
+    else
+      printf '\033[32mCHECK PASS\033[0m — %d steps, none red.\n' "$CHECK_STEPS"
+    fi
     printf '  %d of them are self-tests that prove a gate by breaking it; their\n' "$CHECK_SELFTESTS"
     printf "  assertions fire on purpose and every line of it is prefixed '%s'.\n" "$CHECK_SELFTEST_MARK"
+    _check_part_note
   else
-    printf '\033[31mCHECK FAIL\033[0m — %d of %d steps failed:\n' \
-      "${#CHECK_FAILED_LABELS[@]}" "$CHECK_STEPS"
+    if [ "$_CHECK_PART_N" -gt 1 ]; then
+      printf '\033[31mCHECK FAIL\033[0m — part %d/%d: %d of %d steps failed:\n' \
+        "$_CHECK_PART_K" "$_CHECK_PART_N" "${#CHECK_FAILED_LABELS[@]}" "$CHECK_STEPS"
+    else
+      printf '\033[31mCHECK FAIL\033[0m — %d of %d steps failed:\n' \
+        "${#CHECK_FAILED_LABELS[@]}" "$CHECK_STEPS"
+    fi
     local label
     for label in "${CHECK_FAILED_LABELS[@]}"; do
       printf '  \033[31m*\033[0m %s\n' "$label"
     done
     printf '\nFix those before committing. Anything else above that looks red is a\n'
     printf "self-test firing — those lines are prefixed '%s'.\n" "$CHECK_SELFTEST_MARK"
+    _check_part_note
   fi
   return "$CHECK_FAILED"
+}
+
+# T-3299. A part's verdict covers its own steps and no others, so it says how many it
+# left to the other parts. The gate's verdict is all N of them, and this is where a
+# reader who ran one part learns that.
+_check_part_note() {
+  [ "$_CHECK_PART_N" -gt 1 ] || return 0
+  printf '  This is part %d of %d; the other %d steps are in the other parts. The gate is\n' \
+    "$_CHECK_PART_K" "$_CHECK_PART_N" "$CHECK_PART_ELSEWHERE"
+  printf '  green only when every part is: tools/check.sh --part 1/%d through --part %d/%d.\n' \
+    "$_CHECK_PART_N" "$_CHECK_PART_N" "$_CHECK_PART_N"
 }

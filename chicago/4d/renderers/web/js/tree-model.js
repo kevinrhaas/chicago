@@ -47,7 +47,7 @@ const PRAIRIE_SIDES = { near: [5, 4, 3, 0] };
  * Chicago lake plain would carry it. Every number is a reconstruction bounded
  * by the species' ordinary habit; none is a measurement of a tree that stood.
  *
- *   crown     envelope: 'oval' | 'vase' | 'spread' | 'round' | 'column' | 'cone' | 'irregular'
+ *   crown     envelope: 'oval' | 'vase' | 'spread' | 'round' | 'column' | 'cone' | 'spire' | 'irregular'
  *   crownBase where the crown begins, as a fraction of height (the clear bole)
  *   fork      'decurrent' (the trunk breaks into scaffolds) | 'excurrent' (a
  *             leader runs to the top and carries laterals)
@@ -65,6 +65,8 @@ const PRAIRIE_SIDES = { near: [5, 4, 3, 0] };
  *             its floor in metres, 0.7 unless the species says)
  *   density   clumps per metre of terminal branch
  *   leaf      the leaf-atlas family; bark the bark tile
+ *   core      a SHEARED plant's solid body under its sprays, as a share of the crown's
+ *             envelope (T-1934; the arborvitae cone, ball and standard): see solidCore
  */
 export const ARCH = {
   populus_deltoides: {
@@ -118,6 +120,32 @@ export const ARCH = {
     // three-sided wood. The phone's tier (`coarse`) also drops far under 12 cm.
     farBins: [8, 3], sides: { near: [10, 7, 4, 3], far: [3, 3, 0, 0], distant: [3, 3, 0, 0] },
     minRad: { mid: 0.045, far: 0.1, distant: 0.16 }, minRadCoarse: { far: 0.12 }, elm: true,
+  },
+  // T-3164 — A YOUNG PARKWAY ELM'S HEAD, before it vases. The 1894 Inland
+  // conservatory plate and Lowe's c. 1897 print both show the parkway tree before
+  // the 1800 Calumet gate as one straight leader running up through its crown, its
+  // limbs leaving it from about 3 m and spreading wide and low in an open head
+  // over the walk: the habit of an elm still on its central leader, not the
+  // forked fountain of the grown street elm above. The habit is read off the two
+  // pictures; these numbers are reconstructed (docs/LIBERTIES.md
+  // L-pullman-18th-street-trees-1934). Only a pictured tree that names
+  // `form: 'broad_head'` grows on it (street-trees.js).
+  ulmus_americana_young: {
+    crown: 'round', crownBase: 0.30, fork: 'excurrent', stems: [1, 1], scaffolds: [6, 8],
+    limbAngle: 52, rise: 0.03, twist: 0.22, order2: [5, 46], order3: [3, 48], droop: 0.14,
+    clump: 0.08, clumpMin: 0.45, density: 0.70, gaps: 0.50, leaf: 'elm', bark: 'interlaced',
+    winter: 'fringe',
+  },
+  // T-1934 — THE SAME YOUNG ELM, LIMBED UP. Taylor's 16555, at 16 m, draws the tree at
+  // 18th Street's Calumet corner as one slender leader clear to about 5 m before its
+  // first limbs, and 16554 sees its crown start as high; the head above is the young
+  // elm's. Only the crown base differs (docs/LIBERTIES.md
+  // L-pullman-18th-street-trees-1934). A pictured tree names it as `form: 'limbed_head'`.
+  ulmus_americana_young_limbed: {
+    crown: 'round', crownBase: 0.44, fork: 'excurrent', stems: [1, 1], scaffolds: [6, 8],
+    limbAngle: 52, rise: 0.03, twist: 0.22, order2: [5, 46], order3: [3, 48], droop: 0.14,
+    clump: 0.08, clumpMin: 0.45, density: 0.70, gaps: 0.50, leaf: 'elm', bark: 'interlaced',
+    winter: 'fringe',
   },
   fraxinus_pennsylvanica: {
     crown: 'oval', crownBase: 0.36, fork: 'decurrent', stems: [1, 1], scaffolds: [3, 5],
@@ -392,22 +420,32 @@ export const ARCH = {
     crown: 'cone', crownBase: 0.02, fork: 'excurrent', stems: [1, 1], scaffolds: [30, 40],
     limbAngle: 62, rise: 0.10, twist: 0.20, order2: [3, 40], order3: [0, 0], droop: 0.0,
     clump: 0.26, clumpMin: 0.18, density: 2.0, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
-    farBins: [3, 2], shellK: 22,
+    farBins: [3, 2], shellK: 22, core: 0.8,
+  },
+  // T-1934: arborvitae clipped to a column, as the Pullman palm house's terrace grows four
+  // in Taylor's 16554 (and three in 16555): a dense dark shape near its full width up to about
+  // two fifths of its height, then tapering to a blunt point, where the yard's cone is widest
+  // at its foot. The same plant as the cone, sheared to another shape.
+  thuja_column: {
+    crown: 'spire', crownBase: 0.02, fork: 'excurrent', stems: [1, 1], scaffolds: [30, 40],
+    limbAngle: 62, rise: 0.10, twist: 0.20, order2: [3, 40], order3: [0, 0], droop: 0.0,
+    clump: 0.26, clumpMin: 0.18, density: 2.0, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
+    farBins: [3, 2], shellK: 22, core: 0.8,
   },
   thuja_globe: {
     crown: 'round', crownBase: 0.03, fork: 'decurrent', stems: [5, 8], scaffolds: [0, 0],
     stemSplay: 30, limbAngle: 30, rise: 0.04, twist: 0.20, order2: [4, 44], order3: [0, 0], droop: 0.0,
     clump: 0.26, clumpMin: 0.15, density: 1.8, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
-    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.6,
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.6, core: 0.8,
   },
   // T-1934: an evergreen sheared to a ball on one clear stem, the tubbed standard of the
   // Pullman palm house's terrace in the 1894 Inland plate: the stem bare to about half the
   // plant's height, then a dense clipped head.
   standard_ball: {
-    crown: 'round', crownBase: 0.42, fork: 'decurrent', stems: [1, 1], scaffolds: [6, 8],
+    crown: 'ball', crownBase: 0.42, fork: 'decurrent', stems: [1, 1], scaffolds: [6, 8],
     limbAngle: 38, rise: 0.04, twist: 0.15, order2: [4, 44], order3: [0, 0], droop: 0.0,
     clump: 0.26, clumpMin: 0.15, density: 1.9, gaps: 0.02, leaf: 'scale', bark: 'smooth',
-    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5,
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.5, core: 0.8, headK: 1.0,
   },
   // T-1934: a palm house's palm set out in its tub for the summer, as Taylor's 16555 shows
   // one on the Pullman terrace before the drum: a short stout stem and a head of long
@@ -464,7 +502,11 @@ export const BARK_TILES = {
   furrowed: 0, furrowed_dark: 0, interlaced: 1, blocky: 2, plated: 3, ridged: 3,
   shaggy: 4, shaggy_strips: 4, smooth: 5, aspen: 5, sycamore: 6, corky: 7, warty: 7,
 };
-const LEAF_GRID = [4, 5];
+const LEAF_GRID = [4, 6];
+/** T-1934 — the bare winter elm's twig in the leaf atlas's sixth row: a branch end's twig
+ *  (`spray`) and a tuft of them massed (`tuft`), painted near the elm's bark colour by
+ *  tools/generate_tree_atlas.py (TWIG_TILES). */
+const TWIG_TILE = { spray: 20, tuft: 21 };
 /**
  * T-3017 — EACH LEAF TILE'S OPAQUE BOX: [u0, u1, v0, v1] in the tile's own units
  * (atlasUV's), measured from the committed atlas with 8 px to spare and printed
@@ -480,6 +522,7 @@ export const LEAF_CROP = [
   [0.106, 0.782, 0.002, 1.000], [0.000, 1.000, 0.106, 0.920], [0.164, 0.828, 0.002, 1.000], [0.000, 1.000, 0.098, 0.964],
   [0.190, 0.824, 0.002, 1.000], [0.000, 0.930, 0.012, 0.982], [0.204, 0.958, 0.002, 1.000], [0.066, 0.994, 0.084, 0.954],
   [0.378, 0.972, 0.000, 0.902], [0.000, 1.000, 0.100, 0.908], [0.204, 0.808, 0.002, 0.902], [0.102, 0.942, 0.094, 0.816],
+  [0.226, 0.718, 0.000, 0.968], [0.136, 0.920, 0.168, 0.918], [0.000, 1.000, 0.000, 1.000], [0.000, 1.000, 0.000, 1.000],
 ];
 const FULL_TILE = [0, 1, 0, 1];
 const BARK_GRID = [4, 2];
@@ -575,7 +618,12 @@ function envelopeRadius(shape, t) {
     case 'spread': return Math.pow(Math.sin(Math.PI * (0.10 + t * 0.85)), 0.55);
     case 'column': return Math.pow(Math.sin(Math.PI * (0.04 + t * 0.94)), 0.8);
     case 'cone': return Math.pow(1 - t, 0.85);
+    // T-1934: arborvitae clipped to a column: near its full width from a little over the
+    // foot to about two fifths up, then drawn in to a blunt point (Taylor's 16554).
+    case 'spire': return Math.pow(Math.min(1, (1 - t) / 0.6), 0.75) * (0.8 + 0.2 * Math.min(1, t / 0.2));
     case 'round': return Math.pow(Math.sin(Math.PI * (0.03 + t * 0.95)), 0.6);
+    // T-1881: a head sheared to a true ball (a standard's), as round at its foot as at its top.
+    case 'ball': return Math.sqrt(Math.max(0, 1 - (2 * t - 1) * (2 * t - 1))) * 0.98 + 0.02;
     case 'irregular': return Math.pow(Math.sin(Math.PI * (0.06 + t * 0.92)), 0.62);
     default: return Math.pow(Math.sin(Math.PI * (0.02 + t * 0.96)), 0.75);
   }
@@ -597,8 +645,12 @@ function growSkeleton(spec, arch, rnd) {
     ? lerp(spec.crownW[0], spec.crownW[1], rnd())
     : H * (spec.spreadK ?? 0.6) * (0.88 + rnd() * 0.24);
   const R = crownW / 2;
-  const baseY = H * arch.crownBase * (0.85 + rnd() * 0.3);
-  const crownH = Math.max(1, H - baseY);
+  // A clipped standard's head is a ball (`headK`, its height over its width): the 1894 Inland
+  // plate prints both of Pullman's boxed standards' heads as wide as they are tall, where a
+  // fixed share of the plant's height drew the taller one's head half again as tall as wide.
+  const baseY = arch.headK ? Math.max(H * 0.25, H - crownW * arch.headK)
+    : H * arch.crownBase * (0.85 + rnd() * 0.3);
+  const crownH = arch.headK ? H - baseY : Math.max(1, H - baseY);
   const centreY = baseY + crownH * 0.5;
   // The crown drifts a little off the trunk, as an open-grown crown does toward
   // its open side; a leaning tree throws it further.
@@ -712,7 +764,9 @@ function growSkeleton(spec, arch, rnd) {
       // limbs leave a tapering stem rather than the cut top of a post.
       // T-3223: a garden shrub's stems run up through its crown (`stemK` of its height),
       // where the wild shrubs' stop at 0.8 m and branch, and a bedding plant is shorter than that.
-      const forkY = arch.stemK ? H * arch.stemK : Math.max(0.8, baseY * (nStems > 1 ? 0.55 : 0.92));
+      // A standard's clear stem runs on into the foot of its head, so no bare fork shows under it.
+      const forkY = arch.headK ? baseY + crownH * 0.2
+        : arch.stemK ? H * arch.stemK : Math.max(0.8, baseY * (nStems > 1 ? 0.55 : 0.92));
       const trunk = branch([0, 0, 0], dir0, forkY / Math.max(0.3, dir0[1]), sr, sr * 0.86, 0, { rise: 0.01 });
       const top = trunk.pts[trunk.pts.length - 1];
       const topR = trunk.rad[trunk.rad.length - 1];
@@ -783,6 +837,29 @@ function growSkeleton(spec, arch, rnd) {
     const at = [off[0] + Math.cos(az) * er, y, off[2] + Math.sin(az) * er];
     if (rnd() < arch.gaps) continue;
     clumps.push({ at, dir: norm([Math.cos(az), 0.3, Math.sin(az)]), r: clumpR * (0.7 + rnd() * 0.4), shell: true });
+  }
+  // THE SHEARS (T-1881): a clipped plant (`core`) has nothing outside its clipped shape. Its
+  // twigs, grown as any shrub's, reach past it (a 1.5 m ball's half-metre shoots carried leaf
+  // out to 1.3 m from its stem, read in Kevin's phone shot of Pullman's boxed standards as
+  // cards flying loose round the ball); so every twig and leaf mass is cut back inside the
+  // envelope, the masses a little inside it so their cards lie on the clipped face.
+  if (arch.core) {
+    const clip = (p, k) => {
+      const y = Math.min(H, Math.max(baseY + crownH * 0.04, p[1]));
+      const dx = p[0] - off[0]; const dz = p[2] - off[2];
+      const r = Math.hypot(dx, dz); const lim = envR([p[0], y, p[2]]) * k;
+      const f = r > lim ? lim / r : 1;
+      return [off[0] + dx * f, y, off[2] + dz * f];
+    };
+    // the stems too, where they run up into the clipped shape (a ball's splayed stems reach
+    // out of it); a standard's clear stem under its head is left as it grew
+    for (const b of branches) {
+      for (let i = b.order === 0 ? 1 : 0; i < b.pts.length; i++) {
+        if (b.order === 0 && b.pts[i][1] < baseY) continue;
+        b.pts[i] = clip(b.pts[i], 0.97);
+      }
+    }
+    for (const c of clumps) c.at = clip(c.at, 0.86);
   }
   return { H, dbh, R, baseY, crownH, centreY, off, branches, clumps, envR };
 }
@@ -1030,9 +1107,292 @@ const BLOOM_SHAPES = {
 /** The pale bark texel a solid bloom is drawn off is about this dark (linear), so its
  *  vertex colour is lifted by this much to come back to the flower's. */
 const BLOOM_FLAT_GAIN = 2.6;
+/** T-1934 — a sheared plant's solid body (solidCore): [sides, rings] at each level. The far
+ *  level is the one that needs it most: there a sheared column is a handful of binned cards
+ *  with its stem showing between them (the Pullman terrace's four, from Taylor's eye over
+ *  70 m off). A `distant` shrub is not drawn at all. */
+const CORE_SEGS = { near: [8, 8], mid: [6, 5], far: [5, 4] };
+
+/**
+ * T-1934 — A BARE CROWN'S TWIGS AT THE COARSE LEVELS. The `mid` and `far` levels leave
+ * out the wood a summer crown covers (the third order, and anything thinner than the
+ * level's `minRad`), because their leaf cards stand where it is. A winter crown has no
+ * cards, so it was left a trunk and a few long limbs: Taylor's 16554 prints the parkway
+ * elms at 15-70 m as dense fringes of fine twig, and the render drew them as poles and
+ * sticks. So a bare crown at those levels draws the wood it was missing, as single
+ * three-sided strokes held to at least `floor` metres of radius (a twig the level's ring
+ * would otherwise show at under a pixel, so the antialiased fringe greys in as the
+ * print's does), skipped limbs first, then branches, then a share of the twigs taken
+ * evenly round the crown. `perClump` is its triangle budget per summer clump, which keeps
+ * the bare tree at or under what the same level draws in leaf (measured over the elms,
+ * oaks, ash, maple, cottonwood and willow: mid's leaf is 1.0-1.25 triangles a clump,
+ * far's 0.04-0.22), so winter costs no more than summer.
+ */
+const BARE_TWIGS = { mid: { floor: 0.010, perClump: 1.0, segs: 2 }, far: { floor: 0.04, perClump: 0.04, segs: 1 } };
+
+function bareTwigs(buf, sk, { floor, perClump, segs, spike: spikeR = 0, budget: given }, drawn, barkTile, tint, flexOf, rnd) {
+  let budget = given ?? Math.floor(sk.clumps.length * perClump);
+  const byOrder = [[], [], [], []];
+  for (const b of sk.branches) if (b.order > 0 && !b.fringe && !drawn(b)) byOrder[Math.min(3, b.order)].push(b);
+  // The twigs are taken evenly round the crown (shuffled once from the template's seed),
+  // the rising ones first: a twig hangs under its leaf, and a bare one, seen as a single
+  // chord from its foot to its tip, would cross the crown as a downward slash.
+  const shuffled = (list) => {
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(rnd() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+    return list;
+  };
+  const rises = (b) => b.pts[b.pts.length - 1][1] >= b.pts[0][1];
+  const twigs = [...shuffled(byOrder[3].filter(rises)), ...shuffled(byOrder[3].filter((b) => !rises(b)))];
+  for (const b of [...byOrder[1], ...byOrder[2], ...twigs]) {
+    if (spikeR) {
+      // A winter elm's skipped wood (T-1934): one spike from its foot to its tip, as its fringe.
+      if (b.pts.length < 2 || budget < 3) continue;
+      spike(buf, b, Math.max(spikeR, b.rad[0]), barkTile, tint, flexOf);
+      budget -= 3;
+      continue;
+    }
+    const n = Math.min(b.pts.length - 1, b.order >= 3 ? 1 : segs);
+    if (n < 1 || budget < n * 6) continue;
+    const pts = [];
+    const rad = [];
+    for (let i = 0; i <= n; i++) {
+      const k = Math.round((i / n) * (b.pts.length - 1));
+      pts.push(b.pts[k]);
+      rad.push(Math.max(floor, b.rad[k]));
+    }
+    tube(buf, { ...b, pts, rad }, 3, barkTile, tint, flexOf);
+    budget -= n * 6;
+  }
+  return budget;
+}
+
+/**
+ * T-1934 — THE GROWN ELM'S WINTER HABIT. growElm grows the summer crown: its branches run
+ * out and droop under their leaf, and the twigs off them hang, because they carry the
+ * hanging sprays. Bare, that skeleton drew as long straight strokes at the drooping angles
+ * crossing one another, with a few hundred hanging twigs, where Taylor's winter 16554 prints
+ * the elms on both parkways as limbs that fork again and again into fine ascending twig, a
+ * dense fringe at each crown's rim; the young elms on their leaders (`winter: 'fringe'`, the
+ * nearest trees in that print) drew the same way. So a bare elm (Season: winter) is drawn on its winter
+ * skeleton: the bole, the stems or leader and their forks as summer's; each branch only as far as it
+ * rises (its drooping tail is where the summer leaf hung); none of the summer's hanging
+ * twigs; and, off every limb's tip and along every branch's kept run, a sprout that forks
+ * `depth` times into short ascending twig (`angle` degrees off the vertical, each fork
+ * `forkK` of its parent's length), held inside the crown's reach (a young elm's leader sprouts
+ * at its top too). The habit is read off the
+ * print; the numbers are reconstructed (docs/LIBERTIES.md L-tree-architecture-2743).
+ * Summer, spring and fall never see it: it is built only when no clump is in leaf.
+ */
+const ELM_WINTER = { droopDeg: 82, along: [0.45, 0.75, 1.0], depth: 3, rootL: [1.0, 1.8], forkK: 0.64,
+  angle: [14, 40], twigR: 0.004 };
+
+function winterElm(sk, rnd) {
+  const D = Math.PI / 180;
+  const W = ELM_WINTER;
+  const kept = [];
+  const groups = [];
+  const lim = sk.R * 1.12;
+  const inCrown = (p) => {
+    const dx = p[0] - sk.off[0];
+    const dz = p[2] - sk.off[2];
+    const rr = Math.hypot(dx, dz);
+    const k = rr > lim ? lim / rr : 1;
+    return [sk.off[0] + dx * k, Math.min(p[1], sk.H + 0.4), sk.off[2] + dz * k];
+  };
+  const dirOf = (theta, az) => [Math.sin(theta) * Math.cos(az), Math.cos(theta), Math.sin(theta) * Math.sin(az)];
+  // One twig: two strokes curling a little upward, then its forks off its tip.
+  const twig = (group, at, az, theta, L, r, level) => {
+    // A twig stops short of the crown's top and its reach rather than bending along them.
+    const room = Math.min(sk.H + 0.4 - at[1], lim - Math.hypot(at[0] - sk.off[0], at[2] - sk.off[2]) + 0.6);
+    L = Math.min(L, room / Math.max(0.5, Math.cos(theta)));
+    if (L < 0.25) return;
+    const curl = Math.max(4 * D, theta - (3 + rnd() * 9) * D);
+    const mid = inCrown(add(at, mul(norm(add(dirOf(theta, az), mul(randUnit(rnd), 0.10))), L * 0.5)));
+    const end = inCrown(add(mid, mul(dirOf(curl, az + (rnd() - 0.5) * 0.3), L * 0.5)));
+    const rEnd = Math.max(W.twigR, r * 0.6);
+    group.push({ pts: [at, mid, end], rad: [r, (r + rEnd) / 2, rEnd], order: 3, az, a0: theta, a1: curl, L,
+      fringe: true, level });
+    if (level >= W.depth) return;
+    const n = rnd() < 0.3 ? 3 : 2;
+    for (let i = 0; i < n; i++) {
+      // A V: one arm a little steeper than its parent, one a little wider, a third between.
+      const side = i === 0 ? -1 : i === 1 ? 1 : (rnd() - 0.5) * 0.6;
+      const cth = Math.min(W.angle[1] * 1.4 * D, Math.max(6 * D, curl + side * (6 + rnd() * 12) * D));
+      twig(group, end, az + side * (0.30 + rnd() * 0.45), cth, L * W.forkK * (0.85 + rnd() * 0.3),
+        Math.max(W.twigR, rEnd * 0.8), level + 1);
+    }
+  };
+  const sprout = (w, az) => {
+    const group = [];
+    const theta = (W.angle[0] + rnd() * (W.angle[1] - W.angle[0])) * D;
+    twig(group, w.at, az + (rnd() - 0.5) * 1.2, theta, W.rootL[0] + rnd() * (W.rootL[1] - W.rootL[0]),
+      Math.max(W.twigR, Math.min(w.r * 0.6, 0.02)), 0);
+    groups.push(group);
+  };
+  const tip = (b) => {
+    const n = b.pts.length - 1;
+    const d = norm(sub(b.pts[n], b.pts[n - 1]));
+    return { at: b.pts[n], r: b.rad[n], dir: d };
+  };
+  // A branch's bearing: growElm keeps it; the generic skeleton's, off its foot and tip.
+  const bearing = (b) => b.az ?? Math.atan2(b.pts[b.pts.length - 1][2] - b.pts[0][2], b.pts[b.pts.length - 1][0] - b.pts[0][0]);
+  for (const b of sk.branches) {
+    if (b.order >= 3) continue;
+    if (b.order < 2) {
+      kept.push(b);
+      // Every limb's tip, and a leader's that runs up into the crown (the young elm's).
+      if (b.order === 1 || b.pts[b.pts.length - 1][1] > sk.baseY) sprout(tip(b), b.order === 0 ? rnd() * Math.PI * 2 : bearing(b));
+      continue;
+    }
+    // A branch as far as it rises: cut where a stroke first turns past `droopDeg`.
+    let k = b.pts.length - 1;
+    for (let i = 1; i < b.pts.length; i++) {
+      if (norm(sub(b.pts[i], b.pts[i - 1]))[1] < Math.cos(W.droopDeg * D)) { k = Math.max(1, i - 1); break; }
+    }
+    const run = { ...b, pts: b.pts.slice(0, k + 1), rad: b.rad.slice(0, k + 1) };
+    if (run.pts.length < 2) continue;
+    kept.push(run);
+    for (const t of W.along) {
+      const seg = t * (run.pts.length - 1);
+      const j = Math.min(run.pts.length - 2, Math.floor(seg));
+      const f = seg - j;
+      sprout({ at: add(run.pts[j], mul(sub(run.pts[j + 1], run.pts[j]), f)), r: lerp(run.rad[j], run.rad[j + 1], f) }, bearing(b));
+    }
+  }
+  return { ...sk, branches: [...kept, ...groups.flat()], fringe: groups };
+}
+
+/** The winter elm's fringe, sprout by sprout (a sprout is drawn whole or not at all, so no
+ *  twig floats free of its fork), taken evenly round the crown within `budget` triangles:
+ *  each twig as `segs` three-sided strokes, its forks to `depth`, held to `floor` metres.
+ *
+ *  T-1934 — `spike`: at the mid ring (10-44 m, where most of Taylor's 16554's parkway elms
+ *  stand) a twig is under a pixel wide, and the stroke's six triangles bought it nothing a
+ *  pyramid's three do not: so there each twig is one three-sided spike from its foot to its
+ *  tip, its foot `spike` metres across at least (twice the stroke's floor, so a tapering
+ *  twig covers about what the even stroke did), and the summer leaf's budget draws twice
+ *  the twigs. The crowns at that ring had a few dozen strokes a tree against the print's
+ *  hundreds.
+ *
+ *  T-1934 — at the far ring (past 44 m) the skipped wood spent the whole budget and no fringe
+ *  twig was drawn at all: there `reserve` of the budget is kept for the fringe, each twig a
+ *  spike at least `spike` metres across at its foot (a pixel near the ring's edge). */
+const ELM_FRINGE = { near: { segs: 2, depth: 3, floor: 0 }, mid: { segs: 1, depth: 1, floor: 0.010, spike: 0.020 },
+  far: { segs: 1, depth: 0, floor: 0.04, spike: 0.08, reserve: 0.5 } };
+
+/**
+ * T-1934 — THE BARE ELM'S TWIG CARDS. Spent as geometry, the summer leaf's budget buys a
+ * grown parkway elm about 640 twigs at the mid ring and a dozen at the far, where Taylor's
+ * winter 16554 prints hundreds of fine twigs at every crown's rim and the crowns grey in
+ * against the sky. The leaf buys its density as a texture, and so now does the bare twig:
+ * at the mid and far rings a bare elm spends `share` of that budget on cards of the twig
+ * tile (TWIG_TILE.tuft, dozens of forking twigs a card), each rooted on the foot of one
+ * of its winter skeleton's sprouts (winterElm's fringe, off a limb's tip or along a
+ * branch, so a tuft grows out of drawn wood and never floats), rising the way the sprout
+ * rises, faced out of the crown and `size` times the sprout's first twig long, in the
+ * wood's own tone; the rest still draws its limbs, branches and fringe twigs as spikes. Two
+ * triangles a card, in the leaf batch, so winter still costs no more than summer. The
+ * tile is painted for the mip these rings sample it at (tools/generate_tree_atlas.py
+ * twig_marks), so a twig comes through as a line and not a blot.
+ */
+const ELM_TWIG_CARDS = { mid: { share: 0.10, size: 2.6, tile: 'spray' }, far: { share: 0.5, size: 3.0, tile: 'spray' } };
+
+function twigCards(leaves, sk, groups, cards, { size, tile }, tint, rnd) {
+  if (!cards || !groups.length) return 0;
+  const take = Math.min(1, cards / groups.length);
+  let drawn = 0;
+  for (const g of groups) {
+    if (drawn >= cards) break;
+    const t0 = g[0];
+    if (!t0 || rnd() > take) continue;
+    const foot = t0.pts[0];
+    const rise = norm(sub(t0.pts[t0.pts.length - 1], foot));
+    const out = norm([foot[0] - sk.off[0] + (rnd() - 0.5) * 0.5, 0, foot[2] - sk.off[2] + (rnd() - 0.5) * 0.5]);
+    const up = clamp01((foot[1] - sk.baseY) / sk.crownH);
+    // In the wood's own tone, a little lighter toward the crown's top: a twig is wood,
+    // and lit as a leaf is it read as a dead leaf's tan.
+    const k = 0.66 + 0.10 * up + (rnd() - 0.5) * 0.08;
+    const n = norm(add(out, [0, 0.8, 0]));
+    // The tuft's foot on the sprout's foot, its fan rising the way the sprout rises.
+    card(leaves, foot, rise, t0.L * size, TWIG_TILE[tile], mul(tint, k), n, 0.35 + 0.4 * up, rnd, out);
+    drawn++;
+  }
+  return drawn;
+}
+
+/** T-1934 — one twig as a three-sided pyramid: a ring of three at its foot (`r` across at
+ *  least its own radius) and its tip, each face lit by its own outward normal. Three
+ *  triangles where `tube` spends six on one segment. */
+function spike(buf, b, r, barkTile, tint, flexOf) {
+  const a = b.pts[0];
+  const tip = b.pts[b.pts.length - 1];
+  const t = norm(sub(tip, a));
+  const u = norm(cross(t, Math.abs(t[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0]));
+  const w = cross(t, u);
+  const at = (k) => add(mul(u, Math.cos((k / 3) * Math.PI * 2)), mul(w, Math.sin((k / 3) * Math.PI * 2)));
+  const ao = (p, nrm) => 0.72 + 0.28 * clamp01((p[1] + 1.5) / 6) * (0.80 + 0.20 * (nrm[1] * 0.5 + 0.5));
+  const base = buf.count;
+  for (let s = 0; s < 3; s++) {
+    const nrm = at(s);
+    const p = add(a, mul(nrm, r));
+    buf.vert(p, nrm, mul(tint, ao(p, nrm)), atlasUV(BARK_GRID, barkTile, s / 3, 0), flexOf(p));
+  }
+  for (let s = 0; s < 3; s++) {
+    // The tip once per face, carrying that face's normal, so the faces stay apart in the light.
+    const nrm = at(s + 0.5);
+    buf.vert(tip, nrm, mul(tint, ao(tip, nrm)), atlasUV(BARK_GRID, barkTile, (s + 0.5) / 3, 1), flexOf(tip));
+  }
+  for (let s = 0; s < 3; s++) buf.tri(base + s, base + ((s + 1) % 3), base + 3 + s);
+}
+
+function drawFringe(buf, groups, budget, { segs, depth, floor, spike: spikeR = 0 }, barkTile, tint, flexOf, rnd) {
+  const order = groups.map((g, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  const drawn = [];
+  for (const gi of order) {
+    const twigs = groups[gi].filter((b) => b.level <= depth);
+    const cost = spikeR ? twigs.length * 3 : twigs.reduce((c, b) => c + Math.min(segs, b.pts.length - 1) * 6, 0);
+    if (cost > budget) continue;
+    for (const b of twigs) {
+      if (spikeR) {
+        spike(buf, b, Math.max(spikeR, b.rad[0]), barkTile, tint, flexOf);
+        continue;
+      }
+      const n = Math.min(segs, b.pts.length - 1);
+      const pts = [];
+      const rad = [];
+      for (let i = 0; i <= n; i++) {
+        const k = Math.round((i / n) * (b.pts.length - 1));
+        pts.push(b.pts[k]);
+        rad.push(Math.max(floor, b.rad[k]));
+      }
+      tube(buf, { ...b, pts, rad }, 3, barkTile, tint, flexOf);
+    }
+    budget -= cost;
+    drawn.push(gi);
+  }
+  // T-1934: what is left once every sprout is drawn to `depth` goes on the next fork, sprout by
+  // sprout in the same order (spikes only), so a crown at the mid ring spends its summer leaf's
+  // budget and every new twig grows off a drawn one.
+  if (spikeR && drawn.length === groups.length) {
+    for (const gi of drawn) {
+      const next = groups[gi].filter((b) => b.level === depth + 1);
+      if (!next.length || next.length * 3 > budget) continue;
+      for (const b of next) spike(buf, b, Math.max(spikeR, b.rad[0]), barkTile, tint, flexOf);
+      budget -= next.length * 3;
+    }
+  }
+  return budget;
+}
 
 // `distant` (T-2808): the trunk alone, three-sided, under a crown of a few masses.
-const SIDES = { near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0], distant: [3, 0, 0, 0] };
+const SIDES ={ near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0], distant: [3, 0, 0, 0] };
 
 function linearRGB(hex) {
   const c = new THREE.Color().setHex(hex);
@@ -1102,6 +1462,49 @@ function tube(buf, b, sides, barkTile, tint, flexOf) {
 
 /** T-3223: a solid bloom, a small low sphere squashed by `sy`, drawn with the wood off one
  *  flat texel of the smooth bark tile. */
+/**
+ * T-1934 — A SHEARED PLANT'S BODY. Clipped arborvitae is a solid mass of scale leaf: the
+ * shears leave no sky through it, and from the street it reads as one dense dark shape.
+ * Grown as sprays alone it read as an open stack of small clumps with the stem showing
+ * between them (Taylor's 16554, where the Pullman palm house terrace's four clipped columns
+ * print as dense dark cones 10-14 px wide and the render drew them 8-10 px of scattered
+ * clumps). So the habit's `core` stands a closed body of the crown's own envelope, `k` of its
+ * radius, under the shell's sprays: the sprays still make the edge, and what shows between
+ * them is the plant's own shaded interior instead of the wall behind it. It is drawn with the
+ * wood (opaque, no cut-out) off the same flat bark texel as a solid bloom, so its vertex
+ * colour is its own, and it sways with the leaf at its height. Closed at its foot and apex.
+ */
+function solidCore(buf, sk, k, colour, [seg, rings], flexAt) {
+  const uv = atlasUV(BARK_GRID, BARK_TILES.smooth, 0.5, 0.5);
+  const base = buf.count;
+  const y0 = sk.baseY + sk.crownH * 0.02;
+  const y1 = sk.baseY + sk.crownH * 0.97;
+  const step = (y1 - y0) / rings;
+  const rAt = (y, ph) => sk.envR([sk.off[0] + Math.cos(ph), y, sk.off[2] + Math.sin(ph)]) * k;
+  // Top ring first, as blob() turns its rings, so the faces wind the same way.
+  for (let j = 0; j <= rings; j++) {
+    const y = y1 - step * j;
+    const up = clamp01((y - sk.baseY) / sk.crownH);
+    for (let i = 0; i <= seg; i++) {
+      const ph = (i / seg) * Math.PI * 2;
+      const end = j === 0 || j === rings;
+      const r = end ? 0 : rAt(y, ph);
+      const dr = (rAt(Math.min(y1, y + step * 0.5), ph) - rAt(Math.max(y0, y - step * 0.5), ph)) / step;
+      const n = j === 0 ? [0, 1, 0] : j === rings ? [0, -1, 0] : norm([Math.cos(ph), -dr, Math.sin(ph)]);
+      const shade = 0.82 + 0.18 * up;
+      buf.vert([sk.off[0] + Math.cos(ph) * r, y, sk.off[2] + Math.sin(ph) * r], n, mul(colour, shade), uv, flexAt(up));
+    }
+  }
+  for (let j = 0; j < rings; j++) {
+    for (let i = 0; i < seg; i++) {
+      const a = base + j * (seg + 1) + i;
+      const b = a + seg + 1;
+      buf.tri(a, a + 1, b);
+      buf.tri(a + 1, b + 1, b);
+    }
+  }
+}
+
 function blob(buf, at, r, sy, colour, [seg, rings], flex) {
   const uv = atlasUV(BARK_GRID, BARK_TILES.smooth, 0.5, 0.5);
   const base = buf.count;
@@ -1228,6 +1631,10 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   const sk = skeleton ?? (spec.dead
     ? deadSkeleton(growSkeleton(spec, arch, rnd), spec.dead, mulberry32(seed ^ 0x2810))
     : growSkeleton(spec, arch, rnd));
+  // T-1934: a bare elm stands on its winter skeleton (winterElm), grown once per skeleton
+  // and shared by its levels; every other crown, and every elm in leaf, on its own.
+  const wintry = leafCover <= 0 && (sk.elm || arch.winter === 'fringe') && !spec.dead && sk.clumps.length > 0;
+  const wsk = wintry ? (sk.winter ??= winterElm(sk, mulberry32(seed ^ 0x1934e))) : sk;
   const lrnd = mulberry32(seed ^ 0x9e3779b9);
   const wood = new Buf();
   const leaves = new Buf();
@@ -1248,12 +1655,19 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   // levels with no wood at all: a batch geometry of zero vertices, which the
   // drawn-timber census cannot read back. Its stoutest stem stays.
   let keep = null;
-  if (minRad > 0 && !sk.branches.some((b) => sides[Math.min(3, b.order)] && b.rad[0] >= minRad)) {
-    for (const b of sk.branches) if (b.order === 0 && (!keep || b.rad[0] > keep.rad[0])) keep = b;
+  if (minRad > 0 && !wsk.branches.some((b) => sides[Math.min(3, b.order)] && b.rad[0] >= minRad)) {
+    for (const b of wsk.branches) if (b.order === 0 && (!keep || b.rad[0] > keep.rad[0])) keep = b;
   }
-  for (const b of sk.branches) {
+  // The triangles the main pass spends on a skeleton's wood (the winter elm's fringe is
+  // drawn apart, within its budget, below).
+  const woodTris = (branches) => branches.reduce((n, b) => {
     const s = sides[Math.min(3, b.order)];
-    if (!s) continue;
+    if (!s || b.fringe || (b.rad[0] < minRad && b !== keep)) return n;
+    return n + (b.pts.length - 1) * s * 2;
+  }, 0);
+  for (const b of wsk.branches) {
+    const s = sides[Math.min(3, b.order)];
+    if (!s || b.fringe) continue;
     // Thin wood a far tree cannot resolve is not drawn at all.
     if (b.rad[0] < minRad && b !== keep) continue;
     // A far tree's limbs are a few strokes against the sky: twice the trunk's stride.
@@ -1281,7 +1695,35 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   const clumps = leafCover >= 1 ? sk.clumps : sk.clumps.filter(() => lrnd() < leafCover);
   const elmShare = coarse ? ELM_SHARE_COARSE : ELM_SHARE;
   if (!clumps.length) {
-    // bare: the wood alone
+    // bare: the wood alone, and at the coarse levels the twigs the leaf hid (T-1934)
+    if (sk.clumps.length && !spec.dead && !arch.core && (BARE_TWIGS[lod] || (wintry && ELM_FRINGE[lod]))) {
+      const brnd = mulberry32(seed ^ 0x1934);
+      // A winter elm's branches are cut to their rising run, so one stroke draws each and
+      // what that saves goes to the fringe.
+      // T-1934: a bare elm at mid and far spends what its own summer leaf there costs (one
+      // two-triangle card for each clump the level keeps, elmShare), never less than the bare
+      // crown's share, and draws its skipped wood as spikes (three triangles a stroke, not six);
+      // at far it keeps `reserve` of that budget back for its fringe, which the skipped wood
+      // otherwise spent to the last triangle (the far ring drew no fringe twig at all).
+      const F = wintry && lod !== 'near' ? ELM_FRINGE[lod] : null;
+      const total = F ? Math.floor(sk.clumps.length * Math.max(BARE_TWIGS[lod].perClump, sk.elm ? elmShare[lod] * 2 : 0)) : 0;
+      const kept = F ? Math.floor(total * (F.reserve ?? 0)) : 0;
+      // T-1934: a share of it as twig cards (ELM_TWIG_CARDS), the rest as below.
+      const C = F ? ELM_TWIG_CARDS[lod] : null;
+      const cards = C ? twigCards(leaves, sk, wsk.fringe, Math.floor((total * C.share) / 2), C, barkUpper,
+        mulberry32(seed ^ 0x1934c)) : 0;
+      let left = BARE_TWIGS[lod] ? bareTwigs(wood, wsk, F ? { ...BARE_TWIGS[lod], segs: 1, spike: F.spike, budget: total - kept - cards * 2 }
+        : wintry ? { ...BARE_TWIGS[lod], segs: 1 } : BARE_TWIGS[lod],
+        (b) => sides[Math.min(3, b.order)] && (b.rad[0] >= minRad || b === keep), barkTile, barkUpper, flexOf, brnd) + kept : 0;
+      // The winter elm's fringe: at mid and far, in what the bare twigs left of the summer
+      // leaf's budget; near, in the near leaf's own triangles (two sprays a clump) and the
+      // wood the winter skeleton gave up (the hanging twigs, the branches' tails).
+      if (wintry && ELM_FRINGE[lod]) {
+        // (less the one empty leaf triangle a bare template still carries)
+        if (lod === 'near') left = sk.clumps.length * 4 * elmShare.near + woodTris(sk.branches) - woodTris(wsk.branches) - 1;
+        drawFringe(wood, wsk.fringe, left, ELM_FRINGE[lod], barkTile, barkUpper, flexOf, brnd);
+      }
+    }
   } else if (sk.elm && lod === 'far') {
     // T-3017: the elm's far crown is its own sprays, a few and large, not a
     // ring of binned fans: at the far ring's near edge it still fills a third
@@ -1328,13 +1770,15 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
       // An elm's leaf is all at its crown's rim, where that cap would shrink every
       // mass to a scrap: its masses are held to the crown's reach instead.
       const room = sk.elm ? sk.R * 0.9 : Math.max(sk.R * 0.35, (sk.R * 1.1 - Math.hypot(at[0], at[2])) / 0.6);
-      const size = Math.min(want, room);
+      // T-1934: a sheared plant's masses are its body's texture, not its outline: held to
+      // its own clipped face, so no spray stands out of the shape the shears left.
+      const size = arch.core ? Math.min(want, room, sk.R * 0.7) : Math.min(want, room);
       // One card per mass, grown outward from the crown so it faces whoever is
       // looking at that side, set back by a third of its length so the mass is
       // centred on its bin, not hung outside it. The cap's card lies up.
       const d1 = norm(add(outward, [0, 0.35, 0]));
       card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
-      if (size < want * 0.7) card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
+      if (size < want * 0.7 && !arch.core) card(leaves, sub(at, mul(d1, size * 0.35)), d1, size, clumpTile, colour, outward, flex, lrnd);
     }
   } else {
     // Near: every clump as two sprays. Mid: every other clump as one card, a
@@ -1349,18 +1793,30 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
       }
       if (lod === 'mid' && (alt++ & 1)) continue;
       const { outward, colour, flex } = shade(c.at);
+      // T-1934: a sheared plant's sprays are smaller, so they stay on its clipped face
+      // over its body (solidCore) and do not make it shaggy.
+      const ks = arch.core ? 0.65 : 1;
       if (lod === 'mid') {
         // Turned to face out of the crown, near square, so a card this size
         // reads as a spray from the street, not a blade seen edge-on.
         const facing = norm(add(outward, mul(randUnit(lrnd), 0.35)));
-        card(leaves, c.at, c.dir, c.r * 2.2 * leafScale, clumpTile, colour, outward, flex, lrnd, facing);
+        card(leaves, c.at, c.dir, c.r * 2.2 * leafScale * ks, clumpTile, colour, outward, flex, lrnd, facing);
       } else {
         for (let i = 0; i < 2; i++) {
-          const jit = mul(randUnit(lrnd), c.r * 0.55);
-          card(leaves, add(c.at, jit), c.dir, c.r * 1.5 * leafScale, i === 0 ? clumpTile : sunTile, colour, outward, flex, lrnd);
+          const jit = mul(randUnit(lrnd), c.r * 0.55 * ks);
+          card(leaves, add(c.at, jit), c.dir, c.r * 1.5 * leafScale * ks, i === 0 ? clumpTile : sunTile, colour, outward, flex, lrnd);
         }
       }
     }
+  }
+  // T-1934: a sheared plant's body under its sprays (solidCore), at the near, mid and far
+  // levels, so the gaps between them show its shaded interior and not what is behind it.
+  const coreSegs = CORE_SEGS[lod];
+  if (arch.core && clumps.length && coreSegs) {
+    // Its leaf's own colour a little into the shade: Taylor's 16554 prints the terrace's
+    // columns at about half the lit stone's value behind them.
+    const cc = dark.map((v, j) => lerp(v, light[j], 0.5) * 1.3 * BLOOM_FLAT_GAIN);
+    solidCore(wood, sk, arch.core, cc, coreSegs, (up) => 0.45 + 0.4 * up);
   }
   // T-2784 — A PRAIRIE SHRUB IN FLOWER (`bloom`, its record's July
   // inflorescence: the rose's pink, New Jersey tea's and meadowsweet's white,
@@ -1601,7 +2057,9 @@ export function buildVineTemplate(spec, seed, lod = 'near', { conf = 0.5 } = {})
  * T-1881: `arch: 'mantle'` is a stretch a picture shows wholly clothed (Pullman's ground
  * storey under its balcony in LC-D4-12551): the same mat, its top held near `h` with only
  * short tongues, so a row of overlapping patches reads as one level-topped mantle;
- * `mantle_sill` is the same mat kept under a window's sill in such a stretch.
+ * `mantle_sill` is the same mat kept under a window's sill in such a stretch, and
+ * `mantle_head` the same mat over a window's head, standing on it: no stems climb out of
+ * its foot, which is the head's ring, not the ground.
  */
 export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, leafCover = 1 } = {}) {
   const rnd = mulberry32(seed);
@@ -1610,7 +2068,7 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
   const W = spec.crownW ? (spec.crownW[0] + spec.crownW[1]) / 2 : Math.max(1.2, H * 0.4);
   // The top edge, a smooth random walk: tongues of ivy climbing ahead of the mat.
   const TOP_COLS = 12;
-  const mantle = spec.arch === 'mantle' || spec.arch === 'mantle_sill';
+  const mantle = spec.arch === 'mantle' || spec.arch === 'mantle_sill' || spec.arch === 'mantle_head';
   const [topFloor, edgeFloor] = mantle ? [0.88, 0.9] : [0.6, 0.7];
   const top = [];
   let tv = rnd();
@@ -1658,7 +2116,7 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
       }
     }
   }
-  const strands = lod === 'near' ? 3 : 1;
+  const strands = spec.arch === 'mantle_head' ? 0 : lod === 'near' ? 3 : 1;
   const barkTile = BARK_TILES.shaggy_strips;
   const barkTint = barkLinear(spec.bark ?? 0x6b5a48, 'shaggy');
   for (let i = 0; i < strands; i++) {
@@ -1671,6 +2129,10 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
       rad.push(lerp(0.025, 0.01, t));
     }
     tube(wood, { pts, rad, order: 1 }, lod === 'near' ? 4 : 3, barkTile, barkTint, () => 0);
+  }
+  if (!wood.count) {
+    for (let i = 0; i < 3; i++) wood.vert([0, 0.05, 0], [0, 1, 0], [0, 0, 0], [0.5, 0.5], 0);
+    wood.tri(0, 1, 2);
   }
   if (!leaves.count) {
     for (let i = 0; i < 3; i++) leaves.vert([0, 0.05, 0], [0, 1, 0], [0, 0, 0], [0.5, 0.5], 0);

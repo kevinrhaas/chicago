@@ -36,6 +36,8 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             column and basement light, the front and the side wall stopped
                             at it, and the cornice, the mansard's rings, the gutter and the
                             curb's cresting turned round it on two mitres
+  k01.wall.cant_strip       the light stone strips framing a blank canted face's brick at its
+                            two angles (T-3271, `cant_corner.strips`; 1905's)
   k01.wall.round_arcade     the porch's arcade round that corner (T-2991, the loggia's
                             `round_arcade`): round-headed lights cut through the round's
                             courses into the porch's shadow, each over a colonnette
@@ -68,6 +70,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.gable_colonnette a colonnette between or beside the lights under the great arch
   k01.roof.gable_pinnacle   a wall gable's pinnacle: square shaft, cap and pyramid
   k01.roof.gable_finial     a wall gable's turned finial on the ridge at its apex
+  k01.roof.dormer_coping    a dormer gable's stone coping: a street dormer's coped gable
+                            (T-3301, `k01_dormer_coping`) — the coping along each rake, a
+                            kneeler at each foot, a finial — or a gabled mansard dormer's
+                            coping and its crockets (T-3293, `dormer_ornament`)
   k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
                             round-arched variant in the recess the roof's union cut
   k01.opening.sash_round_hooded
@@ -1030,6 +1036,25 @@ class Assembly:
         pr.face([P(s0, y0, 0), P(s0, y0, d), P(s0, y1, d), P(s0, y1, 0)], _mul(R, -1), be, conf)
         pr.face([P(s1, y0, 0), P(s1, y0, d), P(s1, y1, d), P(s1, y1, 0)], R, be, conf)
 
+    def key_block(self, mat, frame, s, y0, k, seed, conf):
+        """T-3297: a tapered stone key standing `proud_m` out of the wall, its foot `foot_m`
+        across on y0, widening to `top_m` at its top `height_m` up, its top corners cut
+        `chamfer_m` (1700-1706's keys over their upper lights, Chicagology's photograph)."""
+        O, R, N = frame
+        P = lambda u, y, dd: _add(_add(_add(O, _mul(R, u)), _mul(Y, y)), _mul(N, dd))
+        b, t, h, d, c = k["foot_m"] / 2, k["top_m"] / 2, k["height_m"], k["proud_m"], k["chamfer_m"]
+        outline = [(s - b, y0), (s + b, y0), (s + t, y0 + h - c), (s + t - c, y0 + h),
+                   (s - t + c, y0 + h), (s - t, y0 + h - c)]
+        if c <= 0:
+            outline = [outline[0], outline[1], (s + t, y0 + h), (s - t, y0 + h)]
+        pr = self.prim(mat)
+        pr.face([P(u, y, d) for u, y in outline], N, self.basis(mat, O, R, Y, seed), conf)
+        for i, (u0, ya) in enumerate(outline):
+            u1, yb = outline[(i + 1) % len(outline)]
+            out = _unit(_add(_mul(R, yb - ya), _mul(Y, -(u1 - u0))))
+            pr.face([P(u0, ya, 0), P(u1, yb, 0), P(u1, yb, d), P(u0, ya, d)], out,
+                    self.basis(mat, O, _unit(_add(_mul(R, u1 - u0), _mul(Y, yb - ya))), N, seed), conf)
+
     # -- k01.wall.* ----------------------------------------------------------------
     def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=(), cols=(),
              construction="masonry"):
@@ -1118,7 +1143,9 @@ class Assembly:
             # behind it as a main wall does behind its oriel — 1701's range, its rear photograph)
             cover = (on_rear if side == "rear" else on_host if side == "front" else []) \
                 + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays
-                   if b["wall"] == cid and b["variant"]["kind"] != "oriel"]
+                   if b["wall"] == cid and b["variant"]["kind"] != "oriel"] \
+                + [(*b["past_end"]["span_m"], 0.0, w["top_m"]) for b in p.bays
+                   if (b.get("past_end") or {}).get("wall") == cid]   # T-1890: a face run onto it
             # T-3133: a round-headed light is cut on its head's curve, as the main walls cut it
             hs = [hole(o) for o in ops] + cover
             if frame_wing:
@@ -1215,20 +1242,41 @@ class Assembly:
                               **({"gable_to": r["gable_to"]} if "gable_to" in r else {}),
                               "overhang_m": o, "fascia_m": f, "covering": r["covering"],
                               "eave_datum_m": top, "ridge_datum_m": r["ridge_m"], "host_top_m": host_top,
+                              **({"end_pitch_deg": dict(r["end_pitch_deg"])} if r.get("end_pitch_deg") else {}),
+                              **({"stacks": len(w["stacks"])} if w.get("stacks") else {}),
                               "construction": "k05"},
                              {"eave": (u0, top, z1), "ridge": ((u0 + u1) / 2, r["ridge_m"], (z0 + z1) / 2)})
         # a ridge across the wing is built past the host wall by more than the roof's span,
         # so its far end lies wholly beyond the cut and the ridge runs straight into it
         far = u1 + (v1 - v0) + 2 * o + 1.0 if r["axis"] == "u" else u1
         base = min(host_top, top - o * t - f) - 0.5
-        if r["kind"] == "hip":
+        if r["kind"] == "hip" and r.get("end_pitch_deg"):
+            hip, hs = self.wing_hip_ends(k5, r, u0, u1, z0, z1, top, t, o, f)
+            solids = [hip, k5.body_box(u0, far, z0, z1, base, hs)]
+        elif r["kind"] == "hip":
             hip, hs = k5.hip_element(u0, far, z0, z1, top, t, o, f)
             solids = [hip, k5.body_box(u0, far, z0, z1, base, hs)]
         elif r["axis"] == "u":   # a gable to the rear: the one verge, on the rear wall
             solids, _, _, _ = k5.gable_element(u0, far, z0, z1, top, t, o, o, f, base, "x", verge_ends=("lo",))
         else:                    # a gable to a flank: the ridge along the wing, a gable at each end
             solids, _, _, _ = k5.gable_element(z0, z1, u0, u1, top, t, o, o, f, base, "z")
-        hi, end = r["ridge_m"] + 1.0, far + o + 2.0
+        # T-1890: the wing's own stacks (rear_wings[].stacks), T-2302's plain prism under its
+        # cap, joined into the roof solid so the shaft is cut where it leaves the slate
+        P = k5.frame("z")
+        stone_boxes = []
+        for c in w.get("stacks", ()):
+            sx, sz = c["plan_m"]
+            u, z, stop = c["u_m"], -c["v_m"], c["top_m"]
+            cp, cd = c["cap_proud_m"], c["cap_depth_m"]
+            solids.append(k5.extrude([(u - sx / 2, c["base_m"]), (u + sx / 2, c["base_m"]), (u + sx / 2, stop - cd / 2),
+                                      (u - sx / 2, stop - cd / 2)], z - sz / 2, z + sz / 2, P,
+                                     lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
+            solids.append(k5.extrude([(u - sx / 2 - cp, stop - cd), (u + sx / 2 + cp, stop - cd),
+                                      (u + sx / 2 + cp, stop), (u - sx / 2 - cp, stop)],
+                                     z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
+            if c["stone"]:
+                stone_boxes.append((u - sx / 2 - 1e-3, u + sx / 2 + 1e-3, z - sz / 2 - 1e-3, z + sz / 2 + 1e-3))
+        hi, end = max([r["ridge_m"]] + [c["top_m"] for c in w.get("stacks", ())]) + 1.0, far + o + 2.0
         # T-2900: a wing longer than its host wall is cut only along the host: past it, its
         # eaves and its hip run round its own front
         hv0, hv1 = w["host_v_m"]
@@ -1262,6 +1310,14 @@ class Assembly:
                 b_ = self.basis("fascia", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed) \
                     if abs(n[1]) > 0.999 else upright("fascia", n)
                 self.prim("fascia").face(tri, n, b_, conf)
+            elif role in ("chimney", "coping"):   # T-1890: a wing stack's shaft and cap
+                cx_, cz_ = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
+                mat = "limestone_trim" if role == "coping" else \
+                    "rough_stone_trim" if any(b[0] <= cx_ <= b[1] and b[2] <= cz_ <= b[3] for b in stone_boxes) \
+                    else "brick"
+                b_ = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed) \
+                    if abs(n[1]) > 0.999 else upright(mat, n)
+                self.prim(mat).face(tri, n, b_, conf)
             elif role in ("gable", "host_end"):
                 # across the wall line it is walling, from the wing's wall top (a gable) or the
                 # host's top (the junction) up; past the corners it is the eave's end
@@ -1276,6 +1332,23 @@ class Assembly:
                         self.prim(mat).face(piece, n, upright(mat, n), conf)
             else:
                 raise ValueError(f"the K05 union left a {role!r} face on {w['id']}'s roof")
+
+    @staticmethod
+    def wing_hip_ends(k5, r, u0, u1, z0, z1, top, t, o, f):
+        """T-1890: a wing's hip whose ridge runs along it (v) with one or both ends pitched
+        steeper than its sides (`end_pitch_deg`): k5.hip_element's ring stack, the ridge at
+        the same height, its ends drawn in toward the end walls. The south end (v0) is the
+        z1 side in the assembly's frame (z = -v), the north end the z0 side."""
+        ends = r["end_pitch_deg"]
+        hs, he = top - o * t - f, top - o * t
+        X0, X1, Z0, Z1 = u0 - o, u1 + o, z0 - o, z1 + o
+        rise = (X1 - X0) / 2 * t
+        xc = (X0 + X1) / 2
+        za = Z0 + rise / math.tan(math.radians(ends.get("north", r["pitch_deg"])))
+        zb = Z1 - rise / math.tan(math.radians(ends.get("south", r["pitch_deg"])))
+        rings = [(hs, k5.inset_rect(X0, X1, Z0, Z1, 0.0)), (he, k5.inset_rect(X0, X1, Z0, Z1, 0.0)),
+                 (he + rise, [(xc, za), (xc, za), (xc, zb), (xc, zb)])]
+        return k5.ring_stack(rings, ["fascia", "covering"], "soffit"), hs
 
     # -- k01.opening.* ---------------------------------------------------------------
     def opening(self, op, frame, thickness, body_mat, stone_trim, cut=False, coursed=False):
@@ -1355,7 +1428,13 @@ class Assembly:
             self.enter(op, frame, body_mat, seed, conf)
             if p.entrance_kit.get("hood"):
                 self.door_hood(op, frame)   # T-2480
-        brick_head = op.wall != "k01.wall.street_front" or p.street_front_trim.get("brick_heads") == "segmental"
+            if getattr(op, "round_head", False):
+                # T-3283: a brick front's round-headed door (1945's, the 1928 photograph) under
+                # the arch band and key its round lights beside it carry, and no lintel
+                self.round_door_head(op, frame, stone_trim, seed, max(conf, p.conf("street_front_round_heads")))
+                return
+        street_brick = p.street_front_trim.get("brick_heads") if op.wall == "k01.wall.street_front" else None
+        brick_head = op.wall != "k01.wall.street_front" or street_brick in ("segmental", "flat")
         if MATERIALS[body_mat].get("courses") and not door and brick_head:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
@@ -1363,10 +1442,14 @@ class Assembly:
             # front (T-2341) keeps the front's stone dressings: its K09 head or the lintel,
             # unless its record arches them in the brick too (T-1861, `brick_heads`)
             crown = y1 + k03_brick.RISE_TO_SPAN * op.width_m + k03_brick.RINGS * (k03_brick.BED + k03_brick.JOINT)
-            if crown < self.soffit_m - k03_brick.COURSE:
+            # T-3297: or a flat head the record names (1700-1706's gauged flat arches)
+            if street_brick != "flat" and crown < self.soffit_m - k03_brick.COURSE:
                 k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)
             else:
                 k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
+            hk = p.street_front_trim.get("head_key") if street_brick else None
+            if hk:
+                self.key_block(stone_trim, frame, op.s_m, y1, hk, seed, max(conf, p.conf("street_front_trim")))
             return
         # T-3197: a carved tympanum on a stone lintel where the record names one for this light
         ty = self.front_tympanum(op)
@@ -1843,7 +1926,10 @@ class Assembly:
         if af:
             k01_arched_front.lay(self, frame, yf, length, conf, r_wall)
         if beds is None and p.street_iron:   # T-3184: a brick front's balconettes and stoop rails
-            k01_arched_front.street_iron(self, frame, p.street_iron, conf)
+            # T-3271: the front's own; a balconette naming a side wall is laid on that wall (build)
+            k01_arched_front.street_iron(self, frame, _front_iron(p.street_iron), conf)
+        if beds is None:   # T-3270: the frieze's carved roundels, where street_front_trim names them
+            k09_frontage.frieze(self, frame, max(conf, p.conf("street_front_trim")))
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
         # (T-3112: from the pier's side, which stops under the cap)
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
@@ -1855,7 +1941,7 @@ class Assembly:
             s_lo, s_hi = (max(s_lo, c1), s_hi) if c0 <= 1e-9 else (s_lo, min(s_hi, c0))
         if E - yf > 1e-6:
             if brick is not None:   # T-2914: brick up to the eave
-                self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
+                self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(s_hi, yf, 0.0), P(s_hi, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
             else:
                 self.prim("rough_stone_trim").face([P(s_lo, yf, 0.0), P(s_hi, yf, 0.0), P(s_hi, E, 0.0), P(s_lo, E, 0.0)],
                                                    N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
@@ -1923,7 +2009,11 @@ class Assembly:
                 ring = next((r for r in self.p.street_dress.get("voussoirs", ())
                              if abs(r["s_m"] - op.s_m) < 1e-6 and abs(r["sill_m"] - op.sill_m) < 1e-6), None)
                 if ring:
-                    self.street_voussoirs(frame, hd, ring, conf, recess, cid, inst, j)
+                    j = self.street_voussoirs(frame, hd, ring, conf, recess, cid, inst, j)
+                arc = next((r for r in self.p.street_dress.get("architraves", ())
+                            if abs(r["s_m"] - op.s_m) < 1e-6 and abs(r["sill_m"] - op.sill_m) < 1e-6), None)
+                if arc:
+                    self.street_architrave(frame, hd, y0, arc, conf, recess, cid, inst, j)
 
     KEYSTONE_PROUD_M = 0.03   # T-2889: a keystone stands this far before its ring
 
@@ -1958,6 +2048,51 @@ class Assembly:
             self.stone(frame, pts, [hj] * 4, "dress_stone", self._stone_seed(cid, inst, j), conf,
                        recess=recess, bevel=wk["bevel_m"], F=F, bed=bed)
             j += 1
+        return j
+
+    ARCHITRAVE_PIECES = 12    # T-1881: an architrave's arch in this many straight pieces
+    ARCHITRAVE_INNER = 0.55   # T-1881: the inner fascia's share of the band, next the light
+
+    def street_architrave(self, frame, hd, sill, arc, conf, recess, cid, inst, j):
+        """T-1881: a named window's round head framed by a moulded architrave
+        (`street_front_windows.windows[k].architrave`, 1729 Prairie's front in the 1890 plate):
+        a band `band_m` broad down each jamb from the sill to the springing and on round the
+        arch, in two fascias, the outer `proud_m` before the wall and the inner half that, laid
+        without joints or bevel so the band reads as one moulding; an impost block stepping out past the band and before it
+        at the springing; and a keystone over the crown, a little prouder."""
+        b, F = arc["band_m"], arc["proud_m"]
+        ys, cx, r0 = hd.spring, hd.cx, hd.R
+        z4 = [0.0] * 4
+
+        def lay(pts, f):
+            nonlocal j
+            self.stone(frame, pts, z4, "dress_stone", self._stone_seed(cid, inst, j), conf,
+                       recess=recess, bevel=0.0, F=f)
+            j += 1
+        # moulded in two fascias: the inner one, next the light, half as proud as the outer, so
+        # the step between them draws the shadow line the plate shows round each head
+        n = self.ARCHITRAVE_PIECES
+        for w0, w1, f in ((0.0, b * self.ARCHITRAVE_INNER, F * 0.5), (b * self.ARCHITRAVE_INNER, b, F)):
+            for a0, a1 in ((hd.s0 - w1, hd.s0 - w0), (hd.s1 + w0, hd.s1 + w1)):   # the jambs
+                lay([(a0, sill), (a1, sill), (a1, ys), (a0, ys)], f)
+            ri, ro = r0 + w0, r0 + w1
+            for i in range(n):                                              # the arch, right to left
+                t0, t1 = math.pi * i / n, math.pi * (i + 1) / n
+                lay([(cx + ri * math.cos(t0), ys + ri * math.sin(t0)), (cx + ro * math.cos(t0), ys + ro * math.sin(t0)),
+                     (cx + ro * math.cos(t1), ys + ro * math.sin(t1)), (cx + ri * math.cos(t1), ys + ri * math.sin(t1))], f)
+        if arc.get("impost_m"):
+            ih, io = arc["impost_m"]
+            for a0, a1 in ((hd.s0 - b - io, hd.s0), (hd.s1, hd.s1 + b + io)):
+                lay([(a0, ys - ih), (a1, ys - ih), (a1, ys), (a0, ys)], F + io)
+        if arc.get("key_m"):
+            kw, kh = arc["key_m"]
+            yk = ys + r0                                                    # on the crown, before the band
+            lay([(cx - kw / 2, yk), (cx + kw / 2, yk), (cx + kw / 2, ys + r0 + kh), (cx - kw / 2, ys + r0 + kh)],
+                F + self.KEYSTONE_PROUD_M)
+        self.architrave_meta = getattr(self, "architrave_meta", []) + [
+            {"s_m": arc["s_m"], "sill_m": arc["sill_m"], "spring_m": round(ys, 4), "radius_m": round(r0, 4),
+             "outer_m": [round(hd.s0 - b, 4), round(hd.s1 + b, 4)], "impost": bool(arc.get("impost_m")),
+             "key": bool(arc.get("key_m"))}]
         return j
 
     # -- T-2753: the dressed surrounds and the proud frontispiece --------------------------
@@ -2586,6 +2721,28 @@ class Assembly:
             roles["mullion"] = stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
 
+    def round_door_head(self, op, frame, stone_trim, seed, conf):
+        """T-3283: the arch band over a round-headed door in a brick front: K06's own band for the
+        front's round-headed light (`k01.opening.sash_round_hooded`), cut to the door's span and
+        spring, laid spring to spring as that light's is, and the round heads' key on its crown.
+        Only the band is taken from K06; the door, its fanlight and its reveal are K07's."""
+        from . import k06_windows
+        p = self.p
+        if ROUND_HOODED not in p.window_kit:
+            raise ValueError("street_front_round_heads.door: the window kit names no round-headed street light "
+                             f"({ROUND_HOODED}) whose arch band dresses the door")
+        light = dataclasses.replace(op, component=ROUND_HOODED, round_head=False)
+        o = k06_windows.Opening(self.kit_variant(light), self._kit)
+        o.seed = seed
+        o.build()
+        keep = {"head"}
+        self.graft(o, "K06", {"head": stone_trim}, frame, op, lambda role: (seed, conf),
+                   tuple(r for r in o.prims if r not in keep), True)
+        k = p.round_heads.get("key")
+        if k:
+            self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
+                           op.head_m, op.head_m + k["height_m"], k["proud_m"], seed, conf)
+
     def front_tympanum(self, op):
         """T-3197: the `street_front_trim.tympana` entry that dresses this street light, or None."""
         p = self.p
@@ -2843,6 +3000,8 @@ class Assembly:
                 on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
                 closes.append(((min(on), max(on)), (wall_top, eave)))
             for (x0, x1), (y0, y1) in closes:
+                if y1 - y0 < 1e-6:   # T-3294: a tower capped at the eave has no wall over the wall head
+                    continue
                 for (xa, xb), (ya, yb) in K8.host_cells((x0, x1), (y0, y1), built.host_holes):
                     pr.face([snap(x, y) for x, y in ((xa, ya), (xb, ya), (xb, yb), (xa, yb))], back, bb, conf)
             # T-3048: a shallow pavilion flush with a corner: over the eave the main roof is cut
@@ -2966,16 +3125,23 @@ class Assembly:
         crest = next(x for x in data["variants"] if x["id"] == "k10.cresting.iron_ridge")
         y_cap = mn["curb_m"] + float(v["roof"]["pitch"]) * ins
         pts = mn["curb"]
+        # T-1881: a turned finial on each hip of the curb, standing in the cresting's own line
+        # (1729's, Taylor's 16554: a tall finialled post where each section's hips meet the curb)
+        fn = cr.get("finials")
+        posts = self.bay_hip_posts(v, pts, ins, fn) if fn else {}
         laid = []
         for j in range(len(pts) - 1):
             (x0, z0), (x1, z1) = pts[j], pts[j + 1]
             L0 = math.hypot(x1 - x0, z1 - z0)
             tx, tz = (x1 - x0) / L0, (z1 - z0) / L0
             kx, kz = -tz, tx          # local +Z, the run's outward side (the curb runs left to right)
-            L = L0 - 2 * CREST_STOP_M
+            s0 = posts[j]["stop_m"] if j in posts else CREST_STOP_M
+            s1 = posts[j + 1]["stop_m"] if j + 1 in posts else CREST_STOP_M
+            L = L0 - (s0 + s1)   # bit for bit the old L0 - 2 * CREST_STOP_M where no finial stands
             if L < k10_frontage.MIN_CRESTING_M:
                 continue
-            mx, mz = (x0 + x1) / 2 - kx * ins, (z0 + z1) / 2 - kz * ins
+            mx = (x0 + x1) / 2 + tx * (s0 - s1) / 2 - kx * ins
+            mz = (z0 + z1) / 2 + tz * (s0 - s1) / 2 - kz * ins
             seed = self.instance("k10.cresting.iron_ridge", "cresting",
                                  {"length_m": round(L, 4), "ridge_cap_top_m": round(y_cap, 4), "height_m": h,
                                   "host": f"bay {v['id']} curb", "run": j}, {"ridge": W((mx, y_cap, mz))})
@@ -2991,7 +3157,51 @@ class Assembly:
                          for n in m.nrm]
             k10_frontage._lay(self, var.pieces, conf, "k10.cresting.iron_ridge")
             laid.append({"run": j, "length_m": round(L, 3)})
-        self.bay_crests = getattr(self, "bay_crests", []) + [{"bay": v["id"], "runs": laid}]
+        crest_meta = {"bay": v["id"], "runs": laid}
+        if posts:
+            from .k01_mansard_deck import FINIAL, FINIAL_SEGS, LET_IN_M
+            from .k09_trim import lathe, Piece
+            y_foot = mn["curb_m"] + float(v["roof"]["pitch"]) * ins - LET_IN_M
+            crest_meta["finials"] = []
+            for j in sorted(posts):
+                px, pz = posts[j]["at"]
+                self.instance("k01.roof.deck_finial", "finial", {"height_m": fn["height_m"], "corner": f"hip {j}",
+                                                                 "host": f"bay {v['id']} curb"},
+                              {"foot": W((px, y_foot, pz))})
+                pc = Piece(f"finial {v['id']} hip {j}", "iron", "rooted", host=f"bay {v['id']} curb")
+                lathe(pc.mesh, (px, pz), [(fn["radius_m"] * r, y_foot + fn["height_m"] * y) for r, y in FINIAL],
+                      FINIAL_SEGS)
+                m = pc.mesh
+                m.pos = [W(q) for q in m.pos]
+                m.nrm = [_add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2])) for n in m.nrm]
+                k10_frontage._lay(self, [pc], conf, "k01.roof.deck_finial")
+                crest_meta["finials"].append({"hip": j, "foot_m": round(y_foot, 3)})
+        self.bay_crests = getattr(self, "bay_crests", []) + [crest_meta]
+
+    @staticmethod
+    def bay_hip_posts(v, pts, ins, fn):
+        """T-1881: where a mansard bay's hip finials stand. The curb's first and last points are
+        on the wall plane, where the house's own mansard meets it; every point between is a hip.
+        Each finial stands where the two runs' cresting lines (`ins` inside the curb) cross, and
+        the cresting either side stops FINIAL_CLEAR_M short of its foot. Returns {point index:
+        {"at": (x, z), "stop_m": the runs' stop from that curb point}} in the bay's frame."""
+        from .k01_mansard_deck import FINIAL_CLEAR_M
+        h, r = float(fn["height_m"]), float(fn["radius_m"])
+        if not 0.8 <= h <= 3.0 or not 0.05 <= r <= 0.2:
+            raise ValueError(f"{v['id']}: a mansard bay's hip finials stand 0.8-3.0 m high, 0.05-0.2 m in radius")
+        out = {}
+        for j in range(1, len(pts) - 1):
+            (xa, za), (xb, zb), (xc, zc) = pts[j - 1], pts[j], pts[j + 1]
+            la, lc = math.hypot(xb - xa, zb - za), math.hypot(xc - xb, zc - zb)
+            t1, t2 = ((xb - xa) / la, (zb - za) / la), ((xc - xb) / lc, (zc - zb) / lc)
+            n1, n2 = (t1[1], -t1[0]), (t2[1], -t2[0])     # inward, opposite the runs' outward +Z
+            k = 1.0 + n1[0] * n2[0] + n1[1] * n2[1]
+            if k < 0.2:
+                raise ValueError(f"{v['id']}: its curb turns too sharply at point {j} for a hip finial")
+            dx, dz = ins * (n1[0] + n2[0]) / k, ins * (n1[1] + n2[1]) / k
+            along = max(abs(dx * t1[0] + dz * t1[1]), abs(dx * t2[0] + dz * t2[1]))
+            out[j] = {"at": (xb + dx, zb + dz), "stop_m": round(along + r + FINIAL_CLEAR_M, 4)}
+        return out
 
     def bay_columns(self, b, pts, W, R, N, mat, seed, conf):
         """T-2781: a stone bay's engaged columns (1637's south bay, the Grosvenor photograph).
@@ -3315,6 +3525,9 @@ class Assembly:
             v["stair"]["porch"] = porches[0] if len(porches) == 1 else porches
         if p.entrance_kit.get("balustrade"):
             v["stair"]["balustrade"] = p.entrance_kit["balustrade"]
+        # T-1881: a landing part way down the flight (1729's)
+        if p.entrance_kit.get("mid_landing"):
+            v["stair"]["mid_landing"] = p.entrance_kit["mid_landing"]
         # T-2933: the veranda's posts from the front's v into the door's own frame
         if p.entrance_kit.get("veranda"):
             vr = p.entrance_kit["veranda"]
@@ -3448,8 +3661,13 @@ class Assembly:
                     and o.s_m - o.width_m / 2 - 0.08 < S1 and o.sill_m - 0.12 < y3 and o.head_m > y0 - 1.0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m, {y0}-{y3:.2f} m) runs into "
                                  f"the opening at s = {o.s_m}")
+        # T-1881: a front step stands behind the forward block the door is cut in, so a hood
+        # before that block's face stands clear of it (k01_frontage_params._bays holds the step
+        # less far out than the block it abuts)
+        cut_in_block = any(x.get("entrance") and x["wall"] == op.wall for x in p.bays)
         for b in p.bays:   # nor the pavilion's walls (a bay's hood it may run into, as drawn)
             if b["wall"] == op.wall and b["variant"]["kind"] != "bay" and not b.get("entrance") and \
+                    not (b.get("front_step") and cut_in_block) and \
                     b["span_m"][0] < S1 + 0.05 and b["span_m"][1] > S0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
         con, mod = h["consoles"], h["modillions"]
@@ -3647,6 +3865,8 @@ class Assembly:
 
         # the front: from end to end of the hood, its arches between the capitals
         spans = [(a + cw, b - cw) for a, b in zip(at, at[1:])]
+        if A.get("over") is not None:   # T-3283: only the spans named, the rest left solid (paired columns)
+            spans = [sp for i, sp in enumerate(spans) if i in A["over"]]
         front = lambda x, y, t, vec=False: R_ if vec else P(x, y, t)
         if "front" in A["faces"]:
             wall(spans, s0, s1, front, cd - cw, cd + cw, N_, bf)
@@ -3764,25 +3984,36 @@ class Assembly:
                                                cr["end_pitch_deg"], cr["overhang_m"], f)
             solids.append(crown)
         elif cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
+            # T-3283: a crown over the front's stretch onto a canted corner is cut on its line too
+            co = cr["overhang_m"]
+            ccut = ((lambda ring, out: k01_frontage_params.cant_ring(ring, p.cant_corner, D, W, out)),
+                    co + p.cant_corner["cut_m"] / (2.0 - math.sqrt(2.0)),
+                    k01_frontage_params.cant_end_inset(p.cant_corner, D, W, cr["x0"] - co, cr["z0"] - co,
+                                                       cr["z1"] + co, co)) if cr.get("cant") else None
             crown, _, _ = k5.mansard_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["lower_pitch_deg"],
                                              p.roof_pitch_deg, cr["lower_rise_m"], cr["bulge"], m["segments"],
-                                             m["profile"], cr["overhang_m"], f)
+                                             m["profile"], cr["overhang_m"], f, cut=ccut)
             solids.append(crown)
         recess, recesses = None, []
         self.round_dormers = []
         if cr and cr.get("dormer"):
             g = self.crown_dormer_body(cr, E, f)
             solids.append(g["body"])
-            recesses.append(g["recess"])
+            recesses += g["recesses"]
+        if cr and cr.get("dormers"):   # T-3283: a front crown's own dormers, on its faces
+            for g in self.front_crown_dormer_bodies(cr, E):
+                solids.append(g["body"])
+                solids += g.get("hood", [])
+                recesses += g["recesses"]
         if m and m.get("dormers"):   # T-2411: the main mansard's lower-face dormers
             for g in self.mansard_dormer_bodies(m, E):
                 solids.append(g["body"])
                 solids += g.get("hood", [])   # T-3000: a hooded dormer's shelf and hood
-                recesses.append(g["recess"])
+                recesses += g["recesses"]
         if p.slope_dormers:   # T-2866: dormers on the hip's side slopes
             for g in self.slope_dormer_bodies(E, tp):
                 solids += [g["body"], g["roof"]] if g["roof"] else [g["body"]]
-                recesses.append(g["recess"])
+                recesses += g["recesses"]
         d = p.dormer
         if d:
             dp = kit["parts"]["dormer"]
@@ -3812,10 +4043,38 @@ class Assembly:
                 # frame, sashes and dark room stand (`window`, never emitted; dormer_sash)
                 from types import SimpleNamespace
                 rev = self.kit_reveal(SimpleNamespace(component="k01.opening.sash_flat", width_m=sw, height_m=sh))
-                recess = k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
-                                     (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
-                                    zc - sw / 2, zc + sw / 2, P,
-                                    lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+                # T-3280: a broad dormer's row of lights, one recess each (`sash.at_m`)
+                at = d["sash"].get("at_m", [0.0])
+                cuts = [k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
+                                    (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
+                                   zc + a - sw / 2, zc + a + sw / 2, P,
+                                   lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+                        for a in at]
+                recess = cuts[0]
+                recesses += cuts[1:]
+            # T-3301: the further street dormers (1919's one-light dormer), each built as the
+            # first: its K05 gable joined into the hip, a K06 reveal cut for each light
+            self.also_dormer_geoms = []
+            for e in d.get("also", ()):
+                wd, sb, hf = e["width_m"], e["face_setback_m"], e["face_height_m"]
+                dt = math.tan(math.radians(e["pitch_deg"]))
+                xf, ys = D - sb, E + sb * tp
+                yde, zc = ys + hf, -e["v_m"]
+                back = D - (yde + wd / 2 * dt - E) / tp - 0.5
+                g, dhs, dhe, dry = k5.gable_element(back, xf, zc - wd / 2, zc + wd / 2, yde, dt, dp["overhang_m"],
+                                                    e["verge_m"], dp["fascia_depth_m"], hs, "x", verge_ends=("hi",),
+                                                    wall_role="cheek", end_role="dormer_face",
+                                                    body_end_role="dormer_face")
+                solids += g
+                self.also_dormer_geoms.append({"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
+                                               "zs": zc + wd / 2, "zn": zc - wd / 2, "dt": dt,
+                                               "overhang": dp["overhang_m"], "back": back})
+                sw, ss, sh = e["sash"]["width_m"], e["sash"]["sill_m"], e["sash"]["height_m"]
+                recesses += [k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
+                                         (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
+                                        zc + a - sw / 2, zc + a + sw / 2, P,
+                                        lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+                             for a in e["sash"]["at_m"]]
         if p.rear_section:   # T-2820: the rear section's attic, its end parapets and dormers
             from . import k01_rear_section
             more, cut = k01_rear_section.elements(self, k5, f)
@@ -3910,11 +4169,19 @@ class Assembly:
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
         if d:
             self.dormer_sash(seed)
+            for e, g in zip(d.get("also", ()), getattr(self, "also_dormer_geoms", ())):   # T-3301
+                self.dormer_sash(seed, e, g)
+            if d.get("coping"):   # T-3301: each street dormer's stone-coped gable
+                from . import k01_dormer_coping
+                for e, g in [(d, self.dormer_geom)] + list(zip(d.get("also", ()), self.also_dormer_geoms)):
+                    k01_dormer_coping.dress(self, e, g, seed)
         if p.shaped_gable:
             from . import k01_shaped_gable
             k01_shaped_gable.dress(self, seed)
         for g in self.round_dormers:
             self.round_dormer_sash(g, conf)
+            if g["d"].get("dress"):   # T-3307: its pediment's cornices, its pilasters
+                k10_frontage.dress_lower_dormer(self, g, max(conf, p.conf("mansard")))
         if k:
             self.dress(pts, tris, seed, conf)
         if p.rainwater:
@@ -4135,6 +4402,23 @@ class Assembly:
                         ring.reverse()
                     head = max(hi for _, hi, _ in lit) + 0.5
                     out.append(k5.extrude(ring, bot, head if ct is None else min(head, ct), P, "wall", floor, "wall"))
+        # T-3294: a projection's wall gable carried up through a mansard's eave (1912's south
+        # gable, the 1883 plate and the photograph): the gable rises from under the eave, so the
+        # eave box, gutter and covering's lip would run across its face. In front of its face they
+        # are cut away, the box stopping square a centimetre behind the face (`return`), so the
+        # cornice dies into the gable's rakes
+        for b in self.p.bays:
+            if not b.get("gable_through_eave"):
+                continue
+            v = b["variant"]
+            if b["wall"] != "k01.wall.street_front" or not self.p.mansard or v["kind"] != "projection" \
+                    or v["roof"]["kind"] != "gable":
+                raise ValueError(f"{b['id']}: a wall gable carried through the eave is a gabled projection on "
+                                 f"a mansard's street front")
+            proud = max(float(q[1]) for q in v["plan"]["points"]) - 0.01
+            s0, s1 = b["span_m"]
+            outer = [(D + proud, s0), (D + 2.0, s0), (D + 2.0, s1), (D + proud, s1)]
+            out.append(k5.extrude(outer, yf - 0.5, self.p.eave_m + 0.3, P, "return", "wall", "wall"))
         return out
 
     @staticmethod
@@ -4368,10 +4652,13 @@ class Assembly:
         cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
         return any(b[0] <= cx <= b[1] and b[2] <= cz <= b[3] for b in getattr(self, "stone_stack_boxes", ()))
 
-    def _in_gable_dormer(self, tri):
-        """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box."""
+    def _in_gable_dormer(self, tri, boxes=None):
+        """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box
+        (T-3307: or in one of `boxes`, and then only those, never a turned one)."""
         cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
         # T-3186: a turned dormer's box is tested in the frame it was built in
+        if boxes is not None:
+            return any(b[0] - 1e-6 <= cx <= b[1] + 1e-6 and b[2] - 1e-6 <= cz <= b[3] + 1e-6 for b in boxes)
         turned = [((cx - mx) * nx + (cz - mz) * nz, -(cx - mx) * nz + (cz - mz) * nx, b)
                   for mx, mz, nx, nz, b in getattr(self, "gable_dormer_turns", ())]
         return any(b[0] - 1e-6 <= cx <= b[1] + 1e-6 and b[2] - 1e-6 <= cz <= b[3] + 1e-6
@@ -4416,7 +4703,10 @@ class Assembly:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
             else:
                 mat = self.SHELL[role]
-            if role == "cheek" and lower and self._in_gable_dormer((pts[a], pts[b], pts[c])):
+            if role == "cheek" and lower and abs(n[1]) < 0.05 and self._in_gable_dormer(
+                    (pts[a], pts[b], pts[c]), getattr(self, "painted_dormer_boxes", ())):
+                mat = "dormer_stone"                      # T-3307: a dressed dormer's painted cheeks
+            elif role == "cheek" and lower and self._in_gable_dormer((pts[a], pts[b], pts[c])):
                 mat = "mansard_slate"
             tri = [pts[a], pts[b], pts[c]]
             steep = role == "covering" and lower and n[1] < math.cos(math.radians(45))
@@ -4464,14 +4754,13 @@ class Assembly:
         v["clear_width_m"], v["clear_height_m"] = d["sash_width_m"], d["sash_height_m"]
         o = k06_windows.Opening(v, k06_windows.load())
         o.build()
-        hole = o.holes[0]
         sill = ys + d["sill_m"]
         r = d["width_m"] / 2
         top = sill + d["head_m"]
         if d.get("head") == "gable":
             # T-2452: jambs to the surround's head over the square-headed sash, then the
             # pediment's two slopes to its apex, slated as the cheeks are
-            eaves = sill + d["sash_height_m"] + d["surround_m"]
+            eaves = sill + d["sash_height_m"] + d["surround_m"] + d.get("frieze_m", 0.0)   # T-3307
             head = [(centre + r, eaves), (centre, top), (centre - r, eaves)]
         elif d.get("head") in HIPPED_HEADS:
             # T-2866: square to the face's wall head; the hip (T-2902: or flat hood) over it is joined below
@@ -4502,12 +4791,18 @@ class Assembly:
             a0, a1 = sorted((back, nf))
             box = (a0, a1, centre - r, centre + r) if axis == "x" else (centre - r, centre + r, a0, a1)
             self.gable_dormer_boxes = getattr(self, "gable_dormer_boxes", []) + [box]
+            if (d.get("dress") or {}).get("cheeks") == "painted":   # T-3307: 1700-1706's white cheeks
+                self.painted_dormer_boxes = getattr(self, "painted_dormer_boxes", []) + [box]
         rev = v.get("overrides", {}).get("reveal_depth_m", k06_windows.load()["parts"]["reveal_depth_m"]["value"])
-        # the hole in the kit's frame is (+X along the wall, +Y up), +X being the face's R
-        rec = [(centre + ra * q[0], sill + q[1]) for q in hole]
+        # the hole in the kit's frame is (+X along the wall, +Y up), +X being the face's R.
+        # T-3297: one recess to EACH of K06's holes: a paired sash (1700-1706's) had only its
+        # first light cut, so the second stood glazed behind the solid face, the dormer reading
+        # half shut; the face between the holes is the pair's mullion
         inner, outer = nf - sg * rev, nf + sg * 0.05
-        recess = k5.extrude(rec, min(inner, outer), max(inner, outer), P, "reveal",
-                            *(("window", "reveal") if sg > 0 else ("reveal", "window")))
+        recesses = [k5.extrude([(centre + ra * q[0], sill + q[1]) for q in hole], min(inner, outer),
+                               max(inner, outer), P, "reveal",
+                               *(("window", "reveal") if sg > 0 else ("reveal", "window")))
+                    for hole in o.holes]
         at = lambda along, y, n: (n, y, along) if axis == "x" else (along, y, n)
         roof, hood = None, []
         if d.get("head") in HIPPED_HEADS:
@@ -4527,10 +4822,11 @@ class Assembly:
         if d.get("eared_hood"):   # T-1881: 1729's eared architrave and hood round the arch
             hood = hood + self.dormer_eared_hood(d, k5, axis, sg, nf, back, centre, r, ys,
                                                  sill + d["sash_height_m"] - d["sash_width_m"] / 2)
-        return {"body": body, "recess": recess, "roof": roof, **({"hood": hood} if hood else {}),
-                "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
+        return {"body": body, "recesses": recesses, "roof": roof, **({"hood": hood} if hood else {}),
+                "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill, "E": E,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
-                         "width": 2 * r, "top": top, "variant": v, "d": d}}
+                         "width": 2 * r, "top": top, "variant": v, "d": d,
+                         "face": (axis, sg, ra, centre, nf)}}   # T-3307: for a dressed pediment
 
     BAY_SKIRT_M = 0.5    # T-1881: a projection's roof is closed this far under its eave for the union
 
@@ -4565,6 +4861,12 @@ class Assembly:
         solid.append(k5.oriented([snap((x, y, 0.0)) for x, y in prof], "roof_back", _mul(N, -1)))
         # the skirt: the eaves outline carried down from the eave, its back on the wall plane, its floor
         ring = [(x0, 0.0), (x0, z1), (x1, z1), (x1, 0.0)]
+        pts_ = v["plan"]["points"]
+        if abs(pts_[0][0] - pts_[1][0]) > 1e-9:
+            # T-3283: under a canted bay's crown the skirt follows its eaves outline, cants and
+            # all (a box would stand out past the cants' cornice), its back on the wall plane
+            from .k08_bays import hull
+            ring = hull([(q[0], q[2]) for q in low])
         mid = snap(((x0 + x1) / 2, y_e - self.BAY_SKIRT_M / 2, z1 / 2))
         for (xa, za), (xb, zb) in zip(ring, ring[1:] + ring[:1]):
             quad = [snap((xa, y0, za)), snap((xb, y0, zb)), snap((xb, y_e, zb)), snap((xa, y_e, za))]
@@ -4584,7 +4886,7 @@ class Assembly:
             g = self.round_dormer_body(d, face, fascia, c, float(mn["rise_m"]), float(mn["lower_pitch_deg"]),
                                        0.0, y_e, profile="convex")
             solids += [g["body"]] + g.get("hood", [])
-            recesses.append(g["recess"])
+            recesses += g["recesses"]
             geoms.append(g["geom"])
         polys = k5.union_all(k5._snap(solids))
         for rc in recesses:
@@ -4744,13 +5046,29 @@ class Assembly:
             out.append(g)
         return out
 
-    def cant_dormer_body(self, d, m, E):
+    def front_crown_dormer_bodies(self, cr, E):
+        """T-3283: the dormers of a crown over a stretch of the front (1945's corner block): each
+        the main mansard's lower-face dormer built on the crown's own face, its fascia `overhang_m`
+        out and its rise the crown's, on the street face or turned onto the cant."""
+        out = []
+        for d in cr["dormers"]:
+            if d["face"] == "cant":
+                g = self.cant_dormer_body(d, cr, E, o=cr["overhang_m"])
+            else:
+                g = self.round_dormer_body(d, "street", cr["x1"] + cr["overhang_m"], -d["along_m"],
+                                           cr["lower_rise_m"], cr["lower_pitch_deg"], cr["bulge"], E)
+            self.round_dormers.append(g["geom"])
+            out.append(g)
+        return out
+
+    def cant_dormer_body(self, d, m, E, o=None):
         """T-3186: the canted corner's dormer: built as a street dormer whose face's fascia line
         crosses the axis at the origin, then turned about the vertical onto the canted face's
         normal and moved to the middle of the face's fascia line, its sash's frame with it. A
         gabled one's plan box goes with its turn (`gable_dormer_turns`), so its cheeks are slated."""
         from . import k05_roofs as k5
-        D, W, o = self.p.depth_m, self.p.width_m, self.p.eave_overhang_m
+        D, W = self.p.depth_m, self.p.width_m
+        o = self.p.eave_overhang_m if o is None else o   # T-3283: or a front crown's fascia
         plan = k01_frontage_params.cant_corner_plan(self.p.cant_corner, D, W)
         (u0, v0), (u1, v1) = plan["ends"]
         nx, nz = plan["normal"][0], -plan["normal"][1]
@@ -4759,8 +5077,8 @@ class Assembly:
         g = self.round_dormer_body(d, "street", 0.0, 0.0, m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"], E)
         turn = lambda q: (mx + q[0] * nx - q[2] * nz, q[1], mz + q[0] * nz + q[2] * nx)
         vec = lambda q: (q[0] * nx - q[2] * nz, q[1], q[0] * nz + q[2] * nx)
-        for key in ("body", "recess"):
-            g[key] = [k5.Poly([turn(q) for q in pl.v], pl.role) for pl in g[key]]
+        g["body"] = [k5.Poly([turn(q) for q in pl.v], pl.role) for pl in g["body"]]
+        g["recesses"] = [[k5.Poly([turn(q) for q in pl.v], pl.role) for pl in rc] for rc in g["recesses"]]
         for key in ("O", "sill_pt", "top_pt"):
             g["geom"][key] = turn(g["geom"][key])
         g["geom"]["R"] = vec(g["geom"]["R"])
@@ -4812,11 +5130,101 @@ class Assembly:
         o.build()
         roles = {r: ("limestone_trim" if m == "stone" else (m or "dormer_stone")) for r, m in self.K06_ROLES.items()}
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), ("reveal",))
+        if d.get("ornament"):
+            self.dormer_ornament(g, conf)
 
-    def dormer_sash(self, roof_seed):
+    #: T-3293: a coping's foot and apex are sunk this far under the rake, so its underside
+    #: stands inside the dormer's slated slope behind the face, never on it
+    COPING_SINK_M = 0.02
+
+    def dormer_ornament(self, g, conf):
+        """T-3293: a gabled lower-face dormer's ornament (`ornament`, k01_frontage_params.
+        _dormer_ornament) — 1912 Prairie's Chateauesque stone dormers in its photograph and the
+        1883 plate: a stone COPING up both rakes, standing `proud_m` out of the face and running
+        `back_m` back over the slated slopes; CROCKETS, hooked leaves standing up off the
+        coping's back, `count` a rake between its foot and its apex; a square PINNACLE engaged
+        at each edge of the face, from the cornice `rise_m` past the gable's foot, under a cap
+        and a pyramid; and a turned FINIAL on the coping's apex. Built after the union in the
+        face's own frame (s across from its left edge, y absolute, d out of its plane)."""
+        from . import k01_arched_front as af
+        from .k01_wall_gable import _pyramid, PIN_CAP_PROUD_M, FINIAL_SINK_M
+        d, O, R = g["d"], g["O"], g["R"]
+        orn = d["ornament"]
+        N = _cross(R, Y)
+        Fr = ((O[0], 0.0, O[2]), R, N)
+        w, ring, gp = g["width"], d["surround_m"], math.radians(d["gable_pitch_deg"])
+        c, eaves, apex = w / 2, g["sill"] + d["sash_height_m"] + ring, g["top"]
+        mat = "dormer_stone"
+        cp = orn.get("coping")
+        if cp:
+            h, k0 = cp["width_m"] / math.cos(gp), self.COPING_SINK_M
+            d0, d1 = -cp["back_m"], cp["proud_m"]
+            cseed = self.instance("k01.roof.dormer_coping", "roof",
+                                  {"width_m": cp["width_m"], "proud_m": d1, "back_m": cp["back_m"],
+                                   "crockets": 2 * orn.get("crockets", {}).get("count", 0)},
+                                  {"apex": g["top_pt"]})
+            # the chevron's outline, counter-clockwise from the left foot's underside
+            lo = [(0.0, eaves - k0), (c, apex - k0), (w, eaves - k0)]
+            hi = [(w, eaves + h - k0), (c, apex + h - k0), (0.0, eaves + h - k0)]
+            outline = lo + hi
+            for half in ([lo[0], lo[1], hi[1], hi[2]], [lo[1], lo[2], hi[0], hi[1]]):
+                af._face(self, mat, Fr, [(s, y, d1) for s, y in half], (0, 0, 1), cseed, conf)
+                af._face(self, mat, Fr, [(s, y, d0) for s, y in half], (0, 0, -1), cseed, conf)
+            n = len(outline)
+            for i in range(n):
+                (s0, y0), (s1, y1) = outline[i], outline[(i + 1) % n]
+                out = (y1 - y0, -(s1 - s0), 0.0)
+                af._face(self, mat, Fr, [(s0, y0, d0), (s1, y1, d0), (s1, y1, d1), (s0, y0, d1)], out, cseed, conf)
+            cr = orn.get("crockets")
+            if cr:
+                # each a hooked leaf rooted in the coping's back, leaning toward the apex, a
+                # closed slab across the coping's middle, `size_m` tall off the back
+                z, L = cr["size_m"], c / math.cos(gp)
+                leaf = [(-0.35, -0.03), (0.35, -0.03), (0.45, 0.55), (0.1, 1.0), (-0.3, 0.7)]
+                dm, th = (d0 + d1) / 2, min(z * 0.25, (d1 - d0) / 2 - 0.01)
+                for sg, base in ((1.0, (0.0, eaves + h - k0)), (-1.0, (w, eaves + h - k0))):
+                    e, nn = (sg * math.cos(gp), math.sin(gp)), (-sg * math.sin(gp), math.cos(gp))
+                    for i in range(cr["count"]):
+                        f = 0.15 + 0.7 * (i + 0.5) / cr["count"]
+                        P0 = (base[0] + e[0] * f * L, base[1] + e[1] * f * L)
+                        poly = [(P0[0] + z * (u * e[0] + v * nn[0]), P0[1] + z * (u * e[1] + v * nn[1]))
+                                for u, v in leaf]
+                        if sg < 0:
+                            poly.reverse()   # keep it counter-clockwise across the face
+                        from .k01_wall_gable import _prism
+                        _prism(self, mat, Fr, poly, dm - th, dm + th, cseed, conf)
+                        af._face(self, mat, Fr, [(s, y, dm - th) for s, y in poly], (0, 0, -1), cseed, conf)
+        pn = orn.get("pinnacles")
+        if pn:
+            hw = pn["shaft_m"] / 2
+            y0, y1 = g["E"], eaves + pn["rise_m"]
+            for s in (0.0, w):
+                pseed = self.instance("k01.roof.gable_pinnacle", "roof",
+                                      {"shaft_m": pn["shaft_m"], "top_m": round(y1, 4), "cap_m": pn["cap_m"],
+                                       "spire_m": pn["spire_m"], "dormer": True},
+                                      {"foot": af._P(Fr, s, y0, 0.0)})
+                af._box(self, mat, Fr, s - hw, s + hw, y0, y1, -hw, hw, pseed, conf, skip=("bottom", "top"))
+                q = hw + PIN_CAP_PROUD_M
+                af._box(self, mat, Fr, s - q, s + q, y1, y1 + pn["cap_m"], -q, q, pseed, conf)
+                _pyramid(self, mat, Fr, s, 0.0, y1 + pn["cap_m"], hw, y1 + pn["cap_m"] + pn["spire_m"], pseed, conf)
+        fn = orn.get("finial")
+        if fn:
+            ya = apex - FINIAL_SINK_M + ((cp["width_m"] / math.cos(gp) - self.COPING_SINK_M) if cp else 0.0)
+            dm = (cp["proud_m"] - cp["back_m"]) / 2 if cp else 0.0
+            fseed = self.instance("k01.roof.gable_finial", "roof", {"height_m": fn["height_m"], "radius_m": fn["radius_m"],
+                                                                     "dormer": True},
+                                  {"foot": af._P(Fr, c, ya, dm)})
+            rr, hg = fn["radius_m"], fn["height_m"]
+            for (fa, fb, ra_, rb) in ((0.0, 0.2, 0.6, 0.6), (0.2, 0.3, 0.6, 1.0), (0.3, 0.45, 1.0, 0.45),
+                                      (0.45, 0.6, 0.45, 0.8), (0.6, 0.7, 0.8, 0.3), (0.7, 1.0, 0.3, 0.03)):
+                af._frustum(self, mat, Fr, c, dm, ya + fa * hg, ya + fb * hg, rr * ra_, rr * rb, fseed, conf)
+
+    def dormer_sash(self, roof_seed, d=None, g=None):
         """The dormer's face: a K01 wall component whose surface is the union's, and its
-        sash set in the recess the union cut (the reveal is the solid's, K06 the rest)."""
-        p, d, g = self.p, self.p.dormer, self.dormer_geom
+        sash set in the recess the union cut (the reveal is the solid's, K06 the rest).
+        T-3301: `d` and `g` name a further street dormer and its geometry (the first's if not)."""
+        p = self.p
+        d, g = (p.dormer, self.dormer_geom) if d is None else (d, g)
         if d.get("wall_gable"):     # T-2428: its lights, voussoirs, pinnacles and finial
             from . import k01_wall_gable
             return k01_wall_gable.dress(self, roof_seed)
@@ -4824,13 +5232,15 @@ class Assembly:
         wd, hf = d["width_m"], d["face_height_m"]
         O = (g["xf"], g["ys"], g["zs"])
         R = (0.0, 0.0, -1.0)
+        at = d["sash"].get("at_m", [0.0])   # T-3280: a broad dormer's row of lights
         self.instance("k01.wall.dormer_face", "wall", {"length_m": wd, "height_m": hf,
                                                        "thickness_m": d["face_thickness_m"],
-                                                       "construction": "masonry", "openings": 1},
+                                                       "construction": "masonry", "openings": len(at)},
                       {"base": O, "top": _add(O, _mul(Y, hf))})
-        self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2, d["sash"]["sill_m"],
-                             d["sash"]["width_m"], d["sash"]["height_m"]), (O, R, _cross(R, Y)),
-                     d["face_thickness_m"], "dormer_stone", "limestone_trim", cut=True)
+        for a in at:
+            self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2 - a, d["sash"]["sill_m"],
+                                 d["sash"]["width_m"], d["sash"]["height_m"]), (O, R, _cross(R, Y)),
+                         d["face_thickness_m"], "dormer_stone", "limestone_trim", cut=True)
 
     # -- K04 on the K05 graph: caps on ridges and hips, flashing in valleys -------------
     def _line_planes(self, pts, tris, A, B):
@@ -4893,6 +5303,8 @@ class Assembly:
             self.dressed[kind] += 1
         if self.p.dormer:
             self.dormer_flashing(seed, lift)
+            for g in getattr(self, "also_dormer_geoms", ()):   # T-3301: the further dormers'
+                self.dormer_flashing(seed, lift, g)
 
     @staticmethod
     def _bent_hip(pts, tris, A, B):
@@ -4986,10 +5398,11 @@ class Assembly:
             c0, c1 = _add(V0, _mul(rib, lift + k["valley_crimp_m"])), _add(V1, _mul(rib, lift + k["valley_crimp_m"]))
             fl.quad(b0, b1, c1, c0, _add(n, _mul(q, -1)), self.basis(mat, b0, Lv, _unit(_sub(c0, b0)), seed), conf)
 
-    def dormer_flashing(self, seed, lift):
+    def dormer_flashing(self, seed, lift, g=None):
         """The apron under the face and step flashing up each cheek, on the abutment
-        lines the K05 dormer leaves on the street hip."""
-        p, k, g = self.p, self.p.roof, self.dormer_geom
+        lines the K05 dormer leaves on the street hip (T-3301: `g`, a further dormer's)."""
+        p, k = self.p, self.p.roof
+        g = self.dormer_geom if g is None else g
         conf = p.worst_conf("roof_form", "roof_pitch_deg", "dormer")
         D, E = p.depth_m, p.eave_m
         tp = math.tan(math.radians(p.roof_pitch_deg))
@@ -5196,6 +5609,13 @@ class Assembly:
             else:
                 dead.append((d0, d1))
             stop_ends += [(d0 % P, 1.0), (d1 % P, -1.0)]
+        # T-3294: and across a wall gable carried up through the eave, from cheek to cheek, each
+        # end stopped where the eave box stops (shallow_bay_cutters)
+        for b in p.bays:
+            if b.get("gable_through_eave"):
+                d0, d1 = A + b["span_m"][0], A + b["span_m"][1]
+                dead.append((d0, d1))
+                stop_ends += [(d0 % P, 1.0), (d1 % P, -1.0)]
         if (p.shaped_gable or {}).get("takes_gutter"):
             # T-2889: no gutter across a front carried up as a shaped gable: the street run is
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
@@ -5551,7 +5971,7 @@ def hole(o):
     """An opening's hole in its wall: (s0, s1, sill, head), or for a round-headed one (T-2410)
     (s0, s1, sill, spring, its head right -> left) on K06's own curve for that span."""
     s0, s1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
-    if o.component not in ROUND_CUT:
+    if o.component not in ROUND_CUT and not getattr(o, "round_head", False):   # T-3283: a round door
         return (s0, s1, o.sill_m, o.head_m)
     from . import k06_windows
     if o.rise_over_span:   # T-2960: cut segmental, on its K06 sash's own rise
@@ -5580,6 +6000,16 @@ def loggia_side_arch(p):
         "sill_m": floor, "spring_m": spring, "top_m": top, "cuts": (round(s0 - ring, 5), round(s1 + ring, 5)),
         "piers": (), "keystone": {"s_m": round(c, 5), "bed_m": round(spring + w / 2, 5),
                                   "top_m": sa["keystone_top_m"], "width_m": tuple(sa["keystone_m"])}}}
+
+
+def _front_iron(iron: dict) -> dict:
+    """T-3271: the street iron the street front itself carries: every balconette but those naming
+    a side wall. Unchanged (the same dict) where none does, so no other front re-emits."""
+    bals = iron.get("balconettes", ())
+    if all(b.get("wall", "k01.wall.street_front") == "k01.wall.street_front" for b in bals):
+        return iron
+    return {**iron, "balconettes": tuple(b for b in bals if b.get("wall", "k01.wall.street_front")
+                                         == "k01.wall.street_front")}
 
 
 def build(params, structure_id: str):
@@ -5665,8 +6095,12 @@ def build(params, structure_id: str):
     }
     if cant:   # T-3186: the canted face, from the end of the wall before it to the start of the next
         (u0, v0), (u1, v1) = cant["ends"]
+        # T-3271: on a brick front over a stone basement its brick stands on the basement's
+        # stone, run round the face from grade to the front's stone top as a side_base is
+        cb = p.cant_corner.get("base_top_m")
         walls[k01_frontage_params.CANT_WALL] = (side, (u0, 0.0, -v0), _unit((u1 - u0, 0.0, v0 - v1)),
-                                                p.cant_corner["face_m"], p.front_thickness_m, belts)
+                                                p.cant_corner["face_m"], p.front_thickness_m,
+                                                tuple(belts) + (((0.0, cb, 0.03, ()),) if cb else ()))
     gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid]
                  + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid]
                  + ([p.rear_section["host_span_m"]] if p.rear_section and p.rear_section["host_wall"] == cid else [])
@@ -5718,8 +6152,13 @@ def build(params, structure_id: str):
                 # T-2788: each face coursed on the front's beds, its K06 sills seated, a flat
                 # arch over every opening, its belts the front's run round, dressed where a
                 # kit stands and stopped where a rear wing stands on it
+                # T-1890: and opened round a shallow bay's recesses below its wall top, as the
+                # front is (1801's 18th Street section, 0.1 m proud on its 1911 sheet: its lower
+                # storeys' lights run back through this wall's plane); over it the bay's back is
+                # closed round them (`bay_holes`, above)
                 a.stone_front(cid, O, R, length, E, yf, t, [o for o in p.openings if o.wall == cid],
-                              a.front_course_beds, [*stops(cid)[0], *stops(cid)[1]])
+                              a.front_course_beds, [*stops(cid)[0], *stops(cid)[1],
+                                                    *(h for h in a.bay_holes.get(cid, ()) if h[2] < E)])
                 if side_arch and side_arch["wall"] == cid:
                     k01_arched_front.side_arch(a, frames[cid][0][0], side_arch["group"])
                 continue
@@ -5742,8 +6181,35 @@ def build(params, structure_id: str):
     if not p.stone and p.street_iron:
         # T-1871: a brick front with no stone front wears its iron too (1700's and 1706's
         # balconettes, Chicagology's photograph), as stone_front lays it on 1834's
-        k01_arched_front.street_iron(a, frames["k01.wall.street_front"][0][0], p.street_iron,
-                                     p.worst_conf("footprint", "stories", "storey_heights_m", "construction"))
+        # T-3271: each balconette on the wall it names (1905's south flank carries two)
+        iconf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
+        bals = p.street_iron.get("balconettes", ())
+        k01_arched_front.street_iron(a, frames["k01.wall.street_front"][0][0],
+                                     {**p.street_iron, "balconettes": tuple(
+                                         b for b in bals if b.get("wall", "k01.wall.street_front") == "k01.wall.street_front")}, iconf)
+        for b in bals:
+            if b.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
+                k01_arched_front.street_iron(a, frames[b["wall"]][0][0], {"balconettes": (b,)}, iconf)
+    elif p.street_iron:
+        # T-3271: a brick front over a stone basement (stone_front lays its front's iron): each
+        # balconette that names a side wall on that wall (1905's south flank carries two)
+        iconf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
+        for b in p.street_iron.get("balconettes", ()):
+            if b.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
+                k01_arched_front.street_iron(a, frames[b["wall"]][0][0], {"balconettes": (b,)}, iconf)
+    if p.cant_corner.get("strips"):
+        # T-3271: the light stone strips framing a blank canted face's brick at its two angles
+        st = p.cant_corner["strips"]
+        frame = frames[k01_frontage_params.CANT_WALL][0][0]
+        L = p.cant_corner["face_m"]
+        sconf = p.conf("cant_corner")
+        for s0, s1 in ((0.0, st["width_m"]), (L - st["width_m"], L)):
+            seed = a.instance("k01.wall.cant_strip", "wall", {"width_m": st["width_m"], "proud_m": st["proud_m"],
+                                                              "height_m": round(st["to_m"] - st["from_m"], 4)},
+                              {"foot": _add(frame[0], _add(_mul(frame[1], (s0 + s1) / 2), _mul(Y, st["from_m"])))})
+            a.proud_box("limestone_trim", frame, s0, s1, st["from_m"], st["to_m"], st["proud_m"], seed, sconf)
+    if not p.stone:   # T-3270: and its frieze's carved roundels, where street_front_trim names them
+        k09_frontage.frieze(a, frames["k01.wall.street_front"][0][0], p.conf("street_front_trim"))
     # T-2291: a projecting stretcher course at the second-floor line on the south wall
     # and the rear, the south one run out past the quoin so the two meet; the north
     # wall is a blank party wall against the Glessner court and carries none. A windowed
@@ -5762,6 +6228,9 @@ def build(params, structure_id: str):
                         D + k03_brick.STRING_PROUD))
     if all_round:
         courses = []   # T-2788: no brick to run a brick course in; the front's belts go round
+    # T-3305: a windowed side wall that names its own stone belts lays those in place of the brick course
+    belted = {b["wall"] for b in p.side_belts}
+    courses = [c for c in courses if c[0] not in belted]
     for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay
@@ -5844,6 +6313,10 @@ def build(params, structure_id: str):
         # T-3242: the two-level veranda on the rear wall and its garden flight (1701's)
         from . import k01_rear_veranda
         k01_rear_veranda.dress(a)
+    if p.rear_terrace:
+        # T-1881: the raised stone terrace on the rear wall under its striped awning (1729's)
+        from . import k01_rear_terrace
+        k01_rear_terrace.dress(a)
     if (p.mansard or {}).get("deck"):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck

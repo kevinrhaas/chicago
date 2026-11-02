@@ -1,0 +1,55 @@
+[
+  {
+    "id": "early-eliza-chappel-school-shore-reference",
+    "kind": "publication plate",
+    "title": "Log schoolhouse on a shore, reproduced as Eliza Chappell’s school",
+    "building_ids": [],
+    "addresses": [],
+    "streetscape": true,
+    "view": "oblique front",
+    "facing": null,
+    "camera_position": null,
+    "date": "Undated drawing; republished 2018-01-19",
+    "date_earliest": null,
+    "date_latest": null,
+    "period": "later",
+    "creator": "Artist unidentified",
+    "repository": "Digital Research Library of Illinois History Journal (reproduction); original holding unknown",
+    "collection": "2018 Eliza Chappell article (reproduction)",
+    "call_number": null,
+    "catalog_url": "https://drloihjournal.blogspot.com/2018/01/eliza-chappell-the-first-chicago-teacher-paid-by-public-funds-in-1833.html",
+    "image_url": "https://drloihjournal.blogspot.com/2018/01/eliza-chappell-the-first-chicago-teacher-paid-by-public-funds-in-1833.html",
+    "rights": "unknown — link only",
+    "rights_basis": "Original artist, publication date, holding institution and copyright status remain unverified. Explicit project-owner approval 2026-10-22 permits attributed project reference/comparison/source display. This is neither a public-domain finding nor copyright-holder permission or a general redistribution licence. The structured reference-copy basis below records the limited project use.",
+    "reference_copy": {
+      "basis": "Project owner 2026-10-22: “ok i think those images are ok to use as public resources and just make sure you include things like that in sources”. Project-specific attributed reference, comparison and source display only; original rights remain unresolved.",
+      "credit": {
+        "title": "Log schoolhouse on a shore, reproduced as Eliza Chappell’s school",
+        "date": "Undated drawing; republished 2018",
+        "creator": "Artist unidentified",
+        "repository": "Digital Research Library of Illinois History Journal (reproduction); original holding unknown",
+        "collection": "2018 Eliza Chappell article (reproduction)",
+        "catalog_url": "https://drloihjournal.blogspot.com/2018/01/eliza-chappell-the-first-chicago-teacher-paid-by-public-funds-in-1833.html"
+      },
+      "credit_statement": "Artist unidentified; reproduced by the Digital Research Library of Illinois History Journal in its 2018 Eliza Chappell article. Original publication and holding institution unknown."
+    },
+    "local": {
+      "thumb": "research/images/files/early-eliza-chappel-school-shore-reference-thumb.jpg",
+      "thumb_bytes": 18017,
+      "original_px": [
+        640,
+        368
+      ],
+      "original_sha256": "1a63b75fea04e52cbdbbc5ffb2e85749cf648454970cb1bec0d8426a2cba61b9",
+      "original_bytes": 84702,
+      "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/7c5f2109cc1db6a86e23d76b4127385b587adcee/chicago/reference/images/chicago/eliza-chappel-school/21617595_10203558686525015_5452300313452439832_n.jpg",
+      "fetched": "2026-10-29",
+      "display": "research/images/files/early-eliza-chappel-school-shore-reference.jpg",
+      "display_bytes": 84702
+    },
+    "verified": "viewed",
+    "found_via": "Owner-provided 2018 article and existing held source eliza_chappel_school_shore_view. Exact existing JPEG copied without cropping, recompression or alteration.",
+    "notes": "The original drawing is undated and unattributed. The 2018 article supplies a reproduction and a retrospective compiler caption, not an original collection record. The portrayed schoolhouse could be Chappel’s first school, a Sauganash-associated annex or another house; the current source does not settle that fork. The project uses its visible log gable front as an explicitly reconstructed appearance reference for the former-school model, not as proof of historical identity, surveyed position or 1 July 1835 form. Its full shore scene has inconsistent figure perspective; the camera is a diagnostic local facade fit and is not offered as From this spot. Publication-plate is the library classification for this published drawing reproduction, not a newly established original print process. The exact640×368 reference and native400×230 thumbnail are delivered by chicago-images PR10, merge01fb9631dd4b3a1a83c1db68f1c0f7225eb4f1dd; Pages40930492832 succeeded and normalHTTPS returned their recorded bytes/SHA256. No rights or historical-identity finding follows. The dedicated not_pictured ruling preserves the structure’s inferred appearance grade while subject identity is unresolved.",
+    "measurements": []
+  }
+]

@@ -6014,6 +6014,40 @@ Miller's reconstructed ridge-stack head is0.460m above the roof, correcting the 
 The candidate now incorporates actual merged Walker1720/EdsonKeith1906 feature-and-fold pairs through dev623eccd8 using a normal fast-forward and entrywise registry unions, preserving an exact recoverable stash. Native liberty, scene and source-use rebuilds/checks, resident package-five and publishing passed; all44 tracked compressed/workbook outputs were compared with their full native content, retaining raw native bytes before restoring serialization-only differences. The earlier mobile/desktop four-case app results remain dated; fresh Miller-only app and current phone-memory checks are in progress. A newly frozen full source check, per-ticket commits, PR checks and merge are still required. No original ticket is marked done by this note.
 
 Actual repair verification: all nine previously failing source checks now pass individually, including dataset/schema/provenance/rights/staleness validation, stack ordinance, cache-dependent pins/isolation and name-pool declarations. Current623e published1904 mobile native memory is395.8MiB against the unchanged400MiB ceiling (80-second actual run; all children reaped). These are focused results, not a substitute claim for the pending new full source gate or fresh Miller viewport results.
+
+
+## Early picture models — T-2372, T-2375, T-2378, T-2382 (2026-10-30)
+
+The original picture-matching queue remains in the tickets repository. This batch adopts the already-produced and reviewed native school, bridge, Beaubien and Carpenter models, their canonical comparisons, credited picture streams and explicit liberties. It does not extend Carpenter’s match to the Sauganash Hotel or resolve the school drawing’s identity. Native generated owners and current application/source qualification belong to the grouped change; ticket closure follows its actual dev merge. Other original picture tickets retain their existing checkpoints and full acceptance.
+
+
+### Four-picture integration repairs, 31 October 2026
+
+The first combined source gate failed seven of 1,109 steps; its raw evidence is retained. The repaired candidate keeps reconstructed dimensions and source uncertainty explicit, removes false liberty coverage claims, restores Beaubien’s original-source context warning, and records the bridge’s 16-foot footprint in the existing corridor baselines. Native owners have settled and the targeted source repairs pass.
+
+The bridge’s two existing approach crests now use a reconstructed six-metre half-width so the native 2.5-metre terrain grid supports the full widened deck. Both dependent terrain epochs and four terrain/water derivatives were genuinely regenerated. All 42 samples across both deck ends are within 0.062 m of the deck; the 1812 heightfield and river remain byte-identical. No shoreline, bearing, span, deck height, grade limit or step limit changed.
+
+Final combined source, published desktop/mobile, image-card and current phone-memory qualification are recorded with the grouped PR and its evidence; these intermediate repairs alone do not close the four original tickets.
+
+
+
+
+The combined source catalog now includes 531 sources after the two bridge-attribution records and fifteen canonical Blue Book records are integrated. Its unchanged compact schema occupies 216,567 raw bytes, 567 over the former 216,000-byte compiler ceiling. Read-only native pricing measured 49,928 bytes for the gzipped index and 57,337 bytes for the full first open including Sources JavaScript and CSS, below the unchanged 120,000-byte compressed allowance. The raw ceiling advances by the established 8,000-byte increment to 224,000 (+3.70%); citations, fields, counts, provenance edges and compression limits remain intact. The published measurement's stale 168,000-byte raw assertion is aligned to that same ceiling. This pricing is not a native gate or runtime PASS; actual regeneration and final checks follow the repair.
+
+
+### Bridge terrain consumers and concurrent integration, 31 October 2026
+
+The next combined source gate failed six of 1,110 steps. Its complete failed run is retained separately from the passing 398.985 MiB staged phone measurement. The post-Welcome renderer did produce frames, but the asynchronous screenshot request timed out; that attempt does not qualify desktop/mobile acceptance.
+
+The distant ground now caps a virtual transition centre at its original coarse surface, so stitching a refined crossing cannot create a new hill under an adjacent walk. The unchanged native check measures all 231 walks and 111,438 top triangles: no buried or missing faces, 47.90 mm minimum clearance against the existing 40 mm requirement, and the same 9,470 extra triangles within the existing 10,000 allocation. Heightfield data, deck geometry and physical walking heights are unchanged by this numerical mesh repair.
+
+Fresh sampling with the production heightfield confirmed all eight covered-wagon wheel contacts and both wheel-plane spans exactly match their previous values; only their two terrain qualification hashes were renewed. The documented approach fill changes the same South Water corridor band's measured dry share from 46.6% to 47.0% and increases reachable dry planting nodes by nine, to 1,580,650. Native writers re-bank those measurements; street controls, corridor offsets, source limits, vehicle stands and all acceptance thresholds remain unchanged.
+
+The candidate includes the intervening Kimball development merge through 5cb66944, preserving its model, source records and liberty. Final full-source and published functional frame, Images and approach qualification remain separate requirements before the grouped PR merges.
+
+
+### T-2793 incremental wagon delivery — 2026-11-02
+
 ### T-2793 licensed farm-box master continuation — 2026-10-26
 
 Concrete separate source now preserves the licensed Old Cart's weathered boards, shaped hubs, iron fittings and UV/maps while reconstructing W01 metre scale, independent wheel radii, neutral steering, single-pole attachment and portable interfaces. Finish on actual matched native images, full turn/ground/contact checks, meaningful near/mid/far deliveries and measured current published desktop/mobile qualification. Preserve the original80 wagons and three fine-wood placements until new exact-source acceptance; no photographic or occupied/traffic closure from the development model.
@@ -6023,10 +6057,7 @@ T-2793: finish current-source publisher/full-gate and world/photo release checks
 T-2793 final-source qualification must use the separately owned actual reach/kingbolt candidate (8,465,076-bytewebset); old pre-reach captures do not qualify the added member. Preserve current80staticwagons/3finewoodstands until explicitworld-selection qualification.
 
 
-T-2793 desktop memory follow-up (2026-10-29): qualify the existing railway upload-release path at desktop detail without removing geometry or changing caps. Compare the same native 1904 meter against public 9e14c1388, then verify real rail picks, near/far rebuilds, confidence/season/detail changes and ordinary context recovery. Savings and the historical T-3173 memory goal remain unverified; T-3173 stays OPEN. Complete current-source canonical/preflight and every mapped published smoke before release.
-
-
-T-2793 / T-3173 context-recovery correction (2026-10-29): the desktop railway upload-release candidate measured 1,156,132,447 bytes (1102.57 MiB), inside the original 1125 MiB goal, with the phone at 411,883,801 bytes (392.80 MiB), inside 400 MiB. Its native lifecycle nevertheless failed during graphics-context restoration. A separate actual default-Full desktop diagnostic reproduced a main-loop draw of a released null attribute between context restoration and ordinary reload (403.829 s NONPASS; the restored world and pick worked, but its pageerror was not waived). The main frame loop now stops on context loss and resumes only if retained upload resources permit recovery without a reload; the existing once-per-session reload cap and repeated-loss notice remain. This correction has not yet passed its fresh native context run, full preflight, mobile/far lifecycle or all applicable published smoke. Prior memory measurements and the earlier partial lifecycle do not qualify this changed source; photographic/world acceptance and T-3173 completion remain open.
-
-
 T-2793 follow-up: costly continuous flora motion within each pass's existing reach and yaw step uses the original immediate producer path, so horseback travel does not repeatedly abandon an unfinished jump. Native scheduler regression controls retain teleport/snap-turn, pending/carry ownership and synchronous buffer reads. The original frame ceilings and plant algorithms are unchanged. Larger-than-reach motion at low frame rates retains its existing limitation. Actual cold flight-to-travel performance and current CI remain required; this source change is not a performance PASS.
+
+
+Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.

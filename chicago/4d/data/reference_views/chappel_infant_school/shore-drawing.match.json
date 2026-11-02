@@ -1,0 +1,54 @@
+{
+  "structure_id": "chappel_infant_school",
+  "view": "shore-drawing",
+  "glb": "assets/gltf/chappel_infant_school__log_1833.glb",
+  "glb_sha256": "fb141fef3f348b494ffbf1bc2479427d0cec499001605cdcb34ce52c93c0787a",
+  "camera_sha256": "ca0926793cd9e12293b10693dd0e9bfcfce3ca2a0e16a85e3cfe670a1ed9aa28",
+  "photo_sha256": "1a63b75fea04e52cbdbbc5ffb2e85749cf648454970cb1bec0d8426a2cba61b9",
+  "side_by_side": "docs/RESEARCH/photo-match/chappel_infant_school/shore-drawing-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The former broad7.315m gable front becomes the reconstructed4.572m face. Native same-world-pose before/after now puts the visible log wall and two lights close to the held drawing. Hidden8.778m depth retains approximately the old two-room area; it is not a measured plan.",
+      "status": "fixed"
+    },
+    {
+      "what": "The pictured steeper gable silhouette is built with the native41° roof over the narrower frontage, including inherited250mm overhangs and horizontal log cap. The apex sits about7px to the right of the drawing at the same height, approximately0.26m in this declared reconstructed scale. This is below the0.3m visitor bar and the drawn/partly cropped face is not a surveyed elevation.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The existing dark blind recess is now2.30m tall; the existing0.85m lights sit at its2.32m common head. Native render shows window–door–window at the source’s close spacing. The source’s head/corner/base disagreements are a few pixels and the base is obscured by people/grass; no further precise alignment is justified.",
+      "status": "fixed"
+    },
+    {
+      "what": "The drawing and model both show horizontal log wall/gable courses and a wood-shingle roof category. Individual hand-drawn stroke/course variation and neutral-master uniform spacing do not establish a visitor-noticeable geometric defect. Exact brown/grey hues cannot be read from this monochrome ink reproduction. Native isolated review omits the app’s procedural wood/shingle surface treatment; published app review is still owed.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The hidden depth, rear roof/stack end and unseen elevations are outside the right-hand crop or foreground-tree occlusion. This is not evidence of no chimney or an attested hidden plan. The ordinary one-stack heating inference is preserved.",
+      "status": "not shown"
+    },
+    {
+      "what": "The shore, canoes, people, distant lighthouse and settlement are context outside this isolated schoolhouse comparison. The inconsistent figure/shore perspective cannot supply a historic camera, source scale or July1835 occupants. None is invented by the local facade fit.",
+      "status": "not shown"
+    },
+    {
+      "what": "The unknown original artist/publication/date and unresolved school/annex subject are research uncertainties, not unbuilt pictured geometry. The project uses the approved drawing as a declared reconstructed design reference, with a diagnostic camera and explicit native not_pictured ruling preserving inferred school appearance. No source identification, attested grade, copyright-holder grant or public-domain finding follows.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_actual_review": {
+    "at": "2026-10-30T01:03:43.644265+00:00",
+    "method": "Direct visual review of the actual2026-10-30 native canonical-path side-by-side by school worker and root; native tool and raw unreviewed record retained separately. The same approved finite numericRcamera, original photo and official selected-owner MASTER are bound by their actual SHA256 values above.",
+    "status": "VISIBLE_BUILDING_FORM_MATCHES_T3153_FRESH_NATIVE_REGISTRATION_EXTERNAL_RUNTIME_ONLY",
+    "actual_capture_exit": 0,
+    "all_children_reaped": true,
+    "native_owner_receipt": "/workspace/T2372-native-selected-bake-reuse-20261030/CLOSED-MANIFEST.json",
+    "native_owner_receipt_sha256": "7f82abecc183c78480eb04d7b492e6c0af123220a6f6a47fe5d771d138c8239f",
+    "raw_native_match_sha256": "26e225e6774196fce2872a67796b3b160c8aaffed93f7a1bcd97fb1c093404cc",
+    "root_direct_visual_acceptance": "Root directly viewed fresh side-by-side SHA905bfca7c1d3fce06e6ed829ed62ab3ae01fcc21a01a6bb5cc2bf5c618acda11 and accepted the bounded approved-drawing comparison with the seven recorded source-specific dispositions. No further geometry loop.",
+    "original_ticket_state": "UNCHANGED. Primary adoption, scene/alley/ground ownership, published surfaces/creditedImages, BOTH viewports and completepolicyending remain separate.",
+    "historic_evidence_limit": "Diagnostic reconstructed local-composition camera; unidentified artist/original publication/date and school-or-annex identity remain unresolved. Owner-approved attributed project reference use is not a verified public-domain finding or openredistribution licence."
+  }
+}

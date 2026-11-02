@@ -1271,12 +1271,14 @@ async function captureWithRestoreState(page, grid, when) {
     // SPDX-License-Identifier: GPL-3.0-or-later
     function sceneCaptureReady(state){
      const f=state?.flora,t=state?.textureResidency;
-     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0);
+     // T-3300: a parked vehicle is fetched as the eye nears its stand, so one
+     // still in flight would land between the baseline and the restored frame.
+     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0)&&(state.parkedTransport===null||state.parkedTransport===0);
     }
     function advanceSceneSettle(previous,state){
      if(!sceneCaptureReady(state))return{key:null,unchanged:0,settled:false};
      // Only semantic counters: never frame/timing counters which advance forever.
-     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency});
+     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport});
      const unchanged=previous?.key===key?previous.unchanged+1:1;
      return{key,unchanged,settled:unchanged>=4};
     }
@@ -1315,6 +1317,7 @@ async function captureWithRestoreState(page, grid, when) {
         textureResidency: textures ? { pending: textures.pending, resident: textures.resident,
           residentBytes: textures.residentBytes, uploads: textures.uploads,
           evictions: textures.evictions, redecodes: textures.redecodes } : null,
+        parkedTransport: Number.isInteger(a.parkedTransport?.pending) ? a.parkedTransport.pending : null,
       };
     };
     let settleReceipt = null;
@@ -20381,11 +20384,23 @@ for (const [label, viewport, touch] of [
           'pullman_glasshouse_1800_calumet_north',
           'pullman_glasshouse_1800_calumet_east',
           'pullman_glasshouse_1800_calumet_east_end',
-          'pullman_lodge_1800_calumet'].sort();
+          'pullman_lodge_1800_calumet',
+          // T-3269 (#1519) stood 1905 Prairie's conservatory as a record of its own on the
+          // house's stone bow and left it off this list, so this check was red at both
+          // viewports on every branch off dev until T-3275 added it.
+          'marshall_field_house_1905_prairie_conservatory'].sort();
+        // T-3275: this list has drifted four times (T-2331, T-2468, T-3164, T-3275), and each time the
+        // only clue was the whole placed list printed beside this one. Name the difference.
+        const missing1904 = PLACED_1904.filter((id) => !at.placed.includes(id));
+        const unlisted1904 = at.placed.filter((id) => !PLACED_1904.includes(id));
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
-          `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
+          `meshes: ${JSON.stringify(at.drawn)}; `
+          + `placed but not on PLACED_1904 ${JSON.stringify(unlisted1904)}; `
+          + `on PLACED_1904 but not placed ${JSON.stringify(missing1904)}; `
+          + `registry ${at.registry} against ${PLACED_1904.length} listed; `
+          + `structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
         // Owner-reported date ambiguity: 1946 closes an exterior phase, not
         // the life of the surviving museum. Check the actual card and evidence.

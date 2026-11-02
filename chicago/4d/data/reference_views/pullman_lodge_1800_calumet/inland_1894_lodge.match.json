@@ -2,7 +2,7 @@
   "structure_id": "pullman_lodge_1800_calumet",
   "view": "inland_1894_lodge",
   "glb": "assets/gltf/pullman_lodge_1800_calumet__as_standing_1904.glb",
-  "glb_sha256": "dc1c4e59b8e257d2fd34c2ce925c2ccaa837148bf255939c8ed6a5d3171257ae",
+  "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312",
   "camera_sha256": "f930452c55ab9da861bb86bab9f51dc41f6574ca4db0eb46d55f10492dd5dda4",
   "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "dc1c4e59b8e257d2fd34c2ce925c2ccaa837148bf255939c8ed6a5d3171257ae"
+      "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
@@ -42,7 +42,7 @@
         36.35058159007709
       ],
       "rotation_y": 1.5707963267948963,
-      "glb_sha256": "7bc6e12c0e41b08556522671c3dc064c6872479c88ffea21336cb9d5ded40c48"
+      "glb_sha256": "73804318ecf5d670d5be4b76d30e4fa79087b6da1bd9cdea79bedfa27cbc5969"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -80,7 +80,7 @@
         -4.44968363427405
       ],
       "rotation_y": 3.141592653589793,
-      "glb_sha256": "f77f5d1842e4bc3f63912f273b7c26a9752a531ffc73c119fbfdc9969fd1d73f"
+      "glb_sha256": "db614e8e41bfd2daa49bb19f9a250355d0acc501be59d1c2df4afee6275955d1"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_east_end",
@@ -99,10 +99,10 @@
         -6.117888795052961
       ],
       "rotation_y": 3.141592653589793,
-      "glb_sha256": "1c2a7af790259c15729e46ff417b053c235a96c06536b5d93207ee53531f7729"
+      "glb_sha256": "cee0d6fea152eb04e9fc91bfb82b38157fb7749831b6e460e18d2c3adb2c009c"
     }
   ],
-  "group_sha256": "fbc7a1f0e9c67f1d88fc19627950ac8e541aeb6940148fd9de37bd8bd9f7c509",
+  "group_sha256": "4a0d5a8cd4cf5b7a4168327901f0aa1e5bd7f539a84d7c00ceb9141e92980f9b",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -128,27 +128,27 @@
   "flora_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
     },
     {
       "file": "tools/photo_match_flora.mjs",
-      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -163,9 +163,9 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "4a1b4feae4a85571f9696674047394bec5d60c5faf810f891aaabf0a1b37b972",
+  "flora_sha256": "c21c15068d9ec973f189cf8e6d02aa35355f77ab5c5de5008420b0424c4ec573",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the lodge: a two-storey stone building, a tall ground storey with a loggia of three openings under an entablature, a balcony band, one small upper sash, and a steep hipped roof to a flat deck inside an iron cresting",
@@ -183,8 +183,8 @@
       "how": "in the 1904 scene the 1911 sheet's north glass range stands in front of it, where this picture (1894-97) shows garden (L-pullman-conservatory-3179)"
     },
     {
-      "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope",
-      "status": "open",
+      "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope [FIXED (T-3164, east face pass, 2026-10-31): the lodge's two-storey body behind its front now stands 1.6 m in from the east wall's line over a one-storey strip (5.5 m) under the east range's 6.15 m coping, and only the front 2.2 m keeps the east wall's line, so from this camera nothing of the lodge rises over the coping east of the bowed corner. Read on the 1894 plate at the corner: the render's east face and receding eave, which stood about 34 px east of the bowed corner (9.6 m of wall seen from 10.7 m east of its line), are gone; the roof's east edge now runs from the bowed eave up the hip to the deck as the plate's does, within about 10 px (0.4 m) once this camera's existing 19 px offset at the corner (wall corner x 930 rendered, 949 in the plate) is taken out, and the deck's east side recedes about 17 px behind it as the plate's dark block at x 1013-1050 does. Lowe's print reads the same within about 6 px at its scale. The east wall's short return at the corner no longer carries the draft's door and sash.]",
+      "status": "fixed",
       "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open. T-3164 (west part pass): re-read, and unchanged by it: setting the loggia block 2 m back moves the receding east eave by about 7 px, and both pictures still show sky over the range's coping where any depth over about 1.5 m would stand stone, so this stays open."
     },
     {
@@ -253,13 +253,18 @@
     },
     {
       "what": "the parkway trees' heads: the plate's tree left of the gate carries a broad, low, leafy head from about 3.3 m (y 660), its leaves over the walk across the picture's top left, where the renderer's vase-formed elm shows two bare limbs up to the frame's top",
-      "status": "open",
-      "how": "T-3164 (parkway pass, 2026-10-30): the street-tree layer grows one tree, the American elm (renderers/web/js/street-trees.js, its crown high on arching limbs); this head is not an elm's vase and no other parkway form is drawn, so the shape stays open."
+      "status": "fixed",
+      "how": "T-3164 (parkway pass, 2026-10-30): the street-tree layer grows one tree, the American elm (renderers/web/js/street-trees.js, its crown high on arching limbs); this head is not an elm's vase and no other parkway form is drawn, so the shape stays open. T-3164 (parkway head pass, 2026-10-31): the tree now grows on its own habit, a young elm still on its leader (street-trees.js FORMS.broad_head, tree-model.js ARCH.ulmus_americana_young), named by its record in data/street_trees/pictured_1904.json: one straight stem through the crown, the head leaving it from about 3 m and spreading wide and low over the walk, a 0.27 m bole as the plate draws it. Read on the re-render: the leader, the head's height and breadth, and the trunk's width agree with the plate; the leaves' exact masses are the grown crown's own and within tolerance."
     },
     {
-      "what": "the pale line along the far side of the lawn west of the drive (the plate's y 936-942 from x 320 to the drive at x 800; Lowe's y 586-590), a walk or the drive's turn toward Calumet Avenue in front of the planting, is not built: the drive is laid to u 16 and stops there, and both pictures put this line about 60 px under their horizons, where neither camera fixes its depth to better than a few metres",
-      "status": "open",
+      "what": "the pale line along the far side of the lawn west of the drive (the plate's y 936-942 from x 320 to the drive at x 800; Lowe's y 586-590), a walk or the drive's turn toward Calumet Avenue in front of the planting, is not built: the drive is laid to u 16 and stops there, and both pictures put this line about 60 px under their horizons, where neither camera fixes its depth to better than a few metres [FIXED (T-3164, 2026-10-31): built as the drive's turn toward Calumet Avenue (pullman_glasshouse_1800_calumet_pavilion grounds.gravel 'turn' and 'cross'): through the plate's camera the line's edges fall on the ground at u 23-31 (pavilion frame) from the drive's east edge at v 7.5 to the frame's edge at v 23, so a gravel band 4 m wide at u 25-29 runs from the drive to the Calumet line, with a wedge joining it to the drive's east edge clear of the pictured lilacs. It renders as a pale line along the lawn's far side from the frame's edge to the gate pier, 3-4 px nearer the horizon than the plate's (y 935-938 against 936-942): a pixel offset, since the review render stands the gravel 0.1 m over its common grade plane. In Lowe's print it falls 5-6 px under the range's foot as the print's does, Lowe's whole ground standing about 20 px high through its diagnostic camera. Its width and depth are reconstructed (L-pullman-grounds-1800-calumet-3164).]",
+      "status": "fixed",
       "how": "T-3164 (grounds pass, 2026-10-30): read, not built; it wants a nearer picture of the lawn's far side or a plan of the grounds."
+    },
+    {
+      "what": "T-3273 (owner, 2026-10-31): the conservatory beside the lodge re-glazed (its transept, drum and dome in a pane grid over a darker glass, palms inside where a shaded block stood) and the drive's turn laid as one curve; re-rendered here, the lodge itself unchanged",
+      "status": "fixed",
+      "how": "see pullman_glasshouse_1800_calumet_pavilion's records"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -47,6 +47,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
+import { profiledGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -1120,6 +1121,11 @@ const DETAIL_DECLARED = {
               // picture; the sun's pass stops drawing houses whose shadows fall
               // away from the screen. `full` and `balanced` are unchanged.
               castersTowardView: true,
+              // T-3312: a far structure piece draws in the colour pass from its
+              // clustered twin wherever the twin's edge moves under a pixel
+              // (far-colour.js). `light` only: it is the floor that has to stay
+              // inside its own ceiling, and `full`/`balanced` keep every piece exact.
+              farColourLod: true,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -1279,6 +1285,46 @@ const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 // neither that shared failure nor memory is repaired by this Full allowance.
 // Actual readings and limits: docs/measurements/brougham-optical-delivery-3084.json.
 const GLESSNER_V4_FULL_TRIANGLES = 4700000;
+// T-3285, 2026-10-31: THE FAR-VIEW ALLOWANCE, ARGUED HERE AND NOT SPENT ON THE
+// CEILING ABOVE. Looking toward Glessner from 130-240 m off — down the 16th-18th
+// west alley from 1616's rear (T-1932's stand), 150 m west on 18th, 60 m east and
+// 120 m south on Prairie — Full reads 5.4-7.3 M after both of T-3272's far relief
+// swaps (far-roof-relief.js: the colour pass, and since T-3285 the sun's). What
+// carries it is no longer Glessner's inspection detail: it is the sun's pass,
+// which draws every Prairie house whole inside its 240 m box at any distance
+// (3.08 M of 7.30 M at the worst stand, 1.91 M of that the neighbours'), and the
+// whole row in view. No pixel-safe cut is left there; a far shadow level of
+// detail for structures is the retirement, T-3286. Until it lands, this is what
+// Full is declared to cost in a far view of the district, by the rule every
+// re-basing above follows (the measured worst stand at either viewport plus
+// T-0672's absolute Full headroom, rounded up to 5,000; draws: the worst plus
+// about five per cent, rounded up to a hundred):
+//   triangles  7,302,147 (desktop, Prairie 60 m E / 120 m S) + 18,059 -> 7,325,000
+//   draws      8,057 (desktop, the alley; 5,069 of them street trees' sub-draws) -> 8,500
+// The 4.7 M ceiling and the 7,800 draws are UNCHANGED and still what `stats()`
+// holds every stand to: raising them would have lifted the guard off Glessner's
+// close stands and the spawn, which read 3.7-4.7 M, to cover views it does not
+// protect. The allowance is read beside them as `stats().farBudget` (Full, with
+// Glessner's inspection asset only), for a harness that frames a far view
+// (tools/qa_t3272_far_relief.mjs); the tier table T-3084 pins is untouched.
+// Readings: docs/RESEARCH/alley-budget-3272/README.md § T-3285.
+// T-3286, 2026-11-01: RE-BASED DOWN, 7,325,000 -> 6,670,000. The far shadow level
+// of detail named above landed: a far structure piece casts from its clustered
+// shadow twin wherever the twin's edge moves under a pixel (far-shadow.js). On the
+// published 1904 app, Full, every pixel of each held frame read back off and on
+// (tools/qa_t3286_far_shadow.mjs):
+//   desktop  alley 5,539,477 -> 4,648,930   18th 150 m W 6,216,086 -> 5,195,660
+//            Prairie 60 m E / 120 m S 7,294,865 -> 6,650,853   (0 / 2 / 0 px changed)
+//   mobile   alley 5,421,138 -> 4,446,393   18th 150 m W 5,228,965 -> 4,382,751
+//            Prairie 60 m E / 120 m S 6,997,527 -> 6,205,942   (0 / 9 / 108 of 304,200 px)
+// By the same rule: 6,650,853 + 18,059 -> 6,670,000. Draws: the worst is still the
+// alley, 8,092 (8,065 off: a swapped piece can split a coalesced sun-pass run),
+// + about 5% -> 8,500, unchanged. NOT RETIRED: the far stands toward Glessner up
+// Prairie and along 18th still read over 4.7 M, and what carries them now is the
+// colour pass (4.2 M of the Prairie stand's 6.65 M is not structures' sun pass).
+// Readings: docs/RESEARCH/far-shadow-3286/README.md.
+const GLESSNER_V4_FULL_FAR_TRIANGLES = 6670000;
+const GLESSNER_V4_FULL_FAR_DRAWS = 8500;
 // T-2217, 2026-10-14: the previously unmeasured carriage-door close-up
 // already draws 340 calls on dev, before the door change (4,443,344 tris).
 // The rebuilt door draws the SAME 340 calls (4,465,836 tris); the other four
@@ -2139,6 +2185,9 @@ async function boot() {
   // map is drawn. See shadow-casters.js for the test and the reading behind it.
   const shadowCasters = { on: false, culled: 0, sun: () => world.direction,
     light: () => world.light, fresh: () => detailLevel === 'full' && governor.shadowFresh };
+  // T-3312: the same kind of switch for the colour pass's far twins (far-colour.js),
+  // shared by every structure batch, old and rebuilt alike; applyShadowTier sets it.
+  const farColourTier = { on: false };
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
@@ -2150,6 +2199,9 @@ async function boot() {
     // cells identical so a same-asset Balanced -> Light switch stays culled.
     spatialCells: inspectionLod && detailLevel !== 'full' ? { cellM: 4, heightM: 2 } : null,
     lowSpec: coarse,
+    // T-3312: the colour twins are cut only for a tier below `full`, which is the
+    // only place they are drawn; a desktop at `full` carries none of them.
+    colourTwins: detailLevel !== 'full', farColourTier,
     glass: glassForDetail(detailLevel, GLASS_REQUEST),
     checkpoint: bootCheckpoint,
     onProgress: (done, total) => bootController.progress('buildings', done, total),
@@ -2490,6 +2542,9 @@ async function boot() {
     detail: detailLevel, problems: layerProblems('parked_transport'), hostMissing,
     groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : null,
     getDrawingBufferHeight: () => renderer.getDrawingBufferSize(parkedDrawingBuffer).y,
+    // T-3300: fetch a vehicle when the eye comes within 60 m of where it is drawn,
+    // not at boot — 1835's wagons were 2.0 MB of the first visit, all out of reach.
+    loadWithin: 60,
   });
   scene3d.add(parkedTransport.group);
   api.parkedTransport = parkedTransport;
@@ -2686,6 +2741,7 @@ async function boot() {
     world.setShadowRig(want.shadowReachM);
     const casts = want.furnitureCastsShadow !== false;
     shadowCasters.on = want.castersTowardView === true;
+    farColourTier.on = want.farColourLod === true;
     for (const name of FURNITURE_LAYERS) {
       const group = scene3d.getObjectByName(name);
       // A layer that drew nothing (a record that failed to load, a fence whose
@@ -2713,7 +2769,7 @@ async function boot() {
       });
     }
     return { reachM: want.shadowReachM, furnitureCastsShadow: casts,
-      castersTowardView: shadowCasters.on };
+      castersTowardView: shadowCasters.on, farColourLod: farColourTier.on };
   }
   applyShadowTier(detailLevel);
 
@@ -3037,7 +3093,7 @@ async function boot() {
           // Reapply the requested glass when swapping the full/light asset.
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
-            shadowCasters,
+            shadowCasters, colourTwins: level !== 'full', farColourTier,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
             collectViewBackings: true,
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
@@ -3431,6 +3487,7 @@ async function boot() {
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
+    groundHeight: (e, n) => profiledGroundHeight(terrain, decks, e, n),
   });
   api.humans.on('open', ({ personId }) => {
     if (!api.people) return;
@@ -5415,6 +5472,8 @@ async function boot() {
         batches: buildings.batches.length,
         // T-1963: what the walls were bound with, or `{ off: true }` under ?walls=flat.
         wallRelief: buildings.wallRelief,
+        // T-3295: the K03 brick panels shuffled per brick, by panel.
+        brickBond: buildings.brickBond,
         structures: loaded.registry.size,
         // T-1126 § 4: drawn against indexed. `structures` above counts what the
         // scene was TOLD to place; these two count what it managed to.
@@ -5428,6 +5487,12 @@ async function boot() {
         budget,
         withinBudget: drawCalls <= budget.drawCalls
           && info.render.triangles <= budget.triangles,
+        // T-3285: the far-view allowance the tier declares, where it declares one
+        // (null otherwise). A reading for a harness that frames a far view; it
+        // does not move `budget` or `withinBudget`.
+        // Kept out of `detailLevels`, whose Full keys T-3084's policy gate pins.
+        farBudget: inspectionLod && detailLevel === 'full'
+          ? { triangles: GLESSNER_V4_FULL_FAR_TRIANGLES, drawCalls: GLESSNER_V4_FULL_FAR_DRAWS } : null,
       };
     },
     /**

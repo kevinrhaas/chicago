@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1f5c76e419c00f5419202a2c377f34a5bd44a45c0db224edcceb4888747d7dab",
+  "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 13,
+        "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 23
+        "creeper": 24
       }
     ],
     "street_trees": 35,
@@ -30,27 +30,27 @@
   "flora_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
     },
     {
       "file": "tools/photo_match_flora.mjs",
-      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "847c3a15d3b1a9c4690b0bc4fdd9125c20a328db20c491b53019b9fbea7224b9"
+      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "8130c909259d710b5e03e496f1a6c3f091ebb5a4ea53337250865ad2a54d2f56"
+      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "4c70b27e7689eeff60fb8805314b454d680cbbca9908526f14a86e85aca8867b",
+  "flora_sha256": "749e9938cbad3e307b3ba83306f09c995eb28536ca03d9eca15bb0d04d850e95",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -83,7 +83,8 @@
     },
     {
       "what": "the porte-cochere: a one-storey block whose deck balustrade turns its corner at x 730, the large arch (x 660-715, the side door seen through it) in its WEST end and the narrower one (x 745-780) in its south front; it stood at s 6.35-11.48, 4.27 m out, with one arch in its front; built at s 10.25-15.4, 5.45 m out, its arches where this photograph puts them",
-      "status": "fixed"
+      "status": "fixed",
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): at s 9.3-14.7 and 5.97 m out, where this print and no. 16554 triangulate its corners (s 9.05-9.5 and 14.5-14.9, 5.73-6.13 m out); the west arch reads 2.64-5.5 m out (span 2.86) and is built 2.24-5.04 (2.8 m, centred on its face as the owner ruled on 2026-10-30); the front's reads s 10.52-12.81 and is built 10.75-13.25"
     },
     {
       "what": "the deck's balustrade level with the sills of the second-storey lights over it (y 335 against the build's 355 before), and those lights' heads about 1 m under the cornice's soffit: the flank's second-storey sills raised to 8.3 m, the porte-cochere's soffit to 6.85 m and its balustrade to 0.7 m",
@@ -96,7 +97,7 @@
     {
       "what": "the 18th Street pavilion's own hipped roof standing out of the mansard (s 11.5-17.5, 1.2 m out): the photograph shows the cornice running unbroken from the corner pier past the porte-cochere and the mansard over it; the pavilion is taken off",
       "status": "fixed",
-      "how": "T-1881: the 18th Street pavilion stands 2.47 m forward again (s 8.3-18.55) under the mansard's own line, its cornice continuous with the flank's as the photographs draw it; no separate hipped roof stands out of the mansard"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the 18th Street section stands 1.3 m forward (s 7.2-20.6) under the mansard's own line, where Taylor's no. 1445 and no. 16554 triangulate its faces (1.12-1.5 m out); its cornice continuous with the flank's, no separate hipped roof (L-pullman-1729-three-part-front-1881)"
     },
     {
       "what": "three dormers on the flank's mansard (x 656-673, 740-751, 791-804), each over a window group, where the build stood two at the Detroit print's u 22.75 and 17.7; built at u 15.3, 9.45 and 5.2",
@@ -115,7 +116,8 @@
     },
     {
       "what": "the flank's principal-storey lights east of the porte-cochere seen through its arches (x 745-768): a pair, built at s 19.15 and 20.25 behind the trees and the coping wall's piers",
-      "status": "within tolerance"
+      "status": "within tolerance",
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the 18th Street section's triple at s 15.9, 16.9 and 17.9; through the front arch and the east end's the render shows the two at 16.9 and 17.9 where the print shows a pair at s 17.0-18.8 on that face"
     },
     {
       "what": "the dormers' moulded hoods: each flank and Prairie dormer stands under an eared, pedimented hood (the large one at x 455-480 over the front's south bay, and those at x 656, 740 and 791 on the flank); the build lays a plain stone surround round each arched light (the K01 mansard dormer has no eared hood yet)",
@@ -152,7 +154,7 @@
     {
       "what": "the stepped Prairie front and the 18th Street face: the forward block over the door and the 18th Street pavilion each standing out under their own cornice and mansard, the porte-cochere in front of the pavilion",
       "status": "fixed",
-      "how": "T-1881: the forward block 6.5 m wide and 2.95 m proud (v 2.0-8.5) with banded corner piers; the pavilion 2.47 m out with the pair and triple of narrow lights over the porte-cochere; the porte-cochere at the 1911 sheet's s 8.25-12.75, 5.97 m out, arches 4.0, 10.8 and 4.0 m on centre with 2.2 m spans; within about 10 px of Taylor's photograph and the Detroit print"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the Prairie front in his three parts: the north block 2.95 m forward (v 0-7.4), the entry 1.6 m forward with the door, portico and stoop (v 7.35-12.1), the south part on the main wall with the big lights and the pedimented dormer; the depths are the 1911 sheet's front lines, the ends the sketch's (L-pullman-1729-three-part-front-1881); the 18th Street section 1.3 m forward; the porte-cochere at s 9.3-14.7, 5.97 m out"
     },
     {
       "what": "a moulded belt course between the principal and second storeys (Taylor y about 450-470; the Albertype)",
@@ -175,7 +177,7 @@
       "how": "T-1881: not built; read again at the print's full size, the low course's top is crossed by a parkway tree (x 615-630) and what stands behind it is the house's area, so the posts' number and height are not read here; the Detroit print's posts and panels along the same wall are open in its own record"
     },
     {
-      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1139-1273 through this camera, far down the street behind the picture's own trees; this item is unchanged.]",
+      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1139-1273 through this camera, far down the street behind the picture's own trees; this item is unchanged.] [T-1934, 2026-10-31: the four parkway trees before the estate on 18th Street (37.65, 43.7, 51.3 and 64.1 m) and the two at the Calumet corner are now drawn as slender young elms, read off Taylor's 1445, Taylor's 16554 and the Detroit print; this item stands for the house's own parkway and lawn trees, unchanged.]",
       "status": "open",
       "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture. T-1881, 2026-10-30: 18th Street's north parkway west of T-1934's stretch (0-46.9 m) is now planted off Taylor's photograph no. 1445, five trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns (the app's grown trees against the picture's slender ones), the Prairie Avenue parkway and the lawn trees inside the walls (the slender saplings behind the 18th Street wall, the front lawn's three lindens), none yet worked to the pictures. T-1881, 2026-10-30 (the Prairie parkway): the house's own Prairie Avenue parkway (prairie__prairie_ic_16_18, 228.5-257.5 m) is now planted off the Detroit print, four trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns, the lawn trees inside the walls (the white-barked saplings behind the Prairie wall, the front lawn's lindens) and the corner between the two parkways."
     },
@@ -192,7 +194,7 @@
     {
       "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank)",
       "status": "open",
-      "how": "T-1881 (2026-10-30): the front's ground storey south of the portico is now clothed to the belt course, as the Detroit print shows it; this photograph, earlier (c. 1880s-90s against the Detroit print's 1893-1901, nearer the 1904 scene), shows that wall bare and younger ivy only on the flank west of the arch, so the bare front here is the picture's date, argued, not a rebuild. Still open: the flank's ivy, drawn, stands about 100 px left of this photograph's through this camera (with the camera disagreement along the front recorded above), and the spring render's leaves are fuller than the photograph's young growth"
+      "how": "T-1881 (2026-10-30): the front's ground storey south of the portico is now clothed to the belt course, as the Detroit print shows it; this photograph, earlier (c. 1880s-90s against the Detroit print's 1893-1901, nearer the 1904 scene), shows that wall bare and younger ivy only on the flank west of the arch, so the bare front here is the picture's date, argued, not a rebuild. Still open: the flank's ivy, drawn, stands about 100 px left of this photograph's through this camera (with the camera disagreement along the front recorded above), and the spring render's leaves are fuller than the photograph's young growth T-1881 (2026-11-02): the leaves now close over the principal storey's round-arched light on the Detroit-built mantle (a patch standing on its head, read off the Detroit print); through this camera they cover the wall between the light's ring and the belt course (x about 375-411 px), the arch and glass still clear. This photograph shows that wall bare, by its date, as argued above."
     },
     {
       "what": "the forward block's own dormer on its mansard (x 190-235), which the build stood on the main mansard behind the block (hidden by it since #1427)",
@@ -213,6 +215,44 @@
       "what": "the way under the porte-cochère: the gap in the wall east of the house",
       "status": "fixed",
       "how": "T-1934: a gravel drive (reconstructed) comes in through the gap and runs under the porte-cochère's arches to a turning apron; the 18th Street shrub border starts east of the house, clear of both ways (L-pullman-carriage-ways-1934)"
+    },
+    {
+      "what": "the porte-cochère's arches and their dressing (the owner, 2026-10-30: \"this part of the pullman house would have been balanced not off centered lop sided like that, and there is more detail you need on it on the corners and arches\"): the large round arch in the west end (x 660-715 px) and the narrower one in the south front (x 745-780) each framed by banded piers that run from grade to the entablature, a moulded impost at the springing, and a moulded ring round each head with a keystone at the crown",
+      "status": "fixed",
+      "how": "T-1881: each arch centred on the face it shows, the ends' on the 3.5 m standing out before the 18th Street pavilion (back_m 2.47, the end arches at 4.22 m out, 2.5 m across) and the front's at s 10.5 (2.4 m); porte_cochere.dressing lays the banded piers (0.4 m courses, 0.1 m channels, the corner piers' bands turned round the corner), the 0.25 m impost and an eleven-voussoir ring with its keystone. Through this camera the west arch draws at about x 657-697 against the photograph's 660-715 and the front's about 15 px west of the photograph's, the disagreement between this camera and the Detroit print's along the flank already recorded here (the Detroit print reads the arches 2.37 and 2.27 m across, this photograph 2.8 and 2.46: the built 2.5 and 2.4 stand between them)"
+    },
+    {
+      "what": "the owner's report, 2026-10-30: the Prairie front stepped back three times from the north side. Built (T-1881): a 1.95 m middle step 1.65 m out (v 8.45-10.4, the 1911 sheet's u 29.4 line) between the portico's forward block and the wall to the corner, banded under its own mansard section, so the print's banded face south of the portico block now stands as a step of its own",
+      "status": "fixed"
+    },
+    {
+      "what": "the terrace's striped awning past the flank's east corner (the render's x 850-890, y 515-560), where this photograph shows the stable's front",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-10-31): two pictures disagree (T-3153): this photograph, the trees in young leaf, shows no awning; Taylor's no. 16555, in full summer leaf, shows it up over the terrace. The 1904 scene is in July, so it stands (L-k01-1729-pullman-terrace-1881)"
+    },
+    {
+      "what": "the Prairie front's second-storey lights (x 205-230 and 300-325) under moulded arched heads with an impost each side at the springing",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the K01 lights framed in architraves read off the 1890 Albertype plate; through this camera the render's heads now carry the moulded arch and imposts the photograph shows, at the same 20-37 px offset along the front as the piers (the camera disagreement already recorded)"
+    },
+    {
+      "what": "the Prairie front's bays: the forward block over the portico, the north bay beside it",
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): the block narrowed and centred on the door at v 6.4 and the north bay's lights and dormer put back, from the owner's reading of the Detroit print; through this camera the block's north edge moves about 1.4 m south (L-pullman-1729-front-bays-1881)"
+    },
+    {
+      "what": "the Prairie front's north block with the portico and its balcony standing forward of the wall to the south",
+      "status": "open",
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m forward on the 1911 sheet's line, the entry 1.6 m with the portico before it, the south part on the main wall; the ends along the front are the sketch's, and this camera's view of the front is the one it fits worst, so it stays open (L-pullman-1729-three-part-front-1881)"
+    },
+    {
+      "what": "the side door seen through the porte-cochere's west arch (x 662-682 px), its foot about 1.35 m over the drive behind a short flight of steps, under the 18th Street section's pair: the owner's sketch's section-2 entry",
+      "status": "fixed",
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): built as a raised door on bays.p_18th at s 11.63, 1.3 x 2.6 m, its sill 1.2 m up a flight of seven stone steps; the flight's run and width are reconstructed (L-pullman-1729-side-door-1881)"
+    },
+    {
+      "what": "the porte-cochere's corner pier (x 745 px, beside the south front's arch) shows its banded stone bare here, where the build clothes it in ivy to the entablature: the Detroit print (c. 1901, nearer the 1904 scene) shows the same pier clothed, and this photograph is the earlier one, whose ivy is younger on every wall (T-1881, 2026-11-02). Two pictures of two dates disagree; the scene follows the later",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

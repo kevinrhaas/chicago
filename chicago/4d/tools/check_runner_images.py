@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Every workflow job that installs Playwright runs on a PINNED runner image.
+"""Every workflow job that installs Playwright, or runs Blender, runs on a PINNED image.
 
 T-3169. On 2026-10-26 GitHub moved `ubuntu-latest` to ubuntu-26.04, and the
 `playwright@1.56.1` every smoke here installs refuses it outright:
@@ -18,6 +18,14 @@ installs Playwright or its browser system deps names an exact image, never a
 SMOKE_TIMING reading was measured on, so upgrading Playwright and the image is a
 re-measurement made on purpose, in one change, and not something a label does
 overnight.
+
+T-3296 put Blender under the same rule, because for a bake the image is part of
+the recipe. When `ubuntu-latest` moved, the content build's bake job moved with
+it, and the same pinned Blender wrote different UVs for the same code on 26.04:
+262 committed masters read as moved on every whole-town bake, re-deriving them
+took fourteen minutes, and the job died at its cap on every nightly from
+2026-10-17. A job that sources `generators/blender.pin` or runs `tools/bake.sh`
+names an exact image, and the bake's image changes only as a re-bake on purpose.
 
 The workflows are read as text, job by job (a job is a two-space-indented key
 under `jobs:`), the same way `bake_warranted.py` reads the content build: the
@@ -40,6 +48,10 @@ WORKFLOWS = REPO / ".github" / "workflows"
 # What counts as installing Playwright: the CLI's `install` / `install-deps`,
 # reached through npx, the global cli.js, or the bare binary.
 INSTALLS = re.compile(r"playwright(?:/cli\.js\"?|@[\w.\-]+)?\s+install(?:-deps)?\b")
+# What counts as running Blender: the pin every Blender job sources, or the bake itself.
+# Invocations only: a path filter or a PR body that names bake.sh runs nothing.
+BLENDER = re.compile(r"\bsource\s+\S*generators/blender\.pin\b"
+                     r"|(?:^|[\s;&|(])(?:\./)?tools/bake\.sh(?=\s|$)", re.M)
 RUNS_ON = re.compile(r"^\s{4}runs-on:\s*(.+?)\s*$")
 
 
@@ -80,15 +92,18 @@ def violations(name: str, text: str) -> list[str]:
     bad = []
     for job, lines in jobs(text).items():
         body = "\n".join(lines)
-        if not INSTALLS.search(body):
+        what = [w for w, rx in (("installs Playwright", INSTALLS), ("runs Blender", BLENDER))
+                if rx.search(body)]
+        if not what:
             continue
+        does = " and ".join(what)
         images = [m.group(1).strip("'\"") for l in lines if (m := RUNS_ON.match(l))]
         if not images:
-            bad.append(f"{name} § {job}: installs Playwright and names no `runs-on`")
+            bad.append(f"{name} § {job}: {does} and names no `runs-on`")
         for image in images:
             if image.endswith("-latest") or "${{" in image:
-                bad.append(f"{name} § {job}: installs Playwright on `{image}`, a label "
-                           f"that moves under it — pin an exact image (ubuntu-24.04)")
+                bad.append(f"{name} § {job}: {does} on `{image}`, a label "
+                           f"that moves under it — pin an exact image (ubuntu-24.04 or -26.04)")
     return bad
 
 
@@ -101,17 +116,17 @@ def gate() -> int:
     for f in files:
         text = f.read_text()
         checked += sum(1 for body in jobs(text).values()
-                       if INSTALLS.search("\n".join(body)))
+                       if INSTALLS.search("\n".join(body)) or BLENDER.search("\n".join(body)))
         bad += violations(f.name, text)
     if checked == 0:
-        print("FAIL: no job installs Playwright, so this gate reads nothing — "
+        print("FAIL: no job installs Playwright or runs Blender, so this gate reads nothing — "
               "the pattern has stopped matching the workflows")
         return 1
     for b in bad:
         print(f"FAIL: {b}")
     if bad:
         return 1
-    print(f"ok: {checked} Playwright-installing job(s) across {len(files)} workflow(s), "
+    print(f"ok: {checked} Playwright-installing or Blender-running job(s) across {len(files)} workflow(s), "
           f"every one on a pinned image")
     return 0
 
@@ -141,6 +156,24 @@ def self_test() -> int:
         ("…and a floating job after a pinned one is still caught",
          pinned + "  other:\n    runs-on: ubuntu-latest\n    steps:\n"
          "      - run: npx playwright install chromium\n", 1),
+        ("a bake on ubuntu-latest is refused (T-3296)",
+         "jobs:\n  bake:\n    runs-on: ubuntu-latest\n    steps:\n"
+         "      - run: ./tools/bake.sh\n", 1),
+        ("…and the same bake pinned passes",
+         "jobs:\n  bake:\n    runs-on: ubuntu-26.04\n    steps:\n"
+         "      - run: ./tools/bake.sh\n", 0),
+        ("sourcing the Blender pin counts as running Blender",
+         "jobs:\n  s:\n    runs-on: ubuntu-latest\n    steps:\n"
+         "      - run: source chicago/4d/generators/blender.pin\n", 1),
+        ("a bake.sh run after a cd, with arguments, counts",
+         "jobs:\n  b:\n    runs-on: ubuntu-latest\n    steps:\n"
+         "      - run: cd chicago/4d && tools/bake.sh --only x\n", 1),
+        ("a PR body quoting `tools/bake.sh` is prose, not a bake",
+         "jobs:\n  o:\n    runs-on: ubuntu-latest\n    steps:\n"
+         "      - run: gh pr create --body \"Automated bake from \\`tools/bake.sh\\`.\"\n", 0),
+        ("a path filter naming bake.sh is not a job running it",
+         "on:\n  push:\n    paths:\n      - 'chicago/4d/tools/bake.sh'\n"
+         "jobs:\n  a:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo hi\n", 0),
     ]
     failed = 0
     for label, text, want in cases:

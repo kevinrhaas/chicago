@@ -1,0 +1,149 @@
+// T-1932: 1620 Prairie's stable on the alley, refined from the district draft onto the K12 coach-house
+// kit, read in the actual published /1904/ app. tools/qa_draft_t3008.mjs's harness, turned onto the
+// building: down the alley from the south and from the north, its yard face from the Law house's back
+// yard, and the air, in scene-local metres (east, north, height above the ground there), at 1280x800
+// full and 390x780 light, with load, JS heap and frame time. Every stand must be inside the detail
+// budget with no page error or failed request.
+//   node tools/qa_k12_t1932.mjs                     (after tools/publish.sh)
+//   QA_VIEWPORT=mobile node tools/qa_k12_t1932.mjs
+//   QA_TARGET=1616 node tools/qa_k12_t1932.mjs       1616's stable, the package's second building
+//   QA_TARGET=1612 node tools/qa_k12_t1932.mjs       1612's stable, the third (the kit in mirror image)
+//   QA_TARGET=1626 node tools/qa_k12_t1932.mjs       1626's and 1628's pair of stables, the fourth and fifth
+//   QA_TARGET=1712 node tools/qa_k12_t1932.mjs       1712's stable, the sixth
+//   QA_TARGET=1700 node tools/qa_k12_t1932.mjs       1700-1706's stable, the seventh (the longest on the alley)
+//   QA_TARGET=1720 node tools/qa_k12_t1932.mjs       1720's stable and its one-storey range, the eighth (the kit's range fitting)
+//   QA_TARGET=1726 node tools/qa_k12_t1932.mjs       1726's two-storey building (GARAGE in 1911), the ninth (the kit in mirror image)
+//   QA_TARGET=1730 node tools/qa_k12_t1932.mjs       1730's stable, its full-depth range and its one-storey piece, the tenth (range and lean-to on the lot line)
+//   QA_TARGET=1630 node tools/qa_k12_t1932.mjs       1630's one-storey frame shed (on K16, the house's timber kit, not K12)
+//   QA_TARGET=1638 node tools/qa_k12_t1932.mjs       1638's stable, the last (the kit in mirror image, its gable window to the north)
+//   QA_TARGET=1816 node tools/qa_k12_t1932.mjs       T-1935: 1816's long stable on the 18th-20th alley (sheet 28), party walls both ends
+import fs from 'node:fs';
+import http from 'node:http';
+import path from 'node:path';
+import {createRequire} from 'node:module';
+const root=process.cwd(),require=createRequire(path.join(root,'tools/qa.mjs'));
+const {chromium}=require('playwright');
+// each building of the package: its research folder, the records that must stand, the GLB it watches and its stands
+// [name, eye, target]: east, north, metres above the ground at the eye (the target's at its own)
+const TARGETS={
+ '1620':{dir:'k12-1620-law-stable-1932',ids:['law_house_1620_prairie_coach_house','law_house_1620_prairie','house_1616_prairie_coach_house'],glb:'law_house_1620',stands:[
+  ['alley-from-south',[1331.2,-3040,1.7],[1334,-3015,4]],
+  ['alley-from-north',[1331.2,-2992,1.7],[1334,-3015,4]],
+  ['yard-face',[1360,-3005,1.7],[1338,-3015,4]],
+  ['air',[1375,-3050,45],[1337,-3015,0]]]},
+ '1616':{dir:'k12-1616-stable-1932',ids:['house_1616_prairie_coach_house','house_1616_prairie','law_house_1620_prairie_coach_house'],glb:'house_1616_prairie_coach',stands:[
+  ['alley-from-south',[1331,-3016,1.7],[1334.5,-3002,4]],
+  ['north-yard',[1350,-2990,1.7],[1338,-3001,4]],
+  ['yard-face',[1354,-3010,1.7],[1340,-3002,4]],
+  ['air',[1365,-3035,40],[1338,-3004,0]]]},
+ '1612':{dir:'k12-1612-goodman-stable-1932',ids:['goodman_house_1612_prairie_coach_house','goodman_house_1612_prairie','house_1616_prairie_coach_house'],glb:'goodman_house_1612_prairie_coach',stands:[
+  ['alley-from-south',[1331,-3004,1.7],[1334.5,-2989,4]],
+  ['north-gable',[1352,-2968,1.7],[1340,-2982,4]],
+  ['yard-face',[1357,-2996,1.7],[1347,-2988,4]],
+  ['air',[1372,-3018,42],[1340,-2989,0]]]},
+ '1626':{dir:'k12-1626-1628-stables-1932',ids:['house_1626_prairie_coach_house','house_1628_prairie_coach_house','house_1626_prairie','house_1628_prairie'],glb:['house_1626_prairie_coach','house_1628_prairie_coach'],stands:[
+  ['alley-from-north',[1331,-3021,1.7],[1334.5,-3036,4]],
+  ['alley-from-south',[1331,-3057,1.7],[1334.5,-3040,4]],
+  ['yard-face',[1359,-3049,1.7],[1346,-3038,4]],
+  ['air',[1373,-3062,42],[1341,-3038,0]]]},
+ '1712':{dir:'k12-1712-stable-1932',ids:['house_1712_prairie_coach_house','house_1712_prairie','walker_house_1720_prairie_coach_house'],glb:'house_1712_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3102,1.7],[1335,-3116,4]],
+  ['alley-from-south',[1331,-3135,1.7],[1335,-3121,4]],
+  ['yard-face',[1353,-3108,1.7],[1343,-3118,3.5]],
+  ['air',[1373,-3142,42],[1339,-3118,0]]]},
+ '1700':{dir:'k12-1700-stable-1932',ids:['glessner_lee_house_1700_prairie_coach_house','glessner_lee_house_1700_prairie','house_1712_prairie_coach_house'],glb:'glessner_lee_house_1700_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3072,1.7],[1335,-3088,4]],
+  ['alley-from-south',[1331,-3113,1.7],[1335,-3097,4]],
+  ['yard-face',[1359,-3080,1.7],[1346,-3092,3.5]],
+  ['air',[1375,-3118,44],[1340,-3092,0]]]},
+ '1720':{dir:'k12-1720-stable-range-1932',ids:['walker_house_1720_prairie_coach_house','walker_house_1720_prairie','house_1712_prairie_coach_house'],glb:'walker_house_1720_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3118,1.7],[1335,-3135,4]],
+  ['alley-from-south',[1331,-3165,1.7],[1335,-3145,3]],
+  ['yard-face',[1358,-3130,1.7],[1345,-3140,3.5]],
+  ['air',[1375,-3170,44],[1340,-3140,0]]]},
+ '1726':{dir:'k12-1726-stable-1932',ids:['house_1726_prairie_coach_house','house_1726_prairie','walker_house_1720_prairie_coach_house'],glb:'house_1726_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3143,1.7],[1335,-3162,4]],
+  ['alley-from-south',[1331,-3190,1.7],[1335,-3167,4]],
+  ['yard-face',[1356,-3157,1.7],[1345,-3165,3.5]],
+  ['air',[1375,-3195,44],[1340,-3164,0]]]},
+ '1730':{dir:'k12-1730-stable-range-1932',ids:['house_1730_prairie_coach_house','house_1730_prairie','house_1726_prairie_coach_house','house_1736_prairie_coach_house'],glb:'house_1730_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3160,1.7],[1335,-3178,4]],
+  ['alley-from-south',[1331,-3200,1.7],[1335,-3182,3]],
+  ['yard-face',[1358,-3176,1.7],[1345,-3178,3]],
+  ['air',[1375,-3210,44],[1340,-3180,0]]]},
+ '1630':{dir:'k16-1630-shed-1932',ids:['house_1630_prairie_coach_house','house_1630_prairie','house_1628_prairie_coach_house'],glb:'house_1630_prairie_coach',stands:[
+  ['alley-from-north',[1329.5,-3040,1.7],[1337,-3050.5,1.5]],
+  ['alley-from-south',[1331,-3068,1.7],[1336,-3050,2]],
+  ['yard-face',[1353,-3047,1.7],[1337,-3050,2]],
+  ['air',[1368,-3072,36],[1337,-3049,0]]]},
+ '1638':{dir:'k12-1638-stable-1932',ids:['shortall_gregory_house_1638_prairie_coach_house','shortall_gregory_house_1638_prairie_front','glessner_lee_house_1700_prairie_coach_house'],glb:'shortall_gregory_house_1638_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3055,1.7],[1335,-3075,4]],
+  ['alley-from-south',[1331,-3100,1.7],[1335,-3076,4]],
+  ['north-gable',[1352,-3058,1.7],[1340,-3071,3]],
+  ['yard-face',[1352.5,-3079,1.7],[1345,-3075,3.5]],
+  ['air',[1375,-3105,44],[1340,-3075,0]]]},
+ '1816':{dir:'k12-1816-henderson-stable-1935',ids:['henderson_house_1816_prairie_coach_house','henderson_house_1816_prairie','wheeler_house_1812_prairie_coach_house'],glb:'henderson_house_1816_prairie_coach',stands:[
+  ['alley-from-south',[1335.2,-3300,1.7],[1339,-3272,4]],
+  ['alley-from-north',[1335.2,-3244,1.7],[1339,-3272,4]],
+  ['yard-face',[1362,-3290,1.7],[1346,-3274,4]],
+  ['air',[1380,-3305,44],[1344,-3272,0]]]},
+};
+const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
+const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
+fs.mkdirSync(out,{recursive:true});
+const IDS=TARGET.ids;
+const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.glb':'model/gltf-binary','.svg':'image/svg+xml'};
+const server=http.createServer((req,res)=>{let p=path.join(site,decodeURIComponent(req.url.split('?')[0]));try{if(fs.statSync(p).isDirectory())p=path.join(p,'index.html');res.writeHead(200,{'Content-Type':types[path.extname(p)]||'application/octet-stream'});fs.createReadStream(p).pipe(res)}catch{res.writeHead(404);res.end('missing')}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE || undefined,args:['--no-sandbox','--enable-unsafe-swiftshader']});
+const STANDS=TARGET.stands;
+const PART=process.env.QA_PART||'';
+const ONLY=(process.env.QA_ONLY||'').split(',').filter(Boolean);
+const RUN=(PART==='a'?STANDS.slice(0,2):PART==='b'?STANDS.slice(2):STANDS).filter(([n])=>!ONLY.length||ONLY.includes(n));
+const results=[];let failed=null;
+try{
+for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full'],['mobile',{width:390,height:780},'light']]){
+ if(process.env.QA_VIEWPORT && process.env.QA_VIEWPORT!==label)continue;
+ const context=await browser.newContext({viewport,deviceScaleFactor:1,isMobile:label==='mobile',hasTouch:label==='mobile'});
+ const page=await context.newPage();page.setDefaultTimeout(240000);
+ const errors=[],bad=[],assets=[];
+ page.on('pageerror',e=>errors.push(String(e)));
+ page.on('response',async r=>{if(r.status()>=400)bad.push(r.url()+':'+r.status());if(r.url().endsWith('.glb')&&([].concat(TARGET.glb).some(g=>r.url().includes(g))))assets.push({url:r.url().replace(/^.*\/data\//,'data/'),status:r.status(),bytes:Number(r.headers()['content-length']||0)})});
+ const t0=Date.now();
+ await page.goto(`http://127.0.0.1:${server.address().port}/1904/`,{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>window.__chicago4d?.ready||window.__chicago4d?.error,null,{timeout:240000,polling:500});
+ const loadMs=Date.now()-t0;
+ const boot=await page.evaluate(()=>({ready:__chicago4d.ready,error:__chicago4d.error,scene:__chicago4d.scene?.id}));
+ if(!boot.ready||boot.scene!=='1904')throw Error(JSON.stringify(boot));
+ await page.waitForFunction(()=>window.__chicago4d?.welcome.state==='welcome',null,{timeout:240000,polling:1000});
+ await page.evaluate(async detail=>{const a=__chicago4d;if(!a.welcome.enter('spawn'))throw Error('welcome entry failed');document.exitPointerLock?.();document.getElementById('control-help-gotit')?.click();a.renderer.setAnimationLoop(null);await a.setDetail(detail);a.step();},detail);
+ await page.waitForFunction(()=>document.getElementById('gate').hidden);
+ const placed=await page.evaluate(ids=>ids.filter(id=>Boolean(__chicago4d.registry.get(id)?.sidecar?.placement)),IDS);
+ if(TAG!=='before'&&placed.length!==IDS.length)throw Error(`only ${placed} of ${IDS} are in the 1904 registry`);
+ const cdp=await context.newCDPSession(page);
+ await cdp.send('HeapProfiler.collectGarbage');
+ const heap=await cdp.send('Runtime.getHeapUsage');
+ const drafts=await page.evaluate(()=>[...__chicago4d.registry.keys()].filter(k=>/_(prairie|e20th|calumet|michigan)(_coach_house|_alley_building|_stable_strip)?$/.test(k)&&k!=='keith_house_1808_prairie').length);
+ const stands=[];
+ for(const [name,pos,target] of RUN){
+  const observation=await page.evaluate(({pos,target})=>{const a=__chicago4d;
+   const p=[pos[0],pos[1],a.terrain.surfaceHeight(pos[0],pos[1])+pos[2]],t=[target[0],target[1],a.terrain.surfaceHeight(target[0],target[1])+target[2]];
+   a.setFly(true);a.walker.teleport({local_e:p[0],local_n:p[1],altitude_m:pos[2],yaw_deg:Math.atan2(t[0]-p[0],t[1]-p[1])*180/Math.PI,pitch_deg:Math.atan2(t[2]-p[2],Math.hypot(t[0]-p[0],t[1]-p[1]))*180/Math.PI});a.step();
+   const frame=()=>{a.camera.position.set(p[0],p[2],-p[1]);a.camera.lookAt(t[0],t[2],-t[1]);a.camera.updateMatrixWorld();a.world.follow(a.camera.position);a.world.aim(a.camera);a.renderer.render(a.scene3d,a.camera);};
+   frame();
+   // a timed frame: render and wait for the GPU (a one-pixel read) — 3 of them, median (software GL is slow)
+   const gl=a.renderer.getContext(),px=new Uint8Array(4),ms=[];
+   for(let i=0;i<3;i++){const s=performance.now();frame();gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,px);ms.push(performance.now()-s);}
+   ms.sort((x,y)=>x-y);
+   return {detail:a.detail,problems:a.problems,stats:a.stats(),frame_ms_median:Math.round(ms[1]*10)/10,camera:p.map(v=>Math.round(v*100)/100),target:t.map(v=>Math.round(v*100)/100)};
+  },{pos,target});
+  await page.screenshot({path:path.join(out,`${TAG}-${label}-${name}.jpg`),type:'jpeg',quality:82});stands.push({name,...observation});
+ }
+ const row={label,viewport,detail,load_ms_to_ready:loadMs,js_heap_used_bytes:heap.usedSize,js_heap_total_bytes:heap.totalSize,draft_records_in_registry:drafts,placed,boot,errors,bad,glb:{count:assets.length,bytes:assets.reduce((s,a)=>s+a.bytes,0)},stands};
+ results.push(row);
+ if(errors.length||bad.length||stands.some(x=>x.problems.length||!x.stats.withinBudget))throw Error(JSON.stringify(row));
+ await context.close();console.log(`${TAG} ${label}: the published 1904 app, ${drafts} draft record(s), heap ${(heap.usedSize/1e6).toFixed(1)} MB, load ${loadMs} ms: PASS`);
+}
+}catch(e){failed=e;}
+finally{fs.writeFileSync(path.join(out,'browser-validation-'+TAG+(process.env.QA_VIEWPORT?'-'+process.env.QA_VIEWPORT:'')+(PART?'-'+PART:'')+'.json'),JSON.stringify({method:'Actual published /1904/ app, normal boot (TAG '+TAG+'); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of 3 renders each waited on with a one-pixel read, on this machine\'s software GL (a relative reading, not a device claim).',results},null,2)+'\n');await browser.close();server.close();}
+if(failed){console.error(String(failed).slice(0,4000));process.exit(1);}
