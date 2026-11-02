@@ -479,6 +479,28 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * 4 MB of a 1904 phone's heap.
    */
   const OCCLUDER_IDENTITY = new THREE.Matrix4(), occluderScratch = new THREE.Matrix4();
+  const occluderPlacementScratch = new THREE.Matrix4();
+  // T-3173: each occluding instance's placement, as the 16 float32 figures the batch's
+  // matrices texture holds it at (`getMatrixAt` reads that Float32Array, so they are
+  // exact), one slot apiece in one array: not a Matrix4 (an object, a 16-double
+  // array and their headers) in each of 12,632 closures on the /1904/ phone. Grown
+  // by doubling while the layer builds and trimmed to its slots once it is built.
+  let occluderPlacements = new Float32Array(16 * 256), occluderPlacementCount = 0;
+  const keepOccluderPlacement = (matrix) => {
+    if ((occluderPlacementCount + 1) * 16 > occluderPlacements.length) {
+      const grown = new Float32Array(occluderPlacements.length * 2);
+      grown.set(occluderPlacements);
+      occluderPlacements = grown;
+    }
+    occluderPlacements.set(matrix.elements, occluderPlacementCount * 16);
+    return occluderPlacementCount++;
+  };
+  /** `Matrix4.equals` against a kept slot: the same element-by-element `!==`. */
+  const sameOccluderPlacement = (matrix, slot) => {
+    const e = matrix.elements, at = slot * 16;
+    for (let k = 0; k < 16; k++) if (e[k] !== occluderPlacements[at + k]) return false;
+    return true;
+  };
   /** T-3152: one row per source mesh with proven planar cover — see the load loop. */
   const planarSources = [];
   let planarOn = true;
@@ -521,8 +543,25 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // visitor can see away from one they cannot.
     .filter((r) => r.gltf)
     .map((r) => r.sidecar));
-  /** The instance colours `setWeathering` rewrites: one row per source mesh. */
-  const toneRanges = [];
+  /** The instance colours `setWeathering` rewrites: one row per source mesh.
+   *  T-3173: kept as columns, not an object a row: some 75,000 rows on /1904/, each
+   *  with two boxed doubles, were about 4.5 MB of a phone's heap; the tone columns
+   *  are plain arrays of doubles, which the engine stores unboxed. Row k is
+   *  `batch[k]`, `id[k]` … `toneFirst[k]`. */
+  const toneRanges = { batch: [], id: [], instanceId: [], count: [], base: [], factors: [],
+    toneSum: [], toneFirst: [] };
+  /** T-3173: one `[lo, hi]` array per distinct confidence range, shared by every
+   *  instance that has it. The values are decoded from a packed byte (T-2574), so a
+   *  town of some 78,000 pieces has a handful of ranges, and an array apiece was
+   *  about 3 MB of a phone's heap. Read-only to everything that reads them
+   *  (confidence.js); a twin shares its piece's. */
+  const sharedRanges = new Map();
+  const rangeOf = (lo, hi) => {
+    const key = `${lo},${hi}`;
+    let r = sharedRanges.get(key);
+    if (!r) { r = [lo, hi]; sharedRanges.set(key, r); }
+    return r;
+  };
   /** T-3272: a relief roof piece past its last visible pixel draws its crests only
    *  (far-roof-relief.js). One state for the layer; each batch fills its own pairs. */
   // T-3285: `sun` lets the sun's pass keep the relief whole while the colour pass swaps.
@@ -968,7 +1007,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         batch.userData.positionScale[instanceId] = frame.scale;
         batch.userData.batchIndex[instanceId] = record.id;
         const pieceRange = batch.userData.confidenceRanges[piece];
-        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange.slice();
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange;
         batch.setVisibleAt(instanceId, false);
         // culled by its piece's sphere, larger than its own, so the cull stays conservative
         const twinInfo = batch._geometryInfo?.[geometryId];
@@ -987,7 +1026,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         batch.userData.positionScale[instanceId] = frame.scale;
         batch.userData.batchIndex[instanceId] = record.id;
         const pieceRange = batch.userData.confidenceRanges[entry.twinOf.instanceId];
-        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange.slice();
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange;
         batch.setVisibleAt(instanceId, false);
         // The twin sorts and sphere-culls as its piece does: a transparent batch draws its
         // instances back to front by their spheres, and the relief's three pieces meet at
@@ -1011,17 +1050,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // T-0002. The mesh's paint is its instance's colour, so the tone can be
       // wound back and forth at runtime — see setWeathering.
       const count = geo.getAttribute('position').count;
-      const row = {
-        batch,
-        id: record.id,
-        instanceId,
-        count,
-        base,
-        factors,
-        toneSum,
-        toneFirst: count ? scalar('_tone', 0) : 1,
-      };
-      toneRanges.push(row);
+      toneRanges.batch.push(batch);
+      toneRanges.id.push(record.id);
+      toneRanges.instanceId.push(instanceId);
+      toneRanges.count.push(count);
+      toneRanges.base.push(base);
+      toneRanges.factors.push(factors);
+      toneRanges.toneSum.push(+toneSum);
+      toneRanges.toneFirst.push(count ? +scalar('_tone', 0) : 1);
       batch.setColorAt(instanceId, new THREE.Color(...albedoOf(base, factors)));
       batch.setMatrixAt(instanceId, frame.matrix);
       batch.userData.positionScale[instanceId] = frame.scale;
@@ -1030,7 +1066,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       if (occludesView) {
         // T-3213: `identity` and `current` are the layer's one pair (below the
         // occluder list), not two more matrices in every backing's closure.
-        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=occluderScratch;
+        const placement=batch.getMatrixAt(instanceId,occluderPlacementScratch), current=occluderScratch;
+        // Kept only once something holds `active` (a triangle below, or the planar
+        // cover): most occluding instances keep no triangle, and their test is let go.
+        let placementSlot=-1;
         const identity=OCCLUDER_IDENTITY, m=batch.material;
         const hooks=[m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey], side=m.side;
         // Only the existing opaque, aperture-cut backing, under its known
@@ -1039,7 +1078,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
           for(let o=batch;o;o=o.parent)if(!o.visible)return false;
           return batch.getVisibleAt(instanceId) && batch.getGeometryIdAt(instanceId)===geometryId
             && batch.material===m && m.side===side && batch.matrixWorld.equals(identity)
-            && batch.getMatrixAt(instanceId,current).equals(placement)
+            && sameOccluderPlacement(batch.getMatrixAt(instanceId,current),placementSlot)
             && batch.geometry.attributes.position.version===backingPositionVersion
             && batch.geometry.index.version===backingIndexVersion
             && batch.geometry.attributes[SCALARS].version===backingConfidenceVersion
@@ -1052,18 +1091,30 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && (m.depthFunc===THREE.LessDepth || m.depthFunc===THREE.LessEqualDepth)
             && !m.clippingPlanes?.length;
         };
-        const ranges=new Map();
+        // T-3173: one [lo, hi] and one test per distinct confidence range, and one
+        // normal per distinct (unnormalised) normal — a rectangle's two halves have
+        // the same one — rather than an array and a Vector3 in every triangle; and
+        // no `area`, which nothing reads past the cut below. All read-only downstream.
+        const ranges=new Map(), normals=new Map();
         for(const triangle of backingTriangles(geo,placement,m.side,packedConfidenceReader(scalar))) {
           // Small distant facade details are expensive candidates with little
           // coverage; the inspected house keeps its finer backing faces.
           if(record.id!=='glessner_house' && triangle.area<4)continue;
           const key=JSON.stringify(triangle.confidenceRange);
-          if(!ranges.has(key))ranges.set(key,()=>active()
-            && opaqueConfidenceRange(triangle.confidenceRange,confidence));
-          viewOccluders.push({...triangle,active:ranges.get(key)});
+          if(!ranges.has(key)){
+            const confidenceRange=triangle.confidenceRange;
+            ranges.set(key,{confidenceRange,active:()=>active()
+              && opaqueConfidenceRange(confidenceRange,confidence)});
+          }
+          const n=triangle.normal, normalKey=`${n.x},${n.y},${n.z}`;
+          if(!normals.has(normalKey))normals.set(normalKey,n);
+          const shared=ranges.get(key);
+          viewOccluders.push({points:triangle.points,normal:normals.get(normalKey),side:triangle.side,
+            confidenceRange:shared.confidenceRange,active:shared.active});
         }
         // Every piece of the source mesh has to stand as the backing's does.
         if (planar) planar.actives.push(active);
+        if (planar || ranges.size) placementSlot=keepOccluderPlacement(placement);
       }
       batch.userData.batchIndex[instanceId] = record.id;
       record.instanceId = instanceId;
@@ -1102,7 +1153,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         }
         seen.min = Math.min(seen.min, lo);
         seen.max = Math.max(seen.max, hi);
-        if (count) batch.userData.confidenceRanges[instanceId] = [lo, hi];
+        if (count) batch.userData.confidenceRanges[instanceId] = rangeOf(lo, hi);
         // The pieces' decoded range, as a whole: a rectangle stands only where all of
         // its source mesh is opaque, a superset of the triangles that cover it.
         if (planar && count) { planar.range[0] = Math.min(planar.range[0], lo); planar.range[1] = Math.max(planar.range[1], hi); }
@@ -1182,8 +1233,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     const t = Math.max(0, Math.min(1, Number(value)));
     if (!Number.isFinite(t) || t === weathering) return weathering;
     const colour = new THREE.Color();
-    for (const row of toneRanges) {
-      row.batch.setColorAt(row.instanceId, colour.setRGB(...albedoOf(row.base, row.factors, t)));
+    const { batch: rowBatch, instanceId: rowInstance, base: rowBase, factors: rowFactors } = toneRanges;
+    for (let k = 0; k < rowBatch.length; k += 1) {
+      rowBatch[k].setColorAt(rowInstance[k], colour.setRGB(...albedoOf(rowBase[k], rowFactors[k], t)));
     }
     weathering = t;
     return weathering;
@@ -1246,6 +1298,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     return { id, record: registry.get(id), point: hit.point, distance: hit.distance };
   });
 
+  occluderPlacements = occluderPlacements.slice(0, occluderPlacementCount * 16);
   return {
     group,
     batches,
@@ -1333,16 +1386,18 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // tone (1 where it has none), read back from the batch's own colours.
       const sums = new Map();
       const colour = new THREE.Color();
-      for (const row of toneRanges) {
-        const c = row.batch.getColorAt(row.instanceId, colour);
-        let seen = sums.get(row.id);
-        if (!seen) { seen = { sum: [0, 0, 0], n: 0, surfaces: new Set() }; sums.set(row.id, seen); }
-        seen.sum[0] += c.r * row.toneSum;
-        seen.sum[1] += c.g * row.toneSum;
-        seen.sum[2] += c.b * row.toneSum;
-        seen.n += row.count;
-        if (row.count) {
-          seen.surfaces.add([c.r * row.toneFirst, c.g * row.toneFirst, c.b * row.toneFirst]
+      const rows = toneRanges;
+      for (let k = 0; k < rows.batch.length; k += 1) {
+        const c = rows.batch[k].getColorAt(rows.instanceId[k], colour);
+        const id = rows.id[k], toneSum = rows.toneSum[k], count = rows.count[k], toneFirst = rows.toneFirst[k];
+        let seen = sums.get(id);
+        if (!seen) { seen = { sum: [0, 0, 0], n: 0, surfaces: new Set() }; sums.set(id, seen); }
+        seen.sum[0] += c.r * toneSum;
+        seen.sum[1] += c.g * toneSum;
+        seen.sum[2] += c.b * toneSum;
+        seen.n += count;
+        if (count) {
+          seen.surfaces.add([c.r * toneFirst, c.g * toneFirst, c.b * toneFirst]
             .map((v) => v.toFixed(6)).join(','));
         }
       }

@@ -14,7 +14,8 @@
 //   QA_TARGET=1720 node tools/qa_k12_t1932.mjs       1720's stable and its one-storey range, the eighth (the kit's range fitting)
 //   QA_TARGET=1726 node tools/qa_k12_t1932.mjs       1726's two-storey building (GARAGE in 1911), the ninth (the kit in mirror image)
 //   QA_TARGET=1730 node tools/qa_k12_t1932.mjs       1730's stable, its full-depth range and its one-storey piece, the tenth (range and lean-to on the lot line)
-//   QA_TARGET=1630 node tools/qa_k12_t1932.mjs       1630's one-storey frame shed, the last (on K16, the house's timber kit, not K12)
+//   QA_TARGET=1630 node tools/qa_k12_t1932.mjs       1630's one-storey frame shed (on K16, the house's timber kit, not K12)
+//   QA_TARGET=1638 node tools/qa_k12_t1932.mjs       1638's stable, the last (the kit in mirror image, its gable window to the north)
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -74,6 +75,12 @@ const TARGETS={
   ['alley-from-south',[1331,-3068,1.7],[1336,-3050,2]],
   ['yard-face',[1353,-3047,1.7],[1337,-3050,2]],
   ['air',[1368,-3072,36],[1337,-3049,0]]]},
+ '1638':{dir:'k12-1638-stable-1932',ids:['shortall_gregory_house_1638_prairie_coach_house','shortall_gregory_house_1638_prairie_front','glessner_lee_house_1700_prairie_coach_house'],glb:'shortall_gregory_house_1638_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3055,1.7],[1335,-3075,4]],
+  ['alley-from-south',[1331,-3100,1.7],[1335,-3076,4]],
+  ['north-gable',[1352,-3058,1.7],[1340,-3071,3]],
+  ['yard-face',[1352.5,-3079,1.7],[1345,-3075,3.5]],
+  ['air',[1375,-3105,44],[1340,-3075,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';

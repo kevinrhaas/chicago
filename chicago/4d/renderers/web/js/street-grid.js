@@ -1302,6 +1302,8 @@ export async function createStreetGrid({
   const materials = [];
   for (const buf of bufs.values()) {
     const c = CLASSES[buf.cls];
+    // T-3173: the hooks below outlive this loop; they read this, not `buf.seam`.
+    const seam = !!buf.seam;
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos, 3));
     geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv, 2));
@@ -1333,11 +1335,11 @@ export async function createStreetGrid({
     mat.onBeforeCompile = (shader) => {
       seasonShaderUniforms(shader);
       shader.uniforms.uChiSeasonKind = seasonKind;
-      shader.vertexShader = SEASON_VERTEX_DECL + (buf.seam ? SEAM_VERTEX_DECL : '') + shader.vertexShader.replace(
-        '#include <begin_vertex>', '#include <begin_vertex>' + SEASON_VERTEX_ASSIGN + (buf.seam ? SEAM_VERTEX_ASSIGN : ''));
-      let f = SEASON_FRAGMENT_DECL + SEASON_HEAD + (buf.seam ? SEAM_FRAGMENT_DECL : '') + shader.fragmentShader.replace(
+      shader.vertexShader = SEASON_VERTEX_DECL + (seam ? SEAM_VERTEX_DECL : '') + shader.vertexShader.replace(
+        '#include <begin_vertex>', '#include <begin_vertex>' + SEASON_VERTEX_ASSIGN + (seam ? SEAM_VERTEX_ASSIGN : ''));
+      let f = SEASON_FRAGMENT_DECL + SEASON_HEAD + (seam ? SEAM_FRAGMENT_DECL : '') + shader.fragmentShader.replace(
         '#include <color_fragment>', '#include <color_fragment>' + SEASON_FRAGMENT_APPLY);
-      if (buf.seam) f = f.replace('#include <alphamap_fragment>', '#include <alphamap_fragment>' + SEAM_FRAGMENT_ALPHA);
+      if (seam) f = f.replace('#include <alphamap_fragment>', '#include <alphamap_fragment>' + SEAM_FRAGMENT_ALPHA);
       shader.fragmentShader = f;
     };
     if (lib) {
@@ -1352,7 +1354,7 @@ export async function createStreetGrid({
     }
     mat.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}`;
     confidence?.patch(mat);
-    mat.customProgramCacheKey = () => `chicago4d-street-grid-${buf.seam ? 'seam-' : ''}${lib ? 'mapped' : 'flat'}`;
+    mat.customProgramCacheKey = () => `chicago4d-street-grid-${seam ? 'seam-' : ''}${lib ? 'mapped' : 'flat'}`;
     const mesh = new THREE.Mesh(geo, mat);
     mesh.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}${buf.priority ? `-p${buf.priority}` : ''}`;
     mesh.userData.cls = buf.cls;
@@ -1365,6 +1367,10 @@ export async function createStreetGrid({
     (buf.seam ? overlays : meshes).push(mesh);
     materials.push(mat);
     out.census.triangles += buf.pos.length / 9;
+    // T-3173: the attributes above COPIED these plain arrays into Float32Arrays, and
+    // nothing writes or reads them again — but the material's hooks keep `buf` (and so
+    // them) alive: about 6 MB of a phone's heap on /1904/. `spans` stays: the mesh has it.
+    buf.pos = buf.uv = buf.conf = buf.seam = buf.seamEnd = null;
   }
 
   /* ---- T-2474: the curb's face, the district's open edges; T-3198: the carriage posts ---- */
