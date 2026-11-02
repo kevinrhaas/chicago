@@ -125,6 +125,7 @@ class K01FrontageParams:
     # T-2781: stone belt courses along a side wall, read off a picture — each
     # {"wall", "from_m", "to_m", "proud_m"}, stopped against a bay and a rear wing as the
     # front's belts are; empty for every house whose side walls carry K03's brick course or none
+    # (T-3305: named on a windowed side wall, they replace its K03 course; 1919's north flank)
     side_belts: tuple = ()
     # T-3184: a side wall's basement faced in the front's stone up to its water table, read
     # off a picture (1834's north flank); empty where the side walls are brick to grade
@@ -6957,9 +6958,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         walls_ = {"k01.wall.side.south": bool(val("side_bays")), "k01.wall.side.north": bool(val("north_bays"))}
         if set(sb) != {"wall", "from_m", "to_m", "proud_m"} or sb["wall"] not in walls_:
             raise ParamError(f"side_belts[{j}] takes wall (a side wall), from_m, to_m and proud_m, not {sb}")
-        if walls_[sb["wall"]] or (stone or {}).get("all_round"):
-            raise ParamError(f"side_belts[{j}]: {sb['wall']} carries K03's string course or the front's "
-                             f"belts already")
+        # T-3305: a windowed side wall may name its belts too (1919's north flank, the programme
+        # plate's pale courses at its floor and sill lines): named, they are the wall's courses and
+        # K03's brick string course is not laid on it (k01_frontage), so the two never share a line
+        if (stone or {}).get("all_round"):
+            raise ParamError(f"side_belts[{j}]: {sb['wall']} carries the front's belts already")
         y0, y1, d = float(sb["from_m"]), float(sb["to_m"]), float(sb["proud_m"])
         if not (0.3 <= y0 and 0.08 <= y1 - y0 <= 0.4 and y1 <= pf + sum(heights) - 0.5 and 0.01 <= d <= 0.08):
             raise ParamError(f"side_belts[{j}] runs {y0}-{y1} m, {d} m proud: a course 0.08-0.4 m deep "

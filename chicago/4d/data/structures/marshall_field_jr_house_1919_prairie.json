@@ -89,14 +89,95 @@
      "note": "'2\u00bdS.B.' printed on the 1911 sheet over the front block, and both Gatlin plates show it: two full storeys of brick over a raised basement and a half storey in the roof, lit by dormers."
     },
     "construction": {
-     "value": "brick",
+     "value": "brick_with_stone_front",
      "confidence": "attested",
      "sources": [
       "sanborn_1911_chicago_v3_sheet_28",
       "cdn_almanac_1913_gatlin_1919_plate",
       "chicago_blue_book_1912_gatlin_1919_plate"
      ],
-     "note": "The sheet colours the house pink (brick) and prints 'S.B.' (stone basement); the 1912 and 1913 plates show red pressed brick walls dressed in stone. Built as K01's brick house with stone lintels; the plates' stone belts and quoins are not yet laid (the match record's open differences)."
+     "note": "The sheet colours the house pink (brick) and prints 'S.B.' (stone basement); the 1912, 1913 and 1919 plates show red pressed brick walls over a pale stone basement, dressed in pale stone string courses at the floors and bands at the sills and heads. T-3305: built as K01's brick front over a K02 stone basement (stone_front.brick_above_m), which lays the stone belts at the floor lines and the bands at the window lines across the brick, with the basement's stone carried round both flanks (side_base)."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "limestone_lemont",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 2,
+      "coping_height_m": 0.3,
+      "corner_bond": [],
+      "brick_above_m": 1.7,
+      "belts": [
+       [
+        2.3,
+        2.45
+       ],
+       [
+        5.6,
+        5.8
+       ],
+       [
+        6.25,
+        6.4
+       ]
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicago_blue_book_1912_gatlin_1919_plate",
+      "cdn_almanac_1913_gatlin_1919_plate",
+      "gatlin_programme_1919_field_jr_plate"
+     ],
+     "note": "T-3305: the sheet's 'S.B.' and all three plates' pale basement under the brick, and the plates' pale courses across the brick at each floor and window line (the programme plate draws them plainest on the rear ranges' bays, whose stone is T-3303's). Built as K02's smooth Lemont limestone to the principal floor (brick_above_m 1.7, the record's principal_floor_m), and the plates' three pale courses across the brick named (stone_front.belts): one under the principal sills (2.30-2.45 m), the belt at the second floor (5.60-5.80 m) and one under the chamber sills (6.25-6.40 m). INFERRED: the stone's kind and dressing are not readable in the halftones; its pale tone and the courses' places are the plates', their depths the kit's."
+    },
+    "side_base": {
+     "value": [
+      {
+       "wall": "k01.wall.side.south",
+       "to_m": 1.7,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "to_m": 1.7,
+       "proud_m": 0.03
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "gatlin_programme_1919_field_jr_plate",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "T-3305: the programme plate shows the pale basement carried round the north flank (K01's south wall) under its brick; the south wall (K01's north), about 1 m off 1923's, is taken to match it (the sheet's 'S.B.' is the whole house's)."
+    },
+    "side_belts": {
+     "value": [
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 2.3,
+       "to_m": 2.45,
+       "proud_m": 0.05
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 5.6,
+       "to_m": 5.8,
+       "proud_m": 0.05
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 6.25,
+       "to_m": 6.4,
+       "proud_m": 0.05
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "gatlin_programme_1919_field_jr_plate",
+      "cdn_almanac_1913_gatlin_1919_plate"
+     ],
+     "note": "T-3305: the plates show pale stone courses across the front block's brick and the programme plate draws them along the north flank's rear ranges; the main block's own flank (K01's south wall) stands mostly behind the lamp and the ivy in the programme plate, so its courses are the front's three carried round at the same lines, in place of K03's brick string course. INFERRED: that the courses run round is the plates'; the lines on this wall are the front's, the 0.15-0.2 m depths and 0.05 m projection the kit's."
     },
     "principal_floor_m": {
      "value": 1.7,
@@ -375,12 +456,32 @@
     "entrance_kit": {
      "value": {
       "k01.opening.door_leaf": {
-       "variant": "k07.entrance.panel_door_stoop",
-       "front_yard_m": 7.98
+       "variant": "k07.entrance.double_door_deep_arch",
+       "front_yard_m": 7.98,
+       "cheeks": false,
+       "reveal_depth_m": 0.4,
+       "arch": {
+        "ring_m": 0.25,
+        "keystone_top_m": 5.3,
+        "keystone_m": [
+         0.22,
+         0.32
+        ],
+        "extrados": "curved",
+        "ring_proud_m": 0.05
+       },
+       "opening_m": [
+        1.3,
+        3.3
+       ]
       }
      },
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: K07's panelled door at the head of a straight stoop; the front wall stands 7.98 m from the 1904 parcel's street line (the sheet's bow comes 0.8 m nearer, its 7.15 m)."
+     "confidence": "inferred",
+     "note": "T-3305: the 1912 and 1913 plates show a round-arched opening at the stoop's head beside the south neighbour; built as K07's round-arched entrance, its pair of leaves set in the arch's reveal under a fanlight, at the head of the straight stoop; the front wall stands 7.98 m from the 1904 parcel's street line (the sheet's bow comes 0.8 m nearer, its 7.15 m). INFERRED: the arch is the plates'; its opening (1.3 by 3.3 m), its stone ring and keystone (the arch's dressing, as 1834's), the 0.4 m reveal in the 0.45 m wall, the leaves and the fanlight are the kit's, the halftones too coarse to read them.",
+     "sources": [
+      "cdn_almanac_1913_gatlin_1919_plate",
+      "chicago_blue_book_1912_gatlin_1919_plate"
+     ]
     },
     "bays": {
      "value": [
@@ -433,7 +534,8 @@
         "kind": "cone",
         "pitch": 0.05,
         "covering": "tin_flat_seam_painted"
-       }
+       },
+       "plinth_m": 1.7
       },
       {
        "id": "north_tower",
@@ -499,7 +601,8 @@
         "kind": "cone",
         "pitch": 0.05,
         "covering": "tin_flat_seam_painted"
-       }
+       },
+       "plinth_m": 1.7
       }
      ],
      "confidence": "inferred",
@@ -508,7 +611,7 @@
       "sanborn_1911_chicago_v3_sheet_28",
       "gatlin_programme_1919_field_jr_plate"
      ],
-     "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top. T-3280: (2) NORTH_TOWER's top: the 1919 programme plate and the 1913 plate both show the tower carried up past its third tier of windows as a plain band to a flat top with a heavy edge, its top at about 13.7 m and 14.9 m through their cameras, where T-3279's slated cone rose from 12.1 m to a finial at 14.4 m; built by carrying its third storey up 1.9 m, plain over its windows, to 14.0 m under K08's nearly flat tin cap (its eaves the heavy edge), and the cone and finial taken off. (3) FRONT_BOW's upper storey 2.4 m and its lights 1.7 m, 0.2 and 0.1 m under T-3279's, so the bow still stops under the cornice's bed, which the steeper hip's soffit brings 0.1 m lower."
+     "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top. T-3280: (2) NORTH_TOWER's top: the 1919 programme plate and the 1913 plate both show the tower carried up past its third tier of windows as a plain band to a flat top with a heavy edge, its top at about 13.7 m and 14.9 m through their cameras, where T-3279's slated cone rose from 12.1 m to a finial at 14.4 m; built by carrying its third storey up 1.9 m, plain over its windows, to 14.0 m under K08's nearly flat tin cap (its eaves the heavy edge), and the cone and finial taken off. (3) FRONT_BOW's upper storey 2.4 m and its lights 1.7 m, 0.2 and 0.1 m under T-3279's, so the bow still stops under the cornice's bed, which the steeper hip's soffit brings 0.1 m lower. T-3305: the bow and the tower stand on the house's stone basement (plinth_m 1.7, the basement's top), the plates' pale base carried round both under their brick."
     },
     "rear_wings": {
      "value": [
