@@ -1199,6 +1199,13 @@ step "a wing's shallow projection may run past its wall's end onto the next wing
 step "a K01 brick front's door may be cut round-headed under its round lights' arch band (T-3283)" \
   python3 tools/test_k01_round_door.py
 
+# T-3283. 1945 Prairie's north bay under its own mansard with two dormers (the Tribune's 1928
+# photograph): a symmetrical canted bay's mansard may carry dormers on its front run, clear of
+# hips that leave its corners at half the cant's turn; refused across a hip, meeting, under the
+# curb, hooded, with no mansard or on an unsymmetrical cant; a square projection's rule unchanged.
+step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
+  python3 tools/test_k08_canted_bay_dormers.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
