@@ -1,0 +1,85 @@
+{
+  "structure_id": "dexter_house_1721_prairie_coach_house",
+  "view": "detroit_det_4a08065",
+  "glb": "assets/gltf/dexter_house_1721_prairie_coach_house__as_standing_1904.glb",
+  "glb_sha256": "092e76dcde4f57f85b6803868ac97f553702cd02eea73151a1b85ae24c85947c",
+  "camera_sha256": "7b08717fb3cd258890efeccbd1408007e6b69c20af5f53582d5eb865d09111c8",
+  "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
+  "rendered_members": [
+    {
+      "structure_id": "dexter_house_1721_prairie_coach_house",
+      "glb": "assets/gltf/dexter_house_1721_prairie_coach_house__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1477.678,
+        "local_n": -3138.326,
+        "rotation_deg": -0.393,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "092e76dcde4f57f85b6803868ac97f553702cd02eea73151a1b85ae24c85947c"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -21.506893956208664,
+        0,
+        29.06916609324027
+      ],
+      "rotation_y": -3.1416624667598727,
+      "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037"
+    },
+    {
+      "structure_id": "dexter_house_1721_prairie",
+      "glb": "assets/gltf/dexter_house_1721_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1432.826,
+        "local_n": -3132.173,
+        "rotation_deg": 179.607,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -44.808740927069366,
+        0,
+        -6.460499170403904
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "7fd31b1da5606084d7ee8532130e27ebfbd8b23e601c4a299d147c74d081b2f5"
+    }
+  ],
+  "group_sha256": "1e2b0719b10c1316cf207889c4294ad32fe9f34410c44546f7d45e9ab6129379",
+  "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie_coach_house/detroit_det_4a08065-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the coach house itself: the photograph shows nothing of it. From the south-west corner of Prairie Avenue and 18th Street it stands about 130 m off, directly behind the Pullman house; its plan corners fall at x about 290-462 px and its eave and ridge at y about 415-445 px, inside the house's own silhouette, and the render, drawn with the Pullman and Dexter houses, shows none of it either",
+      "status": "not shown"
+    },
+    {
+      "what": "its walls' and roof's colours and its openings: the photograph is monochrome and the building is hidden",
+      "status": "not shown"
+    },
+    {
+      "what": "the Pullman house and the Dexter house in front of it are drawn only to hide it; how they match this photograph is their own records' (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.match.json)",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
