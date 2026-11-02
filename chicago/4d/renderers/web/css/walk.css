@@ -1288,6 +1288,31 @@ body.is-touch .crosshair { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .quick-column > .quick-inspect, .quick-column > .quick-inspect[hidden] { transition: none; transform: none; }
 }
+/* T-3319: the Interact key, under Inspect while a gate is in reach. It says what a press
+   will do ("Open gate"), so it keeps its words on a phone where Inspect goes icon-only;
+   the "Interact ·" lead and the R key hint are for a wider screen. It fades like Inspect. */
+.quick-interact { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--edge)); }
+.quick-interact .ik-verb { color: var(--ink-dim); }
+.quick-interact .ik-kbd {
+  font: inherit; font-size: 10px; line-height: 1; padding: 2px 4px; margin-left: 2px;
+  border: 1px solid var(--edge); border-radius: 4px; color: var(--ink-dim);
+}
+.quick-interact[aria-disabled="true"] { opacity: .75; cursor: default; }
+.quick-column > .quick-interact {
+  transition: opacity .2s ease-out, transform .2s ease-out, visibility 0s linear 0s;
+}
+.quick-column > .quick-interact[hidden] {
+  display: inline-flex;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity .25s ease-in, transform .25s ease-in, visibility 0s linear .25s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .quick-column > .quick-interact, .quick-column > .quick-interact[hidden] { transition: none; transform: none; }
+}
+@media (max-width: 560px), (pointer: coarse) {
+  .quick-interact .ik-verb, .quick-interact .ik-kbd { display: none; }
+}
 /* T-2977 (owner, 2026-10-21: "that button overlaps on mobile landscape"): a phone on its side
    is too short for a key at mid-height — the instrument, its heading row and the street
    readout reach past the middle. So Inspect drops to the lower right corner, under the
