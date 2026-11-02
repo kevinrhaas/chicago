@@ -24,7 +24,8 @@
  *  - every bounding volume, computed before the position can go, so the
  *    frustum never needs it again — for a BatchedMesh that is each of its
  *    geometries' box and sphere too, which three computes lazily off the
- *    positions the first time an instance is culled or sorted;
+ *    positions the first time an instance is culled or sorted, and which are
+ *    then kept as float32 figures rather than objects (batch-bounds.js, T-3173);
  *  - a BatchedMesh index's element size, which three reads on every draw that
  *    culls: its array is swapped for an empty one of the same type, not dropped;
  *  - a geometry flagged `userData.rereadBeforeRelease`, which its layer will
@@ -46,6 +47,7 @@
 
 import * as THREE from 'three';
 import { isSharedImage, retireSharedImage } from './shared-images.js';
+import { compactBatchBounds } from './batch-bounds.js';
 
 /** Layer → attributes it must keep for a tap. Unlisted layers keep nothing. */
 export const RELEASE_KEEP = {
@@ -84,7 +86,9 @@ const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_AR
   // T-2548: the buildings' source glTF geometry, and their decoded images.
   sources: 0, sourceBytes: 0, images: 0, imageBytes: 0,
   // T-2828: a GLB KTX2's transcoded levels, let go by texture residency once uploaded.
-  compressed: 0, compressedBytes: 0 };
+  compressed: 0, compressedBytes: 0,
+  // T-3173: BatchedMesh geometry bounds moved into typed arrays (batch-bounds.js).
+  boundsRows: 0, boundsBytes: 0 };
 
 /** T-2828: texture-residency.js let go of one source's transcoded levels (`bytes`). */
 export function noteReleasedLevels(bytes) {
@@ -156,6 +160,10 @@ function batchBounds(batch) {
     batch.getBoundingBoxAt(id, _box);
     batch.getBoundingSphereAt(id, _sphere);
   }
+  // T-3173: and then kept as figures in two typed arrays rather than a Box3 and a
+  // Sphere apiece — about 20 MB of a phone's JS heap on /1904/ (batch-bounds.js).
+  const rows = compactBatchBounds(batch);
+  if (rows) { census.boundsRows += rows; census.boundsBytes += batch.userData.compactBounds.bytes; }
 }
 
 /** What three's raycast interpolates at a hit when the geometry carries it. */

@@ -152,6 +152,14 @@ selftest "the kept-tile gate refuses a texel centre off, a wrap off and a strip 
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
+# T-3173. A phone keeps each BatchedMesh geometry's box and sphere as float32 figures,
+# not a Box3 and a Sphere apiece (batch-bounds.js): about 20 MB of /1904/'s heap.
+step "A batch's compact bounds hold three's own, rounded outward, and answer every reader with the positions gone (T-3173)" \
+  node tools/check_batch_bounds.mjs
+
+selftest "the compact-bounds gate refuses bounds rounded to nearest" \
+  node tools/check_batch_bounds.mjs --self-test
+
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
 
