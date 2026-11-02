@@ -9,6 +9,8 @@ building can refine your initial serviceable good draft model layer"). It is wri
     construction     the sheet's fabric colour, read as a wall family (attested/inferred)
     draft_plan       the building in rectangles, each fitted inside one traced part of
                      data/traces/prairie_1904_footprints_s<sheet>.json (inferred)
+                     — optionally `skew_per_m`, a parallelogram plan built sheared,
+                     u' = u - k * v (T-3316), and per part `eave_m`, a picture's eave
     draft_elevation  heights, roof family, openings, features and palette: the draft
                      rules of data/components/prairie_1904/draft_prairie_1904.json
                      applied to this row (reconstructed)
