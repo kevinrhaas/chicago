@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2582, ts: '2026-11-02T21:27:38.458Z', date: 'Nov 2, 2026, 3:27 PM CT', title: 'Bridge arrivals show the whole crossing', kind: 'fix',
+    items: [
+      'Arriving at a bridge now frames its full rendered span at the correct water height.',
+    ] },
   { v: 2581, ts: '2026-11-02T21:21:22.262Z', date: 'Nov 2, 2026, 3:21 PM CT', title: 'Pullman\'s roof joined under one rail; ivy off the corner windows', kind: 'fix',
     items: [
       '1729 Prairie\'s mansard is now one roof: the north block, the entry, the 18th Street and rear sections run back into the house\'s roof instead of standing under their own, so the notch between the north block and the entry is gone',
