@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "20c587ad80f4b1d25e9c7d5b9e97f642990058ddfee3d4593d4beee81e4d2b6e",
+  "glb_sha256": "c034d8df4279f3486729f73452f893caa986eeb8ee8214068c00cdc1d0d7ba6e",
   "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -275,7 +275,7 @@
       "how": "T-1881, 2026-10-30: through this camera the oculus renders at about x 664, y 348 px, under 2 px across at the print's 5-6 px a metre along the flank, in a stretch the print draws behind the tree's branches, and the east corner pier at x 687-689, behind the tree at x 685-700; the print can say neither."
     },
     {
-      "what": "the porte-coch\u00e8re's west arch, seen nearly square (x 610-645 px), and the front's past the corner pier: piers either side of each arch equal, banded, under the entablature",
+      "what": "the porte-cochère's west arch, seen nearly square (x 610-645 px), and the front's past the corner pier: piers either side of each arch equal, banded, under the entablature",
       "status": "within tolerance",
       "how": "T-1881: the end arches centred on the face standing out before the 18th Street pavilion (4.22 m out, 2.5 m across, 0.5 m piers) and the front's at s 10.5 (2.4 m); this print reads the west arch 0.81-3.18 m out on a block it reads 4.27 m out, and Taylor's no. 1445 reads the block 5.45 m out with its arch 1.9-4.7 m, so the build's place between them is a disagreement between the two pictures; the banding, impost and ring are a pixel or two here and are read off Taylor's"
     },
@@ -301,7 +301,7 @@
     {
       "what": "the front parts' depth and ends: the print's north return suggests 1.2-2 m, the portico and its balcony reach further north in the print (x 310-425 px) than the build's",
       "status": "open",
-      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m and the entry 1.6 m forward, the 1911 sheet's lines, the portico 4.0 m wide before the entry and clear of the block; the parts' ends along the front are the sketch's proportions, read to about 0.5 m, so this stays open until a camera on the plate's own corners reads them (L-pullman-1729-three-part-front-1881) T-1881 (2026-11-02), the CHM 1905 camera (chm_clark_1905): re-rendered through this camera on the round-3 build, the big pedimented dormer and the light column under it draw at x 505-509 (v 14.45) against the print's at x 460-466 (v 11.0-11.45), and Clark's 1905 photograph, through its own camera fitted without the dormer, puts them at v 11.0-11.45 too. Both pictures place them about 3.2 m north of the build's, inside the entry part as laid (v 7.35-12.1), and the print's own second, smaller dormer (x 510-525) stands where the build's big one is; so the parts' ends are what the pictures disagree with, not the dormer alone."
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m and the entry 1.6 m forward, the 1911 sheet's lines, the portico 4.0 m wide before the entry and clear of the block; the parts' ends along the front are the sketch's proportions, read to about 0.5 m, so this stays open until a camera on the plate's own corners reads them (L-pullman-1729-three-part-front-1881) T-1881 (2026-11-02), the CHM 1905 camera (chm_clark_1905): re-rendered through this camera on the round-3 build, the big pedimented dormer and the light column under it draw at x 505-509 (v 14.45) against the print's at x 460-466 (v 11.0-11.45), and Clark's 1905 photograph, through its own camera fitted without the dormer, puts them at v 11.0-11.45 too. Both pictures place them about 3.2 m north of the build's, inside the entry part as laid (v 7.35-12.1), and the print's own second, smaller dormer (x 510-525) stands where the build's big one is; so the parts' ends are what the pictures disagree with, not the dormer alone. T-1881 (2026-11-02): the Prairie front re-divided to the photographs: the north block v 0-5.0, the entry v 4.95-8.8 on the door at v 6.875 (the gate's axis), the south part v 8.8-17.93 on the main wall with the big column and its pedimented dormer at v 11.225 and the narrow south column (lights at v 15.45, a small dormer at v 14.8) restored (L-pullman-1729-three-part-front-1881): through this camera the render's big dormer stands at x 458 (the print's 460-466), the narrow column's light at x 523 (519-528), the small dormer at about 510 (502-518) and the north block's dormer at 317 (322-338); the depths stay the sheet's and the portico's reach north (x 310-425) stays open, since the hood is the entry's 3.1 m"
     },
     {
       "what": "the ivy on the porte-cochere's corner pier (x 645-668): the print shows it clothed from the ground to the entablature's soffit, its west face square to the camera and its south face edge-on to the south arch's jamb at x 668, while the inner pier (x 592-610) shows its banded courses bare; planted on the model's own pier, both faces, 6.55-6.85 m (T-1881, 2026-11-02). The leaves this print also draws over the south arch's ring are not planted: under a foot of the ring's west half",
@@ -314,7 +314,12 @@
     {
       "what": "the ivy's mantle over the principal storey up to the balcony's belt, across the lights' heads, on the front south of the portico and on the flank west of the porte-cochere: the owner, 2026-11-02, asked for it pulled back off the windows, so it keeps 0.4 m clear of each ground-storey light and stops at about their heads (L-pullman-1729-joined-roof-1881)",
       "status": "owner ruling"
+    },
+    {
+      "what": "the big pedimented dormer and its column of round-arched lights at x 460-466, and the narrow south bay with its smaller dormer (x 502-528): round 3 had the big column at v 14.45 (x 509) and no south bay",
+      "status": "fixed",
+      "how": "T-1881 (2026-11-02): the Prairie front re-divided to the photographs: the north block v 0-5.0, the entry v 4.95-8.8 on the door at v 6.875 (the gate's axis), the south part v 8.8-17.93 on the main wall with the big column and its pedimented dormer at v 11.225 and the narrow south column (lights at v 15.45, a small dormer at v 14.8) restored (L-pullman-1729-three-part-front-1881); through this camera the render's big dormer at x 458 and the narrow column's light at x 523"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
