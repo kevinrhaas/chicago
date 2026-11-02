@@ -1,4 +1,27 @@
 export const CHANGELOG = [ // newest first
+  { v: 2571, ts: '2026-11-02T14:31:28.481Z', date: 'Nov 2, 2026, 8:31 AM CT', title: '1919 Prairie: a stone basement, stone bands and an arched door', kind: 'feature',
+    items: [
+      'Marshall Field Jr.\'s house at 1919 Prairie Avenue now stands on a pale stone basement, carried round the front, the curved bay, the round tower and the north side, as the 1911 fire map and the house\'s early pictures show.',
+      'Three pale stone bands now cross the red brick: under the main-floor windows, at the upper floor and under the bedroom windows, on the front and round the north side.',
+      'The front door at the top of the stoop is now set in a round stone arch with a keystone, a pair of doors under a fanlight, where the pictures show an arched entrance.',
+      'Still to come: the curved bay carried up to the roof and the rounded north corner, then the stepped gables and two-storey bays along the north side.',
+    ] },
+  { v: 2570, ts: '2026-11-02T13:55:45.660Z', date: 'Nov 2, 2026, 7:55 AM CT', title: '1729 Prairie\'s ivy judged in leaf against its photograph', kind: 'chore',
+    items: [
+      'Nothing you can see in the walkthrough changes: its July ivy was already in leaf. The change is in how the Pullman house is checked against the Detroit Publishing photograph. That photograph\'s trees are bare but its ivy is in full leaf, so the review render now draws the ivy in leaf beside bare trees, not as bare stems. Matched that way, the ivy on the Prairie front and the 18th Street side now agrees with the photograph.',
+    ] },
+  { v: 2569, ts: '2026-11-02T13:45:47.498Z', date: 'Nov 2, 2026, 7:45 AM CT', title: 'Nothing you can see changed: the east side\'s alley buildings signed off', kind: 'chore',
+    items: [
+      'The four refined alley buildings behind 1811 to 1905 Prairie Avenue were checked in the live 1904 town, from the yards, the alley and the air, on desktop and phone, with no errors.',
+      'The Doane coach house is signed off against its one photograph. In that picture the house hides it less than the house does here, because the camera fitted to the house\'s front can\'t also place its far side.',
+      'From high above the 18th Street corner, a phone draws more than its budget allows. That comes from the glasshouses and trees there, not these buildings, and it is noted for a fix.',
+    ] },
+  { v: 2568, ts: '2026-11-02T13:25:44.114Z', date: 'Nov 2, 2026, 7:25 AM CT', title: '1904 back under its memory lines, on a phone and a desktop', kind: 'fix',
+    items: [
+      'The 1904 town had grown past the memory line a phone is held to as Prairie Avenue\'s houses and coach houses filled in; it is back under it, about 35 MB lighter, with nothing taken out of the scene',
+      'On a desktop, 1904 had crept over its own line too; it is about 35 MB lighter, mostly by no longer keeping a second copy of the Glessner house\'s file for a Settings switch the browser\'s cache already answers',
+      'The 1812 town had stopped opening on the preview, stalling at "Jump stalled": the parked carriages, which 1812 doesn\'t have, tripped over a list they never filled in. It opens again',
+    ] },
   { v: 2567, ts: '2026-11-02T13:24:23.518Z', date: 'Nov 2, 2026, 7:24 AM CT', title: 'A brick stable behind 1638 Prairie', kind: 'feature',
     items: [
       'The alley behind 1638 Prairie now has its two-storey brick stable, the last building on the north-west alley still standing as a rough draft: 11 m along the alley and 10.5 m deep, with a fire wall to the south and a ground-floor window in its north gable over the neighbour\'s yard. Its outline, storeys, brick and window places come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas shows the same crossed brick stable on the lot, so it stood through 1904. The doors, loft hatch, other windows and roof come from the shared coach-house kit and are reconstructed.',
