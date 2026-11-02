@@ -13,6 +13,7 @@
 //   QA_TARGET=1700 node tools/qa_k12_t1932.mjs       1700-1706's stable, the seventh (the longest on the alley)
 //   QA_TARGET=1720 node tools/qa_k12_t1932.mjs       1720's stable and its one-storey range, the eighth (the kit's range fitting)
 //   QA_TARGET=1726 node tools/qa_k12_t1932.mjs       1726's two-storey building (GARAGE in 1911), the ninth (the kit in mirror image)
+//   QA_TARGET=1730 node tools/qa_k12_t1932.mjs       1730's stable, its full-depth range and its one-storey piece, the tenth (range and lean-to on the lot line)
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -62,6 +63,11 @@ const TARGETS={
   ['alley-from-south',[1331,-3190,1.7],[1335,-3167,4]],
   ['yard-face',[1356,-3157,1.7],[1345,-3165,3.5]],
   ['air',[1375,-3195,44],[1340,-3164,0]]]},
+ '1730':{dir:'k12-1730-stable-range-1932',ids:['house_1730_prairie_coach_house','house_1730_prairie','house_1726_prairie_coach_house','house_1736_prairie_coach_house'],glb:'house_1730_prairie_coach',stands:[
+  ['alley-from-north',[1331,-3160,1.7],[1335,-3178,4]],
+  ['alley-from-south',[1331,-3200,1.7],[1335,-3182,3]],
+  ['yard-face',[1358,-3176,1.7],[1345,-3178,3]],
+  ['air',[1375,-3210,44],[1340,-3180,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
