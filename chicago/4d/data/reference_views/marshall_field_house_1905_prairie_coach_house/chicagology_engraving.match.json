@@ -1,0 +1,88 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie_coach_house",
+ "view": "chicagology_engraving",
+ "glb": "assets/gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb",
+ "glb_sha256": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38",
+ "camera_sha256": "01b5fb637d70f22f148a5acf791babe595dc7084cd579782f242bdc0c38afe70",
+ "photo_sha256": "fb24ea4c06c3265ac7bb9c2a6231a0b365f08d55e0131d0f410651fc0d01e03c",
+ "rendered_members": [
+  {
+   "structure_id": "marshall_field_house_1905_prairie_coach_house",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb",
+   "placement": {
+    "local_e": 1466.825,
+    "local_n": -3345.871,
+    "rotation_deg": 179.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "draft_1904"
+   },
+   "position": [
+    0,
+    0,
+    0
+   ],
+   "rotation_y": 0,
+   "glb_sha256": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38"
+  },
+  {
+   "structure_id": "marshall_field_house_1905_prairie",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
+   "placement": {
+    "local_e": 1443.678,
+    "local_n": -3356.596,
+    "rotation_deg": 179.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+   },
+   "position": [
+    23.249984247961887,
+    0,
+    -10.499879354998278
+   ],
+   "rotation_y": 0,
+   "glb_sha256": "95862ab3dd00167c768dad224dae45c747362b3d8d416e9a73e6547f689b12c2"
+  },
+  {
+   "structure_id": "marshall_field_house_1905_prairie_conservatory",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
+   "placement": {
+    "local_e": 1431.842,
+    "local_n": -3373.512,
+    "rotation_deg": 359.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+   },
+   "position": [
+    35.2495777708627,
+    0,
+    -27.300227782491167
+   ],
+   "rotation_y": -3.141592653589794,
+   "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
+  }
+ ],
+ "group_sha256": "4bcdfa1c579ced7863e1a24fdd2a54b89df47fef04d08e9acc188a80e9fb1918",
+ "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie_coach_house/chicagology_engraving-side-by-side.jpg",
+ "verdict": "matches",
+ "differences": [
+  {
+   "what": "the engraving's right edge draws a mansarded building with one round-arched dormer, a cornice and a lower front piece; the render shows the sheet's separate two-storey building south of the barn (r2: the 1911 sheet draws it in its own outline south of the barn's party wall) there, with the barn's mansard behind it",
+   "status": "not shown",
+   "how": "T-1936: the picture predates it. Neither the 1870s photograph nor the 1893 plate shows any building there (the barn's south face is seen whole from its cornice to its roof in the one, its corner in the other); the 1911 sheet draws it, so it was put up between 1893 and 1911, and the 1904 build stands it because the T-1841 census rules the sheet's building present_as_mapped in 1904 (a reconstruction, L-t1936-field-coach-house). The barn's south end is built behind it as the photograph shows it (cornice, brackets, frieze, mansard, one dormer, a stack)."
+  },
+  {
+   "what": "the engraved dormer's round arch, where the 923 photograph's dormers are small and pedimented",
+   "status": "within tolerance",
+   "how": "an engraver's dormer at the edge of a composed view; the photograph is read"
+  },
+  {
+   "what": "the engraving's tone: a print",
+   "status": "not shown",
+   "how": "no colour"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

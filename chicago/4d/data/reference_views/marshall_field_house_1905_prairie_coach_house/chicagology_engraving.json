@@ -1,0 +1,33 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie_coach_house",
+ "scene": "1904",
+ "also_render": [
+  "marshall_field_house_1905_prairie",
+  "marshall_field_house_1905_prairie_conservatory"
+ ],
+ "source_id": "chicagology_1905_field_engraving",
+ "library_image": "a19-cgy-1905-field-1893-engraving",
+ "photo": "../../sources/assets/field_1905_pictures_t3271/field_1893_engraving.jpg",
+ "image_px": [
+  1743,
+  1843
+ ],
+ "principal_px": [
+  871.5,
+  1353.0
+ ],
+ "focal_px": 4576.0,
+ "eye": [
+  108.97,
+  41.24,
+  1.6
+ ],
+ "yaw_deg": 252.85,
+ "sky": "overcast",
+ "sun_uvy": [
+  0.6,
+  0.6,
+  1.2
+ ],
+ "solve": "T-1936: the house's own camera on this engraving (data/reference_views/marshall_field_house_1905_prairie/chicagology_engraving.json), moved into the coach house's footprint frame and nothing else: both records stand at rotation 179.444 in the 1904 scene, and the house's origin lies at u +23.25, v +10.5 in this frame (their sidecar placements, local e/n 1443.678/-3356.596 against 1466.825/-3345.871), so the eye moves by that much at the same height, the heading and the light unchanged. The house is drawn with it (also_render) because it hides the coach house's north part in every picture of it. The engraving's right edge (x about 1480-1743 px) draws a mansarded building with an arched dormer and a lower front piece past the conservatory, where this camera puts the coach house's west face and the sheet's south building; an engraver's composition, read for its forms, not measured."
+}

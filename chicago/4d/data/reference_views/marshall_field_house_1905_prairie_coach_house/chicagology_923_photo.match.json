@@ -1,0 +1,138 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie_coach_house",
+ "view": "chicagology_923_photo",
+ "glb": "assets/gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb",
+ "glb_sha256": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38",
+ "camera_sha256": "013af9cbc9e9c68c5043a4b388d332c89ad8cb0cb6278474d41abf8770862bf1",
+ "photo_sha256": "de5ec221368f99f6ae1fb4918204849e199566266c2f8bdb158e35204d9a494d",
+ "rendered_members": [
+  {
+   "structure_id": "marshall_field_house_1905_prairie_coach_house",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb",
+   "placement": {
+    "local_e": 1466.825,
+    "local_n": -3345.871,
+    "rotation_deg": 179.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "draft_1904"
+   },
+   "position": [
+    0,
+    0,
+    0
+   ],
+   "rotation_y": 0,
+   "glb_sha256": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38"
+  },
+  {
+   "structure_id": "marshall_field_house_1905_prairie",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
+   "placement": {
+    "local_e": 1443.678,
+    "local_n": -3356.596,
+    "rotation_deg": 179.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+   },
+   "position": [
+    23.249984247961887,
+    0,
+    -10.499879354998278
+   ],
+   "rotation_y": 0,
+   "glb_sha256": "95862ab3dd00167c768dad224dae45c747362b3d8d416e9a73e6547f689b12c2"
+  },
+  {
+   "structure_id": "marshall_field_house_1905_prairie_conservatory",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
+   "placement": {
+    "local_e": 1431.842,
+    "local_n": -3373.512,
+    "rotation_deg": 359.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+   },
+   "position": [
+    35.2495777708627,
+    0,
+    -27.300227782491167
+   ],
+   "rotation_y": -3.141592653589794,
+   "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
+  }
+ ],
+ "group_sha256": "4bcdfa1c579ced7863e1a24fdd2a54b89df47fef04d08e9acc188a80e9fb1918",
+ "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie_coach_house/chicagology_923_photo-side-by-side.jpg",
+ "verdict": "matches",
+ "differences": [
+  {
+   "what": "the roof: a mansard, its steep lower face rising from the cornice to a curb about 7.4 m up with a low hipped deck above it, where the draft built a gable over two full storeys",
+   "status": "fixed",
+   "how": "T-1936: r1 roof mansard, lower face 3.2 m (lower_m) over a 4.25 m eave; the deck the rules' 18-degree hip, its ridge about 8.9 m where the photograph reads about 9.2 m (within tolerance)"
+  },
+  {
+   "what": "the walls: ONE brick storey under the cornice (the cornice's top about 4.25 m over grade, read at x 1700 px), the second storey of the sheet's '2' being the mansard's; the draft stood two brick storeys to 6.2 m",
+   "status": "fixed",
+   "how": "T-1936: r1 one storey of 4.25 m (storey_heights_m), the mansard its second"
+  },
+  {
+   "what": "the cornice: a deep moulded cornice from about 3.45 to 4.25 m with small brackets under it about every 1.2 m (y 938-951 px), over a pale stone frieze band from about 2.6 to 3.1 m (y 953-970)",
+   "status": "fixed",
+   "how": "T-1936: cornice 0.8 m deep, 0.4 m out (cornice_h_m, cornice_out_m); modillions every 1.2 m, 0.3 m tall, on all four faces; a 0.5 m stone course at 2.6 m (courses h_m)"
+  },
+  {
+   "what": "the west face's openings: four small windows about 0.7 m wide and 0.85 m tall, sills about 1.72 m up under the frieze, at v about 18.1, 20.5 and 21.5 (a pair) and 24.0 m (x 1611-1632, 1684-1705, 1713-1736, 1794-1815 px)",
+   "status": "fixed",
+   "how": "T-1936: dressed face r1:u1 with those four; the face's north 17 m is behind the house in every picture and carries five more at the reconstructed 3 m rhythm"
+  },
+  {
+   "what": "the window lights: the photograph's sashes show small panes; the render's are two-light",
+   "status": "within tolerance",
+   "how": "glazing bars under 0.3 m at 65 m"
+  },
+  {
+   "what": "the dormers: three small pedimented dormers on the mansard's west face at v about 17.6, 21.1 and 24.6 m (x 1607, 1712, 1825 px), and one in the middle of the south end (x 1970)",
+   "status": "fixed",
+   "how": "T-1936: dormers 0.7 by 0.75 m at those centres (dormers), the north 14 m of the face carrying four more at the same 3.5 m pitch, and the alley face and north end matching them (reconstructed)"
+  },
+  {
+   "what": "the ventilator: a square louvred cupola about 3.2 m across on the ridge (x 1617-1747 px), four louvred panels a face between posts, its drum about 1 m tall under a cornice, a pyramidal cap to about 10.5 m and a finial to about 11.3 m",
+   "status": "fixed",
+   "how": "T-1936: lantern, four sides, radius 2.24 m at v 17.3, four panels a face (panels), cap profile straight to its crown; its louvres drawn as dark panels"
+  },
+  {
+   "what": "the stacks: one on the ridge south of the cupola (x 1807-1832, top about 10.3 m), one over the cupola's east shoulder (x 1722-1750) and one at the south end (x 1970-1992)",
+   "status": "fixed",
+   "how": "T-1936: three stacks (stacks), each placed by its x in the photograph and a depth this one view cannot give (on the ridge, near the alley wall, near the south end): their places across the roof are inferred"
+  },
+  {
+   "what": "the spirelets: a slated spirelet near the south end of the ridge (x 1905-1940 px, top about 10.2 m) and a smaller spike at the south hip's foot (x 1957-1965)",
+   "status": "fixed",
+   "how": "T-1936: two pinnacles (pinnacles), 1.0 and 0.35 m square"
+  },
+  {
+   "what": "the barn's south corner: the photograph's at x 1893-1900 px, the build's (the sheet's party wall, v 26.1) at x 1873",
+   "status": "within tolerance",
+   "how": "about 0.6 m, with the house's camera 20 m beyond the last point it was fitted to; the 1893 plate's camera puts the same corner 1.7 m the other way of the photograph's, so the sheet holds it"
+  },
+  {
+   "what": "the barn's south end face, seen in the photograph from x 1893 to the edge: in the render the sheet's separate two-storey building south of the barn (r2: the 1911 sheet draws it in its own outline south of the barn's party wall) stands in front of it below about 7 m",
+   "status": "not shown",
+   "how": "T-1936: the picture predates it. Neither the 1870s photograph nor the 1893 plate shows any building there (the barn's south face is seen whole from its cornice to its roof in the one, its corner in the other); the 1911 sheet draws it, so it was put up between 1893 and 1911, and the 1904 build stands it because the T-1841 census rules the sheet's building present_as_mapped in 1904 (a reconstruction, L-t1936-field-coach-house). The barn's south end is built behind it as the photograph shows it (cornice, brackets, frieze, mansard, one dormer, a stack)."
+  },
+  {
+   "what": "the walls' and roof's colours: the photograph is monochrome; the brick reads dark, the frieze pale",
+   "status": "not shown",
+   "how": "the brick stays the rules' red brick (the sheet says brick), the roof slate"
+  },
+  {
+   "what": "the fence before the coach house and the house in front of its north part",
+   "status": "not shown",
+   "how": "T-1936: the house's and its lot's, not this record's (the fence is the 1904 fence, T-1905); the house's own items are in its match records"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -267,6 +267,46 @@ def dormer_on_face(m: Mesh, side, s, y_sill, w, h, face_coord, slope_out, pitch_
         m.box("glass", s - w / 2 + 0.15, s + w / 2 - 0.15, min(f, g0), max(f, g0), y_sill, y_sill + h)
 
 
+def modillions(m: Mesh, rect, y, spec: dict):
+    """Small brackets under a cornice at a stated pitch on the named faces (T-1936: the Field
+    coach house's cornice in the 1870s photograph): blocks `w_m` wide, `h_m` tall and `out_m`
+    out from the wall, their tops at the cornice's soffit `y`, every `every_m` along each face
+    from `margin_m` in at its ends."""
+    u0, v0, u1, v1 = rect
+    w, h, out = float(spec.get("w_m", 0.14)), float(spec.get("h_m", 0.25)), float(spec.get("out_m", 0.3))
+    pitch, margin = float(spec["every_m"]), float(spec.get("margin_m", 0.3))
+    for side in spec["faces"]:
+        a, b = (v0, v1) if side in ("u0", "u1") else (u0, u1)
+        n = max(1, int((b - a - 2 * margin) / pitch) + 1)
+        step = (b - a - 2 * margin) / (n - 1) if n > 1 else 0.0
+        for k in range(n):
+            s = a + margin + step * k
+            if side == "u1":
+                m.box("cornice", u1, u1 + out, s - w / 2, s + w / 2, y - h, y)
+            elif side == "u0":
+                m.box("cornice", u0 - out, u0, s - w / 2, s + w / 2, y - h, y)
+            elif side == "v1":
+                m.box("cornice", s - w / 2, s + w / 2, v1, v1 + out, y - h, y)
+            else:
+                m.box("cornice", s - w / 2, s + w / 2, v0 - out, v0, y - h, y)
+
+
+def mansard_dormers(m: Mesh, rect, eave, d, spec: dict) -> int:
+    """Dormers on a mansard's lower faces where a picture puts them (T-1936: the Field coach
+    house's small dormers, read off the 1870s photograph): `faces` maps a side to the
+    centres along it, each `w_m` by `h_m` with its sill `sill_m` over the eave, standing
+    a third of the way in from the eave line as the rules' dormers do."""
+    u0, v0, u1, v1 = rect
+    w, h, sill = float(spec.get("w_m", 1.0)), float(spec.get("h_m", 1.6)), float(spec.get("sill_m", 0.55))
+    out, n = d * 0.35, 0
+    for side, centres in spec["faces"].items():
+        at = {"u1": u1 + 0.35 - out, "u0": u0 - 0.35 + out, "v1": v1 + 0.35 - out, "v0": v0 - 0.35 + out}[side]
+        for s in centres:
+            dormer_on_face(m, side, float(s), eave + sill, w, h, at, d * 0.65 + 0.6)
+            n += 1
+    return n
+
+
 def prism(m: Mesh, mat, ring, y0, y1):
     cen = (_seqsum(p[0] for p in ring) / len(ring), _seqsum(p[1] for p in ring) / len(ring), (y0 + y1) / 2)
     n = len(ring)
@@ -679,9 +719,12 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
     for band in f.get("courses", []):
         P, inside, _ = face_of(band)
         s0, s1, y = float(band["s0"]), float(band["s1"]), float(band["y_m"])
-        q = [P(s0, 0.0, y), P(s1, 0.0, y), P(s1, 0.12, y), P(s0, 0.12, y)]
-        m.solid([q, [P(s0, 0.0, y + 0.2), P(s1, 0.0, y + 0.2), P(s1, 0.12, y + 0.2), P(s0, 0.12, y + 0.2)],
-                 [P(s0, 0.12, y), P(s1, 0.12, y), P(s1, 0.12, y + 0.2), P(s0, 0.12, y + 0.2)]], mat="trim")
+        # a course may state its depth and projection (T-1936: the Field coach house's stone
+        # frieze under its brackets); the rules' 0.2 m band otherwise
+        bh, bo = float(band.get("h_m", 0.2)), float(band.get("out_m", 0.12))
+        q = [P(s0, 0.0, y), P(s1, 0.0, y), P(s1, bo, y), P(s0, bo, y)]
+        m.solid([q, [P(s0, 0.0, y + bh), P(s1, 0.0, y + bh), P(s1, bo, y + bh), P(s0, bo, y + bh)],
+                 [P(s0, bo, y), P(s1, bo, y), P(s1, bo, y + bh), P(s0, bo, y + bh)]], mat="trim")
     arc = f.get("arcade")
     if arc:
         P, inside, _ = face_of(arc)
@@ -854,6 +897,18 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
                     pts.append((ma + ta * half * math.cos(t), mb + tb * half * math.cos(t),
                                 spring + half * math.sin(t)))
                 m.face("glass", pts, (cu, cv, y0 + dh / 2))
+            elif lan.get("panels"):
+                # a row of louvred panels between posts on each face (T-1936: the Field coach
+                # house's ventilator in the 1870s photograph shows four a face)
+                npn = int(lan["panels"])
+                for j in range(npn):
+                    t0, t1 = 0.06 + 0.88 * (j + 0.12) / npn, 0.06 + 0.88 * (j + 0.88) / npn
+                    pa = (a_[0] + (b_[0] - a_[0]) * t0, a_[1] + (b_[1] - a_[1]) * t0)
+                    pb = (a_[0] + (b_[0] - a_[0]) * t1, a_[1] + (b_[1] - a_[1]) * t1)
+                    m.face("glass", [(pa[0], pa[1], y0 + 0.15), (pb[0], pb[1], y0 + 0.15), (pb[0], pb[1], y0 + dh - 0.15),
+                                     (pa[0], pa[1], y0 + dh - 0.15)], (cu, cv, y0 + dh / 2))
+                    windows += 1
+                continue
             else:
                 m.face("glass", [(ca, cb, y0 + 0.25), (da, db, y0 + 0.25), (da, db, y0 + dh - 0.3),
                                  (ca, cb, y0 + dh - 0.3)], (cu, cv, y0 + dh / 2))
@@ -1149,10 +1204,18 @@ def build(params, structure_id: str):
                 m.box("roof", u0, u1, v0, v0 + inset, eave, eave + 0.06)
             top = gable(m, "roof", u0, u1, v0 + inset, v1, eave, pitch, along=along, end_mat=mat)
         elif roof == "mansard":
-            m.box("cornice", u0 - 0.35, u1 + 0.35, v0 - 0.35, v1 + 0.35, eave - 0.45, eave)
-            lower = float(e.get("mansard_lower_m", 3.0))
+            # a part read off a picture may state its own cornice and lower face (T-1936: the
+            # Field coach house's bracketed cornice and mansard in the 1870s photograph)
+            co = float(p.get("cornice_out_m", 0.35))
+            m.box("cornice", u0 - co, u1 + co, v0 - co, v1 + co, eave - float(p.get("cornice_h_m", 0.45)), eave)
+            if p.get("modillions"):
+                modillions(m, p["rect"], eave - float(p.get("cornice_h_m", 0.45)), p["modillions"])
+            lower = float(p.get("lower_m", e.get("mansard_lower_m", 3.0)))
             (a0, a1, b0, b1, d), top = mansard(m, u0, u1, v0, v1, eave, lower, o=0.35)
-            if role == "main":
+            if p.get("dormers"):
+                facts["mansard_curb_m"] = round(eave + lower, 3)
+                windows += mansard_dormers(m, p["rect"], eave, d, p["dormers"])
+            elif role == "main":
                 facts["mansard_curb_m"] = round(eave + lower, 3)
                 sill = eave + 0.55
                 # dormers stand on the lower face's mid-line; a 72 degree face rises
