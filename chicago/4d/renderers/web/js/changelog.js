@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2567, ts: '2026-11-02T13:24:23.518Z', date: 'Nov 2, 2026, 7:24 AM CT', title: 'A brick stable behind 1638 Prairie', kind: 'feature',
+    items: [
+      'The alley behind 1638 Prairie now has its two-storey brick stable, the last building on the north-west alley still standing as a rough draft: 11 m along the alley and 10.5 m deep, with a fire wall to the south and a ground-floor window in its north gable over the neighbour\'s yard. Its outline, storeys, brick and window places come from the 1911 Sanborn sheet, and Robinson\'s 1886 atlas shows the same crossed brick stable on the lot, so it stood through 1904. The doors, loft hatch, other windows and roof come from the shared coach-house kit and are reconstructed.',
+    ] },
   { v: 2566, ts: '2026-11-02T11:54:13.410Z', date: 'Nov 2, 2026, 5:54 AM CT', title: '1637 Prairie: a brick stable on the railway\'s slant', kind: 'feature',
     items: [
       'The plain boxes behind 1637 Prairie are now one two-storey brick stable. It is built slanted, the way the 1911 fire-insurance map draws it, because its long walls follow the Illinois Central tracks. Carriage doors, a loft hatch and stable windows face the house\'s yard. An 1886 atlas marks a smaller brick stable in the same place. The doors, windows and roof are reconstructed.',
