@@ -70,7 +70,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.gable_colonnette a colonnette between or beside the lights under the great arch
   k01.roof.gable_pinnacle   a wall gable's pinnacle: square shaft, cap and pyramid
   k01.roof.gable_finial     a wall gable's turned finial on the ridge at its apex
-  k01.roof.dormer_coping    T-3293: a gabled mansard dormer's stone coping and its crockets
+  k01.roof.dormer_coping    a dormer gable's stone coping: a street dormer's coped gable
+                            (T-3301, `k01_dormer_coping`) — the coping along each rake, a
+                            kneeler at each foot, a finial — or a gabled mansard dormer's
+                            coping and its crockets (T-3293, `dormer_ornament`)
   k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
                             round-arched variant in the recess the roof's union cut
   k01.opening.sash_round_hooded
@@ -3985,6 +3988,29 @@ class Assembly:
                         for a in at]
                 recess = cuts[0]
                 recesses += cuts[1:]
+            # T-3301: the further street dormers (1919's one-light dormer), each built as the
+            # first: its K05 gable joined into the hip, a K06 reveal cut for each light
+            self.also_dormer_geoms = []
+            for e in d.get("also", ()):
+                wd, sb, hf = e["width_m"], e["face_setback_m"], e["face_height_m"]
+                dt = math.tan(math.radians(e["pitch_deg"]))
+                xf, ys = D - sb, E + sb * tp
+                yde, zc = ys + hf, -e["v_m"]
+                back = D - (yde + wd / 2 * dt - E) / tp - 0.5
+                g, dhs, dhe, dry = k5.gable_element(back, xf, zc - wd / 2, zc + wd / 2, yde, dt, dp["overhang_m"],
+                                                    e["verge_m"], dp["fascia_depth_m"], hs, "x", verge_ends=("hi",),
+                                                    wall_role="cheek", end_role="dormer_face",
+                                                    body_end_role="dormer_face")
+                solids += g
+                self.also_dormer_geoms.append({"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
+                                               "zs": zc + wd / 2, "zn": zc - wd / 2, "dt": dt,
+                                               "overhang": dp["overhang_m"], "back": back})
+                sw, ss, sh = e["sash"]["width_m"], e["sash"]["sill_m"], e["sash"]["height_m"]
+                recesses += [k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
+                                         (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
+                                        zc + a - sw / 2, zc + a + sw / 2, P,
+                                        lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+                             for a in e["sash"]["at_m"]]
         if p.rear_section:   # T-2820: the rear section's attic, its end parapets and dormers
             from . import k01_rear_section
             more, cut = k01_rear_section.elements(self, k5, f)
@@ -4079,6 +4105,12 @@ class Assembly:
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
         if d:
             self.dormer_sash(seed)
+            for e, g in zip(d.get("also", ()), getattr(self, "also_dormer_geoms", ())):   # T-3301
+                self.dormer_sash(seed, e, g)
+            if d.get("coping"):   # T-3301: each street dormer's stone-coped gable
+                from . import k01_dormer_coping
+                for e, g in [(d, self.dormer_geom)] + list(zip(d.get("also", ()), self.also_dormer_geoms)):
+                    k01_dormer_coping.dress(self, e, g, seed)
         if p.shaped_gable:
             from . import k01_shaped_gable
             k01_shaped_gable.dress(self, seed)
@@ -5079,10 +5111,12 @@ class Assembly:
                                       (0.45, 0.6, 0.45, 0.8), (0.6, 0.7, 0.8, 0.3), (0.7, 1.0, 0.3, 0.03)):
                 af._frustum(self, mat, Fr, c, dm, ya + fa * hg, ya + fb * hg, rr * ra_, rr * rb, fseed, conf)
 
-    def dormer_sash(self, roof_seed):
+    def dormer_sash(self, roof_seed, d=None, g=None):
         """The dormer's face: a K01 wall component whose surface is the union's, and its
-        sash set in the recess the union cut (the reveal is the solid's, K06 the rest)."""
-        p, d, g = self.p, self.p.dormer, self.dormer_geom
+        sash set in the recess the union cut (the reveal is the solid's, K06 the rest).
+        T-3301: `d` and `g` name a further street dormer and its geometry (the first's if not)."""
+        p = self.p
+        d, g = (p.dormer, self.dormer_geom) if d is None else (d, g)
         if d.get("wall_gable"):     # T-2428: its lights, voussoirs, pinnacles and finial
             from . import k01_wall_gable
             return k01_wall_gable.dress(self, roof_seed)
@@ -5161,6 +5195,8 @@ class Assembly:
             self.dressed[kind] += 1
         if self.p.dormer:
             self.dormer_flashing(seed, lift)
+            for g in getattr(self, "also_dormer_geoms", ()):   # T-3301: the further dormers'
+                self.dormer_flashing(seed, lift, g)
 
     @staticmethod
     def _bent_hip(pts, tris, A, B):
@@ -5254,10 +5290,11 @@ class Assembly:
             c0, c1 = _add(V0, _mul(rib, lift + k["valley_crimp_m"])), _add(V1, _mul(rib, lift + k["valley_crimp_m"]))
             fl.quad(b0, b1, c1, c0, _add(n, _mul(q, -1)), self.basis(mat, b0, Lv, _unit(_sub(c0, b0)), seed), conf)
 
-    def dormer_flashing(self, seed, lift):
+    def dormer_flashing(self, seed, lift, g=None):
         """The apron under the face and step flashing up each cheek, on the abutment
-        lines the K05 dormer leaves on the street hip."""
-        p, k, g = self.p, self.p.roof, self.dormer_geom
+        lines the K05 dormer leaves on the street hip (T-3301: `g`, a further dormer's)."""
+        p, k = self.p, self.p.roof
+        g = self.dormer_geom if g is None else g
         conf = p.worst_conf("roof_form", "roof_pitch_deg", "dormer")
         D, E = p.depth_m, p.eave_m
         tp = math.tan(math.radians(p.roof_pitch_deg))
