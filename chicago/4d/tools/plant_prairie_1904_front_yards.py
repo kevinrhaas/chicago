@@ -105,6 +105,7 @@ GATE_BAND_M = 1.0          # a lot line's fence or wall is read this deep into t
 GATE_OUT_M = 0.5           # ... and this far out past the line, where a wall ON it stands (T-1934)
 GATE_MIN_M = 0.45          # ... and a gap in it this long to GATE_MAX_M is a gateway (on the raster)
 GATE_MAX_M = 6.0
+HEAD_LEAF_HANG_M = 0.15     # T-1881: an ivy patch over a window's head stands this far over it
 GATE_WAY_M = 3.5           # a gateway's way is kept clear this far into the lot
 
 # What the pictures show, lot by lot (see the module doc).
@@ -725,7 +726,8 @@ class Yard:
 def window_spans(y, cw):
     """The s span, in the lot's frame, of each street-front window of one storey of a structure's
     sidecar (its `street_front_windows`, s_m along the K01 frame's v), widened by `margin_m`, with
-    its sill's height."""
+    its sill's height and the height of its head's outer edge (the opening's top, plus its
+    architrave's band where it has one)."""
     sc = json.loads((SIDECARS / f"{cw['sidecar']}.json").read_text())
     pl = sc["placement"]
     rd = math.radians(pl.get("rotation_deg") or 0.0)
@@ -741,7 +743,8 @@ def window_spans(y, cw):
             e = pl["local_e"] + cw["face_u_m"] * cd + v * sd
             n = pl["local_n"] - cw["face_u_m"] * sd + v * cd
             ends.append((e - y.A[0]) * y.su[0] + (n - y.A[1]) * y.su[1])
-        out.append((min(ends), max(ends), wnd["sill_m"]))
+        head = wnd["sill_m"] + wnd["height_m"] + (wnd.get("architrave") or {}).get("band_m", 0.0)
+        out.append((min(ends), max(ends), wnd["sill_m"], head))
     return out
 
 
@@ -1003,7 +1006,7 @@ def plant_lot(p, plan: Plan, house, sids):
             # 0.9 m or less, none reaching past the run's ends
             gaps = sorted(window_spans(y, wl["clear_windows"])) if "clear_windows" in wl else []
             runs, a = [], max(lo, float(along.flat[idx].min()))
-            for g0, g1, _ in gaps:
+            for g0, g1, _, _ in gaps:
                 if g0 > a:
                     runs.append((a, min(g0, hi)))
                 a = max(a, g1)
@@ -1021,14 +1024,29 @@ def plant_lot(p, plan: Plan, house, sids):
                         continue
                     e, n = y.world(i)
                     creeper.append([e, n, facing, w, r2(rng.uniform(*wl["height_m"])), "mantle"])
-            # ...and under each window, the wall below its sill clothed up to the sill
-            for g0, g1, sill in gaps:
+            # ...and under each window, the wall below its sill clothed up to the sill; and over its
+            # head, the wall from the head's outer edge up to the mantle's level top clothed as well
+            # (T-1881: LC-D4-12551 shows the leaves running unbroken over the light's head to the
+            # belt course, the moulded ring showing only as a lighter line under them). The patch
+            # over the head stands on the head (`base_m`, the entry's seventh field) and is drawn
+            # level at the stretch's middle height, with no rng draw, so every other patch keeps
+            # its own.
+            # its foot is lifted HEAD_LEAF_HANG_M, because the mat's lowest leaves hang about that far
+            # below the point they grow from and would otherwise lie over the light's arched glass.
+            top = sum(wl["height_m"]) / 2
+            for g0, g1, sill, head in gaps:
+                head += HEAD_LEAF_HANG_M
                 c = (g0 + g1) / 2
                 i = idx[np.argmin(np.abs(along.flat[idx] - c) + y.dh.flat[idx])]
                 if abs(along.flat[i] - c) > 0.5 or y.terms["a door or the way to it"].flat[i] < (g1 - g0) / 2:
                     continue
                 e, n = y.world(i)
                 creeper.append([e, n, facing, r2(g1 - g0 + 0.2), r2(sill - 0.05), "mantle_sill"])
+                # as wide as the head's ring, but held to the door-way room at its foot like every patch
+                # (the collision check reads the foot's cell, whatever the patch's height)
+                wh = min(g1 - g0 + 0.8, 2 * float(y.terms["a door or the way to it"].flat[i]))
+                if top - head >= 0.3 and wh >= g1 - g0:
+                    creeper.append([e, n, facing, r2(wh - 0.01), r2(top - head), "mantle_head", r2(head)])
 
     out = {
         "parcel": p["id"], "street": p["street"], "side": p.get("side"),
@@ -1129,7 +1147,8 @@ def build(laid=None):
                 "crown_width_m, (grade if not the lot's), (stand_m, tub_m: a tub plant's, what its tub stands on "
                 "over the ground and the tub's height, (vessel: \"box\", a square planting box on legs, or \"over\", grown over the box at its spot, its foot tub_m up)))]; beds: [e, n, half_length_m, half_width_m, "
                 "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m, (\"mantle\" on a "
-                "stretch a picture shows wholly clothed, \"mantle_sill\" under a window in it: its top drawn level)]. The lawn is "
+                "stretch a picture shows wholly clothed, \"mantle_sill\" under a window in it: its top drawn level, "
+                "\"mantle_head\" over a window's head in it, (base_m: how far over the ground it stands, on the head)))]. The lawn is "
                 "the ground's own sward.",
         "scene": "1904", "target_date": "1904-07-01", "ticket": "T-3223",
         "generated_by": "tools/plant_prairie_1904_front_yards.py",

@@ -13,7 +13,7 @@
         "shrubs": 30,
         "trees": 3,
         "beds": 0,
-        "creeper": 19
+        "creeper": 20
       }
     ],
     "street_trees": 35,
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "b527f926d041a77b6c1cfe049ee0b0c82f32620fe09a48918fefa190e22d767f"
+      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "3bdd25d27199219843d748dc878a962ab7bdbdde1ee75f951a8472f9be47995b"
+      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "279073a23d545dbe8a240c7b09734b9df64a5e2986183287d7b57a9756da007e",
+  "flora_sha256": "6444459f2f0ddc8a274607d830a4cf49e92cdda55b98e7b886d857fd219f73e3",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -247,7 +247,7 @@
     {
       "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank)",
       "status": "open",
-      "how": "T-1881 (2026-10-30): the stretches this print shows wholly clothed are now drawn as one mantle up to the balcony's belt course (data/front_yards/1904.json, `mantle` patches from tools/plant_prairie_1904_front_yards.py's creeper_walls): the front's ground storey from the portico's south column to the south-west corner (s 25-34.6 m, x 414-558 through this camera) and the flank west of the porte-cochere (x 570-605), each patch's top at 6.4-7.0 m (y 387-405, the print's 387-395), stopping at the two round-arched lights the print shows clear and clothed under their sills (a summer render through this camera checked it). Still open: this view's winter render draws the ivy leafless where the print shows it in leaf; the leaves over the two lights' heads (the mantle's patches rise from the ground, so the wall over each head, about 1 m, is bare); the ivy on the porte-cochere's piers and the porch's piers, which the generator keeps clear as part of the carriage way and the porch"
+      "how": "T-1881 (2026-10-30): the stretches this print shows wholly clothed are now drawn as one mantle up to the balcony's belt course (data/front_yards/1904.json, `mantle` patches from tools/plant_prairie_1904_front_yards.py's creeper_walls): the front's ground storey from the portico's south column to the south-west corner (s 25-34.6 m, x 414-558 through this camera) and the flank west of the porte-cochere (x 570-605), each patch's top at 6.4-7.0 m (y 387-405, the print's 387-395), stopping at the two round-arched lights the print shows clear and clothed under their sills (a summer render through this camera checked it). Still open: this view's winter render draws the ivy leafless where the print shows it in leaf; the leaves over the two lights' heads (the mantle's patches rise from the ground, so the wall over each head, about 1 m, is bare); the ivy on the porte-cochere's piers and the porch's piers, which the generator keeps clear as part of the carriage way and the porch T-1881 (2026-11-02): the wall over the principal storey's round-arched light on this stretch (the one the front keeps there since its round-3 rebuild) is now clothed: a `mantle_head` patch stands on the light's head, 0.15 m over its architrave's outer edge (6.2 m), and runs level to the mantle's middle height (6.7 m), with no stems at its foot, so the leaves close over the head as the print shows them while the light's arch and glass stay clear (a summer render through this camera checked it; data/front_yards/1904.json from tools/plant_prairie_1904_front_yards.py). Still open: the winter render's leafless ivy, and the ivy on the porte-cochere's piers and the porch's piers."
     },
     {
       "what": "the belt course under the second storey's sills, where the ivy leaves it to be seen (y about 383-395 at the portico's balcony and across the flank)",
