@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2572, ts: '2026-11-02T15:12:12.433Z', date: 'Nov 2, 2026, 9:12 AM CT', title: '1945 Prairie\'s corner block rises under its own taller roof', kind: 'feature',
+    items: [
+      'In 1904, the Armour/Corwith house at 20th Street and Prairie now carries its corner block\'s mansard about a storey above the rest of its roof, as the Tribune\'s 1928 photograph shows. The taller roof turns the cut corner with it, and its three dormers stand high in it. 1945 Prairie now matches its photograph',
+    ] },
+  { v: 2571, ts: '2026-11-02T14:31:28.481Z', date: 'Nov 2, 2026, 8:31 AM CT', title: '1919 Prairie: a stone basement, stone bands and an arched door', kind: 'feature',
+    items: [
+      'Marshall Field Jr.\'s house at 1919 Prairie Avenue now stands on a pale stone basement, carried round the front, the curved bay, the round tower and the north side, as the 1911 fire map and the house\'s early pictures show.',
+      'Three pale stone bands now cross the red brick: under the main-floor windows, at the upper floor and under the bedroom windows, on the front and round the north side.',
+      'The front door at the top of the stoop is now set in a round stone arch with a keystone, a pair of doors under a fanlight, where the pictures show an arched entrance.',
+      'Still to come: the curved bay carried up to the roof and the rounded north corner, then the stepped gables and two-storey bays along the north side.',
+    ] },
   { v: 2570, ts: '2026-11-02T13:55:45.660Z', date: 'Nov 2, 2026, 7:55 AM CT', title: '1729 Prairie\'s ivy judged in leaf against its photograph', kind: 'chore',
     items: [
       'Nothing you can see in the walkthrough changes: its July ivy was already in leaf. The change is in how the Pullman house is checked against the Detroit Publishing photograph. That photograph\'s trees are bare but its ivy is in full leaf, so the review render now draws the ivy in leaf beside bare trees, not as bare stems. Matched that way, the ivy on the Prairie front and the 18th Street side now agrees with the photograph.',
