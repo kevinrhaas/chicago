@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2562, ts: '2026-11-02T08:11:53.492Z', date: 'Nov 2, 2026, 2:11 AM CT', title: '1729 Prairie\'s porte-cochère corner pier wears its ivy', kind: 'improvement',
+    items: [
+      'Ivy now clothes the Pullman house porte-cochère\'s corner pier on 18th Street, both faces, from the ground to the entablature, as the Detroit Publishing photograph shows it. The inner pier stays bare stone, as in the print. Like the rest of the house\'s ivy, it drops its leaves in the winter view.',
+    ] },
   { v: 2561, ts: '2026-11-02T08:00:32.011Z', date: 'Nov 2, 2026, 2:00 AM CT', title: 'The Doane coach house\'s yard front, as an old photograph shows it', kind: 'improvement',
     items: [
       'Behind 1827 Prairie Avenue, the coach house now has the pale walls, thin cornice and belt course of the one photograph that catches it.',
