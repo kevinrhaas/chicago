@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2554, ts: '2026-11-02T01:24:42.474Z', date: 'Nov 1, 2026, 7:24 PM CT', title: '1945 Prairie: the north bay\'s own dormered roof', kind: 'feature',
+    items: [
+      'The Armour-Corwith house at 1945 Prairie Avenue now carries its north bay up past the cornice under a slate mansard of its own, with two dormers in it over the bay\'s windows, as the Tribune\'s 1928 photograph shows. The stone cornice runs round the bay, and the bay\'s roof steps down to the house\'s.',
+      'The house\'s taller corner roof is still to come.',
+    ] },
   { v: 2553, ts: '2026-11-02T00:35:58.900Z', date: 'Nov 1, 2026, 6:35 PM CT', title: '1919 Prairie: a second dormer and stone-coped gables', kind: 'feature',
     items: [
       'Marshall Field Jr.\'s house at 1919 Prairie Avenue now has the smaller second dormer near the south end of its front, one tall window under its own gable, beside the broad three-window dormer, as both of its early photographs show.',

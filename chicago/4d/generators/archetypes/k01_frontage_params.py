@@ -3419,26 +3419,42 @@ def _bay_mansard_dormers(e: dict, v: dict) -> tuple:
     in the Detroit print, and its 18th Street pavilion's two in Taylor's photograph no. 1445),
     each the main mansard's lower-face dormer (`_round_dormer`) on the projection's front face,
     `at_m` from its centre along it (+ to the right seen from outside). Each stands clear of the
-    face's hips under the curb, as the main mansard's do, and its head stays under the curb."""
+    face's hips under the curb, as the main mansard's do, and its head stays under the curb.
+    T-3283: or on a canted bay's own mansard (1945's north bay in the Tribune's 1928 photograph,
+    carried up under its own crown with two dormers): any four-point polyline whose ends stand
+    on the wall plane and whose middle run is parallel to it, so the front face is that run.
+    Its hips leave the front face's corners at half the cant's turn, which narrows the face
+    under the curb by the run times that half-angle's tangent (1 on a square projection's
+    right-angled corner, the rule T-1881 laid). A gabled head is the main mansard's (1945's)."""
     mn, pts = v["roof"].get("mansard"), v["plan"]["points"]
-    square = v["kind"] == "projection" and v["plan"]["kind"] == "polyline" and len(pts) == 4 \
-        and abs(pts[0][1]) < 1e-9 and abs(pts[3][1]) < 1e-9 and abs(pts[0][0] - pts[1][0]) < 1e-9 \
-        and abs(pts[2][0] - pts[3][0]) < 1e-9 and abs(pts[1][1] - pts[2][1]) < 1e-9
+    four = v["plan"]["kind"] == "polyline" and len(pts) == 4 and abs(pts[0][1]) < 1e-9 \
+        and abs(pts[3][1]) < 1e-9 and abs(pts[1][1] - pts[2][1]) < 1e-9 and float(pts[1][1]) > 0.0 \
+        and float(pts[0][0]) <= float(pts[1][0]) < float(pts[2][0]) <= float(pts[3][0])
+    square = v["kind"] == "projection" and four and abs(pts[0][0] - pts[1][0]) < 1e-9 \
+        and abs(pts[2][0] - pts[3][0]) < 1e-9
+    canted = v["kind"] in ("bay", "projection") and four and float(pts[1][0]) - float(pts[0][0]) > 1e-9 \
+        and abs((float(pts[1][0]) - float(pts[0][0])) - (float(pts[3][0]) - float(pts[2][0]))) < 1e-6
     entries = e["mansard_dormers"]
-    if not mn or not square or not isinstance(entries, list) or not entries:
-        raise ParamError(f"bays: {e['id']}'s mansard_dormers stand on a square projection's own mansard")
+    if not mn or not (square or canted) or not isinstance(entries, list) or not entries:
+        raise ParamError(f"bays: {e['id']}'s mansard_dormers stand on a square projection's or a "
+                         f"symmetrical canted bay's own mansard")
     rise, deg = float(mn["rise_m"]), float(mn["lower_pitch_deg"])
     run = rise / math.tan(math.radians(deg))
-    ov = float((v.get("overrides") or {}).get("eaves", {}).get("overhang_m", 0.0))
-    half = (float(pts[2][0]) - float(pts[1][0])) / 2 + ov - run - 0.3
+    ev = (v.get("overrides") or {}).get("eaves", {})
+    ov = float(ev.get("overhang_m", 0.0))
+    if canted and ev.get("profile"):   # a moulded cornice reaches out as far as its section (K08)
+        ov = max(float(n) for n, _ in ev["profile"])
+    # the cant's turn off the front run: 90 degrees on a square projection
+    turn = math.atan2(float(pts[1][1]), float(pts[1][0]) - float(pts[0][0]))
+    half = (float(pts[2][0]) - float(pts[1][0])) / 2 + (ov - run) * math.tan(turn / 2) - 0.3
     out, spans = [], []
     for i, q in enumerate(entries):
         what = f"bays: {e['id']}.mansard_dormers[{i}]"
         if not isinstance(q, dict) or q.get("face", "front") != "front" or "at_m" not in q:
             raise ParamError(f"{what}: a dormer on the projection's front face, at_m from its centre")
-        d = _round_dormer({k: x for k, x in q.items() if k not in ("face", "at_m")}, what, run)
-        if d["head"] != "round":
-            raise ParamError(f"{what}.head {d['head']!r}: a projection's dormer is round-headed")
+        d = _round_dormer({k: x for k, x in q.items() if k not in ("face", "at_m")}, what, run, hood=False)
+        if d["head"] not in ("round", "gable"):
+            raise ParamError(f"{what}.head {d['head']!r}: a bay's dormer is round-headed or gabled")
         c, r = float(q["at_m"]), d["width_m"] / 2
         if abs(c) + r > half + 1e-9:
             raise ParamError(f"{what}.at_m {c}: its face stands clear of the hips only within {half - r:.2f} m "
