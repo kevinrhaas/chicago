@@ -91,6 +91,8 @@ import { createTelemetry } from './arrival-telemetry.js';
 import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
+import { createFortGates } from './fort-gates.js';
+import { createInteractions, createInteractKey } from './interact.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
@@ -2666,6 +2668,15 @@ async function boot() {
   scene3d.add(flags.group);
   api.flags = flags;
 
+  // T-3319: the fort's gates, hung to swing, and the walls the walker meets in place of
+  // the stockade's solid footprint. Every gate starts shut; the Interact key works them.
+  const fortGates = createFortGates({ registry: loaded.registry, buildings, footprints, confidence, problems });
+  scene3d.add(fortGates.group);
+  const interactions = createInteractions();
+  for (const thing of fortGates.gates) interactions.add(thing);
+  api.fortGates = fortGates;
+  api.interactions = interactions;
+
   /**
    * What the PLANTERS treat as built ground: the buildings' footprints plus the
    * wharf decks. A deck is a floor, and a forb growing up through the planks
@@ -4496,6 +4507,8 @@ async function boot() {
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null, targetTag = null;
+  // T-3319: the Interact key (set beside targetTag), and how long since it last looked.
+  let interactKey = null, interactPaintAt = 0;
   let guideFaq = null; // T-2662
   const jauntCatalogs = {}; // T-2666: each destination's Jaunt catalog, for Guide › For teachers
   // T-2634: Free roam's one-time tip, once per device.
@@ -4846,6 +4859,17 @@ async function boot() {
   });
   targetTag.setEnabled(!gateOpen);
   api.targetTag = targetTag;
+  // T-3319: the Interact key, under Inspect, while something to work is in reach on foot.
+  interactKey = createInteractKey({
+    interactions,
+    keyEl: document.getElementById('btn-interact'),
+    where: () => ({ e: walker.state.e, n: walker.state.n, bearing: walker.bearingDeg, flying: walker.state.flying }),
+    say: (text) => hud.say(text),
+    enabled: () => !gateOpen,
+    keys: window,
+    isTyping,
+  });
+  api.interactKey = interactKey;
   // T-2640 (§08 "Look for", §13): Show me stands you outside the building on the line its
   // record's camera looks along, faces that bearing, and pulses an outline on the building.
   const showMeOutline = document.getElementById('show-me-outline');
@@ -5233,6 +5257,9 @@ async function boot() {
     terrain.update(dt);
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
+    // T-3319: a gate swinging, and the Interact key's reach, read four times a second.
+    api.interactions?.update(frameDt);
+    if (interactKey && (interactPaintAt += elapsed) >= 0.25) { interactPaintAt = 0; interactKey.refresh(); }
     // The inspect KEY toggles: the reach that opened the card also closes it
     // (T-0108). Since T-2954 a click or tap on the scene does too: an open card
     // holds the visitor until it is closed or the town is touched again (the owner,

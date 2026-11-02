@@ -395,6 +395,8 @@ selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule
   node tools/check_jaunt_views.mjs --self-test
 step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
   node tools/test_walker_passage.mjs
+step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
+  node tools/test_fort_gates.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
   node tools/test_daybook.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \

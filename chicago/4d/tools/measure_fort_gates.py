@@ -201,6 +201,9 @@ def gate_geometry(record: dict | None = None, tris: list | None = None) -> dict:
     d = max(p[1] for p in poly) - min(p[1] for p in poly)
     sides = form["gate_sides"]["value"]
     gw = float(form["gate_width_m"]["value"])
+    # T-3319: a gate may stand off the middle of its side, along the plan axis that
+    # runs with the wall (palisade_params.gate_offset_m); absent, the middle.
+    off = float((form.get("gate_offset_m") or {}).get("value", 0.0))
     tris = leaf_triangles() if tris is None else tris
 
     # (the wall's fixed coordinate, which plan axis runs along it, its length)
@@ -211,7 +214,7 @@ def gate_geometry(record: dict | None = None, tris: list | None = None) -> dict:
            "tolerance_m": TOL_M, "gates": {}}
     for side in sides:
         fixed_axis, fixed, along_axis, run = wall[side]
-        lo, hi = run / 2.0 - gw / 2.0, run / 2.0 + gw / 2.0
+        lo, hi = run / 2.0 + off - gw / 2.0, run / 2.0 + off + gw / 2.0
         spans = []
         for tri in tris:
             # a triangle belongs to this wall if all three corners sit in its
