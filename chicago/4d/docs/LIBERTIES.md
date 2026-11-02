@@ -38597,3 +38597,13 @@ colour range, its weathering) replaces the spread for that house.
 **Ticket:** T-3295.
 **Review:** the before/after stills in the T-3295 PR (`tools/brick_bond_shots.mjs`).
 **Recorded:** 2026-11-01 (T-3295).
+
+### L-pullman-1729-hip-finials-1881 — 1729 Prairie's mansard cresting raised to 1.0 m with a turned iron finial on every hip, off Taylor's no. 16554 and the Detroit print; the finials' turning reconstructed
+
+**Decision:** Taylor's no. 16554 shows the mansards' cresting as a deep pierced band with a tall finialled post at each hip, where the build had a plain 0.8 m band round the deck and each pavilion's curb and no posts (its match record's open item). The cresting on the main deck and on the four pavilions' own curbs (`bays`: p_block, p_entry, p_18th, p_rear) now stands 1.0 m, and a turned iron finial 1.75 m high and 0.12 m in radius stands on every hip: two on each pavilion's curb, where its cresting lines cross (a new K01 key, `roof.mansard.cresting.finials`), and one at each of the main deck's four corners (`mansard.deck.finials`, the K01 deck kit's).
+**What is read, not invented.** On no. 16554 at its full size, against the mansard's 4.0 m rise (curb y 334, cornice y 398 px at the pier by the south-east hip, about 16 px a metre): the band about 17 px (1.05 m) over the curb, and the post at that hip about 28 px (1.75 m) tall and 4 px (0.25 m) across. The Detroit print (LC-D4-12551) shows the same posts over the curb at each section's hips, rising about 2 m over a band about 1 m deep at the front's 15 px a metre. The band is built at 1.0 m, the kit's most, between the two readings.
+**What is invented.** The finial's turning (a vase, a ball between rings, a bulb and a spike: the deck kit's, laid at 1801 Prairie), not read at 16-25 px a metre; the main deck's four corner finials, standing where its corners are hidden behind the pavilions' mansards in every picture, which no picture shows or excludes; and the band's pattern, which is the K10 kit's, as before.
+**How to resolve:** a closer or larger print of the roof (the AIC negatives at full scan) reads the posts' turning and whether the deck's own corners carried them.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-1881).
