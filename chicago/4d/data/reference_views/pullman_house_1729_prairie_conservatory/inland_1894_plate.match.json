@@ -73,7 +73,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 19
+        "creeper": 20
       }
     ],
     "street_trees": 30,
@@ -107,7 +107,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "b527f926d041a77b6c1cfe049ee0b0c82f32620fe09a48918fefa190e22d767f"
+      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "3bdd25d27199219843d748dc878a962ab7bdbdde1ee75f951a8472f9be47995b"
+      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "9de4db3f313a15d2962a4c66d7dc661b410c8e8eb6889dac19a6b5bc87bbe110",
+  "flora_sha256": "185bffaf58cb5f3a4f5c34a66902d77768721cbc0e39fd95d494a78bcddf442b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
