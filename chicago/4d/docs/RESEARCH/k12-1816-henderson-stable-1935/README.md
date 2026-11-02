@@ -47,9 +47,7 @@ sheet draws one plain rectangle.
   storey sits under it.
 - **Use.** The sheet labels the building GARAGE in 1911. It is built as a stable (restriction
   `no_1911_use_labels`).
-- **Street furniture.** `lay_prairie_1904_street_furniture.py` moved alley poles
-  `pole.alley.indiana_prairie_18_20#01` and `#02` west, inset 1.9 m. Their wire had run through the
-  longer eave.
+- **Street furniture.** The alley's poles and wires keep their places. `lay_prairie_1904_street_furniture.py --check` finds no pole, crossarm or wire touching the baked model.
 
 ## Dating
 
