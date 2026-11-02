@@ -1,0 +1,32 @@
+{
+ "structure_id": "doane_house_1827_prairie_coach_house",
+ "source_id": "chicagology_1827_doane_exterior",
+ "library_image": "a18-gh-doane-exterior",
+ "photo": "../../sources/assets/doane_1827_photo_t3171/doane_1827_glessner_blog_print.jpg",
+ "image_px": [
+  561,
+  600
+ ],
+ "principal_px": [
+  286.9,
+  450.8
+ ],
+ "focal_px": 1385.7,
+ "pixel_aspect": 1.0011,
+ "eye": [
+  82.28,
+  33.44,
+  2.79
+ ],
+ "yaw_deg": 234.45,
+ "sun_uvy": [
+  1.0,
+  0.6,
+  1.0
+ ],
+ "scene": "1904",
+ "also_render": [
+  "doane_house_1827_prairie"
+ ],
+ "solve": "T-1936: the house's own camera on this print (data/reference_views/doane_house_1827_prairie/glessner_blog_print.json, T-3191, carried from T-3176's Chicagology solve), moved into the coach house's footprint frame and nothing else: both records stand at rotation 179.449 in the 1904 scene, and the house's origin lies at u +16.75, v -8.25 in this frame (their sidecar placements, local e/n 1446.557/-3298.255 against 1463.386/-3306.343), so the eye u 65.53, v 41.69 becomes u 82.28, v 33.44 at the same 2.79 m, the heading 234.45 and the light unchanged. The house is drawn with it (also_render) because it hides the coach house's north part in the print. The coach house fills only the print's right edge (x about 505-561 px, y about 395-500), so this view reads its west (yard) face's north end: what it shows at about 0.1 m a pixel, nothing finer."
+}

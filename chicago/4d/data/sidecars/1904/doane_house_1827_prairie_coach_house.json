@@ -1,7 +1,7 @@
 {
   "id": "doane_house_1827_prairie_coach_house",
   "phase": "draft_1904",
-  "name": "1827 S. Prairie Avenue — the alley building of the house at 1827 (district draft; refined by T-1936)",
+  "name": "1827 S. Prairie Avenue — the Doane house's coach house (draft refined by T-1936 from the Glessner House print)",
   "aka": [
     "1827 S. Prairie Avenue"
   ],
@@ -10,9 +10,11 @@
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "a18-gh-doane-exterior"
+    ]
   },
   "documented_range": {
     "from": "1904-07-01",
@@ -109,7 +111,9 @@
               6.75,
               0.0
             ],
-            "from": "s28fp-1827-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
+            "from": "s28fp-1827-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill",
+            "cornice_out_m": 0.12,
+            "cornice_h_m": 0.25
           },
           {
             "id": "r3",
@@ -135,7 +139,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1827-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s28fp-1827-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s28fp-1827-b2 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1827-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s28fp-1827-b2 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s28fp-1827-b2 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed). T-1936: r2's cornice is the Glessner House print's thin moulding (about 0.25 m deep, little projection: y 400-404 px at x 540), not the rules' 0.4 m slab; inferred."
     },
     "draft_elevation": {
       "value": {
@@ -143,8 +147,8 @@
         "seed": 3004481258,
         "principal_floor_m": 0.0,
         "storey_heights_m": [
-          3.4,
-          2.8,
+          3.0,
+          2.3,
           2.6
         ],
         "roof_pitch_deg": 40,
@@ -156,36 +160,101 @@
         "brackets": false,
         "attic_dormers": false,
         "stone": "stone",
-        "features": [],
+        "features": [
+          {
+            "kind": "stable_dress",
+            "dressed_faces": [
+              "r2:u1"
+            ],
+            "sash": {
+              "lights": 1,
+              "architrave_m": 0.1,
+              "architrave_out_m": 0.06,
+              "sill_out_m": 0.1,
+              "sill_m": 0.1,
+              "lintel_m": 0.12,
+              "rail_at": 0.5
+            },
+            "windows": [
+              {
+                "part": "r2",
+                "side": "u1",
+                "s": -2.3,
+                "sill_m": 3.2,
+                "w_m": 0.75,
+                "h_m": 1.18,
+                "hood": {
+                  "ears_m": 0.3,
+                  "h_m": 0.3,
+                  "drop_m": 0.18,
+                  "out_m": 0.1
+                }
+              }
+            ],
+            "carriage_doors": [
+              {
+                "part": "r2",
+                "side": "u1",
+                "s": -2.16,
+                "w_m": 2.3,
+                "spring_m": 2.25,
+                "rise_m": 0.15,
+                "band_m": 0.18,
+                "lights": [
+                  {
+                    "ds": -0.24,
+                    "sill_m": 0.9,
+                    "w_m": 0.6,
+                    "h_m": 1.1,
+                    "mat": "trim"
+                  }
+                ]
+              }
+            ],
+            "courses": [
+              {
+                "part": "r2",
+                "side": "u1",
+                "s0": -5.75,
+                "s1": 0.0,
+                "y_m": 2.85
+              },
+              {
+                "part": "r1",
+                "side": "u1",
+                "s0": 0.0,
+                "s1": 13.5,
+                "y_m": 2.85
+              }
+            ]
+          }
+        ],
         "draft_label": {
           "pass": "T-2330",
           "refined_by": [
             "T-1936"
           ]
         },
-        "v_toward": "south"
+        "v_toward": "south",
+        "tint": {
+          "brick": [
+            0.62,
+            0.56,
+            0.43
+          ],
+          "door": [
+            0.045,
+            0.04,
+            0.035
+          ]
+        }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The register's 'mansard and dormers, square/pyramidal tower and separate conical bay' and its rule 'preserve both different tower geometries': a square tower under a pyramid at one front corner and a lower round bay under a cone at the other. Which corner carries which is not read off the sheet and is reconstructed. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3004481258 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2330",
-        "liberty": "L-draft-prairie-18-20-east-2330",
-        "register_row": "frontage-28-053",
-        "census_ids": [
-          "s28-1827-rear"
-        ],
-        "trace_building": "s28fp-1827-b2",
-        "seed": 3004481258,
-        "replaceable_by": [
-          "T-1936"
-        ],
-        "card": "District draft — refined by T-1936."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "T-1936, from the Glessner House print of the Doane house (a18-gh-doane-exterior; source chicagology_1827_doane_exterior), whose right edge (x about 505-561 px) shows the north end of this building's west (yard) face, read through the print's solved camera carried into this frame (reference view glessner_blog_print): at about 16.8 px a metre there, every height measured from the face's foot in the print (y about 490 px). READ FROM THE PRINT (the tier stays reconstructed: this one attribute still carries the draft rules' choices for every face the print does not show, and a pale tone in a toned print is a reading, not a record): the storeys, 3.0 m to the belt and 2.3 m above it (the cornice's top 5.3 m over the foot, the belt course's top 3.1 m, read at x 540 px); the walls' tone, a pale cream (tint), much paler than the house's stone in the same print, taken as the cream brick Chicago builders used (the 1911 sheet says brick; the colour itself is the print's tone, not a record); the dressed face r2:u1: one loft sash 0.75 m wide, sill 3.2 m on the belt, head 4.38 m, under an eared stone hood 1.55 m across to 4.8 m (x 525-550 px, y 409-436); a carriage opening 2.3 m wide (x 522-557 px), springing 2.25 m, its segmental head rising about 0.15 m (y 450-452), its leaves near-black in the print (dark paint, or leaves standing open on a dark room: the door tint), with a pale panel about 0.6 by 1.1 m in them (x 531-541, y 456-475), drawn pale as the print shows it because whether it is a curtained light or a painted panel is not legible at that size; a belt course of about 0.3 m at the loft floor (y 438-443), run on along r1's yard face, which the print does not show. STILL THE DRAFT RULES': the plan (the 1911 sheet's trace), r1's gable roof, every other face, the count of bays the print cannot see (the face's south part, v -5.75 to -4.2 m, is behind the house's flank and is built blank), chimneys none. Liberty L-t1936-doane-coach-house; the draft's L-draft-prairie-18-20-east-2330 no longer covers this face.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1827_doane_exterior"
+      ]
     },
     "function": {
       "value": "barn_or_carriage_shed",
@@ -198,6 +267,24 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_1827_doane_exterior",
+      "citation": "1827 S. Prairie [John W. Doane residence]. Unknown photographer, undated (after the house's completion in late 1882). Reproduced on chicagology.com, Prairie Avenue, 1827 S. Prairie; the Glessner House Museum's blog reproduces the same photograph ('Electricity comes to Prairie Avenue, 1882', August 2013).",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1827prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the front's composition: the pavilion and its lights, the window bay, the porch at the north end, the dormers",
+        "the heights of the basement, the storeys, the windows, the cornice and the mansard through the photograph's camera",
+        "the corner block, its tower and the pavilion's pyramidal roof (T-3172), and the south flank's stacks"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome",
+        "the north flank, the rear and the brick rear range",
+        "the porch's detail and the door, behind the street tree"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
@@ -219,8 +306,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1936 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1827-b2), the T-1841 census (s28-1827-rear) and the T-1837 register row frontage-28-053; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1936 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1827-b2), the T-1841 census (s28-1827-rear) and the T-1837 register row frontage-28-053; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330). T-1936 refines its yard front from the one picture that shows it: the Glessner House blog print of the Doane house (a18-gh-doane-exterior, the same negative as Chicagology's copy, data/sources/chicagology_1827_doane_exterior.json), whose right edge shows the north end of this building's west face past the house's south flank. Read through that print's solved camera (data/reference_views/doane_house_1827_prairie_coach_house/glessner_blog_print.json): pale walls, a flat top under a plain cornice, a belt course at the loft floor, a loft sash under an eared stone hood and a carriage opening under a flat segmental head, with a glazed light in its leaves. Everything the print does not show stays the draft's (liberty L-t1936-doane-coach-house).",
   "research_doc": "",
   "review_required": false,
-  "called": "1827 S. Prairie Avenue — the alley building of the house at 1827"
+  "called": "1827 S. Prairie Avenue — the Doane house's coach house"
 }

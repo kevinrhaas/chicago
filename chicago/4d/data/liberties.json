@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 942,
+  "count": 943,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -143,7 +143,7 @@
     },
     {
       "id": "doane_house_1827_prairie_coach_house",
-      "name": "1827 S. Prairie Avenue — the alley building of the house at 1827"
+      "name": "1827 S. Prairie Avenue — the Doane house's coach house"
     },
     {
       "id": "dole_warehouse_south",
@@ -35592,18 +35592,6 @@
         },
         {
           "domain": "structure",
-          "structure": "doane_house_1827_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "doane_house_1827_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "kellogg_house_1923_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35656,7 +35644,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35680,7 +35668,7 @@
         },
         {
           "label": "Revised",
-          "text": "2026-10-16 (T-2538) — **1801 Kimball is no longer part of this draft.** Its two tokens are retired from the covered list above: the house is refined in place under the same id from J. W. Taylor's c. 1895 photograph, and its corner tower, which this entry admitted putting at the 18th Street corner, now stands where the photograph and the sheet's bump put it, on the flank 8 m back from the front. What that refinement still invents is `L-kimball-1801-massing-2538`."
+          "text": "2026-10-16 (T-2538) — **1801 Kimball is no longer part of this draft.** Its two tokens are retired from the covered list above: the house is refined in place under the same id from J. W. Taylor's c. 1895 photograph, and its corner tower, which this entry admitted putting at the 18th Street corner, now stands where the photograph and the sheet's bump put it, on the flank 8 m back from the front. What that refinement still invents is `L-kimball-1801-massing-2538`. **1827's coach house elevation retired from this liberty by T-1936 (2026-11-02):** `doane_house_1827_prairie_coach_house`'s yard front is read off the Glessner House print of the Doane house through its solved camera, and its elevation is now claimed by `L-t1936-doane-coach-house`; the record has left the pass (the rules skip `s28-1827-rear`), so this liberty claims none of it."
         }
       ],
       "work_refs": [
@@ -64291,6 +64279,50 @@
       ],
       "work_refs": [
         "T-1881"
+      ]
+    },
+    {
+      "id": "L-t1936-doane-coach-house",
+      "title": "The Doane coach house's yard front read off the one print that shows its north end, the rest of the building still the district draft's",
+      "section": "per_subject",
+      "subjects": [
+        "doane_house_1827_prairie",
+        "doane_house_1827_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "doane_house_1827_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-11-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's alley building behind 1827 Prairie Avenue is refined in place, under its own id 1827 S. Prairie Avenue — the Doane house's coach house, still on the draft archetype (its flat-topped front is no shape the K12 kit's gable builds). **What is read.** The Glessner House blog print of the Doane house (`a18-gh-doane-exterior`, the same negative as Chicagology's copy, source 1827 S. Prairie [John W. Doane residence]) shows, at its right edge past the house's south flank (x about 505-561 px of 561), the north end of this building's west face, the yard front that looks down the drive. Read through the print's own solved camera, carried into this building's frame unchanged (the glessner blog print data), at about 16.8 px a metre: pale walls, far paler than the house's stone in the same print; a flat top under a thin cornice 5.3 m over the face's foot; a belt course about 0.3 m deep whose top is 3.1 m up; one loft sash 0.75 by 1.18 m standing on the belt under an eared stone hood 1.55 m across; and under it a carriage opening 2.3 m wide, springing at 2.25 m under a segmental head of about 0.15 m rise, its leaves near-black, with a pale panel about 0.6 by 1.1 m in them. The openings stand where the print puts them, about 2.2 m from the north end of the draft's flat-roofed r2 part. **What is invented.** The walls' colour as a cream brick (the 1911 sheet says brick; the colour is the print's tone); the panel's nature (a curtained light or a painted panel, drawn pale); the storey split, 3.0 m and 2.3 m, carried to the whole building; the belt run on along r1's yard face, which the print does not show; everything else — the plan, r1's gable roof, every other face and its openings, the face's south 1.5 m (blank, behind the house's flank in the print) — the district draft's rules, as `“The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”` describes them. **How it was measured.** The print's heights are taken from the face's own foot in the print (y about 490 px); the camera puts grade there about 8 px (0.47 m) lower, the same camera that misplaces the house's flank and stacks at this depth (the chicagology doane exterior match data), so the render stands the whole front that much low and the match record marks it within tolerance as a camera disagreement."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the alley behind 1827 Prairie, or of the coach house's other faces, gives its roof, its alley front and its true extent."
+        },
+        {
+          "label": "Covers",
+          "text": "`doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-02 (T-1936)."
+        }
+      ],
+      "work_refs": [
+        "T-1936"
       ]
     },
     {
