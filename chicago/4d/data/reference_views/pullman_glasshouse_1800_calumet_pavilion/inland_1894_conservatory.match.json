@@ -136,7 +136,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "b527f926d041a77b6c1cfe049ee0b0c82f32620fe09a48918fefa190e22d767f"
+      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -148,7 +148,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "3bdd25d27199219843d748dc878a962ab7bdbdde1ee75f951a8472f9be47995b"
+      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -163,7 +163,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "36a9de92ce89b7809f7bf03d6bfe1179beb804d3f5a00e34a4a8ee55c1a4524d",
+  "flora_sha256": "1282342ee6f26470e6bc2b9cfcf235c2b7486e700597bd71eea7ed9cb6b9ca1c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

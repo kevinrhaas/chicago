@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 945,
+  "count": 946,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1375,7 +1375,7 @@
     },
     {
       "id": "kellogg_house_1709_prairie_coach_house",
-      "name": "1709 S. Prairie Avenue — the alley building of the house at 1709"
+      "name": "1709 Prairie Avenue: the storey-and-a-half brick stable by the tracks"
     },
     {
       "id": "kellogg_house_1923_prairie",
@@ -35916,18 +35916,6 @@
         },
         {
           "domain": "structure",
-          "structure": "kellogg_house_1709_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "kellogg_house_1709_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "pullman_house_1729_prairie_ranges",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
@@ -35950,7 +35938,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35962,7 +35950,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "1609 and 1611, the lost lot-6 frame pair, by earlier work, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `“1609 and 1611 Prairie, the lost lot-6 frame pair, refined from the district draft to two K16 clapboard houses on one party wall, everything but the plans the kit's”`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by later work (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `“1613 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the north half of the pair with 1615, its frame rear porch in timber, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1615 retired from this liberty by later work (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `“1615 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the south half of the pair with 1613, its side projection and rear porch in timber, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1619 retired from this liberty by later work (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `“1619 Prairie refined from the district draft to a K01 stone-front house with the full-height swell bay of its 1886 drawing, two storeys over a raised basement and a roof storey, everything the drawing and the sheet do not show the kits'”`, under the same id; its draft attributes are gone. **1623 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `“1623 Prairie, Granger Farwell's house, refined from the district draft to a K01 stone-front house with the corbelled oriel of its 1886 drawing over a round-arched window, everything the drawing and the sheet do not show the kits'”`, under the same id; its draft attributes are gone. **1621 retired from this liberty, and 1619 returned to it, by later work (2026-10-15):** the drawing's build moved to 1621, John H. Hamline's house by later work's ruling, which now stands as the K01 stone-front frontage with its swell bay under `“1621 Prairie built to Treat & Foltz's drawing of John H. Hamline's house, moved from 1619 and re-fitted to 1621's narrower front”`, under the same id; its draft attributes are gone. 1619, whose own front no picture shows, stands as this draft again, under the draft's rules exactly as it first did, until later work builds it a bounded front. **1619 retired from this liberty again by later work (2026-10-15):** with no picture of its own, it now stands as the K01 stone-front frontage the 1911 sheet bounds: four storeys, its curved bay on K08's bow at the sheet's chord and rise, the brick rear block and the two-storey frame piece behind it, under `“1619 Prairie refined from the district draft to a four-storey K01 stone-front house bounded by the 1911 sheet, with no picture of its own: its plan, storeys, curved bay and rear pieces read, everything else the kits'”`, under the same id; its draft attributes are gone. **1625 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house, under `“1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one”`, under the same id; its draft attributes are gone. The sheet's four-storey rear section beside it is not built until later work. **1637 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 brick frontage read off the engraving of Jesse Spalding's remodel of the Grosvenor house, under `“1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof stood in for until K01 can build it”`, under the same id; its draft attributes are gone. Its coach house stays a draft here. **1635 added to this liberty by later work (2026-10-13):** \"1635, nothing\" above no longer holds. Later work rules the Forsyth house standing, empty, on 1 July 1904, and the draft now stands it as 1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house) from Robinson 1886's outline on lot 6, the plate's third house after 1620 and the 1609/1611 pair, under this entry's rules: its height, roof, openings and stoop are the draft's reconstruction. Its width is the 1911 strip's own, wall to wall, not the plate fit's (the plate draws it filling lot 6; fills lot). The ruling itself is `“1635 Prairie ruled standing on 1 July 1904, and empty: the Forsyth house stood up from its 1886 outline although no 1904 source names it”`'s. **1729 retired in part from this liberty by earlier work (2026-10-25):** the Pullman house's main block now stands as the K01 stone house read off the Detroit Publishing photograph, under `“1729 Prairie refined from the district draft to a K01 brownstone house under a mansard, its portico, pavilions and heights read off the Detroit Publishing photograph”`, under the same id; its draft attributes are gone. The sheet's stable and garage at the lot's east end, the 1B range north of the house's rear and the one-storey porte-cochere on 18th Street stay this draft's, at the massing it stood them, as 1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges, written by earlier work from the draft's own rectangles on the draft builder (the rules' skip names it) until earlier work; the stable keeps its two storeys and mansard, and the range and the porte-cochere stand at one storey under flat roofs, as the sheet letters them. **1721 retired from this liberty by earlier work (2026-10-26):** the Dexter house now stands as the K01 brick frontage read off the 1911 sheet and the 1891 Inland Architect plate, under `“1721 Prairie refined from the district draft to a K01 house: Arthur Little's front of 1889, its porch in the recess and its two bows on a forward block, painted a chosen pale buff”`, under the same id; its draft attributes are gone. Its alley building stays a draft here. **1709 retired from this liberty by earlier work (2026-10-27):** the Palmer Kellogg successor now stands as the K01 brick frontage read off the 1911 sheet and the 1893 Rand McNally drawing, under `“1709 Prairie refined from the district draft to a K01 brick house, its plan the 1911 sheet's and its front the 1893 Rand McNally drawing's”`, under the same id; its draft attributes are gone. The draft had stood a 18.75 m deep hip-roofed body with the sheet's corner bays as plain projections; the sheet's plan and the drawing's mansard, porch and corner bay replace it. Its alley building stays a draft here."
+          "text": "1609 and 1611, the lost lot-6 frame pair, by earlier work, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `“1609 and 1611 Prairie, the lost lot-6 frame pair, refined from the district draft to two K16 clapboard houses on one party wall, everything but the plans the kit's”`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by later work (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `“1613 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the north half of the pair with 1615, its frame rear porch in timber, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1615 retired from this liberty by later work (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `“1615 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the south half of the pair with 1613, its side projection and rear porch in timber, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1619 retired from this liberty by later work (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `“1619 Prairie refined from the district draft to a K01 stone-front house with the full-height swell bay of its 1886 drawing, two storeys over a raised basement and a roof storey, everything the drawing and the sheet do not show the kits'”`, under the same id; its draft attributes are gone. **1623 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `“1623 Prairie, Granger Farwell's house, refined from the district draft to a K01 stone-front house with the corbelled oriel of its 1886 drawing over a round-arched window, everything the drawing and the sheet do not show the kits'”`, under the same id; its draft attributes are gone. **1621 retired from this liberty, and 1619 returned to it, by later work (2026-10-15):** the drawing's build moved to 1621, John H. Hamline's house by later work's ruling, which now stands as the K01 stone-front frontage with its swell bay under `“1621 Prairie built to Treat & Foltz's drawing of John H. Hamline's house, moved from 1619 and re-fitted to 1621's narrower front”`, under the same id; its draft attributes are gone. 1619, whose own front no picture shows, stands as this draft again, under the draft's rules exactly as it first did, until later work builds it a bounded front. **1619 retired from this liberty again by later work (2026-10-15):** with no picture of its own, it now stands as the K01 stone-front frontage the 1911 sheet bounds: four storeys, its curved bay on K08's bow at the sheet's chord and rise, the brick rear block and the two-storey frame piece behind it, under `“1619 Prairie refined from the district draft to a four-storey K01 stone-front house bounded by the 1911 sheet, with no picture of its own: its plan, storeys, curved bay and rear pieces read, everything else the kits'”`, under the same id; its draft attributes are gone. **1625 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house, under `“1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one”`, under the same id; its draft attributes are gone. The sheet's four-storey rear section beside it is not built until later work. **1637 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 brick frontage read off the engraving of Jesse Spalding's remodel of the Grosvenor house, under `“1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof stood in for until K01 can build it”`, under the same id; its draft attributes are gone. Its coach house stays a draft here. **1635 added to this liberty by later work (2026-10-13):** \"1635, nothing\" above no longer holds. Later work rules the Forsyth house standing, empty, on 1 July 1904, and the draft now stands it as 1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house) from Robinson 1886's outline on lot 6, the plate's third house after 1620 and the 1609/1611 pair, under this entry's rules: its height, roof, openings and stoop are the draft's reconstruction. Its width is the 1911 strip's own, wall to wall, not the plate fit's (the plate draws it filling lot 6; fills lot). The ruling itself is `“1635 Prairie ruled standing on 1 July 1904, and empty: the Forsyth house stood up from its 1886 outline although no 1904 source names it”`'s. **1729 retired in part from this liberty by earlier work (2026-10-25):** the Pullman house's main block now stands as the K01 stone house read off the Detroit Publishing photograph, under `“1729 Prairie refined from the district draft to a K01 brownstone house under a mansard, its portico, pavilions and heights read off the Detroit Publishing photograph”`, under the same id; its draft attributes are gone. The sheet's stable and garage at the lot's east end, the 1B range north of the house's rear and the one-storey porte-cochere on 18th Street stay this draft's, at the massing it stood them, as 1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges, written by earlier work from the draft's own rectangles on the draft builder (the rules' skip names it) until earlier work; the stable keeps its two storeys and mansard, and the range and the porte-cochere stand at one storey under flat roofs, as the sheet letters them. **1721 retired from this liberty by earlier work (2026-10-26):** the Dexter house now stands as the K01 brick frontage read off the 1911 sheet and the 1891 Inland Architect plate, under `“1721 Prairie refined from the district draft to a K01 house: Arthur Little's front of 1889, its porch in the recess and its two bows on a forward block, painted a chosen pale buff”`, under the same id; its draft attributes are gone. Its alley building stays a draft here. **1709 retired from this liberty by earlier work (2026-10-27):** the Palmer Kellogg successor now stands as the K01 brick frontage read off the 1911 sheet and the 1893 Rand McNally drawing, under `“1709 Prairie refined from the district draft to a K01 brick house, its plan the 1911 sheet's and its front the 1893 Rand McNally drawing's”`, under the same id; its draft attributes are gone. The draft had stood a 18.75 m deep hip-roofed body with the sheet's corner bays as plain projections; the sheet's plan and the drawing's mansard, porch and corner bay replace it. Its alley building stays a draft here. **1709's building by the tracks retired from this liberty by later work (2026-11-02):** 1709 Prairie Avenue: the storey-and-a-half brick stable by the tracks now stands as the K12 coach house under `“The storey-and-a-half brick stable behind 1709 Prairie, by the Illinois Central tracks, built from the K12 kit with its carriage front to the house's yard”`, under the same id, on the outline, storey and a half, brick and fire-wall sign the sheet draws, as the crossed brick stable Robinson's 1886 plate draws there; its draft attributes are gone."
         },
         {
           "label": "Review",
@@ -36001,7 +35989,8 @@
         "T-2443",
         "T-1880",
         "T-1878",
-        "T-1877"
+        "T-1877",
+        "T-3308"
       ]
     },
     {
@@ -53940,6 +53929,59 @@
       "work_refs": [
         "T-1932",
         "T-1840"
+      ]
+    },
+    {
+      "id": "L-k12-1709-stable-3308",
+      "title": "The storey-and-a-half brick stable behind 1709 Prairie, by the Illinois Central tracks, built from the K12 kit with its carriage front to the house's yard",
+      "section": "per_subject",
+      "subjects": [
+        "kellogg_house_1709_prairie",
+        "kellogg_house_1709_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1709_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.coach_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1709_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1709_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-11-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's building by the tracks behind 1709 Prairie Avenue is refined in place, under its own id 1709 Prairie Avenue: the storey-and-a-half brick stable by the tracks, onto the K12 coach-house kit (“The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed”), the first on the east side of the avenue, where the lots run back to the Illinois Central right-of-way and there is no alley. **What is read.** From sheet 20 of the 1911 Sanborn: one pink building lettered '1½' and GARAGE, with '12' inside its north and south walls, the key's fire-wall sign (three ticks) at the east end of its north wall, and an open circle inside its south-west corner. Its west wall (column 4718.65), north wall (row 4185.18, on the 1701/1709 lot line, which reads row 4183.93 west of it) and south wall (row 4372.97) are median darkness profiles on the committed raster carried by the sheet's fitted similarity: 9.54 m along the west wall. Its east wall is the right-of-way's slanting line, so it is 15.57 m deep on the north side and 18.41 m on the south. From Robinson's 1886 plate 10: a pink building crossed by an X (the atlas's stable) in the same place, on the lot's north line at the right-of-way, its west wall within one of the plate's 0.346 m pixels of the 1911 line and about 9.2 m along the lot line. Inferred for 1904 as every reading of these sheets is; both maps put it there, either side of it, and the 1886 cross makes it a stable (the 1911 GARAGE is not read as its 1904 use). **What is invented.** With no alley, the kit's alley wall, which carries the carriage bay, is turned to face WEST into the house's yard, and the kit's yard wall is the back wall to the tracks; neither map draws a drive to it and none is built. The kit builds a rectangle, and the one built is the largest inside the sheet's outline, 15.57 m deep, so nothing stands on railway ground; the wedge between it and the slanting east wall, nothing at the north wall and 2.84 m at the south, is not built. The party wall stands at the north end on the lot line where the sheet's fire-wall sign is, rising the kit's 0.45 m above the roof; the south end is the kit's open gable. The storey and a half is the kit's 3.6 m carriage room under a half-storey whose walls rise 1.2 m more to the eave (the kit's new loft (m)), so the loft lies mostly in the roof. Every opening is the kit's, laid out for this lot, as the sheet marks none: on the west wall the carriage bay (3.0 m clear), a man door and a stable sash; on the south gable a stable door under the loft hatch, between two stable sash; on the back wall two stable sash. The roof is a single gable with its ridge along the west wall at 30 degrees, about 4.5 m from eave to ridge over the 15.57 m span, as the deep stables across the avenue took. The kit's 1.8 m basement, reached by nothing. No workyard: the kit's would pave toward the tracks, away from the house. Flat colours. **Left out.** The open circle inside the south-west corner, a key sign this entry does not read. **What is not.** The outline, its place on the lot, its storey and a half, its brick, its fire wall, the 1886 building's extent and the use are the maps'."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the backs of the 1700 block's east side from the Illinois Central tracks, entered as a source, gives its openings, roof and front their true form and says where its carriages came in."
+        },
+        {
+          "label": "Covers",
+          "text": "`kellogg_house_1709_prairie_coach_house.as_standing_1904.form.coach_house`, `kellogg_house_1709_prairie_coach_house.as_standing_1904.form.stories`, `kellogg_house_1709_prairie_coach_house.as_standing_1904.form.construction`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-02 (T-3308)."
+        }
+      ],
+      "work_refs": [
+        "T-3308",
+        "T-1933"
       ]
     },
     {
