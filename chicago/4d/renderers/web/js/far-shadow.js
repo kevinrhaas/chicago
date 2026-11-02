@@ -65,7 +65,7 @@ export function farShadowFromSearch(search) {
  * @param {THREE.BufferGeometry} geo  an indexed, non-interleaved piece, in its own frame
  * @param {number} cell  the cell in the geometry's units (CELL_M over the placement's scale)
  */
-export function shadowTwin(geo, cell) {
+export function shadowTwin(geo, cell, { byNormal = false, keepRatio = KEEP_RATIO } = {}) {
   const index = geo.getIndex();
   const position = geo.getAttribute('position');
   if (!index || !position || !(cell > 0)) return null;
@@ -74,6 +74,15 @@ export function shadowTwin(geo, cell) {
   const triangles = ix.length / 3;
   if (triangles < MIN_SAVED) return null;
   const confidence = geo.getAttribute('_confidence');
+  // T-3312: `byNormal` also keeps apart vertices whose normals differ (by a 1/16 grid on
+  // each axis), so a face that survives the cut is shaded by its own normal: the colour
+  // pass reads it, where the sun's depth pass never did (far-colour.js).
+  const normal = byNormal ? geo.getAttribute('normal') : null;
+  if (byNormal && !normal) return null;
+  const NQ = 16, NAXIS = 2 * NQ + 1;
+  const normalKey = (v) => ((Math.round(normal.getX(v) * NQ) + NQ) * NAXIS
+    + Math.round(normal.getY(v) * NQ) + NQ) * NAXIS + Math.round(normal.getZ(v) * NQ) + NQ;
+  const byKey = new Map();
   const n = position.count;
   const pa = position.array;
   const stride = position.itemSize;
@@ -99,10 +108,16 @@ export function shadowTwin(geo, cell) {
     if (cx >= AXIS || cy >= AXIS || cz >= AXIS) return null; // a piece over ~2 km: leave it whole
     const c = confidence ? Math.round(Math.min(1, Math.max(0, confidence.getX(v))) * 254) : 0;
     const key = ((c * AXIS + cx) * AXIS + cy) * AXIS + cz;
-    let p = keyOf.get(key);
+    let cells = keyOf;
+    if (normal) {
+      const nk = normalKey(v);
+      cells = byKey.get(nk);
+      if (!cells) { cells = new Map(); byKey.set(nk, cells); }
+    }
+    let p = cells.get(key);
     if (p === undefined) {
       p = first.length;
-      keyOf.set(key, p);
+      cells.set(key, p);
       first.push(v);
       sum.push(0, 0, 0, 0);
     }
@@ -125,7 +140,7 @@ export function shadowTwin(geo, cell) {
     kept.push(a, b, c);
   }
   const twinTriangles = kept.length / 3;
-  if (twinTriangles > triangles * KEEP_RATIO || triangles - twinTriangles < MIN_SAVED) return null;
+  if (twinTriangles > triangles * keepRatio || triangles - twinTriangles < MIN_SAVED) return null;
   // only the pools a kept triangle uses
   const remap = new Int32Array(first.length).fill(-1);
   const order = [];

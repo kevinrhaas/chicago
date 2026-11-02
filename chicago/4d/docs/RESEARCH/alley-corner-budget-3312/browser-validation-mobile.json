@@ -1,0 +1,874 @@
+{
+ "method": "Actual published /1904/ app at 390x780, `light`; animation paused after readiness; each stand renders the same held frame with the colour far twins off and on, read back whole; the off frame charged draw by draw to its layers and structure records.",
+ "viewport": {
+  "width": 390,
+  "height": 780
+ },
+ "detail": "light",
+ "boot": {
+  "scene": "1904",
+  "detail": "light",
+  "ceiling": 1270000,
+  "farColour": {
+   "active": true,
+   "pieces": 394,
+   "twinTriangles": 178033,
+   "twinVertices": 245154,
+   "buildMs": 335
+  }
+ },
+ "errors": [],
+ "bad": [],
+ "stands": [
+  {
+   "name": "roof",
+   "gated": true,
+   "off": {
+    "triangles": 1598078,
+    "drawCalls": 3887,
+    "withinBudget": false
+   },
+   "on": {
+    "triangles": 1241166,
+    "drawCalls": 3951,
+    "withinBudget": true
+   },
+   "swapped": 201,
+   "saved": 407064,
+   "layersOff": [
+    {
+     "k": "structures",
+     "view": 1078336,
+     "sun": 238628,
+     "drawn": 1316964
+    },
+    {
+     "k": "context",
+     "view": 88416,
+     "sun": 0,
+     "drawn": 88416
+    },
+    {
+     "k": "railway",
+     "view": 32687,
+     "sun": 26819,
+     "drawn": 59506
+    },
+    {
+     "k": "street-trees",
+     "view": 22724,
+     "sun": 31440,
+     "drawn": 54164
+    },
+    {
+     "k": "street-grid",
+     "view": 39011,
+     "sun": 7510,
+     "drawn": 46521
+    },
+    {
+     "k": "terrain",
+     "view": 21231,
+     "sun": 0,
+     "drawn": 21231
+    },
+    {
+     "k": "street-furniture",
+     "view": 7476,
+     "sun": 0,
+     "drawn": 7476
+    },
+    {
+     "k": "front-yards",
+     "view": 3070,
+     "sun": 718,
+     "drawn": 3788
+    },
+    {
+     "k": "sky",
+     "view": 12,
+     "sun": 0,
+     "drawn": 12
+    }
+   ],
+   "structuresOff": [
+    {
+     "k": "ream_house_1901_prairie",
+     "view": 117517,
+     "sun": 46516,
+     "drawn": 164033
+    },
+    {
+     "k": "doane_house_1827_prairie",
+     "view": 85602,
+     "sun": 69778,
+     "drawn": 155380
+    },
+    {
+     "k": "moulton_lowden_house_1912_prairie",
+     "view": 130644,
+     "sun": 0,
+     "drawn": 130644
+    },
+    {
+     "k": "house_1828_prairie",
+     "view": 84366,
+     "sun": 23157,
+     "drawn": 107523
+    },
+    {
+     "k": "marshall_field_house_1905_prairie",
+     "view": 95257,
+     "sun": 4483,
+     "drawn": 99740
+    },
+    {
+     "k": "dent_house_1823_prairie",
+     "view": 59859,
+     "sun": 30795,
+     "drawn": 90654
+    },
+    {
+     "k": "marshall_field_jr_house_1919_prairie",
+     "view": 72812,
+     "sun": 0,
+     "drawn": 72812
+    },
+    {
+     "k": "kellogg_house_1923_prairie",
+     "view": 65518,
+     "sun": 0,
+     "drawn": 65518
+    },
+    {
+     "k": "edson_keith_house_1906_prairie",
+     "view": 63146,
+     "sun": 0,
+     "drawn": 63146
+    },
+    {
+     "k": "armour_corwith_house_1945_prairie",
+     "view": 42800,
+     "sun": 0,
+     "drawn": 42800
+    },
+    {
+     "k": "jones_house_1834_prairie",
+     "view": 40082,
+     "sun": 1408,
+     "drawn": 41490
+    },
+    {
+     "k": "elbridge_keith_house_1900_prairie",
+     "view": 30536,
+     "sun": 0,
+     "drawn": 30536
+    },
+    {
+     "k": "sears_meeker_house_1815_prairie",
+     "view": 9332,
+     "sun": 10337,
+     "drawn": 19669
+    },
+    {
+     "k": "pullman_glasshouse_1800_calumet_north",
+     "view": 9450,
+     "sun": 9450,
+     "drawn": 18900
+    },
+    {
+     "k": "marsh_house_1824_prairie",
+     "view": 10168,
+     "sun": 4304,
+     "drawn": 14472
+    }
+   ],
+   "pixels": 304200,
+   "pixelsDiffering": 722,
+   "maxChannelDelta": 116,
+   "controlPixelsDiffering": 997,
+   "controlTriangles": 1183059,
+   "images": null
+  },
+  {
+   "name": "front-yards",
+   "gated": true,
+   "off": {
+    "triangles": 423999,
+    "drawCalls": 1318,
+    "withinBudget": true
+   },
+   "on": {
+    "triangles": 423999,
+    "drawCalls": 1318,
+    "withinBudget": true
+   },
+   "swapped": 43,
+   "saved": 62796,
+   "layersOff": [
+    {
+     "k": "structures",
+     "view": 77071,
+     "sun": 110198,
+     "drawn": 187269
+    },
+    {
+     "k": "context",
+     "view": 88416,
+     "sun": 0,
+     "drawn": 88416
+    },
+    {
+     "k": "street-grid",
+     "view": 37781,
+     "sun": 7510,
+     "drawn": 45291
+    },
+    {
+     "k": "railway",
+     "view": 44583,
+     "sun": 150,
+     "drawn": 44733
+    },
+    {
+     "k": "street-trees",
+     "view": 2690,
+     "sun": 21440,
+     "drawn": 24130
+    },
+    {
+     "k": "terrain",
+     "view": 15612,
+     "sun": 0,
+     "drawn": 15612
+    },
+    {
+     "k": "front-yards",
+     "view": 1620,
+     "sun": 10448,
+     "drawn": 12068
+    },
+    {
+     "k": "street-furniture",
+     "view": 6468,
+     "sun": 0,
+     "drawn": 6468
+    },
+    {
+     "k": "sky",
+     "view": 12,
+     "sun": 0,
+     "drawn": 12
+    }
+   ],
+   "structuresOff": [
+    {
+     "k": "doane_house_1827_prairie",
+     "view": 25163,
+     "sun": 40076,
+     "drawn": 65239
+    },
+    {
+     "k": "dent_house_1823_prairie",
+     "view": 26716,
+     "sun": 31130,
+     "drawn": 57846
+    },
+    {
+     "k": "ream_house_1901_prairie",
+     "view": 0,
+     "sun": 8319,
+     "drawn": 8319
+    },
+    {
+     "k": "pullman_glasshouse_1800_calumet_east",
+     "view": 3815,
+     "sun": 4287,
+     "drawn": 8102
+    },
+    {
+     "k": "pullman_glasshouse_1800_calumet_north",
+     "view": 2976,
+     "sun": 3138,
+     "drawn": 6114
+    },
+    {
+     "k": "house_1840_calumet",
+     "view": 2419,
+     "sun": 2684,
+     "drawn": 5103
+    },
+    {
+     "k": "house_1832_calumet",
+     "view": 2454,
+     "sun": 2576,
+     "drawn": 5030
+    },
+    {
+     "k": "pullman_glasshouse_1800_calumet_east_end",
+     "view": 2239,
+     "sun": 2239,
+     "drawn": 4478
+    },
+    {
+     "k": "house_1830_calumet",
+     "view": 2080,
+     "sun": 2324,
+     "drawn": 4404
+    },
+    {
+     "k": "pullman_lodge_1800_calumet",
+     "view": 2053,
+     "sun": 2072,
+     "drawn": 4125
+    },
+    {
+     "k": "house_1900_calumet",
+     "view": 1939,
+     "sun": 2128,
+     "drawn": 4067
+    },
+    {
+     "k": "house_1836_calumet",
+     "view": 1898,
+     "sun": 1988,
+     "drawn": 3886
+    },
+    {
+     "k": "house_1910_calumet",
+     "view": 501,
+     "sun": 1808,
+     "drawn": 2309
+    },
+    {
+     "k": "house_1836_calumet_coach_house",
+     "view": 1053,
+     "sun": 1232,
+     "drawn": 2285
+    },
+    {
+     "k": "doane_house_1827_prairie_coach_house",
+     "view": 1052,
+     "sun": 1062,
+     "drawn": 2114
+    }
+   ],
+   "pixels": 304200,
+   "pixelsDiffering": 0,
+   "maxChannelDelta": 0,
+   "controlPixelsDiffering": 0,
+   "controlTriangles": 423999,
+   "images": null
+  },
+  {
+   "name": "oblique-alley-north",
+   "gated": true,
+   "off": {
+    "triangles": 790733,
+    "drawCalls": 3626,
+    "withinBudget": true
+   },
+   "on": {
+    "triangles": 700240,
+    "drawCalls": 3633,
+    "withinBudget": true
+   },
+   "swapped": 145,
+   "saved": 266514,
+   "layersOff": [
+    {
+     "k": "structures",
+     "view": 329445,
+     "sun": 153064,
+     "drawn": 482509
+    },
+    {
+     "k": "context",
+     "view": 88416,
+     "sun": 0,
+     "drawn": 88416
+    },
+    {
+     "k": "railway",
+     "view": 50350,
+     "sun": 13354,
+     "drawn": 63704
+    },
+    {
+     "k": "terrain",
+     "view": 55901,
+     "sun": 0,
+     "drawn": 55901
+    },
+    {
+     "k": "street-grid",
+     "view": 39011,
+     "sun": 7510,
+     "drawn": 46521
+    },
+    {
+     "k": "street-trees",
+     "view": 14916,
+     "sun": 19444,
+     "drawn": 34360
+    },
+    {
+     "k": "front-yards",
+     "view": 2570,
+     "sun": 11396,
+     "drawn": 13966
+    },
+    {
+     "k": "street-furniture",
+     "view": 5344,
+     "sun": 0,
+     "drawn": 5344
+    },
+    {
+     "k": "sky",
+     "view": 12,
+     "sun": 0,
+     "drawn": 12
+    }
+   ],
+   "structuresOff": [
+    {
+     "k": "marshall_field_house_1905_prairie",
+     "view": 48902,
+     "sun": 41881,
+     "drawn": 90783
+    },
+    {
+     "k": "ream_house_1901_prairie",
+     "view": 51135,
+     "sun": 29840,
+     "drawn": 80975
+    },
+    {
+     "k": "marshall_field_jr_house_1919_prairie",
+     "view": 42461,
+     "sun": 10879,
+     "drawn": 53340
+    },
+    {
+     "k": "doane_house_1827_prairie",
+     "view": 23466,
+     "sun": 25438,
+     "drawn": 48904
+    },
+    {
+     "k": "kellogg_house_1923_prairie",
+     "view": 39559,
+     "sun": 0,
+     "drawn": 39559
+    },
+    {
+     "k": "armour_corwith_house_1945_prairie",
+     "view": 36249,
+     "sun": 0,
+     "drawn": 36249
+    },
+    {
+     "k": "pullman_glasshouse_1800_calumet_north",
+     "view": 5735,
+     "sun": 7474,
+     "drawn": 13209
+    },
+    {
+     "k": "marshall_field_house_1905_prairie_conservatory",
+     "view": 2871,
+     "sun": 2988,
+     "drawn": 5859
+    },
+    {
+     "k": "pullman_glasshouse_1800_calumet_east",
+     "view": 2239,
+     "sun": 3543,
+     "drawn": 5782
+    },
+    {
+     "k": "marshall_field_house_1905_prairie_coach_house",
+     "view": 939,
+     "sun": 4546,
+     "drawn": 5485
+    },
+    {
+     "k": "pullman_lodge_1800_calumet",
+     "view": 2042,
+     "sun": 2072,
+     "drawn": 4114
+    },
+    {
+     "k": "house_1840_calumet",
+     "view": 757,
+     "sun": 2684,
+     "drawn": 3441
+    },
+    {
+     "k": "armour_house_2115_prairie",
+     "view": 3395,
+     "sun": 0,
+     "drawn": 3395
+    },
+    {
+     "k": "house_1910_calumet",
+     "view": 31,
+     "sun": 3352,
+     "drawn": 3383
+    },
+    {
+     "k": "house_2017_prairie",
+     "view": 3320,
+     "sun": 0,
+     "drawn": 3320
+    }
+   ],
+   "pixels": 304200,
+   "pixelsDiffering": 39,
+   "maxChannelDelta": 119,
+   "controlPixelsDiffering": 39,
+   "controlTriangles": 688872,
+   "images": null
+  },
+  {
+   "name": "rear-alley-south",
+   "gated": true,
+   "off": {
+    "triangles": 1000647,
+    "drawCalls": 3428,
+    "withinBudget": true
+   },
+   "on": {
+    "triangles": 931767,
+    "drawCalls": 3437,
+    "withinBudget": true
+   },
+   "swapped": 296,
+   "saved": 534813,
+   "layersOff": [
+    {
+     "k": "structures",
+     "view": 359745,
+     "sun": 344082,
+     "drawn": 703827
+    },
+    {
+     "k": "context",
+     "view": 88416,
+     "sun": 0,
+     "drawn": 88416
+    },
+    {
+     "k": "railway",
+     "view": 63627,
+     "sun": 201,
+     "drawn": 63828
+    },
+    {
+     "k": "terrain",
+     "view": 61973,
+     "sun": 0,
+     "drawn": 61973
+    },
+    {
+     "k": "street-grid",
+     "view": 38849,
+     "sun": 7510,
+     "drawn": 46359
+    },
+    {
+     "k": "street-trees",
+     "view": 10508,
+     "sun": 12272,
+     "drawn": 22780
+    },
+    {
+     "k": "front-yards",
+     "view": 6832,
+     "sun": 244,
+     "drawn": 7076
+    },
+    {
+     "k": "street-furniture",
+     "view": 6376,
+     "sun": 0,
+     "drawn": 6376
+    },
+    {
+     "k": "sky",
+     "view": 12,
+     "sun": 0,
+     "drawn": 12
+    }
+   ],
+   "structuresOff": [
+    {
+     "k": "kimball_house_1801_prairie",
+     "view": 18056,
+     "sun": 92846,
+     "drawn": 110902
+    },
+    {
+     "k": "pullman_house_1729_prairie",
+     "view": 97526,
+     "sun": 23,
+     "drawn": 97549
+    },
+    {
+     "k": "doane_house_1827_prairie",
+     "view": 24730,
+     "sun": 62391,
+     "drawn": 87121
+    },
+    {
+     "k": "ream_house_1901_prairie",
+     "view": 25159,
+     "sun": 33031,
+     "drawn": 58190
+    },
+    {
+     "k": "coleman_ames_house_1811_prairie",
+     "view": 1261,
+     "sun": 39529,
+     "drawn": 40790
+    },
+    {
+     "k": "pullman_glasshouse_1800_calumet_pavilion",
+     "view": 16456,
+     "sun": 18999,
+     "drawn": 35455
+    },
+    {
+     "k": "dent_house_1823_prairie",
+     "view": 622,
+     "sun": 30792,
+     "drawn": 31414
+    },
+    {
+     "k": "sears_meeker_house_1815_prairie",
+     "view": 760,
+     "sun": 30059,
+     "drawn": 30819
+    },
+    {
+     "k": "pullman_glasshouse_1800_calumet_north",
+     "view": 8170,
+     "sun": 9450,
+     "drawn": 17620
+    },
+    {
+     "k": "glessner_house",
+     "view": 17113,
+     "sun": 0,
+     "drawn": 17113
+    },
+    {
+     "k": "henderson_house_1816_prairie",
+     "view": 15109,
+     "sun": 1334,
+     "drawn": 16443
+    },
+    {
+     "k": "hibbard_house_1701_prairie",
+     "view": 13738,
+     "sun": 0,
+     "drawn": 13738
+    },
+    {
+     "k": "house_1601_prairie",
+     "view": 12223,
+     "sun": 0,
+     "drawn": 12223
+    },
+    {
+     "k": "house_1619_prairie",
+     "view": 11393,
+     "sun": 0,
+     "drawn": 11393
+    },
+    {
+     "k": "house_1623_prairie",
+     "view": 9263,
+     "sun": 0,
+     "drawn": 9263
+    }
+   ],
+   "pixels": 304200,
+   "pixelsDiffering": 0,
+   "maxChannelDelta": 0,
+   "controlPixelsDiffering": 0,
+   "controlTriangles": 913835,
+   "images": null
+  },
+  {
+   "name": "air",
+   "gated": false,
+   "off": {
+    "triangles": 1823232,
+    "drawCalls": 4486,
+    "withinBudget": false
+   },
+   "on": {
+    "triangles": 1543358,
+    "drawCalls": 4589,
+    "withinBudget": false
+   },
+   "swapped": 393,
+   "saved": 733016,
+   "layersOff": [
+    {
+     "k": "structures",
+     "view": 1495176,
+     "sun": 44978,
+     "drawn": 1540154
+    },
+    {
+     "k": "context",
+     "view": 88416,
+     "sun": 0,
+     "drawn": 88416
+    },
+    {
+     "k": "street-trees",
+     "view": 30008,
+     "sun": 26326,
+     "drawn": 56334
+    },
+    {
+     "k": "terrain",
+     "view": 55243,
+     "sun": 0,
+     "drawn": 55243
+    },
+    {
+     "k": "street-grid",
+     "view": 40091,
+     "sun": 7510,
+     "drawn": 47601
+    },
+    {
+     "k": "railway",
+     "view": 22166,
+     "sun": 0,
+     "drawn": 22166
+    },
+    {
+     "k": "street-furniture",
+     "view": 11188,
+     "sun": 0,
+     "drawn": 11188
+    },
+    {
+     "k": "front-yards",
+     "view": 2118,
+     "sun": 0,
+     "drawn": 2118
+    },
+    {
+     "k": "sky",
+     "view": 12,
+     "sun": 0,
+     "drawn": 12
+    }
+   ],
+   "structuresOff": [
+    {
+     "k": "glessner_house",
+     "view": 196551,
+     "sun": 0,
+     "drawn": 196551
+    },
+    {
+     "k": "moulton_lowden_house_1912_prairie",
+     "view": 130608,
+     "sun": 0,
+     "drawn": 130608
+    },
+    {
+     "k": "house_1828_prairie",
+     "view": 86836,
+     "sun": 0,
+     "drawn": 86836
+    },
+    {
+     "k": "law_house_1620_prairie",
+     "view": 70977,
+     "sun": 0,
+     "drawn": 70977
+    },
+    {
+     "k": "keith_house_1808_prairie",
+     "view": 69672,
+     "sun": 0,
+     "drawn": 69672
+    },
+    {
+     "k": "henderson_house_1816_prairie",
+     "view": 63588,
+     "sun": 0,
+     "drawn": 63588
+    },
+    {
+     "k": "edson_keith_house_1906_prairie",
+     "view": 63129,
+     "sun": 0,
+     "drawn": 63129
+    },
+    {
+     "k": "jones_house_1834_prairie",
+     "view": 40082,
+     "sun": 0,
+     "drawn": 40082
+    },
+    {
+     "k": "shortall_gregory_house_1638_prairie_front",
+     "view": 39467,
+     "sun": 0,
+     "drawn": 39467
+    },
+    {
+     "k": "house_1600_prairie",
+     "view": 37960,
+     "sun": 0,
+     "drawn": 37960
+    },
+    {
+     "k": "marsh_house_1824_prairie",
+     "view": 36916,
+     "sun": 0,
+     "drawn": 36916
+    },
+    {
+     "k": "glessner_lee_house_1700_prairie",
+     "view": 36180,
+     "sun": 0,
+     "drawn": 36180
+    },
+    {
+     "k": "george_glessner_house_1706_prairie",
+     "view": 36100,
+     "sun": 0,
+     "drawn": 36100
+    },
+    {
+     "k": "goodman_house_1612_prairie",
+     "view": 35496,
+     "sun": 0,
+     "drawn": 35496
+    },
+    {
+     "k": "walker_house_1720_prairie",
+     "view": 34573,
+     "sun": 0,
+     "drawn": 34573
+    }
+   ],
+   "pixels": 304200,
+   "pixelsDiffering": 101,
+   "maxChannelDelta": 54,
+   "controlPixelsDiffering": 178,
+   "controlTriangles": 1465750,
+   "images": null
+  }
+ ]
+}

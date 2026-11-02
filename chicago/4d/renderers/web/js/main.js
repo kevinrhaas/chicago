@@ -1121,6 +1121,11 @@ const DETAIL_DECLARED = {
               // picture; the sun's pass stops drawing houses whose shadows fall
               // away from the screen. `full` and `balanced` are unchanged.
               castersTowardView: true,
+              // T-3312: a far structure piece draws in the colour pass from its
+              // clustered twin wherever the twin's edge moves under a pixel
+              // (far-colour.js). `light` only: it is the floor that has to stay
+              // inside its own ceiling, and `full`/`balanced` keep every piece exact.
+              farColourLod: true,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -2168,6 +2173,9 @@ async function boot() {
   // map is drawn. See shadow-casters.js for the test and the reading behind it.
   const shadowCasters = { on: false, culled: 0, sun: () => world.direction,
     light: () => world.light, fresh: () => detailLevel === 'full' && governor.shadowFresh };
+  // T-3312: the same kind of switch for the colour pass's far twins (far-colour.js),
+  // shared by every structure batch, old and rebuilt alike; applyShadowTier sets it.
+  const farColourTier = { on: false };
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
@@ -2179,6 +2187,9 @@ async function boot() {
     // cells identical so a same-asset Balanced -> Light switch stays culled.
     spatialCells: inspectionLod && detailLevel !== 'full' ? { cellM: 4, heightM: 2 } : null,
     lowSpec: coarse,
+    // T-3312: the colour twins are cut only for a tier below `full`, which is the
+    // only place they are drawn; a desktop at `full` carries none of them.
+    colourTwins: detailLevel !== 'full', farColourTier,
     glass: glassForDetail(detailLevel, GLASS_REQUEST),
     checkpoint: bootCheckpoint,
     onProgress: (done, total) => bootController.progress('buildings', done, total),
@@ -2718,6 +2729,7 @@ async function boot() {
     world.setShadowRig(want.shadowReachM);
     const casts = want.furnitureCastsShadow !== false;
     shadowCasters.on = want.castersTowardView === true;
+    farColourTier.on = want.farColourLod === true;
     for (const name of FURNITURE_LAYERS) {
       const group = scene3d.getObjectByName(name);
       // A layer that drew nothing (a record that failed to load, a fence whose
@@ -2745,7 +2757,7 @@ async function boot() {
       });
     }
     return { reachM: want.shadowReachM, furnitureCastsShadow: casts,
-      castersTowardView: shadowCasters.on };
+      castersTowardView: shadowCasters.on, farColourLod: farColourTier.on };
   }
   applyShadowTier(detailLevel);
 
@@ -3063,7 +3075,7 @@ async function boot() {
           // Reapply the requested glass when swapping the full/light asset.
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
-            shadowCasters,
+            shadowCasters, colourTwins: level !== 'full', farColourTier,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
             collectViewBackings: true,
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
