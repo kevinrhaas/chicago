@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "9a746eeb9197779544ee036b8b9bef229a386e5c1d1402eb1140c6cfd6544d4a",
+  "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916",
   "camera_sha256": "5df66e6eb8c5ca751452ff083a300aa7b75f47317894576825ab061b13fab641",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "9a746eeb9197779544ee036b8b9bef229a386e5c1d1402eb1140c6cfd6544d4a"
+      "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "6dd693e2ed2874e4a4d968353a3b80b1908d10c5104ea9bfd4ae904153962e95",
+  "group_sha256": "ae6fdcb177590dc8045f6a0e434355695dfcd07c6b74ae8eaa15f07d661b8ee3",
   "rendered_flora": {
     "season": "summer",
     "lots": [
