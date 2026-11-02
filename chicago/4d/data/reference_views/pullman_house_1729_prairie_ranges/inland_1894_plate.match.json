@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_ranges",
   "view": "inland_1894_plate",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
-  "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef",
+  "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf",
   "camera_sha256": "01eddcdd24e2bfd4f02ddd7ec7f5b8bc3be1e0d2d56f22e1eff529f03ae0b152",
   "photo_sha256": "4cd3f1eef5e267d8e2769c48d0fbfc79fb4ed256303efca48a9274d2bf9c5580",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
+      "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     },
     {
       "structure_id": "pullman_house_1729_prairie_conservatory",
@@ -42,7 +42,7 @@
         2.4319498013560494
       ],
       "rotation_y": 3.1490277562032887,
-      "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5"
+      "glb_sha256": "008058259eeec7963078624cc365e44a0184e72e95ab0c4638b1e54a81e9d91f"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -61,16 +61,16 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "7b1f0088762be801519d4cc4b19280a0754eb908891108a7239c2b151e327ebc"
+      "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037"
     }
   ],
-  "group_sha256": "b8f24e62a9ba296144b04fc0db88674617bc68c7acb0e518d13ccfe74ba0d92f",
+  "group_sha256": "cc218ecbce93af905cc65cb84e65758ad40523d3ffe248d71b3bc5a5a1ecf637",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 30,
+        "shrubs": 26,
         "trees": 3,
         "beds": 0,
         "creeper": 20
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "ae98662ef1efbb16756a17033af4dd16953a1b6510c1aa0f0b915c408beef886",
+  "flora_sha256": "4ec5f72773579a3315c26b078070b3dafbdc025cdacee556f9218e2ce921f7e0",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

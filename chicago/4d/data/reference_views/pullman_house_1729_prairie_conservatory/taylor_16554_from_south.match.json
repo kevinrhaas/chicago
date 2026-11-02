@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5",
+  "glb_sha256": "008058259eeec7963078624cc365e44a0184e72e95ab0c4638b1e54a81e9d91f",
   "camera_sha256": "954ba648e247f06341d59114d9f5cbd0d2c47b36fa4e43edd5638dc8e54946f7",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5"
+      "glb_sha256": "008058259eeec7963078624cc365e44a0184e72e95ab0c4638b1e54a81e9d91f"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "7b1f0088762be801519d4cc4b19280a0754eb908891108a7239c2b151e327ebc"
+      "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,16 +61,16 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
+      "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "b900a179d0f0ab0f93f7400ddd2e4cf17a77cd50f2886b774aa913d87d440a34",
+  "group_sha256": "c6fffd47bde7f48bb719a50b31ae21a813d4248cb33fddb888a4b34f8f48ec2c",
   "rendered_flora": {
     "season": "winter",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 30,
+        "shrubs": 26,
         "trees": 3,
         "beds": 0,
         "creeper": 20
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "1ba141c7a525a64630453d39946f8167e6c27e7a967aa51cec3a2e8637aab6ce",
+  "flora_sha256": "b3a98f99d45cfe584bfc2648b24a495ab5c2d4d763cac264e48f4f94b953319a",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

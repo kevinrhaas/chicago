@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "inland_1894_plate",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5",
+  "glb_sha256": "008058259eeec7963078624cc365e44a0184e72e95ab0c4638b1e54a81e9d91f",
   "camera_sha256": "faab84a7badea46d8c211aa9f27bd3c68476504c64cccca5c42cbe436fefe82d",
   "photo_sha256": "4cd3f1eef5e267d8e2769c48d0fbfc79fb4ed256303efca48a9274d2bf9c5580",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5"
+      "glb_sha256": "008058259eeec7963078624cc365e44a0184e72e95ab0c4638b1e54a81e9d91f"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "7b1f0088762be801519d4cc4b19280a0754eb908891108a7239c2b151e327ebc"
+      "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,16 +61,16 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "417a85559faf8002199f376440aabc08aad0a5f408dc82b5b08bb9506bcba8ef"
+      "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "b900a179d0f0ab0f93f7400ddd2e4cf17a77cd50f2886b774aa913d87d440a34",
+  "group_sha256": "c6fffd47bde7f48bb719a50b31ae21a813d4248cb33fddb888a4b34f8f48ec2c",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 30,
+        "shrubs": 26,
         "trees": 3,
         "beds": 0,
         "creeper": 20
@@ -138,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "c795062f9a66a7438d0fe41fe18742b9086cd8e4594fef548e92763b85537015",
+  "flora_sha256": "185bffaf58cb5f3a4f5c34a66902d77768721cbc0e39fd95d494a78bcddf442b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -303,6 +303,21 @@
       "what": "T-3273 (owner, 2026-10-31: \"the opaque glass is too white\"): the kit's opaque glass substitute set a step darker, re-rendered here; this building's own geometry is unchanged",
       "status": "fixed",
       "how": "glass_sky (0.60, 0.64, 0.66) -> (0.36, 0.41, 0.43) in generators/archetypes/k13_conservatories.py, so the white bars over it read as panes"
+    },
+    {
+      "what": "T-1934 (owner, 2026-11-02): the court's flights, landing, terrace fronts and urn pedestals",
+      "status": "fixed",
+      "how": "built from this plate and Taylor's 16555 triangulated (L-pullman-court-1934)"
+    },
+    {
+      "what": "the striped awning, which this 1894 plate does not show",
+      "status": "within tolerance",
+      "how": "T-1934: built standing for the 1904 scene's July, as Taylor's summer 16555 shows it; an awning is a seasonal fitting"
+    },
+    {
+      "what": "the dome's crown and the drum balustrade's dies",
+      "status": "fixed",
+      "how": "T-1934: a die over every column, the dome to a crown ring with a curb and ornament (the ornament lost in this plate's tree)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
