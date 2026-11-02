@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2569, ts: '2026-11-02T13:45:47.498Z', date: 'Nov 2, 2026, 7:45 AM CT', title: 'Nothing you can see changed: the east side\'s alley buildings signed off', kind: 'chore',
+    items: [
+      'The four refined alley buildings behind 1811 to 1905 Prairie Avenue were checked in the live 1904 town, from the yards, the alley and the air, on desktop and phone, with no errors.',
+      'The Doane coach house is signed off against its one photograph. In that picture the house hides it less than the house does here, because the camera fitted to the house\'s front can\'t also place its far side.',
+      'From high above the 18th Street corner, a phone draws more than its budget allows. That comes from the glasshouses and trees there, not these buildings, and it is noted for a fix.',
+    ] },
   { v: 2568, ts: '2026-11-02T13:25:44.114Z', date: 'Nov 2, 2026, 7:25 AM CT', title: '1904 back under its memory lines, on a phone and a desktop', kind: 'fix',
     items: [
       'The 1904 town had grown past the memory line a phone is held to as Prairie Avenue\'s houses and coach houses filled in; it is back under it, about 35 MB lighter, with nothing taken out of the scene',
