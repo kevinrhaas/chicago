@@ -35567,6 +35567,18 @@ the tallest K09's hood allows under K10's frieze (the corner bay's 3.1 m from 0.
 K08 keeps over a storey's floor). These are read off the pictures (inferred) and add nothing to the
 invented list above. Front, oblique, rear and roof views with their costs, in the published app at 1280x800 and
 390x780: `docs/RESEARCH/k01-1923-1945-views-3283/`.
+**Revised again (T-3283, 2026-11-01):** the last three open differences closed. The porch's columns stand in pairs,
+two shafts at each end of the porch, as the vignette draws them either side of the door (its pairs about 20 px across
+at the front's 15.7 px a metre): K01's columned hood now takes the columns' places along the front (columns.at_v_m)
+and arches only the spans it names (arches.over), so the round arch turns over the wide span between the pairs and the
+spandrel stays whole over each pair. INVENTED: the 0.8 m between a pair's shafts, bounded by the sketch's scale. The
+fence is K11's scroll-panel fence (k11.fence.scroll_panel, new): the kit's curb, posts and rails, the panel parted by
+plain bars into bays of at most 0.4 m (the sketch's two scrolls to each post-to-post span of about 0.8 m, read at the
+fence's own scale of about 29 px a metre) and a tall S of the kit's scroll bar in each bay, every other one mirrored.
+INVENTED: the scrolls' exact curl, the bar and the rails' heights (the kit's), and the acorn finials where the sketch
+draws balls. The corner bay's width is not a disagreement after all: the elevation draws it about 40 px, 5.4 m at its
+row's own scale, against the sheet's 5.2 m; it looked wider only as a share of a front the elevation draws 12.8 m
+against the sheet's 16.7 m, and that is the front's width, carried within tolerance. Both views of 1923 now match.
 **Covers:** `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_front_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.wall_thickness_side_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.service_wall_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_pitch_deg`, `kellogg_house_1923_prairie.as_mapped_1904.form.roof_covering`, `kellogg_house_1923_prairie.as_mapped_1904.form.stair_tread_m`, `kellogg_house_1923_prairie.as_mapped_1904.form.side_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.north_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.rear_bays`, `kellogg_house_1923_prairie.as_mapped_1904.form.chimneys`, `kellogg_house_1923_prairie.as_mapped_1904.form.rainwater`, `kellogg_house_1923_prairie.as_mapped_1904.form.window_kit`, `kellogg_house_1923_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3282 (piece 2 of T-1908).
 **Review:** `docs/RESEARCH/photo-match/kellogg_house_1923_prairie/`.
@@ -38508,6 +38520,40 @@ match records to `matches`; T-1907 finishes the architecture.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg`.
 **Recorded:** 2026-10-31 (T-3279).
 **Revised:** 2026-11-01 (T-3280): the street hip's pitch is no longer invented here: the 1919 programme plate, through its solved camera (`data/reference_views/marshall_field_jr_house_1919_prairie/gatlin_programme_1919.json`), puts the hip's apex at about 15.9 m, so the roof is built at 52 degrees, inferred from that reading, and the stacks' rise is lowered to keep their tops where they stood. The tower's low slated cap gives way to the flat top both plates show, and the street dormer carries its three lights; their sizes stay readings through two cameras, not measurements.
+
+### L-k01-1919-coped-dormers-3301 — 1919 Prairie's second street dormer, its third stack and its dormers' stone-coped gables, read off the Gatlin plates and the 2004 photograph
+
+**Decision:** the street slope of 1919 Prairie's front block (T-3301, piece 1 of T-1907) carries what
+both Gatlin Institute plates draw over the front (`gatlin_programme_1919_field_jr_plate`, through its
+solved camera, and `cdn_almanac_1913_gatlin_1919_plate`): beside the broad three-light dormer, a smaller
+one-light dormer near the front's south end under its own gable; a stack rising behind them at the
+front block's south side; and both dormers' gables carried up in a pale stone coping, a kneeler block at
+each foot and a finial at the broad one's apex. K01 learns two additive things for it, byte-identical
+for every other house: further plain street dormers beside the first (`dormer.also`, each the first's
+build at its own place, width and lights) and a stone-coped dormer gable (`dormer.coping`,
+`generators/archetypes/k01_dormer_coping.py`).
+**What is read, not invented.** The small dormer's existence, its one light and its place at the south
+end, and the stack's existence and side, from both plates (the programme plate's source record names
+them). The small dormer's centre (about 8.0 m from the north corner) and width (about 1.6 m), and the
+coping and kneelers on both gables, from the 2004 Commons photograph `a19-commons-fieldjr-2004` in the
+Prairie library, read at about 57 px to the metre across the 9.9 m front; that photograph is unsolved,
+and it is evidence of 2004, after the house's restoration, so it is used only where the 1912-1919
+plates show the same thing.
+**What is invented.** The coping's 0.18 m depth on the rake and its 0.35 m run back from the face; the
+kneelers' 0.35 m size; the finial's 0.45 m height and its turning, and that the small dormer takes one
+too; the small dormer's face height, setback, pitch and sash, which are the broad one's; the stack's
+exact place (u 14.5 m, v 7.5 m, the furthest forward that clears both dormers' bodies), its plan and
+its height, the other stacks' 1.6 m over the ridge.
+**What is not built.** The dormers' faces in brick under the stone dressings (the kit's dormer face is
+dressed stone); a pinnacle shaft the programme plate may draw at the broad dormer's north foot, which
+the halftone does not resolve; the broad gable's slightly steeper pitch in the programme plate, which
+the 2004 photograph does not bear out.
+**How to resolve:** a solved camera on the 2004 photograph, or a sharper print of either plate, would
+read the coping's depth, the kneelers and the small dormer's width; T-3302 and T-3303 take the rest of
+the house's pictures.
+**Ticket:** T-3301 (piece 1 of T-1907).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-3301).
 
 ### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
 
