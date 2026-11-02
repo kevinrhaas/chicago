@@ -2710,6 +2710,12 @@ selftest "…and two shops on one corner, a fence through a turned house, a wood
 step "the fort apron re-derives from the palisade it is measured off" \
   python3 tools/generate_fort_apron.py --check
 
+# And the ground INSIDE the walls (T-3320): each fort's parade is trodden earth feathered
+# into the sward, derived from the parade record's own footprint, with the feather asserted
+# to finish inside the walls; 1812's lives in its own enclosure folder.
+step "the forts' parade grounds re-derive from their parade records" \
+  python3 tools/generate_fort_parade_ground.py --check
+
 # And the layer above that ground: the wood p4_0 draws outside the same walls (T-0098). Same
 # shape again — the plate attests a tree mass and places nothing, so which ground carries a
 # stem is a rule off the palisade's own footprint and its apron's own width, re-derived here.

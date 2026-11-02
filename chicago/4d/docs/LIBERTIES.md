@@ -39227,3 +39227,23 @@ four, says whether the sheet or the photograph has the stable's place; the alley
 **Ticket:** T-3316.
 **Review:** `docs/RESEARCH/photo-match/hibbard_house_1701_prairie_coach_house/chicagology_front-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3316).
+
+### L-t3320-parade-ground — Fort Dearborn's parade drawn as trodden earth that feathers raggedly into the grass, both forts
+
+**Decision:** the parade of both forts (1835: `fort_dearborn_parade`; 1812: `first_fort_dearborn_parade`) is laid by
+`renderers/web/js/yards.js` as the `trodden_earth` treatment the apron outside the 1835 walls already wears (L174), on
+the parade's own committed footprint, and its edge gives way to the sward over 5 m in wandering tongues rather than a
+line. The archetype's flat 6 cm slab is no longer drawn (`buildings.js` leaves out the parade's `earth` primitive); the
+sun-dial still stands. The two grounds are `data/enclosures/fort_dearborn_parade_ground.json` and
+`data/enclosures/1812/first_fort_dearborn_parade_ground.json`, written by `tools/generate_fort_parade_ground.py` and
+re-derived byte for byte by `tools/check.sh`; 1812 reads its own enclosure folder (`enclosures_dir`), which holds this
+record and nothing else. **Why:** the owner, 2026-11-02, standing on the 1835 parade: *"can you improve the texture of the
+ground so it is not a solid color but a more realistic texture that looks good and also blur/gradient all the
+transitions from that to grass or dirt so there are not sharp lines dividing ground surfaces"*. **What is recorded and
+what is not:** that there was a parade, where and how large, is the parade records' own (inferred, with their
+sources). Nothing reached describes its surface. That it was bare trodden earth, its colour and grain (the apron's),
+and the 5 m ragged fade into grass beyond its edge are ours; the fade is sized so it finishes inside each fort's walls,
+which the generator asserts. **How to resolve:** a garrison description, return or drawing that shows the parade's
+surface, grass, gravel or bare earth.
+**Ticket:** T-3320.
+**Recorded:** 2026-11-02 (T-3320).
