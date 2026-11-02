@@ -24418,6 +24418,39 @@ rise through the roof as a tall wall gable. All are on the match records for T-3
 **Ticket:** T-3293 (piece 2 of T-1900).
 **Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-3293).
+### L-k01-1912-moulton-signoff-3294 — 1912 Prairie's sign-off: the tower and corner turret capped at the cornice, the tall south gable, the enclosing arch and the entrance's capitals
+
+**Decision:** the last differences over the bar on 1912 Prairie's three match records are built (T-3294,
+the last piece of T-1900). The round tower's third stage is the attic storey's 2.75 m, so its cornice runs
+on the main cornice's line and its cone springs there; the corbelled corner turret on the north flank
+stands to 12.8 m, its cornice level with the main cornice, its light 1.45 m tall, its cone rising past the
+eave against the mansard and closed at its back on the wall's plane (K01/K08 `cap_at_eave`). The south
+gable rises as a tall wall gable through the eave, its pitch 2.2 where it was 1.4, so its apex stands near
+15.5 m, and the main eave, gutter and cornice stop at its face (`gable_through_eave`). Its principal pair
+stands under one enclosing arch springing at the lights' springing, framed by a moulded architrave 0.2 m
+broad and 0.08 m proud (K08 architrave `rise_m`), its lights 2.8 m tall. The door's arch is flanked by a
+plain stone pilaster each side, 0.3 m broad and 0.08 m proud, 0.02 m outside its moulded ring, from the
+floor to the keystone's top, under a capital 0.35 m tall in two tiers (entrance arch `pilasters`).
+**What is read, not invented.** From the photograph (`chicagology_1912_prairie_exterior_photo`, rights
+check_required: forms and proportions only): the tower's and the turret's cornices on the main cornice's
+line (x 380-560 and 1050-1145, y 430-545 px); the south gable's height, its rise about twice its
+half-width, which the 1883 plate (`newberry_new_chicago_album_1883_residences`) also draws; the arch with
+a moulded hood over the south pair (x 95-265, y 1235-1290 px), which the plate and the c. 1914 elevations
+drawing also draw; the pilasters' capitals either side of the door (x 680-710 and 880-915, y 1195-1225 px).
+The c. 1914 drawing puts the cone on the cornice too.
+**What is invented.** The architrave's and the pilasters' sections, the capitals' two-tier blocks (the
+photograph's carved leafage, finer than the 1 ft bar, is not modelled), the lights' 0.1 m shortening that
+the enclosing arch needs inside the storey, and the gable's exact pitch (the camera is weakest at that
+end; 2.2 is the two pictures' proportion, not a measurement).
+**What is not built.** The 1883 plate's taller tower (a full stage over the cornice under a spire) and its
+corner turret in two stages from the chamber floor, which the photograph and the c. 1914 drawing, both
+nearer 1904, do not show; the plate's second dormer on the north flank; the ivy and the awning, an undated
+state T-1900's phase guard keeps off the 1904 geometry.
+**How to resolve:** a dated picture of the house nearer 1904, or one of its south flank and rear.
+**Ticket:** T-3294 (piece 3 of T-1900).
+**Review:** `docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/chicagology_photo-side-by-side.jpg`.
+**Recorded:** 2026-11-01 (T-3294).
+
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
 **Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.

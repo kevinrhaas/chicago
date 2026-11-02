@@ -322,6 +322,42 @@ def _moulding(a, frame, g, mo, conf):
                   (0, -1, 0), seed, conf)
 
 
+PILASTER_BELL_GROW_M = 0.04     # T-3294: how far a door pilaster's bell steps out past its shaft
+PILASTER_ABACUS_GROW_M = 0.07   # and its abacus
+
+
+def _pilasters(a, frame, g, conf):
+    """T-3294: a plain stone pilaster each side of a door's arch (1912's, the photograph): its
+    shaft `width_m` broad and `proud_m` before the wall, `gap_m` outside the arch's moulded ring
+    (or its voussoir block's cut), from the floor to the keystone's top, under a capital in two
+    tiers, a bell `capital_m - abacus_m` tall and an abacus `abacus_m` tall, each stepping out past
+    the one under it on its three faces. The photograph's carved leafage is finer than the bar and
+    is not modelled: the capital is its block. Boxes on the wall, so no back is drawn."""
+    pl = g["pilasters"]
+    (s0, s1, spring, rise, floor), = g["lights"][:1]
+    mo = g.get("moulding")
+    ring = sum(mo["steps_m"]) if mo else (s0 - g["cuts"][0])
+    w, d, gap, cap, ab = pl["width_m"], pl["proud_m"], pl["gap_m"], pl["capital_m"], pl["abacus_m"]
+    top = g["keystone"]["top_m"]
+    seed = a.instance("k01.opening.door_pilaster", "opening",
+                      {"of": g["component"], "width_m": w, "proud_m": d, "capital_m": cap},
+                      {"foot": _P(frame, s0 - ring - gap - w, floor, d)})
+
+    def box(x0, x1, y0, y1, dd, under):
+        _face(a, "dress_stone", frame, [(x0, y0, dd), (x1, y0, dd), (x1, y1, dd), (x0, y1, dd)], (0, 0, 1), seed, conf)
+        for x, sg in ((x0, -1), (x1, 1)):
+            _face(a, "dress_stone", frame, [(x, y0, 0.0), (x, y0, dd), (x, y1, dd), (x, y1, 0.0)], (sg, 0, 0), seed, conf)
+        _face(a, "dress_stone", frame, [(x0, y1, 0.0), (x1, y1, 0.0), (x1, y1, dd), (x0, y1, dd)], (0, 1, 0), seed, conf)
+        if under:
+            _face(a, "dress_stone", frame, [(x0, y0, 0.0), (x1, y0, 0.0), (x1, y0, dd), (x0, y0, dd)], (0, -1, 0),
+                  seed, conf)
+    for x0, x1 in ((s0 - ring - gap - w, s0 - ring - gap), (s1 + ring + gap, s1 + ring + gap + w)):
+        box(x0, x1, floor, top - cap, d, False)
+        gb, ga = PILASTER_BELL_GROW_M, PILASTER_ABACUS_GROW_M
+        box(x0 - gb, x1 + gb, top - cap, top - ab, d + gb, True)
+        box(x0 - ga, x1 + ga, top - ab, top, d + ga, True)
+
+
 def _keystone(a, frame, k, seed, conf):
     s, y0, y1 = k["s_m"], k["bed_m"], k["top_m"]
     w0, w1 = (x / 2 for x in k["width_m"])
@@ -398,6 +434,8 @@ def _voussoirs(a, frame, g, conf, recess):
         a.stone(frame, [(p0, g["sill_m"]), (p1, g["sill_m"]), (p1, g["spring_m"]), (p0, g["spring_m"])], [hj] * 4,
                 "rough_stone_trim", a._stone_seed(cid, inst, j), conf, recess=recess, bevel=wk["bevel_m"], F=0.0)
         j += 1
+    if g.get("pilasters"):   # T-3294: a pilaster each side of the arch, under its capital
+        _pilasters(a, frame, g, conf)
     cl = loggia_columns(a.p, g)
     if cl:   # T-2918: the arch springs from clustered shafts in its jambs
         _jamb_columns(a, frame, g, cl, conf)
