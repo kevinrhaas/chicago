@@ -3125,16 +3125,23 @@ class Assembly:
         crest = next(x for x in data["variants"] if x["id"] == "k10.cresting.iron_ridge")
         y_cap = mn["curb_m"] + float(v["roof"]["pitch"]) * ins
         pts = mn["curb"]
+        # T-1881: a turned finial on each hip of the curb, standing in the cresting's own line
+        # (1729's, Taylor's 16554: a tall finialled post where each section's hips meet the curb)
+        fn = cr.get("finials")
+        posts = self.bay_hip_posts(v, pts, ins, fn) if fn else {}
         laid = []
         for j in range(len(pts) - 1):
             (x0, z0), (x1, z1) = pts[j], pts[j + 1]
             L0 = math.hypot(x1 - x0, z1 - z0)
             tx, tz = (x1 - x0) / L0, (z1 - z0) / L0
             kx, kz = -tz, tx          # local +Z, the run's outward side (the curb runs left to right)
-            L = L0 - 2 * CREST_STOP_M
+            s0 = posts[j]["stop_m"] if j in posts else CREST_STOP_M
+            s1 = posts[j + 1]["stop_m"] if j + 1 in posts else CREST_STOP_M
+            L = L0 - (s0 + s1)   # bit for bit the old L0 - 2 * CREST_STOP_M where no finial stands
             if L < k10_frontage.MIN_CRESTING_M:
                 continue
-            mx, mz = (x0 + x1) / 2 - kx * ins, (z0 + z1) / 2 - kz * ins
+            mx = (x0 + x1) / 2 + tx * (s0 - s1) / 2 - kx * ins
+            mz = (z0 + z1) / 2 + tz * (s0 - s1) / 2 - kz * ins
             seed = self.instance("k10.cresting.iron_ridge", "cresting",
                                  {"length_m": round(L, 4), "ridge_cap_top_m": round(y_cap, 4), "height_m": h,
                                   "host": f"bay {v['id']} curb", "run": j}, {"ridge": W((mx, y_cap, mz))})
@@ -3150,7 +3157,51 @@ class Assembly:
                          for n in m.nrm]
             k10_frontage._lay(self, var.pieces, conf, "k10.cresting.iron_ridge")
             laid.append({"run": j, "length_m": round(L, 3)})
-        self.bay_crests = getattr(self, "bay_crests", []) + [{"bay": v["id"], "runs": laid}]
+        crest_meta = {"bay": v["id"], "runs": laid}
+        if posts:
+            from .k01_mansard_deck import FINIAL, FINIAL_SEGS, LET_IN_M
+            from .k09_trim import lathe, Piece
+            y_foot = mn["curb_m"] + float(v["roof"]["pitch"]) * ins - LET_IN_M
+            crest_meta["finials"] = []
+            for j in sorted(posts):
+                px, pz = posts[j]["at"]
+                self.instance("k01.roof.deck_finial", "finial", {"height_m": fn["height_m"], "corner": f"hip {j}",
+                                                                 "host": f"bay {v['id']} curb"},
+                              {"foot": W((px, y_foot, pz))})
+                pc = Piece(f"finial {v['id']} hip {j}", "iron", "rooted", host=f"bay {v['id']} curb")
+                lathe(pc.mesh, (px, pz), [(fn["radius_m"] * r, y_foot + fn["height_m"] * y) for r, y in FINIAL],
+                      FINIAL_SEGS)
+                m = pc.mesh
+                m.pos = [W(q) for q in m.pos]
+                m.nrm = [_add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2])) for n in m.nrm]
+                k10_frontage._lay(self, [pc], conf, "k01.roof.deck_finial")
+                crest_meta["finials"].append({"hip": j, "foot_m": round(y_foot, 3)})
+        self.bay_crests = getattr(self, "bay_crests", []) + [crest_meta]
+
+    @staticmethod
+    def bay_hip_posts(v, pts, ins, fn):
+        """T-1881: where a mansard bay's hip finials stand. The curb's first and last points are
+        on the wall plane, where the house's own mansard meets it; every point between is a hip.
+        Each finial stands where the two runs' cresting lines (`ins` inside the curb) cross, and
+        the cresting either side stops FINIAL_CLEAR_M short of its foot. Returns {point index:
+        {"at": (x, z), "stop_m": the runs' stop from that curb point}} in the bay's frame."""
+        from .k01_mansard_deck import FINIAL_CLEAR_M
+        h, r = float(fn["height_m"]), float(fn["radius_m"])
+        if not 0.8 <= h <= 3.0 or not 0.05 <= r <= 0.2:
+            raise ValueError(f"{v['id']}: a mansard bay's hip finials stand 0.8-3.0 m high, 0.05-0.2 m in radius")
+        out = {}
+        for j in range(1, len(pts) - 1):
+            (xa, za), (xb, zb), (xc, zc) = pts[j - 1], pts[j], pts[j + 1]
+            la, lc = math.hypot(xb - xa, zb - za), math.hypot(xc - xb, zc - zb)
+            t1, t2 = ((xb - xa) / la, (zb - za) / la), ((xc - xb) / lc, (zc - zb) / lc)
+            n1, n2 = (t1[1], -t1[0]), (t2[1], -t2[0])     # inward, opposite the runs' outward +Z
+            k = 1.0 + n1[0] * n2[0] + n1[1] * n2[1]
+            if k < 0.2:
+                raise ValueError(f"{v['id']}: its curb turns too sharply at point {j} for a hip finial")
+            dx, dz = ins * (n1[0] + n2[0]) / k, ins * (n1[1] + n2[1]) / k
+            along = max(abs(dx * t1[0] + dz * t1[1]), abs(dx * t2[0] + dz * t2[1]))
+            out[j] = {"at": (xb + dx, zb + dz), "stop_m": round(along + r + FINIAL_CLEAR_M, 4)}
+        return out
 
     def bay_columns(self, b, pts, W, R, N, mat, seed, conf):
         """T-2781: a stone bay's engaged columns (1637's south bay, the Grosvenor photograph).
