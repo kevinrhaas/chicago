@@ -36558,6 +36558,44 @@ invented.
 **Ticket:** T-1934.
 **Recorded:** 2026-10-28 (T-1934).
 
+### L-pullman-court-1934 — Pullman's court between the palm house and 18th Street: terraces, flights, landing, sunken court and awning read off 16555 and the 1894 plate, and the palm house's dome crowned
+
+**Decision:** the owner, on 2026-11-02, asked for the terraced steps, walkways and landings round the
+conservatory per Taylor's 16555, a top-down plan with all the levels, work on the conservatory's top, and
+whether the range and the stable share the house's facing. `pullman_house_1729_prairie_conservatory` now
+builds the court (`host_wall.court`, K13 `court_dress`): the house's east terrace at its principal floor
+(+2.0 m) from the house's east wall out to u -4.66 and south to v -23.05, with an arched light in its south
+front; the west gate's flight in two runs of six risers (0 to +1.0 and +1.0 to +2.0) about a half landing
+with a garden bench, between urn pedestals at its head; the east gate's flight of nine risers to a +1.4 m
+terrace walk (u 3.18-5.58) running north to the palm terrace, with cheek walls and urn pedestals at its foot
+and head; the sunken flagged court at grade behind the 18th Street wall, reached from the palm terrace by
+its broad flight; balustrades round the terraces' open edges; and the striped awning as a lean-to off the
+house's east wall (6.5 m) to an eave at 4.2 m, 4.4 m out, with a striped side curtain down its south end.
+The palm house's top takes a solid die over every column in the drum's balustrade, and its dome rises to a
+crown ring 1.7 m across with a curb and a turned ornament on it, not to a point.
+**What is read, not invented.** Through 16555's camera, re-solved on the 18th Street wall's piers (its
+earlier solve had taken the third pier west of the drum for the second), triangulated against the 1894
+plate's camera: the flights' places, risers and levels, the landing, the terrace fronts and their urn
+pedestals, the court's level under the C-D wall's coping, within about 0.5 m; the awning's south end, eave
+and pitch through 16555 alone, on the house's wall; the drum balustrade's dies over the columns and the
+dome's crown ring and ornament in both pictures (16555 sharper). The plate (1894) shows no awning; it is a
+summer fitting.
+**What is invented.** Every section: the risers' and treads' exact counts where the prints blur, the
+cheeks' 0.25 m thickness and 0.45 m rise over the nosings, the pedestals' 0.6 m and the corner dies' 0.36 m
+squares, the balustrades' run along each edge (0.15-0.22 m in), the flags' grey and their 0.05 m lift; the
+link flight of four risers from the palm terrace up to the house terrace, which no picture sees; the bench's
+form; the awning's north end (v -7.0), its posts and both stripe colours (a buff and a deep green); the
+dome's ring count, its shoulder's fullness and the ornament's profile; the drum dies' 0.45 m width. The
+terrace's front west of u -8.3 is left open where 16555 shows a planted ledge and no balustrade.
+**What is not.** The palm house's plan, heights and columns stay L-pullman-palm-house-1934's. This
+supersedes L-k01-1729-pullman-terrace-1881 (the house's own 3 m terrace and awning, now built here).
+**How to resolve:** a plan of the Pullman grounds, or the Beman-addition side views and CHM i70232 once
+solved, which see the court nearer.
+**Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and `inland_1894_plate-side-by-side.jpg`; the plan and its evidence at `docs/RESEARCH/pullman-court-T-1934/`.
+**Recorded:** 2026-11-02 (T-1934).
+
 ### L-k01-1729-pullman-massing-1881 — 1729 Prairie's forward block, 18th Street pavilion, porte-cochere and 18th Street wall re-read off the 1911 sheet and both photographs
 
 **Decision:** the Pullman house (T-1881, reopened on the owner's report of 2026-10-28 that it was
@@ -38248,6 +38286,9 @@ rear nearer and can place the terrace's north end, its steps and the awning's po
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and `taylor_16554_from_south-side-by-side.jpg`, with their match records.
 **Recorded:** 2026-10-31 (T-1881).
+**Superseded 2026-11-02 (T-1934):** the terrace and its awning are now built in the conservatory's court
+(L-pullman-court-1934), re-read through 16555's re-solved camera with the flights and landings round them;
+the house record carries no `rear_terrace`.
 
 ### L-kimball-1801-cross-hood-1890 — 1801 Prairie's slated hood on the cross roof's ridge end, under its finial
 
