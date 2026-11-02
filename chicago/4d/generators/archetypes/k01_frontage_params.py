@@ -2747,7 +2747,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
                 what = f"bays: {e['id']}'s architrave"
                 if not isinstance(ar, dict) or not {"band_m", "proud_m"} <= set(ar) <= {"band_m", "proud_m", "impost_m",
-                                                                                     "key_m"} \
+                                                                                     "key_m", "rise_m"} \
                         or v6.get("head") != "round" or e.get("fabric", "stone") == "frame" \
                         or any(k in w for k in ("surround", "voussoirs", "tympanum", "narrow")):
                     raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out] and "
@@ -2770,8 +2770,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across (at most half the light), "
                                          f"rising the band's depth to 0.4 m past it over the crown")
                     arc["key_m"] = key
+                if ar.get("rise_m") is not None:
+                    # T-3294: a grouped light's ONE enclosing arch (1912's south pair, the photograph
+                    # and the c. 1914 elevations): the arch's crown stands `rise_m` over the lights'
+                    # heads, so the pair's own round heads stand under it; K08 refuses a light that
+                    # reaches past its intrados
+                    rs = float(ar["rise_m"])
+                    if v6.get("bays", 1) < 2 or not 0.05 <= rs <= 1.0:
+                        raise ParamError(f"{what}.rise_m: 0.05-1.0 m, over a grouped light's heads, not {rs}")
+                    arc["rise_m"] = rs
                 head = float(w["sill_m"]) + float(w.get("clear_height_m", v6.get("clear_height_m", 0.0)))
-                crown = head + max(b, arc.get("key_m", [0.0, 0.0])[1])
+                crown = head + arc.get("rise_m", 0.0) + max(b, arc.get("key_m", [0.0, 0.0])[1])
                 if crown > float(st["height_m"]) - 0.05:
                     raise ParamError(f"{what} rises to {crown:.2f} m, past its {st['height_m']} m storey")
                 w["architrave"] = arc
@@ -3285,6 +3294,18 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"0.3 m over the eave's front edge ({edge:.2f} m), and its front 0.15 m past "
                                      f"the eave's {overhang} m (has {front})")
                 v["back_from_m"] = eave
+            elif e.get("cap_at_eave") is True:
+                # T-3294: a half-round turret whose cornice runs level with the main cornice and
+                # whose cone rises past the eave against the roof behind (1912's corner turret: the
+                # photograph draws its cornice on the main cornice's line). Its wall top stands
+                # under the eave by less than a metre, the house's cornice dies into its cone, and
+                # the cone's back is closed on the wall plane from the eave to its apex (k08_bays
+                # `cone_back_from_m`), where no wall stands behind it
+                if spire or v["roof"].get("kind") != "cone" or v["plan"].get("kind") != "bow" \
+                        or not eave - 1.0 < top <= eave + 1e-9:
+                    raise ParamError(f"bays: {e['id']} carries its cap at the eave: a bow under a cone, its wall "
+                                     f"top under the eave ({eave:.2f} m) by less than a metre (has {top:.2f})")
+                v["cone_back_from_m"] = eave
             elif spire or top > eave - 1.0:
                 raise ParamError(f"bays: {e['id']}'s wall top {top:.2f} m is not a metre under the eave "
                                  f"({eave:.2f} m), or it stands under a spire without being carried through it")
@@ -3292,6 +3313,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if abs(top - eave) > 1e-6:
                 raise ParamError(f"bays: {e['id']} is a corner turret whose wall top {top:.2f} m is not its wing's "
                                  f"({eave:.2f} m); its eaves are the wing's own")
+        elif v["kind"] == "tower" and e.get("cap_at_eave") is True:
+            # T-3294: a tower whose cornice is the main cornice's, its cone springing from the
+            # eave's line (1912's round tower in its photograph and the c. 1914 elevations): its
+            # wall top exactly the eave, and the eave runs into its ring as it does into any tower's
+            if abs(top - eave) > 1e-6 or v["roof"].get("kind") != "cone":
+                raise ParamError(f"bays: {e['id']} carries its cap at the eave: under a cone, its wall top the "
+                                 f"eave's {eave:.2f} m (has {top:.2f})")
         elif v["kind"] == "tower" and top < eave + TOWER_PAST_EAVE_M - 1e-9:
             raise ParamError(f"bays: {e['id']} is a tower whose wall top {top:.2f} m is not {TOWER_PAST_EAVE_M} m "
                              f"over the eave ({eave:.2f} m); a shorter one is a bay with its cap in the eave")
@@ -3433,6 +3461,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"corner": corner} if corner else {}),
                     **({"across_corner": across} if across else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
+                    # T-3294: a wall gable rising through a mansard's eave, which stops at its face
+                    **({"gable_through_eave": True} if e.get("gable_through_eave") is True else {}),
                     # T-1890: a shallow pavilion the main cornice runs on across (1801's wall gable)
                     **({"cornice_across": True} if e.get("cornice_across") is True else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
@@ -3720,7 +3750,8 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
                     **({"extrados": g["extrados"], "ring_proud_m": g["ring_proud_m"]} if "extrados" in g else {}),
                     **({"segmental": seg} if seg else {}),
                     **({"elliptical": ell} if ell else {}),
-                    **({"moulding": g["moulding"]} if g.get("moulding") else {})})
+                    **({"moulding": g["moulding"]} if g.get("moulding") else {}),
+                    **({"pilasters": g["pilasters"]} if g.get("pilasters") else {})})
     blocks = sorted((g["cuts"][0], g["cuts"][-1], g["sill_m"], g["top_m"]) for g in out)
     for a, b in zip(blocks, blocks[1:]):
         if a[1] > b[0] and a[3] > b[2] and b[3] > a[2]:
@@ -5766,9 +5797,25 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         need = {"ring_m", "keystone_top_m", "keystone_m"}
         # T-2531: optionally the ring's curved extrados (`extrados`, the ring `ring_proud_m`
         # before the wall) and a band over its crown (`band_m`, a belt course [foot, top])
-        if not need <= set(da) <= need | {"extrados", "ring_proud_m", "band_m", "rise_over_span", "head", "moulding"}:
+        if not need <= set(da) <= need | {"extrados", "ring_proud_m", "band_m", "rise_over_span", "head", "moulding",
+                                          "pilasters"}:
             raise ParamError(f"entrance_kit.arch takes {sorted(need)}, and extrados, ring_proud_m, band_m, "
-                             f"rise_over_span, head and moulding")
+                             f"rise_over_span, head, moulding and pilasters")
+        if "pilasters" in da:
+            # T-3294: a plain stone pilaster each side of the door's arch, from the floor to the
+            # keystone's top, under a capital in two tiers, a bell and an abacus, each stepping out
+            # past the shaft (1912's, the photograph: x 680-710 and 880-915, y 1195-1225 px)
+            pl = da["pilasters"]
+            pk = {"width_m", "proud_m", "gap_m", "capital_m", "abacus_m"}
+            ok = isinstance(pl, dict) and set(pl) == pk
+            if ok:
+                w_, d_, g_, c_, ab_ = (float(pl[k]) for k in ("width_m", "proud_m", "gap_m", "capital_m", "abacus_m"))
+                ok = 0.15 <= w_ <= 0.5 and 0.03 <= d_ <= 0.15 and 0.0 <= g_ <= 0.3 and 0.15 <= c_ <= 0.5 \
+                    and 0.04 <= ab_ <= c_ / 2
+            if not ok:
+                raise ParamError(f"entrance_kit.arch.pilasters take width_m (0.15-0.5 m), proud_m (0.03-0.15 m), "
+                                 f"gap_m (0-0.3 m) outside the arch's ring, capital_m (0.15-0.5 m) and abacus_m "
+                                 f"(0.04 m up to half the capital), not {pl}")
         # T-3134: the head a half ellipse rising `rise_over_span` of its span (1812's porch arch, the
         # Levy print: flatter at the crown than a segment), and a narrow moulded ring of light stone
         # round it and down its jambs, `steps_m` [inner, outer] broad and `proud_m` before the wall
@@ -5802,6 +5849,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                               **({"head": da["head"]} if "head" in da else {}),
                               **({"moulding": {k: [float(x) for x in da["moulding"][k]] for k in ("steps_m", "proud_m")}}
                                  if "moulding" in da else {}),
+                              **({"pilasters": {k: float(v) for k, v in da["pilasters"].items()}}
+                                 if "pilasters" in da else {}),
                               **({"extrados": "curved", "ring_proud_m": float(da["ring_proud_m"])}
                                  if "extrados" in da else {})})
     arched = _arched_front(arched_groups, openings, variants, kit, val("street_front_dress") or {},
