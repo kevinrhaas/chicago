@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2585, ts: '2026-11-02T23:20:20.853Z', date: 'Nov 2, 2026, 5:20 PM CT', title: 'Fort Dearborn: walk in through a gate you open with Interact', kind: 'feature',
+    items: [
+      'You can now walk inside Fort Dearborn in 1812 and 1835. Stand near a gate and an Interact key appears under Inspect; tap it, or press R, to swing the gate open or shut. Every gate starts shut, and a shut gate stops you.',
+      'Inside, you can walk round the parade ground between the barracks and quarters. The stockade wall still stops you, and so do the buildings.',
+      '1812: the main gate in both rows of pickets moved about 8 ft west, to where Whistler\'s 1808 plan puts it, in the gap between the two halves of the soldiers\' barracks.',
+      'How the gate leaves are planked and braced, and that they swing inward, is reconstructed.',
+    ] },
   { v: 2584, ts: '2026-11-02T22:39:09.330Z', date: 'Nov 2, 2026, 4:39 PM CT', title: '1936 Prairie: the Allerton house stands as itself', kind: 'feature',
     items: [
       'The Thompson/Allerton villa at Prairie and 20th, the grandest house in the 1869 South Division, replaces the district\'s placeholder block: two tall storeys of red pressed brick over a brownstone basement, a deep bracketed cornice, a low hipped roof with a railed deck, and the belvedere tower rising past the cornice, built to the sizes the Chicago Tribune printed in October 1869 and the 1911 fire map\'s plan.',
