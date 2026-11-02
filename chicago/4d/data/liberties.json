@@ -64242,6 +64242,41 @@
       ]
     },
     {
+      "id": "L-k01-1919-coped-dormers-3301",
+      "title": "1919 Prairie's second street dormer, its third stack and its dormers' stone-coped gables, read off the Gatlin plates and the 2004 photograph",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_jr_house_1919_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-01",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the street slope of 1919 Prairie's front block carries what both Gatlin Institute plates draw over the front ('(Former Mansion, Marshall Field, Jr.) Gatlin Institute, 1919 Prairie Avenue…, through its solved camera, and 'Former Residence of Marshall Field Jr.' [1919 S. Prairie Avenue], halftone in…): beside the broad three-light dormer, a smaller one-light dormer near the front's south end under its own gable; a stack rising behind them at the front block's south side; and both dormers' gables carried up in a pale stone coping, a kneeler block at each foot and a finial at the broad one's apex. K01 learns two additive things for it, byte-identical for every other house: further plain street dormers beside the first (`dormer.also`, each the first's build at its own place, width and lights) and a stone-coped dormer gable (`dormer.coping`, the k01 dormer coping generator). **What is read, not invented.** The small dormer's existence, its one light and its place at the south end, and the stack's existence and side, from both plates (the programme plate's source record names them). The small dormer's centre (about 8.0 m from the north corner) and width (about 1.6 m), and the coping and kneelers on both gables, from the 2004 Commons photograph `a19-commons-fieldjr-2004` in the Prairie library, read at about 57 px to the metre across the 9.9 m front; that photograph is unsolved, and it is evidence of 2004, after the house's restoration, so it is used only where the 1912-1919 plates show the same thing. **What is invented.** The coping's 0.18 m depth on the rake and its 0.35 m run back from the face; the kneelers' 0.35 m size; the finial's 0.45 m height and its turning, and that the small dormer takes one too; the small dormer's face height, setback, pitch and sash, which are the broad one's; the stack's exact place (u 14.5 m, v 7.5 m, the furthest forward that clears both dormers' bodies), its plan and its height, the other stacks' 1.6 m over the ridge. **What is not built.** The dormers' faces in brick under the stone dressings (the kit's dormer face is dressed stone); a pinnacle shaft the programme plate may draw at the broad dormer's north foot, which the halftone does not resolve; the broad gable's slightly steeper pitch in the programme plate, which the 2004 photograph does not bear out."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a solved camera on the 2004 photograph, or a sharper print of either plate, would read the coping's depth, the kneelers and the small dormer's width; later work take the rest of the house's pictures."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-01 (T-3301)."
+        }
+      ],
+      "work_refs": [
+        "T-3301",
+        "T-1907",
+        "T-3302",
+        "T-3303"
+      ]
+    },
+    {
       "id": "L-k03-brick-shuffle-3295",
       "title": "A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle",
       "section": "per_subject",

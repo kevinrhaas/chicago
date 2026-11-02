@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "cdn_almanac_1913",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b5f570f37b6a16c6e32f473a1aaf0b574e970f0be481b7b0098bd7fc69637234",
+  "glb_sha256": "865d7fb09494c0f655a4e56d32ca2fb6e8fa79c91046ab9b642c5771b9ac37ed",
   "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
   "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
@@ -41,7 +41,7 @@
       "status": "open"
     },
     {
-      "what": "the street dormer: the plate's is broad, three lights under its gable; T-3280 built it 3.3 m wide with three lights (K01's `sash.at_m`) where T-3279's carried one sash; its stone-coped gable and kneelers are still the kit's plain verges, under the 1 ft bar at this distance",
+      "what": "the street dormer: the plate's is broad, three lights under its gable; T-3280 built it 3.3 m wide with three lights (K01's `sash.at_m`) where T-3279's carried one sash; T-3301 carried its gable up in a stone coping with kneelers and a finial (K01's `dormer.coping`), as the plate's pale gable and the 2004 photograph show",
       "status": "fixed"
     },
     {
@@ -57,8 +57,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "a second, smaller street dormer near the front's south end, one light under its own gable (here behind the south neighbour's mansard edge; clearer in the 1919 programme plate), and the stack rising behind the street dormers at the front block's south side: neither built (K01 carries one street dormer)",
-      "status": "open"
+      "what": "a second, smaller street dormer near the front's south end, one light under its own gable, and the stack rising behind the street dormers at the front block's south side: T-3301 built both (`dormer.also` at v 8.05 m, 1.6 m wide; a third stack at u 14.5 m, v 7.5 m), and through this camera the small dormer's gable stands at the front's south end against the south neighbour's mansard edge and the stack behind the broad dormer, each within about 1 m of the plate",
+      "status": "fixed"
     },
     {
       "what": "colour: the brick's red, the stone's tone and the slate are read from later photographs and the trade's materials; the plate is monochrome",
