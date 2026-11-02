@@ -1,0 +1,166 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of QA_FRAMES renders (frames_timed) each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 47689,
+      "js_heap_used_bytes": 111046308,
+      "js_heap_total_bytes": 112910336,
+      "prairie_records_in_registry": 145,
+      "placed": [
+        "coleman_ames_house_1811_prairie_coach_house",
+        "sears_meeker_house_1815_prairie_coach_house",
+        "doane_house_1827_prairie_coach_house",
+        "marshall_field_house_1905_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 4,
+        "bytes": 114404
+      },
+      "stands": [
+        {
+          "name": "front-yards",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1318,
+            "rendererCalls": 125,
+            "multiDraw": true,
+            "triangles": 423903,
+            "programs": 49,
+            "geometries": 488,
+            "textures": 1442,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 48528648,
+            "fps": 0,
+            "cameraNear": 1.3,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true,
+            "farBudget": null
+          },
+          "frame_ms_median": 2892.4,
+          "frames_timed": 3,
+          "camera": [
+            1432,
+            -3283,
+            36.42
+          ],
+          "target": [
+            1461,
+            -3296,
+            7.43
+          ]
+        },
+        {
+          "name": "oblique-alley-north",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 3622,
+            "rendererCalls": 181,
+            "multiDraw": true,
+            "triangles": 790573,
+            "programs": 50,
+            "geometries": 534,
+            "textures": 1526,
+            "batches": 411,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 62,
+                "rough_red_brown_running": 6
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 48528648,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true,
+            "farBudget": null
+          },
+          "frame_ms_median": 2555.5,
+          "frames_timed": 3,
+          "camera": [
+            1458.4,
+            -3258,
+            6.05
+          ],
+          "target": [
+            1466,
+            -3320,
+            8.47
+          ]
+        }
+      ]
+    }
+  ]
+}
