@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037",
+  "glb_sha256": "20c587ad80f4b1d25e9c7d5b9e97f642990058ddfee3d4593d4beee81e4d2b6e",
   "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -14,7 +14,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 24
+        "creeper": 19
       }
     ],
     "street_trees": 35,
@@ -66,7 +66,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "8e82c1182a8470b6804e15684b0e4128df72c39702ed9a5e9f878ca4f4b82d4e",
+  "flora_sha256": "070967f1b6d66177e5d02ba16866877d9fa82f46fdab9d23bcb2e2b8e6d808f9",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -106,8 +106,8 @@
       "how": "T-3158: four piers in the front's brownstone (street_front_pavilions), banded in channelled courses that step in and out, from the base's coping to the cornice's bed, the corner one returned 1.1 m onto 18th Street; the render's at x 363-380, 412-428, 495-512 and the corner from x 545. The mansard is read in sections over the bays by raised ribs over the first two piers, the render's at x 362-378 and 412-427 against the print's 368-382 and 413-427"
     },
     {
-      "what": "the curb's step between the mansard's sections: 2-3 px in the print, about 0.15 m",
-      "status": "open",
+      "what": "the curb's step between the mansard's sections: 2-3 px in the print, about 0.15 m [T-1881, 2026-11-02: the sections' curbs now stand level at the house's 16.6 m, joined into one curb under one rail; the print's 0.15 m step is under the bar]",
+      "status": "within tolerance",
       "how": "T-3158: under the good-enough bar; the curb runs level Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
@@ -275,7 +275,7 @@
       "how": "T-1881, 2026-10-30: through this camera the oculus renders at about x 664, y 348 px, under 2 px across at the print's 5-6 px a metre along the flank, in a stretch the print draws behind the tree's branches, and the east corner pier at x 687-689, behind the tree at x 685-700; the print can say neither."
     },
     {
-      "what": "the porte-cochère's west arch, seen nearly square (x 610-645 px), and the front's past the corner pier: piers either side of each arch equal, banded, under the entablature",
+      "what": "the porte-coch\u00e8re's west arch, seen nearly square (x 610-645 px), and the front's past the corner pier: piers either side of each arch equal, banded, under the entablature",
       "status": "within tolerance",
       "how": "T-1881: the end arches centred on the face standing out before the 18th Street pavilion (4.22 m out, 2.5 m across, 0.5 m piers) and the front's at s 10.5 (2.4 m); this print reads the west arch 0.81-3.18 m out on a block it reads 4.27 m out, and Taylor's no. 1445 reads the block 5.45 m out with its arch 1.9-4.7 m, so the build's place between them is a disagreement between the two pictures; the banding, impost and ring are a pixel or two here and are read off Taylor's"
     },
@@ -291,7 +291,7 @@
     {
       "what": "the door's pale leaves and the portico's inner columns, read on 2026-10-29 at v 5.0 (x 355-371 px), against the build's axis at v 6.4",
       "status": "open",
-      "how": "T-1881 (2026-10-31): the axis follows the owner's three-bay reading and the piers; the leaves sit behind ivy and the portico's columns, and a closer view of the portico (the CHM 1905 views, once solved) settles it (L-pullman-1729-front-bays-1881)"
+      "how": "T-1881 (2026-10-31): the axis follows the owner's three-bay reading and the piers; the leaves sit behind ivy and the portico's columns, and a closer view of the portico (the CHM 1905 views, once solved) settles it (L-pullman-1729-front-bays-1881) T-1881 (2026-11-02): the CHM 1905 view is solved (chm_clark_1905) but only as a 375 px thumbnail, and its elms stand before the portico, so it does not settle the door."
     },
     {
       "what": "the owner's report, 2026-11-01: the Prairie front's centre steps in, with the walk leading up to it; the build had the centre standing forward as a block",
@@ -301,12 +301,20 @@
     {
       "what": "the front parts' depth and ends: the print's north return suggests 1.2-2 m, the portico and its balcony reach further north in the print (x 310-425 px) than the build's",
       "status": "open",
-      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m and the entry 1.6 m forward, the 1911 sheet's lines, the portico 4.0 m wide before the entry and clear of the block; the parts' ends along the front are the sketch's proportions, read to about 0.5 m, so this stays open until a camera on the plate's own corners reads them (L-pullman-1729-three-part-front-1881)"
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m and the entry 1.6 m forward, the 1911 sheet's lines, the portico 4.0 m wide before the entry and clear of the block; the parts' ends along the front are the sketch's proportions, read to about 0.5 m, so this stays open until a camera on the plate's own corners reads them (L-pullman-1729-three-part-front-1881) T-1881 (2026-11-02), the CHM 1905 camera (chm_clark_1905): re-rendered through this camera on the round-3 build, the big pedimented dormer and the light column under it draw at x 505-509 (v 14.45) against the print's at x 460-466 (v 11.0-11.45), and Clark's 1905 photograph, through its own camera fitted without the dormer, puts them at v 11.0-11.45 too. Both pictures place them about 3.2 m north of the build's, inside the entry part as laid (v 7.35-12.1), and the print's own second, smaller dormer (x 510-525) stands where the build's big one is; so the parts' ends are what the pictures disagree with, not the dormer alone."
     },
     {
       "what": "the ivy on the porte-cochere's corner pier (x 645-668): the print shows it clothed from the ground to the entablature's soffit, its west face square to the camera and its south face edge-on to the south arch's jamb at x 668, while the inner pier (x 592-610) shows its banded courses bare; planted on the model's own pier, both faces, 6.55-6.85 m (T-1881, 2026-11-02). The leaves this print also draws over the south arch's ring are not planted: under a foot of the ring's west half",
       "status": "fixed"
+    },
+    {
+      "what": "the owner's report, 2026-11-02, from this print: the roof is one, not broken in the centre toward the north, and its rail runs unbroken. The build stood each section under its own small crested deck, the north block's and the entry's parted by a notch down to their eaves and four rails apart from the house's. Built (T-1881): each section's roof runs back into the house's, the entry's on under the north block's south face, and one rail with a finial at each corner runs round the joined deck (L-pullman-1729-joined-roof-1881)",
+      "status": "fixed"
+    },
+    {
+      "what": "the ivy's mantle over the principal storey up to the balcony's belt, across the lights' heads, on the front south of the portico and on the flank west of the porte-cochere: the owner, 2026-11-02, asked for it pulled back off the windows, so it keeps 0.4 m clear of each ground-storey light and stops at about their heads (L-pullman-1729-joined-roof-1881)",
+      "status": "owner ruling"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
