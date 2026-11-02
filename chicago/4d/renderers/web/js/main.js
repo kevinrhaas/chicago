@@ -1999,7 +1999,12 @@ async function boot() {
     version: VERSION_REQUEST,
     detail: detailLevel,
     // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
-    keepAssetBytes: !coarse,
+    // T-3173: and so does a desktop. The bank was one GLB, Glessner's, held as 32.6 MB
+    // of ArrayBuffer for the whole visit against a Settings switch most visitors never
+    // make, and that switch is answered by the HTTP cache (`cache: 'no-cache'`
+    // revalidates the copy the boot already fetched). It is what put /1904/ desktop
+    // over its 1300 MiB ceiling on CI (1323.6).
+    keepAssetBytes: false,
     // T-2598: and keeps each house picture's encoded bytes, so one that went distant
     // and had its decoded copy closed can be decoded again (texture-residency.js).
     keepEncodedImages: coarse && RESIDENCY_ON,
