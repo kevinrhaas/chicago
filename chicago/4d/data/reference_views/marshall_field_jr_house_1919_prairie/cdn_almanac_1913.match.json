@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "cdn_almanac_1913",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7134a441eb6e2a64d07121df7663f6b2ddbdff398d08956c313303c8d9d0fc3b",
+  "glb_sha256": "b38d0b98d1f7bc23d0ffed280a435f841d802eb3589f2a572167e0b1860aa8ea",
   "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
   "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
@@ -21,12 +21,12 @@
       "status": "fixed"
     },
     {
-      "what": "the front's north corner: the plate sweeps the eave round it in a curve and the sheet cuts it back about 0.85 by 1.2 m; built square (K01 cuts a canted corner only under a mansard and rounds one only in a stone front)",
+      "what": "the front's north corner: the plate sweeps the eave round it in a curve and the sheet cuts it back about 0.85 by 1.2 m; built square (K01 cuts a canted corner only under a mansard and rounds one only in a stone front); the corner is T-3314's (K01's round_corner is laid in a stone front only and squares its eave out again)",
       "status": "open"
     },
     {
-      "what": "the bow is carried up to the eave in the plate, the main cornice running round it; built stopping under the cornice's bed with a nearly flat cap (K08 stops a bay below the bed moulding)",
-      "status": "open"
+      "what": "the bow is carried up to the eave in the plate, the main cornice running round it; T-3313 carries it up: its upper storey rises to the cornice's bed (8.6 m) and the bed moulding, the house's soffit and fascia run round its plan at the main eave's line (K08's eaves.cornice, T-2472), its nearly flat cap dying into the hip; through this camera the eave sweeps out round the bow where the plate's does, and the bow stands 0.2 m further south (s 4.1 m) to leave the corner bracket room",
+      "status": "fixed"
     },
     {
       "what": "the round tower: the plate takes it about 2 m higher than T-3279's cone and broader-topped; T-3280 carried it up a fourth, windowless 1.9 m band to a flat top at 14.0 m under K08's nearly flat tin cap, its eaves the heavy edge, which this camera reads within about 1 m of the plate's top (14.9 m) and the 1919 programme plate's at 13.7 m; a parapet's own coping and mouldings are not drawn",
