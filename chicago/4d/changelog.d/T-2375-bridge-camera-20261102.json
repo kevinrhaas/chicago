@@ -1,0 +1,7 @@
+{
+  "title": "Bridge arrivals show the whole crossing",
+  "kind": "fix",
+  "items": [
+    "Arriving at a bridge now frames its full rendered span at the correct water height."
+  ]
+}
