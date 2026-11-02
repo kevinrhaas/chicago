@@ -165,34 +165,6 @@
                 "gable_pitch_deg": 45
               },
               {
-                "face": "street",
-                "along_m": 8.1,
-                "sash": {
-                  "variant": "k06.opening.sash_2over2_flat",
-                  "width_m": 0.9,
-                  "height_m": 1.6,
-                  "sill_m": 0.15
-                },
-                "surround_m": 0.25,
-                "face_setback_m": 0.05,
-                "head": "gable",
-                "gable_pitch_deg": 45
-              },
-              {
-                "face": "street",
-                "along_m": 10.0,
-                "sash": {
-                  "variant": "k06.opening.sash_2over2_flat",
-                  "width_m": 0.9,
-                  "height_m": 1.6,
-                  "sill_m": 0.15
-                },
-                "surround_m": 0.25,
-                "face_setback_m": 0.05,
-                "head": "gable",
-                "gable_pitch_deg": 45
-              },
-              {
                 "face": "north",
                 "along_m": 6.5,
                 "sash": {
@@ -208,21 +180,7 @@
               },
               {
                 "face": "north",
-                "along_m": 11.0,
-                "sash": {
-                  "variant": "k06.opening.sash_2over2_flat",
-                  "width_m": 0.9,
-                  "height_m": 1.5,
-                  "sill_m": 0.15
-                },
-                "surround_m": 0.25,
-                "face_setback_m": 0.05,
-                "head": "gable",
-                "gable_pitch_deg": 45
-              },
-              {
-                "face": "cant",
-                "along_m": 0.0,
+                "along_m": 10.5,
                 "sash": {
                   "variant": "k06.opening.sash_2over2_flat",
                   "width_m": 0.9,
@@ -234,13 +192,67 @@
                 "head": "gable",
                 "gable_pitch_deg": 45
               }
-            ]
+            ],
+            "crown": {
+              "over_front": [
+                6.95,
+                13.25
+              ],
+              "depth_m": 3.8,
+              "rise_above_curb_m": 1.4,
+              "overhang_m": 0.5,
+              "dormers": [
+                {
+                  "face": "street",
+                  "along_m": 8.3,
+                  "sash": {
+                    "variant": "k06.opening.sash_2over2_flat",
+                    "width_m": 0.9,
+                    "height_m": 1.6,
+                    "sill_m": 0.15
+                  },
+                  "surround_m": 0.2,
+                  "face_setback_m": 0.27,
+                  "head": "gable",
+                  "gable_pitch_deg": 45
+                },
+                {
+                  "face": "street",
+                  "along_m": 10.0,
+                  "sash": {
+                    "variant": "k06.opening.sash_2over2_flat",
+                    "width_m": 0.9,
+                    "height_m": 1.6,
+                    "sill_m": 0.15
+                  },
+                  "surround_m": 0.2,
+                  "face_setback_m": 0.27,
+                  "head": "gable",
+                  "gable_pitch_deg": 45
+                },
+                {
+                  "face": "cant",
+                  "along_m": 0.0,
+                  "sash": {
+                    "variant": "k06.opening.sash_2over2_flat",
+                    "width_m": 0.9,
+                    "height_m": 1.5,
+                    "sill_m": 0.15
+                  },
+                  "surround_m": 0.2,
+                  "face_setback_m": 0.27,
+                  "head": "gable",
+                  "gable_pitch_deg": 45
+                }
+              ],
+              "lower_pitch_deg": 80
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicago_tribune_1928_07_29_famous_homes_corwith"
           ],
-          "note": "The photograph's mansard: a dormer over each light of the front's columns (the door's and the corner block's two; the north bay's two stand on its own crown, T-3283) and dormers on the 20th Street face (K01's 'north' on this east-side house). Lower rise and pitch are the kit's convex mansard read through the camera to about 0.3 m. The corner block's mansard stands higher than the rest in the photograph; this piece carries it at the house's height (match record, open for T-3283). A dormer over the canted corner as over every other column (reconstructed: in the halftone the corner is lost behind the higher roof)."
+          "note": "The photograph's mansard: a dormer over each light of the front's columns (the door's and the corner block's two; the north bay's two stand on its own crown, T-3283) and dormers on the 20th Street face (K01's 'north' on this east-side house). Lower rise and pitch are the kit's convex mansard read through the camera to about 0.3 m. The corner block's mansard stands about a storey higher than the rest in the photograph: T-3283 raises it as a crown over the front from s 6.95 m onto the canted corner (mansard.crown.over_front), its curb 1.4 m over the house's and its lower faces at 80 degrees, read through the camera to about 0.3 m (its top and its lights land within about 10 px of the photograph's), with the corner block's two dormers (s 8.3, over the 8.1 m column, and 10.0) and the cant's on it, their faces 0.27 m up the face so their lights stand as high as the photograph's. The crown's depth back from the front (3.8 m), its cornice's 0.05 m past the house's and the face's pitch are reconstructed: the photograph sees only its front and its cant (L-k01-1945-corwith-3281). The 20th Street face's rear dormer stands at u 10.5, over that face's window column, clear of the crown (it stood at 11.0). A dormer over the canted corner as over every other column (reconstructed: in the halftone the corner is lost behind the higher roof)."
         },
         "roof_covering": {
           "value": {
