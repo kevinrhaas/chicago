@@ -2,11 +2,11 @@
   "structure_id": "moulton_lowden_house_1912_prairie",
   "view": "album_1883",
   "glb": "assets/gltf/moulton_lowden_house_1912_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4264a886d77478f1ef9d191959b1b0093ffc90dcd62fdc3ee167f2332b4ede21",
+  "glb_sha256": "a6abfe04b79118a9a8a0fa8b2e0a0433ac2fba0d76c2b45a51805584a4755b66",
   "camera_sha256": "d42ede24e6ae28edde7a487e1208c12195fd9938583f98011e33119bfccce2d5",
   "photo_sha256": "8479c93215df5e498fcfa87e9cc4829a43aab228919383ac1d358845352981d9",
   "side_by_side": "docs/RESEARCH/photo-match/moulton_lowden_house_1912_prairie/album_1883-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing from the plate's own camera: the front between the south gable at the left and the north corner block at the right, the round tower right of the gable under a slated cone with a finial, the very steep slated roof with iron cresting, and the north flank receding to the right; the front's two corners, the flank's rear corner, the tower's axis and the door land within 8.5 px of the plate (4.0 px RMS)",
@@ -21,23 +21,23 @@
       "status": "within tolerance"
     },
     {
-      "what": "the south gable: drawn as a tall stone wall gable rising through the roof over a chamber pair and the arched pair of the principal floor, two round heads with colonnettes under one arch; built a low coped gable at the eave, its copings now carrying three crockets a rake between the kneelers' pinnacles and the apex finial (T-3293) and its principal pair round-headed (T-3292); the gable's height through the roof and the enclosing arch over the pair are not built (T-3294)",
-      "status": "open"
+      "what": "the south gable: drawn as a tall stone wall gable rising through the roof over a chamber pair and the arched pair of the principal floor, two round heads with colonnettes under one arch; now built so (T-3294): its gable rises from just over the attic floor through the eave at pitch 2.2 to an apex near 15.5 m, the eave and gutter stopping at its face, its copings carrying three crockets a rake between the kneelers' pinnacles and the apex finial (T-3293), and its round-headed principal pair (T-3292) under one enclosing arch with a moulded architrave; the colonnettes' carving is finer than the bar",
+      "status": "fixed"
     },
     {
-      "what": "the tower's top: the plate carries the tower a full stage over the main cornice, with its own lights and pinnacles, under a tall slated spire; the build springs a broader cone about 1 m over the cornice (the photograph's chicagology_photo record reads the cone lower still, so the two pictures, thirty years apart, are to be weighed against each other)",
-      "status": "open"
+      "what": "the tower's top: the plate carries the tower a full stage over the main cornice, with its own lights and pinnacles, under a tall slated spire; the build now springs its cone at the main cornice (T-3294), as the photograph (chicagology_photo) and the c. 1914 elevations both draw it, thirty years after the plate and nearer 1904: the pictures disagree, so within tolerance (T-3153)",
+      "status": "within tolerance"
     },
     {
       "what": "the dormers' ornament: the plate's are stone wall dormers with crocketed gables and pinnacles rising off the cornice; now built faced in the front's stone, a stone coping up each rake with crockets on its back (two a rake on the north dormer, three on the south), a square pinnacle engaged at each edge of the face from the cornice past the gable's foot under a cap and a pyramid, and a turned finial at the apex (T-3293)",
       "status": "fixed"
     },
     {
-      "what": "the dormers' places: the plate draws the second dormer on the north flank and both faces rising in the wall's plane; the build stands both on the street face, as the photograph (chicagology_photo) shows them, each face on the cornice 0.2 m in front of the wall's plane",
-      "status": "open"
+      "what": "the dormers' places: the plate draws the second dormer on the north flank and both faces rising in the wall's plane; the build stands both on the street face, as the photograph (chicagology_photo) shows them, each face on the cornice 0.2 m in front of the wall's plane, under the bar: the pictures disagree, so within tolerance (T-3153)",
+      "status": "within tolerance"
     },
     {
-      "what": "the entrance: the door now stands in a deep round-arched recess under a moulded voussoir ring and keystone (T-3292), as the plate draws it; the plate's carved capitals either side are not built (T-3294, on the photograph's record)",
+      "what": "the entrance: the door now stands in a deep round-arched recess under a moulded voussoir ring and keystone (T-3292), as the plate draws it; and the pilasters either side under their capitals now stand there too (T-3294; their carving is finer than the bar)",
       "status": "fixed"
     },
     {

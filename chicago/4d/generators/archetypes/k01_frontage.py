@@ -3000,6 +3000,8 @@ class Assembly:
                 on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
                 closes.append(((min(on), max(on)), (wall_top, eave)))
             for (x0, x1), (y0, y1) in closes:
+                if y1 - y0 < 1e-6:   # T-3294: a tower capped at the eave has no wall over the wall head
+                    continue
                 for (xa, xb), (ya, yb) in K8.host_cells((x0, x1), (y0, y1), built.host_holes):
                     pr.face([snap(x, y) for x, y in ((xa, ya), (xb, ya), (xb, yb), (xa, yb))], back, bb, conf)
             # T-3048: a shallow pavilion flush with a corner: over the eave the main roof is cut
@@ -4167,6 +4169,8 @@ class Assembly:
             k01_shaped_gable.dress(self, seed)
         for g in self.round_dormers:
             self.round_dormer_sash(g, conf)
+            if g["d"].get("dress"):   # T-3307: its pediment's cornices, its pilasters
+                k10_frontage.dress_lower_dormer(self, g, max(conf, p.conf("mansard")))
         if k:
             self.dress(pts, tris, seed, conf)
         if p.rainwater:
@@ -4387,6 +4391,23 @@ class Assembly:
                         ring.reverse()
                     head = max(hi for _, hi, _ in lit) + 0.5
                     out.append(k5.extrude(ring, bot, head if ct is None else min(head, ct), P, "wall", floor, "wall"))
+        # T-3294: a projection's wall gable carried up through a mansard's eave (1912's south
+        # gable, the 1883 plate and the photograph): the gable rises from under the eave, so the
+        # eave box, gutter and covering's lip would run across its face. In front of its face they
+        # are cut away, the box stopping square a centimetre behind the face (`return`), so the
+        # cornice dies into the gable's rakes
+        for b in self.p.bays:
+            if not b.get("gable_through_eave"):
+                continue
+            v = b["variant"]
+            if b["wall"] != "k01.wall.street_front" or not self.p.mansard or v["kind"] != "projection" \
+                    or v["roof"]["kind"] != "gable":
+                raise ValueError(f"{b['id']}: a wall gable carried through the eave is a gabled projection on "
+                                 f"a mansard's street front")
+            proud = max(float(q[1]) for q in v["plan"]["points"]) - 0.01
+            s0, s1 = b["span_m"]
+            outer = [(D + proud, s0), (D + 2.0, s0), (D + 2.0, s1), (D + proud, s1)]
+            out.append(k5.extrude(outer, yf - 0.5, self.p.eave_m + 0.3, P, "return", "wall", "wall"))
         return out
 
     @staticmethod
@@ -4620,10 +4641,13 @@ class Assembly:
         cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
         return any(b[0] <= cx <= b[1] and b[2] <= cz <= b[3] for b in getattr(self, "stone_stack_boxes", ()))
 
-    def _in_gable_dormer(self, tri):
-        """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box."""
+    def _in_gable_dormer(self, tri, boxes=None):
+        """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box
+        (T-3307: or in one of `boxes`, and then only those, never a turned one)."""
         cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
         # T-3186: a turned dormer's box is tested in the frame it was built in
+        if boxes is not None:
+            return any(b[0] - 1e-6 <= cx <= b[1] + 1e-6 and b[2] - 1e-6 <= cz <= b[3] + 1e-6 for b in boxes)
         turned = [((cx - mx) * nx + (cz - mz) * nz, -(cx - mx) * nz + (cz - mz) * nx, b)
                   for mx, mz, nx, nz, b in getattr(self, "gable_dormer_turns", ())]
         return any(b[0] - 1e-6 <= cx <= b[1] + 1e-6 and b[2] - 1e-6 <= cz <= b[3] + 1e-6
@@ -4668,7 +4692,10 @@ class Assembly:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
             else:
                 mat = self.SHELL[role]
-            if role == "cheek" and lower and self._in_gable_dormer((pts[a], pts[b], pts[c])):
+            if role == "cheek" and lower and abs(n[1]) < 0.05 and self._in_gable_dormer(
+                    (pts[a], pts[b], pts[c]), getattr(self, "painted_dormer_boxes", ())):
+                mat = "dormer_stone"                      # T-3307: a dressed dormer's painted cheeks
+            elif role == "cheek" and lower and self._in_gable_dormer((pts[a], pts[b], pts[c])):
                 mat = "mansard_slate"
             tri = [pts[a], pts[b], pts[c]]
             steep = role == "covering" and lower and n[1] < math.cos(math.radians(45))
@@ -4722,7 +4749,7 @@ class Assembly:
         if d.get("head") == "gable":
             # T-2452: jambs to the surround's head over the square-headed sash, then the
             # pediment's two slopes to its apex, slated as the cheeks are
-            eaves = sill + d["sash_height_m"] + d["surround_m"]
+            eaves = sill + d["sash_height_m"] + d["surround_m"] + d.get("frieze_m", 0.0)   # T-3307
             head = [(centre + r, eaves), (centre, top), (centre - r, eaves)]
         elif d.get("head") in HIPPED_HEADS:
             # T-2866: square to the face's wall head; the hip (T-2902: or flat hood) over it is joined below
@@ -4753,6 +4780,8 @@ class Assembly:
             a0, a1 = sorted((back, nf))
             box = (a0, a1, centre - r, centre + r) if axis == "x" else (centre - r, centre + r, a0, a1)
             self.gable_dormer_boxes = getattr(self, "gable_dormer_boxes", []) + [box]
+            if (d.get("dress") or {}).get("cheeks") == "painted":   # T-3307: 1700-1706's white cheeks
+                self.painted_dormer_boxes = getattr(self, "painted_dormer_boxes", []) + [box]
         rev = v.get("overrides", {}).get("reveal_depth_m", k06_windows.load()["parts"]["reveal_depth_m"]["value"])
         # the hole in the kit's frame is (+X along the wall, +Y up), +X being the face's R.
         # T-3297: one recess to EACH of K06's holes: a paired sash (1700-1706's) had only its
@@ -4785,7 +4814,8 @@ class Assembly:
         return {"body": body, "recesses": recesses, "roof": roof, **({"hood": hood} if hood else {}),
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill, "E": E,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
-                         "width": 2 * r, "top": top, "variant": v, "d": d}}
+                         "width": 2 * r, "top": top, "variant": v, "d": d,
+                         "face": (axis, sg, ra, centre, nf)}}   # T-3307: for a dressed pediment
 
     BAY_SKIRT_M = 0.5    # T-1881: a projection's roof is closed this far under its eave for the union
 
@@ -5552,6 +5582,13 @@ class Assembly:
             else:
                 dead.append((d0, d1))
             stop_ends += [(d0 % P, 1.0), (d1 % P, -1.0)]
+        # T-3294: and across a wall gable carried up through the eave, from cheek to cheek, each
+        # end stopped where the eave box stops (shallow_bay_cutters)
+        for b in p.bays:
+            if b.get("gable_through_eave"):
+                d0, d1 = A + b["span_m"][0], A + b["span_m"][1]
+                dead.append((d0, d1))
+                stop_ends += [(d0 % P, 1.0), (d1 % P, -1.0)]
         if (p.shaped_gable or {}).get("takes_gutter"):
             # T-2889: no gutter across a front carried up as a shaped gable: the street run is
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
