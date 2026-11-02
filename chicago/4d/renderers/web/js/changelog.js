@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2565, ts: '2026-11-02T11:05:14.924Z', date: 'Nov 2, 2026, 5:05 AM CT', title: '1630 Prairie\'s alley shed is built, finishing the north-west alley', kind: 'feature',
+    items: [
+      'The small one-storey frame shed behind 1630 Prairie now stands in clapboard, built board by board like the house in front of it, on the outline the 1911 fire-insurance map draws.',
+      'The map\'s tiny cross gives it a shingle roof. An 1886 atlas shows the lot\'s rear empty, so the shed went up some time after that.',
+      'Every building along the alley from 1600 to 1736 Prairie has now moved past its first rough draft.',
+    ] },
   { v: 2564, ts: '2026-11-02T10:21:55.573Z', date: 'Nov 2, 2026, 4:21 AM CT', title: 'Marshall Field\'s stable gets its mansard roof and ventilator back', kind: 'improvement',
     items: [
       'Behind 1905 Prairie Avenue, Field\'s stable is now the one-storey brick building with a mansard roof that photographs from the 1870s and 1893 show, not a plain two-storey barn.',
