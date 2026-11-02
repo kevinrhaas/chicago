@@ -24520,7 +24520,6 @@ this liberty claims none of it.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24611,8 +24610,13 @@ and the brick range Robinson's 1886 plate draws behind lots 7 and 8; its draft a
 **1630's alley building retired from this liberty by T-1932 (2026-11-02):** `house_1630_prairie_coach_house`
 now stands as a one-storey frame shed on the K16 timber kit's whole-house builder under `L-k16-1630-shed-1932`, under
 the same id, on the outline, storey, frame and shingle roof the sheet draws; Robinson's 1886 plate draws the rear of
-lot 18 empty. Its draft attributes are gone, and with it the last alley building of the west side's 1600 block leaves
-the draft.
+lot 18 empty. Its draft attributes are gone. (It was recorded here as the last alley building of the west side's
+1600 block to leave the draft; 1638's stable was still the draft's, and is retired below.)
+**1638's stable retired from this liberty by T-1932 (2026-11-02):** `shortall_gregory_house_1638_prairie_coach_house`
+now stands as the K12 coach house, in mirror image, under `L-k12-1638-stable-1932`, under the same id, on the outline,
+storeys, brick and two window marks the sheet draws, as the crossed brick stable Robinson's 1886 plate draws behind
+lot 1. Its draft attributes are gone, and with it every building this liberty stood has left the draft: it covers
+nothing now and stands as the record of the pass.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -33374,6 +33378,41 @@ range's and the one-storey piece's openings, roofs and ends their true form; a b
 **Ticket:** T-1932.
 **Review:** `docs/RESEARCH/k12-1730-stable-range-1932/README.md`.
 **Recorded:** 2026-11-01 (T-1932).
+
+### L-k12-1638-stable-1932 — The brick stable on the alley behind 1638 Prairie, built from the K12 kit in mirror image on the outline the 1911 sheet draws, its open gable and one-dot window on the 1636/1638 lot line
+
+**Decision:** the district draft's alley building behind 1638 Prairie Avenue (T-1932) is refined in place, under
+its own id `shortall_gregory_house_1638_prairie_coach_house`, onto the K12 coach-house kit
+(L-k12-coach-house-kit-2320), after 1812's, 1736's and the twelve of the north-west alley before it.
+**What is read.** From sheet 20 of the 1911 Sanborn: one pink (brick) building crossed by one X (the key's stable),
+lettered '2', with '12 12' inside its north wall and again inside its south wall; 10.46 m deep from the alley line by
+11.04 m along it (median darkness profiles: columns 2225.6 and 2431.5, rows 3554.3 and 3771.7), its north wall on the
+1636/1638 lot line, which the sheet runs on east from it, and its south wall 1.9 m short of 1700-1706's stable; the
+key's fire-wall sign at the alley end of its north wall and of its south wall; two of the key's window marks, one on
+the alley wall 5.67 m from its north wall line with a dot for each storey, one on the north wall 7.69 m from the alley
+line with one dot; a dashed partition 1.32 m inside the east wall; a solid dot 1.3 m inside the south wall (the key's
+vertical steam boiler). From Robinson's 1886 plate 10, behind lot 1 (1638 in its margin): a pink (brick) building
+crossed by the atlas's stable X, about 10.8 m deep by 11.5 m along the alley, 1.8 m short of lot 2's stable.
+**What is ruled.** The 1904 building is the 1911 sheet's: the plate draws a crossed brick stable of the same size on
+the same ground, so it stood from before 1886 through 1911, and July 1904 falls between two maps that agree.
+**What is invented.** The kit is built in mirror image: its party wall at the south end, which carries no window,
+rising the kit's 0.45 m above the roof (the sheet's south fire-wall sign); its open gable at the north end, carrying
+the one-dot mark as a stable sash in the first storey and nothing over it. The sheet's fire-wall sign at the north
+end is not built (the kit has one party wall, and the north end is the one with a window). Every other opening is the
+kit's: on the alley wall the carriage bay (3.0 m clear) toward the south end with the loft hatch over it, the alley
+mark built as a stable sash with a loft sash over it, and a man door with a loft sash over it toward the north end;
+on the yard wall a door at the middle between two stable sash and two loft sash. A single gable roof with its ridge
+along the alley at 30 degrees over the 10.46 m span, as the deep stables took. The kit's storey heights and its 1.8 m
+basement, reached by nothing. The workyard is paved from the yard door to the 1638 house's rearmost wall line on the
+trace, 9.42 m east. No boiler stack; the partition is inside and not built. Flat colours. **What is not.** The
+outline, its place on the lot, the storeys, the brick, the two marks' places, the fire-wall ends and the 1886 stable
+are the maps'.
+**How to resolve:** a photograph of the alley behind 1630-1700 Prairie, entered as a source, gives its openings, roof
+and ends their true form.
+**Covers:** `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.coach_house`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.stories`, `shortall_gregory_house_1638_prairie_coach_house.as_standing_1904.form.construction`, `shortall_gregory_house_1638_prairie_coach_house.function`
+**Ticket:** T-1932.
+**Review:** `docs/RESEARCH/k12-1638-stable-1932/README.md`.
+**Recorded:** 2026-11-02 (T-1932).
 
 ### L-k16-1630-shed-1932 — The one-storey frame shed on the alley behind 1630 Prairie, built from the K16 timber kit on the outline the 1911 sheet draws, everything but its outline, storey, frame and shingle roof the kit's
 

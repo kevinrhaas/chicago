@@ -1440,6 +1440,16 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1630_prairie"
     },
+    "house_1630_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k16_timber",
+      "baked_ao": false,
+      "bytes": 284480,
+      "generator": "generators/k16_emit.py",
+      "inputs_sha256": "82b1f2d4ff84b78dacbaba26e01ac1c9b265a34ce5776154b07f6d0bd0ce39e5",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "house_1630_prairie_coach_house"
+    },
     "house_1634_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
@@ -9127,14 +9137,14 @@
       "phase_id": "draft_1904",
       "structure_id": "sherman_house_2100_prairie_coach_house"
     },
-    "shortall_gregory_house_1638_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "shortall_gregory_house_1638_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 102920,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "5992331cc665f02c80c4fbe42d4e52d086d231e4680ef1abc6c2b328897dfb3f",
+      "bytes": 103364,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "86665b95c133a7d53303fc3286e257a30a7b84bc307451cb7d7dcd71dc7d3ce6",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "shortall_gregory_house_1638_prairie_coach_house"
     },
     "shortall_gregory_house_1638_prairie_front__as_standing_1904.glb": {
@@ -9590,16 +9600,6 @@
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "wright_building_to_let_b"
-    },
-    "house_1630_prairie_coach_house__as_standing_1904.glb": {
-      "archetype": "k16_timber",
-      "baked_ao": false,
-      "bytes": 284480,
-      "generator": "generators/k16_emit.py",
-      "inputs_sha256": "82b1f2d4ff84b78dacbaba26e01ac1c9b265a34ce5776154b07f6d0bd0ce39e5",
-      "kind": "generated",
-      "phase_id": "as_standing_1904",
-      "structure_id": "house_1630_prairie_coach_house"
     }
   },
   "blender": "4.5.3",
