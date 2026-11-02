@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2584, ts: '2026-11-02T22:39:09.330Z', date: 'Nov 2, 2026, 4:39 PM CT', title: '1936 Prairie: the Allerton house stands as itself', kind: 'feature',
+    items: [
+      'The Thompson/Allerton villa at Prairie and 20th, the grandest house in the 1869 South Division, replaces the district\'s placeholder block: two tall storeys of red pressed brick over a brownstone basement, a deep bracketed cornice, a low hipped roof with a railed deck, and the belvedere tower rising past the cornice, built to the sizes the Chicago Tribune printed in October 1869 and the 1911 fire map\'s plan.',
+      'Its columned verandah with the balcony on top, the reception room\'s half-octagonal bay toward 20th Street, the library\'s canted bay on the north and the kitchen range behind are all there, and the old winter photograph of the house now has a camera you can compare it against.',
+    ] },
   { v: 2583, ts: '2026-11-02T21:28:52.458Z', date: 'Nov 2, 2026, 3:28 PM CT', title: '1824 Prairie\'s brick stable on the alley', kind: 'feature',
     items: [
       'The alley building behind 1824 Prairie Avenue is no longer a rough draft. It now stands as a two-storey brick stable, 17.6 m along the alley and 10.6 m deep, drawn from the 1911 fire-insurance map. It sits right on the alley line, where the draft had set it back.',
