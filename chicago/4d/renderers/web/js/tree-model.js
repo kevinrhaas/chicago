@@ -2057,7 +2057,9 @@ export function buildVineTemplate(spec, seed, lod = 'near', { conf = 0.5 } = {})
  * T-1881: `arch: 'mantle'` is a stretch a picture shows wholly clothed (Pullman's ground
  * storey under its balcony in LC-D4-12551): the same mat, its top held near `h` with only
  * short tongues, so a row of overlapping patches reads as one level-topped mantle;
- * `mantle_sill` is the same mat kept under a window's sill in such a stretch.
+ * `mantle_sill` is the same mat kept under a window's sill in such a stretch, and
+ * `mantle_head` the same mat over a window's head, standing on it: no stems climb out of
+ * its foot, which is the head's ring, not the ground.
  */
 export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, leafCover = 1 } = {}) {
   const rnd = mulberry32(seed);
@@ -2066,7 +2068,7 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
   const W = spec.crownW ? (spec.crownW[0] + spec.crownW[1]) / 2 : Math.max(1.2, H * 0.4);
   // The top edge, a smooth random walk: tongues of ivy climbing ahead of the mat.
   const TOP_COLS = 12;
-  const mantle = spec.arch === 'mantle' || spec.arch === 'mantle_sill';
+  const mantle = spec.arch === 'mantle' || spec.arch === 'mantle_sill' || spec.arch === 'mantle_head';
   const [topFloor, edgeFloor] = mantle ? [0.88, 0.9] : [0.6, 0.7];
   const top = [];
   let tv = rnd();
@@ -2114,7 +2116,7 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
       }
     }
   }
-  const strands = lod === 'near' ? 3 : 1;
+  const strands = spec.arch === 'mantle_head' ? 0 : lod === 'near' ? 3 : 1;
   const barkTile = BARK_TILES.shaggy_strips;
   const barkTint = barkLinear(spec.bark ?? 0x6b5a48, 'shaggy');
   for (let i = 0; i < strands; i++) {
@@ -2127,6 +2129,10 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
       rad.push(lerp(0.025, 0.01, t));
     }
     tube(wood, { pts, rad, order: 1 }, lod === 'near' ? 4 : 3, barkTile, barkTint, () => 0);
+  }
+  if (!wood.count) {
+    for (let i = 0; i < 3; i++) wood.vert([0, 0.05, 0], [0, 1, 0], [0, 0, 0], [0.5, 0.5], 0);
+    wood.tri(0, 1, 2);
   }
   if (!leaves.count) {
     for (let i = 0; i < 3; i++) leaves.vert([0, 0.05, 0], [0, 1, 0], [0, 0, 0], [0.5, 0.5], 0);

@@ -46,6 +46,9 @@ import { resolveBases } from './scene-loader.js';
 import { patchSeason } from './season.js';
 
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
+// The level-topped ivy of a stretch a picture shows wholly clothed (T-1881): the mantle itself,
+// the low patch under a window's sill and the patch standing on a window's head.
+const MANTLES = new Set(['mantle', 'mantle_sill', 'mantle_head']);
 const BED_LIFT_M = 0.07;
 const LOAM = 0x3b2c1f;
 /** A planting tub: a round staved tub painted the period's dark garden green (T-1934). */
@@ -361,9 +364,10 @@ export async function createFrontYards({
     }
     const cg = lot.pictured_notes?.creeper?.grade ?? 'reconstructed';
     for (const [i, c] of (lot.creeper ?? []).entries()) {
-      const [e, n, facing, w, h, form] = c;
-      placed.push({ x: e, z: -n, y: groundAt(e, n), h, w, facing, plant: 'ivy', grade: cg, conf: CONF[cg] ?? 1,
-        lot, kind: 'creeper', index: i, mantle: form === 'mantle' || form === 'mantle_sill' ? form : null });
+      // T-1881: a `mantle_head` patch stands on a window's head (`base`, metres over the ground)
+      const [e, n, facing, w, h, form, base = 0] = c;
+      placed.push({ x: e, z: -n, y: groundAt(e, n) + base, h, w, facing, plant: 'ivy', grade: cg, conf: CONF[cg] ?? 1,
+        lot, kind: 'creeper', index: i, mantle: MANTLES.has(form) ? form : null });
       stats.creeper += 1;
     }
   }
