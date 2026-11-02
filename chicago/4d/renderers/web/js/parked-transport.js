@@ -213,15 +213,19 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       instances.length = 0; replacementIds.clear();
     },
   };
+  // Declared before the early returns below (T-3311): a scene with no parked
+  // vehicles (1812, 1880) or a failed placements fetch returns `out` here, and
+  // its deferred update() still calls load(), which must find an empty list
+  // rather than a binding still in its temporal dead zone.
+  let record = null, rows = [];
   if (!dataBase || !terrain || !['1835', '1904'].includes(String(sceneId))) return out;
   const heightAt = groundHeight ?? ((e, n) => terrain.surfaceHeight(e, n));
-  let record;
   try {
     const response = await fetch(new URL('transport/parked/placements.json', dataBase));
     if (!response.ok) throw Error(`Placements HTTP ${response.status}`);
     record = await response.json();
   } catch (error) { problems.push(`parked transport: ${error.message}`); return out; }
-  const rows = (record.scenes[String(sceneId)] ?? []).filter(row => !hostMissing(row.belongs_to));
+  rows = (record.scenes[String(sceneId)] ?? []).filter(row => !hostMissing(row.belongs_to));
   for (const row of rows) if (row.replaces) replacementIds.add(row.replaces);
   out.records = rows;
   // Each row is requested once; a later call loads only rows not yet asked for,

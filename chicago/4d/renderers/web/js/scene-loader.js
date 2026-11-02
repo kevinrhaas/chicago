@@ -372,6 +372,7 @@ export async function loadScene(year, bases = resolveBases(), {
   // T-2548: a phone does not bank them (`keepAssetBytes: false`). It boots `light`
   // and almost never switches, and on 1904 the bank was the whole 32.6 MB Glessner
   // light GLB held for a switch that, when it comes, the HTTP cache answers.
+  // T-3173: a desktop no longer banks either (main.js); the option stays for callers.
   const assetBytes = new Map();
   const bank = (record) => keepAssetBytes && hasInspectionLod(record);
   // T-2597: GLB bytes fetched and not yet parsed, now and at their most — the pile
