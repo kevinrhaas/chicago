@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "27a8fbdff65879828beaf675bd206fa41e0f92e8a45d8ecce908fb04cc43a037",
+  "glb_sha256": "20c587ad80f4b1d25e9c7d5b9e97f642990058ddfee3d4593d4beee81e4d2b6e",
   "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -14,7 +14,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 24
+        "creeper": 19
       }
     ],
     "street_trees": 35,
@@ -66,7 +66,7 @@
       "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "8e82c1182a8470b6804e15684b0e4128df72c39702ed9a5e9f878ca4f4b82d4e",
+  "flora_sha256": "070967f1b6d66177e5d02ba16866877d9fa82f46fdab9d23bcb2e2b8e6d808f9",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -106,8 +106,8 @@
       "how": "T-3158: four piers in the front's brownstone (street_front_pavilions), banded in channelled courses that step in and out, from the base's coping to the cornice's bed, the corner one returned 1.1 m onto 18th Street; the render's at x 363-380, 412-428, 495-512 and the corner from x 545. The mansard is read in sections over the bays by raised ribs over the first two piers, the render's at x 362-378 and 412-427 against the print's 368-382 and 413-427"
     },
     {
-      "what": "the curb's step between the mansard's sections: 2-3 px in the print, about 0.15 m",
-      "status": "open",
+      "what": "the curb's step between the mansard's sections: 2-3 px in the print, about 0.15 m [T-1881, 2026-11-02: the sections' curbs now stand level at the house's 16.6 m, joined into one curb under one rail; the print's 0.15 m step is under the bar]",
+      "status": "within tolerance",
       "how": "T-3158: under the good-enough bar; the curb runs level Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
@@ -306,6 +306,14 @@
     {
       "what": "the ivy on the porte-cochere's corner pier (x 645-668): the print shows it clothed from the ground to the entablature's soffit, its west face square to the camera and its south face edge-on to the south arch's jamb at x 668, while the inner pier (x 592-610) shows its banded courses bare; planted on the model's own pier, both faces, 6.55-6.85 m (T-1881, 2026-11-02). The leaves this print also draws over the south arch's ring are not planted: under a foot of the ring's west half",
       "status": "fixed"
+    },
+    {
+      "what": "the owner's report, 2026-11-02, from this print: the roof is one, not broken in the centre toward the north, and its rail runs unbroken. The build stood each section under its own small crested deck, the north block's and the entry's parted by a notch down to their eaves and four rails apart from the house's. Built (T-1881): each section's roof runs back into the house's, the entry's on under the north block's south face, and one rail with a finial at each corner runs round the joined deck (L-pullman-1729-joined-roof-1881)",
+      "status": "fixed"
+    },
+    {
+      "what": "the ivy's mantle over the principal storey up to the balcony's belt, across the lights' heads, on the front south of the portico and on the flank west of the porte-cochere: the owner, 2026-11-02, asked for it pulled back off the windows, so it keeps 0.4 m clear of each ground-storey light and stops at about their heads (L-pullman-1729-joined-roof-1881)",
+      "status": "owner ruling"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
