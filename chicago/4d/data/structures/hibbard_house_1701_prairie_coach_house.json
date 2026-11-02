@@ -1,20 +1,22 @@
 {
   "id": "hibbard_house_1701_prairie_coach_house",
-  "name": "1701 S. Prairie Avenue — the alley building of the house at 1701 (district draft; refined by T-1933)",
+  "name": "1701 S. Prairie Avenue — the Hibbard stable by the tracks and its storey-and-a-half stable south of it (draft refined by T-3316 from the Chicagology photograph)",
   "aka": [
     "1701 S. Prairie Avenue"
   ],
   "archetype": "prairie_draft",
   "function": {
-    "value": "barn_or_carriage_shed",
+    "value": "stable",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_20"
+      "sanborn_1911_chicago_v3_sheet_20",
+      "robinson_1886_chicago_plate_10",
+      "chicagology_1701_hibbard_photo"
     ],
-    "note": "The 1911 sheet reads '2-storey brick building by the tracks, unlettered'. Backcast to 1904 as a yard outbuilding on the census ruling."
+    "note": "Robinson's 1886 plate 10 crosses a brick stable over the outline (its stable sign) and the 1911 sheet crosses the 1½-storey part X; the Chicagology photograph shows a lantern-ventilated hipped building with low oculi, a stable's. The 1911 sheet's '2-storey brick building by the tracks' is read as the house's stable for 1904. Inferred."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1933 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1701-b2), the T-1840 census (s20-1701-r1, s20-1701-r2) and the T-1837 register row frontage-20-032; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1933 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1701-b2), the T-1840 census (s20-1701-r1, s20-1701-r2) and the T-1837 register row frontage-20-032; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335). T-3316 (piece 2 of T-3310, a piece of T-1933) refines it in place on this builder, the K12 kit having no hipped roof or lantern: the plan on the 1911 sheet's parallelogram (both buildings' west and east walls on the slant of the Illinois Central right-of-way, 0.29 m east for every metre south, the draft builder's new skew_per_m), and the elevation read off the Chicagology photograph of the Hibbard house (cgn-1701-hibbard-photo-wide, source chicagology_1701_hibbard_photo), whose right edge shows the stable's yard front through the house's own solved camera (data/reference_views/hibbard_house_1701_prairie_coach_house/chicagology_front.json). The engraving of the house (a16-cgy-1701-hibbard-engraving) and the Glessner House rear halftone do not show it. The draft rules skip s20-1701-r1 and s20-1701-r2. Liberty L-t3316-hibbard-1701-stable.",
   "phases": [
     {
       "id": "draft_1904",
@@ -46,27 +48,43 @@
       "footprint": {
         "polygon": [
           [
-            0.0,
+            2.55,
             0.0
           ],
           [
-            10.0,
+            11.55,
             0.0
           ],
           [
-            10.0,
-            14.5
+            7.708,
+            13.25
           ],
           [
-            0.0,
-            14.5
+            10.158,
+            13.25
+          ],
+          [
+            8.386,
+            19.36
+          ],
+          [
+            -3.214,
+            19.36
+          ],
+          [
+            -1.442,
+            13.25
+          ],
+          [
+            -1.292,
+            13.25
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "T-3316: the 1911 sheet's outline (sanborn_1911_vol3_sheet_20.jpg, px x 4660-4950, y 3553-3936), read off the raster through the trace's own px-to-metre fit (0.0508 m a px) into this frame: the two-storey part r1 from the north wall (v 0) to the line at sheet y 3816 (v 13.25), 9.0 m across; the storey-and-a-half crossed stable r2 from there to the south wall (v 19.36), 11.6 m across, its west wall 2.4 m west of r1's. Both are parallelograms on the slant of the right-of-way: r1's west wall steps 0.277 m east a metre south and its east wall 0.304 (taken as one shear, 0.29: the corners within 0.2 m), r2's walls the same. The polygon is the two outlines' union. It replaces the draft's rectangle fit (70% of the main part)."
       },
       "form": {
         "stories": {
@@ -79,11 +97,11 @@
         },
         "construction": {
           "value": "brick",
-          "confidence": "inferred",
+          "confidence": "attested",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The trace's fabric colour on the main part: brick."
+          "note": "The sheet colours both parts pink, brick; the photograph shows brick walls."
         },
         "draft_plan": {
           "value": {
@@ -92,53 +110,61 @@
                 "id": "r1",
                 "role": "main",
                 "storeys": 2,
-                "roof": "gable",
+                "eave_m": 4.5,
+                "roof": "hip",
+                "pitch_deg": 20,
                 "rect": [
+                  2.55,
                   0.0,
-                  0.0,
-                  10.0,
-                  14.5
+                  11.55,
+                  13.25
                 ],
-                "from": "s20fp-1701-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill"
+                "eave_out_m": 0.45,
+                "cornice_out_m": 0.3,
+                "cornice_h_m": 0.5,
+                "modillions": {
+                  "faces": [
+                    "u1",
+                    "u0",
+                    "v0"
+                  ],
+                  "every_m": 0.9,
+                  "w_m": 0.12,
+                  "h_m": 0.28,
+                  "out_m": 0.28,
+                  "margin_m": 0.3
+                },
+                "from": "s20fp-1701-b2 p1: the sheet's '2' building by the tracks, on its own wall lines, sheared (T-3316)"
               },
               {
                 "id": "r2",
                 "role": "range",
                 "storeys": 1,
-                "roof": "flat",
+                "eave_m": 3.9,
+                "roof": "gable",
+                "pitch_deg": 26,
                 "rect": [
-                  5.5,
-                  14.5,
-                  9.0,
-                  17.75
+                  2.4,
+                  13.25,
+                  14.0,
+                  19.36
                 ],
-                "from": "s20fp-1701-b2 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 49% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -2.25,
-                  14.5,
-                  1.25,
-                  17.25
-                ],
-                "from": "s20fp-1701-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 48% of its fill"
+                "from": "s20fp-1701-b2 p2-p4: the sheet's crossed '1½' stable south of it, on its own wall lines, sheared (T-3316)"
               }
             ],
             "lot_v": [
               -0.78,
               32.28
             ],
-            "street_u": 59.494
+            "street_u": 59.494,
+            "skew_per_m": 0.29
           },
           "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
+            "sanborn_1911_chicago_v3_sheet_20",
+            "chicagology_1701_hibbard_photo"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1701-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill; s20fp-1701-b2 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 49% of its fill; s20fp-1701-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 48% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "T-3316: the plan is the 1911 sheet's, no longer the rules' fit. r1, the '2' part, and r2, the crossed '1½' part, stand on the outlines the sheet draws, unsheared in this record (rect) and built sheared by skew_per_m 0.29: each metre south steps the walls 0.29 m east, so the north and south walls keep their line across the lot and the long walls take the right-of-way's slant. Storeys per part are the sheet's. r1's eave (4.5 m) and hip (20 degrees) and r2's eave (3.9 m) are read off the Chicagology photograph through the house's camera; r2's gable pitch (26 degrees) is the photograph's gable slope, but the gable it shows is narrower than the sheet's 6.1 m end (L-t3316-hibbard-1701-stable)."
         },
         "draft_elevation": {
           "value": {
@@ -146,9 +172,8 @@
             "seed": 1498509653,
             "principal_floor_m": 0.0,
             "storey_heights_m": [
-              3.4,
-              2.8,
-              2.6
+              2.5,
+              2.0
             ],
             "roof_pitch_deg": 40,
             "mansard_lower_m": 3.0,
@@ -159,37 +184,185 @@
             "brackets": false,
             "attic_dormers": false,
             "stone": "stone",
-            "features": [],
+            "features": [
+              {
+                "kind": "stable_dress",
+                "dressed_faces": [
+                  "r1:u1",
+                  "r1:u0",
+                  "r2:u1"
+                ],
+                "sash": {
+                  "lights": 2,
+                  "architrave_m": 0.17,
+                  "architrave_out_m": 0.07,
+                  "sill_out_m": 0.1,
+                  "sill_m": 0.12,
+                  "lintel_m": 0.2,
+                  "rail_at": 0.55
+                },
+                "windows": [
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 9.43,
+                    "sill_m": 2.25,
+                    "w_m": 1.3,
+                    "h_m": 1.7,
+                    "hood": {
+                      "h_m": 0.28,
+                      "ears_m": 0.1,
+                      "drop_m": 0.0,
+                      "out_m": 0.06
+                    }
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 7.15,
+                    "sill_m": 0.75,
+                    "w_m": 0.5,
+                    "h_m": 0.5,
+                    "head": "oculus"
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 8.69,
+                    "sill_m": 0.75,
+                    "w_m": 0.5,
+                    "h_m": 0.5,
+                    "head": "oculus"
+                  },
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 11.46,
+                    "sill_m": 0.75,
+                    "w_m": 0.5,
+                    "h_m": 0.5,
+                    "head": "oculus"
+                  },
+                  {
+                    "part": "r2",
+                    "side": "u1",
+                    "s": 16.3,
+                    "sill_m": 4.15,
+                    "w_m": 1.1,
+                    "h_m": 0.55,
+                    "head": "round"
+                  },
+                  {
+                    "part": "r2",
+                    "side": "u1",
+                    "s": 16.3,
+                    "sill_m": 2.75,
+                    "w_m": 0.6,
+                    "h_m": 0.6,
+                    "head": "oculus"
+                  }
+                ],
+                "carriage_doors": [
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s": 2.6,
+                    "w_m": 2.6,
+                    "spring_m": 2.7,
+                    "rise_m": 0.25,
+                    "band_m": 0.18
+                  }
+                ],
+                "courses": [
+                  {
+                    "part": "r2",
+                    "side": "u1",
+                    "s0": 13.25,
+                    "s1": 19.36,
+                    "y_m": 1.1,
+                    "h_m": 0.15,
+                    "out_m": 0.06
+                  }
+                ],
+                "wall_gables": [
+                  {
+                    "part": "r1",
+                    "side": "u1",
+                    "s0": 8.42,
+                    "s1": 10.34,
+                    "from_m": 4.5,
+                    "rise_m": 0.95,
+                    "depth_m": 2.4,
+                    "coping_m": 0.15,
+                    "oculus": {
+                      "d_m": 0.35,
+                      "y_m": 4.95
+                    }
+                  }
+                ],
+                "lantern": {
+                  "at": [
+                    7.05,
+                    4.2
+                  ],
+                  "radius_m": 1.41,
+                  "base_m": 5.6,
+                  "plinth_m": 0.7,
+                  "drum_m": 1.9,
+                  "dome_m": 1.0,
+                  "finial_m": 0.5,
+                  "sides": 4,
+                  "lights": "round",
+                  "lights_per_face": 3,
+                  "dome_profile": [
+                    [
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      0.06,
+                      1.0
+                    ]
+                  ]
+                },
+                "stacks": [
+                  {
+                    "at": [
+                      7.05,
+                      9.0
+                    ],
+                    "w_m": 0.5,
+                    "d_m": 0.5,
+                    "from_m": 4.6,
+                    "top_m": 6.9
+                  },
+                  {
+                    "at": [
+                      7.05,
+                      10.7
+                    ],
+                    "w_m": 0.5,
+                    "d_m": 0.5,
+                    "from_m": 4.6,
+                    "top_m": 6.4
+                  }
+                ]
+              }
+            ],
             "draft_label": {
               "pass": "T-2335",
               "refined_by": [
-                "T-1933"
+                "T-3316"
               ]
             },
             "v_toward": "south"
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1498509653 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2335",
-            "liberty": "L-draft-prairie-16-18-east-2335",
-            "register_row": "frontage-20-032",
-            "census_ids": [
-              "s20-1701-r1",
-              "s20-1701-r2"
-            ],
-            "trace_building": "s20fp-1701-b2",
-            "seed": 1498509653,
-            "replaceable_by": [
-              "T-1933"
-            ],
-            "card": "District draft — refined by T-1933."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "T-3316: read off the Chicagology photograph of the Hibbard house (cgn-1701-hibbard-photo-wide, 1945 x 1207 px), whose right edge (x 1590-1945) shows the stable's yard (west) front 57-68 m off, through the house's own solved camera carried into this frame unchanged (data/reference_views/hibbard_house_1701_prairie_coach_house/chicagology_front.json), at about 35 px a metre. REGISTERED ON THE WING: through that camera the sheet puts the crossed stable's north-west corner at x 2035 px, where the photograph's gabled wing begins at x 1867, about 4 m north of the sheet's line along the wall; no camera fits the house and the wing both (a re-fit holding the wing leaves the house's corners 40-60 px out), so the features are placed by their offsets from the wing's corner, as the photograph shows them, and the difference is open in the match record. READ: a hipped slate roof on a bracketed cornice at about 4.5 m; a square lantern about 2.0 m across over the roof's north part, three round-headed lights a face, its cornice at about 8.6 m under a pyramidal cap to about 9.9 m and a finial; a wall gable with a curved head rising about 0.95 m over the cornice, an oculus in it, over a two-light window in a pale stone frame under a hood (top about 4.0 m); three round oculi about 1 m up the wall; two short capped stacks on the roof's south part; and the lower wing's gable to the yard, a lunette in it and an oculus under it, a pale band low on its wall, eave about 3.9 m. INVENTED: the carriage door in r1's yard front at its north end (behind the house in the picture; a stable's yard needs one, the sheet draws no drive); the lantern's place across the roof (one view gives x, not depth); the stacks' depth and heights; the faces the picture does not see (r1's north and east walls, r2's south and east) are blank or the rules' openings; colours (monochrome: brick per the sheet, slate). Liberty L-t3316-hibbard-1701-stable.",
+          "sources": [
+            "chicagology_1701_hibbard_photo",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ]
         }
       }
     }
