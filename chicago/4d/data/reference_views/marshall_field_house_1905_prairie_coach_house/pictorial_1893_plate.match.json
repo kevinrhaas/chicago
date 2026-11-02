@@ -1,0 +1,108 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie_coach_house",
+ "view": "pictorial_1893_plate",
+ "glb": "assets/gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb",
+ "glb_sha256": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38",
+ "camera_sha256": "8e8372d74afb11ea19054640d65e666d98cffe7a1833919ee94210b19054334b",
+ "photo_sha256": "d49b47b1f31f50b0ce0d4e99b234d0ae9c80f42c57cab75f8338ed0396d397dd",
+ "rendered_members": [
+  {
+   "structure_id": "marshall_field_house_1905_prairie_coach_house",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb",
+   "placement": {
+    "local_e": 1466.825,
+    "local_n": -3345.871,
+    "rotation_deg": 179.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "draft_1904"
+   },
+   "position": [
+    0,
+    0,
+    0
+   ],
+   "rotation_y": 0,
+   "glb_sha256": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38"
+  },
+  {
+   "structure_id": "marshall_field_house_1905_prairie",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
+   "placement": {
+    "local_e": 1443.678,
+    "local_n": -3356.596,
+    "rotation_deg": 179.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+   },
+   "position": [
+    23.249984247961887,
+    0,
+    -10.499879354998278
+   ],
+   "rotation_y": 0,
+   "glb_sha256": "95862ab3dd00167c768dad224dae45c747362b3d8d416e9a73e6547f689b12c2"
+  },
+  {
+   "structure_id": "marshall_field_house_1905_prairie_conservatory",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
+   "placement": {
+    "local_e": 1431.842,
+    "local_n": -3373.512,
+    "rotation_deg": 359.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+   },
+   "position": [
+    35.2495777708627,
+    0,
+    -27.300227782491167
+   ],
+   "rotation_y": -3.141592653589794,
+   "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
+  }
+ ],
+ "group_sha256": "4bcdfa1c579ced7863e1a24fdd2a54b89df47fef04d08e9acc188a80e9fb1918",
+ "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie_coach_house/pictorial_1893_plate-side-by-side.jpg",
+ "verdict": "matches",
+ "differences": [
+  {
+   "what": "the roof: a mansard, its steep lower face rising from the cornice to a curb about 7.4 m up with a low hipped deck above it, where the draft built a gable over two full storeys",
+   "status": "fixed",
+   "how": "T-1936: r1 roof mansard, lower face 3.2 m (lower_m) over a 4.25 m eave; the deck the rules' 18-degree hip, its ridge about 8.9 m where the photograph reads about 9.2 m (within tolerance)"
+  },
+  {
+   "what": "the walls: ONE brick storey under the cornice (the cornice's top about 4.25 m over grade, read at x 1700 px), the second storey of the sheet's '2' being the mansard's; the draft stood two brick storeys to 6.2 m",
+   "status": "fixed",
+   "how": "T-1936: r1 one storey of 4.25 m (storey_heights_m), the mansard its second"
+  },
+  {
+   "what": "the cornice: a deep moulded cornice from about 3.45 to 4.25 m with small brackets under it about every 1.2 m (y 938-951 px), over a pale stone frieze band from about 2.6 to 3.1 m (y 953-970)",
+   "status": "fixed",
+   "how": "T-1936: cornice 0.8 m deep, 0.4 m out (cornice_h_m, cornice_out_m); modillions every 1.2 m, 0.3 m tall, on all four faces; a 0.5 m stone course at 2.6 m (courses h_m)"
+  },
+  {
+   "what": "the dormers and the mansard's hip at the barn's south-west corner, behind the tree (x about 1300-1420 px)",
+   "status": "fixed",
+   "how": "T-1936: the same dormers as the 923 photograph (dormers)"
+  },
+  {
+   "what": "the barn's south corner: the plate's at x about 1387-1393 px, the build's at x 1321-1330",
+   "status": "within tolerance",
+   "how": "about 1.7 m at this depth, where the 923 photograph's camera puts it 0.6 m off the other way: two camera fits extrapolated beyond the house disagree, and the sheet's party wall holds it"
+  },
+  {
+   "what": "right of the barn's corner the plate shows the barn's south end and a stack; the render shows the sheet's separate two-storey building south of the barn (r2: the 1911 sheet draws it in its own outline south of the barn's party wall)",
+   "status": "not shown",
+   "how": "T-1936: the picture predates it. Neither the 1870s photograph nor the 1893 plate shows any building there (the barn's south face is seen whole from its cornice to its roof in the one, its corner in the other); the 1911 sheet draws it, so it was put up between 1893 and 1911, and the 1904 build stands it because the T-1841 census rules the sheet's building present_as_mapped in 1904 (a reconstruction, L-t1936-field-coach-house). The barn's south end is built behind it as the photograph shows it (cornice, brackets, frieze, mansard, one dormer, a stack)."
+  },
+  {
+   "what": "the walls' and roof's colours: the plate is monochrome",
+   "status": "not shown",
+   "how": "the rules' red brick, slate"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

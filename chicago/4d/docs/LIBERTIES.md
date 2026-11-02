@@ -24453,7 +24453,7 @@ state T-1900's phase guard keeps off the 1904 geometry.
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24508,6 +24508,11 @@ house stays this draft's.
 **Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
 **Recorded:** 2026-10-11 (T-2330).
 **Revised:** 2026-10-16 (T-2538) — **1801 Kimball is no longer part of this draft.** Its two tokens are retired from the covered list above: the house is refined in place under the same id from J. W. Taylor's c. 1895 photograph, and its corner tower, which this entry admitted putting at the 18th Street corner, now stands where the photograph and the sheet's bump put it, on the flank 8 m back from the front. What that refinement still invents is `L-kimball-1801-massing-2538`.
+**1905's alley building retired from this liberty by T-1936 (2026-11-02):** `marshall_field_house_1905_prairie_coach_house`'s
+barn is read off the 1870s photograph of the Field house and the 1893 plate through the house's solved cameras, and its
+elevation is now claimed by `L-t1936-field-coach-house`; the record has left the pass (the rules skip `s28-1905-rear`),
+so this liberty claims none of it.
+
 **1827's coach house elevation retired from this liberty by T-1936 (2026-11-02):** `doane_house_1827_prairie_coach_house`'s
 yard front is read off the Glessner House print of the Doane house through its solved camera, and its elevation is
 now claimed by `L-t1936-doane-coach-house`; the record has left the pass (the rules skip `s28-1827-rear`), so
@@ -24515,7 +24520,7 @@ this liberty claims none of it.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24603,6 +24608,11 @@ built for 1904; its draft attributes are gone.
 now stands as the K12 coach house with the kit's range and lean-to fittings under `L-k12-1730-stable-range-1932`,
 under the same id, on the outlines, storeys, brick and two window marks the sheet draws, as the crossed brick stable
 and the brick range Robinson's 1886 plate draws behind lots 7 and 8; its draft attributes are gone.
+**1630's alley building retired from this liberty by T-1932 (2026-11-02):** `house_1630_prairie_coach_house`
+now stands as a one-storey frame shed on the K16 timber kit's whole-house builder under `L-k16-1630-shed-1932`, under
+the same id, on the outline, storey, frame and shingle roof the sheet draws; Robinson's 1886 plate draws the rear of
+lot 18 empty. Its draft attributes are gone, and with it the last alley building of the west side's 1600 block leaves
+the draft.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -33365,6 +33375,35 @@ range's and the one-storey piece's openings, roofs and ends their true form; a b
 **Review:** `docs/RESEARCH/k12-1730-stable-range-1932/README.md`.
 **Recorded:** 2026-11-01 (T-1932).
 
+### L-k16-1630-shed-1932 — The one-storey frame shed on the alley behind 1630 Prairie, built from the K16 timber kit on the outline the 1911 sheet draws, everything but its outline, storey, frame and shingle roof the kit's
+
+**Decision:** the district draft's alley building behind 1630 Prairie Avenue (T-1932) is refined in place, under its
+own id `house_1630_prairie_coach_house`, onto the K16 timber kit's whole-house builder (T-2357, the kit 1630's own
+house stands on, `L-k16-1630-frame-house-2357`): the alley's only frame building and the last of T-1932's thirteen
+still standing as the draft's. **What is read.** From sheet 20 of the 1911 Sanborn: one yellow (frame) building, '1'
+storey, uncrossed and lettered with no use, 4.474 m deep from the alley line by 6.220 m along it (median darkness
+profiles: columns 2224.69 and 2312.79, rows 3096.63 and 3219.13), its west wall on the alley line and its north wall
+0.57 m south of the 1628/1630 lot line (row 3085.35), with the key's small cross inside its south end, the key's sign
+for a shingle roof; no window mark (the sheet draws none on a frame wall). The T-1840 census: '1-storey frame shed on
+the alley'. From Robinson's 1886 plate 10: the rear of lot 18 empty, the small frame house at its street end alone.
+**What is ruled.** The shed was built between 1886 and 1911; nothing read here dates it more closely, and the census
+carries it into 1904 as it did the draft, so it is built for 1904 and may postdate it. Its use is read as a yard shed
+(`woodshed_or_storage_shed`), INFERRED from its size and the census's word; no source names it. The shingle roof is
+ATTESTED for 1911 by the key's cross. **What is invented.** Everything else, from the kit: clapboard on a water table
+over a 0.2 m foundation, corner boards, wall tops 2.9 m over grade, a shallow 0.2 m frieze under a plain boxed eave
+0.25 m deep with no brackets (the kit learns `brackets: false` for an outbuilding, additively: the six K16 houses
+rebuild byte-identical), a 30-degree gable with its ridge along the alley, a four-panel door 1.2 m wide toward the
+south end of the alley wall, a two-panel door 0.9 m wide in the yard wall, one two-over-two sash in the south wall,
+the north wall blank, the house's fawn paint and the weathered cedar grey-brown of its roof. The house-walks gate
+(`tools/check_house_walks.py`) now reads only dwellings, so an outbuilding on a house kit is not asked for a front walk.
+**What is not.** The 1911 sheet's outline, storey, frame and shingle roof; the shed's place on the alley line.
+**How to resolve:** a photograph of the alley behind 1626-1636 Prairie, or a permit or atlas between 1886 and 1911,
+gives the shed's openings, roof and date their true form.
+**Covers:** `house_1630_prairie_coach_house.as_standing_1904.form.stories`, `house_1630_prairie_coach_house.as_standing_1904.form.construction`, `house_1630_prairie_coach_house.as_standing_1904.form.frame_house`
+**Ticket:** T-1932.
+**Review:** `docs/RESEARCH/k16-1630-shed-1932/README.md`.
+**Recorded:** 2026-11-02 (T-1932).
+
 ### L-k12-1709-stable-3308 — The storey-and-a-half brick stable behind 1709 Prairie, by the Illinois Central tracks, built from the K12 kit with its carriage front to the house's yard
 
 **Decision:** the district draft's building by the tracks behind 1709 Prairie Avenue (T-3308, a piece of T-1933) is
@@ -38754,4 +38793,41 @@ its alley front and its true extent.
 **Covers:** `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`
 **Ticket:** T-1936.
 **Review:** `docs/RESEARCH/photo-match/doane_house_1827_prairie_coach_house/glessner_blog_print-side-by-side.jpg`.
+**Recorded:** 2026-11-02 (T-1936).
+
+### L-t1936-field-coach-house — Marshall Field's mansard stable read off the 1870s photograph and the 1893 plate, and the sheet's later building south of it
+
+**Decision:** the district draft's alley building behind 1905 Prairie Avenue (T-1936) is refined in place, under its
+own id `marshall_field_house_1905_prairie_coach_house`, still on the draft archetype. **What the sheet says.** The 1911
+sheet (vol. 3 sheet 28) draws TWO outlines here: the BARN, '2', from the north wall to a party wall (the trace's
+notches at sheet y 4276-4285 px), and a separate '2' building south of it whose west wall stands about 0.9 m east of
+the barn's. The draft had built one 7.75 by 36.5 m two-storey gabled block inside the trace's label ticks; the plan
+now stands on the trace's own wall lines, r1 the barn (9.8 by 25.8 m) and r2 the south building (8.85 by 10.4 m).
+**What is read.** The 1870s photograph of the Field house (`a19-cgy-1905-field-923`, source
+`chicagology_1905_field_photo`) shows at its right edge the south 9 m of the barn's yard face and the west part of its
+south end. Read through the house's own solved camera (T-3271, 3.0 px RMS on the house), carried into this frame
+unchanged (`data/reference_views/marshall_field_house_1905_prairie_coach_house/chicagology_923_photo.json`), at about
+36 px a metre: one brick storey to a cornice 4.25 m up, the mansard its second storey, its lower face to a curb about
+7.4 m; the cornice 0.8 m deep on small brackets about every 1.2 m, over a pale stone frieze from 2.6 to 3.1 m; four
+small windows 0.7 by 0.84 m on sills 1.72 m up; three small pedimented dormers on the west face 3.5 m apart and one in
+the south end's middle; a square louvred ventilator about 3.2 m across on the ridge, four panels a face, a pyramidal
+cap to about 10.5 m and a finial; three stacks; a slated spirelet near the south end of the ridge and a smaller spike
+at the south hip's foot. The 1893 Pictorial plate (`pictorial_1893_plate`) shows the same cornice, frieze, mansard and
+dormers; the Daily News negative of about 1905 (`daily_news_dn0003324`) shows the mansard and its dormers under snow,
+so the barn still had them at the 1904 target. **What is invented.** The south building's date and form: neither the
+1870s photograph nor the 1893 plate shows anything there, the barn's south end standing clear in both, so it was put up
+between 1893 and 1911; it is built for 1904 because the T-1841 census rules the sheet's building present_as_mapped, and
+its two flat-roofed storeys are the district rules' (its match items are `not shown`, the pictures predating it). The
+barn's north 17 m, behind the house in every picture: five windows at a 3 m rhythm and four dormers at the
+photograph's pitch. The alley face and the north end: the rules' openings, the photograph's dormers mirrored, the
+cornice, brackets and frieze carried round. The stacks' places across the roof (one view gives their x, not their
+depth). The colours (every picture is monochrome; red brick per the sheet, slate). The deck's pitch, the rules' 18
+degrees (the photograph's ridge reads about 0.3 m higher). **How it was measured.** Every height from the camera's
+grade on the face's own plane (u 8.85); the barn's south corner, which the photograph shows 0.6 m south of the sheet's
+party wall and the plate's camera 1.7 m, is held on the sheet.
+**How to resolve:** a picture of the alley behind 1905 Prairie, or of the stable's north part or its south
+neighbour, gives the south building's date and form and the stable's alley front.
+**Covers:** `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`
+**Ticket:** T-1936.
+**Review:** `docs/RESEARCH/photo-match/marshall_field_house_1905_prairie_coach_house/chicagology_923_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-1936).

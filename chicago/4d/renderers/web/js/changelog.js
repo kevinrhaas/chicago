@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2565, ts: '2026-11-02T11:05:14.924Z', date: 'Nov 2, 2026, 5:05 AM CT', title: '1630 Prairie\'s alley shed is built, finishing the north-west alley', kind: 'feature',
+    items: [
+      'The small one-storey frame shed behind 1630 Prairie now stands in clapboard, built board by board like the house in front of it, on the outline the 1911 fire-insurance map draws.',
+      'The map\'s tiny cross gives it a shingle roof. An 1886 atlas shows the lot\'s rear empty, so the shed went up some time after that.',
+      'Every building along the alley from 1600 to 1736 Prairie has now moved past its first rough draft.',
+    ] },
+  { v: 2564, ts: '2026-11-02T10:21:55.573Z', date: 'Nov 2, 2026, 4:21 AM CT', title: 'Marshall Field\'s stable gets its mansard roof and ventilator back', kind: 'improvement',
+    items: [
+      'Behind 1905 Prairie Avenue, Field\'s stable is now the one-storey brick building with a mansard roof that photographs from the 1870s and 1893 show, not a plain two-storey barn.',
+      'Its bracketed cornice, pale stone frieze, small dormers, louvred rooftop ventilator, chimneys and spires stand where those pictures put them.',
+      'The 1911 insurance map\'s separate two-storey building south of the stable stands beside it, drawn on the map\'s own wall lines.',
+    ] },
   { v: 2563, ts: '2026-11-02T08:59:27.199Z', date: 'Nov 2, 2026, 2:59 AM CT', title: 'A brick stable and its range behind 1730 Prairie', kind: 'feature',
     items: [
       'The alley behind 1730 Prairie now has its brick stable, two storeys, 9.8 m along the alley and 7.8 m deep, standing against 1726\'s building on the lot line. Its one-storey range runs on 8.3 m south to 1736\'s coach house, and a small one-storey room stands against its yard side. Their outlines, storeys, brick and window places come from the 1911 Sanborn sheet. Robinson\'s 1886 atlas shows the same stable and range, so they are firmly dated. The small room appears only in 1911. The doors, loft hatch, other windows and roofs come from the shared coach-house kit and are reconstructed.',
