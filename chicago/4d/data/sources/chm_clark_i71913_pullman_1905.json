@@ -1,0 +1,28 @@
+{
+  "id": "chm_clark_i71913_pullman_1905",
+  "type": "photograph",
+  "citation": "Charles R. Clark, 'George M. Pullman residence', negative i71913 (ICHi-071913), 1905. Chicago History Museum, Prints and Photographs, Charles R. Clark photograph collection (X.1667.1991, Bib 4250), Scrapbook Volume 2.",
+  "author": "Charles R. Clark",
+  "date": "1905",
+  "describes_date": "1905 (CHM-Date depicted), a year after the scene date; elms in full leaf",
+  "repository": "Chicago History Museum, Prints and Photographs, through CARLI Digital Collections (chm_pp id 245, the PDF '38_Scrapbook Volume 2', p. 27, the thumbnail captioned i71913.tif). Prairie library image a16-chm-clark-ichi-071913-pullman-1905; the thumbnail is committed at data/sources/assets/pullman_1729_chm_clark_t1881/.",
+  "url": "https://collections.carli.illinois.edu/digital/collection/chm_pp/id/245",
+  "locator": "The whole thumbnail: the house from the south-west across the Prairie Avenue / 18th Street crossing, looking north-east, the Prairie front lit at left and centre, the 18th Street flank in shade at right with the porte-cochere's dark west arch, parkway elms in leaf before both, the low boundary wall, a hydrant and a lamp post on the Prairie parkway, and the unpaved crossing in the foreground. The camera (data/reference_views/pullman_house_1729_prairie/chm_clark_1905.json) says how far it can be measured.",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The holder's own statement on the item: the IPTC copyright notice printed under the thumbnail reads 'No known copyright restrictions' (Chicago History Museum), which the Prairie library records as its rights basis; its rule 2 allows a local copy for 'no known restrictions'. Read for forms, places and proportions; no texture or mesh is derived from it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-02 (T-1881). Only a thumbnail is online: the PDF (9,863,729 bytes, sha256 4c4485d4c42308cddc3e37b7c2f62745d76cb057a0ccc2158ab718cd3aaccf43) from https://collections.carli.illinois.edu/digital/api/collection/chm_pp/id/245/download embeds it as a 375 x 358 px JPEG (page 27, image 7 in object order, object 298), extracted with pdfimages -j and committed byte for byte: 30,215 bytes, sha256 fede674ee5cffe692cc4c096d33e28b01d23a13fecb26d1bcc10decf01614314. The page's caption grid was checked against a render of the page: the picture stands over the caption 'i71913.tif, IPTC - Headline: George M. Pullman residence, CHM-Date depicted: 1905'. The full-size negative scan was not found online.",
+  "note": "The nearest picture to the 1904 scene of the house, and the only one in leaf. At about 6.4 px a metre it places the big things: through its camera the Prairie front's big pedimented dormer and the round-arched lights under it stand at v 11.0-11.45, where the Detroit print's camera also puts them, about 3.2 m north of the build's; and a narrow second-storey light stands between them and the south-west corner. The north block and the portico are behind the elms.",
+  "what_it_supplies": [
+    "the Prairie front's big dormer and light column, placed along the front",
+    "the south-west corner, cornice and mansard heights",
+    "the parkway elms' habit in leaf in 1905"
+  ],
+  "what_it_does_not_supply": [
+    "the north block, the portico and the entry (behind the trees)",
+    "colour",
+    "detail finer than about 0.3 m"
+  ]
+}
