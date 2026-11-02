@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2558, ts: '2026-11-02T05:44:35.275Z', date: 'Nov 1, 2026, 11:44 PM CT', title: 'Pullman\'s court rebuilt to Taylor\'s photograph: terraces, stairs and landings', kind: 'improvement',
+    items: [
+      'The courtyard between the palm house and 18th Street now has its photographed levels: the house terrace at the principal floor, a sunken flagged court, and a raised walk to the east gate.',
+      'The west gate climbs in two flights about a landing with a bench; the east gate climbs nine steps between urn pedestals.',
+      'The striped awning now hangs off the house\'s east wall with a striped side curtain, as the summer photograph shows it.',
+      'The palm house\'s dome rises to a crown ring and ornament, and its balustrade has a solid die over every column.',
+      'The stable and the palm-house wing now share the house\'s fawn stone, a shade lighter, as the photographs print them.',
+    ] },
   { v: 2557, ts: '2026-11-02T04:37:39.885Z', date: 'Nov 1, 2026, 10:37 PM CT', title: '1912 Prairie now matches its photograph', kind: 'feature',
     items: [
       'The Moulton house\'s round tower and its little corner turret now stop at the main cornice, and their slate cones rise from there, as the old photograph shows.',
