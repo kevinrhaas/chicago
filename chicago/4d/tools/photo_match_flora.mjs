@@ -11,6 +11,9 @@
 //                                          data/street_furniture/<scene>.json within this many metres,
 //                                          and the wires between two of them
 //     season: "spring"                     summer | spring | fall | winter, as the picture's trees are
+//     creeper_in_leaf: true                optional (T-1881): the lots' wall ivy drawn in full leaf
+//                                          (summer) whatever the season, for a picture that shows the
+//                                          ivy still clothed among trees that are bare (say so in the solve)
 //   }
 //
 // The camera's `scene` names the scene. The plants drawn, the renderers that draw them and the
@@ -34,7 +37,7 @@ export const FLORA_RENDERER_SOURCES = [
 export function floraReview(root, camera) {
   if (camera.flora === undefined) return null;
   const fl = camera.flora;
-  const keys = ['front_yards', 'street_trees_m', 'street_furniture_m', 'season'];
+  const keys = ['front_yards', 'street_trees_m', 'street_furniture_m', 'season', 'creeper_in_leaf'];
   if (!fl || typeof fl !== 'object' || Array.isArray(fl) || Object.keys(fl).some(k => !keys.includes(k)))
     throw Error(`flora takes ${keys.join(', ')}`);
   const lots = fl.front_yards ?? [];
@@ -50,6 +53,10 @@ export function floraReview(root, camera) {
   if (!lots.length && fl.street_trees_m === undefined)
     throw Error('flora names front_yards lots, a street_trees_m radius or both');
   if (!FLORA_SEASONS.includes(fl.season)) throw Error(`flora.season is one of ${FLORA_SEASONS.join(', ')}`);
+  if (fl.creeper_in_leaf !== undefined && typeof fl.creeper_in_leaf !== 'boolean')
+    throw Error('flora.creeper_in_leaf must be true or false');
+  if (fl.creeper_in_leaf !== undefined && !lots.length)
+    throw Error('flora.creeper_in_leaf needs front_yards lots, whose ivy it draws');
   if (typeof camera.scene !== 'string' || !idPattern.test(camera.scene))
     throw Error('flora requires an explicit scene id');
   const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
@@ -90,6 +97,7 @@ export function floraReview(root, camera) {
     ...(docs.street_furniture ? ['renderers/web/js/street-furniture.js'] : [])].map(file => ({file, sha256: sha(path.join(root, file))}));
   const rendered = {
     season: fl.season,
+    ...(fl.creeper_in_leaf ? {creeper_in_leaf: true} : {}),
     lots: lots.map(id => {
       const l = docs.front_yards.lots.find(x => x.parcel === id);
       return {parcel: id, shrubs: (l.shrubs ?? []).length, trees: (l.trees ?? []).length,
@@ -100,7 +108,7 @@ export function floraReview(root, camera) {
       street_furniture_m: fl.street_furniture_m} : {}),
   };
   const signature = {anchor, rendered, docs, renderer_sources: rendererSources};
-  return {anchor, docs, season: fl.season, review: {
+  return {anchor, docs, season: fl.season, creeperInLeaf: fl.creeper_in_leaf === true, review: {
     rendered_flora: rendered, flora_anchor: anchor, flora_renderer_sources: rendererSources,
     flora_sha256: crypto.createHash('sha256').update(JSON.stringify(signature)).digest('hex'),
   }};
