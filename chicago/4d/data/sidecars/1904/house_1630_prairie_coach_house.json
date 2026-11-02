@@ -1,12 +1,12 @@
 {
   "id": "house_1630_prairie_coach_house",
-  "phase": "draft_1904",
-  "name": "1630 S. Prairie Avenue — the alley building of the house at 1630 (district draft; refined by T-1932)",
+  "phase": "as_standing_1904",
+  "name": "1630 Prairie Avenue: the one-storey frame shed on the alley, K16",
   "aka": [
     "1630 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_1630_prairie_coach_house__draft_1904.glb",
+  "archetype": "k16_timber",
+  "asset": "gltf/house_1630_prairie_coach_house__as_standing_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -19,21 +19,22 @@
     "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_20"
+      "sanborn_1911_chicago_v3_sheet_20",
+      "robinson_1886_chicago_plate_10"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "STANDING IN 1904 rests on the 1911 sheet carried back seven years (the T-1840 census rules it present, census row s20-1630-r1, as the district draft did). Robinson's 1886 plate 10 draws the rear of lot 18 empty, between the crossed brick stables behind lots 16-17 to the north and the house on lot 19 to the south, the small frame house standing at the lot's street end only (docs/RESEARCH/k16-1630-shed-1932/robinson-1886-lot-18.jpg), so the shed is later than 1886; nothing read here dates it more closely, and a building first seen in 1911 may postdate 1904. FROM: the record claims the 1904 target and no earlier day. TO: the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1334.76,
-    "local_n": -3052.622,
+    "local_e": 1334.33,
+    "local_n": -3049.619,
     "rotation_deg": -0.58,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.250, v -2.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The middle of the building's alley (west) wall at grade, read off the committed sheet 20 raster (chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_20.jpg) at pixel (2224.69, 3157.88): the alley wall's line by median darkness profile over rows 3110-3200 (peak at column 2224.69; the shed's west wall is drawn on the alley line), halfway between its north wall line (row 3096.63) and its south one (row 3219.13), each the peak of a median darkness profile over columns 2240-2300, peaks refined by a parabola through the three highest samples. Carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json): local E 1334.330, N -3049.619. The bearing is the parcel's and the house's (house_1630_prairie, -0.58 degrees). The fit's own residual, 3.08 m RMS on its control crossings, is all that is claimed; the draft stood the building inside a 4.0 by 6.0 m rectangle fitted inside the trace.",
     "symbolic_location": "1630 S. Prairie Avenue, parcel prairie_1630 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -44,26 +45,26 @@
     "polygon": [
       [
         0.0,
-        0.0
+        -3.11
       ],
       [
-        4.0,
-        0.0
+        4.474,
+        -3.11
       ],
       [
-        4.0,
-        6.0
+        4.474,
+        3.11
       ],
       [
         0.0,
-        6.0
+        3.11
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "About the middle of the alley wall, u east (into the lot) and v north. The sheet draws the building from the alley line (pixel column 2224.69) to its east wall line (2312.79) and from its north wall line (row 3096.63) to its south one (3219.13): 4.474 m deep by 6.220 m along the alley at the sheet's 0.050779 m a pixel. Its north wall stands 0.57 m south of the 1628/1630 lot line (row 3085.35), where 1628's stable has its south wall."
   },
   "attributes": {
     "stories": {
@@ -72,105 +73,155 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The census reading '1-storey frame shed on the alley': 1 storeys."
+      "note": "'1' on the building: one storey.",
+      "geometry": "simplified"
     },
     "construction": {
       "value": "frame",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The trace's fabric colour on the main part: frame."
+      "note": "Drawn yellow, the sheet's colour for frame. Built board by board from the K16 timber kit at a frame wall's 0.15 m, never with a masonry wall's thickness.",
+      "geometry": "simplified"
     },
-    "draft_plan": {
+    "frame_house": {
       "value": {
-        "parts": [
+        "foundation_m": 0.2,
+        "return_m": 0.3,
+        "blocks": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 1,
-            "roof": "gable",
-            "rect": [
+            "id": "shed",
+            "rect_uv": [
               0.0,
-              0.0,
-              4.0,
-              6.0
+              -3.11,
+              4.474,
+              3.11
             ],
-            "from": "s20fp-1630-b2 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 95% of its fill"
+            "wall_top_m": 2.9,
+            "frieze_m": 0.2,
+            "brackets": false,
+            "eave": {
+              "projection_m": 0.25
+            },
+            "roof": {
+              "kind": "gable",
+              "pitch_deg": 30,
+              "ridge": "v"
+            },
+            "walls": [
+              {
+                "side": "east",
+                "doors": [
+                  {
+                    "centre_m": 2.4,
+                    "clear_width_m": 0.9,
+                    "clear_height_m": 1.95,
+                    "panels": [
+                      1,
+                      2
+                    ],
+                    "stile_m": 0.12,
+                    "top_rail_m": 0.12,
+                    "lock_rail_m": 0.2,
+                    "bottom_rail_m": 0.24,
+                    "panel_sink_m": 0.015
+                  }
+                ]
+              },
+              {
+                "side": "north"
+              },
+              {
+                "side": "west",
+                "doors": [
+                  {
+                    "centre_m": 3.4,
+                    "clear_width_m": 1.2,
+                    "clear_height_m": 1.95,
+                    "panels": [
+                      2,
+                      2
+                    ],
+                    "stile_m": 0.12,
+                    "top_rail_m": 0.12,
+                    "lock_rail_m": 0.2,
+                    "bottom_rail_m": 0.24,
+                    "panel_sink_m": 0.015
+                  }
+                ]
+              },
+              {
+                "side": "south",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 0.95,
+                    "sill_m": 1.15,
+                    "centre_m": 2.237
+                  }
+                ]
+              }
+            ]
           }
         ],
-        "lot_v": [
-          -1.785,
-          6.785
-        ],
-        "street_u": 55.124
-      },
-      "confidence": "inferred",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1630-b2 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 95% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-    },
-    "draft_elevation": {
-      "value": {
-        "kind": "service",
-        "seed": 2833097315,
-        "principal_floor_m": 0.0,
-        "storey_heights_m": [
-          3.4,
-          2.8,
-          2.6
-        ],
-        "roof_pitch_deg": 40,
-        "mansard_lower_m": 3.0,
-        "front_bays": 2,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 0,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2334",
-          "refined_by": [
-            "T-1932"
+        "paint": {
+          "body": [
+            0.66,
+            0.6,
+            0.47
           ]
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The register's 'small earlier frame house': 2BB frame read as two storeys under a simple gable with one stack, keeping its small scale between the masonry houses. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2833097315 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The whole shed from the K16 kit's whole-house builder (T-2357), as 1630's house is. READ from the sheet: the outline (4.474 m deep by 6.220 m along the alley, its west wall on the alley line), one storey, frame, and a shingle roof (the key's small cross, drawn inside its south end). Everything else is RECONSTRUCTED and recorded as L-k16-1630-shed-1932: clapboard on a water table over a 0.2 m foundation, corner boards, a shallow 0.2 m frieze under a plain boxed eave 0.25 m deep with no brackets (the kit's `brackets: false`, an outbuilding's), a 30-degree gable with its ridge along the alley, a four-panel door 1.2 m wide toward the south end of the alley wall, a two-panel door 0.9 m wide in the yard wall toward the house, one two-over-two sash in the south gable wall, the north wall blank 0.57 m off 1628's stable, and the house's fawn body paint. The sheet draws no window marks on a frame building, so no opening is read."
     },
-    "draft": {
+    "roof_covering": {
       "value": {
-        "pass": "T-2334",
-        "liberty": "L-draft-prairie-16-18-west-2334",
-        "register_row": "frontage-20-009",
-        "census_ids": [
-          "s20-1630-r1"
-        ],
-        "trace_building": "s20fp-1630-b2",
-        "seed": 2833097315,
-        "replaceable_by": [
-          "T-1932"
-        ],
-        "card": "District draft — refined by T-1932."
+        "material": "wood shingle",
+        "color": [
+          0.13,
+          0.11,
+          0.095
+        ]
       },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The key's small cross ('x' = shingle roof, sanborn_1911_vol3_key.jpg) drawn inside the building's south end: a wood shingle roof, ATTESTED by the sheet for 1911. The weathered cedar grey-brown is RECONSTRUCTED, the colour 1630's house uses; the shingles themselves are not modelled."
     },
     "function": {
-      "value": "barn_or_carriage_shed",
+      "value": "woodshed_or_storage_shed",
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The 1911 sheet reads '1-storey frame shed on the alley'. Backcast to 1904 as a yard outbuilding on the census ruling."
+      "note": "The 1911 sheet draws a small one-storey frame building on the alley behind the house, uncrossed (not the key's stable) and lettered with no use; the T-1840 census reads it '1-storey frame shed on the alley'. At 4.5 by 6.2 m, too small for a carriage and a horse, it is read as a yard shed (wood, coal, tools), INFERRED, carried back to 1904 with the building; no source names its use."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "robinson_1886_chicago_plate_10",
+      "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
+      "url": "",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from above 16th Street to 18th, as of 1886 -- a bound, from before, on the 1904 edge",
+        "Lot and subdivision lines, and the outlines of the houses at 1609-1611 and 1620 Prairie that Glessner House names as standing in 1904 and gone by 1911"
+      ],
+      "what_it_does_not_supply": [
+        "Street widths: its bands are not drawn to the widths it prints (Prairie printed 66, drawn about 55 ft)",
+        "Anything as of 1904 on its own authority",
+        "Elevations or grades"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_20",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
@@ -192,8 +243,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1932 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1630-b2), the T-1840 census (s20-1630-r1) and the T-1837 register row frontage-20-009; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
+  "research_note": "T-1932 refines the district draft (T-2334) in place under the same id onto the K16 timber kit's whole-house builder (T-2357), the kit 1630's own house stands on: the last building of the north-west alley still standing as the draft's, and the alley's only frame one. The sheet census (census row s20-1630-r1, trace s20fp-1630-b2) carries the building into 1904; the draft rules now skip that row. Robinson's 1886 plate draws the rear of lot 18 empty, so the shed was built between 1886 and 1911. No picture of it is known. The reading is in docs/RESEARCH/k16-1630-shed-1932/README.md.",
   "research_doc": "",
   "review_required": false,
-  "called": "1630 S. Prairie Avenue — the alley building of the house at 1630"
+  "called": "1630 Prairie Avenue: the one-storey frame shed on the alley"
 }
