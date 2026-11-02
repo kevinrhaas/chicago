@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2577, ts: '2026-11-02T18:34:17.826Z', date: 'Nov 2, 2026, 12:34 PM CT', title: '1701 Prairie\'s stable by the tracks, lantern and all', kind: 'feature',
+    items: [
+      'The Hibbard stable behind 1701 Prairie now stands on the slanting plan the 1911 map draws: both of its buildings lean with the railroad\'s right-of-way instead of standing as plain boxes.',
+      'Its yard front follows the old photograph of the Hibbard house: a hipped slate roof on a bracketed cornice, a square lantern with three arched lights a side and a pointed cap, a curved gable over a stone-framed window, and round portholes low in the wall.',
+      'The lower stable to the south shows its gable to the yard, with a half-moon window in it and a porthole below.',
+      'Still open: the photograph puts the stable about 4 m north of where the map does, and the side-by-side says so.',
+    ] },
   { v: 2576, ts: '2026-11-02T18:28:53.731Z', date: 'Nov 2, 2026, 12:28 PM CT', title: '1919 Prairie: the curved front bay now rises to the roof', kind: 'feature',
     items: [
       'The curved bay on the front of Marshall Field Jr.\'s house at 1919 Prairie Avenue now rises the full height of the wall, and the main roof\'s eave and moulding sweep round it, as the house\'s 1913 and 1919 pictures show. Before, it stopped short under the eave with a low cap of its own.',
