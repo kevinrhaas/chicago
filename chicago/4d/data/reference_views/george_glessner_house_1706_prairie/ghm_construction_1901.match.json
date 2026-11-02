@@ -2,7 +2,7 @@
   "structure_id": "george_glessner_house_1706_prairie",
   "view": "ghm_construction_1901",
   "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
-  "glb_sha256": "72665dcc2c4ace186f8660c09fabbd9d855783cd06c6f8e59494fe710e38ac12",
+  "glb_sha256": "0e773bd349eb252f7cd0d5d73ae84ddc04f278a7b1c542d5d11c8be5c12fbaf4",
   "camera_sha256": "d7e05311b1304078449f5b22e531ef5286302740d4e7d8e3fa4161fea21603be",
   "photo_sha256": "1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "72665dcc2c4ace186f8660c09fabbd9d855783cd06c6f8e59494fe710e38ac12"
+      "glb_sha256": "0e773bd349eb252f7cd0d5d73ae84ddc04f278a7b1c542d5d11c8be5c12fbaf4"
     },
     {
       "structure_id": "glessner_lee_house_1700_prairie",
@@ -42,7 +42,7 @@
         -11.05056758709686
       ],
       "rotation_y": 0,
-      "glb_sha256": "bc60395f92d4b4cb54502528dc9f62e47a6baf66a798e357315e750defb736c3"
+      "glb_sha256": "6518984e7583fba7335b5fa83d6d20aaf4413dfcb67b7cde7d0d37720fa5d9ed"
     },
     {
       "structure_id": "house_1708_prairie",
@@ -64,8 +64,8 @@
       "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
     }
   ],
-  "group_sha256": "457f9370870a64c7056149dd7894d2b8d5eb9ed0481ba8de53f7b18d2183f01c",
-  "side_by_side": "docs/RESEARCH/photo-match/george_glessner_house_1706_prairie/ghm_construction_1901-side-by-side.jpg",
+  "group_sha256": "a42384af07403bad5543b049b7318b5eb78f912438f997b794a4acca2f5e3a57",
+  "side_by_side": "../../../../../tmp/claude-0/-home-user/5a118db4-74ff-5a97-bf1f-abc21f596262/scratchpad/pm/george_glessner_house_1706_prairie_ghm_construction_1901/ghm_construction_1901-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
