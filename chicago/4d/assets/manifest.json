@@ -3681,14 +3681,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "marsh_house_1824_prairie"
     },
-    "marsh_house_1824_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "marsh_house_1824_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 108536,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "63c6527fd1b85261d10c445ea1dd152948870321c69b973f71aa3c89dd4815d8",
+      "bytes": 141404,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "2f4a4169ae1a17282c3b4a554a99819ea1b81bc58ee4a1fa84007829b1754dad",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "marsh_house_1824_prairie_coach_house"
     },
     "marshall_field_house_1905_prairie__as_mapped_1904.glb": {
