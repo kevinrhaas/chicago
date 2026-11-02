@@ -114,7 +114,10 @@ class Mesh:
 
     def __init__(self, conf: float):
         self.conf = conf
-        self.prims = {m: {"pos": [], "nrm": [], "uv": [], "idx": []} for m in ORDER}
+        self.prims = {m: {"pos": [], "nrm": [], "uv": [], "idx": [], "anc": []} for m in ORDER}
+        # T-3316: while set, a face's vertices are tagged with this v, so a skewed plan moves the
+        # piece whole by its anchor's offset instead of shearing it (a square lantern stays square)
+        self.anchor_v = None
 
     def face(self, mat: str, pts, centre=None):
         """A planar convex polygon (u, v, y), wound outward from `centre` if given."""
@@ -140,6 +143,7 @@ class Mesh:
             pr["pos"].append((p[0], p[2], -p[1]))
             pr["nrm"].append((n[0], n[2], -n[1]))
             pr["uv"].append((_dot(p, t1) * 0.5, _dot(p, t2) * 0.5))
+            pr["anc"].append(self.anchor_v)
         for i in range(1, len(pts) - 1):
             pr["idx"] += [base, base + i, base + i + 1]
 
@@ -169,6 +173,25 @@ class Mesh:
 
     def triangles(self) -> int:
         return _seqsum(len(p["idx"]) // 3 for p in self.prims.values())
+
+    def skew(self, k: float) -> None:
+        """T-3316: build on a parallelogram plan. Every point is sheared in the ground plane,
+        u' = u - k * v, so each metre toward high v steps the u walls k metres toward low u
+        while the v walls keep their line across the plan (1701 Prairie's stable, its west and
+        east walls on the slant of the Illinois Central right-of-way, as the K12 kit's
+        skew_per_m does for 1637's, T-3309). A shear is affine with determinant 1: every piece
+        still meets what it met and no triangle turns over. Normals take the inverse
+        transpose, n' = (n_u, n_v + k * n_u), made unit again. A vertex tagged with an anchor
+        (`anchor_v`) moves whole by its anchor's offset and keeps its normal."""
+        for pr in self.prims.values():
+            for i, (x, y, z) in enumerate(pr["pos"]):
+                a = pr["anc"][i]
+                pr["pos"][i] = (x - k * (-z if a is None else a), y, z)
+                if a is None:
+                    nx, ny, nz = pr["nrm"][i]
+                    q = (nx, ny, nz - k * nx)
+                    L = math.sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2]) or 1.0
+                    pr["nrm"][i] = (q[0] / L, q[1] / L, q[2] / L)
 
 
 # ---------------------------------------------------------------- roofs
@@ -662,6 +685,16 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
     for w in f.get("windows", []):
         P, inside, _ = face_of(w)
         s, sill, ww, hh = float(w["s"]), float(w["sill_m"]), float(w["w_m"]), float(w["h_m"])
+        if w.get("head") == "oculus":
+            # a round light `w_m` across on its own stone ring, its foot at `sill_m` (T-3316:
+            # the low oculi in 1701's stable walls and its wing's gable in the Chicagology view)
+            r_, ring_ = ww / 2, float(w.get("ring_m", 0.1))
+            yc = sill + r_
+            for mat_, rr, off in (("trim", r_ + ring_, 0.03), ("glass", r_, 0.06)):
+                m.face(mat_, [P(s + rr * math.cos(2 * math.pi * j / 16), off, yc + rr * math.sin(2 * math.pi * j / 16))
+                              for j in range(16)], inside(s, yc))
+            windows += 1
+            continue
         if w.get("head") == "round":
             spring = sill + hh - ww / 2
             round_head(m, "trim", P, s, ww + 0.3, sill - 0.1, spring, 0.03, inside(s, sill))
@@ -864,9 +897,45 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
                 m.face(mat_, pts, Pf(0.0, -3.0, sill))
             windows += 1
         facts["bay_top_m"] = round(top, 3)
+    for wg in f.get("wall_gables", []):
+        # a wall carried up through the eave as a gable with a curved (segmental) head, its
+        # moulded coping following the curve and an oculus in its face, roofed back into the
+        # main roof (T-3316: the dormer on 1701's stable's yard front in the Chicagology view)
+        P, inside, _ = face_of(wg)
+        s0, s1, y0 = float(wg["s0"]), float(wg["s1"]), float(wg["from_m"])
+        rise, dp = float(wg["rise_m"]), float(wg.get("depth_m", 2.0))
+        sm, half = (s0 + s1) / 2, abs(s1 - s0) / 2
+        R_ = (half * half + rise * rise) / (2 * rise)
+        a0 = math.asin(min(1.0, half / R_))
+        n_seg = 10
+        arc = [(sm + R_ * math.sin(-a0 + 2 * a0 * j / n_seg), y0 - (R_ - rise) + R_ * math.cos(-a0 + 2 * a0 * j / n_seg))
+               for j in range(n_seg + 1)]
+        prof = arc   # the arc's ends stand on the springing line, so its chord is the base
+        front = [P(a, 0.0, y) for a, y in prof]
+        back = [P(a, -dp, y) for a, y in prof]
+        sides = [[front[j], front[j + 1], back[j + 1], back[j]] for j in range(len(prof) - 1)]
+        m.solid([front, back] + sides, mat_of=lambda i: wall if i < 2 else "roof")
+        co = float(wg.get("coping_m", 0.18))
+        for j in range(n_seg):
+            (a, y), (b, yb) = arc[j], arc[j + 1]
+            ea = math.atan2(a - sm, y - (y0 - (R_ - rise)))
+            eb = math.atan2(b - sm, yb - (y0 - (R_ - rise)))
+            oa = (a + co * math.sin(ea), y + co * math.cos(ea))
+            ob = (b + co * math.sin(eb), yb + co * math.cos(eb))
+            m.solid([[P(a, 0.12, y), P(b, 0.12, yb), P(ob[0], 0.12, ob[1]), P(oa[0], 0.12, oa[1])],
+                     [P(a, -dp, y), P(b, -dp, yb), P(ob[0], -dp, ob[1]), P(oa[0], -dp, oa[1])]], mat="trim")
+        oc = wg.get("oculus")
+        if oc:
+            r_, yc = float(oc["d_m"]) / 2, float(oc["y_m"])
+            for mat_, rr, off in (("trim", r_ + 0.08, 0.03), ("glass", r_, 0.06)):
+                m.face(mat_, [P(sm + rr * math.cos(2 * math.pi * j / 12), off, yc + rr * math.sin(2 * math.pi * j / 12))
+                              for j in range(12)], inside(sm, yc))
+            windows += 1
+        facts.setdefault("wall_gable_tops_m", []).append(round(y0 + rise + co, 3))
     lan = f.get("lantern")
     if lan:
         cu, cv = lan["at"]
+        m.anchor_v = float(cv)
         r, y0 = float(lan["radius_m"]), float(lan["base_m"])
         dh, dome, fin = float(lan["drum_m"]), float(lan["dome_m"]), float(lan.get("finial_m", 0.9))
         ns = int(lan.get("sides", 8))
@@ -886,17 +955,28 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
             da, db = a_[0] + (b_[0] - a_[0]) * 0.78, a_[1] + (b_[1] - a_[1]) * 0.78
             if lan.get("lights") == "round":
                 # a round-headed light in each face, its head a half-circle on the light's width
-                # (T-1934: the cupola's arched openings in Taylor's 16554)
-                half = math.hypot(da - ca, db - cb) / 2
-                ma, mb = (ca + da) / 2, (cb + db) / 2
-                ta, tb = (da - ca) / (2 * half), (db - cb) / (2 * half)
-                spring = y0 + dh - 0.2 - half
-                pts = [(ca, cb, y0 + 0.2), (da, db, y0 + 0.2)]
-                for j in range(7):
-                    t = math.pi * j / 6
-                    pts.append((ma + ta * half * math.cos(t), mb + tb * half * math.cos(t),
-                                spring + half * math.sin(t)))
-                m.face("glass", pts, (cu, cv, y0 + dh / 2))
+                # (T-1934: the cupola's arched openings in Taylor's 16554); `lights_per_face`
+                # sets several side by side between narrow piers (T-3316: three a face on
+                # 1701's stable lantern in the Chicagology view)
+                npf = int(lan.get("lights_per_face", 1))
+                for jj in range(npf):
+                    t0, t1 = (0.0, 1.0) if npf == 1 else (0.06 + 0.88 * (jj + 0.1) / npf, 0.06 + 0.88 * (jj + 0.9) / npf)
+                    pa_ = (a_[0] + (b_[0] - a_[0]) * t0, a_[1] + (b_[1] - a_[1]) * t0) if npf > 1 else (ca, cb)
+                    pb_ = (a_[0] + (b_[0] - a_[0]) * t1, a_[1] + (b_[1] - a_[1]) * t1) if npf > 1 else (da, db)
+                    half = math.hypot(pb_[0] - pa_[0], pb_[1] - pa_[1]) / 2
+                    ma, mb = (pa_[0] + pb_[0]) / 2, (pa_[1] + pb_[1]) / 2
+                    ta, tb = (pb_[0] - pa_[0]) / (2 * half), (pb_[1] - pa_[1]) / (2 * half)
+                    spring = y0 + dh - 0.2 - half
+                    pts = [(pa_[0], pa_[1], y0 + 0.2), (pb_[0], pb_[1], y0 + 0.2)]
+                    for j in range(7):
+                        t = math.pi * j / 6
+                        pts.append((ma + ta * half * math.cos(t), mb + tb * half * math.cos(t),
+                                    spring + half * math.sin(t)))
+                    m.face("glass", pts, (cu, cv, y0 + dh / 2))
+                    if npf > 1:
+                        windows += 1
+                if npf > 1:
+                    continue
             elif lan.get("panels"):
                 # a row of louvred panels between posts on each face (T-1936: the Field coach
                 # house's ventilator in the 1870s photograph shows four a face)
@@ -961,6 +1041,7 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
         m.face("roof", [(p_[0], p_[1], yb + dome) for p_ in prev], (cu, cv, yb))
         m.box("cornice", cu - 0.05, cu + 0.05, cv - 0.05, cv + 0.05, yb + dome, yb + dome + fin)
         facts["lantern_top_m"] = round(yb + dome + fin, 3)
+    m.anchor_v = None
     bel = f.get("belvedere")
     if bel:
         u0, v0, u1, v1 = bel["rect"]
@@ -978,10 +1059,12 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
         facts["belvedere_top_m"] = round(top + bal, 3)
     for st in f.get("stacks", []):
         su, sv = st["at"]
+        m.anchor_v = float(sv)
         hw, hd = float(st["w_m"]) / 2, float(st["d_m"]) / 2
         m.box(wall, su - hw, su + hw, sv - hd, sv + hd, float(st.get("from_m", 4.0)), float(st["top_m"]))
         m.box("cornice", su - hw - 0.12, su + hw + 0.12, sv - hd - 0.12, sv + hd + 0.12,
               float(st["top_m"]) - 0.3, float(st["top_m"]))
+        m.anchor_v = None
     for pn in f.get("pinnacles", []):
         # T-3164: a slated spirelet standing on a ridge, its foot sunk into the slopes either
         # side, under an iron spike: the Pullman lodge's, over its front's west roof in the plate
@@ -1100,6 +1183,9 @@ def build(params, structure_id: str):
     facts = {"parts": len(parts)}
 
     def eave_of(p):
+        if p.get("eave_m") is not None:
+            # a part whose eave is read off a picture (T-3316: 1701's stable, about 4.5 m)
+            return float(p["eave_m"])
         n = int(p.get("storeys", params.stories))
         return pf + _seqsum(hs[:n]) if n <= len(hs) else pf + _seqsum(hs) + (n - len(hs)) * hs[-1]
 
@@ -1177,8 +1263,12 @@ def build(params, structure_id: str):
                     m.box("cornice", u1, u1 + 0.32, s - 0.07, s + 0.07, eave - 0.85, eave - 0.4)
             top = eave + 0.06
         elif roof in ("hip", "hip_steep"):
-            m.box("cornice", u0 - 0.12, u1 + 0.12, v0 - 0.12, v1 + 0.12, eave - 0.35, eave)
-            top = hip(m, "roof", u0, u1, v0, v1, eave, pitch)
+            # a part read off a picture may state its cornice, brackets and eave (T-3316)
+            co, chh = float(p.get("cornice_out_m", 0.12)), float(p.get("cornice_h_m", 0.35))
+            m.box("cornice", u0 - co, u1 + co, v0 - co, v1 + co, eave - chh, eave)
+            if p.get("modillions"):
+                modillions(m, p["rect"], eave - chh, p["modillions"])
+            top = hip(m, "roof", u0, u1, v0, v1, eave, pitch, o=float(p.get("eave_out_m", 0.35)))
         elif roof == "hip_deck":
             # a hipped roof stopped at a flat deck inside an iron cresting, the stable roof of
             # the Pullman estate's 1894 plate (T-3178); `deck_m` is the deck over the eave
@@ -1430,6 +1520,9 @@ def build(params, structure_id: str):
         facts["station"] = station(m, e["station"], main["rect"], main_eave, hs)
     facts["windows"] = windows
     facts["doors"] = doors
+    if plan.get("skew_per_m"):
+        m.skew(float(plan["skew_per_m"]))
+        facts["skew_per_m"] = float(plan["skew_per_m"])
     facts["triangles"] = m.triangles()
     facts["roll"] = round(rnd(), 6)   # the stream's first draw, so a seed change is visible
     return m, facts

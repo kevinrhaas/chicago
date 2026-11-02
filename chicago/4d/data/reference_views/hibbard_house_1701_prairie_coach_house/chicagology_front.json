@@ -1,0 +1,32 @@
+{
+ "structure_id": "hibbard_house_1701_prairie_coach_house",
+ "scene": "1904",
+ "also_render": [
+  "hibbard_house_1701_prairie"
+ ],
+ "source_id": "chicagology_1701_hibbard_photo",
+ "library_image": "cgn-1701-hibbard-photo-wide",
+ "photo": "../../sources/assets/hibbard_1701_photos_t3240/hibbard_1701_chicagology_front.jpg",
+ "image_px": [
+  1945,
+  1207
+ ],
+ "principal_px": [
+  972.5,
+  1022.8
+ ],
+ "focal_px": 2182.4,
+ "eye": [
+  66.11,
+  38.55,
+  1.6
+ ],
+ "yaw_deg": 219.75,
+ "sun_uvy": [
+  -0.3,
+  0.6,
+  1.0
+ ],
+ "sky": "overcast",
+ "solve": "T-3316: re-anchored into the stable's frame (hibbard_house_1701_prairie_coach_house) from the camera T-3240 solved on this photograph in data/reference_views/hibbard_house_1701_prairie/chicagology_front.json, through the 1904 scene's placements of the two records (both turned 179.61 degrees, so the frame is only offset: the house's origin lies at u 39.25, v 5.45 in this frame; eye, heading and sun carried over), so it is the same pose and renders the house with the stable. The stable stands 57-68 m off at the picture's right edge (x 1590-1945 px), about 35 px a metre. NOT RE-FITTED ON THE STABLE: through this pose the 1911 sheet's crossed stable's north-west corner falls at x 2035 px, where the photograph's gabled wing begins at x 1867; a search over the eye's place (+-15 m) and heading (+-3 degrees) holding the house's south-west and south-east corners and the porch's north end finds no pose that also puts the wing there (best: the house's corners 25-63 px out and the wing still 46-76 px out), so the disagreement is the sheet's and the photograph's, not the camera's, and is written open in the match record. THE SOLVE ON THE HOUSE FRAME: Fitted by T-3240 to Chicagology's photograph of 1701 Prairie, the image store's 1945 x 1207 px copy (the same negative as the Glessner House Museum's two halftones, a16-ghm-blog-1701-hibbard-front and -sullivan-post). The footprint frame: u from the main block's rear wall (u 0) toward Prairie Avenue (its front at u 12.5), v along the front from its north wall (v 0) to the south wall (v 14.7). THE CAMERA STANDS SOUTH-WEST OF THE HOUSE, not north-west as the library's caption says: the face on the left of the picture carries the stone porch the 1911 sheet draws on the front's NORTH end, so it is the street front seen receding north, and the face on the right is the south flank with the lower south range before it. Level (the corner pilaster and the bay's edges stand vertical in the copy), so yaw only, the principal point raised for the horizon. Fitted by least squares to four points: the main block's south-west corner at the pilaster (x 905 px) at the cornice's bed (y 300) and at the stone base's top (y 985), the south-east corner's base (x 1592, y 1000), and the porch's north end at its base (x 262, y 992), the corners' plan places from the sheet's trace. The fit is held by two assumptions, not measurements: the eye at 1.6 m over grade (the iron fence's top falls on the horizon, so the eye stood about at its height) and the stone base's top at 2.0 m. Residuals about 5 px. The bay's junctions with the front then read at about v 9.1 and 13.7, the sheet's at 8.3 and 11.0: the fit and the sheet disagree there by up to about 2.5 m, and the bay is laid between them (the record's bays note). UNCERTAINTY: about 0.3 m in heights and 0.5 m along the faces near the corner; more at the porch end. LIGHT: an overcast day, the trees casting no shadow on the walls; both faces read alike."
+}
