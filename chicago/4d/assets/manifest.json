@@ -1121,14 +1121,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "henderson_house_1816_prairie"
     },
-    "henderson_house_1816_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "henderson_house_1816_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 115052,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "af21d60175195da2cd132b3882d49d2bfa3df037e57c398602bb84094ddb11cd",
+      "bytes": 167948,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "96ef68b09f4489226f9b5ce5b4edd22e2353de7ab42801c4f8a4d6424d88d262",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "henderson_house_1816_prairie_coach_house"
     },
     "hibbard_house_1701_prairie__as_mapped_1904.glb": {

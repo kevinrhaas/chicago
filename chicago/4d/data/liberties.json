@@ -483,7 +483,7 @@
     },
     {
       "id": "henderson_house_1816_prairie_coach_house",
-      "name": "1816 S. Prairie Avenue — the alley building of the house at 1816"
+      "name": "1816 Prairie Avenue (the Henderson house): the long brick stable on the alley"
     },
     {
       "id": "hibbard_house_1701_prairie",
@@ -35050,18 +35050,6 @@
         },
         {
           "domain": "structure",
-          "structure": "henderson_house_1816_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "henderson_house_1816_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_1828_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35150,7 +35138,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35166,7 +35154,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "1816 Henderson's house by later work, which refined it in place on the K01 frontage kit under `“1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph”`; its stable is still this draft's."
+          "text": "1816 Henderson's house by later work, which refined it in place on the K01 frontage kit under `“1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph”`; its stable by earlier work, on the K12 coach-house kit under `“The long brick stable on the alley behind 1816 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its two window marks and both party walls”`. **1816's stable retired from this liberty by earlier work (2026-11-02):** 1816 Prairie Avenue (the Henderson house): the long brick stable on the alley now stands as the K12 coach house under `“The long brick stable on the alley behind 1816 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its two window marks and both party walls”`, under the same id, on the outline, storeys, brick, two window marks and fire-wall signs the sheet draws; its draft attributes are gone."
         },
         {
           "label": "Retired in part",
@@ -64762,6 +64750,64 @@
         "T-1936",
         "T-3271",
         "T-1841"
+      ]
+    },
+    {
+      "id": "L-k12-1816-stable-1935",
+      "title": "The long brick stable on the alley behind 1816 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its two window marks and both party walls",
+      "section": "per_subject",
+      "subjects": [
+        "henderson_house_1816_prairie",
+        "henderson_house_1816_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie_coach_house",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.coach_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-11-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's alley building behind 1816 Prairie Avenue, the Henderson house, is refined in place, under its own id 1816 Prairie Avenue (the Henderson house): the long brick stable on the alley, onto the K12 coach-house kit (“The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed”): the first of this work's seven alley buildings on the west side of Prairie Avenue, 18th to 20th, and the second K12 coach house on sheet 28 after 1812's next door (“The coach house on the alley behind 1812 Prairie, built from the K12 kit on the outline the 1911 sheet draws”). **What is read.** From sheet 28 of the 1911 Sanborn: its outline, 10.68 m deep from the alley line by 22.40 m along it, all but 0.2 m of the lot's width, measured between line centres on the committed raster (median darkness profiles: the alley line at column 578.51 and the east wall at 789.73 at the middle row, the north and south walls at rows 2041.03 and 2484.00) and carried by the sheet's fitted similarity; its '2½' storeys; its brick; the wall figures '12 8' inside its north and south walls; the key's fire-wall sign at the alley end of both of those walls; 1812's building with its own wall line 0.35 m to the north and 1824's sharing the south wall line; two of the key's window marks on the alley wall, 6.27 m and 15.72 m from the north wall, each with a dot for each storey; a dashed line about 1.1 m inside the east wall along its length, the key's frame partition; and the house's two-storey rear range 11.64 m east of the yard wall. The draft had stood it 9.25 m deep with two 1.25 m strips on the alley, the fit of a trace; the sheet draws one plain rectangle. Inferred for 1904 as every reading of these sheets is. **The date.** Robinson's 1886 plate 10 stops at 18th Street, so nothing read here dates the building before the 1911 sheet; that it stood by 1904 is the census's carry-back, which the district draft already made. **What is invented.** Its USE: the sheet letters it GARAGE, a 1911 use not read as the 1904 one (restriction no 1911 use labels), and it is built as the house's stable and coach house. Both ends are party walls rising the kit's 0.45 m over the roof and returning 0.5 m past the eaves. Every opening but the two marks is the kit's laid out for a building this long: on the alley, two carriage bays 3.0 m clear with the loft hatch and hoist over the northern one and a loft sash over the other, a man door between them, and a third stable sash with a loft sash over it toward the south end; on the yard side a door where the walk to the house meets it and four stable sash with loft sash over them. The marks are built as a stable sash with a loft sash over it. The roof is the kit's gable at its own 40 degrees with the ridge along the alley, 4.5 m from eave to ridge over the 10.68 m span, which houses the half storey; it has no dormer, as the sheet draws none and the kit builds none. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m basement, reached by nothing. The workyard is paved from the yard door to the rear range's west wall, the walk on that range's middle. Flat colours. **Left out.** The frame partition, which is inside, and a dormer or gable light for the half storey. **What is not.** The outline, its place on the lot, its storeys, its brick, the two marks' places, the party walls' places and the use are the maps'."
+        },
+        {
+          "label": "How to\nresolve",
+          "text": "a photograph of the alley behind 1812-1824 Prairie, or a building permit for the building, entered as a source, gives its openings, roof and date their true form. The two pictures this work's image gate names for it (Clark's c. 1905 view north from 1936 and Taylor's 9974 south from 18th) show the house fronts and not the alley."
+        },
+        {
+          "label": "Covers",
+          "text": "`henderson_house_1816_prairie_coach_house.function`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.coach_house`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.stories`, `henderson_house_1816_prairie_coach_house.as_standing_1904.form.construction`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-02 (T-1935)."
+        }
+      ],
+      "work_refs": [
+        "T-1935"
       ]
     },
     {
