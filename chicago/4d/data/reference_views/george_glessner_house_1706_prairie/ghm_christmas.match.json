@@ -2,7 +2,7 @@
   "structure_id": "george_glessner_house_1706_prairie",
   "view": "ghm_christmas",
   "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
-  "glb_sha256": "72665dcc2c4ace186f8660c09fabbd9d855783cd06c6f8e59494fe710e38ac12",
+  "glb_sha256": "0e773bd349eb252f7cd0d5d73ae84ddc04f278a7b1c542d5d11c8be5c12fbaf4",
   "camera_sha256": "6a7e61737b98eda69cc6109985d46e1f6b7deb665c7e65d5ae833d317ac46bca",
   "photo_sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "72665dcc2c4ace186f8660c09fabbd9d855783cd06c6f8e59494fe710e38ac12"
+      "glb_sha256": "0e773bd349eb252f7cd0d5d73ae84ddc04f278a7b1c542d5d11c8be5c12fbaf4"
     },
     {
       "structure_id": "glessner_lee_house_1700_prairie",
@@ -42,7 +42,7 @@
         -11.05056758709686
       ],
       "rotation_y": 0,
-      "glb_sha256": "bc60395f92d4b4cb54502528dc9f62e47a6baf66a798e357315e750defb736c3"
+      "glb_sha256": "6518984e7583fba7335b5fa83d6d20aaf4413dfcb67b7cde7d0d37720fa5d9ed"
     },
     {
       "structure_id": "house_1708_prairie",
@@ -64,8 +64,8 @@
       "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
     }
   ],
-  "group_sha256": "457f9370870a64c7056149dd7894d2b8d5eb9ed0481ba8de53f7b18d2183f01c",
-  "side_by_side": "docs/RESEARCH/photo-match/george_glessner_house_1706_prairie/ghm_christmas-side-by-side.jpg",
+  "group_sha256": "a42384af07403bad5543b049b7318b5eb78f912438f997b794a4acca2f5e3a57",
+  "side_by_side": "../../../../../tmp/claude-0/-home-user/5a118db4-74ff-5a97-bf1f-abc21f596262/scratchpad/pm/george_glessner_house_1706_prairie_ghm_christmas/ghm_christmas-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
     {
@@ -120,8 +120,8 @@
     },
     {
       "what": "the dormers' pediments: the photograph's carry a moulded raking cornice over a returned entablature, the face framed by pilasters either side of the paired sash; the build's are plain painted gables over a plain surround",
-      "status": "within tolerance",
-      "how": "T-3297: ornament under a foot, as the arched heads' carving and the porch capitals are here: each dormer's pediment stands where the photograph's does, its moulding and pilasters not cut; K10's dormer pediment cornice (T-2326) dresses only a K01 front dormer, not the mansard's lower-face ones. Noted on the owner's report of the dormers (2026-11-01) and left for his word"
+      "status": "fixed",
+      "how": "T-3297: seen on the owner's report of the dormers (2026-11-01), as plain painted gables over a plain surround; K10's dormer pediment cornice (T-2326) dressed only a K01 front dormer, not the mansard's lower-face ones. T-3307 (the owner's word, 2026-11-02): built: each pediment carries a moulded level cornice about 0.24 m high and 0.22 m out, returned along both cheeks, under two raking bands at a 24 degree pitch over a 0.28 m frieze; a 0.15 m pilaster with its capital stands either side of the paired sash, and the cheeks are painted in the face's white as the photograph prints them; each dormer stands where T-3211 placed it, its pediment's moulding, pilasters and white cheeks now drawn as Chicagology's photograph and the Christmas print show them"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

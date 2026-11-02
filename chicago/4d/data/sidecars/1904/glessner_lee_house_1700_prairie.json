@@ -246,7 +246,31 @@
             "surround_m": 0.22,
             "face_setback_m": 0.35,
             "head": "gable",
-            "gable_pitch_deg": 30
+            "gable_pitch_deg": 24,
+            "frieze_m": 0.28,
+            "dress": {
+              "cornice_m": [
+                0.24,
+                0.22
+              ],
+              "return_m": 0.2,
+              "rake": [
+                [
+                  0.09,
+                  0.2
+                ],
+                [
+                  0.1,
+                  0.1
+                ]
+              ],
+              "pilasters": {
+                "width_m": 0.15,
+                "proud_m": 0.035,
+                "cap_m": 0.08
+              },
+              "cheeks": "painted"
+            }
           },
           {
             "face": "street",
@@ -260,7 +284,31 @@
             "surround_m": 0.22,
             "face_setback_m": 0.35,
             "head": "gable",
-            "gable_pitch_deg": 30
+            "gable_pitch_deg": 24,
+            "frieze_m": 0.28,
+            "dress": {
+              "cornice_m": [
+                0.24,
+                0.22
+              ],
+              "return_m": 0.2,
+              "rake": [
+                [
+                  0.09,
+                  0.2
+                ],
+                [
+                  0.1,
+                  0.1
+                ]
+              ],
+              "pilasters": {
+                "width_m": 0.15,
+                "proud_m": 0.035,
+                "cap_m": 0.08
+              },
+              "cheeks": "painted"
+            }
           }
         ],
         "side_parapet": {
@@ -284,7 +332,7 @@
         "chicagology_1700_1706_townhouses_photo",
         "glessner_blog_1708_1706_1700_christmas_photo"
       ],
-      "note": "Chicagology's photograph read through its camera: the straight steep lower faces from the cornice to a curb about 12.0 m over grade (so a 3.7 m rise at about 70 degrees), two pedimented dormers to each house (each pediment's peak triangulated from the two cameras, within 0.3 m: about 2.2 and 7.4 m from 1706's south corner and 3.15 and 8.05 m from 1700's south end, so the pair's dormers are not mirrored, their faces set 0.35 m into the lower face, as far as their pediments clear the curb), their paired sash about 1.45 m square from about 9.2 m (built 1.2 m wide until T-3297 built them at 1.45 m), the pediments' peaks about 11.4-11.9 m; the party wall carried up through the roof between the two houses (1706's north wall, which 1700's south hip dies against), and 1700's north end wall carried up past the curb as the Christmas print shows it, coped about 0.6 m over the curb; and an openwork railing about 0.9 m high along the deck's street edge (a white-painted fret in the photograph, laid as K10's cresting pattern in the eave's painted timber: the pattern is the kit's, not the fret's). T-3244: the dormers' faces and pediments are painted timber in the cornice's white, as all three pictures print them, not limestone. T-3297 (the owner's report, 2026-11-01, that the dormers read half shut): each dormer's paired sash had only its first light cut through the face, the second standing behind it; both are cut now, and the pair is built at the photograph's 1.45 m (K01 had held a dormer's light to one sash's 1.2 m) and about 1.55 m high, in a 0.22 m surround, the face's width and the sash's height read through Chicagology's camera against the photograph's (each dormer's sash within about 5-10 px of it)."
+      "note": "Chicagology's photograph read through its camera: the straight steep lower faces from the cornice to a curb about 12.0 m over grade (so a 3.7 m rise at about 70 degrees), two pedimented dormers to each house (each pediment's peak triangulated from the two cameras, within 0.3 m: about 2.2 and 7.4 m from 1706's south corner and 3.15 and 8.05 m from 1700's south end, so the pair's dormers are not mirrored, their faces set 0.35 m into the lower face, as far as their pediments clear the curb), their paired sash about 1.45 m square from about 9.2 m (built 1.2 m wide until T-3297 built them at 1.45 m), the pediments' peaks about 11.4-11.9 m; the party wall carried up through the roof between the two houses (1706's north wall, which 1700's south hip dies against), and 1700's north end wall carried up past the curb as the Christmas print shows it, coped about 0.6 m over the curb; and an openwork railing about 0.9 m high along the deck's street edge (a white-painted fret in the photograph, laid as K10's cresting pattern in the eave's painted timber: the pattern is the kit's, not the fret's). T-3244: the dormers' faces and pediments are painted timber in the cornice's white, as all three pictures print them, not limestone. T-3297 (the owner's report, 2026-11-01, that the dormers read half shut): each dormer's paired sash had only its first light cut through the face, the second standing behind it; both are cut now, and the pair is built at the photograph's 1.45 m (K01 had held a dormer's light to one sash's 1.2 m) and about 1.55 m high, in a 0.22 m surround, the face's width and the sash's height read through Chicagology's camera against the photograph's (each dormer's sash within about 5-10 px of it). T-3307 (the owner's word, 2026-11-02, to dress them as the photograph does): each dormer's pediment carries a moulded level cornice about 0.24 m high projecting 0.22 m, returned 0.2 m along both cheeks, under two raking bands (0.09 m proud 0.2 m, 0.1 m proud 0.1 m) at a 24 degree pitch over a 0.28 m frieze, the face framed by a 0.15 m pilaster with a capital either side of the paired sash, and the cheeks painted in the face's white as the photograph prints them, not slated; the pediment's pitch, the cornice's depth and the pilasters' width read through Chicagology's camera against the photograph's dormers."
     },
     "stair_tread_m": {
       "value": 0.3,
