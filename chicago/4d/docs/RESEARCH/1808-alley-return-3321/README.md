@@ -37,8 +37,8 @@ gives this one asset 16 bits, as it gives Glessner's v4 master; same size (3.49 
 
 ## Photo matches
 
-All 16 of 1808's records re-rendered on the new GLB. Nine side-by-sides changed, each only in a
-small box: in seven the wall draws where the picture shows the Glessner house (these records
+All 16 of 1808's records re-rendered on the new GLB. Eight side-by-sides changed, each only in a
+small box: in each the wall draws where the picture shows the Glessner house (these records
 render 1808 alone), recorded `not shown`; verdicts unchanged (`matches`), image gate holds.
 
 ## Browser evidence
