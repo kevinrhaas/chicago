@@ -2567,16 +2567,30 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the ring is clear of it, and the ring always crosses the face
             q = e["plan"]
             across = e.get("across_corner")
-            if across is None and set(q) != {"radius_m", "centre_proud_m"}:
+            # T-3318: or a SQUARE tower, a face to the street (1936's, square in its photograph and
+            # on the 1911 sheet): the kit's polygonal tower with `sides` 4, never turned
+            square = across is None and "sides" in q
+            if square:
+                if v["plan"]["kind"] != "polygon" or e.get("corner") is not None \
+                        or set(q) != {"radius_m", "centre_proud_m", "sides"} or int(q["sides"]) != 4:
+                    raise ParamError(f"bays: {e['id']} is a square tower on a polygonal one, sized by radius_m, "
+                                     f"centre_proud_m and sides 4, not {sorted(q)}")
+            elif across is None and set(q) != {"radius_m", "centre_proud_m"}:
                 raise ParamError(f"bays: {e['id']} sizes its tower by radius_m and centre_proud_m, not {sorted(q)}")
             r, c = float(q["radius_m"]), float(q["centre_proud_m"])
             # T-2900: a corner turret's centre may stand inside its wall, as 1801's does on the
             # 1911 sheet (its bump 0.6 m proud on a ring 2.6 m across)
             c_lo = -(r - 0.3) if e.get("corner") is not None or across is not None else 0.0
+            # T-3318: and a square tower's, its front standing out of the wall by what its sheet
+            # draws (1936's 1.3 m on a 3.8 m square), so long as 0.3 m of its cheeks stays clear
+            if square:
+                c_lo = -(r / math.sqrt(2) - 0.3)
             if not (1.0 <= r <= 4.0 and c_lo <= c <= r - 0.3):
                 raise ParamError(f"bays: {e['id']}'s tower is {r} m in radius, its centre {c} m proud; a tower "
                                  f"is 1.0-4.0 m in radius and its centre {c_lo} m to its radius less 0.3 m out")
             v["plan"] = {**v["plan"], "radius_m": r, "centre_proud_m": c}
+            if square:
+                v["plan"] = {**v["plan"], "sides": 4}
             if across is not None:
                 # T-3176: a square tower set diagonally across its wall's corner (1827's, from the
                 # Doane photograph and the 1911 sheet's turned bump at the south-west corner): the
@@ -3188,9 +3202,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             need = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
             flat_top = v["plan"]["kind"] == "polyline" and v["kind"] in ("bay", "projection") \
                 and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0
+            # T-3318: or a square tower's flat top, round its cheeks and front (1936's belvedere,
+            # balustraded over its cornice in the photograph)
+            flat_top = flat_top or (v["kind"] == "tower" and int(v["plan"].get("sides", 0)) == 4
+                                    and not v["plan"].get("across_corner")
+                                    and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0)
             if not (v["plan"]["kind"] == "bow" or flat_top) or set(bl) != need or fabric not in ("iron", "stone"):
-                raise ParamError(f"bays: {e['id']}'s balcony stands on a bow, or on a canted bay's or a "
-                                 f"projection's flat top, in iron or stone, and takes {sorted(need)}")
+                raise ParamError(f"bays: {e['id']}'s balcony stands on a bow, or on a canted bay's, a "
+                                 f"projection's or a square tower's flat top, in iron or stone, and takes {sorted(need)}")
             bal = {k: ([float(x) for x in bl[k]] if k == "rail_m" else float(bl[k])) for k in need}
             if fabric == "stone":   # an iron rail's resolved entry stays as it was, byte for byte
                 bal["fabric"] = fabric
