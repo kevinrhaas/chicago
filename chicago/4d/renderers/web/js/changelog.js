@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2561, ts: '2026-11-02T08:00:32.011Z', date: 'Nov 2, 2026, 2:00 AM CT', title: 'The Doane coach house\'s yard front, as an old photograph shows it', kind: 'improvement',
+    items: [
+      'Behind 1827 Prairie Avenue, the coach house now has the pale walls, thin cornice and belt course of the one photograph that catches it.',
+      'Its carriage door has a flat arched head, with a stone-hooded loft window over it, where the photograph puts them.',
+    ] },
   { v: 2560, ts: '2026-11-02T06:36:58.274Z', date: 'Nov 2, 2026, 12:36 AM CT', title: '1729 Prairie\'s ivy closes over its round-arched light', kind: 'improvement',
     items: [
       'In leaf, the ivy on the Pullman house\'s Prairie front now runs over the head of the ground-floor round-arched light up to the belt course, as the Detroit Publishing photograph shows it. Before, it stopped at the window\'s sides and left a bare band of wall above the arch.',
