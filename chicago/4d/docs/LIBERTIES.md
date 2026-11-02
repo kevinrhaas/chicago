@@ -38793,7 +38793,7 @@ grade on the face's own plane (u 8.85); the barn's south corner, which the photo
 party wall and the plate's camera 1.7 m, is held on the sheet.
 **How to resolve:** a picture of the alley behind 1905 Prairie, or of the stable's north part or its south
 neighbour, gives the south building's date and form and the stable's alley front.
-**Covers:** `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_plan`
+**Covers:** `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`
 **Ticket:** T-1936.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_house_1905_prairie_coach_house/chicagology_923_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-1936).

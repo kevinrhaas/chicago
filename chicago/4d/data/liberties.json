@@ -64496,12 +64496,6 @@
           "structure": "marshall_field_house_1905_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "marshall_field_house_1905_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_plan"
         }
       ],
       "recorded": "2026-11-02",
@@ -64517,7 +64511,7 @@
         },
         {
           "label": "Covers",
-          "text": "`marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_plan`"
+          "text": "`marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`"
         },
         {
           "label": "Review",
