@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8c0437c354166569776a98e6028caec662a2fba6b5dfa3f7bb7a855dbacab08c",
+  "glb_sha256": "7b1f0088762be801519d4cc4b19280a0754eb908891108a7239c2b151e327ebc",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "8c0437c354166569776a98e6028caec662a2fba6b5dfa3f7bb7a855dbacab08c"
+      "glb_sha256": "7b1f0088762be801519d4cc4b19280a0754eb908891108a7239c2b151e327ebc"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "928b930dd8d89559efbb0136e3e51802431c7fc7aba463c1727843bc93ee2be5"
     }
   ],
-  "group_sha256": "12200da2f5151d4fca5460d6698a2e79aa781455f2f99b6d0bbe36527e4d1586",
+  "group_sha256": "e1bdc5093a8b64877f45872a38a0092414e2ece9b61803166e8744076b806869",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -180,7 +180,8 @@
     },
     {
       "what": "the mansard's cresting: the print's is taller and finialled at each hip (y 315-330 px); the build's is plain iron about 0.8 m high round the deck and the sections",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1881 (2026-11-01): read at the print's full size against the mansard's 4.0 m rise (curb y 334, cornice y 398 at the pier by the south-east hip, about 16 px a metre): the pierced band stands about 17 px (1.05 m) over the curb and the tall post at that hip about 28 px (1.75 m), about 4 px (0.25 m) across, a turned finial on top; the Detroit print shows the same posts over the curb at each section's hips (x about 317, 381, 416, 501 and 585 px) rising about 2 m over a band about 1 m deep. Built: the cresting on the deck and on each pavilion's own curb raised from 0.8 to 1.0 m (the kit's most, between the two readings), and a turned iron finial 1.75 m high, 0.12 m in radius, on every hip: each pavilion's two (a new K01 mansard-bay key, roof.mansard.cresting.finials) and the main deck's four corners (mansard.deck.finials). The render now draws a finialled post at each hip it sees, the cresting run between. The posts' places through this camera carry its known offset on the house (the scale item below); the darker plain upright at x about 363 px is not read as a finial (it stands off any hip and reads like a stack's pot) and is not built. The finials' turning is the deck kit's, not read (L-pullman-1729-hip-finials-1881)."
     },
     {
       "what": "the main block's height through this camera: the cornice at the south-east corner at y about 394 px and the deck's cresting at about 325 in the print, against about 358 and 300 in the render, which is the camera's scale (above), not a storey",
