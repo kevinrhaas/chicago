@@ -1,0 +1,144 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "source_id": "miller_davis_1857_wolf_point_vignette",
+  "photo": "../../../../reference/images/chicago/chicago_wolf_point_1832.jpg",
+  "image_px": [
+    1028,
+    1668
+  ],
+  "principal_px": [
+    198.74099764695353,
+    648.6708730637978
+  ],
+  "focal_px": 6000.0,
+  "eye": [
+    244.89866520976165,
+    264.028988800512,
+    2.0
+  ],
+  "yaw_deg": 222.97043442416742,
+  "near_m": 200.0,
+  "pixel_aspect": 1,
+  "sky": "overcast",
+  "diagnostic_only": true,
+  "solve": {
+    "status": "finite_reconstructed_first_fit_UNRENDERED_UNACCEPTED",
+    "target_panel": "smallcentralvignette only; floralwrapper is notcamera control",
+    "metric_control": "None. The existing canonical NYPL-governed 5 m compartments, 2.6 m eave and 42-degree gables are conditional reconstructed display geometry, not dimensions measured from this picture. The fixed 6000 px focal length, 2 m eye height and radial eye family choose a finite scale and distance from their degeneracy.",
+    "manual_pixel_controls": [
+      {
+        "name": "wing_outer_eave",
+        "model_uvy": [
+          7.2,
+          0,
+          2.6
+        ],
+        "pixel": [
+          86,
+          642
+        ],
+        "fitted_pixel": [
+          96.67946334123326,
+          638.5360758507151
+        ],
+        "residual_px": 11.227186101991203
+      },
+      {
+        "name": "wing_inner_eave",
+        "model_uvy": [
+          7.2,
+          5,
+          2.6
+        ],
+        "pixel": [
+          175,
+          642
+        ],
+        "fitted_pixel": [
+          153.78383561447478,
+          638.4306055450496
+        ],
+        "residual_px": 21.514325646151665
+      },
+      {
+        "name": "wing_apex",
+        "model_uvy": [
+          7.2,
+          2.5,
+          4.8510101107446
+        ],
+        "pixel": [
+          130,
+          584
+        ],
+        "fitted_pixel": [
+          125.08385079162225,
+          600.2642405488464
+        ],
+        "residual_px": 16.990998901470498
+      },
+      {
+        "name": "core_inner_eave",
+        "model_uvy": [
+          5,
+          10.1,
+          2.6
+        ],
+        "pixel": [
+          229,
+          648
+        ],
+        "fitted_pixel": [
+          240.85488354078342,
+          638.3651711182387
+        ],
+        "residual_px": 15.276393270217941
+      },
+      {
+        "name": "core_outer_eave",
+        "model_uvy": [
+          0,
+          10.1,
+          2.6
+        ],
+        "pixel": [
+          304,
+          647
+        ],
+        "fitted_pixel": [
+          302.6803061344658,
+          638.4647458042177
+        ],
+        "residual_px": 8.636675059613362
+      },
+      {
+        "name": "core_apex",
+        "model_uvy": [
+          2.5,
+          10.1,
+          4.8510101107446
+        ],
+        "pixel": [
+          267,
+          591
+        ],
+        "fitted_pixel": [
+          271.91766061134774,
+          599.9391611328401
+        ],
+        "residual_px": 10.202548095808254
+      }
+    ],
+    "manual_pick_uncertainty_px": 15,
+    "conditional_fit_residuals_px": {
+      "rms_point_distance": 14.66095889614184,
+      "max_point_distance": 21.514325646151665
+    },
+    "fit_limits": "This is an analytic first fit to approximate manually read gable vertices, not actual render validation, held-out controls or a solved historical camera. Small or cropped panels constrain only one gable, whose assignment is a stated review hypothesis. An unchanged current MASTER render and direct inspection must decide adequacy; no verdict is prepared.",
+    "source_and_model_limits": "Small hatched silhouette without reliable pane, grain or colour measurements. The NYPL model governs contradictory cladding detail. The bibliography identifies the historical 1857 picture, not rights to the modern website wrapper.",
+    "lighting": "Neutral overcast comparison lighting is selected to avoid inventing historical weather or pigment from illustrative hatching and printing. No original illumination calibration is asserted.",
+    "source_admission": "The accompanying source-specific bibliography describes the actual artwork using existing inventory credit and explicit date or edition limits. Review and admit it before any canonical derived camera or capture. The modern prefire273 check_required wrapper is not a substitute.",
+    "geometry": "Exact existing 225f MASTER / fdc WEB. Do not move, rebuild or hide parts to overfit this first camera. NYPL governs conflicting form readings.",
+    "historical_location": "Diagnostic only. No historical From this spot location or world coordinate is claimed."
+  }
+}
