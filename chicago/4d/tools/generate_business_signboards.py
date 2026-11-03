@@ -162,6 +162,7 @@ from archetypes.frame_storefront_params import from_phase as _storefront_params 
 from archetypes.log_dwelling_params import from_phase as _log_dwelling_params  # noqa: E402
 from archetypes.outbuilding_params import from_phase as _outbuilding_params  # noqa: E402
 from archetypes.fort_structure_params import from_phase as _fort_params  # noqa: E402
+from archetypes.frame_tavern_params import from_phase as _tavern_params  # noqa: E402
 
 # The scene, and the phase of each record that stands on it.
 TARGET_DATE = "1835-07-01"
@@ -171,6 +172,9 @@ _RESOLVERS = {
     "log_dwelling": _log_dwelling_params,
     "outbuilding": _outbuilding_params,
     "fort_structure": _fort_params,
+    # T-3359: read so a tavern's board can be fixed flat on its front, clear of its
+    # sash, shutters and frontispiece. Frontage scheme only; the others answer None.
+    "frame_tavern": _tavern_params,
 }
 SIDECARS = DATA / "sidecars" / "1835"
 STRUCTURES = DATA / "structures"
@@ -310,6 +314,30 @@ MOUNTING_CYCLE = {
     "office": ["wall_board", "bracket_board", "facade_painted"],
     "works": ["facade_painted"],
 }
+
+# T-3359 — NOTHING HANGS IN 1835 BUT A TAVERN'S POST. The owner, 2026-11-03, on a
+# screenshot of Jones's grocery under its awning board: *"this whole hanging awning sign
+# thing is not likely, like i have not seen images of that but what is more likely is
+# the sign on the face of the building either put there or painted directly ... sizing
+# and moving most if not all of the hanging signs to ones affixed to logical places
+# either on the front or over the door or on the face like for jones here it could go
+# over the door or on the right or left of the door"*. The evidence agrees with him.
+# No picture in this corpus shows a Chicago board of 1835 under a hood or on a bracket;
+# the owner's brief shows painted fronts down the Tremont's row (image 5) and the Green
+# Tree's board on a post at its corner (images 6 and 7); and the National Park
+# Service's Preservation Brief 25, *Signs*, puts flat and flush-mounted boards as
+# "standard" by the end of the eighteenth century, fascia boards and boards or paint
+# between the window levels as the common forms, and the hanging sign as surviving
+# "less so than previously", above all at public houses. So the two hung mountings
+# are no longer BUILT. They are still DEALT — the cycles above are unchanged, so every
+# board that was already flat, painted or on a post keeps exactly the deal it had and
+# no neighbour moves — and a board dealt one of them is then fixed flat on its own
+# front instead (`HUNG_TO_FLAT`), beside its door or over it (`_door_u`, and the
+# ceiling `_fit_flat` is given for it). Its wording keeps the lines it was dealt, so
+# the artwork the owner liked is the same board, on the wall. The post stays: a
+# tavern's board on a post at the street edge is the one free-standing sign the
+# brief pictures. docs/LIBERTIES.md L159 carries the amended claim.
+HUNG_TO_FLAT = {"bracket_board": "wall_board", "awning_board": "wall_board"}
 
 # THE STYLES. Ground, letters, letterform and panel — the combinations an American
 # signwriter of the 1830s worked in. Nothing here is a Chicago record: no wording,
@@ -1501,6 +1529,8 @@ def _separation(signs: list) -> list:
             shares = []
             if a["mounting"] == b["mounting"]:
                 shares.append(("mounting", a["mounting"]))
+            fixed_flat = (a["mounting"] == b["mounting"]
+                          and (a.get("hung_before") or b.get("hung_before")))
             if a["style"]["id"] == b["style"]["id"]:
                 shares.append(("style", a["style"]["id"]))
             if a["style"]["ground"] == b["style"]["ground"]:
@@ -1508,6 +1538,18 @@ def _separation(signs: list) -> list:
             for what, value in shares:
                 only = min(len(MOUNTING_CYCLE[a["trade_class"]]),
                            len(MOUNTING_CYCLE[b["trade_class"]]))
+                if what == "mounting" and fixed_flat:
+                    pairs.append({
+                        "a": a["structure_id"], "b": b["structure_id"],
+                        "gap_m": _round(gap, 1), "share": what, "value": value,
+                        "allowed": True,
+                        "why": ("the two were DEALT different mountings and one of "
+                                "them was a hung board, which T-3359 fixes flat on "
+                                "its front: two shops in one street with boards on "
+                                "their fronts is what the period's streets show, "
+                                "and they still differ in style and ground colour."),
+                    })
+                    continue
                 pairs.append({
                     "a": a["structure_id"], "b": b["structure_id"],
                     "gap_m": _round(gap, 1), "share": what, "value": value,
@@ -1870,7 +1912,7 @@ def _fascia(wall: dict) -> dict | None:
 
 
 def _tops(mounting: str, h: float, wall_height: float, head: float,
-          want_top: float, openings: list) -> list:
+          want_top: float, openings: list, ceiling: float | None = None) -> list:
     """Heights the head of a board of this height may take, nearest the wanted one
     first.
 
@@ -1881,17 +1923,28 @@ def _tops(mounting: str, h: float, wall_height: float, head: float,
     """
     lo = h + 0.40
     hi = (wall_height - BAND_EAVE_CLEAR_M) if mounting == "facade_painted" else head
+    if ceiling is not None:
+        # T-3359: a board that used to hang may go OVER the door, up to the eave.
+        hi = max(hi, ceiling)
     cands = {want_top, hi}
     for o in openings:
         cands.add(o["z0"] - SIGN_CLEAR_M)
         cands.add(o["z1"] + SIGN_CLEAR_M + h)
+        if ceiling is not None:
+            # ...and between two storeys' openings, which a band between a fascia
+            # and the sills over it only admits once the rain cap is counted and the
+            # edge is not left to float: the two candidates above touch their
+            # opening exactly, and touching is overlapping to `facade_openings`.
+            cands.add(o["z0"] - SIGN_CLEAR_M - WALL_CAP_CLEAR_M - 1e-3)
+            cands.add(o["z1"] + SIGN_CLEAR_M + h + 1e-3)
     ok = sorted({round(t, 4) for t in cands if lo - 1e-9 <= t <= hi + 1e-9},
                 key=lambda t: (abs(t - want_top), -t))
     return ok
 
 
 def _fit_flat(wall: dict | None, mounting: str, want_u: float, w: float, h: float,
-              wall_height: float, head: float, w_ceiling: float) -> dict:
+              wall_height: float, head: float, w_ceiling: float,
+              ceiling: float | None = None) -> dict:
     """Place a flat-mounted board clear of the openings behind it.
 
     Returns the placement and, whatever the outcome, the account of it: what the
@@ -1923,7 +1976,7 @@ def _fit_flat(wall: dict | None, mounting: str, want_u: float, w: float, h: floa
     # sideways never rises. A painted band may go as high as the eave allows because
     # that is where paint goes on a front; a hung BOARD may not go above `head`,
     # which is the eave-clear human height this file has always hung boards at.
-    for top2 in _tops(mounting, h, wall_height, head, top, wall["openings"]):
+    for top2 in _tops(mounting, h, wall_height, head, top, wall["openings"], ceiling):
         u = _nearest_clear(wall, want_u, w, top2 - h, top2 + cap)
         if u is None:
             continue
@@ -1947,7 +2000,7 @@ def _fit_flat(wall: dict | None, mounting: str, want_u: float, w: float, h: floa
         if w2 / h2 <= RESHAPE_MAX_ASPECT and w2 >= w:
             base2 = _band_top(mounting, h2, wall_height, head)
             for top2 in _tops(mounting, h2, wall_height, head, base2,
-                              wall["openings"]):
+                              wall["openings"], ceiling):
                 u2 = _nearest_clear(wall, want_u, w2, top2 - h2, top2 + cap)
                 if u2 is None:
                     continue
@@ -1984,7 +2037,7 @@ def _fit_flat(wall: dict | None, mounting: str, want_u: float, w: float, h: floa
     k = 1.0 - SHRINK_STEP
     while w * k >= SHRINK_MIN_W_M - 1e-9 and h * k >= SHRINK_MIN_H_M - 1e-9:
         w4, h4 = w * k, h * k
-        tops = _tops(mounting, h4, wall_height, head, top, wall["openings"])
+        tops = _tops(mounting, h4, wall_height, head, top, wall["openings"], ceiling)
         tops = sorted(tops, key=lambda t: -t)          # highest first: above the doors
         for top4 in tops:
             u4 = _nearest_clear(wall, want_u, w4, top4 - h4, top4 + cap)
@@ -2004,6 +2057,20 @@ def _fit_flat(wall: dict | None, mounting: str, want_u: float, w: float, h: floa
                    "should have been refused by `_has_flat_face` and this is the "
                    "record that it was not")
     return out
+
+
+def _door_u(wall: dict | None, mid: float, u1: float) -> float:
+    """Where a board that used to hang wants to sit on the wall (T-3359): on the
+    centre line of the front door nearest the middle of the front, so that `_fit_flat`
+    puts it OVER that door where the wall has room above the head, and BESIDE it — the
+    nearest clear face either side — where it has not. A wall with no door read on it
+    keeps the spot the board used to hang at, `OFFSET_M` off the centre."""
+    doors = [o for o in (wall or {}).get("openings", []) if o["kind"] in DOOR_KINDS]
+    if doors:
+        d = min(doors, key=lambda o: abs((o["u0"] + o["u1"]) / 2.0 - mid))
+        return (d["u0"] + d["u1"]) / 2.0
+    u = mid + OFFSET_M
+    return max(mid, u1 - END_CLEAR_M) if u > u1 - END_CLEAR_M else u
 
 
 def _streets() -> dict:
@@ -2432,7 +2499,9 @@ def build_record() -> tuple[list, list, list]:
             late_near = [p for p in late_prefs if p[1] != sid
                          and math.hypot(p[0][0] - mid_enu[0], p[0][1] - mid_enu[1])
                          <= NEIGHBOUR_M]
-        taken_mount = {s["mounting"] for s in near}
+        # The deal reads what each neighbour was DEALT, not what it was built as
+        # (T-3359), so fixing the hung boards flat moves no other board's deal.
+        taken_mount = {s.get("hung_before") or s["mounting"] for s in near}
         if len(cycle) > 1:
             taken_mount |= {p[2] for p in late_near}
         mount_notes: list[str] = []
@@ -2511,6 +2580,22 @@ def build_record() -> tuple[list, list, list]:
                             "why": "; ".join(mount_notes)})
             continue
 
+        # --- T-3359: a hung board is fixed flat on its own front instead ---------
+        dealt = mounting
+        if dealt in HUNG_TO_FLAT:
+            flat = HUNG_TO_FLAT[dealt]
+            if front is not None and _has_flat_face(front, BOARD_SIZE[flat]["min"]):
+                mounting = flat
+                mount_notes.append(
+                    f"dealt a {dealt.replace('_', ' ')}, and since T-3359 nothing hangs "
+                    "over an 1835 footway but a tavern's post: the same board is fixed "
+                    "flat on the front, over the door or beside it")
+            else:
+                mount_notes.append(
+                    f"dealt a {dealt.replace('_', ' ')}, which T-3359 fixes flat on the "
+                    "front — but no rule reads this front, or it has no blank face, so "
+                    "it still hangs and this is the record of that")
+
         # --- the style --------------------------------------------------------
         taken_style = {s["style"]["id"] for s in near} | {p[3]["id"] for p in late_near}
         taken_ground = {s["style"]["ground"] for s in near} | {p[3]["ground"] for p in late_near}
@@ -2534,7 +2619,9 @@ def build_record() -> tuple[list, list, list]:
         # A signwriter letters what fits, so the wording is resolved AFTER the mounting
         # rather than before it: a plank swinging over a footway takes the man and his
         # trade, and a name painted across a whole front has room for his street too.
-        word = _sign_wording(sid, cand["name"], mounting, cand["wording"])
+        # The lines are the DEALT mounting's (T-3359): a board fixed flat where it
+        # used to hang says exactly what it said, so the artwork is the same board.
+        word = _sign_wording(sid, cand["name"], dealt, cand["wording"])
         text = word["text"]
         n_lines = len(word["lines"])
         longest = max(len(ln["text"]) for ln in word["lines"])
@@ -2565,6 +2652,14 @@ def build_record() -> tuple[list, list, list]:
             u = mid + OFFSET_M
             if u > u1 - END_CLEAR_M:
                 u = max(mid, u1 - END_CLEAR_M)
+        elif dealt != mounting:
+            # T-3359: over the door where the wall has the height above its head —
+            # the fit may raise this board to the eave, which a board dealt flat may
+            # not — and beside it, on the nearest clear face, where it has not.
+            fit = _fit_flat(front, mounting, _door_u(front, mid, u1), w, h,
+                            float(wall), head, w_ceiling,
+                            ceiling=float(wall) - BAND_EAVE_CLEAR_M - WALL_CAP_CLEAR_M)
+            u, w, h = fit["u"], _round(fit["w"], 2), _round(fit["h"], 2)
         else:
             fit = _fit_flat(front, mounting, mid, w, h, float(wall), head, w_ceiling)
             u, w, h = fit["u"], _round(fit["w"], 2), _round(fit["h"], 2)
@@ -2650,6 +2745,7 @@ def build_record() -> tuple[list, list, list]:
             "confidence": "reconstructed",
             "mounting": mounting,
             "mounting_note": "; ".join(mount_notes) or None,
+            **({"hung_before": dealt} if dealt != mounting else {}),
             "style": style,
             "anchor_local_enu_m": [_round(e, 2), _round(n, 2)],
             "facade_bearing_deg": _round(bearing, 1),
@@ -2711,7 +2807,7 @@ def build_record() -> tuple[list, list, list]:
                 for what, mine, theirs in (
                     # Two works may share a painted front: the town's own rule
                     # allows it, because a works has nowhere else to put its name.
-                    ("mounting", mounting, o["mounting"]
+                    ("mounting", dealt, (o.get("hung_before") or o["mounting"])
                      if min(len(cycle), len(MOUNTING_CYCLE[o["trade_class"]])) > 1
                      else None),
                     ("style", style["id"], o["style"]["id"]),
@@ -2888,6 +2984,11 @@ def record(signs: list, refused: list, separation: list) -> dict:
         "treatment": {
             "confidence": "reconstructed",
             "note": (
+                "SINCE T-3359 NOTHING IS BUILT HUNG BUT A TAVERN'S POST: a board dealt "
+                "a bracket or an awning (its `hung_before`) is fixed flat on its own "
+                "front instead, over the door or beside it, clear of every opening, "
+                "with the wording, colourway and letterform it was dealt (the owner, "
+                "2026-11-03, and L159's amendment). The deal itself is unchanged: "
                 "Five mountings, chosen by the trade's class and de-conflicted against "
                 "every sign within "
                 f"{NEIGHBOUR_M:.0f} m so that no two neighbours hang alike: "
