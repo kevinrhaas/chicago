@@ -964,6 +964,12 @@
                   ]
                 }
               ],
+              "masonry": {
+                "course_m": 0.44,
+                "block_m": 1.1,
+                "joint_m": 0.01,
+                "relief_m": 0.008
+              },
               "roof": {
                 "kind": "hip",
                 "pitch": 1.4,
@@ -1033,6 +1039,12 @@
                   ]
                 }
               ],
+              "masonry": {
+                "course_m": 0.44,
+                "block_m": 1.1,
+                "joint_m": 0.01,
+                "relief_m": 0.008
+              },
               "roof": {
                 "kind": "hip",
                 "pitch": 0.02,
@@ -1126,6 +1138,12 @@
                   ]
                 }
               ],
+              "masonry": {
+                "course_m": 0.44,
+                "block_m": 1.1,
+                "joint_m": 0.01,
+                "relief_m": 0.008
+              },
               "roof": {
                 "kind": "hip",
                 "pitch": 0.02,
@@ -1251,6 +1269,12 @@
                   }
                 }
               ],
+              "masonry": {
+                "course_m": 0.44,
+                "block_m": 1.1,
+                "joint_m": 0.01,
+                "relief_m": 0.008
+              },
               "roof": {
                 "kind": "hip",
                 "pitch": 0.02,
@@ -1352,6 +1376,12 @@
                   ]
                 }
               ],
+              "masonry": {
+                "course_m": 0.44,
+                "block_m": 1.1,
+                "joint_m": 0.01,
+                "relief_m": 0.008
+              },
               "roof": {
                 "kind": "hip",
                 "pitch": 0.02,
