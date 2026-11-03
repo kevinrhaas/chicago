@@ -1,0 +1,141 @@
+{
+ "viewport": {
+  "width": 1280,
+  "height": 800
+ },
+ "year": "1812",
+ "identical": {
+  "before": {
+   "hash": -1752509133,
+   "state": "[[1,0.8879231178794776,0.7156935005005721],3,[-0.6723967821499182,0.6840191281764265,0.28284341894977316],0.95,1,[-27232.069677071686,27702.774691145274,11455.158467465813],0,0,[0.3663,0.7916,1.5492],[0.24620132669705552,0.36625259558833256,0.5271151256969157]]"
+  },
+  "after": {
+   "hash": -1752509133,
+   "state": "[[1,0.8879231178794776,0.7156935005005721],3,[-0.6723967821499182,0.6840191281764265,0.28284341894977316],0.95,1,[-27232.069677071686,27702.774691145274,11455.158467465813],0,0,[0.3663,0.7916,1.5492],[0.24620132669705552,0.36625259558833256,0.5271151256969157]]"
+  },
+  "same": true
+ },
+ "errors": [],
+ "rows": [
+  {
+   "time": "daytime",
+   "stand": "gate",
+   "hhmm": "15:00",
+   "sun": "sun 43.2° up, bearing 247.2° (15:00 local mean time, 1812-08-14)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 83.8,
+   "file": "desktop-1812-gate-daytime.jpg"
+  },
+  {
+   "time": "daytime",
+   "stand": "parade",
+   "hhmm": "15:00",
+   "sun": "sun 43.2° up, bearing 247.2° (15:00 local mean time, 1812-08-14)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 50.6,
+   "file": "desktop-1812-parade-daytime.jpg"
+  },
+  {
+   "time": "daytime",
+   "stand": "kinzie",
+   "hhmm": "15:00",
+   "sun": "sun 43.2° up, bearing 247.2° (15:00 local mean time, 1812-08-14)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 89.5,
+   "file": "desktop-1812-kinzie-daytime.jpg"
+  },
+  {
+   "time": "daytime",
+   "stand": "above",
+   "hhmm": "15:00",
+   "sun": "sun 43.2° up, bearing 247.2° (15:00 local mean time, 1812-08-14)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 88,
+   "file": "desktop-1812-above-daytime.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "gate",
+   "hhmm": "19:30",
+   "sun": "sun -5.7° up, bearing 294.9° (19:30 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.23971792962289845,
+   "mean": 60.5,
+   "file": "desktop-1812-gate-dusk.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "parade",
+   "hhmm": "19:30",
+   "sun": "sun -5.7° up, bearing 294.9° (19:30 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.23971792962289845,
+   "mean": 56.6,
+   "file": "desktop-1812-parade-dusk.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "kinzie",
+   "hhmm": "19:30",
+   "sun": "sun -5.7° up, bearing 294.9° (19:30 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.23971792962289845,
+   "mean": 59.7,
+   "file": "desktop-1812-kinzie-dusk.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "above",
+   "hhmm": "19:30",
+   "sun": "sun -5.7° up, bearing 294.9° (19:30 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.23971792962289845,
+   "mean": 58.9,
+   "file": "desktop-1812-above-dusk.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "gate",
+   "hhmm": "22:00",
+   "sun": "sun -27.1° up, bearing 325.8° (22:00 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 33.2,
+   "file": "desktop-1812-gate-night.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "parade",
+   "hhmm": "22:00",
+   "sun": "sun -27.1° up, bearing 325.8° (22:00 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 27.7,
+   "file": "desktop-1812-parade-night.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "kinzie",
+   "hhmm": "22:00",
+   "sun": "sun -27.1° up, bearing 325.8° (22:00 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 29.8,
+   "file": "desktop-1812-kinzie-night.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "above",
+   "hhmm": "22:00",
+   "sun": "sun -27.1° up, bearing 325.8° (22:00 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 33.8,
+   "file": "desktop-1812-above-night.jpg"
+  }
+ ]
+}

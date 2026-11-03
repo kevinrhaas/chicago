@@ -27797,6 +27797,14 @@ width, cap: plain dome, dome with collar or flattened dome; a lean of 0.4-2 degr
 two read as one casting. The paved crossings stay: pictures show them (1815, 2112, Glessner's in
 HABS no. 2). Still invented: every post's size and cap, the row's count and spacing, and which
 crossings exist where no picture reaches.
+**Amended (T-1881, 2026-11-03; owner, of a lone slab on the lawn near 1826 Calumet: "what is this
+random white panel on the ground", and of the walk beside it: "see the grass poking through, needs a
+finer work"):** a crossing was laid at the middle of its lot's street chord and square to its face's
+first-to-last chord. Round Calumet's bend at 18th the chord's middle stands inside the lot, so the
+1800 lot's crossing lay on the lawn: no crossing is laid where that middle is more than 1 m off the
+lot line (95 crossings). On Calumet's many-segment street line the face's chord ran up to 12 degrees
+off the walk at a lot, so a crossing met the walk on a wedge of grass: each is now laid square to the
+street line's own segment at its lot, and starts 4 cm under the public walk.
 
 ### L-prairie-corner-crossings-3200 — A stone ramp down to the roadway at every corner crossing
 
@@ -27951,6 +27959,31 @@ replace the fixed night key with the moon where it stood, or no key on a moonles
 **Ticket:** T-3331.
 **Review:** `renderers/web/js/time-of-day.js`.
 **Recorded:** 2026-11-03 (T-3331).
+
+### L-night-lights-3332 — 1812 by night: candlelit windows by the hour, and a lantern at the fort's gate
+
+**Decision:** when Time of day darkens the town (T-3331), every window pane in 1812 can glow with
+the warm orange of a tallow candle or a hearth, building by building: about three in four buildings
+lit from dusk, half after nine, a third after ten, a few through the small hours, more again before
+daybreak (`data/night_lights/1812.json` share_by_hour). Each lit building breathes slowly, as a small
+flame does. A lantern hangs outside the first fort's main gate, with a warm pool on the ground under
+it (`renderers/web/js/night-lights.js`).
+**What it stands on:** the garrison's candles are the ration's, a pound and a half to every hundred
+rations (`us_statutes_1802_military_peace_establishment`, sec. 6), about a quarter of an ounce of tallow
+a man a day, which lights a room for an evening and not a night. The Kinzies spent the evening of
+7 April 1812 before the hearth, the children dancing to their father's violin, and in August the
+garrison kept a 'vigilant watch' with 'sentinels posted at night' (`kinzie_waubun_1856`, ch. XVIII).
+**What is invented:** which buildings are lit at which hour (a seeded choice per building, not a
+record of any household or room), the hours table itself, the flame's colour and brightness, the
+flicker, and the lantern: no source puts a lantern at the gate, or says how the sentries saw. The
+glow is drawn on the panes; the light it would throw into the street is not drawn, except under the
+lantern.
+**How to resolve:** a post return or order book of Fort Dearborn (tattoo and lights-out hours, the
+guard's posts and lanterns) would set the hours and the gate; a household account of the Kinzie or
+Ouilmette houses would set theirs.
+**Ticket:** T-3332.
+**Review:** `renderers/web/js/night-lights.js`.
+**Recorded:** 2026-11-03 (T-3332).
 
 ### L-glessner-service-junction-2219 — north service bay (2026-10-13)
 
@@ -38233,6 +38266,12 @@ carried round the Calumet Avenue corner on the 1911 sheet's lot line to the star
 The pale line along the lawn's far side is built (2026-10-31) as the drive's turn toward Calumet Avenue. Through the plate's camera its edges fall at u 23-31 from the drive's east edge to the frame's edge. A gravel band 4 m wide on the middle of that reading, u 25-29, runs east to the 1911 sheet's Calumet line at v 28.3, joined to the drive by a wedge clear of the pictured lilacs. Its width, its depth (about 1.2 m of ground a pixel there), the wedge's plan and its run past the frame are invented. Each row's
 lift is the app's ground (the 1904 terrain, `e1871_postfire`) over the house's bed, measured where the
 row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate.
+**2026-11-03 (T-1881).** The owner, of the coping's end at the start of the Calumet straight: "and it
+ends abruptly!". The coping is carried on along the 1911 sheet's Calumet lot line to v 44, past the
+glasshouse, with a gap of about 5 m where the turn meets the public walk and a finished end (body and
+cap) each side of it; the turn is carried on from v 28.3 to the lot line in that gap. The run, the gap
+and the ends are invented: neither picture reaches that far. The gravel is drawn with the texture
+library's gravel photograph (2 m to a tile) for the flat buff tone the owner read as "not solid".
 **How to resolve:** a plan of the grounds, or a picture of the lawn's far side and the drive beyond the
 conservatory.
 **Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
@@ -39030,6 +39069,40 @@ it.
 **Ticket:** T-3314 (piece 2 of T-3306, itself piece 2 of T-3302).
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3314).
+
+### L-k01-1919-north-bay-coped-gables-3337 — 1919 Prairie's canted north bay on its rear range, flat-topped under a balustrade, and its rear ranges' stone-coped gables, read off the Gatlin plates and the 1911 sheet
+
+**Decision:** the north flank of 1919 Prairie's rear ranges (T-3337, piece 1 of T-3303, of T-1907) carries
+what the 1911 sheet draws and both Gatlin Institute plates show: on the rear range's north wall, the
+sheet's canted north bay (u -14.5 to -9.4, about 1.4 m out), standing two storeys to the range's wall top
+under a flat top and a balustrade, its windows grouped between stone mullions, the range's steep gable
+standing back over it; and the gables of both ranges carried up past the slate in a pale stone coping,
+springing from kneelers and finialled at their peaks, as T-3301 found the street dormer's gable is. K01
+learns two additive things for it, byte-identical for every other house (`k01_emit --check`): a
+flat-topped full-height projection may stand on a wing's gable end (it was refused there, since a tower's
+back closes over the wing's wall top and a flat top closes nothing), and a flank-gabled wing's roof may
+name a stone `coping` on its gable ends (`generators/archetypes/k01_wing_coping.py`, the dormer coping's
+parts in the gable face's frame).
+**What is read, not invented.** The bay's place along the wall and its canted plan, from the 1911 sheet's
+trace; that it is two storeys, flat-topped under a balustrade and glazed in mullioned groups, from both
+plates; that the flank's gables are coped in pale stone with finials at their peaks, from both plates.
+**What is invented.** The bay's 1.2 m projection (the kit's most for a projection, 0.2 m under the sheet's
+reading) and its 1.2 m cants; its windows' kinds (K06's four-light transomed mullioned group on its face,
+a two-over-two sash in each cheek), sizes and sills; its 0.6 m plinth, its moulded stone cornice and its
+balustrade's rails; the rear range's two remaining flank windows moved to s 1.0 and 8.2 m beside it; the
+coping's 0.18 m section, 0.35 m run back and 0.35 m kneelers (the dormer's), the 0.6 m finials, and that
+the ranges' south gable ends, which face 1923's wall a metre off and no picture shows, are coped as the
+north ends are.
+**What is not built.** The stone quoins the plates show at the bay's corners (K08 dresses only a stone
+bay); the quoined flat-topped block at the middle range's north-west corner and its mullioned stretch;
+the small pinnacled dormers between the gables; the third, smaller gable at the flank's far end. And both
+plates' cameras put the flank's two-storey face nearer the street-side viewpoint, or higher, than the
+1911 sheet's trace puts the ranges, which is open in both match records.
+**How to resolve:** T-3338 takes the rest of the flank, the ranges' place against both plates and the
+house's remaining pictures.
+**Ticket:** T-3337 (piece 1 of T-3303).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-3337).
 
 ### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
 
