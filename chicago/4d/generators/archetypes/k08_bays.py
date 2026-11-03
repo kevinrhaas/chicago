@@ -1479,6 +1479,13 @@ class Bay:
                     merge(flat.prims, o.prims, drop)
                     self.windows.append(self._window_record(run, i, k, w, s, o, wall_t))
                 # T-2919: a bay rock-faced to a storey line (`to_m`) is smooth ashlar over it
+                sp_ = v["storeys"][k].get("pier")
+                if v.get("masonry") and sp_ and i == sp_["run"] and sp_.get("oculus"):
+                    # T-1881: no stone behind a pier's oculus, whose glass stands at the wall's
+                    # face where the light's reveal reaches it through the pier
+                    c_, r_ = run.L * sp_["at"], sp_["oculus"]["radius_m"] + .002
+                    y_ = levels[k] + sp_["oculus"]["centre_m"]
+                    trim_holes.append((c_ - r_, c_ + r_, y_ - r_, y_ + r_, (), True))
                 if v.get("masonry") and self.tier == "full" and hi <= v["masonry"].get("to_m", math.inf) + 1e-6:
                     masonry_cells(flat, holes, run.L, lo, hi, v["masonry"], trim_holes)
                 else:
