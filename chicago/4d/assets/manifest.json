@@ -3276,14 +3276,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "jones_house_1834_prairie"
     },
-    "jones_house_1834_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "jones_house_1834_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 126288,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "439b706f6c26ce1ba852e814fd08de4c715937c9cd382425faa6d75557869df6",
+      "bytes": 140968,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "9161f8fcfeead71f44acbaf8255c5d7f0e533e61fd556e1cf0080d10cbbd060d",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "jones_house_1834_prairie_coach_house"
     },
     "keith_house_1808_prairie__as_built_1886.glb": {
