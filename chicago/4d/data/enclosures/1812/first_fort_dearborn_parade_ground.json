@@ -1,0 +1,99 @@
+{
+  "_doc": "THE TRODDEN GROUND OF THE FORT'S PARADE (T-3320). The parade's own footprint, laid by renderers/web/js/yards.js as `trodden_earth` and feathered into the sward, in place of the archetype's flat 6 cm slab (which buildings.js leaves out). NOT ONE COORDINATE HERE IS AUTHORED - the ring is derived from data/sidecars/1812/first_fort_dearborn_parade.json by tools/generate_fort_parade_ground.py and tools/check.sh re-derives this file byte for byte. IT DRAWS NO FENCE (`runs: []`). Every value is `reconstructed`; docs/LIBERTIES.md L-t3320-parade-ground states what bounds it.",
+  "id": "first_fort_dearborn_parade_ground",
+  "name": "The trodden ground of the first Fort Dearborn's parade",
+  "kind": "parade_ground",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "structure_id": "first_fort_dearborn_parade",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin - the frame the sidecars' placement.local_e / local_n use.",
+  "derived_from": {
+    "sidecar": "data/sidecars/1812/first_fort_dearborn_parade.json",
+    "placement_local_enu_m": [
+      1144.11,
+      213.04
+    ],
+    "rotation_deg": 0.0,
+    "footprint_frame_m": {
+      "u": [
+        0.0,
+        15.51
+      ],
+      "v": [
+        0.0,
+        16.46
+      ]
+    },
+    "feather_m": 5.0,
+    "note": "The parade's footprint and placement are the record's (inferred); this ground inherits them and adds only a reconstructed surface and its feather."
+  },
+  "existence": {
+    "confidence": "reconstructed",
+    "note": "That the parade was open ground is the parade record's; that it was bare, trodden earth fading raggedly into grass at its edges is this project's reading of a garrison's drill ground. docs/LIBERTIES.md L-t3320-parade-ground.",
+    "sources": [
+      "chicagology_prefire052",
+      "quaife_1913",
+      "whistler_1808_fort_dearborn_draught",
+      "wright_1834"
+    ]
+  },
+  "runs": [],
+  "runs_note": "EMPTY, AND DELIBERATELY. The parade is open ground between the fort's own buildings; there is no fence for this record to draw.",
+  "ground": {
+    "treatment": "trodden_earth",
+    "confidence": "reconstructed",
+    "note": "The apron's treatment (fort_dearborn_apron, L174): finer and darker than a wagon yard, without ruts, so the fort's ground reads as one surface inside and outside its walls.",
+    "interior_local_enu_m": [
+      [
+        1144.11,
+        213.04
+      ],
+      [
+        1159.62,
+        213.04
+      ],
+      [
+        1159.62,
+        229.5
+      ],
+      [
+        1144.11,
+        229.5
+      ]
+    ],
+    "fringe_ring_local_enu_m": [
+      [
+        1144.11,
+        213.04
+      ],
+      [
+        1159.62,
+        213.04
+      ],
+      [
+        1159.62,
+        229.5
+      ],
+      [
+        1144.11,
+        229.5
+      ]
+    ],
+    "feather_m": 5.0,
+    "fringe_note": "The sward feathers in from the parade's own edge over 5.0 m, a wandering ragged fade rather than a line - the owner's ask."
+  },
+  "assertions": [
+    {
+      "id": "the_feather_stays_inside_the_walls",
+      "claim": "the parade ring pushed out 5.0 m on every side stands inside first_fort_dearborn_pickets_inner's footprint, so the fade never reaches the pickets or the ground outside them",
+      "holds": true
+    },
+    {
+      "id": "no_other_treated_ground_here",
+      "claim": "no other enclosure record in this scene already lays an area treatment on the parade (a door's road_earth path may run onto it)",
+      "clashes": [],
+      "holds": true
+    }
+  ],
+  "research_note": "WHAT WOULD MOVE THIS OFF RECONSTRUCTION: a garrison description, return or drawing that shows the parade's surface - grass, gravel or bare earth."
+}

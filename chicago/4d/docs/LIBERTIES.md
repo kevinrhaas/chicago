@@ -38792,6 +38792,7 @@ The rear, the plan's stair block and service range, stays the draft's.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
+**Revised 2026-11-02 (T-1881):** the Prairie front's part ends moved from the sketch's proportions to the photographs' readings, the three parts kept in order and depth. Clark's 1905 photograph (CHM i71913) and the Detroit print (LC-D4-12551), each through its own solved camera, put the big pedimented dormer and its column of lights at v 11.0-11.45, 3.2 m north of round 3's v 14.45; the Detroit print reads the light over the door at v 6.0-6.9, the gate's urned piers centred on v 6.875, the north block's south return beside the portico at about v 5.0, and a narrow south column (lights at v 15.2-15.7, a smaller dormer at v 14.3-15.3) that round 3 had dropped. Now: `p_block` v 0-5.0 (K01's forward-block floor lowered from 6 m to 4.5 m for it), `p_entry` v 4.95-8.8 on the door at v 6.875, the hood 3.1 m with its columns at v 5.65 and 8.1 and the stoop 3.1 m, the south part v 8.8-17.93 with the big column and dormer at v 11.225 and the narrow column at v 15.45 under a 0.6 m dormer at v 14.85. Through both cameras the render's columns land within a few pixels of the prints'. **Still invented:** the ends to about 0.5 m, and the portico's reach: the print and the 1911 sheet run it over v 1.6-10.6, before the north block, which this build cannot lay while the block stands 2.95 m forward.
 
 ### L-pullman-1729-joined-roof-1881 — 1729 Prairie's mansard built as one roof over its sections, under one rail of cresting, and the ivy at its south-west corner held off the windows
 
@@ -39283,6 +39284,26 @@ four, says whether the sheet or the photograph has the stable's place; the alley
 **Ticket:** T-3316.
 **Review:** `docs/RESEARCH/photo-match/hibbard_house_1701_prairie_coach_house/chicagology_front-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3316).
+
+### L-t3320-parade-ground — Fort Dearborn's parade drawn as trodden earth that feathers raggedly into the grass, both forts
+
+**Decision:** the parade of both forts (1835: `fort_dearborn_parade`; 1812: `first_fort_dearborn_parade`) is laid by
+`renderers/web/js/yards.js` as the `trodden_earth` treatment the apron outside the 1835 walls already wears (L174), on
+the parade's own committed footprint, and its edge gives way to the sward over 5 m in wandering tongues rather than a
+line. The archetype's flat 6 cm slab is no longer drawn (`buildings.js` leaves out the parade's `earth` primitive); the
+sun-dial still stands. The two grounds are `data/enclosures/fort_dearborn_parade_ground.json` and
+`data/enclosures/1812/first_fort_dearborn_parade_ground.json`, written by `tools/generate_fort_parade_ground.py` and
+re-derived byte for byte by `tools/check.sh`; 1812 reads its own enclosure folder (`enclosures_dir`), which holds this
+record and nothing else. **Why:** the owner, 2026-11-02, standing on the 1835 parade: *"can you improve the texture of the
+ground so it is not a solid color but a more realistic texture that looks good and also blur/gradient all the
+transitions from that to grass or dirt so there are not sharp lines dividing ground surfaces"*. **What is recorded and
+what is not:** that there was a parade, where and how large, is the parade records' own (inferred, with their
+sources). Nothing reached describes its surface. That it was bare trodden earth, its colour and grain (the apron's),
+and the 5 m ragged fade into grass beyond its edge are ours; the fade is sized so it finishes inside each fort's walls,
+which the generator asserts. **How to resolve:** a garrison description, return or drawing that shows the parade's
+surface, grass, gravel or bare earth.
+**Ticket:** T-3320.
+**Recorded:** 2026-11-02 (T-3320).
 
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash

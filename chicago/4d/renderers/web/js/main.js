@@ -2487,6 +2487,9 @@ async function boot() {
   const enclosures = await createEnclosures({
     dataBase: layerBase('enclosures'), terrain, confidence, problems: layerProblems('enclosures'), ...detailOpts(),
     hashes: enclosureHashes,
+    // T-3320: a scene whose grounds are not 1835's reads its own folder (1812's
+    // holds the first fort's parade ground); 1835 reads `enclosures/` as before.
+    dir: loaded.scene.enclosures_dir ?? 'enclosures/',
   });
   scene3d.add(enclosures.group);
   settleOnGpu(enclosures.group);

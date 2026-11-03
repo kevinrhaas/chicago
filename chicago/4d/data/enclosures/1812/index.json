@@ -1,0 +1,13 @@
+{
+  "_doc": "Manifest for the 1812 scene's enclosure layer (T-3320), read because data/scenes/1812.json names `enclosures_dir: enclosures/1812/`. The 1835 manifest one folder up is the 1835 town's; this one holds the first fort's parade ground and nothing else. Written by tools/generate_fort_parade_ground.py.",
+  "version": 1,
+  "scene": "1812",
+  "scene_date": "1812-08-14",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin.",
+  "enclosures": [
+    {
+      "id": "first_fort_dearborn_parade_ground",
+      "file": "first_fort_dearborn_parade_ground.json"
+    }
+  ]
+}
