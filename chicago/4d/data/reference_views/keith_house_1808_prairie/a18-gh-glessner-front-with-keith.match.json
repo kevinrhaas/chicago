@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-glessner-front-with-keith",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "3124dd7ad02a4437bc20e27025c4930f61cbf2ee48f47f2ce1783978b4ebc084",
+  "glb_sha256": "b0540e5073db2f881cee936bf62b2ae16288f7c4dabca64866d92fb18a9dbc7f",
   "camera_sha256": "4635894ce3104edd82f51b4f4ea46222d84e68fce6d8e8d0d30ef17cdb6a128f",
   "photo_sha256": "a2205808fabe554cf7e975ce515fcf8e129a4e3b279b72916240222e96e08bbd",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-glessner-front-with-keith-side-by-side.jpg",
@@ -67,7 +67,12 @@
     {
       "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 88-134, y 904-1064); the rear row stands behind the respond's face, and this picture does not read the rear row, for the reason T-2881's item above gives, so it does not read the respond either. Nothing it shows opens a difference; the verdict stands (matches).",
       "status": "not shown"
+    },
+    {
+      "what": "T-3321: 1808's alley wall (the Glessner court wall's return along the alley, 31 m behind 1808's front) draws in this render where the picture shows the Glessner house",
+      "status": "not shown",
+      "how": "this record renders 1808 alone; from this camera the Glessner house stands between the eye and the alley, so the picture cannot show the wall. The house itself is unchanged (re-rendered 2026-11-02: nothing else in the side-by-side moved)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

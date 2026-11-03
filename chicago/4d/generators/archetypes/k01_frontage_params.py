@@ -154,6 +154,8 @@ class K01FrontageParams:
     wall_head: dict = field(default_factory=dict)   # K10 cornice and cresting (T-2317)
     stone_finish: dict = field(default_factory=dict)  # T-1883: pierced stone facade
     boundary: dict = field(default_factory=dict)    # K11 fence, gates, piers, wall (T-2319)
+    alley_wall: dict = field(default_factory=dict)  # T-3321: a free-standing brick run on the rear lot line
+    alley_wall_height: dict = field(default_factory=dict)  # T-3321: its height and coping
     yard: dict = field(default_factory=dict)        # K14 lawn, front walk, service walk (T-2360)
     stone: dict = field(default_factory=dict)      # T-2289: the coursed stone front (K02)
     # T-2366: a stone front read off a photograph (`street_front_openings` and
@@ -323,6 +325,7 @@ CONSUMED = frozenset({
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
     "hip_deck", "rear_veranda", "side_porch", "eared_round_heads", "corner_pilasters", "rear_terrace",
+    "alley_wall", "alley_wall_height",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -7316,6 +7319,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         street_front_trim=trim,
         wall_head=dict(val("wall_head", {}) or {}),
         boundary=dict(val("boundary", {}) or {}),
+        alley_wall=dict(val("alley_wall", {}) or {}),
+        alley_wall_height=dict(val("alley_wall_height", {}) or {}),
         yard=yard, stone_finish=stone_finish,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,

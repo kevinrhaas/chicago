@@ -25314,7 +25314,8 @@ texture and color"), and 1808's record leaves that side open for this one. From 
 the alley a free-standing common-brick wall stands on the line HABS sheet 2 draws, its north face on
 S 74.0, about 1.1 ft thick, to the granite gate pier's outer face. Each end of the run says what
 it meets, so the coping stops flush at 1808's wall and wraps the free end at the alley. The sheet's
-8.3 ft return south along the alley stands on 1808's lot line and is left to T-1944.
+8.3 ft return south along the alley stands on 1808's lot line and is left to T-1944 (built there,
+2026-11-02: L-1808-alley-return-1944).
 **What is invented.** The wall's height, 9.0 ft above north grade, and its stone coping (0.18 m,
 overhanging 0.06 m on each free side): no sheet draws the wall in elevation, and HABS photograph 5
 does not frame it. Both are the alley gate's own reconstructed wall stub (L295), so the enclosure
@@ -25330,6 +25331,29 @@ dates the wall to 1887 directly.
 **Covers:** `glessner_house.as_built_1887.form.courtyard_wall_heights`.
 **Ticket:** T-2201 (Glessner exterior audit GA-03).
 **Recorded:** 2026-10-11 (T-2201).
+
+### L-1808-alley-return-1944 — 1808 Prairie's alley wall: the Glessner court wall's 1963 return carried to 1904, at the court wall's height and coping
+
+**Decision:** the brick run HABS IL-1015 sheet 2 (1963) turns south along the alley off the
+Glessner court wall's west end stands on 1808 Prairie's alley line, so it is built on 1808's
+record (`alley_wall`), not Glessner's (T-2201 left it here: L-glessner-court-wall-2201). Read on the
+committed scan at 37.2 px/ft: 1.4 ft through (53 px, +/- 0.15 ft: the hatch's inner edge has no drawn
+line), its west face the heavy line that runs on as the granite gate pier's outer face (W 162.0), and
+8.2 ft (304 px) from the court wall's north face (S 74.0) to its free south end (S 82.2). Its north
+end abuts the court wall and its coping stops short of the court wall's.
+**What is invented.** The run's height, 9.2 ft over Glessner's model grade (9.0 ft over its north
+grade), and its stone coping, 0.18 m deep and overhanging 0.06 m on each free side
+(`alley_wall_height`): no sheet draws it in elevation and no photograph of the alley side is held.
+Both are the court wall's own reconstructed height and coping, so the two meet at one coping line at
+the pier. The brick is 1808's own common buff (the K11 wall's slot of the house's K03 panel), the
+court's brick by Glessner 1923, which is quoted only in text.
+**What is inferred, not invented.** That the 1963 line, length and thickness stood in 1904, for the
+court wall's reason: nothing read records exterior work on the court before the 1946 conversion.
+**How to resolve:** a photograph of the alley behind 1800-1808 Prairie, or the museum's history of
+the courtyard wall read as a source record.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.alley_wall_height`.
+**Ticket:** T-3321 (piece 1 of T-1944, the 18th-20th block boundaries).
+**Recorded:** 2026-11-02 (T-3321).
 
 ### L-k01-1616-brick-front-2353 — 1616 Prairie's main body refined from the district draft to a K01 brick house with a street dormer for its half storey, everything but the plan the kits'
 
