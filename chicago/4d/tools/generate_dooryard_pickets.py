@@ -69,6 +69,8 @@ import json
 import math
 from pathlib import Path
 
+from occupied_footprints import additional_world_polygons
+
 import enclosure_owners
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -275,8 +277,8 @@ def plot_for(block, index, lot, sid, sc, all_sidecars):
     for other_id, other in all_sidecars.items():
         if other_id == sid:
             continue
-        fp = footprint_world(other)
-        if len(fp) >= 3 and convex_overlap(corners, fp):
+        shapes = [footprint_world(other), *additional_world_polygons(other)]
+        if any(len(fp) >= 3 and convex_overlap(corners, fp) for fp in shapes):
             return None, (f"the derived plot overlaps {other_id}'s committed footprint, "
                           f"which stands over the lot line")
     gate = to_world((u_lo + u_hi) / 2, v_start)

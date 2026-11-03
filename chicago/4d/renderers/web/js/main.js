@@ -4462,6 +4462,19 @@ async function boot() {
       let e0 = Infinity, n0 = Infinity, e1 = -Infinity, n1 = -Infinity;
       for (const [e, n] of fp.pts) { e0 = Math.min(e0, e); e1 = Math.max(e1, e); n0 = Math.min(n0, n); n1 = Math.max(n1, n); }
       r = Math.max(2, Math.hypot(e1 - e0, n1 - n0) / 2);
+      // Compound models aim at their actual visual centre. Keep the core's
+      // address/front unchanged, but fit every roof/ell in the selected asset.
+      // A radius about the old core centre needlessly spends the 90m stand cap.
+      if (footprints.some(part => part.id === id && part !== fp) && buildingBounds[id]) {
+        const box = buildingBounds[id], matrix = buildings.matrixOf(id);
+        if (matrix) {
+          r = 2;
+          for (const x of [box.min[0], box.max[0]]) for (const z of [box.min[2], box.max[2]]) {
+            const point = new THREE.Vector3(x, 0, z).applyMatrix4(matrix);
+            r = Math.max(r, Math.hypot(point.x-aim.x, point.z-aim.z));
+          }
+        }
+      }
     }
     const record = loaded.registry.get(id);
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
@@ -4588,6 +4601,14 @@ async function boot() {
     }
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
     const drawn = buildingBounds[id];
+    if (drawn && footprints.some(part => part.id === id && part !== fp)) {
+      const matrix = buildings.matrixOf(id);
+      if (matrix) return new THREE.Vector3(
+        (drawn.min[0]+drawn.max[0])/2,
+        (drawn.min[1]+drawn.max[1])/2,
+        (drawn.min[2]+drawn.max[2])/2,
+      ).applyMatrix4(matrix);
+    }
     const aimH = drawn ? (drawn.min[1] + drawn.max[1]) / 2 : wallH * 0.55;
     return enuToWorld(e, n, terrain.surfaceHeight(e, n) + aimH);
   }
@@ -4748,10 +4769,14 @@ async function boot() {
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
           // T-2946: measured to the building's walls and named as the jaunt names it.
-          const outlines = new Map(footprints.map(f => [f.id, f.pts]));
+          const outlines = new Map();
+          for (const f of footprints) {
+            if (!outlines.has(f.id)) outlines.set(f.id, []);
+            outlines.get(f.id).push(f.pts);
+          }
           const places = [...loaded.registry.values()].map(record => ({ id: record.id,
             label: context.placeName(state.jaunt, record.id, record.sidecar),
-            point: structurePosition(record.id), outline: outlines.get(record.id),
+            point: structurePosition(record.id), outlines: outlines.get(record.id),
             minor: context.minorPlace(record.sidecar) }));
           return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
