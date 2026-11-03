@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2620, ts: '2026-11-03T19:40:08.323Z', date: 'Nov 3, 2026, 1:40 PM CT', title: '1936 Prairie\'s verandah stands on its columns', kind: 'improvement',
+    items: [
+      'The Allerton house\'s verandah on Prairie Avenue (1904) now stands on two fluted Corinthian columns between its three arches, as the 1869 Tribune describes and the old photograph shows, instead of solid piers.',
+    ] },
   { v: 2619, ts: '2026-11-03T17:15:59.406Z', date: 'Nov 3, 2026, 11:15 AM CT', title: 'The Pullman house\'s big front window stands on its dressed sill', kind: 'improvement',
     items: [
       'At 1729 Prairie, the tall arched window on the front\'s main floor now sits on a projecting stone sill, with a block at each end, as the 1890 Albertype plate draws it.',
