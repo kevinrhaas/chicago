@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2617, ts: '2026-11-03T16:02:51.653Z', date: 'Nov 3, 2026, 10:02 AM CT', title: 'The 1812 Potawatomi camp rebuilt as a working camp of families', kind: 'feature',
+    items: [
+      'The camp on the State Street creek is no longer rows of identical domes. Five groups of lodges and a horse ground now stand along the creek\'s banks, each laid out round a shared yard.',
+      'Lodges vary in kind and size: mat lodges of three sizes, a long lodge with a door at each end, lodges roofed in elm bark, and gabled bark houses. Each mat and bark sheet is its own piece, with real cat-tail, bark and bough surfaces instead of flat colour.',
+      'Each yard has a bough arbor over the cooking, fires with brass kettles on tripods or cranes and roasting spits, drying racks of meat and fish, storage scaffolds, hide frames, woodpiles and corn mortars. Canoes are drawn up on the water side.',
+      'The horse ground has tether stakes, lines and pack saddles with their loads. The horses themselves are not drawn yet.',
+      'The ground under each group is worn bare and fades into the grass.',
+      'Every form is read from accounts of the Potawatomi and their neighbours in those years: Forsyth on the Sauk and Fox, Wau-Bun, Hubbard and Skinner\'s Prairie Potawatomi narrators. The counts, the layout and every size are reconstructed, and nothing is staged.',
+    ] },
   { v: 2616, ts: '2026-11-03T15:41:24.366Z', date: 'Nov 3, 2026, 9:41 AM CT', title: 'Cobweb Castle’s panorama is linked on its card', kind: 'add',
     items: [
       'The Indian Agency House’s Images tab links the original 1831 panorama with its publication credit.',
