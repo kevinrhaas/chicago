@@ -1,4 +1,32 @@
 export const CHANGELOG = [ // newest first
+  { v: 2606, ts: '2026-11-03T08:49:31.505Z', date: 'Nov 3, 2026, 2:49 AM CT', title: 'Pullman stonework reads its joints; the glasshouse ground\'s edges finished', kind: 'fix',
+    items: [
+      'Every face of the Pullman house now shows its stone courses and blocks: the bays and towers that read as plain stone are coursed, and the joints are struck 10 mm wide and 6 mm deep.',
+      'The glasshouse ground\'s walks and drive are crushed gravel you can see, not a flat grey sheet.',
+      'The lot-line coping along Calumet no longer stops dead on the lawn: it runs on past the glasshouse and opens with finished ends where the drive\'s turn meets the sidewalk.',
+      'The stray paving slab on the lawn at 1800 Calumet is gone, and the carriage walks round Calumet\'s bend meet the sidewalk square, with no grass showing between.',
+      'The glasshouse drive\'s join at 18th and Calumet now covers the sidewalk\'s bend, closing the sliver of lawn that showed through.',
+    ] },
+  { v: 2605, ts: '2026-11-03T08:34:18.115Z', date: 'Nov 3, 2026, 2:34 AM CT', title: '1812 by night: candlelit windows and a lantern at the fort gate', kind: 'feature',
+    items: [
+      'Set Time of day to dusk or night in 1812 and the fort\'s and houses\' windows glow with candle and hearth light.',
+      'Most windows are lit through the evening, fewer after nine, and only a few in the small hours, following the garrison\'s candle ration.',
+      'A lantern hangs inside the fort\'s main gate and lights the ground under it.',
+      'Daytime looks exactly as before.',
+    ] },
+  { v: 2604, ts: '2026-11-03T07:50:15.123Z', date: 'Nov 3, 2026, 1:50 AM CT', title: '1919 Prairie: a balconied bay and stone-coped gables on its north side', kind: 'feature',
+    items: [
+      'Along the north side of Marshall Field Jr.\'s house at 1919 Prairie Avenue, the rear wing now has the angled two-storey bay the 1911 fire-insurance map draws. Its top is flat, with a stone balustrade around it, and the steep gable rises behind it, as both early pictures of the house show.',
+      'Each of the bay\'s floors has a wide window of four tall lights divided by stone mullions, plus a window in each angled side.',
+      'The steep gables of both rear wings are now finished in pale stone like the street dormer: a coping along each sloping edge, a block at each foot and a carved finial at the peak.',
+      'Still to come on this side: the stone corner blocks, the small pinnacled dormers between the gables, and a closer check of how far the wings stand out.',
+    ] },
+  { v: 2603, ts: '2026-11-03T07:08:18.053Z', date: 'Nov 3, 2026, 1:08 AM CT', title: '1812: timber along the South Branch and groves in the wet hollows', kind: 'feature',
+    items: [
+      'The South Branch\'s east bank carries a belt of cottonwood, ash, elm, maple and willow south of the forks, thick by the water and thinning into groves, as Andreas has the South Side timber following the river two or three miles south.',
+      'Groves of willow, cottonwood and green ash stand in the low wet ground of the south prairie, and the higher ground stays open grass.',
+      '1812 only, and the trails stay clear. Where each grove stands is ours, recorded as a liberty.',
+    ] },
   { v: 2602, ts: '2026-11-03T06:53:00.774Z', date: 'Nov 3, 2026, 12:53 AM CT', title: '1936 Prairie: the Allerton house rises to its 44-foot cornice', kind: 'feature',
     items: [
       'The Allerton house\'s bracketed cornice now stands at the 44 feet the 1869 Tribune gives, 1.2 m higher than before; the attic\'s frieze lights, the roof deck and the chimneys rise with it.',
