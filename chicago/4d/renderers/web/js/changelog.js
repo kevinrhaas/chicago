@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2628, ts: '2026-11-03T23:04:17.362Z', date: 'Nov 3, 2026, 5:04 PM CT', title: '1835 shop signs are fixed to the building, not hung', kind: 'change',
+    items: [
+      'The 35 signs that hung from brackets or under awnings in 1835 are now boards fixed flat on the shop or tavern front, over the door or beside it.',
+      'Each keeps its wording, colours and lettering, and stays clear of doors, windows and shutters.',
+      'Tavern posts at the street edge stay: they are the one free-standing sign the period pictures show.',
+    ] },
   { v: 2627, ts: '2026-11-03T22:43:25.728Z', date: 'Nov 3, 2026, 4:43 PM CT', title: '1900 Prairie\'s brick stable on the alley', kind: 'feature',
     items: [
       'The alley building behind 1900 Prairie Avenue, the Elbridge G. Keith house, is no longer a rough draft. It now stands as a two-storey brick stable, 15.4 m along the alley and 9.2 m deep, drawn from the 1911 fire-insurance map. The rough draft had it at one storey; the map says two.',
