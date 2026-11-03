@@ -993,6 +993,10 @@
     "s35-2001-front": "2001 Prairie now stands as the K01 stone-front house house_2001_prairie under a hip with a street dormer (T-3347, piece 2 of T-1912), which refines this draft in place under the draft's own id: the two-and-a-half-storey main body on K01 with the sheet's rear step to the 20th Street line on K08; the draft stands no second building beside it.",
     "s35-2001-wing": "2001 Prairie's one-storey frame porch on the 20th Street side stands on the face of house_2001_prairie's flank step (T-3347), where K08 hosts no second projection, so it is not built (liberty L-k01-2001-corner-3347); the draft stands no second building.",
     "s20-1613-f": "1613 Prairie now stands as the K01 brick frontage house_1613_prairie under K01's flat roof (T-2417, piece 1 of T-1868), the north half of the pair with 1615, which refines this draft in place under the draft's own id: the four-storey main body on K01 and the sheet's one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
+    "s35-2003-front": "2003 Prairie now stands as the K01 brick house house_2003_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the north half of the pair with 2005, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
+    "s35-2003-wing": "2003 Prairie's two-storey rear range now stands on K01's rear wings of house_2003_prairie (T-3346); the draft stands no second building.",
+    "s35-2005-front": "2005 Prairie now stands as the K01 brick house house_2005_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the south half of the pair with 2003, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
+    "s35-2005-wing": "2005 Prairie's two-storey rear range now stands on K01's rear wings of house_2005_prairie (T-3346); the draft stands no second building.",
     "s20-1625-f": "1625 Prairie's main body now stands as the K01 stone-front frontage house_1625_prairie (T-2432, piece 1 of T-1869), read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house against this sheet, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's four-storey rear section (s20-1625-a1) waits on T-2435.",
     "s20-1615-f": "1615 Prairie now stands as the K01 brick frontage house_1615_prairie under K01's flat roof (T-2418, piece 2 of T-1868), the south half of the pair with 1613, laid on 1613's south wall, which refines this draft in place under the draft's own id: the four-storey main body on K01, the sheet's small frame projection on its south wall on K08 in timber, and its one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
     "s28-1824-front": "1824 Prairie now stands as the K01 stone-front house `marsh_house_1824_prairie` (T-3167, piece 2 of T-1887), Samuel B. Pomeroy's 1857 villa behind the stone front George B. Marsh gave it after 1880, read off the Pomeroy photograph and the right side of the automobile photograph of 1828 against this sheet, which refines this draft in place under the draft's own id: the main block on K01 under its hip with the front's canted bay on K08 and the porch on the door's columned hood, and the sheet's rear range on K01's rear wings; the draft stands no second building beside it.",
@@ -1842,14 +1846,18 @@
       "roof": "flat",
       "brackets": true,
       "entrance": "north",
-      "why": "3B brick, one of an attached pair with 2005 on a party wall (the census: 'on a party wall with 2005'), with the sheet's curved front bay: three storeys flat behind a bracketed cornice, the rowhouse roof the pair shares; its door at the pair's outer (north) end, mirrored by 2005."
+      "why": "3B brick, one of an attached pair with 2005 on a party wall (the census: 'on a party wall with 2005'), with the sheet's curved front bay: three storeys flat behind a bracketed cornice, the rowhouse roof the pair shares; its door at the pair's outer (north) end, mirrored by 2005.",
+      "house_id": "house_2003_prairie",
+      "house_address": "2003"
     },
     "frontage-35-074": {
       "slug": "house",
       "roof": "flat",
       "brackets": true,
       "entrance": "south",
-      "why": "3B brick, the second house of the attached pair with 2003: the same bracketed flat roof, its door mirrored to the pair's south end, so the attested pair reads as two houses of one row. Its 16 ft brick wall on the south line is a boundary wall the draft archetype does not draw (T-1912)."
+      "why": "3B brick, the second house of the attached pair with 2003: the same bracketed flat roof, its door mirrored to the pair's south end, so the attested pair reads as two houses of one row. Its 16 ft brick wall on the south line is a boundary wall the draft archetype does not draw (T-1912).",
+      "house_id": "house_2005_prairie",
+      "house_address": "2005"
     },
     "frontage-35-075": {
       "slug": "mayer_house",
