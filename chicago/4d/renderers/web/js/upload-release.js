@@ -57,6 +57,8 @@ export const RELEASE_KEEP = {
   streets: [],
   // Street-grid CPU ray picks keep positions and indices; other uploaded lanes can go.
   'street-grid': ['position', 'index'],
+  // Front yards pick analytically; keep triangles for ordinary raycast compatibility.
+  'front-yards': ['position', 'index'],
   // T-2572: picked on the GPU (gpu-pick.js), so their triangles go too.
   frontage: [],
   enclosures: [],

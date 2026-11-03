@@ -144,6 +144,107 @@ check('5. the rounding helpers round outward and keep exact values', () => {
   assert.equal(floorF32(0.5), 0.5); assert.equal(ceilF32(-0.5), -0.5); assert.equal(ceilF32(0), 0);
 });
 
+// Actual 1904 phone-tier yards: uploaded draw copies may go, while source
+// templates, analytic cards, triangle picks, and subsequent rebuilds still work.
+if (!SELF_TEST) {
+  const { register } = await import('node:module');
+  register('data:text/javascript,' + encodeURIComponent(`
+    import { readFile } from 'node:fs/promises';
+    export async function resolve(s,c,n) {
+      if(s==='three') return {url:${JSON.stringify(threeURL)},shortCircuit:true};
+      if(s.startsWith('three/addons/')) return {url:${JSON.stringify(new URL('./addons/', threeURL).href)}+s.slice(13),shortCircuit:true};
+      return n(s,c);
+    }
+    export async function load(u,c,n) {
+      if(u.startsWith('file:')&&u.endsWith('.js'))
+        return {format:'module',source:await readFile(new URL(u),'utf8'),shortCircuit:true};
+      return n(u,c);
+    }
+  `), import.meta.url);
+  const { createFrontYards } = await import(pathToFileURL(path.join(web, 'js/front-yards.js')));
+  const { releaseAfterUpload, RELEASE_KEEP } = await import(pathToFileURL(path.join(web, 'js/upload-release.js')));
+  assert.deepEqual(RELEASE_KEEP['front-yards'], ['position', 'index']);
+  const previousFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => ({ ok: true, json: async () => JSON.parse(await readFile(new URL(url), 'utf8')) });
+  const mats = Object.fromEntries(['woodMat', 'leafMat', 'woodDepth', 'leafDepth', 'woodDistance', 'leafDistance']
+    .map((key) => [key, new THREE.MeshBasicMaterial({ side: THREE.DoubleSide })]));
+  const scratch = [];
+  const originalDispose = THREE.BufferGeometry.prototype.dispose;
+  THREE.BufferGeometry.prototype.dispose = function () {
+    scratch.push({ geometry: this, arrays: Object.values(this.attributes).filter((a) => a.array)
+      .map((a) => ({ attr: a, array: a.array, copy: a.array.slice() })) });
+    return originalDispose.call(this);
+  };
+  let yards;
+  try {
+    const problems = [];
+    yards = await createFrontYards({ dataBase: pathToFileURL(path.join(root, 'data') + '/'), sceneId: '1904',
+      terrain: { surfaceHeight: () => 1.31 }, detail: 'light', grownMaterials: mats, problems });
+    THREE.BufferGeometry.prototype.dispose = originalDispose;
+    assert.deepEqual(problems, []);
+    assert.ok(yards.stats.plants > 0 && scratch.length > 0);
+    const scene = new THREE.Scene(); scene.add(yards.group);
+    const lot = yards.records.find((r) => r.shrubs?.some((s) => !(s[7] > 0)));
+    const [e, n] = lot.shrubs.find((s) => !(s[7] > 0));
+    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+    camera.position.set(e, 6, -n + 6); camera.lookAt(e, 2, -n); camera.updateMatrixWorld();
+    const ndc = new THREE.Vector2();
+    const pickBefore = yards.pickAt(ndc, camera);
+    assert.ok(pickBefore, 'actual planting must be picked before release');
+    const ray = new THREE.Raycaster(); ray.setFromCamera(ndc, camera);
+    const settle = () => { yards.update(0.7, camera); yards.settle(camera); scene.updateMatrixWorld(true); };
+    settle();
+    const hitsBefore = ray.intersectObject(yards.group, true).map((h) => h.distance);
+    assert.ok(hitsBefore.length > 0, 'actual triangles must be raycast before release');
+    const live = [];
+    yards.group.traverse((o) => { if (o.geometry) live.push(o); });
+    const kept = live.flatMap((o) => [o.geometry.attributes.position, o.geometry.index].filter(Boolean))
+      .map((a) => ({ attr: a, array: a.array }));
+    const first = releaseAfterUpload(scene);
+    let releasedBytes = 0;
+    for (const o of live) for (const a of Object.values(o.geometry.attributes)) {
+      if (a.userData?.uploadReleased) { releasedBytes += a.array.byteLength; a.onUploadCallback(); assert.equal(a.array, null); }
+    }
+    assert.ok(releasedBytes > 0, 'actual uploaded page arrays must be released');
+    for (const { attr, array } of kept) assert.equal(attr.array, array, 'position/index array identity retained');
+    for (const { geometry, arrays } of scratch) {
+      assert.ok(!geometry.userData.uploadReleased, 'source templates must not be marked');
+      for (const { attr, array, copy } of arrays) { assert.equal(attr.array, array); assert.deepEqual(attr.array, copy); }
+    }
+    assert.equal(releaseAfterUpload(scene).bytes, first.bytes, 'repeated marking is idempotent');
+    settle();
+    assert.deepEqual(yards.pickAt(ndc, camera), pickBefore, 'analytic pick/card unchanged');
+    assert.deepEqual(ray.intersectObject(yards.group, true).map((h) => h.distance), hitsBefore,
+      'ordinary raycast must preserve hits with uploaded normal/uv arrays absent');
+    const oldBatches = live.filter((o) => o.isBatchedMesh);
+    let retired = 0;
+    for (const b of oldBatches) b.geometry.addEventListener('dispose', () => { retired += 1; });
+    await yards.setSeason('winter');
+    assert.equal(retired, oldBatches.length, 'season rebuild disposes each retired batch geometry once');
+    await yards.setDetail('balanced');
+    settle();
+    assert.ok(yards.group.children.some((o) => o.children.some((c) => c.isBatchedMesh)), 'rebuilt actual yard batches exist');
+    releaseAfterUpload(scene);
+    yards.group.traverse((o) => { for (const a of Object.values(o.geometry?.attributes ?? {}))
+      if (a.array && a.userData?.uploadReleased) a.onUploadCallback(); });
+    settle();
+    assert.ok(yards.pickAt(ndc, camera), 'analytic planting pick survives season/detail rebuild and second upload');
+    assert.doesNotThrow(() => ray.intersectObject(yards.group, true));
+    const finalBatches = [];
+    yards.group.traverse((o) => { if (o.isBatchedMesh) finalBatches.push(o); });
+    let disposed = 0;
+    for (const b of finalBatches) b.geometry.addEventListener('dispose', () => { disposed += 1; });
+    yards.dispose(); yards = null;
+    assert.equal(disposed, finalBatches.length, 'final batch geometries disposed once');
+    console.log(`ok   6. actual front yards release ${releasedBytes} bytes; picks, templates, rebuild and disposal preserved`);
+  } finally {
+    THREE.BufferGeometry.prototype.dispose = originalDispose;
+    globalThis.fetch = previousFetch;
+    yards?.dispose();
+    for (const m of Object.values(mats)) m.dispose();
+  }
+}
+
 if (SELF_TEST) {
   if (failures === 0) { console.log('self-test FAIL: nearest rounding passed check 1'); process.exit(1); }
   console.log(`self-test ok: nearest rounding refused (${failures} check(s) red)`);

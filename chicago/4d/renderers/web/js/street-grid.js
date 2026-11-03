@@ -49,7 +49,7 @@
  */
 
 import * as THREE from 'three';
-import { createRoadTriangleHeight } from './road-triangle-height.js';
+import { createLazyRoadTriangleHeight } from './road-triangle-height.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
 import {
   SEASON_HEAD, SEASON_VERTEX_DECL, SEASON_VERTEX_ASSIGN, SEASON_FRAGMENT_DECL, SEASON_FRAGMENT_APPLY,
@@ -1683,10 +1683,10 @@ export async function createStreetGrid({
 
   // Worn fade geometry is cosmetic. Its maximum is a conservative bound over
   // the actual drawn base+overlay triangles; posed contact checks read both.
-  carriagewaySurface = createRoadTriangleHeight([...meshes, ...overlays]
+  carriagewaySurface = createLazyRoadTriangleHeight(() => [...meshes, ...overlays]
     .filter(mesh => mesh.userData.cls === 'carriageway'));
   out.dispose = () => {
-    carriagewaySurface.dispose(); carriagewaySurface = null;
+    carriagewaySurface?.dispose(); carriagewaySurface = null;
     if (out.groundCut) { terrain.setGroundCut?.({}); out.groundCut.mask.dispose(); }
     for (const m of [...meshes, ...overlays]) m.geometry.dispose();
     for (const m of materials) m.dispose();

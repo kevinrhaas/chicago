@@ -1,0 +1,28 @@
+{
+  "id": "kirkland_1893_chicago_massacre",
+  "type": "book",
+  "citation": "Joseph Kirkland, The Chicago Massacre of 1812, with Illustrations and Historical Documents (Chicago: Dibble Publishing Co., 1893). The whole book; the Appendix K letters alone are held at kirkland_1893_chicago_massacre_appendix_k.",
+  "author": "Joseph Kirkland (1830-1894), compiler; the letters and statements it prints are by their own writers",
+  "date": "1893",
+  "describes_date": "Chicago and the first Fort Dearborn, 1803-1812, and the finding of the bones in 1891",
+  "repository": "Project Gutenberg eBook #59624; the same book is Internet Archive chicagomass00kirkrich (chicago/reference/chicago-massacre-1812.yaml)",
+  "url": "https://www.gutenberg.org/ebooks/59624",
+  "locator": "Appendix F, 'The Bones of John Lalime' (the substance of Kirkland's paper to the Chicago Historical Society of 21 July 1891), Gutenberg plain text https://www.gutenberg.org/cache/epub/59624/pg59624.txt lines 6120-6540: Lalime's letters of 1811, Main Poc's reply, Gurdon Hubbard's letter to John Wentworth of 25 June 1881, Victoire Porthier's statement as Andreas printed it, the 1891 finding, and the letters of Fernando Jones and J. C. Haines.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1893 in the United States; public domain by age. Read as Project Gutenberg's plain text; nothing is derived from it as an asset.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-03 for T-3326 from the Gutenberg plain text (pg59624.txt, fetched that day). No page image was read, so every quotation is transcription-mediated.",
+  "note": "A COMPILATION THAT PRINTS ITS WITNESSES WHOLE. Kirkland's own argument is tier 3; the documents in Appendix F are older and are quoted as he prints them: Hubbard's letter of 1881 (reporting what Mrs. Kinzie and Mrs. Helm told him), Victoire Porthier's statement (an eyewitness from inside the fort, through Andreas), and the 1891 letters of Fernando Jones and J. C. Haines (who saw the fenced grave in 1835). Kirkland himself is no neutral: he reads the killing as 'not entirely disconnected' from the rivalry between Kinzie's trade and the government's factory.",
+  "what_it_supplies": [
+    "Mrs. Kinzie's account through Hubbard: Lalime met Kinzie outside the garrison and shot him, 'the ball cutting the side of his neck'; Kinzie stabbed him, hid in the woods and was later acquitted by the officers",
+    "Victoire Porthier's eyewitness account: sunset at the fort gate, Lieutenant Helm calling a warning, the pistol, the two falling together, Kinzie taken to Milwaukee by her father that night",
+    "the grave: 'in plain view from his front door and piazza' (Hubbard), a picket fence, 'two hundred yards west of the Kinzie house', and the bones found at Cass and Illinois streets on 29 April 1891",
+    "Lalime's letters of 26 May and 7 July 1811, and Main Poc's reply"
+  ],
+  "what_it_does_not_supply": [
+    "any document of 1812 from the factor or the surgeon's mate (those are in the War Department letters, read here only through dailing_2018_chicago_reader_lalime)",
+    "the bill of sale of 1800"
+  ]
+}

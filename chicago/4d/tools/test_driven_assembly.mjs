@@ -373,10 +373,12 @@ function actualAssemblyCallback(code, catalog = null) {
   const begin = code.indexOf('async makeAssembly(row) {'), end = code.indexOf('\n    onActorsChanged', begin);
   assert(begin >= 0 && end > begin); const method = code.slice(begin, end).trim().replace(/,$/, '').replace('async makeAssembly(row)', 'async function(row)');
   let gets = 0, nativeLoaderCalls = 0;
-  const make = new Function('modelFor', 'people', 'getPeople', 'makeByHorse', 'createDrivenAssemblyLoader', 'sceneId', 'config', 'humans', 'confidence', 'heightAt', 'supportByHorse', 'makeHitch', 'coarse', `return (${method});`)(
-    row => row.horse_model, catalog, async () => { gets++; return actualPeople1904; }, new Map(),
-    options => { nativeLoaderCalls++; return async row => resolveHumanIdentity({ ...row.driver_instance, scene: row.scene }, { sceneId: '1904', people: options.people }); },
-    '1904', actualRoutes, { assets: {} }, null, () => 0, new Map(), () => {}, false);
+  const nativeLoader = options => { nativeLoaderCalls++; return async row => resolveHumanIdentity({ ...row.driver_instance, scene: row.scene }, { sceneId: '1904', people: options.people }); };
+  const nativeHitch = () => {};
+  const make = new Function('modelFor', 'people', 'getPeople', 'makeByHorse', 'createDrivenAssemblyLoader', 'sceneId', 'config', 'humans', 'confidence', 'heightAt', 'supportByHorse', 'makeHitch', 'coarse', 'getAssemblyTools', `return (${method});`)(
+    row => row.horse_model, catalog, async () => { gets++; return actualPeople1904; }, new Map(), nativeLoader,
+    '1904', actualRoutes, { assets: {} }, null, () => 0, new Map(), nativeHitch, false,
+    async () => ({ createDrivenAssemblyLoader: nativeLoader, makeHitch: nativeHitch }));
   return { make, get gets() { return gets; }, get nativeLoaderCalls() { return nativeLoaderCalls; } };
 }
 const lazy = actualAssemblyCallback(sceneBindingSource);

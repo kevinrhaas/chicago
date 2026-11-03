@@ -108,3 +108,26 @@ console.log('model-bound complete1196vertex/2048face native1154 domain, original
   for (const mesh of [lower, upper]) { mesh.geometry.dispose(); mesh.material.dispose(); }
   console.log('actual transformed/indexed road triangles, overlap maximum, cell boundaries, upload-release aliases, disposal and wrong-slope refusal PASS');
 }
+
+// Cold road indexes allocate no buffers until a real finite query; same actual
+// transformed Float32 meshes and native raycaster remain the reference.
+{
+  const THREE = await import('three');
+  const { createRoadTriangleHeight, createLazyRoadTriangleHeight } = await import('../renderers/web/js/road-triangle-height.js');
+  const mesh = new THREE.Mesh(new THREE.PlaneGeometry(8, 8), new THREE.MeshBasicMaterial());
+  mesh.position.set(1300, 4, 3200); mesh.rotation.x = -Math.PI / 2;
+  let meshReads = 0;
+  const lazy = createLazyRoadTriangleHeight(() => { meshReads++; return [mesh]; });
+  assert.equal(meshReads, 0); assert.equal(lazy.reading().owned_buffer_bytes, 0);
+  assert.equal(lazy.heightAt(NaN, 0), null); assert.equal(lazy.heightAt(0, Infinity), null);
+  assert.equal(meshReads, 0); assert.equal(lazy.reading().owned_buffer_bytes, 0);
+  const eager = createRoadTriangleHeight([mesh]);
+  for (const [e, n] of [[1300, -3200], [1304, -3200], [1296, -3200], [0, 0]])
+    assert.equal(lazy.heightAt(e, n), eager.heightAt(e, n));
+  assert.equal(meshReads, 1); assert(lazy.reading().owned_buffer_bytes > 0);
+  lazy.dispose(); assert.equal(lazy.heightAt(1300, -3200), null); assert.equal(meshReads, 1);
+  const cold = createLazyRoadTriangleHeight(() => { throw Error('disposed cold index resurrected'); });
+  cold.dispose(); assert.equal(cold.heightAt(1300, -3200), null); assert.equal(cold.reading().owned_buffer_bytes, 0);
+  eager.dispose(); mesh.geometry.dispose(); mesh.material.dispose();
+  console.log('lazy exact road index: zero cold/invalid allocation, first finite query native equality, one cache and no post-dispose resurrection PASS');
+}

@@ -114,7 +114,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
+      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -122,7 +122,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
+      "sha256": "cd404eba8da667728585833a369f14ffe3c7757799d2df960b2f77439ac151ed"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -141,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "9409b98ee76300bed234ce2dfc385ea239d448232f0e02ec2ca9b09802dee00b",
+  "flora_sha256": "3e172b5a6d7c34a7ef883962dc782a6824f3ee0c31fafce295e71d03d30e1e48",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

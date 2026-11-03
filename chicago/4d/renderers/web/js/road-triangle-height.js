@@ -92,3 +92,20 @@ export function createRoadTriangleHeight(meshes, { cell_m = 4 } = {}) {
     dispose() { disposed = true; surfaces = []; starts = ids = scratch = null; },
   };
 }
+
+/** Defer the exact index until an actual finite roadway query. Light has no
+ * vehicle/wheel queries. Disposal can never resurrect a previously cold index. */
+export function createLazyRoadTriangleHeight(getMeshes) {
+  if (typeof getMeshes !== 'function') throw Error('road triangle height: lazy mesh reader required');
+  let surface = null, disposed = false;
+  return {
+    heightAt(e, n) {
+      if (disposed || !Number.isFinite(e) || !Number.isFinite(n)) return null;
+      surface ??= createRoadTriangleHeight(getMeshes());
+      return surface.heightAt(e, n);
+    },
+    reading() { return surface ? { initialized: true, ...surface.reading() }
+      : { initialized: false, disposed, owned_buffer_bytes: 0, duplicated_xyz_bytes: 0 }; },
+    dispose() { disposed = true; surface?.dispose(); surface = null; getMeshes = null; },
+  };
+}

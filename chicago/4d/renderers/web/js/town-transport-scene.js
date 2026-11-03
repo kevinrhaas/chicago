@@ -1,10 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { createTownTransport } from './town-transport.js';
 import { supportsTownTransport } from './transport-loop.js';
-import { createDrivenAssemblyLoader } from './driven-assembly-loader.js';
-import { createDraftHitchFactory } from './draft-hitch.js';
 import { createTransportClearance } from './transport-clearance.js';
 import { teamSupportAt, certifiedHorseSupportDomain } from './transport-support.js';
 import { registerTransportInteractions } from './transport-interactions.js';
@@ -37,9 +34,17 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
   const rows = config.rows.filter(row => row.scene === sceneId);
   const group = new THREE.Group(); group.name = 'town-transport';
   const moduleBase = new URL('../', import.meta.url);
-  const loader = new GLTFLoader();
-  const makeHitch = createDraftHitchFactory({ confidence, loadJSON: json,
-    loadGLTF: file => loader.loadAsync(new URL(file, moduleBase).href) });
+  // Light/remote boot needs route metadata, never assembly modules or loaders.
+  // Start these only for an ordinary eligible assembly, alongside its directory.
+  let assemblyTools = null;
+  const getAssemblyTools = () => (assemblyTools ??= Promise.all([
+    import('./driven-assembly-loader.js'), import('./draft-hitch.js'),
+    import('three/addons/loaders/GLTFLoader.js'),
+  ]).then(([{ createDrivenAssemblyLoader }, { createDraftHitchFactory }, { GLTFLoader }]) => {
+    const loader = new GLTFLoader();
+    return { createDrivenAssemblyLoader, makeHitch: createDraftHitchFactory({ confidence, loadJSON: json,
+      loadGLTF: file => loader.loadAsync(new URL(file, moduleBase).href) }) };
+  }).catch(error => { assemblyTools = null; throw error; }));
   const makeByHorse = new Map(), live = new Map(), fixed = new Map();
   let registration = null, town;
   const clearance = (cache, row, includeVisitor) => {
@@ -55,7 +60,9 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
     async makeAssembly(row) {
       const model = modelFor(row);
       // Lazy eligible assembly only: Light/remote boot never fetches a district directory.
-      const directory = Array.isArray(people?.people) ? people : await getPeople?.();
+      const [directory, { createDrivenAssemblyLoader, makeHitch }] = await Promise.all([
+        Array.isArray(people?.people) ? people : getPeople?.(), getAssemblyTools(),
+      ]);
       if (!Array.isArray(directory?.people)) throw Error('town transport: this scene named people directory is unavailable');
       if (!makeByHorse.has(model)) makeByHorse.set(model, createDrivenAssemblyLoader({
         sceneId, people: directory.people, profiles: config.profiles ?? [],
