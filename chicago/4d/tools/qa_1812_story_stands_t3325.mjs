@@ -1,7 +1,7 @@
 // T-3325..T-3327: the 1812 story jaunts' stands, rendered in the published app.
-// Each candidate stand (QA_STANDS JSON file: [{id, e, n, yaw, pitch?}]) is placed with
-// api.place, the trunks the stand-off rule sees (api.standOccluders) within 12 m and in
-// front of the camera are listed, and a 1280x800 (or QA_VIEW=390x780) shot is written.
+// Each stand (a JSON file: [{id, anchor, yaw, e, n}]) is reached with api.goTo(anchor), the
+// trunks the stand-off rule sees (api.standOccluders) within 15 m and 40 degrees of the view
+// are listed, and a 1280x800 (or QA_VIEW=390x780) shot is written to QA_OUT.
 //   node tools/qa_1812_story_stands_t3325.mjs stands.json      (after tools/publish.sh)
 import fs from 'node:fs';
 import os from 'node:os';
@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
   try { if (fs.statSync(p).isDirectory()) p = path.join(p, 'index.html'); res.writeHead(200, { 'Content-Type': types[path.extname(p)] || 'application/octet-stream', 'Cache-Control': 'no-store' }); fs.createReadStream(p).pipe(res); } catch { res.writeHead(404); res.end('missing'); }
 });
 await new Promise((r) => server.listen(0, '127.0.0.1', r));
-const browser = await chromium.launch({ args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
+const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined, args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
 try {
   const context = await browser.newContext({ viewport: { width: vw, height: vh }, deviceScaleFactor: 1, isMobile: vw < 600, hasTouch: vw < 600 });
   const page = await context.newPage(); page.setDefaultTimeout(600000);
