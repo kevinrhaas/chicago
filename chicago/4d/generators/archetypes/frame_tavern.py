@@ -178,6 +178,8 @@ def build(params: FrameTavernParams, name: str):
         _rear_ell(b, params, w)
     if params.cross_wing:
         _cross_wing(b, params, w, d, wall_z, ridge_z)
+    if params.enclosed_left_annex is not None:
+        _enclosed_left_annex(b, params, w, d)
 
     # chimneys — as many stacks as the record counts. "frontage" spaces them
     # across the frontage at the depth midline (the original arrangement, kept
@@ -1136,3 +1138,93 @@ def _log_wing(b: MeshBuilder, params: FrameTavernParams, main_d: float) -> None:
         for x in (x0h + 0.06, x1h - 0.06):
             b.add_box(x - 0.045, yo - 0.135, 0, x + 0.045, yo - 0.045,
                       zo - thk2, c_h, M_LOG, skip=("bottom", "top"))
+
+
+def _enclosed_left_annex(b: MeshBuilder, p: FrameTavernParams, w: float, d: float) -> None:
+    """Optional undated enclosed shoulder, low link and left gabled range.
+
+    Pictured occurrence is inferred; every numeric layout/section and hidden face
+    is reconstructed. An open shoulder leaves the independent yard bay visible;
+    the closed reading never suppresses props or invents an alteration date.
+    """
+    g=p.enclosed_left_annex
+    c=p.conf("enclosed_left_annex", "reconstructed")
+    for part in p.left_annex_parts:
+        if not part["occupied"]:
+            continue
+        name=part["id"];v=g[name]
+        x0,x1,y0,front=part["x0"],part["x1"],part["back"],part["front"]
+        h=v["wall_m"]
+        first_vertex=len(b.verts)
+        b.add_box(x0,y0,0,x1,front,h,c,M_WALL,skip=("bottom",))
+        _annex_courses(b,p,x0,y0,x1,front,h,c)
+        if name=="boarding_range":
+            _annex_gable_roof(b,p,x0,y0,x1,front,h,v["roof_pitch_deg"],c)
+        else:
+            # Shoulder falls away from the main block. The low connector rises
+            # toward the farther boarding range, a declared diagnostic first fit.
+            z0,z1=((v["roof_high_m"],v["roof_low_m"]) if name=="shoulder"
+                   else (v["roof_low_m"],v["roof_high_m"]))
+            _annex_shed_roof(b,x0,y0,x1,front,h,z0,z1,c)
+        if name != "connector":
+            f,z,ww,hh=v["front_window"];cx=x0+f*v["span_m"]
+            _win(b,p,"y",front,+1,cx-ww/2,cx+ww/2,z,z+hh,c)
+            f,z,ww,hh=v["front_gable_light"];cx=x0+f*v["span_m"]
+            if name=="shoulder":
+                # A small closed dormer proxy over this lower roof. Its unseen
+                # depth and 250mm side cheeks remain reconstructed.
+                a0,a1=cx-ww/2-.25,cx+ww/2+.25
+                yf=front+ROOF_OVERHANG+.02;yb=yf-.9;head=z+hh+.15
+                b.add_box(a0,yb,v["roof_low_m"],a1,yf,head,c,M_WALL,skip=("bottom",))
+                pitch=math.degrees(math.atan((v["front_gable_peak_m"]-head)/((a1-a0+.1)/2)))
+                _annex_gable_roof(b,p,a0,yb,a1,yf,head,pitch,c,overhang=.05)
+                _win(b,p,"y",yf,+1,cx-ww/2,cx+ww/2,z,z+hh,c,skin=0.)
+            else:
+                _win(b,p,"y",front+ROOF_OVERHANG,+1,cx-ww/2,cx+ww/2,z,z+hh,c,skin=0.)
+                f,ww,hh=v["front_door"];cx=x0+f*v["span_m"]
+                _door(b,p,"y",front,+1,cx-ww/2,cx+ww/2,0.,hh,c,kind="back")
+        if part["rotated"]:
+            # A separate pictured gabled range need not share the main block's
+            # heading. Turn the actual envelope, courses and openings together
+            # about its connector-side rear corner, retaining the attachment.
+            cs,sn=part["cos"],part["sin"]
+            for i in range(first_vertex,len(b.verts)):
+                px,py,pz=b.verts[i];dx,dy=px-x0,py-y0
+                b.verts[i]=(x0+dx*cs-dy*sn,y0+dx*sn+dy*cs,pz)
+
+
+def _annex_courses(b,p,x0,y0,x1,y1,wall_z,c):
+    """The existing frame stock and material, translated onto bounded annex walls."""
+    lip=.018
+    for z in materials.course_lines(0.,wall_z,p.siding_exposure_m,p.siding_lay_m,p.siding_seed):
+        for y,out in ((y0,-1),(y1,+1)):
+            pts=[(x0,y,z),(x1,y,z),(x1,y+out*lip,z-.02),(x0,y+out*lip,z-.02)]
+            b.add_poly(list(reversed(pts)) if out<0 else pts,c,M_WALL)
+        for x,out in ((x0,-1),(x1,+1)):
+            pts=[(x,y0,z),(x,y1,z),(x+out*lip,y1,z-.02),(x+out*lip,y0,z-.02)]
+            b.add_poly(list(reversed(pts)) if out>0 else pts,c,M_WALL)
+
+
+def _annex_shed_roof(b,x0,y0,x1,y1,wall_z,z0,z1,c):
+    """Closed shallow roof and upper wall infill, fixed +X slope topology."""
+    slope=(z1-z0)/(x1-x0);o=ROOF_OVERHANG
+    b.add_poly([(x0-o,y0-o,z0-o*slope),(x1+o,y0-o,z1+o*slope),
+                (x1+o,y1+o,z1+o*slope),(x0-o,y1+o,z0-o*slope)],c,M_ROOF)
+    b.add_poly([(x0,y0,wall_z),(x1,y0,wall_z),(x1,y0,z1),(x0,y0,z0)],c,M_WALL)
+    b.add_poly([(x1,y1,wall_z),(x0,y1,wall_z),(x0,y1,z0),(x1,y1,z1)],c,M_WALL)
+    b.add_poly([(x0,y1,wall_z),(x0,y0,wall_z),(x0,y0,z0),(x0,y1,z0)],c,M_WALL)
+    b.add_poly([(x1,y0,wall_z),(x1,y1,wall_z),(x1,y1,z1),(x1,y0,z1)],c,M_WALL)
+
+
+def _annex_gable_roof(b,p,x0,y0,x1,y1,eave,pitch,c,overhang=ROOF_OVERHANG):
+    """Native roof envelope; end triangles use the existing framed wall material."""
+    ridge=b.add_gable_roof(x0,y0,x1,y1,eave,pitch,c,M_ROOF,overhang=overhang,ridge_along_x=False)
+    b.mat_index[-2:]=[M_WALL,M_WALL]
+    # Same stock course rhythm, clipped to the two triangular wall faces.
+    mid=(x0+x1)/2;half=(x1-x0+2*overhang)/2
+    for z in materials.course_lines(eave,ridge,p.siding_exposure_m,p.siding_lay_m,p.siding_seed):
+        zlow=max(eave,z-.02);a=half*(1-(zlow-eave)/(ridge-eave));q=half*(1-(z-eave)/(ridge-eave))
+        for y,out in ((y0-overhang,-1),(y1+overhang,+1)):
+            pts=[(mid-a,y,zlow),(mid+a,y,zlow),(mid+q,y+out*.018,z),(mid-q,y+out*.018,z)]
+            b.add_poly(list(reversed(pts)) if out>0 else pts,c,M_WALL)
+    return ridge

@@ -27,7 +27,8 @@ export function passingPlaces(points, places, { exclude = [], distance = 20 } = 
   const omitted = new Set(exclude), found = [];
   for (const place of places) {
     if (omitted.has(place.id) || !place.point || place.minor) continue;
-    const outline = place.outline?.length >= 3 ? place.outline : [[place.point.e, place.point.n]];
+    const outlines = place.outlines?.length ? place.outlines
+      : [place.outline?.length >= 3 ? place.outline : [[place.point.e, place.point.n]]];
     const centre = [place.point.e, place.point.n];
     let best = null, arc = 0;
     for (let i = 1; i < points.length; i++) {
@@ -35,7 +36,7 @@ export function passingPlaces(points, places, { exclude = [], distance = 20 } = 
       const length = Math.hypot(de, dn);
       if (!length) continue;
       let gap = Infinity;
-      for (let k = 0; k < outline.length; k++) {
+      for (const outline of outlines) for (let k = 0; k < outline.length; k++) {
         gap = Math.min(gap, outline.length === 1 ? segmentGap(a, b, outline[0], outline[0])
           : segmentGap(a, b, outline[k], outline[(k + 1) % outline.length]));
       }

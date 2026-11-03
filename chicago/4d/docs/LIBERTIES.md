@@ -24386,9 +24386,12 @@ round its faces as the kit's corbel table, a 0.35 m stone course 0.5 m out over 
 shows no balcony at that level, only the belvedere's. The heights over it are read on the photograph's
 own vertical scale down the tower's front (a level camera keeps one scale down a vertical plane), set by
 the Tribune's 44 ft at the main cornice's top, which then puts the top balustrade at the Tribune's 73 ft:
-a blind stage 1.78 m (its three lights withdrawn), the belvedere 5.2 m from its balcony's floor with
-lights 1.8 m high, a 1.1 m top balustrade. Those sizes are reconstructed to that scale, and the
-belvedere's cornice is still the kit's thin bracketed eave where the photograph's stands about 1 m deep. The door stands in the
+a blind stage 1.78 m (its three lights withdrawn), the belvedere 4.78 m from its balcony's floor to its
+wall head with lights 1.8 m high, and over it (T-3345) the belvedere's own deep cornice as the photograph
+draws it: a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep, a skirt of the hip rising 0.55 m
+to a flat deck, and on the deck a 0.9 m top balustrade to the Tribune's 73 ft. Those sizes are
+reconstructed to that scale; the cornice's section is a straight soffit and a plain corona where the
+photograph's is moulded, and its brackets are the kit's plain ones in the frieze under it. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
@@ -39639,3 +39642,19 @@ as carved.
 **Ticket:** T-3343.
 **Review:** `data/reference_views/glessner_house/habs-13-north-level.match.json`.
 **Recorded:** 2026-11-03 (T-3343).
+
+
+### L-green-tree-enclosed-left-reading-2376 — Green Tree connector beside the open wagon bay
+
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`, `green_tree_tavern.frame_1833.form.rear_ell`.
+
+**Decision:** Retain the already-adopted main-gable entrance/two front sash and the existing procedural open wagon bay. Replace the former rear ell with a low connector and the turned farther gabled boarding range shown more fully by Andreas. The MASTER omits the open shoulder (`shoulder_enclosed: false`); the native yard layer remains the sole owner of its roof, posts and covered wagon. It is not a duplicate model roof, and its open ground is not filled by a collision hull.
+
+The retrospective, potentially dependent pictures disagree about an open or enclosed shoulder and do not establish a dated alteration sequence. This increment retains the open reading; the separate closed-shoulder alternate is not enrolled. Every span, hidden depth, elevation, roof slope, opening station, plan turn, offset and timber/pigment treatment is reconstructed. Choosing the undated additions for July1835 proves no unchanged survival, exact dimensions, surveyed coordinate, tenant identity or increased lodging capacity. The unverified1859 catalogue photograph supplies no geometry. Geometry source records: `andreas_1884_green_tree_hotel_plate`, `trowbridge_green_tree_1902`, `kurz_allison_1893`. The modern `chicagology_prefire127` page remains text-only context for transcribed later testimony and counterevidence; its unresolved webpage rights supply no new annex geometry.
+
+The two existing static farm-wagon stands retain their earlier reconstructed parking-apron line, using the archetype's former rear-ell depth as an offset even though the wing is now absent. This preserves their positions, clearances, dimensions and eligibility; it is not a wall, a new surveyed dimension or evidence that the ell existed in1835. Their protected historical notes retain the earlier ell-based derivation; this paragraph amends that reasoning for the current open apron. Other structures' placement rules remain unchanged.
+
+The main-body reference footprint and source placement remain unchanged. Separate occupied rings follow the connector and turned range; consumers retain open gaps and the existing core's passages. Neither those physical consumers nor an isolated asset render establishes full original-ticket picture coverage, a calibrated historical camera, door traversal or an actual app-performance verdict. The original T-2376 signoff remains open; genuine changed-model comparisons and published app review are still required.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-03.
