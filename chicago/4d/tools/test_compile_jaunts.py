@@ -77,6 +77,29 @@ class JauntTests(unittest.TestCase):
             self.assertFalse(errors)
             self.assertLessEqual(len(files['catalog.json'].encode()), 30000)
 
+    def test_stop_hour(self):
+        """T-3328: a stop's hour is a time the setting knows, resting on the stop's own claims."""
+        stop = self.doc['stops'][0]
+        stop.update(hour='sunset', date='1812-06-17', hour_evidence=[stop['evidence'][0]])
+        self.compiler.validate(self.doc)
+        stop['hour'] = '18:40'
+        self.compiler.validate(self.doc)
+        stop['hour'] = 'teatime'
+        self.bad('schema')
+        stop['hour'] = 'sunset'
+        stop['hour_evidence'] = ['missing']
+        self.bad("among the stop's own evidence")
+        del stop['hour_evidence']
+        self.bad('an hour needs hour_evidence')
+        stop['hour_evidence'] = [stop['evidence'][0]]
+        stop['date'] = '1812-02-30'
+        self.bad('is not a day')
+        del stop['hour']
+        self.bad('a date or hour_evidence needs an hour')
+        with patch('compile_jaunts.time_names', return_value=frozenset({'morning'})):
+            stop.update(hour='sunset', date='1812-06-17')
+            self.bad('neither HH:MM nor a named time')
+
     def test_dangling_id(self):
         self.doc['stops'][0]['destination']['id'] = 'missing'; self.bad('dangling')
 
