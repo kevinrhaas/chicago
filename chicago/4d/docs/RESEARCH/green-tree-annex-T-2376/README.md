@@ -1,3 +1,15 @@
+# Green Tree closed shoulder — current partial interpretation,2026-11-03
+
+The canonical existing enclosed_left_annex group now selects its closed shoulder. This supplies the wall, lower sash and small gabled/dormered upper light drawn in Andreas. Its complete normalized current native input document equals the genuine retained closed model's80d47recipe; no change to the building mesh producer or25-family bake is needed. All prior metric choices, source references, confidence, dates, main footprint and world placement remain unchanged.
+
+Trowbridge/Gale's retrospectively captioned1835 open wagon bay remains a competing pictured form, not a dated earlier phase. The yard producer follows the same canonical shoulder attribute and declines only that competing open shed/posts and its covered wagon, preserving the two separate farm-wagon stands, bench and frontage goods. The earlier historical record is retained verbatim below and in previous-open-reading-20261103.md.
+
+One actual native closed-model/source comparison completed in5.019seconds, all children reaped, using genuine0b53MASTER and the existing9439camera/bfaa184fsource unchanged. The source/camera/model-bound image is reused byte-exact here; no new render or refit is claimed by adopting its canonical paths. Its prior private raw match remains UNREVIEWED in the durable evidence, while current canonical review stays DIFFERS: the closed shoulder is now present, but left-cluster roof silhouette and relative proportions remain open. This does not accept a historic viewing station or measured dimensions.
+
+[Actual native output, root direct review, current-input identity and limits](https://github.com/kevinrhaas/chicago-evidence/blob/ba86a4b537d47ef4024fe10bace305384b5a960f/evidence/green-tree-2026-11-03/closed-shoulder-current-native-0b53/RECOVERY.md). Actual current WEB/registration and published phone/desktop yard, terrain and doorway review are still required before release. Original T-2376 remains open; no photo follow-up or full completion is claimed.
+
+## Historical preceding open-bay increment — verbatim
+
 # Green Tree connector and turned range — partial original-ticket increment
 
 The new low connector and turned farther gabled range replace the previous rear ell beside Green Tree's existing open wagon bay. The main-gable door and two-sash layout were already adopted. The open shoulder is not drawn by the model: `shoulder_enclosed: false` omits it, while the existing native yard layer supplies the bay's roof, posts and covered wagon. It is not a second model roof. The separate closed-shoulder alternative remains unenrolled.

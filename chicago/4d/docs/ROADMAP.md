@@ -6096,3 +6096,8 @@ Castle’s card. Preserve the same-witness Wau-Bun/Wentworth distinction, the
 unresolved compound appearance, partial siding and July 1835 survival. This
 increment adds no camera or matched verdict and does not promote the structure’s
 grade. Continue the original image gate; file no photo follow-up.
+
+
+### Original T-2376 — closed shoulder working increment,2026-11-03
+
+Choose the detailed Andreas closed shoulder through the existing boolean and couple the yard source owner to decline its competing open shed/posts and covered wagon. Preserve Trowbridge's open reading, all existing metrics/world placement and verbatim prior rationale. Genuine0b53geometry/full80d47recipe reuse and actual unchanged-camera comparison are bound; original remainsDIFFERS for left-cluster shape/proportions. Actual selected WEB/registration, native all-asset WEB contract, schema validation and focused physical consumers now pass; native tail steps finished but final Git snapshot timed out, so owner-loop closure remains owed. Finish fullsource4 and actual published phone/desktop access/yard checks, then a partial-progress PR to dev. No new photo follow-up or original completion.
