@@ -853,9 +853,9 @@
     },
     {
       "id": "house_2001_prairie",
-      "name": "2001 Prairie Avenue — Stone-front masonry (district draft; refined by T-1912)",
+      "name": "2001 Prairie Avenue — stone-front corner house of two and a half storeys on 20th Street, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2001_prairie.json",
-      "asset": "gltf/house_2001_prairie__draft_1904.glb"
+      "asset": "gltf/house_2001_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2001_prairie_coach_house",
