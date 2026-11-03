@@ -68,6 +68,8 @@ export const RELEASE_KEEP = {
   // T-2775: the 1904 lakefront railway. Its pick marches the ray to the ground and
   // tests the strips' stations (railway.js), so no triangle is read back.
   railway: [],
+  // Context streets have no triangle pick: context.js raycasts only its building meshes.
+  'context:streets': [],
 };
 
 function dropArray() { this.array = null; }
