@@ -351,9 +351,9 @@
     "elbridge_keith_house_1900_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4881320,
+      "bytes": 4935380,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "d175b2b4207fcc979aabc4f88c07a68c79c2735b01ed837d5284b8c41fd17523",
+      "inputs_sha256": "9762726039f46ad0ce24e9d88c03116f088ce3beed444a01136dcd5315d388cf",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "elbridge_keith_house_1900_prairie"
@@ -2073,9 +2073,9 @@
     "house_1918_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 7955248,
+      "bytes": 7972728,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "79ee272fa814f38fbeffba17183f7507687bcfc2997203506ce186f3064ea9f9",
+      "inputs_sha256": "16fc28a271d70f821cf65d62b288c41516e6f4eff30504aa706867ca87febf34",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1918_prairie"
