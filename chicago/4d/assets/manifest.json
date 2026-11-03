@@ -3745,7 +3745,7 @@
       "baked_ao": false,
       "bytes": 3871636,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "4fb40730aa8d6a44c7db8d453f7e9cd7388306eed0715b7e1f83d29fbd11286c",
+      "inputs_sha256": "42d2c70d40e499373b419f55713acdf64d08f514745bc407273b19db9fa8e1a6",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "mayer_house_2009_prairie"
@@ -4166,9 +4166,9 @@
     "pullman_house_1729_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 19172624,
+      "bytes": 19364372,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "0d489b582bd42adf541da1fd3691f21117ccb916d24344ef2c5686c89ad33a43",
+      "inputs_sha256": "28a7e721e7751d9134c5e98bd6477de7cd1a38507a7bc47d3bcc0ee4059e3564",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "pullman_house_1729_prairie"
