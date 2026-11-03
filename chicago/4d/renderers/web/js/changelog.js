@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2618, ts: '2026-11-03T16:52:02.729Z', date: 'Nov 3, 2026, 10:52 AM CT', title: '2009 Prairie, the Meyer house, gets its ogee gable', kind: 'feature',
+    items: [
+      '2009 Prairie, Burnham & Root\'s 1888 house for Max A. Meyer, now stands as its photograph shows it: a narrow brick front on a stone basement, a bowed oriel of three lights, and the front carried up into a tall ogee gable with its pair of attic lights.',
+    ] },
   { v: 2617, ts: '2026-11-03T16:02:51.653Z', date: 'Nov 3, 2026, 10:02 AM CT', title: 'The 1812 Potawatomi camp rebuilt as a working camp of families', kind: 'feature',
     items: [
       'The camp on the State Street creek is no longer rows of identical domes. Five groups of lodges and a horse ground now stand along the creek\'s banks, each laid out round a shared yard.',
