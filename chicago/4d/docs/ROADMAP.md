@@ -6096,3 +6096,17 @@ Castle’s card. Preserve the same-witness Wau-Bun/Wentworth distinction, the
 unresolved compound appearance, partial siding and July 1835 survival. This
 increment adds no camera or matched verdict and does not promote the structure’s
 grade. Continue the original image gate; file no photo follow-up.
+
+
+### T-2379 incremental picture attribution — 2026-11-03
+
+The Lake House card gains a credited link to its existing reference print as **later completed-state context**. The supposedly 1830 image is the 1856 Kellogg/Blanchard NYPL lithograph depicting approximately 1836–1849; the labelled hotel stands right of the foreground blockhouse. Source record `kellogg_blanchard_1856_old_fort_lake_house` declares public-domain provenance, tier-5 cross-check use, and the missing July 1835 construction evidence. Canonical camera/model/position/phase and attribute confidence remain unchanged; original T-2379 stays OPEN with no accepted match.
+
+
+## 2026-11-03 — Wolf Point original picture inventory (T-2386)
+
+The eight-file inventory is now explicitly eight identified asset comparisons and one contextual, individually unidentified Herriott panorama. The new eighth poster comparison uses the unchanged exact native master, real gable vertices, separate fitted and held-out controls and a fresh canonical-layout native capture. The free camera fit reaches bounds; the retained diagnostic pose is a comparison tool, not an authenticated lens or geographic viewing spot. No historical scale is derived from the drawing.
+
+Where the ca. 1893 poster adds a left-gable opening against the earlier 1867 sheet's doorway and continuous logs, retain the established earlier-witness form under T-3153 picture disagreement. Keep both actual observations and the dated rights/catalogue conflict. Herriott's limiting gap is an individual Wolf identity key, not resolution alone: retain context and the unverified inventory association, with no ninth matching camera or absence claim. `docs/RESEARCH/wolf-picture-signoff-T-2386/coverage.json` binds every identified composition to its actual source, camera, master and reviewed image.
+
+No new geometry or photo follow-up ticket is needed for this source conflict. The native-derived pictured-evidence explanation now includes the poster; the existing attested grade itself is unchanged. The prior 07b8 native body screenshots now clearly identify the low log compound at both viewports, using validated native body bounds and unchanged default geometry/frustum. Their scope remains 07b8 curated flying inspection. The final source adoption requires its own native source gate, exact-head published acceptance and ordinary dev PR/merge; no historical street arrival or door-traversal result is invented. The public recovery links and limits are recorded in STATUS.

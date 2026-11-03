@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2624, ts: '2026-11-03T22:11:48.552Z', date: 'Nov 3, 2026, 4:11 PM CT', title: 'The 1812 jaunts tell the whole story, stop by stop', kind: 'improvement',
+    items: [
+      'All three 1812 jaunts open by setting the scene: the fort, when it was built, its garrison under Captain Heald, and the war with Britain coming closer. Each opening ends on the moment the story ignites.',
+      'Every person is introduced the first time they appear, so the jaunts make sense with no history in hand. Each stop now tells its part in full prose and ends on a hook for the next.',
+      'Every stop has its date and time of day, and the scene\'s clock follows. Where no record gives the hour, the jaunt says so and picks a reasonable one.',
+      'Long rides go Instantly by default, such as Hardscrabble to the Burns house or the march to the lake shore. Every place still keeps its full stop, and a travel mode you pick yourself still wins.',
+      'Chicago\'s First Murder now closes with the historians\' cases side by side: Kinzie as aggressor, the family\'s self-defence story, and who got to tell it.',
+      'Fort Dearborn, Building by Building now walks the last full day of the fort, 14 August 1812, from daybreak to sunset.',
+    ] },
+  { v: 2623, ts: '2026-11-03T22:00:30.935Z', date: 'Nov 3, 2026, 4:00 PM CT', title: 'Wolf Point\'s poster joins its pictured-grade evidence', kind: 'change',
+    items: [
+      'Wolf Point\'s pictured-grade explanation now includes the newly compared poster. The eighth building comparison and the unkeyed panorama\'s limits are recorded; the building\'s shape and materials are unchanged.',
+    ] },
+  { v: 2622, ts: '2026-11-03T21:37:46.537Z', date: 'Nov 3, 2026, 3:37 PM CT', title: 'Night windows stay lit as you walk past', kind: 'fix',
+    items: [
+      'Fixed: lit windows went out and came back on as you walked (Glessner House at 18th Street, 1904 at dusk). Each building\'s lit-or-dark choice is now tied to where it stands, so its near and far versions agree.',
+    ] },
+  { v: 2621, ts: '2026-11-03T21:02:41.394Z', date: 'Nov 3, 2026, 3:02 PM CT', title: 'Lake House links its later completed-state picture', kind: 'change',
+    items: [
+      'The unfinished Lake House’s Images tab links a credited public-domain print showing the later completed hotel.',
+      'Its caption separates that later scene from the construction site in July 1835.',
+    ] },
   { v: 2620, ts: '2026-11-03T19:40:08.323Z', date: 'Nov 3, 2026, 1:40 PM CT', title: '1936 Prairie\'s verandah stands on its columns', kind: 'improvement',
     items: [
       'The Allerton house\'s verandah on Prairie Avenue (1904) now stands on two fluted Corinthian columns between its three arches, as the 1869 Tribune describes and the old photograph shows, instead of solid piers.',

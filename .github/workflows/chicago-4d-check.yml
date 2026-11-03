@@ -65,6 +65,7 @@ jobs:
         with:
           # T-0409's gate needs the merge base to ask what this PR changed.
           fetch-depth: 0
+          filter: blob:none
 
       - uses: actions/setup-python@v5
         with:

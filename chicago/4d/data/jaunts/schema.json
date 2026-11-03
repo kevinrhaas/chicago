@@ -82,6 +82,10 @@
       "minItems": 1,
       "uniqueItems": true
     },
+    "long_form": {
+      "type": "boolean",
+      "description": "T-3355: a story jaunt told in full; each stop's text may run 25-150 words instead of 25-60."
+    },
     "variables": {
       "type": "object",
       "propertyNames": {
@@ -199,6 +203,16 @@
             "items": {
               "type": "string"
             }
+          },
+          "mode": {
+            "enum": [
+              "walk",
+              "wagon",
+              "horse",
+              "fly",
+              "instantly"
+            ],
+            "description": "T-3355: how this leg travels while the visitor is on the jaunt's default mode (a long ride Instantly). Must be one of the jaunt's allowed_modes."
           }
         },
         "required": [

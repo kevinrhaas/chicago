@@ -1,0 +1,27 @@
+{
+  "id": "kellogg_blanchard_1856_old_fort_lake_house",
+  "type": "illustration",
+  "citation": "Old Fort Dearborn — later completed Lake House, about 1836–1849. Full title: Old Fort Dearborn, erected at the mouth of Chicago River for defence against the Indians. Lithograph by E. B. & E. C. Kellogg, Hartford, Connecticut; published by Rufus Blanchard, 52 La Salle Street, Chicago, 1856. NYPL I. N. Phelps Stokes Collection, Stokes P.1857-D-8; Deák 718; image 55009.",
+  "author": "E. B. & E. C. Kellogg (lithographers); Rufus Blanchard (publisher)",
+  "date": "1856",
+  "describes_date": "ca. 1836–1849",
+  "repository": "New York Public Library, Phelps Stokes Collection; NYPL scan accessed through Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:Old_Fort_Dearborn,_erected_at_the_mouth_of_Chicago_River_for_defence_against_the_Indians_(NYPL_Hades-118858-55009).jpg",
+  "locator": "NYPL item https://digitalcollections.nypl.org/items/510d47d9-7d36-a3d9-e040-e00a18064a99; image 55009 / Hades-118858-55009. Printed lower-left lithographer and lower-right publisher credits, and LAKE HOUSE sign on the completed hotel at the right of the foreground blockhouse. Existing local crop: chicago/reference/images/chicago/chicago_fort_dearborn_river_mouth_1830.jpg.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "The NYPL-attributed Wikimedia Commons item gives publication date 1856, Public domain, Copyrighted=False, and PD-scan / PD-old-auto-expired. The underlying nineteenth-century United States publication is public domain. The local crop and Commons scan depict the same print; they are different image files. The separately marketed Granger reproduction is not the source used here.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Reviewed 2026-11-03: retrieved the current Commons item metadata and its NYPL-credited 3046 × 2180 scan, and read the lithographer/publisher imprints and LAKE HOUSE sign in that image. The direct NYPL item URL returned an automated-access placeholder, so its live catalog page was not independently read. Publication date and public-domain flags are supplied by the NYPL-attributed Commons metadata; the repository image catalog independently identifies this 1856 print.",
+  "note": "LATER COMPLETED STATE ONLY. Despite the local filename ending in 1830, the lighthouse, completed Lake House and steamboat belong to a later scene, approximately 1836–1849. The labelled hotel is right of the foreground fort blockhouse, partly behind a tree, with regular window rows and a central cupola. This retrospective print cannot establish the roof, height, extent or progress of the unfinished Lake House on 1 July 1835. No fitted camera or accepted geometric match is supplied.",
+  "what_it_supplies": [
+    "A credited public-domain contextual image of the later completed Lake House and river mouth.",
+    "A visual cross-check of the completed hotel, subject to retrospective illustration and foreground occlusion."
+  ],
+  "what_it_does_not_supply": [
+    "The construction stage, height or roof of the hotel on 1 July 1835.",
+    "Metric dimensions, exact world placement, hidden elevations or an accepted camera fit.",
+    "Permission at this tier to trace geometry or to replace the July 1835 construction shell with the completed hotel."
+  ]
+}
