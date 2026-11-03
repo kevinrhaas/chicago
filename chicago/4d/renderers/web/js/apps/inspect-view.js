@@ -326,7 +326,9 @@ function render(root, ctx) {
   let tab = tabFor === id ? lastTab : (linked ?? 'overview');
   if (EXPERT_TABS.has(tab) && !expertOn(doc)) tab = 'overview';
   // T-3265: a link to a person (the People app, a map pin) opens People on their card, once.
-  const person = ctx.link?.app === 'inspect' && ctx.link.id === id && ctx.link.person && ctx.link !== personLinked
+  // First-open mount and shown both draw; keep the pending card across that refresh.
+  const person = ctx.link?.app === 'inspect' && ctx.link.id === id && ctx.link.person
+    && (ctx.link !== personLinked || (root._insp?.id === id && root._insp.person === ctx.link.person))
     ? ctx.link.person : null;
   if (person) { personLinked = ctx.link; tab = 'people'; }
   tabFor = id;
@@ -571,6 +573,9 @@ async function openPersonCard(pane, personId, ctx) {
 function closePersonCard(pane) {
   const id = pane.dataset.person;
   delete pane.dataset.person;
+  // A later shown/refresh must preserve Back to the household list.
+  const state = pane.closest('.insp-panes')?.parentElement?._insp;
+  if (state) state.person = null;
   pane.querySelector('.insp-person-card')?.remove();
   const home = pane.querySelector('.insp-people-home');
   if (home) home.hidden = false;

@@ -1319,6 +1319,15 @@ step "a swept stoop's cheek drawn in to its newel and pierced under its top (T-3
 step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
   python3 tools/test_k01_wing_tower.py
 
+# T-3337. ...and a FLAT-TOPPED full-height projection stands on a wing's gable end, the gable
+# rising behind its top (1919 Prairie's canted north bay on its rear range, the 1911 sheet and
+# both Gatlin plates), and a flank-gabled wing's gables carry a stone coping, kneelers and
+# finials (k01_wing_coping). Held on 1919's record; a pitched projection, a tower and a
+# projection run past its end on a gable end, and a coping on a hip, a deck, a rear end or out
+# of its bounds refused.
+step "a flat-topped projection stands on a K01 wing's gable end, and a wing's gables are stone-coped (T-3337)" \
+  python3 tools/test_k01_wing_coping.py
+
 # T-3242. A two-level timber veranda on a K01 house's rear wall (k01_rear_veranda), held on
 # 1701 Prairie's record: its decks, paired posts, balusters, frieze and flight built where
 # the record puts them, nothing inside the main block; a wing's wall left standing behind an

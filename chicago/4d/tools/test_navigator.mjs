@@ -184,6 +184,10 @@ function miniDom() {
     if ((m = /^\[data-app="([\w-]+)"\]$/.exec(sel))) return el.dataset.app === m[1];
     if ((m = /^\.([\w-]+)\[data-tab\]$/.exec(sel))) return el.classList.contains(m[1]) && el.dataset.tab != null;
     if ((m = /^\.([\w-]+)\[data-tab="([\w-]+)"\]$/.exec(sel))) return el.classList.contains(m[1]) && el.dataset.tab === m[2];
+    if ((m = /^(?:\.([\w-]+))?\[([\w-]+)(?:="([^"]*)")?\]$/.exec(sel))) {
+      const value = m[2].startsWith('data-') ? el.dataset[m[2].slice(5).replace(/-([a-z])/g, (_, c) => c.toUpperCase())] : el.getAttribute(m[2]);
+      return (!m[1] || el.classList.contains(m[1])) && (m[3] === undefined ? value != null : value === m[3]);
+    }
     if (sel === 'svg') return el.tagName === 'SVG';
     return false;
   };
@@ -216,6 +220,9 @@ function miniDom() {
         const i = ref ? el.children.indexOf(ref) : -1;
         if (i < 0) el.children.push(c); else el.children.splice(i, 0, c);
       },
+      closest(sel) { for (let p = el; p; p = p.parent) if (matches(p, sel)) return p; return null; },
+      prepend(...cs) { for (const c of cs.reverse()) { if (typeof c === 'string') continue; el.insertBefore(c, el.children[0]); } },
+      replaceWith(c) { el.parent?.insertBefore(c, el); el.remove(); },
       remove() { if (el.parent) { el.parent.children.splice(el.parent.children.indexOf(el), 1); el.parent = null; } },
       replaceChildren(...cs) { el.children = []; el.append(...cs); },
       insertAdjacentHTML(_where, html) { el.html += html; },
@@ -239,6 +246,7 @@ function miniDom() {
   const doc = {
     documentElement: docEl, body,
     createElement: (tag) => make(tag),
+    createTextNode: (text) => Object.assign(make('#text'), { textContent: text }),
     getElementById: (id) => byId.get(id) ?? null,
     querySelectorAll: (sel) => body.querySelectorAll(sel),
     querySelector: (sel) => body.querySelector(sel),
@@ -1384,3 +1392,70 @@ console.log('NAVIGATOR KEYS PASS — N and Tab-from-the-scene toggle it, 1–9 o
 
 console.log('NAVIGATOR PASS — the probe looks only when asked and moved, each asker within its own distance (Home 100 m); the street at the 1904 spawn is Prairie & Eighteenth; '
   + 'DOCK, HALF and FULL by tap, drag and flick, the desktop panel to its rail; Home paints the place, the target, the Jaunt, Move and the Confidence view; the rail opens the drawer’s sections');
+
+// First opening calls mount then shown with the same link (nav-rail.select).
+// The actual Inspect view must retain the linked card through both async draws.
+{
+  const previousCSS = globalThis.CSS;
+  globalThis.CSS ??= { escape: (id) => { assert.match(id, /^[\w-]+$/); return id; } };
+  const inspect = await import('../renderers/web/js/apps/inspect-view.js');
+  const dom = miniDom();
+  const panel = dom.doc.createElement('div'); dom.root.append(panel);
+  const events = new Map();
+  panel.addEventListener = (type, fn) => events.set(type, fn);
+  panel.removeEventListener = (type, fn) => { if (events.get(type) === fn) events.delete(type); };
+  panel.dispatch = (type, ev) => events.get(type)?.({ preventDefault() {}, ...ev });
+  const personId = 'pa1904_otis_f_r_c1900_hans_johnson';
+  const id = 'otis_house_2033_prairie';
+  const directory = json('data/sidecars/1904/people.json');
+  const row = directory.people.find((r) => r.id === personId);
+  const household = json(`data/residents_1904/${row.file}`);
+  const citations = json('data/sidecars/1904/residents_sources.json').citations;
+  let releaseSections;
+  let sections = new Promise((resolve) => { releaseSections = resolve; });
+  const section = { people: '', hasResidents: false, households: [] };
+  const link = { app: 'inspect', id, tab: 'people', person: personId };
+  let fetched = 0, found = null, releaseHousehold;
+  const waitingHousehold = new Promise((resolve) => { releaseHousehold = resolve; });
+  const ctx = { selected: id, link, scene: { id: '1904' }, isPhone: true,
+    actions: { record: (key) => ({ id: key, sidecar: json(`data/sidecars/1904/${key}.json`) }),
+      inspectSummaries: async () => null, pictures: async () => null,
+      cardSections: () => sections, peopleDirectory: async () => directory,
+      householdRecord: async (file) => { assert.equal(file, row.file); fetched++; return waitingHousehold; },
+      residentCitations: async () => citations, findPerson: (id) => { found = id; } } };
+  const flush = async () => { for (let i = 0; i < 24; i++) await Promise.resolve(); };
+  await inspect.mount(panel, ctx);
+  await inspect.shown(panel, ctx);
+  assert.equal(panel._insp.person, personId, 'mount followed by shown retains the requested person');
+  releaseSections(section); await flush();
+  assert.ok(panel.querySelector('.insp-person-wait'), 'actual card waits for the deferred household');
+  await inspect.shown(panel, ctx); await flush();
+  assert.equal(panel._insp.person, personId, 'same-link refresh while household pending preserves selection');
+  releaseHousehold(household); await flush();
+  const pane = panel.querySelector('.insp-pane[data-insp-pane="people"]');
+  const card = pane.querySelector('.insp-person-card');
+  assert.equal(pane.dataset.person, personId);
+  assert.equal(card.dataset.personId, personId);
+  assert.equal(card.querySelector('.insp-person-name').textContent, 'Hans Johnson');
+  assert.ok(card.querySelector('.insp-person-census'), 'actual household census record hydrated');
+  assert.equal(card.querySelector('.insp-person-wait'), null);
+  assert.ok(fetched > 0, 'household was actually requested');
+  card.querySelector('.insp-person-find').dispatch('click');
+  assert.equal(found, personId, 'native rendered Find dispatches the same person');
+  panel.dispatch('click', { currentTarget: panel, target: card.querySelector('[data-person-back]') });
+  assert.equal(pane.dataset.person, undefined);
+  assert.equal(pane.querySelector('.insp-person-card'), null);
+  assert.equal(pane.querySelector('.insp-people-home').hidden, false);
+  await inspect.shown(panel, ctx); await flush();
+  assert.equal(panel.querySelector('.insp-person-card'), null, 'same consumed link must not undo Back');
+  assert.equal(panel._insp.person, null);
+  // A fresh public link to the same person must open it again.
+  await inspect.shown(panel, { ...ctx, link: { ...link } }); await flush();
+  assert.equal(panel.querySelector('.insp-person-card')?.dataset.personId, personId);
+  await inspect.shown(panel, { ...ctx, selected: 'glessner_house', link: { app: 'inspect', id: 'glessner_house', tab: 'people' } }); await flush();
+  assert.equal(panel._insp.person, null, 'a different building must reset the person selection');
+  assert.equal(panel.querySelector('.insp-person-card'), null);
+  inspect.unmount(panel);
+  if (previousCSS === undefined) delete globalThis.CSS; else globalThis.CSS = previousCSS;
+  console.log('INSPECT LINKED PERSON PASS — actual mount/shown, household hydration, Find, Back and new link');
+}

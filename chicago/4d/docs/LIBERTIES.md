@@ -24362,7 +24362,9 @@ cornice, the low hip with its railed deck, the stacks, the iron fence on its cur
 **What is invented.** The walls' thickness; the brick's panel (K03's rough red-brown stands for the
 Tribune's Baltimore pressed brick, which the kit has no panel for); the roof's covering (the Tribune's slate
 is laid by K04 only at 45 degrees and over, and the photograph's hip is low, so it is the kit's painted
-standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's 15.0 m height;
+standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's height (16.22 m, raised with the cornice by T-3330); the attic
+storey's 3.32 m, which is what puts K10's cornice crown at the Tribune's 44 ft (T-3330: at 2.1 m it
+stood at 12.19 m, 1.2 m short);
 every window's place along the flanks and the rear, and the sashes' sizes; the north stack; the gates, the
 walks and the rainwater goods.
 
@@ -24378,8 +24380,15 @@ photograph draws them; their sizes (the balcony 0.55 m out on a 0.3 m slab and t
 0.75 m balustrade; consoles 0.9 m deep; brackets 0.37 m apart) are read through the photograph's scale at
 the belvedere's lights and are reconstructed, and the photograph's carved consoles are the kit's plain
 quarter-ellipse ones and its moulded corbel table the kit's stepped courses. Both balconies stop on the
-wall's plane with the shaft. The bracketed cornice and balcony at the main cornice's level are not built:
-the shaft passes the main cornice with a plain string course. The door stands in the
+wall's plane with the shaft. At the main cornice's level (T-3330) the shaft carries the main cornice
+round its faces as the kit's corbel table, a 0.35 m stone course 0.5 m out over a row of 0.16 m blocks
+0.37 m apart, 0.75 m deep in all, for the photograph's moulded cornice and modillions; the photograph
+shows no balcony at that level, only the belvedere's. The heights over it are read on the photograph's
+own vertical scale down the tower's front (a level camera keeps one scale down a vertical plane), set by
+the Tribune's 44 ft at the main cornice's top, which then puts the top balustrade at the Tribune's 73 ft:
+a blind stage 1.78 m (its three lights withdrawn), the belvedere 5.2 m from its balcony's floor with
+lights 1.8 m high, a 1.1 m top balustrade. Those sizes are reconstructed to that scale, and the
+belvedere's cornice is still the kit's thin bracketed eave where the photograph's stands about 1 m deep. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
@@ -24387,8 +24396,9 @@ storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
-between the photograph and the sheet, and works the tower's main-cornice stage and height (T-3330), the verandah, the entrance and the window
-dressings toward the photograph; T-1902 carves the finish.
+between the photograph and the sheet, and works the verandah, the entrance, the stacks' places and the window
+dressings toward the photograph (the tower's heights, T-3330, are read on its own plane and do not wait
+on the camera); T-1902 carves the finish.
 
 **Covers:** `house_1918_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1918_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1918_prairie.as_mapped_1904.form.roof_covering`, `house_1918_prairie.as_mapped_1904.form.stair_tread_m`, `house_1918_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1918_prairie.as_mapped_1904.form.north_bays`, `house_1918_prairie.as_mapped_1904.form.rainwater`, `house_1918_prairie.as_mapped_1904.form.yard`.
 **Ticket:** T-1901 (piece 1).
@@ -39021,6 +39031,40 @@ it.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3314).
 
+### L-k01-1919-north-bay-coped-gables-3337 — 1919 Prairie's canted north bay on its rear range, flat-topped under a balustrade, and its rear ranges' stone-coped gables, read off the Gatlin plates and the 1911 sheet
+
+**Decision:** the north flank of 1919 Prairie's rear ranges (T-3337, piece 1 of T-3303, of T-1907) carries
+what the 1911 sheet draws and both Gatlin Institute plates show: on the rear range's north wall, the
+sheet's canted north bay (u -14.5 to -9.4, about 1.4 m out), standing two storeys to the range's wall top
+under a flat top and a balustrade, its windows grouped between stone mullions, the range's steep gable
+standing back over it; and the gables of both ranges carried up past the slate in a pale stone coping,
+springing from kneelers and finialled at their peaks, as T-3301 found the street dormer's gable is. K01
+learns two additive things for it, byte-identical for every other house (`k01_emit --check`): a
+flat-topped full-height projection may stand on a wing's gable end (it was refused there, since a tower's
+back closes over the wing's wall top and a flat top closes nothing), and a flank-gabled wing's roof may
+name a stone `coping` on its gable ends (`generators/archetypes/k01_wing_coping.py`, the dormer coping's
+parts in the gable face's frame).
+**What is read, not invented.** The bay's place along the wall and its canted plan, from the 1911 sheet's
+trace; that it is two storeys, flat-topped under a balustrade and glazed in mullioned groups, from both
+plates; that the flank's gables are coped in pale stone with finials at their peaks, from both plates.
+**What is invented.** The bay's 1.2 m projection (the kit's most for a projection, 0.2 m under the sheet's
+reading) and its 1.2 m cants; its windows' kinds (K06's four-light transomed mullioned group on its face,
+a two-over-two sash in each cheek), sizes and sills; its 0.6 m plinth, its moulded stone cornice and its
+balustrade's rails; the rear range's two remaining flank windows moved to s 1.0 and 8.2 m beside it; the
+coping's 0.18 m section, 0.35 m run back and 0.35 m kneelers (the dormer's), the 0.6 m finials, and that
+the ranges' south gable ends, which face 1923's wall a metre off and no picture shows, are coped as the
+north ends are.
+**What is not built.** The stone quoins the plates show at the bay's corners (K08 dresses only a stone
+bay); the quoined flat-topped block at the middle range's north-west corner and its mullioned stretch;
+the small pinnacled dormers between the gables; the third, smaller gable at the flank's far end. And both
+plates' cameras put the flank's two-storey face nearer the street-side viewpoint, or higher, than the
+1911 sheet's trace puts the ranges, which is open in both match records.
+**How to resolve:** T-3338 takes the rest of the flank, the ranges' place against both plates and the
+house's remaining pictures.
+**Ticket:** T-3337 (piece 1 of T-3303).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-3337).
+
 ### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
 
 **Decision:** the renderer no longer repeats a K03 brick panel (`assets/textures/prairie_1904_brick/panel/`,
@@ -39383,6 +39427,32 @@ places one.
 **Ticket:** T-3339.
 **Recorded:** 2026-11-03 (T-3339).
 
+### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
+
+**Decision:** in the 1812 scene only, `renderers/web/js/trees.js` (`SOUTH_GROVES`) deals two kinds of grove on the
+South Division, each stem from a generator seeded by its own position, off the shared stream. The **belt**: on the
+South Branch's east bank south of the forks, wherever no wood already stands, ZONE 5's trees (cottonwood, green ash,
+elm, silver maple, black willow, swamp white oak, hackberry) near-continuous within 40-95 m of the water and in groves
+out to 230 m, thinning outward. The **hollows**: on the low ground of the south prairie (below 0.96-1.32 m above the summer
+water) more than 230 m from the river, a coarse field picks the few hollows that carry a grove of black and
+peach-leaved willow, cottonwood and green ash. **Why:** the owner, 2026-11-03: *"I also think there should be more
+trees south of the river it was well documented from before that there were cottonwoods and other occasional groves
+of trees along the water and in patchy water areas throughout the prairie, the south part should not look so
+desolate."* The wood `communityAt` gives the South Branch is a gallery 30-74 m deep, the low half of ZONE 5's 30-120
+m because in 1835 the town was cutting there, and it stops at the Wells Street line, the east end Andreas gives the
+main stem's belt, which the South Branch crosses for about a mile south of N -2000; in 1812 nobody was cutting, and
+the bank stood nearly bare. **What is read, not invented:** that the South Side timber "follow[ed] the bend of the river ... and extend[ed]
+south two or three miles" (Andreas, through `chicagology_prefire273`); that the surveyors met willow thickets and
+swamp margins on the Cook County prairie, and that timber stood thickest where water broke the prairie fires
+(McBride and Bowles, `mcbride_bowles_2007`). **What is invented:** every stem's place; the belt's depth (40-95 m
+near-continuous, groves to 230 m) and density (30-72 stems a hectare at its thickest); which hollows carry a grove,
+the height band that makes a hollow (fully wet below 0.96 m, none above 1.32 m), and their density (20-56 a hectare); the species weights. That the belt follows the South Branch's east bank
+past the Wells Street line rather than stopping at it. **How to resolve:** the 1821-22 federal
+survey's field notes for the South Branch townships (line trees, "timber" and "prairie" calls along the section
+lines south of the forks), or an early map that draws the timber along the South Branch.
+**Ticket:** T-3340.
+**Recorded:** 2026-11-03 (T-3340).
+
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash
 
@@ -39417,6 +39487,29 @@ T-2793 final structural scope: an actual90x55mm central reach reuses the license
 **Recorded:** 2026-10-26.
 
 **Period cross-check:** T-2793 bounded period cross-check: the personally viewed1835 Wild Cincinnati painting (`wild_1835_third_vine`) shows the four-wheel, smaller-front/larger-rear work-wagon family with a covered box. The held Buffalo Eagle Tavern print shows an open loaded box but depicts1825 in an undated19th-century print reproduced1912. Neither supplies this specimen, Chicago presence, calibrated dimensions, hidden gear, wood species, coating or eight-spoke count. The current model intentionally remains open and empty, with reconstructed gray/warm finishes; no canvas/team/driver claim is added. Actual image hashes, provenance and comparison limits are in docs/RESEARCH/farm-box-master-2793/REFERENCE-COMPARISON.md. Existing geometry, UVs, images, GLB exports and source rights remain unchanged.
+
+### L-k14-walk-1900-keith-3322 — 1900 Prairie given the front walk its photograph shows, from the public walk between its coping's posts to the stoop
+
+**Decision:** 1900 Prairie Avenue (Elbridge G. Keith's) was put onto the K01 kit by T-3207 after T-3206 had
+given every other worked house on the 1800 and 1900 blocks its yard (L-k14-walks-1800-block-3206), so it alone
+stood with an opening in its coping wall and no walk behind it: `tools/check_house_walks.py` carried it as its
+last PENDING house. T-3322 (piece 2 of T-1944, the 18th-20th block's grounds) gives it a K14 yard. **What is
+read.** The one period photograph (`glessner_blog_1900_keith_oblique_photo`, the museum's '1900 PA') shows a light
+paved walk running square from the public walk between the coping wall's two square posts to the foot of the
+broad stoop, and lawn behind the coping on either side of it. The walk is laid there, from the stoop's foot
+(u 25.5 m) through the wall's opening (s 4.4-7.0 m) to the public walk's inner edge (u 28.67 m), on the stoop's
+axis; the lawn is the app's own ground (`lawn: none`, as at 1801 and 1901). **What is invented or held by the
+kit.** The walk's width, 2.5 m (the opening's 2.6 m less a joint at each post; the print shows the paving filling
+the opening), its stone flags, their 0.9 m length, joints and wear, and the bare strip at the wall foot are the
+K14 kit's, aged from the phase's own year. The low hedges the print shows behind the coping south of the walk
+are not built here. The app stands the house on the lowest ground under its walls, and the ground rises 44-54 mm
+toward the street under the yard (measured in the published app, `tools/qa_house_walks_t3322.mjs`), enough to
+bury the 60 mm flags at the street end; the yard is lifted onto it (`yard.grade_m`), which is the app's ground,
+not evidence of a graded lawn.
+**How to resolve:** a nearer picture of the walk, or a survey plat drawing it.
+**Covers:** `elbridge_keith_house_1900_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3322.
+**Recorded:** 2026-11-03 (T-3322).
 ### L-horse-upper-eye-contour-3088 — bounded upper-lid strip and upper-orbital contour
 
 **Recorded:** 2026-10-29 (recovery of source work recorded26–27October2026). **Ticket:** T-3088.
