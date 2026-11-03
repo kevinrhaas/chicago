@@ -41,12 +41,13 @@ hyphens or underscores, beginning with a letter or digit.
 | `inventory` | Optional `{items:[declared IDs],initial:[IDs],capacity}`. Items form a set, not stackable quantities; use a bounded variable for counts. |
 | `stops` | Ordered array; first is entry. Normally 4–8 stops; fixtures/legitimate short outings may use fewer. Maximum 50. |
 | stop `id`, `destination` | Unique stop ID; destination `{kind,id}` uses `structure`, `anchor`, `intersection`, `person`, `business`. |
+| `long_form` | Optional boolean (T-3355). A story jaunt told in full: each stop's text may run 25–150 words instead of 25–60. The 1812 story jaunts use it. |
 | stop `text`, `read_s`, `action_s` | Text is 25–60 whitespace-separated words. Seconds are integers 0–600; action seconds optional (default 0). These are inputs, not measured journey times. |
 | stop `evidence` | Nonempty list of this jaunt's evidence IDs covering facts and connective narrative in the stop. |
 | stop `choices` | Optional array of 0–3 `{id,label,consequence,when?,effects?,next?}`. IDs unique within the stop. |
 | stop `links` | Optional `{kind,id,label}` card links. Kinds: structure, person, business, source, topic. Topic IDs resolve against existing Evidence topics. |
 | stop `next` | Unconditional continuation/skip. A choice without `next` inherits it; no implicit array-order jump. |
-| `legs` | Optional by-index `{note?,story?}` between-stop notes; no mandatory dwell or effect. |
+| `legs` | Optional by-index `{note?,story?,mode?}` between-stop notes; no mandatory dwell or effect. `mode` (T-3355) is how that leg travels while the visitor is on the jaunt's default mode, and must be one of `allowed_modes`: a ride of more than about 20 seconds goes `instantly`, and the place keeps its full stop. A mode the visitor picks, and Straight there, still win; going back over the leg uses its mode too. |
 | `endings` | Unique `{id,text,read_s,completion_eligible,when?,default?}` records. At most one default, with no condition. |
 | `keepsake` | `{family,id,title,text}` fictional memento, not a historical artifact. |
 | `secondary_family` | At most one optional family besides the primary. |
