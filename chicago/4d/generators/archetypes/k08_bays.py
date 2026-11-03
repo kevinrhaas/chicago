@@ -3040,7 +3040,8 @@ class Bay:
         bow, one arc from the wall to the wall, takes it (k01_frontage_params refuses others);
         T-2780: or a canted bay's flat top, a post at each end of each run, in the bay's dressed
         stone where the balcony names `fabric: stone` (1637's south bay, its balustrade);
-        T-2888: or a projection's flat top the same way, round its cheeks and front (1812's).
+        T-2888: or a projection's flat top the same way, round its cheeks and front (1812's);
+        T-3318: or a square tower's (1936's belvedere, in its photograph).
         T-3092: a rail may carry a stone `panel` in the middle of one run, rising to a pedestal,
         with iron scrolls over its sweeps, and its bars may each carry a `roundel` (1812's)."""
         bl = self.v["balcony"]
@@ -3051,7 +3052,8 @@ class Bay:
         # stand its face in the next run's rail end; there the corner post stands centred on
         # the corner and the rails run into it, stopping short of the corner by half their
         # width and half the post's together, halved, so the two runs' rails never meet
-        square = self.v["kind"] == "projection"
+        # T-3318: and so do a square tower's (1936's belvedere top)
+        square = self.v["kind"] == "projection" or (self.v["kind"] == "tower" and int(self.v["plan"].get("sides", 0)) == 4)
         tuck = (rw + pm) / 4
         # a stone balustrade's feet stand on a 2 mm bed over the flat roof, not in its plane,
         # and so does an iron rail on a projection's flat top (T-2888)
