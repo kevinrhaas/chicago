@@ -727,17 +727,7 @@ def _check_return_balustrade(j, r, T):
     balusters `pitch_m` apart in `segments` facets on `profile` ([r, fraction of height] from
     0 to 1, as the entrance kit's balustrade)."""
     b = r["balustrade"]
-    bad = not isinstance(b, dict) or not RETURN_BALUSTRADE <= set(b) <= RETURN_BALUSTRADE | {"posts_m"}
-    if not bad and "posts_m" in b:
-        # T-1881: solid posts standing from plinth to rail inside a stretch (the one Taylor's
-        # no. 1445 and the Detroit print both draw in the middle of 1729's 18th Street balustrade),
-        # each [from, to] along x, 0.2-1.2 m long, apart by at least a baluster's pitch
-        ps = b["posts_m"]
-        bad = not isinstance(ps, list) or not ps \
-            or any(not isinstance(q, list) or len(q) != 2 or not 0.2 <= max(q) - min(q) <= 1.2 for q in ps)
-        if not bad:
-            ps = sorted((min(q), max(q)) for q in ps)
-            bad = any(q[0] - p[1] < b["pitch_m"] for p, q in zip(ps, ps[1:]))
+    bad = not isinstance(b, dict) or set(b) != RETURN_BALUSTRADE
     if not bad:
         (pw, ph), (rw, rh), prof = b["plinth_m"], b["rail_m"], b["profile"]
         bad = not 0.4 <= b["height_m"] <= 1.2 or r["height_m"] + b["height_m"] > 2.0 \
@@ -774,26 +764,14 @@ def _return_balustrade(side_face, box, turned, xa, xb, h, b, piers, T):
             if x1 - x0 > 1e-6 and y1 - y0 > 1e-6:
                 for pts4, nrm in box(x0, x1, y0, y1, -T / 2 - w / 2, -T / 2 + w / 2):
                     side_face(pts4, nrm)
-        # T-1881: posts inside the stretch stand solid between plinth and rail, and the
-        # balusters fill each gap either side; a post not clear of the stretch's newels by a
-        # pitch is refused rather than dropped (none without `posts_m`, so no other run moves)
-        posts = sorted((min(q), max(q)) for q in b.get("posts_m") or () if min(q) < s1 and max(q) > s0)
-        for p0, p1 in posts:
-            if p0 < s0 + n + b["pitch_m"] or p1 > s1 - n - b["pitch_m"]:
-                raise ValueError(f"stone_coping_wall.side_return balustrade post {[p0, p1]}: not clear of its "
-                                 f"stretch {s0:.2f}-{s1:.2f}'s newels by a baluster's pitch")
-            for pts4, nrm in box(p0, p1, h + ph, top - rh, -T / 2 - rw / 2, -T / 2 + rw / 2):
-                side_face(pts4, nrm)
+        clear = s1 - s0 - 2 * n
+        k = max(1, int(clear / b["pitch_m"]))
         bh = top - rh - (h + ph)
         prof = [(rr, h + ph + f * bh) for rr, f in b["profile"]]
-        edges = [s0 + n] + [e for p in posts for e in p] + [s1 - n]
-        for g0, g1 in zip(edges[::2], edges[1::2]):
-            clear = g1 - g0
-            k = max(1, int(clear / b["pitch_m"]))
-            for i in range(k):
-                for pts, nrm in turned(g0 + clear * (i + 0.5) / k, -T / 2, prof,
-                                       segments=b["segments"], cap_bottom=False):
-                    side_face(pts, nrm)
+        for i in range(k):
+            for pts, nrm in turned(s0 + n + clear * (i + 0.5) / k, -T / 2, prof,
+                                   segments=b["segments"], cap_bottom=False):
+                side_face(pts, nrm)
 
 
 SWEEP_STEPS = 10       # T-1934: the facets a sweep's curved top is laid in

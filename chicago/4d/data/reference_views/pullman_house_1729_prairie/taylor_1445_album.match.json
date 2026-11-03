@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "cd9e699200c27c5c9e240595167547a8480e2dbbde37dbb5d62f920ad547fd12",
+  "glb_sha256": "dcca397ff222786b0b4c25e0f139b90d40677cd8982e55254363fe781fcaf4b0",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -257,7 +257,7 @@
     {
       "what": "the solid post in the middle of the 18th Street balustrade east of the third pier, from plinth to rail between the turned balusters (x 874-889 px, u 14.36-13.18 through this camera)",
       "status": "fixed",
-      "how": "T-1881 (2026-11-03): built as a K11 balustrade post (posts_m) 0.9 m long at u 13.05-13.95, between this print's reading and the Detroit print's (x 779.5-781.5 there, u 13.48-12.8); it renders at x 873-892 here, flush with the rail."
+      "how": "T-1881 (2026-11-03): built as a 0.9 m pier in the 18th Street return's pier list, rising to the rail's top (1.8 m, no cap), at u 13.05-13.95, between this print's reading and the Detroit print's (x 779.5-781.5 there, u 13.48-12.8); it renders at x 873-892 here, flush with the rail."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
