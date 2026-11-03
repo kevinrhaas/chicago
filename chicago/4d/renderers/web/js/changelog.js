@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2602, ts: '2026-11-03T06:53:00.774Z', date: 'Nov 3, 2026, 12:53 AM CT', title: '1936 Prairie: the Allerton house rises to its 44-foot cornice', kind: 'feature',
+    items: [
+      'The Allerton house\'s bracketed cornice now stands at the 44 feet the 1869 Tribune gives, 1.2 m higher than before; the attic\'s frieze lights, the roof deck and the chimneys rise with it.',
+      'Its tower is re-proportioned to the winter photograph: the main cornice now runs round the tower, and the short, windowless stage over it carries the belvedere\'s balcony nearer the roof.',
+    ] },
   { v: 2601, ts: '2026-11-03T06:49:59.823Z', date: 'Nov 3, 2026, 12:49 AM CT', title: 'A front walk for 1900 Prairie', kind: 'feature',
     items: [
       '1900 Prairie, the Elbridge Keith house, now has the flagged walk its photograph shows, from the sidewalk between its low wall\'s two stone posts to the foot of its front steps.',
