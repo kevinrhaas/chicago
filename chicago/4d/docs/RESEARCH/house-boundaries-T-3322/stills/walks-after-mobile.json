@@ -1,0 +1,28 @@
+{
+  "method": "Actual published /1904/ app; stills at 1280x800 full and 390x780 light; the walk is walker.update(0.1 s, forward) from the public walk toward the stoop foot, at most 14 s.",
+  "results": [
+    {
+      "label": "mobile",
+      "id": "elbridge_keith_house_1900_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-elbridge_keith_house_1900-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.044,
+        "street": 0.054,
+        "street_s_lo": 0.051,
+        "street_s_hi": 0.056,
+        "per_m_s": 0.0008
+      },
+      "walk": {
+        "closest_to_foot_m": 0.15,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    }
+  ]
+}
