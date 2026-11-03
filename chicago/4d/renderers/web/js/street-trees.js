@@ -82,7 +82,9 @@ function elmSpec(mode) {
  * `broad_head`, a young elm still on its leader, the head wide and low from
  * about a quarter of its height (tree-model.js ARCH.ulmus_americana_young), the
  * tree before the 1800 Calumet gate in the 1894 plate and Lowe's print. Two:
- * `limbed_head`, that young elm with its limbs starting about 5 m up (T-1934).
+ * `limbed_head`, that young elm with its limbs starting about 5 m up (T-1934). Three:
+ * `high_head`, a tall elm on its leader under a narrow head from about half its height
+ * (T-1881), the trees before 1729 Prairie in the Detroit print and Taylor's no. 1445.
  */
 const FORMS = {
   // `dbh` is the bole at the height the crown is grown at: a form's few trees grow
@@ -96,6 +98,12 @@ const FORMS = {
   // Taylor's 16555 and 16554.
   limbed_head: (mode) => ({ ...elmSpec(mode), arch: 'ulmus_americana_young_limbed', form: 'parkway_head_limbed',
     spreadK: 0.85, dbh: [0.24, 0.30] }),
+  // T-1881: `high_head`, a tall elm on one leader clear to about half its height under a
+  // narrow head (ARCH.ulmus_americana_high), the trees before 1729 Prairie in the Detroit
+  // print and along its 18th Street flank in Taylor's no. 1445: crowns 5-6 m across on trees
+  // 15-20 m tall, boles about 0.3 m.
+  high_head: (mode) => ({ ...elmSpec(mode), arch: 'ulmus_americana_high', form: 'parkway_head_high',
+    spreadK: 0.40, dbh: [0.28, 0.35] }),
 };
 const specFor = (t, mode, elm) => (FORMS[t.form] ? FORMS[t.form](mode) : elm);
 

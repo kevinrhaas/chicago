@@ -123,6 +123,7 @@ for (const d of DESTINATIONS) {
 assert.equal(picks[1835].length, 3, '1835 has three to suggest');
 assert.equal(picks[1904].length, 3, '1904 has three to suggest');
 assert(!picks[1904].includes('Every building modelled so far'), 'the 29-stop build log is not a first Jaunt for a class');
+assert.equal(picks[1812].length, 3, '1812 has three to suggest (the Fort Dearborn jaunts, T-3325..T-3327)');
 
 // ---- the steps are the tour's own ------------------------------------------------------------
 for (const scene of ['1835', '1904', '1812']) {
@@ -169,7 +170,6 @@ for (const d of dests) {
   assert.deepEqual(titles, picks[d.dataset.year], `${d.dataset.year}: the suggested Jaunts, in order`);
   for (const s of byClass(d, 'handout-stops')) assert.match(s.textContent, /^\d+ stops$/);
 }
-assert.equal(byClass(dests[2], 'handout-empty')[0]?.textContent, 'No Jaunts here yet.', 'a destination with no Jaunts says so');
 assert.match(words, /featured Jaunts first, then the shortest/, 'the rule is printed with the picks');
 // What a visitor reads: no id, path, snake_case, tier or ticket; the locked terms as written.
 const visible = block.textContent;
@@ -217,6 +217,14 @@ assert.equal(byClass(off[0], 'handout-jaunt-title').length, 3, 'the others still
 assert.equal(byClass(byId(offline, 'guide-handout'), 'handout-step').length, 8);
 assert.equal(off[0].dataset.here, 'true');
 unmount(offline);
+// A destination whose catalog is read and holds no Jaunts says so (1812 did, until T-3325).
+const empty = doc.createElement('div');
+mount(empty, ctxFor({ id: '1835' }, async (year) => (year === 1812 ? [] : catalogOf(year))));
+await settle(); await settle();
+const none = byClass(byId(empty, 'guide-handout'), 'handout-dest');
+assert.equal(byClass(none[2], 'handout-empty')[0]?.textContent, 'No Jaunts here yet.', 'a destination with no Jaunts says so');
+assert.equal(byClass(none[0], 'handout-jaunt-title').length, 3, 'the others still list theirs');
+unmount(empty);
 // No way to read catalogs at all (an older page): every destination says it could not.
 const bare = doc.createElement('div');
 mount(bare, { controls: 'pointerlock', actions: {} });
