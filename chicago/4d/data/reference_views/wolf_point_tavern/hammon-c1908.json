@@ -1,0 +1,93 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "source_id": "widney_hammon_c1908_chicago_1833",
+  "photo": "../../../../reference/images/chicago/chicago_wolf_point_1833_hammon.jpg",
+  "image_px": [
+    1280,
+    796
+  ],
+  "principal_px": [
+    116.45884457750344,
+    316.77733696064246
+  ],
+  "focal_px": 6000.0,
+  "eye": [
+    143.742677052216,
+    198.24013396219985,
+    2.0
+  ],
+  "yaw_deg": 215.95058058575765,
+  "near_m": 145,
+  "pixel_aspect": 1,
+  "sky": "overcast",
+  "diagnostic_only": true,
+  "solve": {
+    "status": "finite_reconstructed_first_fit_UNRENDERED_UNACCEPTED",
+    "target_panel": "leftbanktavern; oneclearfrontgable and recedingrange",
+    "metric_control": "None. The existing canonical NYPL-governed 5 m compartments, 2.6 m eave and 42-degree gables are conditional reconstructed display geometry, not dimensions measured from this picture. The fixed 6000 px focal length, 2 m eye height and radial eye family choose a finite scale and distance from their degeneracy.",
+    "manual_pixel_controls": [
+      {
+        "name": "core_inner_eave",
+        "model_uvy": [
+          5,
+          10.1,
+          2.6
+        ],
+        "pixel": [
+          167,
+          299
+        ],
+        "fitted_pixel": [
+          164.22137212849884,
+          301.37679103275593
+        ],
+        "residual_px": 3.6564885425325846
+      },
+      {
+        "name": "core_outer_eave",
+        "model_uvy": [
+          0,
+          10.1,
+          2.6
+        ],
+        "pixel": [
+          269,
+          304
+        ],
+        "fitted_pixel": [
+          266.23312302635276,
+          301.56778631413323
+        ],
+        "residual_px": 3.6839206833232643
+      },
+      {
+        "name": "core_apex",
+        "model_uvy": [
+          2.5,
+          10.1,
+          4.8510101107446
+        ],
+        "pixel": [
+          210,
+          244
+        ],
+        "fitted_pixel": [
+          215.54550470900944,
+          244.05542265311084
+        ],
+        "residual_px": 5.545781653484355
+      }
+    ],
+    "manual_pick_uncertainty_px": 10,
+    "conditional_fit_residuals_px": {
+      "rms_point_distance": 4.3854636475068665,
+      "max_point_distance": 5.545781653484355
+    },
+    "fit_limits": "This is an analytic first fit to approximate manually read gable vertices, not actual render validation, held-out controls or a solved historical camera. Small or cropped panels constrain only one gable, whose assignment is a stated review hypothesis. An unchanged current MASTER render and direct inspection must decide adequacy; no verdict is prepared.",
+    "source_and_model_limits": "A different obliquity. The visible-gable assignment is a reconstructed seed, not proof about the hidden partner. Warm printing is not authentic pigment. Do not remove geometry to fit this first camera.",
+    "lighting": "Neutral overcast comparison lighting is selected to avoid inventing historical weather or pigment from illustrative hatching and printing. No original illumination calibration is asserted.",
+    "source_admission": "The accompanying source-specific bibliography describes the actual artwork using existing inventory credit and explicit date or edition limits. Review and admit it before any canonical derived camera or capture. The modern prefire273 check_required wrapper is not a substitute.",
+    "geometry": "Exact existing 225f MASTER / fdc WEB. Do not move, rebuild or hide parts to overfit this first camera. NYPL governs conflicting form readings.",
+    "historical_location": "Diagnostic only. No historical From this spot location or world coordinate is claimed."
+  }
+}

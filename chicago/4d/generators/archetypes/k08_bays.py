@@ -76,6 +76,13 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                the wall's face (a `side` junction, mitred and trimmed on that plane, not the
                face's), the gable on the shortened front and its kneeler over the chamfer's
                head; its host cuts its own corner under it (k01_frontage_params.chamfer_spans)
+  tower dress  (T-3329) a square tower's record may add the bracketed bay's `brackets` (1936's
+               belvedere, its photograph): consoles at the ring's corners that stand out of
+               the wall, never at one inside the house, and the row of modillions along each
+               run, both under a moulded cornice's soffit where its eaves name one; and a
+               `storey_balcony` at one of its storey lines: a stone slab `out_m` proud whose top
+               is that storey's floor, on stepped stone courses, under the flat top's stone
+               balustrade, closed square on the wall's plane at a cheek's end
 
 Everything a run carries is built FLAT, in the run's own (s, y, z) frame (s along the
 run's outer face, y up, z out of it: K06's frame), then mapped onto the run: rigidly
@@ -1552,11 +1559,13 @@ class Bay:
                 ledge(flat, "soffit", er, y_top, 0.0, ov, (0.0, -1.0, 0.0))
                 flat.plane("fascia", K6.box(er.s_start(ov), er.s_end(ov), y_top, y_e), -ov)
             if v.get("brackets"):
-                self._modillions(flat, run, y_top, ov)
+                self._modillions(flat, run, y_top + self._soffit_lift(prof), ov)
             if v.get("corbel_table"):
                 self._eave_corbel_table(flat, run, y_top, ov)
             if v.get("balcony"):
                 self._balcony(flat, run, y_e, ov, first=i == 0, idx=i)
+            if v.get("storey_balcony"):
+                self._storey_balcony(flat, run, levels, first=i == 0, idx=i)
             if v.get("floor_balcony"):
                 ((fi, fs),) = locate(self.runs, self.plan, {"at": [v["floor_balcony"]["at"]]})
                 if fi == i:
@@ -1583,7 +1592,7 @@ class Bay:
         if v.get("back_over") is not None:
             self._back_over(world, v["back_over"])
         if v.get("brackets"):
-            self._consoles(world, y_top, ov)
+            self._consoles(world, y_top + self._soffit_lift(prof), ov)
         merge(self.prims, world.prims)
         self._sockets(y0, y_e)
         if board:
@@ -1877,6 +1886,15 @@ class Bay:
                                  flat.P(s0, y0, -out)], (0.0, -1.0, 0.0))
         self.meta["corbel_table"] = self.meta.get("corbel_table", 0) + n
 
+    def _soffit_lift(self, prof):
+        """T-3324: how far over the wall top a tower's moulded cornice lays its soffit (its
+        section's lowest point at its full reach), where the brackets stand under it; 0 for
+        every other bay, whose brackets stand at the wall top as they always have."""
+        if self.v["kind"] != "tower" or not prof:
+            return 0.0
+        far = max(n for n, _ in prof)
+        return min(u for n, u in prof if abs(n - far) < 1e-9)
+
     def _consoles(self, world, y_top, ov):
         """A console under the soffit at every corner of the plan, on the corner's bisector:
         its top on the soffit from the corner out `reach_m`, its underside a quarter ellipse
@@ -1884,13 +1902,21 @@ class Bay:
         Its top and its back stand against the soffit and the corner and are not drawn."""
         c = self.v["brackets"]["consoles"]
         R, D, t = c["reach_m"], c["drop_m"], c["thickness_m"] / 2
-        if self.plan["kind"] != "polyline":
-            raise ValueError(f"{self.v['id']}: consoles stand at a polyline's corners")
-        lines = self.plan["lines"]
+        if self.plan["kind"] == "polygon" and self.v["kind"] == "tower" and not self.plan.get("across_corner"):
+            # T-3324: a square tower's ring (1936's belvedere): a console at each of its corners
+            # standing out of the wall, never at one inside the house behind its plane
+            ring = self.plan["lines"]
+            pairs = [(ring[k], ring[(k + 1) % len(ring)]) for k in range(len(ring))
+                     if ring[(k + 1) % len(ring)][0][1] > 1e-6]
+        elif self.plan["kind"] != "polyline":
+            raise ValueError(f"{self.v['id']}: consoles stand at a polyline's or a tower's ring's corners")
+        else:
+            lines = self.plan["lines"]
+            pairs = list(zip(lines, lines[1:]))
         k = c["segments"] if self.tier == "full" else max(2, c["segments"] // 2)
         arc = [(R - R * math.sin(math.pi / 2 * j / k), -D + D * math.cos(math.pi / 2 * j / k)) for j in range(k + 1)]
         n_c = 0
-        for (a1, e1, n1), (a2, e2, n2) in zip(lines, lines[1:]):
+        for (a1, e1, n1), (a2, e2, n2) in pairs:
             bx, bz = n1[0] + n2[0], n1[1] + n2[1]
             L = math.hypot(bx, bz)
             bx, bz = bx / L, bz / L
@@ -3033,7 +3059,7 @@ class Bay:
         return ay + H
 
     # sockets and the specimen's board --------------------------------------------------------
-    def _balcony(self, flat, run, y_e, ov, first=True, idx=0):
+    def _balcony(self, flat, run, y_e, ov, first=True, idx=0, bl=None, meta_key="balcony"):
         """T-2525: an iron rail on the eaves, `inset_m` in from their edge and round the run
         from the wall to the wall: a square post against the wall at each end, a foot rail
         and a top rail between them, and square bars at `pitch_m` under the top rail. Only a
@@ -3043,8 +3069,10 @@ class Bay:
         T-2888: or a projection's flat top the same way, round its cheeks and front (1812's);
         T-3318: or a square tower's (1936's belvedere, in its photograph).
         T-3092: a rail may carry a stone `panel` in the middle of one run, rising to a pedestal,
-        with iron scrolls over its sweeps, and its bars may each carry a `roundel` (1812's)."""
-        bl = self.v["balcony"]
+        with iron scrolls over its sweeps, and its bars may each carry a `roundel` (1812's).
+        T-3324: `bl` and `meta_key` lay a square tower's storey balcony with the same rail, on its
+        slab, and record it under its own name."""
+        bl = self.v["balcony"] if bl is None else bl
         role = "band" if bl.get("fabric") == "stone" else "iron"
         z = ov - bl["inset_m"]
         pm, bm, (rw, rd) = bl["post_m"], bl["bar_m"], bl["rail_m"]
@@ -3110,12 +3138,44 @@ class Bay:
                 # so its faces stand inside the bar's where the bar runs through it
                 self._loop(flat, role, m, y3 - rd - rn["radius_m"] - rn["drop_m"], rn["radius_m"], rn["width_m"],
                            12, -z - bm / 3, -z + bm / 3)
-        self.meta["balcony"] = {"bars": bars if pnl else n, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
+        self.meta[meta_key] = {"bars": bars if pnl else n, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
         if pnl:
             self.meta["balcony"]["panel"] = {"run": idx, "s_m": [round(c - pnl["width_m"] / 2, 4),
                                                                  round(c + pnl["width_m"] / 2, 4)]}
         if rn:
             self.meta["balcony"]["roundels"] = bars
+
+    def _storey_balcony(self, flat, run, levels, first, idx):
+        """T-3324: a square tower's corbelled balcony at one of its storey lines (1936's, at
+        the belvedere's foot in the photograph, the belvedere standing back over it). Along
+        the run: a stone slab `out_m` proud whose top is the storey's floor, under it
+        `corbel_courses` courses `course_m` deep, each stepped back toward the shaft by an
+        equal share of the slab's reach, and on the slab the flat top's stone balustrade
+        (`_balcony`), its line `inset_m` in from the slab's edge. Where a run starts or ends
+        on its wall's plane (a cheek), the slab and every course are closed square on that
+        plane, since over the main roof nothing stands behind them there."""
+        sb = self.v["storey_balcony"]
+        y_f = levels[sb["storey"]]
+        out, K, h = sb["out_m"], sb["corbel_courses"], sb["course_m"]
+        slabs = [(y_f - sb["slab_m"], y_f, out, True)]
+        for k in range(K):
+            top = y_f - sb["slab_m"] - k * h
+            # each course's top is under the wider one over it, so only its front and its
+            # underside are drawn
+            slabs.append((top - h, top, out * (K - k) / (K + 1), False))
+        for y0, y1, z, with_top in slabs:
+            proud(flat, "corbel", run, y0, y1, z, top=with_top)
+            for end in ("start", "end"):
+                if getattr(run, end) != "wall":
+                    continue
+                s_ = run.s_start(z) if end == "start" else run.s_end(z)
+                s0 = run.s_start(0.0) if end == "start" else run.s_end(0.0)
+                hx = -1.0 if end == "start" else 1.0
+                flat.face("corbel", [flat.P(s0, y0, 0.0), flat.P(s0, y1, 0.0), flat.P(s_, y1, -z),
+                                     flat.P(s_, y0, -z)], (hx, 0.0, 0.0))
+        self._balcony(flat, run, y_f, out, first=first, idx=idx, bl=sb, meta_key="storey_balcony")
+        self.meta["storey_balcony"].update({"floor_m": round(y_f, 4), "out_m": out,
+                                            "foot_m": round(y_f - sb["slab_m"] - K * h, 4)})
 
     def _balcony_panel(self, flat, pnl, c, y0, y_rail, z, bm, top_rails):
         """T-3092: a balcony's stone panel in the middle of its front run (1812's, the Levy
