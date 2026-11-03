@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2609, ts: '2026-11-03T10:13:03.384Z', date: 'Nov 3, 2026, 4:13 AM CT', title: '1835 by night: lamp-lit windows, the lighthouse lit, a gate lantern', kind: 'feature',
+    items: [
+      'Set Time of day to dusk or night in 1835 and the town\'s and the fort\'s windows glow with candle and oil-lamp light, most in the evening and only a few in the small hours.',
+      'The lighthouse at the river mouth shows its light from dusk to dawn.',
+      'A lantern hangs outside the fort\'s south gate by the guard house.',
+      'Daytime looks exactly as before.',
+    ] },
   { v: 2608, ts: '2026-11-03T09:51:47.576Z', date: 'Nov 3, 2026, 3:51 AM CT', title: 'Jaunt stops set the hour the sources give', kind: 'feature',
     items: [
       'A jaunt stop can carry its own hour and date: arriving sets the scene\'s light and the year chip\'s day, and leaving the jaunt gives your own Time of Day back.',
