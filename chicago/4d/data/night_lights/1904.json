@@ -1,0 +1,20 @@
+{
+  "scene": "1904",
+  "note": "T-3334. The light people made on Prairie Avenue in 1904, drawn when Settings › Time of day darkens it (renderers/web/js/night-lights.js). Every house's window panes can glow, building by building, as share_by_hour says; the colour is between a gas mantle's and an early electric lamp's, warmer than daylight and whiter than a candle. The street lamps are lit by street-furniture.js from the T-3199 posts. Liberty L-night-lights-3334 records what is ours.",
+  "windows": {
+    "light": "gas mantle and electric lamp",
+    "colour_linear": [1.0, 0.56, 0.23],
+    "intensity": 0.32,
+    "share_by_hour": [
+      ["00:00", 0.12],
+      ["05:00", 0.18],
+      ["06:00", 0.0],
+      ["17:00", 0.85],
+      ["22:00", 0.6],
+      ["23:00", 0.32]
+    ],
+    "basis": "Gas mantles, 'producing brighter light with only one-twelfth the gas consumption, became available in the 1890s', the city 'still used gas streetlights in some areas' into the early 1900s, and 'Electric lights were common by 1909' (chipublib_gaslight_blog). Light no longer cost a candle an hour, so the houses are lit more and later than 1835's town. Which houses burned gas and which electricity, and the hours, are ours.",
+    "sources": ["chipublib_gaslight_blog"]
+  },
+  "lights": []
+}

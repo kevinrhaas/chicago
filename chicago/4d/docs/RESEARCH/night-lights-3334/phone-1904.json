@@ -1,0 +1,111 @@
+{
+ "viewport": {
+  "width": 390,
+  "height": 780
+ },
+ "year": "1904",
+ "identical": {
+  "before": {
+   "hash": -1067675287,
+   "state": "[[1,0.8879231178794776,0.7156935005005721],3,[0.3651036470540383,0.8905681385594664,0.27127056141529143],0.95,1,[14786.697705688552,36068.00961165839,10986.457737319302],0,0,[0.3663,0.7916,1.5492],[0.174647403645279,0.2746773120495699,0.4452011945063733]]"
+  },
+  "after": {
+   "hash": -1067675287,
+   "state": "[[1,0.8879231178794776,0.7156935005005721],3,[0.3651036470540383,0.8905681385594664,0.27127056141529143],0.95,1,[14786.697705688552,36068.00961165839,10986.457737319302],0,0,[0.3663,0.7916,1.5492],[0.174647403645279,0.2746773120495699,0.4452011945063733]]"
+  },
+  "same": true
+ },
+ "errors": [],
+ "rows": [
+  {
+   "time": "daytime",
+   "stand": "avenue",
+   "hhmm": "10:30",
+   "sun": "sun 62.9° up, bearing 126.6° (10:30 local mean time, 1904-07-01)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 59,
+   "file": "phone-1904-avenue-daytime.jpg"
+  },
+  {
+   "time": "daytime",
+   "stand": "glessner",
+   "hhmm": "10:30",
+   "sun": "sun 62.9° up, bearing 126.6° (10:30 local mean time, 1904-07-01)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 63.5,
+   "file": "phone-1904-glessner-daytime.jpg"
+  },
+  {
+   "time": "daytime",
+   "stand": "above",
+   "hhmm": "10:30",
+   "sun": "sun 62.9° up, bearing 126.6° (10:30 local mean time, 1904-07-01)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 93.3,
+   "file": "phone-1904-above-daytime.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "avenue",
+   "hhmm": "20:10",
+   "sun": "sun -5.6° up, bearing 308.1° (20:10 local mean time, 1904-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.22738899790509043,
+   "mean": 31.7,
+   "file": "phone-1904-avenue-dusk.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "glessner",
+   "hhmm": "20:10",
+   "sun": "sun -5.6° up, bearing 308.1° (20:10 local mean time, 1904-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.22738899790509043,
+   "mean": 35.7,
+   "file": "phone-1904-glessner-dusk.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "above",
+   "hhmm": "20:10",
+   "sun": "sun -5.6° up, bearing 308.1° (20:10 local mean time, 1904-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.22738899790509043,
+   "mean": 51.6,
+   "file": "phone-1904-above-dusk.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "avenue",
+   "hhmm": "22:00",
+   "sun": "sun -19.0° up, bearing 330.0° (22:00 local mean time, 1904-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 11.3,
+   "file": "phone-1904-avenue-night.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "glessner",
+   "hhmm": "22:00",
+   "sun": "sun -19.0° up, bearing 330.0° (22:00 local mean time, 1904-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 10.3,
+   "file": "phone-1904-glessner-night.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "above",
+   "hhmm": "22:00",
+   "sun": "sun -19.0° up, bearing 330.0° (22:00 local mean time, 1904-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 23.1,
+   "file": "phone-1904-above-night.jpg"
+  }
+ ]
+}
