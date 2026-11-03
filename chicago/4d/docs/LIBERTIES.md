@@ -39451,3 +39451,26 @@ T-2793 final structural scope: an actual90x55mm central reach reuses the license
 **Recorded:** 2026-10-26.
 
 **Period cross-check:** T-2793 bounded period cross-check: the personally viewed1835 Wild Cincinnati painting (`wild_1835_third_vine`) shows the four-wheel, smaller-front/larger-rear work-wagon family with a covered box. The held Buffalo Eagle Tavern print shows an open loaded box but depicts1825 in an undated19th-century print reproduced1912. Neither supplies this specimen, Chicago presence, calibrated dimensions, hidden gear, wood species, coating or eight-spoke count. The current model intentionally remains open and empty, with reconstructed gray/warm finishes; no canvas/team/driver claim is added. Actual image hashes, provenance and comparison limits are in docs/RESEARCH/farm-box-master-2793/REFERENCE-COMPARISON.md. Existing geometry, UVs, images, GLB exports and source rights remain unchanged.
+
+### L-k14-walk-1900-keith-3322 — 1900 Prairie given the front walk its photograph shows, from the public walk between its coping's posts to the stoop
+
+**Decision:** 1900 Prairie Avenue (Elbridge G. Keith's) was put onto the K01 kit by T-3207 after T-3206 had
+given every other worked house on the 1800 and 1900 blocks its yard (L-k14-walks-1800-block-3206), so it alone
+stood with an opening in its coping wall and no walk behind it: `tools/check_house_walks.py` carried it as its
+last PENDING house. T-3322 (piece 2 of T-1944, the 18th-20th block's grounds) gives it a K14 yard. **What is
+read.** The one period photograph (`glessner_blog_1900_keith_oblique_photo`, the museum's '1900 PA') shows a light
+paved walk running square from the public walk between the coping wall's two square posts to the foot of the
+broad stoop, and lawn behind the coping on either side of it. The walk is laid there, from the stoop's foot
+(u 25.5 m) through the wall's opening (s 4.4-7.0 m) to the public walk's inner edge (u 28.67 m), on the stoop's
+axis; the lawn is the app's own ground (`lawn: none`, as at 1801 and 1901). **What is invented or held by the
+kit.** The walk's width, 2.5 m (the opening's 2.6 m less a joint at each post; the print shows the paving filling
+the opening), its stone flags, their 0.9 m length, joints and wear, and the bare strip at the wall foot are the
+K14 kit's, aged from the phase's own year. The low hedges the print shows behind the coping south of the walk
+are not built here. The app stands the house on the lowest ground under its walls, and the ground rises 44-54 mm
+toward the street under the yard (measured in the published app, `tools/qa_house_walks_t3322.mjs`), enough to
+bury the 60 mm flags at the street end; the yard is lifted onto it (`yard.grade_m`), which is the app's ground,
+not evidence of a graded lawn.
+**How to resolve:** a nearer picture of the walk, or a survey plat drawing it.
+**Covers:** `elbridge_keith_house_1900_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3322.
+**Recorded:** 2026-11-03 (T-3322).

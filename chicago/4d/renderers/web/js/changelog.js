@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2601, ts: '2026-11-03T06:49:59.823Z', date: 'Nov 3, 2026, 12:49 AM CT', title: 'A front walk for 1900 Prairie', kind: 'feature',
+    items: [
+      '1900 Prairie, the Elbridge Keith house, now has the flagged walk its photograph shows, from the sidewalk between its low wall\'s two stone posts to the foot of its front steps.',
+      'Every finished 1904 house on Prairie Avenue can now be walked into from the sidewalk: 1900 was the last one without a way to its door.',
+    ] },
   { v: 2600, ts: '2026-11-03T05:45:43.445Z', date: 'Nov 2, 2026, 11:45 PM CT', title: 'Pullman\'s street trees grown tall and slender, as the photographs show them', kind: 'fix',
     items: [
       'The seven elms before 1729 Prairie and along its 18th Street side now rise on one straight trunk to about the second floor before they branch, as the Detroit and Taylor photographs draw them',
