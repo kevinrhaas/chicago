@@ -25503,3 +25503,23 @@ The later poster shows a second dark left-gable opening; the earlier governing 1
 The native scene owner retains the existing attested grade and adds the poster to its pictured-evidence list, changing the visitor-facing explanation from seven to eight. The original eight files contain nine compositions: eight identified native comparisons plus one `contextual_unidentified` Herriott panorama. Its west-bank houses convey broad shape, but the checked original and Chicagology caption do not key an individual house as Wolf; the caption names Sauganash. The local inventory association remains unverified. This corrects the earlier resolution-based explanation without claiming Wolf absent, fabricating a ninth camera or changing the structure's grade.
 
 The [prepared canonical capture and source-conflict review](https://github.com/kevinrhaas/chicago-evidence/blob/9bbce05b3f135e4cb91abb930c1750eda1cb3a43/evidence/wolf-sauganash-2026-11-03/poster-eighth-canonical-prepared-after-outage/RECOVERY.md) and [clear desktop/phone native body inspection](https://github.com/kevinrhaas/chicago-evidence/blob/b2fc8cc3061faa6cdf408f7948ce97e6e808e88a/evidence/wolf-sauganash-2026-11-03/fresh-07b8-clear-body-both/RECOVERY.md) preserve all raw runs, actual direct reviews and closed guards/reapers. The body proof is specifically source 07b8, elevated flying inspection, with the real low log compound, roofs and wolf sign identifiable. It proves no historical street pose, door traversal or view of every opening. Earlier roof-obstructed images remain inconclusive. Those dated proofs do not certify the final source8 head; its native gates and published app acceptance belong with the final PR, and original completion follows only its normal protected-dev merge.
+
+## 2026-11-03 — T-2383: held Andreas engraving and current hotel comparison
+
+The Sauganash Images card retains three credited rows and now holds the Andreas
+engraving where it previously offered a plain link; no duplicate or geographic
+“From this spot” is introduced. Its new hotel-owned two-building comparison is
+DIFFERS. Main/left roof massing and the broad rear-left wing remain open, with
+left-gable presentation to review. Five upper front windows, four lower front
+windows and the central entrance are earlier merged work, not a new rebuild.
+
+One actual native comparison completed in 4.363462 seconds, exit 0, five children
+properly reaped. All current tool/model/frame/source/camera guards stayed exact,
+and root directly reviewed the fresh JPG. The inherited shop framing supplies
+no new hotel dimension or calibrated historical viewpoint. All hotel geometry,
+placements, phases, material values and source disagreements are retained.
+[Native output and direct review](https://github.com/kevinrhaas/chicago-evidence/blob/9b32b26903431ce4fcfb083f47e18147b759d956/evidence/sauganash-2026-11-03/current-andreas-native-private-root-reviewed/RECOVERY.md);
+`docs/RESEARCH/photo-match/sauganash_hotel/README.md` records the remaining gaps.
+This authored checkpoint claims no completed four-part gate, committed-head
+publication or desktop/phone application QA; those are recorded separately for
+the actual PR head. Original T-2383 remains partial/open, with no new ticket.
