@@ -25008,6 +25008,10 @@ the front, wider than the draft's 5.75 m and 5.5 m, whose fit stopped where the 
 numerals bite the trace); the curved bays' places and sizes (segmental bows 4.8 m and 4.45 m along the
 front, about 0.7 m out, standing either side of the party wall, so the doors go at the pair's outer
 ends); and each rear range's place, size, step and two storeys, on the lot's outer line.
+**Where the pair stands.** On 2001's party line: when 2001 Prairie (T-3347) landed beside it, the
+pair's first reading was found standing 0.53 m into 2001's main body, about 3 px north of the lines
+the sheet draws at rows 310-311 (2001/2003), 348 (2003/2005) and 386 (2005/2007), so the pair was
+moved whole 0.535 m south, its widths and its own party line as read.
 **What is invented.** Every height (a 1.4 m principal floor, 4.0, 3.6 and 3.3 m storeys; the ranges
 on the first two); the walls' thickness; the brick's colour, bond and grime (the one K03 panel); every
 window's kind, size and place and every head (the third storey's sash 1.5 m, its head kept under the

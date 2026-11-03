@@ -22,6 +22,16 @@ The draft's rectangle fit stopped short because the trace takes the dimension nu
 both side walls for bites out of the house; the raster draws each main body the full width of its
 lot, the two bows either side of the party wall and the rear ranges on the lots' outer lines.
 
+## Where the pair stands
+
+When 2001 Prairie (T-3347) landed on `dev` beside the pair, the structure-clearance gate found 2001 and
+2003 standing 0.53 m deep into each other. Read through the same affine fit, the raster draws the
+2001/2003 party line at rows 310-311, the 2003/2005 line at row 348 and the 2005/2007 line at row 386
+(columns 980-1010); 2001's reading puts its party line at row 310, and this pair's first reading stood
+at rows 307 / 344 / 382, about 3 px (0.53 m) north of the sheet's lines. The pair was moved whole
+0.535 m south along its own side axis, so 2003's north wall stands on 2001's party line; the widths
+and the pair's own party line are unchanged.
+
 ## What the kit forced
 
 - K10 stands a cornice bracket 0.2 m from each front corner: 2003's door column puts its third-storey

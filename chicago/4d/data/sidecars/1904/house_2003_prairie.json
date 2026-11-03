@@ -26,14 +26,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1441.13,
-    "local_n": -3488.705,
+    "local_e": 1441.136,
+    "local_n": -3489.24,
     "rotation_deg": 179.383,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body on its north side, read off the 1911 sheet 35 raster at full size (T-3346) through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. The draft's corner stood 0.10 m behind and 0.59 m north of this one: its rectangle fit stopped short where the sheet's printed dimension numerals bite the traced outline. Rotation 179.383 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body on its north side, read off the 1911 sheet 35 raster at full size (T-3346) through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. The draft's corner stood 0.10 m behind and 1.12 m north of this one: its rectangle fit stopped short where the sheet's printed dimension numerals bite the traced outline. Rotation 179.383 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line. Set 0.535 m south of this PR's first reading when 2001 Prairie (T-3347) landed beside it: read through the trace's affine fit, the sheet draws the 2001/2003 party line at rows 310-311, the 2003/2005 line at row 348 and the 2005/2007 line at row 386 (column 980-1010), and the first reading stood the pair about 3 px (0.53 m) north of those lines, into 2001's main body; the pair is moved whole so that 2003's north wall stands on 2001's party line, its widths and the party line between the two as read.",
     "symbolic_location": "2003 S. Prairie Avenue, parcel prairie_2003 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
