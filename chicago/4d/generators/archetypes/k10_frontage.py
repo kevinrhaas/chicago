@@ -196,6 +196,9 @@ def cornice_runs(params):
     rr = runs(params)
     for r in rr:
         r.s0 = 0.0
+    rc = getattr(params, "round_corner", None) or {}
+    if rc.get("to_eave"):
+        return _round_runs(params, rr, rc)
     cc = getattr(params, "cant_corner", None) or {}
     if not cc:
         return rr
@@ -218,6 +221,35 @@ def cornice_runs(params):
     south2 = K.Run(south.name, south.a, (u0, -v0), south.corners)
     front2.s0, south2.s0 = plan["walls"][front.name][1], 0.0
     return [front2] + rr[1:3] + [south2, cant]
+
+
+def _round_runs(params, rr, rc):
+    """T-3314: runs() with a round carried to the eave (`round_corner.to_eave`, 1919's north
+    corner in both plates) as a chain of short runs round its arc on the wall line, between the
+    two walls it replaces the corner of, each cut wall's run starting or stopping at the round.
+    Too short for a bracket each, they carry the bed moulding round the curve."""
+    from .k01_frontage_params import round_corner_arc, round_corner_spans, ROUND_WALL
+    K = _kit()
+    D, W = params.depth_m, params.width_m
+    arc = round_corner_arc(rc, D, W, 0.0)
+    by = {r.name: r for r in rr}
+    chain = []
+    for a_, b_ in zip(arc, arc[1:]):
+        r = K.Run(ROUND_WALL, a_, b_, (True, True))
+        r.s0 = 0.0
+        chain.append(r)
+    spans = round_corner_spans(rc, D, W)["walls"]
+    if rc["corner"] == "north":   # the front stops at the round; the north wall starts there
+        front, north = by["k01.wall.street_front"], by["k01.wall.side.north"]
+        front2 = K.Run(front.name, front.a, arc[0], front.corners)
+        north2 = K.Run(north.name, arc[-1], (0.0, -W), north.corners)
+        front2.s0, north2.s0 = 0.0, spans[north.name][1]
+        return [front2] + chain + [north2] + rr[2:]
+    south, front = by["k01.wall.side.south"], by["k01.wall.street_front"]
+    front2 = K.Run(front.name, arc[-1], (D, -W), front.corners)
+    south2 = K.Run(south.name, south.a, arc[0], south.corners)
+    front2.s0, south2.s0 = spans[front.name][1], 0.0
+    return [front2] + rr[1:3] + [south2] + chain
 
 
 def _lay(a, pieces, conf, cid):
