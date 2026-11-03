@@ -3071,7 +3071,9 @@ async function boot() {
   // The trees give way to the travelled track, as before, and since T-1771 to
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
-  const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
+  // T-3339: and to a worn trail's trodden core (1812's paths through the bank timber).
+  const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n)
+    || yards.blocksTrees(e, n);
   // T-2094. Past the cleared track the rest of an opened street's corridor is
   // trodden: flora.js crops a turf community's tall plants there to the turf's
   // own height (`streets.verge` says where; the zone record says how tall).
