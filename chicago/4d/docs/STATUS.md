@@ -25489,6 +25489,11 @@ publication before PR readiness and normal merge. Receipts belong with the PR
 and checkpoint; the original image gate remains unfinished.
 
 
+### T-2379 incremental picture attribution — 2026-11-03
+
+The Lake House card gains a credited link to its existing reference print as **later completed-state context**. The supposedly 1830 image is the 1856 Kellogg/Blanchard NYPL lithograph depicting approximately 1836–1849; the labelled hotel stands right of the foreground blockhouse. Source record `kellogg_blanchard_1856_old_fort_lake_house` declares public-domain provenance, tier-5 cross-check use, and the missing July 1835 construction evidence. Canonical camera/model/position/phase and attribute confidence remain unchanged; original T-2379 stays OPEN with no accepted match.
+
+
 ## 2026-11-03 — Wolf Point's eighth reference comparison (T-2386)
 
 The distinct Blanchard/Davis ca. 1893 poster now has an eighth source-specific camera, actual native side-by-side and reviewed `matches` record on unchanged MASTER `225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59` / WEB `fdc5ef22a440636e35e4cec15818661f4351f0f4d0c9e506ef36b00422a45210`. Six exact-mesh roof controls and three independent checks, finite focal sensitivity and the underconstrained free fit are retained. This remains a diagnostic asset comparison: the geographic camera is unsolved, and no historical From this spot or dimension measured from a retrospective drawing is invented.

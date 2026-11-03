@@ -6098,6 +6098,11 @@ increment adds no camera or matched verdict and does not promote the structure�
 grade. Continue the original image gate; file no photo follow-up.
 
 
+### T-2379 incremental picture attribution — 2026-11-03
+
+The Lake House card gains a credited link to its existing reference print as **later completed-state context**. The supposedly 1830 image is the 1856 Kellogg/Blanchard NYPL lithograph depicting approximately 1836–1849; the labelled hotel stands right of the foreground blockhouse. Source record `kellogg_blanchard_1856_old_fort_lake_house` declares public-domain provenance, tier-5 cross-check use, and the missing July 1835 construction evidence. Canonical camera/model/position/phase and attribute confidence remain unchanged; original T-2379 stays OPEN with no accepted match.
+
+
 ## 2026-11-03 — Wolf Point original picture inventory (T-2386)
 
 The eight-file inventory is now explicitly eight identified asset comparisons and one contextual, individually unidentified Herriott panorama. The new eighth poster comparison uses the unchanged exact native master, real gable vertices, separate fitted and held-out controls and a fresh canonical-layout native capture. The free camera fit reaches bounds; the retained diagnostic pose is a comparison tool, not an authenticated lens or geographic viewing spot. No historical scale is derived from the drawing.
