@@ -1,4 +1,5 @@
 import { count as countField } from './field-log.js'; // T-2660: started and finished, on this device only
+import { authoredLeg } from './travel-estimate.js'; // T-3355: a leg's own mode
 /** Content-only session state. No destination or jaunt identity is special. */
 export const SESSION_KEY = 'c4d.jaunt.session.v1';
 export const emptyState = () => ({ jaunt: null, session: null, leg: 0, stopIndex: 0,
@@ -14,6 +15,15 @@ export function matches(test, vars, inventory) {
   return ({ '<': a < b, '<=': a <= b, '==': a === b, '!=': a !== b, '>=': a >= b, '>': a > b })[test.op] ?? false;
 }
 export const currentStop = s => s.jaunt?.stops.find(stop => stop.id === s.visited[s.stopIndex]?.id);
+// T-3355: the mode this leg travels in. An authored leg may name its own (a long ride
+// Instantly); it applies while the visitor is on the jaunt's default mode, so a mode the
+// visitor picked, and Straight there, still win.
+export function legMode(s) {
+  if (s.instant) return 'instantly';
+  if (!s.jaunt || s.mode !== s.jaunt.default_mode) return s.mode;
+  const own = authoredLeg(s.jaunt, s.fromStopId, currentStop(s)?.id)?.mode;
+  return own && (s.jaunt.allowed_modes || []).includes(own) ? own : s.mode;
+}
 const money = cents => Math.abs(cents) < 100 ? `${Math.abs(cents)} ¢` : `$${(Math.abs(cents) / 100).toFixed(2)}`;
 const label = name => name.replace(/[_-]+/g, ' ').replace(/^./, c => c.toUpperCase());
 // Units a visitor can read as a resource. Any other unit (the pilot's `preference`) is
@@ -255,7 +265,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       cancel(['MODE', 'INSTANT'].includes(event.type) ? 'replan' : 'jaunt'); dismissDetail();
       if (previousMode === undefined) previousMode = travel.mode;
       const token = { session: state.session, leg: state.leg }, target = resolve(currentStop(state).destination);
-      travel.setMode(state.instant ? 'instantly' : state.mode);
+      travel.setMode(legMode(state));
       if (!target || !travel.go(target, { token,
         onArrive: tags => dispatch({ type: 'ARRIVE', ...tags }),
         onStop: tags => dispatch({ type: 'STOPPED', ...tags }),
