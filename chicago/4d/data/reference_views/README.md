@@ -112,6 +112,13 @@ selected record, native geometry dependency and anchor placement; changing one i
 the review. Published application grounding, clearance and walking access remain separate
 checks.
 
+A group camera may name `card_members`: the `also_render` ids its picture actually shows
+(T-3335). `tools/compile_pictures.py` then puts the picture on each of those buildings' cards
+as well as the anchor's, so a whole-fort bird's-eye reaches every blockhouse and range it
+draws. A rendered member left out of `card_members` (hidden behind another, or not drawn)
+gets nothing, and no member is ever given the camera's spot. Say in `solve` why each member
+is in or out.
+
 Provisional compound cameras must set `diagnostic_only: true`. They remain valid review
 inputs and credited picture links, but the picture compiler does not offer their invented
 pose as a historical “From this spot” location. Existing cameras default to the prior behavior.

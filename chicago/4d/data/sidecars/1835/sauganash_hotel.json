@@ -263,6 +263,35 @@
       ],
       "note": "The pictured main gable continues the framed wall’s horizontal clapboard above the eaves; it is not roof covering. The main-block end triangles now use the existing wall finish and existing reconstructed siding course stock. This switch covers both main gables for a closed model: continuing the pictured finish around the unseen/opposite end is reconstructed, not independently attested. Existing footprint, placement, eave/ridge geometry, roof pitch and covering, course stock and all subsidiary roofs remain unchanged. It does not settle the provisional camera or any remaining opening, roof, wing or grouped-annex differences."
     },
+    "front_opening_details": {
+      "value": {
+        "kind": "blind_dark_recess",
+        "case_width_m": 2.7,
+        "jamb_outer_width_m": 2.1,
+        "leaf_width_m": 0.85,
+        "leaf_head_m": 2.45,
+        "transom_top_m": 3.0,
+        "cornice_top_m": 3.18,
+        "sidelights_each_width_m": 0.35
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "T-2383 finite appearance trial: Andreas/Braunhold1884 shows broad high entrance case, transom and sidelights. Exactmetres, blinddarkfieldinsteadaninterior, shallowjambsections, lightdivisions and hiddenfabric are reconstructed under uncertain ownhotelcamera; not historicmeasurements. case_width_m is outercornicewidth; jambbody is narrower to retain the independentlyattestedblue shutters withoutcollisions. Existingentrancefrontispieceisreplacedonlyinthisopt-in, notdeclaredhistoricallyabsent. This entrance field leaves roof/body/upperandrearopenings unchanged; the separate front_lower_sash field owns the later bounded lower-facade correction."
+    },
+    "front_lower_sash": {
+      "value": {
+        "width_m": 0.7,
+        "height_m": 1.85,
+        "sill_m": 0.9
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "T-2383 bounded four-lower-front-sash correction. Direct comparison with the held Andreas/Braunhold1884 engraving shows tall narrow lower facade sash, with heads near the high entrance case, rather than the stock squat 0.85-by-1.35m rectangles. Keep their four existing bay stations, every upper and rear opening and all wall/roof/placement fields. The selected 0.70m width, 1.85m height and 0.90m sill put their heads at2.75m, below the unchanged storey division; open blue leaves follow these same four envelopes. These are reconstructed visual proportions, bounded by the separately reconstructed entrance and the retained provisional own-hotel camera, not historic measurements or an independent 1835 survey. The engraving and camera have unresolved perspective/date limits; no whole-hotel or compound match is claimed by this change."
+    },
     "function": {
       "value": "tavern_inn",
       "confidence": "attested",

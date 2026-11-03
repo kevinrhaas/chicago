@@ -1,0 +1,93 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "source_id": "colbert_chamberlin_1871_chicago_1833",
+  "photo": "../../../../reference/images/chicago/chicago_town_view_1833_colbert.jpg",
+  "image_px": [
+    1920,
+    1236
+  ],
+  "principal_px": [
+    143.3062514932425,
+    616.0984734715969
+  ],
+  "focal_px": 6000.0,
+  "eye": [
+    102.19872624667555,
+    92.2327841634691,
+    2
+  ],
+  "yaw_deg": 228.5,
+  "near_m": 91,
+  "pixel_aspect": 1,
+  "sky": "overcast",
+  "diagnostic_only": true,
+  "solve": {
+    "status": "EXTERNAL_BOUNDED_CAMERA_PROPOSAL_PURE_PROJECTION_ONLY_NATIVE_UNRUN_UNACCEPTED",
+    "target_panel": "Actual Colbert engraving art; left-edge roof continues beyond x~40, current +Y core remains visible Wolf gable; +X partner proposed outside the physical art boundary",
+    "metric_control": "None. The existing canonical NYPL-governed 5 m compartments, 2.6 m eave and 42-degree gables are conditional reconstructed display geometry, not dimensions measured from this picture. The fixed 6000 px focal length, 2 m eye height and radial eye family choose a finite scale and distance from their degeneracy.",
+    "manual_pixel_controls": [
+      {
+        "name": "core_inner_eave",
+        "model_uvy": [
+          5,
+          10.1,
+          2.6
+        ],
+        "pixel": [
+          280,
+          582
+        ],
+        "fitted_pixel": [
+          279.6997901183455,
+          587.8011185891452
+        ],
+        "residual_px": 5.808881377543246
+      },
+      {
+        "name": "core_outer_eave",
+        "model_uvy": [
+          0,
+          10.1,
+          2.6
+        ],
+        "pixel": [
+          431,
+          584
+        ],
+        "fitted_pixel": [
+          427.5852224577379,
+          588.6102447501542
+        ],
+        "residual_px": 5.737165007166983
+      },
+      {
+        "name": "core_apex",
+        "model_uvy": [
+          2.5,
+          10.1,
+          4.8510101107446
+        ],
+        "pixel": [
+          351,
+          494
+        ],
+        "fitted_pixel": [
+          354.7149874239165,
+          483.5886366607007
+        ],
+        "residual_px": 11.054303150482344
+      }
+    ],
+    "manual_pick_uncertainty_px": 12,
+    "conditional_fit_residuals_px": {
+      "rms_point_distance": 7.934225089668891,
+      "max_point_distance": 11.054303150482344
+    },
+    "fit_limits": "One bounded camera-first proposal, not a new accepted source/camera/model or source location. Roof residual remains within the unchanged prior 12px manual pick uncertainty. Visible held-out door/wall controls below are not used to fit it and reveal a remaining door-head discrepancy. Must inspect an authorized native actual frame and preserve all governing NYPL/date/rights limits before considering any change.",
+    "source_and_model_limits": "Exact existing MASTER/WEB geometry, all parts visible to normal renderer, no synthetic clipping, crop, masking, or geometry hidden. Physical engraving art starts near x40; this is a source image boundary, not permission to crop the native renderer. Source figures/trees are not added to hide defects. Not a matches verdict.",
+    "lighting": "Neutral overcast comparison lighting is selected to avoid inventing historical weather or pigment from illustrative hatching and printing. No original illumination calibration is asserted.",
+    "source_admission": "The accompanying source-specific bibliography describes the actual artwork using existing inventory credit and explicit date or edition limits. Review and admit it before any canonical derived camera or capture. The modern prefire273 check_required wrapper is not a substitute.",
+    "geometry": "Exact existing 225f MASTER / fdc WEB. Do not move, rebuild or hide parts to overfit this first camera. NYPL governs conflicting form readings.",
+    "historical_location": "Diagnostic only. No historical From this spot location or world coordinate is claimed."
+  }
+}
