@@ -24362,7 +24362,9 @@ cornice, the low hip with its railed deck, the stacks, the iron fence on its cur
 **What is invented.** The walls' thickness; the brick's panel (K03's rough red-brown stands for the
 Tribune's Baltimore pressed brick, which the kit has no panel for); the roof's covering (the Tribune's slate
 is laid by K04 only at 45 degrees and over, and the photograph's hip is low, so it is the kit's painted
-standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's 15.0 m height;
+standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's height (16.22 m, raised with the cornice by T-3330); the attic
+storey's 3.32 m, which is what puts K10's cornice crown at the Tribune's 44 ft (T-3330: at 2.1 m it
+stood at 12.19 m, 1.2 m short);
 every window's place along the flanks and the rear, and the sashes' sizes; the north stack; the gates, the
 walks and the rainwater goods.
 
@@ -24378,8 +24380,15 @@ photograph draws them; their sizes (the balcony 0.55 m out on a 0.3 m slab and t
 0.75 m balustrade; consoles 0.9 m deep; brackets 0.37 m apart) are read through the photograph's scale at
 the belvedere's lights and are reconstructed, and the photograph's carved consoles are the kit's plain
 quarter-ellipse ones and its moulded corbel table the kit's stepped courses. Both balconies stop on the
-wall's plane with the shaft. The bracketed cornice and balcony at the main cornice's level are not built:
-the shaft passes the main cornice with a plain string course. The door stands in the
+wall's plane with the shaft. At the main cornice's level (T-3330) the shaft carries the main cornice
+round its faces as the kit's corbel table, a 0.35 m stone course 0.5 m out over a row of 0.16 m blocks
+0.37 m apart, 0.75 m deep in all, for the photograph's moulded cornice and modillions; the photograph
+shows no balcony at that level, only the belvedere's. The heights over it are read on the photograph's
+own vertical scale down the tower's front (a level camera keeps one scale down a vertical plane), set by
+the Tribune's 44 ft at the main cornice's top, which then puts the top balustrade at the Tribune's 73 ft:
+a blind stage 1.78 m (its three lights withdrawn), the belvedere 5.2 m from its balcony's floor with
+lights 1.8 m high, a 1.1 m top balustrade. Those sizes are reconstructed to that scale, and the
+belvedere's cornice is still the kit's thin bracketed eave where the photograph's stands about 1 m deep. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
@@ -24387,8 +24396,9 @@ storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
-between the photograph and the sheet, and works the tower's main-cornice stage and height (T-3330), the verandah, the entrance and the window
-dressings toward the photograph; T-1902 carves the finish.
+between the photograph and the sheet, and works the verandah, the entrance, the stacks' places and the window
+dressings toward the photograph (the tower's heights, T-3330, are read on its own plane and do not wait
+on the camera); T-1902 carves the finish.
 
 **Covers:** `house_1918_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1918_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1918_prairie.as_mapped_1904.form.roof_covering`, `house_1918_prairie.as_mapped_1904.form.stair_tread_m`, `house_1918_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1918_prairie.as_mapped_1904.form.north_bays`, `house_1918_prairie.as_mapped_1904.form.rainwater`, `house_1918_prairie.as_mapped_1904.form.yard`.
 **Ticket:** T-1901 (piece 1).
@@ -39416,6 +39426,32 @@ sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the n
 places one.
 **Ticket:** T-3339.
 **Recorded:** 2026-11-03 (T-3339).
+
+### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
+
+**Decision:** in the 1812 scene only, `renderers/web/js/trees.js` (`SOUTH_GROVES`) deals two kinds of grove on the
+South Division, each stem from a generator seeded by its own position, off the shared stream. The **belt**: on the
+South Branch's east bank south of the forks, wherever no wood already stands, ZONE 5's trees (cottonwood, green ash,
+elm, silver maple, black willow, swamp white oak, hackberry) near-continuous within 40-95 m of the water and in groves
+out to 230 m, thinning outward. The **hollows**: on the low ground of the south prairie (below 0.96-1.32 m above the summer
+water) more than 230 m from the river, a coarse field picks the few hollows that carry a grove of black and
+peach-leaved willow, cottonwood and green ash. **Why:** the owner, 2026-11-03: *"I also think there should be more
+trees south of the river it was well documented from before that there were cottonwoods and other occasional groves
+of trees along the water and in patchy water areas throughout the prairie, the south part should not look so
+desolate."* The wood `communityAt` gives the South Branch is a gallery 30-74 m deep, the low half of ZONE 5's 30-120
+m because in 1835 the town was cutting there, and it stops at the Wells Street line, the east end Andreas gives the
+main stem's belt, which the South Branch crosses for about a mile south of N -2000; in 1812 nobody was cutting, and
+the bank stood nearly bare. **What is read, not invented:** that the South Side timber "follow[ed] the bend of the river ... and extend[ed]
+south two or three miles" (Andreas, through `chicagology_prefire273`); that the surveyors met willow thickets and
+swamp margins on the Cook County prairie, and that timber stood thickest where water broke the prairie fires
+(McBride and Bowles, `mcbride_bowles_2007`). **What is invented:** every stem's place; the belt's depth (40-95 m
+near-continuous, groves to 230 m) and density (30-72 stems a hectare at its thickest); which hollows carry a grove,
+the height band that makes a hollow (fully wet below 0.96 m, none above 1.32 m), and their density (20-56 a hectare); the species weights. That the belt follows the South Branch's east bank
+past the Wells Street line rather than stopping at it. **How to resolve:** the 1821-22 federal
+survey's field notes for the South Branch townships (line trees, "timber" and "prairie" calls along the section
+lines south of the forks), or an early map that draws the timber along the South Branch.
+**Ticket:** T-3340.
+**Recorded:** 2026-11-03 (T-3340).
 
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash
