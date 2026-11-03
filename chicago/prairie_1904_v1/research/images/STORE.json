@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 163412975,
+ "bytes": 163525084,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -4836,6 +4836,14 @@
   "early-castelnau-1842-chicago-harbor.jpg": {
    "bytes": 59854,
    "sha256": "eee65adf2a3902a6bae159fddab38292d49017e847ddf9d8df3a048d41d18f12"
+  },
+  "early-currey-1912-first-fort-birdseye-thumb.jpg": {
+   "bytes": 21108,
+   "sha256": "14dee6afef3913e7cd88583f8543171949c6a7e310cc7af8346b0c835d122950"
+  },
+  "early-currey-1912-first-fort-birdseye.jpg": {
+   "bytes": 91001,
+   "sha256": "1bb6989f837a76cbbb97a7cfa1ed645df764bce9c3264d583fc8a326dd615a0d"
   },
   "early-dearborn-andreas-1884-thumb.jpg": {
    "bytes": 23734,

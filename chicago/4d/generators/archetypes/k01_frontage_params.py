@@ -2442,12 +2442,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # behind a corner recess (1721's, the 1911 sheet and the 1891 Inland plate: 14 m of the
             # front stands 2.9 m before the wall the porch is set back against), square, flush
             # with its wall's other corner, and carrying the front's bows on its face (`on_front`)
+            # T-1881 (2026-11-02): from 4.5 m wide, 1729's north block, which the Detroit print's
+            # south return beside the portico and Clark's 1905 view end at about v 5.0
             if q.get("block") is not None:
-                if q["block"] is not True or not (6.0 < w <= 16.0 and 1.2 < d <= 3.5) \
+                if q["block"] is not True or not (4.5 <= w <= 16.0 and 1.2 < d <= 3.5) \
                         or e.get("variant") != "k08.projection.full_height" \
                         or set(q) - {"width_m", "proud_m", "block"}:
                     raise ParamError(f"bays: {e['id']} is a forward block: a square full-height projection "
-                                     f"6-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
+                                     f"4.5-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
             # T-1881: or a FRONT STEP (`front_step`), the middle step of a street front that steps
             # back in three (1729's Prairie front on the 1911 sheet: the forward block 2.95 m out,
             # then 2.1 m of it 1.65 m out, then the wall to the corner; the Detroit print and the
@@ -3163,6 +3165,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
         # T-2408's consoles and modillions read off a picture (1637's south bay, T-2780): the
         # record sizes the variant's own brackets, never adds them to a variant without
+        # T-3324: a square tower may take brackets its variant has none of (1936's belvedere,
+        # its consoles and the row of brackets under its cornice in the photograph): the record
+        # names both, with every key the kit's bracketed bay gives them
+        if "brackets" in e and v.get("brackets") is None and v["kind"] == "tower" \
+                and int(v["plan"].get("sides", 0)) == 4 and not v["plan"].get("across_corner"):
+            kit_br = next(x for x in json.loads(BAY_KIT.read_text())["variants"] if x.get("brackets"))["brackets"]
+            if set(e["brackets"]) != set(kit_br):
+                raise ParamError(f"bays: {e['id']} adds brackets to a square tower, naming both "
+                                 f"{sorted(kit_br)}, not {sorted(e['brackets'])}")
+            v["brackets"] = {k: {kk: None for kk in kit_br[k]} for k in kit_br}
         if "brackets" in e:
             br, kb = e["brackets"], v.get("brackets")
             if kb is None or set(br) - set(kb) or any(set(br[k]) != set(kb[k]) for k in br):
@@ -3282,6 +3294,33 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if not bal["slab_m"] <= bal["floor_m"] < sum(float(st["height_m"]) for st in v["storeys"]):
                 raise ParamError(f"bays: {e['id']}'s floor_balcony floor {bal['floor_m']} m is not inside its walls")
             v["floor_balcony"] = bal
+        # T-3324: a square tower's corbelled balcony at one of its storey lines, round its cheeks
+        # and front (1936's, at the belvedere's foot in the photograph, the belvedere standing
+        # back over it): a stone slab `out_m` proud whose top is the storey's floor, carried on
+        # `corbel_courses` stone courses `course_m` deep stepped back to the shaft, and a stone
+        # balustrade on it, its keys the flat top's balcony's
+        if "storey_balcony" in e:
+            sb = e["storey_balcony"]
+            rail = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
+            need = rail | {"storey", "out_m", "slab_m", "corbel_courses", "course_m"}
+            ok = isinstance(sb, dict) and set(sb) == need and v["kind"] == "tower" \
+                and int(v["plan"].get("sides", 0)) == 4 and not v["plan"].get("across_corner")
+            if ok:
+                bal = {k: ([float(x) for x in sb[k]] if k == "rail_m" else
+                           int(sb[k]) if k in ("storey", "corbel_courses") else float(sb[k])) for k in need}
+                ok = 0 < bal["storey"] < len(v["storeys"]) and 0.3 <= bal["out_m"] <= 1.2 \
+                    and 0.1 <= bal["slab_m"] <= 0.4 and 1 <= bal["corbel_courses"] <= 6 \
+                    and 0.08 <= bal["course_m"] <= 0.4 and 0.5 <= bal["height_m"] <= 1.2 \
+                    and bal["post_m"] / 2 <= bal["inset_m"] <= bal["out_m"] - bal["post_m"] / 2 \
+                    and 0.06 <= bal["pitch_m"] <= 0.3 and 0.0 < bal["bar_m"] < bal["pitch_m"] / 2 \
+                    and bal["rail_m"][0] < bal["post_m"] <= 0.4 and 0.0 < bal["foot_rail_m"] < bal["height_m"] / 2
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s storey_balcony stands on a square tower and takes "
+                                 f"{sorted(need)}: one of its storey lines, a slab 0.1-0.4 m on 1-6 courses "
+                                 f"0.08-0.4 m deep, 0.3-1.2 m out, a 0.5-1.2 m balustrade whose posts stand on "
+                                 f"the slab and whose rails are thinner than its posts, not {sb}")
+            bal["fabric"] = "stone"
+            v["storey_balcony"] = bal
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi

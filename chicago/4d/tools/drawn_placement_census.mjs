@@ -165,8 +165,13 @@ export const CENSUS = () => {
         box.transformError = Math.max(box.transformError, transformError);
       } else {
         const [occupiedE, occupiedN] = footprintReference(rec, p);
+        // A fort parade is laid as ground by the yards layer (T-3320); its GLB
+        // draws only the sun-dial, so like a camp its reference need not be
+        // occupied. Its vertices still owe the transform check.
+        const kind = rec.sidecar.attributes?.['kind'];
+        const parade = (kind && typeof kind === 'object' ? kind['value'] : kind) === 'parade';
         plan.set(id, { e0, e1, n0, n1, parts: 1, e: p.local_e, n: p.local_n,
-          occupiedE, occupiedN, compound: rec.sidecar.archetype === 'camp', transformError });
+          occupiedE, occupiedN, compound: rec.sidecar.archetype === 'camp' || parade, transformError });
       }
     }
   }

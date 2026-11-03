@@ -1,0 +1,33 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "source_id": "blanchard_shober_1867_wolf_point",
+  "photo": "../../../../reference/images/chicago/chicago_wolf_point_1833_nypl.jpg",
+  "image_px": [
+    1920,
+    1697
+  ],
+  "principal_px": [
+    284.3287596612033,
+    850.239315186295
+  ],
+  "focal_px": 6000.0,
+  "eye": [
+    164.92075454075533,
+    133.74014104327568,
+    2.0000000000000004
+  ],
+  "yaw_deg": 230.96016719062646,
+  "near_m": 150.0,
+  "sky": "overcast",
+  "solve": {
+    "status": "finite_reused_numeric_diagnostic_pending_current_native_render",
+    "metric_control": "None. The5m compartment span,2.6m eave, fixed6000px focal and the finite eye are reconstructed display/camera choices, not a historical survey.",
+    "inherited_numeric_fit": "Retainedprior12approximate analytic corner/apex fit, RMS1.5331427018px/max3.6858205510px, manualpickuncertainty3\u20136px. These are inheritedanalyticresiduals, not a fresh fit or current-render acceptance.",
+    "reuse": "All numeric camera/image/principal/focal/eye/yaw/near/pixel-aspect/sky fields retained exactly from cameraSHA2a96283300029b94481286f5b246c2c9c53efb6f505ab140ddef543288a48f82. The old fullNYPL source bytes exactly match currentd53dfb2f. The current225fMASTER retains this geometry with the previouslymergeddeep-brown roof finish; no newgeometry trial is proposed.",
+    "near_plane": "150m is a depth-precision choice in front of the subject, below the native500m far plane. It is unchanged from the accepted diagnostic seed.",
+    "limits": "1867retrospectiveprint labelled1833 governs picturedform; unchangedJuly1835appearance, physicalplan/scale, hiddenfabric and worldplacement remain inferred/reconstructed. Nativeisolatedphoto_match omits application roof normal/ORM treatment; currentnormalappfinish and remaining9compositioncoverage remain separate requirements. No historical From this spot or matches verdict."
+  },
+  "pixel_aspect": 1,
+  "diagnostic_only": true,
+  "library_image": "early-blanchard-shober-1867-wolf-point"
+}

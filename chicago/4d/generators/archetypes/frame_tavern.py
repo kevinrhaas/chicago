@@ -904,26 +904,35 @@ def _fenestration(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
             # entrance is on the FACADE, which is the +y face in Blender and
             # therefore faces north once exported — bearing 0 per the contract.
             if story == 0 and i == bays // 2:
-                _door(b, params, "y", d, 1, cx - 0.6, cx + 0.6, 0.0, 2.1, conf)
-                if params.entrance_frontispiece:
-                    _frontispiece(b, params, cx, d)
+                if params.front_opening_details is not None:
+                    _pictured_front_entrance(b, params, cx, d)
+                else:
+                    _door(b, params, "y", d, 1, cx - 0.6, cx + 0.6, 0.0, 2.1, conf)
+                    if params.entrance_frontispiece:
+                        _frontispiece(b, params, cx, d)
                 continue
             for y, sgn in ((0.0, -1.0), (d, 1.0)):
-                _win(b, params, "y", y, int(sgn), cx - win_w / 2, cx + win_w / 2, z0,
-                     z0 + win_h, conf)
+                # Only the pictured lower facade opts in; rear and upper stock stay exact.
+                sash = params.front_lower_sash if story == 0 and sgn > 0 else None
+                sash_w = sash["width_m"] if sash else win_w
+                sash_h = sash["height_m"] if sash else win_h
+                sash_z = sash["sill_m"] if sash else z0
+                sash_conf = params.conf("front_lower_sash", "reconstructed") if sash else conf
+                _win(b, params, "y", y, int(sgn), cx - sash_w / 2, cx + sash_w / 2, sash_z,
+                     sash_z + sash_h, sash_conf)
                 if params.shutters:
                     for side in (-1, 1):
                         # hung on the casing's outer edge (T-2278)
-                        x0 = cx + side * (win_w / 2 + openings.CASING_W_M + 0.01)
-                        x1 = x0 + side * (win_w * 0.42)
+                        x0 = cx + side * (sash_w / 2 + openings.CASING_W_M + 0.01)
+                        x1 = x0 + side * (sash_w * 0.42)
                         yl = y + sgn * (depth * 0.4)
                         lo, hi = min(x0, x1), max(x0, x1)
                         a_, b_ = (lo, hi) if sgn < 0 else (hi, lo)
-                        b.add_poly([(a_, yl, z0), (b_, yl, z0),
-                                    (b_, yl, z0 + win_h), (a_, yl, z0 + win_h)],
+                        b.add_poly([(a_, yl, sash_z), (b_, yl, sash_z),
+                                    (b_, yl, sash_z + sash_h), (a_, yl, sash_z + sash_h)],
                                    c_shut, M_SHUTTER)
                         if params.shutter_type == "louvred":
-                            _louvres(b, params, lo, hi, yl, sgn, z0, win_h)
+                            _louvres(b, params, lo, hi, yl, sgn, sash_z, sash_h)
 
 
 def _end_windows(b: MeshBuilder, params: FrameTavernParams, w: float,
@@ -943,6 +952,54 @@ def _end_windows(b: MeshBuilder, params: FrameTavernParams, w: float,
         _win(b, params, "x", plane, out, uc - width / 2, uc + width / 2,
              bottom, top, c, skin=0.0 if attic else LIP_M)
 
+
+
+def _pictured_front_entrance(b: MeshBuilder, params: FrameTavernParams,
+                            cx: float, d: float) -> None:
+    """Andreas's broad high case, transom and side lights, front face only.
+
+    This is a closed dark field in front of the existing wall, not a hole or a
+    reconstructed hotel interior. Exact sections and light divisions are liberties.
+    The default path never calls this or adds its one dark material.
+    """
+    g = params.front_opening_details
+    c = params.conf("front_opening_details", "reconstructed")
+    kit = _kit(b, params)
+    wall = openings.Wall("y", d, 1, LIP_M)
+    dark = b.named_mat("front_entrance_dark_recess", (.018, .017, .015, 1.), .97)
+    outer = g["jamb_outer_width_m"] / 2
+    inner = outer - .14
+    leaf_top, transom_top = g["leaf_head_m"], g["transom_top_m"]
+    openings.face(b, wall, LIP_M + .005, cx-inner, cx+inner,
+                  .04, transom_top, c, dark)
+    # Tall casing legs, with a broader shallow crown above the neighbouring sash.
+    for side in (-1, 1):
+        lo, hi = sorted((cx + side * inner, cx + side * outer))
+        b.add_box(lo, d + .035, .0, hi, d + .15, transom_top,
+                  c, kit.casing, skip=("bottom", "front"))
+    half = g["case_width_m"] / 2
+    crown = g["cornice_top_m"]
+    b.add_box(cx-half+.05, d+.035, transom_top,
+              cx+half-.05, d+.30, crown-.06, c, kit.casing, skip=("front",))
+    b.add_box(cx-half, d+.025, crown-.06,
+              cx+half, d+.36, crown, c, kit.casing, skip=("front",))
+    # The narrow side lights flank a dark central leaf/aperture. A single
+    # reconstructed mullion section separates them; no pane count is attested.
+    leaf_half, light_w = g["leaf_width_m"] / 2, g["sidelights_each_width_m"]
+    gap = (inner - leaf_half - light_w) / 2
+    for side in (-1, 1):
+        lo, hi = sorted((cx + side * leaf_half, cx + side * (leaf_half + .05)))
+        openings.face(b, wall, LIP_M + .065, lo, hi, .055, leaf_top,
+                      c, kit.casing)
+    for side in (-1, 1):
+        mid = cx + side * (leaf_half + gap + light_w / 2)
+        openings.window(b, wall, mid-light_w/2, mid+light_w/2,
+                        .45, leaf_top, c, kit, 1, (2, 1),
+                        cap=False, casing_w=.045, head_w=.045)
+    openings.transom_light(b, wall, cx-inner, cx+inner,
+                           leaf_top, transom_top, c, kit)
+    b.add_box(cx-outer, d+.02, .0, cx+outer, d+.28, .055,
+              c, kit.casing, skip=("bottom", "front"))
 
 
 def _frontispiece(b: MeshBuilder, params: FrameTavernParams, cx: float,

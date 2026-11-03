@@ -24374,9 +24374,15 @@ walks and the rainwater goods.
 body is one rectangle. The tower is square, as the photograph and the sheet draw it (T-3318: K08's
 polygonal tower with four sides, a face to the street, 3.79 m across and its front 1.3 m out of the wall,
 the sheet's), but its back stands on the front wall's plane all the way up, so over the main roof it is a
-1.3 m deep shaft and not the free-standing square the photograph shows above the cornice; its cornice is
-the kit's plain eaves, without the photograph's consoles (K08 adds no brackets to a tower), and its
-belvedere rises flush from the shaft rather than set back over a corbelled balcony. The door stands in the
+1.3 m deep shaft and not the free-standing square the photograph shows above the cornice. Its
+belvedere's cornice carries a console at each free corner and a row of plain brackets along its faces, and
+the belvedere stands back over a corbelled stone balcony round its cheeks and front (T-3329), as the
+photograph draws them; their sizes (the balcony 0.55 m out on a 0.3 m slab and three 0.16 m courses, a
+0.75 m balustrade; consoles 0.9 m deep; brackets 0.37 m apart) are read through the photograph's scale at
+the belvedere's lights and are reconstructed, and the photograph's carved consoles are the kit's plain
+quarter-ellipse ones and its moulded corbel table the kit's stepped courses. Both balconies stop on the
+wall's plane with the shaft. The bracketed cornice and balcony at the main cornice's level are not built:
+the shaft passes the main cornice with a plain string course. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
@@ -24384,7 +24390,7 @@ storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
-between the photograph and the sheet, and works the tower, the verandah, the entrance and the window
+between the photograph and the sheet, and works the tower's main-cornice stage and height (T-3330), the verandah, the entrance and the window
 dressings toward the photograph; T-1902 carves the finish.
 
 **Covers:** `house_1918_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1918_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1918_prairie.as_mapped_1904.form.roof_covering`, `house_1918_prairie.as_mapped_1904.form.stair_tread_m`, `house_1918_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1918_prairie.as_mapped_1904.form.north_bays`, `house_1918_prairie.as_mapped_1904.form.rainwater`, `house_1918_prairie.as_mapped_1904.form.yard`.
@@ -38795,6 +38801,7 @@ The rear, the plan's stair block and service range, stays the draft's.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
+**Revised 2026-11-02 (T-1881):** the Prairie front's part ends moved from the sketch's proportions to the photographs' readings, the three parts kept in order and depth. Clark's 1905 photograph (CHM i71913) and the Detroit print (LC-D4-12551), each through its own solved camera, put the big pedimented dormer and its column of lights at v 11.0-11.45, 3.2 m north of round 3's v 14.45; the Detroit print reads the light over the door at v 6.0-6.9, the gate's urned piers centred on v 6.875, the north block's south return beside the portico at about v 5.0, and a narrow south column (lights at v 15.2-15.7, a smaller dormer at v 14.3-15.3) that round 3 had dropped. Now: `p_block` v 0-5.0 (K01's forward-block floor lowered from 6 m to 4.5 m for it), `p_entry` v 4.95-8.8 on the door at v 6.875, the hood 3.1 m with its columns at v 5.65 and 8.1 and the stoop 3.1 m, the south part v 8.8-17.93 with the big column and dormer at v 11.225 and the narrow column at v 15.45 under a 0.6 m dormer at v 14.85. Through both cameras the render's columns land within a few pixels of the prints'. **Still invented:** the ends to about 0.5 m, and the portico's reach: the print and the 1911 sheet run it over v 1.6-10.6, before the north block, which this build cannot lay while the block stands 2.95 m forward.
 
 ### L-pullman-1729-joined-roof-1881 — 1729 Prairie's mansard built as one roof over its sections, under one rail of cresting, and the ivy at its south-west corner held off the windows
 
@@ -39331,6 +39338,40 @@ four, says whether the sheet or the photograph has the stable's place; the alley
 **Ticket:** T-3316.
 **Review:** `docs/RESEARCH/photo-match/hibbard_house_1701_prairie_coach_house/chicagology_front-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3316).
+
+### L-t3320-parade-ground — Fort Dearborn's parade drawn as trodden earth that feathers raggedly into the grass, both forts
+
+**Decision:** the parade of both forts (1835: `fort_dearborn_parade`; 1812: `first_fort_dearborn_parade`) is laid by
+`renderers/web/js/yards.js` as the `trodden_earth` treatment the apron outside the 1835 walls already wears (L174), on
+the parade's own committed footprint, and its edge gives way to the sward over 5 m in wandering tongues rather than a
+line. The archetype's flat 6 cm slab is no longer drawn (`buildings.js` leaves out the parade's `earth` primitive); the
+sun-dial still stands. The two grounds are `data/enclosures/fort_dearborn_parade_ground.json` and
+`data/enclosures/1812/first_fort_dearborn_parade_ground.json`, written by `tools/generate_fort_parade_ground.py` and
+re-derived byte for byte by `tools/check.sh`; 1812 reads its own enclosure folder (`enclosures_dir`), which holds this
+record and nothing else. **Why:** the owner, 2026-11-02, standing on the 1835 parade: *"can you improve the texture of the
+ground so it is not a solid color but a more realistic texture that looks good and also blur/gradient all the
+transitions from that to grass or dirt so there are not sharp lines dividing ground surfaces"*. **What is recorded and
+what is not:** that there was a parade, where and how large, is the parade records' own (inferred, with their
+sources). Nothing reached describes its surface. That it was bare trodden earth, its colour and grain (the apron's),
+and the 5 m ragged fade into grass beyond its edge are ours; the fade is sized so it finishes inside each fort's walls,
+which the generator asserts. **How to resolve:** a garrison description, return or drawing that shows the parade's
+surface, grass, gravel or bare earth.
+**Ticket:** T-3320.
+**Recorded:** 2026-11-02 (T-3320).
+
+
+### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash
+
+**Covers:** `sauganash_hotel.frame_1831.form.front_opening_details`, `sauganash_hotel.frame_1831.form.front_lower_sash`.
+
+**Decision:** Use the retrospective Andreas/Braunhold engraving's broad entrance case, dark transom and side lights to bound a reconstructed facade opening. Its exact outer width, jamb/cornice sections, shallow depth, light divisions and dark closed interior field are working appearance choices; they are not historical measurements or evidence that the older typological frontispiece was absent. Keep the existing entrance station, wall/roof massing, geographic placement and upper/rear openings. The generated entrance clearance follows this selected door leaf, rather than the wider decorative case.
+
+Replace the four stock lower front sash envelopes with reconstructed0.70m width,1.85m height and0.90m sill. The source draws tall narrow lower sash whose heads approach the entrance case; the selected2.75m heads remain at the existing nominal storey division. Their four bay stations stay unchanged, and their existing open blue leaves follow the narrower/taller sash. The separate Wau-Bun colour evidence is retained; neither monochrome print nor provisional off-image-principal camera establishes historic pigment, exact metres, hidden fabric, interior or July1835 continuity. Every numeric section in these two opt-ins remains reconstructed.
+
+Source: `andreas_1884_sauganash_hotel_plate`, F.Braunhold engraving reproduced in Andreas1884, with the existing retrospective/date/dependence qualifications. This bounded hotel-facade increment does not attest the entire hotel/Carpenter compound or complete original image acceptance. All absent opt-ins preserve the current frame-tavern family defaults.
+
+**Ticket:** T-2383.
+**Recorded:** 2026-11-02.
 
 
 ### L-farm-box-licensed-master-2793 — licensed work-wagon development master (2026-10-26)

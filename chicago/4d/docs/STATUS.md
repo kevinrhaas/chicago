@@ -25431,6 +25431,18 @@ Fresh sampling with the production heightfield confirmed all eight covered-wagon
 The candidate includes the intervening Kimball development merge through 5cb66944, preserving its model, source records and liberty. Final full-source and published functional frame, Images and approach qualification remain separate requirements before the grouped PR merges.
 
 
+## 2026-11-02 — Wolf Point picture-review increment (T-2386)
+
+Seven source-specific native drawing comparisons and their dated, credited source records are now installed for Wolf Point Tavern. The existing model, camera bytes and held originals are unchanged. The two inspection-only compositions retain their identification/rights limits. This is an incremental publication of the completed picture review; current published-card checks and source validation are recorded separately, and original T-2386 acceptance remains in progress.
+
+Integration with dev's Allerton sources prices the complete 547-source catalog at 224,556 raw bytes, 51,974 gzip bytes for the index and 59,383 gzip bytes for the first open including source JavaScript and CSS. The raw ceiling consciously increases from 224,000 to 228,000 bytes (+1.79%); the 120,000-byte compressed first-open ceiling and all citations, counts and source edges remain intact.
+
+
+### Sauganash exterior increment joined before merge (T-2383)
+
+This same PR also installs the qualified Sauganash entrance and four lower-front sash correction: MASTER a369598a and WEB 5f7d8a54. The other 24 frame-family MASTER/WEB files and foreign registry entries remain exact. Three genuine unchanged-camera Carpenter group captures refresh the hotel context; root directly reviewed all three and preserves the existing annex matches, without claiming whole-hotel signoff. Native Liberty, scene, entrances and source-use owners, only the drifting yard-goods owner, the doorway consumers, jaunts, model-town, dataset, Carpenter image gate and publication checks pass. Full final combined source parts and published app acceptance follow. Both original T-2383 and T-2386 remain in progress; this is the owner-requested incremental delivery, with no new photo follow-up tickets.
+
+
 ### T-2793 incremental wagon delivery — 2026-11-02
 
 ### T-2793 — source-guided farm-box master in preparation (2026-10-26)

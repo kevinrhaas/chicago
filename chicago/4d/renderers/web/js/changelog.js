@@ -1,4 +1,37 @@
 export const CHANGELOG = [ // newest first
+  { v: 2595, ts: '2026-11-03T04:07:27.683Z', date: 'Nov 2, 2026, 10:07 PM CT', title: 'Fort Dearborn: Inspect names the building you face inside the walls', kind: 'fix',
+    items: [
+      'On a phone, standing inside Fort Dearborn and pressing Inspect named the stockade\'s pickets, whatever building you were facing, in 1812 and 1835.',
+      'Inspect now names the barracks, quarters or store you are looking at, the same one a tap opens. With nothing nearer ahead, it still names the stockade.',
+    ] },
+  { v: 2594, ts: '2026-11-03T04:06:14.756Z', date: 'Nov 2, 2026, 10:06 PM CT', title: 'Fort Dearborn\'s bird\'s-eye view now shows on every fort card', kind: 'add',
+    items: [
+      'The 1912 bird\'s-eye drawing of the first Fort Dearborn opens full size from the Images tab of each blockhouse, range, the magazine, flagstaff and both picket rows in 1812.',
+      'It is credited as a later reconstruction, drawn from an 1898 model, not an eyewitness view.',
+      'A side-by-side of the 1812 fort against it lists where the two disagree.',
+    ] },
+  { v: 2593, ts: '2026-11-03T04:06:14.756Z', date: 'Nov 2, 2026, 10:06 PM CT', title: '1936 Prairie: the Allerton belvedere gets its balcony and brackets', kind: 'feature',
+    items: [
+      'The Allerton house\'s belvedere on Prairie Avenue now stands back over a corbelled stone balcony, with a balustrade round its front and sides, as the winter photograph shows it.',
+      'Brackets now carry the belvedere\'s deep cornice: a console at each outer corner and a row of smaller brackets along every face.',
+    ] },
+  { v: 2592, ts: '2026-11-03T04:04:08.699Z', date: 'Nov 2, 2026, 10:04 PM CT', title: 'Wolf Point pictures and Sauganash windows', kind: 'add',
+    items: [
+      'Wolf Point Tavern\'s Images tab now includes the 1867 lithograph and five credited source links, alongside seven reviewed drawing comparisons.',
+      'The Sauganash Hotel has four taller lower front windows and a narrower entrance door, following the historical drawings. Its attached log shop keeps its reviewed picture comparisons.',
+    ] },
+  { v: 2591, ts: '2026-11-03T03:00:02.545Z', date: 'Nov 2, 2026, 9:00 PM CT', title: 'Pullman\'s Prairie front laid where its photographs put it', kind: 'fix',
+    items: [
+      '1729 Prairie\'s big dormer and its tall arched windows move 3.2 m north, onto the spot two photographs taken from different corners both show them',
+      'The front door, its porch and the steps move with the entry onto the line of the garden gate, as the Detroit photograph has them',
+      'The narrow south bay comes back: a slim arched window on each floor and a small dormer over it, near the corner',
+    ] },
+  { v: 2590, ts: '2026-11-03T02:49:34.963Z', date: 'Nov 2, 2026, 8:49 PM CT', title: 'Fort Dearborn: the parade is trodden earth that fades into the grass', kind: 'improvement',
+    items: [
+      'The parade inside Fort Dearborn was a flat beige slab with a hard edge. It is now textured trodden earth, the same ground as outside the walls, in 1835 and in 1812.',
+      'Its edge no longer stops in a line: the bare earth gives way to grass over about five metres in ragged tongues, finishing well inside the walls.',
+      'Nothing records what the parade\'s surface was, so the earth and its fade are ours (liberty L-t3320-parade-ground). The sun-dial and the flagstaff still stand where they did.',
+    ] },
   { v: 2589, ts: '2026-11-03T02:23:18.699Z', date: 'Nov 2, 2026, 8:23 PM CT', title: '1936 Prairie: the Allerton tower stands square', kind: 'feature',
     items: [
       'The Allerton house\'s belvedere tower on Prairie Avenue is now square, as its winter photograph and the 1911 fire map show it, instead of an eight-sided shaft. It stands 1.3 m out from the front, the map\'s depth, with one round-headed window on each face of the belvedere and a stone balustrade round its flat top.',

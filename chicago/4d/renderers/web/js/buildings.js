@@ -57,7 +57,7 @@ import { loadWallRelief } from './wall-relief.js';
 import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
-import { drawsLeaves as leavesHungElsewhere } from './fort-gates.js';
+import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround } from './fort-gates.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { layerPick } from './gpu-pick.js';
 import {
@@ -634,6 +634,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // shut pair the palisade baked (its `dark` primitive, the leaves and nothing else)
       // is left out for those stockades only.
       if (bodyRole === 'dark' && leavesHungElsewhere(record)) continue;
+      // T-3320: a parade's ground is laid by the yards layer as trodden earth that
+      // feathers into the grass; the archetype's flat slab under it is left out.
+      if (bodyRole === 'earth' && paradeLaidAsGround(record)) continue;
       // A detail replacement rebuilds from the same source records. Never whiten
       // or shader-patch those source materials: each batch owns its own copy.
       let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;

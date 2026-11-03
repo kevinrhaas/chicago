@@ -1,0 +1,33 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "view": "pair-left-1830",
+  "glb": "assets/gltf/wolf_point_tavern__log_frame_1828.glb",
+  "glb_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+  "camera_sha256": "302a31d5bbba8deaef59c9e2788ecab783d72f7ce24a1407a0deb0ba78f42a38",
+  "photo_sha256": "1e3dabb779faf62ba0787a931f411bf92e9c8a804026e8db1b247c7ff3fd9c09",
+  "side_by_side": "docs/RESEARCH/photo-match/wolf_point_tavern/pair-left-1830-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The separate left oval shows the paired low left-bank Wolf, and Miller on the right. This camera belongs only to that oval, not the composite’s independent right square. Both low outward gables remain in the unchanged model.",
+      "status": "fixed"
+    },
+    {
+      "what": "Source proportions/asymmetry and first-fit roof residuals do not fully coincide with NYPL or the separate right square. Do not turn those pixel residuals into a sub-0.3 m claim. T-3153 classifies conflicting pictures or camera fits within tolerance; NYPL governs the physical L without redrafting geometry to satisfy the oval.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The earlier 1830 bare-pole scene does not show the later wolf board. Keep the circa1833 sign for the inferred July1835 continuity; no exact unchanged date claim is made. Monochrome texture does not calibrate colour.",
+      "status": "not shown"
+    },
+    {
+      "what": "Neutral single-anchor photo_match does not show the application roof normal/ORM treatment, terrain, riverbank, trees, figures, neighbours or authentic historic pigment. Those absent scene elements do not validate app finish or surveyed placement.",
+      "status": "not shown"
+    },
+    {
+      "what": "The illustration is retrospective and depicts its stated earlier date. Exact 5 m compartments, plan, dimensions, hidden fabric and metric sign pose remain reconstructed; unchanged appearance on 1 July 1835 is not directly attested.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
