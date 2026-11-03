@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2622, ts: '2026-11-03T21:37:46.537Z', date: 'Nov 3, 2026, 3:37 PM CT', title: 'Night windows stay lit as you walk past', kind: 'fix',
+    items: [
+      'Fixed: lit windows went out and came back on as you walked (Glessner House at 18th Street, 1904 at dusk). Each building\'s lit-or-dark choice is now tied to where it stands, so its near and far versions agree.',
+    ] },
   { v: 2621, ts: '2026-11-03T21:02:41.394Z', date: 'Nov 3, 2026, 3:02 PM CT', title: 'Lake House links its later completed-state picture', kind: 'change',
     items: [
       'The unfinished Lake House’s Images tab links a credited public-domain print showing the later completed hotel.',
