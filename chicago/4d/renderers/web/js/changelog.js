@@ -1,4 +1,32 @@
 export const CHANGELOG = [ // newest first
+  { v: 2629, ts: '2026-11-03T23:10:42.020Z', date: 'Nov 3, 2026, 5:10 PM CT', title: 'Green Tree\'s enclosed shoulder beside the main gable', kind: 'change',
+    items: [
+      'The inn gains the closed wall, lower window and small gable light drawn by Andreas. Its competing open shed and covered wagon are removed together; the conflicting pictures and unfinished shape match remain recorded.',
+    ] },
+  { v: 2628, ts: '2026-11-03T23:04:17.362Z', date: 'Nov 3, 2026, 5:04 PM CT', title: '1835 shop signs are fixed to the building, not hung', kind: 'change',
+    items: [
+      'The 35 signs that hung from brackets or under awnings in 1835 are now boards fixed flat on the shop or tavern front, over the door or beside it.',
+      'Each keeps its wording, colours and lettering, and stays clear of doors, windows and shutters.',
+      'Tavern posts at the street edge stay: they are the one free-standing sign the period pictures show.',
+    ] },
+  { v: 2627, ts: '2026-11-03T22:43:25.728Z', date: 'Nov 3, 2026, 4:43 PM CT', title: '1900 Prairie\'s brick stable on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1900 Prairie Avenue, the Elbridge G. Keith house, is no longer a rough draft. It now stands as a two-storey brick stable, 15.4 m along the alley and 9.2 m deep, drawn from the 1911 fire-insurance map. The rough draft had it at one storey; the map says two.',
+      'A paired window sits where the map marks one, beside two carriage doors and a hay-loft hatch. A fire wall stands at the north end, where the map marks one, and a paved walk runs from the yard door to the house\'s back porch.',
+      'The doors, roof pitch and most windows are reconstructed, and they are listed on the building\'s card.',
+    ] },
+  { v: 2626, ts: '2026-11-03T22:40:25.953Z', date: 'Nov 3, 2026, 4:40 PM CT', title: 'Dead trees and leafy crowns no longer float pieces in the air', kind: 'fix',
+    items: [
+      'A dead standing tree keeps only the branches still joined to its broken limbs. Before, about four sticks per dead tree hung in the air, some up to 8 m away.',
+      'The broken trunk now ends at its break, so the limbs that grew just below it stay attached.',
+      'Leaf clusters on the outside of a crown now sit on a twig. Before, some hung several metres off the side of a tree, such as the Kinzie cottonwoods in 1812.',
+      'Big limbs that branch just above the trunk\'s fork now start on the trunk instead of up to 0.7 m beside it.',
+      'Crowns keep their width and triangle count. This applies in 1812, 1835 and 1904.',
+    ] },
+  { v: 2625, ts: '2026-11-03T22:33:17.106Z', date: 'Nov 3, 2026, 4:33 PM CT', title: 'The Pullman house\'s 18th Street balustrade gains its middle post', kind: 'polish',
+    items: [
+      'Along 18th Street, the stone balustrade on the Pullman estate\'s wall now has the solid post in its middle that two old photographs show.',
+    ] },
   { v: 2624, ts: '2026-11-03T22:11:48.552Z', date: 'Nov 3, 2026, 4:11 PM CT', title: 'The 1812 jaunts tell the whole story, stop by stop', kind: 'improvement',
     items: [
       'All three 1812 jaunts open by setting the scene: the fort, when it was built, its garrison under Captain Heald, and the war with Britain coming closer. Each opening ends on the moment the story ignites.',

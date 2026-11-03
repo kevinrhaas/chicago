@@ -4063,12 +4063,21 @@ for (const [label, viewport, touch] of [
       boards.pairs > 0 && boards.sameStyle === 0 && boards.sameGround === 0,
       `${boards.pairs} pair(s) within 40 m — ${boards.sameStyle} share a style, `
       + `${boards.sameGround} share a ground colour`);
-    check(`${label}: the town puts its signs up five different ways`,
-      boards.mountings >= 5 && boards.grounds >= 8 && boards.faces >= 4,
+    // T-3359 RE-BUDGETS THE MOUNTING COUNT, consciously: it was five, and the owner,
+    // 2026-11-03, had the bracket and awning boards fixed flat on their fronts ("this
+    // whole hanging awning sign thing is not likely"), so the town now puts its signs
+    // up three ways — a board on the front, a name painted on it, a tavern's post. The
+    // variety the owner asked for (2026-08-18) is still asserted where it lives now:
+    // ground colours and letterforms here, and no two neighbours alike above.
+    check(`${label}: the town puts its signs up three different ways`,
+      boards.mountings >= 3 && boards.grounds >= 8 && boards.faces >= 4,
       `${boards.mountings} mounting(s), ${boards.grounds} ground colour(s), `
       + `${boards.faces} letterform(s) across ${boards.signs} signs`);
+    // T-3359: South Water has no tavern post, so its row now has the two flat
+    // mountings — boards and painted names — rather than three; its ground colours
+    // are what keep a row of shops from reading as one sign repeated.
     check(`${label}: one street's signs are visibly different from each other`,
-      boards.rowSigns >= 6 && boards.rowMountings >= 3 && boards.rowGrounds >= 5,
+      boards.rowSigns >= 6 && boards.rowMountings >= 2 && boards.rowGrounds >= 5,
       `South Water row: ${boards.rowSigns} sign(s), ${boards.rowMountings} `
       + `mounting(s), ${boards.rowGrounds} ground colour(s)`);
 

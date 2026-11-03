@@ -9,17 +9,17 @@
   "counts": {
     "frontages": 29,
     "objects": 158,
-    "wagons": 80,
+    "wagons": 79,
     "wagons_by_kind": {
       "farm_box": 26,
-      "covered": 16,
+      "covered": 15,
       "cart": 38
     },
     "wagons_at_street_verges": 71,
     "wagons_in_yards": 6,
-    "wagon_stands_refused": 68,
+    "wagon_stands_refused": 69,
     "benches": 1,
-    "sheds": 1,
+    "sheds": 0,
     "marked_objects": 158,
     "distinct_marks": 73
   },
@@ -3765,21 +3765,6 @@
       "note": "A FARM WAGON IN THE GREEN TREE'S YARD, and the picture is the whole reason it is here. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows farm wagons standing in its yard — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. So WHERE is derived: the wagons stand drawn up square to the building's built rear face — since T-0083 that is the rear ell's far wall — tongues out, 1.00 m clear of it, spaced at the 3.20 m of ground a parked wagon needs, laid in from the far end of that wall. The yard is taken to run back as far as the front is wide, which is the only length this record has. What is invented is the depth of that yard, that a wagon stood in it at noon on 1 July 1835, and the wagon itself: docs/LIBERTIES.md L131 and L133."
     },
     {
-      "id": "green_tree_tavern_shed_wagon",
-      "belongs_to": "green_tree_tavern",
-      "under_shed": "green_tree_tavern_wagon_shed",
-      "kind": "covered",
-      "tilt": true,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        -34.87,
-        -86.97
-      ],
-      "bearing_deg": 90.0,
-      "clearance_m": 3.31,
-      "note": "THE COVERED WAGON UNDER THE SHED, from the same plate and standing on the same derived centre as the bay over it. It is the farm wagon this record already draws — the body, the wheels and the tongue are L131's invented numbers and have not moved — with a TILT added: canvas on bows, 1.10 m of rise over the body's top rail and 0.12 m pulled past the end bows, open at both ends. The bows themselves are not drawn, for the reason the barrels' hoops are not: under the canvas there is nothing to see. It lies ALONG the wall because that is how a 4.05 m bay takes a 3.05 m body, with the tongue down and out of the open end into the yard. What is invented is the wagon, the tilt and the fact that either stood here on 1 July 1835: docs/LIBERTIES.md L131 and L134."
-    },
-    {
       "id": "town_wagon_adams_7",
       "kind": "cart",
       "stands_on": "adams",
@@ -5314,25 +5299,7 @@
       "note": "THE BENCH AGAINST THE FRONT WALL, and the people on it are not drawn. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows a bench of sitters against the front wall of the Green Tree. THE SITTERS ARE REFERENCE ONLY — AGENTS.md's standing constraint on depicting people is not relaxed by a plate, and v1 ships no human figures at all — so what is taken from the picture is the BENCH, which is the buildable fact in it. Its stand is derived: against the front wall at the +u end, 0.50 m in from the end of the frontage, which is the end the barrels do not pile at. Its size is invented: docs/LIBERTIES.md L133."
     }
   ],
-  "sheds": [
-    {
-      "id": "green_tree_tavern_wagon_shed",
-      "belongs_to": "green_tree_tavern",
-      "kind": "wagon_shed",
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        -34.87,
-        -86.97
-      ],
-      "bearing_deg": 0.0,
-      "length_m": 4.05,
-      "depth_m": 3.2,
-      "eave_m": 2.95,
-      "head_m": 3.63,
-      "clearance_m": 3.31,
-      "note": "AN OPEN-SIDED WAGON SHED BESIDE THE FRONT GABLE, and the picture is the whole reason it is here. The verified Trowbridge/Gale 1902 plate (data/sources/trowbridge_green_tree_1902.json), captioned 1835, shows an open-sided wagon shed attached at the left of the house with a covered wagon standing under it — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. WHICH WALL IS DERIVED: the existing north (+u) host wall is unchanged. T-2376 places the bay at that wall's front end, ending at the same +v plane as the native primary entrance, instead of its former rear-end station. The covered wagon shares this centre. This is reconstructed setting from a retrospective drawing, not a surveyed coordinate or proof of the exact July-1835 state; the inn and its doors do not move. The canonical low connector and farther gabled range are independent building geometry. The unadopted prepared Andreas reading closes the shoulder; this open wagon bay remains separate native yard geometry, not the gabled range. HOW BIG IS ARITHMETIC on numbers already here: the bay is 4.05 m along the wall (the wagon's body and 0.50 m of air at each end) by 3.20 m out from it (the ground a parked wagon is given), its open eave stands 2.95 m up (0.35 m over the tilt it covers) and its plate meets the wall 3.63 m up at 12 degrees. What is invented is that this inn had a wagon shed on 1 July 1835 and every dimension of it: docs/LIBERTIES.md L134. NOT THE SAME THING as the low one-storey additions John Gray describes at each end of the house — those are attributes of the BUILDING, dated three to six years after the scene and deliberately excluded from its footprint; this is a yard structure on the yard's own ground, and it does not date them."
-    }
-  ],
+  "sheds": [],
   "refused": [
     {
       "structure_id": "fort_dearborn_store_house",
@@ -5414,6 +5381,10 @@
     {
       "enclosure_id": "*",
       "why": "EVERY OTHER PLACE IN THE TOWN, refused in writing UNTIL 2026-08-21, AND THE REFUSAL IS NOW OVERRULED. This entry used to read: 'docs/ROADMAP.md K5 (c) offers wagons/drays (documented mired on Lake St) — this project holds no source record for that, and a dray dropped into Lake Street on the strength of a roadmap parenthesis would be traffic invented to look busy … the yard whose own name is the attestation gets the wagon, and the rest wait for a source.' No source arrived. The OWNER did, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' T-0064 is that instruction and the town's wagons below are it, every one of them reconstructed and every one of them placed by a rule over the committed street lines rather than by a hand — see `town_wagon_rule` on this record and docs/LIBERTIES.md L162. What is still refused, and refused for the same reason as before, is a wagon standing IN a travelled track: a dray mired in Lake Street is a scene this project has no source for and would be a claim about the road as well as about the wagon."
+    },
+    {
+      "structure_id": "green_tree_tavern",
+      "why": "the canonical enclosed shoulder occupies the open-bay ground; the separate shed/posts and its covered wagon are not drawn twice. Trowbridge's open bay remains a conflicting retrospective reading, not a dated conversion or a measured July1835 condition."
     },
     {
       "stand": "canal 1",

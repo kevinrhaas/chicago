@@ -646,6 +646,68 @@ function envelopeRadius(shape, t) {
 /* growing the skeleton                                                        */
 /* -------------------------------------------------------------------------- */
 
+/** T-3362: the point on a rising stem's axis at height `y` (its foot below it, its tip above). */
+function onStemAt(b, y) {
+  const p = b.pts;
+  if (y <= p[0][1]) return p[0];
+  for (let k = 0; k + 1 < p.length; k++) {
+    if (p[k + 1][1] < y) continue;
+    const f = (y - p[k][1]) / Math.max(1e-6, p[k + 1][1] - p[k][1]);
+    return add(p[k], mul(sub(p[k + 1], p[k]), f));
+  }
+  return p[p.length - 1];
+}
+
+/**
+ * T-3362: nearest wood. A grid of every segment of `branches`, by cell of `cell` metres;
+ * the returned lookup gives the point on the nearest segment's axis to `p` (`at`), the
+ * wood's radius there (`r`), and the distances to the axis (`d`) and to the bark (`gap`),
+ * or null when no wood is within `maxRing` cells.
+ */
+function woodIndex(branches, cell, maxRing = 6) {
+  const grid = new Map();
+  // a crown is well inside a thousand cells each way of its stem
+  const key = (i, j, k) => ((i + 512) * 1024 + (j + 512)) * 1024 + (k + 512);
+  const cellOf = (v) => Math.floor(v / cell);
+  for (const b of branches) {
+    for (let k = 0; k + 1 < b.pts.length; k++) {
+      const a = b.pts[k]; const c = b.pts[k + 1];
+      const seg = { a, ab: sub(c, a), r0: b.rad[k], r1: b.rad[k + 1] };
+      for (let i = cellOf(Math.min(a[0], c[0])); i <= cellOf(Math.max(a[0], c[0])); i++) {
+        for (let j = cellOf(Math.min(a[1], c[1])); j <= cellOf(Math.max(a[1], c[1])); j++) {
+          for (let q = cellOf(Math.min(a[2], c[2])); q <= cellOf(Math.max(a[2], c[2])); q++) {
+            const kk = key(i, j, q);
+            if (grid.has(kk)) grid.get(kk).push(seg); else grid.set(kk, [seg]);
+          }
+        }
+      }
+    }
+  }
+  return (p) => {
+    const [ci, cj, cq] = p.map(cellOf);
+    const seen = new Set();
+    let best = null;
+    // Ring by ring outward. Wood first met in ring m is no nearer than (m - 1) cells, so
+    // once the best is within m cells, no further ring can hold a nearer twig.
+    for (let m = 0; m <= maxRing; m++) {
+      if (best && best.d <= (m - 1) * cell) break;
+      for (let i = -m; i <= m; i++) for (let j = -m; j <= m; j++) for (let q = -m; q <= m; q++) {
+        if (Math.max(Math.abs(i), Math.abs(j), Math.abs(q)) !== m) continue;
+        for (const s of grid.get(key(ci + i, cj + j, cq + q)) ?? []) {
+          if (seen.has(s)) continue;
+          seen.add(s);
+          const t = clamp01(dot(sub(p, s.a), s.ab) / Math.max(1e-9, dot(s.ab, s.ab)));
+          const at = add(s.a, mul(s.ab, t));
+          const d = len(sub(p, at));
+          const r = lerp(s.r0, s.r1, t);
+          if (!best || d - r < best.gap) best = { at, r, d: Math.max(d, 1e-6), gap: d - r };
+        }
+      }
+    }
+    return best;
+  };
+}
+
 /**
  * Grow one tree's skeleton: a list of branches, each a polyline with a radius
  * at every node and an order (0 the trunk), plus the foliage clumps.
@@ -786,11 +848,15 @@ function growSkeleton(spec, arch, rnd) {
       const n = arch.scaffolds[0] + Math.floor(rnd() * (arch.scaffolds[1] - arch.scaffolds[0] + 1));
       const count = Math.max(1, Math.round(n / Math.sqrt(nStems)));
       const azBase = rnd() * Math.PI * 2;
+      let leader = null;
       for (let i = 0; i < count; i++) {
         const lead = i === 0;
         // Scaffolds leave over the top of the bole and up the leader, not from one point.
         const drop = lead ? topR * 1.5 : (rnd() * 0.18) * forkY - rnd() * crownH * 0.12;
-        const at = add(top, [0, -drop, 0]);
+        // One that leaves above the bole's top leaves from the leader at that height: the
+        // leader leans off the bole's axis, and a limb started on the axis above the bole
+        // stood up to 0.7 m off any wood (the bare 1835 snags showed it, T-3362).
+        const at = !lead && drop < 0 && leader ? onStemAt(leader, top[1] - drop) : add(top, [0, -drop, 0]);
         const ang = (lead ? arch.limbAngle * 0.35 : arch.limbAngle + (rnd() - 0.5) * 16) * Math.PI / 180;
         const az = azBase + (i / count) * Math.PI * 2 + (rnd() - 0.5) * 0.9;
         const dir = deflect(nStems > 1 ? dir0 : [0, 1, 0], ang, az);
@@ -800,7 +866,9 @@ function growSkeleton(spec, arch, rnd) {
         const L = Math.hypot(reachH * Math.cos(ang) * 0.9, reachR * Math.sin(ang) * 1.1) + crownH * 0.18;
         // Pipe model, roughly: the limbs' cross-sections sum to the stem's.
         const lr = lead ? topR * 0.80 : topR * (0.55 + rnd() * 0.15) / Math.sqrt(Math.max(1, (count - 1) / 2.4));
-        scaffolds.push(branch(at, dir, L, lr, lr * (lead ? 0.12 : 0.16), lead ? 0 : 1));
+        const limb = branch(at, dir, L, lr, lr * (lead ? 0.12 : 0.16), lead ? 0 : 1);
+        if (lead) leader = limb;
+        scaffolds.push(limb);
       }
       if (arch.scaffolds[1] === 0) scaffolds.push(trunk);
     }
@@ -842,6 +910,7 @@ function growSkeleton(spec, arch, rnd) {
   // T-3223: a sheared or massed plant (the front yards' arborvitae, a bed's geraniums) is
   // all shell, so its habit asks for more of it (`shellK`).
   const shellN = Math.round((R * R * 0.9 + crownH * R * 0.3) * arch.density * 0.18 * SHELL_K * (arch.shellK ?? 1));
+  const shell = [];
   for (let i = 0; i < shellN; i++) {
     const t = rnd();
     const az = rnd() * Math.PI * 2;
@@ -849,7 +918,20 @@ function growSkeleton(spec, arch, rnd) {
     const er = envR([off[0] + Math.cos(az), y, off[2] + Math.sin(az)]) * (0.72 + rnd() * 0.24);
     const at = [off[0] + Math.cos(az) * er, y, off[2] + Math.sin(az) * er];
     if (rnd() < arch.gaps) continue;
-    clumps.push({ at, dir: norm([Math.cos(az), 0.3, Math.sin(az)]), r: clumpR * (0.7 + rnd() * 0.4), shell: true });
+    shell.push({ at, dir: norm([Math.cos(az), 0.3, Math.sin(az)]), r: clumpR * (0.7 + rnd() * 0.4), shell: true });
+  }
+  // T-3362: ON the nearest wood. The shell was laid on the crown's envelope with no wood
+  // under it, a median 1.8 of its own widths from the nearest twig and up to 7.6 (Kevin's
+  // 1812 shot: leaf clusters hanging in the sky off a crown's side). Each is drawn in along
+  // the line to its nearest twig until its sprays reach that twig, so it still fills the
+  // shell where it is thin and none hangs apart from the crown.
+  if (shell.length && !arch.core) {
+    const near = woodIndex(branches.filter((b) => b.order > 0), clumpR * 2);
+    for (const c of shell) {
+      const w = near(c.at);
+      if (w && w.gap > c.r * SHELL_REACH) c.at = add(w.at, mul(sub(c.at, w.at), (w.r + c.r * SHELL_REACH) / w.d));
+      clumps.push(c);
+    }
   }
   // THE SHEARS (T-1881): a clipped plant (`core`) has nothing outside its clipped shape. Its
   // twigs, grown as any shrub's, reach past it (a 1.5 m ball's half-metre shoots carried leaf
@@ -1109,6 +1191,9 @@ const LEAF_GAIN = 2.0;
  *  so a bloom's vertex colour comes back to the record's. */
 const BLOOM_CAST = [1.02, 0.77, 1.40];
 const SHELL_K = 7.0;
+/** T-3362: a shell clump stands no further from its nearest twig's bark than this share of
+ *  its radius: its two near sprays (1.5 r, jittered 0.55 r) then reach over the twig. */
+const SHELL_REACH = 0.6;
 /** T-3223 — the solid garden blooms (`bloom.shape`): how many florets make one, how far it
  *  stands up off its clump (in radii), how squat it is, its sphere's segments near, and the
  *  share of the upper clumps that carry one. */
@@ -1923,12 +2008,33 @@ function deadSkeleton(sk, kind, rnd) {
       const [lo, hi] = keepOf[b.order];
       n = Math.max(2, Math.round(n * lerp(lo, hi, rnd())));
     }
-    // Nothing stands above the break.
+    // Nothing stands above the break, and what reaches it ends AT it (T-3362: cut at
+    // the last node under it, a stem lost up to a segment's length, two metres on a
+    // cottonwood, and the limbs that left it there hung free).
     const over = b.pts.findIndex((p, i) => i < n && p[1] > cutY);
-    if (over === 0 || over === 1) continue;
-    if (over > 1) n = over;
-    branches.push({ ...b, pts: b.pts.slice(0, n), rad: b.rad.slice(0, n) });
+    if (over === 0) continue;
+    const pts = b.pts.slice(0, over > 0 ? over : n);
+    const rad = b.rad.slice(0, pts.length);
+    if (over > 0) {
+      const p0 = b.pts[over - 1]; const p1 = b.pts[over];
+      const f = (cutY - p0[1]) / Math.max(1e-6, p1[1] - p0[1]);
+      pts.push(add(p0, mul(sub(p1, p0), f)));
+      rad.push(lerp(b.rad[over - 1], b.rad[over], f));
+    }
+    branches.push({ ...b, pts, rad });
   }
+  // T-3362: a limb stands only on wood that is left. The breakage above shortens or drops
+  // a scaffold and keeps branches it carried past the break: about four a snag, up to 8 m
+  // out in the air (Kevin's 1835 shot by South Water Street). Kept order by order, so a
+  // branch whose limb is gone goes with it.
+  const kept = branches.filter((b) => b.order === 0);
+  for (let order = 1; order <= 2; order++) {
+    const on = woodIndex(kept.filter((b) => b.order < order), Math.max(1, sk.dbh * 4));
+    const here = branches.filter((b) => b.order === order && (on(b.pts[0])?.gap ?? Infinity) <= 0.02);
+    kept.push(...here);
+  }
+  branches.length = 0;
+  branches.push(...kept);
   // `H` stays the living tree's height: the planter scales a stem by its height
   // over the template's, and a snag of a 20 m tree is that tree's girth, not a
   // 14 m tree's stretched to 20.

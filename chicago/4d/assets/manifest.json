@@ -358,14 +358,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "elbridge_keith_house_1900_prairie"
     },
-    "elbridge_keith_house_1900_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "elbridge_keith_house_1900_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 43940,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "29029946281a80c2dda0af36bd40a404db202827ff6f77e6c46b4e3f83c7f117",
+      "bytes": 154712,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "6bde13c71a3c872ea63ae3180f6f79ddfe0467b706998e7390610d5f735ef377",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "elbridge_keith_house_1900_prairie_coach_house"
     },
     "elston_ash_house__works_1833.glb": {
@@ -1049,8 +1049,8 @@
     "green_tree_tavern__frame_1833.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 245112,
-      "inputs_sha256": "29facc7922c53d39850021247b3238df7fbe6ecc240794e9ded956a1fe75f78e",
+      "bytes": 269880,
+      "inputs_sha256": "80d47de6a30209568a37752835292968162def80d4eff8f2bb0a6eecaf867722",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "green_tree_tavern"
@@ -4166,9 +4166,9 @@
     "pullman_house_1729_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 19172624,
+      "bytes": 19100528,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "7f6e4d79c1c4724ec2d9a4e6d1bc0b2a51dd5a928846cf4ca95047e52df65a0e",
+      "inputs_sha256": "01e1b7a50618191f50d79742e46587edf4934c7638bb8b590c5dedf021800e5a",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "pullman_house_1729_prairie"
