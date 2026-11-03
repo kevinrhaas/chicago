@@ -27942,6 +27942,31 @@ replace the fixed night key with the moon where it stood, or no key on a moonles
 **Review:** `renderers/web/js/time-of-day.js`.
 **Recorded:** 2026-11-03 (T-3331).
 
+### L-night-lights-3332 — 1812 by night: candlelit windows by the hour, and a lantern at the fort's gate
+
+**Decision:** when Time of day darkens the town (T-3331), every window pane in 1812 can glow with
+the warm orange of a tallow candle or a hearth, building by building: about three in four buildings
+lit from dusk, half after nine, a third after ten, a few through the small hours, more again before
+daybreak (`data/night_lights/1812.json` share_by_hour). Each lit building breathes slowly, as a small
+flame does. A lantern hangs outside the first fort's main gate, with a warm pool on the ground under
+it (`renderers/web/js/night-lights.js`).
+**What it stands on:** the garrison's candles are the ration's, a pound and a half to every hundred
+rations (`us_statutes_1802_military_peace_establishment`, sec. 6), about a quarter of an ounce of tallow
+a man a day, which lights a room for an evening and not a night. The Kinzies spent the evening of
+7 April 1812 before the hearth, the children dancing to their father's violin, and in August the
+garrison kept a 'vigilant watch' with 'sentinels posted at night' (`kinzie_waubun_1856`, ch. XVIII).
+**What is invented:** which buildings are lit at which hour (a seeded choice per building, not a
+record of any household or room), the hours table itself, the flame's colour and brightness, the
+flicker, and the lantern: no source puts a lantern at the gate, or says how the sentries saw. The
+glow is drawn on the panes; the light it would throw into the street is not drawn, except under the
+lantern.
+**How to resolve:** a post return or order book of Fort Dearborn (tattoo and lights-out hours, the
+guard's posts and lanterns) would set the hours and the gate; a household account of the Kinzie or
+Ouilmette houses would set theirs.
+**Ticket:** T-3332.
+**Review:** `renderers/web/js/night-lights.js`.
+**Recorded:** 2026-11-03 (T-3332).
+
 ### L-glessner-service-junction-2219 — north service bay (2026-10-13)
 
 **Decision:** HABS plans 2/3 and photographs 01/15 support wider service openings than the

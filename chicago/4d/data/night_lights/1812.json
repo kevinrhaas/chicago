@@ -1,0 +1,32 @@
+{
+  "scene": "1812",
+  "note": "T-3332. The lights people made in the town of 14 August 1812, drawn when Settings › Time of day darkens it (renderers/web/js/night-lights.js). Every window pane of the fort and the houses can glow; which buildings are lit follows the clock in share_by_hour. The colour is a tallow candle's and a hearth's, the warm orange of a small flame. Liberty L-night-lights-3332 records what is ours.",
+  "windows": {
+    "light": "candle and hearth",
+    "colour_linear": [1.0, 0.42, 0.12],
+    "intensity": 0.42,
+    "share_by_hour": [
+      ["00:00", 0.08],
+      ["04:00", 0.2],
+      ["05:30", 0.0],
+      ["17:00", 0.75],
+      ["21:00", 0.5],
+      ["22:00", 0.35],
+      ["23:00", 0.12]
+    ],
+    "basis": "The garrison's candles were issued by the ration, a pound and a half to every hundred rations (us_statutes_1802_military_peace_establishment, sec. 6), about a quarter of an ounce of tallow a man a day: enough to light a room for the evening, not the night, so most windows are lit after dark and few after eleven. The Kinzie household spent its evenings before the hearth ('The children of Mr. Kinzie were dancing before the fire to the music of their father's violin', kinzie_waubun_1856, ch. XVIII, of 7 April 1812). A share lit through the small hours stands for the guard and the sick; that hours table itself is ours.",
+    "sources": ["us_statutes_1802_military_peace_establishment", "kinzie_waubun_1856"]
+  },
+  "lights": [
+    {
+      "id": "first_fort_main_gate_lantern",
+      "kind": "lantern",
+      "label": "A lantern at the main gate, outside the outer row of pickets",
+      "at": { "gate": "first_fort_dearborn_pickets_outer:s", "offset_en": [1.4, -0.9] },
+      "height_m": 2.1,
+      "basis": "A sentry kept the gate by night: Wau-Bun's account of August 1812 has the garrison's 'vigilant watch' and 'sentinels posted at night' (kinzie_waubun_1856, ch. XVIII). That he had a lantern, and that it hung here, is ours.",
+      "sources": ["kinzie_waubun_1856"],
+      "liberty": "L-night-lights-3332"
+    }
+  ]
+}

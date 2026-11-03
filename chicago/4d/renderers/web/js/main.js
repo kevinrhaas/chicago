@@ -92,6 +92,7 @@ import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createFortGates } from './fort-gates.js';
+import { createNightLights } from './night-lights.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -2773,6 +2774,15 @@ async function boot() {
   const interactions = createInteractions();
   for (const thing of fortGates.gates) interactions.add(thing);
   api.fortGates = fortGates;
+  // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
+  // lamps outside, from data/night_lights/<scene>.json. Hidden, and free, by day.
+  const nightLights = await createNightLights({
+    dataBase: layerBase('night_lights'), sceneId: loaded.scene.id ?? YEAR, terrain,
+    anchor: (id) => fortGates.gates.find((g) => g.id === id) ?? null,
+    problems: layerProblems('night_lights'),
+  });
+  scene3d.add(nightLights.group);
+  api.nightLights = nightLights;
   api.interactions = interactions;
 
   /**
@@ -5359,6 +5369,7 @@ async function boot() {
     if (!gateOpen) backends.active?.update?.(dt);
     else intent.clear();
     terrain.update(dt);
+    nightLights.update(dt);
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
     // T-3319: a gate swinging, and the Interact key's reach, read four times a second.
