@@ -1892,6 +1892,9 @@ class Bay:
         every other bay, whose brackets stand at the wall top as they always have."""
         if self.v["kind"] != "tower" or not prof:
             return 0.0
+        at = part(self.v, self.data, "eaves").get("brackets_at_m")
+        if at is not None:
+            return float(at)   # T-3345: a deep cornice's brackets hang in the frieze under it
         far = max(n for n, _ in prof)
         return min(u for n, u in prof if abs(n - far) < 1e-9)
 
@@ -3074,6 +3077,14 @@ class Bay:
         slab, and record it under its own name."""
         bl = self.v["balcony"] if bl is None else bl
         role = "band" if bl.get("fabric") == "stone" else "iron"
+        rf = self.v["roof"]
+        if meta_key == "balcony" and rf.get("deck_rise_m") is not None and float(rf.get("pitch", 0.0)) > 0:
+            # T-3345: a tower's hip cut to a deck carries its top balustrade on the deck's edge
+            # (1936's belvedere), the hip's run in from the eaves to it
+            ov = ov - float(rf["deck_rise_m"]) / float(rf["pitch"])
+            y_e = y_e + float(rf["deck_rise_m"])
+            if ov < 0.0:
+                raise ValueError(f"{self.v['id']}: its deck's edge stands inside its walls, under no balustrade")
         z = ov - bl["inset_m"]
         pm, bm, (rw, rd) = bl["post_m"], bl["bar_m"], bl["rail_m"]
         # T-2888: a projection's runs meet square, where a post ending at the corner would
