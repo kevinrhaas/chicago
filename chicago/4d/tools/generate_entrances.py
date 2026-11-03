@@ -171,12 +171,19 @@ def side_access_faces(sc: dict) -> list[dict]:
     Resolve that exact source phase with the builder's normal record-aware reader;
     invalid data raises rather than silently losing an entry. No id special case.
     """
-    if sc.get("archetype") != "log_dwelling":
+    if sc.get("archetype") not in ("log_dwelling", "frame_tavern"):
         return []
-    record = gbs._load(gbs.STRUCTURES / f"{sc['id']}.json")
+    label = (sc.get("version") or {}).get("label")
+    path = (gbs.STRUCTURES / "versions" / sc["id"] / f"{label}.json"
+            if label else gbs.STRUCTURES / f"{sc['id']}.json")
+    record = gbs._load(path)
     phases = [ph for ph in record.get("phases", []) if ph.get("id") == sc.get("phase")]
     if len(phases) != 1:
         raise ValueError(f"{sc['id']}: side entrance needs exactly one selected phase")
+    if sc.get("archetype") == "frame_tavern":
+        params = _frame_tavern_params(phases[0], record)
+        return [part["door_face"] for part in params.left_annex_parts
+                if part["occupied"] and "door_face" in part]
     params = gbs._log_dwelling_params(phases[0], record)
     return _log_side_access_faces(params)
 
@@ -332,26 +339,38 @@ def build() -> dict:
         # Additional declared faces use their own along-wall/outward basis.
         # Keep primary IDs/order and front_wall semantics unchanged.
         for face in side_access_faces(sc):
-            if face["face"] != "+x":
+            if face["face"] == "+x":
+                plane = face["plane_m"]
+                bearing = (float(place.get("rotation_deg") or 0.0) + 90.0) % 360.0
+                outward = (math.sin(math.radians(bearing)), math.cos(math.radians(bearing)))
+                def side_to_enu(s_, t, plane=plane, place=place):
+                    return gbs._to_enu(plane + t, s_, place)
+                prefix, extra_reader, reverse = "side_xp", "log_dwelling.side_access_faces(+x)", True
+            elif face["face"] == "annex_boarding_range":
+                origin, along, normal = face["origin"], face["along"], face["outward"]
+                def side_to_enu(s_, t, origin=origin, along=along, normal=normal, place=place):
+                    return gbs._to_enu(origin[0]+along[0]*s_+normal[0]*t,
+                                       origin[1]+along[1]*s_+normal[1]*t, place)
+                a, b_ = side_to_enu(0., 0.), side_to_enu(0., 1.)
+                outward = (b_[0]-a[0], b_[1]-a[1])
+                bearing = math.degrees(math.atan2(outward[0], outward[1])) % 360.
+                prefix, extra_reader, reverse = face["face"], "frame_tavern.left_annex_parts", False
+            else:
                 raise ValueError("entrance reader has no transform for " + face["face"])
-            plane = face["plane_m"]
-            bearing = (float(place.get("rotation_deg") or 0.0) + 90.0) % 360.0
-            outward = (math.sin(math.radians(bearing)), math.cos(math.radians(bearing)))
-            def side_to_enu(s_, t, plane=plane, place=place):
-                return gbs._to_enu(plane + t, s_, place)
             face_doors = face["openings"]
             spec = [((d["u0"] + d["u1"]) / 2.0, (d["u1"] - d["u0"]) / 2.0,
                      path_depth(side_to_enu((d["u0"] + d["u1"]) / 2.0, 0), outward, streets))
                     for d in face_doors]
             if spec:
                 # +Y along-wall / +X outward reverses the primary basis winding.
-                rings.append(list(reversed(_front_ring(face["u0"], face["u1"], spec, side_to_enu))))
+                ring = _front_ring(face["u0"], face["u1"], spec, side_to_enu)
+                rings.append(list(reversed(ring)) if reverse else ring)
             for k, d in enumerate(sorted(face_doors, key=lambda o: o["u0"])):
                 e, n = side_to_enu((d["u0"] + d["u1"]) / 2.0, 0)
                 entrances.append({
-                    "id": f"{sc['id']}__side_xp_{d['kind']}_{k + 1}",
+                    "id": f"{sc['id']}__{prefix}_{d['kind']}_{k + 1}",
                     "structure_id": sc["id"], "archetype": sc["archetype"],
-                    "kind": d["kind"], "read_by": "log_dwelling.side_access_faces(+x)",
+                    "kind": d["kind"], "read_by": extra_reader,
                     "at_local_enu_m": [_r(e), _r(n)], "bearing_deg": _r(bearing),
                     "width_m": _r(d["u1"] - d["u0"]),
                 })

@@ -93,6 +93,8 @@ from block_faces import face_frame, project
 # the table is imported from where it is argued, and there is one answer in this
 # repository rather than two that can drift apart.
 from generate_business_signboards import PUBLIC_TRADES, TRADE_GRADES, WORKS_TRADES
+from occupied_footprints import additional_world_polygons
+
 import generate_entrances as entrances  # noqa: E402
 import gate_kinds  # noqa: E402
 
@@ -2565,12 +2567,15 @@ def _placed_footprints() -> list[dict]:
         pts = [_to_enu(u, v, place) for u, v in poly]
         ce = sum(p[0] for p in pts) / len(pts)
         cn = sum(p[1] for p in pts) / len(pts)
-        r = max(math.hypot(p[0] - ce, p[1] - cn) for p in pts)
+        extras = additional_world_polygons(sc)
+        occupied = [pts, *extras]
+        r = max(math.hypot(p[0] - ce, p[1] - cn) for ring in occupied for p in ring)
         # The trade rides along with the footprint (T-0194). It is the sidecar's
         # own `attributes.function`, which is the field the signboard rule reads,
         # so the two layers ask the same record the same question.
         fn = (sc.get("attributes") or {}).get("function") or {}
         out.append({"id": sc.get("id") or path.stem, "pts": pts,
+                    **({"occupied_parts": occupied} if extras else {}),
                     "e": ce, "n": cn, "r": r,
                     "name": sc.get("name") or "",
                     "trade": fn.get("value"),
@@ -2641,16 +2646,16 @@ def _stands_on(building, lot) -> bool:
     building standing on them at all.
     """
     poly = lot["polygon"]
-    pts = building["pts"]
-    if any(_inside(p, poly) for p in pts):
-        return True
-    if any(_inside(p, pts) for p in poly):
-        return True
-    for i in range(len(pts)):
-        for j in range(len(poly)):
-            if _segments_cross(pts[i], pts[(i + 1) % len(pts)],
-                               poly[j], poly[(j + 1) % len(poly)]):
-                return True
+    for pts in building.get("occupied_parts", [building["pts"]]):
+        if any(_inside(p, poly) for p in pts):
+            return True
+        if any(_inside(p, pts) for p in poly):
+            return True
+        for i in range(len(pts)):
+            for j in range(len(poly)):
+                if _segments_cross(pts[i], pts[(i + 1) % len(pts)],
+                                   poly[j], poly[(j + 1) % len(poly)]):
+                    return True
     return False
 
 
@@ -2666,7 +2671,7 @@ def _wall_on(point, half_w, outward, buildings) -> str | None:
             continue
         for off in (-half_w, 0.0, half_w):
             probe = (point[0] + outward[0] * off, point[1] + outward[1] * off)
-            if _inside(probe, b["pts"]):
+            if any(_inside(probe, ring) for ring in b.get("occupied_parts", [b["pts"]])):
                 return b["id"]
     return None
 

@@ -2,7 +2,7 @@
   "structure_id": "green_tree_tavern",
   "view": "andreas_1838",
   "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
-  "glb_sha256": "f69934897306e608bad55f6ffecfdcb53adf030675b6df0df9fa1004ba3a4d2c",
+  "glb_sha256": "f447aa45b93e507ea8606f6c74703b5948d9ee736a84d3a01d47d8a587db81c3",
   "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
   "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
   "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/andreas_1838-side-by-side.jpg",
@@ -13,7 +13,7 @@
       "status": "fixed"
     },
     {
-      "what": "The illustrated left-hand annex roof masses and their relation to the main block are not reproduced by the retained rear-ell/side-addition arrangement; this is a visitor-visible massing discrepancy, not a pixel residual. Its exact July1835 form remains uncertain. The separate Trowbridge open wagon bay is procedural yard geometry; its front-end station does not reproduce these enclosed masses.",
+      "what": "The low connector and turned farther gabled range are now visibly present in the genuine new-model comparison, replacing the former rear ell. This is a partial massing correction, not a match for the whole illustrated left group: Andreas shows a taller enclosed shoulder and dormered mass beside the main gable, while the canonical Trowbridge-led reading leaves the shoulder open and the procedural yard layer supplies its roof/posts outside this asset-only render. The farther range's pictured opening stations/count and dimensions have not been fully matched. These retrospective alternatives do not establish a dated July1835 alteration sequence. Keep this compound discrepancy open on original T-2376; no new photo follow-up or whole-building signoff.",
       "status": "open"
     },
     {
@@ -41,5 +41,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

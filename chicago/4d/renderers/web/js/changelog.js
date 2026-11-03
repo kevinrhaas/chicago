@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2611, ts: '2026-11-03T10:52:12.026Z', date: 'Nov 3, 2026, 4:52 AM CT', title: '1936 Prairie: the Allerton tower gets its deep cornice', kind: 'feature',
+    items: [
+      'The belvedere on the Allerton house\'s tower now wears the deep cornice the winter photograph shows: a heavy corona over a metre out, about half a metre deep, over the row of brackets, where before it had a thin eave.',
+      'Above the cornice a short sloping skirt rises to a flat deck. The top balustrade now stands on that deck, back from the edge, and its rail sits at the Tribune\'s 73 feet.',
+    ] },
+  { v: 2610, ts: '2026-11-03T10:50:47.299Z', date: 'Nov 3, 2026, 4:50 AM CT', title: 'Green Tree\'s connecting range and Wolf Point picture credit', kind: 'change',
+    items: [
+      'A low connector and angled gabled range now stand beside Green Tree Tavern\'s open wagon bay, replacing the previous rear ell.',
+      'The existing bay roof and posts remain, with open gaps preserved. Uncertain dimensions and the July-1835 appearance stay recorded as liberties.',
+      'The tavern\'s Images tab links the Blanchard/Davis colored poster with its publication credit.',
+      'The source record explains Newberry\'s conflicting dates. No building or camera changes are included.',
+    ] },
+  { v: 2609, ts: '2026-11-03T10:13:03.384Z', date: 'Nov 3, 2026, 4:13 AM CT', title: '1835 by night: lamp-lit windows, the lighthouse lit, a gate lantern', kind: 'feature',
+    items: [
+      'Set Time of day to dusk or night in 1835 and the town\'s and the fort\'s windows glow with candle and oil-lamp light, most in the evening and only a few in the small hours.',
+      'The lighthouse at the river mouth shows its light from dusk to dawn.',
+      'A lantern hangs outside the fort\'s south gate by the guard house.',
+      'Daytime looks exactly as before.',
+    ] },
   { v: 2608, ts: '2026-11-03T09:51:47.576Z', date: 'Nov 3, 2026, 3:51 AM CT', title: 'Jaunt stops set the hour the sources give', kind: 'feature',
     items: [
       'A jaunt stop can carry its own hour and date: arriving sets the scene\'s light and the year chip\'s day, and leaving the jaunt gives your own Time of Day back.',
