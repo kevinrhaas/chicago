@@ -106,3 +106,26 @@ than its bounding box. Wau-Bun supports composition, not the exact plan/roof.
 Dimensions, openings, intersections and stack positions remain reconstructed;
 partial siding, 1835 survival and the tiny panorama subject remain unresolved.
 The original T-2374 image match remains open.
+
+
+## T-2374 picture-card increment — prepared 2026-11-03
+
+The original ticket names `chicago_fort_dearborn_1831_1.jpg`. The actual full
+1920×1042 reproduction was visually read for this increment: its heading credits
+*Wau-Bun*, Juliette A. Kinzie, Chicago, 1857; its lower key names “Agency-House.”
+Existing public-domain illustration record `kinzie_1857_chicago_1831_panorama`
+identifies the independently inspected Wentworth 1881 reproduction, printed p. 86,
+and preserves Hubbard’s criticism on pp. 86–87. Naming that existing source in
+the structure’s research note makes the original ticket’s picture reachable in
+the visitor’s Images tab, with the source’s existing creator, holder and rights
+credits. No copy is uploaded or represented as a held thumbnail.
+
+This is the same retrospective panorama already used for the Beaubien-group
+question, not a new independent witness. The existing source’s Beaubien
+identification qualification stays intact. The small Agency-House subject is
+context for an unfinished comparison; it does not settle the five-part plan,
+partial clapboarding, roof intersections or July 1835 survival. No camera,
+image-match verdict, pictured-grade ruling, position, dimension, form attribute
+or asset changes in this increment. The structure remains inferred by the
+existing grade rule because no camera or affirmative pictured ruling is added.
+T-2374 remains open; final picture matching is not claimed.

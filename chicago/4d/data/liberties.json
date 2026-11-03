@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 983,
+  "count": 987,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -939,7 +939,7 @@
     },
     {
       "id": "house_2003_prairie",
-      "name": "2003 Prairie Avenue — Brick masonry"
+      "name": "2003 Prairie Avenue — three-storey brick house with a curved front bay, the north half of the pair with 2005"
     },
     {
       "id": "house_2004_calumet",
@@ -951,7 +951,7 @@
     },
     {
       "id": "house_2005_prairie",
-      "name": "2005 Prairie Avenue — Brick masonry"
+      "name": "2005 Prairie Avenue — three-storey brick house with a curved front bay, the south half of the pair with 2003"
     },
     {
       "id": "house_2007_indiana",
@@ -1367,7 +1367,7 @@
     },
     {
       "id": "jones_house_1834_prairie_coach_house",
-      "name": "1834 S. Prairie Avenue — the alley building of the house at 1834"
+      "name": "1834 Prairie Avenue (the Jones house): the brick barn on the alley"
     },
     {
       "id": "keith_house_1808_prairie",
@@ -1563,7 +1563,7 @@
     },
     {
       "id": "mayer_house_2009_prairie",
-      "name": "2009 Prairie Avenue — Mayer/Meyer French Gothic rowhouse"
+      "name": "2009 Prairie Avenue — the Max A. Meyer house, Burnham & Root's French Gothic rowhouse"
     },
     {
       "id": "mayer_house_2009_prairie_coach_house",
@@ -1698,6 +1698,10 @@
       "name": "Asahel Pierce's Blacksmith Shop"
     },
     {
+      "id": "potawatomi_camp_1812_horse_ground",
+      "name": "The Potawatomi camp of August 1812: the horse ground"
+    },
+    {
       "id": "potawatomi_camp_1812_middle",
       "name": "The Potawatomi camp of August 1812: the lodges at the creek's middle reach"
     },
@@ -1706,8 +1710,16 @@
       "name": "The Potawatomi camp of August 1812: the lodges by the creek's mouth"
     },
     {
+      "id": "potawatomi_camp_1812_south_reach",
+      "name": "The Potawatomi camp of August 1812: the lodges south of the creek's bend"
+    },
+    {
       "id": "potawatomi_camp_1812_upper",
       "name": "The Potawatomi camp of August 1812: the lodges up the creek"
+    },
+    {
+      "id": "potawatomi_camp_1812_west_bank",
+      "name": "The Potawatomi camp of August 1812: the lodges on the creek's west bank"
     },
     {
       "id": "pruyne_kimball_drugstore",
@@ -20988,14 +21000,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 188
+        "count": 187
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.records[brick fabric] — 188 structures (189 until other work, 2026-11-02, whose refinement of the Thompson/Allerton house at 1936 Prairie reads its Portland brownstone basement off the Chicago Tribune of 30 October 1869 and the photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 190 until other work, 2026-11-02, whose work on Marshall Field Jr.'s house at 1919 Prairie reads its stone basement off the 1911 sheet's 'S.B.' and the Gatlin Institute plates and lays it under the brick, so it says brick with a stone front and leaves this count; 191 until other work, 2026-11-01, whose sign-off of Marshall Field's house at 1905 Prairie reads its pale stone basement off the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative and lays it under the brick, so it says brick with a stone front and leaves this count; 192 until other work, 2026-10-30, whose refinement of the Hibbard house at 1701 Prairie reads its light stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 193 until other work's re-entry, 2026-10-28, which reads the lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue as stone off the 1894 Inland plate, so it says stone and leaves this count; 194 until other work, 2026-10-27, whose refinement of the 1708 Prairie draft reads a stone string course off the Christmas print of the Glessner townhouses and lays it with a stone basement under the brick, so it says brick with a stone front and leaves this count; 195 until other work, 2026-10-26, whose refinement of the 1823 Prairie draft reads a stone street front off the Dent house's engraving and its 1883 album vignette, so it says brick with a stone front and leaves this count; 194 until other work, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: the prairie draft generator draws it in a flat colour; 174 until other work, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while other work's background row, which they replace, leaves it; 173 until other work, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until other work, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until other work, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until other work, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "structures.records[brick fabric] — 187 structures (188 until other work, 2026-11-03, whose refinement of the Max A. Meyer house at 2009 Prairie reads its rock-faced stone basement off its photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 189 until other work, 2026-11-02, whose refinement of the Thompson/Allerton house at 1936 Prairie reads its Portland brownstone basement off the Chicago Tribune of 30 October 1869 and the photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 190 until other work, 2026-11-02, whose work on Marshall Field Jr.'s house at 1919 Prairie reads its stone basement off the 1911 sheet's 'S.B.' and the Gatlin Institute plates and lays it under the brick, so it says brick with a stone front and leaves this count; 191 until other work, 2026-11-01, whose sign-off of Marshall Field's house at 1905 Prairie reads its pale stone basement off the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative and lays it under the brick, so it says brick with a stone front and leaves this count; 192 until other work, 2026-10-30, whose refinement of the Hibbard house at 1701 Prairie reads its light stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 193 until other work's re-entry, 2026-10-28, which reads the lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue as stone off the 1894 Inland plate, so it says stone and leaves this count; 194 until other work, 2026-10-27, whose refinement of the 1708 Prairie draft reads a stone string course off the Christmas print of the Glessner townhouses and lays it with a stone basement under the brick, so it says brick with a stone front and leaves this count; 195 until other work, 2026-10-26, whose refinement of the 1823 Prairie draft reads a stone street front off the Dent house's engraving and its 1883 album vignette, so it says brick with a stone front and leaves this count; 194 until other work, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: the prairie draft generator draws it in a flat colour; 174 until other work, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while other work's background row, which they replace, leaves it; 173 until other work, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until other work, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until other work, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until other work, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -21012,6 +21024,7 @@
       ],
       "work_refs": [
         "T-1687",
+        "T-1913",
         "T-1901",
         "T-3305",
         "T-3271",
@@ -35079,18 +35092,6 @@
         },
         {
           "domain": "structure",
-          "structure": "jones_house_1834_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "jones_house_1834_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "moulton_lowden_house_1912_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35119,7 +35120,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35147,7 +35148,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "1834 Jones's house by later work, which refined it in place on the K01 frontage kit under `“1834 Prairie refined from the district draft to a K01 house off its reversed photograph: the 1866 Italianate front and north flank as the print shows them, the 1886 mansard reconstructed over them”`; its alley building is still this draft's."
+          "text": "1834 Jones's house by later work, which refined it in place on the K01 frontage kit under `“1834 Prairie refined from the district draft to a K01 house off its reversed photograph: the 1866 Italianate front and north flank as the print shows them, the 1886 mansard reconstructed over them”`; its alley building by earlier work, on the K12 coach-house kit under `“The brick barn on the alley behind 1834 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and its one-storey piece”`. **1834's alley building retired from this liberty by earlier work (2026-11-02):** 1834 Prairie Avenue (the Jones house): the brick barn on the alley now stands as the K12 coach house under `“The brick barn on the alley behind 1834 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and its one-storey piece”`, under the same id, on the outline, storeys, brick, window mark and one-storey piece the sheet draws; its draft attributes are gone."
         },
         {
           "label": "Retired in part",
@@ -35480,7 +35481,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house the 1911 sheet labels \"1918\" over \"(1936)\", which the sheet 28 census rules is the Thompson/Allerton house (ruling r28-allerton: one villa on the drawn footprint, the bare 1936 corner its lawn, no house at 1916 or 1930), is no longer a district draft. It stands, under the draft's own id 1936 Prairie Avenue — the Thompson/Allerton house (Italianate, L. B. Dixon, 1869-70), as a k01 frontage record built by the k01 emit generator: Daniel M. Thompson's 1869-70 Italian villa by L. B. Dixon, Samuel W. Allerton's from 1879 and still his family's in 1904, razed in 1915. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1918-b1): the main block, the \"bay4B\" tower on the front at v 5.95-9.74, the reception room's half-octagonal bay and the dining range on the south flank, the library's canted bay on the north, the \"rear2B\" range behind. From the Chicago Tribune of 30 October 1869 ('A Private Palace. Daniel Thompson's $100,000 Dwelling, read through Chicagology's transcription and held as inferred until the Tribune's page is read): the brownstone ashlar basement 6 ft high under Baltimore pressed brick with brownstone trim; the main floor 6 ft over grade; the principal and second storeys 14 ft 9 in and 13 ft 6 in; the cornice's top at 44 ft and the rear part's at 37 ft; the tower 73 ft; the entrance through the tower under a stone porch on fluted Corinthian columns; the verandah before the reception room's two front windows, its roof a balustraded balcony; the parlor's two front windows; the attic's frieze lights. From the undated winter photograph ([1936 S. Prairie Ave. (Daniel M. Thompson / Samuel W. Allerton residence).]…, rights check required: forms and places only): the bracketed cornice, the low hip with its railed deck, the stacks, the iron fence on its curb. **What is invented.** The walls' thickness; the brick's panel (K03's rough red-brown stands for the Tribune's Baltimore pressed brick, which the kit has no panel for); the roof's covering (the Tribune's slate is laid by K04 only at 45 degrees and over, and the photograph's hip is low, so it is the kit's painted standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's height (16.22 m, raised with the cornice); the attic storey's 3.32 m, which is what puts K10's cornice crown at the Tribune's 44 ft (at 2.1 m it stood at 12.19 m, 1.2 m short); every window's place along the flanks and the rear, and the sashes' sizes; the north stack; the gates, the walks and the rainwater goods. **What is built otherwise than the evidence, and why.** The front stands on the north block's line (u 17.7): the sheet sets the part south of the tower 0.95 m behind it, under the verandah, and K01's main body is one rectangle. The tower is square, as the photograph and the sheet draw it (K08's polygonal tower with four sides, a face to the street, 3.79 m across and its front 1.3 m out of the wall, the sheet's), but its back stands on the front wall's plane all the way up, so over the main roof it is a 1.3 m deep shaft and not the free-standing square the photograph shows above the cornice. Its belvedere's cornice carries a console at each free corner and a row of plain brackets along its faces, and the belvedere stands back over a corbelled stone balcony round its cheeks and front, as the photograph draws them; their sizes (the balcony 0.55 m out on a 0.3 m slab and three 0.16 m courses, a 0.75 m balustrade; consoles 0.9 m deep; brackets 0.37 m apart) are read through the photograph's scale at the belvedere's lights and are reconstructed, and the photograph's carved consoles are the kit's plain quarter-ellipse ones and its moulded corbel table the kit's stepped courses. Both balconies stop on the wall's plane with the shaft. At the main cornice's level the shaft carries the main cornice round its faces as the kit's corbel table, a 0.35 m stone course 0.5 m out over a row of 0.16 m blocks 0.37 m apart, 0.75 m deep in all, for the photograph's moulded cornice and modillions; the photograph shows no balcony at that level, only the belvedere's. The heights over it are read on the photograph's own vertical scale down the tower's front (a level camera keeps one scale down a vertical plane), set by the Tribune's 44 ft at the main cornice's top, which then puts the top balustrade at the Tribune's 73 ft: a blind stage 1.78 m (its three lights withdrawn), the belvedere 4.78 m from its balcony's floor to its wall head with lights 1.8 m high, and over it the belvedere's own deep cornice as the photograph draws it: a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep, a skirt of the hip rising 0.55 m to a flat deck, and on the deck a 0.9 m top balustrade to the Tribune's 73 ft. Those sizes are reconstructed to that scale; the cornice's section is a straight soffit and a plain corona where the photograph's is moulded, and its brackets are the kit's plain ones in the frieze under it. The door stands in the front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower. The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice."
+          "text": "the house the 1911 sheet labels \"1918\" over \"(1936)\", which the sheet 28 census rules is the Thompson/Allerton house (ruling r28-allerton: one villa on the drawn footprint, the bare 1936 corner its lawn, no house at 1916 or 1930), is no longer a district draft. It stands, under the draft's own id 1936 Prairie Avenue — the Thompson/Allerton house (Italianate, L. B. Dixon, 1869-70), as a k01 frontage record built by the k01 emit generator: Daniel M. Thompson's 1869-70 Italian villa by L. B. Dixon, Samuel W. Allerton's from 1879 and still his family's in 1904, razed in 1915. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1918-b1): the main block, the \"bay4B\" tower on the front at v 5.95-9.74, the reception room's half-octagonal bay and the dining range on the south flank, the library's canted bay on the north, the \"rear2B\" range behind. From the Chicago Tribune of 30 October 1869 ('A Private Palace. Daniel Thompson's $100,000 Dwelling, read through Chicagology's transcription and held as inferred until the Tribune's page is read): the brownstone ashlar basement 6 ft high under Baltimore pressed brick with brownstone trim; the main floor 6 ft over grade; the principal and second storeys 14 ft 9 in and 13 ft 6 in; the cornice's top at 44 ft and the rear part's at 37 ft; the tower 73 ft; the entrance through the tower under a stone porch on fluted Corinthian columns; the verandah before the reception room's two front windows, its roof a balustraded balcony; the parlor's two front windows; the attic's frieze lights. From the undated winter photograph ([1936 S. Prairie Ave. (Daniel M. Thompson / Samuel W. Allerton residence).]…, rights check required: forms and places only): the bracketed cornice, the low hip with its railed deck, the stacks, the iron fence on its curb. **What is invented.** The walls' thickness; the brick's panel (K03's rough red-brown stands for the Tribune's Baltimore pressed brick, which the kit has no panel for); the roof's covering (the Tribune's slate is laid by K04 only at 45 degrees and over, and the photograph's hip is low, so it is the kit's painted standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's height (16.22 m, raised with the cornice); the attic storey's 3.32 m, which is what puts K10's cornice crown at the Tribune's 44 ft (at 2.1 m it stood at 12.19 m, 1.2 m short); every window's place along the flanks and the rear, and the sashes' sizes; the north stack; the gates, the walks and the rainwater goods. **What is built otherwise than the evidence, and why.** The front stands on the north block's line (u 17.7): the sheet sets the part south of the tower 0.95 m behind it, under the verandah, and K01's main body is one rectangle. The tower is square, as the photograph and the sheet draw it (K08's polygonal tower with four sides, a face to the street, 3.79 m across and its front 1.3 m out of the wall, the sheet's), but its back stands on the front wall's plane all the way up, so over the main roof it is a 1.3 m deep shaft and not the free-standing square the photograph shows above the cornice. Its belvedere's cornice carries a console at each free corner and a row of plain brackets along its faces, and the belvedere stands back over a corbelled stone balcony round its cheeks and front, as the photograph draws them; their sizes (the balcony 0.55 m out on a 0.3 m slab and three 0.16 m courses, a 0.75 m balustrade; consoles 0.9 m deep; brackets 0.37 m apart) are read through the photograph's scale at the belvedere's lights and are reconstructed, and the photograph's carved consoles are the kit's plain quarter-ellipse ones and its moulded corbel table the kit's stepped courses. Both balconies stop on the wall's plane with the shaft. At the main cornice's level the shaft carries the main cornice round its faces as the kit's corbel table, a 0.35 m stone course 0.5 m out over a row of 0.16 m blocks 0.37 m apart, 0.75 m deep in all, for the photograph's moulded cornice and modillions; the photograph shows no balcony at that level, only the belvedere's. The heights over it are read on the photograph's own vertical scale down the tower's front (a level camera keeps one scale down a vertical plane), set by the Tribune's 44 ft at the main cornice's top, which then puts the top balustrade at the Tribune's 73 ft: a blind stage 1.78 m (its three lights withdrawn), the belvedere 4.78 m from its balcony's floor to its wall head with lights 1.8 m high, and over it the belvedere's own deep cornice as the photograph draws it: a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep, a skirt of the hip rising 0.55 m to a flat deck, and on the deck a 0.9 m top balustrade to the Tribune's 73 ft. Those sizes are reconstructed to that scale; the cornice's section is a straight soffit and a plain corona where the photograph's is moulded, and its brackets are the kit's plain ones in the frieze under it. The door stands in the front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower. The verandah's two piers between its arches stand as the photograph's columns: fluted shafts 0.32 m across at the foot on a square plinth and a torus, each under a capital of two flaring grades and a square abacus at the springing; the photograph's capitals are carved leafage a few pixels across, and the grades, the 24 flutes and the shafts' diameter (read as about 15 px against the openings' 45-50 px) stand for the Tribune's \"Corinthian fluted columns\". The verandah's end piers stay solid, as the photograph shows them. The rear range is built to its second storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice."
         },
         {
           "label": "How to resolve",
@@ -35505,6 +35506,7 @@
         "T-3318",
         "T-3329",
         "T-3345",
+        "T-3356",
         "T-1902"
       ]
     },
@@ -36353,6 +36355,124 @@
       ]
     },
     {
+      "id": "L-k01-2009-meyer-1913",
+      "title": "2009 Prairie, the Max A. Meyer house, refined from the district draft onto K01: its ogee gable, oriel and storeys read off its photograph",
+      "section": "per_subject",
+      "subjects": [
+        "mayer_house_2009_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "mayer_house_2009_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft at 2009 Prairie Avenue — the Max A. Meyer house, Burnham & Root's French Gothic rowhouse is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the envelope package S05A of the programme): Burnham & Root's French Gothic rowhouse of 1888 for Max A. Meyer, a narrow brick front on a party wall with 2011, carried up into a tall ogee gable. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, read on the outline's own dark lines, not the trace, whose fit took the printed '2½B' and 'D' for bites out of the house): the main body 26.02 m deep and 7.56 m along the front, from a 1.5 m passage on the north to the party line with 2011; the north wall's projection, 1.3 m out for 5.86 m from 5.85 m behind the front; the 1B rear range 7.62 m deep behind it, joined along the party line by a 1.4 m neck. From the undated Chicagology photograph ([2009 and 2011 S. Prairie Ave.] Photograph of the Max A. Meyer house's front…, rights check required: forms and places only), read square on at 100 px a metre between the front's ends and through the camera the chicagology photo data: the rock-faced stone basement and its smooth band to the brick at the principal floor; the door at the south end over a straight stoop; every street light's place and size (the ground floor's mullioned and transomed window, the bowed oriel of three lights from the second floor on its corbel, the small light beside it, the third storey's paired light); the quoined stone surrounds round the street lights; the low coped wall on the street line; the string course; the side walls' head at the kneeler stone; the ogee gable's outline at ten heights, its attic pair and its crest's height; the near tall stack on the north flank. Monroe's 1896 plate (Harriet Monroe, John Wellborn Root (Boston: Houghton, Mifflin, 1896), p. 155…) confirms the composition. **What is invented.** The walls' thickness; the side and rear walls' common brick; the plain stone lintels standing for the photograph's moulded hoods; the roof behind the gable (a 45 degree hip, slated, as the photograph's glimpse of the north slope allows); the eave's overhang; the stair's tread and landing; every window on the flanks and the rear but the one the photograph shows near the front; the rear range's height, roof and openings; the north projection's height and blind faces; the stacks' height (one, 1.7 m over the ridge) and the second stack's place; the rainwater goods; the yard. **What is built otherwise than the evidence, and why.** The principal floor stands at 2.0 m where the photograph reads 1.95 m, so the stoop climbs it in whole risers that K01 and K07 agree on. The oriel's bow is 0.25 m deep on two corbel courses: its depth is not measurable square on, and a deeper bow's corbel would hang below the ground-floor window's head. The ogee is drawn alike on both sides, leaving the front's width at the kneelers (11.97 m), where the photograph's south side runs on down to about 10.3 m over the party wall; and it is widened about 0.15 m through its middle where the render laid over the print stood inside it. The near stack stands 0.7 m inside the north wall (K01 stands a stack inside the main body), about 0.6 m south of the photograph's. The basement's three square lights are not cut: K01 takes no basement lights on a front whose street windows are named one by one. The carving (the oriel's frieze and apron, the door's elliptical head, tracery and pinnacled surround, the hoods, the north corner's quoins, the gable's crest and pendant) is later work's; a turned finial stands for the crest."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work (S05B) details the front to the photograph and closes the image gate on this building; a reading of the rear or the flank would replace the invented openings there."
+        },
+        {
+          "label": "Covers",
+          "text": "`mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.service_wall_brick`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03 (T-1913)."
+        }
+      ],
+      "work_refs": [
+        "T-2352",
+        "T-1913",
+        "T-1837",
+        "T-1914"
+      ]
+    },
+    {
       "id": "L-draft-prairie-20-22-east-2352",
       "title": "The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open",
       "section": "per_subject",
@@ -36364,8 +36484,6 @@
         "high_house_2021_prairie_coach_house",
         "house_2001_prairie",
         "house_2001_prairie_coach_house",
-        "house_2003_prairie",
-        "house_2005_prairie",
         "house_2011_prairie",
         "house_2011_prairie_coach_house",
         "house_2017_prairie",
@@ -36466,30 +36584,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2003_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2003_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2005_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2005_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2011_prairie",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36629,18 +36723,6 @@
         {
           "domain": "structure",
           "structure": "house_2125_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "mayer_house_2009_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "mayer_house_2009_prairie",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
         },
@@ -36782,7 +36864,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2003_prairie.draft_1904.form.draft_elevation`, `house_2003_prairie.draft_1904.form.draft`, `house_2005_prairie.draft_1904.form.draft_elevation`, `house_2005_prairie.draft_1904.form.draft`, `house_2011_prairie.draft_1904.form.draft_elevation`, `house_2011_prairie.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie.draft_1904.form.draft_elevation`, `house_2011_prairie.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -36794,11 +36876,15 @@
         },
         {
           "label": "Retired in part",
-          "text": "2001, the stone-front corner house on 20th Street, by later work, which refined it in place on the K01 frontage kit under `“2001 Prairie refined from the district draft to a two-and-a-half-storey K01 house with a stone street front under a hip and a street dormer, its rear part stepping out to the 20th Street line, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's)."
+          "text": "2001, the stone-front corner house on 20th Street, by later work, which refined it in place on the K01 frontage kit under `“2001 Prairie refined from the district draft to a two-and-a-half-storey K01 house with a stone street front under a hip and a street dormer, its rear part stepping out to the 20th Street line, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's); and 2003 and 2005, the attached pair with curved front bays, by later work, which refined both in place on the K01 frontage kit under `“2003 and 2005 Prairie refined from the district draft to a mirrored pair of three-storey K01 brick houses under a flat roof, each with the sheet's curved front bay and two-storey rear range, everything but the plan the kits'”`, under the same ids; their draft attributes are gone."
         },
         {
           "label": "Review",
           "text": "the research notes on prairie draft 20 22 east."
+        },
+        {
+          "label": "Retired in part",
+          "text": "2009 the Max A. Meyer house by earlier work (the S05A envelope package), which refined it in place on the K01 frontage kit under `“2009 Prairie, the Max A. Meyer house, refined from the district draft onto K01: its ogee gable, oriel and storeys read off its photograph”`; its coach house is still this draft's."
         },
         {
           "label": "Recorded",
@@ -36813,7 +36899,9 @@
         "T-1842",
         "T-1931",
         "T-1938",
-        "T-3347"
+        "T-3347",
+        "T-3346",
+        "T-1913"
       ]
     },
     {
@@ -37027,6 +37115,349 @@
         "T-3347",
         "T-1912",
         "T-3191",
+        "T-1842"
+      ]
+    },
+    {
+      "id": "L-k01-2003-2005-pair-3346",
+      "title": "2003 and 2005 Prairie refined from the district draft to a mirrored pair of three-storey K01 brick houses under a flat roof, each with the sheet's curved front bay and two-storey rear range, everything but the plan the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_2003_prairie",
+        "house_2005_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the attached pair at 2003 and 2005 Prairie Avenue is no longer a district draft. Each house stands, under the draft's own id (2003 Prairie Avenue — three-storey brick house with a curved front bay, the north half of the pair with 2005, 2005 Prairie Avenue — three-storey brick house with a curved front bay, the south half of the pair with 2003), as a k01 frontage record built by the k01 emit generator: K03 common brick on every wall; K06 two-over-two sash under K09 cornice-hood lintels on the two lower storeys and K01's flat stone lintels on the third; the door at the head of a K07 stoop; the sheet's curved front bay as a K08 bow; the sheet's two-storey rear range on K01's rear wings; and K01's flat roof (K05's parapet deck) behind a stone blocking course over a 0.6 m K10 bracketed timber cornice. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size off the raster through the fit, and the census (s35-2003-front, s35-2005-front: '3B brick dwelling with a curved front bay (D), on a party wall with' the other; s35-2003-wing, s35-2005-wing: 'rear2B'): three storeys over a basement, brick; each main body's lines (18.65 m deep; 6.85 m and 7.0 m along the front, wider than the draft's 5.75 m and 5.5 m, whose fit stopped where the sheet's dimension numerals bite the trace); the curved bays' places and sizes (segmental bows 4.8 m and 4.45 m along the front, about 0.7 m out, standing either side of the party wall, so the doors go at the pair's outer ends); and each rear range's place, size, step and two storeys, on the lot's outer line. **Where the pair stands.** On 2001's party line: when 2001 Prairie landed beside it, the pair's first reading was found standing 0.53 m into 2001's main body, about 3 px north of the lines the sheet draws at rows 310-311 (2001/2003), 348 (2003/2005) and 386 (2005/2007), so the pair was moved whole 0.535 m south, its widths and its own party line as read. **What is invented.** Every height (a 1.4 m principal floor, 4.0, 3.6 and 3.3 m storeys; the ranges on the first two); the walls' thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size and place and every head (the third storey's sash 1.5 m, its head kept under the corner bracket beside 2003's door); the door, stoop and its 1.3 m width; the bows' height (stopping 1.2 m under the wall head with their own tin caps, clear of the brackets, as 1634's and 1636's bays do), their sash and caps; the cornice and its brackets; the flat roof's form, fall, parapets, blocking course and tin; the two stacks a house against the party wall; blank side walls (each house's outer wall stands against its neighbour, 2001's on the north and 2007's within about 0.4 m on the south); the open front with a flagged walk (no picture of either front is held; the draft stood no boundary). The pair is built as a mirrored pair, the census's 'party wall' pair, and not as two designs. **What is not built.** The 16 ft brick wall the sheet draws on 2005's south line from the rear range to the alley (s35-2005-walls): K01 builds a free-standing wall only on the rear lot line (alley wall), not on a side line, so it is still unbuilt, as it was in the draft."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, plate or description of 2003 or 2005 (or of the pair), ingested as a source, replaces the kit's choices attribute by attribute."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2003_prairie.as_mapped_1904.form.principal_floor_m`, `house_2003_prairie.as_mapped_1904.form.storey_heights_m`, `house_2003_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2003_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2003_prairie.as_mapped_1904.form.service_wall_brick`, `house_2003_prairie.as_mapped_1904.form.street_front_trim`, `house_2003_prairie.as_mapped_1904.form.wall_head`, `house_2003_prairie.as_mapped_1904.form.roof_form`, `house_2003_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2003_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2003_prairie.as_mapped_1904.form.stair_tread_m`, `house_2003_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2003_prairie.as_mapped_1904.form.stoop_width_m`, `house_2003_prairie.as_mapped_1904.form.entrance_bay`, `house_2003_prairie.as_mapped_1904.form.front_bays`, `house_2003_prairie.as_mapped_1904.form.side_bays`, `house_2003_prairie.as_mapped_1904.form.rear_bays`, `house_2003_prairie.as_mapped_1904.form.sash_by_storey`, `house_2003_prairie.as_mapped_1904.form.basement_lights`, `house_2003_prairie.as_mapped_1904.form.roof_covering`, `house_2003_prairie.as_mapped_1904.form.chimneys`, `house_2003_prairie.as_mapped_1904.form.window_kit`, `house_2003_prairie.as_mapped_1904.form.entrance_kit`, `house_2003_prairie.as_mapped_1904.form.boundary`, `house_2003_prairie.as_mapped_1904.form.yard`, `house_2005_prairie.as_mapped_1904.form.principal_floor_m`, `house_2005_prairie.as_mapped_1904.form.storey_heights_m`, `house_2005_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2005_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2005_prairie.as_mapped_1904.form.service_wall_brick`, `house_2005_prairie.as_mapped_1904.form.street_front_trim`, `house_2005_prairie.as_mapped_1904.form.wall_head`, `house_2005_prairie.as_mapped_1904.form.roof_form`, `house_2005_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2005_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2005_prairie.as_mapped_1904.form.stair_tread_m`, `house_2005_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2005_prairie.as_mapped_1904.form.stoop_width_m`, `house_2005_prairie.as_mapped_1904.form.entrance_bay`, `house_2005_prairie.as_mapped_1904.form.front_bays`, `house_2005_prairie.as_mapped_1904.form.side_bays`, `house_2005_prairie.as_mapped_1904.form.rear_bays`, `house_2005_prairie.as_mapped_1904.form.sash_by_storey`, `house_2005_prairie.as_mapped_1904.form.basement_lights`, `house_2005_prairie.as_mapped_1904.form.roof_covering`, `house_2005_prairie.as_mapped_1904.form.chimneys`, `house_2005_prairie.as_mapped_1904.form.window_kit`, `house_2005_prairie.as_mapped_1904.form.entrance_kit`, `house_2005_prairie.as_mapped_1904.form.boundary`, `house_2005_prairie.as_mapped_1904.form.yard`."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2003 2005 pair."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03 (T-3346)."
+        }
+      ],
+      "work_refs": [
+        "T-3346",
+        "T-1912",
+        "T-2350",
+        "T-3347",
+        "T-1250",
         "T-1842"
       ]
     },
@@ -45511,16 +45942,127 @@
     },
     {
       "id": "L-1812-potawatomi-camp-2515",
-      "title": "The Potawatomi camp of August 1812: its three groups on the creek, its 26 lodges, and the lodge's form and size",
+      "title": "The Potawatomi camp of August 1812: its six grounds on the creek, its lodges, arbors, hearths, gear and horse ground, and every form's shape and size",
       "section": "per_subject",
       "subjects": [
+        "potawatomi_camp_1812_horse_ground",
         "potawatomi_camp_1812_middle",
         "potawatomi_camp_1812_mouth",
-        "potawatomi_camp_1812_upper"
+        "potawatomi_camp_1812_south_reach",
+        "potawatomi_camp_1812_upper",
+        "potawatomi_camp_1812_west_bank"
       ],
       "covers": [
         {
           "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_horse_ground",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
           "structure": "potawatomi_camp_1812_middle",
           "phase": null,
           "aspect": "occupants"
@@ -45535,43 +46077,91 @@
           "domain": "structure",
           "structure": "potawatomi_camp_1812_middle",
           "phase": "camp_1812",
-          "aspect": "form.arrangement"
+          "aspect": "form.arbors"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_middle",
           "phase": "camp_1812",
-          "aspect": "form.baggage_heaps"
+          "aspect": "form.bark_houses"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_middle",
           "phase": "camp_1812",
-          "aspect": "form.brush_shelters"
+          "aspect": "form.bark_roofed_lodges"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_middle",
           "phase": "camp_1812",
-          "aspect": "form.canvas_condition"
+          "aspect": "form.canoe_edge"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_middle",
           "phase": "camp_1812",
-          "aspect": "form.fire_rings"
+          "aspect": "form.canoes"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_middle",
           "phase": "camp_1812",
-          "aspect": "form.tents"
+          "aspect": "form.drying_racks"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_middle",
           "phase": "camp_1812",
-          "aspect": "form.wagons"
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_middle",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_middle",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_middle",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_middle",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_middle",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_middle",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_middle",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_middle",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
         },
         {
           "domain": "structure",
@@ -45595,47 +46185,203 @@
           "domain": "structure",
           "structure": "potawatomi_camp_1812_mouth",
           "phase": "camp_1812",
-          "aspect": "form.arrangement"
+          "aspect": "form.arbors"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_mouth",
           "phase": "camp_1812",
-          "aspect": "form.baggage_heaps"
+          "aspect": "form.bark_houses"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_mouth",
           "phase": "camp_1812",
-          "aspect": "form.brush_shelters"
+          "aspect": "form.bark_roofed_lodges"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_mouth",
           "phase": "camp_1812",
-          "aspect": "form.canvas_condition"
+          "aspect": "form.canoe_edge"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_mouth",
           "phase": "camp_1812",
-          "aspect": "form.fire_rings"
+          "aspect": "form.canoes"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_mouth",
           "phase": "camp_1812",
-          "aspect": "form.tents"
+          "aspect": "form.drying_racks"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_mouth",
           "phase": "camp_1812",
-          "aspect": "form.wagons"
+          "aspect": "form.hearths"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_mouth",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_reach",
           "phase": "camp_1812",
           "aspect": "form.woodpiles"
         },
@@ -45655,81 +46401,237 @@
           "domain": "structure",
           "structure": "potawatomi_camp_1812_upper",
           "phase": "camp_1812",
-          "aspect": "form.arrangement"
+          "aspect": "form.arbors"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_upper",
           "phase": "camp_1812",
-          "aspect": "form.baggage_heaps"
+          "aspect": "form.bark_houses"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_upper",
           "phase": "camp_1812",
-          "aspect": "form.brush_shelters"
+          "aspect": "form.bark_roofed_lodges"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_upper",
           "phase": "camp_1812",
-          "aspect": "form.canvas_condition"
+          "aspect": "form.canoe_edge"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_upper",
           "phase": "camp_1812",
-          "aspect": "form.fire_rings"
+          "aspect": "form.canoes"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_upper",
           "phase": "camp_1812",
-          "aspect": "form.tents"
+          "aspect": "form.drying_racks"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_upper",
           "phase": "camp_1812",
-          "aspect": "form.wagons"
+          "aspect": "form.hearths"
         },
         {
           "domain": "structure",
           "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_upper",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_west_bank",
           "phase": "camp_1812",
           "aspect": "form.woodpiles"
         }
       ],
       "recorded": "2026-10-15",
-      "revised": null,
+      "revised": "2026-11-03",
       "fields": [
         {
           "label": "Decision",
-          "text": "the camp of the Potawatomi gathered at Chicago in August 1812 stands in the 1812 scene as three groups of mat lodges on the banks of the State Street creek, at the `camp` archetype: The Potawatomi camp of August 1812: the lodges by the creek's mouth (10 lodges), The Potawatomi camp of August 1812: the lodges at the creek's middle reach (8) and The Potawatomi camp of August 1812: the lodges up the creek (8), dated 12-16 August 1812. **That the camp stood, when, and on which ground is the sources'**: Wau-Bun's council of the 12th with the Indians \"assembled from the neighboring villages\" (ch. XVIII) and its \"Pottowattamie encampment\" on the river's south bank with \"a stream that flowed near\", footnoted \"Along the present State Street\" (ch. XIX); Currey's habitual camping place \"on the south bank near the present State Street bridge\", where \"a swale or gully opened into the river... reaching back as far as the present line of Randolph Street\" (1912, ch. II), and his view from the fort on the evening of 14 August, \"the groups of Indian wigwams clustered along the creek that formerly flowed into the main stream at the present State Street\" (ch. III). The committed 1812 ground already carries that creek (the state slough course and state slough mouth swales). **What is ours.** The three grounds and their places on the banks (by the mouth, on its level west bank; then the south-east bank where the creek bends west; then the north bank near its head by Dearborn), 28 x 20 m twice and 20 x 16 m, each 1.7-7 m clear of the swale's cut and 4 m or more from every footprint and clear of every street corridor the 1835 layer later draws on that ground; the number of lodges, 26, which counts nothing: the one size given is Heald's \"between four hundred and five hundred\" warriors at the fight of the 15th (Currey ch. III), with their families in the camp, which would have needed far more lodges, so the drawn camp understates the gathering instead of claiming a figure; the scatter; the bearing of every door (north, to the river); and which group's mats are new and which weathered. No fire is drawn outside the lodges: the archetype's fire ring is a settler's stone ring, pot crane and kettle, and no source describes the camp's fires. **The lodge.** Its covering and frame are inferred from Wau-Bun, which describes the inside of a mat lodge in 1831 (\"the mats of which the lodge was constructed... depending from the poles or frame-work\", the smoke \"escaping through an opening in the top\", a mat \"which hung over the entrance\", ch. XVI) and the rush mats \"used in covering their wigwams\" (ch. VII). Those passages do not describe this camp, and they give no shape and no size."
-        },
-        {
-          "label": "Invented",
-          "text": "the oval dome and its superellipse profile; 3.40 x 4.60 m on the ground and 2.40 m to the crown; the door on the long axis, 0.88 x 1.34 m, and the mat rolled up over it; the smoke opening at 16 % of the plan's radii; the four lapped courses of mat; the two poles laid over the mats; the mats' colour. It is never a hide tipi: Moses and Kirkland's buffalo-hide \"teepees\" (1895, v1 p. 32) picture 1803 from 1895 and are not used. Bark covering, which Wau-Bun gives its villages, is not drawn: a party come in to a gathering carried its mats."
+          "text": "the camp of the Potawatomi gathered at Chicago in August 1812 stands in the 1812 scene as six grounds on the banks of the State Street creek at the lodge camp archetype (which rebuilt 's three groups of identical mat domes at the owner's ask of 2026-11-03: \"they cannot all be identical geometric domes they must look like natural structures with correct surfaces... there would be I think fires and areas for cooking\", then \"any prep areas like where they keep horses and equipment\" and \"anything required for their encampment to exist\"): The Potawatomi camp of August 1812: the lodges by the creek's mouth, `_middle`, _west bank, `_upper` and _south reach, five working groups of families, and _horse ground, dated 12-16 August 1812. **That the camp stood, when, and on which ground is the sources'**: Wau-Bun's council of the 12th with the Indians \"assembled from the neighboring villages\" (ch. XVIII) and its \"Pottowattamie encampment\" on the river's south bank with \"a stream that flowed near\", footnoted \"Along the present State Street\" (ch. XIX); Currey's habitual camping place \"on the south bank near the present State Street bridge\", where \"a swale or gully opened into the river... reaching back as far as the present line of Randolph Street\" (1912, ch. II), and his view from the fort on the evening of 14 August, \"the groups of Indian wigwams clustered along the creek\" (ch. III). **What each form rests on.** None is described at Chicago; each is read from the nearest accounts of the Potawatomi and their neighbours on the western lakes in those years, and its shape and size are ours. The mat lodge, oval domes of bent poles in lapped courses of cat-tail mats with a smoke opening and a hide or mat at the door, and the long lodge on two rows of poles with a door at each end: Forsyth (Thomas Forsyth, \"An account of the Manners and Customs of the Sauk and Fox…, Blair 1912 v2 pp. 227-28, with Gerard's note 87 naming the cat-tail flag) and Wau-Bun (ch. VII, mats \"seldom more than five or six feet in length\"; ch. XVI). The bark house, an oblong of elm-bark sheets with a door at each end: Forsyth's \"bark huts or summer residences\" (p. 227); mat lodges roofed in bark are our mixing of the two coverings for a camping place the families came back to. The bough arbor over the cooking: Prairie Potawatomi narrators in Skinner 1927 (Alanson Skinner, \"The Mascoutens or Prairie Potawatomi Indians, Part III…, pp. 379, 409). Hearths with brass kettles on tripods or cranes and roasting spits: Wau-Bun's kettle dipped in the creek (ch. XIX), Forsyth's \"spits to roast their meat on\" (p. 228). Storage scaffolds: Hubbard's \"scaffold upon which was deposited matting for covering lodges\" (Hubbard 1911). Canoes, mostly bark with a dugout among them, and the horse ground's tether stakes, lines and pack saddles with their loads: Hubbard's Potawatomi travelling in bark canoes, Forsyth's families that move by horse or canoe (p. 233), and the horse Mrs. Helm was \"placed upon\" at the encampment (Currey ch. III). Drying racks, hide frames, woodpiles and corn mortars are the work of a camp of families in August and are reconstructed outright. **The horses themselves are not drawn**: no horse model stands in 1812 yet, so their ground is drawn and the animals are left out. **What is ours.** The six grounds and their places on the banks, 36 x 26-28 m (the upper 30 x 24), each on level ground within 0.3 m of its origin's height and 2.9-14.8 m from the swale's cut; the counts, 27 dwellings across the five groups, which count nothing (Heald's \"between four hundred and five hundred\" warriors, Currey ch. III, with their families would have needed far more, so the camp understates the gathering); the layout, lodges round a shared yard with their doors turned to it, its arbor and hearth at the middle, racks and mortar by it, scaffolds and hide frames behind and between the lodges, canoes along the water side; every dimension in the lodge camp params tool; the mats', bark's and boughs' look (the procedural library the camp 1812 pbr model, no photograph used); which group's mats are new or weathered; and the worn ground under each group, a rounded patch of worn earth feathered into the grass (the potawatomi camp 1812 ground data). It is never a hide tipi: Moses and Kirkland's buffalo-hide \"teepees\" (1895, v1 p. 32) picture 1803 from 1895 and are not used. **What is left out on purpose.** No person; no flame or smoke above a hearth's coals; no ceremony, council or dialogue; no sacred bundle, society lodge, sweat lodge or women's lodge; nothing of the next morning. No lodge is given to a family, band or person."
         },
         {
           "label": "Consequence",
-          "text": "a visitor to the eve of the evacuation sees lodges standing empty along the creek where the sources put the camp. That they stood there is argued from the sources; how many there were, how they were set out and what each looked like is ours. No person is drawn (“No people, anywhere”), nothing is staged, and every record is review required and touches removal; the scene stays unreleased until the review earlier work waits for."
+          "text": "a visitor to the eve of the evacuation walks among a working camp of families along the creek where the sources put it: lodges of several kinds and sizes, cooking arbors and fires, racks, stores, canoes and a horse ground. That it stood there is argued from the sources; how many lodges, how they were set out and what each looked like is ours. Every record is review required and touches removal, with its own prose saying why."
         },
         {
           "label": "How to resolve",
-          "text": "a count or a map of the lodges of August 1812; a picture or a description of a Potawatomi lodge at Chicago in those years; the ruling of the review by Native scholars or community organisations, which may change the form, the number or whether the camp is drawn at all."
+          "text": "a count or a map of the lodges of August 1812; a picture or a description of a Potawatomi camp at Chicago in those years; the judgement of Native scholars or community organisations, which may change the forms, the number or whether the camp is drawn at all."
         },
         {
           "label": "Recorded",
           "text": "2026-10-15 (T-2515)."
         },
         {
+          "label": "Revised",
+          "text": "2026-11-03 (T-3342)."
+        },
+        {
           "label": "Covers",
-          "text": "`potawatomi_camp_1812_mouth.occupants`, `potawatomi_camp_1812_mouth.camp_1812.footprint`, `potawatomi_camp_1812_mouth.camp_1812.form.tents`, `potawatomi_camp_1812_mouth.camp_1812.form.wagons`, `potawatomi_camp_1812_mouth.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_mouth.camp_1812.form.fire_rings`, `potawatomi_camp_1812_mouth.camp_1812.form.woodpiles`, `potawatomi_camp_1812_mouth.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_mouth.camp_1812.form.arrangement`, `potawatomi_camp_1812_mouth.camp_1812.form.canvas_condition`, `potawatomi_camp_1812_middle.occupants`, `potawatomi_camp_1812_middle.camp_1812.footprint`, `potawatomi_camp_1812_middle.camp_1812.form.tents`, `potawatomi_camp_1812_middle.camp_1812.form.wagons`, `potawatomi_camp_1812_middle.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_middle.camp_1812.form.fire_rings`, `potawatomi_camp_1812_middle.camp_1812.form.woodpiles`, `potawatomi_camp_1812_middle.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_middle.camp_1812.form.arrangement`, `potawatomi_camp_1812_middle.camp_1812.form.canvas_condition`, `potawatomi_camp_1812_upper.occupants`, `potawatomi_camp_1812_upper.camp_1812.footprint`, `potawatomi_camp_1812_upper.camp_1812.form.tents`, `potawatomi_camp_1812_upper.camp_1812.form.wagons`, `potawatomi_camp_1812_upper.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_upper.camp_1812.form.fire_rings`, `potawatomi_camp_1812_upper.camp_1812.form.woodpiles`, `potawatomi_camp_1812_upper.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_upper.camp_1812.form.arrangement`, `potawatomi_camp_1812_upper.camp_1812.form.canvas_condition`"
+          "text": "`potawatomi_camp_1812_mouth.occupants`, `potawatomi_camp_1812_mouth.camp_1812.footprint`, `potawatomi_camp_1812_mouth.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.long_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.bark_houses`, `potawatomi_camp_1812_mouth.camp_1812.form.arbors`, `potawatomi_camp_1812_mouth.camp_1812.form.hearths`, `potawatomi_camp_1812_mouth.camp_1812.form.drying_racks`, `potawatomi_camp_1812_mouth.camp_1812.form.scaffolds`, `potawatomi_camp_1812_mouth.camp_1812.form.hide_frames`, `potawatomi_camp_1812_mouth.camp_1812.form.woodpiles`, `potawatomi_camp_1812_mouth.camp_1812.form.mortars`, `potawatomi_camp_1812_mouth.camp_1812.form.canoes`, `potawatomi_camp_1812_mouth.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_mouth.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_mouth.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_mouth.camp_1812.form.mat_condition`, `potawatomi_camp_1812_middle.occupants`, `potawatomi_camp_1812_middle.camp_1812.footprint`, `potawatomi_camp_1812_middle.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.long_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.bark_houses`, `potawatomi_camp_1812_middle.camp_1812.form.arbors`, `potawatomi_camp_1812_middle.camp_1812.form.hearths`, `potawatomi_camp_1812_middle.camp_1812.form.drying_racks`, `potawatomi_camp_1812_middle.camp_1812.form.scaffolds`, `potawatomi_camp_1812_middle.camp_1812.form.hide_frames`, `potawatomi_camp_1812_middle.camp_1812.form.woodpiles`, `potawatomi_camp_1812_middle.camp_1812.form.mortars`, `potawatomi_camp_1812_middle.camp_1812.form.canoes`, `potawatomi_camp_1812_middle.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_middle.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_middle.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_middle.camp_1812.form.mat_condition`, `potawatomi_camp_1812_west_bank.occupants`, `potawatomi_camp_1812_west_bank.camp_1812.footprint`, `potawatomi_camp_1812_west_bank.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.long_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.bark_houses`, `potawatomi_camp_1812_west_bank.camp_1812.form.arbors`, `potawatomi_camp_1812_west_bank.camp_1812.form.hearths`, `potawatomi_camp_1812_west_bank.camp_1812.form.drying_racks`, `potawatomi_camp_1812_west_bank.camp_1812.form.scaffolds`, `potawatomi_camp_1812_west_bank.camp_1812.form.hide_frames`, `potawatomi_camp_1812_west_bank.camp_1812.form.woodpiles`, `potawatomi_camp_1812_west_bank.camp_1812.form.mortars`, `potawatomi_camp_1812_west_bank.camp_1812.form.canoes`, `potawatomi_camp_1812_west_bank.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_west_bank.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_west_bank.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_west_bank.camp_1812.form.mat_condition`, `potawatomi_camp_1812_upper.occupants`, `potawatomi_camp_1812_upper.camp_1812.footprint`, `potawatomi_camp_1812_upper.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.long_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.bark_houses`, `potawatomi_camp_1812_upper.camp_1812.form.arbors`, `potawatomi_camp_1812_upper.camp_1812.form.hearths`, `potawatomi_camp_1812_upper.camp_1812.form.drying_racks`, `potawatomi_camp_1812_upper.camp_1812.form.scaffolds`, `potawatomi_camp_1812_upper.camp_1812.form.hide_frames`, `potawatomi_camp_1812_upper.camp_1812.form.woodpiles`, `potawatomi_camp_1812_upper.camp_1812.form.mortars`, `potawatomi_camp_1812_upper.camp_1812.form.canoes`, `potawatomi_camp_1812_upper.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_upper.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_upper.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_upper.camp_1812.form.mat_condition`, `potawatomi_camp_1812_south_reach.occupants`, `potawatomi_camp_1812_south_reach.camp_1812.footprint`, `potawatomi_camp_1812_south_reach.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.long_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.bark_houses`, `potawatomi_camp_1812_south_reach.camp_1812.form.arbors`, `potawatomi_camp_1812_south_reach.camp_1812.form.hearths`, `potawatomi_camp_1812_south_reach.camp_1812.form.drying_racks`, `potawatomi_camp_1812_south_reach.camp_1812.form.scaffolds`, `potawatomi_camp_1812_south_reach.camp_1812.form.hide_frames`, `potawatomi_camp_1812_south_reach.camp_1812.form.woodpiles`, `potawatomi_camp_1812_south_reach.camp_1812.form.mortars`, `potawatomi_camp_1812_south_reach.camp_1812.form.canoes`, `potawatomi_camp_1812_south_reach.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_south_reach.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_south_reach.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_south_reach.camp_1812.form.mat_condition`, `potawatomi_camp_1812_horse_ground.occupants`, `potawatomi_camp_1812_horse_ground.camp_1812.footprint`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.long_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.bark_houses`, `potawatomi_camp_1812_horse_ground.camp_1812.form.arbors`, `potawatomi_camp_1812_horse_ground.camp_1812.form.hearths`, `potawatomi_camp_1812_horse_ground.camp_1812.form.drying_racks`, `potawatomi_camp_1812_horse_ground.camp_1812.form.scaffolds`, `potawatomi_camp_1812_horse_ground.camp_1812.form.hide_frames`, `potawatomi_camp_1812_horse_ground.camp_1812.form.woodpiles`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mortars`, `potawatomi_camp_1812_horse_ground.camp_1812.form.canoes`, `potawatomi_camp_1812_horse_ground.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_horse_ground.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_horse_ground.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mat_condition`"
         }
       ],
       "work_refs": [
-        "T-0472",
+        "T-3342",
         "T-2515",
         "T-2490",
         "T-2514"
@@ -65493,6 +66395,58 @@
       ]
     },
     {
+      "id": "L-k12-1834-stable-1935",
+      "title": "The brick barn on the alley behind 1834 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and its one-storey piece",
+      "section": "per_subject",
+      "subjects": [
+        "jones_house_1834_prairie",
+        "jones_house_1834_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.coach_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-11-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's alley building behind 1834 Prairie Avenue, the Jones house, is refined in place, under its own id 1834 Prairie Avenue (the Jones house): the brick barn on the alley, onto the K12 coach-house kit (“The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed”): the third of this work's seven alley buildings on the west side of Prairie Avenue, 18th to 20th, after 1816's and 1824's (“The long brick stable on the alley behind 1816 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its two window marks and both party walls”, “The brick stable on the alley behind 1824 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and both party walls”). **What is read.** From sheet 28 of the 1911 Sanborn: the stable's outline, 7.52 m deep from the alley line by 16.33 m along it, measured between line centres on the committed raster (median darkness profiles: the alley line at column 570.42 at the middle row and the east wall at 718.64 and 717.85, the north and south walls at rows 3153.15 and 3476.11) and carried by the sheet's fitted similarity; a one-storey piece against the north 7.89 m of its yard wall, 3.09 m deep (its east wall at column 780.53, its south wall at row 3309.10); '2' and '1' storeys; the brick of both; the wall figures '8 8' inside the stable's south wall; the label BARN; its north wall on the line it shares with 1828's building, and an open strip about 3.6 m wide south of it to the frame shed on the strip between 1834 and 1900; one of the key's window marks on the alley wall, the sign 1816's and 1824's walls carry, 7.87 m from the north wall; a break of about 1.5 m in the wall line between the piece and the stable; and the west face of the house's rear porch (lettered OPEN 1st IR.CL.2nd) 13.66 m east of the yard wall. The draft had fitted the trace with rectangles of its own; the sheet draws the stable on the alley line with its piece. Inferred for 1904 as every reading of these sheets is; the use is the 1911 label's, carried back. **The date.** Robinson's 1886 plate 10 stops at 18th Street, so nothing read here dates the building before the 1911 sheet; that it stood by 1904 is the census's carry-back, which the district draft already made. **What is invented.** The sheet draws no fire-wall sign at either end; the kit stands its one party wall at the north end, on the lot line against 1828's building, rising 0.45 m over the roof and returning 0.5 m past the eaves, and its open gable at the south end, over the open strip. Every opening but the mark is the kit's laid out for a building this long: on the alley, two carriage bays 3.0 m clear with the loft hatch and hoist over the northern one and a loft sash over the other, a man door between the northern bay and the mark, and a stable sash with a loft sash over it toward the south end; on the yard side, south of the piece, a door where the walk to the house meets it and two stable sash with loft sash over them. The mark is built as a stable sash with a loft sash over it. The piece is the kit's lean-to standing on the lot line against the party wall, as 1730's does: its single-pitch roof dying into the yard wall at 3.9 m, a stable (Dutch) door and a sash in its front. The roof is the kit's gable at its own 40 degrees with the ridge along the alley, 3.15 m from eave to ridge over the 7.52 m span, with no dormer, as the sheet draws none. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m basement, reached by nothing. The workyard is paved from the yard door to the porch's west face, the walk inside the porch's width. Flat colours. **Left out.** The break in the wall between the piece and the stable, an opening inside that the piece covers; the solid dot inside the piece (the key's vertical steam boiler; the kit has no stack and the sheet draws none); and a small cross inside the stable's south-west corner, which 1630's shed record reads as the key's shingle-roof sign: if that is what it is here, the kit's slate is wrong for this roof. **What is not.** The outline, the piece's outline, its place on the lot, the storeys, the brick, the mark's place and the use are the maps'."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the alley behind 1828-1900 Prairie, or a building permit for the building, entered as a source, gives its openings, roof, ends and date their true form. The picture this work's image gate names for it (Clark's c. 1905 view north from 1936) shows the house fronts and not the alley."
+        },
+        {
+          "label": "Covers",
+          "text": "`jones_house_1834_prairie_coach_house.as_standing_1904.form.coach_house`, `jones_house_1834_prairie_coach_house.as_standing_1904.form.stories`, `jones_house_1834_prairie_coach_house.as_standing_1904.form.construction`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-02 (T-1935)."
+        }
+      ],
+      "work_refs": [
+        "T-1935"
+      ]
+    },
+    {
       "id": "L-t3316-hibbard-1701-stable",
       "title": "1701 Hibbard's stable by the tracks on the sheet's parallelogram, its yard front read off the Chicagology photograph",
       "section": "per_subject",
@@ -65983,6 +66937,38 @@
       ],
       "work_refs": [
         "T-2804"
+      ]
+    },
+    {
+      "id": "L-pullman-1729-light-foot-1881",
+      "title": "1729 Prairie's big principal-storey light set on its sill with ears, a longer sill on two blocks under it and a sunk panel below, off the 1890 Albertype plate; the parts' projections reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the big round-arched light of the Prairie front's principal storey (s 11.225) stood on K06's plain sill, where the 1890 Albertype plate draws a dressed foot under it (its match record's open item). Its architrave now takes a foot (street front windows windows[].architrave.foot, a new K01 key): the light's own sill, 2.8 m long, 0.2 m high and 0.2 m proud, with an ear 0.5 m wide and 0.35 m high either side of the architrave's feet; 0.07 m under it a longer sill, 3.6 m long, 0.2 m high and 0.22 m proud, carried on two blocks 0.25 m wide and 0.3 m high, 1.46 m apart; and under that a sunk panel 3.4 m wide and 1.0 m high, down to just over the front's base, drawn by a 0.1 m fillet round a field left at the wall's face. **What is read, not invented.** The plate (albertype 1890 chicago residences plate) at its full size, on 3x and 6x crops of x 1130-1290, y 420-620, at about 24 px a metre there (the light's 1.2 m glass at x 1197-1222; the base's top at y 590, 0.9 m): the ears at x 1175-1190 and 1227-1242, y 539-547, shadowed under; the longer pale sill at x 1160-1247, y 559-564, its top about 0.27 m under the light's foot; the two small blocks under it at x 1183-1188 and 1218-1223; and the dark field under it, y 564-588, down to the base. Lengths and heights are read to about 0.1-0.2 m. **What is invented.** How far each part stands out from the wall (0.16-0.22 m), which the plate's frontal view does not show; the panel's depth, laid as a fillet round a field at the wall's face; and the gap between the two sills. The plate draws the panel's field very dark, deeper than a shallow panel's shadow would read, perhaps a deep sinking or planting before it; the build does not draw that darkness."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a closer picture of the principal storey (the CHM 1905 views at a larger size) reads the parts' projections and what darkens the panel."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03 (T-1881)."
+        }
+      ],
+      "work_refs": [
+        "T-1881"
       ]
     },
     {

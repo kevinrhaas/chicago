@@ -2920,7 +2920,7 @@ export async function createTrees({
   let divideFloorRow = 0;
   // One stack for every flood: it is scratch, and a fresh one per flood was
   // ~8 MB a time, a dozen times over, while the phone was mid-load (T-2158).
-  const st = new Int32Array(cells);
+  let st = new Int32Array(cells);
   const floodSeparates = (cutRow) => {
     const d = new Int8Array(cells).fill(-1);
     let lab = 0;
@@ -2958,6 +2958,9 @@ export async function createTrees({
       divideFloorRow = lo;
     }
   }
+  // Flood search is complete. Returned tree closures share this context, but
+  // must not retain its per-cell stack after the last synchronous flood.
+  st = null;
   const divisible = (s) => ((s - (s % cols)) / cols) >= divideFloorRow;
   const div = new Int8Array(cells).fill(-1);
   const stack = new Int32Array(cells);

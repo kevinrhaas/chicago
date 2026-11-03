@@ -519,6 +519,24 @@ const worldPlane=(c)=>({...c,o:new THREE.Vector3(...c.normal.map(x=>x*c.d)),n:ne
   u:new THREE.Vector3(...c.u),v:new THREE.Vector3(...c.v),active:()=>true});
 const [plane]=planarCoverPlanes(wallOf(),null).map(worldPlane);
 assert.ok(plane && plane.cells>30000,'the wall is one plane with its cells proven');
+// The prefix stores exact counts, not normalized/rounded values. The total
+// occupied count bounds EVERY prefix, even when the rectangular grid is larger.
+assert.ok(plane.sat instanceof Uint16Array, 'the existing perforated wall fits exact u16 counts');
+assert.equal(plane.sat.at(-1), plane.cells, 'the final prefix retains the complete covered count');
+const [wideCover] = planarCoverPlanes(rect(-20,-20,20,20), null);
+assert.ok(wideCover.cells > 65535 && wideCover.sat instanceof Int32Array,
+  'a plane exceeding u16 count keeps the original wide representation');
+assert.equal(wideCover.sat.at(-1), wideCover.cells, 'wide counts do not wrap at 65536');
+const [lastNarrow] = planarCoverPlanes(rect(0,0,257,259), null, {res:1});
+const [firstWide] = planarCoverPlanes(rect(0,0,258,258), null, {res:1});
+assert.equal(lastNarrow.cells, 65535); assert.ok(lastNarrow.sat instanceof Uint16Array);
+assert.equal(lastNarrow.sat.at(-1), 65535, 'last narrow count is not rounded');
+assert.equal(firstWide.cells, 65536); assert.ok(firstWide.sat instanceof Int32Array);
+assert.equal(firstWide.sat.at(-1), 65536, 'first wide count is not truncated');
+const [sparseCover] = planarCoverPlanes([...rect(0,0,.5,30), ...rect(29.5,0,30,30)], null);
+assert.ok(sparseCover.W*sparseCover.H > 65535 && sparseCover.cells < 65536
+  && sparseCover.sat instanceof Uint16Array, 'admission uses occupied count, not rectangular area');
+assert.equal(sparseCover.sat.at(-1), sparseCover.cells, 'sparse wide-grid prefix stays exact');
 assert.equal(planarCoverPlanes(wallOf(),null,{minPlaneArea:500}).length,0,'a small plane is not a cover');
 const eye=new THREE.Vector3(),forward=new THREE.Vector3(0,0,-1),px=2/800;
 const box=(a,b)=>new THREE.Box3(new THREE.Vector3(...a),new THREE.Vector3(...b));

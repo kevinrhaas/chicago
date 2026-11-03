@@ -394,7 +394,84 @@ function laySection(path, s0, s1, prof, spec, out) {
 // lanes must be canonical +0/+1 after Float32 storage, including zero's sign.
 const TIE_MATRIX_LANES = [0, 2, 5, 8, 10, 12, 13, 14];
 const TIE_MATRIX_FIXED = [[1, 0], [3, 0], [4, 0], [6, 0], [7, 0], [9, 0], [11, 0], [15, 1]];
-function packTieCache(final) {
+// These are FINAL Float32 words, not a recipe for recomputing transforms. Cache
+// columns use a constant, an exact unsigned word delta, or a small word table.
+// Reserve descriptor/view overhead too; small or unprofitable caches stay as-is.
+const RAIL_CACHE_WORD_RESERVE = 64;
+const RAIL_CACHE_COLUMN_RESERVE = 256;
+function packRailCacheWords(cache) {
+  const { count, stride, values } = cache;
+  if (!(values instanceof Float32Array) || !Number.isInteger(count) || count < 0
+      || !Number.isInteger(stride) || stride < 1 || values.length !== count * stride) {
+    throw new Error('Rail cache needs complete final Float32 records');
+  }
+  let retainedBytes = RAIL_CACHE_WORD_RESERVE + stride * RAIL_CACHE_COLUMN_RESERVE;
+  if (retainedBytes >= values.byteLength) return cache;
+  const words = new Uint32Array(values.buffer, values.byteOffset, values.length);
+  const wordColumns = [];
+  for (let lane = 0; lane < stride; lane += 1) {
+    let min = 0xffffffff, max = 0;
+    for (let i = 0; i < count; i += 1) {
+      const word = words[i * stride + lane];
+      min = Math.min(min, word); max = Math.max(max, word);
+    }
+    const span = max - min;
+    const width = span === 0 ? 0 : span <= 0xff ? 1 : span <= 0xffff ? 2 : span <= 0xffffff ? 3 : 4;
+    if (!width) { wordColumns.push({ base: min, width: 0 }); continue; }
+    let table = null;
+    if (width > 1) {
+      table = new Map();
+      for (let i = 0; i < count; i += 1) {
+        const word = words[i * stride + lane];
+        if (!table.has(word)) table.set(word, table.size);
+        if (table.size > 256) { table = null; break; }
+      }
+      // A dictionary adds a second view; do not buy it for a nominal byte gain.
+      if (table && count + table.size * 4 + 64 >= count * width) table = null;
+    }
+    const data = new Uint8Array(count * (table ? 1 : width));
+    if (table) {
+      const dictionary = new Uint32Array(table.keys());
+      for (let i = 0; i < count; i += 1) data[i] = table.get(words[i * stride + lane]);
+      wordColumns.push({ width: 1, dictionary, data });
+      retainedBytes += dictionary.byteLength;
+    } else {
+      for (let i = 0; i < count; i += 1) {
+        const delta = words[i * stride + lane] - min, offset = i * width;
+        for (let b = 0; b < width; b += 1) data[offset + b] = delta >>> (b * 8);
+      }
+      wordColumns.push({ base: min, width, data });
+    }
+    retainedBytes += data.byteLength;
+  }
+  // No original Float32 view, backing buffer, or temporary Map is retained.
+  return retainedBytes < values.byteLength ? { count, stride, wordColumns } : cache;
+}
+
+function unpackRailCacheWords(cache) {
+  if (!Object.hasOwn(cache, 'wordColumns')) return cache;
+  const { count, stride, wordColumns } = cache;
+  if (!Number.isInteger(count) || count < 0 || !Number.isInteger(stride) || stride < 1
+      || !Array.isArray(wordColumns) || wordColumns.length !== stride) throw new Error('Invalid rail cache columns');
+  const values = new Float32Array(count * stride), words = new Uint32Array(values.buffer);
+  for (let lane = 0; lane < stride; lane += 1) {
+    const { base, width, dictionary, data } = wordColumns[lane];
+    if (![0, 1, 2, 3, 4].includes(width)
+        || (dictionary ? !(dictionary instanceof Uint32Array) || dictionary.length < 1 || dictionary.length > 256 || width !== 1
+          : !Number.isInteger(base) || base < 0 || base > 0xffffffff)
+        || (width && (!(data instanceof Uint8Array) || data.length !== count * width))) throw new Error('Invalid rail cache column');
+    for (let i = 0; i < count; i += 1) {
+      let delta = 0;
+      for (let b = 0; b < width; b += 1) delta += data[i * width + b] * 2 ** (b * 8);
+      const word = dictionary ? dictionary[delta] : base + delta;
+      if (!Number.isInteger(word) || word < 0 || word > 0xffffffff) throw new Error('Invalid rail cache word');
+      words[i * stride + lane] = word;
+    }
+  }
+  return { count, stride, values };
+}
+
+function packTieCache(final, compact = true) {
   const count = final.length / 19;
   if (!Number.isInteger(count)) throw new Error('Tie cache needs final matrix/color records');
   for (let i = 0; i < count; i += 1) {
@@ -408,10 +485,12 @@ function packTieCache(final) {
     TIE_MATRIX_LANES.forEach((lane, k) => { values[i * 11 + k] = final[i * 19 + lane]; });
     values.set(final.subarray(i * 19 + 16, i * 19 + 19), i * 11 + 8);
   }
-  return { count, stride: 11, values };
+  const cache = { count, stride: 11, values };
+  return compact ? packRailCacheWords(cache) : cache;
 }
 
 function installTieCache(near, far, cache) {
+  cache = unpackRailCacheWords(cache);
   const matrix = new Float32Array(cache.count * 16);
   const color = new Float32Array(cache.count * 3);
   for (let i = 0; i < cache.count; i += 1) {
@@ -440,23 +519,24 @@ function installTieCache(near, far, cache) {
 // Uniform crossed-card transforms can store six matrix lanes and R/B only.
 // Relations are tested AFTER Float32 conversion; sign-zero is part of equality.
 function packTuftCache(final) {
-  const upright = packTieCache(final);
+  const upright = packTieCache(final, false);
   if (upright.stride !== 11) return upright;
   for (let i = 0; i < upright.count; i += 1) {
     const o = i * 19;
     if (!Object.is(final[o], final[o + 10])
         || !Object.is(final[o + 8], -final[o + 2])
-        || !Object.is(final[o + 16], final[o + 17])) return upright;
+        || !Object.is(final[o + 16], final[o + 17])) return packRailCacheWords(upright);
   }
   const values = new Float32Array(upright.count * 8);
   for (let i = 0; i < upright.count; i += 1) {
     const o = i * 19;
     [0, 2, 5, 12, 13, 14, 16, 18].forEach((lane, k) => { values[i * 8 + k] = final[o + lane]; });
   }
-  return { count: upright.count, stride: 8, values };
+  return packRailCacheWords({ count: upright.count, stride: 8, values });
 }
 
 function installTuftCache(mesh, cache, wantedCount) {
+  cache = unpackRailCacheWords(cache);
   let upright = cache;
   if (cache.stride === 8) {
     const values = new Float32Array(cache.count * 11);
@@ -1380,23 +1460,41 @@ export async function createRailway({
   let level = REACH[detail] ? detail : 'full';
   const rockShare = { full: 1, balanced: (stones?.per_m2?.balanced ?? 0.9) / (stones?.per_m2?.full ?? 1.5),
     light: (stones?.per_m2?.light ?? 0.45) / (stones?.per_m2?.full ?? 1.5) };
+  // Configured density tiers are fixed for this assembly's lifetime. Cache only
+  // their strict DOUBLE prefix counts; later debug edits require rebuilding it.
   const applyDetail = () => {
     out.census.tufts = 0;
     out.census.rocks = 0;
     for (const z of zones) {
       for (const m of z.rockMeshes ?? []) {
-        const keeps = m.userData.keeps;
-        let n = 0; while (n < keeps.length && keeps[n] < rockShare[level]) n += 1;
+        if (!m.userData.densityCounts) {
+          const keeps = m.userData.keeps, counts = Object.create(null);
+          for (const tier of ['full', 'balanced', 'light']) {
+            let n = 0; while (n < keeps.length && keeps[n] < rockShare[tier]) n += 1;
+            counts[tier] = n;
+          }
+          m.userData.densityCounts = counts;
+          delete m.userData.keeps;
+        }
+        const n = m.userData.densityCounts[level] ?? 0;
         m.userData.rockWanted = n;
         if (!m.userData.rockCache) m.count = n;
         out.census.rocks += n;
       }
     }
-    const want = dens[level] ?? 0; const full = dens.full || 1;
     for (const z of zones) {
       if (!z.tuftMesh) continue;
-      const ratio = want / full;
-      let n = 0; while (n < z.tuftKeeps.length && z.tuftKeeps[n] < ratio) n += 1;
+      if (!z.tuftDensityCounts) {
+        const counts = Object.create(null), full = dens.full || 1;
+        for (const tier of ['full', 'balanced', 'light']) {
+          const ratio = (dens[tier] ?? 0) / full;
+          let n = 0; while (n < z.tuftKeeps.length && z.tuftKeeps[n] < ratio) n += 1;
+          counts[tier] = n;
+        }
+        z.tuftDensityCounts = counts;
+        delete z.tuftKeeps;
+      }
+      const n = z.tuftDensityCounts[level] ?? 0;
       z.tuftWanted = n;
       if (!z.tuftCache) z.tuftMesh.count = n;
       out.census.tufts += n;

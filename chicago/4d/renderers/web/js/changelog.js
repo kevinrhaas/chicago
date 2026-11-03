@@ -1,4 +1,42 @@
 export const CHANGELOG = [ // newest first
+  { v: 2620, ts: '2026-11-03T19:40:08.323Z', date: 'Nov 3, 2026, 1:40 PM CT', title: '1936 Prairie\'s verandah stands on its columns', kind: 'improvement',
+    items: [
+      'The Allerton house\'s verandah on Prairie Avenue (1904) now stands on two fluted Corinthian columns between its three arches, as the 1869 Tribune describes and the old photograph shows, instead of solid piers.',
+    ] },
+  { v: 2619, ts: '2026-11-03T17:15:59.406Z', date: 'Nov 3, 2026, 11:15 AM CT', title: 'The Pullman house\'s big front window stands on its dressed sill', kind: 'improvement',
+    items: [
+      'At 1729 Prairie, the tall arched window on the front\'s main floor now sits on a projecting stone sill, with a block at each end, as the 1890 Albertype plate draws it.',
+      'Under it a longer sill on two small brackets tops a sunk stone panel that runs down to the base of the wall.',
+      'How far each piece stands out from the wall is our estimate; the plate shows the front straight on, so that depth can\'t be read.',
+    ] },
+  { v: 2618, ts: '2026-11-03T16:52:02.729Z', date: 'Nov 3, 2026, 10:52 AM CT', title: '2009 Prairie, the Meyer house, gets its ogee gable', kind: 'feature',
+    items: [
+      '2009 Prairie, Burnham & Root\'s 1888 house for Max A. Meyer, now stands as its photograph shows it: a narrow brick front on a stone basement, a bowed oriel of three lights, and the front carried up into a tall ogee gable with its pair of attic lights.',
+    ] },
+  { v: 2617, ts: '2026-11-03T16:02:51.653Z', date: 'Nov 3, 2026, 10:02 AM CT', title: 'The 1812 Potawatomi camp rebuilt as a working camp of families', kind: 'feature',
+    items: [
+      'The camp on the State Street creek is no longer rows of identical domes. Five groups of lodges and a horse ground now stand along the creek\'s banks, each laid out round a shared yard.',
+      'Lodges vary in kind and size: mat lodges of three sizes, a long lodge with a door at each end, lodges roofed in elm bark, and gabled bark houses. Each mat and bark sheet is its own piece, with real cat-tail, bark and bough surfaces instead of flat colour.',
+      'Each yard has a bough arbor over the cooking, fires with brass kettles on tripods or cranes and roasting spits, drying racks of meat and fish, storage scaffolds, hide frames, woodpiles and corn mortars. Canoes are drawn up on the water side.',
+      'The horse ground has tether stakes, lines and pack saddles with their loads. The horses themselves are not drawn yet.',
+      'The ground under each group is worn bare and fades into the grass.',
+      'Every form is read from accounts of the Potawatomi and their neighbours in those years: Forsyth on the Sauk and Fox, Wau-Bun, Hubbard and Skinner\'s Prairie Potawatomi narrators. The counts, the layout and every size are reconstructed, and nothing is staged.',
+    ] },
+  { v: 2616, ts: '2026-11-03T15:41:24.366Z', date: 'Nov 3, 2026, 9:41 AM CT', title: 'Cobweb Castle’s panorama is linked on its card', kind: 'add',
+    items: [
+      'The Indian Agency House’s Images tab links the original 1831 panorama with its publication credit.',
+      'The small retrospective view does not establish the building’s exact July 1835 appearance.',
+    ] },
+  { v: 2615, ts: '2026-11-03T15:11:01.717Z', date: 'Nov 3, 2026, 9:11 AM CT', title: '2003 and 2005 Prairie: the brick pair with its curved front bays', kind: 'feature',
+    items: [
+      '2003 and 2005 Prairie Avenue, a pair of three-storey brick houses on one party wall, now stand as finished houses instead of draft blocks: each has the curved front bay the 1911 fire-insurance map draws beside the party wall, its door at the pair\'s outer end up a stone stoop, a bracketed cornice under a flat roof, and the two-storey rear range the map draws behind it. Both houses are now as wide and deep as the map draws them. The map gives the plan; the brick, windows, cornice and heights are reconstructed and listed on each house\'s card.',
+    ] },
+  { v: 2614, ts: '2026-11-03T14:19:21.317Z', date: 'Nov 3, 2026, 8:19 AM CT', title: '1834 Prairie\'s brick barn on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1834 Prairie Avenue is no longer a rough draft. It now stands as a two-storey brick barn, 16.3 m along the alley and 7.5 m deep, with a one-storey brick room against its yard side, all drawn from the 1911 fire-insurance map.',
+      'A paired window sits where the map marks one, beside two carriage doors and a hay-loft hatch. Its north end is a fire wall against 1828\'s building, and a paved walk runs from the yard door to the house\'s back porch.',
+      'The doors, roof pitch and most windows are reconstructed, and they are listed on the building\'s card.',
+    ] },
   { v: 2613, ts: '2026-11-03T12:43:46.565Z', date: 'Nov 3, 2026, 6:43 AM CT', title: '2001 Prairie\'s stone-fronted corner house on 20th Street, built on the house kit', kind: 'feature',
     items: [
       '2001 Prairie Avenue, the corner house on 20th Street, is no longer a rough draft: it now has two and a half storeys with a light stone front, a hipped roof with a dormer for the half storey, and a stoop at the corner end of its front.',

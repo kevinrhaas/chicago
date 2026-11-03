@@ -154,7 +154,8 @@ export function footprintsFrom(registry, { camps = false } = {}) {
     // would be an invisible wall across the riverfront with gaps in plain view. It IS
     // ground nothing grows through, though, so the planting keep-out asks for the
     // camps alone with `{ camps: true }` and gets exactly those.
-    if ((record.sidecar?.archetype === 'camp') !== camps) continue;
+    // T-3342: the 1812 Potawatomi camp's grounds (`lodge_camp`) are camp grounds too.
+    if (['camp', 'lodge_camp'].includes(record.sidecar?.archetype) !== camps) continue;
     const th = (p.rotation_deg ?? 0) * DEG;
     const cos = Math.cos(th);
     const sin = Math.sin(th);

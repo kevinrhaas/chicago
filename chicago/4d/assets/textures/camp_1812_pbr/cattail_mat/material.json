@@ -1,0 +1,26 @@
+{
+  "id": "cattail_mat",
+  "group": "camp_1812",
+  "span_m": 1.0,
+  "mean_roughness": 0.88,
+  "resolution_px": 1024,
+  "web_resolution_px": 512,
+  "px_per_m": 1024.0,
+  "orientation": "image x = round the covering (u, horizontal); image y = up it (v)",
+  "note": "A lodge mat of cattail leaves (Typha latifolia) laid side by side and sewn through with bark cord in rows 125 mm apart: Wau-Bun ch. VII's method, Forsyth's 'puc-wy'. Leaves run up the image. Colour, leaf widths and wear are reconstructed.",
+  "confidence": "reconstructed appearance; the covering's material is inferred from the texts the record cites (L-1812-potawatomi-camp-2515)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic",
+    "height16": "linear 16-bit"
+  },
+  "web": {
+    "basecolor": "cattail_mat_basecolor_web.jpg",
+    "normal_gl": "cattail_mat_normal_gl_web.jpg",
+    "orm": "cattail_mat_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 18120814,
+  "generation_method": "deterministic procedural synthesis (tools/generate_camp_1812_pbr.py); no photograph sampled"
+}

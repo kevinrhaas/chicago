@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {pathToFileURL,fileURLToPath} from 'node:url';
-if(process.argv.slice(2).some(v=>v!=='--self-test'))throw Error('Only --self-test is supported');
+const args=process.argv.slice(2),phases=args.filter(v=>v.startsWith('--phase='));
+if(args.some(v=>!['--self-test','--phase=legacy','--phase=cache-words'].includes(v))||phases.length>1)throw Error('Only --self-test and one native CPU phase are supported');
+// The default still runs EVERY control. Two explicit partitions let a short CPU
+// qualification keep the existing 269k producer controls and the new word codec.
+const phase=phases[0]?.slice('--phase='.length);
 import {createHash} from 'node:crypto';
 const root=fileURLToPath(new URL('../',import.meta.url)).replace(/\/$/,''),base=await fs.readFile(`${root}/renderers/web/js/railway.js`,'utf8'),proposed=base;
 const THREE=await import(pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.module.js`).href);
@@ -12,7 +16,7 @@ const producer=s=>s.slice(s.indexOf('function railProfile('),s.indexOf('/* -----
 const producerWith=pack=>Function('THREE','compactNormals','GROUND','STEEL','RUST','HEAD_SIDE','wx','wz',producer(base)+';return {railProfile,laySection,railMesh};')(THREE,pack,{bed:{lift:.024}},new THREE.Color(0xa3a4a6),new THREE.Color(0x4f3527),new THREE.Color(0x6b5546),e=>e,n=>-n);
 const funcs=producerWith(compactNormals),legacy=producerWith(src=>new THREE.Float32BufferAttribute(src,3));
 const tieHelpers=base.slice(base.indexOf('const TIE_MATRIX_LANES ='),base.indexOf('function railMesh('));
-const tieFunctions=Function('THREE',tieHelpers+';return {packTieCache,installTieCache,packTuftCache,installTuftCache};')(THREE);
+const tieFunctions=Function('THREE',tieHelpers+';return {packTieCache,installTieCache,packTuftCache,installTuftCache,packRailCacheWords,unpackRailCacheWords};')(THREE);
 const rngCode=base.slice(base.indexOf('function rng('),base.indexOf('\n/* ---',base.indexOf('function rng(')));
 const rockHelpers=Function('THREE',rngCode+tieHelpers+';return {rng,packRockValues,packRockCache,replayRockMatrices,installRockCache};')(THREE);
 const trackCode=base.slice(base.indexOf('function trackPath('),base.indexOf('/* -------------------------------------------------------------------------- */\n/* draped ribbons'));
@@ -312,6 +316,7 @@ function buildRocks(source,z,face,stones) {
 }
 const words=a=>new Uint32Array(a.buffer,a.byteOffset,a.length);
 const actualRockScene=JSON.parse(await fs.readFile(`${root}/data/railway/1904_context.json`,'utf8'));
+if(phase!=='cache-words'){
 let sourceRockRows=0,sourceRecipeBytes=0,sourceFullBytes=0;
 for(const [label,face,terrain,actualStones] of [
  ['mixed-underwater',[[-0,0,3,0],[1,-30,4,-30],[2,-60,5,-60]],{surfaceHeight:(e,n)=>.15+Math.sin(n/4)*.3}],
@@ -400,3 +405,130 @@ console.log(`PASS ${checks} total native CPU producer/lifecycle checks; no brows
  assert.throws(()=>assert.deepEqual(words(badHolder.instanceColor.array),words(expected)),assert.AssertionError);checks++;
 }
 console.log(`PASS ${checks} native CPU checks including profitable gray/mixed HDR/signed-zero and unprofitable/nonfinite controls; official memory UNRUN.`);
+}
+
+// Cache only final Float32 WORDS: no quantization, matrix recipe, or RGB relation.
+// Include payloads that cannot be valid scene numbers; their NaN payload/sign bits
+// still belong to this storage codec, without ever handing NaNs to a mesh.
+if(phase!=='legacy'){
+let cacheWordRoundtrips=0;
+const cacheBytes=c=>c.values?.byteLength??c.wordColumns.reduce((n,c)=>n+(c.data?.byteLength??0)+(c.dictionary?.byteLength??0),0);
+function wordRoundtrip(input,stride,compressed) {
+ const values=new Float32Array(input.length);new Uint32Array(values.buffer).set(input);
+ const original={count:input.length/stride,stride,values},packed=tieFunctions.packRailCacheWords(original);
+ if(compressed===true)assert.notEqual(packed,original);if(compressed===false)assert.equal(packed,original);
+ const decoded=tieFunctions.unpackRailCacheWords(packed);
+ assert.deepEqual(words(decoded.values),input);cacheWordRoundtrips+=input.length;checks++;
+ if(packed!==original){
+  assert(!Object.hasOwn(packed,'values'),'Compressed cache must not retain its original Float32 view');
+  for(const c of packed.wordColumns)for(const a of[c.data,c.dictionary])if(a)assert.notEqual(a.buffer,values.buffer);
+  new Uint32Array(values.buffer).fill(0x12345678);
+  assert.deepEqual(words(tieFunctions.unpackRailCacheWords(packed).values),input,'Private encoded data must survive original scratch reuse');checks+=2;
+ }
+ return packed;
+}
+{
+ const count=1024,input=new Uint32Array(count*8),special=[0,0x80000000,0x7f800000,0xff800000,0x7fc00001,0x7fa12345,0xffa54321,0x3fa00000];
+ let seed=0x8b73062;
+ for(let i=0;i<count;i++){
+  seed=(Math.imul(seed,1664525)+1013904223)>>>0;
+  input.set([0x80000000,0x3f800000+i%256,0x3f000000+(i*123)%65536,
+   0x3f000000+(i*7919)%0x1000000,seed,special[i%special.length],
+   [0x3f333333,0xbf333333,0x3eaaaaab,0xbeaaaaab][i%4],0xffa12345],i*8);
+ }
+ const packed=wordRoundtrip(input,8,true);
+ assert.deepEqual(packed.wordColumns.map(c=>c.width),[0,1,2,3,4,1,1,0]);
+ assert(packed.wordColumns[5].dictionary);assert(packed.wordColumns[6].dictionary);checks+=3;
+ // Every byte-width boundary, including the entire unsigned word domain.
+ for(const[span,width]of[[255,1],[256,2],[65535,2],[65536,3],[0xffffff,3],[0x1000000,4],[0xffffffff,4]]){
+  const a=new Uint32Array(count*2);for(let i=0;i<count;i++){a[i*2]=Math.floor(span*i/(count-1));a[i*2+1]=0xdeadbeef;}
+  assert.equal(wordRoundtrip(a,2,true).wordColumns[0].width,width);checks++;
+ }
+ // Full entropy cannot buy an encoding; admission includes 64 + 256/column
+ // reserved descriptor/view bytes, not just the encoded typed-array payload.
+ const entropy=new Uint32Array(count*8);for(let i=0;i<entropy.length;i++){seed=(Math.imul(seed,1664525)+1013904223)>>>0;entropy[i]=seed;}
+ wordRoundtrip(entropy,8,false);
+ wordRoundtrip(new Uint32Array(80).fill(0x80000000),1,false);
+ wordRoundtrip(new Uint32Array(81).fill(0x80000000),1,true);
+ wordRoundtrip(new Uint32Array(0),11,false);
+ assert.throws(()=>tieFunctions.packRailCacheWords({count:1,stride:11,values:new Float32Array(10)}));checks++;
+ const wrong=change=>{const c={...packed,wordColumns:packed.wordColumns.map(c=>({...c}))};change(c);return c;};
+ for(const corrupt of[
+  c=>{c.stride++;},c=>{c.count=-1;},c=>{c.wordColumns[0].width=5;},
+  c=>{c.wordColumns[1].data=c.wordColumns[1].data.subarray(1);},
+  c=>{c.wordColumns[5].data=c.wordColumns[5].data.slice();c.wordColumns[5].data[0]=255;},
+  c=>{c.wordColumns[1].base=0xffffffff;},
+ ]){assert.throws(()=>tieFunctions.unpackRailCacheWords(wrong(corrupt)));checks++;}
+ // A plausible but wrong byte must fail the same complete word oracle.
+ const corrupt=wrong(c=>{c.wordColumns[1].data=c.wordColumns[1].data.slice();c.wordColumns[1].data[0]^=1;});
+ assert.throws(()=>assert.deepEqual(words(tieFunctions.unpackRailCacheWords(corrupt).values),input),assert.AssertionError);checks++;
+ const broken=tieHelpers.replace('words[i * stride + lane] = word;','words[i * stride + lane] = word & 0x7fffffff;');assert.notEqual(broken,tieHelpers);
+ const loseSign=Function('THREE',broken+';return unpackRailCacheWords;')(THREE);
+ assert.throws(()=>assert.deepEqual(words(loseSign(packed).values),input),assert.AssertionError);checks++;
+}
+// Actual Three Matrix4/Quaternion/Color eager producers remain the oracle. The
+// larger fixture follows the native 1904 track path and reaches the real codec;
+// the existing tiny fixtures above retain their Float32 interfaces and strides.
+{
+ const source=JSON.parse(await fs.readFile(`${root}/data/railway/1904.json`,'utf8'));
+ const path=trackPath(source.tracks.find(t=>t.id==='ic_track_17').centreline_local_m,{surfaceHeight:(e,n)=>.3+Math.sin(n/75)*.1});
+ const ties=source.ties,rand=rockHelpers.rng(19040701);
+ const records=Array.from({length:Math.min(2048,Math.floor(path.length/ties.spacing_m))},(_,i)=>{
+  const s=(i+.5)*ties.spacing_m,sj=s+(rand()-.5)*2*ties.jitter.along_m,a=path.at(Math.max(0,Math.min(path.length,sj)));
+  const yaw=Math.atan2(a.tn,a.te)+((rand()-.5)*2*ties.jitter.skew_deg*Math.PI)/180;
+  const length=ties.length_m+(rand()-.5)*2*ties.jitter.length_m,shift=(rand()-.5)*.08,tone=.78+rand()*.34;
+  return{e:a.e+a.tn*shift,n:a.n-a.te*shift,y:a.y+.024+ties.exposed_m,yaw,length,tone,warm:rand()};
+ });
+ const eager=tiePair(eagerTieSource,records),lazy=tiePair(lazyTieSource,records),cache=lazy.z.tieCache;
+ assert(cache.wordColumns);assert.equal(cache.stride,11);assert(!cache.values);checks+=3;
+ const pending=make();pending.group.add(...lazy.group.children.slice());Object.assign(pending.zone,{tiesNear:lazy.z.tiesNear,tiesFar:lazy.z.tiesFar,tieCache:cache});
+ pending.update(eye(-900));assert.equal(pending.zone.tieCache,cache);assert.equal(pending.zone.tiesNear.count,0);checks+=2;
+ pending.update(eye(-50));assert.equal(pending.zone.tieCache,null);sameTiePair(eager,{z:pending.zone});checks++;
+ const matrix=pending.zone.tiesNear.instanceMatrix,color=pending.zone.tiesNear.instanceColor;
+ for(const level of['full','balanced','light'])for(const n of[-900,-300,-50]){pending.setDetail(level);pending.update(eye(n));assert.equal(pending.zone.tiesNear.instanceMatrix,matrix);assert.equal(pending.zone.tiesNear.instanceColor,color);checks+=2;}
+ pending.dispose();assert.equal(pending.zone.tieCache,null);checks++;
+ const tuftRows=records.map((r,i)=>({...r,scale:.6+(i%271)*.002,keep:(i*317%2048)/2048,yaw:((i+1)*1.371)%Math.PI}));
+ const eagerTufts=tuftPair(eagerTuftSource,tuftRows),lazyTufts=tuftPair(lazyTuftSource,tuftRows),tuftCache=lazyTufts.z.tuftCache;
+ assert(tuftCache.wordColumns);assert.equal(tuftCache.stride,8);assert(!tuftCache.values);checks+=3;
+ const f=make();f.group.add(...lazyTufts.group.children.slice());Object.assign(f.zone,{tuftMesh:lazyTufts.z.tuftMesh,tuftKeeps:lazyTufts.z.tuftKeeps,tuftCache});
+ f.setDetail('light');f.update(eye(-900));assert.equal(f.zone.tuftCache,tuftCache);assert.equal(f.zone.tuftMesh.count,0);checks+=2;
+ const wanted=eagerTufts.z.tuftKeeps.filter(k=>k<.25).length;eagerTufts.z.tuftMesh.count=wanted;
+ f.update(eye(-50));assert.equal(f.zone.tuftCache,null);sameTuft(eagerTufts,{z:f.zone});checks++;
+ const tm=f.zone.tuftMesh.instanceMatrix,tc=f.zone.tuftMesh.instanceColor;
+ for(const level of['full','balanced','light'])for(const n of[-900,-160,-50]){f.setDetail(level);f.update(eye(n));assert.equal(f.zone.tuftMesh.instanceMatrix,tm);assert.equal(f.zone.tuftMesh.instanceColor,tc);checks+=2;}
+ f.dispose();assert.equal(f.zone.tuftCache,null);checks++;
+ console.log(JSON.stringify({railWordCacheFixtureRows:records.length,tieFloatBytes:records.length*44,tieEncodedPayloadBytes:cacheBytes(cache),tuftFloatBytes:tuftRows.length*32,tuftEncodedPayloadBytes:cacheBytes(tuftCache),admissionReservesDescriptorBytes:true,actualThreeEagerMatrixColorBoundsAndIdOracle:true,originalFirstReachDensityOrderAndReentry:true,noOriginalFloat32CacheRetainer:true,actual1904SceneMemory:'UNRUN'}));
+}
+console.log(`PASS ${checks} native CPU lifecycle controls plus ${cacheWordRoundtrips} exact cache word roundtrips; GPU, browser, and official memory UNRUN.`);
+}
+
+// Exact configured-tier density prefixes: original JS-double comparisons, not
+// Float32 thresholds or rounded keep values. Every earlier lifecycle oracle stays.
+{
+ const prefix=(keeps,threshold)=>{let n=0;while(n<keeps.length&&keeps[n]<threshold)n++;return n;};
+ const datasets=[[],[-0,0,Number.MIN_VALUE,.25-Number.EPSILON,.25,.25+Number.EPSILON,.5,.6,1],
+  [-Infinity,-0,0,.1,Infinity],[.1,NaN,.2],[.2,.8,.1],[NaN]];
+ for(const raw of datasets)for(const initial of[null,.3])for(const dens of[
+  {full:4,balanced:2,light:1},{full:0,balanced:0,light:0},
+  {full:1,balanced:NaN,light:-0},{full:2,balanced:Infinity,light:-1},
+ ]){
+  // The existing Light constructor's filter precedes the original sort; kept
+  // rows remain a subsequence. Direct unsorted cases also retain old stop-first.
+  const kept=initial===null?raw.slice():raw.filter(k=>k<initial);
+  const share={full:1,balanced:.6,light:.3},rock={userData:{keeps:kept.slice()},count:0};
+  const zone={rockMeshes:[rock],tuftMesh:{count:0},tuftKeeps:kept.slice()};
+  const f=Function('zones','dens','rockShare','REACH',`let level='light';const out={census:{}};${detailSource};return out;`)([zone],dens,share,reach);
+  let expectedLevel='light';
+  for(const next of['full','balanced','light','bogus','',null,undefined,'toString','constructor','light','full']){
+   if(reach[next])expectedLevel=next;f.setDetail(next);
+   const rocks=prefix(kept,share[expectedLevel]),tufts=prefix(kept,(dens[expectedLevel]??0)/(dens.full||1));
+   assert.equal(rock.userData.rockWanted,rocks);assert.equal(rock.count,rocks);assert.equal(f.census.rocks,rocks);
+   assert.equal(zone.tuftWanted,tufts);assert.equal(zone.tuftMesh.count,tufts);assert.equal(f.census.tufts,tufts);checks+=6;
+  }
+  assert.equal(Object.hasOwn(rock.userData,'keeps'),false);assert.equal(Object.hasOwn(zone,'tuftKeeps'),false);
+  assert.equal(Object.getPrototypeOf(rock.userData.densityCounts),null);assert.equal(Object.getPrototypeOf(zone.tuftDensityCounts),null);
+  assert.deepEqual(Object.keys(rock.userData.densityCounts),['full','balanced','light']);
+  assert.deepEqual(Object.keys(zone.tuftDensityCounts),['full','balanced','light']);checks+=6;
+ }
+}
+console.log(`PASS ${checks} total native CPU checks, including exact configured density prefixes; browser/memory UNRUN.`);

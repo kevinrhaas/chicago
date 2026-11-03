@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "caee81cc2b5068d6c97eb7617246cd3283bbd261df681aeea3fa85533dbea197",
+  "glb_sha256": "bbc489fd83af2fd81b3bc988df60e8a51b860d7504256ec4102e812d8275e265",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -195,8 +195,8 @@
     },
     {
       "what": "the principal storey's big light stands on a projecting sill carried on two blocks over a sunk panel (x 1180-1240, y 545-560); the build's light stands on K06's plain sill",
-      "status": "open",
-      "how": "T-1881 (2026-10-31): read with the architraves; not built in that run"
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): read with the architraves; not built in that run T-1881 (2026-11-03): read again at the plate's full size (24 px a metre there, off the light's 1.2 m and the base's top): the light's own sill runs out in an ear either side of the architrave's feet (x 1175-1190, 1227-1242), and under it, about 0.27 m lower, a longer sill (x 1160-1247) on two small blocks (x 1183-1188, 1218-1223) over the dark sunk panel (y 564-588) down to the base. Built as K01's new `architrave.foot`; through this camera the long sill, its two blocks and the panel's fillet now draw where the plate has them against the light, to within about 3 px (the light itself, with this whole column, draws about 24 px left of the plate's through this camera, the dormer's open item above). The panel's darkness, a deep shadow or planting in the plate, is not drawn: its field is the wall's face, its depth reconstructed (L-pullman-1729-light-foot-1881)"
     },
     {
       "what": "the north bay's round-headed dormer and its two lights on the Prairie front, north of the portico block",

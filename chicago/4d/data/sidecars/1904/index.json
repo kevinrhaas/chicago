@@ -865,9 +865,9 @@
     },
     {
       "id": "house_2003_prairie",
-      "name": "2003 Prairie Avenue — Brick masonry (district draft; refined by T-1912)",
+      "name": "2003 Prairie Avenue — three-storey brick house with a curved front bay, the north half of the pair with 2005, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2003_prairie.json",
-      "asset": "gltf/house_2003_prairie__draft_1904.glb"
+      "asset": "gltf/house_2003_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2004_calumet",
@@ -883,9 +883,9 @@
     },
     {
       "id": "house_2005_prairie",
-      "name": "2005 Prairie Avenue — Brick masonry (district draft; refined by T-1912)",
+      "name": "2005 Prairie Avenue — three-storey brick house with a curved front bay, the south half of the pair with 2003, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2005_prairie.json",
-      "asset": "gltf/house_2005_prairie__draft_1904.glb"
+      "asset": "gltf/house_2005_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2007_indiana",
@@ -1297,9 +1297,9 @@
     },
     {
       "id": "jones_house_1834_prairie_coach_house",
-      "name": "1834 S. Prairie Avenue — the alley building of the house at 1834 (district draft; refined by T-1935)",
+      "name": "1834 Prairie Avenue (the Jones house): the brick barn on the alley, K12",
       "sidecar": "sidecars/1904/jones_house_1834_prairie_coach_house.json",
-      "asset": "gltf/jones_house_1834_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/jones_house_1834_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "keith_house_1808_prairie",
@@ -1411,9 +1411,9 @@
     },
     {
       "id": "mayer_house_2009_prairie",
-      "name": "2009 Prairie Avenue — Mayer/Meyer French Gothic rowhouse (district draft; refined by T-1913, T-1914)",
+      "name": "2009 Prairie Avenue — the Max A. Meyer house, Burnham & Root's French Gothic rowhouse (T-1913; detailing T-1914)",
       "sidecar": "sidecars/1904/mayer_house_2009_prairie.json",
-      "asset": "gltf/mayer_house_2009_prairie__draft_1904.glb"
+      "asset": "gltf/mayer_house_2009_prairie__as_mapped_1904.glb"
     },
     {
       "id": "mayer_house_2009_prairie_coach_house",
@@ -1893,9 +1893,12 @@
     "philo_carpenter_log_shop",
     "physicians_office",
     "pierce_blacksmith_shop",
+    "potawatomi_camp_1812_horse_ground",
     "potawatomi_camp_1812_middle",
     "potawatomi_camp_1812_mouth",
+    "potawatomi_camp_1812_south_reach",
     "potawatomi_camp_1812_upper",
+    "potawatomi_camp_1812_west_bank",
     "pruyne_kimball_drugstore",
     "recon_1835_bank_freight_f3_001",
     "recon_1835_blk_indiana_north_cass_a1_08",

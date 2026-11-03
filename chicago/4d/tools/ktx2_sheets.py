@@ -178,6 +178,12 @@ def drop_in_sheets():
             sheet = json.loads((d / 'material.json').read_text())
             for k in ('basecolor', 'normal_gl', 'orm'):
                 out.append((d, sheet['id'], k, sheet['web'][k]))
+    # camp-surfaces.js CAMP_COVERINGS (T-3342): the 1812 camp's three coverings, their `web` maps.
+    for sid in ('cattail_mat', 'elm_bark', 'bough_thatch'):
+        d = ASSETS / 'camp_1812_pbr' / sid
+        sheet = json.loads((d / 'material.json').read_text())
+        for k in ('basecolor', 'normal_gl', 'orm'):
+            out.append((d, sheet['id'], k, sheet['web'][k]))
     return out
 
 
