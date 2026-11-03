@@ -6230,6 +6230,23 @@ it is unchanged: every vertex of the layer is graded `reconstructed`, so hiding 
 all thirty-three signs down at once and leaves the town as the sources leave it — mute, with one
 wolf sign at the forks. What a visitor cannot see from the street is that the names are the
 dataset's and the paint is not; the card behind each sign says so, and this entry is why.
+**AMENDED, T-3359 (2026-11-03): NOTHING HANGS BUT A TAVERN'S POST.** The owner, on a screenshot of
+Jones's grocery under its awning board: *"this whole hanging awning sign thing is not likely, like i
+have not seen images of that but what is more likely is the sign on the face of the building either
+put there or painted directly ... sizing and moving most if not all of the hanging signs to ones
+affixed to logical places either on the front or over the door"*. The evidence agrees: no picture
+in this corpus shows an 1835 Chicago board under a hood or on a bracket, the owner's brief shows
+painted fronts (image 5) and the Green Tree's post (images 6 and 7), and the National Park
+Service's Preservation Brief 25, *Signs*, has flat and flush-mounted boards "standard" by 1800 with
+the hanging sign persisting "less so than previously", chiefly at public houses. So the cycles
+above are still DEALT, unchanged, and every board dealt a `bracket_board` or an `awning_board` (35
+of them) is built as a `wall_board` on its own front instead — over the door where the wall has the
+height above its head, else beside it on the nearest clear face, and kept off every door, sash,
+shutter and frontispiece. Its wording, colourway and letterform are the board it was. The six post
+boards stay. What is invented is unchanged in kind: WHERE on the front each board is fixed, and its
+size, are this file's rule and no record's. Fourteen of the boards are on frame taverns, so
+`frame_tavern_params.front_wall` now reads the frontage scheme's front for the sign layer, held to
+the builder's literals by `tools/check_tavern_front_reader.py`.
 **And the tier got cheaper, not dearer.** The layer draws **1,106 triangles** where it drew 1,380,
 because a painted band is two triangles and a board fixed flat on a wall is twenty-four where a
 bracket is sixty. The lettering costs nothing at all: the whole town's paint is ONE canvas atlas
@@ -24174,7 +24191,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24238,7 +24255,10 @@ brick, window mark and fire-wall signs the sheet draws; its draft attributes are
 **1834's alley building retired from this liberty by T-1935 (2026-11-02):** `jones_house_1834_prairie_coach_house`
 now stands as the K12 coach house under `L-k12-1834-stable-1935`, under the same id, on the outline, storeys,
 brick, window mark and one-storey piece the sheet draws; its draft attributes are gone.
-**Retired in part:** 1900 Elbridge G. Keith's house by T-3207 (piece 1 of T-1897), which refined it in place on the K01 frontage kit under `L-k01-1900-keith-3207`; its coach house is still this draft's.
+**Retired in part:** 1900 Elbridge G. Keith's house by T-3207 (piece 1 of T-1897), which refined it in place on the K01 frontage kit under `L-k01-1900-keith-3207`; its coach house by T-1935, on the K12 coach-house kit under `L-k12-1900-stable-1935`.
+**1900's alley building retired from this liberty by T-1935 (2026-11-03):** `elbridge_keith_house_1900_prairie_coach_house`
+now stands as the K12 coach house under `L-k12-1900-stable-1935`, under the same id, on the outline, storeys,
+brick, window mark and fire-wall sign the sheet draws; its draft attributes are gone.
 **Retired in part:** 1906 Edson Keith's house, with its attached 1908, by T-3238 (piece 1 of T-1898), which refined it in place on the K01 frontage kit under `L-k01-1906-keith-3238`; its coach house is still this draft's.
 **Retired in part:** 1912 the Moulton/Lowden house by T-3277 (piece 1 of T-1899), which refined it in place on the K01 frontage kit under `L-k01-1912-moulton-3277`; its coach house is still this draft's.
 **Retired in part:** 1936 the Thompson/Allerton house (the sheet's '1918 (1936)') by T-1901 (piece 1), which refined it in place on the K01 frontage kit under `L-k01-1936-allerton-1901`; its coach house is still this draft's.
@@ -39625,6 +39645,50 @@ not the alley.
 **Ticket:** T-1935.
 **Recorded:** 2026-11-02 (T-1935).
 
+### L-k12-1900-stable-1935 — The brick stable on the alley behind 1900 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and its fire-wall sign
+
+**Decision:** the district draft's alley building behind 1900 Prairie Avenue, the Elbridge G. Keith house
+(T-1935), is refined in place, under its own id `elbridge_keith_house_1900_prairie_coach_house`, onto the K12
+coach-house kit (L-k12-coach-house-kit-2320): the fourth of T-1935's seven alley buildings on the west side of
+Prairie Avenue, 18th to 20th, after 1816's, 1824's and 1834's (L-k12-1816-stable-1935, L-k12-1824-stable-1935,
+L-k12-1834-stable-1935).
+**What is read.** From sheet 28 of the 1911 Sanborn: the building's outline, 9.15 m deep from the alley line by
+15.42 m along it, measured between line centres on the committed raster (median darkness profiles: the alley
+line at column 566.67 at the middle row and the east wall at 747.66, the north and south walls at rows 3625.03
+and 3930.05) and carried by the sheet's fitted similarity; '2' storeys (the census row s28-1900-rear read
+'1-storey', taking the frame shed's '1' just north of the line; the '2' is lettered inside this building); the
+brick; the wall figures '12 8' across its south wall line, the line it shares with 1906's two-storey building;
+the label GARAGE; its north wall on the line it shares with the one-storey frame shed on the strip between 1834
+and 1900, with the key's fire-wall sign (two ticks) at that wall's alley end; one of the key's window marks on
+the alley wall, a cross with a dot for each storey, the sign 1816's, 1824's and 1834's walls carry, 7.86 m from
+the north wall (row 3780.5); and the west face of the house's one-storey frame rear porch 14.04 m east of the
+yard wall (column 1025.4, rows 3696.6-3844.6). The draft had fitted the trace with a one-storey rectangle of its
+own; the sheet draws a two-storey building filling the lot's width. Inferred for 1904 as every reading of these
+sheets is.
+**The date.** Robinson's 1886 plate 10 stops at 18th Street, so nothing read here dates the building before the
+1911 sheet; that it stood by 1904 is the census's carry-back, which the district draft already made.
+**What is invented.** The use: GARAGE is a 1911 label, not carried to 1904 (the kit's no_1911_use_labels), so the
+building is the house's stable and coach house, as 1726's GARAGE is (L-k12-1726-stable-1932). Both ends are the
+kit's party walls, rising 0.45 m over the roof and returning 0.5 m past the eaves: the north on the sheet's
+fire-wall sign, the south on the line the sheet draws once with 1906's building, where it draws no sign (as
+1834's north wall stands on the line it shares with 1828's). Every opening but the mark is the kit's laid out for
+a building this long: on the alley, two carriage bays 3.0 m clear with the loft hatch and hoist over the
+northern one and a loft sash over the other, a man door between the northern bay and the mark, and a stable sash
+with a loft sash over it toward the south end; on the yard side, a door where the walk to the house meets it and
+four stable sash with loft sash over them. The mark is built as a stable sash with a loft sash over it. The roof
+is the kit's gable at its own 40 degrees with the ridge along the alley, 3.84 m from eave to ridge over the
+9.15 m span, with no dormer, as the sheet draws none. The kit's storey heights (3.6 m and 2.7 m to the eave) and
+its 1.8 m basement, reached by nothing. The workyard is paved from the yard door to the porch's west face, the
+walk on the porch's middle. Flat colours. **Left out.** A small ring inside the building's south-west corner
+(about column 585, row 3915), as inside 1824's: not read, and it builds nothing. **What is not.** The outline,
+its place on the lot, the storeys, the brick, the fire-wall sign's end and the mark's place are the map's.
+**How to resolve:** a photograph of the alley behind 1834-1912 Prairie, or a building permit for the building,
+entered as a source, gives its openings, roof, ends, use and date their true form. The picture T-1935's image
+gate names for it (Clark's c. 1905 view north from 1936) shows the house fronts and not the alley.
+**Covers:** `elbridge_keith_house_1900_prairie_coach_house.as_standing_1904.form.coach_house`, `elbridge_keith_house_1900_prairie_coach_house.as_standing_1904.form.stories`, `elbridge_keith_house_1900_prairie_coach_house.as_standing_1904.form.construction`, `elbridge_keith_house_1900_prairie_coach_house.function`
+**Ticket:** T-1935.
+**Recorded:** 2026-11-03 (T-1935).
+
 ### L-t3316-hibbard-1701-stable — 1701 Hibbard's stable by the tracks on the sheet's parallelogram, its yard front read off the Chicagology photograph
 
 **Decision:** the district draft's building by the tracks behind 1701 Prairie Avenue (T-3316, piece 2 of T-3310, a
@@ -39873,3 +39937,14 @@ or the CHM 1905 views from the east, would place the stack on the deck.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`.
 **Recorded:** 2026-11-03 (T-1934).
+
+### L-green-tree-closed-shoulder-working-2376 — the enclosed shoulder as a working reading
+
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`.
+
+**Decision:** Select the existing group's enclosed shoulder from Andreas's detailed retrospective engraving, with its lower sash and small gabled/dormered light. Trowbridge/Gale's1902 illustration captioned1835 instead shows an open wagon bay; that conflict remains explicit and does not establish a conversion year or exactJuly1835condition. Source ids remain `andreas_1884_green_tree_hotel_plate`, `kurz_allison_1893` and `trowbridge_green_tree_1902`. No new measurement, historical chronology or confidence is invented. All numeric spans, depths, heights, pitches, opening stations, turn, finish and hidden fabric stay the earlier reconstructed choices; the canonical main footprint and world coordinate do not move.
+
+The yard source owner follows the same canonical attribute and declines only the competing open shed/posts and covered wagon while the shoulder is enclosed. The two separate farm wagons, bench and frontage goods retain their rules. The actual closed-model comparison adds the missing wall/sash/upper light but still differs in left-cluster roof silhouette and relative proportions. Earlier open-bay notes and prior model history remain verbatim in the dossier. No new25family bake, complete picture match, geographic camera, published-app acceptance, dated alteration or original-ticket closure is implied.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-03.

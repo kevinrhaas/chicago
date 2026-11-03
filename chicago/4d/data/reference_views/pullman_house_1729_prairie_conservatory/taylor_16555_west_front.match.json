@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "1a8b40fe9166fff7cc037aff293c340184fc95a7767c6ec0ddba767b1710362e"
+      "glb_sha256": "1df1feeedb8007fd96c1a65f300a263369f33daf8068f6b1156beca070f0f493"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "021131cada876f673f1fa60f9cfdced2cb499b064e7ba8d8097c3375683e43b7",
+  "group_sha256": "edf1e6d349f68a09b54bb12d130dded3d5b9c1774618bad033299afbeeb0a57f",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "cd404eba8da667728585833a369f14ffe3c7757799d2df960b2f77439ac151ed"
+      "sha256": "abf705150b8cbf9548ec963ce000d87822e618ef3387bef61d725a750d71ce24"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,7 +138,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "1537c4c99c50c6445a12091ee5c7cecff2b65941f02551cbc7969556bbf8e586",
+  "flora_sha256": "5ac2bf89318345b2c60e422367f96619c5728abfee78a0a29f2601640ce0a337",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -350,7 +350,7 @@
     {
       "what": "the house's east face behind the awning (the render's quoined corner about 35 px right of the print's)",
       "status": "open",
-      "how": "T-1934: the house's own record (T-1881), not this court; noted for the house's next pass | T-1934 (2026-11-03), diagnosed, not fixed: this camera's fit puts the wing's west end, which is the house's east wall, at u -12.12 in this record's frame (x 180, residual -4 px), but the 1904 scene places the house with its east wall at u -11.21 (pullman_house_1729_prairie at local_e 1456.371 against this record's 1467.58, turned 180.4 degrees), 0.91 m further east, so the house renders its corner about 1 m east of the wing's end, about 35 px at this depth. The 1894 plate's record reads the same about 1 m ('its corner stands about 1 m east of where the plate shows the wing's stone face'). Two pictures and the wing's own reading agree, so it is over the bar and stays open; the fix is the house's placement or its east wall (its footprint is the 1911 sheet's trace, s20fp-1729-b1), which moves every u in the house's record and belongs to the house's own pass (T-1881). Taylor 16554's camera is not fitted on the house's rear and is no witness either way."
+      "how": "T-1934: the house's own record (T-1881), not this court; noted for the house's next pass"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

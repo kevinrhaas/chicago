@@ -946,3 +946,95 @@ def _validate_enclosed_left_annex(p: FrameTavernParams) -> None:
             roof_z=v["wall_m"]+((v["span_m"]+.5)/2-reach)*math.tan(math.radians(v["roof_pitch_deg"]))
             if light[1]-.1<v["wall_m"] or edge_z>roof_z:
                 raise ParamError("enclosed_left_annex upper light breaks its gable rake")
+
+
+# --- THE FRONT ELEVATION, for `facade_openings` (T-3359) ----------------------
+#
+# The sign layer could not see a tavern's front, so every sign on a tavern hung on a
+# bracket, a hood or a post, where an opening behind it did not matter. The owner,
+# 2026-11-03, asked for the 1835 boards to be fixed flat on the face of the building
+# instead, beside or over the door — and a board fixed flat on a wall whose doors and
+# windows nobody has read is the fault T-0459 exists to stop. So this states the
+# frontage scheme's front-face rectangles from the SAME numbers
+# `frame_tavern._fenestration` and `_frontispiece` draw them with: five ground bays
+# with the entrance in the centre one, `upper_windows` (else five) upstairs, a 0.85 x
+# 1.35 m sash at 30 % of each storey, the 1.2 m door to 2.1 m, and — where the record
+# carries them — the shutter leaves, the frontispiece's pilasters and hood, the
+# pictured entrance case and the pictured lower sash, which a board must stay off as
+# surely as the glass.
+#
+# These are copies of the builder's literals, not imports of them: the builder needs
+# Blender to import, the commit gate has none, and this module is the one both can
+# read. `tools/check_tavern_front_reader.py` holds the two to each other by reading
+# the builder's source. Only the frontage scheme is read; the gable-front and
+# corner-gable schemes and a log wing on the front still answer None, and the sign
+# layer still refuses to fix a board flat on those.
+TAVERN_WIN_W_M = 0.85
+TAVERN_WIN_H_M = 1.35
+TAVERN_SILL_FRACTION = 0.30
+TAVERN_DOOR_HALF_W_M = 0.60
+TAVERN_DOOR_H_M = 2.10
+TAVERN_GROUND_BAYS = 5
+TAVERN_SHUTTER_SHARE = 0.42          # a leaf is this share of the sash's width
+TAVERN_CASING_W_M = 0.090            # common/openings.CASING_W_M
+TAVERN_HEAD_CAP_M = 0.115 + 0.035    # common/openings.HEAD_W_M + CAP_H_M
+TAVERN_FRONTISPIECE_HALF_W_M = 1.02  # the crown of the hood, the widest member
+TAVERN_FRONTISPIECE_TOP_M = 2.31
+
+
+def front_wall(p: FrameTavernParams) -> dict | None:
+    """`{u0, u1, wall_height_m, openings}` of the front (+y) elevation, or None.
+
+    `u` runs along the front from the footprint's origin, as the builder draws the
+    block over `0..width_m` with its facade on +y, the footprint's max-v edge.
+    """
+    if p.elevation_scheme != "frontage" or p.log_wing:
+        return None
+    w = float(p.width_m)
+    wall_z = float(p.wall_height_m)
+    story_h = wall_z / max(p.stories, 1)
+    out = []
+    for story in range(p.stories):
+        z0 = story * story_h + story_h * TAVERN_SILL_FRACTION
+        bays = p.upper_windows if (story > 0 and p.upper_windows) else TAVERN_GROUND_BAYS
+        for i in range(bays):
+            cx = w * (i + 0.5) / bays
+            if story == 0 and i == bays // 2:
+                g = p.front_opening_details
+                if g is not None:
+                    # the pictured case (`_pictured_front_entrance`): its crown is
+                    # the widest member and its cornice the head of the whole thing
+                    half = max(g["case_width_m"], g["jamb_outer_width_m"]) / 2
+                    out.append({"kind": "door", "u0": cx - half, "u1": cx + half,
+                                "z0": 0.0, "z1": float(g["cornice_top_m"])})
+                    continue
+                if p.entrance_frontispiece:
+                    out.append({"kind": "frontispiece",
+                                "u0": cx - TAVERN_FRONTISPIECE_HALF_W_M,
+                                "u1": cx + TAVERN_FRONTISPIECE_HALF_W_M,
+                                "z0": 0.0, "z1": TAVERN_FRONTISPIECE_TOP_M})
+                out.append({"kind": "door", "u0": cx - TAVERN_DOOR_HALF_W_M,
+                            "u1": cx + TAVERN_DOOR_HALF_W_M,
+                            "z0": 0.0, "z1": TAVERN_DOOR_H_M})
+                continue
+            # the pictured lower front sash, where the record carries one
+            sash = p.front_lower_sash if story == 0 else None
+            sw = float(sash["width_m"]) if sash else TAVERN_WIN_W_M
+            sh = float(sash["height_m"]) if sash else TAVERN_WIN_H_M
+            sz = float(sash["sill_m"]) if sash else z0
+            out.append({"kind": "window", "u0": cx - sw / 2, "u1": cx + sw / 2,
+                        "z0": sz, "z1": sz + sh})
+            # ...and the joinery round it, its casing legs and its head and drip cap,
+            # which stand on the wall rather than in it: not a hole (`HOLE_KINDS`),
+            # so a reader of holes still sees one sash, but a board stays off it.
+            out.append({"kind": "casing", "u0": cx - sw / 2 - TAVERN_CASING_W_M,
+                        "u1": cx + sw / 2 + TAVERN_CASING_W_M,
+                        "z0": sz, "z1": sz + sh + TAVERN_HEAD_CAP_M})
+            if p.shutters:
+                leaf = sw * TAVERN_SHUTTER_SHARE + TAVERN_CASING_W_M + 0.01
+                for side in (-1, 1):
+                    a = cx + side * sw / 2
+                    b = cx + side * (sw / 2 + leaf)
+                    out.append({"kind": "shutter", "u0": min(a, b), "u1": max(a, b),
+                                "z0": sz, "z1": sz + sh})
+    return {"u0": 0.0, "u1": w, "wall_height_m": wall_z, "openings": out}

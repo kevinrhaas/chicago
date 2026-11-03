@@ -74,7 +74,12 @@ class PictureFeatures(unittest.TestCase):
 
     def test_occupied_annex_components_preserve_the_open_bay(self):
         from occupied_footprints import additional_parts, local_polygons
-        record, phase, params = record_params("green_tree_tavern", "frame_1833", annex=True)
+        record, phase, _ = record_params("green_tree_tavern", "frame_1833", annex=True)
+        # Test the open interpretation explicitly, independent of the canonical choice.
+        record = copy.deepcopy(record)
+        phase = next(p for p in record["phases"] if p["id"] == phase["id"])
+        phase["form"]["enclosed_left_annex"]["value"]["shoulder_enclosed"] = False
+        params = from_phase(phase, record)
         extra = additional_parts(record, phase)
         self.assertEqual([p["id"] for p in extra], ["connector", "boarding_range"])
         self.assertEqual(params.left_annex_parts[0]["occupied"], False)
