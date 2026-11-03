@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2607, ts: '2026-11-03T09:02:15.229Z', date: 'Nov 3, 2026, 3:02 AM CT', title: 'Glessner\'s north-face colonnettes carved like the Prairie front\'s', kind: 'fix',
+    items: [
+      'The two colonnettes between the 18th Street window pairs were pale plain posts; they are now the front\'s kind, as the 1965 HABS photographs show them.',
+      'Each has a splayed base, a tapered round shaft in the walls\' granite and a carved block capital, every capital cut differently.',
+      'Their carving is reconstructed and listed in Liberties; no close photograph of either capital is known.',
+    ] },
   { v: 2606, ts: '2026-11-03T08:49:31.505Z', date: 'Nov 3, 2026, 2:49 AM CT', title: 'Pullman stonework reads its joints; the glasshouse ground\'s edges finished', kind: 'fix',
     items: [
       'Every face of the Pullman house now shows its stone courses and blocks: the bays and towers that read as plain stone are coursed, and the joints are struck 10 mm wide and 6 mm deep.',
