@@ -1,0 +1,121 @@
+{
+ "viewport": {
+  "width": 390,
+  "height": 780
+ },
+ "year": "1812",
+ "identical": {
+  "before": {
+   "hash": -278724586,
+   "state": "[[1,0.8879231178794776,0.7156935005005721],3,[-0.6723967821499182,0.6840191281764265,0.28284341894977316],0.95,1,[-27232.069677071686,27702.774691145274,11455.158467465813],0,0,[0.3663,0.7916,1.5492],[0.24620132669705552,0.36625259558833256,0.5271151256969157]]"
+  },
+  "after": {
+   "hash": -278724586,
+   "state": "[[1,0.8879231178794776,0.7156935005005721],3,[-0.6723967821499182,0.6840191281764265,0.28284341894977316],0.95,1,[-27232.069677071686,27702.774691145274,11455.158467465813],0,0,[0.3663,0.7916,1.5492],[0.24620132669705552,0.36625259558833256,0.5271151256969157]]"
+  },
+  "same": true
+ },
+ "errors": [],
+ "rows": [
+  {
+   "time": "daytime",
+   "stand": "fort-sw",
+   "hhmm": "15:00",
+   "sun": "sun 43.2° up, bearing 247.2° (15:00 local mean time, 1812-08-14)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 78.7,
+   "file": "phone-1812-fort-sw-daytime.jpg"
+  },
+  {
+   "time": "daytime",
+   "stand": "gate",
+   "hhmm": "15:00",
+   "sun": "sun 43.2° up, bearing 247.2° (15:00 local mean time, 1812-08-14)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 75.6,
+   "file": "phone-1812-gate-daytime.jpg"
+  },
+  {
+   "time": "daybreak",
+   "stand": "fort-sw",
+   "hhmm": "05:20",
+   "sun": "sun 1.5° up, bearing 72.0° (05:20 local mean time, 1812-08-14)",
+   "exposure": 2.323249196485466,
+   "key": 0.902489637421383,
+   "mean": 66.8,
+   "file": "phone-1812-fort-sw-daybreak.jpg"
+  },
+  {
+   "time": "daybreak",
+   "stand": "gate",
+   "hhmm": "05:20",
+   "sun": "sun 1.5° up, bearing 72.0° (05:20 local mean time, 1812-08-14)",
+   "exposure": 2.323249196485466,
+   "key": 0.902489637421383,
+   "mean": 52.9,
+   "file": "phone-1812-gate-daybreak.jpg"
+  },
+  {
+   "time": "sunset",
+   "stand": "fort-sw",
+   "hhmm": "18:50",
+   "sun": "sun 1.2° up, bearing 288.1° (18:50 local mean time, 1812-08-14)",
+   "exposure": 2.3806318875601176,
+   "key": 0.6947572243747003,
+   "mean": 60.6,
+   "file": "phone-1812-fort-sw-sunset.jpg"
+  },
+  {
+   "time": "sunset",
+   "stand": "gate",
+   "hhmm": "18:50",
+   "sun": "sun 1.2° up, bearing 288.1° (18:50 local mean time, 1812-08-14)",
+   "exposure": 2.3806318875601176,
+   "key": 0.6947572243747003,
+   "mean": 56.2,
+   "file": "phone-1812-gate-sunset.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "fort-sw",
+   "hhmm": "19:30",
+   "sun": "sun -5.7° up, bearing 294.9° (19:30 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.23971792962289845,
+   "mean": 61.1,
+   "file": "phone-1812-fort-sw-dusk.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "gate",
+   "hhmm": "19:30",
+   "sun": "sun -5.7° up, bearing 294.9° (19:30 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.23971792962289845,
+   "mean": 57.7,
+   "file": "phone-1812-gate-dusk.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "fort-sw",
+   "hhmm": "22:00",
+   "sun": "sun -27.1° up, bearing 325.8° (22:00 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 32.4,
+   "file": "phone-1812-fort-sw-night.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "gate",
+   "hhmm": "22:00",
+   "sun": "sun -27.1° up, bearing 325.8° (22:00 local mean time, 1812-08-14)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 31,
+   "file": "phone-1812-gate-night.jpg"
+  }
+ ]
+}
