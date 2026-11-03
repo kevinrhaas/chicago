@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2621, ts: '2026-11-03T21:02:41.394Z', date: 'Nov 3, 2026, 3:02 PM CT', title: 'Lake House links its later completed-state picture', kind: 'change',
+    items: [
+      'The unfinished Lake House’s Images tab links a credited public-domain print showing the later completed hotel.',
+      'Its caption separates that later scene from the construction site in July 1835.',
+    ] },
   { v: 2620, ts: '2026-11-03T19:40:08.323Z', date: 'Nov 3, 2026, 1:40 PM CT', title: '1936 Prairie\'s verandah stands on its columns', kind: 'improvement',
     items: [
       'The Allerton house\'s verandah on Prairie Avenue (1904) now stands on two fluted Corinthian columns between its three arches, as the 1869 Tribune describes and the old photograph shows, instead of solid piers.',
