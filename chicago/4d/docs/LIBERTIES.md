@@ -27797,6 +27797,14 @@ width, cap: plain dome, dome with collar or flattened dome; a lean of 0.4-2 degr
 two read as one casting. The paved crossings stay: pictures show them (1815, 2112, Glessner's in
 HABS no. 2). Still invented: every post's size and cap, the row's count and spacing, and which
 crossings exist where no picture reaches.
+**Amended (T-1881, 2026-11-03; owner, of a lone slab on the lawn near 1826 Calumet: "what is this
+random white panel on the ground", and of the walk beside it: "see the grass poking through, needs a
+finer work"):** a crossing was laid at the middle of its lot's street chord and square to its face's
+first-to-last chord. Round Calumet's bend at 18th the chord's middle stands inside the lot, so the
+1800 lot's crossing lay on the lawn: no crossing is laid where that middle is more than 1 m off the
+lot line (95 crossings). On Calumet's many-segment street line the face's chord ran up to 12 degrees
+off the walk at a lot, so a crossing met the walk on a wedge of grass: each is now laid square to the
+street line's own segment at its lot, and starts 4 cm under the public walk.
 
 ### L-prairie-corner-crossings-3200 — A stone ramp down to the roadway at every corner crossing
 
@@ -38258,6 +38266,12 @@ carried round the Calumet Avenue corner on the 1911 sheet's lot line to the star
 The pale line along the lawn's far side is built (2026-10-31) as the drive's turn toward Calumet Avenue. Through the plate's camera its edges fall at u 23-31 from the drive's east edge to the frame's edge. A gravel band 4 m wide on the middle of that reading, u 25-29, runs east to the 1911 sheet's Calumet line at v 28.3, joined to the drive by a wedge clear of the pictured lilacs. Its width, its depth (about 1.2 m of ground a pixel there), the wedge's plan and its run past the frame are invented. Each row's
 lift is the app's ground (the 1904 terrain, `e1871_postfire`) over the house's bed, measured where the
 row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate.
+**2026-11-03 (T-1881).** The owner, of the coping's end at the start of the Calumet straight: "and it
+ends abruptly!". The coping is carried on along the 1911 sheet's Calumet lot line to v 44, past the
+glasshouse, with a gap of about 5 m where the turn meets the public walk and a finished end (body and
+cap) each side of it; the turn is carried on from v 28.3 to the lot line in that gap. The run, the gap
+and the ends are invented: neither picture reaches that far. The gravel is drawn with the texture
+library's gravel photograph (2 m to a tile) for the flat buff tone the owner read as "not solid".
 **How to resolve:** a plan of the grounds, or a picture of the lawn's far side and the drive beyond the
 conservatory.
 **Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
