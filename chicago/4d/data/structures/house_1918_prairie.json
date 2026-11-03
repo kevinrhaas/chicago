@@ -537,6 +537,12 @@
         0.25,
         0.15
        ]
+      },
+      "columns": {
+       "radius_m": 0.16,
+       "base_m": 0.3,
+       "capital_m": 0.4,
+       "flutes": 24
       }
      },
      "confidence": "inferred",
@@ -545,7 +551,7 @@
       "sanborn_1911_chicago_v3_sheet_28",
       "chicagology_1936_prairie_exterior_photo"
      ],
-     "note": "The 1869 Tribune: the reception room's front windows 'are shaded by a verandah, with stone floor, Corinthian fluted columns, and stone cornice and roof', and the chamber over it opens 'on to the roof of verandah, which forms a balcony, with stone railing and stone balusters around it'. The 1911 sheet draws it south of the tower (s28fp-1918-b1 p2, v about 0-5.9, out to u 18.56); the photograph shows three openings and the balustrade over them (x 1380-1600 px). Its columns are drawn as the kit's piers (T-1902 carves them)."
+     "note": "The 1869 Tribune: the reception room's front windows 'are shaded by a verandah, with stone floor, Corinthian fluted columns, and stone cornice and roof', and the chamber over it opens 'on to the roof of verandah, which forms a balcony, with stone railing and stone balusters around it'. The 1911 sheet draws it south of the tower (s28fp-1918-b1 p2, v about 0-5.9, out to u 18.56); the photograph shows three openings and the balustrade over them (x 1380-1600 px). T-3356 stands the front's two piers between the arches as the photograph's columns (x 1487-1505 and 1555-1568 px, between the openings' 45-50 px; capitals at y 708-722 px): fluted shafts 0.32 m across at the foot on the 0.4 m piers, each on a square plinth and a torus, under a capital of two flaring tiers and a square abacus at the springing. The end piers stay solid, as the photograph shows them. The leafage is a few pixels across in the print; the tiers stand for it (liberty L-k01-1936-allerton-1901)."
     },
     "bays": {
      "value": [

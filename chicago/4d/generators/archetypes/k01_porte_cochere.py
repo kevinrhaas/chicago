@@ -407,8 +407,8 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
     left either side, its crown under the entablature."""
     if not spec:
         return {}
-    if not isinstance(spec, dict) or not PORCH_KEYS <= set(spec) <= PORCH_KEYS | {"roundels"}:
-        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)} (and roundels)")
+    if not isinstance(spec, dict) or not PORCH_KEYS <= set(spec) <= PORCH_KEYS | {"roundels", "columns"}:
+        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)} (and roundels, columns)")
     s0, s1 = sorted(float(x) for x in spec["s_m"])
     out, t, fl = float(spec["out_m"]), float(spec["thickness_m"]), float(spec["floor_m"])
     ys, H = float(spec["spring_m"]), float(spec["head_m"])
@@ -475,10 +475,88 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
         if any(c - rdm / 2 < 0.1 or c + rdm / 2 > s1 - s0 - 0.1 for c in cs):
             raise ParamError("corner_porch.roundels stand inside the porch's front face, 0.1 m clear of its ends")
         roundels = {"y_m": ry, "d_m": rdm, "centre_m": cs}
+    columns = _porch_columns(spec.get("columns"), arches, t, fl, ys)
     return {"wall": "k01.wall.street_front", "s_m": [s0, s1], "out_m": out, "thickness_m": t, "floor_m": fl,
             **({"roundels": roundels} if roundels else {}),
+            **({"columns": columns} if columns else {}),
             "spring_m": ys, "head_m": H, "arches": arches, "entablature": {"height_m": eh, "proud_m": ep},
             "balustrade": {"height_m": bh, "post_m": bp, "baluster_m": bb, "pitch_m": bpi, "rail_m": [rw, rd]}}
+
+
+# T-3356: the front's piers between its arches stood as columns. 1936 Prairie's verandah, in
+# Chicagology's photograph (x 1440-1620, y 700-860 px), is three round-headed openings on two
+# slender columns between solid end piers, and the 1869 Tribune calls them "Corinthian fluted
+# columns". Each pier between two front arches becomes a free column on the porch's floor: a
+# square plinth and a torus, a fluted shaft tapering to its necking, and a capital of two
+# flaring tiers under a square abacus whose top is the arches' springing. The photograph's
+# capitals are carved leafage a few pixels across; the tiers stand for it
+# (docs/LIBERTIES.md L-k01-1936-allerton-1901).
+
+PORCH_COLUMN_KEYS = {"radius_m", "base_m", "capital_m", "flutes"}
+
+
+def _porch_columns(cs, arches, t, fl, ys):
+    """The record's `corner_porch.columns`, checked: a shaft that fits its pier (the gap
+    between two front arches) with its abacus no wider than the pier and the wall it carries,
+    a base and a capital that leave most of the height to the shaft. Returns the resolved
+    dict with each column's centre along the front (porch-local metres), or None."""
+    if cs is None:
+        return None
+    if not isinstance(cs, dict) or set(cs) != PORCH_COLUMN_KEYS:
+        raise ParamError(f"corner_porch.columns takes {sorted(PORCH_COLUMN_KEYS)}")
+    rs, bh, ch, nf = float(cs["radius_m"]), float(cs["base_m"]), float(cs["capital_m"]), int(cs["flutes"])
+    front = [a for a in arches if a["face"] == "front"]
+    gaps = [(a["centre_m"] + a["span_m"] / 2, b["centre_m"] - b["span_m"] / 2) for a, b in zip(front, front[1:])]
+    if not gaps:
+        raise ParamError("corner_porch.columns stand between front arches, and the front has fewer than two")
+    if not 0.08 <= rs <= 0.35 or not 8 <= nf <= 32:
+        raise ParamError("corner_porch.columns: a 0.08-0.35 m shaft with 8-32 flutes")
+    for g0, g1 in gaps:
+        if 2 * rs > g1 - g0 + 1e-6:
+            raise ParamError(f"corner_porch.columns: a {2 * rs:.2f} m shaft does not fit the "
+                             f"{g1 - g0:.2f} m pier at {g0:.2f}-{g1:.2f} m")
+        if 2 * rs * 1.25 > g1 - g0 + 1e-6:
+            raise ParamError(f"corner_porch.columns: the abacus ({2 * rs * 1.25:.2f} m) is wider than the "
+                             f"{g1 - g0:.2f} m pier at {g0:.2f}-{g1:.2f} m")
+    if not 0.1 <= bh <= 0.6 or not 0.2 <= ch <= 0.8 or bh + ch > 0.4 * (ys - fl):
+        raise ParamError("corner_porch.columns: a 0.1-0.6 m base and a 0.2-0.8 m capital, together no more "
+                         "than 0.4 of the column's height")
+    return {"radius_m": rs, "base_m": bh, "capital_m": ch, "flutes": nf,
+            "centre_m": [round((g0 + g1) / 2, 4) for g0, g1 in gaps], "piers": [list(g) for g in gaps]}
+
+
+def _fluted(a, mat, frame, s, d, y0, y1, r0, r1, flutes, seed, conf):
+    """A fluted shaft: a frustum whose ring alternates an arris at the radius and a flute's
+    hollow under it, `flutes` of each round; no ends."""
+    from .k01_arched_front import _face
+    n = 2 * flutes
+    k = [1.0 if i % 2 == 0 else 0.9 for i in range(n)]
+    ring = lambda y, r: [(s + r * k[i] * math.cos(2 * math.pi * i / n), y, d + r * k[i] * math.sin(2 * math.pi * i / n))
+                         for i in range(n)]
+    lo, hi = ring(y0, r0), ring(y1, r1)
+    for i in range(n):
+        j = (i + 1) % n
+        mid = 2 * math.pi * (i + 0.5) / n
+        _face(a, mat, frame, [lo[i], lo[j], hi[j], hi[i]], (math.cos(mid), 0.0, math.sin(mid)), seed, conf)
+
+
+def _dress_columns(a, frame, cl, s0, d, fl, ys, mat, seed, conf):
+    """The porch's columns (T-3356), each on the floor at `fl` and carrying the springing at `ys`."""
+    from .k01_arched_front import _box, _frustum
+    rs, bh, ch, nf = cl["radius_m"], cl["base_m"], cl["capital_m"], cl["flutes"]
+    pb, aw = rs * 1.2, rs * 1.25          # the plinth's and the abacus' half-widths
+    yp, yb, yc = fl + bh * 0.45, fl + bh, ys - ch
+    ab = ys - min(0.08, ch * 0.2)         # the abacus' foot
+    for c in cl["centre_m"]:
+        sc = s0 + c
+        _box(a, mat, frame, sc - pb, sc + pb, fl, yp, d - pb, d + pb, seed, conf, skip=("bottom",))
+        _frustum(a, mat, frame, sc, d, yp, yb, rs * 1.12, rs * 1.0, seed, conf)              # the torus
+        _fluted(a, mat, frame, sc, d, yb, yc, rs, rs * 0.86, nf, seed, conf)                  # the shaft
+        _frustum(a, mat, frame, sc, d, yc, yc + 0.04, rs * 0.94, rs * 0.94, seed, conf)       # the necking ring
+        ym = yc + 0.04 + (ab - yc - 0.04) * 0.5
+        _frustum(a, mat, frame, sc, d, yc + 0.04, ym, rs * 0.86, rs * 1.08, seed, conf)       # the lower leaves
+        _frustum(a, mat, frame, sc, d, ym, ab, rs * 0.98, aw * 0.98, seed, conf)              # the upper leaves
+        _box(a, mat, frame, sc - aw, sc + aw, ab, ys, d - aw, d + aw, seed, conf, skip=("top",))
 
 
 def dress_porch(a):
@@ -495,7 +573,10 @@ def dress_porch(a):
     fl, ys, H = pc["floor_m"], pc["spring_m"], pc["head_m"]
     seed = a.instance("k01.corner_porch", "corner_porch",
                       {"s0_m": s0, "s1_m": s1, "out_m": out, "floor_m": fl, "spring_m": ys, "head_m": H,
-                       "arches": len(pc["arches"])},
+                       "arches": len(pc["arches"]),
+                       **({"columns": len(pc["columns"]["centre_m"]), "column_radius_m": pc["columns"]["radius_m"],
+                           "carving": "fluted shafts; two flaring tiers under the abacus standing for the "
+                                      "Corinthian leafage"} if pc.get("columns") else {})},
                       {"deck": P((s0 + s1) / 2, H + pc["entablature"]["height_m"], out / 2)})
     bf, bh, be = a.basis(mat, O, R, Y, seed), a.basis(mat, O, R, N, seed), a.basis(mat, O, N, Y, seed)
     quad = lambda pts, n, b: pr.face(pts, n, b, conf)
@@ -509,11 +590,18 @@ def dress_porch(a):
         ni = _mul(nf, -1)
         along = _sub_(at(1.0, 0.0, 0.0), at(0.0, 0.0, 0.0))
         ars = [ar for ar in pc["arches"] if ar["face"] == face]
+        # T-3356: on the front, a pier between two arches stands as a column (resolve_porch),
+        # its wall only the podium under it and the spandrel over the springing
+        cols = pc.get("columns") if face == "front" else None
         for w, n in ((0.0, nf), (t, ni)):
             x = 0.0
-            for ar in ars:
+            for i, ar in enumerate(ars):
                 c, r = ar["centre_m"], ar["span_m"] / 2
-                quad([at(x, 0.0, w), at(c - r, 0.0, w), at(c - r, H, w), at(x, H, w)], n, b_face)
+                if cols and i > 0:
+                    quad([at(x, 0.0, w), at(c - r, 0.0, w), at(c - r, fl, w), at(x, fl, w)], n, b_face)
+                    quad([at(x, ys, w), at(c - r, ys, w), at(c - r, H, w), at(x, H, w)], n, b_face)
+                else:
+                    quad([at(x, 0.0, w), at(c - r, 0.0, w), at(c - r, H, w), at(x, H, w)], n, b_face)
                 if fl > 0.0:   # the podium under the opening
                     quad([at(c - r, 0.0, w), at(c + r, 0.0, w), at(c + r, fl, w), at(c - r, fl, w)], n, b_face)
                 for k in range(SEGMENTS):
@@ -523,10 +611,11 @@ def dress_porch(a):
                     quad([at(x0, y0, w), at(x0, H, w), at(x1, H, w), at(x1, y1, w)], n, b_face)
                 x = c + r
             quad([at(x, 0.0, w), at(L, 0.0, w), at(L, H, w), at(x, H, w)], n, b_face)
-        for ar in ars:
+        for i, ar in enumerate(ars):
             c, r = ar["centre_m"], ar["span_m"] / 2
-            for x, k in ((c - r, 1.0), (c + r, -1.0)):   # the jambs, podium to springing
-                quad([at(x, fl, 0.0), at(x, ys, 0.0), at(x, ys, t), at(x, fl, t)], _mul(along, k), b_end)
+            for x, k, inner in ((c - r, 1.0, i > 0), (c + r, -1.0, i < len(ars) - 1)):   # the jambs, podium to springing
+                if not (cols and inner):
+                    quad([at(x, fl, 0.0), at(x, ys, 0.0), at(x, ys, t), at(x, fl, t)], _mul(along, k), b_end)
             if fl > 0.0:   # the opening's sill on the podium
                 quad([at(c - r, fl, 0.0), at(c + r, fl, 0.0), at(c + r, fl, t), at(c - r, fl, t)], up, bh)
             for k in range(SEGMENTS):   # the arch's soffit, turned through the wall
@@ -536,6 +625,11 @@ def dress_porch(a):
                 x1, y1 = c + r * math.cos(t1), ys + r * math.sin(t1)
                 n = _add(_mul(along, -math.cos(tm)), _mul(Y, -math.sin(tm)))
                 quad([at(x0, y0, 0.0), at(x1, y1, 0.0), at(x1, y1, t), at(x0, y0, t)], n, bh)
+        if cols:   # the piers' floor under each column and the spandrel's soffit over it
+            for g0, g1 in cols["piers"]:
+                quad([at(g0, fl, 0.0), at(g1, fl, 0.0), at(g1, fl, t), at(g0, fl, t)], up, bh)
+                quad([at(g0, ys, 0.0), at(g1, ys, 0.0), at(g1, ys, t), at(g0, ys, t)], down, bh)
+            _dress_columns(a, (O, R, N), cols, s0, out - t / 2, fl, ys, mat, seed, conf)
     rnd = pc.get("roundels")
     if rnd:   # T-3257: the podium's roundels (resolve_porch)
         ring_out, sunk, k_n = 0.05, 0.02, 24
