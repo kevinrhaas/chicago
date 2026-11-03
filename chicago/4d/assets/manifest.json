@@ -4133,9 +4133,9 @@
     "pullman_house_1729_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 16929672,
+      "bytes": 17613552,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "6fe146545791e6dc57a772423fc5e0ed5a6ec6a1594e49ed38da1179ab8be88a",
+      "inputs_sha256": "410c8c6e37ba46c1b1810dba8eb629977ae1182bbf68550ed7c7e5386ee96fbd",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "pullman_house_1729_prairie"

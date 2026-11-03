@@ -2442,12 +2442,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # behind a corner recess (1721's, the 1911 sheet and the 1891 Inland plate: 14 m of the
             # front stands 2.9 m before the wall the porch is set back against), square, flush
             # with its wall's other corner, and carrying the front's bows on its face (`on_front`)
+            # T-1881 (2026-11-02): from 4.5 m wide, 1729's north block, which the Detroit print's
+            # south return beside the portico and Clark's 1905 view end at about v 5.0
             if q.get("block") is not None:
-                if q["block"] is not True or not (6.0 < w <= 16.0 and 1.2 < d <= 3.5) \
+                if q["block"] is not True or not (4.5 <= w <= 16.0 and 1.2 < d <= 3.5) \
                         or e.get("variant") != "k08.projection.full_height" \
                         or set(q) - {"width_m", "proud_m", "block"}:
                     raise ParamError(f"bays: {e['id']} is a forward block: a square full-height projection "
-                                     f"6-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
+                                     f"4.5-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
             # T-1881: or a FRONT STEP (`front_step`), the middle step of a street front that steps
             # back in three (1729's Prairie front on the 1911 sheet: the forward block 2.95 m out,
             # then 2.1 m of it 1.65 m out, then the wall to the corner; the Detroit print and the

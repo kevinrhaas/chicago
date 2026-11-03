@@ -701,6 +701,10 @@ function interiorsOf(record, problems) {
     return [];
   }
   const level = LEVEL[ground.confidence] ?? 1;
+  // T-3320: a record may state its own feather width (`ground.feather_m`), for a
+  // ground that has buildings close round it and cannot fade over the treatment's
+  // own 22 m. Without it the treatment's width stands, as it always did.
+  const featherM = Number.isFinite(ground.feather_m) && ground.feather_m > 0 ? ground.feather_m : null;
   const out = [];
   const authored = ground.interior_local_enu_m;
   // One ring is `[[e, n], ...]` and several are `[[[e, n], ...], ...]`, so the
@@ -715,11 +719,11 @@ function interiorsOf(record, problems) {
     authored.forEach((r, i) => {
       if (!Array.isArray(r) || r.length < 3) return;
       out.push({ id: `${record.id}__interior_${i}`, record: record.id, treatment, level,
-        pts: ring(r), fringePts: fringeRing });
+        pts: ring(r), fringePts: fringeRing, featherM });
     });
   } else if (Array.isArray(authored) && authored.length >= 3) {
     out.push({ id: `${record.id}__interior`, record: record.id, treatment, level,
-      pts: ring(authored), fringePts: fringeRing });
+      pts: ring(authored), fringePts: fringeRing, featherM });
   } else {
     for (const run of record.runs ?? []) {
       if (!closes(run.path_local_enu_m)) continue;
@@ -806,7 +810,7 @@ export async function createFencedGround({
   // quad per side) and the cover the drape and the sward both read.
   const feathers = new Map();
   for (const interior of out.interiors) {
-    const width = FEATHER_M[interior.treatment];
+    const width = interior.featherM ?? FEATHER_M[interior.treatment];
     const ring = interior.fringePts;
     if (!width || !ring) continue;
     let f = feathers.get(ring);
