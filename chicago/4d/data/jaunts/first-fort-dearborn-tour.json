@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Fort Dearborn",
+  "featured": true,
+  "review_required": false,
+  "id": "first-fort-dearborn-tour",
+  "scene": "1812",
+  "title": "Fort Dearborn, Building by Building",
+  "premise": "Every building on Captain Whistler's 1808 draught of the first fort: gate, barracks, parade, magazine, covered way, gardens, the government houses and the wharf. Twelve stops.",
+  "default_mode": "fly",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "JAUNT: FORT DEARBORN, BUILDING BY BUILDING. August 1812, the last days of the first fort. Twelve stops, laid out from the drawing Captain John Whistler sent the War Department in 1808, the one picture of the fort made while it stood. Inside the pickets: the gate, the barracks, the parade, the officers, the brick magazine. Outside: the covered way, the shops, the gardens, the government houses, the wharf. The people are not drawn. The buildings are, where Whistler put them. Fly is set: the gates start shut.",
+    "read_s": 25
+  },
+  "stops": [
+    {
+      "id": "the-fort",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_dearborn"
+      },
+      "text": "The first Fort Dearborn. Captain John Whistler's troops reached this bend on 17 August 1803, where the bank stood 'eight feet high', and built in logs. A visitor in 1809 called it 'the neatest and best wooden garrison in the United States'. Barracks round a square, two rows of pickets, two gun blockhouses. Whistler drew every building in 1808.",
+      "read_s": 17,
+      "evidence": [
+        "arrival",
+        "johnston",
+        "plan"
+      ],
+      "next": "the-gate"
+    },
+    {
+      "id": "the-gate",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_gate"
+      },
+      "text": "The main gate, mid-way along the south side. There are two rows of pickets: an attacker over the first 'would only find himself within a narrow inclosure' swept by fire from the blockhouses. The gates start shut. On foot, within five metres, press Interact (R) to swing them open. The gates closed at sunset each evening.",
+      "read_s": 16,
+      "evidence": [
+        "plan"
+      ],
+      "next": "soldiers"
+    },
+    {
+      "id": "soldiers",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_inside_gate"
+      },
+      "text": "Inside. The soldiers' barracks flank the gate, two storeys with 'shingled Roofs and Galliaries fronting the parade'. Whistler built the fort with these men, and when their enlistments ran out 'they had all re-enlisted'. His letters ask for files and watch coats: he had 'sixty-six men to supply' and 'two fifers but the only fife has been lost.'",
+      "read_s": 17,
+      "evidence": [
+        "inside",
+        "johnston",
+        "supplies"
+      ],
+      "next": "commandant"
+    },
+    {
+      "id": "commandant",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_parade"
+      },
+      "text": "The parade, with its 'lofty flagstaff', and the commanding officer's quarters on the east side. Captain Nathan Heald brought his bride Rebekah here in June 1811. Wau-Bun has her and Mrs. Helm 'playing at battledoor' on the gallery the next spring. Heald's journal, 4 May 1812: 'we had a son born dead for the want of a skilful Midwife.'",
+      "read_s": 17,
+      "evidence": [
+        "inside",
+        "heald",
+        "battledoor"
+      ],
+      "next": "officers"
+    },
+    {
+      "id": "officers",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_officers_quarters"
+      },
+      "text": "The officers' barracks, across the parade. In 1812 they housed Lieutenant Linai Helm, who asked to come here for 'the cheaper cost of living'; Ensign George Ronan, straight from West Point; and the surgeon's mate, Isaac Van Voorhis, twenty-two, who wrote that this place would be 'the seat of millions yet unborn'. Ronan and Van Voorhis died on 15 August.",
+      "read_s": 17,
+      "evidence": [
+        "officers"
+      ],
+      "next": "magazine"
+    },
+    {
+      "id": "magazine",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_north_side"
+      },
+      "text": "Ahead, the magazine, 'a small structure made of brick. This alone defied the fire' when the fort burned. Behind it, the north-west blockhouse and its cannon, with a wicket gate beside it. To the right, the north range and the contractor's store. In March 1813 a British agent found 'The powder magazine was in a good state of preservation'.",
+      "read_s": 17,
+      "evidence": [
+        "magazine",
+        "plan"
+      ],
+      "next": "covered-way"
+    },
+    {
+      "id": "covered-way",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_covered_way"
+      },
+      "text": "From the north-east corner a covered way ran down to the river, so the garrison could reach water 'in time of attack'. Whistler listed it but left it off his drawing: 'Omited in their places'. Wau-Bun calls it a sally-port with a well. On the night of 13 August 1812 the spare powder and liquor were thrown down that well.",
+      "read_s": 17,
+      "evidence": [
+        "covered-way"
+      ],
+      "next": "merchants"
+    },
+    {
+      "id": "merchants",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_south_east"
+      },
+      "text": "South-east, outside the pickets: the merchant's shop, the sutler's garden, and the armourer's shop. Behind you stands the south-east blockhouse, the second gun corner. Whistler's draught puts the blockhouses north-west and south-east; Wau-Bun, written forty years later, remembered both 'on the southern side'. The model follows the draught.",
+      "read_s": 14,
+      "evidence": [
+        "outside",
+        "blockhouses"
+      ],
+      "next": "gardens"
+    },
+    {
+      "id": "gardens",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_gardens"
+      },
+      "text": "The commanding officer's gardens, south of the fort, where 'melons and other small fruit and vegetables were raised'. Whistler had the brush cleared 'all within one Fourth of a Mile of the Garrison' so no one could creep up unseen. Beyond lay what he called 'a large parraria', and the strip of woods along the South Branch.",
+      "read_s": 16,
+      "evidence": [
+        "gardens"
+      ],
+      "next": "agency"
+    },
+    {
+      "id": "agency",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_factory_front"
+      },
+      "text": "West of the fort, the government houses: the factor's trading house, the agent's house, the interpreter's, the bake house and the stables. In April 1812 the townspeople fortified the agency house, 'an old-fashioned log building, with a hall running through the centre'. Its piazzas 'were planked up, for greater security, port-holes were cut, and sentinels posted at night.'",
+      "read_s": 17,
+      "evidence": [
+        "agency",
+        "outside"
+      ],
+      "next": "wharf"
+    },
+    {
+      "id": "wharf",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_wharf"
+      },
+      "text": "The wharf, below the bank on the river side, where the schooner's cargo came ashore. Whistler judged the garrison 'perfectly secure from any ambuscade', but for one thing: the houses across the river, 'somewhat in the way'. He had already pulled up a picket fence over there that 'might serve as a Barrier against the Garrison'.",
+      "read_s": 16,
+      "evidence": [
+        "secure"
+      ],
+      "next": "across-the-river"
+    },
+    {
+      "id": "across-the-river",
+      "destination": {
+        "kind": "anchor",
+        "id": "kinzie_house_across_river"
+      },
+      "text": "Across the river, 'John Kinzie Esq. House on the opisite side River', and three more houses to the west. Kinzie sold to the garrison and lived within shouting distance of the gate. On 16 August 1812 the fort was set on fire. Only the brick magazine came through. The second fort rose on this ground in 1816.",
+      "read_s": 16,
+      "evidence": [
+        "secure",
+        "magazine",
+        "burned"
+      ],
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "story": "Round the west side to the main gate on the south.",
+      "evidence": [
+        "plan"
+      ],
+      "story_evidence": [
+        "plan"
+      ]
+    },
+    {
+      "note": "Through both rows of pickets. Fly or Instantly if the gates are shut.",
+      "evidence": [
+        "plan"
+      ]
+    },
+    {
+      "story": "Across the parade to the east range.",
+      "evidence": [
+        "inside"
+      ],
+      "story_evidence": [
+        "inside"
+      ]
+    },
+    {
+      "story": "Turn round: the west range faces the commandant's door.",
+      "evidence": [
+        "inside"
+      ],
+      "story_evidence": [
+        "inside"
+      ]
+    },
+    {
+      "story": "To the north side of the parade.",
+      "evidence": [
+        "magazine"
+      ],
+      "story_evidence": [
+        "magazine"
+      ]
+    },
+    {
+      "note": "Out of the pickets to the north-east corner, above the river.",
+      "evidence": [
+        "covered-way"
+      ]
+    },
+    {
+      "note": "Outside the pickets, round to the south-east.",
+      "evidence": [
+        "outside"
+      ]
+    },
+    {
+      "story": "South into the gardens.",
+      "evidence": [
+        "gardens"
+      ],
+      "story_evidence": [
+        "gardens"
+      ]
+    },
+    {
+      "story": "West, past the stables.",
+      "evidence": [
+        "outside"
+      ],
+      "story_evidence": [
+        "outside"
+      ]
+    },
+    {
+      "story": "North to the river bank.",
+      "evidence": [
+        "secure"
+      ],
+      "story_evidence": [
+        "secure"
+      ]
+    },
+    {
+      "story": "Along the bank to face the Kinzie house.",
+      "evidence": [
+        "secure"
+      ],
+      "story_evidence": [
+        "secure"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "burned",
+      "default": true,
+      "completion_eligible": true,
+      "read_s": 23,
+      "text": "On 15 August 1812 the garrison marched out of the gate. Heald wrote afterwards that the warriors 'set fire to the fort and left the place, taking the prisoners with them.' Seven months later Robert Dickson found the brick magazine standing and 'The powder magazine was in a good state of preservation'. Everything else Whistler built was ash. For four years 'over Chicago silence and desolation reigned supreme', until the army came back in 1816 and built again on the same ground."
+    }
+  ],
+  "keepsake": {
+    "family": "Wayfinding",
+    "id": "whistler-draught",
+    "title": "Whistler's draught of Fort Dearborn, 1808",
+    "text": "'At this time the Garrison (except the Houses on the Opisite side of the river being somewhat in the way) is perfectly secure from any ambuscade or Barrier.' Captain John Whistler, 20 February 1808."
+  },
+  "evidence": [
+    {
+      "id": "arrival",
+      "text": "Quaife (1913), from Swearingen's journal: 'The troops reached the Chicago River at two o'clock on the afternoon of August 17, after a march of twenty-four miles from their last camping-place on the Little Calumet.' 'The river bank was eight feet high at the point where the fort was to be built, a half-mile above the mouth of the stream.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. V, the founding of the fort (Gutenberg #69274 plain text, the paragraph beginning 'The troops reached the Chicago River')"
+    },
+    {
+      "id": "johnston",
+      "text": "William Johnston, who came from Fort Wayne in the spring of 1809, as Quaife (1913) quotes him: Fort Dearborn was 'the neatest and best wooden garrison in the United States,' a fact which did 'great honor to Capt. John Whistler who planned and built it.' Whistler still had the men he built it with: 'Although their term of enlistment had expired they had all re-enlisted'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VI, the paragraph on Whistler's removal and Johnston's visit (Gutenberg #69274 plain text)"
+    },
+    {
+      "id": "plan",
+      "text": "Quaife (1913), from Cooper and Whistler's draught: 'The barracks and other structures for the accommodation of the garrison were built around the four sides of a quadrangle, facing inward toward the center. Two blockhouses, one containing two small cannon, the other containing one, stood at the northwestern and southeastern corners of the quadrangle, and the whole was inclosed within a double row of palisades'. 'Thus if an enemy should scale the first row he would only find himself within a narrow inclosure between that and the second which was swept at every point by the fire from the blockhouses.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure')"
+    },
+    {
+      "id": "inside",
+      "text": "Quaife (1913): the barracks 'were two stories in height, with shingled roofs and covered galleries, and occupied the middle of each side of the inclosure facing toward the parade ground, in the center of which stood a lofty flagstaff. The commanding officer's quarters stood on the east side, and directly opposite were those for the subordinate officers. The main gateway of the stockade was at the middle of the south side and was flanked on either side by the main barracks for the common soldiers.' Whistler's own note: 'the Barracks are two storeys high with shingled Roofs and Galliaries fronting the parade.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text)"
+    },
+    {
+      "id": "supplies",
+      "text": "Whistler's letters to Colonel Kingsbury, as Quaife (1913) gives them: the whip-saw 'can be of little use without files, for oak is the only saw timber available at Chicago.' 'Fifty-six suits of clothing have been received, but he has sixty-six men to supply. He has two fifers but the only fife has been lost. Watch coats are needed very badly.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VI, the paragraph beginning 'Two weeks after Kingsbury's letter'"
+    },
+    {
+      "id": "heald",
+      "text": "Quaife (1913): Heald married 'Rebekah Wells, the daughter of Colonel Samuel Wells and the niece of Captain William Wells' on 23 May 1811, and 'in June the commander reached Chicago with his bride'. Heald's journal: 'On the 4th of May, 1812, we had a son born dead for the want of a skilful Midwife.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VII, the paragraphs on Heald's marriage and his journal (Gutenberg #69274 plain text); Appendix III, Heald's journal"
+    },
+    {
+      "id": "battledoor",
+      "text": "Wau-Bun (1856): in the spring of 1812 two visitors to the commanding officer, 'As they passed through the quarters, they saw Mrs. Heald and Mrs. Helm playing at battledoor.' One of them, Nau-non-gee, said to the interpreter: 'The white chiefs' wives are amusing themselves very much; it will not be long before they are hoeing in our corn-fields!' 'This was considered at the time an idle threat'. 'Some months after, how bitterly was it remembered!'",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text, the paragraphs beginning 'After the 15th of August'"
+    },
+    {
+      "id": "officers",
+      "text": "Quaife (1913): Ensign George Ronan was 'a young cadet direct from West Point', ordered to Fort Dearborn in March 1811; Lieutenant Linai T. Helm came from Detroit at his own request, for 'his straitened financial circumstances and the cheaper cost of living at Fort Dearborn as compared with Detroit.' Surgeon's mate Isaac Van Voorhis, writing in October 1811: 'In my solitary walks I contemplate what a great and powerful republic will yet arise in this new world. Here, I say, will be the seat of millions yet unborn'. Quaife: 'The man who at the age of twenty-two could pen these lines'. Heald's report: 'Ensign George Ronan and Doctor Isaac V. Van Voorhis of my company, with Captain Wells of Fort Wayne' were killed; Helm was taken prisoner.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VII, the paragraph beginning 'In March, 1811'; ch. X, the paragraph on Van Voorhis; Appendix IV, Heald's report"
+    },
+    {
+      "id": "magazine",
+      "text": "Quaife (1913): 'The building opposite was in part devoted to barracks for the soldiers and in part to housing the contractor's store of supplies. Between this building and the northwestern blockhouse stood the magazine, a small structure made of brick. This alone defied the fire which destroyed the fort at the time of the massacre.' 'A small wicket gate in the stockade gave ingress and egress near the northwestern blockhouse.' Robert Dickson, through Chicago in March 1813, found 'two brass cannon, one dismounted, the other on wheels but in the river. The powder magazine was in a good state of preservation'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); ch. IX, the paragraph on Dickson's visit"
+    },
+    {
+      "id": "covered-way",
+      "text": "Quaife (1913): 'From the northeast corner of the stockade a covered way led to the river, securing thus to the garrison access in safety to the water in time of attack.' Whistler's index lists 'Covered Way to procure Water' and 'Gutters to carry off the Water' as 'Omited in their places'. Wau-Bun remembers 'a sally-port, or subterranean passage from the parade-ground to the river', and on 13 August 1812 'the ammunition and liquor were carried, part into the sally-port, and thrown into a well which had been dug there to supply the garrison with water in case of emergency'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text); Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "blockhouses",
+      "text": "Whistler's draught (1808) and Quaife (1913) put the two blockhouses at the north-west and south-east corners. Wau-Bun (1856), written over forty years after the fort burned, remembers it otherwise: 'It had two block-houses on the southern side, and on the northern a sally-port'.",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text, the paragraph beginning 'The fort was differently constructed'"
+    },
+    {
+      "id": "outside",
+      "text": "Quaife (1913): 'Whistler's drawing represents a considerable number of houses and outbuildings ranged around the fort devoted to various purposes. Among these are houses for the interpreter and for the factor's department, an armorer's shop, a merchant's shop, and a bake shop, besides several stables on the south side'. Whistler's index numbers them: 'Agents House', 'Factors House', 'Interpreters House', 'Armerers Shop', 'Merchants Shop', 'Bake House', 'Stables'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text)"
+    },
+    {
+      "id": "gardens",
+      "text": "Quaife (1913): 'To the south of the fort were the commanding officer's gardens in which, in Cooper's time, melons and other small fruit and vegetables were raised.' Whistler, 1808: on the north and west 'there has been a quantity of underwood and shruby Bushes such as prickly Ash &c. they are now cut down and cleared off, all within one Fourth of a Mile of the Garrison.' To the south and south-west 'is a large parraria'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text), Whistler's note"
+    },
+    {
+      "id": "agency",
+      "text": "Quaife (1913): 'A short distance to the southwest were two log houses, one occupied by Matthew Irwin, the United States factor, and the other by Charles Jouett, the Indian agent.' Wau-Bun (1856) on the Agency House in April 1812: 'It was an old-fashioned log building, with a hall running through the centre, and one large room on each side. Piazzas extended the whole length of the building in front and rear. These were planked up, for greater security, port-holes were cut, and sentinels posted at night.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text, the paragraph beginning 'It was an old-fashioned log building'"
+    },
+    {
+      "id": "secure",
+      "text": "Whistler, 20 February 1808, closing his note to the draught: 'At this time the Garrison (except the Houses on the Opisite side of the river being somewhat in the way) is perfectly secure from any ambuscade or Barrier.' His index numbers the 'Wharf of said River' and 'John Kinzie Esq. House on the opisite side River'. He had already had a picket fence across the river taken up, since it 'might serve as a Barrier against the Garrison', and 'replaced with a common rail fence.'",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text), Whistler's note"
+    },
+    {
+      "id": "burned",
+      "text": "Heald's report, 23 October 1812: 'The next morning, they set fire to the fort and left the place, taking the prisoners with them.' Quaife (1913): 'over Chicago silence and desolation reigned supreme.' The second fort went up on the same ground in 1816.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, Appendix IV, Heald's report; ch. IX, the paragraph beginning 'several villages'"
+    }
+  ],
+  "liberties": []
+}
