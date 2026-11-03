@@ -905,25 +905,42 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
         s0, s1, y0 = float(wg["s0"]), float(wg["s1"]), float(wg["from_m"])
         rise, dp = float(wg["rise_m"]), float(wg.get("depth_m", 2.0))
         sm, half = (s0 + s1) / 2, abs(s1 - s0) / 2
-        R_ = (half * half + rise * rise) / (2 * rise)
-        a0 = math.asin(min(1.0, half / R_))
-        n_seg = 10
-        arc = [(sm + R_ * math.sin(-a0 + 2 * a0 * j / n_seg), y0 - (R_ - rise) + R_ * math.cos(-a0 + 2 * a0 * j / n_seg))
-               for j in range(n_seg + 1)]
-        prof = arc   # the arc's ends stand on the springing line, so its chord is the base
-        front = [P(a, 0.0, y) for a, y in prof]
-        back = [P(a, -dp, y) for a, y in prof]
-        sides = [[front[j], front[j + 1], back[j + 1], back[j]] for j in range(len(prof) - 1)]
-        m.solid([front, back] + sides, mat_of=lambda i: wall if i < 2 else "roof")
         co = float(wg.get("coping_m", 0.18))
-        for j in range(n_seg):
-            (a, y), (b, yb) = arc[j], arc[j + 1]
-            ea = math.atan2(a - sm, y - (y0 - (R_ - rise)))
-            eb = math.atan2(b - sm, yb - (y0 - (R_ - rise)))
-            oa = (a + co * math.sin(ea), y + co * math.cos(ea))
-            ob = (b + co * math.sin(eb), yb + co * math.cos(eb))
-            m.solid([[P(a, 0.12, y), P(b, 0.12, yb), P(ob[0], 0.12, ob[1]), P(oa[0], 0.12, oa[1])],
-                     [P(a, -dp, y), P(b, -dp, yb), P(ob[0], -dp, ob[1]), P(oa[0], -dp, oa[1])]], mat="trim")
+        if wg.get("head") == "pitched":
+            # a straight-sided gable, its two slopes meeting at the apex `rise` over the
+            # springing line, its coping laid on both slopes (T-3316: the storey-and-a-half
+            # wing's narrow gable on 1701's stable in the Chicagology view)
+            prof = [(s0, y0), (sm, y0 + rise), (s1, y0)]
+            front = [P(a, 0.0, y) for a, y in prof]
+            back = [P(a, -dp, y) for a, y in prof]
+            sides = [[front[j], front[j + 1], back[j + 1], back[j]] for j in range(len(prof) - 1)]
+            m.solid([front, back] + sides, mat_of=lambda i: wall if i < 2 else "roof")
+            ln = math.hypot(half, rise)
+            nx, ny = rise / ln, half / ln   # the outward normal of the left slope, (s, y)
+            for (a, y), (b, yb), sx in (((s0, y0), (sm, y0 + rise), 1.0), ((sm, y0 + rise), (s1, y0), -1.0)):
+                oa = (a - sx * nx * co, y + ny * co)
+                ob = (b - sx * nx * co, yb + ny * co)
+                m.solid([[P(a, 0.12, y), P(b, 0.12, yb), P(ob[0], 0.12, ob[1]), P(oa[0], 0.12, oa[1])],
+                         [P(a, -dp, y), P(b, -dp, yb), P(ob[0], -dp, ob[1]), P(oa[0], -dp, oa[1])]], mat="trim")
+        else:
+            R_ = (half * half + rise * rise) / (2 * rise)
+            a0 = math.asin(min(1.0, half / R_))
+            n_seg = 10
+            arc = [(sm + R_ * math.sin(-a0 + 2 * a0 * j / n_seg), y0 - (R_ - rise) + R_ * math.cos(-a0 + 2 * a0 * j / n_seg))
+                   for j in range(n_seg + 1)]
+            prof = arc   # the arc's ends stand on the springing line, so its chord is the base
+            front = [P(a, 0.0, y) for a, y in prof]
+            back = [P(a, -dp, y) for a, y in prof]
+            sides = [[front[j], front[j + 1], back[j + 1], back[j]] for j in range(len(prof) - 1)]
+            m.solid([front, back] + sides, mat_of=lambda i: wall if i < 2 else "roof")
+            for j in range(n_seg):
+                (a, y), (b, yb) = arc[j], arc[j + 1]
+                ea = math.atan2(a - sm, y - (y0 - (R_ - rise)))
+                eb = math.atan2(b - sm, yb - (y0 - (R_ - rise)))
+                oa = (a + co * math.sin(ea), y + co * math.cos(ea))
+                ob = (b + co * math.sin(eb), yb + co * math.cos(eb))
+                m.solid([[P(a, 0.12, y), P(b, 0.12, yb), P(ob[0], 0.12, ob[1]), P(oa[0], 0.12, oa[1])],
+                         [P(a, -dp, y), P(b, -dp, yb), P(ob[0], -dp, ob[1]), P(oa[0], -dp, oa[1])]], mat="trim")
         oc = wg.get("oculus")
         if oc:
             r_, yc = float(oc["d_m"]) / 2, float(oc["y_m"])
