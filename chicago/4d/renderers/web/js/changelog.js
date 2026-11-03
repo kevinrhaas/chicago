@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2590, ts: '2026-11-03T02:49:34.963Z', date: 'Nov 2, 2026, 8:49 PM CT', title: 'Fort Dearborn: the parade is trodden earth that fades into the grass', kind: 'improvement',
+    items: [
+      'The parade inside Fort Dearborn was a flat beige slab with a hard edge. It is now textured trodden earth, the same ground as outside the walls, in 1835 and in 1812.',
+      'Its edge no longer stops in a line: the bare earth gives way to grass over about five metres in ragged tongues, finishing well inside the walls.',
+      'Nothing records what the parade\'s surface was, so the earth and its fade are ours (liberty L-t3320-parade-ground). The sun-dial and the flagstaff still stand where they did.',
+    ] },
   { v: 2589, ts: '2026-11-03T02:23:18.699Z', date: 'Nov 2, 2026, 8:23 PM CT', title: '1936 Prairie: the Allerton tower stands square', kind: 'feature',
     items: [
       'The Allerton house\'s belvedere tower on Prairie Avenue is now square, as its winter photograph and the 1911 fire map show it, instead of an eight-sided shaft. It stands 1.3 m out from the front, the map\'s depth, with one round-headed window on each face of the belvedere and a stone balustrade round its flat top.',
