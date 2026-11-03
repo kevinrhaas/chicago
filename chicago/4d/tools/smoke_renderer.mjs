@@ -5924,8 +5924,11 @@ for (const [label, viewport, touch] of [
       // warehouse's: 114 + 4 + 1 + 2 = 121 walks, 99 + 1 = 100 crossings.
       // T-2195 — dev was already behind here (T-2174's drawbridge warehouse: 123 walks), and the Market
       // wedge (plat block 21) lays three faces: +3 walks, +5 crossings — 126 and 105, read on the branch.
-      frontage.census?.records === 5 && frontage.census?.walks === 126
-        && frontage.census?.crossings === 105
+      // T-3360 — six buildings stepped back off the walk line: two runs that each stopped
+      // at a wall join the run beyond (-2), St. Mary's front lays a Lake run of its own
+      // (+1), and six corners take the crossing the stopped walks refused: 125 and 111.
+      frontage.census?.records === 5 && frontage.census?.walks === 125
+        && frontage.census?.crossings === 111
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -6077,7 +6080,8 @@ for (const [label, viewport, touch] of [
         // refusal "blk_south_water_market south face, lot 1" (no fence on open prairie).
         // Diffed 6e5a9ec2d -> facae8d01: -1, nothing added, walks/fences/posts/fittings
         // unchanged; #586 moved no refusal. 5+2+2+1 records' rows + 180 = 190.
-        && frontage.census?.refused === 190
+        // T-3360 — four corner-crossing refusals retire as their crossings are laid: 186.
+        && frontage.census?.refused === 186
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -6280,7 +6284,9 @@ for (const [label, viewport, touch] of [
       // (the record's named chunks go 102 to 108: T-2134 +4, T-2148 +1, T-2150 +1):
       // 125, read on dev with no board lettered.
       // T-2195 — the Market wedge's three walk faces name three chunks of their own: 128.
-      frontage.authored === (frontage.census?.lettered === 1 ? 129 : 128)
+      // T-3360 — two walks that stopped at a building join their neighbours (-2) and St.
+      // Mary's Lake run names one (+1): 127.
+      frontage.authored === (frontage.census?.lettered === 1 ? 128 : 127)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -6306,7 +6312,10 @@ for (const [label, viewport, touch] of [
           // 36.13067 to 30.97058 m but retained the former smoke census.
           // Sixteen fewer board tops and two stringer bays remove 40 triangles.
           // The actual emitted geometry independently reads 111470; preserve it.
-          && m.candidates === 111470
+          // T-3360 — the walks that ran up to St. Mary's, Chappel's school, the Tremont,
+          // Bates's, the Exchange and First Presbyterian now run past them, St. Mary's
+          // front takes its Lake run and six corners their crossings: 113850, read.
+          && m.candidates === 113850
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
