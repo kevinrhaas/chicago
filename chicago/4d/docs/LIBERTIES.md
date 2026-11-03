@@ -39549,3 +39549,29 @@ not evidence of a graded lawn.
 **Covers:** `elbridge_keith_house_1900_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3322.
 **Recorded:** 2026-11-03 (T-3322).
+
+### L-glessner-north-colonnettes-3343 — Glessner's two north colonnettes: the front's kind, sized off HABS 13, their capitals' carving reconstructed
+
+**Decision:** the colonnettes between the two second-floor window pairs on the `glessner_house`
+18th Street front (the east-wing gable pair and the tower-shoulder pair, T-3343) are rebuilt by
+the Prairie front's construction (L-glessner-colonnettes-2965): a splayed square base, a
+straight-tapered round shaft, the round front of a stone mullion flush with the wall's face and a
+cushion block capital, all in the walls' granite. They had been a pale plain post with a box top.
+The owner, 2026-11-03: the north ones "are different than the ones on the east face that we
+worked hard to get nice". **What is read.** HABS 13 (level) and HABS 14 (inclined), both 1965,
+show each as a round shaft in the wall's own stone, its foot splayed onto the sill, under a carved
+block capital rounding in to the shaft; the museum's 2013 post "The stone capitals on Glessner
+House" counts nine carved capitals, front and north, each different. Off HABS 13 at the east pair
+(21.4 px/ft from its outer jambs): the capital 1.3 ft across (the full gap between the lights),
+the shaft about 0.85 ft under it and 0.95 ft at its foot, the base about 1.2 ft at the sill; the
+capital's 1.1-ft and the base's 0.5-ft heights are T-2868's readings. **What is invented.** Both
+capitals' band and body (a band of diamonds over a round boss on the east pair; a zigzag band over
+crossing stems on the west pair, which a utility pole hides in both prints), every cut, depth and
+stem path, the corner volutes and leaf tips (HABS 13 shows corner curls on the east pair, too
+small to cut from), and the mullion's depth, taken from the front's sheet 3.
+**What is not changed.** The openings, sashes and the seven front colonnettes.
+**How to resolve:** a close photograph of either north capital would let its band and body be cut
+as carved.
+**Ticket:** T-3343.
+**Review:** `data/reference_views/glessner_house/habs-13-north-level.match.json`.
+**Recorded:** 2026-11-03 (T-3343).
