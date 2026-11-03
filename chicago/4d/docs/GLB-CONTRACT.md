@@ -243,6 +243,15 @@ chimney, by its material name. Those names have no single writer and no pin, and
 | what a renderer must do with it | draw it behind whatever face lies in its plane. `buildings.js` gives it a depth offset away from the eye (`JOINT_FLOOR`, polygon offset factor 1, units 4): depth only, no vertex, colour or light moves. Without it, the 14-bit web lattice (2.8 mm a rung on a 46 m house) rounds the recess onto the face, and past about 50 m a 24-bit depth buffer cannot part 5 mm anyway, so floor and face fight: the owner's "speckled" flanks on 1827 and 1801 Prairie. |
 | what it is NOT a licence for | finding any other part of a wall by name. `tools/check_joint_floor.mjs` holds the offset and refuses a `mortar` material in any shipped file but the K02 houses and Glessner. |
 
+### Camp coverings — three pinned material names and a `_UV` channel (PROPOSED 2026-11-03, T-3342)
+
+| thing | convention |
+|---|---|
+| which material is a camp covering | a material named `camp_cattail_mat`, `camp_elm_bark` or `camp_boughs`, written only by `generators/archetypes/lodge_camp.py` (the 1812 Potawatomi camp). Each names its sheet in `assets/textures/camp_1812_pbr/` (`cattail_mat`, `elm_bark`, `bough_thatch`). |
+| its map coordinate | the custom attribute `_UV` (VEC2 float, three's `_uv`), in tiles of the sheet's `material.json` `span_m`: u round the covering, v up it, every mat and sheet at its own offset. Not TEXCOORD_0, because no texture rides in the GLB and the web derivative's prune drops a TEXCOORD_0 nothing samples; `_UV` survives it as `_TONE` and `_CONFIDENCE` do. Only the three covering primitives carry it. |
+| what a renderer does with it | `renderers/web/js/camp-surfaces.js` binds the sheet's base colour, normal and ORM (as roughness and occlusion), copies `_uv` to `uv`, and whitens the material so the batch's instance colour leaves the sheet as drawn; a sheet that does not load leaves the GLB's colour, each sheet's mean. It loads the sheets only in a scene that draws a `lodge_camp`. |
+| what holds it | `python3 generators/lodge_camp_emit.py --check` (the bytes) and `python3 tools/ktx2_sheets.py --check` (the sheets). |
+
 ### Brick panels — read from the base colour's image name (PROPOSED 2026-11-01, T-3295)
 
 | thing | convention |

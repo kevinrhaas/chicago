@@ -221,7 +221,7 @@ function footprints(scene) {
     const poly = Array.isArray(raw) ? raw : raw?.polygon;
     if (!Array.isArray(poly) || poly.length < 3) continue;
     const p = sc.placement ?? {};
-    if (p.vertical_anchor === 'water' || sc.drawn_by || sc.archetype === 'camp') continue;
+    if (p.vertical_anchor === 'water' || sc.drawn_by || ['camp', 'lodge_camp'].includes(sc.archetype)) continue;
     const th = (p.rotation_deg ?? 0) * Math.PI / 180;
     const cos = Math.cos(th); const sin = Math.sin(th);
     const e0 = p.local_e ?? 0; const n0 = p.local_n ?? 0;

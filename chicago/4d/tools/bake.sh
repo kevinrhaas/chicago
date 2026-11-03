@@ -96,6 +96,8 @@ python3 generators/k12_emit.py "$@" --wrote "$WROTE"
 python3 generators/draft_emit.py "$@" --wrote "$WROTE"
 # T-2510: and the haystacks, the same way (one stack to a record, at Lee's Place in 1812).
 python3 generators/haystack_emit.py "$@" --wrote "$WROTE"
+# T-3342: and the Potawatomi camp's groups of 1812, the same way.
+python3 generators/lodge_camp_emit.py "$@" --wrote "$WROTE"
 
 echo
 echo "== web derivatives"

@@ -25474,3 +25474,16 @@ The unchanged Andreas camera was genuinely rendered again. Direct before/after r
 The Images source list gains a distinct credited link for the Blanchard/Davis colored poster, on explicit archived Newberry ca. 1893 publication evidence. Its current object record still lists 1935/Copyright Not Evaluated; that conflict remains documented. The native cited-illustration join is used without adding a camera or changing geometry, form-source arrays, placement, material or existing match verdicts.
 
 The initial poster diagnostic remains unfitted and unreviewed outside the application. Seven accepted views and Herriott's unmeasurable-target disposition are retained. Full original T-2386 picture acceptance remains open; this increment registers provenance and makes the source reachable from the card.
+
+
+### T-2374 — Cobweb Castle’s original panorama on its card
+
+Partial picture-card increment: the Indian Agency House’s Images tab links the
+original ticket’s keyed 1831 panorama through the existing credited, public-domain
+Wentworth 1881 source. The small “Agency-House” subject remains retrospective
+context, not an accepted match or proof of July 1835 continuity. No geometry,
+camera, position, dimensions, form values or grade ruling changes. T-2374 remains
+open. Validation follows the four native source parts and branch preflight before
+the authored commit, then actual desktop/mobile checks on the committed
+publication before PR readiness and normal merge. Receipts belong with the PR
+and checkpoint; the original image gate remains unfinished.

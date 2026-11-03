@@ -85,11 +85,16 @@ PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py
                "k16_timber": "k16_emit.py",  # T-2323: K16
                "k12_coach_house": "k12_emit.py",  # T-2321: K12
                "prairie_draft": "draft_emit.py",  # T-2329: the district draft
-               "haystack": "haystack_emit.py"}  # T-2510: Lee's Place's stacks
+               "haystack": "haystack_emit.py",  # T-2510: Lee's Place's stacks
+               "lodge_camp": "lodge_camp_emit.py"}  # T-3342: the Potawatomi camp of 1812
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
-PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
+PURE_PYTHON_HELPERS = {
+                       # T-3342: the camp's dimensions are constants in its params module
+                       # (the dataclass hashed above carries only the record's counts)
+                       "lodge_camp": ("lodge_camp_params.py",),
+                       "k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
                                        "k10_frontage.py", "k10_cornices.py", "k01_stone_finish.py",
                                        "k11_frontage.py", "k11_ironwork.py",
                                        # T-2360: K14 lays the yard, from the condition kit's ground layers
