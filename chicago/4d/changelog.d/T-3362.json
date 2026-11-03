@@ -1,0 +1,11 @@
+{
+  "title": "Dead trees and leafy crowns no longer float pieces in the air",
+  "kind": "fix",
+  "items": [
+    "A dead standing tree keeps only the branches still joined to its broken limbs. Before, about four sticks per dead tree hung in the air, some up to 8 m away.",
+    "The broken trunk now ends at its break, so the limbs that grew just below it stay attached.",
+    "Leaf clusters on the outside of a crown now sit on a twig. Before, some hung several metres off the side of a tree, such as the Kinzie cottonwoods in 1812.",
+    "Big limbs that branch just above the trunk's fork now start on the trunk instead of up to 0.7 m beside it.",
+    "Crowns keep their width and triangle count. This applies in 1812, 1835 and 1904."
+  ]
+}
