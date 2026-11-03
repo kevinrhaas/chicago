@@ -42,6 +42,7 @@
 
 import * as THREE from 'three';
 import { deckFromSidecar, deckHeightAt } from './deck-surface.js';
+import { occupiedPolygons } from './occupied-footprints.js';
 import { enuToWorld, bearingToYaw, yawToBearing } from './terrain.js';
 
 const DEG = Math.PI / 180;
@@ -131,8 +132,8 @@ export function footprintsFrom(registry, { camps = false } = {}) {
   const out = [];
   for (const record of registry.values()) {
     const raw = record.sidecar?.footprint;
-    const poly = Array.isArray(raw) ? raw : raw?.polygon;
-    if (!Array.isArray(poly) || poly.length < 3) continue;
+    const polygons = occupiedPolygons(raw);
+    if (!polygons.length) continue;
 
     const p = record.sidecar.placement ?? {};
     // A water-anchored structure's footprint is a DECK, not a wall, so it is not
@@ -162,13 +163,17 @@ export function footprintsFrom(registry, { camps = false } = {}) {
 
     // Compass-bearing rotation, matching bearingToYaw(): clockwise from north.
     const toWorld = ([u, v]) => [e0 + u * cos + v * sin, n0 - u * sin + v * cos];
-    const fp = { id: record.id, pts: poly.map(toWorld) };
-    // T-3319: a parade is ground the visitor walks on (see the header).
-    if (record.sidecar?.attributes?.kind?.value === 'parade') fp.ground = true;
-    // T-2943: the openings through it a visitor may walk (see the header).
-    const lanes = (Array.isArray(raw?.passages) ? raw.passages : []).map((p) => passageLane(p, toWorld)).filter(Boolean);
-    if (lanes.length) fp.passages = lanes;
-    out.push(fp);
+    for (const [index, poly] of polygons.entries()) {
+      const fp = { id: record.id, pts: poly.map(toWorld) };
+      // Preserve the native parade-ground floor flag on its original core.
+      if (index === 0 && record.sidecar?.attributes?.kind?.value === 'parade') fp.ground = true;
+      // Existing passages belong to the core, not a separate annex component.
+      const lanes = index === 0
+        ? (Array.isArray(raw?.passages) ? raw.passages : []).map((p) => passageLane(p, toWorld)).filter(Boolean)
+        : [];
+      if (lanes.length) fp.passages = lanes;
+      out.push(fp);
+    }
   }
   return out;
 }

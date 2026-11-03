@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Compile declarative jaunts; exhaustively validate reachable finite story states."""
 import argparse
+import datetime as dt
+import functools
 import json
 import operator
 import re
@@ -26,6 +28,13 @@ def packed(value):
 def require(ok, message):
     if not ok:
         raise ValueError(message)
+
+@functools.cache
+def time_names():
+    """T-3328: the setting's named times, read from the one list the app uses (T-3331)."""
+    js = (ROOT / 'renderers/web/js/time-of-day.js').read_text()
+    block = js.split('export const TIME_NAMES = [', 1)[1].split('];', 1)[0]
+    return frozenset(re.findall(r"id: '([a-z-]+)'", block))
 
 def unique(rows, label):
     result = {r['id']: r for r in rows}
@@ -133,6 +142,15 @@ class Compiler:
         for i, stop in enumerate(doc['stops']):
             require(25 <= len((stop['text'] + ' ' + stop.get('narrative', '')).split()) <= 60, f'{stop["id"]}: text needs 25–60 words')
             require(set(stop['evidence']) <= set(claims), 'dangling evidence id')
+            # T-3328: a stop's hour rests on its own claims, and names only a time the setting knows.
+            if 'hour' in stop or 'date' in stop or 'hour_evidence' in stop:
+                require('hour' in stop and stop.get('hour_evidence'), f'{stop["id"]}: an hour needs hour_evidence, and a date or hour_evidence needs an hour')
+                require(set(stop['hour_evidence']) <= set(stop['evidence']), f'{stop["id"]}: hour_evidence must be among the stop\'s own evidence')
+                require(stop['hour'] in time_names() or re.fullmatch(r'([01][0-9]|2[0-3]):[0-5][0-9]', stop['hour']),
+                        f'{stop["id"]}: hour {stop["hour"]!r} is neither HH:MM nor a named time in time-of-day.js')
+                if 'date' in stop:
+                    try: dt.date.fromisoformat(stop['date'])
+                    except ValueError: require(False, f'{stop["id"]}: date {stop["date"]!r} is not a day')
             reason = self.resolve(stop['destination'], True)
             if reason: reasons.append(reason)
             for link in stop.get('links', []): self.resolve(link)

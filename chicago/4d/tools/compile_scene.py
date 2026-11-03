@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
 sys.path.insert(0, str(ROOT / "tools"))
+from occupied_footprints import additional_parts  # noqa: E402
 from review_constraint import record_reason  # noqa: E402
 from tiers import tier_ladder, tier_label  # noqa: E402
 from exclusion_scope import ruled_for  # noqa: E402
@@ -3146,6 +3147,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": phase.get("footprint", {}).get("confidence", "reconstructed"),
                 "sources": phase.get("footprint", {}).get("sources", []),
                 "note": phase.get("footprint", {}).get("note", ""),
+                **({"additional_polygons": occupied}
+                   if (occupied := additional_parts(st, phase)) else {}),
                 # T-2943: openings a visitor may walk through (walker.js), only where one exists.
                 **({"passages": passages} if (passages := walk_passages(st, phase)) else {}),
             },
