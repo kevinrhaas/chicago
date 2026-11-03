@@ -224,3 +224,16 @@ export function publishDaylight(state) {
     try { fn(state); } catch { /* as above */ }
   }
 }
+
+/**
+ * T-3331 — the leaves' transmitted skylight, one uniform shared by every leaf
+ * material (tree-surface.js, tree-instances.js). A thin leaf passes on a little of
+ * the sky, which was a constant 0.22 of its colour: right by day, a glow by night.
+ * It falls with the sky's fill and the sun, and is exactly 0.22 by day.
+ */
+const LEAF_SKY_DAY = 0.22;
+export const LEAF_SKY = { value: LEAF_SKY_DAY };
+onDaylight(({ grade }) => {
+  LEAF_SKY.value = grade.sunK === 1 && grade.fillK === 1 ? LEAF_SKY_DAY
+    : LEAF_SKY_DAY * grade.fillK * (0.3 + 0.7 * grade.sunK);
+});
