@@ -1,0 +1,25 @@
+{
+  "structure_id": "hogan_store",
+  "source_id": "cameron_c1900_first_post_office",
+  "photo": "../../../../reference/images/chicago/chicago_first_post_office_1833.jpg",
+  "image_px": [
+    2062,
+    1507
+  ],
+  "eye": [
+    22.02240541992612,
+    13.700787264424813,
+    1.083003778569425
+  ],
+  "yaw_deg": 229.67641097660223,
+  "focal_px": 698.9081001910997,
+  "principal_px": [
+    398.43638179876683,
+    743.808737316032
+  ],
+  "sky": "overcast",
+  "solve": "PROVISIONAL retrospective-drawing fit, not a historical camera. Six manually selected wall corners on the retained documented45x20ft footprint and reconstructed2.5m eave give point RMS 16.099px, maximum26.809px. Picks/projections are in camera-fit.json; about5px picking uncertainty and inconsistent drawing convergence remain. No geographic or metric claim. Soft overcast review light is a comparison choice; original colour is not known. Canonical enrollment retains precisely those numeric diagnostic rays; it does not turn this reconstructed review pose into a historical From this spot. Original source/date/rights and hidden-face limits remain. Fresh native render and direct comparison are required after geometry changes.",
+  "scene": "1835",
+  "diagnostic_only": true,
+  "library_image": "early-cameron-first-post-office-1833"
+}

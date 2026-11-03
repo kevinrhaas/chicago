@@ -1,0 +1,33 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "view": "andreas-1830",
+  "glb": "assets/gltf/wolf_point_tavern__log_frame_1828.glb",
+  "glb_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+  "camera_sha256": "bb0e44d881eff159693e0f513de011b8bf106cc0bcb6e6eef2bbca979e57df74",
+  "photo_sha256": "6840a825064e8a8f92ac82f4faca6fb6e4eabfd2f4d5b1c169ce8f49ceaae205",
+  "side_by_side": "docs/RESEARCH/photo-match/wolf_point_tavern/andreas-1830-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The low paired Wolf gables on the left are reproduced by the physical L; the distinct tall right-bank block is Miller. The model retains two dark entries and two roof penetrations governed more clearly by NYPL.",
+      "status": "fixed"
+    },
+    {
+      "what": "Apparent unequal gable proportions remain in this first-fit camera: RMS 16.181 px, max 25.498 px. They exceed small-pick precision and are not claimed sub-0.3 m. The drawing’s asymmetry disagrees with the later governing NYPL paired-gable proportions, and the source/camera family is underconstrained; T-3153 explicitly treats disagreement between pictures/camera fits within tolerance. Do not infer a single metric geometry correction from this drawing.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "1830 shows a bare pole; the wolf board is attested by about 1833 and retained for the 1835 scene. This dated change does not require removing the later sign. Weak monochrome openings and hatching do not calibrate pigment or hidden fabric.",
+      "status": "not shown"
+    },
+    {
+      "what": "Neutral single-anchor photo_match does not show the application roof normal/ORM treatment, terrain, riverbank, trees, figures, neighbours or authentic historic pigment. Those absent scene elements do not validate app finish or surveyed placement.",
+      "status": "not shown"
+    },
+    {
+      "what": "The illustration is retrospective and depicts its stated earlier date. Exact 5 m compartments, plan, dimensions, hidden fabric and metric sign pose remain reconstructed; unchanged appearance on 1 July 1835 is not directly attested.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

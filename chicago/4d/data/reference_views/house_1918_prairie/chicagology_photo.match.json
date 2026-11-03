@@ -1,0 +1,61 @@
+{
+  "structure_id": "house_1918_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
+  "glb_sha256": "5258c4d23a2276022f29537ba3a180d0a36eb68041894d89a9894220959b4cca",
+  "camera_sha256": "08a023b25d98770a1eb2830d73d84583e1fbf3dc02414c9cd7c5cf057c201980",
+  "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's generic hipped block with a corner turret is now the photograph's Italianate villa: two tall storeys and a frieze-lit attic over a raised brownstone basement under a deep bracketed cornice and a low hipped roof cut off at a railed deck, the long south flank at the left, the front receding to the north at the right",
+      "status": "fixed"
+    },
+    {
+      "what": "the camera itself is provisional (fitted by eye; see the camera's solve): through it the photograph's verandah and tower stand about 100-150 px (2.5-4 m) north of where the 1911 sheet puts them, and the photograph shows a bay of windows between the south-east corner and the verandah (x 1172-1395 px) that the build, laid on the sheet's plan, has no room for; re-solve with more points and settle the front's composition",
+      "status": "open"
+    },
+    {
+      "what": "the tower: the photograph's is square, with a bracketed cornice and balcony at the main cornice's level, a short stage, a balconied belvedere with arched lights and a deep bracketed cornice under a balustraded top (x 1440-1785, y 5-385 px). T-3318 built it square (3.79 m, its front 1.3 m out, the sheet's), its belvedere lights round-headed, one to a face, and a stone balustrade round its flat top. T-3324 put a console at each of its free corners and a row of brackets under the belvedere's cornice, and the corbelled stone balcony at the belvedere's foot, 0.55 m out on three stepped courses with its balustrade, so the belvedere stands back over it. Still open: the bracketed cornice and balcony at the main cornice's level, and its height against the main cornice (about 70 px taller through this provisional camera, which the re-solve settles)",
+      "status": "open"
+    },
+    {
+      "what": "the verandah south of the tower: the photograph's three arched openings on columns under a balustraded balcony (x 1395-1600, y 640-870 px) are built as K01's corner porch of plain piers; its fluted Corinthian columns (Tribune 1869) and its place along the front (see the camera item)",
+      "status": "open"
+    },
+    {
+      "what": "the entrance porch at the tower's north-east foot and its stoop running north along the front (x 1655-1950, y 700-960 px): built as a columned hood over a straight stoop toward the avenue, beside the tower rather than in it (K01 refuses a door behind a tower)",
+      "status": "open"
+    },
+    {
+      "what": "the window dressings: the photograph's pedimented and scrolled brownstone hoods, the paired principal windows and the round-headed chamber lights on the south flank; built as K09's corniced lintels over flat-headed sashes",
+      "status": "open"
+    },
+    {
+      "what": "the chimney stacks: the photograph's three tall panelled stacks with heavy caps, the left one over the flank's middle (x 905-995, top y 270 px) and the right one over the front part (x 1215-1290, top y 185 px), stand taller and further east than the build's",
+      "status": "open"
+    },
+    {
+      "what": "the roof's deck stands higher in the photograph (its rail at y 260-300 px over the south-east corner) than the build's 15.0 m",
+      "status": "open"
+    },
+    {
+      "what": "the iron fence on its stone curb along the walk",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: the brick's red and the brownstone's tone (the print is monochrome; the Tribune of 1898 calls it 'his big red brick house')",
+      "status": "not shown"
+    },
+    {
+      "what": "the barn on the alley at the far left (x 0-700 px) and its cupola: T-1935's (the coach house record), not this house",
+      "status": "not shown"
+    },
+    {
+      "what": "the street trees, lamp and hydrant before the house",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -99,24 +99,25 @@
                   0.0,
                   2.0,
                   8.949,
-                  11.578
+                  4.2
                 ],
-                "from": "the sheet's lodge outline, read by hand (T-3164); its roof the plate's: a steep hip cut off at a crested lead deck",
+                "from": "the sheet's lodge outline, read by hand (T-3164); its roof the plate's: a steep hip cut off at a crested lead deck. T-3164 (east face pass): only the front 2.2 m of the block stands two storeys on the east wall's line, its roof running up to the deck the block behind carries",
                 "pitch_deg": 52,
                 "deck_m": 3.7,
                 "deck_insets_m": [
                   2.8,
                   3.1,
                   2.9,
-                  2.9
+                  -0.05
                 ],
-                "cresting": "open",
+                "cresting": "none",
                 "eave_chamfer": {
                   "corner": "u0v0",
                   "m": 1.55,
                   "bow_m": 0.1,
                   "flare_m": 0.4
-                }
+                },
+                "deck_exact": true
               },
               {
                 "id": "r2",
@@ -131,6 +132,42 @@
                 ],
                 "from": "the front's west part, which the 1894 Inland plate and Lowe's print both draw with its own lower hipped roof and quoined east return (T-3164): its face on the sheet's north wall, where the north range abuts it, 4.85 m wide from the loggia's west end at u 4.1",
                 "pitch_deg": 52
+              },
+              {
+                "id": "r3",
+                "role": "wing",
+                "storeys": 2,
+                "roof": "hip_deck",
+                "rect": [
+                  1.6,
+                  4.2,
+                  8.949,
+                  11.578
+                ],
+                "from": "T-3164 (east face pass): the lodge's two-storey body behind its front, set 1.6 m in from the sheet's east wall line so that, as the 1894 Inland plate and Lowe's print both show, no east face or east slope rises over the east range's coping; its deck is the plate's, at the same place and height as before",
+                "pitch_deg": 52,
+                "deck_m": 3.7,
+                "deck_insets_m": [
+                  1.2,
+                  3.1,
+                  0.7,
+                  2.9
+                ],
+                "deck_exact": true,
+                "cresting": "open"
+              },
+              {
+                "id": "r4",
+                "role": "wing",
+                "storeys": 1,
+                "roof": "flat",
+                "rect": [
+                  0.0,
+                  4.2,
+                  1.6,
+                  11.578
+                ],
+                "from": "T-3164 (east face pass): the strip of the sheet's outline between the set-back body and the east wall line, one storey (5.5 m), under the east range's 6.15 m coping, so the range hides it from 18th Street as the pictures show"
               }
             ],
             "lot_v": [
@@ -144,7 +181,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "inland_1894_pullman_conservatory"
           ],
-          "note": "Two rectangles (T-3164, west part pass). The sheet draws one outline, 8.95 by 11.58 m, and no wing or bay on it; the 1894 Inland plate and Lowe's print (c. 1897) both draw the north front in two parts. The west part, from the loggia's west end (u 4.1, the plate's x 1052, Lowe's 662) to the west wall, stands proud of the loggia block with a quoined east return, its eave a few pixels over the block's in both pictures, and carries its own hipped roof, whose north-east hip rises from the return to about the deck's height (plate x 1058,712 to 1118,625). The return's width and the eave's step both read about 2 m of projection through the solved cameras. The part's face is put on the sheet's north wall, where the north range abuts it, and the loggia block is set 2 m back behind it, rather than the part 2 m out over the range: the pictures fix the step, not which face the sheet's line is, and this way the 1904 range meets masonry the sheet draws. The block's corner then reads x 940 on the plate and 576 on Lowe's print, where both draw it (they were 947 and 582). Its depth behind the front (6.0 m) and its ridge (11.75 m at the main roof's 52 degrees) are RECONSTRUCTED; the pictures see only its north and east slopes (L-pullman-lodge-west-part-3164). T-3164 re-entered: the roof is the plate's, a steep hip (about 52 degrees) stopped at a flat deck 3.7 m over the eave inside an iron cresting, the deck's north edge reading x 1010-1105 on the plate (2.8 m in from the east eave, 3.1 m from the west); the deck's depth is reconstructed at the same pitch."
+          "note": "Two rectangles (T-3164, west part pass). The sheet draws one outline, 8.95 by 11.58 m, and no wing or bay on it; the 1894 Inland plate and Lowe's print (c. 1897) both draw the north front in two parts. The west part, from the loggia's west end (u 4.1, the plate's x 1052, Lowe's 662) to the west wall, stands proud of the loggia block with a quoined east return, its eave a few pixels over the block's in both pictures, and carries its own hipped roof, whose north-east hip rises from the return to about the deck's height (plate x 1058,712 to 1118,625). The return's width and the eave's step both read about 2 m of projection through the solved cameras. The part's face is put on the sheet's north wall, where the north range abuts it, and the loggia block is set 2 m back behind it, rather than the part 2 m out over the range: the pictures fix the step, not which face the sheet's line is, and this way the 1904 range meets masonry the sheet draws. The block's corner then reads x 940 on the plate and 576 on Lowe's print, where both draw it (they were 947 and 582). Its depth behind the front (6.0 m) and its ridge (11.75 m at the main roof's 52 degrees) are RECONSTRUCTED; the pictures see only its north and east slopes (L-pullman-lodge-west-part-3164). T-3164 re-entered: the roof is the plate's, a steep hip (about 52 degrees) stopped at a flat deck 3.7 m over the eave inside an iron cresting, the deck's north edge reading x 1010-1105 on the plate (2.8 m in from the east eave, 3.1 m from the west); the deck's depth is reconstructed at the same pitch. T-3164 (east face pass): both pictures, through both solved cameras, show no east face and no east slope of the lodge over the east range's coping (sky and the coping's railing there), where the sheet's outline, stood two storeys on its full 11.58 m depth, put a face and an eave receding about 34 px on the plate and 23 px on Lowe's print, 9.6 m of wall seen from about 10.7 m east of its line. The plate's own roof answers how deep the two storeys reach: its east silhouette is one straight line from the bowed corner's eave to the deck, with the deck's east side receding about 17 px behind it (about 4.5 m at the deck's 2.45 m in from the wall), so the body stands back from the east wall line behind a shallow front. So the front block (r1) keeps the plate's north front, bowed corner, balcony and loggia on the east wall's line for 2.2 m, to the sheet's corner where the east range's north wall leaves the lodge (v 4.2); the body behind it (r3) stands 1.6 m in from that line, the least set-back that hides its east wall and eave behind the bowed corner from both cameras (1.32 m for the plate's, 1.50 m for Lowe's at the outline's south end); and the strip between (r4) is one storey, 5.5 m, under the range's 6.15 m coping. The deck, its cresting and the stack stand where they stood. RECONSTRUCTED: the set-back's depth and line, the strip's height and roof, and how the 1911 '2' over the whole outline came to be (L-pullman-lodge-east-face-3164)."
         },
         "draft_elevation": {
           "value": {
@@ -170,7 +207,9 @@
                 "dressed_faces": [
                   "r1:v0",
                   "r2:v0",
-                  "r2:u0"
+                  "r2:u0",
+                  "r1:u0",
+                  "r4:u0"
                 ],
                 "arcade": {
                   "part": "r1",
@@ -297,7 +336,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "inland_1894_pullman_conservatory"
           ],
-          "note": "T-3164 RE-ENTERED against the 1894 Inland plate (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory.json; 25.8 px/m at the lodge, grade y 931, its north-east corner at x 948, 25.5 px/m along the front): the north front is a tall ground storey, a loggia of three openings between round columns (dark x 955-967, 977-1003 and 1015-1052, so 0.5, 1.0 and 1.45 m wide at 0.51, 1.65 and 3.35 m west of the east wall, the columns between them about 0.45 m) under an entablature whose underside reads y 812 (4.6 m); a balcony band y 775-795 (5.3-6.0 m) across it; one small upper sash over the middle opening, x 998-1017 and y 751-773 (0.75 m wide, 6.1-7.0 m); and the eave at y 720 (8.2 m), so storeys of 5.5 and 2.7 m over grade. The plate shows no stack on the slopes it sees; the Lowe photograph (c. 1897) shows one rising behind the east slope, so the draft's stack (which the rules had stood on the north-west, in the plate's view) is moved there, 2.4 m in from the east wall and 8 m back, its top 11.8 m (the print's stack top about 15 px under the deck's cresting), its place behind the slope RECONSTRUCTED. T-3164 (third pass): the upper storey's north-east corner turned on a bow (a 1.2 m chord along each wall, 0.1 m proud of the corner, 5.3-8.2 m) with the eave carried round it and belled 0.4 m out and down (the roof's bowed chamfer); a balcony on the loggia's entablature, its floor at 5.3 m and an open balustrade 0.75 m high, 0.45 m deep from 0.2 m east of the corner to 4.2 m along the front, its east end turned on a quarter-round under the bow; two round columns 0.38 m across between the loggia's openings; and the deck in the stable's open cresting with a spire at each corner, as the plate shows them (L-pullman-lodge-front-3164: the bow's plan, the balcony's depth and balusters, the columns' bases and capitals and the cresting's pattern are RECONSTRUCTED). T-3164 (west part pass): the front's west part is built with its own lower hipped roof, see draft_plan; T-3164 (pinnacle pass): the dark pointed form the plate draws over that roof (x 1116-1142 at its foot, its point at y 562, just west of the deck's north-west spire) is read as a slated spirelet on the west roof's ridge: about 26 px (1.0 m) across where it leaves the ridge and about 2.5 m tall at the plate's 25.8 px/m, with an iron spike; built 0.9 m square, standing from inside the slopes to 14.25 m with a 0.45 m spike, on the middle of the ridge (u 6.52, v 3.0). RECONSTRUCTED: its plan (square, not round), its place along the ridge, which the plate's near-end-on view cannot fix, and the spike (L-pullman-lodge-west-part-3164). UNRESOLVED: neither the plate nor the Lowe photograph shows the lodge's east face or east slope over the east range's coping (both show sky and a railing there), which the sheet's 11.6 m-deep two-storey outline and the two solved cameras, both standing east of the lodge, say should show; either the two-storey block is shallower than the sheet draws or the cameras stand further west than solved, and this record keeps the sheet's outline until that is read. RECONSTRUCTED: the west and south fronts, which no picture shows, keep the draft rules' sash and the south door (L-pullman-glasshouses-1800-calumet-3164). WHAT T-3164 FIRST BUILT: RECONSTRUCTED on the draft rules' brick-family values: a hipped roof over two storeys, three bays on its alley front with the door at the south end, one stack, no dormers. Nothing describes the lodge beyond the sheet's '2' and 'D' (L-pullman-glasshouses-1800-calumet-3164)."
+          "note": "T-3164 RE-ENTERED against the 1894 Inland plate (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory.json; 25.8 px/m at the lodge, grade y 931, its north-east corner at x 948, 25.5 px/m along the front): the north front is a tall ground storey, a loggia of three openings between round columns (dark x 955-967, 977-1003 and 1015-1052, so 0.5, 1.0 and 1.45 m wide at 0.51, 1.65 and 3.35 m west of the east wall, the columns between them about 0.45 m) under an entablature whose underside reads y 812 (4.6 m); a balcony band y 775-795 (5.3-6.0 m) across it; one small upper sash over the middle opening, x 998-1017 and y 751-773 (0.75 m wide, 6.1-7.0 m); and the eave at y 720 (8.2 m), so storeys of 5.5 and 2.7 m over grade. The plate shows no stack on the slopes it sees; the Lowe photograph (c. 1897) shows one rising behind the east slope, so the draft's stack (which the rules had stood on the north-west, in the plate's view) is moved there, 2.4 m in from the east wall and 8 m back, its top 11.8 m (the print's stack top about 15 px under the deck's cresting), its place behind the slope RECONSTRUCTED. T-3164 (third pass): the upper storey's north-east corner turned on a bow (a 1.2 m chord along each wall, 0.1 m proud of the corner, 5.3-8.2 m) with the eave carried round it and belled 0.4 m out and down (the roof's bowed chamfer); a balcony on the loggia's entablature, its floor at 5.3 m and an open balustrade 0.75 m high, 0.45 m deep from 0.2 m east of the corner to 4.2 m along the front, its east end turned on a quarter-round under the bow; two round columns 0.38 m across between the loggia's openings; and the deck in the stable's open cresting with a spire at each corner, as the plate shows them (L-pullman-lodge-front-3164: the bow's plan, the balcony's depth and balusters, the columns' bases and capitals and the cresting's pattern are RECONSTRUCTED). T-3164 (west part pass): the front's west part is built with its own lower hipped roof, see draft_plan; T-3164 (pinnacle pass): the dark pointed form the plate draws over that roof (x 1116-1142 at its foot, its point at y 562, just west of the deck's north-west spire) is read as a slated spirelet on the west roof's ridge: about 26 px (1.0 m) across where it leaves the ridge and about 2.5 m tall at the plate's 25.8 px/m, with an iron spike; built 0.9 m square, standing from inside the slopes to 14.25 m with a 0.45 m spike, on the middle of the ridge (u 6.52, v 3.0). RECONSTRUCTED: its plan (square, not round), its place along the ridge, which the plate's near-end-on view cannot fix, and the spike (L-pullman-lodge-west-part-3164). RESOLVED (T-3164, east face pass): neither the plate nor the Lowe photograph shows the lodge's east face or east slope over the east range's coping (both show sky and a railing there), so the two-storey body behind the front stands 1.6 m in from the east wall line over a one-storey strip under the range's coping (see draft_plan); the east wall's short return at the bowed corner (r1:u0) and the strip's face inside the range (r4:u0) take no draft sash or door, as the plate shows the return plain. RECONSTRUCTED: the west and south fronts, which no picture shows, keep the draft rules' sash and the south door (L-pullman-glasshouses-1800-calumet-3164). WHAT T-3164 FIRST BUILT: RECONSTRUCTED on the draft rules' brick-family values: a hipped roof over two storeys, three bays on its alley front with the door at the south end, one stack, no dormers. Nothing describes the lodge beyond the sheet's '2' and 'D' (L-pullman-glasshouses-1800-calumet-3164)."
         }
       }
     }

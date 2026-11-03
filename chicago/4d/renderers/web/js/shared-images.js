@@ -151,3 +151,26 @@ export function retireSharedImage(image) {
   entry.forget();
   shared.delete(image);
 }
+
+/** Required authored texture slots survive the phone's disposal-only scene carrier.
+ * Keys retain their original node/material ordinals; the saved pairs contain only
+ * strings and counts, so no scene node or geometry stays alive for a later reload.
+ */
+export function sourceTextureSlots(scene) {
+  if (scene?.collapsed && Array.isArray(scene.requiredTextureSlots)) {
+    return new Map(scene.requiredTextureSlots);
+  }
+  const counts = new Map();
+  let ordinal = 0;
+  scene?.traverse?.((node) => {
+    const nodeOrdinal = ordinal++;
+    for (const [materialIndex, material] of [].concat(node.material ?? []).entries()) {
+      for (const [slot, value] of Object.entries(material ?? {})) {
+        if (!value?.isTexture) continue;
+        const key = JSON.stringify([nodeOrdinal, materialIndex, material.name ?? '', slot]);
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+    }
+  });
+  return counts;
+}

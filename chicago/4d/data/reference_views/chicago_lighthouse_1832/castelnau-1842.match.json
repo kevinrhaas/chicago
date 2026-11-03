@@ -1,0 +1,55 @@
+{
+  "structure_id": "chicago_lighthouse_1832",
+  "view": "castelnau-1842",
+  "glb": "assets/gltf/chicago_lighthouse_1832__tower_1832.glb",
+  "glb_sha256": "ae855793a983ff884b2653479c74fe517d3f8f2f14b6eae606f972a68373224d",
+  "camera_sha256": "bf40943d92775027943fc8d560b79d10f471b0347df4b29d163dbe93a99ed558",
+  "photo_sha256": "6db98a8dc196525c353e0520012a451c14ea4480a6aa173eb4f11bb2a1a178bd",
+  "side_by_side": "docs/RESEARCH/photo-match/chicago_lighthouse_1832/castelnau-1842-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The pictured tapering shaft, railed gallery, framed lantern cage, rounded dome and finial are present in the exact-current native render. This is the delivered source-shaped form, not the older opaque drum/pyramid. Exact member counts and metric sections remain declared reconstructions.",
+      "status": "fixed"
+    },
+    {
+      "what": "The interpreted dark shaft apertures are present. This small print does not independently resolve pane joinery, every face, every count, or an additional metric offset; no visitor-noticeable missing opening or independent displacement is established in this governing view. Other mapped views retain their separate review limits.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Small finial/crown/gallery edge and framing offsets are inside the coarse source readings (finial about y38±3, gallery about y89±2) and retained camera uncertainty. No independent greater than about 0.3 m geometry error is established by those pixels.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The partly hidden shaft toe, foundation/grade, underside and unseen faces are not resolved by the foliage and print. The nominal forty-foot historical datum is not identified as shaft/gallery/finial height. Neither source nor this comparison proves an error from nominal 12.19 m versus reconstructed 12.84968 m top.",
+      "status": "not shown"
+    },
+    {
+      "what": "This monochrome/aged print does not establish literal pigment, photometric reflectance, exact masonry unit bond, glass opacity or metal colour. The existing neutral stone tones, joints and lantern sections remain reconstructed; no historical colour/material claim is promoted.",
+      "status": "not shown"
+    },
+    {
+      "what": "The neutral single-tower review omits fort buildings, ships, vegetation, water, terrain and people. Those are scene context, not missing parts of this tower. It does not prove a historical viewing location or every fitting on 1 July 1835.",
+      "status": "not shown"
+    },
+    {
+      "what": "The seven held compositions were directly reviewed in docs/RESEARCH/lighthouse-picture-signoff-T-2373/REVIEW.md. Baker’s stylized pointed cap conflicts with Castelnau/Andreas; Kellogg’s lower dark aperture and broader shaft/gallery conflict with this governing drawing. The existing lower aperture was separately seen in one actual diagnostic. These are explicit conflicting-picture readings under T-3153, not literal matches to those drawings or independently measured geometry errors.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Andreas, the school shore drawing, the 1849 flood and Peck’s retrospective painting leave tiny, hidden or uncalibrated features unresolved. Their original source/date/rights limits remain; unresolved details are not promoted into extra counts, geometry, historical camera positions or dated alterations.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_review": {
+    "reviewed_at": "2026-10-27T03:22:35Z",
+    "method": "Directly viewed the entire actual canonical source-picture/render comparison generated on 2026-10-27. No image, model or camera edits followed the capture.",
+    "scope": "One governing Castelnau camera plus documented review of all seven held compositions; conflicting drawings are qualified rather than claimed as literal matches. Final grouped app checks and actual code merge remain separate.",
+    "source_HEAD": "e5b9a0fbb145545c95079ccc7e7a3e08ffa050a5",
+    "side_by_side_sha256": "10a815f528673d190d6724eb7241885dc9cfe82203beb084fc9a74bb36e58a72",
+    "native_result": "exit 0; all four children reaped; canonical camera/photo/GLB hashes verified. Optional pre-runtime fingerprint failed before writing BEFORE receipt; post-capture renderer closure and pre-start mtimes are preserved externally. No complete before/after closure or current wholeproject proof claimed.",
+    "source_dates": "1842 publication; circa 1838 depicted harbour, continuity to July 1835 inferred. Failed 1831 tower and later pier light are distinct.",
+    "historical_viewing_station": false
+  }
+}

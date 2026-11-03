@@ -88,14 +88,24 @@ STOOP_REACH_M = 1.2        # low work this near the house is a stoop's, not a fe
 WALL_GAP_M = 0.12          # a plant's edge off the house's wall
 LOW_GAP_M = 0.25           # ... off a fence, a coping or a pier
 PAVED_GAP_M = 0.2          # ... off a walk
+# T-3164: a pictured tub plant is not searched for -- it stands where its pictures stand it -- and
+# where the same pictures also give the walk or drive beside it, the two readings are the only
+# word on the gap between them. Pullman's two boxed standards at 1800 Calumet fill the turf strip
+# between the drive and the walk in the 1894 plate and Lowe's print alike (masses read 1.5 and
+# 1.65 m wide in a strip the ground's rows make 1.6-1.85 m), so their crowns are held to the
+# paving's own edge: never over it beyond CHECK_SLACK_M, but not PAVED_GAP_M off it either, a
+# spacing the planter keeps for the plants it invents.
+PICTURED_PAVED_GAP_M = 0.0
 LOT_LINE_CLEAR_M = 0.85    # ... and off the street line (the boundary, its coping and gate)
 SIDE_LINE_CLEAR_M = 0.40   # ... or the side lot lines
 SIDE_REACH_M = 6.0         # a corner shrub stands no further back along a side wall than this
 MIN_YARD_M = 1.6           # a house nearer its lot line than this has no front yard to plant
 CHECK_SLACK_M = 0.12       # --check lets a rebake move a stoop or a wall this much under a plant
 GATE_BAND_M = 1.0          # a lot line's fence or wall is read this deep into the lot (T-1934)
+GATE_OUT_M = 0.5           # ... and this far out past the line, where a wall ON it stands (T-1934)
 GATE_MIN_M = 0.45          # ... and a gap in it this long to GATE_MAX_M is a gateway (on the raster)
 GATE_MAX_M = 6.0
+HEAD_LEAF_HANG_M = 0.15     # T-1881: an ivy patch over a window's head stands this far over it
 GATE_WAY_M = 3.5           # a gateway's way is kept clear this far into the lot
 
 # What the pictures show, lot by lot (see the module doc).
@@ -105,7 +115,50 @@ PICTURED = {
         "pictures": ["a16-pullman-det-4a08065", "a16-pullman-det-4a08066"],
         "creeper": {"faces": ["street"], "cover": 0.7, "height_m": [3.5, 7.5], "grade": "attested",
                     "note": "Ivy over the west front and the porch, to about the second storey's sills and "
-                            "past them on the porch's piers (both Detroit Publishing views)."},
+                            "past them on the porch's piers (both Detroit Publishing views); a solid mantle "
+                            "over the whole ground storey of the front south of the portico and of the 18th "
+                            "Street flank west of the porte-cochere, up to the balcony's belt course, "
+                            "and the porte-cochere's corner pier clothed to its entablature "
+                            "(LC-D4-12551)."},
+        # T-1881: the stretches a picture shows wholly clothed, each read through the Detroit print's
+        # solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json),
+        # which lays the lot's s/d metres on the print's x: the front's face (d 16.8) from s 25 at
+        # x 426 to the south-west corner at s 34.5, x 565 (the print's corner is at x 557-560), and
+        # the flank's west part (s 34.5) from the corner to the pavilion's west face at d 24.5, x 608.
+        # The print's leaves run unbroken from x 400 (the portico's south column) to x 608 and rise
+        # to y 387-395 under the balcony, which the camera reads as 6.6-7.0 m over the walk.
+        # Taylor's no. 1445, earlier, shows younger ivy on the same two stretches. `face` "street" is
+        # the front (`span_m` in s), "high_s" the side wall that faces the lot's high-s line, 18th
+        # Street here (`span_m` in d). Every cell of a stretch is planted (no `cover` roll).
+        # T-1881 (the owner, 2026-11-02, of the south-west corner: "pull back on the vine ... you
+        # can have some but it covers the windows"): an OWNER RULING over the print's full mantle.
+        # Both stretches keep their ground-storey lights clear by 0.4 m a side (`margin_m`), the
+        # flank's as the front's, with leaves under the sills but none over the heads
+        # (`over_heads`), and the mantle stops at about the lights' heads (5.0-5.6 m), not the belt.
+        "creeper_walls": [
+            {"face": "street", "span_m": [25.0, 34.6], "height_m": [5.0, 5.6], "over_heads": False,
+             # the print's leaves stop at the principal storey's two round-arched lights (heads at
+             # y 411 and 418): the model's own, so the mantle keeps clear of them where they stand
+             "clear_windows": {"sidecar": "pullman_house_1729_prairie", "storey": 0, "face_u_m": 27.75,
+                               "margin_m": 0.4}},
+            # T-1881 round 3: to the 18th Street section's west face, now at d 24.0 (s 7.2 from the
+            # corner), so the stretch stays on the flank's own face and off the section's return
+            {"face": "high_s", "span_m": [16.6, 23.9], "height_m": [5.0, 5.6], "over_heads": False,
+             "clear_windows": {"sidecar": "pullman_house_1729_prairie", "attribute": "north_bays",
+                               "under_m": 4.6, "face_u_m": 27.75, "face_v_m": 17.93, "margin_m": 0.4}},
+        ],
+        # T-1881: the porte-cochere's corner pier, clothed from the ground to the entablature's
+        # soffit (6.85 m) in the Detroit print: its west face, seen square through the solved
+        # camera at x 645-668 (the west arch's outer jamb to the corner), and its south face,
+        # seen edge-on, the leaves turning the corner to the south arch's jamb at x 668 and
+        # reaching over that arch's ring. The inner pier (x 592-610) shows its banded courses
+        # bare, so it is left bare. Each patch stands on the rustication's face (0.05 m proud).
+        "creeper_piers": [
+            {"sidecar": "pullman_house_1729_prairie", "face": "low_end", "pier": "outer",
+             "proud_m": 0.05, "height_m": [6.55, 6.85]},
+            {"sidecar": "pullman_house_1729_prairie", "face": "front", "pier": "low",
+             "proud_m": 0.05, "height_m": [6.55, 6.85]},
+        ],
         # T-1934 (the owner, 2026-10-30: the carriage ways with "no plants blocking it"): the border
         # starts at the house's east wall (d 45.5), where the print shows it, not along the house's
         # flank, where it stood across the porte-cochere's carriage way; and it stops short of the
@@ -130,11 +183,19 @@ PICTURED = {
                          "stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball "
                          "on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, "
                          "which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and "
-                         "the slim column beside the drum that both pictures show, and the palm set out before "
+                         "the palm set out before "
                          "the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants "
                          "were wintered under glass and set out again each summer, and no picture nearer "
-                         "1904 shows the terrace.",
-                 "sources": ["inland_1894_pullman_palm_house_stable", "aic_taylor_16555_pullman_west_front"],
+                         "1904 shows the terrace. Four slim clipped columns are planted in the terrace "
+                         "itself, not tubbed (a pair before the wing's arched windows and two at the "
+                         "drum's west side): Taylor's winter photograph 16554 shows all four and his "
+                         "summer 16555 three of them (the fourth behind the house's porch), so they stood "
+                         "the year round. Behind the 18th Street coping before the stable, a row of sheared "
+                         "balls and cones, a clipped column and a dense mass at its east end, as Taylor's "
+                         "winter 16554 shows them over the coping; the earlier 16555 (1892-94) shows the "
+                         "taller of them there in leaf and the low balls not yet planted.",
+                 "sources": ["inland_1894_pullman_palm_house_stable", "aic_taylor_16555_pullman_west_front",
+                             "aic_taylor_16554_pullman_from_sw"],
                  "plants": [
                      {"plant": "globe", "e": 1472.4, "n": -3173.0, "on": "floor", "top_m": 3.24, "w": 1.13,
                       "tub_m": 0.5, "read": "plate x 845-925 px, y 763-838 px, a ball as tall as it is wide "
@@ -159,15 +220,85 @@ PICTURED = {
                       "plate x 727-782 px, its top at y 750 px and its tub's foot at y 895 px; 16555 x 500-523 px; "
                       "crossed at 4.1 m east of the drum's centre and 1.8 m off the wing (16555 reads its top "
                       "about 1.2 m higher: two pictures, within tolerance)"},
-                     {"plant": "arborvitae", "e": 1463.17, "n": -3169.79, "on": "floor", "top_m": 4.17, "w": 0.45,
-                      "tub_m": 0.5, "read": "the slim column on the terrace against the drum's west side, behind "
-                      "the balustrade (its tub hidden in both pictures): plate x 212-240 px, its top at y 697 px; "
-                      "16555 x 325-342 px; crossed at 4.4 m west of the drum's centre and 2.3 m off the wing"},
+                     # T-1934 (2026-10-31): Taylor's 16554, the winter print, shows this column on
+                     # the terrace too, so it is planted in the terrace, not set out in a tub: tub_m 0,
+                     # drawn in every Season. Its top stays the plate's reading.
+                     # T-1934 (2026-10-31, the columns' shape): this and the three below are the
+                     # `column` plant, not the yard's cone: 16554 prints all four as dense dark
+                     # shapes 10-14 px across from the balustrade's top to near their points,
+                     # where the cone, widest at its hidden foot, drew them 6-8 px.
+                     {"plant": "column", "e": 1463.17, "n": -3169.79, "on": "floor", "top_m": 4.17, "w": 0.45,
+                      "tub_m": 0.0, "read": "the slim column on the terrace against the drum's west side, behind "
+                      "the balustrade (its foot hidden in both pictures): plate x 212-240 px, its top at y 697 px; "
+                      "16555 x 322-332 px; crossed at 4.4 m west of the drum's centre and 2.3 m off the wing. "
+                      "Taylor's 16554 (bare trees: off-leaf season) shows it standing at x 647-657 px, its top at "
+                      "y 494 px; its ray crosses 16555's column 0.6 m from here, and reads its top 4.9 m, the "
+                      "plate's 4.17 m kept (the cameras' heights disagree by about 0.5 m at 80 m)"},
+                     # T-1934 (2026-10-31): the terrace's other clipped columns, each read in Taylor's
+                     # 16554 (winter) and fixed in plan by crossing its pixel column there with
+                     # 16555's (summer), the two cameras about 35 degrees apart; the first stands
+                     # behind the house's porch in 16555 and off the plate's left edge, so it is
+                     # stood the same 0.8 m off the wing as its fellow. Seen in both seasons, so
+                     # planted in the terrace, never wintered in.
+                     {"plant": "column", "e": 1457.33, "n": -3168.4, "on": "floor", "top_m": 4.79, "w": 0.85,
+                      "tub_m": 0.0, "read": "the west column of the pair before the wing's arched windows: 16554 "
+                      "x 588-600 px (0.85 m across at 83 m), its top at y 498 px; hidden in 16555 behind the house porch's pier "
+                      "(x 185-230 px) where this place renders (x 212); stood 0.8 m off the wing's face"},
+                     {"plant": "column", "e": 1458.91, "n": -3168.16, "on": "floor", "top_m": 4.77, "w": 1.0,
+                      "tub_m": 0.0, "read": "the east column of the pair before the wing's arched windows: 16554 "
+                      "x 607-621 px (1.0 m across at 84 m), its top at y 498 px; 16555 x 240-254 px, its top at y 557 px (5.3 m: "
+                      "16554's 4.8 m kept); crossed 8.7 m west of the drum's centre and 0.6 m off the wing"},
+                     {"plant": "column", "e": 1463.24, "n": -3168.4, "on": "floor", "top_m": 5.02, "w": 0.7,
+                      "tub_m": 0.0, "read": "the column behind the slim one, against the wing by the drum's west "
+                      "side: 16554 x 663-673 px, its top at y 493 px; 16555 x 332-342 px, the two columns "
+                      "standing one behind the other there; crossed 4.35 m west of the drum's centre and "
+                      "0.9 m off the wing"},
                      {"plant": "palm", "e": 1467.25, "n": -3172.47, "on": "floor", "top_m": 3.73, "w": 2.35,
                       "tub_m": 0.58, "read": "the palm in its tub on the terrace before the drum, in 16555 only: "
                       "x 393-443 px, its fronds' top at y 587 px and its tub's at y 617 px, read on the terrace's "
                       "front, 5.0 m before the drum's centre; the plate's elm trunk stands across that place and "
                       "nothing of it shows above the balustrade's east pier there"},
+                     # T-1934 (2026-10-31): the clipped evergreens behind the 18th Street coping before the
+                     # stable, as Taylor's winter 16554 shows them over the coping (x 727-1090 px), each one's
+                     # pixel column carried through 16554's solved camera to its line. The line: Taylor's summer
+                     # 16555 sees the middle cluster's mass (x 903-963 px) and the east mass (x 1050-1100) cross
+                     # 16554's columns about 4 m off the stable's front (n -3188 and -3187); the four west of
+                     # the corner bay's middle stand in the c. 1900 Detroit view's border line behind the coping
+                     # (n -3193.5), east of the court's carriage opening, which they keep clear. Each top is
+                     # read as its rise over the coping beside it in the print (the print's coping top at y 570),
+                     # put over the built 0.9 m coping: through 16554's camera the coping itself reads about
+                     # 0.55 m (the record's match notes this), and the absolute reading of each top is kept in
+                     # `read`. 16555, of 1892-94, shows the low balls' stretch (x 830-900) bare over the coping:
+                     # 16554 is the later picture, so they are taken as planted after it was made. In the
+                     # ground, never wintered in: tub_m 0, drawn in every Season.
+                     {"plant": "arborvitae", "e": 1478.3, "n": -3193.5, "on": "grade", "top_m": 1.73, "w": 0.53,
+                      "tub_m": 0.0, "read": "the cone behind the coping before the stable: 16554 x 727-738 px, its top at y 551 px, 19 px over the coping's top (about 1.1 m over the walk read absolutely through the camera); 52.9 m off, read on n -3193.5"},
+                     {"plant": "arborvitae", "e": 1479.16, "n": -3193.5, "on": "grade", "top_m": 1.54, "w": 0.45,
+                      "tub_m": 0.0, "read": "the cone behind the coping before the stable: 16554 x 747-754 px, its top at y 555 px, 15 px over the coping's top (about 0.93 m over the walk read absolutely through the camera); 52.5 m off, read on n -3193.5"},
+                     {"plant": "globe", "e": 1480.7, "n": -3193.5, "on": "grade", "top_m": 1.53, "w": 0.78,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 775-792 px, its top at y 555 px, 15 px over the coping's top (about 0.93 m over the walk read absolutely through the camera); 51.7 m off, read on n -3193.5"},
+                     {"plant": "globe", "e": 1481.5, "n": -3193.5, "on": "grade", "top_m": 1.53, "w": 0.82,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 792-810 px, its top at y 555 px, 15 px over the coping's top (about 0.94 m over the walk read absolutely through the camera); 51.3 m off, read on n -3193.5"},
+                     {"plant": "globe", "e": 1481.88, "n": -3188, "on": "grade", "top_m": 1.45, "w": 0.78,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 839-855 px, its top at y 557 px, 13 px over the coping's top (about 0.81 m over the walk read absolutely through the camera); 56.0 m off, read on n -3188"},
+                     {"plant": "globe", "e": 1482.99, "n": -3188, "on": "grade", "top_m": 1.53, "w": 0.76,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 862-878 px, its top at y 555 px, 15 px over the coping's top (about 0.91 m over the walk read absolutely through the camera); 55.5 m off, read on n -3188"},
+                     {"plant": "globe", "e": 1483.79, "n": -3188, "on": "grade", "top_m": 1.48, "w": 0.75,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 879-895 px, its top at y 556 px, 14 px over the coping's top (about 0.86 m over the walk read absolutely through the camera); 55.1 m off, read on n -3188"},
+                     {"plant": "globe", "e": 1484.72, "n": -3188, "on": "grade", "top_m": 1.52, "w": 1.02,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 896-918 px, its top at y 555 px, 15 px over the coping's top (about 0.91 m over the walk read absolutely through the camera); 54.6 m off, read on n -3188"},
+                     {"plant": "column", "e": 1485.54, "n": -3188, "on": "grade", "top_m": 2.16, "w": 0.45,
+                      "tub_m": 0.0, "read": "the column behind the coping before the stable: 16554 x 920-930 px, its top at y 541 px, 29 px over the coping's top (about 1.56 m over the walk read absolutely through the camera); 54.2 m off, read on n -3188"},
+                     {"plant": "arborvitae", "e": 1486.31, "n": -3188, "on": "grade", "top_m": 2.11, "w": 0.72,
+                      "tub_m": 0.0, "read": "the cone behind the coping before the stable: 16554 x 934-950 px, its top at y 542 px, 28 px over the coping's top (about 1.51 m over the walk read absolutely through the camera); 53.9 m off, read on n -3188"},
+                     {"plant": "arborvitae", "e": 1487.55, "n": -3188, "on": "grade", "top_m": 1.96, "w": 1.32,
+                      "tub_m": 0.0, "read": "the cone behind the coping before the stable: 16554 x 955-985 px, its top at y 545 px, 25 px over the coping's top (about 1.37 m over the walk read absolutely through the camera); 53.3 m off, read on n -3188"},
+                     {"plant": "globe", "e": 1489.97, "n": -3187, "on": "grade", "top_m": 2.21, "w": 1.02,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 1018-1042 px, its top at y 539 px, 31 px over the coping's top (about 1.64 m over the walk read absolutely through the camera); 53.0 m off, read on n -3187"},
+                     {"plant": "globe", "e": 1490.99, "n": -3187, "on": "grade", "top_m": 2.24, "w": 1.0,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 1042-1066 px, its top at y 538 px, 32 px over the coping's top (about 1.68 m over the walk read absolutely through the camera); 52.5 m off, read on n -3187"},
+                     {"plant": "globe", "e": 1491.98, "n": -3187, "on": "grade", "top_m": 2.14, "w": 0.99,
+                      "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 1066-1090 px, its top at y 540 px, 30 px over the coping's top (about 1.59 m over the walk read absolutely through the camera); 52.0 m off, read on n -3187"},
                  ]},
     },
     "prairie_1912": {
@@ -192,7 +323,7 @@ PICTURED = {
         "sources": ["inland_1894_pullman_conservatory", "aic_lowe_pullman_conservatory_c1897"],
         "pictures": ["a16-inland-1894-pullman-conservatory", "a16-aic-lowe-pullman-conservatory-c1897"],
         "tubs": {"grade": "inferred",
-                 "note": "Two clipped standards on clear stems, each in a square planting box with a dense "
+                 "note": "Two clipped standards on clear stems, each in a square planting box on legs with a dense "
                          "leafy mass spilling over it, in the lawn before the conservatory's front, and tall shrubs "
                          "along the far edge of the drive, as the 1894 Inland Architect plate and Lowe's "
                          "c. 1897 photograph show them in summer. Inferred for 1 July 1904: the pictures are "
@@ -202,24 +333,27 @@ PICTURED = {
                  # record's north range has its base wall, half a metre off it: not drawn)
                  "plants": [
                      {"plant": "standard", "e": 1472.48, "n": -3231.49, "on": "grade", "top_m": 2.9, "w": 1.0,
-                      "tub_m": 0.57, "read": "the near box, east of the conservatory's front: plate x 1152, the "
+                      "tub_m": 0.57, "vessel": "box", "read": "the near box, east of the conservatory's front: plate x 1152, the "
                       "mass's foot y 985 (35.0 m), the standard's crown y 813-865, 53 px wide; Lowe x 730, the "
                       "box's front leg y 617 (26.8 m), the box 0.58 m tall, the crown top y 478. The two "
                       "fits put the box 3.9 m apart along the line of sight; stood between them, its crown "
                       "top between the plate's 2.94 m and Lowe's 2.70 m"},
                      {"plant": "globe", "e": 1472.48, "n": -3231.49, "on": "grade", "top_m": 1.36, "w": 1.5,
-                      "tub_m": 0.0, "read": "the near box's mass: plate y 907 over its foot (1.36 m), 93 px "
+                      "tub_m": 0.45, "vessel": "over", "read": "the near box's mass: plate y 907 over its foot (1.36 m), 93 px "
                       "wide (1.63 m); Lowe 1.36 m, 1.33 m wide, white flowers in it. Drawn as the yard's "
                       "sheared ball, the one dense clipped form the yards grow: the plate shows a close, "
-                      "rounded mass down to the lawn, which an open hydrangea did not read as"},
+                      "rounded mass down to the lawn, which an open hydrangea did not read as. Lowe's print, "
+                      "three summers later and the nearer to 1904, shows the box under it: its face 50 px "
+                      "across (0.95 m), its panels from 0.1 m on pale corner legs to about 0.5 m, the mass "
+                      "sitting on the box and hanging over its rim (T-1881), so the mass stands from 0.45 m"},
                      {"plant": "standard", "e": 1472.55, "n": -3221.85, "on": "grade", "top_m": 3.05, "w": 1.07,
-                      "tub_m": 0.57, "read": "the box by the gate: plate x 1349, the mass's foot y 1031 "
+                      "tub_m": 0.57, "vessel": "box", "read": "the box by the gate: plate x 1349, the mass's foot y 1031 "
                       "(24.0 m), the crown y 763-840, 83 px wide; Lowe x 857, the box's leg y 653 (19.2 m), "
                       "the box 0.56 m tall, the crown top y 445. The fits agree on the box within 1.1 m; "
                       "its crown top between the plate's 3.19 m and Lowe's 2.89 m"},
                      {"plant": "globe", "e": 1472.55, "n": -3221.85, "on": "grade", "top_m": 1.44, "w": 1.65,
-                      "tub_m": 0.0, "read": "the gate box's mass: plate 1.44 m tall, 153 px wide (1.83 m); "
-                      "Lowe 1.43 m, 1.44 m wide"},
+                      "tub_m": 0.45, "vessel": "over", "read": "the gate box's mass: plate 1.44 m tall, 153 px wide (1.83 m); "
+                      "Lowe 1.43 m, 1.44 m wide, over its box as the near one is"},
                      {"plant": "lilac", "e": 1475.59, "n": -3260.67, "on": "grade", "top_m": 2.52, "w": 2.0,
                       "tub_m": 0.0, "read": "plate x 840, the shrubs' foot at the drive's far edge y 942 "
                       "(61.4 m), their tops y 860: the east half of the mass before the east range"},
@@ -248,6 +382,7 @@ PLANTS = {
     "hydrangea": {"name": "smooth hydrangea, in flower", "h": [0.9, 1.25], "w": [1.1, 1.5]},
     "rose": {"name": "garden rose, in flower", "h": [0.9, 1.3], "w": [0.8, 1.2]},
     "arborvitae": {"name": "American arborvitae, sheared to a cone", "h": [2.0, 3.2], "w": [0.9, 1.3]},
+    "column": {"name": "arborvitae clipped to a column", "h": [2.6, 3.8], "w": [0.45, 1.0]},
     "globe": {"name": "arborvitae sheared to a ball", "h": [0.8, 1.15], "w": [0.9, 1.25]},
     "standard": {"name": "evergreen clipped to a ball on a clear stem, in a tub", "h": [1.4, 2.6], "w": [1.1, 1.6]},
     "palm": {"name": "palm from the palm house, set out in its tub", "h": [1.4, 2.4], "w": [1.8, 2.6]},
@@ -321,6 +456,7 @@ class Plan:
         self.low = np.zeros((self.h, self.w), bool)
         self.paved = np.zeros((self.h, self.w), bool)
         self.floor = np.zeros((self.h, self.w))   # the highest level floor under LOW_TOP_M (a terrace's)
+        self.lots = np.zeros((self.h, self.w), bool)  # inside some parcel (outside: the street's)
         self.doors = []   # (e, n, structure id)
 
     def cells(self, en):
@@ -438,18 +574,27 @@ def inside(pe, pn, poly):
 
 # ---------------------------------------------------------------- one lot
 
-def gate_ways(s, d, width, fence, inlot):
+def gate_ways(s, d, width, fence, inlot, ours):
     """T-1934 (the owner, 2026-10-30, on Pullman's carriage ways: "no plants blocking it"): every
     gateway in a lot's fence or wall is kept clear. Along each of the lot's three street-side
     lines (the street line, d 0, and the side lines, s 0 and s = width) the fence, coping or pier
     raster is read in a band GATE_BAND_M deep; a run along the line with none of it, closed by
     fence at both ends and GATE_MIN_M to GATE_MAX_M long, is an opening, and a way as wide as it
-    is kept clear GATE_WAY_M into the lot. Returns the mask of those ways."""
+    is kept clear GATE_WAY_M into the lot. A wall built ON the line straddles it, and the half of it
+    outside it is still the lot's wall: so the band also reads GATE_OUT_M out past the line, over
+    the stretch of the line the lot itself spans, wherever that ground is no OTHER lot's (`ours`:
+    the street, or this lot's own polygon where it runs past the frame's straight line; a shared
+    side line's far side is the neighbour's yard, whose own work closes no gateway of this lot's).
+    T-1934: Pullman's 0.9 m coping along the stable's front stands just past the 18th Street line,
+    and with the c. 1900 wall's piers withdrawn nothing inside the band closed the court's carriage
+    mouth. Returns the mask of those ways."""
     out = np.zeros(s.shape, bool)
     for along, depth, lo in ((s, d, 0.0), (d, s, 0.0), (d, width - s, 0.0)):
-        band = inlot & (depth >= lo) & (depth <= GATE_BAND_M)
-        if not band.any():
+        inband = inlot & (depth >= lo) & (depth <= GATE_BAND_M)
+        if not inband.any():
             continue
+        span = (along >= along[inband].min()) & (along <= along[inband].max())
+        band = (inband | (ours & (depth >= lo - GATE_OUT_M) & (depth < lo))) & span
         a = np.round(along[band] / RES).astype(int)
         f = fence[band]
         if not f.any():
@@ -554,7 +699,7 @@ class Yard:
             self.doors.append((r2(ds), r2(dd), front_door))
         self.keep = keep
         edt = lambda m: ndimage.distance_transform_edt(~m) * RES if m.any() else np.full(m.shape, 99.0)
-        self.gate_way = gate_ways(s, d, width, fence, inlot)
+        self.gate_way = gate_ways(s, d, width, fence, inlot, inlot | ~plan.lots[r0:r1, c0:c1])
         self.terms = {
             "the house's wall": dh - WALL_GAP_M,
             "a stoop or its steps": edt(stoop) - STOOP_GAP_M,
@@ -585,15 +730,92 @@ class Yard:
         c = int((e - (self.pe[0, 0] - RES / 2)) / RES)
         return (r, c) if 0 <= r < self.room.shape[0] and 0 <= c < self.room.shape[1] else None
 
-    def why(self, rc, r):
-        """The rule a plant of half-width r at cell rc breaks, or None."""
+    def why(self, rc, r, pictured=False):
+        """The rule a plant of half-width r at cell rc breaks, or None. A pictured tub plant is held
+        to the paving's own edge, not PAVED_GAP_M off it (see PICTURED_PAVED_GAP_M)."""
         if not self.inlot[rc]:
             return "outside its lot"
         if self.H[rc]:
             return "inside the house"
-        near = [f"{name} ({max(0.0, t[rc]):.2f} m of room for {r:.2f})" for name, t in self.terms.items()
-                if t[rc] < r - CHECK_SLACK_M]
+        give = {"a walk": PAVED_GAP_M - PICTURED_PAVED_GAP_M} if pictured else {}
+        near = [f"{name} ({max(0.0, t[rc] + give.get(name, 0.0)):.2f} m of room for {r:.2f})"
+                for name, t in self.terms.items() if t[rc] + give.get(name, 0.0) < r - CHECK_SLACK_M]
         return f"too near {', '.join(near)}" if near else None
+
+
+def window_spans(y, cw):
+    """The s span, in the lot's frame, of each street-front window of one storey of a structure's
+    sidecar (its `street_front_windows`, s_m along the K01 frame's v), widened by `margin_m`, with
+    its sill's height and the height of its head's outer edge (the opening's top, plus its
+    architrave's band where it has one)."""
+    sc = json.loads((SIDECARS / f"{cw['sidecar']}.json").read_text())
+    pl = sc["placement"]
+    rd = math.radians(pl.get("rotation_deg") or 0.0)
+    cd, sd = math.cos(rd), math.sin(rd)
+    out = []
+    # T-1881 (the owner, 2026-11-02: the ivy at the south-west corner covers the windows): or the
+    # side wall's (`north_bays`, s_m from the street corner at face_u_m along the wall at
+    # face_v_m), its storey the ground storey's lights (sill under the principal floor's storey
+    # line, `under_m`), each span in the lot's d, the side wall's run
+    side = cw.get("attribute") == "north_bays"
+    wins = (sc["attributes"]["north_bays"]["value"] if side
+            else sc["attributes"]["street_front_windows"]["value"]["windows"])
+    for wnd in wins:
+        if (wnd["sill_m"] >= cw["under_m"]) if side else wnd["storey"] != cw["storey"]:
+            continue
+        half = wnd["width_m"] / 2 + cw["margin_m"]
+        ends = []
+        for v in (wnd["s_m"] - half, wnd["s_m"] + half):
+            # the K01 frame's (u, v) as lay_structure places a model's (x, -z)
+            u_, v_ = (cw["face_u_m"] - v, cw["face_v_m"]) if side else (cw["face_u_m"], v)
+            e = pl["local_e"] + u_ * cd + v_ * sd
+            n = pl["local_n"] - u_ * sd + v_ * cd
+            ax = y.nu if side else y.su
+            ends.append((e - y.A[0]) * ax[0] + (n - y.A[1]) * ax[1])
+        head = wnd["sill_m"] + wnd["height_m"] + (wnd.get("architrave") or {}).get("band_m", 0.0)
+        out.append((min(ends), max(ends), wnd["sill_m"], head))
+    return out
+
+
+def porte_pier_face(cp):
+    """One pier face of a K01 porte-cochere (generators/archetypes/k01_porte_cochere.py), read
+    off its structure's sidecar: the face's two ends at grade, world (e, n), stood `proud_m` out
+    of the wall's plane onto its dressing, and the face's outward compass bearing. `face` is one
+    of the block's three walls ("low_end", "front", "high_end"); `pier` the side of that face's
+    arch the pier stands on ("low"/"high" along the front's s, "inner"/"outer" on an end, from
+    the wall it stands against out to the block's corner). T-1881: Pullman's corner pier, which
+    the Detroit print shows clothed to the entablature, whose arch's places the planting can
+    therefore never drift from."""
+    sc = json.loads((SIDECARS / f"{cp['sidecar']}.json").read_text())
+    pl = sc["placement"]
+    pc = sc["attributes"]["porte_cochere"]["value"]
+    poly = sc["footprint"]["polygon"]
+    D, W = max(q[0] for q in poly), max(q[1] for q in poly)
+    rd = math.radians(pl.get("rotation_deg") or 0.0)
+    cd, sd = math.cos(rd), math.sin(rd)
+    (s0, s1), out, back = pc["s_m"], pc["out_m"], pc.get("back_m", 0.0)
+    north = pc["wall"] == "k01.wall.side.north"
+    # the generator's P(s, y, d): model x = D - s and z = -(W + d) on the north wall, z = d on the
+    # south; the K01 frame's (u, v) is the model's (x, -z), as lay_structure places it
+    uv = lambda s_, d_: (D - s_, W + d_ if north else -d_)
+    arch = next((a for a in pc["arches"] if a["face"] == cp["face"]), None)
+    pr = cp.get("proud_m", 0.0)
+    if cp["face"] == "front":
+        c = arch["centre_m"] if arch else None
+        a0, a1 = ((s0, c - arch["span_m"] / 2) if cp["pier"] == "low" else (c + arch["span_m"] / 2, s1)) \
+            if arch else (s0, s1)
+        ends = [uv(a, out + pr) for a in (a0, a1)]
+        normal = (0.0, 1.0 if north else -1.0)
+    else:
+        sw = s0 - pr if cp["face"] == "low_end" else s1 + pr
+        c = arch["centre_m"] if arch else None
+        a0, a1 = ((back, c - arch["span_m"] / 2) if cp["pier"] == "inner" else (c + arch["span_m"] / 2, out)) \
+            if arch else (back, out)
+        ends = [uv(sw, a) for a in (a0, a1)]
+        normal = (1.0 if cp["face"] == "low_end" else -1.0, 0.0)
+    world = lambda u, v: (pl["local_e"] + u * cd + v * sd, pl["local_n"] - u * sd + v * cd)
+    de, dn = normal[0] * cd + normal[1] * sd, -normal[0] * sd + normal[1] * cd
+    return [world(*q) for q in ends], math.degrees(math.atan2(de, dn)) % 360
 
 
 def plant_lot(p, plan: Plan, house, sids):
@@ -726,7 +948,12 @@ def plant_lot(p, plan: Plan, house, sids):
         for t in pic["tubs"]["plants"]:
             stand = r2(y.floor_at(t["e"], t["n"], plan)) if t["on"] == "floor" else 0.0
             h = r2(t["top_m"] - stand - t["tub_m"])
-            shrubs.append([t["e"], t["n"], t["plant"], h, t["w"], pic["tubs"]["grade"], stand, t["tub_m"]])
+            row = [t["e"], t["n"], t["plant"], h, t["w"], pic["tubs"]["grade"], stand, t["tub_m"]]
+            # T-1881: the vessel, where it is not the terrace's round tub: "box", a square planting
+            # box on legs, or "over", a plant grown over the box at its own spot, its foot tub_m up
+            if t.get("vessel"):
+                row.append(t["vessel"])
+            shrubs.append(row)
             taken.append((t["e"], t["n"], t["w"] / 2))
 
     # a pictured border (Pullman's along 18th Street), kept off the coping as every plant is
@@ -805,7 +1032,12 @@ def plant_lot(p, plan: Plan, house, sids):
         hugc = (y.inlot & ~H & (y.dh <= 0.3) & behind & ((d < front + 6.0) | (d < face_d + 0.6))
                 & (y.terms["a walk"] >= 0.0)
                 & (y.terms["a door or the way to it"] >= 0.0))
-        cand = list(np.flatnonzero(hugc))
+        walls = pic.get("creeper_walls", [])
+        in_walls = np.zeros(hugc.shape, bool)
+        for wl in walls:
+            if wl["face"] == "street":
+                in_walls |= (s >= wl["span_m"][0]) & (s <= wl["span_m"][1])
+        cand = list(np.flatnonzero(hugc & ~in_walls))
         rng.shuffle(cand)
         cand.sort(key=lambda i: s.flat[i])
         last = -9.0
@@ -822,6 +1054,85 @@ def plant_lot(p, plan: Plan, house, sids):
             e, n = y.world(i)
             creeper.append([e, n, r2(math.degrees(math.atan2(-y.nu[0], -y.nu[1])) % 360),
                             w, r2(rng.uniform(*cr["height_m"]))])
+        # the stretches a picture shows wholly clothed (T-1881): a patch every 0.9 m along the
+        # wall's foot, each wider than the step, so the leaves close into one mantle
+        for wl in walls:
+            lo, hi = wl["span_m"]
+            if wl["face"] == "street":
+                along, out_ = s, -y.nu
+                mask = hugc & (s >= lo) & (s <= hi)
+            else:   # the side wall facing the lot's high-s line: its cells have the house 0.5 m toward low s
+                along, out_ = d, y.su
+                beside = ndimage.shift(H.astype(np.uint8), (y.su[1] * sh, y.su[0] * sh), order=0, cval=0) > 0
+                # ...on the wall's outer face, not a jog nearer the front facing the same way
+                s_face = float(s[H & (d >= lo) & (d <= hi)].max())
+                mask = (y.inlot & ~H & (y.dh <= 0.3) & beside & (d >= lo) & (d <= hi) & (s >= s_face - 0.6)
+                        & (y.terms["a walk"] >= 0.0) & (y.terms["a door or the way to it"] >= 0.0))
+            idx = np.flatnonzero(mask)
+            if not len(idx):
+                continue
+            facing = r2(math.degrees(math.atan2(out_[0], out_[1])) % 360)
+            # the stretch less its windows, each run of wall clothed edge to edge: a patch every
+            # 0.9 m or less, none reaching past the run's ends
+            gaps = sorted(window_spans(y, wl["clear_windows"])) if "clear_windows" in wl else []
+            runs, a = [], max(lo, float(along.flat[idx].min()))
+            for g0, g1, _, _ in gaps:
+                if g0 > a:
+                    runs.append((a, min(g0, hi)))
+                a = max(a, g1)
+            runs.append((a, min(hi, float(along.flat[idx].max()))))
+            for a, b in runs:
+                if b - a < 0.4:
+                    continue
+                k = max(1, math.ceil((b - a) / 0.9))
+                step = (b - a) / k
+                for j in range(k):
+                    c = a + (j + 0.5) * step
+                    i = idx[np.argmin(np.abs(along.flat[idx] - c) + y.dh.flat[idx])]
+                    w = r2(min(rng.uniform(1.4, 1.9), 2 * min(c - a, b - c) + step * 0.3))
+                    if y.terms["a door or the way to it"].flat[i] < w / 2:
+                        continue
+                    e, n = y.world(i)
+                    creeper.append([e, n, facing, w, r2(rng.uniform(*wl["height_m"])), "mantle"])
+            # ...and under each window, the wall below its sill clothed up to the sill; and over its
+            # head, the wall from the head's outer edge up to the mantle's level top clothed as well
+            # (T-1881: LC-D4-12551 shows the leaves running unbroken over the light's head to the
+            # belt course, the moulded ring showing only as a lighter line under them). The patch
+            # over the head stands on the head (`base_m`, the entry's seventh field) and is drawn
+            # level at the stretch's middle height, with no rng draw, so every other patch keeps
+            # its own.
+            # its foot is lifted HEAD_LEAF_HANG_M, because the mat's lowest leaves hang about that far
+            # below the point they grow from and would otherwise lie over the light's arched glass.
+            top = sum(wl["height_m"]) / 2
+            for g0, g1, sill, head in gaps:
+                head += HEAD_LEAF_HANG_M
+                c = (g0 + g1) / 2
+                i = idx[np.argmin(np.abs(along.flat[idx] - c) + y.dh.flat[idx])]
+                if abs(along.flat[i] - c) > 0.5 or y.terms["a door or the way to it"].flat[i] < (g1 - g0) / 2:
+                    continue
+                e, n = y.world(i)
+                creeper.append([e, n, facing, r2(g1 - g0 + 0.2), r2(sill - 0.05), "mantle_sill"])
+                # as wide as the head's ring, but held to the door-way room at its foot like every patch
+                # (the collision check reads the foot's cell, whatever the patch's height)
+                wh = min(g1 - g0 + 0.8, 2 * float(y.terms["a door or the way to it"].flat[i]))
+                if top - head >= 0.3 and wh >= g1 - g0 and wl.get("over_heads", True):
+                    creeper.append([e, n, facing, r2(wh - 0.01), r2(top - head), "mantle_head", r2(head)])
+        # ...and the piers a picture shows wholly clothed (T-1881), placed off the model's own
+        # porte-cochere rather than the raster, whose filled plan runs past the arcade's open
+        # ends: the face's width in patches no wider than the mantle's, with an rng of their own
+        # so every other planting on the lot keeps its draw
+        prng = random.Random(seed_of(p["id"] + ":piers"))
+        for cp in pic.get("creeper_piers", []):
+            (ea, na), (eb, nb) = (ends := porte_pier_face(cp))[0]
+            facing = r2(ends[1])
+            L = math.hypot(eb - ea, nb - na)
+            k = max(1, math.ceil(L / 0.9))
+            step = L / k
+            for j in range(k):
+                t = (j + 0.5) / k
+                w = r2(min(prng.uniform(1.4, 1.9), step * 1.3))
+                creeper.append([r2(ea + (eb - ea) * t), r2(na + (nb - na) * t), facing, w,
+                                r2(prng.uniform(*cp["height_m"])), "mantle"])
 
     out = {
         "parcel": p["id"], "street": p["street"], "side": p.get("side"),
@@ -860,6 +1171,8 @@ def lay_district():
     e0, n0 = allp.min(axis=0) - 20
     e1, n1 = allp.max(axis=0) + 20
     plan = Plan(float(e0), float(n0), float(e1), float(n1))
+    for p in parcels:
+        plan.lay_polygon(plan.lots, p["polygon_local_m"])
     by_parcel: dict[str, set] = {}
     tracked = tracked_models()
     for f in sorted(SIDECARS.glob("*.json")):
@@ -918,8 +1231,10 @@ def build(laid=None):
                 "sidecars' baked models and the traced Sanborn footprints -- do not hand-edit; re-run the "
                 "tool. Local ENU metres of data/datum.json. shrubs and trees: [e, n, plant, height_m, "
                 "crown_width_m, (grade if not the lot's), (stand_m, tub_m: a tub plant's, what its tub stands on "
-                "over the ground and the tub's height)]; beds: [e, n, half_length_m, half_width_m, "
-                "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m]. The lawn is "
+                "over the ground and the tub's height, (vessel: \"box\", a square planting box on legs, or \"over\", grown over the box at its spot, its foot tub_m up)))]; beds: [e, n, half_length_m, half_width_m, "
+                "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m, (\"mantle\" on a "
+                "stretch a picture shows wholly clothed, \"mantle_sill\" under a window in it: its top drawn level, "
+                "\"mantle_head\" over a window's head in it, (base_m: how far over the ground it stands, on the head)))]. The lawn is "
                 "the ground's own sward.",
         "scene": "1904", "target_date": "1904-07-01", "ticket": "T-3223",
         "generated_by": "tools/plant_prairie_1904_front_yards.py",
@@ -928,7 +1243,8 @@ def build(laid=None):
         "placement": {
             "raster_m": RES, "door_radius_m": DOOR_RADIUS_M, "door_way_half_m": DOOR_WAY_M,
             "stoop_gap_m": STOOP_GAP_M, "wall_gap_m": WALL_GAP_M, "low_gap_m": LOW_GAP_M,
-            "paved_gap_m": PAVED_GAP_M, "lot_line_clear_m": LOT_LINE_CLEAR_M, "min_yard_m": MIN_YARD_M,
+            "paved_gap_m": PAVED_GAP_M, "pictured_paved_gap_m": PICTURED_PAVED_GAP_M,
+            "lot_line_clear_m": LOT_LINE_CLEAR_M, "min_yard_m": MIN_YARD_M,
             "schemes": dict(SCHEMES),
             "note": "Each plant's crown edge stands clear of the house's wall, every stoop and step, fence, "
                     "coping and walk, a 2 m disk round every door, and a 5.2 m way from each front door to "
@@ -966,10 +1282,11 @@ def collisions(data, laid) -> list[str]:
                 if abs(f - s[6]) > CHECK_SLACK_M:
                     out.append(f"{lot['parcel']}: {an(PLANTS[s[2]]['name'])} at {s[0]:.2f} E, {s[1]:.2f} N "
                                f"stands on a floor {s[6]:.2f} m up, and the models put one {f:.2f} m up there")
-        things = [(an(PLANTS[s[2]]["name"]), s[0], s[1], s[4] / 2) for s in lot["shrubs"]
+        # a tub row on the ground is a pictured plant, stood where its picture stands it
+        things = [(an(PLANTS[s[2]]["name"]), s[0], s[1], s[4] / 2, len(s) > 6) for s in lot["shrubs"]
                   if not (len(s) > 6 and s[6] > 0)] + \
-                 [(an(PLANTS[t[2]]["name"]), t[0], t[1], 0.4) for t in lot["trees"]] + \
-                 [("a bed", b[0], b[1], max(b[2], b[3])) for b in lot["beds"]]
+                 [(an(PLANTS[t[2]]["name"]), t[0], t[1], 0.4, False) for t in lot["trees"]] + \
+                 [("a bed", b[0], b[1], max(b[2], b[3]), False) for b in lot["beds"]]
         # ivy hugs the wall, so only a door and its way bound it: its whole width clear of them
         for c in lot["creeper"]:
             rc = y.at(c[0], c[1])
@@ -977,12 +1294,12 @@ def collisions(data, laid) -> list[str]:
                 out.append(f"{lot['parcel']}: ivy at {c[0]:.2f} E, {c[1]:.2f} N stands too near a door or "
                            f"the way to it ({max(0.0, y.terms['a door or the way to it'][rc]):.2f} m of room "
                            f"for {c[3] / 2:.2f})")
-        for name, e, n, r in things:
+        for name, e, n, r, pictured in things:
             rc = y.at(e, n)
             if rc is None:
                 out.append(f"{lot['parcel']}: {name} at {e:.2f} E, {n:.2f} N is outside the lot's window")
                 continue
-            why = y.why(rc, r)
+            why = y.why(rc, r, pictured)
             if why:
                 out.append(f"{lot['parcel']}: {name} at {e:.2f} E, {n:.2f} N stands {why}")
     return out
@@ -1040,6 +1357,13 @@ def self_test() -> int:
         l = next(x for x in d["lots"] if x["parcel"] == "prairie_1729")
         l["shrubs"].append([1475.3, -3194.2, "globe", 1.0, 1.0])
     case("a shrub in a gateway", in_gateway, "a gateway")
+
+    def tub_on_drive(d):
+        # T-3164: a pictured tub is held to the paving's own edge, so one set on the gravel is refused
+        l = next(x for x in d["lots"] if x["parcel"] == "calumet_1800")
+        for s_ in l["shrubs"][:2]:
+            s_[0] = r2(s_[0] - 2.0)
+    case("a pictured tub stood on the drive", tub_on_drive, "too near a walk")
     return 0 if ok else 1
 
 

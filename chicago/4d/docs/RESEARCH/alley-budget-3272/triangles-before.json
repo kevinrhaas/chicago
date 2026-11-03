@@ -1,0 +1,2145 @@
+{
+ "method": "published /1904/, 1280x800, full detail, framed as tools/qa_draft_t3008.mjs; each draw charged through renderBufferDirect to its first three ancestors, view and sun pass apart",
+ "stands": [
+  {
+   "name": "alley-from-north",
+   "total": 6055451,
+   "budget": {
+    "drawCalls": 7800,
+    "triangles": 4700000
+   },
+   "withinBudget": false,
+   "drawCalls": 8049,
+   "rows": [
+    {
+     "layer": "structures",
+     "depth": 1,
+     "view": 1960947,
+     "sun": 3206484,
+     "draws": 642,
+     "drawn": 5167431
+    },
+    {
+     "layer": "structures / structures:merged",
+     "depth": 2,
+     "view": 1960947,
+     "sun": 3206484,
+     "draws": 642,
+     "drawn": 5167431
+    },
+    {
+     "layer": "railway",
+     "depth": 1,
+     "view": 324958,
+     "sun": 27372,
+     "draws": 22,
+     "drawn": 352330
+    },
+    {
+     "layer": "context",
+     "depth": 1,
+     "view": 239116,
+     "sun": 0,
+     "draws": 5,
+     "drawn": 239116
+    },
+    {
+     "layer": "railway / railway-ballast-beds",
+     "depth": 2,
+     "view": 139122,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 139122
+    },
+    {
+     "layer": "street-trees",
+     "depth": 1,
+     "view": 99378,
+     "sun": 35450,
+     "draws": 8,
+     "drawn": 134828
+    },
+    {
+     "layer": "street-trees / street-treess-grown",
+     "depth": 2,
+     "view": 99378,
+     "sun": 35450,
+     "draws": 8,
+     "drawn": 134828
+    },
+    {
+     "layer": "context / context:gable-roofs",
+     "depth": 2,
+     "view": 85008,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 85008
+    },
+    {
+     "layer": "street-trees / street-treess-grown / street-trees-far-leaves",
+     "depth": 3,
+     "view": 61608,
+     "sun": 17034,
+     "draws": 2,
+     "drawn": 78642
+    },
+    {
+     "layer": "railway / railway-cinders",
+     "depth": 2,
+     "view": 62802,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 62802
+    },
+    {
+     "layer": "terrain",
+     "depth": 1,
+     "view": 59989,
+     "sun": 0,
+     "draws": 54,
+     "drawn": 59989
+    },
+    {
+     "layer": "context / context:flat",
+     "depth": 2,
+     "view": 59826,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 59826
+    },
+    {
+     "layer": "street-trees / street-treess-grown / street-trees-far-wood",
+     "depth": 3,
+     "view": 37770,
+     "sun": 13698,
+     "draws": 2,
+     "drawn": 51468
+    },
+    {
+     "layer": "street-grid",
+     "depth": 1,
+     "view": 40083,
+     "sun": 7510,
+     "draws": 19,
+     "drawn": 47593
+    },
+    {
+     "layer": "context / context:gable-ends",
+     "depth": 2,
+     "view": 42504,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 42504
+    },
+    {
+     "layer": "context / context:walls",
+     "depth": 2,
+     "view": 29800,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 29800
+    },
+    {
+     "layer": "front-yards",
+     "depth": 1,
+     "view": 8216,
+     "sun": 20136,
+     "draws": 9,
+     "drawn": 28352
+    },
+    {
+     "layer": "front-yards / front-yardss-grown",
+     "depth": 2,
+     "view": 6680,
+     "sun": 19920,
+     "draws": 6,
+     "drawn": 26600
+    },
+    {
+     "layer": "street-furniture",
+     "depth": 1,
+     "view": 17336,
+     "sun": 8464,
+     "draws": 19,
+     "drawn": 25800
+    },
+    {
+     "layer": "railway / railway-lake-face",
+     "depth": 2,
+     "view": 24915,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 24915
+    },
+    {
+     "layer": "railway / railway-made-ground",
+     "depth": 2,
+     "view": 23189,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 23189
+    },
+    {
+     "layer": "context / context:streets",
+     "depth": 2,
+     "view": 21978,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 21978
+    },
+    {
+     "layer": "railway / railway-verges",
+     "depth": 2,
+     "view": 17503,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 17503
+    },
+    {
+     "layer": "railway / railway-rails-z24",
+     "depth": 2,
+     "view": 0,
+     "sun": 16588,
+     "draws": 1,
+     "drawn": 16588
+    },
+    {
+     "layer": "front-yards / front-yardss-grown / front-yards-shade-wood",
+     "depth": 3,
+     "view": 0,
+     "sun": 14472,
+     "draws": 2,
+     "drawn": 14472
+    },
+    {
+     "layer": "street-furniture / street-furniture-lamp-iron-near",
+     "depth": 2,
+     "view": 6880,
+     "sun": 6880,
+     "draws": 2,
+     "drawn": 13760
+    },
+    {
+     "layer": "street-grid / street-grid-curb-face",
+     "depth": 2,
+     "view": 5694,
+     "sun": 5694,
+     "draws": 2,
+     "drawn": 11388
+    },
+    {
+     "layer": "railway / railway-rails-z23",
+     "depth": 2,
+     "view": 0,
+     "sun": 10400,
+     "draws": 1,
+     "drawn": 10400
+    },
+    {
+     "layer": "railway / railway-tufts-z26",
+     "depth": 2,
+     "view": 8452,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 8452
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t860",
+     "depth": 2,
+     "view": 7196,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 7196
+    },
+    {
+     "layer": "street-grid / street-grid-walk-portland_cement_walk",
+     "depth": 2,
+     "view": 7098,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 7098
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t903",
+     "depth": 2,
+     "view": 6497,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 6497
+    },
+    {
+     "layer": "railway / railway-tufts-z25",
+     "depth": 2,
+     "view": 6076,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 6076
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t902",
+     "depth": 2,
+     "view": 6057,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 6057
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__tthin",
+     "depth": 2,
+     "view": 5670,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 5670
+    },
+    {
+     "layer": "front-yards / front-yardss-grown / front-yards-shade-leaves",
+     "depth": 3,
+     "view": 0,
+     "sun": 5448,
+     "draws": 2,
+     "drawn": 5448
+    },
+    {
+     "layer": "railway / railway-ties-far-z27",
+     "depth": 2,
+     "view": 4790,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 4790
+    },
+    {
+     "layer": "railway / railway-ties-far-z29",
+     "depth": 2,
+     "view": 4788,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 4788
+    },
+    {
+     "layer": "railway / railway-ties-far-z30",
+     "depth": 2,
+     "view": 4788,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 4788
+    },
+    {
+     "layer": "railway / railway-ties-far-z28",
+     "depth": 2,
+     "view": 4784,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 4784
+    },
+    {
+     "layer": "railway / railway-ties-far-z26",
+     "depth": 2,
+     "view": 4774,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 4774
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1070",
+     "depth": 2,
+     "view": 4584,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 4584
+    },
+    {
+     "layer": "front-yards / front-yardss-grown / front-yards-far-leaves",
+     "depth": 3,
+     "view": 4582,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 4582
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1028",
+     "depth": 2,
+     "view": 4573,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 4573
+    },
+    {
+     "layer": "street-trees / street-treess-grown / street-trees-shade-leaves",
+     "depth": 3,
+     "view": 0,
+     "sun": 3852,
+     "draws": 2,
+     "drawn": 3852
+    },
+    {
+     "layer": "street-grid / street-grid-curb-sandstone_curbstone",
+     "depth": 2,
+     "view": 3818,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3818
+    },
+    {
+     "layer": "street-grid / street-grid-parkway-grass_plat",
+     "depth": 2,
+     "view": 3796,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3796
+    },
+    {
+     "layer": "street-furniture / street-furniture-lamp-glass-far",
+     "depth": 2,
+     "view": 3648,
+     "sun": 0,
+     "draws": 2,
+     "drawn": 3648
+    },
+    {
+     "layer": "street-grid / street-grid-carriage-posts",
+     "depth": 2,
+     "view": 1816,
+     "sun": 1816,
+     "draws": 2,
+     "drawn": 3632
+    },
+    {
+     "layer": "railway / railway-rails-far-z25",
+     "depth": 2,
+     "view": 3516,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3516
+    },
+    {
+     "layer": "street-furniture / street-furniture-lamp-iron-far",
+     "depth": 2,
+     "view": 3420,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3420
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t944",
+     "depth": 2,
+     "view": 3272,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3272
+    },
+    {
+     "layer": "railway / railway-rails-far-z27",
+     "depth": 2,
+     "view": 3072,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3072
+    },
+    {
+     "layer": "railway / railway-rails-far-z29",
+     "depth": 2,
+     "view": 3072,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3072
+    },
+    {
+     "layer": "railway / railway-rails-far-z30",
+     "depth": 2,
+     "view": 3048,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3048
+    },
+    {
+     "layer": "railway / railway-rails-far-z26",
+     "depth": 2,
+     "view": 3036,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3036
+    },
+    {
+     "layer": "railway / railway-rails-far-z28",
+     "depth": 2,
+     "view": 3036,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 3036
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-sheet_asphalt-p2",
+     "depth": 2,
+     "view": 2954,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2954
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-macadam-p1",
+     "depth": 2,
+     "view": 2902,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2902
+    },
+    {
+     "layer": "street-grid / street-grid-alley-earth_and_cinders",
+     "depth": 2,
+     "view": 2880,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2880
+    },
+    {
+     "layer": "terrain / terrain_base__e1871_postfire",
+     "depth": 2,
+     "view": 2458,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2458
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t986",
+     "depth": 2,
+     "view": 2378,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2378
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-macadam-p2",
+     "depth": 2,
+     "view": 2218,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2218
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1197",
+     "depth": 2,
+     "view": 2180,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2180
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-sheet_asphalt-p3",
+     "depth": 2,
+     "view": 2118,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2118
+    },
+    {
+     "layer": "front-yards / front-yardss-grown / front-yards-far-wood",
+     "depth": 3,
+     "view": 2098,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2098
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t861",
+     "depth": 2,
+     "view": 1844,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1844
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1239",
+     "depth": 2,
+     "view": 1666,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1666
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t901",
+     "depth": 2,
+     "view": 1534,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1534
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-sheet_asphalt-p1",
+     "depth": 2,
+     "view": 1472,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1472
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1113",
+     "depth": 2,
+     "view": 1456,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1456
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t945",
+     "depth": 2,
+     "view": 1421,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1421
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1155",
+     "depth": 2,
+     "view": 1335,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1335
+    },
+    {
+     "layer": "front-yards / front-yards-beds",
+     "depth": 2,
+     "view": 1320,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1320
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-macadam-p3",
+     "depth": 2,
+     "view": 1230,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1230
+    },
+    {
+     "layer": "street-furniture / street-furniture-pole-street-alley-glass-near",
+     "depth": 2,
+     "view": 576,
+     "sun": 576,
+     "draws": 2,
+     "drawn": 1152
+    },
+    {
+     "layer": "street-furniture / street-furniture-pole-street-alley-wood-near",
+     "depth": 2,
+     "view": 560,
+     "sun": 560,
+     "draws": 2,
+     "drawn": 1120
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t904",
+     "depth": 2,
+     "view": 1098,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1098
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1281",
+     "depth": 2,
+     "view": 1079,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1079
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-vitrified_brick-p2",
+     "depth": 2,
+     "view": 1068,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 1068
+    },
+    {
+     "layer": "street-furniture / street-furniture-lamp-tin-far",
+     "depth": 2,
+     "view": 912,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 912
+    },
+    {
+     "layer": "street-trees / street-treess-grown / street-trees-shade-wood",
+     "depth": 3,
+     "view": 0,
+     "sun": 866,
+     "draws": 2,
+     "drawn": 866
+    },
+    {
+     "layer": "street-furniture / street-furniture-lamp-tin-near",
+     "depth": 2,
+     "view": 384,
+     "sun": 384,
+     "draws": 2,
+     "drawn": 768
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1071",
+     "depth": 2,
+     "view": 720,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 720
+    },
+    {
+     "layer": "street-furniture / street-furniture-pole-street-alley-wood-far",
+     "depth": 2,
+     "view": 672,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 672
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1196",
+     "depth": 2,
+     "view": 662,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 662
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1112",
+     "depth": 2,
+     "view": 625,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 625
+    },
+    {
+     "layer": "railway / railway-cap",
+     "depth": 2,
+     "view": 195,
+     "sun": 384,
+     "draws": 2,
+     "drawn": 579
+    },
+    {
+     "layer": "street-grid / street-grid-walk-portland_cement_walk-p1",
+     "depth": 2,
+     "view": 530,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 530
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t859",
+     "depth": 2,
+     "view": 523,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 523
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t985",
+     "depth": 2,
+     "view": 512,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 512
+    },
+    {
+     "layer": "front-yards / front-yards-tubs",
+     "depth": 2,
+     "view": 216,
+     "sun": 216,
+     "draws": 2,
+     "drawn": 432
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1154",
+     "depth": 2,
+     "view": 316,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 316
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-macadam",
+     "depth": 2,
+     "view": 305,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 305
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t818",
+     "depth": 2,
+     "view": 227,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 227
+    },
+    {
+     "layer": "street-furniture / street-furniture-lamp-glass-near",
+     "depth": 2,
+     "view": 128,
+     "sun": 64,
+     "draws": 3,
+     "drawn": 192
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-sheet_asphalt",
+     "depth": 2,
+     "view": 172,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 172
+    },
+    {
+     "layer": "street-furniture / street-furniture-hydrant-far",
+     "depth": 2,
+     "view": 144,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 144
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t943",
+     "depth": 2,
+     "view": 62,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 62
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1323",
+     "depth": 2,
+     "view": 42,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 42
+    },
+    {
+     "layer": "sky",
+     "depth": 1,
+     "view": 12,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 12
+    },
+    {
+     "layer": "street-furniture / street-furniture-lamp-footing-far",
+     "depth": 2,
+     "view": 12,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 12
+    },
+    {
+     "layer": "street-grid / street-grid-carriageway-vitrified_brick",
+     "depth": 2,
+     "view": 12,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 12
+    },
+    {
+     "layer": "terrain / water__e1871_postfire",
+     "depth": 2,
+     "view": 2,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 2
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t946",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t987",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t988",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1027",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1029",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1030",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1072",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1114",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1115",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1156",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1157",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1198",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1199",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1240",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1241",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1242",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1282",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1284",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1283",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1324",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1325",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1326",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1366",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1367",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1368",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "terrain / terrain__e1871_postfire__t1369",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    },
+    {
+     "layer": "street-furniture / street-furniture-wires",
+     "depth": 2,
+     "view": 0,
+     "sun": 0,
+     "draws": 1,
+     "drawn": 0
+    }
+   ],
+   "structures": [
+    {
+     "id": "glessner_house",
+     "view": 570679,
+     "sun": 1417242,
+     "drawn": 1987921
+    },
+    {
+     "id": "pullman_house_1729_prairie",
+     "view": 168624,
+     "sun": 171653,
+     "drawn": 340277
+    },
+    {
+     "id": "kimball_house_1801_prairie",
+     "view": 143183,
+     "sun": 147166,
+     "drawn": 290349
+    },
+    {
+     "id": "hibbard_house_1701_prairie",
+     "view": 87532,
+     "sun": 87958,
+     "drawn": 175490
+    },
+    {
+     "id": "house_1828_prairie",
+     "view": 67345,
+     "sun": 86836,
+     "drawn": 154181
+    },
+    {
+     "id": "doane_house_1827_prairie",
+     "view": 34050,
+     "sun": 91299,
+     "drawn": 125349
+    },
+    {
+     "id": "ream_house_1901_prairie",
+     "view": 3270,
+     "sun": 117455,
+     "drawn": 120725
+    },
+    {
+     "id": "henderson_house_1816_prairie",
+     "view": 53664,
+     "sun": 63588,
+     "drawn": 117252
+    },
+    {
+     "id": "law_house_1620_prairie",
+     "view": 42800,
+     "sun": 53581,
+     "drawn": 96381
+    },
+    {
+     "id": "keith_house_1808_prairie",
+     "view": 22621,
+     "sun": 69672,
+     "drawn": 92293
+    },
+    {
+     "id": "marshall_field_house_1905_prairie",
+     "view": 0,
+     "sun": 79614,
+     "drawn": 79614
+    },
+    {
+     "id": "jones_house_1834_prairie",
+     "view": 37621,
+     "sun": 40082,
+     "drawn": 77703
+    },
+    {
+     "id": "kellogg_house_1709_prairie",
+     "view": 17574,
+     "sun": 59973,
+     "drawn": 77547
+    },
+    {
+     "id": "shortall_gregory_house_1638_prairie_front",
+     "view": 36989,
+     "sun": 39467,
+     "drawn": 76456
+    },
+    {
+     "id": "glessner_lee_house_1700_prairie",
+     "view": 36941,
+     "sun": 37360,
+     "drawn": 74301
+    },
+    {
+     "id": "george_glessner_house_1706_prairie",
+     "view": 36869,
+     "sun": 37282,
+     "drawn": 74151
+    },
+    {
+     "id": "dexter_house_1721_prairie",
+     "view": 23249,
+     "sun": 47754,
+     "drawn": 71003
+    },
+    {
+     "id": "coleman_ames_house_1811_prairie",
+     "view": 27062,
+     "sun": 43140,
+     "drawn": 70202
+    },
+    {
+     "id": "walker_house_1720_prairie",
+     "view": 29329,
+     "sun": 34573,
+     "drawn": 63902
+    },
+    {
+     "id": "dent_house_1823_prairie",
+     "view": 614,
+     "sun": 60744,
+     "drawn": 61358
+    },
+    {
+     "id": "edson_keith_house_1906_prairie",
+     "view": 60750,
+     "sun": 0,
+     "drawn": 60750
+    },
+    {
+     "id": "marsh_house_1824_prairie",
+     "view": 22212,
+     "sun": 36916,
+     "drawn": 59128
+    },
+    {
+     "id": "sears_meeker_house_1815_prairie",
+     "view": 21941,
+     "sun": 30059,
+     "drawn": 52000
+    },
+    {
+     "id": "house_1712_prairie",
+     "view": 25467,
+     "sun": 26062,
+     "drawn": 51529
+    },
+    {
+     "id": "house_1736_prairie",
+     "view": 24297,
+     "sun": 27206,
+     "drawn": 51503
+    },
+    {
+     "id": "house_1626_prairie",
+     "view": 22842,
+     "sun": 22974,
+     "drawn": 45816
+    },
+    {
+     "id": "house_1636_prairie",
+     "view": 19794,
+     "sun": 22962,
+     "drawn": 42756
+    },
+    {
+     "id": "house_1628_prairie",
+     "view": 21050,
+     "sun": 21184,
+     "drawn": 42234
+    },
+    {
+     "id": "house_1634_prairie",
+     "view": 15593,
+     "sun": 21362,
+     "drawn": 36955
+    },
+    {
+     "id": "wheeler_house_1812_prairie",
+     "view": 10809,
+     "sun": 25500,
+     "drawn": 36309
+    },
+    {
+     "id": "house_1630_prairie",
+     "view": 16486,
+     "sun": 17236,
+     "drawn": 33722
+    },
+    {
+     "id": "house_1730_prairie",
+     "view": 8498,
+     "sun": 23190,
+     "drawn": 31688
+    },
+    {
+     "id": "house_1708_prairie",
+     "view": 8388,
+     "sun": 19120,
+     "drawn": 27508
+    },
+    {
+     "id": "elbridge_keith_house_1900_prairie",
+     "view": 26901,
+     "sun": 0,
+     "drawn": 26901
+    },
+    {
+     "id": "house_1726_prairie",
+     "view": 540,
+     "sun": 22610,
+     "drawn": 23150
+    },
+    {
+     "id": "pullman_glasshouse_1800_calumet_pavilion",
+     "view": 1262,
+     "sun": 15091,
+     "drawn": 16353
+    },
+    {
+     "id": "pullman_house_1729_prairie_ranges",
+     "view": 7137,
+     "sun": 8461,
+     "drawn": 15598
+    },
+    {
+     "id": "pullman_house_1729_prairie_conservatory",
+     "view": 4154,
+     "sun": 5515,
+     "drawn": 9669
+    },
+    {
+     "id": "pullman_glasshouse_1800_calumet_north",
+     "view": 0,
+     "sun": 9450,
+     "drawn": 9450
+    },
+    {
+     "id": "house_213_e18th",
+     "view": 4412,
+     "sun": 4448,
+     "drawn": 8860
+    },
+    {
+     "id": "first_presbyterian_church_2029_indiana",
+     "view": 8288,
+     "sun": 0,
+     "drawn": 8288
+    },
+    {
+     "id": "house_1623_indiana",
+     "view": 3788,
+     "sun": 3788,
+     "drawn": 7576
+    },
+    {
+     "id": "house_1819_indiana",
+     "view": 3524,
+     "sun": 3524,
+     "drawn": 7048
+    },
+    {
+     "id": "house_1713_indiana",
+     "view": 2804,
+     "sun": 2816,
+     "drawn": 5620
+    },
+    {
+     "id": "house_1641_indiana",
+     "view": 2792,
+     "sun": 2804,
+     "drawn": 5596
+    },
+    {
+     "id": "house_1815_indiana",
+     "view": 2584,
+     "sun": 2584,
+     "drawn": 5168
+    },
+    {
+     "id": "house_1809_indiana",
+     "view": 2552,
+     "sun": 2564,
+     "drawn": 5116
+    },
+    {
+     "id": "house_1922_calumet",
+     "view": 4756,
+     "sun": 0,
+     "drawn": 4756
+    },
+    {
+     "id": "moulton_lowden_house_1912_prairie",
+     "view": 4400,
+     "sun": 0,
+     "drawn": 4400
+    },
+    {
+     "id": "sherman_house_2100_prairie",
+     "view": 4368,
+     "sun": 0,
+     "drawn": 4368
+    },
+    {
+     "id": "house_1727_indiana",
+     "view": 2114,
+     "sun": 2126,
+     "drawn": 4240
+    },
+    {
+     "id": "house_1637_indiana",
+     "view": 2104,
+     "sun": 2104,
+     "drawn": 4208
+    },
+    {
+     "id": "house_1703_indiana",
+     "view": 2048,
+     "sun": 2048,
+     "drawn": 4096
+    },
+    {
+     "id": "house_2026_prairie",
+     "view": 3876,
+     "sun": 0,
+     "drawn": 3876
+    },
+    {
+     "id": "house_1921_indiana",
+     "view": 3792,
+     "sun": 0,
+     "drawn": 3792
+    },
+    {
+     "id": "tucker_smith_house_2140_prairie",
+     "view": 3766,
+     "sun": 0,
+     "drawn": 3766
+    },
+    {
+     "id": "rothschild_house_2112_prairie",
+     "view": 3684,
+     "sun": 0,
+     "drawn": 3684
+    },
+    {
+     "id": "house_1703_indiana_coach_house",
+     "view": 1744,
+     "sun": 1744,
+     "drawn": 3488
+    },
+    {
+     "id": "house_1931_indiana",
+     "view": 3476,
+     "sun": 0,
+     "drawn": 3476
+    },
+    {
+     "id": "house_2115_indiana",
+     "view": 3392,
+     "sun": 0,
+     "drawn": 3392
+    },
+    {
+     "id": "house_1910_calumet",
+     "view": 3304,
+     "sun": 0,
+     "drawn": 3304
+    },
+    {
+     "id": "law_house_1620_prairie_coach_house",
+     "view": 1632,
+     "sun": 1632,
+     "drawn": 3264
+    },
+    {
+     "id": "house_2018_prairie",
+     "view": 3240,
+     "sun": 0,
+     "drawn": 3240
+    },
+    {
+     "id": "glessner_lee_house_1700_prairie_coach_house",
+     "view": 1592,
+     "sun": 1592,
+     "drawn": 3184
+    },
+    {
+     "id": "house_1736_prairie_coach_house",
+     "view": 1578,
+     "sun": 1594,
+     "drawn": 3172
+    },
+    {
+     "id": "house_1918_prairie",
+     "view": 3156,
+     "sun": 0,
+     "drawn": 3156
+    },
+    {
+     "id": "house_1735_indiana",
+     "view": 1484,
+     "sun": 1520,
+     "drawn": 3004
+    },
+    {
+     "id": "livery_2129_indiana",
+     "view": 2976,
+     "sun": 0,
+     "drawn": 2976
+    },
+    {
+     "id": "walker_house_1720_prairie_coach_house",
+     "view": 1436,
+     "sun": 1436,
+     "drawn": 2872
+    },
+    {
+     "id": "murdoch_house_2130_prairie",
+     "view": 2832,
+     "sun": 0,
+     "drawn": 2832
+    },
+    {
+     "id": "henderson_house_1816_prairie_coach_house",
+     "view": 1388,
+     "sun": 1388,
+     "drawn": 2776
+    },
+    {
+     "id": "buckingham_house_2036_prairie",
+     "view": 2636,
+     "sun": 0,
+     "drawn": 2636
+    },
+    {
+     "id": "marsh_house_1824_prairie_coach_house",
+     "view": 1304,
+     "sun": 1304,
+     "drawn": 2608
+    },
+    {
+     "id": "wheeler_house_1812_prairie_coach_house",
+     "view": 1270,
+     "sun": 1270,
+     "drawn": 2540
+    },
+    {
+     "id": "livery_2123_indiana",
+     "view": 2476,
+     "sun": 0,
+     "drawn": 2476
+    },
+    {
+     "id": "shortall_gregory_house_1638_prairie_coach_house",
+     "view": 1232,
+     "sun": 1232,
+     "drawn": 2464
+    },
+    {
+     "id": "house_2120_prairie",
+     "view": 2396,
+     "sun": 0,
+     "drawn": 2396
+    },
+    {
+     "id": "tucker_smith_house_2140_prairie_alley_building",
+     "view": 2372,
+     "sun": 0,
+     "drawn": 2372
+    },
+    {
+     "id": "house_1726_prairie_coach_house",
+     "view": 1184,
+     "sun": 1184,
+     "drawn": 2368
+    },
+    {
+     "id": "house_1839_indiana",
+     "view": 2324,
+     "sun": 0,
+     "drawn": 2324
+    },
+    {
+     "id": "house_1730_prairie_coach_house",
+     "view": 1100,
+     "sun": 1100,
+     "drawn": 2200
+    },
+    {
+     "id": "house_2000_prairie",
+     "view": 2096,
+     "sun": 0,
+     "drawn": 2096
+    },
+    {
+     "id": "house_1918_prairie_coach_house",
+     "view": 2072,
+     "sun": 0,
+     "drawn": 2072
+    },
+    {
+     "id": "sherman_house_2100_prairie_coach_house",
+     "view": 2048,
+     "sun": 0,
+     "drawn": 2048
+    },
+    {
+     "id": "pullman_lodge_1800_calumet",
+     "view": 0,
+     "sun": 2045,
+     "drawn": 2045
+    },
+    {
+     "id": "house_1713_indiana_coach_house",
+     "view": 1016,
+     "sun": 1016,
+     "drawn": 2032
+    },
+    {
+     "id": "house_1641_indiana_coach_house",
+     "view": 1016,
+     "sun": 1016,
+     "drawn": 2032
+    },
+    {
+     "id": "house_1623_indiana_coach_house",
+     "view": 1016,
+     "sun": 1016,
+     "drawn": 2032
+    },
+    {
+     "id": "house_2011_indiana",
+     "view": 1988,
+     "sun": 0,
+     "drawn": 1988
+    },
+    {
+     "id": "edson_keith_house_1906_prairie_coach_house",
+     "view": 1976,
+     "sun": 0,
+     "drawn": 1976
+    },
+    {
+     "id": "house_2019_indiana",
+     "view": 1928,
+     "sun": 0,
+     "drawn": 1928
+    },
+    {
+     "id": "house_2023_indiana",
+     "view": 1928,
+     "sun": 0,
+     "drawn": 1928
+    },
+    {
+     "id": "house_1813_indiana",
+     "view": 932,
+     "sun": 944,
+     "drawn": 1876
+    },
+    {
+     "id": "house_2119_indiana",
+     "view": 1844,
+     "sun": 0,
+     "drawn": 1844
+    },
+    {
+     "id": "house_1712_prairie_coach_house",
+     "view": 920,
+     "sun": 920,
+     "drawn": 1840
+    },
+    {
+     "id": "house_1619_indiana_coach_house",
+     "view": 920,
+     "sun": 920,
+     "drawn": 1840
+    },
+    {
+     "id": "house_213_e20th",
+     "view": 1824,
+     "sun": 0,
+     "drawn": 1824
+    },
+    {
+     "id": "goodman_house_1612_prairie_coach_house",
+     "view": 896,
+     "sun": 896,
+     "drawn": 1792
+    },
+    {
+     "id": "house_1825_indiana",
+     "view": 1788,
+     "sun": 0,
+     "drawn": 1788
+    },
+    {
+     "id": "rees_house_2110_prairie",
+     "view": 1736,
+     "sun": 0,
+     "drawn": 1736
+    },
+    {
+     "id": "house_1917_indiana",
+     "view": 1724,
+     "sun": 0,
+     "drawn": 1724
+    },
+    {
+     "id": "robbins_house_2126_prairie",
+     "view": 1680,
+     "sun": 0,
+     "drawn": 1680
+    },
+    {
+     "id": "house_1829_indiana",
+     "view": 1676,
+     "sun": 0,
+     "drawn": 1676
+    },
+    {
+     "id": "house_2010_prairie",
+     "view": 1676,
+     "sun": 0,
+     "drawn": 1676
+    },
+    {
+     "id": "house_1615_indiana_coach_house",
+     "view": 824,
+     "sun": 824,
+     "drawn": 1648
+    },
+    {
+     "id": "house_2107_indiana",
+     "view": 1592,
+     "sun": 0,
+     "drawn": 1592
+    },
+    {
+     "id": "house_1803_indiana",
+     "view": 768,
+     "sun": 780,
+     "drawn": 1548
+    },
+    {
+     "id": "jones_house_1834_prairie_coach_house",
+     "view": 1532,
+     "sun": 0,
+     "drawn": 1532
+    },
+    {
+     "id": "house_1909_indiana",
+     "view": 1424,
+     "sun": 0,
+     "drawn": 1424
+    },
+    {
+     "id": "house_2111_indiana",
+     "view": 1400,
+     "sun": 0,
+     "drawn": 1400
+    },
+    {
+     "id": "tucker_smith_house_2140_prairie_coach_house",
+     "view": 1400,
+     "sun": 0,
+     "drawn": 1400
+    },
+    {
+     "id": "sears_meeker_house_1815_prairie_coach_house",
+     "view": 128,
+     "sun": 1268,
+     "drawn": 1396
+    },
+    {
+     "id": "dexter_house_1721_prairie_coach_house",
+     "view": 656,
+     "sun": 656,
+     "drawn": 1312
+    },
+    {
+     "id": "house_2026_prairie_coach_house",
+     "view": 1304,
+     "sun": 0,
+     "drawn": 1304
+    },
+    {
+     "id": "house_1805_indiana",
+     "view": 600,
+     "sun": 672,
+     "drawn": 1272
+    },
+    {
+     "id": "house_1801_indiana",
+     "view": 600,
+     "sun": 672,
+     "drawn": 1272
+    },
+    {
+     "id": "house_1913_indiana",
+     "view": 1260,
+     "sun": 0,
+     "drawn": 1260
+    },
+    {
+     "id": "house_1837_indiana",
+     "view": 1252,
+     "sun": 0,
+     "drawn": 1252
+    },
+    {
+     "id": "house_2010_prairie_coach_house",
+     "view": 1208,
+     "sun": 0,
+     "drawn": 1208
+    },
+    {
+     "id": "house_1901_indiana",
+     "view": 1172,
+     "sun": 0,
+     "drawn": 1172
+    },
+    {
+     "id": "house_2021_indiana",
+     "view": 1172,
+     "sun": 0,
+     "drawn": 1172
+    },
+    {
+     "id": "mark_kimball_house_2108_prairie",
+     "view": 1152,
+     "sun": 0,
+     "drawn": 1152
+    },
+    {
+     "id": "coleman_ames_house_1811_prairie_coach_house",
+     "view": 0,
+     "sun": 1112,
+     "drawn": 1112
+    },
+    {
+     "id": "house_1829_indiana_coach_house",
+     "view": 1112,
+     "sun": 0,
+     "drawn": 1112
+    },
+    {
+     "id": "house_1828_prairie_coach_house",
+     "view": 1112,
+     "sun": 0,
+     "drawn": 1112
+    },
+    {
+     "id": "house_1921_indiana_coach_house",
+     "view": 1112,
+     "sun": 0,
+     "drawn": 1112
+    },
+    {
+     "id": "house_1815_indiana_coach_house",
+     "view": 536,
+     "sun": 536,
+     "drawn": 1072
+    },
+    {
+     "id": "house_1637_indiana_coach_house",
+     "view": 536,
+     "sun": 536,
+     "drawn": 1072
+    },
+    {
+     "id": "house_1626_prairie_coach_house",
+     "view": 536,
+     "sun": 536,
+     "drawn": 1072
+    },
+    {
+     "id": "house_1616_prairie_coach_house",
+     "view": 536,
+     "sun": 536,
+     "drawn": 1072
+    },
+    {
+     "id": "house_1931_indiana_rear_dwelling",
+     "view": 1016,
+     "sun": 0,
+     "drawn": 1016
+    },
+    {
+     "id": "house_2111_indiana_coach_house",
+     "view": 1016,
+     "sun": 0,
+     "drawn": 1016
+    },
+    {
+     "id": "robbins_house_2126_prairie_coach_house",
+     "view": 1016,
+     "sun": 0,
+     "drawn": 1016
+    },
+    {
+     "id": "buckingham_house_2036_prairie_coach_house",
+     "view": 992,
+     "sun": 0,
+     "drawn": 992
+    },
+    {
+     "id": "house_2009_indiana",
+     "view": 984,
+     "sun": 0,
+     "drawn": 984
+    },
+    {
+     "id": "house_1807_indiana",
+     "view": 276,
+     "sun": 672,
+     "drawn": 948
+    },
+    {
+     "id": "house_217_e20th",
+     "view": 934,
+     "sun": 0,
+     "drawn": 934
+    },
+    {
+     "id": "mark_kimball_house_2108_prairie_coach_house",
+     "view": 934,
+     "sun": 0,
+     "drawn": 934
+    },
+    {
+     "id": "moulton_lowden_house_1912_prairie_coach_house",
+     "view": 920,
+     "sun": 0,
+     "drawn": 920
+    },
+    {
+     "id": "house_2000_prairie_coach_house",
+     "view": 920,
+     "sun": 0,
+     "drawn": 920
+    },
+    {
+     "id": "murdoch_house_2130_prairie_coach_house",
+     "view": 920,
+     "sun": 0,
+     "drawn": 920
+    },
+    {
+     "id": "house_1915_indiana",
+     "view": 900,
+     "sun": 0,
+     "drawn": 900
+    },
+    {
+     "id": "house_2107_indiana_coach_house",
+     "view": 860,
+     "sun": 0,
+     "drawn": 860
+    },
+    {
+     "id": "rothschild_house_2112_prairie_coach_house",
+     "view": 824,
+     "sun": 0,
+     "drawn": 824
+    },
+    {
+     "id": "house_2120_prairie_coach_house",
+     "view": 800,
+     "sun": 0,
+     "drawn": 800
+    },
+    {
+     "id": "house_1833_indiana",
+     "view": 796,
+     "sun": 0,
+     "drawn": 796
+    },
+    {
+     "id": "house_2017_indiana",
+     "view": 776,
+     "sun": 0,
+     "drawn": 776
+    },
+    {
+     "id": "house_2027_indiana",
+     "view": 776,
+     "sun": 0,
+     "drawn": 776
+    },
+    {
+     "id": "house_2013_indiana",
+     "view": 752,
+     "sun": 0,
+     "drawn": 752
+    },
+    {
+     "id": "doane_house_1827_prairie_coach_house",
+     "view": 704,
+     "sun": 0,
+     "drawn": 704
+    },
+    {
+     "id": "house_1807_indiana_shed",
+     "view": 344,
+     "sun": 344,
+     "drawn": 688
+    },
+    {
+     "id": "house_1803_indiana_shed",
+     "view": 344,
+     "sun": 344,
+     "drawn": 688
+    },
+    {
+     "id": "house_215_e20th",
+     "view": 672,
+     "sun": 0,
+     "drawn": 672
+    },
+    {
+     "id": "house_1909_indiana_shed",
+     "view": 668,
+     "sun": 0,
+     "drawn": 668
+    },
+    {
+     "id": "house_2018_prairie_coach_house",
+     "view": 632,
+     "sun": 0,
+     "drawn": 632
+    },
+    {
+     "id": "house_2027_indiana_coach_house",
+     "view": 608,
+     "sun": 0,
+     "drawn": 608
+    },
+    {
+     "id": "house_1901_indiana_shed",
+     "view": 536,
+     "sun": 0,
+     "drawn": 536
+    },
+    {
+     "id": "house_2013_indiana_coach_house",
+     "view": 524,
+     "sun": 0,
+     "drawn": 524
+    },
+    {
+     "id": "house_1813_indiana_coach_house",
+     "view": 248,
+     "sun": 248,
+     "drawn": 496
+    },
+    {
+     "id": "house_1809_indiana_coach_house",
+     "view": 248,
+     "sun": 248,
+     "drawn": 496
+    },
+    {
+     "id": "first_presbyterian_church_2029_indiana_dwelling",
+     "view": 488,
+     "sun": 0,
+     "drawn": 488
+    },
+    {
+     "id": "elbridge_keith_house_1900_prairie_coach_house",
+     "view": 476,
+     "sun": 0,
+     "drawn": 476
+    },
+    {
+     "id": "house_1628_prairie_coach_house",
+     "view": 200,
+     "sun": 248,
+     "drawn": 448
+    },
+    {
+     "id": "house_2023_indiana_coach_house",
+     "view": 428,
+     "sun": 0,
+     "drawn": 428
+    },
+    {
+     "id": "house_1630_prairie_coach_house",
+     "view": 188,
+     "sun": 188,
+     "drawn": 376
+    },
+    {
+     "id": "house_2007_indiana",
+     "view": 336,
+     "sun": 0,
+     "drawn": 336
+    },
+    {
+     "id": "house_1805_indiana_shed",
+     "view": 128,
+     "sun": 152,
+     "drawn": 280
+    },
+    {
+     "id": "house_1833_indiana_coach_house",
+     "view": 248,
+     "sun": 0,
+     "drawn": 248
+    },
+    {
+     "id": "house_2019_indiana_coach_house",
+     "view": 248,
+     "sun": 0,
+     "drawn": 248
+    },
+    {
+     "id": "house_2021_indiana_coach_house",
+     "view": 248,
+     "sun": 0,
+     "drawn": 248
+    },
+    {
+     "id": "shed_1834_1900_prairie",
+     "view": 236,
+     "sun": 0,
+     "drawn": 236
+    },
+    {
+     "id": "house_1821_indiana",
+     "view": 228,
+     "sun": 0,
+     "drawn": 228
+    },
+    {
+     "id": "house_1913_indiana_shed",
+     "view": 140,
+     "sun": 0,
+     "drawn": 140
+    },
+    {
+     "id": "house_1928_calumet",
+     "view": 140,
+     "sun": 0,
+     "drawn": 140
+    },
+    {
+     "id": "house_2009_indiana_rear_dwelling",
+     "view": 140,
+     "sun": 0,
+     "drawn": 140
+    },
+    {
+     "id": "first_presbyterian_church_2029_indiana_stable",
+     "view": 92,
+     "sun": 0,
+     "drawn": 92
+    },
+    {
+     "id": "house_1900_calumet_coach_house",
+     "view": 66,
+     "sun": 0,
+     "drawn": 66
+    },
+    {
+     "id": "house_2011_indiana_coach_house",
+     "view": 20,
+     "sun": 0,
+     "drawn": 20
+    },
+    {
+     "id": "house_2017_indiana_coach_house",
+     "view": 20,
+     "sun": 0,
+     "drawn": 20
+    }
+   ],
+   "structureTrianglesUnmatched": 0,
+   "pixels": null,
+   "focus": null
+  }
+ ],
+ "errors": []
+}

@@ -141,7 +141,8 @@ def main() -> int:
     check(past > 0.75 * want, f"its front is walled past the host ({past:.1f} m2 of about {want:.1f} less its lights)")
     check(behind == 0.0, f"and nothing along the host, which is the host's wall ({behind:.2f} m2)")
     slate = a.prims["wing_slate"]
-    eave = [q for q in slate.pos if q[0] > u1 + 0.1 and -q[2] > 6.5]
+    # T-1890: r2's eave is pulled in to 0.05 m so its box stays behind the frontispieces' faces
+    eave = [q for q in slate.pos if q[0] > u1 + 0.02 and -q[2] > 6.5]
     check(bool(eave), f"its slate runs past its front where it runs past the host ({len(eave)} vertices)")
     cut = [q for q in slate.pos if u1 + 0.1 < q[0] < r3["rect"][0] - 0.1 and -q[2] < 5.9 and q[1] < 13.0]
     check(not cut, f"and is cut off at its front along the host ({len(cut)} vertices past it)")

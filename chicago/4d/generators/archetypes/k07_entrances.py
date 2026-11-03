@@ -460,17 +460,21 @@ class Entrance(Opening):
 
     # the stairs -----------------------------------------------------------------
     def _flight(self, sa, sb, y0, out0, n, r, g, sign, ends, end_role="stair_end", tread_role="tread",
-                riser_role="riser", end_floor=None, sb_at=None, sa_at=None):
+                riser_role="riser", end_floor=None, sb_at=None, sa_at=None, landing=None):
         """n risers from y0, the first at out0, each `g` further out; sign -1 descends
         (a stoop, risers facing the street), +1 climbs (an area stair, facing the door).
         T-3134: `sb_at(out)`, where a flared cheek carries the flight's right-hand end out
         as it descends, is that end's s at each riser's and nosing's line; T-3144: `sa_at`
-        the left-hand end's, where that cheek is carried out or drawn in."""
+        the left-hand end's, where that cheek is carried out or drawn in. T-1881: `landing`
+        (m, extra), a landing after riser m: that tread runs `extra` deeper than the rest, and
+        every riser below it stands that much further out (1729's, the Detroit print)."""
         rn = (0.0, 0.0, 1.0 if sign < 0 else -1.0)
+        lm, lx = landing or (n, 0.0)
         at = sb_at or (lambda o: sb)
         at_a = sa_at or (lambda o: sa)
         for k in range(1, n + 1):
-            a = out0 + (k - 1) * g
+            a = out0 + (k - 1) * g + (lx if k > lm else 0.0)
+            gk = g + (lx if k == lm else 0.0)
             ya, yb = y0 + sign * (k - 1) * r, y0 + sign * k * r
             lo, hi = min(ya, yb), max(ya, yb)
             ba = at(a)
@@ -481,19 +485,19 @@ class Entrance(Opening):
             yt = yb
             # T-3134: under a flared cheek the tread's end follows the cheek's inner face, kink by kink
             nodes = set(getattr(at, "nodes", ())) | set(getattr(at_a, "nodes", ()))
-            kinks = sorted(o for o in nodes if a + 1e-9 < o < a + g - 1e-9)
-            for oa, ob in zip([a] + kinks, kinks + [a + g]):
+            kinks = sorted(o for o in nodes if a + 1e-9 < o < a + gk - 1e-9)
+            for oa, ob in zip([a] + kinks, kinks + [a + gk]):
                 self.quad(tread_role, [(at_a(oa), yt, oa), (at(oa), yt, oa), (at(ob), yt, ob), (at_a(ob), yt, ob)], Y)
-            self.probe((sa + sb) / 2, yt, a + g / 2, (tread_role,), f"tread {k}")
+            self.probe((sa + sb) / 2, yt, a + gk / 2, (tread_role,), f"tread {k}")
             if ends:
                 for x, hx in ((sa, -1.0), (sb, 1.0)):
-                    self.quad(end_role, [(x, end_floor, a), (x, end_floor, a + g), (x, yt, a + g), (x, yt, a)],
+                    self.quad(end_role, [(x, end_floor, a), (x, end_floor, a + gk), (x, yt, a + gk), (x, yt, a)],
                               (hx, 0.0, 0.0))
             ym = (end_floor + yt) / 2 if end_floor is not None else yt / 2
-            for x in (at_a(a + g / 2), at(a + g / 2)):
-                self.probe(x, ym, a + g / 2, (end_role,) if ends else ("cheek", "area_wall"),
+            for x in (at_a(a + gk / 2), at(a + gk / 2)):
+                self.probe(x, ym, a + gk / 2, (end_role,) if ends else ("cheek", "area_wall"),
                            f"the end of step {k}")
-        return out0 + (n - 1) * g
+        return out0 + (n - 1) * g + (lx if n > lm else 0.0)
 
     @staticmethod
     def _flares(sw):
@@ -537,6 +541,23 @@ class Entrance(Opening):
         n, r = risers(R, p["stair"])
         g, L, half = st["going_m"], st["landing_m"], st["width_m"] / 2
         cheeks = st.get("cheeks", False)
+        # T-1881: a landing part way down the flight (1729's, the Detroit print: a short flight
+        # from the walk to a landing, and a second from it to the portico's floor), `after_risers`
+        # down from the floor and `depth_m` deep; the cheeks and their balustrade run level along it
+        ml = st.get("mid_landing")
+        landing = None
+        if ml:
+            m_, dm = int(ml["after_risers"]), float(ml["depth_m"])
+            if not 2 <= m_ <= n - 2 or not g + 0.3 <= dm <= 3.0:
+                raise ValueError(f"a stoop's mid landing stands 2..{n - 2} risers down and {g + 0.3:.2f}-3.0 m deep, "
+                                 f"not after {m_} and {dm} m")
+            if st.get("cheek_form") or st.get("veranda") or any(q.get("out_m", L) > L for q in (st.get("porch") if isinstance(st.get("porch"), list) else [st["porch"]] if st.get("porch") else [])):
+                raise ValueError("a mid landing is laid on a plain cheeked stoop: no swept or scrolled cheek, "
+                                 "veranda or deep terrace")
+            landing = (m_, dm - g)
+        # the cheek's top over the nosings as a function of out: level beside the landing, raked
+        # down the flight and level along a mid landing
+        rake = self._rake(L, n, r, g, landing)
         # T-2463: the stoop's axis, `axis_s_m` along the wall from the door's centre (1620's
         # door stands at the south end of a landing that runs on north into its porch)
         c = st.get("axis_s_m", 0.0)
@@ -572,9 +593,11 @@ class Entrance(Opening):
         if swept and 2 * half + sum(f["out_m"] for f in self._flares(sw).values()) < 0.6:
             raise ValueError("a swept stoop's cheeks are drawn in to leave less than 0.6 m of tread at its foot")
         F = self._flight(c - half, c + half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R,
-                         sb_at=ends.get("right"), sa_at=ends.get("left"))
+                         sb_at=ends.get("right"), sa_at=ends.get("left"), landing=landing)
         self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "foot_out_m": round(F, 4),
-                              **({"axis_s_m": round(c, 4)} if c else {})}
+                              **({"axis_s_m": round(c, 4)} if c else {}),
+                              **({"mid_landing": {"after_risers": landing[0], "depth_m": round(landing[1] + g, 4)}}
+                                 if landing else {})}
         if cheeks:
             ch = p["cheek"]
             t, hc = ch["thickness_m"], ch["above_nosing_m"]
@@ -625,19 +648,33 @@ class Entrance(Opening):
                     for pt in (top, foot):
                         self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
                     continue
-                prof = [(o0, -R), (F, -R), (F, yF), (L, hc)] + ([(0, hc)] if o0 == 0.0 else [])
-                self.quad("cheek", [(si, y, o) for o, y in prof], (-sgn, 0.0, 0.0))
-                self.quad("cheek", [(so, y, o) for o, y in prof], (sgn, 0.0, 0.0))
+                if landing is None:
+                    prof = [(o0, -R), (F, -R), (F, yF), (L, hc)] + ([(0, hc)] if o0 == 0.0 else [])
+                    self.quad("cheek", [(si, y, o) for o, y in prof], (-sgn, 0.0, 0.0))
+                    self.quad("cheek", [(so, y, o) for o, y in prof], (sgn, 0.0, 0.0))
+                else:
+                    # T-1881: its sides in one panel a stretch of its top (rake, level, rake), so
+                    # no face is concave
+                    if o0 == 0.0:
+                        for q_, k_ in ((si, -sgn), (so, sgn)):
+                            self.quad("cheek", [(q_, -R, 0), (q_, -R, L), (q_, hc, L), (q_, hc, 0)], (k_, 0.0, 0.0))
+                    for oa, ob in zip(rake.nodes, rake.nodes[1:]):
+                        for q_, k_ in ((si, -sgn), (so, sgn)):
+                            self.quad("cheek", [(q_, -R, oa), (q_, -R, ob), (q_, rake(ob), ob), (q_, rake(oa), oa)],
+                                      (k_, 0.0, 0.0))
                 if o0 == 0.0:
                     self.quad("cheek", [(si, hc, 0), (so, hc, 0), (so, hc, L), (si, hc, L)], Y)
                 else:   # its back end, under the terrace's front edge
                     self.quad("cheek", [(si, -R, L), (so, -R, L), (so, hc, L), (si, hc, L)], (0.0, 0.0, -1.0))
-                self.quad("cheek", [(si, hc, L), (so, hc, L), (so, yF, F), (si, yF, F)], (0.0, g, r))
+                for oa, ob in zip(rake.nodes, rake.nodes[1:]):
+                    ya_, yb_ = rake(oa), rake(ob)
+                    self.quad("cheek", [(si, ya_, oa), (so, ya_, oa), (so, yb_, ob), (si, yb_, ob)],
+                              (0.0, ob - oa, ya_ - yb_) if abs(ya_ - yb_) > 1e-9 else Y)
                 self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
                 mid = c + sgn * (half + t / 2)
                 # on the terrace's side the cheek starts at L, so its top socket stands on the rake
-                top = (mid, hc, L - 0.15) if o0 == 0.0 else (mid, hc - 0.15 * r / g, L + 0.15)
-                foot = (mid, hc - (F - 0.15 - L) * r / g, F - 0.15)
+                top = (mid, hc, L - 0.15) if o0 == 0.0 else (mid, rake(L + 0.15), L + 0.15)
+                foot = (mid, rake(F - 0.15) if landing else hc - (F - 0.15 - L) * r / g, F - 0.15)
                 self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top, foot]
                 for pt in (top, foot):
                     self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
@@ -647,7 +684,7 @@ class Entrance(Opening):
             deck = half + side * c       # the landing's edge, measured from the door away from the stoop
             self._terrace(q, side, deck + (p["cheek"]["thickness_m"] if cheeks else 0.0), deck, L, R)
         if st.get("balustrade"):
-            self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R, c)
+            self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R, c, rake)
         if st.get("veranda"):
             spans = [(c - half, c + half)] + [
                 (c + half, q["to_s_m"]) if side > 0 else (-q["to_s_m"], c - half)
@@ -1647,7 +1684,29 @@ class Entrance(Opening):
             out.append((a, b))
         return out
 
-    def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R, c=0.0):
+    def _rake(self, L, n, r, g, landing=None):
+        """T-1881: the cheek's top as a function of out, `above_nosing_m` over the nosings:
+        level to the landing's front (L), raked down the flight to its foot, and level along
+        a mid landing (`landing`, (m, extra)) from where the rake reaches its tread's height
+        to the next riser. `nodes` are its breaks, the foot last."""
+        hc = self.data["parts"]["cheek"]["above_nosing_m"]
+        m, x = landing or (n, 0.0)
+        ob = L + m * g                       # the rake meets the landing's height here
+        F = L + (n - 1) * g + (x if n > m else 0.0)
+
+        def at(o):
+            if o <= L:
+                return hc
+            if o <= ob or not landing:
+                return hc - (o - L) * r / g
+            if o <= ob + x:
+                return hc - m * r
+            return hc - m * r - (o - ob - x) * r / g
+        at.nodes = [L, ob, ob + x, F] if landing else [L, F]
+        at.F = F
+        return at
+
+    def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R, c=0.0, rake=None):
         """A turned balustrade on each cheek's top, level beside the landing and raked down
         the flight, its rail at the terrace's height over the landing (the cheek's top is
         `above_nosing_m` over the nosing, so the balusters are that much shorter); on the
@@ -1658,15 +1717,19 @@ class Entrance(Opening):
         H = B["height_m"] - hc
         yF = -(n - 1) * r + hc
         foot = F - nm
-        y_foot = hc + (yF - hc) * (foot - L) / (F - L)
+        rake = rake or self._rake(L, n, r, g)
+        # T-1881: newels where the rake breaks for a mid landing, the rail level between them
+        breaks = [o for o in rake.nodes[1:-1]]
         for sgn in (-1.0, 1.0):
             sc = c + sgn * (half + t / 2)
             if sgn in psides:   # from the terrace's corner newel (_terrace), down the rake
-                self._baluster_run(B, (sc, hc, L - nm - self.TERRACE_REVEAL_M), (sc, y_foot, foot), H,
-                                   skip_first=True)
+                stops = [(sc, hc, L - nm - self.TERRACE_REVEAL_M)]
             else:
                 self._baluster_run(B, (sc, hc, nm), (sc, hc, L), H)
-                self._baluster_run(B, (sc, hc, L), (sc, y_foot, foot), H, skip_first=True)
+                stops = [(sc, hc, L)]
+            stops += [(sc, rake(o), o) for o in breaks] + [(sc, rake(foot), foot)]
+            for a_, b_ in zip(stops, stops[1:]):
+                self._baluster_run(B, a_, b_, H, skip_first=True)
 
     def _baluster_run(self, B, a, b, H, skip_first=False):
         """Newels at a and b ((s, base y, out) on their centre lines), a rail between them

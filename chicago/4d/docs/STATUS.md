@@ -1,3 +1,21 @@
+## T-3262 — deferred verge buffers
+
+Unreached railway verge tufts retain their exact final Float32 transforms and colours in a smaller CPU cache. The existing reach installs their full buffers before drawing, while density changes retain the original counts. Unusual transforms or colours keep an exact fallback. The tie cache and the original mesh identities remain intact.
+
+The integrated Field scene measured 400.997 MiB against the unchanged 400 MiB phone limit before this revision. That failure is preserved; a fresh source check, phone measurement and published desktop/mobile validation must qualify this change on PR1486. It supports the four picture tickets on PR1456 and makes no new image-match claim.
+
+## T-3262 — exact deferred tie buffers
+
+Unreached railway ties retain final Float32 transform and colour records in a smaller CPU cache. Their original mesh identities remain reserved; entering the existing reach installs byte-identical instance buffers and refreshes any bounds cached while empty. Unusual matrix layouts keep the full representation. This changes no shader, geometry precision, draw reach, material or evidence grade.
+
+The earlier 400.199 MiB phone failure is preserved in checkpoint730. Fresh validation of this revision is recorded on PR1486; no GPU saving is inferred from the CPU cache accounting. The four original picture tickets remain on PR1456.
+
+## T-3262: phone renderer memory
+
+The railway yard uses compact bounded-precision normals and omits only an exact shared uniform fine/far evidence grade; mixed grades retain their vertex stream. Initial spatial batches release unused upload bookkeeping. Positions, materials, source evidence, picking and visibility remain covered by the existing contracts.
+
+This performance support change addresses the owner-reported phone memory problem and enables the four picture tickets in PR1456. The four original tickets remain on that PR; this change makes no model or picture-attribution claim. Validation results belong to the PR and its linked evidence checkpoint.
+
 ## T-3232 — each shared texture sheet ships once (2026-10-28)
 
 The published tree carried 92.8 MiB of duplicate KTX2 kit sheets, the same sheet embedded in
@@ -25327,6 +25345,106 @@ The first Tremont canonical picture and image gate pass. Actual published phone 
 Actual current integration qualification, 2026-10-29: incoming 2d2f native K01/K13 defaults and metadata checks pass; all 44 current binary data artifacts retain exact incoming bytes. The new current 1904 phone reading is 394.8 MiB against the unchanged 400 MiB ceiling. Earlier actual both-viewport target app reviews retain their dated c093 inputs, with exact model, camera, source and renderer-consumer bindings carried into this integration. Final code preflight and merge remain the next step at this dated source checkpoint.
 
 
+## T-2384 final high-sash unit — 2026-10-27
+
+The remaining visible mismatch is the vertical setout of the five pictured long-wall sash, not a camera/groundline pixel offset. Adopt the bounded reconstructed 1.40 m front sill (+0.45 m), preserving full sash dimensions, door, rear/gables, wall/roof/footprint and the original numeric diagnostic camera. The default-off control affects only chapel_side front windows. The selected pinned pilot, actual same-camera review, genuine 271 MASTER refresh/270 default controls, content-bound WEB production and final owning/app/code gates are pending; no image match or original-ticket closure is claimed by adoption. Complete landed upstreams are integrated before the final owning/native release gate.
+
+
+T-2384 production update (2026-10-27): the selected pinned master and actual unchanged-camera comparison clear the high-sash discrepancy under T3153. Genuine 271 MASTER production completed; all 270 other masters and all 270 other WEBs are byte-exact. The native content-based derivative rule rebuilt ONLY Mary's changed WEB, and all 271 master-to-WEB bindings are current; no new 271-WEB execution is claimed. The family master is byte-identical to the actually viewed selected-pilot master, preserving that current rendered comparison. The Moss view now records matches with no OPEN discrepancy and passes the native scoped image gate. The original ticket remains claimed, not DONE: the combined Miller/Mary/lighthouse batch must integrate complete landed C6/TremontGT/current dev, run owning native/app/full3 checks and merge before operational closing.
+
+
+### T-2373 — finite lighthouse picture review and credited harbour image (2026-10-27)
+
+The unchanged landed 8,021-triangle lighthouse now enrolls its governing Castelnau image as a diagnostic reference, with an inline credited card image through the native library/store path. The previously completed exact-current native comparison binds master ae855793 and source 6db98a8d; a separate one-view review found no independently established visitor-noticeable difference under T-3153. The actual Kellogg cross-angle diagnostic shows the existing lower aperture while preserving its broader/lower-aperture drawing disagreement. All seven held picture files are dispositioned explicitly, without seven invented historical cameras, a new hole, an invented alteration date or a rights upgrade.
+
+This is an authored enrollment checkpoint, not original-ticket completion. The newly linked canonical camera still needs its own native refresh after metadata adoption, and public image hosting, current published phone/desktop card review, latest completed-batch native closure and all required PR checks remain pending. No geometry, producer, footprint, height, material, confidence or placement changes are made.
+
+
+T-2373 reference hosting completed: [chicago-images PR #8](https://github.com/kevinrhaas/chicago-images/pull/8) merged normally as a77f05d0; Pages run 40439160225 succeeded. Both public display/thumbnail URLs returned HTTP 200 with exact native bytes (59,854 and 20,576 bytes). All 1,296 existing host rows and the six Sauganash/Moss/Gifford files stayed exact. Native in-memory library/card derivation also resolves one credited held picture and offers no historical From this spot. Actual published-browser and final current-batch code acceptance are still pending.
+
+
+T-2373 canonical capture, 2026-10-27: the actual new diagnostic-only/library-image camera was natively captured against unchanged master ae855793 and held photo 6db98a8d (exit 0, all four children reaped). The full new side-by-side was directly reviewed; its canonical match has no open differences and the native structure image gate passes. All seven source dispositions retain their picture-conflict, tiny-detail, date and rights limits. An optional runtime precheck used an absent node path; the raw limitation is preserved, native main-input hashes are verified, and no complete before/after closure is claimed. No geometry or API changed. Final grouped published reviews, native checks and code merge still precede original completion.
+
+
+### 2026-10-29 — originals T-2381, T-2373, T-2384 and T-2377
+
+The current combined source genuinely produced all82 log and all271 frame MASTER assets on Oct29, followed by only the changed Hogan WEB derivative (7.589s +21.929s +3.338s, all workers reaped). All352 other current master/WEB pairs stayed byte-identical, including the current Carpenter default and the earlier revised Miller/Mary models. Every353 current recipe and WEB-to-master binding passes. The unchanged derivatives are reused on exact current master and unchanged native derivative-script/pin inputs; this was not a second whole353-WEB execution.
+
+Miller's low log wing now stands beside the tall range with its own door/window and a lower relative roof rise. The final native82-log production (7.256s) and only changed Miller WEB (2.951s) passed, with all81 other log pairs and all271 frame pairs byte-identical and all353 current recipes/bindings fresh. The final2da830c0 master/b86193b4 diagnostic camera produced a genuine new comparison in3.124s. Direct lead, independent and expert review now matches under T-3153. Eight held files include copies and variants, not eight independent witnesses. Actual Hammon-versus-NYPL/1891 upper-window disagreement is within tolerance; no extra window move occurred. The low stack is cropped/unresolved, not an absence finding. The90m2 union, origin bookkeeping,25-degree core/38-degree main and other exact dimensions remain reconstructed/qualified. The original still needs this group's final app/preflight and merged PR.
+
+Hogan's actual current native render now has horizontal courses on the pictured +X gable and the projecting stack cap. The exact current model/camera/photo-bound expert review records nine T-3153 dispositions, with no independently supported additional visitor-noticeable architectural gap. Its native scoped image gate passes. Context, uncertain drawing perspective, hidden faces and the July1835/source-rights limits retain explicit qualifications. The raw new UNREVIEWED result and older six-gap record remain in the evidence checkpoint.
+
+St Mary's higher front sash and the lighthouse's qualified Castelnau comparison also pass their current scoped image gates. The governing lighthouse composition is one picture; tiny, hidden and contradictory depictions retain their seven-file review and source/date/rights limits, without seven invented cameras. Their original completion still requires this group's actual current app/preflight and merged PR.
+
+Image-host PR9 merged at65aead907a167abe911004c676d5f84416dc4e46; Pages40895796233 succeeded and all four new Miller/Hogan public files were strict-HTTPS200 and byte-hash verified. Their two records, four STORE rows, canonical camera library opt-ins and existing grade aliases are adopted entrywise, preserving every prior row and per-attribute grade. The cards will show one credited governing composition apiece without invented historical viewpoints. The previous Moss, Sauganash and Gifford hosting/source qualifications remain unchanged.
+
+All four current scoped native image gates pass (Miller, Hogan, Mary and lighthouse). At this source/physical-production checkpoint the group owning spatial/capacity/metadata closure, actual published app review, full preflight, code PR/merge and original ticket completion have not run. Existing successful source-owned proofs remain dated. No current whole-renderer matrix is inferred. No new photo follow-up tickets are filed.
+
+
+### Four original picture cases — final integration qualification, 2026-10-29
+
+Miller, Hogan, St Mary's and the lighthouse pass their scoped native image gates under T-3153. Actual published reviews passed at390x780/touch and1280x800: delivered WEB hashes, Normal/ByGrade for the three changed physical models, credited full-picture open/close, Sources/Liberties/Research and singular pictured grades. Miller's changed native sign/goods/woodpile rows and both exterior door approaches were also checked. The successful mobile leg and fresh desktop-only leg retain their actual7c5-plus-authored-source bindings; failed earlier external-harness/capture attempts are preserved. This is targeted consumer qualification, not a newly executed full renderer matrix or an FPS reading.
+
+Current incoming2cb3 is integrated entrywise. All353 recipes remain fresh, all706 physical model files preserve their genuine production bytes, all four complete sidecar objects/selected WEBs and relevant card/grade/liberty/entrance/prop consumers remain equal to the actual app inputs, and the native61-step owner tail reached a no-op after two laps. The package/published mirror passed. All44 binary data artifacts retain the incoming content, with serialization-only differences restored after raw native bytes were saved. The actual current1904 phone memory gate reads394.3MiB against the unchanged400MiB ceiling. Full source and PR-event checks are recorded separately with the PR.
+
+The remaining scope is transparently sized Miller M plus three S members after their earlier merged model work; the native ticket records carry that basis without relaxing any image acceptance. These results supersede earlier awaiting-production/app statements for this group while preserving those dated checkpoints as history. No original is marked DONE ahead of its qualified PR's actual merge, and no photo follow-up ticket is filed.
+
+
+### Four pictured buildings: current-dev gate repairs, 29 October 2026
+
+The first final source check genuinely failed nine of1104 steps; its raw log and unchanged-source/reaper guards are preserved in the evidence repository. The failed candidate is not a passed checkpoint. The ticket cache is now a real ignored directory (the complete original caches are preserved); an external invocation shim permits lazy fetching only for the gate's reviewed, self-contained local-file scratch fixture. Production Git retains lazy-fetch protection. Six newly authored form-note fields are declared for the name pool, the native placement owner now measures Miller's actual54.66m setback, and three false liberty coverage pointers were removed while their qualified explanatory prose remains.
+
+Miller's reconstructed ridge-stack head is0.460m above the roof, correcting the prior0.450m value to meet the documented eighteen-inch0.4572m minimum. Actual all82 log masters and selected Miller WEB were regenerated: all352 other log/frame MASTER+WEB pairs remain exact and all353 recipe/master bindings are fresh. An independently parsed native mesh proves that only12 chimney-top positions rise10.00023mm; all other positions, normals, indices, materials and nodes are exact. Exported UV arrays were repacked and are not claimed byte-identical. A fresh actual native picture comparison was directly inspected and accepted underT3153, with the prior source/date/camera limitations retained.
+
+The candidate now incorporates actual merged Walker1720/EdsonKeith1906 feature-and-fold pairs through dev623eccd8 using a normal fast-forward and entrywise registry unions, preserving an exact recoverable stash. Native liberty, scene and source-use rebuilds/checks, resident package-five and publishing passed; all44 tracked compressed/workbook outputs were compared with their full native content, retaining raw native bytes before restoring serialization-only differences. The earlier mobile/desktop four-case app results remain dated; fresh Miller-only app and current phone-memory checks are in progress. A newly frozen full source check, per-ticket commits, PR checks and merge are still required. No original ticket is marked done by this note.
+
+Actual repair verification: all nine previously failing source checks now pass individually, including dataset/schema/provenance/rights/staleness validation, stack ordinance, cache-dependent pins/isolation and name-pool declarations. Current623e published1904 mobile native memory is395.8MiB against the unchanged400MiB ceiling (80-second actual run; all children reaped). These are focused results, not a substitute claim for the pending new full source gate or fresh Miller viewport results.
+
+
+## Early picture models — T-2372, T-2375, T-2378, T-2382 (2026-10-30)
+
+The school, Dearborn bridge, Beaubien homestead and Carpenter annex use their retained native picture-reference models and camera comparisons. The school keeps its inferred identity and reconstructed dimensions; the bridge retains both retrospective drawing attributions and the owner’s separately documented Tribune credit; Beaubien retains the 1831/1835 transfer limits; Carpenter’s acceptance covers the annex alone. The source records and liberties carry those limits. Bridge deck sampling is shared by walkers and human figures, while existing navigation and People behavior are retained. Current publication and application validation are recorded with the grouped PR; the operational ticket states remain authoritative.
+
+
+### Four-picture integration repairs, 31 October 2026
+
+The first combined source gate failed seven of 1,109 steps; its raw evidence is retained. The repaired candidate keeps reconstructed dimensions and source uncertainty explicit, removes false liberty coverage claims, restores Beaubien’s original-source context warning, and records the bridge’s 16-foot footprint in the existing corridor baselines. Native owners have settled and the targeted source repairs pass.
+
+The bridge’s two existing approach crests now use a reconstructed six-metre half-width so the native 2.5-metre terrain grid supports the full widened deck. Both dependent terrain epochs and four terrain/water derivatives were genuinely regenerated. All 42 samples across both deck ends are within 0.062 m of the deck; the 1812 heightfield and river remain byte-identical. No shoreline, bearing, span, deck height, grade limit or step limit changed.
+
+Final combined source, published desktop/mobile, image-card and current phone-memory qualification are recorded with the grouped PR and its evidence; these intermediate repairs alone do not close the four original tickets.
+
+
+
+
+The combined source catalog now includes 531 sources after the two bridge-attribution records and fifteen canonical Blue Book records are integrated. Its unchanged compact schema occupies 216,567 raw bytes, 567 over the former 216,000-byte compiler ceiling. Read-only native pricing measured 49,928 bytes for the gzipped index and 57,337 bytes for the full first open including Sources JavaScript and CSS, below the unchanged 120,000-byte compressed allowance. The raw ceiling advances by the established 8,000-byte increment to 224,000 (+3.70%); citations, fields, counts, provenance edges and compression limits remain intact. The published measurement's stale 168,000-byte raw assertion is aligned to that same ceiling. This pricing is not a native gate or runtime PASS; actual regeneration and final checks follow the repair.
+
+
+### Bridge terrain consumers and concurrent integration, 31 October 2026
+
+The next combined source gate failed six of 1,110 steps. Its complete failed run is retained separately from the passing 398.985 MiB staged phone measurement. The post-Welcome renderer did produce frames, but the asynchronous screenshot request timed out; that attempt does not qualify desktop/mobile acceptance.
+
+The distant ground now caps a virtual transition centre at its original coarse surface, so stitching a refined crossing cannot create a new hill under an adjacent walk. The unchanged native check measures all 231 walks and 111,438 top triangles: no buried or missing faces, 47.90 mm minimum clearance against the existing 40 mm requirement, and the same 9,470 extra triangles within the existing 10,000 allocation. Heightfield data, deck geometry and physical walking heights are unchanged by this numerical mesh repair.
+
+Fresh sampling with the production heightfield confirmed all eight covered-wagon wheel contacts and both wheel-plane spans exactly match their previous values; only their two terrain qualification hashes were renewed. The documented approach fill changes the same South Water corridor band's measured dry share from 46.6% to 47.0% and increases reachable dry planting nodes by nine, to 1,580,650. Native writers re-bank those measurements; street controls, corridor offsets, source limits, vehicle stands and all acceptance thresholds remain unchanged.
+
+The candidate includes the intervening Kimball development merge through 5cb66944, preserving its model, source records and liberty. Final full-source and published functional frame, Images and approach qualification remain separate requirements before the grouped PR merges.
+
+
+## 2026-11-02 — Wolf Point picture-review increment (T-2386)
+
+Seven source-specific native drawing comparisons and their dated, credited source records are now installed for Wolf Point Tavern. The existing model, camera bytes and held originals are unchanged. The two inspection-only compositions retain their identification/rights limits. This is an incremental publication of the completed picture review; current published-card checks and source validation are recorded separately, and original T-2386 acceptance remains in progress.
+
+Integration with dev's Allerton sources prices the complete 547-source catalog at 224,556 raw bytes, 51,974 gzip bytes for the index and 59,383 gzip bytes for the first open including source JavaScript and CSS. The raw ceiling consciously increases from 224,000 to 228,000 bytes (+1.79%); the 120,000-byte compressed first-open ceiling and all citations, counts and source edges remain intact.
+
+
+### Sauganash exterior increment joined before merge (T-2383)
+
+This same PR also installs the qualified Sauganash entrance and four lower-front sash correction: MASTER a369598a and WEB 5f7d8a54. The other 24 frame-family MASTER/WEB files and foreign registry entries remain exact. Three genuine unchanged-camera Carpenter group captures refresh the hotel context; root directly reviewed all three and preserves the existing annex matches, without claiming whole-hotel signoff. Native Liberty, scene, entrances and source-use owners, only the drifting yard-goods owner, the doorway consumers, jaunts, model-town, dataset, Carpenter image gate and publication checks pass. Full final combined source parts and published app acceptance follow. Both original T-2383 and T-2386 remain in progress; this is the owner-requested incremental delivery, with no new photo follow-up tickets.
+
+
+### T-2793 incremental wagon delivery — 2026-11-02
+
 ### T-2793 — source-guided farm-box master in preparation (2026-10-26)
 
 A separately versioned wagon master now adapts the recovered licensed Old Cart geometry/UVs/maps instead of rebuilding a weaker flat surface. It has explicit metric/articulation controls, separately circular front/rear wheels, a neutralised front axle and reconstructed single pole with a real central bearing. The original source and Lyskilde/longtail CC BY4.0 credit remain intact. Native matched appearance, turn/contact clearances, portable LODs and current phone/world qualification are pending. Existing80 static wagons and the three fine-wood placement identities/selections are preserved; this does not close T-2793 or infer traffic, teams, drivers or riding.
@@ -25475,6 +25593,51 @@ T-2803/T-3088 remain open. The selected quiet15 runtime has fresh canonical sour
 
 
 T-2793 memory follow-up candidate (2026-10-29): railway upload release now also marks desktop static geometry, preserving profiles, materials, reaches and analytic picking. Public baseline 9e14c1388 passed current 1904 native memory caps; its desktop 1,184,409,779-byte estimate exceeded the historical 1125 MiB goal by 4,761,779 bytes. Candidate savings, current-source memory, rendered railway lifecycle/picking/context recovery, full preflight and all applicable published smoke remain unverified. No threshold changes or T-3173 completion; T-2793 photographic/world acceptance remains open.
+T-2793 follow-up: costly continuous flora motion within each pass's existing reach and yaw step uses the original immediate producer path, so horseback travel does not repeatedly abandon an unfinished jump. Native scheduler regression controls retain teleport/snap-turn, pending/carry ownership and synchronous buffer reads. The original frame ceilings and plant algorithms are unchanged. Larger-than-reach motion at low frame rates retains its existing limitation. Actual cold flight-to-travel performance and current CI remain required; this source change is not a performance PASS.
 
 
-T-2793 / T-3173 context-recovery correction (2026-10-29): the desktop railway upload-release candidate measured 1,156,132,447 bytes (1102.57 MiB), inside the original 1125 MiB goal, with the phone at 411,883,801 bytes (392.80 MiB), inside 400 MiB. Its native lifecycle nevertheless failed during graphics-context restoration. A separate actual default-Full desktop diagnostic reproduced a main-loop draw of a released null attribute between context restoration and ordinary reload (403.829 s NONPASS; the restored world and pick worked, but its pageerror was not waived). The main frame loop now stops on context loss and resumes only if retained upload resources permit recovery without a reload; the existing once-per-session reload cap and repeated-loss notice remain. This correction has not yet passed its fresh native context run, full preflight, mobile/far lifecycle or all applicable published smoke. Prior memory measurements and the earlier partial lifecycle do not qualify this changed source; photographic/world acceptance and T-3173 completion remain open.
+Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.
+
+
+T-2803 / T-3088 visible standing clock correction (2026-10-30): the old near-world run remains NONPASS (5.636/12 native seconds); local source now gives only the cosmetic standing-horse idle visible wall time with activation/hold/visibility/context/reduced-motion rebases, keeps physics, planted helper, model and finite certificate unchanged, and leaves fresh desktop/phone world observation, full gates, photographic quality, gaits and occupied transport pending.
+
+
+## T-1790 — natural standing motion, current delivery work
+
+The owner reports Otis standing stiffly and the 1835 horse barely moving on DEV. Actual DEV source confirms Otis has only a 0.6-degree spine idle, while the horse's planted clip omits head/neck/tail motion. This branch addresses Otis first: an animation-only glTF derivative adds a modest head/neck look and breathing, and the native human update consumes the same elapsed interval as visitor movement rather than a 0.05-second visual-effects step. Original geometry, images, skinning, inverse binds, old clips and arm/lower-body channels remain exact. The parent's canonical run is not re-labelled as proof of this derivative.
+
+Source controls and actual native CPU qualification are in progress. The seven-target prototype's original signed-nearest-face garment failure is retained; actual ray witnesses exposed inherited inside vertices and a nearest-face sign switch. The conservative three-target version keeps original arm/elbow curves. The revised observer compares native original-idle envelopes and uses agreeing BODY ray parities for potential changes, with injected penetration/drift controls. Its finite vertex scope is not continuous tailoring or photographic acceptance. No new town animation is accepted until all eight current GLBs, published desktop/phone motion and clothing, full app gates and actual PR checks pass. T-1790's broader shared animation vocabulary, routes, interaction, riders, drivers and moving vehicles remain unfinished.
+
+
+### Actual T-1790 animation intake — 2026-10-29
+
+The exact eight generated master/web LOD derivatives are now selected by the existing Otis instance (`idle_natural_v1`). Two actual owned native CPU groups completed in 42.379 and 309.374 seconds, with exact same-final-implementation/parent/child/reference guards and complete cleanup. Their exact union covers all eight files at all 65 new keys plus 64 midpoints: footwear drift is zero, subject/reference bone world matrices agree exactly, both injected-failure controls pass, and no new/deeper anatomical penetration was found under the finite closed-reference observer. Actual motion is approximately 18.7 mm. The canonical parent cost record, generation receipt and exact native aggregate are preserved separately; no old canonical proof is transferred to the child.
+
+The coarse BODY LODs are inherited open meshes; anatomical classification uses the identically posed closed highest-resolution BODY. Actual coarse-render nearest-distance changes are separately disclosed, up to about +1.014/−0.987 mm; this does not establish complete coarse garment triangle fit or continuous fit. Native all-asset browser cost measurement, publication/owners, real unheld eight-second desktop/phone near/mid motion and clothing review, full preflight and committed-head/PR checks remain PENDING. No DEV merge, photographic acceptance or whole T-1790 completion is claimed.
+
+The appended clip metadata now names its common master-LOD0 pose source, while each distinct canonical parent SHA remains in the derivation receipt. This repairs the unchanged master/web skeleton contract: all 16 assets and the instance now pass. The original eight-asset native-129 aggregate retains its original SHA bindings. A separately recorded bridge proves that the current eight assets differ only by the declared new-clip metadata field: their complete BIN, animation samplers/channels/time/value bytes and every other decoded JSON value are exact. Twenty-four deliberately corrupted BIN, sampler or unrelated metadata variants are rejected. This equivalence is not a fresh native-129 run or a browser/scene acceptance.
+
+Fresh actual unchanged human fixture measurement now passes all 16 current GLBs in both 1280×800 and 390×780, in 52.352 seconds with complete owned cleanup. The native loader, Meshopt decode, skin deformation, morphs, required clips, ground and master/web checks pass; each of the eight new derivatives records the actual eight-second, 112-track `idle_natural_v1` clip. Current byte hashes and observed costs replace the stale fixture readings. This is a native fixture result; the published town motion, card interaction, clothing review and full gates still remain pending.
+
+Native metadata ownership also completes on the latest integrated DEV base: the liberties compiler and its check pass, and all 53 SourceUse-tail steps run for two actual laps in 437.956 seconds, with the final lap changing nothing. The subsequent native source-use, research sign-off, gate-registration, human contract, exact derivative regeneration and recorded browser-cost readers pass. The initial malformed liberty-entry and missing reproduction-gate findings were repaired in the authored source; those failed attempts remain recorded. Native publication and actual published-world motion/card/clothing review, complete preflight and committed-head/PR checks are separate release requirements.
+
+
+### T-2804 provisional named-driver circuits, 2 November 2026
+
+The current source connects reconstructed1835 Otis/W01 and1904 Hans Johnson/Brougham circuits to the actual current26 in-place horse, fitted hitch, existing person cards and shared stop/continue control. Human-layer ownership temporarily transfers the same named person and restores it on release. Runtime/ground/clearance/unit evidence is separate from actual full-material rendered-world route, contact, interaction and phone qualification, which remain pending. The unqualified Light256 child and optional lower-eye refinement are not selected. All24 current human GLBs passed the unchanged native browser fixture in desktop and phone viewports; Hans's seated posture was separately accepted for this incremental prototype from actual source-material profile and quarter views. Broader photo quality, gait, boarding, riding and town-traffic acceptance is not closed by source staging; no ticket completion is recorded here.
+
+
+### T-2804 actual ground qualification, 3 November 2026
+
+The published1835 app reached its world with no missing resources or page errors after the driven-runtime JSON publication repair. Its original street-block circuit was correctly refused by the unchanged1mm hoof-region plane limit on actual nonplanar ground; that NONPASS remains preserved. A separately measured reconstructed18m-radius circle on level southwestern ground, centred at local ENU E-367.5/N-557.5, passed the original complete-route ground/support/static-clearance observer at454 poses with maximum0.249663m spacing, zero wheel gap and both horses dry and inside the source bounds (actual receipt6337a7b0). This finite ground reading does not qualify rendered motion, continuous contact, vegetation clearance, interaction, phone cost or photographic quality.
+
+The1835 source now selects that circuit with initial distance0 and a plain reconstructed-activity note; the stable row/person identity is retained. No scene anchor, global spawn, source street/grid reading or other scene feedback input changed. The1904 row is unchanged: the original and offset street blocks failed the1mm support requirement, and sampled intersection circles left clipped roads. Its actual-street leg accommodation and occupied-world acceptance remain open. Old candidate routes and all failed diagnostics remain recorded. No riding, boarding, photographic or ticket-completion claim is made here.
+
+
+### T-2804 occupied circuits and shared interaction, 2 November 2026
+
+This increment adds a reconstructed occupied wagon circuit for Otis Bardwell in1835 and a carriage circuit for Hans Johnson in1904. Full and Balanced detail use the existing portable-human assets, current26 horse, actual vehicle wheel hierarchy and fitted hitch. Find/Go to uses the configured driver seat before the models load and the current driver after mounting. The fort's shared Interact control stops or continues the vehicle; the existing resident card retains one named identity. Light retires the occupied assembly and restores the original standing person. A visitor blocking the initial footprint defers mounting until there is room, without repeatedly loading models. Independent vehicle, person and horse acquisitions settle together and release every completed lease on failure.
+
+The1835 route remains the18m-radius reconstructed circle on level southwestern ground. The1904 route now uses a slightly adjusted reconstructed lane inside the existing carriageways. Paving priority is expressed through numerical depth ordering with zero slope bias, preserving the T-1805 wall correction. Roadway and worn overlays share the common physical road level; vehicle support reads their actual Float32 triangles rather than the old bilinear approximation. The native complete1904 circuit passed7,906 samples at no more than0.1m spacing; the worst sampled support spread was0.858234mm and wheel gap9.258174mm. Generic support dimensions and the original1mm/2degree/30mm limits remain unchanged; the selected horse alone uses its independently reproduced complete-hoof domain.
+
+Native acquisition, lifecycle, route, support, clock and shared-interaction controls pass, including actual-source fault controls and the1,154-pose native/F32 domain reproduction. These finite checks do not establish photographic appearance, continuous planted contact, boarding or riding. Browser results, current-source gate results and delivery commits are recorded separately on the PR and linked evidence checkpoints. Earlier failed world and automation attempts remain preserved; no whole-ticket photographic or gait completion is asserted.

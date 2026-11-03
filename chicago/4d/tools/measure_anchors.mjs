@@ -73,6 +73,7 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { deckFromSidecar, deckHeightAt } from '../renderers/web/js/deck-surface.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const READING = 'data/render/anchor_ground_reading.json';
@@ -191,6 +192,10 @@ export function inPolygon([e, n], poly) {
   return inside;
 }
 
+export function anchorDeckHeight(row, e, n) {
+  return row.deck_surface ? deckHeightAt(row.deck_surface, e, n) : row.walk_surface_m;
+}
+
 async function sceneOutlines(scene) {
   const dir = path.join(ROOT, 'data/sidecars', scene);
   const out = [];
@@ -207,6 +212,8 @@ async function sceneOutlines(scene) {
         // A declared walk surface is what makes a footprint somewhere to STAND
         // rather than something to stand in. See docs/GLB-CONTRACT.md.
         walk_surface_m: sidecar.placement?.walk_surface_m ?? null,
+        ...(sidecar.placement?.walk_surface_profile != null
+          ? { deck_surface: deckFromSidecar(name.replace(/\.json$/, ''), sidecar) } : {}),
       });
     }
   }
@@ -237,7 +244,7 @@ export async function measure({ scene = '1835' } = {}) {
       // A deck carries the visitor above the water; the terrain under it does not.
       dry: inside && (ground > waterM || !!deck),
       stands_on: deck ? deck.id : null,
-      deck_m: deck ? deck.walk_surface_m : null,
+      deck_m: deck ? anchorDeckHeight(deck, e, n) : null,
       margin_m: margin === null ? null : Number(margin.toFixed(2)),
       inside_a_roof: deck ? null : (under?.id ?? null),
     };

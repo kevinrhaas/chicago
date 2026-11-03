@@ -15,7 +15,8 @@ major streets, and also from the photo"). Every picture of the district's street
 the scene date shows cast-iron gas lamp posts on the parkways: at the corners (Glessner's
 in J. W. Taylor's photograph no. 2135, Pullman's in the Detroit Publishing view, Tucker's
 at 22nd Street in the Greene stereograph, the Ward engraving's at 20th) and in front of
-houses mid-block (1811, opposite 1721, 1708, 1816, 1905, 2120, 2140). So:
+houses mid-block (1811, opposite 1721, 1708, 1816, 1905, 2120, 2140), and Pullman's where
+the 18th Street walk turns into Calumet Avenue (Taylor no. 16554, T-1934). So:
 
   * one lamp at every intersection corner of the district's drawn streets, on the parkway
     in the corner square where two sidewalk spaces meet, 1.5 ft inside both curbs: that is
@@ -122,7 +123,9 @@ ATTESTED_CORNERS = {
 FOOTING_CORNERS = {(frozenset({"prairie", "e18th"}), "SW")}
 
 # The pictured mid-block lamps: on Prairie Avenue's parkway at a lot, read off each picture.
-# `at` is the share of the way along the lot's frontage from its north end.
+# `at` is the share of the way along the lot's frontage from its north end. A lamp a picture
+# puts on a face no lot's street side runs along (T-1934: the 18th Street walk's turn into
+# Calumet Avenue) names its `face` and `at_m`, metres along it from its first point, instead.
 ATTESTED_MIDBLOCK = [
     {"key": "1801_1811", "parcel": "prairie_1811", "at": 0.0,
      "sources": ["chicagology_1811_ames_photo"],
@@ -150,6 +153,33 @@ ATTESTED_MIDBLOCK = [
      "sources": ["chicagology_2140_photo_b"],
      "note": "The second 2140 photograph shows the lamp on the parkway beside the walk at the Prairie "
              "Avenue porch."},
+    {"key": "pullman_court", "face": "calumet__prairie_calumet_18_20", "at_m": 249.2, "parcel": "calumet_1800",
+     "sources": ["aic_taylor_16554_pullman_from_sw"],
+     "note": "J. W. Taylor's photograph no. 16554 (1890s), taken from the lawn of the corner lot across 18th "
+             "Street, shows the post on the near side of the street, on Calumet Avenue's west parkway where its "
+             "walk curves into 18th Street, opposite Pullman's palm-house wing (x 797, its foot at y 607-608, "
+             "carried along its ray to the mid-block lamp's line through the print's camera, "
+             "data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16554_from_south.json). "
+             "T-1934 first stood it on the north walk, through a camera that drew the street's ground 25-45 px "
+             "high; re-solved with that ground in its fit (2026-10-31), a post on the north walk would stand "
+             "its foot at y 580, above the stable wall's foot (y 585), and the print's stands 22 px below it. "
+             "Its form is the district's post (T-3267, the owner, 2026-10-30): "
+             "the print's head, 13 px across, is the 1811 photograph's lantern seen small, a ladder bar under a "
+             "narrow foot that flares to a wide glazed top, lit by the sky, under a small dark roof; it is not "
+             "a globe."},
+]
+
+# Stretches of a face that pictures see whole and show no lamp on: the rule stands none there
+# (T-1934). An empty stretch is a reading too, as it is for the parkway trees
+# (data/street_trees/pictured_1904.json).
+PICTURED_EMPTY = [
+    {"face": "e18th__prairie_ic_16_18", "from_m": 0.0, "to_m": 62.92,
+     "seen_by": ["aic_taylor_16554_pullman_from_sw", "loc_det_4a08066_pullman_residence"],
+     "why": "Taylor's no. 16554 (1890s) sees 18th Street's north walk whole from the house's 18th Street "
+            "porch to its turn into Calumet Avenue, and the Detroit Publishing view of c. 1900 sees it from "
+            "the Prairie Avenue corner past the palm house: neither shows a post on it. The one lamp 16554 "
+            "shows stands across the street, on Calumet Avenue's west parkway (lamp.pictured.pullman_court); the rule's mid-block lamp "
+            "would have rendered before the porch's arch (16554 x 206), where the print shows none."},
 ]
 
 # ---- the hydrants (T-3201) ----
@@ -179,6 +209,16 @@ ATTESTED_HYDRANTS = [
               "the corner lamp at 18th Street. Read off the owner's crop of the Detroit view: a barrel on a "
               "flared foot, a band under a domed bonnet with an operating nut, side nozzle caps. Not a "
               "hitching post: none is shown at Pullman's.")},
+    {"key": "pullman_stable", "face": "calumet__prairie_ic_16_18", "end": None, "along_m": 19.2, "side": "walk",
+     "sources": ["aic_taylor_16554_pullman_from_sw"],
+     "note": ("Pullman's stable: J. W. Taylor's no. 16554 (1890s) shows a post hydrant on the walk at the foot "
+              "of the low wall before the stable, about 3.7 m short of the stable's east end, where 18th "
+              "Street's north walk turns into Calumet Avenue. Placed along its ray through the print's solved "
+              "camera (x 1063 px, its foot at y 587), on the walk's street edge (T-1934, the owner, 2026-10-30: "
+              "'there is a hydrant in that photo'); moved 5.0 m east along it when the camera was re-solved "
+              "with the street's ground in its fit (T-1934, 2026-10-31). Its form is the district's post hydrant; the print is too small to "
+              "read its parts. Calumet Avenue curves into 18th Street here, so there is no corner: "
+              "`end: None` measures from the face's own start, where 18th Street's face ends.")},
     {"key": "tucker", "face": "prairie__indiana_prairie_21_22", "end": "e22nd", "along_m": 6.0, "side": "curb",
      "sources": ["chicagology_2140_photo_b"],
      "note": ("Tucker's: the second 2140 photograph has a post hydrant of the same type in its left foreground, "
@@ -416,11 +456,15 @@ def lay_lamps(grid, section, trees_doc):
     pinned = {}
     for m in ATTESTED_MIDBLOCK:
         p = parcels[m["parcel"]]
-        face = faces[p["street_face"]]
-        ends = [tuple(v) for k, v in p["corners_local_m"].items() if k.endswith("_street")]
-        north, south = sorted(ends, key=lambda v: -v[1])
-        q = (north[0] + (south[0] - north[0]) * m["at"], north[1] + (south[1] - north[1]) * m["at"])
-        s, _ = face.project(q)
+        if "face" in m:
+            face = faces[m["face"]]
+            s = m["at_m"]
+        else:
+            face = faces[p["street_face"]]
+            ends = [tuple(v) for k, v in p["corners_local_m"].items() if k.endswith("_street")]
+            north, south = sorted(ends, key=lambda v: -v[1])
+            q = (north[0] + (south[0] - north[0]) * m["at"], north[1] + (south[1] - north[1]) * m["at"])
+            s, _ = face.project(q)
         across = face.walk_to + WALK_OFFSET_M
         blocked = blocked_intervals(face, walks, grid.get("alleys", []))
         s2 = clear_spot(face, s, across, blocked, trees_by_face.get(face.id, []), 0.0, face.length)
@@ -456,6 +500,8 @@ def lay_lamps(grid, section, trees_doc):
             if not CORNER_CLEAR_M <= s <= face.length - CORNER_CLEAR_M:
                 continue
             if any(abs(s - x) < ATTESTED_CLEAR_FRAC * step for x in pinned.get(fid, [])):
+                continue
+            if any(e["face"] == fid and e["from_m"] <= s <= e["to_m"] for e in PICTURED_EMPTY):
                 continue
             s2 = clear_spot(face, s, across, blocked, trees, CORNER_CLEAR_M, face.length - CORNER_CLEAR_M)
             if s2 is None:
@@ -557,18 +603,24 @@ def lay_hydrants(grid, section, trees_doc, lamps):
     # 1. The pictured ones.
     for h in ATTESTED_HYDRANTS:
         face = faces[h["face"]]
-        c = next(c for c in cs if face in c["faces"] and h["end"] in c["streets"])
-        s0, sign = face_end_s(face, c)
+        if h["end"] is None:
+            # a face with no corner at this end (a street curving into the next): from its start
+            c, s0, sign = None, 0.0, 1.0
+        else:
+            c = next(c for c in cs if face in c["faces"] and h["end"] in c["streets"])
+            s0, sign = face_end_s(face, c)
         across = (face.walk_to + HYDRANT_WALK_OFFSET_M) if h["side"] == "walk" else (face.park_to - HYDRANT_CURB_INSET_M)
         blocked = blocked_intervals(face, walks, alleys)
         s = clear(face, s0 + sign * h["along_m"], across, blocked, 0.0, face.length)
         if s is None:
             raise SystemExit(f"street furniture: no clear spot for the pictured hydrant {h['key']}")
-        items.append(item(f"hydrant.pictured.{h['key']}", face, s, across, place="corner",
-                          streets=c["streets"], corner=c["quadrant"], face=face.id, grade="attested",
+        where = {"place": "corner", "streets": c["streets"], "corner": c["quadrant"]} if c else \
+            {"place": "mid-block"}
+        items.append(item(f"hydrant.pictured.{h['key']}", face, s, across, **where, face=face.id, grade="attested",
                           sources=h["sources"], note=h["note"],
                           moved_m=r2(abs(s - (s0 + sign * h["along_m"])))))
-        taken.add(frozenset(c["streets"]))
+        if c:
+            taken.add(frozenset(c["streets"]))
     # 2. One per intersection, at a corner taken in turn, along the avenue's face.
     by_x = {}
     for c in cs:
@@ -1461,7 +1513,9 @@ def build(built=None):
                          "shows); the pictured mid-block lamps at their lots; the rest of every face "
                          "at about 160 ft, the two sides of a street staggered, on the parkway 0.4 m off the walk, "
                          "each moved along the parkway clear of an elm, a carriage walk or an alley mouth. A corner "
-                         "where a face meets a curved return (Calumet at 18th) has no corner of its own."),
+                         "where a face meets a curved return (Calumet at 18th) has no corner of its own. No "
+                         "rule lamp stands on a stretch the pictures see whole and show empty (pictured_empty)."),
+                "pictured_empty": PICTURED_EMPTY,
             },
             "fire_hydrant": {
                 "liberty": "L-prairie-hydrants-3201",
@@ -1501,7 +1555,8 @@ def build(built=None):
         },
         "wire_model": {"sag_frac": WIRE_SAG_FRAC, "trolley": TROLLEY},
         "street_names": {k: v.get("name_1904", k) for k, v in grid["streets"].items()},
-        "sources": source_lines(cited + ["chicagology_1811_ames_photo", "taylor_2135_glessner_exterior_1887_1889",
+        "sources": source_lines(cited + [sid for e in PICTURED_EMPTY for sid in e["seen_by"]]
+                                + ["chicagology_1811_ames_photo", "taylor_2135_glessner_exterior_1887_1889",
                                          "chicagology_2140_photo_b", "loc_det_4a08065_pullman_residence",
                                          "ghm_blog_pullman_completed", "cornell_adw_glessner_stable_1887",
                                          "chicagology_2140_photo_a"]),

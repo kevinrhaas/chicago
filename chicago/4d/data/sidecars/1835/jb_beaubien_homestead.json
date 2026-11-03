@@ -12,9 +12,11 @@
   "scene": "1835",
   "target_date": "1835-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "early-beaubien-keyed-1831"
+    ]
   },
   "documented_range": {
     "from": "1822-01-01",
@@ -25,9 +27,9 @@
       "hurlbut_chicago_antiquities",
       "wentworth_1881_fort_dearborn"
     ],
-    "note": "THE RANGE IS WIDE BECAUSE THE BUILDING IS OLD, NOT BECAUSE THE RESEARCH IS THIN, and the project's own gate warns about ranges this long so the reason is stated here. No month is given for the opening year, so the range opens at the start of it. THE SURVIVAL TO THE SCENE DATE IS BETTER ATTESTED THAN ON MOST RECORDS IN THIS DATASET: Beaubien was living on the reservation in 1835 and filed a pre-emption claim for the whole 75.69-acre fort reservation dated 28 May 1835 and recorded 26 June 1835 at $94.61 — five weeks old on the scene date — and the Chicago Historical Society's later plaque still placed the homestead on the block that became the Public Library. What is NOT attested is the date the building came down, so 1835-12-31 is a housekeeping bound at the end of the scene year and not a demolition date. The claim was voided by the Supreme Court in Wilcox v. Jackson in 1839, which is four years after this scene and outside it.\n\nTHE OPENING BOUND MOVED FROM 1817-01-01 TO 1822-01-01 ON T-0893, 2026-09-11, AND THE PHASE ID MOVED WITH IT FROM `factory_1817` TO `log_1822`. Both halves of the old id were wrong, and they were wrong for two different reasons found on two different tickets.\n\nTHE YEAR, found by T-0718 (2026-09-06). The 1817 fused two buildings. Andreas scan p. 183: an army contractor named Dean built a house in 1815 'on the lake shore, at the mouth of the Chicago River, near where is now the foot of Randolph Street', and 'In 1817, Mr. Beaubien purchased this house, which was a low, gloomy building of five rooms, for $1,000 ... After this purchase he lived in the Dean house for several years'. THAT 1817 BELONGS TO A THIRD BUILDING this project models nothing of (T-0895), not to anything on this record. The year the same sources give for Beaubien leaving it is 1822: Andreas scan p. 205, 'In 1822, after the abandonment of the United States Factory at Chicago, by Government, the factory building was bought by the American Fur Company, and soon after sold to John B. Beaubien, who made it his dwelling house'; Andreas scan p. 191, the same building 'whose residence it remained until 1839'; and Hurlbut's Hubbard, claim `bk_afc_009`, 'In 1822 ... the American Fur Company bought from the U.S. the Factory House ... to which Beaubien removed his family'. Andreas and Hubbard AGREE on 1822 and on the chain, and the disagreement this record used to report between them was the conflation talking.\n\nTHE WORD 'factory', withdrawn by T-0894 (2026-09-11) BY MEASUREMENT. The 1830 Harrison plan letters 'U.S. Factor's House' against three blocks whose ink-weighted centre is local ENU (1145.6, 38.7); this record's footprint centroid is (1133.2, 177.8), 140 m north, against about 20 m of working uncertainty here and 25 m on the plate. So this record is NOT the factory building, and an id reading `factory_1822` would re-assert on this line the identity that measurement refused. The id therefore takes this record's CONSTRUCTION and its opening year, which is what `log_1820`, `log_1823` and `log_1831` carry elsewhere in this dataset and which claims nothing about which building of the homestead group this is.\n\nSO WHAT IS THE 1822 DOING HERE, IF THE PASSAGES THAT CARRY IT ARE ABOUT A BUILDING 140 M AWAY? It is a FLOOR, and it is the same kind of bound 1817-01-01 was meant to be. What places this record is the 1839 sale — Block 5, east of Michigan Avenue, between South Water Street and the reserved lots — and Wentworth finds Beaubien's residence there 'after he moved from what was before known as the John-Dean house'. Beaubien was in the Dean house at the lake shore from 1817 'for several years' and moved in 1822. He is therefore not at this corner before 1822 on any reading reached: either the residence the retrospectives follow from 1822 to 1839 IS this building, and 1822 opens it, or the homestead group held more than one building across that span and this is a different one of them, which can only be LATER. THE RESIDUAL IS STATED RATHER THAN SMOOTHED: nothing reached names the year this particular building went up, so 1822-01-01 is the earliest date the sources leave open and not a construction date. CONFIDENCE STAYS `inferred`. Two retrospectives agreeing is still a retrospective, and moving a bound onto better reasoning is not grounds to regrade it.\n\nThe 'erected by Capt. Bradley' attribution this note used to carry could not be relocated on any of the four Andreas pages read under T-0718; the source record warns that the archive.org index is lossy, so that is 'not found', not 'not present'. It came off the change_note on T-0893 with the rest of the factory identity."
+    "note": "THE RANGE IS WIDE BECAUSE THE BUILDING IS OLD, NOT BECAUSE THE RESEARCH IS THIN, and the project's own gate warns about ranges this long so the reason is stated here. No month is given for the opening year, so the range opens at the start of it. THE SURVIVAL TO THE SCENE DATE IS BETTER ATTESTED THAN ON MOST RECORDS IN THIS DATASET: Beaubien was living on the reservation in 1835 and filed a pre-emption claim for the whole 75.69-acre fort reservation dated 28 May 1835 and recorded 26 June 1835 at $94.61 — five weeks old on the scene date — and the Chicago Historical Society's later plaque still placed the homestead on the block that became the Public Library. What is NOT attested is the date the building came down, so 1835-12-31 is a housekeeping bound at the end of the scene year and not a demolition date. The claim was voided by the Supreme Court in Wilcox v. Jackson in 1839, which is four years after this scene and outside it.\n\nTHE OPENING BOUND MOVED FROM 1817-01-01 TO 1822-01-01 ON T-0893, 2026-09-11, AND THE PHASE ID MOVED WITH IT FROM `factory_1817` TO `log_1822`. Both halves of the old id were wrong, and they were wrong for two different reasons found on two different tickets.\n\nTHE YEAR, found by T-0718 (2026-09-06). The 1817 fused two buildings. Andreas scan p. 183: an army contractor named Dean built a house in 1815 'on the lake shore, at the mouth of the Chicago River, near where is now the foot of Randolph Street', and 'In 1817, Mr. Beaubien purchased this house, which was a low, gloomy building of five rooms, for $1,000 ... After this purchase he lived in the Dean house for several years'. THAT 1817 BELONGS TO A THIRD BUILDING this project models nothing of (T-0895), not to anything on this record. The year the same sources give for Beaubien leaving it is 1822: Andreas scan p. 205, 'In 1822, after the abandonment of the United States Factory at Chicago, by Government, the factory building was bought by the American Fur Company, and soon after sold to John B. Beaubien, who made it his dwelling house'; Andreas scan p. 191, the same building 'whose residence it remained until 1839'; and Hurlbut's Hubbard, claim `bk_afc_009`, 'In 1822 ... the American Fur Company bought from the U.S. the Factory House ... to which Beaubien removed his family'. Andreas and Hubbard AGREE on 1822 and on the chain, and the disagreement this record used to report between them was the conflation talking.\n\nTHE WORD 'factory', withdrawn by T-0894 (2026-09-11) BY MEASUREMENT. The 1830 Harrison plan letters 'U.S. Factor's House' against three blocks whose ink-weighted centre is local ENU (1145.6, 38.7); this record's footprint centroid is (1133.2, 177.8), 140 m north, against about 20 m of working uncertainty here and 25 m on the plate. So this record is NOT the factory building, and an id reading `factory_1822` would re-assert on this line the identity that measurement refused. The id therefore takes this record's CONSTRUCTION and its opening year, which is what `log_1820`, `log_1823` and `log_1831` carry elsewhere in this dataset and which claims nothing about which building of the homestead group this is.\n\nSO WHAT IS THE 1822 DOING HERE, IF THE PASSAGES THAT CARRY IT ARE ABOUT A BUILDING 140 M AWAY? It is a FLOOR, and it is the same kind of bound 1817-01-01 was meant to be. What places this record is the 1839 sale — Block 5, east of Michigan Avenue, between South Water Street and the reserved lots — and Wentworth finds Beaubien's residence there 'after he moved from what was before known as the John-Dean house'. Beaubien was in the Dean house at the lake shore from 1817 'for several years' and moved in 1822. He is therefore not at this corner before 1822 on any reading reached: either the residence the retrospectives follow from 1822 to 1839 IS this building, and 1822 opens it, or the homestead group held more than one building across that span and this is a different one of them, which can only be LATER. THE RESIDUAL IS STATED RATHER THAN SMOOTHED: nothing reached names the year this particular building went up, so 1822-01-01 is the earliest date the sources leave open and not a construction date. CONFIDENCE STAYS `inferred`. Two retrospectives agreeing is still a retrospective, and moving a bound onto better reasoning is not grounds to regrade it.\n\nThe 'erected by Capt. Bradley' attribution this note used to carry could not be relocated on any of the four Andreas pages read under T-0718; the source record warns that the archive.org index is lossy, so that is 'not found', not 'not present'. It came off the change_note on T-0893 with the rest of the factory identity.\n\nT-2378 DATED LIMIT,2026-10-30: residency and pre-emption evidence in1835 do not independently prove that THIS pictured1831 corner dwelling or its exact pictured form survived unchanged to1July1835. The existing inferred date range is retained as a scene assumption;1822 remains an earliest allowed bound, not a known construction date."
   },
-  "change_note": "Modelled as one Beaubien residence with a barn and trading post. Its construction date and exact appearance remain unknown: 1822 is a lower bound, not a building date. The U.S. Factor’s House is separately modelled about 140 m south and is not identified as this dwelling. The panorama captioned 1831 names a Beaubien group without settling which house it shows; its pictured details have not been transferred here. Beaubien’s reservation claim was dated 28 May 1835, about five weeks before the scene, and recorded 26 June.",
+  "change_note": "Modelled as one Beaubien residence with a barn and trading post. Wentworth’s annotation beneath the keyed 1831 picture places its Beaubien house near the same northeast corner used for this dwelling: a preferred, inferred identification from the same retrospective witness as the sale narrative. Exact building lineage, construction year and appearance remain unknown. The U.S. Factor’s House is separately modelled about 140 m south; its two-storey description is not transferred. Existing form and grades stay unchanged pending an actual picture comparison. Beaubien’s reservation claim was dated 28 May 1835 and recorded 26 June. T-2378 CURRENT GRAPHIC WORKING FORM,2026-10-30: actual native build/WEB and fixed-source comparisons qualified the two-level main mass/two main roof stacks, one low front projection and one small right-gable attic-light proxy. This supersedes earlier statements that no picture comparison or form change had occurred. Exact dimensions/materials/hidden openings and historical bearing are not promoted. No Factor House description is transferred.",
   "placement": {
     "local_e": 1127.1,
     "local_n": 174.8,
@@ -60,13 +62,29 @@
         6.096
       ],
       [
+        9.144,
+        6.096
+      ],
+      [
+        9.144,
+        8.096
+      ],
+      [
+        3.048,
+        8.096
+      ],
+      [
+        3.048,
+        6.096
+      ],
+      [
         0,
         6.096
       ]
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "INVENTED. No source reached gives the factory building a dimension. 12.192 x 6.096 m is 40 x 20 ft, and both numbers are borrowed from attested buildings in this dataset rather than freshly guessed: 20 ft is the depth of Hogan's store, the one log footprint here that is documented, and 40 ft is the frontage attested for the Green Tree Tavern. A fur company's factory building is a trade house — a store room and a counter — so a long shallow rectangle of that order is the right kind of shape for the type. THIS POLYGON IS ONE BUILDING AND THE HOMESTEAD WAS FOUR. Andreas describes the factory building, a new residence Beaubien built, a small trading post, and an earlier cabin he converted to a barn. THREE BUILDINGS STAND FOR THE FOUR, ON THE OWNER'S RULING OF T-1743 (2026-09-28, answer b) — this house, `beaubien_barn` since 2026-08-11 and `beaubien_trading_post` since T-1712. T-1712 had also stood the residence as its own record, `beaubien_new_residence`, a third identical log house placed by eye on the fort road; T-1743 withdrew it and FOLDS it into this record, because docs/RESEARCH/jb_beaubien_homestead.md § 6a already reads Wentworth's 'traditional residence' at the corner as most likely the new residence, so two records were very probably drawing one house twice. The fold is a reading, not a finding: nothing reached says which of Andreas's two houses this is, and the scene now shows one dwelling for Col. Beaubien rather than asserting which. This polygon is still only the first of them, and it is the only one of the four whose neighbours did not have to be placed by eye; docs/RESEARCH/jb_beaubien_homestead.md § 4 and docs/LIBERTIES.md L283 carry what the other three cost."
+    "note": "INVENTED. No source reached gives the factory building a dimension. 12.192 x 6.096 m is 40 x 20 ft, and both numbers are borrowed from attested buildings in this dataset rather than freshly guessed: 20 ft is the depth of Hogan's store, the one log footprint here that is documented, and 40 ft is the frontage attested for the Green Tree Tavern. A fur company's factory building is a trade house — a store room and a counter — so a long shallow rectangle of that order is the right kind of shape for the type. THIS POLYGON IS ONE BUILDING AND THE HOMESTEAD WAS FOUR. Andreas describes the factory building, a new residence Beaubien built, a small trading post, and an earlier cabin he converted to a barn. THREE BUILDINGS STAND FOR THE FOUR, ON THE OWNER'S RULING OF T-1743 (2026-09-28, answer b) — this house, `beaubien_barn` since 2026-08-11 and `beaubien_trading_post` since T-1712. T-1712 had also stood the residence as its own record, `beaubien_new_residence`, a third identical log house placed by eye on the fort road; T-1743 withdrew it and FOLDS it into this record, because docs/RESEARCH/jb_beaubien_homestead.md § 6a already reads Wentworth's 'traditional residence' at the corner as most likely the new residence, so two records were very probably drawing one house twice. The fold is a reading, not a finding: nothing reached says which of Andreas's two houses this is, and the scene now shows one dwelling for Col. Beaubien rather than asserting which. This polygon is still only the first of them, and it is the only one of the four whose neighbours did not have to be placed by eye; docs/RESEARCH/jb_beaubien_homestead.md § 4 and docs/LIBERTIES.md L283 carry what the other three cost.\n\nT-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: the accepted main core remains exactly12.192x6.096m at its existing origin. Expand only the total reconstructed depth to8.096m and use the stepped union of that core with one centered6.096x2.0m projection beyond its max-v/front wall. Native frame_addition/front subtracts the stated2m from total depth, recovering the exact accepted6.096m core rather than shrinking it. Every attachment dimension/location is reconstructed picture-relative geometry, not a historic plan or survey. The earlier factory-derived size rationale is not revived as evidence. Dates and main-core world placement remain unchanged."
   },
   "attributes": {
     "construction": {
@@ -75,21 +93,23 @@
       "sources": [
         "andreas_1884_v1"
       ],
-      "note": "Log is retained as the existing inferred reading from the settlement’s building practice, not as a directly attested material for this particular residence. A construction date before 1817 is not established here: Beaubien’s 1817 purchase concerned the separate Dean house, and 1822 is this record’s earliest allowed date rather than a known building year. The residence represented here may be the later house associated with the 1839 sale. The keyed 1831 panorama does not settle that identity and supplies no new material attestation for this record. The log form and its grade are unchanged."
+      "note": "Log remains the existing inferred reading from settlement building practice, not an attested material for this residence. Beaubien’s 1817 purchase concerned the separate Dean house; 1822 is an earliest allowed date rather than a known building year. Wentworth’s annotation beneath the keyed 1831 panorama places its Beaubien house near the same northeast corner used for this sale-located dwelling, making this the preferred working identification at inferred confidence. Both locators come from Wentworth, not independent witnesses. The building’s lineage and July 1835 appearance remain unresolved. No pictured material, Factory House description or numerical form is transferred here."
     },
     "stories": {
-      "value": 1,
+      "value": 2,
       "confidence": "inferred",
-      "note": "SETTLED AT 1 ON T-0894, 2026-09-11, AND THE SOURCE THAT SAYS TWO IS ABOUT A DIFFERENT BUILDING. `bk_hub_063` (Hubbard, 1911, describing the place as he found it in 1818) calls the Factor House 'a two-story, squared-log structure, inclosed by a neat split-picket fence'. T-0718 left this value at 1 provisionally, because the identity was open and a storey is a bake; T-0894 closed the identity by measuring it rather than arguing it. The 1830 Harrison plan letters 'U.S. Factor's House' against three blocks at local ENU (1145.6, 38.7); this record's footprint centroid is (1133.2, 177.8), 140 m north, against about 20 m of working uncertainty here and 25 m on the plate. HUBBARD'S TWO STOREYS THEREFORE DESCRIBE A BUILDING 140 m FROM THIS ONE, and carrying them here would double the massing of the oldest building in the dataset on a description of somewhere else. The reading stays named on this value rather than buried, because it is the reason the number was ever in doubt. So: 1, inferred from the type and the date, as before — and now for a measurement rather than for caution. data/traces/harrison_1830_us_factors_house.json.",
+      "note": "SETTLED AT 1 ON T-0894, 2026-09-11, AND THE SOURCE THAT SAYS TWO IS ABOUT A DIFFERENT BUILDING. `bk_hub_063` (Hubbard, 1911, describing the place as he found it in 1818) calls the Factor House 'a two-story, squared-log structure, inclosed by a neat split-picket fence'. T-0718 left this value at 1 provisionally, because the identity was open and a storey is a bake; T-0894 closed the identity by measuring it rather than arguing it. The 1830 Harrison plan letters 'U.S. Factor's House' against three blocks at local ENU (1145.6, 38.7); this record's footprint centroid is (1133.2, 177.8), 140 m north, against about 20 m of working uncertainty here and 25 m on the plate. HUBBARD'S TWO STOREYS THEREFORE DESCRIBE A BUILDING 140 m FROM THIS ONE, and carrying them here would double the massing of the oldest building in the dataset on a description of somewhere else. The reading stays named on this value rather than buried, because it is the reason the number was ever in doubt. So: 1, inferred from the type and the date, as before — and now for a measurement rather than for caution. data/traces/harrison_1830_us_factors_house.json.\n\nT-2378 ONE EXTERNAL MAIN-MASS PROTOTYPE, NOT ADOPTED: The keyed main block reads markedly taller than the one-storey proxy after the accepted diagnostic gable-right/longwall-left role test. Two storeys is the bounded visual interpretation used for this trial, not a measured floor count or printed description. This is based on the conditional Beaubien image identification, NOT Hubbard's two-storey Factor House140m away. T-0894's separation of that building remains valid. Native upper opening bands follow this two-storey parameter and remain reconstructed defaults, not newly attested bay/window counts.\n\nT-2378 DATED SUPERSESSION,2026-10-30: the prior one-storey default is superseded by the actual native/root-reviewed conditional graphic two-level working mass. Hubbard/Harrison belong to the separately modeled Factor House and do not source this number; the present two-level inference comes only from this keyed drawing. Numerical dimensions remain reconstructed, and July1835 survival remains uncertain.",
       "sources": [
-        "hubbard_autobiography_1911",
-        "harrison_1830_river_mouth"
+        "kinzie_1857_chicago_1831_panorama"
       ]
     },
     "wall_height_m": {
-      "value": 2.5,
-      "confidence": "inferred",
-      "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn log wall at typical period course counts, plus a sill. The same reading and the same number this project gives Hogan's store and the Walker meeting house."
+      "value": 5.0,
+      "confidence": "reconstructed",
+      "note": "No figure is attested. 2.5 m is about 8 ft: one storey of hewn log wall at typical period course counts, plus a sill. The same reading and the same number this project gives Hogan's store and the Walker meeting house.\n\nT-2378 ONE EXTERNAL MAIN-MASS PROTOTYPE, NOT ADOPTED: Choose5.0m, twice the previous2.5m one-storey wall, as ONE graphic-match main-block height with the existing reconstructed12.192x6.096m footprint and accepted diagnostic camera held fixed. This number is a model dimension, not a recovered historic measurement. Two plausible2.5m levels bound the choice. No identity, historic bearing, interior floor plan or July1835 form attestation follows.",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ]
     },
     "roof_type": {
       "value": "gable",
@@ -97,14 +117,118 @@
       "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region."
     },
     "roof_pitch_deg": {
-      "value": 35.0,
-      "confidence": "inferred",
-      "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
+      "value": 50.0,
+      "confidence": "reconstructed",
+      "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured.\n\nT-2378 ONE EXTERNAL MAIN-MASS PROTOTYPE, NOT ADOPTED: Choose50degrees once to represent the conspicuously steep pictured gable over the now-taller main block. The source does not measure a roof angle. Existing250mm overhangs are retained, and the footprint/camera are unchanged controls. This is a picture-relative reconstruction, not evidence of a historic metric pitch; the previous35degree typological default is not privileged against the visible source.",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ]
     },
     "chimneys": {
+      "value": 2,
+      "confidence": "inferred",
+      "note": "Not attested. One is the minimum for a building lived in through Chicago winters and the archetype's default. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26.\n\nT-2378 ONE EXTERNAL MAIN-MASS PROTOTYPE, NOT ADOPTED: The main roof in the keyed image visibly carries two distinct stacks. Use count2 under the inferred pictured-subject identification, with their through-ridge disposition given separately. Do not count the narrow neighbouring low roof's separate pipe as a third main stack. The illustration is retrospective and does not independently attest unchanged count or fabric on1July1835.",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ]
+    },
+    "chimney_ridge_at": {
+      "value": [
+        0.16,
+        0.84
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE EXTERNAL MAIN-MASS PROTOTYPE: both pictured main stacks rise through the roof near its two ridge ends, unlike the current exterior gable stack. Choose fractions0.16/0.84 along the unchanged native u-axis ridge as one approximate inset pair. Exact stations, shaft0.96m/default head0.95m, section/material and unseen flues are reconstructed; the picture supplies neither metric dimensions nor a heating plan. No frame addition or low projection is introduced by this control."
+    },
+    "frame_addition": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: Use existing native front-frame massing as a declared proxy for the visible low roofed projection, with no claim that the unseen structure was frame or that a dated addition event is known. This is an appearance component in the existing phase, not a new invented construction date."
+    },
+    "frame_addition_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: The lower mass is placed on the accepted visible longwall/max-v side. Its centered physical placement can project left under the accepted oblique camera; do not infer a true plan offset from image offset alone."
+    },
+    "frame_addition_width_m": {
+      "value": 6.096,
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: Choose half the accepted12.192m main frontage as one graphic-width proxy. Existing addition_extent centers it at u3.048..9.144; no source measures either number."
+    },
+    "frame_addition_depth_m": {
+      "value": 2.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: Choose one2.0m projection beyond corev6.096; the expanded total footprint depth8.096 minus2.0 preserves main core depth6.096 exactly. Depth is reconstructed from one visible roof plane, not a recovered room plan."
+    },
+    "frame_addition_stories": {
       "value": 1,
       "confidence": "inferred",
-      "note": "Not attested. One is the minimum for a building lived in through Chicago winters and the archetype's default. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: One low storey is the bounded interpretation of the lower wall/roof mass; exact floor plan and use are not supplied by the picture."
+    },
+    "frame_addition_height_m": {
+      "value": 3.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: Choose3.0m lower eave, about60percent of the accepted5m main eave, as one picture-relative proxy. It is not a measured historic height. It does not alter the accepted main wall height."
+    },
+    "frame_addition_roof_pitch_deg": {
+      "value": 40.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: Choose40degrees for one lower roof plane, below the main50degree pitch. The native addition is gabled alongu; its unshown back slope and attachment are reconstruction choices, not proven by the one visible painted plane. The projected high roof edge remains a recorded comparison uncertainty; no match is claimed."
+    },
+    "frame_addition_cladding": {
+      "value": "clapboard",
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: Use the existing unpainted clapboard frame surface as a reconstructed implementation choice. Monochrome light tone attests neither white paint nor historic cladding; the main log material is unchanged."
+    },
+    "frame_paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE UNRENDERED LOW-PROJECTION PROPOSAL: Retain the native unpainted frame default explicitly. No white paint is inferred from the print."
+    },
+    "end_openings": {
+      "value": [
+        {
+          "end": "-x",
+          "kind": "light",
+          "at": 0.5,
+          "z": 6.2
+        }
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2378 ONE conditional graphic attic proxy: the existing keyed-source inspection shows a dark framed mark within the visible right gable triangle. Root directly reviewed that original inspection and accepted one existing native small light on the model min-u/-x end. Side role follows the accepted fixed camera, not a recovered historical compass bearing. The0.5 station and6.2m centre are reconstructed choices; stock0.7x0.8m size, glazed/dark field and pane divisions are generic proxies, not source measurements, attested glass or pane counts. Entire metric/component attribute remains reconstructed. Main core/worldpivot/two-level mass/pitch/two stacks, accepted low front projection/material proxy and fixed camera/source are unchanged. Main long-wall and low-front opening counts remain partly occluded/unqualified. Source is a retrospective1831 depiction from1857 Wau-Bun, with1881 nominal key and criticism; July1835 survival and identity limits retained. No later Factor House appearance or paint is borrowed."
     },
     "function": {
       "value": "dwelling_and_trading_house",
@@ -178,79 +302,6 @@
       "tier_label": "compiled secondary (Andreas)"
     },
     {
-      "source_id": "harrison_1830_river_mouth",
-      "citation": "Harrison, F., Jr., Ass't U.S. Civil Engineer. \"Map of the Mouth of Chicago River, drawn for the Purpose of showing the proposed Harbor Improvements. With additions and changes suggested by the Memory of Early Settlers. The original received and approved by William Howard, U.S. Civil Engineer, February 24, 1830.\" Reproduced in Andreas, A. T., History of Chicago, vol. 1 (Chicago, 1884), p. 113.",
-      "url": "https://archive.org/details/historyofchicago01andr/page/n242/mode/1up",
-      "archived_url": "",
-      "tier": 2,
-      "tier_label": "near-primary recollection",
-      "what_it_supplies": [
-        "the fort's plan arrangement: a quadrangular picket enclosure, corner works, four ranges, two gates",
-        "which building stood on which side of the parade",
-        "the relative proportions of the enclosure and the buildings in it",
-        "the fort's rotation relative to true north",
-        "the named ground around the fort: garrison garden, cultivated field, barn, wash house, well, shop, cemetery, ferry"
-      ],
-      "what_it_does_not_supply": [
-        "any dimension in feet - there is no scale bar",
-        "elevations, heights, roof forms or materials",
-        "the state of the fort in 1835 - it is five years earlier",
-        "a separation between the 1830 survey and the settler-memory additions the plate admits to"
-      ]
-    },
-    {
-      "source_id": "hubbard_autobiography_1911",
-      "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
-      "url": "https://archive.org/details/autobiographyofg00hubb",
-      "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
-      "tier": 2,
-      "tier_label": "near-primary recollection",
-      "transcribes": [
-        {
-          "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
-          "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
-          "tier": 2,
-          "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
-        },
-        {
-          "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
-          "date": "1911",
-          "tier": 4,
-          "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
-        },
-        {
-          "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
-          "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
-          "tier": 4,
-          "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
-        }
-      ],
-      "what_it_supplies": [
-        "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
-        "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
-        "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
-        "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
-        "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
-        "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
-        "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
-        "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
-        "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
-        "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
-        "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
-        "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
-      ],
-      "what_it_does_not_supply": [
-        "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
-        "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
-        "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
-        "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
-        "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
-        "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
-        "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
-        "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
-      ]
-    },
-    {
       "source_id": "hurlbut_chicago_antiquities",
       "citation": "Henry Higgins Hurlbut, Chicago Antiquities: Comprising Original Items and Relations, Letters, Extracts, and Notes, Pertaining to Early Chicago. Chicago: printed for the author, 1881. A compiler's gathering of documents and recollections about Chicago before the city — letters, extracts, muster and subscription lists, and long passages quoted from men who were here — with Hurlbut's own bracketed notes between them.",
       "url": "https://archive.org/details/chicagoantiquiti00hurl",
@@ -275,6 +326,27 @@
       "archived_url": "",
       "tier": 1,
       "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "kinzie_1857_chicago_1831_panorama",
+      "citation": "[Unresolved Beaubien-group identification, preferred working residence] “Fort Dearborn and Chicago in 1831.” Keyed cut in Wentworth, Fort Dearborn (1881), p. 86; credits Kinzie’s Wau-Bun (1857).",
+      "url": "https://commons.wikimedia.org/wiki/File:Fort_Dearborn_%26_Chicago_in_1831.jpg",
+      "archived_url": "https://archive.org/stream/earlychicagofort00wentiala#page/86/mode/1up",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the exact keyed 1831 panorama in an independently inspected 1881 publication",
+        "Wentworth’s explicit annotation placing the keyed Beaubien house near Michigan Avenue and South Water Street’s northeast corner",
+        "a preferred, inferred identification with the sale-located homestead, subject to the same-witness and drawing-accuracy limits",
+        "Hubbard’s contemporary-to-publication criticism of this drawing’s geography and fort buildings"
+      ],
+      "what_it_does_not_supply": [
+        "independent corroboration of Wentworth’s sale narrative or an 1831 surveyed position",
+        "which earlier or later Beaubien building stood at that corner",
+        "the Factory House’s separately documented squared-log fabric or two storeys for this dwelling",
+        "a calibrated camera, metric dimensions, accepted form or proof of unchanged appearance in July 1835",
+        "an accepted image match or independent eyewitness status for two Wau-Bun-derived reproductions"
+      ]
     },
     {
       "source_id": "osm_streets_2026",
@@ -306,7 +378,7 @@
       ]
     }
   ],
-  "research_note": "CURRENT IDENTITY AND IMAGE LIMIT — T-2378. The existing record represents one Beaubien dwelling with a barn and trading post under the owner’s T-1743 reading. Its precise building identity and construction year remain unresolved. The 1817 purchase belongs to the Dean house; 1822 is an earliest allowed date, not a date this residence is known to have been built. The contextual panorama (kinzie_1857_chicago_1831_panorama; chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg) keys “Gen. J. B. Beaubien’s”, but it has not been shown to depict this sale-located residence rather than the separately modeled Factory House or another element of the group. No storey count, material, opening or chimney detail is transferred from that unresolved identification, and no camera or pictured-grade ruling is added. The context link carries its own uncertainty in the source citation.\n\nHISTORICAL RESEARCH RECORD — the earlier argument below retains superseded readings where its own later corrections identify them; the current note above and the record’s phase are the present claim.\n\nAN EARLY RESIDENCE WHOSE EXACT IDENTITY AND CONSTRUCTION DATE REMAIN UNRESOLVED. Three things are worth carrying out of this record. FIRST, THE CORNER IS DECIDED, AND IT WAS DECIDED THE OTHER WAY ON 2026-09-06 (T-0718). It used to read 'contested within Andreas himself — south-west on scan p. 185, north-east on scan p. 339' with the south-west adopted because p. 339 was believed to be a boundary walk. Both pages were then read directly off the scan. P. 339 is not a boundary walk and is not Andreas: it is John Wentworth's 1881 address reprinted, and its sentence is an instruction for finding this very house. P. 185's own second clause names the 1839 sale that Wentworth describes on p. 339 — same buyer, same $1,049 — and Wentworth says the land was 'upon the east side of Michigan Avenue, in Block 5, between South Water Street and the lots reserved'. The building moved about 47 m to the NORTH-EAST corner. Full argument in position.note; Andreas p. 339 and `wentworth_1881_fort_dearborn` are ONE witness, not two. SECOND, NEITHER STREET EXISTED THERE IN 1835: the reservation was unplatted and no street crossed it, so Andreas's corner is a retrospective locator, and any future evidence should be read as fixing the building relative to the FORT, not to a grid that arrived later. THIRD, THE HOMESTEAD IS A GROUP, AND SINCE T-1712 (2026-09-28) ALL FOUR OF ITS BUILDINGS STAND — three of them placed by eye beside this one, under docs/LIBERTIES.md L72 and L283. Andreas records four elements: the American Fur Company factory building bought in 1817 (this record), a new residence Beaubien built, a small trading post, and an earlier cabin converted to a barn. The other three are attested and unbuilt, and the reason is that nothing reached gives any of them a size, a material, a form or a position relative to the factory building — they would be three invented boxes placed by eye around a fourth. A LIVE FACT FOR THE SCENE: Beaubien's pre-emption certificate for the entire 75.69-acre fort reservation is dated 28 May 1835 and was recorded 26 June 1835 at $94.61, so on 1835-07-01 it is five weeks old and unchallenged. It was voided by Wilcox v. Jackson in 1839. REVIEW IS FLAGGED ON THIS RECORD DELIBERATELY, for the reason the record for Madore Beaubien’s house gives: AGENTS.md's standing constraint holds that Native presence and representation require consultation rather than inference, the final removal of the Potawatomi from Chicago falls in August 1835 weeks after this scene, and the Beaubien family's history runs directly into both that and the reservation claim. This record states built fabric and the documented dates of the claim, and leaves interpretation to a review this project has not yet sought. See docs/RESEARCH/jb_beaubien_homestead.md. FOURTH, THE ORIGIN AND THE JOHN DEAN QUESTION — OPENED 2026-09-04 (T-0595) AND ANSWERED 2026-09-06 (T-0718). The question was: Hubbard names JOHN DEAN as the United States factor who succeeded Jouett at the Factor House (`bk_hub_063`), and Wentworth finds Beaubien's residence 'after he moved from what was before known as the John-Dean house' — so if the two John Deans were one man, Beaubien had LEFT the Factory House and this record modelled the house he moved TO. THE PREMISE DOES NOT SURVIVE THE READING, and it fails on the HOUSE rather than on the man. Andreas scan p. 183: an army contractor NAMED DEAN built a house in 1815 'on the lake shore, at the mouth of the Chicago River, near where is now the foot of Randolph Street', 'a low, gloomy building of five rooms', and Beaubien bought THAT house in 1817 for $1,000 and lived in it 'for several years'. Andreas scan p. 191 then keeps the two apart in a single paragraph: Varnum 'boarded in the old John Dean house, with J. B. Beaubien, then its owner', while 'the building, which was just south of the fort' — the factory — went to Whiting, to the American Fur Company, and to Beaubien. THE JOHN-DEAN HOUSE IS THEREFORE A THIRD BUILDING, not the Factor House: a lakeshore house at the foot of Randolph Street with its own builder, date, price and room count. Whether Andreas's contractor Dean and Hubbard's factor John Dean are ONE MAN IS NOT ESTABLISHED, in as many words — Andreas supplies the forename 'John' for the house and Hubbard the office for the man, and no source reached joins them — but it no longer matters to this record, because the sentence turns on which HOUSE Beaubien left, and Andreas answers that directly. Read forward, the sequence is: the Dean house at the lake shore from 1817; the factory building from 1822 (Andreas p. 205 and `bk_afc_009`, agreeing); and Wentworth's 'traditional residence, after he moved from ... the John-Dean house' is that second building, at the corner this record now stands on. FIFTH, THE BEARING IS ANSWERED AND THE IDENTITY IS WITHDRAWN — T-0894, 2026-09-11, AND IT IS MEASURED RATHER THAN ARGUED. The 1830 Harrison plan, the plate this project's fort, garrison garden, Out Buildings and Mrs Jouett's grave are all placed from, LETTERS 'U.S. Factor's House' on the reservation south of the stockade. Read by the transform T-0883 stated and T-0882 reused, the three blocks it letters have their ink-weighted centre at local ENU (1145.6, 38.7): 152 m south of the palisade's nearest corner, east of the road, off the garrison garden's southern corner — exactly where Hubbard's own topography puts it in prose, 'just east of the road, and adjoining the fence running east to the river'. THIS RECORD'S FOOTPRINT CENTROID IS (1133.2, 177.8), 140 m NORTH OF THAT, against about 20 m of working uncertainty here and 25 m on the plate. So the two passages that say 'just south of the fort' are right, and this is not that building. What this record is placed by is the 1839 sale — Block 5, east of Michigan Avenue, between South Water Street and the reserved lots — which is not the ground the plate letters; the position stands and the CLAIM TO BE THE FACTORY HOUSE DOES NOT. The alias 'the American Fur Company factory building' came off this record on the same ticket. Andreas himself leaves room for it: he says Beaubien built a NEW RESIDENCE, and Wentworth's 'traditional residence' at the corner is most likely that one — but which building of the homestead group this is remains NOT ESTABLISHED, in as many words, and nothing here is regraded to make it look otherwise. The reading, its checks and its per-block figures are data/traces/harrison_1830_us_factors_house.json; the Factor's House itself is still unbuilt and is now a ticket rather than a question. The 1817-against-1822 repair is T-0893, and the John-Dean house itself — a five-room house at the foot of Randolph Street that this project models nothing of — is T-0895. NOTHING WAS RESIZED OR REGRADED ON THIS EVIDENCE: `bk_hub_063`'s two storeys against this record's inferred one is named in form.stories and left at one, for the reason written there. docs/RESEARCH/jb_beaubien_homestead.md § 6 is the full reading.",
+  "research_note": "CURRENT IDENTITY AND IMAGE READING — T-2378. The existing record represents one Beaubien dwelling with a barn and trading post under the owner’s T-1743 reading. Freshly inspected Wentworth 1881 printed p. 86 reproduces the exact keyed panorama (kinzie_1857_chicago_1831_panorama) and states beneath it: “Gen. Beaubien’s house was near the N.-E. cor. Michigan Avenue and South-Water Street.” This explicit picture annotation supports the sale-located homestead as the preferred working identification, at inferred confidence. Both corner locators are Wentworth, so this is a stronger reading of one witness, not independent corroboration. The precise lineage of the corner dwelling remains unresolved; the 1817 purchase was the separate Dean house, and 1822 is a lower bound rather than a known building year. The separate Factory House about 140 m south keeps its own description; no squared-log fabric or two-storey evidence is borrowed. On pp. 86–87, Hubbard explicitly criticizes this cut’s fort heights, terrain and river geography; those errors must not be imposed on surveyed positions. No storey count, material, opening, chimney, numerical form, camera or pictured-grade ruling changes here. Survival of its depicted 1831 form to July 1835 is not established.\n\nHISTORICAL RESEARCH RECORD — the earlier argument below retains superseded readings where its own later corrections identify them; the current note above and the record’s phase are the present claim.\n\nAN EARLY RESIDENCE WHOSE EXACT IDENTITY AND CONSTRUCTION DATE REMAIN UNRESOLVED. Three things are worth carrying out of this record. FIRST, THE CORNER IS DECIDED, AND IT WAS DECIDED THE OTHER WAY ON 2026-09-06 (T-0718). It used to read 'contested within Andreas himself — south-west on scan p. 185, north-east on scan p. 339' with the south-west adopted because p. 339 was believed to be a boundary walk. Both pages were then read directly off the scan. P. 339 is not a boundary walk and is not Andreas: it is John Wentworth's 1881 address reprinted, and its sentence is an instruction for finding this very house. P. 185's own second clause names the 1839 sale that Wentworth describes on p. 339 — same buyer, same $1,049 — and Wentworth says the land was 'upon the east side of Michigan Avenue, in Block 5, between South Water Street and the lots reserved'. The building moved about 47 m to the NORTH-EAST corner. Full argument in position.note; Andreas p. 339 and `wentworth_1881_fort_dearborn` are ONE witness, not two. SECOND, NEITHER STREET EXISTED THERE IN 1835: the reservation was unplatted and no street crossed it, so Andreas's corner is a retrospective locator, and any future evidence should be read as fixing the building relative to the FORT, not to a grid that arrived later. THIRD, THE HOMESTEAD IS A GROUP, AND SINCE T-1712 (2026-09-28) ALL FOUR OF ITS BUILDINGS STAND — three of them placed by eye beside this one, under docs/LIBERTIES.md L72 and L283. Andreas records four elements: the American Fur Company factory building bought in 1817 (this record), a new residence Beaubien built, a small trading post, and an earlier cabin converted to a barn. The other three are attested and unbuilt, and the reason is that nothing reached gives any of them a size, a material, a form or a position relative to the factory building — they would be three invented boxes placed by eye around a fourth. A LIVE FACT FOR THE SCENE: Beaubien's pre-emption certificate for the entire 75.69-acre fort reservation is dated 28 May 1835 and was recorded 26 June 1835 at $94.61, so on 1835-07-01 it is five weeks old and unchallenged. It was voided by Wilcox v. Jackson in 1839. REVIEW IS FLAGGED ON THIS RECORD DELIBERATELY, for the reason the record for Madore Beaubien’s house gives: AGENTS.md's standing constraint holds that Native presence and representation require consultation rather than inference, the final removal of the Potawatomi from Chicago falls in August 1835 weeks after this scene, and the Beaubien family's history runs directly into both that and the reservation claim. This record states built fabric and the documented dates of the claim, and leaves interpretation to a review this project has not yet sought. See docs/RESEARCH/jb_beaubien_homestead.md. FOURTH, THE ORIGIN AND THE JOHN DEAN QUESTION — OPENED 2026-09-04 (T-0595) AND ANSWERED 2026-09-06 (T-0718). The question was: Hubbard names JOHN DEAN as the United States factor who succeeded Jouett at the Factor House (`bk_hub_063`), and Wentworth finds Beaubien's residence 'after he moved from what was before known as the John-Dean house' — so if the two John Deans were one man, Beaubien had LEFT the Factory House and this record modelled the house he moved TO. THE PREMISE DOES NOT SURVIVE THE READING, and it fails on the HOUSE rather than on the man. Andreas scan p. 183: an army contractor NAMED DEAN built a house in 1815 'on the lake shore, at the mouth of the Chicago River, near where is now the foot of Randolph Street', 'a low, gloomy building of five rooms', and Beaubien bought THAT house in 1817 for $1,000 and lived in it 'for several years'. Andreas scan p. 191 then keeps the two apart in a single paragraph: Varnum 'boarded in the old John Dean house, with J. B. Beaubien, then its owner', while 'the building, which was just south of the fort' — the factory — went to Whiting, to the American Fur Company, and to Beaubien. THE JOHN-DEAN HOUSE IS THEREFORE A THIRD BUILDING, not the Factor House: a lakeshore house at the foot of Randolph Street with its own builder, date, price and room count. Whether Andreas's contractor Dean and Hubbard's factor John Dean are ONE MAN IS NOT ESTABLISHED, in as many words — Andreas supplies the forename 'John' for the house and Hubbard the office for the man, and no source reached joins them — but it no longer matters to this record, because the sentence turns on which HOUSE Beaubien left, and Andreas answers that directly. Read forward, the sequence is: the Dean house at the lake shore from 1817; the factory building from 1822 (Andreas p. 205 and `bk_afc_009`, agreeing); and Wentworth's 'traditional residence, after he moved from ... the John-Dean house' is that second building, at the corner this record now stands on. FIFTH, THE BEARING IS ANSWERED AND THE IDENTITY IS WITHDRAWN — T-0894, 2026-09-11, AND IT IS MEASURED RATHER THAN ARGUED. The 1830 Harrison plan, the plate this project's fort, garrison garden, Out Buildings and Mrs Jouett's grave are all placed from, LETTERS 'U.S. Factor's House' on the reservation south of the stockade. Read by the transform T-0883 stated and T-0882 reused, the three blocks it letters have their ink-weighted centre at local ENU (1145.6, 38.7): 152 m south of the palisade's nearest corner, east of the road, off the garrison garden's southern corner — exactly where Hubbard's own topography puts it in prose, 'just east of the road, and adjoining the fence running east to the river'. THIS RECORD'S FOOTPRINT CENTROID IS (1133.2, 177.8), 140 m NORTH OF THAT, against about 20 m of working uncertainty here and 25 m on the plate. So the two passages that say 'just south of the fort' are right, and this is not that building. What this record is placed by is the 1839 sale — Block 5, east of Michigan Avenue, between South Water Street and the reserved lots — which is not the ground the plate letters; the position stands and the CLAIM TO BE THE FACTORY HOUSE DOES NOT. The alias 'the American Fur Company factory building' came off this record on the same ticket. Andreas himself leaves room for it: he says Beaubien built a NEW RESIDENCE, and Wentworth's 'traditional residence' at the corner is most likely that one — but which building of the homestead group this is remains NOT ESTABLISHED, in as many words, and nothing here is regraded to make it look otherwise. The reading, its checks and its per-block figures are data/traces/harrison_1830_us_factors_house.json; the Factor's House itself is still unbuilt and is now a ticket rather than a question. The 1817-against-1822 repair is T-0893, and the John-Dean house itself — a five-room house at the foot of Randolph Street that this project models nothing of — is T-0895. NOTHING WAS RESIZED OR REGRADED ON THIS EVIDENCE: `bk_hub_063`'s two storeys against this record's inferred one is named in form.stories and left at one, for the reason written there. docs/RESEARCH/jb_beaubien_homestead.md § 6 is the full reading. T-2378 CURRENT GRAPHIC QUALIFICATION,2026-10-30: the keyed picture now has a diagnostic native camera and root-reviewed bounded graphic form. The dependent unkeyed print is comparative, not independent identification or a second eyewitness. Source conditions and per-attribute grades remain; native grader alone derives the building grade.",
   "research_doc": "docs/RESEARCH/jb_beaubien_homestead.md",
   "review_required": true,
   "review_reason": "REVIEW IS FLAGGED ON THIS RECORD DELIBERATELY, for the reason the record for Madore Beaubien’s house gives: AGENTS.md's standing constraint holds that Native presence and representation require consultation rather than inference, the final removal of the Potawatomi from Chicago falls in August 1835 weeks after this scene, and the Beaubien family's history runs directly into both that and the reservation claim."

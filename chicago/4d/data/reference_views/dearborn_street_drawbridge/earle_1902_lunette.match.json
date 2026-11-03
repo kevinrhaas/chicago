@@ -1,0 +1,25 @@
+{
+  "structure_id": "dearborn_street_drawbridge",
+  "view": "earle_1902_lunette",
+  "glb": "assets/gltf/dearborn_street_drawbridge__draw_1834.glb",
+  "glb_sha256": "c7408d424c67488f56650e190fdd7af6a23a667c67f005dff1849ef20c3b2f84",
+  "camera_sha256": "cda21838b8ea301a4b5cc1549df8964dfd26302615482b186ab61059bf5d4352",
+  "photo_sha256": "e03cc096039f68a12e231cea9d6093e4d360dee4ade95fca05bdcdb35de1c3aa",
+  "side_by_side": "docs/RESEARCH/photo-match/dearborn_street_drawbridge/earle_1902_lunette-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Two gallows, high outer braces, peaked closed draw, boarded parapets and two piled bearing caps are physically present in the selected native mesh.",
+      "status": "fixed"
+    },
+    {
+      "what": "Projected post widths, deck ridge perspective and neutral review tone differ between retrospective pictures and finite diagnostic camera fits; root accepted these within illustration/camera uncertainty underT3153. No metric or historicpaintclaim.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Exact timber scantlings, pile count/hidden supports and July1835 operating mechanism are not established by these retrospective views; their reconstructed numericchoices remain recorded. Context vessels/harbor/people are outside isolated structural review.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

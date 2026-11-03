@@ -57,7 +57,7 @@
  */
 
 import * as THREE from 'three';
-import { glbImageSource, retireSharedImage } from './shared-images.js';
+import { glbImageSource, retireSharedImage, sourceTextureSlots } from './shared-images.js';
 import { noteReleasedLevels } from './upload-release.js';
 
 const MiB = 1048576;
@@ -173,23 +173,8 @@ export function hasReleasedTextureLevels(gltf) {
  * or compressed format choices.
  */
 export function hasRequiredSourceTextures(previous, replacement) {
-  const slots = (gltf) => {
-    const counts = new Map();
-    let ordinal = 0;
-    gltf?.scene?.traverse?.((node) => {
-      const nodeOrdinal = ordinal++;
-      for (const [materialIndex, material] of [].concat(node.material ?? []).entries()) {
-        for (const [slot, value] of Object.entries(material ?? {})) {
-          if (!value?.isTexture) continue;
-          const key = JSON.stringify([nodeOrdinal, materialIndex, material.name ?? '', slot]);
-          counts.set(key, (counts.get(key) ?? 0) + 1);
-        }
-      }
-    });
-    return counts;
-  };
-  const fresh = slots(replacement);
-  return [...slots(previous)].every(([key, count]) => (fresh.get(key) ?? 0) >= count);
+  const fresh = sourceTextureSlots(replacement?.scene);
+  return [...sourceTextureSlots(previous?.scene)].every(([key, count]) => (fresh.get(key) ?? 0) >= count);
 }
 
 /**

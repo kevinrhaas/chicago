@@ -1,0 +1,123 @@
+{
+  "generated_asset": "current26-surface-fitted-collar-girth-SOURCE-PROTOTYPE.glb",
+  "new_geometry": "Original source-surface-fitted harness straps, generatedbyprojectauthoredcommands; reconstructed shapes/colors/construction",
+  "generated_geometry_and_generator_license": "GPL-3.0-or-later",
+  "source_surface_attribution_and_asset_metadata": {
+    "extras": {
+      "author": "sevketkabatas (https://sketchfab.com/sevketkabatas6153)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe",
+      "title": "Horse",
+      "new_rig_adaptation": {
+        "original_host_sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+        "reference_rig_sha256": "51ab71106472321b565a47aabe281235e2c0801804bcee7694f729192913e22c",
+        "host_credit": "Horse by sevketkabatas, CC BY4.0. Original mesh/UV/maps retained in declared derivative; source original remains unchanged.",
+        "rig_reference_credit": "Rigged Mid-Poly Horse by antemeossa, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83. Four-limb rig/motion reference; not copied body geometry or anatomical certification.",
+        "adaptation": "Source default world-skin surface baked to canonical metres, new source-specific26joint rig and topology-smoothed weights; original UV/index/material/image data retained. Old six incompatible serial-rig animations omitted from derivative playback, preserved in original separate source/BINprefix. All control placement and appearance remain reconstructed. No original joint/socket/gait compatibility.",
+        "native_origin": [
+          0.0013648444640481372,
+          -0.09537431257051576,
+          -0.0034172495824063565
+        ],
+        "uniform_metres_per_native_unit": 0.36440688373115426,
+        "walk": false,
+        "weight_shift": false,
+        "hitch": false,
+        "riding": false,
+        "historical_breed_or_individual_attestation": false,
+        "actual_loader_visual_or_photographic_acceptance": false
+      },
+      "chicago4d_ocular_uv_derivative": {
+        "baseline_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+        "reconstructed_gaze_and_equine_pupil": true,
+        "texture_pixels_unchanged": true,
+        "source_credit": "Horse by sevketkabatas, CC BY4.0, via Objaverse",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "recipe_version": "V4_CINF_LINEAR_RESERVE_AXIS_RADII",
+        "changes": "Eye UV10 and accessor bounds only; original planted-standing rig/geometry/materials/images retained; no photographic acceptance"
+      },
+      "chicago4d_anatomy_master_v2": {
+        "parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+        "source_credit": "Horse by sevketkabatas, CC BY4.0, via Objaverse",
+        "recipe_sha256": "692029b6e4ab8950f9960fa9d2bf7749ba1162005702e0d0fb90df54542833a6",
+        "changes": "Reconstructed eyelid rest surface and adaptive hoof-wall/coronet geometry; no historical individual or breed",
+        "parent_BIN_bytes_preserved": true,
+        "body_topology_changed": true,
+        "old_physical_proof_inherited": false,
+        "photographic_acceptance": false
+      },
+      "chicago4d_upper_lid_strip_v1": {
+        "parent_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+        "original_d454_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+        "recipe_sha256": "f77e115a340a6cbb8d6efb1b7887c8cdba001a47f493b97be6ffb0eee72dd133",
+        "confidence": "reconstructed",
+        "changes": "Named upper pleats replaced by a coherent fixed-boundary skin strip; old face refinement ancestry is superseded explicitly",
+        "ancestor_anatomy_v2_notice_scope": "Historical925 ancestor; upper-lid topology is superseded here",
+        "photographic_acceptance": false,
+        "proper_crossing_acceptance": false,
+        "fresh_loaded129_acceptance": false,
+        "internal_BODY_UV_repair_rows": [
+          2410,
+          2412
+        ],
+        "UV_protection": "All boundary/exterior BODY and every EYE UV exact; two declared internal BODY rows use preserved-boundary barycentres"
+      },
+      "upper_orbital_transition_v1": {
+        "state": "EXTERNAL_UNQUALIFIED_NOT_ADOPTED",
+        "parent_sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+        "recipe_sha256": "23850a915289ac7d73ea6619a7b68d07c9c240e177917f10f4488f996f66db70",
+        "position_rows": 10,
+        "affected_faces": 44,
+        "physical129": "UNRUN",
+        "posed_interface129": "UNRUN",
+        "visual": "UNRUN"
+      },
+      "chicago4d_natural_planted_idle_v1": {
+        "source_parent_sha256": "bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6",
+        "recipe_sha256": "f948df0e0dc510475df1de85ba5954f46c1b4035f041df582265a37a4ff4b1ef",
+        "new_clip": "sevket_reconstructed_natural_planted_idle_v1",
+        "source_geometry_rig_weights_and_parent_animation_unchanged": true,
+        "old_certificate_transferred": false,
+        "new_native_physical_and_socket_qualification": "UNRUN"
+      },
+      "chicago4d_natural_planted_binding_v2": {
+        "source_parent_sha256": "8ea7748ffba6c5fe17cde91042c6d8b26ed9a0ab77de69cadd4f4fb12e9c09fa",
+        "recipe_sha256": "0c1ceebbcf3fbc4824156bdc5bbad3df19b924ba724b1e5d02aa331d4939d626",
+        "binding_version": 2,
+        "role": "natural-idle-candidate",
+        "qualification": "UNRUN",
+        "old_certificate_transferred": false
+      },
+      "chicago4d_quiet_head_neck_idle_v6": {
+        "source_parent_sha256": "0ced8a09e27da047ad404c902e9d032e43654393027199db8dfd9c315be17929",
+        "head_template_sha256": "a9d9573368f48b4df839c3f246035aa7ac96b04ca098c37e015113266954cf8e",
+        "recipe_sha256": "240b6c2f83de101417301d6cd97a0c5411c6d55ad6bb12d7670dc1e8204ed213",
+        "binding_version": 6,
+        "role": "quiet15-candidate",
+        "selected_clip": "sevket_reconstructed_quiet_head_neck_idle_v1",
+        "qualification": "UNRUN",
+        "old_certificate_transferred": false
+      },
+      "chicago4d_quiet_head_neck_runtime_v6": {
+        "authored_master_sha256": "0a93029a951c000771c9fc8ca39809fd5323633b2e70fc462ba27b7ab9ccfc5b",
+        "selected_clip": "sevket_reconstructed_quiet_head_neck_idle_v1",
+        "exported_clips": 1,
+        "unqualified17_exported": false,
+        "all_BIN_and_original_geometry_exact": true,
+        "qualification": "UNRUN",
+        "runtime_adoption": false
+      },
+      "bare_careful_walk_source": {
+        "parent": "7ce84d43445e930eecc6d9f69e97ed7ade0fe0b3fc44a9a753c25d88b3f548e1",
+        "qualification": "UNRUN native/world; source specimen only",
+        "quietNoticesHistoryOnly": true,
+        "runtimeAdoption": false
+      }
+    },
+    "generator": "Sketchfab-12.68.0",
+    "version": "2.0"
+  },
+  "source_asset_sha256": "bf519adae76693c5e2b8c18bfe9bbaea8a7c83c523b502ca748df2dd7251241e",
+  "source_license_obligations_preserved": "Carrythiscompleteattributionalongsideassetandaddassets/LICENSES.mdentrybeforeinstallation; sourcebody/rig/weightsotherwiseunmodified",
+  "historical_source_ids": []
+}

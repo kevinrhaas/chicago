@@ -1,0 +1,108 @@
+[
+ {
+  "id": "early-blanchard-shober-1867-wolf-point",
+  "kind": "lithograph",
+  "title": "Wolf’s Point in 1833, including Miller House",
+  "building_ids": [],
+  "addresses": [],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1867 publication; depicted1833",
+  "date_earliest": 1867,
+  "date_latest": 1867,
+  "period": "in-period",
+  "creator": "Rufus Blanchard (publisher); Chas. Shober & Co. (lithographer)",
+  "repository": "New York Public Library, I. N. Phelps Stokes Collection; local surrogate through Wikimedia Commons",
+  "collection": "I. N. Phelps Stokes Collection",
+  "call_number": null,
+  "catalog_url": "https://commons.wikimedia.org/wiki/File:Wolf%27s_Point_in_1833_(NYPL_Hades-118496-54620).tif",
+  "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/03b027ba6bed8d8ebf1a20e716462ea2b8b54739/chicago/reference/images/chicago/chicago_wolf_point_1833_nypl.jpg",
+  "rights": "public domain",
+  "rights_basis": "The actual sheet was inspected: its copyright-deposit line dates the United States publication to 1867, now out of copyright by age. This record describes the existing NYPL/Commons local surrogate, not a separately licensed commercial scan. This retains the existing source rights metadata and its stated limits; no new original-publication or remote-rights finding is asserted.",
+  "reference_copy": {
+   "basis": "Owner2026-10-11: bring building reference pictures into our repo with attribution, retained for comparison and removed if holder asks.",
+   "credit": {
+    "title": "Wolf’s Point in 1833, including Miller House",
+    "date": "1867 publication; depicted1833",
+    "creator": "Rufus Blanchard (publisher); Chas. Shober & Co. (lithographer)",
+    "repository": "New York Public Library, I. N. Phelps Stokes Collection; local surrogate through Wikimedia Commons",
+    "collection": "I. N. Phelps Stokes Collection",
+    "catalog_url": "https://commons.wikimedia.org/wiki/File:Wolf%27s_Point_in_1833_(NYPL_Hades-118496-54620).tif"
+   },
+   "credit_statement": "Rufus Blanchard (publisher); Chas. Shober & Co. (lithographer); New York Public Library, I. N. Phelps Stokes Collection; local surrogate through Wikimedia Commons"
+  },
+  "local": {
+   "display": "research/images/files/early-blanchard-shober-1867-wolf-point.jpg",
+   "display_bytes": 384631,
+   "thumb": "research/images/files/early-blanchard-shober-1867-wolf-point-thumb.jpg",
+   "thumb_bytes": 16471,
+   "original_px": [
+    1920,
+    1697
+   ],
+   "original_sha256": "d53dfb2f7110484d488f4c5329aad60cd53b5f408df44e273cc87406c5a58b50",
+   "original_bytes": 536898,
+   "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/03b027ba6bed8d8ebf1a20e716462ea2b8b54739/chicago/reference/images/chicago/chicago_wolf_point_1833_nypl.jpg",
+   "fetched": "2026-10-29"
+  },
+  "verified": "viewed",
+  "found_via": "Existing held source blanchard_shober_1867_wolf_point; immutable exact project surrogate, originalSHA256 d53dfb2f7110484d488f4c5329aad60cd53b5f408df44e273cc87406c5a58b50",
+  "notes": "A retrospective lithograph of a scene labelled 1833, published 34 years later. The left bank's tavern is identified by the wolf sign on a tall sapling pole. Two low gable-front volumes stand together, with a broad chimney head emerging above the rear part of the left roof and a separate slender pipe on or beside the adjacent roof. Neither visible head is drawn as a full-height stack standing against a gable wall. The print supports a roof-penetrating stack as inferred form; it does not supply an exact ridge fraction, stack dimension, surveyed footprint or location. The 1833 depiction is applied cautiously as an inferred pre-1835 form, not as proof that nothing changed by 1 July 1835. The pre-refinement inline model did not reproduce these two gable fronts. Neither the earlier parallel-gable trial nor the new L hypothesis warrants a matches verdict without actual rendered review. The same sheet shows Miller House at the right: its tall main block has a horizontal-log ground storey and vertical boards above, continuing into the gable, with three small upper windows over window-door-window. That appearance is a tier-5 form reading; board width, relief, floor-level height and plan dimensions are not measured by this record. T-2386 L re-reading corrects the earlier parallel-gable interpretation: the NYPL left gable roof recedes rightward, the right one leftward, and their inside walls meet at an apparent corner. An orthogonalL is a supported form hypothesis, not an attested plan or scale. The physical polygon and all metric choices remain reconstructed; alternate views/chronology and actual render remain open. The1892-labelled poster is corroborative inspection only: fresh Newberry Poole27 metadata instead says1935/Copyright Not Evaluated, so its reproduction is not a new cleared modelling source. Source credit,1867 rights basis and Miller reading are unchanged. T-2386 actual-render continuation reads horizontal coursing through both facing gables, a markedly screen-left-leaning sapling and rising cross-arm with a tilted suspended board. These visible categories can guide inferred form; no exact timber section, colour, texture, sign drawing, height, local station, overhang or metric/world coordinate is attested by the sheet. The new proposal retains the existing source credit/rights/date limits and requires another actual rendered comparison. T-2386 door/log-relief re-reading: the two entry apertures are dark/open-looking and the course faces show rounded/irregular shading with narrow dark recesses. These guide appearance categories only; no interior, literal measured cross-section, authentic colour/texture or original sign-device likeness is established. The whole held reproduction is displayed as a credited reference copy. No image-pixel texture, source trace, original color or new historical camera is derived here. The diagnostic camera is not a historical From this spot. This early Chicago record joins through the existing reference-view library_image field, with no invented Prairie address or parcel.",
+  "measurements": []
+ },
+ {
+  "id": "early-cameron-first-post-office-1833",
+  "kind": "painting",
+  "title": "Chicago’s First Postoffice in 1833",
+  "building_ids": [],
+  "addresses": [],
+  "streetscape": true,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "Undated reproduction, inventory circa1900; depicted1833",
+  "date_earliest": null,
+  "date_latest": null,
+  "period": "in-period",
+  "creator": "Edgar S. Cameron (painter); halftone publisher not established",
+  "repository": "Chicago Historical Society, via Wikimedia Commons; local surrogate in chicago/reference/images/chicago/",
+  "collection": "Chicago Historical Society reproduction",
+  "call_number": null,
+  "catalog_url": "https://commons.wikimedia.org/wiki/File:Chicago%27s_first_post_office,_1833.jpg",
+  "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/03b027ba6bed8d8ebf1a20e716462ea2b8b54739/chicago/reference/images/chicago/chicago_first_post_office_1833.jpg",
+  "rights": "public domain",
+  "rights_basis": "chicago/reference/images/IMAGE_SOURCES.md lists this halftone as public domain by pre-1930 publication. This describes the existing local surrogate, not the separately advertised Alamy licensed copy. The original painting's holding and the reproduction's publication have not been independently established here. This retains the existing source rights metadata and its stated limits; no new original-publication or remote-rights finding is asserted.",
+  "reference_copy": {
+   "basis": "Owner2026-10-11: bring building reference pictures into our repo with attribution, retained for comparison and removed if holder asks.",
+   "credit": {
+    "title": "Chicago’s First Postoffice in 1833",
+    "date": "Undated reproduction, inventory circa1900; depicted1833",
+    "creator": "Edgar S. Cameron (painter); halftone publisher not established",
+    "repository": "Chicago Historical Society, via Wikimedia Commons; local surrogate in chicago/reference/images/chicago/",
+    "collection": "Chicago Historical Society reproduction",
+    "catalog_url": "https://commons.wikimedia.org/wiki/File:Chicago%27s_first_post_office,_1833.jpg"
+   },
+   "credit_statement": "Edgar S. Cameron (painter); halftone publisher not established; Chicago Historical Society, via Wikimedia Commons; local surrogate in chicago/reference/images/chicago/"
+  },
+  "local": {
+   "display": "research/images/files/early-cameron-first-post-office-1833.jpg",
+   "display_bytes": 352506,
+   "thumb": "research/images/files/early-cameron-first-post-office-1833-thumb.jpg",
+   "thumb_bytes": 23767,
+   "original_px": [
+    2062,
+    1507
+   ],
+   "original_sha256": "bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+   "original_bytes": 715908,
+   "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/03b027ba6bed8d8ebf1a20e716462ea2b8b54739/chicago/reference/images/chicago/chicago_first_post_office_1833.jpg",
+   "fetched": "2026-10-29"
+  },
+  "verified": "viewed",
+  "found_via": "Existing held source cameron_c1900_first_post_office; immutable exact project surrogate, originalSHA256 bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+  "notes": "A retrospective painting of a scene labelled 1833, not a photograph or an eyewitness record. The building at left has a gable roof over horizontal log courses, a single visible sash and an off-centre doorway in the long elevation, a small framed opening in the visible gable, and one chimney rising through the roof. The caption places it near the east end of the later Lake Street bridge. This picture informs an inferred elevation for Hogan's store; it supplies neither a surveyed location nor a dimension and cannot establish the building's survival or use on 1 July 1835. The whole held reproduction is displayed as a credited reference copy. No image-pixel texture, source trace, original color or new historical camera is derived here. The diagnostic camera is not a historical From this spot. This early Chicago record joins through the existing reference-view library_image field, with no invented Prairie address or parcel.",
+  "measurements": []
+ }
+]

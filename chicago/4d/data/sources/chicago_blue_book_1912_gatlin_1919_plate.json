@@ -1,0 +1,27 @@
+{
+ "id": "chicago_blue_book_1912_gatlin_1919_plate",
+ "type": "photograph",
+ "citation": "'Home of Gatlin Institute, former Mansion of Marshall Field' [1919 S. Prairie Avenue], halftone in the Gatlin Institute advertisement 'Drink Habit Cured in Three Days', The Chicago Blue Book of Selected Names of Chicago and Suburban Towns for the Year Ending 1912 (Chicago: Chicago Directory Company, 1911), p. 28. Photographer uncredited.",
+ "author": "uncredited photographer for the Gatlin Institute (advertiser)",
+ "date": "1911-1912 (publication); photograph c. 1909-1912",
+ "describes_date": "1909-1912",
+ "repository": "Internet Archive, chicagobluebooko1912chic, page n27 (https://archive.org/details/chicagobluebooko1912chic/page/n27/mode/1up). Prairie library image a19-bluebook-1912-gatlin-1919; the project's reference copy is the image store's, committed by T-3279 at data/sources/assets/field_jr_1919_plates_t3279/.",
+ "url": "https://archive.org/details/chicagobluebooko1912chic/page/n27/mode/1up",
+ "locator": "The plate on p. 28: the same house from nearly the same stand as the 1913 Almanac plate, a different exposure (the caption's 'Marshall Field' is Marshall Field Jr.).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1911-1912 (pre-1929): public domain (the Prairie library's ruling). The copy is the image store's, unaltered.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-31 (T-3279) from the image store's copy, 1045 x 1600 px, sha256 c3491ed0b74e34bb08921b79398d06efd3aefb00ff685b3d8fe3c54a332623c5.",
+ "note": "A halftone of a photograph of c. 1909-1912 printed in a Gatlin Institute advertisement; the Institute bought 1919 Prairie in 1909 and the plate shows the house in the form Marshall Field Jr.'s 1902 enlargement gave it (the T-1837 register's phase guard: the early Beman front is pre-1902). Read to confirm what the 1913 plate shows; it takes no camera of its own here (T-3280 may give it one).",
+ "what_it_supplies": [
+  "a second view of the north flank, the tower, the stacks, the gables and the street dormer, confirming the 1913 plate"
+ ],
+ "what_it_does_not_supply": [
+  "colour",
+  "the south flank and the rear",
+  "fine detail",
+  "a 1904 date"
+ ]
+}

@@ -31,7 +31,12 @@ trees read off the pictures stand in their place, each at its distance along the
 line; a stretch with no tree in it is a reading too. The rule's draws are taken all the same, so
 every tree off a stretch keeps its place. Pictured trees are ids `<face>#pNN`, marked
 `"placed": "pictured"`, their crowns drawn from their own seed. 1729 Prairie's 18th Street
-(L-pullman-18th-street-trees-1934) is the first.
+(L-pullman-18th-street-trees-1934) is the first. A pictured tree may carry a `scale` read off
+its trunk's width in a picture (T-3164: the renderer's elm draws its bole about 0.66 m across at
+scale 1); without one its scale is drawn like any other tree's. One whose crown a picture draws
+plainly unlike the grown elm's may name its habit as `form` (T-3164: `broad_head`, a young elm on
+its leader; `limbed_head`, the same clear to about 5 m), which renderers/web/js/street-trees.js
+grows; without one it is the parkway elm.
 """
 from __future__ import annotations
 
@@ -142,26 +147,33 @@ def walk_marks(pts, acc, walks):
     return out
 
 
-def pictured_trees(face_id, pts, acc, stretch, views=None, liberty=""):
-    """The trees a picture places on one stretch of a face (T-1934)."""
+def pictured_trees(face_id, pts, acc, stretch, views=None, liberty="", first=0):
+    """The trees a picture places on one stretch of a face (T-1934). `first` numbers them on
+    from the face's earlier stretches (T-1881: 18th Street's north parkway has two), so every
+    id stays unique."""
     views = views or {}
     out = []
-    for k, t in enumerate(sorted(stretch["trees"], key=lambda t: t["at_m"])):
+    for k, t in enumerate(sorted(stretch["trees"], key=lambda t: t["at_m"]), start=first):
         s = t["at_m"]
         if not (stretch["from_m"] <= s <= stretch["to_m"] and 0.0 <= s <= acc[-1]):
             raise ValueError(f"{face_id}: pictured tree at {s} m is off its stretch or its face")
         r = rng(f"T-1934|{face_id}|{s}")
         (e, nn), _ = at(pts, acc, s)
         young = t["kind"] == "young"
+        variant, yaw = int(r() * VARIANTS), round(r() * 360, 1)
+        drawn = (0.42 + r() * 0.16) if young else (0.88 + r() * 0.22)
         out.append({
             "id": f"{face_id}#p{k:02d}",
             "face": face_id,
             "e": round(e, 2),
             "n": round(nn, 2),
             "kind": t["kind"],
-            "variant": int(r() * VARIANTS),
-            "yaw_deg": round(r() * 360, 1),
-            "scale": round((0.42 + r() * 0.16) if young else (0.88 + r() * 0.22), 3),
+            "variant": variant,
+            "yaw_deg": yaw,
+            # a trunk measured in a picture sets the scale (T-3164); the draw is taken all the same
+            "scale": round(t.get("scale", drawn), 3),
+            # a crown a picture draws unlike the grown elm's names its habit (T-3164, street-trees.js FORMS)
+            **({"form": t["form"]} if t.get("form") else {}),
             "placed": "pictured",
             "sources": sorted({views[r.split(" ")[0]]["source_id"] for r in t["read"]
                                if r.split(" ")[0] in views}),
@@ -225,9 +237,11 @@ def plant(grid, walks_by_face=None, pictured=None):
                 continue
             trees.append(tree)
             planted += 1
-        for st in stretches.get(face["id"], []):
+        first = 0
+        for st in sorted(stretches.get(face["id"], []), key=lambda st: st["from_m"]):
             got = pictured_trees(face["id"], pts, acc, st, (pictured or {}).get("views"),
-                                 (pictured or {}).get("liberty", ""))
+                                 (pictured or {}).get("liberty", ""), first)
+            first += len(got)
             trees.extend(got)
             planted += len(got)
         faces_out.append({"face": face["id"], "street": face["street"], "length_m": round(length, 1),

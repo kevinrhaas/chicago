@@ -360,6 +360,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_furniture/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
       "placed": "by layer, 2026-10-27 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose faces it lays on, tools/lay_prairie_1904_street_section.py, whose carriage walks it keeps clear of, and tools/plant_prairie_1904_street_trees.py, whose elms it keeps clear of (T-3199); see the manifest step"
     },
+    "lay_prairie_1904_walk_joins.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-31",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_section/walk_joins_1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "A reader of BUILT assets as well as committed originals: the K01/K16 GLBs' node extras (generators/k01_emit.py, k16_emit.py), the K13 records, the 1904 sidecars (tools/compile_scene.py) and data/street_grid/1904.json (tools/trace_prairie_1904_grid.py). Its manifest place must follow those emits and the scene compile, not be appended blindly (T-3274)."
+    },
     "trace_prairie_1904_grid.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -938,6 +945,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generate_fort_parade_ground.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-02",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its three outputs (data/enclosures/fort_dearborn_parade_ground.json, data/enclosures/1812/first_fort_dearborn_parade_ground.json and data/enclosures/1812/index.json), changed no committed byte.",
+      "placed": "not yet: it reads the two parade sidecars, the two forts' wall sidecars (compile_scene.py's output) and the other enclosure records of its scene, so its slot is after the sidecars and beside generate_fort_apron.py; to be placed with the next pass over the furniture layer (T-3320)"
+    },
     "generate_fort_trees.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -1096,6 +1110,13 @@
       "measured": "2026-10-04",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-10-04 \u2014 directly after tools/generate_yard_outbuildings.py, whose outbuildings it reads; see the manifest step"
+    },
+    "generate_worn_ground_1812.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-03",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its eighteen outputs (data/enclosures/1812/worn_trails_1812.json and seventeen data/enclosures/1812/worn_yard_1812_*.json) and the 1812 index through generate_fort_parade_ground.py's index_1812(), changed no committed byte.",
+      "placed": "not yet: it reads the 1812 sidecars (compile_scene.py's output), the 1812 enclosure records and the e1830_natural terrain, so its slot is after the sidecars and beside generate_fort_parade_ground.py; to be placed with the next pass over the furniture layer (T-3339)"
     },
     "generate_yard_goods.py": {
       "placement": "manifest",
@@ -2218,6 +2239,20 @@
       "measured": "2026-10-02",
       "finding": "Reproduces: run bare twice on a clean tree in under a second, it rewrote data/structures/land_sale_camp_shore.json and west_approach_wagon_camp.json with identical bytes. T-1804. PENDING rather than manifest for the reason place_landing_camps_1835.py is: it reads the committed street lines, fences, refused regions, the heightfield and every footprint, and writes two structure records the sidecar compile and the town census then read.",
       "placed": "not yet \u2014 measured to reproduce. T-1804: it writes structure records, so it precedes compile_scene.py, and it reads every other footprint, so it follows whichever placement tools write those; its slot is the manifest's own measured pass, as T-1803's is."
+    },
+    "build_former_residents_1904.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-30",
+      "finding": "Reproduces: a bare write run on the T-3266 tree rewrote data/residents_1904/former_residents.json with identical bytes and left git status unchanged; three consecutive runs gave the same md5 (the surname spelling choice is sorted, so hash order cannot move it).",
+      "placed": "not yet \u2014 measured to reproduce. It reads data/residents_1904/households/, the two RESEARCH readings and data/structures, and writes data/residents_1904/former_residents.json, which compile_scene.py --scene 1904 reads, so it precedes compile_scene.py; its slot is the manifest's own measured pass (T-3266)."
+    },
+    "human_natural_idle.py": {
+      "placement": "not_derivable",
+      "write_mode": "--output FRESH_DIRECTORY",
+      "measured": "2026-10-30",
+      "finding": "Measured once with the native --output write mode from the clean staged T-1790 baseline. It created eight GLBs and DERIVATION.json in a fresh directory; all eight GLBs reproduce the active asset bytes exactly and every other receipt JSON value agrees. The receipt itself is not byte-reproducible: one authored /scope field differs, 6181 generated bytes versus 6234 committed bytes (53 bytes). The committed caption records the finite-native metadata bridge; the generator emits its generic pending-qualification caption. Git reports no tracked or untracked application changes before or after the fresh-output run, and all 16 active human GLBs and the complete staged index retain their hashes. Native result: exit 0 in 0.615755792 seconds, with complete owned cleanup. This is the measured reason not to let a reconstruction lap replace the qualified receipt; it is not a non-writer exemption.",
+      "placed": "Canonical Blender and human_export.sh produce the parent master/web assets. This animation-only derivative reads exact pinned parents and its authored recipe, and writes only to a fresh separate directory. Automatic installation and ownership of the active derivatives and authored qualification caption must be settled after canonical export and before human fixture measurement and publication; that ordering has not been accepted into derived_manifest.json. Do not claim the parent exporter or the metadata manifest owns these qualified animation derivatives. The broader T-1790 shared animation, riding, driving and town program remains open."
     }
   }
 }

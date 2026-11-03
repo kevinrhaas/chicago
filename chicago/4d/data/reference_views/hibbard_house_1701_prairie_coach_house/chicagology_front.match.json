@@ -1,0 +1,101 @@
+{
+  "structure_id": "hibbard_house_1701_prairie_coach_house",
+  "view": "chicagology_front",
+  "glb": "assets/gltf/hibbard_house_1701_prairie_coach_house__draft_1904.glb",
+  "glb_sha256": "c871e4c8a61713baebba886d8a8c4f72a0de001c126131b33ba28af7725170dd",
+  "camera_sha256": "9b9f2c81a1bfefb748d638c3c1719abbe2477b6956083950c379a85b78d88afb",
+  "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
+  "rendered_members": [
+    {
+      "structure_id": "hibbard_house_1701_prairie_coach_house",
+      "glb": "assets/gltf/hibbard_house_1701_prairie_coach_house__draft_1904.glb",
+      "placement": {
+        "local_e": 1469.888,
+        "local_n": -3067.841,
+        "rotation_deg": 179.61,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "c871e4c8a61713baebba886d8a8c4f72a0de001c126131b33ba28af7725170dd"
+    },
+    {
+      "structure_id": "hibbard_house_1701_prairie",
+      "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1430.676,
+        "local_n": -3073.558,
+        "rotation_deg": 179.61,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        39.250005696349334,
+        0,
+        -5.4499620032203335
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "ac96640c4fd88e68936105ca0e42566af1e15f5fb63858e6605c7db6ce633e32"
+    }
+  ],
+  "group_sha256": "a9498b6ebc2d519491215bc607c46191ade235fe59c158316a03fbfb0a36fa8d",
+  "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie_coach_house/chicagology_front-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the stable's place along the yard: through the house's camera the whole stable renders about 145-165 px right of where the photograph shows it (the lantern at x 1755-1845 against the print's 1610-1700, the wall gable at 1865-1945 against 1720-1793, and the storey-and-a-half wing's gable, which the print shows at x 1867-1945, beyond the frame at x 2035+): about 4 m along the wall at this distance. The stable stands where the 1911 sheet draws it; no camera fits the house's corners and the wing's corner both (the solve's search), and the house's own record has the fit and the sheet disagreeing by up to 2.5 m on its bay, so the gap is the sheet's against this camera, unresolved",
+      "status": "within tolerance",
+      "how": "T-3316 (2026-11-03), under T-3153's rule that a gap two camera fits disagree about is within tolerance: the house's own camera (T-3240's four points) puts the sheet's stable about 167 px right of the print's, and a joint fit of those four points with six of the stable's features (the wing's corner, the lantern, the wall gable, three oculi), the focal freed, puts it within 9 px of the print but reads the house's south-west cornice bed at 8.3 m against 10.8 m. The sheet's place stands: moving the stable about 4 m north to suit the house's camera would carry its north wall across the 1701/1637 lot line the sheet draws 0.6 m from it. Registered on the wing's corner (the render shifted 167 px), every feature reads within about 0.5 m of the print's: the lantern about 23 px, the wall gable about 15 px, the wing's gable apex 3 px, its feet and the lunette within 8 px, the oculus 1 px, the low band 2 px."
+    },
+    {
+      "what": "the storey-and-a-half wing's gable to the yard: the print's gable reads about 2.4-3.3 m across under a pitch of about 26 degrees, where the sheet's crossed stable is 6.1 m from north to south and the build stands its gable on that whole end (the lunette, oculus and low band are built as the print shows them)",
+      "status": "fixed",
+      "how": "T-3316 (2026-11-03): re-read from the print's two slopes (both seen, the right one running out at the frame's edge), the wing's yard front carries a narrow straight-sided gable about 1.8 m across at its north corner, its apex about 0.95 m over an eave at about 3.6 m, a lunette under its springing and an oculus under that; behind it the wing is hipped, where the build had stood a gable on the sheet's whole 6.1 m end. The draft builder's wall_gables takes head: pitched for it. Rendered in a frame widened to 2500 px (the wing stands past this view's right edge through the house's camera) and registered on the wing's corner: apex 1917 px against the print's 1920, feet 937 against 937, lunette 965 against 957, oculus 999 against 999"
+    },
+    {
+      "what": "the wing's roof behind its gable and the gable's depth back to the two-storey part's wall",
+      "status": "not shown",
+      "how": "the print shows the gable's face and the eave beside it; the hip south of the gable is reconstructed (L-t3316-hibbard-1701-stable)"
+    },
+    {
+      "what": "massing: a hipped slate roof on a bracketed cornice about 4.5 m up (the print's eave at y 915-935, the render's at y 920), the roof rising to about 6.3 m",
+      "status": "fixed"
+    },
+    {
+      "what": "the square lantern on the roof's north part: about 2 m across, three round-headed lights a face, its cornice at about 8.6 m (print y 790, render 795) under a pyramidal cap and a finial (print 757, render 745)",
+      "status": "fixed"
+    },
+    {
+      "what": "the wall gable on the yard front: a curved head rising about 0.95 m over the cornice, a small oculus in its face, over a two-light window in a pale stone frame under a hood (print y 937-1017, render 935-1000)",
+      "status": "fixed"
+    },
+    {
+      "what": "the round oculi about 1 m up the yard wall (three on the main block, one in the wing under its lunette)",
+      "status": "fixed"
+    },
+    {
+      "what": "the two short capped stacks on the roof's south part (built at the ridge; the print gives their x, not their depth)",
+      "status": "fixed"
+    },
+    {
+      "what": "the ivy and the trees before the stable's north part, and the people before its window",
+      "status": "not shown"
+    },
+    {
+      "what": "the colours: the print is monochrome (brick per the sheet, slate)",
+      "status": "not shown"
+    },
+    {
+      "what": "the stable's north end, its east face to the tracks and the wing's south face",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

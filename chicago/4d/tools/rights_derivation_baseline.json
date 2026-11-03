@@ -65,14 +65,6 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
-    "dearborn_street_drawbridge/draw_1834/form.draw_lifting_gear": {
-      "kind": "structure",
-      "blocked_sources": [
-        "dearborn_street_bridge_1834_engraving"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
     "dearborn_street_drawbridge/draw_1834/form.draw_span_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -434,6 +426,14 @@
       "confidence": "inferred"
     },
     "doane_house_1827_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1827_doane_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "doane_house_1827_prairie_coach_house/draft_1904/form.draft_elevation": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1827_doane_exterior"
@@ -1867,6 +1867,14 @@
       "sole_support": false,
       "confidence": "attested"
     },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.corner_pilasters": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "hibbard_house_1701_prairie/as_mapped_1904/form.corner_porch": {
       "kind": "structure",
       "blocked_sources": [
@@ -1875,7 +1883,23 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.eared_round_heads": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "hibbard_house_1701_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.entrance_kit": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1701_hibbard_photo"
@@ -2002,6 +2026,22 @@
         "chicagology_1701_hibbard_photo"
       ],
       "sole_support": true,
+      "confidence": "inferred"
+    },
+    "hibbard_house_1701_prairie_coach_house/draft_1904/form.draft_elevation": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "hibbard_house_1701_prairie_coach_house/draft_1904/form.draft_plan": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": false,
       "confidence": "inferred"
     },
     "hogan_store/log_1831/form.construction": {
@@ -2443,6 +2483,158 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "house_1918_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.corner_porch": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.eave_overhang_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.hip_deck": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.principal_floor_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.roof_form": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.roof_pitch_deg": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.sash_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.side_base": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.stone_front": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.street_front_trim": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.wall_head": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "house_1918_prairie/as_mapped_1904/form.window_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1936_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "james_kinzie_house/dwelling_1830/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -2665,6 +2857,134 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.basement_lights": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.front_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.front_bays_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.mansard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.principal_floor_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.roof_form": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.sash_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.storey_heights_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.street_front_trim": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "kellogg_house_1923_prairie/as_mapped_1904/form.wall_head": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2011_prairie_1800_1900_elevations"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "lake_house_construction/shell_1835/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -2835,6 +3155,55 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.basement_lights": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_engraving",
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.cant_corner": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.north_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.street_front_iron": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "marshall_field_house_1905_prairie_coach_house/draft_1904/form.draft_elevation": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "miller_house/log_frame_1827/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -2845,15 +3214,6 @@
       "confidence": "attested"
     },
     "miller_house/log_frame_1827/form.frame_addition": {
-      "kind": "structure",
-      "blocked_sources": [
-        "chicagology_prefire273",
-        "drloih_hotels"
-      ],
-      "sole_support": true,
-      "confidence": "attested"
-    },
-    "miller_house/log_frame_1827/form.frame_addition_side": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_prefire273",
@@ -2886,6 +3246,190 @@
       ],
       "sole_support": false,
       "confidence": "attested"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.basement_lights": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.eave_overhang_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.front_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.mansard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.north_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.principal_floor_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.roof_covering": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.roof_form": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.sash_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.stair_landing_depth_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.stone_front": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.storey_heights_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.street_front_trim": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.wall_head": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "moulton_lowden_house_1912_prairie/as_mapped_1904/form.window_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1912_prairie_exterior_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
     },
     "north_branch_bridge/log_1832/form.construction": {
       "kind": "structure",
@@ -2934,6 +3478,14 @@
       ],
       "sole_support": false,
       "confidence": "reconstructed"
+    },
+    "pullman_house_1729_prairie/as_mapped_1904/form.mansard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_taylor_16554_pullman_from_sw"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
     },
     "pullman_house_1729_prairie_conservatory/as_standing_1904/footprint": {
       "kind": "structure",

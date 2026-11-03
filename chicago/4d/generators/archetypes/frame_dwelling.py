@@ -570,8 +570,12 @@ def _facade(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: float,
     more visible would be manufacturing evidence.
     """
     story_h = wall_z / 2.0 if p.stories >= 2.0 else wall_z
-    sill = min(0.95, story_h * 0.36)
+    sill = p.front_sill_m
+    window_conf = (max(conf, p.conf("front_window_sill_m", "reconstructed"))
+                   if p.front_window_sill_m is not None else conf)
     c_shut = p.conf("shutters", "reconstructed")
+    if p.front_window_sill_m is not None:
+        c_shut = max(c_shut, window_conf)
     # everything on this wall stops under the frieze board
     top_head = wall_z - 0.28
     sash = _sash(p, sill, story_h - 0.14 if p.stories >= 2.0 else top_head)
@@ -586,7 +590,7 @@ def _facade(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: float,
             continue
         if h < 0.5:
             continue
-        _window(b, p, "y", d, cx, sill, sash, 1, conf)
+        _window(b, p, "y", d, cx, sill, sash, 1, window_conf)
         if p.shutters:
             _shutters(b, p, d, cx, sill, sill + h, 1, c_shut)
 

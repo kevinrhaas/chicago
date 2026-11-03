@@ -260,11 +260,37 @@ def walk_surface_m(structure: dict, phase: dict):
         sys.path.insert(0, gen)
     try:
         mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
-        value = getattr(mod.from_phase(phase), "deck_height_m", None)
+        params = mod.from_phase(phase)
+        value = getattr(params, "deck_height_m", None)
+        reader = getattr(mod, "walk_surface_profile", None)
+        if callable(reader):
+            profile = reader(params)
+            if profile is not None:
+                # A declared profile follows the mesh's exact parameter heights.
+                # Rounding only its scalar base would contradict its endpoints.
+                return float(profile["stations_m"][0][1])
     except Exception:  # noqa: BLE001
         return None
+    # Preserve the historical four-decimal scalar contract for every flat deck.
     return round(float(value), 4) if value is not None else None
 
+
+def walk_surface_profile(structure: dict, phase: dict):
+    """Optional archetype-owned local-span profile; omit for every flat default."""
+    arch = structure.get("archetype")
+    if not arch:
+        return None
+    gen = str(ROOT / "generators")
+    if gen not in sys.path:
+        sys.path.insert(0, gen)
+    try:
+        mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
+    except ImportError:
+        return None
+    reader = getattr(mod, "walk_surface_profile", None)
+    if not callable(reader):
+        return None
+    return reader(mod.from_phase(phase, structure))
 
 def walk_passages(structure: dict, phase: dict):
     """T-2943: the passages a visitor may walk THROUGH a building's footprint, or `None`.
@@ -768,6 +794,12 @@ def compile_residents_sources(scene_id: str, sources: dict, outdir: Path) -> int
     directory_path = DATA / "residents" / "directory_1844.json"
     if directory_path.exists():
         walk(load(directory_path))
+    # A later scene's own household cards (T-2702) are what its person card opens
+    # (Inspect › People): a census servant's card quotes the census the way an 1835
+    # card quotes its poll list, not a bare source id.
+    if has_own_people(scene_id):
+        for household_path in sorted((residents_root(scene_id) / "households").glob("*.json")):
+            walk(load(household_path))
 
     citations = cite(sorted(cited), sources)
     emit(outdir / "residents_sources.json", {
@@ -1651,6 +1683,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
         stage_vocab.append({"value": k, "label": stage_label(k), "title": "",
                             "count": stage_counts[k]})
 
+    former = scene_former_residents(scene_id, root)
     emit(outdir / "people.json", {
         "scene": scene_id,
         # T-2702. A later scene's rows point into its own records, so the `file` a row
@@ -1776,8 +1809,33 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "evidence_kinds": [label for _, label in PERSON_EVIDENCE_KINDS],
         },
         "people": rows,
+        **({"former_residents": former} if former else {}),
     }, compact=True)
     return len(rows)
+
+
+def scene_former_residents(scene_id: str, root: Path) -> dict:
+    """T-3266: who lived in each house before the scene date (and, for a house nobody is
+    listed in on that day, after), keyed by structure id — `former_residents.json` beside
+    a later scene's households, built by tools/build_former_residents_1904.py. Carried
+    into people.json so the People tab of a building needs no second fetch. A house the
+    scene does not stand, or a source that does not resolve, stops the compile."""
+    path = root / "former_residents.json"
+    if scene_id == LEGACY_RESIDENTS_SCENE or not path.exists():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    known_sources = {p.stem for p in (DATA / "sources").glob("*.json")}
+    faults = []
+    for sid, house in doc.get("houses", {}).items():
+        if not (DATA / "structures" / f"{sid}.json").exists():
+            faults.append(f"{path.name}: `{sid}` is not a structure")
+        blocks = house.get("former", []) + house.get("later", [])
+        cited = [s for b in blocks for s in b.get("sources", [])]
+        cited += (house.get("unlisted_on_scene_date") or {}).get("sources", [])
+        faults += [f"{path.name}: {sid}: source `{s}` does not resolve" for s in cited if s not in known_sources]
+    if faults:
+        raise SystemExit("former residents:\n  " + "\n  ".join(faults))
+    return doc.get("houses", {})
 
 
 def compile_fauna_sources(scene_id: str, sources: dict, outdir: Path) -> int:
@@ -3065,6 +3123,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 # for a building, whose walkable surface is the ground the walker
                 # is already standing on.
                 "walk_surface_m": walk_surface_m(st, phase),
+                **({"walk_surface_profile": profile}
+                   if (profile := walk_surface_profile(st, phase)) is not None else {}),
             },
             # Carry the footprint's own confidence, not just its geometry — a bare
             # polygon loses precisely the thing the confidence view exists to show.

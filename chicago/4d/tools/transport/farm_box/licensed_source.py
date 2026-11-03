@@ -10,6 +10,23 @@ import numpy as np
 SOURCE_SHA256 = '13600b73c1777545e1454d452c58d141469f031b2c5e6c29b1c6fdefe9145046'
 
 
+def fixed_matmul(left, right):
+    """Small source/adaptation transforms with a fixed accumulation order.
+
+    Separate NumPy multiplication/addition operations avoid BLAS dispatch and
+    fused accumulation changing exact serialized exports between CPU families.
+    """
+    left = np.asarray(left, dtype=np.float64)
+    right = np.asarray(right, dtype=np.float64)
+    vector = right.ndim == 1
+    if vector:
+        right = right[:, None]
+    result = np.zeros((left.shape[0], right.shape[1]), dtype=np.float64)
+    for k in range(left.shape[1]):
+        result += left[:, k, None]*right[k, :]
+    return result[:, 0] if vector else result
+
+
 class Source:
     def __init__(self, path):
         self.raw = Path(path).read_bytes()
@@ -35,7 +52,7 @@ class Source:
             if any(k in n for k in ['translation', 'rotation', 'scale']):
                 raise ValueError('Unexpected original TRS; review the source contract')
             matrix = np.array(n.get('matrix', np.eye(4).T.reshape(-1).tolist()), dtype=np.float64).reshape(4, 4).T
-            self.worlds[index] = (self.world(self.parents[index]) if index in self.parents else np.eye(4)) @ matrix
+            self.worlds[index] = fixed_matmul(self.world(self.parents[index]) if index in self.parents else np.eye(4), matrix)
         return self.worlds[index]
 
     def accessor(self, index):
@@ -59,12 +76,12 @@ class Source:
 
     def positions(self, node):
         points = self.accessor(self.primitive(node)['attributes']['POSITION'])
-        return (np.c_[points, np.ones(len(points))] @ self.world(node).T)[:, :3]
+        return (fixed_matmul(np.c_[points, np.ones(len(points))], self.world(node).T))[:, :3]
 
     def world_directions(self, node, attribute):
         original = self.accessor(self.primitive(node)['attributes'][attribute])
         matrix = self.world(node)[:3, :3]
-        xyz = original[:, :3] @ (np.linalg.inv(matrix) if attribute == 'NORMAL' else matrix.T)
+        xyz = fixed_matmul(original[:, :3], np.linalg.inv(matrix) if attribute == 'NORMAL' else matrix.T)
         xyz /= np.linalg.norm(xyz, axis=1)[:, None]
         return xyz if original.shape[1] == 3 else np.c_[xyz, original[:, 3]]
 

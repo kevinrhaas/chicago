@@ -1,0 +1,259 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is the median of 3 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 44105,
+      "js_heap_used_bytes": 106714980,
+      "js_heap_total_bytes": 108449792,
+      "draft_records_in_registry": 189,
+      "placed": [
+        "house_1616_prairie_coach_house",
+        "house_1616_prairie",
+        "law_house_1620_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "alley-from-south",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 978,
+            "rendererCalls": 155,
+            "multiDraw": true,
+            "triangles": 439124,
+            "programs": 48,
+            "geometries": 502,
+            "textures": 1392,
+            "batches": 379,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 44285480,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1793.8,
+          "camera": [
+            1331,
+            -3016,
+            5.66
+          ],
+          "target": [
+            1334.5,
+            -3002,
+            7.94
+          ]
+        },
+        {
+          "name": "north-yard",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1105,
+            "rendererCalls": 59,
+            "multiDraw": true,
+            "triangles": 208429,
+            "programs": 48,
+            "geometries": 504,
+            "textures": 1396,
+            "batches": 379,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 44285480,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2037.1,
+          "camera": [
+            1350,
+            -2990,
+            5.59
+          ],
+          "target": [
+            1338,
+            -3001,
+            7.93
+          ]
+        },
+        {
+          "name": "yard-face",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 636,
+            "rendererCalls": 54,
+            "multiDraw": true,
+            "triangles": 181543,
+            "programs": 48,
+            "geometries": 504,
+            "textures": 1396,
+            "batches": 379,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 44285480,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1439.1,
+          "camera": [
+            1354,
+            -3010,
+            5.61
+          ],
+          "target": [
+            1340,
+            -3002,
+            7.93
+          ]
+        },
+        {
+          "name": "air",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1372,
+            "rendererCalls": 155,
+            "multiDraw": true,
+            "triangles": 494814,
+            "programs": 48,
+            "geometries": 504,
+            "textures": 1398,
+            "batches": 379,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 284,
+            "structuresExpected": 284,
+            "structuresStanding": 284,
+            "bytes": 44285480,
+            "fps": 0,
+            "cameraNear": 1.6,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2213.6,
+          "camera": [
+            1365,
+            -3035,
+            43.92
+          ],
+          "target": [
+            1338,
+            -3004,
+            3.93
+          ]
+        }
+      ]
+    }
+  ]
+}

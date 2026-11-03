@@ -1,6 +1,6 @@
 {
   "schema": "chicago_farm_box_portable_web_lods_v2",
-  "input_sha256": "110149dcb1e233a28ebe826ce7fe468042dd2cfdbfc1c46ac3a6784b9a15b3da",
+  "input_sha256": "fb0c507048ad8a95e19cc0d8a1e57ade5c2937060eeef3adc9e45af96a0e4ee4",
   "parameters_sha256": "aa5bd3bf3dff5fb31d92b3c6cca2c1f802388052bb89b26897e173431f032ab7",
   "exporter_sha256": "d6ad251701bc791897f5cce7621089350cb9395186c52f4173e4d516af34059b",
   "tool_versions": {
@@ -20,9 +20,9 @@
     "TEXCOORD_0 shader-data mutation rejected"
   ],
   "lossless_prune": {
-    "before_bytes": 11984868,
-    "after_bytes": 9828688,
-    "live_semantics_sha256": "a4fa15d5b3a78e3b47c0b80a84e114ea5dfda832ec724f0a232693f35124fb4d",
+    "before_bytes": 11984672,
+    "after_bytes": 9828496,
+    "live_semantics_sha256": "73c67494fcb292b442f8f3f563a655dfeb92cfc8670320beb5a6bf1e0c356ebe",
     "exact_live_semantics_equal": true
   },
   "photographic_acceptance": false,
@@ -30,8 +30,8 @@
     {
       "level": "near",
       "file": "farm-box-near.glb",
-      "sha256": "93be81968fcd667f17d411ccb1f26d6af0e3255da74568a0ae709961819275aa",
-      "bytes": 5105544,
+      "sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "bytes": 5105348,
       "triangles": 17550,
       "vertices": 51727,
       "draw_batches": 12,
@@ -318,14 +318,14 @@
       },
       "webp_extension_declared_required": true,
       "texture_RGBA8_mip_estimate_bytes": 33554424,
-      "decoded_semantics_sha256": "bde0764e6e4cdf137c5d354cf329d1d95dc1e4c5033f1eadb4cc0cb19aa8e2d2",
+      "decoded_semantics_sha256": "9ac3949ffc0be18074f51c01ee9d2ede985eff44df3e86ba8ca424a90e9815b4",
       "meshopt_decoded_exact_to_precompression": true
     },
     {
       "level": "mid",
       "file": "farm-box-mid.glb",
-      "sha256": "c7d7280bb9c02edbdf76ada21b250e90b69ad2b4884a3220feacfe2d6e6ce781",
-      "bytes": 2169116,
+      "sha256": "6a5fa3f484afbed41d05f055858df57a8163b19ff0057e292449c51ccb360b36",
+      "bytes": 2168924,
       "triangles": 12996,
       "vertices": 34227,
       "draw_batches": 12,
@@ -745,14 +745,14 @@
       },
       "webp_extension_declared_required": true,
       "texture_RGBA8_mip_estimate_bytes": 8388600,
-      "decoded_semantics_sha256": "2b75aaa1d0ce44a6b57c45b76314b1fa0cd64f76d5a1611705b816267b78fd9c",
+      "decoded_semantics_sha256": "09aa34160c5d3ae8c62d1c99789109e8c323f617b763ff4f395f2fe555ff805b",
       "meshopt_decoded_exact_to_precompression": true
     },
     {
       "level": "far",
       "file": "farm-box-far.glb",
-      "sha256": "ba9682b0cd8018a05649a1d48d534c946bf14961d9ffad4be7e8d389abea6a41",
-      "bytes": 1190416,
+      "sha256": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "bytes": 1190220,
       "triangles": 10178,
       "vertices": 27891,
       "draw_batches": 12,
@@ -1139,7 +1139,7 @@
         {
           "mesh": "CartBody_CartBase_0",
           "exact_to": "canonical structural timber",
-          "paired_triangle_multiset_sha256": "a13f48d684f46ddc65694225364dcb1535fc675e69d45431e746c69a2f0c88cc"
+          "paired_triangle_multiset_sha256": "12b465fba9bd7785647dac4274eb289a9484e63a2d83b24bc085de436f7498a5"
         },
         {
           "mesh": "CartSteer_CartBase_0",
@@ -1198,7 +1198,7 @@
       },
       "webp_extension_declared_required": true,
       "texture_RGBA8_mip_estimate_bytes": 2097144,
-      "decoded_semantics_sha256": "1906d632f76fe2870a5fcbb6043f6ca72723732b3f6743a8355b7a521e12f13f",
+      "decoded_semantics_sha256": "ab3dfbac7425ce43c176f3420805e498dbf7c7a31dfb9d71b72600527aedd3d1",
       "meshopt_decoded_exact_to_precompression": true
     }
   ]

@@ -111,6 +111,12 @@ export function batchPieces(pieces, material) {
   // grid is for the frustum to reject; from the air it rejects little, and every
   // piece kept was a draw of its own.
   coalesceRuns(batch);
+  // The first upload sends the complete backing arrays. addGeometry's per-piece
+  // partial-update records are then dead heap objects (as in buildings.js).
+  // Later setGeometryAt calls still append their own real update ranges.
+  for (const attribute of [...Object.values(batch.geometry.attributes), batch.geometry.index]) {
+    attribute?.clearUpdateRanges();
+  }
   batch.userData.spatialBatch = { cellM: CELL_M, pieces: pieces.length, triangles: count / 3 };
   return batch;
 }

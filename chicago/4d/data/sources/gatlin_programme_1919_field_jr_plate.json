@@ -1,0 +1,30 @@
+{
+ "id": "gatlin_programme_1919_field_jr_plate",
+ "type": "photograph",
+ "citation": "'(Former Mansion, Marshall Field, Jr.) Gatlin Institute, 1919 Prairie Avenue, Chicago', vignetted halftone in the Gatlin Institute advertisement 'Drug and Liquor Habits Quickly and Painlessly Cured', Cohen's Grand Opera House theatre programme, Chicago, 1919. Photographer uncredited.",
+ "author": "uncredited photographer for the Gatlin Institute (advertiser)",
+ "date": "1919 (publication); photograph c. 1909-1919",
+ "describes_date": "1909-1919",
+ "repository": "Chicagology, '1919 Prairie Avenue' (https://chicagology.com/chicagostreets/prairieavenue/1919prairie/). Prairie library image cgs-1919-gatlin-program-1919; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/cgs-1919-gatlin-program-1919.jpg), committed by T-3280 at data/sources/assets/field_jr_1919_plates_t3279/gatlin_programme_1919.jpg.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1919prairie/",
+ "locator": "The advertisement's plate, captioned '(Former Mansion, Marshall Field, Jr.)': the house from across Prairie Avenue to the north-west, its street front at the right under a steep slated hip with a broad three-light gabled dormer over its north part and a smaller one to the south, a stack behind them; the long north flank running back to the left past a round tower, flat-topped, close behind the front and two very tall stacks, to steep gables and pinnacled dormers over the rear ranges; the iron fence, parkway trees, an electric street lamp and an enclosed automobile at the kerb.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1919 (pre-1929): public domain (the Prairie library's ruling). The copy is the image store's, unaltered.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-01 (T-3280) from the image store's copy, 1400 x 1040 px, sha256 ea845bca0465b8b2d11fc97efe3f9b21ac4b569ee9a9b1c8743d605bf00b8f5e.",
+ "note": "A different exposure from the 1912 and 1913 Gatlin plates (the automobile is present, the foliage differs) and from a viewpoint further north, so it sees more of the north flank and stands the flank's near stack clear of the tower. The halftone is sharper than the 1913 plate's. The photograph is of the Institute's years (1909 on); it shows the house in the form Marshall Field Jr.'s 1902 enlargement gave it, and nothing in it is argued to be later than that.",
+ "what_it_supplies": [
+  "the street hip's height: its front hip rises to about 15.9 m over the 9.5 m eave, about 52 degrees, through the solved camera",
+  "the street dormers: a broad gabled dormer of three lights over the front's north part and a smaller one-light dormer near its south end",
+  "the round tower's top: a flat top on a plain band over its third tier of windows, at about the height the built cone's tip stood",
+  "the north flank's stacks, tower and gables seen from the north-west"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the plate is monochrome",
+  "the south flank and the rear",
+  "the front's lower storeys: the parkway trees hide them",
+  "a 1904 date: the photograph is c. 1909-1919"
+ ]
+}

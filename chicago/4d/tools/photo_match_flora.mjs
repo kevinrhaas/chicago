@@ -7,7 +7,13 @@
 //     front_yards: ["prairie_1729", ...]   lots of data/front_yards/<scene>.json, each required
 //     street_trees_m: 60                   optional: the parkway trees of data/street_trees/<scene>.json
 //                                          standing within this many metres of the anchor
+//     street_furniture_m: 60               optional (T-1934): the gas lamps, hydrants and poles of
+//                                          data/street_furniture/<scene>.json within this many metres,
+//                                          and the wires between two of them
 //     season: "spring"                     summer | spring | fall | winter, as the picture's trees are
+//     creeper_in_leaf: true                optional (T-1881): the lots' wall ivy drawn in full leaf
+//                                          (summer) whatever the season, for a picture that shows the
+//                                          ivy still clothed among trees that are bare (say so in the solve)
 //   }
 //
 // The camera's `scene` names the scene. The plants drawn, the renderers that draw them and the
@@ -31,7 +37,7 @@ export const FLORA_RENDERER_SOURCES = [
 export function floraReview(root, camera) {
   if (camera.flora === undefined) return null;
   const fl = camera.flora;
-  const keys = ['front_yards', 'street_trees_m', 'season'];
+  const keys = ['front_yards', 'street_trees_m', 'street_furniture_m', 'season', 'creeper_in_leaf'];
   if (!fl || typeof fl !== 'object' || Array.isArray(fl) || Object.keys(fl).some(k => !keys.includes(k)))
     throw Error(`flora takes ${keys.join(', ')}`);
   const lots = fl.front_yards ?? [];
@@ -41,9 +47,16 @@ export function floraReview(root, camera) {
   if (fl.street_trees_m !== undefined && (!Number.isFinite(fl.street_trees_m)
       || fl.street_trees_m <= 0 || fl.street_trees_m > 200))
     throw Error('flora.street_trees_m must be a radius over 0 and at most 200 m');
+  if (fl.street_furniture_m !== undefined && (!Number.isFinite(fl.street_furniture_m)
+      || fl.street_furniture_m <= 0 || fl.street_furniture_m > 200))
+    throw Error('flora.street_furniture_m must be a radius over 0 and at most 200 m');
   if (!lots.length && fl.street_trees_m === undefined)
     throw Error('flora names front_yards lots, a street_trees_m radius or both');
   if (!FLORA_SEASONS.includes(fl.season)) throw Error(`flora.season is one of ${FLORA_SEASONS.join(', ')}`);
+  if (fl.creeper_in_leaf !== undefined && typeof fl.creeper_in_leaf !== 'boolean')
+    throw Error('flora.creeper_in_leaf must be true or false');
+  if (fl.creeper_in_leaf !== undefined && !lots.length)
+    throw Error('flora.creeper_in_leaf needs front_yards lots, whose ivy it draws');
   if (typeof camera.scene !== 'string' || !idPattern.test(camera.scene))
     throw Error('flora requires an explicit scene id');
   const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
@@ -71,20 +84,31 @@ export function floraReview(root, camera) {
       && Math.hypot(t.e - p.local_e, t.n - p.local_n) <= fl.street_trees_m);
     docs.street_trees = {...doc, trees: near};
   }
+  if (fl.street_furniture_m !== undefined) {
+    const doc = read(`data/street_furniture/${camera.scene}.json`);
+    const near = (doc.items ?? []).filter(t => Number.isFinite(t.e) && Number.isFinite(t.n)
+      && Math.hypot(t.e - p.local_e, t.n - p.local_n) <= fl.street_furniture_m);
+    const ids = new Set(near.map(t => t.id));
+    docs.street_furniture = {...doc, items: near, wires: (doc.wires ?? []).filter(w => ids.has(w.from) && ids.has(w.to))};
+  }
   const anchor = {local_e: p.local_e, local_n: p.local_n, rotation_deg: p.rotation_deg,
     scene: sidecar.scene, target_date: sidecar.target_date, phase: sidecar.phase};
-  const rendererSources = FLORA_RENDERER_SOURCES.map(file => ({file, sha256: sha(path.join(root, file))}));
+  const rendererSources = [...FLORA_RENDERER_SOURCES,
+    ...(docs.street_furniture ? ['renderers/web/js/street-furniture.js'] : [])].map(file => ({file, sha256: sha(path.join(root, file))}));
   const rendered = {
     season: fl.season,
+    ...(fl.creeper_in_leaf ? {creeper_in_leaf: true} : {}),
     lots: lots.map(id => {
       const l = docs.front_yards.lots.find(x => x.parcel === id);
       return {parcel: id, shrubs: (l.shrubs ?? []).length, trees: (l.trees ?? []).length,
         beds: (l.beds ?? []).length, creeper: (l.creeper ?? []).length};
     }),
     ...(docs.street_trees ? {street_trees: docs.street_trees.trees.length, street_trees_m: fl.street_trees_m} : {}),
+    ...(docs.street_furniture ? {street_furniture: docs.street_furniture.items.map(t => t.id),
+      street_furniture_m: fl.street_furniture_m} : {}),
   };
   const signature = {anchor, rendered, docs, renderer_sources: rendererSources};
-  return {anchor, docs, season: fl.season, review: {
+  return {anchor, docs, season: fl.season, creeperInLeaf: fl.creeper_in_leaf === true, review: {
     rendered_flora: rendered, flora_anchor: anchor, flora_renderer_sources: rendererSources,
     flora_sha256: crypto.createHash('sha256').update(JSON.stringify(signature)).digest('hex'),
   }};

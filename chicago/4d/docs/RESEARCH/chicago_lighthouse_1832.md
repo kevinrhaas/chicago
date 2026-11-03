@@ -135,3 +135,16 @@ The Light-House Board's annual reports; a keeper's return; or a measured reading
 stands. Any of those settles the **shape** at once and would move the rest of L44 to Resolved —
 the position left it on 2026-09-12. For the position, what is left to want is a second
 contemporary sheet, or Wentworth's 1839 lots plotted against this point.
+
+
+## 6. Finite picture review, October 2026
+
+The earlier source-shaped tower increment is retained without another geometry change.
+The [seven-picture review](lighthouse-picture-signoff-T-2373/REVIEW.md) records the governing
+Castelnau comparison, actual Kellogg cross-angle diagnostic, conflicting drawing readings,
+tiny/hidden details and unchanged date/rights boundaries under the owner’s T-3153 stopping
+rule. The attributed harbour image is hosted for the lighthouse’s Images card. This
+paragraph does not by itself complete the original ticket. The canonical metadata-bound
+Castelnau capture was freshly rendered and directly reviewed on 27 October 2026; its
+native structure image gate passes with no open differences. Published phone/desktop
+inspection and final grouped native/code/PR validation remain pending.

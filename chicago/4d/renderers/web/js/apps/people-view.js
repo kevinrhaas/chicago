@@ -6,7 +6,7 @@
  * which deliberately lists no `residents` layer (T-1740 keeps the drawer's People, City,
  * Population and Order book on 1835's files). The directory is fetched here, on first
  * open, never at boot. Each person names their household, their place in it and the
- * grade of the record; a tap takes you to the house they live in.
+ * grade of the record; a tap opens their own card on the house they live in (T-3265).
  */
 const RANK = { head: 0, wife: 1, husband: 1, son: 2, daughter: 2, child: 2, servant: 4 };
 const GRADES = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -42,8 +42,12 @@ export async function mount(el, ctx = {}) {
       row.className = 'nav-person';
       if (p.lives_at) {
         row.type = 'button';
-        // T-3022: the house opens in Inspect, whose Back returns here.
-        row.addEventListener('click', () => { ctx.actions?.inspect?.(p.lives_at); });
+        // T-3022: the house opens in Inspect, whose Back returns here; T-3265: on the People
+        // tab, with this person's own card open.
+        row.addEventListener('click', () => {
+          if (ctx.actions?.openPerson) void ctx.actions.openPerson(p.id);
+          else ctx.actions?.inspect?.(p.lives_at);
+        });
       }
       const name = Object.assign(doc.createElement('span'), { className: 'nav-person-name', textContent: p.name });
       const sub = Object.assign(doc.createElement('span'), { className: 'nav-sub',

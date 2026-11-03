@@ -1,0 +1,56 @@
+{
+  "at": "2026-10-29T15:58:51.644030+00:00",
+  "scope": "All8heldfiles reviewed against actual final canonical form; onlyONEsource-specific finalnative camera executed. Variants are not8independentwitnesses and none is relabelled as a newly rendered camera.",
+  "files": {
+    "chicago_wolf_point_1833_nypl.jpg": {
+      "role": "Cleared governing1867 retrospective1833 pictured-form witness",
+      "wing_form": "Broad low horizontal-log front beside tall block; one window near tall block, door farther right. Fixed by actual side-wing prototype.",
+      "roof": "FIXED in actual final25-core/38-main capture: broad wing and visibly lower roof rise now agree in relative form; angles/metres remain reconstructed.",
+      "stack": "NOT SHOWN: low wing far end is cropped and no low stack is resolved; cannot infer absence.",
+      "upper_windows": "WITHIN TOLERANCE: this variant places upper lights nearer the cladding break than Hammon; current3-count and sections retained amid actual picture disagreement."
+    },
+    "chicago_wolf_tavern_miller_house_1832.jpg": {
+      "role": "Clear later Blanchard composition/variant; inspected only, not another independent measured witness",
+      "roof": "FIXED relative low roof form in final native capture; no historic angle measurement.",
+      "stack": "NOT SHOWN: low wing far end cropped; no absence finding.",
+      "upper_windows": "WITHIN TOLERANCE: lower-set upper lights than Hammon; not an independent demand to move current sills."
+    },
+    "chicago_wolf_point_1833_hammon.jpg": {
+      "role": "Later painted variant; no new source/rights derivation",
+      "roof": "FIXED relative low roof form; this painted variant is comparative inspection only and does not attest exact pitch or pigment.",
+      "stack": "NOT SHOWN: far right wing cropped; no absence finding.",
+      "material": "Painted colours and simplified course treatment vary from governing lithograph; no authentic pigment inference.",
+      "upper_windows": "WITHIN TOLERANCE: substantial blank band below3upper lights resembles current model and contradicts the proposed uniform low-sill interpretation of NYPL/1891."
+    },
+    "chicago_wolf_point_1830.jpg": {
+      "role": "Held monochrome variant; filename is not a proved publication/scene date",
+      "roof": "FIXED in relative low-roof shape; monochrome suppression is not a numeric roof survey.",
+      "stack": "NOT SHOWN: no resolved low stack; suppression/line quality cannot establish absence."
+    },
+    "chicago_wolf_point_1830_and_1833_engravings.jpg": {
+      "role": "Two compositions in one held file, not two solved independent cameras",
+      "roof": "NOT SHOWN for direct low roof ratio: changed quarter/overlap and small forms obscure comparable core eave/ridge; cannot refute clearer low-roof reading.",
+      "stack": "NOT SHOWN; no source-specific absence finding.",
+      "other": "Different projected wing placement is within tolerance as camera/drawing disagreement, not authority to slide surveyed control."
+    },
+    "chicago_wolf_point_1832.jpg": {
+      "role": "Small medallion engraving, held comparative inspection only",
+      "roof": "NOT SHOWN clearly enough for a reliable roof-rise relation; small simplified low-volume marks do not refute clearer images.",
+      "stack": "NOT SHOWN; no absence finding."
+    },
+    "chicago_wolf_point_1833.jpg": {
+      "role": "Distant compound engraving, held comparative inspection only",
+      "roof": "NOT SHOWN at useful detail for low wing eave/ridge or aperture counts.",
+      "stack": "NOT SHOWN at useful detail."
+    },
+    "chicago_river_wolf_point_1833.jpg": {
+      "role": "Different bank composition, Miller-like form small in far background",
+      "roof": "NOT SHOWN at useful detail for the governing low-wing comparison.",
+      "stack": "NOT SHOWN; cannot impose an absence or stack-count change."
+    }
+  },
+  "final_verdict": "matches underT3153",
+  "remaining_open_differences": [],
+  "upper_window_correction": "Initial final-review message incorrectly said Hammon corroborated low upper sills. Reopening its original pixels showed a high sill band resembling the model. Proposed0.45m move was withdrawn before any source edit; actual picture disagreement is within tolerance.",
+  "limits": "No8independentwitnesses,8literalrenderedcamera matches, precise historic camera/metric solution, surveyed dimensions, authentic pigment, new rights finding or proof of unchanged July1835 appearance."
+}

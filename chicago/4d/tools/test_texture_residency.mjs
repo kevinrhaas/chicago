@@ -10,6 +10,9 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const threeUrl=pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.core.js`).href;
 const THREE=await import(threeUrl);
 const sharedUrl=pathToFileURL(`${root}/renderers/web/js/shared-images.js`).href;
+// The real upload owner now imports the compact bounds implementation. Resolve
+// that dependency too when importing the owner from a data URL in this test.
+const boundsUrl='data:text/javascript;base64,'+Buffer.from((await fs.readFile(`${root}/renderers/web/js/batch-bounds.js`,'utf8')).replace("from 'three'",`from '${threeUrl}'`)).toString('base64');
 const {shareImageSources, glbImageSource}=await import(sharedUrl);
 let tests=[];
 function check(label,fn){assert.ok(fn,label);tests.push(label);console.log('PASS '+label)}
@@ -26,7 +29,7 @@ const previousSelf=globalThis.self;
 globalThis.__T3173KTX2Loader=FakeKTX2Loader;
 async function moduleFor(name){let src=await fs.readFile(`${root}/renderers/web/js/${name}`,'utf8');
  src=src.replace("from 'three'",`from '${threeUrl}'`).replace("import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';",'const KTX2Loader = globalThis.__T3173KTX2Loader;')
- .replace("from './shared-images.js'",`from '${sharedUrl}'`).replace("import { noteReleasedLevels } from './upload-release.js';",'const noteReleasedLevels = () => {};');
+ .replace("from './shared-images.js'",`from '${sharedUrl}'`).replace("from './batch-bounds.js'",`from '${boundsUrl}'`).replace("import { noteReleasedLevels } from './upload-release.js';",'const noteReleasedLevels = () => {};');
  return import(`data:text/javascript;base64,${Buffer.from(src).toString('base64')}`);}
 const kt=await moduleFor('ktx2.js');
 function texture(){const levels=Array.from({length:9},(_,i)=>{let width=256>>i;return{width,height:width,data:new Uint8Array(Math.max(16,width*width)).fill(i+1)}});let t=new THREE.CompressedTexture(levels,256,256,THREE.RGBA_BPTC_Format);t.wrapS=THREE.RepeatWrapping;t.anisotropy=4;t.colorSpace=THREE.SRGBColorSpace;return t;}
@@ -214,6 +217,53 @@ check('phone true/all mode decodes, uploads and closes returning image', phone.d
   && phone.residency.state.problems.length === 0);
 if (hadDocument) globalThis.document = oldDocument; else delete globalThis.document;
 if (hadBitmap) globalThis.ImageBitmap = oldBitmap; else delete globalThis.ImageBitmap;
+
+// The real phone release replaces the GLTF node tree with one disposal carrier.
+// Its required slots still name the original mesh/material ordinals, not that carrier.
+const { releaseSources } = await moduleFor('upload-release.js');
+const { hasRequiredSourceTextures } = await moduleFor('texture-residency.js');
+const rowToRelease = { gltf: realA, node: realA.scene.children[0] };
+const requiredBefore = [...(await import(sharedUrl)).sourceTextureSlots(realA.scene)];
+releaseSources(new Map([['actual-parser-fixture', rowToRelease]]));
+check('real source release collapses the node tree and clears the row node',
+  realA.scene.collapsed && rowToRelease.node === null && rowToRelease.sourceReleased);
+check('collapsed source retains only primitive original texture-slot keys and counts',
+  JSON.stringify(realA.scene.requiredTextureSlots) === JSON.stringify(requiredBefore)
+  && realA.scene.requiredTextureSlots.every(([key, count]) => typeof key === 'string' && Number.isInteger(count)));
+check('actual released GLTF accepts an intact raw GLTF reread', hasRequiredSourceTextures(realA, realB));
+const savedMap = matB.map; matB.map = null;
+check('actual released GLTF still refuses a reread missing the base-color slot', !hasRequiredSourceTextures(realA, realB));
+matB.map = savedMap;
+const savedEmissive = matB.emissiveMap; matB.emissiveMap = null;
+check('actual released GLTF still refuses a reread missing the second sampler slot', !hasRequiredSourceTextures(realA, realB));
+matB.emissiveMap = savedEmissive;
+const wrongNode = new THREE.Group(); realB.scene.add(wrongNode);
+wrongNode.material = new THREE.MeshBasicMaterial({ map: matB.map }); matB.map = null;
+check('a required texture on the wrong node cannot replace its original slot', !hasRequiredSourceTextures(realA, realB));
+matB.map = savedMap; realB.scene.remove(wrongNode); wrongNode.material.dispose();
+check('restored raw GLTF reread passes the unchanged required-slot contract', hasRequiredSourceTextures(realA, realB));
+
+// A repeated material still owes each original material slot and node placement.
+const repeatedScene = new THREE.Group();
+const firstRepeated = new THREE.Mesh(new THREE.BoxGeometry(), [matB, matB]);
+const otherMaterial = matB.clone(); otherMaterial.name = 'other original material';
+const secondRepeated = new THREE.Mesh(new THREE.BoxGeometry(), otherMaterial);
+repeatedScene.add(firstRepeated, secondRepeated);
+const repeatedRaw = { scene: repeatedScene.clone(true) };
+const repeatedReleased = { gltf: { scene: repeatedScene } };
+releaseSources(new Map([['repeated-material-fixture', repeatedReleased]]));
+check('collapsed source preserves repeated original material-slot multiplicity',
+  hasRequiredSourceTextures(repeatedReleased.gltf, repeatedRaw));
+repeatedRaw.scene.children[0].material = [matB];
+check('deduplicating a required original material slot is refused',
+  !hasRequiredSourceTextures(repeatedReleased.gltf, repeatedRaw));
+repeatedRaw.scene.children[0].material = [matB, matB];
+repeatedRaw.scene.children.reverse();
+check('reordering distinct original material nodes is refused',
+  !hasRequiredSourceTextures(repeatedReleased.gltf, repeatedRaw));
+repeatedRaw.scene.children.reverse();
+check('restoring every repeated slot and original node restores acceptance',
+  hasRequiredSourceTextures(repeatedReleased.gltf, repeatedRaw));
 
 console.log(`${tests.length} controls PASS; NO actual-browser/GPU/memory/visual qualification claimed`);
 if(hadLoader)globalThis.__T3173KTX2Loader=previousLoader;else delete globalThis.__T3173KTX2Loader;

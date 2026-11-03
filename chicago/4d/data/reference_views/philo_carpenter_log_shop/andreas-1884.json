@@ -7,18 +7,25 @@
     1296
   ],
   "principal_px": [
-    4129.395927696468,
-    856.404866199997
+    1960.5115576570247,
+    988.7170904223884
   ],
   "focal_px": 4730.352526721041,
   "eye": [
-    32.83817160861065,
-    57.588560531852394,
-    1.869951965172664
+    41.62110164312504,
+    48.259742845205224,
+    0.4716711420469061
   ],
-  "yaw_deg": 246.33520855106465,
+  "yaw_deg": 236.69726364763557,
   "sky": "overcast",
-  "solve": "PROVISIONAL RESEARCH FRAMING, NOT AN ACCEPTED WHOLE-BUILDING CAMERA. Exact re-anchoring of the held five-main-wall-corner Andreas fit: unchanged focal4730.352526721041, principal[4129.395927696468,856.404866199997], yaw246.33520855106465 and lighting. Both scene bearings are0 degrees; eye is translated by the independently compiled Sauganash-to-annex placement delta[9.92,3.10]m, without changing either building. Thus the old genuine before and new after retain the same rays and scene relation. The historical main-wall fit had RMS16.28px/max30.15px on approximate corner picks and an unresolved roof-apex residual; its off-image principal point is poorly constrained. It does not calibrate the annex size, placement, July1835 fittings, or hotel roof. Use this view to review the explicit doorway treatment; the broader massing/opening/source-camera case remains DIFFERS. No camera adjustment or coordinate was chosen to conceal the changed doorway. Andreas1884 is retrospective, depicting the Sauganash before1834, not a dated July1835 observation. Monochrome hatching does not establish pigment or photometric reflectance; overcast neutral review follows the source lack of consistent cast shadows.",
+  "solve": {
+    "status": "RECORDED_CANONICAL_ANNEX_DIAGNOSTIC_CAMERA",
+    "controls": "Six approximate manual annex wall-corner picks on the full 2017 by 1296 px engraving, each with about 10 px uncertainty. Fixed inherited focal length 4730.352526721041 px, square pixels, no pitch or image warp. Retained documented-size 6.096 by 4.877 m footprint, current placement and inferred 2.5 m eave. RMS 9.64 px / maximum 13.46 px are approximate diagnostic residuals, not independent historical measurements.",
+    "actual_trial": "Numeric rays were accepted in actual native two-control and third-control trials. The official selected build on 2026-10-30 recorded full recipe498ba51e434b99cb489b0dcf20150394cb3e4b00335dce00d95efde5011ef165 and reproduced the accepted MASTER and WEB bytes exactly. This canonical metadata is reviewed by its own subsequent native capture; no old match hash is restamped.",
+    "limits": "The 0.471671 m eye and near-edge principal point are poorly constrained diagnostic framing, never a historical visitor pose. Andreas 1884 is retrospective and the existing source describes before 1834, not a July 1835 survey. The hotel is an unchanged contextual holdout; this annex camera does not qualify its roof, dimensions, openings, projection or T-2383.",
+    "lighting": "Overcast neutral review because the engraving has no consistent calibrated cast shadows. Monochrome hatching does not establish paint or photometric reflectance.",
+    "scene": "Meshes share the flat review grade; actual app terrain, ground contact and walking access remain separate tests."
+  },
   "scene": "1835",
   "also_render": [
     "sauganash_hotel"

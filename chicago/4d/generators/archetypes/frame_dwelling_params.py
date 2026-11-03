@@ -312,7 +312,7 @@ CONSUMED = frozenset({
     "stories", "wall_height_m", "knee_wall_m", "roof_type", "roof_pitch_deg",
     "construction", "plan", "bays", "porch", "ell", "ell_wall_height_m",
     "chimneys", "paint", "shutters", "siding_exposure_m", "stovepipes", "glazing",
-    "trim", "chimney_head", "tower", "chimney_placement",
+    "trim", "chimney_head", "tower", "chimney_placement", "front_window_sill_m",
 })
 # NOT in the set, and each absence is a decision rather than an oversight:
 #   `cladding`      — this archetype always builds clapboard over sheathing, so a
@@ -445,6 +445,9 @@ class FrameDwellingParams:
     # T-2384. Opt-in chapel details; keyword-only so the house API is unchanged.
     tower: bool = field(default=False, kw_only=True)
     chimney_placement: str = field(default="house", kw_only=True)
+    # T-2384: opt-in setout of only the pictured chapel-front sash.
+    # None preserves the existing house, rear and gable opening arithmetic.
+    front_window_sill_m: float | None = field(default=None, kw_only=True)
 
     # ---------------------------------------------------------------- derived
 
@@ -481,6 +484,14 @@ class FrameDwellingParams:
         if self.chimneys >= 3 or (self.chimneys == 2 and not self.ell):
             out.append(self.width_m - 0.75)
         return tuple(out)
+
+    @property
+    def front_sill_m(self) -> float:
+        """Front sash sill; the exact former arithmetic when no override is stated."""
+        if self.front_window_sill_m is not None:
+            return float(self.front_window_sill_m)
+        story_h = self.wall_height_m / 2.0 if self.stories >= 2.0 else self.wall_height_m
+        return min(0.95, story_h * 0.36)
 
     @property
     def window_w_m(self) -> float:
@@ -697,6 +708,16 @@ class FrameDwellingParams:
                              f"a colour for")
         if self.glazing not in GLAZINGS:
             raise ParamError(f"glazing '{self.glazing}' not in {tuple(GLAZINGS)}")
+        if self.front_window_sill_m is not None:
+            sill = self.front_window_sill_m
+            if (isinstance(sill, bool) or not isinstance(sill, (int, float))
+                    or not math.isfinite(sill) or sill <= 0):
+                raise ParamError("front_window_sill_m must be a finite positive number")
+            if self.plan != "chapel_side":
+                raise ParamError("front_window_sill_m is the pictured chapel-front opt-in")
+            _across, up, lo, _pw, ph = glazing_lights(self.glazing)
+            if sill + sash_height_m(up, lo, ph) > self.wall_height_m - 0.28 + 1e-9:
+                raise ParamError("front_window_sill_m must fit the full sash below the frieze")
         if self.trim not in TRIMS:
             raise ParamError(f"trim '{self.trim}' not in {tuple(TRIMS)}")
         if self.chimney_head not in CHIMNEY_HEADS:
@@ -1003,6 +1024,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         confidence=confidences,
         tower=val("tower", False),
         chimney_placement=str(val("chimney_placement", "house")),
+        front_window_sill_m=val("front_window_sill_m"),
     )
     p.resolve()
     return p
@@ -1141,7 +1163,7 @@ def front_wall(p: "FrameDwellingParams") -> dict:
     w = float(p.width_m)
     wall_z = float(p.wall_height_m)
     story_h = wall_z / 2.0 if p.stories >= 2.0 else wall_z
-    sill = min(0.95, story_h * 0.36)
+    sill = p.front_sill_m
     top_head = wall_z - 0.28
     h = sash_rows(p.glazing, (story_h - 0.14 if p.stories >= 2.0 else top_head) - sill)[2]
     door_h = min(DOOR_H_M, top_head - DOOR_SILL_M)

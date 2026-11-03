@@ -52,8 +52,8 @@
     {
       "scene": "1835",
       "structure": "hogan_store",
-      "picture": "cameron_c1900_first_post_office",
-      "why": "Cameron's retrospective halftone shows the whole log building at left, including its roof and two elevations, and its printed caption identifies Chicago's first post office in 1833. This is a reasonable picture of the building under rule 12; it does not attest dimensions, hidden elevations, continued survival/use on 1 July 1835 or a solved historical camera. Local caption inspected for T-2377, 2026-10-22."
+      "picture": "early-cameron-first-post-office-1833",
+      "why": "Cameron's retrospective halftone shows the whole log building at left, including its roof and two elevations, and its printed caption identifies Chicago's first post office in 1833. This is a reasonable picture of the building under rule 12; it does not attest dimensions, hidden elevations, continued survival/use on 1 July 1835 or a solved historical camera. Local caption inspected for T-2377, 2026-10-22. The canonical library id aliases this same held composition, rather than adding a second independent picture; original source credit and per-attribute grades remain."
     },
     {
       "scene": "1835",
@@ -70,8 +70,8 @@
     {
       "scene": "1835",
       "structure": "miller_house",
-      "picture": "blanchard_shober_1867_wolf_point",
-      "why": "The actual NYPL Wolf's Point in 1833 lithograph (published 1867), inspected 2026-10-23 for T-2381, depicts Miller House whole at right: tall main block, log lower storey, vertically boarded upper storey/gable and adjoining low cabin. This is a reasonable retrospective picture under rule 12, not proof of surveyed dimensions, unchanged July 1835 appearance, occupancy or a completed match. Existing per-attribute inferred/reconstructed grades remain."
+      "picture": "early-blanchard-shober-1867-wolf-point",
+      "why": "The actual NYPL Wolf's Point in 1833 lithograph (published 1867), inspected 2026-10-23 for T-2381, depicts Miller House whole at right: tall main block, log lower storey, vertically boarded upper storey/gable and adjoining low cabin. This is a reasonable retrospective picture under rule 12, not proof of surveyed dimensions, unchanged July 1835 appearance, occupancy or a completed match. Existing per-attribute inferred/reconstructed grades remain. The canonical library id aliases this same held composition, rather than adding a second independent picture; original source credit and per-attribute grades remain."
     },
     {
       "scene": "1835",
@@ -118,8 +118,8 @@
     {
       "scene": "1835",
       "structure": "chicago_lighthouse_1832",
-      "picture": "castelnau_1842_chicago_harbor",
-      "why": "The identified 1842 Castelnau harbour print shows the distinct full visible lighthouse shaft, gallery, framed lantern, rounded crown and finial sufficiently to guide its appearance, although it is the small far-right building and its foot is occluded. The entire source and its original plate detail were inspected; this is appearance evidence rather than the mapped plan alone. The whole-building grade does not attest metric diameter, the 40 ft datum, paint, hidden construction, a solved camera or unchanged July 1835 detail. Circa 1838-to 1835 continuity remains inferred and every source comparison still differs."
+      "picture": "early-castelnau-1842-chicago-harbor",
+      "why": "The identified 1842 Castelnau harbour print shows the distinct visible lighthouse shaft, gallery, framed lantern, rounded crown and finial sufficiently to guide its appearance, although it is the small far-right building and its foot is occluded. The entire source and its original plate detail were inspected; this is appearance evidence rather than the mapped plan alone. The whole-building grade does not attest metric diameter, the 40 ft datum, paint, hidden construction, a historical viewing station or unchanged July 1835 detail. Circa 1838-to-1835 continuity remains inferred. The canonical Castelnau comparison now matches under T-3153; the Kellogg aperture/proportion and Baker cap disagreements remain explicit conflicting-picture readings, not literal matches. Tiny or occluded features and the original source/date/rights limits remain qualified in the seven-picture review."
     }
   ],
   "not_pictured": [
@@ -140,6 +140,18 @@
       "structure": "house_1712_prairie",
       "picture": "cgn-1712-tribune-1939-kodak-model",
       "why": "The Chicago Tribune's photograph of 24 December 1939 shows the architects' model of the Eastman Kodak film-processing plant (Schmidt, Garden & Erikson; five storeys, 120 by 160 ft) to be built on the 1712-1720 frontage, as the Prairie library's own note says ('what replaced the Sturges/Walker houses'). It is a picture of the building that replaced the house, not of the house, so it does not attest 1712's 1904 form (read 2026-10-27, T-3187)."
+    },
+    {
+      "scene": "1835",
+      "structure": "chappel_infant_school",
+      "picture": "early-eliza-chappel-school-shore-reference",
+      "why": "This image shows the form the project explicitly chooses for the model, but its subject is not securely identified as Chappel’s schoolhouse: the original artist/publication is unknown and the modern Lake-and-Clark caption conflicts with the first school’s log form and shore setting. The diagnostic local camera verifies resemblance to an owner-approved design reference, not that the historical building is depicted. Preserve the inferred structure grade; every new metric/form choice is separately reconstructed. This does not deny the existence of the pictured building or identify it as the Sauganash annex."
+    },
+    {
+      "scene": "1904",
+      "structure": "law_house_1620_prairie_coach_house",
+      "picture": "a16-cgy-landowner-1874-1620-law",
+      "why": "The May 1874 Land Owner engraving of the Robert Law house shows, behind it on this ground, a board-and-batten building under two hipped roofs; Robinson's 1886 plate 10 and the 1911 Sanborn sheet 20 both draw a brick stable there, so the engraving pictures the frame stable the brick one replaced, not the building standing in 1904 (T-1932; L-k12-1620-stable-1932). Its image-gate camera is kept to record that reading, not as a picture of this building."
     }
   ],
   "street_maps": {

@@ -1271,12 +1271,14 @@ async function captureWithRestoreState(page, grid, when) {
     // SPDX-License-Identifier: GPL-3.0-or-later
     function sceneCaptureReady(state){
      const f=state?.flora,t=state?.textureResidency;
-     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0);
+     // T-3300: a parked vehicle is fetched as the eye nears its stand, so one
+     // still in flight would land between the baseline and the restored frame.
+     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0)&&(state.parkedTransport===null||state.parkedTransport===0);
     }
     function advanceSceneSettle(previous,state){
      if(!sceneCaptureReady(state))return{key:null,unchanged:0,settled:false};
      // Only semantic counters: never frame/timing counters which advance forever.
-     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency});
+     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport});
      const unchanged=previous?.key===key?previous.unchanged+1:1;
      return{key,unchanged,settled:unchanged>=4};
     }
@@ -1315,6 +1317,7 @@ async function captureWithRestoreState(page, grid, when) {
         textureResidency: textures ? { pending: textures.pending, resident: textures.resident,
           residentBytes: textures.residentBytes, uploads: textures.uploads,
           evictions: textures.evictions, redecodes: textures.redecodes } : null,
+        parkedTransport: Number.isInteger(a.parkedTransport?.pending) ? a.parkedTransport.pending : null,
       };
     };
     let settleReceipt = null;
@@ -4355,30 +4358,22 @@ for (const [label, viewport, touch] of [
           else if (v < 1) notReconstructed++;
         }
       }
-      // T-0064. Sixty-eight wagons against a hundred thousand vertices is seven
-      // million distance tests if it is written the obvious way, so the wagons go
-      // into 8 m buckets first and each vertex only asks the nine buckets round it.
-      const BUCKET = 8;
-      const wagonGrid = new Map();
-      wagons.forEach((wg, i) => {
-        const at = wg.at_local_enu_m;
-        const key = `${Math.floor(at[0] / BUCKET)},${Math.floor(at[1] / BUCKET)}`;
-        if (!wagonGrid.has(key)) wagonGrid.set(key, []);
-        wagonGrid.get(key).push(i);
-      });
-      const wagonNear = (e, n) => {
-        const ce = Math.floor(e / BUCKET);
-        const cn = Math.floor(n / BUCKET);
-        for (let de = -1; de <= 1; de++) {
-          for (let dn = -1; dn <= 1; dn++) {
-            for (const i of wagonGrid.get(`${ce + de},${cn + dn}`) ?? []) {
-              const at = wagons[i].at_local_enu_m;
-              if (Math.hypot(e - at[0], n - at[1]) <= 4.6) return wagons[i];
-            }
-          }
-        }
-        return null;
-      };
+      // A bench beside the moved Green Tree shed is within the wagon's old
+      // search radius, and one end enters the shed's diagnostic rectangle. Read
+      // the ranges actually emitted for each object, never a proximity guess.
+      const objects = new Map([
+        ...wagons.map((object) => [object.id, { wagon: object }]),
+        ...benches.map((object) => [object.id, { bench: object }]),
+        ...sheds.map((object) => [object.id, { shed: object }]),
+      ]);
+      const allObjectOwners = new Map(meshes.map((m) => [m.geometry,
+        (m.userData.yardObjectSpans ?? []).map((span) => ({
+          ...span, object: objects.get(span.id),
+        }))]));
+      const objectSpans = [...allObjectOwners.values()].flat();
+      const objectOwnershipExact = objectSpans.length === objects.size
+        && new Set(objectSpans.map((span) => span.id)).size === objects.size
+        && objectSpans.every((span) => span.object && span.to > span.from);
       // Measure the exact vertices emitted for each lot item. The old radius
       // classifier absorbed nearby wagons/trade goods into bridge repair piles.
       // Ownership includes every emitted vertex, so a displaced pile fails its
@@ -4503,6 +4498,8 @@ for (const [label, viewport, touch] of [
         let ownerIndex = 0;
         const objectOwners = exactOwners.get(geo) ?? [];
         let objectIndex = 0;
+        const allObjectRanges = allObjectOwners.get(geo) ?? [];
+        let allObjectIndex = 0;
         for (let i = 0; i < pos.count; i++) {
           while (ownerIndex < owners.length && i >= owners[ownerIndex].to * 3) ownerIndex++;
           const owner = owners[ownerIndex];
@@ -4536,7 +4533,7 @@ for (const [label, viewport, touch] of [
             const sh = sheds.find((s) => s.id === owned.record.under_shed);
             // Preserve the original tongue rule: owned wagon vertices beyond
             // its bay remain wagon geometry rather than inflating the roof.
-            if (sh && inShedBay(sh, shedFrame(sh, e, n))) measureShedPoint(sh, e, n, pos.getY(i));
+            if (sh && Math.abs(shedFrame(sh, e, n).along) <= (sh.length_m ?? 0) / 2 + 0.4) measureShedPoint(sh, e, n, pos.getY(i));
             else wagonVerts++;
             continue;
           }
@@ -4562,6 +4559,23 @@ for (const [label, viewport, touch] of [
             }
             continue;
           }
+          // Retain the tagged-owner checks and controls above, then classify any
+          // remaining primitive through its independently emitted exact range.
+          while (allObjectIndex < allObjectRanges.length && i >= allObjectRanges[allObjectIndex].to * 3) allObjectIndex++;
+          const allObjectRange = allObjectRanges[allObjectIndex];
+          const primitive = allObjectRange && i >= allObjectRange.from * 3
+            && i < allObjectRange.to * 3 ? allObjectRange.object : null;
+          if (primitive?.bench) {
+            const bn = primitive.bench;
+            benchVerts++;
+            benchStray = Math.max(benchStray, Math.hypot(e - bn.at_local_enu_m[0], n - bn.at_local_enu_m[1]));
+            const b = ((bn.bearing_deg ?? 0) * Math.PI) / 180;
+            benchInside = Math.min(benchInside,
+              (e - bn.at_local_enu_m[0]) * Math.sin(b) + (n - bn.at_local_enu_m[1]) * Math.cos(b));
+            continue;
+          }
+          if (primitive?.shed) { measureShedPoint(primitive.shed, e, n, pos.getY(i)); continue; }
+          if (primitive?.wagon) { wagonVerts++; continue; }
           const ob = obAt(e, n);
           if (ob) {
             obVerts++;
@@ -4572,10 +4586,6 @@ for (const [label, viewport, touch] of [
             obHigh = Math.max(obHigh, ob.maxY - ob.minY);
             continue;
           }
-          // A wagon is 3 m of body and a 2.75 m tongue, so it is measured by its
-          // own bound rather than lumped in with the casks.
-          const w = wagonNear(e, n);
-          if (w) { wagonVerts++; continue; }
           let best = null;
           let bestD = Infinity;
           for (const it of items) {
@@ -4643,6 +4653,8 @@ for (const [label, viewport, touch] of [
         worstStray,
         worstInside,
         wagonVerts,
+        objectOwnershipExact,
+        objectSpans: objectSpans.length,
         benchVerts,
         benchStray,
         benchInside,
@@ -4827,6 +4839,9 @@ for (const [label, viewport, touch] of [
         && goods.wagon?.clearance_m >= 1.6,
       `${goods.wagonVerts} wagon vertices, ${goods.wagon?.clearance_m} m clear in `
       + `${goods.wagon?.in_enclosure}`);
+    check(`${label}: every wagon, bench and shed owns its exact emitted triangle range`,
+      goods.objectOwnershipExact,
+      `${goods.objectSpans} primitive ownership range(s)`);
     // T-0080. The Green Tree's two, from the Trowbridge view: they stand square
     // to the inn's rear wall — the bearing is the facade's own plus 180 — and
     // every one of them cleared the committed walls by the margin a parked wagon
@@ -10593,9 +10608,24 @@ for (const [label, viewport, touch] of [
       // tallest one in the scene. See the note on the assertions below.
       const bounds = a.buildings.instanceBounds();
       const perStructure = [];
+      // T-3320: a fort's parade is GROUND now — the yards layer lays it as trodden
+      // earth and the buildings layer draws only what stands on it (the sun-dial),
+      // so its drawn box is the dial's. It is measured below as ground instead.
+      const paradeGrounds = [];
       for (const [id, box] of Object.entries(bounds)) {
         const r = a.registry.get(id);
         const attrs = r?.sidecar?.attributes ?? {};
+        if (attrs.kind?.value === 'parade') {
+          const p = r.sidecar.placement ?? {};
+          const fp = r.sidecar.footprint?.polygon ?? [];
+          const u = fp.reduce((s, q) => s + q[0], 0) / (fp.length || 1);
+          const v = fp.reduce((s, q) => s + q[1], 0) / (fp.length || 1);
+          const b = ((p.rotation_deg ?? 0) * Math.PI) / 180;
+          const e = (p.local_e ?? 0) + u * Math.cos(b) + v * Math.sin(b);
+          const n = (p.local_n ?? 0) - u * Math.sin(b) + v * Math.cos(b);
+          paradeGrounds.push({ id, treatment: a.yards?.treatmentAt?.(e, n) ?? null });
+          continue;
+        }
         perStructure.push({
           id,
           size: box.size,
@@ -10606,7 +10636,7 @@ for (const [label, viewport, touch] of [
         });
       }
       return { terrainMeshes, gotW: maxX - minX, gotD: maxZ - minZ, wantW, wantD,
-        wall, perStructure, structureCount: a.registry.size };
+        wall, perStructure, paradeGrounds, structureCount: a.registry.size };
     });
     // The ground is deliberately LARGER than the heightfield — it carries a
     // far-field skirt past the modelled box, which is what you see on the horizon
@@ -10634,6 +10664,11 @@ for (const [label, viewport, touch] of [
     // A rendered size only means something against a claim, so the floor here is
     // the smallest thing the dataset actually contains — a privy, not a house —
     // and anything at or under the quantisation clamp is called out by name.
+    // T-3320: and a parade left out of the measure above must be ground that is
+    // actually laid: the yards layer answers trodden earth at its centre.
+    check(`${label}: every fort parade is laid as trodden ground`,
+      scale.paradeGrounds.every((g) => g.treatment === 'trodden_earth'),
+      scale.paradeGrounds.map((g) => `${g.id}: ${g.treatment ?? 'no ground'}`).join('; ') || 'no parade in this scene');
     const collapsed = scale.perStructure.filter((s) => Math.max(...s.size) <= 2.05);
     check(`${label}: no structure is collapsed to the quantisation clamp`,
       collapsed.length === 0,
@@ -20369,11 +20404,23 @@ for (const [label, viewport, touch] of [
           'pullman_glasshouse_1800_calumet_north',
           'pullman_glasshouse_1800_calumet_east',
           'pullman_glasshouse_1800_calumet_east_end',
-          'pullman_lodge_1800_calumet'].sort();
+          'pullman_lodge_1800_calumet',
+          // T-3269 (#1519) stood 1905 Prairie's conservatory as a record of its own on the
+          // house's stone bow and left it off this list, so this check was red at both
+          // viewports on every branch off dev until T-3275 added it.
+          'marshall_field_house_1905_prairie_conservatory'].sort();
+        // T-3275: this list has drifted four times (T-2331, T-2468, T-3164, T-3275), and each time the
+        // only clue was the whole placed list printed beside this one. Name the difference.
+        const missing1904 = PLACED_1904.filter((id) => !at.placed.includes(id));
+        const unlisted1904 = at.placed.filter((id) => !PLACED_1904.includes(id));
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
-          `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
+          `meshes: ${JSON.stringify(at.drawn)}; `
+          + `placed but not on PLACED_1904 ${JSON.stringify(unlisted1904)}; `
+          + `on PLACED_1904 but not placed ${JSON.stringify(missing1904)}; `
+          + `registry ${at.registry} against ${PLACED_1904.length} listed; `
+          + `structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
         // Owner-reported date ambiguity: 1946 closes an exterior phase, not
         // the life of the surviving museum. Check the actual card and evidence.
@@ -20461,9 +20508,36 @@ for (const [label, viewport, touch] of [
           const current = () => root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
           await open('glessner_house');
           const people = await tab('people');
-          const out = { people: [...root().querySelectorAll('[data-insp-pane="people"] [data-person] .nav-person-name')].map((n) => n.textContent.trim()),
-            story: (await tab('story')).text.includes('1885') };
+          const out = { people: [...root().querySelectorAll('[data-insp-pane="people"] [data-person-card] .nav-person-name')].map((n) => n.textContent.trim()) };
+          // T-3265: a person opens their own card in place (never the full People list), with
+          // their story, How we know and the census line; Back returns to the household, on them.
+          const pane = root().querySelector('[data-insp-pane="people"]');
+          pane.querySelector('[data-person-card="pa1904_glessner_john_j_c1900_august_billings"]')?.click();
+          await wait(() => !!pane.querySelector('.insp-person-card .insp-person-census'));
+          const card = pane.querySelector('.insp-person-card');
+          out.card = { app: a.navigator.app, listHidden: !!pane.querySelector('.insp-people-home')?.hidden,
+            name: card?.querySelector('.insp-person-name')?.textContent ?? '',
+            back: card?.querySelector('[data-person-back]')?.textContent.trim() ?? '',
+            lead: card?.querySelector('.insp-person-story [data-composed]')?.textContent ?? '',
+            why: card?.querySelector('.insp-person-why-title')?.textContent ?? '',
+            leaf: card?.querySelector('.insp-person-leaf')?.getAttribute('href') ?? '',
+            sources: card?.querySelectorAll('.insp-person-sources li').length ?? 0 };
+          card?.querySelector('[data-person-back]')?.click();
+          out.back = { card: !!pane.querySelector('.insp-person-card'), listShown: !pane.querySelector('.insp-people-home')?.hidden,
+            focus: document.activeElement?.dataset?.personCard ?? null };
+          out.story = (await tab('story')).text.includes('1885');
           await tab('photos');
+          // T-3266: a house's former residents, the family it is named for among them, and a
+          // house nobody is listed in for 1904 saying so instead of "nobody in our records".
+          // innerText carries the headings' CSS capitals, so the headings match in any case.
+          await open('keith_house_1808_prairie');
+          const keith = await tab('people');
+          out.keith = /Former residents/i.test(keith.text) && /Keith/.test(keith.text) && /Stanley Field/.test(keith.text);
+          if (!out.keith) out.keithSeen = { structure: root()?.dataset.structure, filled: keith.filled, shown: keith.shown, text: keith.text.slice(0, 160) };
+          await open('coleman_ames_house_1811_prairie');
+          const coleman = await tab('people');
+          out.coleman = /Nobody listed in 1904/i.test(coleman.text) && /Coleman/.test(coleman.text) && !/Nobody in our records/i.test(coleman.text);
+          if (!out.coleman) out.colemanSeen = { structure: root()?.dataset.structure, filled: coleman.filled, shown: coleman.shown, text: coleman.text.slice(0, 160) };
           await open('pullman_house_1729_prairie');
           out.newOpensOn = current();
           await tab('design');
@@ -20472,9 +20546,17 @@ for (const [label, viewport, touch] of [
           await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
           return out;
         });
-        check(`${label}: Inspect's People tab lists the Glessner household; a new building opens on Overview and the same keeps its tab (T-2639)`,
+        check(`${label}: a person on Inspect's People tab opens their own card, with Back to the household (T-3265)`,
+          inspectTabs1904.card?.app === 'inspect' && inspectTabs1904.card.listHidden && inspectTabs1904.card.name === 'August Billings'
+          && inspectTabs1904.card.back === 'The Glessner household' && /found August Billings/.test(inspectTabs1904.card.lead)
+          && /^Inferred/.test(inspectTabs1904.card.why) && /12thcensusofpopu245unit\/page\/n803/.test(inspectTabs1904.card.leaf)
+          && inspectTabs1904.card.sources >= 1 && !inspectTabs1904.back.card && inspectTabs1904.back.listShown
+          && inspectTabs1904.back.focus === 'pa1904_glessner_john_j_c1900_august_billings',
+          JSON.stringify({ card: inspectTabs1904.card, back: inspectTabs1904.back }));
+        check(`${label}: Inspect's People tab lists the Glessner household; 1808 lists its former residents and 1811 why nobody is listed (T-3266); a new building opens on Overview and the same keeps its tab (T-2639)`,
           inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
-          && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design',
+          && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design'
+          && inspectTabs1904.keith && inspectTabs1904.coleman,
           JSON.stringify(inspectTabs1904));
         // >>> T-2644: Glessner's Sources tab groups every fact by grade with real counts (the
         // same count the Overview's Confidence meter shows), a Liberties section with every

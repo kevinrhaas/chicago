@@ -1,0 +1,32 @@
+{
+  "structure_id": "chappel_infant_school",
+  "source_id": "eliza_chappel_school_shore_view",
+  "library_image": "early-eliza-chappel-school-shore-reference",
+  "photo": "../../../../reference/images/chicago/eliza-chappel-school/21617595_10203558686525015_5452300313452439832_n.jpg",
+  "image_px": [
+    640,
+    368
+  ],
+  "principal_px": [
+    571.0,
+    215.0
+  ],
+  "focal_px": 2180.0,
+  "eye": [
+    -28.015966937636758,
+    83.778,
+    2.625
+  ],
+  "yaw_deg": 158.0,
+  "sky": "overcast",
+  "diagnostic_only": true,
+  "solve": {
+    "status": "reconstructed_local_facade_fit",
+    "basis": "A local facade-composition fit to the pictured front only, with no historic station or metric photographic control. The entire shore scene has inconsistent perspective per existingT0649; it is not fitted to the lighthouse or people and does not move any geographic control. All scale/eye/focal/yaw choices are reconstructed review parameters.",
+    "metric_scale": "The chosen 4.572 m front,2.50 m wall,1.20 m door and 0.85 m lights are design conventions; none is measured from this drawing. The new hidden 8.778 m depth approximately preserves the former two-room area. A75 m normal stand-off/22° obliquity and 2180 px focal length reproduce the local face atabout 27 px per chosen metre.",
+    "anchors": "Read directly from the640×368 held sheet: door head near(566,216.75), left/right light centres about(534,237)/(605,237), visible left corner about(515,221..285), and front gable apex near(561,158). Corners/base are partly obscured by figures/grass. The drawn apex, door and wall are not a consistent surveyed elevation. The numeric pose is unchanged from the actual2026-10-29 before/after native comparison. Its building form was directly reviewed underT3153: the apex residual is about7px/0.26m in the declared reconstructed scale. This camera registers that same finite local fit against the actual official selected-owner MASTER; its match record carries the exact current capture and review bindings.",
+    "limits": "No global residual, historic viewpoint, verified identity or source date. The drawing is a declared reconstructed form reference, not an identified photograph of this1835 building. Rear depth and the stack are beyond the right-hand crop or hidden by foreground context; invisibility is not evidence of absence. The pictured people, canoes, distant light and settlement fall outside this isolated building match and do not establish July1835 occupants. Published application surfaces, grade contact and walking access are separate acceptance checks.",
+    "light": "Overcast neutral geometry review; no unique sun vector is supported by the continuous-tone reproduction. Native master review has flat material slots; app/procedural log and shingle treatment needs separate publishedBOTH review.",
+    "rights": "Artist unidentified; reproduced by the Digital Research Library of Illinois History Journal in its 2018 Eliza Chappell article. Original publication and holding institution unknown. Project-specific attributed use approved by owner 2026-10-22; noPD/openlicence claim."
+  }
+}

@@ -144,12 +144,17 @@ def front_doors(sc: dict) -> tuple[list[dict], str | None]:
         params = _frame_tavern_params(phases[0], record)
         c, _sash = params.resolved_front_ground_stations
         reader = "frame_tavern centred front door"
-        if params.front_ground_layout is not None:
+        door_width = TAVERN_DOOR_W_M
+        if params.front_opening_details is not None:
+            door_width = params.front_opening_details["leaf_width_m"]
+            reader = "frame_tavern.front_opening_details (selected phase)"
+        if params.front_ground_layout is not None or params.front_opening_details is not None:
             if poly != phases[0].get("footprint", {}).get("polygon"):
                 raise ValueError(f"{sc['id']}: front entrance sidecar footprint is stale")
-            reader = "frame_tavern.resolved_front_ground_stations (selected phase)"
-        return ([{"kind": "door", "u0": c - TAVERN_DOOR_W_M / 2,
-                  "u1": c + TAVERN_DOOR_W_M / 2}], reader)
+            if params.front_opening_details is None:
+                reader = "frame_tavern.resolved_front_ground_stations (selected phase)"
+        return ([{"kind": "door", "u0": c - door_width / 2,
+                  "u1": c + door_width / 2}], reader)
     wall = gbs._front_wall(sc["id"])
     if wall is None:
         return [], None
@@ -360,7 +365,8 @@ def build() -> dict:
         "generated_by": "tools/generate_entrances.py",
         "generated_from": ["data/sidecars/1835/", "generators/archetypes/facade_openings.py"] + (
             ["data/structures/", "generators/archetypes/frame_tavern_params.py"]
-            if any(x["read_by"] == "frame_tavern.resolved_front_ground_stations (selected phase)"
+            if any(x["read_by"] in ("frame_tavern.resolved_front_ground_stations (selected phase)",
+                                   "frame_tavern.front_opening_details (selected phase)")
                    for x in entrances) else []),
         "belongs_to": sorted({x["structure_id"] for x in entrances}),
         "documented_range": {

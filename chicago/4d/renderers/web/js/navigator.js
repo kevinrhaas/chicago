@@ -412,6 +412,7 @@ export function createNavigator({
     openLink(next) {
       if (!next?.app || !registry.has(next.app)) return Promise.resolve(false);
       link = { app: next.app, id: next.id ?? null, tab: next.tab ?? null };
+      if (next.person) link.person = next.person; // T-3265: Inspect opens People on this person's card
       return registry.select(next.app, { by: 'link' });
     },
     get link() { return link; },

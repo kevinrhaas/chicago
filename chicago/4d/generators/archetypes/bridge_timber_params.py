@@ -111,6 +111,7 @@ out to state the floor.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import math
 
 CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
@@ -127,6 +128,7 @@ DECK_KINDS = ("puncheon", "plank")
 # The existing open pole rail remains the default. The horizontal-board
 # parapet is an opt-in reading of the public-domain Andreas drawbridge plate.
 RAILING_KINDS = ("pole", "board")
+DRAW_PROFILES = ("flat", "peaked")
 
 # WHAT HOISTED THE DRAW. `None` is the state this archetype built from 2026-08-11 to
 # 2026-08-21: gallows frames standing over a closed opening with nothing hung from
@@ -203,6 +205,9 @@ CONSUMED = frozenset({
     # supports out of itself and stations the frames, the count sets how many frames
     # there are, and the height is the silhouette.
     "draw_span_m", "gallows_frames", "gallows_height_m",
+    "draw_bearing_supports", "draw_profile", "draw_rise_m",
+    "gallows_shore_attach_m", "draw_bearing_platform_m",
+    "draw_bearing_platform_offset_m",
     # The engravings' half, added 2026-08-21 for T-0132. Each reaches vertices: the
     # bracing changes the frame from a bare portal into the plates' A, the gear hangs
     # the chains, and the leaf count divides the closed deck across the opening.
@@ -279,6 +284,18 @@ class BridgeTimberParams:
     # opening and the record carries the ambiguity instead of the mesh.
     draw_span_m: float | None = None
 
+    # Optional pictured bearing relationship; retain every default station.
+    # Move the nearest surviving approach crib onto each existing draw end.
+    draw_bearing_supports: bool = field(default=False, kw_only=True)
+    # Optional closed-display rise. Exact height and joints are reconstructed.
+    draw_profile: str = field(default="flat", kw_only=True)
+    draw_rise_m: float = field(default=0.0, kw_only=True)
+    # Optional pictured high rakers and broad bearing platforms. None keeps the
+    # original shore attachment and general pier treatment byte for byte.
+    gallows_shore_attach_m: float | None = field(default=None, kw_only=True)
+    draw_bearing_platform_m: tuple[float, float] | None = field(default=None, kw_only=True)
+    draw_bearing_platform_offset_m: float = field(default=0.0, kw_only=True)
+
     # How many gallows frames stand over the draw. Two is the documented arrangement
     # for the Dearborn bridge, one at either end of the opening.
     gallows_frames: int = 0
@@ -347,9 +364,9 @@ class BridgeTimberParams:
 
     @property
     def pier_x(self) -> list[float]:
-        """Centre-lines of the interior supports, evenly spaced along the span.
+        """Interior supports, regular by default or aligned at draw bearings.
 
-        EVEN SPACING IS THE ARCHETYPE'S, always. Even where the count is attested it
+        EVEN SPACING IS THE ARCHETYPE'S default. Even where the count is attested it
         is only a count: the 1883 statement puts two bents "in deeper water" between
         log abutments "in the shallow water near the banks" and says nothing about
         where along the span they stood. Thirds are what a builder would do and not
@@ -372,7 +389,18 @@ class BridgeTimberParams:
             return xs
         lo = self.span_m / 2.0 - self.draw_span_m / 2.0
         hi = self.span_m / 2.0 + self.draw_span_m / 2.0
-        return [x for x in xs if not lo < x < hi]
+        outside = [x for x in xs if not lo < x < hi]
+        if not self.draw_bearing_supports:
+            return outside
+        # The default stations can leave a frame between approach cribs. Only
+        # relocate existing survivors: this option never invents another pier.
+        left = [x for x in outside if x <= lo]
+        right = [x for x in outside if x >= hi]
+        if not left or not right:
+            raise ParamError("draw_bearing_supports needs a surviving support on each approach")
+        left[-1] = lo
+        right[0] = hi
+        return left + right
 
     @property
     def gallows_x(self) -> list[float]:
@@ -440,6 +468,61 @@ class BridgeTimberParams:
                     f"draw_span_m {self.draw_span_m} must be at least 3 m and shorter "
                     f"than the span it opens ({self.span_m}); a draw as wide as the "
                     f"bridge is not a draw, it is a ferry")
+        if self.draw_profile not in DRAW_PROFILES:
+            raise ParamError(f"draw_profile {self.draw_profile!r} not in {DRAW_PROFILES}")
+        if (isinstance(self.draw_rise_m, bool)
+                or not isinstance(self.draw_rise_m, (int, float))
+                or not math.isfinite(self.draw_rise_m)):
+            raise ParamError("draw_rise_m must be finite and numeric, not boolean")
+        if self.draw_profile == "flat" and self.draw_rise_m != 0:
+            raise ParamError("flat draw_profile requires zero draw_rise_m")
+        if self.draw_profile == "peaked":
+            if not self.draw_span_m:
+                raise ParamError("peaked draw_profile requires a draw")
+            if not 0 < self.draw_rise_m <= min(3.0, self.draw_span_m / 4.0):
+                raise ParamError("draw_rise_m must be positive, <=3m and <=quarter draw span")
+        if not isinstance(self.draw_bearing_supports, bool):
+            raise ParamError("draw_bearing_supports must be boolean")
+        if self.draw_bearing_supports:
+            if not self.draw_span_m or self.gallows_frames != 2 or self.bays < 3:
+                raise ParamError("draw_bearing_supports needs a draw, two gallows and two approach supports")
+            # Evaluate the selected stations here so an option with no surviving
+            # support on one approach refuses before a geometry build begins.
+            _ = self.pier_x
+        if self.gallows_shore_attach_m is not None:
+            a = self.gallows_shore_attach_m
+            if (isinstance(a, bool) or not isinstance(a, (int, float))
+                    or not math.isfinite(a) or not 0.5 <= a <= self.gallows_height_m - 0.36):
+                raise ParamError("gallows_shore_attach_m must be finite and between 0.5 m and the head underside")
+            if not self.gallows_braced or not self.gallows_frames:
+                raise ParamError("shore attachment requires existing braced gallows")
+        offset = self.draw_bearing_platform_offset_m
+        if (isinstance(offset, bool) or not isinstance(offset, (int, float))
+                or not math.isfinite(offset) or abs(offset) > 1.5):
+            raise ParamError("bearing platform transverse offset must be finite within 1.5 m")
+        if offset != 0 and self.draw_bearing_platform_m is None:
+            raise ParamError("bearing platform offset requires bearing platforms")
+        if self.draw_bearing_platform_m is not None:
+            size = self.draw_bearing_platform_m
+            if (not isinstance(size, (list, tuple)) or len(size) != 2
+                    or any(isinstance(v, bool) or not isinstance(v, (int, float))
+                           or not math.isfinite(v) for v in size)):
+                raise ParamError("draw_bearing_platform_m needs finite [along, across] dimensions")
+            along, across = size
+            if not 1.5 <= along <= 6.0 or not self.width_m + 0.9 <= across <= self.width_m + 3.0:
+                raise ParamError("bearing platform dimensions exceed bounded approach/frame envelope")
+            if not self.draw_bearing_supports or self.gallows_frames != 2:
+                raise ParamError("bearing platforms require two aligned draw-bearing supports")
+            lo, hi = self.gallows_x
+            if lo - along / 2 < 0 or hi + along / 2 > self.span_m:
+                raise ParamError("bearing platform runs beyond an approach end")
+            others = [x for x in self.pier_x if abs(x - lo) > 1e-8 and abs(x - hi) > 1e-8]
+            if any(abs(x - g) <= along / 2 + 0.58 for x in others for g in (lo, hi)):
+                raise ParamError("bearing platform overlaps another approach support")
+            y0 = (self.width_m - across) / 2 + offset
+            # Both existing gallows post footprints must stand on the selected cap.
+            if y0 > -0.43 or y0 + across < self.width_m + 0.43:
+                raise ParamError("bearing platform leaves a gallows post footprint unsupported")
         if self.draw_lifting_gear not in DRAW_GEAR:
             raise ParamError(
                 f"draw_lifting_gear '{self.draw_lifting_gear}' is not in {DRAW_GEAR}; "
@@ -524,6 +607,12 @@ def from_phase(phase: dict, record: dict | None = None) -> BridgeTimberParams:
                        else float(val("deck_height_m"))),
         draw_span_m=(None if val("draw_span_m") is None
                      else float(val("draw_span_m"))),
+        draw_bearing_supports=val("draw_bearing_supports", False),
+        draw_profile=val("draw_profile", "flat"),
+        draw_rise_m=val("draw_rise_m", 0.0),
+        gallows_shore_attach_m=val("gallows_shore_attach_m"),
+        draw_bearing_platform_m=val("draw_bearing_platform_m"),
+        draw_bearing_platform_offset_m=val("draw_bearing_platform_offset_m", 0.0),
         gallows_frames=int(val("gallows_frames", 0)),
         gallows_height_m=float(val("gallows_height_m", 6.4)),
         # `val` returns the old boolean `false` for a record that predates the gear,
@@ -537,3 +626,26 @@ def from_phase(phase: dict, record: dict | None = None) -> BridgeTimberParams:
     )
     p.validate()
     return p
+
+
+def draw_rise_m_at(params: BridgeTimberParams, x: float) -> float:
+    """One pure closed-draw profile for the mesh and engine-neutral sidecar."""
+    if params.draw_profile == "flat" or not params.draw_span_m:
+        return 0.0
+    mid = params.span_m / 2.0
+    half = params.draw_span_m / 2.0
+    if x <= mid - half or x >= mid + half:
+        return 0.0
+    return params.draw_rise_m * (1.0 - abs(x - mid) / half)
+
+
+def walk_surface_profile(params: BridgeTimberParams):
+    """Optional local polygon-x metres / height-above-anchor metres, no engine data."""
+    params.validate()
+    if params.draw_profile == "flat":
+        return None
+    mid = params.span_m / 2.0
+    half = params.draw_span_m / 2.0
+    stations = [0.0, mid-half, mid, mid+half, params.span_m]
+    return {"version": 1, "axis": "local_x", "stations_m": [
+        [x, params.deck_height_m + draw_rise_m_at(params, x)] for x in stations]}

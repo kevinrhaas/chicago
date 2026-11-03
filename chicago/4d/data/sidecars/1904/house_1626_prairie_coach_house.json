@@ -1,12 +1,13 @@
 {
   "id": "house_1626_prairie_coach_house",
-  "phase": "draft_1904",
-  "name": "1626 S. Prairie Avenue — the alley building of the house at 1626 (district draft; refined by T-1932)",
+  "phase": "as_standing_1904",
+  "name": "1626 Prairie Avenue: the brick stable on the alley, K12",
   "aka": [
-    "1626 S. Prairie Avenue"
+    "1626 S. Prairie Avenue",
+    "1626 S. Prairie Avenue, alley building"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_1626_prairie_coach_house__draft_1904.glb",
+  "archetype": "k12_coach_house",
+  "asset": "gltf/house_1626_prairie_coach_house__as_standing_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -19,22 +20,23 @@
     "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_20"
+      "sanborn_1911_chicago_v3_sheet_20",
+      "robinson_1886_chicago_plate_10"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "STANDING IN 1904 rests on two maps either side of it. Robinson's 1886 plate 10 draws a pink, crossed building on the alley across the rears of lots 16 and 17 in two parts, each about 7.3 m along the alley (pink-density profiles on the committed plate raster at its 0.346 m a pixel: rows 1222, 1243 and 1264.6), the north part about 11.1 m deep (columns 342-374) and the south part about 14.5 m (columns 341-383): within the plate's line widths, the two buildings the 1911 sheet draws, 1626's 7.97 by 11.87 m and 1628's 7.01 by 13.94 m. The 1911 sheet draws it again, so it stood from before 1886 through 1911 and the T-1840 census rules it present in 1904 (present_as_mapped), as the district draft did. FROM: the record claims the 1904 target and no earlier day. TO: the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1335.323,
-    "local_n": -3038.145,
+    "local_e": 1334.166,
+    "local_n": -3034.926,
     "rotation_deg": -0.579,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 1.000, v -3.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.579 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-    "symbolic_location": "1626 S. Prairie Avenue, parcel prairie_1626 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+    "position_note": "The middle of the building's alley (west) wall at grade, read off the committed sheet 20 raster (chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_20.jpg) at pixel (2225.6, 2868.5): the alley wall's line by median darkness profile over rows 2810-2930 (peak at column 2225.6), halfway between the north wall line (row 2790.1) and the wall line it shares with 1628's (row 2947.0), each the peak of a median darkness profile over columns 2260-2440, peaks refined by a parabola through the three highest samples. Carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json): local E 1334.166, N -3034.926. The bearing is the parcel's and the house's (house_1626_prairie, -0.579 degrees). The fit's own residual, 3.08 m RMS on its control crossings, is all that is claimed; the draft stood the building inside a 6.0 by 10.75 m rectangle fitted to its trace.",
+    "symbolic_location": "1626 S. Prairie Avenue, rear: on the alley, its south wall shared with 1628's stable, parcel prairie_1626 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -44,26 +46,26 @@
     "polygon": [
       [
         0.0,
-        0.0
+        -3.9835
       ],
       [
-        10.75,
-        0.0
+        11.869,
+        -3.9835
       ],
       [
-        10.75,
-        6.0
+        11.869,
+        3.9835
       ],
       [
         0.0,
-        6.0
+        3.9835
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "About the middle of the alley wall, u east (into the lot) and v north. The sheet draws the building from the alley line (pixel column 2225.6) to its east wall line (2459.3) and from its north wall line (row 2790.1) to the wall line it shares with 1628's building (2947.0), each the peak of a median darkness profile: 233.7 by 156.9 pixels at the sheet's 0.050779 m a pixel, 11.869 m deep by 7.967 m along the alley. The district draft's fit found a 6.0 by 10.75 m rectangle inside the traced part."
   },
   "attributes": {
     "stories": {
@@ -72,105 +74,197 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The census reading '2-storey brick stable (X) on the alley': 2 storeys."
+      "note": "'2' lettered on the building: two storeys.",
+      "geometry": "simplified"
     },
     "construction": {
       "value": "brick",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "robinson_1886_chicago_plate_10"
       ],
-      "note": "The trace's fabric colour on the main part: brick."
+      "note": "Drawn pink, the sheet's colour for brick, with wall thicknesses lettered '12 8' (inches, the first storey's and the second's, as the key reads them) inside its north wall and again on the wall line it shares with 1628's. Robinson's 1886 plate also colours it pink, its brick.",
+      "geometry": "simplified"
     },
-    "draft_plan": {
+    "coach_house": {
       "value": {
-        "parts": [
+        "id": "k12.coach_house.prairie_1626",
+        "kind": "coach_house",
+        "class": "coach_house",
+        "alley_side": "west",
+        "width_m": 7.967,
+        "depth_m": 11.869,
+        "pitch_deg": 30,
+        "east_end": "gable",
+        "ventilator": false,
+        "openings": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "gable",
-            "rect": [
-              0.0,
-              0.0,
-              10.75,
-              6.0
-            ],
-            "from": "s20fp-1626-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 73% of its fill"
+            "id": "man_door",
+            "wall": "alley",
+            "kind": "door",
+            "s0": 0.45,
+            "s1": 1.4,
+            "sill": 0.0,
+            "head": 2.3
+          },
+          {
+            "id": "loft_sash_2",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 0.475,
+            "s1": 1.375,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "stable_sash",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 3.077,
+            "s1": 4.077,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "loft_sash_1",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 3.127,
+            "s1": 4.027,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "carriage",
+            "wall": "alley",
+            "kind": "carriage",
+            "s0": 4.4,
+            "s1": 7.1,
+            "sill": 0.0,
+            "head": 3.0
+          },
+          {
+            "id": "loft_hatch",
+            "wall": "alley",
+            "kind": "hatch",
+            "s0": 5.15,
+            "s1": 6.35,
+            "sill": 3.9,
+            "head": 5.3
+          },
+          {
+            "id": "yard_sash_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 1.0,
+            "s1": 2.0,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_door",
+            "wall": "yard",
+            "kind": "door",
+            "s0": 3.343,
+            "s1": 4.293,
+            "sill": 0.05,
+            "head": 2.3
+          },
+          {
+            "id": "yard_sash_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 5.637,
+            "s1": 6.637,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 1.05,
+            "s1": 1.95,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_loft_sash_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 5.687,
+            "s1": 6.587,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "gable_sash",
+            "wall": "gable",
+            "kind": "sash",
+            "s0": 2.62,
+            "s1": 3.62,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "gable_loft_sash",
+            "wall": "gable",
+            "kind": "sash",
+            "s0": 2.67,
+            "s1": 3.57,
+            "sill": 4.3,
+            "head": 5.6
           }
         ],
-        "lot_v": [
-          -0.765,
-          7.265
-        ],
-        "street_u": 54.392
+        "ramp": null,
+        "stair": null,
+        "lean_to": null,
+        "wing": null,
+        "workyard": {
+          "apron_m": 2.4,
+          "to_house_m": 5.93,
+          "walk_x": 0.0
+        },
+        "confidence": "reconstructed",
+        "note": "Everything but the plan, the storeys, the brick and the sheet's two window marks is RECONSTRUCTED from the K12 kit (L-k12-coach-house-kit-2320), recorded as L-k12-1626-1628-stables-1932. The sheet gives the outline, '2' storeys, the brick, walls '12 8', a stable's X, and two of the key's window marks, each with a dot for each storey (openings in both storeys there): on the alley wall about 4.06 m from the north wall line, and on the north wall about 3.12 m from the alley line. It draws no fire-wall sign on this building. The kit is built in MIRROR IMAGE (`mirror`, as at 1612): its party wall stands at the south end, on the one wall line the sheet draws between this building and 1628's, and its open gable at the north end, which faces the open rear of lot 15 and carries the sheet's north-wall mark. Every opening's s counts from the party wall's inner face (the alley and yard walls' s from the south end and the north end respectively, as the kit lays them; the gable's from the alley face). The alley wall carries a stable sash and a loft sash over it where its mark stands, a man door with a loft sash over it toward the south end, and the kit's carriage bay at its narrowest (2.7 m clear) toward the north end with the loft hatch over it; the yard wall a door onto the workyard at its middle between two stable sash and two loft sash; the north gable a stable sash and a loft sash over it where the sheet's mark stands. The south end's party wall rises the kit's 0.45 m above the roof, where the sheet draws no fire-wall sign: it is the wall shared with 1628's, whose own party wall the kit stands back to back with it. A gable roof with its ridge along the alley at 30 degrees (1616's, 1612's and 1736's deep-stable pitch) over the 11.87 m span, about 3.4 m from eave to ridge. No external stair, ramp, lean-to, wing or ventilator: the sheet draws none. Not built: the sheet's solid dot inside the building about 1.4 m from its south wall and 6.3 m from the alley, the key's sign for a vertical steam boiler (the kit has no stack, and the sheet draws none). The workyard is paved from the yard door to the house's rear porch, 5.9 m east of the yard wall.",
+        "mirror": true
       },
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1626-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 73% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-    },
-    "draft_elevation": {
-      "value": {
-        "kind": "service",
-        "seed": 3886100203,
-        "principal_floor_m": 0.0,
-        "storey_heights_m": [
-          3.4,
-          2.8,
-          2.6
-        ],
-        "roof_pitch_deg": 40,
-        "mansard_lower_m": 3.0,
-        "front_bays": 2,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 0,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2334",
-          "refined_by": [
-            "T-1932"
-          ]
-        }
-      },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: 3B brick, the north half of a pair attached to 1628: the brick family's hip, its entrance at the north end so the pair's doors stand at their outer ends. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3886100203 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2334",
-        "liberty": "L-draft-prairie-16-18-west-2334",
-        "register_row": "frontage-20-007",
-        "census_ids": [
-          "s20-1626-r1"
-        ],
-        "trace_building": "s20fp-1626-b2",
-        "seed": 3886100203,
-        "replaceable_by": [
-          "T-1932"
-        ],
-        "card": "District draft — refined by T-1932."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "The building's dimensions are the footprint's (inferred, above); its openings, roof and workyard are the kit's, laid out for this lot with the sheet's two window marks where it puts them, and RECONSTRUCTED. See the value's own note for each choice and what bounds it."
     },
     "function": {
-      "value": "barn_or_carriage_shed",
+      "value": "stable",
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "robinson_1886_chicago_plate_10"
       ],
-      "note": "The 1911 sheet reads '2-storey brick stable (X) on the alley'. Backcast to 1904 as a yard outbuilding on the census ruling."
+      "note": "The 1911 sheet draws the building crossed by one X, the key's sign for a stable (the T-1840 census: '2-storey brick stable (X) on the alley'), and Robinson's 1886 plate 10 crosses the brick building it draws on the same ground, the atlas's stable. Carried to 1904 between the two, INFERRED; no source names a horse or a carriage on this lot."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "robinson_1886_chicago_plate_10",
+      "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
+      "url": "",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from above 16th Street to 18th, as of 1886 -- a bound, from before, on the 1904 edge",
+        "Lot and subdivision lines, and the outlines of the houses at 1609-1611 and 1620 Prairie that Glessner House names as standing in 1904 and gone by 1911"
+      ],
+      "what_it_does_not_supply": [
+        "Street widths: its bands are not drawn to the widths it prints (Prairie printed 66, drawn about 55 ft)",
+        "Anything as of 1904 on its own authority",
+        "Elevations or grades"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_20",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
@@ -192,8 +286,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1932 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1626-b2), the T-1840 census (s20-1626-r1) and the T-1837 register row frontage-20-007; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
+  "research_note": "T-1932 refines the district draft (T-2334) in place under the same id onto the K12 coach-house kit, beside 1628's stable (the two share one wall on the sheet). The sheet census (census row s20-1626-r1, trace s20fp-1626-b2) carries the building into 1904; the draft rules now skip that row. The kit is built in mirror image (`mirror`), its party wall at the south end on the wall line it shares with 1628's and its open gable, with the sheet's two-dot window mark, to the north, facing the open rear of lot 15. Robinson's 1886 plate draws the same pair of crossed brick stables at nearly the same sizes, so this one stood from before 1886 through 1911. No picture of it is known. The reading is in docs/RESEARCH/k12-1626-1628-stables-1932/README.md.",
   "research_doc": "",
   "review_required": false,
-  "called": "1626 S. Prairie Avenue — the alley building of the house at 1626"
+  "called": "1626 Prairie Avenue: the brick stable on the alley"
 }

@@ -72,6 +72,24 @@ part); 2120 (just south of the stoop); 2140 (at the Prairie Avenue porch). Each 
 the parkway close to the walk, which is where the rule places the others. The pictured runs (the 1905
 *Views of Chicago* plate, Taylor 9974 south from 18th) read as about one lamp per 150-200 ft of side.
 
+**18th Street before Pullman's (T-1934).** J. W. Taylor's winter photograph no. 16554, from the yard
+across 18th Street, shows a post at the street edge of the walk before the palm-house wing, where the
+curb turns into Calumet Avenue (x 795 of the 1200 px copy, its foot at y 607; through its solved
+camera 10 m east of the palm house's centre). It is drawn there (`lamp.pictured.pullman_court`), 1.25 m
+west of the reading to keep clear of the parkway elm Taylor's 16555 places beside it. It is the
+district's post. T-1934 first read its head as a shallow round globe on a post about 4.5-5 m tall and
+drew it so; the owner, comparing the print (2026-10-30, T-3267), read it as the district's lamp, and the
+print agrees: at 13 px across, the 1811 photograph's lantern, narrow at its foot and wide at its glazed
+top under a small dark roof, with the ladder bar below it, is exactly a "slim neck, a wide globe lit
+above and dark beneath, a small cap" (the top lit by the sky, the foot and its arms dark). Its
+height read through the camera (4.9 m) is not evidence against that: the same camera puts the walk's
+ground about 45 px higher than the print does (the post's foot at y 557 against 605), so it cannot
+scale the post, and no picture in the Prairie library shows a globe-headed gas post in the district. The same print, and the Detroit Publishing view of c. 1900, see the rest of the north walk
+from Prairie Avenue whole and show no post on it, so the rule's mid-block lamp there is withdrawn
+(`placement.gas_lamp.pictured_empty`). Taylor's 16555 (1892 to May 1894) shows no post at the turn:
+16554 is the later print, the dead 'massacre tree' 16555 shows, felled on 18 May 1894, not standing in
+it, so the lamp is taken as set after 16555.
+
 **Lit?** The scene is 10:30 on a July morning and world.js has no night or evening setting, so no
 lamp is lit and no light is added.
 

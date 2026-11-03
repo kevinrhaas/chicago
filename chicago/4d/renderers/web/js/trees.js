@@ -74,6 +74,7 @@
  */
 
 import * as THREE from 'three';
+import { onDaylight } from './time-of-day.js';
 import { floraInScene } from './flora.js';
 import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
@@ -4444,13 +4445,17 @@ uniform float uBandUp;
     farMat.needsUpdate = true;
   }
   confidence?.patch(farMat);
+  // T-3331: the band is unlit and authored against the daytime sky, so by twilight
+  // and night it is told how dark the frame has gone (time-of-day.js onDaylight);
+  // 1 by day, which leaves the band exactly as it was.
+  const unhookDaylight = onDaylight(({ display }) => farMat.color.setScalar(display));
   const hMesh = new THREE.Mesh(hGeo, farMat);
   hMesh.name = 'horizon-timber';
   hMesh.frustumCulled = false;
   hMesh.renderOrder = -1;
   horizon.add(hMesh);
   group.add(horizon);
-  disposables.push(hGeo, farMat);
+  disposables.push(hGeo, farMat, { dispose: unhookDaylight });
 
   // The band's hazed end, in the renderer's linear working space. NOT a const
   // since T-1631: `world.js` turns the scene's haze with the view, and this
@@ -4763,8 +4768,20 @@ uniform float uBandUp;
   let lastN = Infinity;
   let lastY = Infinity;
 
+  /** T-3263 — the grown trees' trunks as { e, n, r } (r at breast height, from the
+   *  species' dbh at the stem's grown height), for the stand-off rule to see past. Not
+   *  the shrubs, vines or thickets: a step along the street does not clear those. */
+  let trunkList = null;
+  const trunks = () => trunkList ??= grown.stems
+    .filter((s) => s.kind.spec.dbh && s.kind.spec.form !== 'edge_shrub' && !s.kind.spec.habit)
+    .map((s) => {
+      const [d0, d1] = s.kind.spec.dbh, [h0, h1] = s.kind.spec.h;
+      return { e: s.x, n: -s.z, r: ((d0 + d1) / 4) * (s.h / ((h0 + h1) / 2 || 1)) };
+    });
+
   return {
     group,
+    trunks,
     /** The far-timber table, so a test can assert what is on the horizon. */
     farTimber: FAR_TIMBER,
 

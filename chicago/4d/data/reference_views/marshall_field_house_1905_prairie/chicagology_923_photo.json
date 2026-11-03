@@ -1,0 +1,31 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie",
+ "scene": "1904",
+ "also_render": [
+  "marshall_field_house_1905_prairie_conservatory"
+ ],
+ "source_id": "chicagology_1905_field_photo",
+ "library_image": "a19-cgy-1905-field-923",
+ "photo": "../../sources/assets/field_1905_pictures_t3271/field_923_prairie_photo.jpg",
+ "image_px": [
+  2000,
+  1223
+ ],
+ "principal_px": [
+  1392.8,
+  1028.1
+ ],
+ "focal_px": 2462.7,
+ "eye": [
+  43.25,
+  46.47,
+  1.0
+ ],
+ "yaw_deg": 230.73,
+ "sun_uvy": [
+  0.7,
+  0.9,
+  1.0
+ ],
+ "solve": "Fitted by T-3271 to the photograph (the image store's 2000 x 1223 px copy of chicagology's '923prairiefieldhome', the pre-1880 number) against Hunt's own plan of the principal floor (Library of Congress, LC-DIG-ppmsca-58353; source hunt_field_1905_principal_floor_plan), whose written dimensions give the street front 55 ft 0 in (16.8 m) over all, the south flank 75 ft 9 in (23.1 m) from the front to the rear stair block, and the south-west corner cut on the library octagon's diagonal about 6 ft 3 in (1.9 m) back each way, with the front's north window column about 3.2 m from the north end, the door about 7.8 m and the library's window about 13.3 m. The frame is the record's: u toward Prairie Avenue (west) from the main body's rear wall, v south from the north wall, the front at u 21.0; the plan is laid with the front's north end at v 0, so the plan's front ends at v 16.8 where the record's 1911-sheet rectangle ends at 15.25. The camera is LEVEL (the house's verticals stand parallel in the print; a fit with roll free took 0.04 degrees) with its principal point free in both directions (a cropped copy of a view camera's plate). Twelve observations by least squares: the water table and the frieze's foot at the front's north end (x 238; y 979 and 572 px), at the start of the canted corner (688; 962 and 472) and at its end on the south flank (888; 960 and 462); the stone belt at the chamber floor under the wide column's balcony (646, 700); and the columns' x alone: the north column (325), the door (446), the library's wide window (646) and the south flank's first window behind the corner (950); and the x of the flank's far end, where the main mansard and its cornice stop (1600), on the main body's rear wall (u 0, the record's; the plan's flank runs on 2.1 m further to its rear stair block, which stands lower). Unknowns: the eye's place and heading, the focal length, the principal point, the three heights and the cut's two legs. The eye's height is held at 1.0 m over the house's grade (the walk stands below the raised lot), which puts the water table at 2.0 m (the record's 2.2). It closes at 3.0 px RMS over the twelve, worst 10.5 px (the door, which the plan puts about 0.3 m further south than the print). Without the flank's far end it closes as well but the heading and the focal length trade freely (the render then ran the flank 170 px long), so the far end is kept. WHAT IT SAYS, read through Hunt's plan (T-3271's re-read of the front): the front runs the plan's 16.8 m, not the sheet's 15.25 (a fit holding the sheet's front and the sheet's 21 m flank does not close: it runs the eye off below grade, 150 m away); the cut stands 2.4 m back along the front and 1.9 m along the flank (the plan's 1.9); and the brick between the water table and the frieze's foot is about 7.6 m (the water table 2.0 m over grade, the chamber belt 6.1 m, the frieze's foot 9.6 m), where the record builds 9.4 m (2.2, 7.4 and 11.6), so the record's walls stand about 1.8 m taller than the photograph; the principal storey reads about 4.1 m water table to belt (the record's 5.2) and the chamber storey about 3.5 m belt to frieze (4.2). PLACE: the eye at u 43.2 (about 22 m before the front, on the avenue's far side) and v 46.5 (about 30 m south of the plan's south wall), heading 231 degrees; the principal point lands right of the frame's centre (x 1393 px), as a copy cropped from the left of a wider plate would put it. LIGHT: the front, the canted face and the flank all lit, the flank most, the shadows of the fence falling toward the camera's left: a sun in the south-west, high (sun_uvy)."
+}

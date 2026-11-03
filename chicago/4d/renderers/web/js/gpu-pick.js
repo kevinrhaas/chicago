@@ -248,8 +248,16 @@ function boxesOf(batch) {
 /**
  * The nearest shown instance whose box `worldRay` meets within `far`: `{ batchId, distance }`
  * or null. The slab test is written out over the raw floats: 1904 holds 37k parts.
+ *
+ * A ray that starts inside a box meets it at once (distance 0) — right for "is this batch
+ * on the ray at all" (`drawPick`'s cull). `fromInside: 'exit'` answers such a box where
+ * the ray LEAVES it instead (T-3321): a fort's stockade is one part whose box holds the
+ * whole parade, so a phone's Inspect (boxPick) standing inside it answered the pickets at
+ * 0 m in front of the barracks the visitor was looking at. Measured at its exit, the
+ * enclosing box is still answered when nothing nearer is met, and a house whose porch
+ * the eye stands on is still nearer than the house behind it.
  */
-function nearestBox(batch, worldRay, far) {
+function nearestBox(batch, worldRay, far, fromInside = 'start') {
   const info = batch._instanceInfo;
   const boxes = boxesOf(batch);
   const { origin: o, direction: d } = worldRay;
@@ -265,7 +273,8 @@ function nearestBox(batch, worldRay, far) {
     t0 = (boxes[j + 2] - o.z) * iz; t1 = (boxes[j + 5] - o.z) * iz;
     lo = Math.max(lo, Math.min(t0, t1)); hi = Math.min(hi, Math.max(t0, t1));
     if (hi < 0 || lo > hi) continue;
-    const t = Math.max(lo, 0); // a ray that starts inside meets the box at once
+    // a ray that starts inside meets the box at once, or (fromInside 'exit') where it leaves
+    const t = lo >= 0 ? lo : (fromInside === 'exit' ? hi : 0);
     if (t <= bestT) { bestT = t; best = i; }
   }
   return best < 0 ? null : { batchId: best, distance: bestT };
@@ -488,14 +497,15 @@ function drawBatch(batch, slot, cam) {
  * The batches' boxes alone, nearest first: no draw, no readback, and no plain
  * chunk (those have no instance boxes). A box is a building part's box, so it is
  * a little generous where the part is not a box, and a ray that starts inside
- * one answers that part at once.
+ * one answers that part where the ray leaves it (T-3321), so a part met in front
+ * of that exit is answered first.
  */
 export function boxPick(meshes, ndc, camera, far = pickReach(camera)) {
   ray.setFromCamera(ndc, camera);
   let best = null;
   for (const src of meshes) {
     if (!src.isBatchedMesh) continue;
-    const hit = nearestBox(src, ray.ray, far);
+    const hit = nearestBox(src, ray.ray, far, 'exit');
     if (hit && (!best || hit.distance < best.distance)) best = { object: src, ...hit };
   }
   if (!best) return null;

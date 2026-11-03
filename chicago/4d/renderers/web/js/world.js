@@ -20,6 +20,11 @@
 
 import * as THREE from 'three';
 import { Sky } from 'three/addons/objects/Sky.js';
+import {
+  gradeAt, resolveTime, minutesOf, publishDaylight, NIGHT_KEY, NIGHT_KEY_COLOR,
+  NIGHT_KEY_AZIMUTH, NIGHT_KEY_ELEVATION, LOW_SUN_COLOR, NIGHT_SKY_ZENITH,
+  NIGHT_SKY_HORIZON, TWILIGHT_GLOW, DUSK_SKY_ZENITH, DUSK_SKY_HORIZON,
+} from './time-of-day.js';
 
 const DEG = Math.PI / 180;
 
@@ -483,7 +488,7 @@ const HORIZON_RING_TOLERANCE = 14;
  *
  * @returns {THREE.Color[] | null} one colour per 10° of bearing, or null
  */
-function sampleHorizonRing(renderer, sky, problems = []) {
+function sampleHorizonRing(renderer, sky, problems = [], validate = true) {
   const parent = sky.parent;
   const stage = new THREE.Scene();
   const rt = new THREE.WebGLRenderTarget(1, 1, { colorSpace: THREE.SRGBColorSpace });
@@ -517,6 +522,9 @@ function sampleHorizonRing(renderer, sky, problems = []) {
     rt.dispose();
     parent?.add(sky);
   }
+  // T-3331: the committed reading is of the scene's own hour. Any other hour's sky
+  // is a different sky, so it is taken as rendered and not held to that reading.
+  if (!validate) return ring;
   const north = ring[0].getHex(THREE.SRGBColorSpace);
   const got = [(north >> 16) & 255, (north >> 8) & 255, north & 255];
   const off = Math.max(...got.map((v, i) => Math.abs(v - HORIZON_RING_NORTH[i])));
@@ -650,11 +658,15 @@ export function createWorld({
   renderer.shadowMap.type = lowSpec ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
 
   let sunDate = sceneJson.target_date;
+  // T-3331: the hour the sun is computed for. The scene's own unless the visitor's
+  // Time of day (or a jaunt stop) moved it.
+  const sceneTime = sceneJson.lighting?.local_time ?? '12:00';
+  let sunTime = sceneTime;
   let sun = solarPosition({
     lat: datum.origin_lat,
     lon: datum.origin_lon,
     date: sceneJson.target_date,
-    localMeanTime: sceneJson.lighting?.local_time ?? '12:00',
+    localMeanTime: sceneTime,
   });
   const dir = sunDirection(sun.azimuthDeg, sun.elevationDeg);
 
@@ -694,13 +706,28 @@ export function createWorld({
     value: new THREE.Vector2(HORIZON_RESTORE.redScale, HORIZON_RESTORE.greenScale),
   };
   sky.material.uniforms.horizonPower = { value: HORIZON_RESTORE.power };
+  // T-3331 — twilight and night. The sky model goes black once the sun is 2.3°
+  // under the horizon (the vendored shader's cutoffAngle), so below it the sky is
+  // its own term: a night sky graded zenith to horizon, and the glow on the horizon
+  // toward the sun through twilight. Both amounts are exactly 0 from 6° up, so a
+  // daytime sky is the shipped sky to the bit (time-of-day.js gradeAt).
+  sky.material.uniforms.nightAmount = { value: 0 };
+  sky.material.uniforms.glowAmount = { value: 0 };
+  sky.material.uniforms.nightZenith = { value: new THREE.Vector3(...NIGHT_SKY_ZENITH) };
+  sky.material.uniforms.nightHorizon = { value: new THREE.Vector3(...NIGHT_SKY_HORIZON) };
+  sky.material.uniforms.twilightGlow = { value: new THREE.Vector3(...TWILIGHT_GLOW) };
 
   const skyFrag = sky.material.fragmentShader;
   const declared = skyFrag.replace('uniform float time;', /* glsl */`uniform float time;
 		uniform float skyExposure;
 		uniform vec2 horizonAmount;
 		uniform vec2 horizonScale;
-		uniform float horizonPower;`);
+		uniform float horizonPower;
+		uniform float nightAmount;
+		uniform float glowAmount;
+		uniform vec3 nightZenith;
+		uniform vec3 nightHorizon;
+		uniform vec3 twilightGlow;`);
   // `direction` is the vendored shader's own view ray, already normalised, so
   // direction.y IS sin(elevation) and no trig is needed. Clamped at 0 because
   // the box is drawn below the horizon too and a negative elevation would run
@@ -713,7 +740,20 @@ export function createWorld({
 			vec2 chiFade = exp( -pow( max( direction.y, 0.0 ) / horizonScale, vec2( horizonPower ) ) );
 			texColor.rg *= max( vec2( 0.0 ), vec2( 1.0 ) - horizonAmount * chiFade );
 
-			gl_FragColor = vec4( texColor * skyExposure, 1.0 );`);
+			vec3 chiOut = texColor * skyExposure;
+			// T-3331 — the night sky and the twilight glow (see nightAmount above).
+			float chiUp = max( direction.y, 0.0 );
+			vec2 chiSunH = vSunDirection.xz;
+			vec2 chiDirH = direction.xz;
+			float chiToward = 0.5 + 0.5 * dot( chiDirH, chiSunH )
+				/ max( length( chiDirH ) * length( chiSunH ), 1e-4 );
+			chiOut += nightAmount * mix( nightHorizon, nightZenith, sqrt( chiUp ) );
+			chiOut += glowAmount * twilightGlow * chiToward * chiToward * chiToward * exp( -chiUp * 6.0 );
+
+			gl_FragColor = vec4( chiOut, 1.0 );`);
+  if (!patched.includes('nightAmount * mix')) {
+    problems.push('world: the night sky could not be patched into the sky shader; night will draw a black sky');
+  }
   sky.material.fragmentShader = patched;
   // Both markers are load-bearing and they fail differently: without the first
   // the sky renders at the model's arbitrary scale (a white wash at every
@@ -827,17 +867,19 @@ export function createWorld({
   // measured sky fill. Written straight into the working colour space: this is a
   // radiance, not a colour anyone authored, and pushing it through the sRGB
   // transfer would darken it by a factor of three for no reason.
-  const groundRadianceFor = (at) => {
+  // T-3331: the key's own height (the sun's, or by night the night key's) and the
+  // fill's share at this hour (1 by day, so the daytime dome is unchanged).
+  const groundRadianceFor = (keyElevationDeg, fillK = 1) => {
     const sunHorizontal = new THREE.Color(light.color).multiplyScalar(
-      light.intensity * Math.max(0, Math.sin(at.elevationDeg * DEG)));
+      light.intensity * Math.max(0, Math.sin(keyElevationDeg * DEG)));
     return new THREE.Color().setRGB(
-      reflectance.r * (sunHorizontal.r + FILL_UP[0]) / Math.PI,
-      reflectance.g * (sunHorizontal.g + FILL_UP[1]) / Math.PI,
-      reflectance.b * (sunHorizontal.b + FILL_UP[2]) / Math.PI,
+      reflectance.r * (sunHorizontal.r + FILL_UP[0] * fillK) / Math.PI,
+      reflectance.g * (sunHorizontal.g + FILL_UP[1] * fillK) / Math.PI,
+      reflectance.b * (sunHorizontal.b + FILL_UP[2] * fillK) / Math.PI,
       THREE.LinearSRGBColorSpace,
     );
   };
-  const groundRadiance = groundRadianceFor(sun);
+  const groundRadiance = groundRadianceFor(sun.elevationDeg);
 
   // The lower hemisphere, seen from inside. `renderOrder` is load-bearing: the
   // Sky shader forces its own depth to the far plane and writes no depth, so the
@@ -977,6 +1019,60 @@ export function createWorld({
       .addScaledVector(snapUp, Math.round(u / texel) * texel - u);
   }
   let brightness = 0;
+
+  // T-3331 — THE RELIGHT. One function takes the sun (date and hour) to every
+  // number the frame is lit by: the sky's sun and its night and twilight terms, the
+  // key light (the sun, or by night the night key), the fill's share, the ground
+  // dome, the exposure the dark-adapted eye adds, and the grade the unlit layers
+  // are told. time-of-day.js gradeAt holds the curves; from 14° up every factor is
+  // its identity, so the scene's own hour draws the shipped frame.
+  const SUN_COLOR = new THREE.Color(0xfff2dc);
+  const SUN_INTENSITY = 3.0;
+  const lowSun = new THREE.Color(LOW_SUN_COLOR);
+  const nightColor = new THREE.Color(NIGHT_KEY_COLOR);
+  const skySun = new THREE.Vector3();
+  let grade = gradeAt(sun.elevationDeg);
+  let keyElevation = sun.elevationDeg;
+  const exposureNow = () => BASE_EXPOSURE * (2 ** brightness) * grade.adapt;
+  function applyGrade() {
+    grade = gradeAt(sun.elevationDeg);
+    sunDirection(sun.azimuthDeg, sun.elevationDeg, skySun);
+    sky.material.uniforms.sunPosition.value.copy(skySun).multiplyScalar(45000 * 0.9);
+    sky.material.uniforms.nightAmount.value = grade.night;
+    sky.material.uniforms.glowAmount.value = grade.glow;
+    sky.material.uniforms.nightZenith.value.set(...NIGHT_SKY_ZENITH)
+      .lerp(new THREE.Vector3(...DUSK_SKY_ZENITH), grade.dusk);
+    sky.material.uniforms.nightHorizon.value.set(...NIGHT_SKY_HORIZON)
+      .lerp(new THREE.Vector3(...DUSK_SKY_HORIZON), grade.dusk);
+    scene.environmentIntensity = ENV_INTENSITY * grade.envBoost;
+    if (grade.sunK > 0) {
+      // A sun on the horizon is held a degree up for the shadow map: a light from
+      // under the ground plane would cast every shadow through it.
+      keyElevation = Math.max(sun.elevationDeg, 1.0);
+      sunDirection(sun.azimuthDeg, keyElevation, dir);
+      light.color.copy(SUN_COLOR).lerp(lowSun, grade.warm);
+      light.intensity = SUN_INTENSITY * grade.sunK;
+    } else {
+      keyElevation = NIGHT_KEY_ELEVATION;
+      sunDirection(NIGHT_KEY_AZIMUTH, NIGHT_KEY_ELEVATION, dir);
+      light.color.copy(nightColor);
+      light.intensity = NIGHT_KEY * grade.nightK;
+    }
+    scene.userData.chiSkyFill = FILL_UP.map((v) => v * grade.fillK);
+    groundMat.color.copy(groundRadianceFor(keyElevation, grade.fillK));
+    renderer.toneMappingExposure = exposureNow();
+    // What an unlit, display-space layer should be multiplied by: the light on a
+    // level surface against a 30° sun, through the eye's adaptation, as a display
+    // value. Exactly 1 whenever the sun is fully up and the fill whole.
+    let display = 1;
+    if (grade.sunK < 1 || grade.fillK < 1) {
+      const flat = light.intensity * Math.max(0, Math.sin(keyElevation * DEG)) + 0.9 * grade.fillK;
+      const ref = SUN_INTENSITY * 0.5 + 0.9;
+      display = Math.min(1, Math.pow(Math.max(0, flat / ref) * grade.adapt, 1 / 2.2));
+    }
+    publishDaylight({ display, grade, elevationDeg: sun.elevationDeg, sunTime, sunDate });
+  }
+  applyGrade();
   // The haze's own state: which of the ring's 36 bearings the fog is currently
   // set to, so `aim()` writes a uniform when the view has actually turned that
   // far and not once per frame.
@@ -1100,7 +1196,7 @@ export function createWorld({
     setBrightness(stops) {
       const s = Math.min(MAX_BRIGHTNESS_STOPS, Math.max(0, Number(stops) || 0));
       brightness = s;
-      renderer.toneMappingExposure = BASE_EXPOSURE * (2 ** s);
+      renderer.toneMappingExposure = exposureNow();
       return s;
     },
     /** The aid's current position, so a gate can assert it rather than assume it. */
@@ -1132,40 +1228,66 @@ export function createWorld({
     },
     describe() {
       return `sun ${sun.elevationDeg.toFixed(1)}° up, bearing ${sun.azimuthDeg.toFixed(1)}°`
-        + ` (${sceneJson.lighting?.local_time ?? '?'} local mean time, ${sunDate})`;
+        + ` (${sunTime} local mean time, ${sunDate})`;
     },
     /** The date the sun is computed for: the scene's own, unless the Season setting moved it. */
     get sunDate() { return sunDate; },
+    /** T-3331: the hour the sun is computed for, 'HH:MM' local mean solar time. */
+    get sunTime() { return sunTime; },
+    /** The scene's own hour, which the Time of day's `daytime` names. */
+    sceneTime,
+    /** T-3331: the grade in force (time-of-day.js gradeAt) and the exposure the eye adds. */
+    get grade() { return grade; },
     /**
-     * T-2481 — the Season setting moves the sun to its season's date at the
-     * scene's own hour: the sun's bearing and height, the sky, the fill baked
-     * from them, the horizon haze sampled off that sky and the shadow lattice.
-     * One PMREM bake and one horizon sample, on a change only.
-     * @param {string} [date] 'YYYY-MM-DD'; omitted or empty is the scene's own date
+     * T-3331 — a Time of day value ('HH:MM' or a name) as the clock time it stands
+     * for on `date` (default the date in force): daybreak and sunset are solved
+     * against that date's sun.
+     */
+    resolveTime(value, date = sunDate) {
+      const elevationAt = (min) => solarPosition({
+        lat: datum.origin_lat, lon: datum.origin_lon, date,
+        localMeanTime: `${Math.floor(min / 60)}:${min % 60}`,
+      }).elevationDeg;
+      return resolveTime(value, { sceneTime, elevationAt });
+    },
+    /**
+     * T-2481 + T-3331 — move the sun to a date and an hour: its bearing and height,
+     * the sky, the key, the fill baked from them, the horizon haze sampled off that
+     * sky and the shadow lattice. One PMREM bake and one horizon sample, on a
+     * change only.
+     * @param {object} o
+     * @param {string} [o.date] 'YYYY-MM-DD'; empty is the scene's own date; undefined keeps it
+     * @param {string} [o.time] 'HH:MM'; empty is the scene's own hour; undefined keeps it
      * @returns {boolean} whether anything moved
      */
-    setSunDate(date) {
-      const want = date || sceneJson.target_date;
-      if (want === sunDate) return false;
-      sunDate = want;
+    setSun({ date, time } = {}) {
+      const wantDate = date === undefined ? sunDate : (date || sceneJson.target_date);
+      const wantTime = time === undefined ? sunTime
+        : (minutesOf(time) !== null ? time : sceneTime);
+      if (wantDate === sunDate && wantTime === sunTime) return false;
+      sunDate = wantDate;
+      sunTime = wantTime;
       sun = solarPosition({
-        lat: datum.origin_lat, lon: datum.origin_lon, date: want,
-        localMeanTime: sceneJson.lighting?.local_time ?? '12:00',
+        lat: datum.origin_lat, lon: datum.origin_lon, date: sunDate, localMeanTime: sunTime,
       });
-      sunDirection(sun.azimuthDeg, sun.elevationDeg, dir);
-      sky.material.uniforms.sunPosition.value.copy(dir).multiplyScalar(45000 * 0.9);
-      groundMat.color.copy(groundRadianceFor(sun));
+      applyGrade();
       const old = envRT;
       envRT = bakeEnvironment();
       scene.environment = envRT.texture;
       old.dispose();
-      ring = sampleHorizonRing(renderer, sky, []) ?? ring;
+      // The committed horizon reading is of the scene's own hour; at any other
+      // hour the sky is taken as rendered (sampleHorizonRing § validate).
+      ring = sampleHorizonRing(renderer, sky, [], sunTime === sceneTime) ?? ring;
       hazeSlot = -1;
       snapBasis();
       this.follow(lastFollow);
       light.shadow.needsUpdate = true;
       return true;
     },
+    /** T-2481 — the Season's date, at the hour in force. */
+    setSunDate(date) { return this.setSun({ date: date || '' }); },
+    /** T-3331 — the Time of day's hour, on the date in force. */
+    setSunTime(time) { return this.setSun({ time: time || '' }); },
     dispose() {
       envRT.dispose();
       groundGeo.dispose();

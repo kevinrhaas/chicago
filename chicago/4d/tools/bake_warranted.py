@@ -373,7 +373,7 @@ def self_test():
          f"  {GATE_JOB}:" in wf_text, True)
     case("…and carving it out leaves the rest of the workflow behind",
          "jobs:" in _without_gate_job(wf_text)
-         and "timeout-minutes: 30" in _without_gate_job(wf_text), True)
+         and "  bake:" in _without_gate_job(wf_text).splitlines(), True)
     case("…and takes the gate's own body with it",
          "bake_warranted.py" in _without_gate_job(wf_text), False)
     try:

@@ -172,7 +172,8 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 36.2 MB**, re-set on 2026-10-17 by T-2711 for the prebuilt
+**The boot payload budget is 39.6 MB**, re-set on 2026-11-01 by T-3300 for two weeks of the
+owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
 T-2693 at 29 MB for the prebuilt ground (§ 4g). T-2677 had set it at 20 MB on 2026-10-16 for the prebuilt frontage timber
 (§ 4f). T-1973 had set it at 13 MB on 2026-10-02 for the reasons in
@@ -186,7 +187,9 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 36.2 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 39.6 MB budget
+node tools/measure_boot_payload.mjs --against docs/measurements/T-3300-boot-payload-entries.json
+                                           # what grew since § 4k's reading, file by file
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -700,10 +703,54 @@ under 1 MB of room. With the frontage, ground, base, streets and yards all prebu
 pieces are in; the next byte this budget gives up should come from § 4g's lever (ship the
 partition, not the float32 vertices) before another re-set.
 
+### 4k. Two weeks unmeasured, then the parked wagons out of the boot — re-measured 2026-11-01 (T-3300), and the budget is 39.6 MB
+
+The `--check` above runs in the nightly bake's desktop `1-2` smoke leg, and from 2026-10-17
+every content-build bake was cancelled before it reached that leg (T-3296). So for two weeks
+nothing read this number while the town grew, and the first reading since was **41.363 MB**,
+1,131 requests, 5.2 MB over the 36.2 MB budget. It is a property of the tree: dev's committed
+tree, published without a bake, gives the same bytes.
+
+**What grew.** `measure_boot_payload.mjs` now keeps a reading whole (`--entries`) and compares
+one with another by URL (`--against`). The T-2711 merge (`e4a98c335`), published and read the
+same way, gave **36.052 MB**, 1,033 requests, against § 4j's 36.040. Against it, dev had gained
+5.311 MB:
+
+| | on the wire | where it came from |
+|---|---|---|
+| three parked-wagon models | +1.995 MB | T-2979, T-1789: the 1835 wagon stands (1.031 MB fine-wood farm wagon, two 0.482 MB covered wagons) |
+| tree bark and leaf KTX2 | +1.860 MB | T-2743 species trees, T-3247's leaf photograph (0.952 MB leaf atlas, 0.557 + 0.351 MB bark) |
+| prebuilt ground | +0.767 MB | the ground re-graded: T-3029's Green Tree Tavern, #1512's four drawings |
+| walk code and styles | +0.414 MB | 78 new modules and style sheets, among them tree-model.js, street-furniture.js, the flora GPU tiers |
+| everything else | +0.275 MB | GLBs, sidecars, data files, the other prebuilt layers |
+
+**The cut: a parked vehicle is fetched when you come near it.** `parked-transport.js` loaded
+every model at boot on a `full` or `balanced` tier, and drew each only within 100 m (65 m on
+balanced). A first visitor stands 204-307 m from all five 1835 stands, so all 2.0 MB was
+downloaded and parsed, and then hidden. With `loadWithin: 60` (main.js) a model is fetched once
+the eye is within its reach plus 60 m: about 13 s ahead of the stand at the default
+4.47 m/s walk. Until then the
+yard's own legacy wagon holds the stand, as it already does on Light or after a failed load.
+Unset, the module still loads every row at creation, so the Brougham LOD gate's assertions
+stand; `tools/transport/brougham/test_lod.mjs` adds six for the deferred path. The same
+published tree with the change: **41.363 → 39.368 MB**, 1,131 → 1,128 requests. The only
+files that changed were the three wagon models, which no longer load, and 1 KB of code.
+
+**Why 39.6 MB.** What is left over the old budget is the owner's own work. He asked for the
+species trees (T-2743, T-3247), the parked vehicles (T-2979) and the re-graded ground, and none
+of their PRs could read this number. Making the trees' textures smaller, or putting the ground
+back, is a question about how the town looks. That is his decision, not a budget's, so this
+re-argues the number. The number is the 39.368 MB measured plus about 0.23 MB, the same kind of
+room § 4j kept. § 4b's rule still holds: a careless import or an unmetered boot fetch shows
+against well under 1 MB. **The next breach is cheaper to read.** Compare it with this reading
+(`--against docs/measurements/T-3300-boot-payload-entries.json`) before you build an old tree.
+The levers for the next byte are unchanged: § 4g's partition in place of float32 vertices, and
+then the tree atlas's resolution, if the owner asks for it.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 36.2 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 39.6 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.

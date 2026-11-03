@@ -51,7 +51,35 @@ export function testFloraReviews() {
     assert.throws(() => floraReview(root, {...camera, flora: {...camera.flora, street_trees_m: 900}}), /radius/);
     assert.throws(() => floraReview(root, {...camera, flora: {...camera.flora, extra: 1}}), /flora takes/);
     assert.throws(() => floraReview(root, {...camera, scene: undefined}), /explicit scene/);
-    console.log('ok   picture planting review: named lots and reachable parkway trees, renderer/anchor freshness, refusals');
+    // T-1881: the ivy drawn in leaf among bare trees is part of what was looked at
+    const leafy = floraReview(root, {...camera, flora: {...camera.flora, creeper_in_leaf: true}});
+    assert.equal(leafy.creeperInLeaf, true);
+    assert.equal(leafy.review.rendered_flora.creeper_in_leaf, true);
+    assert.equal(floraReview(root, camera).creeperInLeaf, false, 'the ivy follows the season unless asked');
+    assert.equal(floraReview(root, camera).review.rendered_flora.creeper_in_leaf, undefined);
+    assert.notEqual(leafy.review.flora_sha256, floraReview(root, camera).review.flora_sha256,
+      'drawing the ivy in leaf invalidates the review');
+    assert.throws(() => floraReview(root, {...camera, flora: {...camera.flora, creeper_in_leaf: 'yes'}}), /true or false/);
+    assert.throws(() => floraReview(root, {...camera, flora: {street_trees_m: 50, season: 'winter', creeper_in_leaf: true}}),
+      /needs front_yards/);
+    // T-1934: street furniture is opt-in; asked for, it binds the posts in reach and their renderer
+    assert.equal(before.docs.street_furniture, undefined, 'no furniture unless the camera asks');
+    const plain = floraReview(root, camera).review.flora_sha256;
+    write('data/street_furniture/1904.json', {items: [{id: 'lamp.near', kind: 'gas_lamp', e: 110, n: 200},
+      {id: 'pole.a', kind: 'utility_pole', e: 105, n: 200}, {id: 'pole.far', kind: 'utility_pole', e: 400, n: 200}],
+      wires: [{from: 'pole.a', to: 'pole.far'}]});
+    write('renderers/web/js/street-furniture.js', 'fixture renderer: street furniture');
+    const lit = {...camera, flora: {...camera.flora, street_furniture_m: 50}};
+    const withLamps = floraReview(root, lit);
+    assert.deepEqual(withLamps.docs.street_furniture.items.map(t => t.id), ['lamp.near', 'pole.a'], 'only the posts in reach');
+    assert.deepEqual(withLamps.docs.street_furniture.wires, [], 'a wire to a post out of reach is not drawn');
+    assert.ok(withLamps.review.flora_renderer_sources.some(r => r.file === 'renderers/web/js/street-furniture.js'));
+    write('renderers/web/js/street-furniture.js', 'a taller post');
+    assert.notEqual(withLamps.review.flora_sha256, floraReview(root, lit).review.flora_sha256,
+      'changing the furniture renderer invalidates a review that drew it');
+    assert.equal(plain, floraReview(root, camera).review.flora_sha256, 'and not one that did not');
+    assert.throws(() => floraReview(root, {...camera, flora: {...camera.flora, street_furniture_m: 0}}), /street_furniture_m/);
+    console.log('ok   picture planting review: named lots, reachable parkway trees and street furniture, renderer/anchor freshness, refusals');
   } finally { fs.rmSync(root, {recursive: true, force: true}); }
 }
 if (import.meta.url === `file://${process.argv[1]}`) testFloraReviews();

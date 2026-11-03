@@ -2,8 +2,8 @@
   "structure_id": "pullman_house_1729_prairie_ranges",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
-  "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d",
-  "camera_sha256": "a5427c29c85ac29b5197a9a9172363fa821752e33a479368275428994764f581",
+  "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf",
+  "camera_sha256": "03919a1f7f5d0c7ba9e05eae345262a28509d5e55889e3414c4bc7e152ef1b4e",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
     {
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
+      "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     },
     {
       "structure_id": "pullman_house_1729_prairie_conservatory",
@@ -42,7 +42,7 @@
         2.4319498013560494
       ],
       "rotation_y": 3.1490277562032887,
-      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
+      "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -61,23 +61,35 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "38fc7c48ffa44991d2edcdd420e652685d1a2d6433fc3dc3aa39e80229aa2e16"
+      "glb_sha256": "2cac97eef92a6a91d18853d1fbce5206d4d5fa48dda37cc7c7efa466d9567f38"
     }
   ],
-  "group_sha256": "64c5a55d4fa3d4823db91cac190254267bcc2367a0033c3e7e85f77c571eeb4f",
+  "group_sha256": "a057d63419df6b169452cbc2bbc89b8717ee526cc3dc1ee682f936d7db2f4c59",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 13,
+        "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 7
+        "creeper": 20
       }
     ],
-    "street_trees": 32,
-    "street_trees_m": 70
+    "street_trees": 37,
+    "street_trees_m": 70,
+    "street_furniture": [
+      "hydrant.pictured.pullman",
+      "hydrant.pictured.pullman_stable",
+      "lamp.corner.prairie.e18th.ne",
+      "lamp.corner.prairie.e18th.nw",
+      "lamp.corner.prairie.e18th.se",
+      "lamp.pictured.opposite_1721",
+      "lamp.pictured.pullman_court",
+      "lamp.rule.calumet__prairie_ic_16_18#00",
+      "lamp.rule.prairie__prairie_ic_16_18#04"
+    ],
+    "street_furniture_m": 70
   },
   "flora_anchor": {
     "local_e": 1456.387,
@@ -90,27 +102,27 @@
   "flora_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "6ef1a3bc53e2107f72dfa4179d65cc39af0a5d0bfcf27c196f503d4a079dd3f5"
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
     },
     {
       "file": "tools/photo_match_flora.mjs",
-      "sha256": "cdba1657b79088654ea4e920bb6691f97532ac336e331adfc90cee0c3becf183"
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -122,12 +134,16 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+    },
+    {
+      "file": "renderers/web/js/street-furniture.js",
+      "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "6833d40028deb451718a89fbebbc4c0e00b67e3eb9ec67288fb0fede0d06b1d5",
+  "flora_sha256": "9409b98ee76300bed234ce2dfc385ea239d448232f0e02ec2ca9b09802dee00b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the deck's cresting: a dense ring of open ironwork round the deck, where the build stood four posts and a rail",
@@ -160,7 +176,7 @@
       "how": "the trees' shade in a monochrome print; the 1894 plate shows the range and the stable in the same light stone"
     },
     {
-      "what": "the lot's 18th Street line: square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb, and the trees across the front",
+      "what": "the lot's 18th Street line: square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb, and the trees across the front [T-1934, 2026-10-31: east of the third pier this is replaced for 1904 — the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end; the fourth, fifth and sixth piers, the fifth's urn and the curved low walls are withdrawn (L-pullman-18th-street-wall-c1900-1934).]",
       "status": "fixed",
       "how": "the 18th Street wall built (T-1934): on the lot line from the house's east end to the stable's east wall, through the plate's camera rays from five pier bases put it, the 0.9 m wall with its chamfered coping, square piers 1.7-1.8 m high, the opening onto the terrace's west flight, the low wall falling steeply from the third pier and curving up again to the fourth, the opening onto the east flight, and the wall on low along the stable's front (pullman_house_1729_prairie form.boundary); its lamps, the planting and the trees are judged in their own lines below"
     },
@@ -183,13 +199,14 @@
       "status": "within tolerance"
     },
     {
-      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. T-1934, 2026-10-30: a palm in its tub now stands on the terrace before the drum (the print's x 393-443 px, its fronds' top at y 587; its crown renders about 0.25 m under the print's), with the slim column against the drum's west side (x 325-342) and the cone before the wing's arched door (x 500-523), each placed where this camera's pixel columns cross the 1894 plate's; the print reads the column about 0.6 m and the cone about 1.2 m taller than the plate does (two pictures: within tolerance). Still open: the shrubs the build stands before the terrace, where the print shows its flights open from the walk, cross the palm's tub and the cone's foot from this camera.]",
-      "status": "open"
+      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. T-1934, 2026-10-30: a palm in its tub now stands on the terrace before the drum (the print's x 393-443 px, its fronds' top at y 587; its crown renders about 0.25 m under the print's), with the slim column against the drum's west side (x 325-342) and the cone before the wing's arched door (x 500-523), each placed where this camera's pixel columns cross the 1894 plate's; the print reads the column about 0.6 m and the cone about 1.2 m taller than the plate does (two pictures: within tolerance). Still open: the shrubs the build stands before the terrace, where the print shows its flights open from the walk, cross the palm's tub and the cone's foot from this camera.] [T-1934, 2026-10-31: what stayed open here, the shrubs the build stands before the terrace where this print shows its flights open from the walk, is the c. 1900 border: the Detroit view, nearer 1904 than this print of the early 1890s, shows a dense, continuous border of shrubs inside the coping there, at its height and more, from the house's porch stair past the palm house.] [T-1934, 2026-10-31: the terrace's clipped columns are now planted in the terrace and drawn in every Season, read in Taylor's winter 16554 and crossed with this print: the column before the wing's arched window renders at x 238-257 (the print's at x 240-254) and the drum's pair at x 328-343 (the print's at 322-342). A fourth, before the wing's west window, renders at x 200-218, where this print's house porch (its urned pier and awning, not built: the house record) stands before it and hides it; 16554 shows it.]",
+      "status": "not shown",
+      "how": "replaced for 1904: the c. 1900 Detroit view's border (loc_det_4a08066_pullman_residence) stands where this print shows the terrace open from the walk; the tub plants on the terrace stand as read above"
     },
     {
-      "what": "the court's way off 18th Street east of the drum: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [Re-read through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px: the build's pier east of the terrace renders at x 535-570 (a second behind the parkway trunk at x 600-620); the print's piers stand at x 500-520, 580-600 (set back) and 775-800, the court's way about 4 m wide between the last two. Still open.] [T-1934, 2026-10-30: the wall now opens 3.35 m at the court's mouth (the build's 0.95 m opening is gone), and a gravel drive (reconstructed) runs through it up the court to the stable's central arch; in the side-by-side the opening falls about where the print's curving way into the court does, judged by eye, not measured. Still open: the piers' places either side of it and the print's curving cheek walls (L-pullman-carriage-ways-1934).]",
-      "status": "open",
-      "how": null
+      "what": "the court's way off 18th Street east of the drum: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [Re-read through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px: the build's pier east of the terrace renders at x 535-570 (a second behind the parkway trunk at x 600-620); the print's piers stand at x 500-520, 580-600 (set back) and 775-800, the court's way about 4 m wide between the last two. Still open.] [T-1934, 2026-10-30: the wall now opens 3.35 m at the court's mouth (the build's 0.95 m opening is gone), and a gravel drive (reconstructed) runs through it up the court to the stable's central arch; in the side-by-side the opening falls about where the print's curving way into the court does, judged by eye, not measured. Still open: the piers' places either side of it and the print's curving cheek walls (L-pullman-carriage-ways-1934).] [T-1934, 2026-10-31: the piers either side of the court's mouth and the print's curving cheek walls are replaced for 1904, withdrawn with the fourth, fifth and sixth piers; the court's opening stays, 3.35 m (L-pullman-18th-street-wall-c1900-1934).]",
+      "status": "not shown",
+      "how": "replaced for 1904: the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end. So the 1904 wall stands level at 0.9 m east of the third pier, its two openings kept (L-pullman-18th-street-wall-c1900-1934)."
     },
     {
       "what": "the stable's 6.0 m eave: 25 px above the print's through the camera before this one. Through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px, it renders about 12 px above the print's (x 900-1000: the roof's foot at y 517-520 against the print's 527-532), about 0.4 m at the front's 30 px/m; the 1894 Inland plate's camera puts the stable's heights where they are built (within 0.1-0.2 m). Two pictures disagree by less than half a metre",
@@ -203,6 +220,48 @@
       "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
       "status": "fixed",
       "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
+    },
+    {
+      "what": "the gas lamp at the turn of 18th Street's walk into Calumet Avenue (data/street_furniture/1904.json, lamp.pictured.pullman_court) renders before the stable's corner bay (x about 640) where this print shows the court's gate pier and no post. Taylor's 16554 shows the post there, and it is the later picture: the dead Fort Dearborn 'massacre tree' this print shows before the wing, felled on 18 May 1894, does not stand in it. So the lamp is taken as set after this print, and stands for 1904 (T-1934, 2026-10-30): two pictures of different dates, the build following the later [T-1934, 2026-10-30: the lamp is now drawn in its own form, the pale globe post 16554 shows, 4.9 m to its cap; it renders before the stable's corner bay as before, and this print, the earlier, still shows none there.] [T-3267, 2026-10-30: the globe post is withdrawn; the lamp is drawn as the district's post, and this print, the earlier, still shows none there.]",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the near parkway trunk (the print's x 873, foot y 760) renders at x 750, about 125 px west of it",
+      "status": "within tolerance",
+      "how": "T-3164 (parkway pass, 2026-10-30): moved 1.7 m west, to 3.0 m along 18th Street's south parkway (e 1472.5), because the uncropped 1894 conservatory plate sees its old place clear (it stood before the plate's west gate pier) and Lowe's c. 1897 print puts the trunk there. This camera, solved on the north side's ground (T-1934), stands that west gate pier (placed off the plate by T-3164; not rendered in this view) about 180 px west of the print's own (its west face at x 786, the print's at x 965), so its reading of the south parkway carries that offset: read against the pier, 90 px west of its face, the print's trunk stands 1.7 to 3.5 m along the parkway, and it is planted at 3.0 m (T-3153: two camera fits disagree). Its girth is the print's: scale 0.6 read off the conservatory plate's trunk."
+    },
+    {
+      "what": "the stable's front past the hip: here the front's wall seems to run on east of the roof's hip under a lower roof, which T-3192 built as a 4 m east section (r5)",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): r5 taken off. Taylor's 16554 looks at that end from the south-east and shows the front ending at the stack under the hip's end, and the 1911 sheet draws nothing there; what this view shows past the hip is the east hip's foot seen along the front"
+    },
+    {
+      "what": "the stable's walls: dressed ashlar, its windows paired lights in plain stone surrounds over projecting sills, where the build drew flat walls with dark rectangles",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): ashlar joints (0.45 m courses, broken joint), raised architraves, sills, a stone mullion between two lights, dark sash with meeting rails; the joints' sizes are reconstructed (the print is too small to read them)"
+    },
+    {
+      "what": "the corner bay against the arcade (T-1934, 2026-10-31): the print shows the arcade's arches whole to x 695 px, where the bay begins, and the bay's east end at about x 797; the build's bay began at x 652 (its 1.0 m west return over the third arch) and ended at x 773. Re-planned on this print and the 1894 plate together (L-pullman-stable-bay-1934): it now renders from x 668 to x 789. The print still reads its left edge about 1 m further east than the plate does; the two disagree there by about that much, so the remainder is within tolerance",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the parkway trees' girth (T-1934, 2026-10-31): the print's living trunks before the estate measure 11-15 px across at breast height (x 614-629, 829-840, 867-880 and 1067-1080 px, y 649), about 0.28-0.38 m through this camera's 30 m to them, where the renderer's elm draws its bole about 0.66 m across at the trees' scales of 0.94-0.98, 23-26 px; the dead trunk in its guard (x 439-472) is the one stout one",
+      "status": "within tolerance",
+      "how": "this print is of the early 1890s, and a parkway elm thickens about 1-1.5 cm a year, so by 1904 these trunks stand about 0.4-0.5 m across, within about 0.2 m of the render's; the print's crowns rise past its top edge, over 17.5 m at that distance, which the renderer's elm reaches only near its full scale, and its scale sets girth and height together, so a thinner trunk would cost the trees the height the print shows"
+    },
+    {
+      "what": "the house's raised terrace at its south-east corner, its balustrade and its striped awning (pullman_house_1729_prairie, T-1881), where the build stood a one-storey brick block until now",
+      "status": "not shown",
+      "how": "T-1881 (2026-10-31): another structure, judged in the house's and the conservatory's records (taylor_16555_west_front, taylor_16554_from_south, inland_1894_plate); this record's verdict on the stable and range is unchanged"
+    },
+    {
+      "what": "the low sheared balls behind the 18th Street coping before the stable's corner bay and its west half (x 777-910 px through this camera), which this print shows bare over the coping",
+      "status": "not shown",
+      "how": "replaced for 1904: Taylor's winter 16554, the later picture (c. 1890-1910 against this print's 1892-May 1894), shows a row of sheared balls and two small cones there over the coping, so they are taken as planted after this print was made (T-1934, 2026-10-31; data/front_yards/1904.json). The taller plants east of them, the clipped column and cones (x 933-987) and the dense mass at the stable's east end (x 1037-1088), stand where this print's leafy masses at x 903-963 and 1050-1100 rise, and were placed by crossing this print's columns with 16554's."
+    },
+    {
+      "what": "the tree at 18th Street's Calumet corner (x 873 in the print, the render's x 750 through this camera's recorded disagreement): the print draws one slender leader, the bole about 14-20 px across at 16 m (about 0.2-0.27 m), clear to about 4.5-5 m (its first limbs at y 400-430) under a tall open head; the build drew the grown elm, a bole about 0.5 m across forking at about 3.6 m [T-1934, 2026-11-01: it now grows on the young elm's leader with its limbs from about 5 m and a 0.24-0.30 m bole (form limbed_head); the render draws a slender trunk under a head starting about where the print's does. Fixed.]",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

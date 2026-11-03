@@ -1,0 +1,25 @@
+{
+  "structure_id": "chicago_lighthouse_1832",
+  "source_id": "castelnau_1842_chicago_harbor",
+  "photo": "../../../../reference/images/chicago/chicago_harbor_lighthouse_1838.jpg",
+  "image_px": [
+    640,
+    361
+  ],
+  "principal_px": [
+    602,
+    174.54060502046752
+  ],
+  "focal_px": 1308.6129019479695,
+  "eye": [
+    2.8,
+    -100,
+    2.0
+  ],
+  "yaw_deg": 0,
+  "sky": "overcast",
+  "solve": "Retained provisional square-pixel Castelnau framing, not an independently calibrated historical viewing station. The weak/partly hidden shaft toe was read at source y200\u00b18 and finial y38\u00b13; gallery abouty89\u00b12. Focal length, distance, eye and principal point reproduce the earlier actual8021 comparison rays; no model/placement changes follow. Object-grade/eyeheight/principal-point degeneracy and the nominal40ft historical datum remain unresolved. Publication1842 and attributed circa1838 depiction do not independently prove every July1835 fitting; transfer is inferred continuity. Use for finite broad-form review underT3153, without turning tiny hatch/member-count, hidden-toe or camera-fit differences into a measured geometry error. Diagnostic-only suppresses an invented historical From this spot. Overcast neutral lighting is retained exactly from the earlier baseline, not fitted to conceal model changes.",
+  "pixel_aspect": 1,
+  "diagnostic_only": true,
+  "library_image": "early-castelnau-1842-chicago-harbor"
+}

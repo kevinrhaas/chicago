@@ -5,6 +5,7 @@
  * All sixteen tiles are generated here; no external image/license is needed.
  */
 import * as THREE from 'three';
+import { LEAF_SKY } from './time-of-day.js';
 
 export const TREE_ALPHA_CUTOFF = 0.38;
 const TILE = 512;
@@ -292,8 +293,12 @@ roughnessFactor *= mix(1.0, 0.82, vTreeLeaf);
       // bloom; fog, tone mapping and confidence still act on the final surface.
       shader.fragmentShader = shader.fragmentShader.replace('#include <lights_fragment_end>', `
 #include <lights_fragment_end>
-reflectedLight.indirectDiffuse += diffuseColor.rgb * (0.22 * vTreeLeaf);
+reflectedLight.indirectDiffuse += diffuseColor.rgb * (uLeafSky * vTreeLeaf);
 `);
+      // T-3331: the skylight a leaf transmits is the sky's, so it falls with the
+      // hour (time-of-day.js). 0.22 by day, exactly as before.
+      shader.uniforms.uLeafSky = LEAF_SKY;
+      shader.fragmentShader = 'uniform float uLeafSky;\n' + shader.fragmentShader;
     }
   };
   material.customProgramCacheKey = () => `tree-surface-t2015-${surface ? 'lit' : 'depth'}`;

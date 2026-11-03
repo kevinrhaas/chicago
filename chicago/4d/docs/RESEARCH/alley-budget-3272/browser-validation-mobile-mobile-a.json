@@ -1,0 +1,43 @@
+{
+  "method": "Actual published /1904/ app at 390x780, `full`; animation paused after readiness; each stand renders the same held frame with the far-relief swap off (buildings.farRelief.on=false), off again (QA_CONTROL), on, and with the three relief pieces hidden outright (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 390,
+    "height": 780
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0"
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "alley-from-north",
+      "tierHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "off": {
+        "triangles": 5802925,
+        "drawCalls": 2741
+      },
+      "on": {
+        "triangles": 5555760,
+        "drawCalls": 2741,
+        "withinBudget": false
+      },
+      "saved": 247165,
+      "pixels": 304200,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 2,
+      "problems": 0
+    }
+  ]
+}

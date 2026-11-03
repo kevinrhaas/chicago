@@ -14,9 +14,11 @@
   "target_date": "1835-07-01",
   "grade": {
     "value": "attested",
-    "why": "Pictured: a picture on the Images tab shows it.",
+    "why": "Pictured: 3 of the pictures on the Images tab show it.",
     "pictures": [
-      "early-andreas-1884-sauganash"
+      "early-andreas-1884-sauganash",
+      "early-carpenter-kurz-allison-1893-panel14",
+      "early-carpenter-trowbridge-1902"
     ]
   },
   "documented_range": {
@@ -98,9 +100,12 @@
       "note": "Not attested. Gable is the near-universal roof form for log construction of this type, period and region. A shed roof leaning on the Sauganash's east wall is the one plausible alternative — 'immediately adjacent' could describe a lean-to — and it is recorded here rather than built, because nothing in the sources describes the junction between the two buildings."
     },
     "roof_pitch_deg": {
-      "value": 35.0,
-      "confidence": "inferred",
-      "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
+      "value": 21.49,
+      "confidence": "reconstructed",
+      "note": "T-2382: 21.49 degrees is a reconstructed appearance choice from the low annex in the Braunhold engraving published in Andreas (1884), not an attested historical pitch. It replaces the former generic 35-degree roof. Six approximate manually read annex wall corners, each with about 10 px uncertainty, gave the diagnostic camera on the retained 6.096 by 4.877 m documented-size footprint and existing inferred 2.5 m eave. Actual native before/after meshes lower the ridge by 0.8240216 m; the earlier 0.747 m estimate omitted the existing roof overhang. The finite native trial and direct visual review accepted the lower roof as closer to the depiction. The 0.472 m eye and off-centre principal point are diagnostic framing, not a historical visitor pose or metric survey. The retrospective plate does not establish unchanged appearance on 1 July 1835. Footprint, placement, eaves, openings and hotel remain unchanged; canonical native production, other pictures, application and final gates are separate acceptance steps.",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ]
     },
     "front_door_state": {
       "value": "recess",
@@ -157,13 +162,13 @@
     },
     "chimney_ridge_at": {
       "value": [
-        0.8
+        0.94
       ],
       "confidence": "reconstructed",
       "sources": [
         "andreas_1884_sauganash_hotel_plate"
       ],
-      "note": "Braunhold's 1884 engraving shows one small stack rising through the annex roof near its exposed outer gable, rather than a full-height exterior stack against the hotel junction. This cabin is already placed east of the hotel, so that free end is local +x. Station 0.80 is a reconstructed first comparison choice along the retained 6.096 m ridge: 4.8768 m from local minimum-u and 1.2192 m in from the exposed gable. It follows the pictured roof-piercing disposition; no solved camera, exact historic station or new geographic coordinate is claimed. The actual paired render must refine it."
+      "note": "T-2382: Braunhold/Andreas 1884 shows one roof-piercing stack close to the exposed outer gable. The retained building bearing makes that free end local +x. Reconstructed station 0.94 replaces 0.80, shifting the stack 0.85344 m along the retained 6.096 m ridge toward the free end. Actual finite native trial and direct source comparison accepted this visible improvement; shaft width, head height, count and brick treatment stay unchanged. The approximate remaining 0.15 m cap-top/camera discrepancy is within T-3153 tolerance and does not justify another detail fit. No historic stack measurement, coordinate or unchanged July 1835 state is claimed."
     },
     "ridge_stack_w_m": {
       "value": 0.55,
@@ -188,6 +193,14 @@
         "andreas_1884_sauganash_hotel_plate"
       ],
       "note": "Braunhold's public-domain Andreas 1884 engraving draws one chimney on this attached log cabin, which the existing the Illinois History Journal's Beaubien caption caption ruling identifies as Carpenter's former shop. This replaces the earlier count inferred only from a winter-heating need. The roof-piercing placement is pictured; its exact station/shaft/head dimensions are reconstructed in the three ridge-stack attributes. The engraving's masonry detail and Petford's red rendition still differ from the archetype's hardcoded stick-and-clay material; that unresolved material is not claimed as a match."
+    },
+    "end_gable_courses": {
+      "value": "+x",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "T-2382: Braunhold/Andreas 1884 draws horizontal wall courses on the exposed annex gable rather than roof covering. The existing bearing and source-facing diagnostic view assign that end to local +x; the picture does not set a geographic coordinate. The unchanged existing Hogan production option replaces only the exposed roof-material cap triangle with horizontal neutral timber courses. Actual native three-control trial and direct visual review accepted the material-category correction; roof slopes, hidden end, footprint, eaves, openings, stack and hotel stay unchanged. The 0.20 m rhythm, 8 mm joints, 12 mm relief and neutral timber tone are reconstructed proxies, not measured joinery, authentic paint or a determination between logs and boards. The finish category is inferred; no new scene-date claim is made."
     },
     "function": {
       "value": "log_cabin_former_store_and_school_use_unattested",

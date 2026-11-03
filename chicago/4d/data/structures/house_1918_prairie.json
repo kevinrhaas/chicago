@@ -1,210 +1,1014 @@
 {
-  "id": "house_1918_prairie",
-  "name": "1916 (1930) Prairie Avenue — Identity conflict beside Allerton (district draft; refined by T-1901, T-1902)",
-  "aka": [
-    "1918 S. Prairie Avenue"
+ "id": "house_1918_prairie",
+ "name": "1936 Prairie Avenue — the Thompson/Allerton house (Italianate, L. B. Dixon, 1869-70)",
+ "aka": [
+  "1918 S. Prairie Avenue",
+  "1936 S. Prairie Avenue",
+  "Daniel M. Thompson residence",
+  "Samuel W. Allerton residence"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_28"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '2½S.B.; bay4B; rear2B brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+ },
+ "built": {
+  "value": 1870,
+  "confidence": "inferred",
+  "sources": [
+   "chicago_tribune_1869_10_30_thompson_residence"
+  ],
+  "note": "The Chicago Tribune of 30 October 1869 describes the house 'now building' and intends 'to erect the walls and enclose the building the coming year, and finish off the subsequent year'; the Tribune of 30 March 1879 reports its sale to Samuel W. Allerton."
+ },
+ "review_required": false,
+ "research_note": "Refined from the district draft (T-2329) in place by T-1901 (piece 1), under the draft's own id, as a K01 Italianate house: Daniel M. Thompson's 1869-70 villa by L. B. Dixon, Samuel W. Allerton's from 1879 and still his family's in 1904, razed 1915. The sheet 28 census (ruling r28-allerton) reads the 1911 label as '1918' over '(1936)', so this drawn house IS the Allerton house and the bare 1936 corner is its lawn; there is no second villa and no house at 1916 or 1930. Built from the 1911 sheet's plan (s28fp-1918-b1), the Chicago Tribune's description of 30 October 1869 (chicago_tribune_1869_10_30_thompson_residence: its sizes, storey heights, materials and rooms) and the undated winter photograph Chicagology reproduces (chicagology_1936_prairie_exterior_photo), whose camera is solved in data/reference_views/house_1918_prairie/. What is reconstructed is listed under liberty L-k01-1936-allerton-1901.",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_28"
+     "sanborn_1911_chicago_v3_sheet_28",
+     "chicago_tribune_1869_10_30_thompson_residence"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '2½S.B.; bay4B; rear2B brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1901, T-1902 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1918-b1), the T-1841 census (s28-1918-front, s28-1936-wing) and the T-1837 register row frontage-28-047 (Identity conflict beside Allerton); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448441.502,
-        "utm_n": 4633967.557,
-        "rotation_deg": -0.628,
-        "symbolic_location": "1918 S. Prairie Avenue, parcel prairie_1918 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 28.500, v 1.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.628 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            16.5,
-            0.0
-          ],
-          [
-            16.5,
-            17.0
-          ],
-          [
-            0.0,
-            17.0
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 2,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "'2½S.B.; bay4B; rear2B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
-        },
-        "construction": {
-          "value": "brick",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "The register reads the map's colours as 'brick'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
-                  0.0,
-                  0.0,
-                  16.5,
-                  17.0
-                ],
-                "from": "s28fp-1918-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
-                  -9.25,
-                  2.25,
-                  -0.25,
-                  9.75
-                ],
-                "from": "s28fp-1918-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  16.5,
-                  1.5,
-                  18.25,
-                  4.25
-                ],
-                "from": "s28fp-1918-b1 p2 (porch, frame), rectangle 1 of that part; the part's rectangles cover 66% of its fill"
-              }
-            ],
-            "lot_v": [
-              -26.156,
-              24.156
-            ],
-            "street_u": 25.384
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1918-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s28fp-1918-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s28fp-1918-b1 p2 (porch, frame), rectangle 1 of that part; the part's rectangles cover 66% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 2907835057,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 38,
-            "mansard_lower_m": 3.0,
-            "front_bays": 6,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": true,
-            "stone": "stone",
-            "features": [
-              {
-                "kind": "corner_tower",
-                "radius_m": 1.8,
-                "above_eave_m": 3.4,
-                "cap_m": 4.5,
-                "at": [
-                  15.87,
-                  16.37
-                ]
-              }
-            ],
-            "draft_label": {
-              "pass": "T-2329",
-              "refined_by": [
-                "T-1901",
-                "T-1902"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: 2½S.B. with a 'bay4B': a bay carried a storey above the house, drawn as a corner tower; its corner is not read off the sheet and is reconstructed. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2907835057 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2329",
-            "liberty": "L-draft-prairie-18-20-west-2329",
-            "register_row": "frontage-28-047",
-            "census_ids": [
-              "s28-1918-front",
-              "s28-1936-wing"
-            ],
-            "trace_building": "s28fp-1918-b1",
-            "seed": 2907835057,
-            "replaceable_by": [
-              "T-1901",
-              "T-1902"
-            ],
-            "card": "District draft — refined by T-1901, T-1902."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "The 1904 target to the 1911 sheet that draws the house: built 1869-70 (Tribune), the T-1841 census rules it present in 1904 (present_as_mapped), and it was razed in 1915 after the Hump Hairpin Company bought it in 1912.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448441.502,
+    "utm_n": 4633967.557,
+    "rotation_deg": -0.628,
+    "symbolic_location": "1918 S. Prairie Avenue, parcel prairie_1918 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The rear corner of the main body's rectangle (lot frame u 28.500, v 1.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.628 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      17.7,
+      0.0
+     ],
+     [
+      17.7,
+      15.8
+     ],
+     [
+      0.0,
+      15.8
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The main block on the 1911 sheet (trace s28fp-1918-b1), u from its rear wall to the north block's face (17.7 m; the front's south part stands 0.95 m behind it, under the verandah), v from the south wall between the dining range and the reception bay (v 0) to the north wall (15.8). The Tribune's 'extreme size' is 66 ft 6 in by 94 ft; the sheet's, with the bays, the tower and the rear range, about 18.7 by 29.2 m."
+   },
+   "form": {
+    "stories": {
+     "value": 3,
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "'2½S.B.' on the 1911 sheet: two full storeys over a raised basement and a half storey. The 1869 Tribune: 'an attic in the main house, which is lighted by frieze-light windows'; built as a short third storey whose lights stand in the frieze under the cornice, as the photograph shows them on the south flank."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The 1869 Tribune: the basement 'faced with ashlar of Connecticut brown stone, from the Portland quarries ... 6 feet high, with heavy moulded base and water-table'; 'all exterior walls above the basement are faced with the best quality of Baltimore pressed brick'; 'all the windows are trimmed with brown stone'. The 1911 sheet colours the house brick; the Tribune of 9 January 1898 calls it 'his big red brick house'."
+    },
+    "principal_floor_m": {
+     "value": 1.83,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The 1869 Tribune: 'The main floor is six feet above the grade line' (1.83 m); 'the windows for basement are entirely above ground'. Written while the house was building; the photograph's basement storey under the principal floor's sills agrees."
+    },
+    "storey_heights_m": {
+     "value": [
+      4.5,
+      4.11,
+      2.1
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "The 1869 Tribune: principal story 14 ft 9 in (4.50 m), second story 13 ft 6 in (4.11 m) for the main part; the main building 44 ft (13.41 m) from grade to the top of its cornice. The attic storey, 2.1 m, carries the wall head to 12.54 m, and K10's bracketed cornice over it stands its top near the Tribune's 13.4 m."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "The brick walls over the basement; the Tribune gives the rubble wall to grade as 25 inches and an air space of four inches inside the brick, not the brick's own thickness. K01's top of range."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "As the front: every exterior wall is the same pressed brick over the same ashlar basement (Tribune 1869)."
+    },
+    "service_wall_brick": {
+     "value": "rough_red_brown_running",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "Every exterior wall above the basement is Baltimore pressed brick (Tribune 1869) and the house was 'his big red brick house' (Tribune 1898), so the flanks and rear are laid in the kit's red-brown panel as the front is; K03 has no smooth pressed panel, so its rough red-brown stands for it (liberty L-k01-1936-allerton-1901)."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "sandstone_brown",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 2,
+      "coping_height_m": 0.25,
+      "corner_bond": [],
+      "brick_above_m": 1.83,
+      "belts": []
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The 1869 Tribune: the ashlar of Portland brownstone, 'rubbed surface, with square rustic joints', 6 ft high with a heavy moulded base and water-table, under the pressed brick; brownstone trim. The photograph shows the pale stone basement storey under the darker brick (y 870-965 px at the south-east corner)."
+    },
+    "side_base": {
+     "value": [
+      {
+       "wall": "k01.wall.side.north",
+       "to_m": 1.83,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "to_m": 1.83,
+       "proud_m": 0.03
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The brownstone ashlar runs round the flanks to the main floor's level (Tribune 1869: 'the foundation of all exterior walls ... faced with ashlar'); the photograph shows it along the south flank."
+    },
+    "street_front_brick": {
+     "value": {
+      "panel": "rough_red_brown_running"
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "Baltimore pressed brick over the ashlar (Tribune 1869), red (Tribune 1898); the kit's red-brown panel (liberty L-k01-1936-allerton-1901)."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k09.trim.lintel_cornice_hood",
+       "k09.trim.lintel_cornice_hood",
+       "k01.flat_lintel"
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "Every window 'trimmed with brown stone' (Tribune 1869): the photograph's heavy moulded hoods over the principal and chamber windows, plain heads on the frieze lights. Their pediments and scrolls are T-1902's."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.bracketed_timber",
+      "pairs": {
+       "spacing_m": 1.6
+      },
+      "bracket_m": {
+       "height_m": 0.8,
+       "projection_m": 0.7,
+       "width_m": 0.16
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo",
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "A deep cornice on paired scrolled brackets round the house, the attic's frieze lights between them, in the photograph (y 395-450 px at the south-east corner); its top near 13.4 m, the Tribune's 44 ft."
+    },
+    "roof_form": {
+     "value": "hip",
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "A low hipped roof behind the cornice with a railed deck, in the photograph (the rail at y 260-300 px over the south-east corner)."
+    },
+    "roof_pitch_deg": {
+     "value": 25,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The photograph's hip slopes, low behind the cornice."
+    },
+    "eave_overhang_m": {
+     "value": 0.75,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The cornice's reach past the wall in the photograph, about 0.75 m."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_standing_seam_painted",
+      "flashing": "copper_sheet",
+      "caps": "copper_ridge_roll"
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "The 1869 Tribune: 'The roof will be covered with slate, with copper flashings'. The kit's slate cuts are laid only at 45 degrees and over, and the photograph's hip is low, so the hip is covered in the kit's painted standing seam (as 1906's) with the Tribune's copper flashings; the slate is listed under liberty L-k01-1936-allerton-1901."
+    },
+    "hip_deck": {
+     "value": {
+      "deck_m": 15.0,
+      "rail": {
+       "inset_m": 0.1,
+       "height_m": 0.8,
+       "post_m": 0.28,
+       "posts_every_m": 2.4,
+       "plinth_m": 0.12,
+       "coping_m": 0.1,
+       "thickness_m": 0.12,
+       "roundel_m": 0.36,
+       "pitch_m": 0.5
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The hip cut off at a deck with a rail round it, in the photograph (y 260-300 px over the south-east corner, about 2.5 m over the cornice's top through the camera); K01's hip deck with 1906's pierced rail."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "Two-light sashes with a meeting rail in the photograph's windows."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "The stoop's treads; the photograph shows the flight end on."
+    },
+    "stair_landing_depth_m": {
+     "value": 2.1,
+     "confidence": "reconstructed",
+     "note": "The landing at the stoop's head, as deep as the columned porch over it is out."
+    },
+    "stoop_width_m": {
+     "value": 2.6,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The flight under the columned porch, about as wide as the porch's span in the photograph."
+    },
+    "entrance_bay": {
+     "value": 3,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The 1869 Tribune: 'The main entrance is through a tower', approached 'up a flight of stone steps, which is covered by a stone porch, with fluted stone Corinthian columns'. K01 refuses a door behind a tower, so the door stands in the front's bay just north of the tower (s 11.25), under the columned porch the photograph shows at the tower's north-east foot (x 1655-1760 px); liberty L-k01-1936-allerton-1901."
+    },
+    "front_bays": {
+     "value": [
+      1.8,
+      4.0,
+      11.25,
+      13.4,
+      14.7
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The 1869 Tribune: the reception room (south of the hall) has 'two windows in the east front' under the verandah (s 1.8, 4.0); the parlor (north of it) 'is lighted by two windows on the east front' (s 13.4, 14.7); the door between them north of the tower (s 11.25). Places along the front read against the 1911 sheet's tower (v 5.95-9.74)."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.45,
+       "width_m": 1.15,
+       "height_m": 3.1
+      },
+      {
+       "sill_above_floor_m": 0.75,
+       "width_m": 1.1,
+       "height_m": 2.7
+      },
+      {
+       "sill_above_floor_m": 0.5,
+       "width_m": 0.9,
+       "height_m": 0.55
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo",
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "Tall principal-floor windows, chamber windows a little shorter, and the attic's 'frieze-light windows' (Tribune 1869), low horizontal lights under the cornice, in the photograph's south flank (y 455-470 px)."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.35,
+      "width_m": 0.9,
+      "height_m": 0.8
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "'The windows for basement are entirely above ground' (Tribune 1869), in the ashlar under the principal windows."
+    },
+    "side_bays": {
+     "value": [
+      9.85
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The south wall between the dining room's range and the reception room's bay: the 1869 Tribune's side entrance on the south, 'lighted by a large window opening to the south' (s 9.85 of the 1.6 m the sheet leaves there). The bays' own lights are theirs."
+    },
+    "north_bays": {
+     "value": [
+      3.0,
+      6.6
+     ],
+     "confidence": "reconstructed",
+     "note": "The parlor's north wall; no picture shows the north flank."
+    },
+    "rear_bays": {
+     "value": [
+      1.6
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "The library's two west windows (Tribune 1869) where the rear wall stands clear of the rear range (v 14.2); the second is the octagonal bay's."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       1.1,
+       0.8
+      ],
+      "top_above_ridge_m": 2.0,
+      "cap_proud_m": 0.12,
+      "cap_depth_m": 0.4,
+      "stacks": [
+       {
+        "u_m": 6.0,
+        "v_m": 0.9
+       },
+       {
+        "u_m": 12.5,
+        "v_m": 0.9
+       },
+       {
+        "u_m": 9.0,
+        "v_m": 14.9
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "Tall corniced stacks over the roof in the photograph: one over the south flank's rear part (x 905-995 px) and one over its front part (x 1215-1290 px); the third, on the north side, is reconstructed."
+    },
+    "rainwater": {
+     "value": {
+      "gutter": "half_round",
+      "fabric": "copper_sheet",
+      "downpipe": "round",
+      "ends_at": "grade_with_splash_stone",
+      "downpipes": [
+       {
+        "wall": "k01.wall.rear_service",
+        "s_m": 0.55
+       },
+       {
+        "wall": "k01.wall.rear_service",
+        "s_m": 15.2
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "Copper gutters ('copper flashings', Tribune 1869) behind the cornice and two downpipes at the rear; no picture shows them."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 7.68,
+       "hood": {
+        "soffit_m": 5.2,
+        "width_m": 2.2,
+        "out_m": 2.0,
+        "fascia_m": 0.5,
+        "cornice": {
+         "height_m": 0.25,
+         "proud_m": 0.2
+        },
+        "brackets": "k08.bay.canted_hooded",
+        "railing": {
+         "height_m": 0.9,
+         "post_m": 0.3,
+         "baluster_m": 0.1,
+         "pitch_m": 0.22,
+         "rail_m": [
+          0.25,
+          0.15
+         ]
+        },
+        "columns": {
+         "diameter_m": 0.34,
+         "plinth_m": [
+          0.45,
+          0.5
+         ],
+         "capital_m": 0.5,
+         "respond_m": 0.2
+        },
+        "railing_fabric": "stone",
+        "fabric": "stone"
+       }
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The 1869 Tribune: the steps 'covered by a stone porch, with fluted stone Corinthian columns, and from these columns spring stone brackets, which support a Corinthian cornice of stone'; the photograph shows that porch's columns at the tower's north-east foot. K07's door under 1906's columned hood stands for it; the fluting, capitals and the flight running north along the front are T-1902's."
+    },
+    "corner_porch": {
+     "value": {
+      "s_m": [
+       0.0,
+       5.6
+      ],
+      "out_m": 1.2,
+      "thickness_m": 0.3,
+      "floor_m": 1.83,
+      "spring_m": 5.0,
+      "head_m": 6.33,
+      "arches": [
+       {
+        "face": "front",
+        "centre_m": 1.2,
+        "span_m": 1.2
+       },
+       {
+        "face": "front",
+        "centre_m": 2.8,
+        "span_m": 1.2
+       },
+       {
+        "face": "front",
+        "centre_m": 4.4,
+        "span_m": 1.2
+       }
+      ],
+      "entablature": {
+       "height_m": 0.55,
+       "proud_m": 0.15
+      },
+      "balustrade": {
+       "height_m": 0.9,
+       "post_m": 0.3,
+       "baluster_m": 0.1,
+       "pitch_m": 0.22,
+       "rail_m": [
+        0.25,
+        0.15
+       ]
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The 1869 Tribune: the reception room's front windows 'are shaded by a verandah, with stone floor, Corinthian fluted columns, and stone cornice and roof', and the chamber over it opens 'on to the roof of verandah, which forms a balcony, with stone railing and stone balusters around it'. The 1911 sheet draws it south of the tower (s28fp-1918-b1 p2, v about 0-5.9, out to u 18.56); the photograph shows three openings and the balustrade over them (x 1380-1600 px). Its columns are drawn as the kit's piers (T-1902 carves them)."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "tower",
+       "variant": "k08.tower.octagonal",
+       "wall": "k01.wall.street_front",
+       "s_m": 7.85,
+       "fabric": "front_stone",
+       "plan": {
+        "radius_m": 2.68,
+        "centre_proud_m": -0.595,
+        "sides": 4
+       },
+       "eaves": {
+        "cornice": "k10.cornice.bracketed_timber"
+       },
+       "storeys": [
+        {
+         "height_m": 6.33,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.9,
+           "clear_height_m": 3.0,
+           "sill_m": 2.3,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the tower's principal-floor light toward the avenue"
+          }
+         ]
+        },
+        {
+         "height_m": 4.11,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.8,
+           "clear_height_m": 2.6,
+           "sill_m": 0.75,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the 1869 Tribune's dressing room in the tower, 'lighted by two windows over main entrance'"
+          }
+         ]
+        },
+        {
+         "height_m": 2.1,
+         "windows": []
+        },
+        {
+         "height_m": 3.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.7,
+           "clear_height_m": 1.6,
+           "sill_m": 0.9,
+           "at": [
+            0.102,
+            0.5,
+            0.898
+           ],
+           "why_not_ordinary": "the stage over the main cornice, under the belvedere's balcony, in the photograph (y 330-385 px); one to each face of the square (T-3318)"
+          }
+         ]
+        },
+        {
+         "height_m": 4.3,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.8,
+           "clear_height_m": 2.2,
+           "sill_m": 0.9,
+           "at": [
+            0.102,
+            0.5,
+            0.898
+           ],
+           "why_not_ordinary": "the belvedere's tall round-headed lights, one to a face, in the photograph (y 200-280 px; the arched heads at x 1595-1625, T-3318)"
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.0,
+        "covering": "tin_flat_seam_painted"
+       },
+       "balcony": {
+        "fabric": "stone",
+        "height_m": 0.9,
+        "inset_m": 0.15,
+        "post_m": 0.3,
+        "bar_m": 0.08,
+        "pitch_m": 0.2,
+        "rail_m": [
+         0.22,
+         0.12
+        ],
+        "foot_rail_m": 0.12
+       },
+       "brackets": {
+        "consoles": {
+         "reach_m": 0.6,
+         "drop_m": 0.9,
+         "thickness_m": 0.2,
+         "segments": 8
+        },
+        "modillions": {
+         "width_m": 0.1,
+         "drop_m": 0.4,
+         "out_m": 0.3,
+         "spacing_m": 0.37,
+         "margin_m": 0.4
+        }
+       },
+       "storey_balcony": {
+        "storey": 4,
+        "out_m": 0.55,
+        "slab_m": 0.3,
+        "corbel_courses": 3,
+        "course_m": 0.16,
+        "height_m": 0.75,
+        "inset_m": 0.2,
+        "post_m": 0.25,
+        "bar_m": 0.08,
+        "pitch_m": 0.2,
+        "rail_m": [
+         0.2,
+         0.12
+        ],
+        "foot_rail_m": 0.12
+       }
+      },
+      {
+       "id": "reception_bay",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.side.south",
+       "s_m": 13.405,
+       "fabric": "front_stone",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -2.75,
+          0.0
+         ],
+         [
+          -1.75,
+          1.55
+         ],
+         [
+          1.75,
+          1.55
+         ],
+         [
+          2.75,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 6.33,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 3.1,
+           "sill_m": 2.28,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the reception room's half-octagonal stone bay 'having a southern exposure' (Tribune 1869)"
+          }
+         ]
+        },
+        {
+         "height_m": 4.11,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 2.8,
+           "sill_m": 0.6,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the chamber over it, 'with a half-octagonal bay window on the south' (Tribune 1869)"
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.3,
+        "covering": "slate_pennsylvania"
+       }
+      },
+      {
+       "id": "dining_range",
+       "variant": "k08.projection.full_height",
+       "wall": "k01.wall.side.south",
+       "s_m": 4.515,
+       "flush_corner": "left",
+       "fabric": "front_stone",
+       "plan": {
+        "width_m": 9.03,
+        "proud_m": 1.55,
+        "block": true
+       },
+       "storeys": [
+        {
+         "height_m": 6.33,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 3.1,
+           "sill_m": 2.28,
+           "at": [
+            0.3,
+            0.7
+           ],
+           "why_not_ordinary": "the dining room 'lighted by two windows opening to the south' (Tribune 1869)"
+          }
+         ]
+        },
+        {
+         "height_m": 4.11,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 2.8,
+           "sill_m": 0.6,
+           "at": [
+            0.3,
+            0.7
+           ],
+           "why_not_ordinary": "the chambers over the dining room, as tall as the house's own chamber windows in the 13 ft 6 in second story (Tribune 1869)"
+          }
+         ]
+        },
+        {
+         "height_m": 1.49,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.9,
+           "clear_height_m": 0.55,
+           "sill_m": 0.4,
+           "at": [
+            0.3,
+            0.7
+           ],
+           "why_not_ordinary": "the attic's frieze lights (Tribune 1869), low horizontal lights under the cornice as on the photograph's south flank"
+          }
+         ]
+        }
+       ],
+       "eaves": {
+        "cornice": "k10.cornice.bracketed_timber"
+       },
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.0,
+        "covering": "tin_flat_seam_painted"
+       }
+      },
+      {
+       "id": "library_bay",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.side.north",
+       "s_m": 13.7,
+       "fabric": "front_stone",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -3.7,
+          0.0
+         ],
+         [
+          -2.7,
+          1.3
+         ],
+         [
+          2.7,
+          1.3
+         ],
+         [
+          3.7,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 6.33,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 3.1,
+           "sill_m": 2.28,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the octagonal library's tall principal-floor light (Tribune 1869: 'lighted by two windows on the west side, and one on the northeast side of the octagon'; the bay's north face stands for the north-east one, its cants too narrow for the kit's light)"
+          }
+         ]
+        },
+        {
+         "height_m": 4.11,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 2.8,
+           "sill_m": 0.6,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the chamber over the library, as tall as the house's own chamber windows (Tribune 1869)"
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.3,
+        "covering": "slate_pennsylvania"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicago_tribune_1869_10_30_thompson_residence",
+      "chicagology_1936_prairie_exterior_photo"
+     ],
+     "note": "The 1911 sheet's plan (trace s28fp-1918-b1) read with the 1869 Tribune's rooms: the 'bay4B' square tower on the front at v 5.95-9.74, 3.8 m across and 1.3 m before the north block's face, rising past the cornice to a belvedere; built square, as the photograph shows it (T-3318: K08's polygonal tower with four sides, a face to the avenue, 3.79 m across, radius 2.68 m, its centre 0.595 m inside the wall so its front stands the sheet's 1.3 m out), with one round-headed light to each face of the belvedere and a stone balustrade round its flat top over the cornice, as the photograph draws them; and (T-3324) a console at each of its two free corners under that cornice and a row of brackets 0.37 m apart along its faces (x 1530-1745, y 120-165 px), and at the belvedere's foot a corbelled stone balcony round its cheeks and front, its slab 0.55 m out and its floor the belvedere's, on three stepped courses, with a balustrade 0.75 m high (y 278-345 px), so the belvedere stands back over it, as the photograph draws them, their sizes read through its scale at the belvedere's lights (2.2 m over about 71 px) and so reconstructed (its back stands on the wall's plane over the roof; liberty L-k01-1936-allerton-1901) (the photograph; 'seventy-three feet high from the ground line', 22.25 m, to its top); the reception room's half-octagonal stone bay on the south wall (u 10.65-16.16, 1.55 m out); the dining room's range before the south wall's rear part (u 0-9.03, 1.55 m out); and the octagonal library's canted bay on the north wall (u 0.1-7.5, 1.3 m out)."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_part",
+       "rect": [
+        -10.15,
+        0.0,
+        2.26,
+        9.86
+       ],
+       "floor_m": 1.83,
+       "storey_heights_m": [
+        3.96,
+        3.66
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.7,
+         "width_m": 1.0,
+         "height_m": 2.4
+        },
+        {
+         "sill_above_floor_m": 0.6,
+         "width_m": 1.0,
+         "height_m": 2.2
+        }
+       ],
+       "windows": {
+        "rear": [
+         2.0,
+         5.6
+        ],
+        "south": [
+         3.0,
+         7.0
+        ],
+        "north": [
+         3.0,
+         7.0
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.3,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicago_tribune_1869_10_30_thompson_residence"
+     ],
+     "note": "The sheet's two-storey brick range behind the house ('rear2B'; s28fp-1918-b1, u -10.15 to 0, v 2.26 to 9.86). The 1869 Tribune: the kitchen 13 ft and the second story over it 12 ft (3.96, 3.66 m), 'the rear part is thirty-seven feet high from ground line to top of cornice' (11.28 m); built to its second storey's head (9.45 m) under a flat roof, the 1.8 m between them, an attic or a parapet no picture shows, is not built (liberty L-k01-1936-allerton-1901); the kitchen's rear exit is on the west."
+    },
+    "boundary": {
+     "value": {
+      "street_line_m": 7.45,
+      "lot_s_m": [
+       -26.156,
+       24.156
+      ],
+      "fence": "k11.fence.spear_on_curb",
+      "entrance_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "leaves": 2,
+       "clear_m": 1.3,
+       "drawn_deg": 70
+      },
+      "side_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "pier_s_m": -24.5,
+       "drawn_deg": 0
+      },
+      "posts": {
+       "section_m": 0.12,
+       "height_m": 1.2
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1936_prairie_exterior_photo",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "A spear-topped iron fence on a stone curb along the walk, in the photograph (y 890-960 px) and the 1886 Andreas engraving; the lot's sides are the 1904 parcel's (data/street_grid/1904.json). The gates are reconstructed (liberty L-k01-1936-allerton-1901); the fence along 20th Street is T-1944's."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.9,
+       "top_m": 0.06,
+       "wear_tone": 0.9,
+       "width_m": 1.8
+      },
+      "service_walk": {
+       "surface": "cinder",
+       "to_u_m": 0.0,
+       "wear_tone": 0.78,
+       "band": "gate"
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The walk in flags from the stoop's foot to the gate, a cinder service walk back to the rear; the K14 kit's flags, width and wear aged from the phase's own year; liberty L-k01-1936-allerton-1901."
+    }
+   }
+  }
+ ]
 }

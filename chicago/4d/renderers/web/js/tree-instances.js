@@ -40,6 +40,7 @@
  */
 
 import * as THREE from 'three';
+import { LEAF_SKY } from './time-of-day.js';
 import { buildTreeTemplate, archFor, mulberry32 } from './tree-model.js';
 import { loadCompressed, countSheet } from './ktx2.js';
 
@@ -96,9 +97,11 @@ export const isGrownForm = (spec) => spec.form !== 'thicket' && spec.form !== 's
 export const grownGroupName = (name) => `${name}s-grown`;
 
 function archetypeKey(spec) {
-  // A habit named outright (`spec.arch`, T-3017) is its own archetype.
+  // A habit named outright (`spec.arch`, T-3017) is its own archetype; so is a plant grown to its
+  // own measured crown (`spec.own`, T-1881: a standard's ball head, which a shared variant
+  // stretched to another width would draw as an egg).
   return [spec.speciesId ?? spec.common, spec.form, spec.common, spec.dark, spec.light, spec.bark,
-    spec.conf ?? 0.5].join('|') + (spec.arch ? `|${spec.arch}` : '');
+    spec.conf ?? 0.5].join('|') + (spec.arch ? `|${spec.arch}` : '') + (spec.own ? `|own ${spec.own}` : '');
 }
 
 /**
@@ -564,9 +567,12 @@ function patchLeaves(material, uWind, patchWind) {
   const wind = material.onBeforeCompile;
   material.onBeforeCompile = (shader, r) => {
     wind(shader, r);
-    shader.fragmentShader = shader.fragmentShader.replace('#include <lights_fragment_end>', `
+    // T-3331: the transmitted skylight falls with the hour (time-of-day.js LEAF_SKY);
+    // 0.22 by day, exactly as before.
+    shader.uniforms.uLeafSky = LEAF_SKY;
+    shader.fragmentShader = 'uniform float uLeafSky;\n' + shader.fragmentShader.replace('#include <lights_fragment_end>', `
 #include <lights_fragment_end>
-reflectedLight.indirectDiffuse += diffuseColor.rgb * 0.22;
+reflectedLight.indirectDiffuse += diffuseColor.rgb * uLeafSky;
 `);
   };
   material.customProgramCacheKey = () => 'grown-tree-leaves-t2743';

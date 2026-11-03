@@ -66,7 +66,12 @@ export function adaptiveGroundGrid(hf, stride = 6, tolerance = 0.025, footprints
       for (let y = y1; y > y0; y -= fine(i - 1, j) ? 1 : y1 - y0) edge.push(vert(x0, y));
       const c = (x0 + x1) / 2, r = (y0 + y1) / 2;
       const center = position.length / 3;
-      position.push(originE + c * cellM, hf.sample(originE + c * cellM, originN + r * cellM), -(originN + r * cellM));
+      // A transition stitches a still-coarse cell to finer edge samples. Its
+      // virtual centre must not introduce a new hill above that cell's original
+      // coarse surface; only the shared boundary needs the finer field heights.
+      const coarseCenter = (height(x1, y0) + height(x0, y1)) / 2;
+      const centerHeight = Math.min(hf.sample(originE + c * cellM, originN + r * cellM), coarseCenter);
+      position.push(originE + c * cellM, centerHeight, -(originN + r * cellM));
       for (let k = 0; k < edge.length; k++) index.push(center, edge[k], edge[(k + 1) % edge.length]);
     } else {
       const a = vert(x0, y0), b = vert(x1, y0), c = vert(x0, y1), d = vert(x1, y1);

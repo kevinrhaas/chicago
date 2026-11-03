@@ -145,12 +145,51 @@ def check():
         ok(f"the Glessner record's residents ({', '.join(named)}) live at glessner_house in the directory")
     else:
         fail(f"the Glessner record's residents {named} are not the directory's people at glessner_house")
+    check_former_residents(directory, standing)
     layers = json.loads((DATA / "scenes" / "1904.json").read_text()).get("layers", [])
     if "residents" not in layers:
         ok("T-1740 holds: 1904 does not list `residents`, so the drawer offers no People section")
     else:
         fail("1904 lists `residents`: the drawer would mount the 1835 town's People, City, "
              "Population and Order book over a two-person directory")
+
+
+def check_former_residents(directory, standing):
+    """T-3266: the former residents the People tab draws are the committed build's, sit on
+    houses that stand in 1904, and the houses Kevin asked about carry who he expected."""
+    import build_former_residents_1904 as bfr
+    built_now = json.dumps(bfr.build(), indent=2, ensure_ascii=False) + "\n"
+    if (cs.residents_root("1904") / "former_residents.json").read_text(encoding="utf-8") == built_now:
+        ok("former_residents.json is the build's own output")
+    else:
+        fail("former_residents.json is stale: run tools/build_former_residents_1904.py")
+    houses = directory.get("former_residents") or {}
+    built = json.loads((cs.residents_root("1904") / "former_residents.json").read_text())["houses"]
+    if houses == built:
+        ok(f"people.json carries all {len(built)} houses' former residents")
+    else:
+        fail("people.json's former_residents is not data/residents_1904/former_residents.json: run compile_scene.py --scene 1904")
+    for sid, house in houses.items():
+        if sid not in standing:
+            fail(f"former residents on {sid}, which does not stand in 1904")
+        for row in house.get("former", []) + house.get("later", []):
+            if not row.get("sources") or row.get("grade") not in ("attested", "inferred"):
+                fail(f"{sid}: former resident {row.get('name')!r} is ungraded or cites nothing")
+    expect = {
+        "keith_house_1808_prairie": ("former", "Keith"),
+        "coleman_ames_house_1811_prairie": ("former", "Coleman"),
+        "sears_meeker_house_1815_prairie": ("former", "Sears"),
+        "doane_house_1827_prairie": ("former", "Doane"),
+    }
+    for sid, (key, name) in expect.items():
+        rows = (houses.get(sid) or {}).get(key, [])
+        if any(name in r["name"] or any(name in m for m in r.get("members", [])) for r in rows):
+            ok(f"{sid}: the {name} family is among its former residents")
+        else:
+            fail(f"{sid}: no {name} family among its former residents")
+    for sid in ("coleman_ames_house_1811_prairie", "doane_house_1827_prairie"):
+        if not (houses.get(sid) or {}).get("unlisted_on_scene_date"):
+            fail(f"{sid}: nobody is listed there in 1904, and the card does not say why")
 
 
 def self_test():

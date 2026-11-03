@@ -1136,7 +1136,9 @@ the photograph at `data/sources/assets/bioimages_ulmus_americana_11688/`. The le
 adaptation of it and carries that attribution; everything else in these files is
 project-authored under the repository licence. They show what a species' leaf and bark
 generally look like; they are not evidence about any tree that stood (docs/LIBERTIES.md
-L-tree-architecture-2743).
+L-tree-architecture-2743). Since T-1934 the leaf atlas has a sixth row: a bare elm's winter
+twig (a branch end's, and a tuft of them), drawn by the same generator in code alone, no
+photograph sampled.
 
 
 ### Anonymous adult source and preparation — `authored/humans/makehuman_hm08/`
@@ -1730,3 +1732,69 @@ and adoption remain UNRUN. Runtime remains bd443; no old qualification transfers
 |`authored/transport/horse_standing/quiet-head-neck-v6-PROVENANCE.json`|GPL-3.0-or-later project source/change/scope notice. Original model/images retain CC-BY-4.0 credit and acquired provenance; no qualification or historical likeness is transferred.|
 
 Project-authored V6 code/recipe/HEAD-field fixture are under `tools/transport/horse_quiet_head_neck_idle_v6/`, GPL-3.0-or-later. The one-quiet-clip runtime derivative is `renderers/web/transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb`; its entire BIN/geometry/images/materials/rig and retained motion curves equal the authored master, with old13/failed17 omitted only from playable inventory. Source/projection preparation is not native/socket/world/photo acceptance.
+
+
+### T-1790 original natural-standing animation derivative
+
+The eight existing `bardwell_otis_1835` master/web LODs below append the project-authored `idle_natural_v1` standing look and breath. Original geometry, images, skinning, inverse binds, nodes, materials, arm/lower-body animation channels and all original clips remain preserved. Original MakeHuman/other graphical notices above continue to apply. New animation curve arrays are dedicated CC0-1.0; generator/probe code remains GPL-3.0-or-later. Timings and amplitudes are reconstructed ordinary standing, not a witnessed action, named gesture or documentary likeness (liberty L-natural-standing-1790). Original canonical metadata identifies the parents only; exact derivation and separate native qualification are filed under data/humans/animations/. Finite native CPU checks are not photographic or complete clothing/scene acceptance.
+
+|Path relative to assets/|Licence|Bytes|SHA256|
+|---|---|---:|---|
+|`humans/bardwell_otis_1835.lod0.glb`|CC0-1.0 graphical assets and original notices retained|8673076|`821d771462b6ff583c27ccc00fbcde3604dc34d24b4512c5d5ba92dba331589f`|
+|`humans/bardwell_otis_1835.lod1.glb`|CC0-1.0 graphical assets and original notices retained|8034376|`4752182f829f21e9e959c700d98e2aa4c75b97a7ea1b58814148bb3a7cded854`|
+|`humans/bardwell_otis_1835.lod2.glb`|CC0-1.0 graphical assets and original notices retained|7482072|`c4a99b4ba9f1a375a4490383322506d772ee6b588959aa645d686f7dddd1a68f`|
+|`humans/bardwell_otis_1835.lod3.glb`|CC0-1.0 graphical assets and original notices retained|7258004|`18e48c466ace5f47f799607128b52c1a9118627fec7afc323ad18cd63c4914d1`|
+|`humans/web/bardwell_otis_1835.lod0.glb`|CC0-1.0 graphical assets and original notices retained|4463076|`d568cb8f7d17fb9f8ca7035049c6f1c3f02a30f3d153242d1ea67f876b454ddf`|
+|`humans/web/bardwell_otis_1835.lod1.glb`|CC0-1.0 graphical assets and original notices retained|1585036|`aef139f58ee352ef7c8e73d945bc0af5d1bbf5d4f27e4f43fb5ed8b739b16bc3`|
+|`humans/web/bardwell_otis_1835.lod2.glb`|CC0-1.0 graphical assets and original notices retained|636028|`dd12e07063c142628cfe3c0f2d7b42a38c018376722af669b27ee768fc8408ad`|
+|`humans/web/bardwell_otis_1835.lod3.glb`|CC0-1.0 graphical assets and original notices retained|325492|`bb650009de2987b46e1c54fa64ca45f42c7e3d088f71de3451adb8d83c9de0d7`|
+
+## Driven-team hitch (T-2804, bounded reconstructed increment)
+
+`assets/authored/transport/driven_hitch_v2/`, `renderers/web/transport/driven-hitch/current26-collar-girth-v2.glb` and `connection-units-v1.glb`: original project-authored fitted strap/link geometry and producers, GPL-3.0-or-later. Surface fitting and skin-weight interpolation derive from **Horse by sevketkabatas**, CC BY4.0, https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe. Existing source-specific26-joint adaptation retains its separate **antemeossa** Rigged Mid-Poly Horse rig/motion reference credit, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83. Complete inherited source credit, exact input hashes and modification notice are in `assets/authored/transport/driven_hitch_v2/LICENSE-PROVENANCE.json`. No historical harness photograph or rights-pending image was traced. Colors, construction, dimensions and driving use are declared reconstructions.
+
+## Driven current26 in-place horse (T-2803/T-2804)
+
+`assets/authored/transport/driven_current26_v1/horse-current26-inplace-master.glb` and `renderers/web/transport/driven/horse-current26-inplace-full.glb`: **Horse by sevketkabatas**, CC BY4.0, https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe. Inherited **Rigged Mid-Poly Horse by antemeossa** rig/motion reference credit, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83. Original author/license/source links and the complete declared derivative history remain in the GLB. Reconstructed current26 skin/rig, quiet idle and in-place careful WALK are modifications; no historical breed, owner or individual is identified. The authored master publishes byte-identically with its included Python command; no Blender or source photograph tracing is required for that delivery.
+
+### T-2804 — reconstructed1904 working-driver depiction ingredient
+
+The following graphical assets are CC0-1.0 derivatives of the cleared MakeHuman adult35, Toigo skin, short04 hair and original project workwear components. Complete original creator notices, exact immutable canonical artifact12398870779/source34cf462e ingredient hashes and transformations are retained in authored/humans/working_driver_1904/SOURCE.json. The display figure binds existing inferred coachman Hans Johnson; body, clothes, seated action and journey are reconstructed, not a portrait or household carriage ownership. Producer/test code is GPL-3.0-or-later. No new external image is used.
+
+| File | License | Basis |
+|---|---|---|
+| `authored/humans/working_driver_1904/POSE-MASTER.json` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/SOURCE.json` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod0.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod1.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod2.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod3.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/web/dufresne_joseph_1835.lod0.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/web/dufresne_joseph_1835.lod1.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/web/dufresne_joseph_1835.lod2.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/web/dufresne_joseph_1835.lod3.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/anonymous_working_driver_1904.lod0.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/anonymous_working_driver_1904.lod1.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/anonymous_working_driver_1904.lod2.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/anonymous_working_driver_1904.lod3.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/web/anonymous_working_driver_1904.lod0.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/web/anonymous_working_driver_1904.lod1.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/web/anonymous_working_driver_1904.lod2.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/web/anonymous_working_driver_1904.lod3.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+
+
+### T-3088 — explicit authored transport source-file registration
+
+These are the source and numerical-provenance files accompanying the driven-team hitch and current26 horse entries above. This registration retains their existing source credits and licenses; it adds no external ingredient or historical attestation. Project-authored producers and parameter records are GPL-3.0-or-later. Referenced horse graphics retain CC BY4.0 credits, and referenced MakeHuman graphical ingredients retain their CC0 notices. No geometry, animation, material, source image or asset selection changes here.
+
+| File | License | Basis |
+|---|---|---|
+| `authored/transport/driven_current26_v1/SOURCE.json` | CC-BY-4.0 | Attribution and derivative record for Horse by sevketkabatas; inherited antemeossa rig/motion-reference credit remains in the master and the preceding entry. |
+| `authored/transport/driven_current26_v1/publish_master.py` | GPL-3.0-or-later | Original project-authored byte-preserving publisher; its SPDX notice is retained. |
+| `authored/transport/driven_hitch_v2/ACTUAL-1835-OTIS-PALM-SURFACES.json` | GPL-3.0-or-later | Original numerical surface-measurement record; the named Bardwell MakeHuman graphical ingredients retain their CC0 notices. Not a photograph or a closed-finger-grasp claim. |
+| `authored/transport/driven_hitch_v2/author_hitch.py` | GPL-3.0-or-later | Original project-authored producer covered by the driven-team hitch provenance entry and LICENSE-PROVENANCE.json above. |
+| `authored/transport/driven_hitch_v2/build_connection_units.py` | GPL-3.0-or-later | Original project-authored producer; inherited ingredient credits remain as declared above. |
+| `authored/transport/driven_hitch_v2/build_hitch_prototype.py` | GPL-3.0-or-later | Original project-authored producer; Horse by sevketkabatas and the inherited antemeossa reference retain CC BY4.0 attribution. |
+| `authored/transport/driven_hitch_v2/build_live_bindings.py` | GPL-3.0-or-later | Original project-authored binding producer; referenced graphical assets retain their existing notices. |
+| `authored/transport/driven_hitch_v2/connection-unit-parameters.json` | GPL-3.0-or-later | Original reconstructed connection-unit dimensions and construction parameters under the existing driven-team hitch declaration. |
+| `authored/transport/driven_hitch_v2/team-hitch-parameters.json` | GPL-3.0-or-later | Original reconstructed fitted-hitch parameters; declared source horse and wagon hashes and inherited graphical attribution remain unchanged. |

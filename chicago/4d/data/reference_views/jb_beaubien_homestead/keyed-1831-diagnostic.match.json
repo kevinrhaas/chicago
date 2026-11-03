@@ -1,0 +1,49 @@
+{
+  "structure_id": "jb_beaubien_homestead",
+  "view": "keyed-1831-diagnostic",
+  "glb": "assets/gltf/jb_beaubien_homestead__log_1822.glb",
+  "glb_sha256": "222fce99d7bb2e79450483fac535c70ca3e2caf790071533bf6edbef63c11a60",
+  "camera_sha256": "6a44dd1e828297234e1a25f98199ac7b8deb436cc402ee1339754b69a32ea323",
+  "photo_sha256": "624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f",
+  "side_by_side": "docs/RESEARCH/photo-match/jb_beaubien_homestead/keyed-1831-diagnostic-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Taller two-level main mass, steeper right gable and two main roof stacks now represented as root-reviewed conditional graphic working forms; exact dimensions/stack positions reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "Visible low left/front projection and small framed mark in right gable now represented by the finite root-reviewed reconstructed proxies.",
+      "status": "fixed"
+    },
+    {
+      "what": "Pigment/white paint and distinct wall finishes are not established by monochrome shading; dependent print darkens other right-facing gables too. Current inferred log/unpainted component proxies do not attest paint/clapboard.",
+      "status": "not shown"
+    },
+    {
+      "what": "Mainfront and lowfront opening counts/hidden faces are partly occluded or merged with hatching; native defaults remain reconstructed, not newly attested counts.",
+      "status": "not shown"
+    },
+    {
+      "what": "Exact roof high/back junction and hidden slope construction are not measured. The visible projection attaches below main eave; native closed roof is a reconstructed proxy.",
+      "status": "not shown"
+    },
+    {
+      "what": "Source corner picks/diagnostic camera scale/pose are approximate(+/-8px at tiny drawn-house scale), not historical metric calibration. Illustration/pose uncertainty does not justify further fits or shifts of the world footprint.",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_actual_review": {
+    "reviewed_at": "2026-10-30T16:10:16.338695+00:00",
+    "reviewer": "root",
+    "method": "Directly viewed the actual fresh source/render comparison at full3864x1042 resolution, plus current native camera and source-scoped former discrepancy ledger. Taller two-level main mass, two roof stacks, lower front projection and small right-gable light agree at this drawing's scale. Keep paint, hidden openings/junction and inferred identity/survival qualified; approximate picture/camera uncertainty is not a reason for further geometry fits.",
+    "source_comparison_sha256": "ef7dcf438c271c239b77055d215796451581f52a12b390f1f7297544dd035649",
+    "native_render_sha256": "70031fe3e84f9f119b977fb4ea1e36c245ec0d934ff4603d4931b056970f3262",
+    "raw_native_unreviewed_match_sha256": "865b72127e6f70cca4d39b8e494c57998738b96a015d5e8bbc79ef5ea4dc0e31",
+    "actual_source_composition": "Uncommitted40453clone+twoexact3746original1456producerdependencies+approvedBeau12entrywise paths; not a mergedGitHEAD/canonicaldev/currentapp qualification.",
+    "diagnostic_camera_only": true,
+    "canonical_dev_fullgate_PR_or_DONE_claimed": false
+  },
+  "_scope": "Fresh root-reviewed proposal for the actual native canonical6a44 diagnostic capture, positively shown forms only under the conditional1881 key. New actual native GLB/camera/photo hashes are retained unchanged; raw native unreviewed output remains immutable. Original1456 producer/schema dependency and finalcanonicalbase/MPR validation remain pending."
+}
