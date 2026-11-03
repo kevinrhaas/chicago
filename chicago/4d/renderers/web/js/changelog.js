@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2605, ts: '2026-11-03T08:34:18.115Z', date: 'Nov 3, 2026, 2:34 AM CT', title: '1812 by night: candlelit windows and a lantern at the fort gate', kind: 'feature',
+    items: [
+      'Set Time of day to dusk or night in 1812 and the fort\'s and houses\' windows glow with candle and hearth light.',
+      'Most windows are lit through the evening, fewer after nine, and only a few in the small hours, following the garrison\'s candle ration.',
+      'A lantern hangs inside the fort\'s main gate and lights the ground under it.',
+      'Daytime looks exactly as before.',
+    ] },
   { v: 2604, ts: '2026-11-03T07:50:15.123Z', date: 'Nov 3, 2026, 1:50 AM CT', title: '1919 Prairie: a balconied bay and stone-coped gables on its north side', kind: 'feature',
     items: [
       'Along the north side of Marshall Field Jr.\'s house at 1919 Prairie Avenue, the rear wing now has the angled two-storey bay the 1911 fire-insurance map draws. Its top is flat, with a stone balustrade around it, and the steep gable rises behind it, as both early pictures of the house show.',
