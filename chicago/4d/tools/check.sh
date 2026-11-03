@@ -625,6 +625,8 @@ step "the Prairie district draft's houses are the bytes their records build (T-2
   python3 generators/draft_emit.py --check
 step "the haystacks are the bytes their records build (T-2510)" \
   python3 generators/haystack_emit.py --check
+step "the Potawatomi camp's groups are the bytes their records build (T-3342)" \
+  python3 generators/lodge_camp_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -2730,6 +2732,10 @@ step "the fort apron re-derives from the palisade it is measured off" \
 # to finish inside the walls; 1812's lives in its own enclosure folder.
 step "the forts' parade grounds re-derive from their parade records" \
   python3 tools/generate_fort_parade_ground.py --check
+# T-3342: the 1812 Potawatomi camp's grounds are worn earth, one rounded patch inside each
+# lodge_camp footprint, derived from the camp's sidecars and listed in the 1812 manifest.
+step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
+  python3 tools/generate_camp_ground_1812.py --check
 
 # And the ground BETWEEN the 1812 buildings (T-3339): the worn trails (the beaten lake-shore
 # trail, the Vincennes trace, the cart road south from the gate, the paths along both banks)

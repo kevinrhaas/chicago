@@ -28932,56 +28932,72 @@ meadow, or says whether the farm was worked between April and August 1812.
 **Recorded:** 2026-10-15 (T-2510).
 **Covers:** `lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`
 
-### L-1812-potawatomi-camp-2515 — The Potawatomi camp of August 1812: its three groups on the creek, its 26 lodges, and the lodge's form and size
+### L-1812-potawatomi-camp-2515 — The Potawatomi camp of August 1812: its six grounds on the creek, its lodges, arbors, hearths, gear and horse ground, and every form's shape and size
 
 **Decision:** the camp of the Potawatomi gathered at Chicago in August 1812 stands in the 1812 scene
-as three groups of mat lodges on the banks of the State Street creek, at the `camp` archetype:
-`potawatomi_camp_1812_mouth` (10 lodges), `potawatomi_camp_1812_middle` (8) and
-`potawatomi_camp_1812_upper` (8), dated 12-16 August 1812. **That the camp stood, when, and on which
-ground is the sources'**: Wau-Bun's council of the 12th with the Indians "assembled from the
-neighboring villages" (ch. XVIII) and its "Pottowattamie encampment" on the river's south bank with "a
-stream that flowed near", footnoted "Along the present State Street" (ch. XIX); Currey's habitual
-camping place "on the south bank near the present State Street bridge", where "a swale or gully opened
-into the river ... reaching back as far as the present line of Randolph Street" (1912, ch. II), and his
-view from the fort on the evening of 14 August, "the groups of Indian wigwams clustered along the
-creek that formerly flowed into the main stream at the present State Street" (ch. III). The committed
-1812 ground already carries that creek (the `state_slough_course` and `state_slough_mouth` swales).
+as six grounds on the banks of the State Street creek at the `lodge_camp` archetype (T-3342, which
+rebuilt T-2515's three groups of identical mat domes at the owner's ask of 2026-11-03: "they cannot
+all be identical geometric domes they must look like natural structures with correct surfaces ...
+there would be I think fires and areas for cooking", then "any prep areas like where they keep horses
+and equipment" and "anything required for their encampment to exist"): `potawatomi_camp_1812_mouth`,
+`_middle`, `_west_bank`, `_upper` and `_south_reach`, five working groups of families, and
+`_horse_ground`, dated 12-16 August 1812. **That the camp stood, when, and on which ground is the
+sources'**: Wau-Bun's council of the 12th with the Indians "assembled from the neighboring villages"
+(ch. XVIII) and its "Pottowattamie encampment" on the river's south bank with "a stream that flowed
+near", footnoted "Along the present State Street" (ch. XIX); Currey's habitual camping place "on the
+south bank near the present State Street bridge", where "a swale or gully opened into the river ...
+reaching back as far as the present line of Randolph Street" (1912, ch. II), and his view from the
+fort on the evening of 14 August, "the groups of Indian wigwams clustered along the creek" (ch. III).
 
-**What is ours.** The three grounds and their places on the banks (by the mouth, on its level west
-bank; then the south-east bank where the creek bends west; then the north bank near its head by
-Dearborn), 28 x 20 m twice and 20 x 16 m, each 1.7-7 m clear of the swale's cut and 4 m or more
-from every footprint and clear of every street corridor the 1835 layer later draws on that ground;
-the number of lodges, 26, which counts nothing: the one size given is Heald's "between four hundred
-and five hundred" warriors at the fight of the 15th (Currey ch. III), with their families in the camp,
-which would have needed far more lodges, so the drawn camp understates the gathering instead of
-claiming a figure; the scatter; the bearing of every door (north, to the river); and which group's
-mats are new and which weathered. No fire is drawn outside the lodges: the archetype's fire ring is a
-settler's stone ring, pot crane and kettle, and no source describes the camp's fires.
+**What each form rests on.** None is described at Chicago; each is read from the nearest accounts of
+the Potawatomi and their neighbours on the western lakes in those years, and its shape and size are
+ours. The mat lodge, oval domes of bent poles in lapped courses of cat-tail mats with a smoke opening
+and a hide or mat at the door, and the long lodge on two rows of poles with a door at each end:
+Forsyth (`forsyth_1827_blair_1912`, Blair 1912 v2 pp. 227-28, with Gerard's note 87 naming the
+cat-tail flag) and Wau-Bun (ch. VII, mats "seldom more than five or six feet in length"; ch. XVI). The
+bark house, an oblong of elm-bark sheets with a door at each end: Forsyth's "bark huts or summer
+residences" (p. 227); mat lodges roofed in bark are our mixing of the two coverings for a camping place
+the families came back to. The bough arbor over the cooking: Prairie Potawatomi narrators in Skinner
+1927 (`skinner_1927_mascoutens_part3`, pp. 379, 409). Hearths with brass kettles on tripods or cranes
+and roasting spits: Wau-Bun's kettle dipped in the creek (ch. XIX), Forsyth's "spits to roast their
+meat on" (p. 228). Storage scaffolds: Hubbard's "scaffold upon which was deposited matting for
+covering lodges" (Hubbard 1911). Canoes, mostly bark with a dugout among them, and the horse ground's
+tether stakes, lines and pack saddles with their loads: Hubbard's Potawatomi travelling in bark canoes,
+Forsyth's families that move by horse or canoe (p. 233), and the horse Mrs. Helm was "placed upon" at
+the encampment (Currey ch. III). Drying racks, hide frames, woodpiles and corn mortars are the work of
+a camp of families in August and are reconstructed outright. **The horses themselves are not drawn**:
+no horse model stands in 1812 yet, so their ground is drawn and the animals are left out.
 
-**The lodge.** Its covering and frame are inferred from Wau-Bun, which describes the inside of a mat
-lodge in 1831 ("the mats of which the lodge was constructed ... depending from the poles or
-frame-work", the smoke "escaping through an opening in the top", a mat "which hung over the
-entrance", ch. XVI) and the rush mats "used in covering their wigwams" (ch. VII). Those passages do not
-describe this camp, and they give no shape and no size. **Invented:** the oval dome and its
-superellipse profile; 3.40 x 4.60 m on the ground and 2.40 m to the crown; the door on the long axis,
-0.88 x 1.34 m, and the mat rolled up over it; the smoke opening at 16 % of the plan's radii; the four
-lapped courses of mat; the two poles laid over the mats; the mats' colour. It is never a hide tipi:
-Moses and Kirkland's buffalo-hide "teepees" (1895, v1 p. 32) picture 1803 from 1895 and are not used.
-Bark covering, which Wau-Bun gives its villages, is not drawn: a party come in to a gathering carried
-its mats.
+**What is ours.** The six grounds and their places on the banks, 36 x 26-28 m (the upper 30 x 24),
+each on level ground within 0.3 m of its origin's height and 2.9-14.8 m from the swale's cut; the
+counts, 27 dwellings across the five groups, which count nothing (Heald's "between four hundred and
+five hundred" warriors, Currey ch. III, with their families would have needed far more, so the camp
+understates the gathering); the layout, lodges round a shared yard with their doors turned to it, its
+arbor and hearth at the middle, racks and mortar by it, scaffolds and hide frames behind and between
+the lodges, canoes along the water side; every dimension in `lodge_camp_params.py`; the mats', bark's
+and boughs' look (the procedural library `assets/textures/camp_1812_pbr/`, no photograph used); which
+group's mats are new or weathered; and the worn ground under each group, a rounded patch of
+`worn_earth` feathered into the grass (`data/enclosures/1812/potawatomi_camp_1812_ground.json`). It is
+never a hide tipi: Moses and Kirkland's buffalo-hide "teepees" (1895, v1 p. 32) picture 1803 from 1895
+and are not used.
 
-**Consequence:** a visitor to the eve of the evacuation sees lodges standing empty along the creek
-where the sources put the camp. That they stood there is argued from the sources; how many there were,
-how they were set out and what each looked like is ours. No person is drawn (L1), nothing is staged,
-and every record is `review_required` and `touches_removal`; the scene stays unreleased until the
-review T-0472 waits for.
+**What is left out on purpose.** No person; no flame or smoke above a hearth's coals; no ceremony,
+council or dialogue; no sacred bundle, society lodge, sweat lodge or women's lodge; nothing of the next
+morning. No lodge is given to a family, band or person.
+
+**Consequence:** a visitor to the eve of the evacuation walks among a working camp of families along
+the creek where the sources put it: lodges of several kinds and sizes, cooking arbors and fires, racks,
+stores, canoes and a horse ground. That it stood there is argued from the sources; how many lodges,
+how they were set out and what each looked like is ours. Every record is `review_required` and
+`touches_removal`, with its own prose saying why.
 
 **How to resolve:** a count or a map of the lodges of August 1812; a picture or a description of a
-Potawatomi lodge at Chicago in those years; the ruling of the review by Native scholars or community
-organisations, which may change the form, the number or whether the camp is drawn at all.
-**Ticket:** T-2515 (piece 2 of T-2490; the date move was T-2514).
+Potawatomi camp at Chicago in those years; the judgement of Native scholars or community
+organisations, which may change the forms, the number or whether the camp is drawn at all.
+**Ticket:** T-2515 (piece 2 of T-2490; the date move was T-2514); rebuilt by T-3342.
 **Recorded:** 2026-10-15 (T-2515).
-**Covers:** `potawatomi_camp_1812_mouth.occupants`, `potawatomi_camp_1812_mouth.camp_1812.footprint`, `potawatomi_camp_1812_mouth.camp_1812.form.tents`, `potawatomi_camp_1812_mouth.camp_1812.form.wagons`, `potawatomi_camp_1812_mouth.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_mouth.camp_1812.form.fire_rings`, `potawatomi_camp_1812_mouth.camp_1812.form.woodpiles`, `potawatomi_camp_1812_mouth.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_mouth.camp_1812.form.arrangement`, `potawatomi_camp_1812_mouth.camp_1812.form.canvas_condition`, `potawatomi_camp_1812_middle.occupants`, `potawatomi_camp_1812_middle.camp_1812.footprint`, `potawatomi_camp_1812_middle.camp_1812.form.tents`, `potawatomi_camp_1812_middle.camp_1812.form.wagons`, `potawatomi_camp_1812_middle.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_middle.camp_1812.form.fire_rings`, `potawatomi_camp_1812_middle.camp_1812.form.woodpiles`, `potawatomi_camp_1812_middle.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_middle.camp_1812.form.arrangement`, `potawatomi_camp_1812_middle.camp_1812.form.canvas_condition`, `potawatomi_camp_1812_upper.occupants`, `potawatomi_camp_1812_upper.camp_1812.footprint`, `potawatomi_camp_1812_upper.camp_1812.form.tents`, `potawatomi_camp_1812_upper.camp_1812.form.wagons`, `potawatomi_camp_1812_upper.camp_1812.form.brush_shelters`, `potawatomi_camp_1812_upper.camp_1812.form.fire_rings`, `potawatomi_camp_1812_upper.camp_1812.form.woodpiles`, `potawatomi_camp_1812_upper.camp_1812.form.baggage_heaps`, `potawatomi_camp_1812_upper.camp_1812.form.arrangement`, `potawatomi_camp_1812_upper.camp_1812.form.canvas_condition`
+**Revised:** 2026-11-03 (T-3342).
+**Covers:** `potawatomi_camp_1812_mouth.occupants`, `potawatomi_camp_1812_mouth.camp_1812.footprint`, `potawatomi_camp_1812_mouth.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.long_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.bark_houses`, `potawatomi_camp_1812_mouth.camp_1812.form.arbors`, `potawatomi_camp_1812_mouth.camp_1812.form.hearths`, `potawatomi_camp_1812_mouth.camp_1812.form.drying_racks`, `potawatomi_camp_1812_mouth.camp_1812.form.scaffolds`, `potawatomi_camp_1812_mouth.camp_1812.form.hide_frames`, `potawatomi_camp_1812_mouth.camp_1812.form.woodpiles`, `potawatomi_camp_1812_mouth.camp_1812.form.mortars`, `potawatomi_camp_1812_mouth.camp_1812.form.canoes`, `potawatomi_camp_1812_mouth.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_mouth.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_mouth.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_mouth.camp_1812.form.mat_condition`, `potawatomi_camp_1812_middle.occupants`, `potawatomi_camp_1812_middle.camp_1812.footprint`, `potawatomi_camp_1812_middle.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.long_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.bark_houses`, `potawatomi_camp_1812_middle.camp_1812.form.arbors`, `potawatomi_camp_1812_middle.camp_1812.form.hearths`, `potawatomi_camp_1812_middle.camp_1812.form.drying_racks`, `potawatomi_camp_1812_middle.camp_1812.form.scaffolds`, `potawatomi_camp_1812_middle.camp_1812.form.hide_frames`, `potawatomi_camp_1812_middle.camp_1812.form.woodpiles`, `potawatomi_camp_1812_middle.camp_1812.form.mortars`, `potawatomi_camp_1812_middle.camp_1812.form.canoes`, `potawatomi_camp_1812_middle.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_middle.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_middle.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_middle.camp_1812.form.mat_condition`, `potawatomi_camp_1812_west_bank.occupants`, `potawatomi_camp_1812_west_bank.camp_1812.footprint`, `potawatomi_camp_1812_west_bank.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.long_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.bark_houses`, `potawatomi_camp_1812_west_bank.camp_1812.form.arbors`, `potawatomi_camp_1812_west_bank.camp_1812.form.hearths`, `potawatomi_camp_1812_west_bank.camp_1812.form.drying_racks`, `potawatomi_camp_1812_west_bank.camp_1812.form.scaffolds`, `potawatomi_camp_1812_west_bank.camp_1812.form.hide_frames`, `potawatomi_camp_1812_west_bank.camp_1812.form.woodpiles`, `potawatomi_camp_1812_west_bank.camp_1812.form.mortars`, `potawatomi_camp_1812_west_bank.camp_1812.form.canoes`, `potawatomi_camp_1812_west_bank.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_west_bank.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_west_bank.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_west_bank.camp_1812.form.mat_condition`, `potawatomi_camp_1812_upper.occupants`, `potawatomi_camp_1812_upper.camp_1812.footprint`, `potawatomi_camp_1812_upper.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.long_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.bark_houses`, `potawatomi_camp_1812_upper.camp_1812.form.arbors`, `potawatomi_camp_1812_upper.camp_1812.form.hearths`, `potawatomi_camp_1812_upper.camp_1812.form.drying_racks`, `potawatomi_camp_1812_upper.camp_1812.form.scaffolds`, `potawatomi_camp_1812_upper.camp_1812.form.hide_frames`, `potawatomi_camp_1812_upper.camp_1812.form.woodpiles`, `potawatomi_camp_1812_upper.camp_1812.form.mortars`, `potawatomi_camp_1812_upper.camp_1812.form.canoes`, `potawatomi_camp_1812_upper.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_upper.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_upper.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_upper.camp_1812.form.mat_condition`, `potawatomi_camp_1812_south_reach.occupants`, `potawatomi_camp_1812_south_reach.camp_1812.footprint`, `potawatomi_camp_1812_south_reach.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.long_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.bark_houses`, `potawatomi_camp_1812_south_reach.camp_1812.form.arbors`, `potawatomi_camp_1812_south_reach.camp_1812.form.hearths`, `potawatomi_camp_1812_south_reach.camp_1812.form.drying_racks`, `potawatomi_camp_1812_south_reach.camp_1812.form.scaffolds`, `potawatomi_camp_1812_south_reach.camp_1812.form.hide_frames`, `potawatomi_camp_1812_south_reach.camp_1812.form.woodpiles`, `potawatomi_camp_1812_south_reach.camp_1812.form.mortars`, `potawatomi_camp_1812_south_reach.camp_1812.form.canoes`, `potawatomi_camp_1812_south_reach.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_south_reach.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_south_reach.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_south_reach.camp_1812.form.mat_condition`, `potawatomi_camp_1812_horse_ground.occupants`, `potawatomi_camp_1812_horse_ground.camp_1812.footprint`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.long_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.bark_houses`, `potawatomi_camp_1812_horse_ground.camp_1812.form.arbors`, `potawatomi_camp_1812_horse_ground.camp_1812.form.hearths`, `potawatomi_camp_1812_horse_ground.camp_1812.form.drying_racks`, `potawatomi_camp_1812_horse_ground.camp_1812.form.scaffolds`, `potawatomi_camp_1812_horse_ground.camp_1812.form.hide_frames`, `potawatomi_camp_1812_horse_ground.camp_1812.form.woodpiles`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mortars`, `potawatomi_camp_1812_horse_ground.camp_1812.form.canoes`, `potawatomi_camp_1812_horse_ground.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_horse_ground.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_horse_ground.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mat_condition`
 
 
 ### L-1812-lalime-lemai-2504 — La Lime's and Le Mai's houses of 1812: which drawn house is whose, the north bank's frame, their sizes, heights and closing dates
