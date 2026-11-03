@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2614, ts: '2026-11-03T14:19:21.317Z', date: 'Nov 3, 2026, 8:19 AM CT', title: '1834 Prairie\'s brick barn on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1834 Prairie Avenue is no longer a rough draft. It now stands as a two-storey brick barn, 16.3 m along the alley and 7.5 m deep, with a one-storey brick room against its yard side, all drawn from the 1911 fire-insurance map.',
+      'A paired window sits where the map marks one, beside two carriage doors and a hay-loft hatch. Its north end is a fire wall against 1828\'s building, and a paved walk runs from the yard door to the house\'s back porch.',
+      'The doors, roof pitch and most windows are reconstructed, and they are listed on the building\'s card.',
+    ] },
   { v: 2613, ts: '2026-11-03T12:43:46.565Z', date: 'Nov 3, 2026, 6:43 AM CT', title: '2001 Prairie\'s stone-fronted corner house on 20th Street, built on the house kit', kind: 'feature',
     items: [
       '2001 Prairie Avenue, the corner house on 20th Street, is no longer a rough draft: it now has two and a half storeys with a light stone front, a hipped roof with a dormer for the half storey, and a stoop at the corner end of its front.',
