@@ -263,8 +263,8 @@
     "dearborn_street_drawbridge__draw_1834.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,
-      "bytes": 1101020,
-      "inputs_sha256": "046b845007ca607c55ff9f591eb6760f1c6ae839513a62dcd014ec60806fa301",
+      "bytes": 1079956,
+      "inputs_sha256": "f8d3993b0b5f5b67cbbf6b418d147484d52f1a47cdb72a3a7031a16ce5a6fd8b",
       "kind": "generated",
       "phase_id": "draw_1834",
       "structure_id": "dearborn_street_drawbridge"
