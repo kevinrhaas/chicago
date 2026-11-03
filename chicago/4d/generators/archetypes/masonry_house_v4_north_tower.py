@@ -130,23 +130,10 @@ def facade(b,t,params):
     coping=[(join,z-lift),(e['ridge_at'],e['ridge_z']),(e['x1'],e['eave_hi_z'])]
     for piece in legacy._stack_cut(b,pl,coping,lift,stack,t['conf_wall'],0):
         legacy._parapet(b,pl,piece,lift,t['conf_wall'],0)
-    from archetypes.masonry_house_v4_ornament import Relief,_shaft
-    ops=sorted([o for o in params.openings if o.get('style')=='north_gable_pair'],key=lambda o:o['u0'])
-    for a,c in zip(ops,ops[1:]):
-        gap=c['u0']-a['u1']
-        if not .1<gap<.65:continue
-        u=(a['u1']+c['u0'])/2;lo,hi=a['z0'],a['z1'];rr=Relief(b,a,t['conf_wall'])
-        # HABS13 shows the round central shaft and a square foliate capital.
-        # Stock/profile are bounded reconstructions; no Prairie-entry carving
-        # is borrowed as if it were this capital's measured pattern. T-2868:
-        # the capital's and base's heights are read off HABS 13/14 (record).
-        col=params.detail.get('north_pair_colonnette') or {}
-        cap=col.get('capital_m',.23);foot=col.get('base_m',.075)
-        _shaft(rr,u,lo+min(.06,foot),hi-cap,gap*.60)
-        rr.box(u-gap*.47,u+gap*.47,lo,lo+foot,-.10,.12)
-        rr.box(u-gap*.49,u+gap*.49,hi-cap,hi-.035,-.10,.16)
-        for j in range(3):
-            rr.leaf(u+(j-1)*gap*.26,hi-cap+.01,math.pi/2,cap-.06,gap*.25,.16,.025,0,False,steps=5)
+    # T-3343: the pairs' colonnettes are the Prairie front's kind (HABS 13/14), built by
+    # the same construction in the same granite; their stock is north_pair_colonnette.
+    from archetypes.masonry_house_v4_ornament import north_pairs
+    north_pairs(b,params,t['conf_wall'])
 
 
 def _half(poly, distance):

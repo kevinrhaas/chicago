@@ -490,12 +490,16 @@ def _block(r,u,low,z1,neck,half,depth,sides=32,rows=10):
     r.face(rings[-1],normal=(0,1,0))
 
 
-def _volute(r,x,z,radius,mirror,depth,turns=1.5,thick=.019):
-    """A flat spiral scroll, coiling inward, as the corners of the 2013 close-ups."""
+def _volute(r,x,z,radius,mirror,depth,turns=1.5,thick=.019,shrink=.82):
+    """A flat spiral scroll, coiling inward, as the corners of the 2013 close-ups.
+
+    ``shrink`` is how far in it coils (its eye at radius*(1-shrink)); a smaller block
+    (T-3343's north capitals) coils less, so its eye stays wider than the tube is thick
+    and K01 does not count the tube's folded rings as coincident faces."""
     path=[]
     for i in range(41):
         t=i/40;th=math.pi*.5+mirror*2*math.pi*turns*t
-        rr=radius*(1-.82*t)
+        rr=radius*(1-shrink*t)
         path.append((x+rr*math.cos(th),z+rr*math.sin(th),depth))
     r.tube(path,lambda t:thick*(1-.4*t),7)
 
@@ -590,7 +594,7 @@ def _capital(r,u,low,z1,neck,half,spec,depth=.07):
     if spec.get('volutes',True):
         for m in (-1,1):
             x,z=F(m*.66,.64)
-            _volute(rb,x,z,half*.27,-m,.014)
+            _volute(rb,x,z,half*.27,-m,.014,shrink=spec.get('volute_shrink',.82))
             # The stem that ends in each volute rises from the block's foot.
             rb.tube([(*F(m*.12,.30),.006),(*F(m*.40,.46),.010),(*F(m*.62,.58),.010),
                      (x+m*half*.02,z+half*.25,.014)],.016,7)
@@ -634,7 +638,38 @@ def _capital(r,u,low,z1,neck,half,spec,depth=.07):
                      for t in (i/16 for i in range(17))],lambda t:.009*(1-.3*t),7)
 
 
-def columns(b, params):
+def colonnette(r,u,z0,z1,gap,spec,cap,reduced=False):
+    """T-2965/T-3343: one Glessner colonnette between two lights, z0 sill to z1 head.
+
+    A splayed square base, a straight-tapered round shaft and a carved block capital,
+    the round front of a stone mullion flush with the wall's face; ``r`` is a Relief in
+    the lights' plane, ``u`` the mullion's centre and ``gap`` the lights' clear spacing.
+    ``spec`` is a record stock (prairie_colonnette or north_pair_colonnette): its
+    heights are shares of the opening, or ``base_m``/``capital_m`` outright. ``cap`` is
+    the capital's own carving. ``reduced`` is the light tier's recipe (fewer facets,
+    the band as one raised course and three leaf tips, the body's carving omitted)."""
+    h=z1-z0
+    foot=spec.get('shaft_foot_m',gap*1.24)/2;neck=spec.get('shaft_neck_m',gap*.98)/2
+    half=spec.get('abacus_m',gap*2.3)/2
+    base=z0+(spec['base_m'] if 'base_m' in spec else h*spec.get('base_share',.13))
+    low=z1-(spec['capital_m'] if 'capital_m' in spec else h*spec.get('capital_share',.33))
+    depth=-foot
+    r.box(u-gap*.5-.004,u+gap*.5+.004,base,low,-spec.get('mullion_depth_m',.46),depth)
+    _splayed_base(r,u,z0,base,spec.get('base_foot_m',gap*1.8)/2,foot+.008,depth)
+    if reduced:
+        _taper(r,u,base,low,foot,neck,depth,12)
+        top=z1-.012;ch=top-low
+        _block(r,u,low,top,neck,half,depth,16,5)
+        r.box(u-half*.92,u+half*.92,low+ch*.82,top-.01,depth+half-.01,depth+half+.012)
+        for j in range(3):
+            r.leaf(u+(j-1)*half*.45,low+ch*.12,math.pi*.5+(j-1)*.15,ch*.30,half*.28,
+                   depth+neck+(half-neck)*.30,.02,0,False,steps=4)
+        return
+    _taper(r,u,base,low,foot,neck,depth)
+    _capital(r,u,low,z1,neck,half,cap,depth)
+
+
+def columns(b, params, reduced=False):
     """T-2965: every Prairie colonnette to HABS sheets 3 and 6 and the photographs.
 
     A splayed square base, a straight-tapered round shaft and a carved block capital,
@@ -651,19 +686,30 @@ def columns(b, params):
         gap=c['u0']-a['u1']
         if not .12<gap<.3 or abs(a['z0']-c['z0'])>.05 or abs(a['at']-c['at'])>.05:
             continue
-        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1'];h=z1-z0
+        u=(c['u0']+a['u1'])/2
         r=Relief(b,a,params.detail.get('conf',max(a['conf'],c['conf'])),CARVED_GRANITE)
-        foot=spec.get('shaft_foot_m',gap*1.24)/2;neck=spec.get('shaft_neck_m',gap*.98)/2
-        base=z0+h*spec.get('base_share',.13);low=z1-h*spec.get('capital_share',.33)
-        depth=-foot
-        r.box(u-gap*.5-.004,u+gap*.5+.004,base,low,-spec.get('mullion_depth_m',.46),depth)
-        _splayed_base(r,u,z0,base,spec.get('base_foot_m',gap*1.8)/2,foot+.008,depth)
-        _taper(r,u,base,low,foot,neck,depth)
         # The openings run north to south along u (u grows northward); the record
         # lists the capitals south to north, so they are taken in the same order.
-        _capital(r,u,low,z1,neck,spec.get('abacus_m',gap*2.3)/2,
-                 caps[n] if n<len(caps) else {},depth)
+        colonnette(r,u,a['z0'],a['z1'],gap,spec,caps[n] if n<len(caps) else {},reduced)
         n+=1
+
+
+def north_pairs(b, params, conf):
+    """T-3343: the two 18th Street pairs' colonnettes, the front's kind (HABS 13/14).
+
+    Each north_gable_pair is two lights either side of a colonnette; the record's
+    north_pair_colonnette holds their stock and, east to west, each capital's carving."""
+    spec=params.detail.get('north_pair_colonnette') or {}
+    caps=spec.get('capitals') or []
+    ops=sorted([o for o in params.openings if o.get('style')=='north_gable_pair'],key=lambda o:o['u0'])
+    reduced=getattr(b,'reduced_sash',False)
+    pairs=[(a,c) for a,c in zip(ops,ops[1:]) if .1<c['u0']-a['u1']<.65]
+    # u grows eastward along the north wall; the record lists the capitals east to
+    # west (W from Prairie, as HABS 13 reads them right to left), so walk u backwards.
+    for n,(a,c) in enumerate(reversed(pairs)):
+        r=Relief(b,a,conf,CARVED_GRANITE)
+        colonnette(r,(a['u1']+c['u0'])/2,a['z0'],a['z1'],c['u0']-a['u1'],spec,
+                   caps[n] if n<len(caps) else {},reduced)
 
 
 def build_entry_ornament(b, params, part='all'):
