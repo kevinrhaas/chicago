@@ -1367,10 +1367,16 @@ export async function createStreetGrid({
     (buf.seam ? overlays : meshes).push(mesh);
     materials.push(mat);
     out.census.triangles += buf.pos.length / 9;
-    // T-3173: the attributes above COPIED these plain arrays into Float32Arrays, and
-    // nothing writes or reads them again — but the material's hooks keep `buf` (and so
-    // them) alive: about 6 MB of a phone's heap on /1904/. `spans` stays: the mesh has it.
-    buf.pos = buf.uv = buf.conf = buf.seam = buf.seamEnd = null;
+    // Float32BufferAttribute owns copies. Material hooks retain this buffer for
+    // its seam flag, so release the finished numeric scratch without changing
+    // that flag or the span ranges used by picking.
+    buf.pos.length = 0;
+    buf.uv.length = 0;
+    buf.conf.length = 0;
+    if (buf.seam) {
+      buf.seam.length = 0;
+      buf.seamEnd.length = 0;
+    }
   }
 
   /* ---- T-2474: the curb's face, the district's open edges; T-3198: the carriage posts ---- */
