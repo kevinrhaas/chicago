@@ -24368,9 +24368,12 @@ walks and the rainwater goods.
 
 **What is built otherwise than the evidence, and why.** The front stands on the north block's line
 (u 17.7): the sheet sets the part south of the tower 0.95 m behind it, under the verandah, and K01's main
-body is one rectangle. The tower is K08's octagonal tower 3.8 m across its flats, its centre on the wall
-line, so its front stands about 0.6 m before the sheet's: the photograph's tower is square, and K08 has no
-square tower while K10 lets no square projection rise through a bracketed cornice. The door stands in the
+body is one rectangle. The tower is square, as the photograph and the sheet draw it (T-3318: K08's
+polygonal tower with four sides, a face to the street, 3.79 m across and its front 1.3 m out of the wall,
+the sheet's), but its back stands on the front wall's plane all the way up, so over the main roof it is a
+1.3 m deep shaft and not the free-standing square the photograph shows above the cornice; its cornice is
+the kit's plain eaves, without the photograph's consoles (K08 adds no brackets to a tower), and its
+belvedere rises flush from the shaft rather than set back over a corbelled balcony. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
