@@ -23,7 +23,7 @@ import * as THREE from 'three';
 import { captureHooks, registerPatch } from './batch-material.js';
 import { onDaylight, minutesOf } from './time-of-day.js';
 
-export const WINDOW_PATCH = 'night-windows-v1';
+export const WINDOW_PATCH = 'night-windows-v2';
 
 /** Shared by every patched pane, so one write relights the town. */
 const WIN = {
@@ -74,9 +74,16 @@ onDaylight(({ grade, sunTime }) => {
 const WINDOW_VERT_DECL = /* glsl */`
 flat varying float vChiWinId;
 `;
+// The building's id for its lit-or-dark draw is WHERE IT STANDS (its instance's
+// translation), not its instance index: the same building is drawn by different
+// instances as the eye moves (the far relief's crests, the colour and shadow twins,
+// a detail replacement), and an index-keyed hash lit one and darkened the other, so
+// windows went out and came back on along a walk (T-3358, Glessner at 18th Street).
+// Every piece and twin of one record shares its frame's matrix (buildings.js), as
+// brick-bond.js's seat does.
 const WINDOW_VERT = /* glsl */`
 #ifdef USE_BATCHING
-  vChiWinId = float( getIndirectIndex( gl_DrawID ) );
+  vChiWinId = dot( batchingMatrix[3].xz, vec2( 0.173, 0.291 ) );
 #else
   vChiWinId = dot( modelMatrix[3].xz, vec2( 0.173, 0.291 ) );
 #endif

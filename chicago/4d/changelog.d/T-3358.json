@@ -1,0 +1,7 @@
+{
+  "title": "Night windows stay lit as you walk past",
+  "kind": "fix",
+  "items": [
+    "Fixed: lit windows went out and came back on as you walked (Glessner House at 18th Street, 1904 at dusk). Each building's lit-or-dark choice is now tied to where it stands, so its near and far versions agree."
+  ]
+}
