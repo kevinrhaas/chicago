@@ -14,6 +14,8 @@ record's assembly to that:
     2026-11-01, from PR 1550): the principal storey's keyed, the second storey's not, at both tiers;
   * each architrave's band springs where its light's round head springs and wraps the light,
     and stands clear of the front's rusticated piers (street_front_pavilions);
+  * the big principal-storey light's foot (`architrave.foot`, T-1881 2026-11-03): its sill with
+    ears, a longer sill on two corbels and a sunk panel, standing on the front's base;
   * refused: voussoirs and an architrave on one light, an architrave over a flat head, a band
     out of its range, an unknown key, and two architraves run into one another, and the same
     for a bay light's.
@@ -97,6 +99,25 @@ refused(lambda ws: ws[0]["architrave"].update(band_m=0.6), "architrave: a 0.1-0.
 refused(lambda ws: ws[0]["architrave"].update(hood=True), "architrave takes", "an unknown key")
 refused(lambda ws: ws[0]["architrave"].update(key_m=[0.3, 0.1]), "key_m", "a keystone lower than the band")
 refused(lambda ws: ws.append(dict(ws[0], s_m=12.9)), "street_front_windows: the architrave", "two architraves run into one another")
+
+# T-1881 (2026-11-03): the big principal-storey light's foot, off the 1890 Albertype plate: its sill
+# with an ear either side of the band's feet, a longer sill on two corbels under it, a sunk panel below
+feet = [a for a in arcs if a.get("foot")]
+check(len(feet) == 1 and feet[0]["s_m"] == 11.225 and feet[0]["sill_m"] == 2.5,
+      f"only the big principal-storey light carries a foot ({[a['s_m'] for a in feet]})")
+check([m["foot"] for m in meta].count(True) == 1, "the assembly laid one light's foot")
+if feet:
+    f = feet[0]
+    check(f["foot_m"] >= wins[0]["sill_m"] - 2.0 and f["foot_m"] > 0.9 + 0.05,
+          f"its panel stands on the front's base ({f['foot_m']} m over grade, the base 0.9 m)")
+    check(f["half_m"] == f["foot"]["table_m"][0] / 2, f"its long sill sets the architrave's reach ({f['half_m']} m)")
+refused(lambda ws: ws[0]["architrave"]["foot"].update(panel_m=[3.4, 1.4, 0.1]), "into the base",
+        "a sunk panel run down into the base")
+refused(lambda ws: ws[0]["architrave"]["foot"].update(sill_m=[2.0, 0.2, 0.2]), "carries both blocks",
+        "a sill too short to carry its ears")
+refused(lambda ws: ws[0]["architrave"]["foot"].update(corbels_m=[0.25, 0.3, 0.3, 1.46]), "corbels_m",
+        "corbels prouder than the sill they carry")
+refused(lambda ws: ws[0]["architrave"]["foot"].pop("panel_m"), "foot takes", "a foot missing its panel")
 
 
 # T-1881 (2026-11-01): the two pavilions' K08 lights framed by the bays' `architrave` key, each
