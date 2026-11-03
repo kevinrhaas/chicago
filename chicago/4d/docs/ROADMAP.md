@@ -6080,3 +6080,10 @@ Current integration note: the checked wagon/flora feature ee67adfe passed its na
 Implemented the pictured low connector and turned farther gabled range beside Green Tree's preserved procedural open wagon bay. The prior rear ell is retired; the reference footprint and placement stay unchanged. Authenticated model adoption and compound physical consumers are documented at `docs/RESEARCH/green-tree-annex-T-2376/README.md`; the new reconstructed form is declared at `L-green-tree-enclosed-left-reading-2376`.
 
 The genuine refreshed Andreas comparison remains `differs`: its tall enclosed shoulder/dormered reading and complete farther-range opening/dimension match are not signed off by this useful partial increment. Continue original T-2376 for remaining picture coverage and signoff; the operational state stays in the original ticket, with no new photo follow-up.
+
+
+## 2026-11-03 — Wolf Point poster credit continuation (T-2386)
+
+The distinct Blanchard/Davis poster now has an attributed ca. 1893 SourceRecord and a textual Images-list join. Current Newberry 1935/Copyright Not Evaluated metadata is retained as a conflict, with the explicit archived publication evidence and review citation. This is a source-credit increment only. The initial independent poster camera is not enrolled, and no geometry or accepted comparison changes.
+
+Original T-2386 remains unfinished: refine and genuinely review the distinct poster camera before any model-gap or matching verdict, then complete required app/image acceptance. Existing seven reviewed views and the tiny Herriott unmeasurable-target exclusion are unchanged.

@@ -25467,3 +25467,10 @@ Original T-2376 now has a low connector and turned farther gabled range beside t
 The authenticated existing MASTER `f447aa45…` was adopted only after all25 current full native recipe documents/input hashes matched its original production evidence; no local Blender ran. Real pinned WEB25 production preserved the other24 MASTER/WEB files, both Tremont version links and foreign registry entries. The scene/entrance/source-use/yard owner chain reached its native fixed point. Numeric annex dimensions and July1835 continuity remain reconstructed at liberty `L-green-tree-enclosed-left-reading-2376`.
 
 The unchanged Andreas camera was genuinely rendered again. Direct before/after review accepts the newly visible connector/farther gable as an increment; the record remains `differs` with one compound open entry for the closed-shoulder/dormered alternative and the remaining range-opening/dimension match. The neutral asset comparison omits procedural bay/signs, terrain and neighbors and establishes no app or door-traversal verdict. Original full-picture signoff remains unfinished; no follow-up ticket is created.
+
+
+## 2026-11-03 — Wolf Point poster source credit (T-2386, partial)
+
+The Images source list gains a distinct credited link for the Blanchard/Davis colored poster, on explicit archived Newberry ca. 1893 publication evidence. Its current object record still lists 1935/Copyright Not Evaluated; that conflict remains documented. The native cited-illustration join is used without adding a camera or changing geometry, form-source arrays, placement, material or existing match verdicts.
+
+The initial poster diagnostic remains unfitted and unreviewed outside the application. Seven accepted views and Herriott's unmeasurable-target disposition are retained. Full original T-2386 picture acceptance remains open; this increment registers provenance and makes the source reachable from the card.
