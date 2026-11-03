@@ -2,7 +2,7 @@
   "structure_id": "green_tree_tavern",
   "view": "andreas_1838",
   "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
-  "glb_sha256": "f447aa45b93e507ea8606f6c74703b5948d9ee736a84d3a01d47d8a587db81c3",
+  "glb_sha256": "0b53a6fe30e23b10b330ddb60d4bb362cbce2e798690104e90f4f304cd9d18b8",
   "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
   "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
   "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/andreas_1838-side-by-side.jpg",
@@ -13,11 +13,15 @@
       "status": "fixed"
     },
     {
-      "what": "The low connector and turned farther gabled range are now visibly present in the genuine new-model comparison, replacing the former rear ell. This is a partial massing correction, not a match for the whole illustrated left group: Andreas shows a taller enclosed shoulder and dormered mass beside the main gable, while the canonical Trowbridge-led reading leaves the shoulder open and the procedural yard layer supplies its roof/posts outside this asset-only render. The farther range's pictured opening stations/count and dimensions have not been fully matched. These retrospective alternatives do not establish a dated July1835 alteration sequence. Keep this compound discrepancy open on original T-2376; no new photo follow-up or whole-building signoff.",
+      "what": "The previously omitted closed shoulder now has its clapboard wall, lower sash and raised front-gable/dormer light in the actual native closed-reading comparison at the unchanged camera/source. Existing metric controls are retained as reconstruction. The canonical yard producer declines the separate open shed/posts and its coupled covered wagon to avoid competing geometry. Trowbridge\u2019s open bay remains explicit source disagreement, not a dated conversion.",
+      "status": "fixed"
+    },
+    {
+      "what": "The left group\u2019s shoulder roof/dormer silhouette and relative compound proportions still differ visibly from Andreas in the actual0b53model comparison. No new metric distance, height, angle or historical camera is inferred from the provisional fit. Keep this material shape/proportion review open on originalT-2376; this partial increment is not full picture acceptance.",
       "status": "open"
     },
     {
-      "what": "The middle south-wall doorway is now the pictured stock sash: the actual new-master comparison at the unchanged Andreas camera shows seven lower sash rather than six sash and a middle door. Independent exported-triangle comparison confines the 56 replaced triangles to that opening; the existing 0.75 m sill, 0.85 m glass width and 2.10 m head are retained model controls, not archival measurements. Gray's later side-door recollection remains explicit counterevidence; the picture-led choice is inferred and proves no exact July-1835 absence of a door. Actualpublishedbothviewportbody/yard/ground/NormalByGrade/entry/creditedsourceandnativeWEBreviewpassed2026-10-29 onthe source-boundc093candidate; the substantialenclosedannexremainsOPEN.",
+      "what": "The middle south-wall doorway is now the pictured stock sash: the actual new-master comparison at the unchanged Andreas camera shows seven lower sash rather than six sash and a middle door. Independent exported-triangle comparison confines the 56 replaced triangles to that opening; the existing 0.75 m sill, 0.85 m glass width and 2.10 m head are retained model controls, not archival measurements. Gray's later side-door recollection remains explicit counterevidence; the picture-led choice is inferred and proves no exact July-1835 absence of a door. Actualpublishedbothviewportbody/yard/ground/NormalByGrade/entry/creditedsourceandnativeWEBreviewpassed2026-10-29 onthe source-boundc093candidate; the substantial enclosed annex then remained OPEN.",
       "status": "fixed"
     },
     {

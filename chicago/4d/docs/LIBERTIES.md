@@ -39917,6 +39917,18 @@ The main-body reference footprint and source placement remain unchanged. Separat
 **Recorded:** 2026-11-03.
 
 
+### L-green-tree-closed-shoulder-working-2376 — the enclosed shoulder as a working reading
+
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`.
+
+**Decision:** Select the existing group's enclosed shoulder from Andreas's detailed retrospective engraving, with its lower sash and small gabled/dormered light. Trowbridge/Gale's1902 illustration captioned1835 instead shows an open wagon bay; that conflict remains explicit and does not establish a conversion year or exactJuly1835condition. Source ids remain `andreas_1884_green_tree_hotel_plate`, `kurz_allison_1893` and `trowbridge_green_tree_1902`. No new measurement, historical chronology or confidence is invented. All numeric spans, depths, heights, pitches, opening stations, turn, finish and hidden fabric stay the earlier reconstructed choices; the canonical main footprint and world coordinate do not move.
+
+The yard source owner follows the same canonical attribute and declines only the competing open shed/posts and covered wagon while the shoulder is enclosed. The two separate farm wagons, bench and frontage goods retain their rules. The actual closed-model comparison adds the missing wall/sash/upper light but still differs in left-cluster roof silhouette and relative proportions. Earlier open-bay notes and prior model history remain verbatim in the dossier. No new25family bake, complete picture match, geographic camera, published-app acceptance, dated alteration or original-ticket closure is implied.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-03.
+
+
 ### L-dearborn-level-draw-3361 — Dearborn's lowered draw laid level, against its one picture
 
 **Covers:** `dearborn_street_drawbridge.draw_1834.form.draw_profile`.
