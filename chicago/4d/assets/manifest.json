@@ -4054,32 +4054,65 @@
       "phase_id": "shop_1833",
       "structure_id": "pierce_blacksmith_shop"
     },
-    "potawatomi_camp_1812_middle__camp_1812.glb": {
-      "archetype": "camp",
+    "potawatomi_camp_1812_horse_ground__camp_1812.glb": {
+      "archetype": "lodge_camp",
       "baked_ao": false,
-      "bytes": 95636,
-      "inputs_sha256": "8c078e73912af8d8d89e80e8c2dd82f492c086941b892d0330af954d3aa477da",
+      "bytes": 177840,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "9daa679940824230251fcb8b8780106c131334ca7a7680a64fe3d1b6a9ecfa39",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_horse_ground"
+    },
+    "potawatomi_camp_1812_middle__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 661856,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "476ea30238b726fdf5a17529fa7527ed1b62771fd96a577a6c749267fb07b15e",
       "kind": "generated",
       "phase_id": "camp_1812",
       "structure_id": "potawatomi_camp_1812_middle"
     },
     "potawatomi_camp_1812_mouth__camp_1812.glb": {
-      "archetype": "camp",
+      "archetype": "lodge_camp",
       "baked_ao": false,
-      "bytes": 118628,
-      "inputs_sha256": "cc6c02896aac9b56db8c48a06b1686b38cebe6f54b93200db3ed22f4447f8899",
+      "bytes": 672560,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "81ef183146adf5ce90f920816dae835bcbb2ae9c4b5f75343fe1faab4438bf9d",
       "kind": "generated",
       "phase_id": "camp_1812",
       "structure_id": "potawatomi_camp_1812_mouth"
     },
-    "potawatomi_camp_1812_upper__camp_1812.glb": {
-      "archetype": "camp",
+    "potawatomi_camp_1812_south_reach__camp_1812.glb": {
+      "archetype": "lodge_camp",
       "baked_ao": false,
-      "bytes": 95636,
-      "inputs_sha256": "961399ee7f319cfdb2a042aab447c2107cd5df2796438a376c3b3101f598b192",
+      "bytes": 498524,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "d2ba573ef1c4b20635c4204703a9c75bcf83e083d5aa65c995f9b04abda6856d",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_south_reach"
+    },
+    "potawatomi_camp_1812_upper__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 363872,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "ba589adabf97b29130112eadcc3aa8f166f331a9d65af74b71c88152cff80c7b",
       "kind": "generated",
       "phase_id": "camp_1812",
       "structure_id": "potawatomi_camp_1812_upper"
+    },
+    "potawatomi_camp_1812_west_bank__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 684728,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "1d56a06726668fdbf33453424343bbcc21516966fba59854d495380fed5b1441",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_west_bank"
     },
     "pruyne_kimball_drugstore__frame_1830s.glb": {
       "archetype": "frame_storefront",

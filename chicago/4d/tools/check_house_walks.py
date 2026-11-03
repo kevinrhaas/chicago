@@ -194,7 +194,7 @@ def solid_footprints(sidecars: dict) -> list[tuple[str, list]]:
         if not isinstance(poly, list) or len(poly) < 3:
             continue
         pl = sc.get("placement") or {}
-        if pl.get("vertical_anchor") == "water" or sc.get("drawn_by") or sc.get("archetype") == "camp":
+        if pl.get("vertical_anchor") == "water" or sc.get("drawn_by") or sc.get("archetype") in ("camp", "lodge_camp"):
             continue
         w = to_world(pl)
         out.append((sid, [w(u, v) for u, v in poly]))

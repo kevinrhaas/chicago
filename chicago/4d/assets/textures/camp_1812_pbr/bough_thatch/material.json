@@ -1,0 +1,26 @@
+{
+  "id": "bough_thatch",
+  "group": "camp_1812",
+  "span_m": 1.5,
+  "mean_roughness": 0.9,
+  "resolution_px": 1024,
+  "web_resolution_px": 512,
+  "px_per_m": 682.67,
+  "orientation": "image x = round the covering (u, horizontal); image y = up it (v)",
+  "note": "Cut leafy boughs laid over an arbor's poles, a few days wilted: green going to brown, twigs between. Skinner 1927's 'bough arbor'. Reconstructed.",
+  "confidence": "reconstructed appearance; the covering's material is inferred from the texts the record cites (L-1812-potawatomi-camp-2515)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic",
+    "height16": "linear 16-bit"
+  },
+  "web": {
+    "basecolor": "bough_thatch_basecolor_web.jpg",
+    "normal_gl": "bough_thatch_normal_gl_web.jpg",
+    "orm": "bough_thatch_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 18120816,
+  "generation_method": "deterministic procedural synthesis (tools/generate_camp_1812_pbr.py); no photograph sampled"
+}

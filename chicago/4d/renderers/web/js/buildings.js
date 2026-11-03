@@ -54,6 +54,7 @@ import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
+import { loadCampSurfaces } from './camp-surfaces.js';
 import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
@@ -536,6 +537,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    */
   const walls = await loadWallRelief({ lowSpec });
   if (walls.problem) problems.push(walls.problem);
+  /**
+   * T-3342: the 1812 camp's mat, bark and bough coverings, bound by material name with
+   * their sheets (camp-surfaces.js). Before the loop for the roofs' reason, and loaded
+   * only when a camp is drawn, so no other scene pays for nine sheets it never shows.
+   */
+  const camp = await loadCampSurfaces({
+    wanted: [...registry.values()].some((r) => r.gltf && r.sidecar?.archetype === 'lodge_camp'),
+  });
+  if (camp.problem) problems.push(camp.problem);
   /** T-3295: K03 brick panels shuffled per brick unless `?bricks=tiled` (brick-bond.js). */
   const brickBonds = brickBondFromSearch(globalThis.location?.search);
   /** panel id -> source materials bound, for `stats().brickBond`. */
@@ -652,6 +662,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // docs/GLB-CONTRACT.md § Roof coverings.
       const reliefWarning = relief.apply(material);
       if (reliefWarning) problems.push(`${label}: ${reliefWarning}`);
+      const campWarning = camp.apply(material, mesh.geometry);
+      if (campWarning) problems.push(`${label}: ${campWarning}`);
       // A number when this is a bound wall: how much of the wood's figure its
       // finish lets through, written per vertex below (wall-grain.js).
       const grain = walls.apply(material, record.sidecar);

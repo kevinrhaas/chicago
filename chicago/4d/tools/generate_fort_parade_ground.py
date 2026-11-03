@@ -71,6 +71,19 @@ FORTS = [
     },
 ]
 INDEX_1812 = ENCLOSURES / "1812" / "index.json"
+# The other 1812 ground generators, each exposing `manifest_entries()` for its own lines in
+# the 1812 manifest (agreed between T-3339 and T-3342). Add a module here to list its files.
+GROUND_GENERATORS_1812 = ("generate_camp_ground_1812",)
+
+
+def _manifest_entries_1812() -> list[dict]:
+    import importlib
+    import sys
+    sys.path.insert(0, str(ROOT / "tools"))
+    out = []
+    for name in GROUND_GENERATORS_1812:
+        out += importlib.import_module(name).manifest_entries()
+    return out
 
 
 def _round(x: float, places: int = 2) -> float:
@@ -243,14 +256,15 @@ def index_1812() -> dict:
             "Manifest for the 1812 scene's enclosure layer (T-3320), read because "
             "data/scenes/1812.json names `enclosures_dir: enclosures/1812/`. The 1835 "
             "manifest one folder up is the 1835 town's; this one holds the first fort's "
-            "parade ground and nothing else. Written by tools/generate_fort_parade_ground.py."
+            "parade ground and the grounds the other 1812 generators list "
+            "(GROUND_GENERATORS_1812). Written by tools/generate_fort_parade_ground.py."
         ),
         "version": 1,
         "scene": "1812",
         "scene_date": "1812-08-14",
         "coordinates": "Local East-North-Up metres from data/datum.json's origin.",
         "enclosures": [{"id": "first_fort_dearborn_parade_ground",
-                        "file": "first_fort_dearborn_parade_ground.json"}],
+                        "file": "first_fort_dearborn_parade_ground.json"}] + _manifest_entries_1812(),
     }
 
 

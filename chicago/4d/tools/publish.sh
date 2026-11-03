@@ -616,6 +616,20 @@ for sheet in assets/textures/prairie_1904_pbr/*/*/material.json; do
         "$SITE/data/$rel/"
 done
 
+# The 1812 camp's coverings (T-3342): the cat-tail mat, elm bark and bough sheets
+# camp-surfaces.js binds by material name, the same six web files per sheet and its
+# material.json, under the same data/ rename. The masters stay in the repository.
+for sheet in assets/textures/camp_1812_pbr/*/material.json; do
+  [ -f "$sheet" ] || continue
+  src="$(dirname "$sheet")"
+  rel="${src#assets/}"
+  id="$(basename "$src")"
+  mkdir -p "$SITE/data/$rel"
+  cp -f "$sheet" "$src/${id}_basecolor_web.jpg" "$src/${id}_normal_gl_web.jpg" "$src/${id}_orm_web.jpg" \
+        "$src/${id}_basecolor.ktx2" "$src/${id}_normal_gl.ktx2" "$src/${id}_orm.ktx2" \
+        "$SITE/data/$rel/"
+done
+
 # The 1904 lakefront railway (T-2478): the traced tracks and the spec they carry,
 # drawn by renderers/web/js/railway.js, and its maps — the same three web files
 # per surface as the street library above, plus the grass tuft's one alpha card.
