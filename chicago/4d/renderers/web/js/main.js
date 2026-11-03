@@ -86,8 +86,7 @@ import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
 import { createInteractions, createInteractKey } from './interact.js';
-import { mountTownTransport } from './town-transport-scene.js';
-import { supportsTownTransport } from './transport-loop.js';
+import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
 import { createTelemetry } from './arrival-telemetry.js';
@@ -95,6 +94,7 @@ import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createFortGates } from './fort-gates.js';
+import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
@@ -2785,6 +2785,16 @@ async function boot() {
   scene3d.add(fortGates.group);
   for (const thing of fortGates.gates) interactions.add(thing);
   api.fortGates = fortGates;
+  // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
+  // lamps outside, from data/night_lights/<scene>.json. Hidden, and free, by day.
+  const nightLights = await createNightLights({
+    dataBase: layerBase('night_lights'), sceneId: loaded.scene.id ?? YEAR, terrain,
+    anchor: (id) => fortGates.gates.find((g) => g.id === id) ?? null,
+    problems: layerProblems('night_lights'),
+  });
+  scene3d.add(nightLights.group);
+  api.nightLights = nightLights;
+  api.interactions = interactions;
 
   /**
    * What the PLANTERS treat as built ground: the buildings' footprints plus the
@@ -3622,18 +3632,22 @@ async function boot() {
   scene3d.add(api.humans.group);
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
-  try {
-    api.townTransport = await mountTownTransport({
-      sceneId: YEAR, dataBase: bases.dataBase, people, getPeople: () => peopleDirectory.load(),
-      humans: api.humans, confidence,
-      heightAt: String(YEAR) === '1904'
-        ? (e, n) => streetGrid.carriagewayHeight(e, n)
-        : (e, n) => profiledGroundHeight(terrain, decks, e, n),
-      footprints: () => footprints, visitor: () => walker.state,
-      interactions, detail: detailLevel, coarse, problems,
-    });
-    if (api.townTransport) scene3d.add(api.townTransport.group);
-  } catch (error) { problems.push(`town transport: ${error.message}`); }
+  api.townTransport = null;
+  if (supportsTownTransport(YEAR)) {
+    try {
+      const { mountTownTransport } = await import('./town-transport-scene.js');
+      api.townTransport = await mountTownTransport({
+        sceneId: YEAR, dataBase: bases.dataBase, people, getPeople: () => peopleDirectory.load(),
+        humans: api.humans, confidence,
+        heightAt: String(YEAR) === '1904'
+          ? (e, n) => streetGrid.carriagewayHeight(e, n)
+          : (e, n) => profiledGroundHeight(terrain, decks, e, n),
+        footprints: () => footprints, visitor: () => walker.state,
+        interactions, detail: detailLevel, coarse, problems,
+      });
+      if (api.townTransport) scene3d.add(api.townTransport.group);
+    } catch (error) { problems.push(`town transport: ${error.message}`); }
+  }
 
   /** A structure's ground position in local ENU metres — footprint centroid where
    *  one is drawn, the placement otherwise. Go to measures distance from it;
@@ -5439,6 +5453,7 @@ async function boot() {
     if (!gateOpen) backends.active?.update?.(dt);
     else intent.clear();
     terrain.update(dt);
+    nightLights.update(dt);
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
     interactions.update(frameDt);

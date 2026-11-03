@@ -1258,7 +1258,8 @@ export async function createStreetGrid({
     if (!face) continue;
     const half = (w.width_ft * FT) / 2;
     const at = (s, k) => [w.at[0] + w.out[0] * s + w.along[0] * k, w.at[1] + w.out[1] * s + w.along[1] * k];
-    const s0 = w.from_ft * FT; const s1 = w.to_ft * FT;
+    // T-1881: from a hair under the public walk (`tuck_m`), so no line of parkway shows between
+    const s0 = w.from_ft * FT - (w.tuck_m ?? 0); const s1 = w.to_ft * FT;
     const quad = [at(s0, -half), at(s0, half), at(s1, half), at(s1, -half)];
     push('walk', `cw:${w.id}`, [quad], 'reconstructed', surfaceOf(surfaces, 'band', null, 'walk', face.id), { priority: 1 });
     walkById.set(w.id, { w, face });

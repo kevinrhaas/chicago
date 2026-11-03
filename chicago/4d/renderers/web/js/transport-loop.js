@@ -263,7 +263,4 @@ export async function preflightTransportRouteAsync(configuration, {
   } finally { steps.return(); }
 }
 
-/** Only these existing scenes have an occupied, named town-transport candidate. */
-export function supportsTownTransport(sceneId) {
-  return ['1835', '1904'].includes(String(sceneId));
-}
+export { supportsTownTransport } from './transport-scenes.js';

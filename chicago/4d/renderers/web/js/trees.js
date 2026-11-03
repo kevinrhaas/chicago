@@ -1961,6 +1961,31 @@ class MeshBuf {
   }
 }
 
+/** Exact final timber draw scalars; source chunks must remain Float32 while batching. */
+export function compactTimberFlags(geometry) {
+  let saved = 0;
+  for (const [name, allowed] of [['aLeaf', [0, 1]], ['_confidence', [0, 0.5, 1]]]) {
+    const attr = geometry.getAttribute(name);
+    if (!attr || !(attr.array instanceof Float32Array) || attr.itemSize !== 1 || attr.normalized
+      || attr.isInterleavedBufferAttribute || attr.isInstancedBufferAttribute
+      || attr.usage !== THREE.StaticDrawUsage || attr.gpuType !== THREE.FloatType) continue;
+    let exact = true;
+    for (let i = 0; i < attr.count; i++) {
+      if (!allowed.includes(attr.getX(i)) || Object.is(attr.getX(i), -0)) { exact = false; break; }
+    }
+    if (!exact) continue;
+    const packed = name === 'aLeaf'
+      ? new THREE.Uint8BufferAttribute(attr.array, 1, false)
+      : new THREE.Float16BufferAttribute(Uint16Array.from(attr.array, THREE.DataUtils.toHalfFloat), 1, false);
+    packed.name = attr.name;
+    packed.setUsage(attr.usage);
+    if (attr.userData) packed.userData = { ...attr.userData };
+    saved += attr.array.byteLength - packed.array.byteLength;
+    geometry.setAttribute(name, packed);
+  }
+  return saved;
+}
+
 /* -------------------------------------------------------------------------- */
 /* building one tree                                                           */
 /* -------------------------------------------------------------------------- */
@@ -4480,6 +4505,7 @@ export async function createTrees({
       geo.dispose();
       b.release();
     }
+    compactTimberFlags(batch.geometry);
     batch.computeBoundingSphere();
     group.add(batch);
     disposables.push(batch);

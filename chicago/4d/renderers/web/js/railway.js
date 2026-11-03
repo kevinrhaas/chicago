@@ -434,6 +434,7 @@ function installTieCache(near, far, cache) {
   if (far.boundingBox !== null) far.computeBoundingBox();
   near.computeBoundingSphere();
   far.boundingSphere = near.boundingSphere;
+  near.userData.railwayStaticMatrix = far.userData.railwayStaticMatrix = true;
 }
 
 // Uniform crossed-card transforms can store six matrix lanes and R/B only.
@@ -471,6 +472,99 @@ function installTuftCache(mesh, cache, wantedCount) {
   installTieCache(mesh, mesh, upright);
   mesh.count = wantedCount;
   if (mesh.boundingBox !== null) mesh.computeBoundingBox();
+}
+
+/** Exact seeded recipe for an unreached rock; only terrain-dependent final Y/RGB
+ * are cached. Every reconstructed Float32 matrix is verified against the original.
+ * An unexpected row retains the complete original arrays instead of approximating. */
+/** Equal RGB Float32 words need one channel; tinted rows retain both others.
+ * Use the original layout unless the mask and exceptions actually save bytes. */
+function packRockValues(values, count) {
+  const original = { values, valueStride: 4 };
+  if (values.length !== count * 4 || !values.every(Number.isFinite)) return original;
+  const words = new Uint32Array(values.buffer, values.byteOffset, values.length);
+  const tinted = k => words[k * 4 + 1] !== words[k * 4 + 2] || words[k * 4 + 1] !== words[k * 4 + 3];
+  let n = 0;
+  for (let k = 0; k < count; k += 1) if (tinted(k)) n += 1;
+  const maskBytes = Math.ceil(count / 8);
+  if (count * 8 + maskBytes + n * 8 >= values.byteLength) return original;
+  const compact = new Float32Array(count * 2), tintMask = new Uint8Array(maskBytes), tintValues = new Float32Array(n * 2);
+  let cursor = 0;
+  for (let k = 0; k < count; k += 1) {
+    compact[k * 2] = values[k * 4]; compact[k * 2 + 1] = values[k * 4 + 1];
+    if (tinted(k)) {
+      tintMask[k >> 3] |= 1 << (k & 7);
+      tintValues[cursor++] = values[k * 4 + 2]; tintValues[cursor++] = values[k * 4 + 3];
+    }
+  }
+  return { values: compact, valueStride: 2, tintMask, tintValues };
+}
+
+function replayRockMatrices(cache) {
+  const matrix = new Float32Array(cache.count * 16);
+  const m = new THREE.Matrix4(), p = new THREE.Vector3(), q = new THREE.Quaternion(), scale = new THREE.Vector3();
+  for (let k = 0; k < cache.count; k += 1) {
+    const rand = rng(cache.seeds[k]), i = cache.faces[k], a = cache.faceSt[i], b = cache.faceSt[i + 1];
+    const [ae0, an0, be0, bn0] = a, [ae1, an1, be1, bn1] = b;
+    const u = rand(), v = 0.08 + rand() * 0.86;
+    const e = (ae0 + (ae1 - ae0) * u) * (1 - v) + (be0 + (be1 - be0) * u) * v;
+    const n = (an0 + (an1 - an0) * u) * (1 - v) + (bn0 + (bn1 - bn0) * u) * v;
+    const size = cache.smin + (cache.smax - cache.smin) * rand() ** 1.6;
+    rand(); rand(); // original keep and variant, even though already sorted/partitioned
+    const yaw = rand() * Math.PI * 2, tilt = (rand() - 0.5) * 0.7, roll = (rand() - 0.5) * 0.7;
+    rand(); // original tone; exact final RGB is cached, including wet tint/HDR
+    q.setFromEuler(new THREE.Euler(tilt, yaw, roll, 'YXZ'));
+    m.compose(p.set(e, cache.values[k * (cache.valueStride ?? 4)], -n), q, scale.set(size, size, size));
+    m.toArray(matrix, k * 16);
+  }
+  return matrix;
+}
+
+function packRockCache(matrix, color, list, faceSt, sizes) {
+  const count = list.length;
+  const fallback = () => ({ count, matrix, color });
+  if (!count || matrix.length !== count * 16 || color?.length !== count * 3
+    || !Array.isArray(faceSt) || !sizes.every(Number.isFinite)) return fallback();
+  const faces = faceSt.length <= 65536 ? new Uint16Array(count) : new Uint32Array(count);
+  const seeds = new Uint32Array(count), values = new Float32Array(count * 4);
+  for (let k = 0; k < count; k += 1) {
+    const r = list[k], i = r.faceIndex, seed = r.sourceSeed;
+    if (!Number.isInteger(i) || i < 0 || i + 1 >= faceSt.length
+      || !faceSt[i]?.every(Number.isFinite) || !faceSt[i + 1]?.every(Number.isFinite)
+      || !Number.isInteger(seed) || seed < 0 || seed > 0xffffffff) return fallback();
+    faces[k] = i; seeds[k] = seed;
+    values[k * 4] = matrix[k * 16 + 13];
+    values.set(color.subarray(k * 3, k * 3 + 3), k * 4 + 1);
+  }
+  const cache = { count, faces, seeds, ...packRockValues(values, count), faceSt, smin: sizes[0], smax: sizes[1] };
+  const replay = replayRockMatrices(cache), a = new Uint32Array(matrix.buffer, matrix.byteOffset, matrix.length), b = new Uint32Array(replay.buffer);
+  if (a.some((v, i) => v !== b[i])) return fallback();
+  return cache;
+}
+
+function installRockCache(mesh, wantedCount) {
+  const cache = mesh.userData.rockCache;
+  const matrix = cache.matrix ?? replayRockMatrices(cache);
+  let color = cache.color;
+  if (!color) {
+    color = new Float32Array(cache.count * 3);
+    if (cache.valueStride === 2) {
+      let cursor = 0;
+      for (let k = 0; k < cache.count; k += 1) {
+        const r = cache.values[k * 2 + 1], tinted = cache.tintMask[k >> 3] & (1 << (k & 7));
+        color[k * 3] = r;
+        color[k * 3 + 1] = tinted ? cache.tintValues[cursor++] : r;
+        color[k * 3 + 2] = tinted ? cache.tintValues[cursor++] : r;
+      }
+    } else {
+      for (let k = 0; k < cache.count; k += 1) color.set(cache.values.subarray(k * 4 + 1, k * 4 + 4), k * 3);
+    }
+  }
+  mesh.instanceMatrix = new THREE.InstancedBufferAttribute(matrix, 16);
+  mesh.instanceColor = new THREE.InstancedBufferAttribute(color, 3);
+  mesh.count = wantedCount;
+  mesh.userData.rockCache = null;
+  mesh.userData.railwayStaticMatrix = true;
 }
 
 function railMesh(name, out, level, mat, castShadow) {
@@ -996,6 +1090,7 @@ export async function createRailway({
   const stones = edgeSpec?.stones ?? null;
   if (stones && lake && edgeMeshes.length) {
     const rockRand = rng(19040713);
+    let rockState = 19040713;
     const [smin, smax] = stones.size_m ?? [0.35, 0.85];
     const per = stones.per_m2?.full ?? 1.5;
     const wetBelow = edgeSpec.face?.wet_below_m ?? 0.35;
@@ -1008,6 +1103,8 @@ export async function createRailway({
       // the face is steep: its true area is the plan's over the slope's cosine
       let count = Math.round(along * across * 1.2 * per);
       while (count-- > 0) {
+        const sourceSeed = rockState;
+        rockState = (rockState + Math.imul(9, 0x6d2b79f5)) >>> 0;
         const u = rockRand(); const v = 0.08 + rockRand() * 0.86;
         const e = (ae0 + (ae1 - ae0) * u) * (1 - v) + (be0 + (be1 - be0) * u) * v;
         const n = (an0 + (an1 - an0) * u) * (1 - v) + (bn0 + (bn1 - bn0) * u) * v;
@@ -1025,7 +1122,7 @@ export async function createRailway({
         const z = zoneOf(n);
         // seated: its flat underside on the lowest ground under it, sunk among the rest
         const seat = (low + y) / 2 + size * (0.2 - 0.3 * (stones.sink ?? 0.35));
-        z.rocks.push({ e, n, y: seat, size, keep, variant, quat, tone, tint: wetTint(y, wetBelow) });
+        z.rocks.push({ e, n, y: seat, size, keep, variant, quat, tone, tint: wetTint(y, wetBelow), faceIndex: i, sourceSeed });
         z.rockE += e;
       }
     }
@@ -1086,6 +1183,8 @@ export async function createRailway({
   // T-2806: a phone builds at `light` and draws a quarter of the tufts and under a third
   // of the stones; the rest only ever sat in their instance arrays (15 MB in 1904). A
   // tier raised later on the same page draws what was built.
+  // Private initial DOUBLE coordinates: debug/data edits cannot move cached rocks.
+  const rockReplayFace = (lake?.face ?? []).map(st => new Float64Array(st));
   const builtShare = detail === 'light' ? {
     tufts: (dens.light ?? 0) / (dens.full || 1),
     rocks: (stones?.per_m2?.light ?? 0.45) / (stones?.per_m2?.full ?? 1.5),
@@ -1156,6 +1255,15 @@ export async function createRailway({
           mesh.setColorAt(k, c.setRGB(r.tone * r.tint[0], r.tone * r.tint[1], r.tone * r.tint[2]));
         });
         mesh.computeBoundingSphere();
+        if (list.length) {
+          mesh.userData.rockCache = packRockCache(mesh.instanceMatrix.array, mesh.instanceColor.array,
+            list, rockReplayFace, stones.size_m ?? [0.35, 0.85]);
+          // Preserve original object ids, names, material, geometry and full sphere.
+          mesh.instanceMatrix = new THREE.InstancedBufferAttribute(new Float32Array(0), 16);
+          mesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(0), 3);
+          mesh.count = 0;
+        }
+        mesh.userData.railwayStaticMatrix = true;
         mesh.name = `railway-rocks-z${zi}-${vi}`;
         mesh.castShadow = false; mesh.receiveShadow = true;
         mesh.userData.keeps = list.map((r) => r.keep);
@@ -1219,6 +1327,7 @@ export async function createRailway({
       });
       pileSpots = spots.map((sp) => [wx(sp.e), wz(sp.n)]);
       capPile.computeBoundingSphere();
+      capPile.userData.railwayStaticMatrix = true;
       capPile.name = 'railway-piles';
       capPile.castShadow = false; capPile.receiveShadow = true;
       group.add(capPile);
@@ -1278,7 +1387,8 @@ export async function createRailway({
       for (const m of z.rockMeshes ?? []) {
         const keeps = m.userData.keeps;
         let n = 0; while (n < keeps.length && keeps[n] < rockShare[level]) n += 1;
-        m.count = n;
+        m.userData.rockWanted = n;
+        if (!m.userData.rockCache) m.count = n;
         out.census.rocks += n;
       }
     }
@@ -1331,6 +1441,7 @@ export async function createRailway({
   /** Per frame: which zones draw in full, which far, which not at all. */
   out.update = (camera) => {
     if (!camera) return;
+    let installedStaticMatrices = false;
     const r = REACH[level];
     const cx = camera.position.x; const cz = camera.position.z; const cy = camera.position.y;
     updateGround(cx, cy, cz, r.ground);
@@ -1356,6 +1467,7 @@ export async function createRailway({
         if (z.tieCache && (near || d < r.ties)) {
           installTieCache(z.tiesNear, z.tiesFar, z.tieCache);
           z.tieCache = null;
+          installedStaticMatrices = true;
         }
         z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties;
       }
@@ -1365,13 +1477,22 @@ export async function createRailway({
         if (visible && z.tuftCache) {
           installTuftCache(z.tuftMesh, z.tuftCache, wanted);
           z.tuftCache = null;
+          installedStaticMatrices = true;
         }
         z.tuftMesh.visible = visible;
       }
       if (z.rockMeshes) {
         // the blocks lie along the water, not the yard's middle: measured from their own line
         const dr = Math.hypot(dn, Math.max(0, Math.abs(cx - z.rockCentre) - 10), Math.max(0, cy - 20));
-        for (const m of z.rockMeshes) m.visible = dr < r.rocks && m.count > 0;
+        for (const m of z.rockMeshes) {
+          const wanted = m.userData.rockWanted ?? m.count;
+          const visible = dr < r.rocks && wanted > 0;
+          if (visible && m.userData.rockCache) {
+            installRockCache(m, wanted);
+            installedStaticMatrices = true;
+          }
+          m.visible = visible;
+        }
       }
     }
     // the piles show only under the cap's lake side: from the yard's far side they are
@@ -1381,6 +1502,7 @@ export async function createRailway({
       for (const [px, pz] of pileSpots) dp = Math.min(dp, Math.hypot(cx - px, cz - pz));
       capPile.visible = Math.hypot(dp, Math.max(0, cy - 20)) < r.near;
     }
+    if (installedStaticMatrices) onGeometry(group);
   };
 
   /* ---- what a pick answers ---- */
@@ -1448,7 +1570,7 @@ export async function createRailway({
       z.tieCache = null;
       z.tuftCache = null;
       z.tiesNear?.dispose(); z.tiesFar?.dispose(); z.tuftMesh?.dispose();
-      for (const m of z.rockMeshes ?? []) m.dispose();
+      for (const m of z.rockMeshes ?? []) { m.userData.rockCache = null; m.dispose(); }
     }
     capPile?.dispose();
     for (const lib of maps.values()) { lib.map?.dispose(); lib.normalMap?.dispose(); lib.orm?.dispose(); }

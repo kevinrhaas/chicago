@@ -89,3 +89,72 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
   } finally { globalThis.fetch = previousFetch; delete globalThis.__townLazyTools; }
   console.log('actual Light town scene: zero assembly imports/factories/directory/height queries; eligible route opens deferred tools only then PASS');
 }
+
+// Execute main's actual town boot block with only the dynamic import boundary
+// replaced. Unsupported scenes must not import/compile town modules or fetch config.
+{
+  const { readFileSync } = await import('node:fs');
+  const { supportsTownTransport } = await import('../renderers/web/js/transport-scenes.js');
+  const legacy = await import('../renderers/web/js/transport-loop.js');
+  assert.equal(legacy.supportsTownTransport, supportsTownTransport, 'old export is the same tiny guard');
+  for (const value of ['1835', '1904', 1835, 1904, new String('1835'), { toString: () => '1904' }])
+    assert.equal(supportsTownTransport(value), true);
+  for (const value of ['1812', '1880', '1905', null, undefined, false, {}, Symbol('1835')])
+    assert.equal(supportsTownTransport(value), false);
+  const coercionError = new Error('coercion');
+  assert.throws(() => supportsTownTransport({ toString() { throw coercionError; } }), (e) => e === coercionError);
+  const main = readFileSync(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
+  assert(!/^import\s+.*(?:town-transport-scene|transport-loop)\.js/m.test(main), 'main has no eager town/loop import');
+  assert(main.includes("import { supportsTownTransport } from './transport-scenes.js';"));
+  const start = main.indexOf('  api.townTransport = null;\n  if (supportsTownTransport(YEAR)) {');
+  assert(start >= 0, 'actual scene eligibility block found');
+  const end = main.indexOf('\n\n  /** A structure', start);
+  assert(end > start);
+  const block = main.slice(start, end);
+  assert.equal((block.match(/import\('\.\/town-transport-scene\.js'\)/g) ?? []).length, 1);
+  const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
+  const boot = new AsyncFunction('YEAR', 'api', 'bases', 'people', 'peopleDirectory', 'confidence', 'streetGrid',
+    'profiledGroundHeight', 'terrain', 'decks', 'footprints', 'walker', 'interactions', 'detailLevel', 'coarse',
+    'problems', 'scene3d', 'supportsTownTransport', 'importTown',
+    block.replace("import('./town-transport-scene.js')", 'importTown()'));
+  const previousFetch = globalThis.fetch;
+  let configFetches = 0;
+  globalThis.fetch = async () => { configFetches++; throw Error('Unexpected town config fetch'); };
+  try {
+    for (const year of ['1812', '1880', '1835', '1904']) {
+      for (const failure of [null, 'import', 'mount', 'empty']) {
+        const api = { humans: {} }, people = {}, directory = {}, confidence = {}, terrain = {}, decks = {},
+          footprints = [], walker = { state: {} }, interactions = {}, bases = { dataBase: new URL('http://127.0.0.1/data/') };
+        const problems = [], added = [], group = {}, calls = [];
+        let imports = 0, directoryCalls = 0;
+        const streetGrid = { carriagewayHeight: (e, n) => ['road', e, n] };
+        const ground = (t, d, e, n) => { assert.equal(t, terrain); assert.equal(d, decks); return ['ground', e, n]; };
+        const mountTownTransport = async (options) => { calls.push(options); if (failure === 'mount') throw Error('mount failure'); return failure === 'empty' ? null : { group }; };
+        await boot(year, api, bases, people, { load() { directoryCalls++; return directory; } }, confidence,
+          streetGrid, ground, terrain, decks, footprints, walker, interactions, 'balanced', false, problems,
+          { add: (g) => added.push(g) }, supportsTownTransport,
+          async () => { imports++; if (failure === 'import') throw Error('import failure'); return { mountTownTransport }; });
+        const supported = supportsTownTransport(year);
+        assert.equal(imports, supported ? 1 : 0);
+        assert.equal(configFetches, 0, 'no imported/fetched town configuration on unsupported boot');
+        assert.equal(directoryCalls, 0, 'mount receives an uncalled lazy directory callback');
+        if (!supported) { assert.equal(api.townTransport, null); assert.deepEqual(calls, []); assert.deepEqual(added, []); assert.deepEqual(problems, []); continue; }
+        if (failure === 'import' || failure === 'mount') {
+          assert.equal(api.townTransport, null); assert.deepEqual(added, []);
+          assert.deepEqual(problems, [`town transport: ${failure} failure`]);
+        } else { assert.deepEqual(problems, []); assert.deepEqual(added, failure === 'empty' ? [] : [group]); }
+        if (failure === 'import') continue;
+        assert.equal(calls.length, 1); const options = calls[0];
+        assert.deepEqual(Object.keys(options).sort(), ['sceneId', 'dataBase', 'people', 'getPeople', 'humans', 'confidence',
+          'heightAt', 'footprints', 'visitor', 'interactions', 'detail', 'coarse', 'problems'].sort());
+        assert.equal(options.sceneId, year); assert.equal(options.dataBase, bases.dataBase); assert.equal(options.people, people);
+        assert.equal(options.humans, api.humans); assert.equal(options.confidence, confidence);
+        assert.equal(options.interactions, interactions); assert.equal(options.detail, 'balanced'); assert.equal(options.coarse, false);
+        assert.equal(options.problems, problems); assert.equal(options.footprints(), footprints); assert.equal(options.visitor(), walker.state);
+        assert.equal(options.getPeople(), directory); assert.equal(directoryCalls, 1);
+        assert.deepEqual(options.heightAt(2, 3), [year === '1904' ? 'road' : 'ground', 2, 3]);
+      }
+    }
+  } finally { globalThis.fetch = previousFetch; }
+  console.log('actual main town boot: unsupported zero imports/config/null; supported exact callbacks, group and errors; guard API retained PASS');
+}
