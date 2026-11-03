@@ -640,9 +640,14 @@ def draw_rise_m_at(params: BridgeTimberParams, x: float) -> float:
 
 
 def walk_surface_profile(params: BridgeTimberParams):
-    """Optional local polygon-x metres / height-above-anchor metres, no engine data."""
+    """Optional local polygon-x metres / height-above-anchor metres, no engine data.
+
+    A deck with a draw states its profile across the draw even when it is level
+    (T-3361: the Dearborn draw was laid level by the owner's ruling), so the walk
+    surface the renderer reads stays the one the record declares; a fixed deck with
+    no draw states none and walks at `walk_surface_m`."""
     params.validate()
-    if params.draw_profile == "flat":
+    if not params.draw_span_m:
         return None
     mid = params.span_m / 2.0
     half = params.draw_span_m / 2.0

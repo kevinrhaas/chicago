@@ -38616,7 +38616,7 @@ drawings.
 
 **Evidence since, 2026-10-31 (T-2375):** The two Dearborn approach crests now use a reconstructed **6.0 m half-width**, replacing their earlier4.0 m grid allowance. The source-supported sixteen-foot deck extends only in local positive-v; its widened end corner mixed a low shoulder/water vertex through the2.5 m bilinear grid and stood0.711 m above the south-bank surface,0.438 m above the north-bank surface. Widening the existing invented fill crest supports that full end edge. It does not change the mapped street/approach axes, bank/shoreline controls, bridge origin or bearing,76.33 m water gap,2.22 m end-deck elevation,1-in-12 grade,3 m overhang,0.06 ft seat, or the separately reconstructed centre-rise profile. Six metres is a numerical walk-access allowance, **not a historically documented road width**. The four valid numeric bridge Covers tokens remain unchanged; no new terrain Covers token is added here; fresh native field/mesh fit, full-end-edge measurements and actual walking checks must establish that the wider crossing lands safely.
 
-**Owner ruling, 2026-11-03 (T-3361):** the 1.2 m central rise is withdrawn and the lowered draw is laid level with the approaches (`draw_profile` flat, `draw_rise_m` 0). The owner, on the ridge at mid-river: *“when the bridge was down did it really have a peak in the center like this, it seems very odd to me that would be the case”*. The rise rests on one composition drawn twice (Braunhold in Andreas 1884 and the Baker-Co engraving share schooner, lighthouse and viewpoint), more than forty years after the bridge was destroyed; no text gives one, and 1.2 m over a 9.14 m leaf is a 1-in-7.6 grade on the town’s main team crossing. Level is still a reconstruction: no source states how the leaves lay when down. Both match records carry the difference as `owner ruling`. `draw_rise_m` stays covered here at its new value of zero; the other three numeric choices are unchanged.
+**Owner ruling, 2026-11-03 (T-3361):** the 1.2 m central rise is withdrawn and the lowered draw is laid level (`draw_rise_m` 0); `draw_rise_m` stays covered here at its new value of zero, and the level profile is its own liberty, L-dearborn-level-draw-3361. The other three numeric choices are unchanged.
 
 ### L-school-narrow-front-2372 — a reconstructed reading of an unidentified school drawing
 
@@ -39851,3 +39851,20 @@ The main-body reference footprint and source placement remain unchanged. Separat
 
 **Ticket:** T-2376.
 **Recorded:** 2026-11-03.
+
+
+### L-dearborn-level-draw-3361 — Dearborn's lowered draw laid level, against its one picture
+
+**Covers:** `dearborn_street_drawbridge.draw_1834.form.draw_profile`.
+
+**Decision:** The closed draw of the 1834 Dearborn Street drawbridge lies level with its approaches, by the owner's ruling. The owner, 2026-11-03, on the ridge the draw then rose to at mid-river: *"when the bridge was down did it really have a peak in the center like this, it seems very odd to me that would be the case"*. This replaces the 1.2 m centre rise T-2375 read from the pictures (L-dearborn-picture-profile-2375).
+
+**Why the picture is not followed here.** The rise rests on one composition drawn twice: Braunhold's plate in Andreas 1884 p. 631 and the Baker-Co engraving share their schooner, lighthouse and viewpoint, so they are not two witnesses. Both were made more than forty years after the bridge was chopped up in 1839. No text gives a rise: Andreas has a draw "hoisted" between "gallows" frames, and Moses and Kirkland 1895 p. 95 "a double draw". The bridge carried the town's main street and its teams, and 1.2 m over a 9.14 m leaf is a grade of about 1 in 7.6 each way, with the leaves' joint at its crest. A leaf hinged at its frame and lowered onto its bearing lies at the bearing's height. The drawings' rise reads as the engraver's licence or as leaves caught part-way up.
+
+**Reconstructed:** level is still our choice. No source states how the leaves lay when down, and a small camber of a few inches, which no picture or text resolves, is not modelled. Both match records (`andreas_1884`, `earle_1902_lunette`) carry the difference as `owner ruling`.
+
+**Sources and limits:** `andreas_1884_dearborn_drawbridge_plate`, `moses_kirkland_history_of_chicago_v1`, `andreas_1884_v1`. Nothing here moves the bridge's origin, bearing, 76.33 m water gap, 18.288 m draw, 2.22 m deck or sixteen-foot width.
+
+**Ticket:** T-3361.
+**Review:** `docs/RESEARCH/photo-match/dearborn_street_drawbridge/andreas_1884-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-03 (T-3361).

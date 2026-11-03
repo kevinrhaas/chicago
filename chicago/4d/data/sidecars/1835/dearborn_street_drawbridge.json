@@ -47,7 +47,33 @@
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "water",
-    "walk_surface_m": 2.22
+    "walk_surface_m": 2.22,
+    "walk_surface_profile": {
+      "version": 1,
+      "axis": "local_x",
+      "stations_m": [
+        [
+          0.0,
+          2.22
+        ],
+        [
+          29.021,
+          2.22
+        ],
+        [
+          38.165,
+          2.22
+        ],
+        [
+          47.309,
+          2.22
+        ],
+        [
+          76.33,
+          2.22
+        ]
+      ]
+    }
   },
   "footprint": {
     "polygon": [
