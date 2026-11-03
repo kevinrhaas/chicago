@@ -27998,6 +27998,32 @@ replace the fixed night key with the moon where it stood, or no key on a moonles
 **Review:** `renderers/web/js/time-of-day.js`.
 **Recorded:** 2026-11-03 (T-3331).
 
+### L-night-lights-3333 — 1835 by night: candle and lamp-lit windows by the hour, the lighthouse lit, a lantern at the fort's south gate
+
+**Decision:** when Time of day darkens 1835 (T-3331), every window pane in the town and the fort can
+glow with the warm yellow-orange of a candle or a small oil lamp, building by building: about seven in
+ten lit from dusk, half after nine, a third after ten, a few through the small hours, more again before
+daybreak (`data/night_lights/1835.json` share_by_hour). The lighthouse's lantern room shows a large
+steady glow from dusk to dawn. A lantern hangs outside the fort's south gate with a warm pool under it.
+**What it stands on:** the town made and sold its light: the Chicago Democrat of 26 November 1833
+carries Daniel Elston's soap and candle manufactory and Philo Carpenter's 'oils'
+(`chicago_democrat_1833_11_26`); the Army's ration carried candles (`us_statutes_1802_military_peace_establishment`,
+sec. 6). The lighthouse 'employed four, fourteen-inch reflectors in its bird-cage lantern room' and had a
+keeper of the light (`lighthousefriends_chicago`; Andreas, `andreas_1884_v1`, says one reflector).
+Hubbard puts the guard-house beside the southern gate (`andreas_1884_v1`).
+**What is invented:** which buildings are lit at which hour (a seeded choice per building, not a record of
+any household, tavern or store), the hours table, the flame's colour, brightness and flicker; the
+lighthouse light's brightness, colour and the size of its glow (the reflectors are not modelled and no
+beam is drawn); and the gate lantern, which no source names. No tavern or store lantern is drawn: the
+record reached names none. The glow is drawn on the panes and the light they would throw into the
+street is not, except under the gate lantern.
+**How to resolve:** a tavern keeper's or merchant's account book (candles and oil bought), a newspaper
+notice of lamps or lanterns, or the lighthouse's own returns (lamps, oil and hours) would replace the
+table and the beacon's look.
+**Ticket:** T-3333.
+**Review:** `renderers/web/js/night-lights.js`, `data/night_lights/1835.json`.
+**Recorded:** 2026-11-03 (T-3333).
+
 ### L-night-lights-3332 — 1812 by night: candlelit windows by the hour, and a lantern at the fort's gate
 
 **Decision:** when Time of day darkens the town (T-3331), every window pane in 1812 can glow with

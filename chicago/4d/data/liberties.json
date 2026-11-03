@@ -43485,6 +43485,45 @@
       ]
     },
     {
+      "id": "L-night-lights-3333",
+      "title": "1835 by night: candle and lamp-lit windows by the hour, the lighthouse lit, a lantern at the fort's south gate",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "when Time of day darkens 1835, every window pane in the town and the fort can glow with the warm yellow-orange of a candle or a small oil lamp, building by building: about seven in ten lit from dusk, half after nine, a third after ten, a few through the small hours, more again before daybreak (the 1835 night lights data share by hour). The lighthouse's lantern room shows a large steady glow from dusk to dawn. A lantern hangs outside the fort's south gate with a warm pool under it."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the town made and sold its light: the Chicago Democrat of 26 November 1833 carries Daniel Elston's soap and candle manufactory and Philo Carpenter's 'oils' (The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday…); the Army's ration carried candles (An Act fixing the military peace establishment of the United States, ch. 9, 16…, sec. 6). The lighthouse 'employed four, fourteen-inch reflectors in its bird-cage lantern room' and had a keeper of the light (Anderson, Kraig. \"Chicago Harbor Lighthouse, Illinois.\" Lighthousefriends.com; Andreas, Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time, says one reflector). Hubbard puts the guard-house beside the southern gate (Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time)."
+        },
+        {
+          "label": "What is invented",
+          "text": "which buildings are lit at which hour (a seeded choice per building, not a record of any household, tavern or store), the hours table, the flame's colour, brightness and flicker; the lighthouse light's brightness, colour and the size of its glow (the reflectors are not modelled and no beam is drawn); and the gate lantern, which no source names. No tavern or store lantern is drawn: the record reached names none. The glow is drawn on the panes and the light they would throw into the street is not, except under the gate lantern."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a tavern keeper's or merchant's account book (candles and oil bought), a newspaper notice of lamps or lanterns, or the lighthouse's own returns (lamps, oil and hours) would replace the table and the beacon's look."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's night lights code, the 1835 night lights data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03 (T-3333)."
+        }
+      ],
+      "work_refs": [
+        "T-3331",
+        "T-3333"
+      ]
+    },
+    {
       "id": "L-night-lights-3332",
       "title": "1812 by night: candlelit windows by the hour, and a lantern at the fort's gate",
       "section": "per_subject",

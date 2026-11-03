@@ -1,0 +1,111 @@
+{
+ "viewport": {
+  "width": 1280,
+  "height": 800
+ },
+ "year": "1835",
+ "identical": {
+  "before": {
+   "hash": -2011867632,
+   "state": "[[1,0.8879231178794776,0.7156935005005721],3,[-0.10665951715150425,0.9423726131422429,0.31710819194790385],0.95,1,[-4319.710444635922,38166.09083226084,12842.881773890105],0,0,[0.3663,0.7916,1.5492],[0.1499597898006365,0.23839757380151394,0.3915724777393922]]"
+  },
+  "after": {
+   "hash": -2011867632,
+   "state": "[[1,0.8879231178794776,0.7156935005005721],3,[-0.10665951715150425,0.9423726131422429,0.31710819194790385],0.95,1,[-4319.710444635922,38166.09083226084,12842.881773890105],0,0,[0.3663,0.7916,1.5492],[0.1499597898006365,0.23839757380151394,0.3915724777393922]]"
+  },
+  "same": true
+ },
+ "errors": [],
+ "rows": [
+  {
+   "time": "daytime",
+   "stand": "lighthouse",
+   "hhmm": "12:30",
+   "sun": "sun 70.5° up, bearing 198.6° (12:30 local mean time, 1835-07-01)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 107.2,
+   "file": "desktop-1835-lighthouse-daytime.jpg"
+  },
+  {
+   "time": "daytime",
+   "stand": "green-tree",
+   "hhmm": "12:30",
+   "sun": "sun 70.5° up, bearing 198.6° (12:30 local mean time, 1835-07-01)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 113.8,
+   "file": "desktop-1835-green-tree-daytime.jpg"
+  },
+  {
+   "time": "daytime",
+   "stand": "gate",
+   "hhmm": "12:30",
+   "sun": "sun 70.5° up, bearing 198.6° (12:30 local mean time, 1835-07-01)",
+   "exposure": 0.95,
+   "key": 3,
+   "mean": 108.2,
+   "file": "desktop-1835-gate-daytime.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "lighthouse",
+   "hhmm": "20:10",
+   "sun": "sun -5.6° up, bearing 308.1° (20:10 local mean time, 1835-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.22772923040102971,
+   "mean": 77.7,
+   "file": "desktop-1835-lighthouse-dusk.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "green-tree",
+   "hhmm": "20:10",
+   "sun": "sun -5.6° up, bearing 308.1° (20:10 local mean time, 1835-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.22772923040102971,
+   "mean": 67.1,
+   "file": "desktop-1835-green-tree-dusk.jpg"
+  },
+  {
+   "time": "dusk",
+   "stand": "gate",
+   "hhmm": "20:10",
+   "sun": "sun -5.6° up, bearing 308.1° (20:10 local mean time, 1835-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.22772923040102971,
+   "mean": 66,
+   "file": "desktop-1835-gate-dusk.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "lighthouse",
+   "hhmm": "22:00",
+   "sun": "sun -19.0° up, bearing 330.1° (22:00 local mean time, 1835-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 28.9,
+   "file": "desktop-1835-lighthouse-night.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "green-tree",
+   "hhmm": "22:00",
+   "sun": "sun -19.0° up, bearing 330.1° (22:00 local mean time, 1835-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 30.1,
+   "file": "desktop-1835-green-tree-night.jpg"
+  },
+  {
+   "time": "night",
+   "stand": "gate",
+   "hhmm": "22:00",
+   "sun": "sun -19.0° up, bearing 330.1° (22:00 local mean time, 1835-07-01)",
+   "exposure": 2.8499999999999996,
+   "key": 0.42,
+   "mean": 32.2,
+   "file": "desktop-1835-gate-night.jpg"
+  }
+ ]
+}

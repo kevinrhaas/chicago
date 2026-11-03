@@ -2463,6 +2463,13 @@ async function boot() {
         + (timeState.transient ? ' (the jaunt has set the hour)' : '');
     }
   }
+  // T-3328: the year chip's day follows a jaunt stop's own date (17 June at the Lalime
+  // gate, 6 April at Lee's Place) and goes back to the scene's when the hour is given back.
+  function paintChipDay(iso) {
+    const sub = document.querySelector('#year-badge .badge-sub');
+    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(iso || loaded.scene.target_date || '');
+    if (sub && m) sub.textContent = `${m[1]}.${m[2]}`;
+  }
   function applyTime(value, { date, transient = false } = {}) {
     const v = isTimeValue(value) ? value : 'daytime';
     if (transient) {
@@ -2472,10 +2479,13 @@ async function boot() {
       timeState.own = v;
       timeState.transient = null;
     }
-    const day = date || (transient ? null : timeState.ownDate) || world.sunDate;
+    // A stop with no date of its own keeps the scene's (or the Season's) day, not the
+    // previous stop's: ownDate holds that day while a jaunt has the hour.
+    const day = date || timeState.ownDate || world.sunDate;
     const r = world.resolveTime(v, day);
     world.setSun({ date: day, time: r.hhmm });
     if (!transient) timeState.ownDate = null;
+    paintChipDay(transient ? date : null);
     paintTime();
     gateFrame.invalidate();
     return { hhmm: r.hhmm, name: r.name, date: world.sunDate, transient: !!transient };
@@ -2516,6 +2526,7 @@ async function boot() {
       const r = world.resolveTime(timeState.own, day);
       world.setSun({ date: day, time: r.hhmm });
       timeState.ownDate = null;
+      paintChipDay(null);
       paintTime();
       gateFrame.invalidate();
       return this.current;
@@ -4763,6 +4774,8 @@ async function boot() {
           if (state?.jaunt && state.phase === 'atStop') hints.show('jaunt');
         },
         onComplete: state => jauntPreview.award(state),
+        // T-3328: a stop's own hour, set for the stop and given back after (T-3331).
+        hour: api.timeOfDay,
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,

@@ -105,4 +105,28 @@ await test('live mode changes invalidate old travel without replaying choices', 
   r.active.onArrive(r.active.token); assert.equal(r.controller.state.phase, 'atStop');
   r.controller.end(); assert.equal(r.travel.mode, 'horse');
 });
+await test('T-3328: a stop with an hour sets it on arrival; a stop without, and the end, give it back', async () => {
+  const doc = structuredClone(walk);
+  doc.stops[0] = { ...doc.stops[0], hour: 'sunset', date: '1812-06-17', hour_evidence: [doc.stops[0].evidence[0]] };
+  const calls = [];
+  const hour = { set: (v, o) => { calls.push(['set', v, o.date, o.transient]); }, restore: () => { calls.push(['restore']); } };
+  let active;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const settle = () => new Promise(r => setTimeout(r, 0));
+  const controller = createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel, hour,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await controller.start('walk'); await settle();
+  assert.deepEqual(calls, [['set', 'sunset', '1812-06-17', true]], 'the first stop sets its hour, transiently');
+  controller.next(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.at(-1), ['restore'], 'a stop with no hour gives the visitor\'s own back');
+  const n = calls.length; controller.prev(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.at(-1), ['set', 'sunset', '1812-06-17', true], 'Previous sets it again');
+  controller.end(); await settle();
+  assert.deepEqual(calls.at(-1), ['restore'], 'ending the jaunt gives it back');
+  assert.equal(calls.length, n + 2);
+  const quiet = createJaunts({ load: async () => walk, resolve: x => x, place: () => true, enter: () => true, travel, hour,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  calls.length = 0; await quiet.start('walk'); quiet.next(); active.onArrive(active.token); quiet.end(); await settle();
+  assert.deepEqual(calls, [], 'a jaunt with no hours never touches the visitor\'s');
+});
 console.log(`JAUNT REDUCER PASS — ${tests} cases`);
