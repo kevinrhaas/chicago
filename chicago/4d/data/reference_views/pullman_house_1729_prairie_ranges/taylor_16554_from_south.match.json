@@ -134,14 +134,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "b83ae305f7e48c4924a6153f04123dca4b158797d8988d58b99af92e24fb3d98"
+      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "508f8ca4ef27c4e9769b635ae443e7be5d286b8868c4f80f434d018292224a9f",
+  "flora_sha256": "77f678421a369e3dc3703f29663325eb2b515bac595af2b762c8ef0a9514deee",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

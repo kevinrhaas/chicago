@@ -160,10 +160,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "b83ae305f7e48c4924a6153f04123dca4b158797d8988d58b99af92e24fb3d98"
+      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
     }
   ],
-  "flora_sha256": "50c3c0f8d1f6e5fc8d6a15b506b3201e4a2b9dc0e9e4469f0d348959be38bf8b",
+  "flora_sha256": "a4fef8a3335a55e8aebe6ad2a8813d74bb4d100cc54d6be64ffc0e66094d2d21",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
