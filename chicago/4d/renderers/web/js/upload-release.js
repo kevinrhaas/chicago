@@ -46,7 +46,7 @@
  */
 
 import * as THREE from 'three';
-import { isSharedImage, retireSharedImage } from './shared-images.js';
+import { isSharedImage, retireSharedImage, sourceTextureSlots } from './shared-images.js';
 import { compactBatchBounds } from './batch-bounds.js';
 
 /** Layer → attributes it must keep for a tap. Unlisted layers keep nothing. */
@@ -55,6 +55,8 @@ export const RELEASE_KEEP = {
   trees: [],
   'yard-ground': [],
   streets: [],
+  // Street-grid CPU ray picks keep positions and indices; other uploaded lanes can go.
+  'street-grid': ['position', 'index'],
   // T-2572: picked on the GPU (gpu-pick.js), so their triangles go too.
   frontage: [],
   enclosures: [],
@@ -66,6 +68,8 @@ export const RELEASE_KEEP = {
   // T-2775: the 1904 lakefront railway. Its pick marches the ray to the ground and
   // tests the strips' stations (railway.js), so no triangle is read back.
   railway: [],
+  // Context streets have no triangle pick: context.js raycasts only its building meshes.
+  'context:streets': [],
 };
 
 function dropArray() { this.array = null; }
@@ -346,12 +350,13 @@ export function releaseSources(registry) {
 function collapseScene(row) {
   const scene = row.gltf.scene;
   if (!scene || scene.collapsed) return;
+  const requiredTextureSlots = [...sourceTextureSlots(scene)];
   const materials = new Set();
   scene.traverse((o) => {
     for (const material of (Array.isArray(o.material) ? o.material : [o.material])) if (material) materials.add(material);
   });
   const carrier = { material: [...materials] };
-  const collapsed = { name: scene.name, collapsed: true, traverse(visit) { visit(carrier); } };
+  const collapsed = { name: scene.name, collapsed: true, requiredTextureSlots, traverse(visit) { visit(carrier); } };
   row.gltf.scene = collapsed;
   if (Array.isArray(row.gltf.scenes)) row.gltf.scenes = [collapsed];
   row.node = null;

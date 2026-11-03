@@ -25429,3 +25429,20 @@ The distant ground now caps a virtual transition centre at its original coarse s
 Fresh sampling with the production heightfield confirmed all eight covered-wagon wheel contacts and both wheel-plane spans exactly match their previous values; only their two terrain qualification hashes were renewed. The documented approach fill changes the same South Water corridor band's measured dry share from 46.6% to 47.0% and increases reachable dry planting nodes by nine, to 1,580,650. Native writers re-bank those measurements; street controls, corridor offsets, source limits, vehicle stands and all acceptance thresholds remain unchanged.
 
 The candidate includes the intervening Kimball development merge through 5cb66944, preserving its model, source records and liberty. Final full-source and published functional frame, Images and approach qualification remain separate requirements before the grouped PR merges.
+
+
+### T-2793 incremental wagon delivery — 2026-11-02
+
+### T-2793 — source-guided farm-box master in preparation (2026-10-26)
+
+A separately versioned wagon master now adapts the recovered licensed Old Cart geometry/UVs/maps instead of rebuilding a weaker flat surface. It has explicit metric/articulation controls, separately circular front/rear wheels, a neutralised front axle and reconstructed single pole with a real central bearing. The original source and Lyskilde/longtail CC BY4.0 credit remain intact. Native matched appearance, turn/contact clearances, portable LODs and current phone/world qualification are pending. Existing80 static wagons and the three fine-wood placement identities/selections are preserved; this does not close T-2793 or infer traffic, teams, drivers or riding.
+
+T-2793 source increment now has actual current WebP LODs8,433,236bytes total and desktop/mobile isolated captures with zero errors; full repository/published-world qualification remains pending. Continuous actual front-wheel/body envelopes and explicit detached/moved-geometry controls pass; artist pin/rim fit limits remain disclosed. Source-only publication exclusions preserve originals and live consumers; actual final publisher budget still pending.
+
+T-2793 required portable structural nodes now own actual reach/kingbolt geometry: one44-triangle reconstructed coupling reach and the original28-triangle pin split from front details. Current near/mid/far total8,465,076bytes,12materialbatches; prior8,433,236-byte views remain historical. Final current-source rendering, canonical tail, full publisher/preflight and photographic/world acceptance remain pending.
+
+
+T-2793 follow-up: costly continuous flora motion within each pass's existing reach and yaw step uses the original immediate producer path, so horseback travel does not repeatedly abandon an unfinished jump. Native scheduler regression controls retain teleport/snap-turn, pending/carry ownership and synchronous buffer reads. The original frame ceilings and plant algorithms are unchanged. Larger-than-reach motion at low frame rates retains its existing limitation. Actual cold flight-to-travel performance and current CI remain required; this source change is not a performance PASS.
+
+
+Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.

@@ -25311,7 +25311,8 @@ texture and color"), and 1808's record leaves that side open for this one. From 
 the alley a free-standing common-brick wall stands on the line HABS sheet 2 draws, its north face on
 S 74.0, about 1.1 ft thick, to the granite gate pier's outer face. Each end of the run says what
 it meets, so the coping stops flush at 1808's wall and wraps the free end at the alley. The sheet's
-8.3 ft return south along the alley stands on 1808's lot line and is left to T-1944.
+8.3 ft return south along the alley stands on 1808's lot line and is left to T-1944 (built there,
+2026-11-02: L-1808-alley-return-1944).
 **What is invented.** The wall's height, 9.0 ft above north grade, and its stone coping (0.18 m,
 overhanging 0.06 m on each free side): no sheet draws the wall in elevation, and HABS photograph 5
 does not frame it. Both are the alley gate's own reconstructed wall stub (L295), so the enclosure
@@ -25327,6 +25328,29 @@ dates the wall to 1887 directly.
 **Covers:** `glessner_house.as_built_1887.form.courtyard_wall_heights`.
 **Ticket:** T-2201 (Glessner exterior audit GA-03).
 **Recorded:** 2026-10-11 (T-2201).
+
+### L-1808-alley-return-1944 — 1808 Prairie's alley wall: the Glessner court wall's 1963 return carried to 1904, at the court wall's height and coping
+
+**Decision:** the brick run HABS IL-1015 sheet 2 (1963) turns south along the alley off the
+Glessner court wall's west end stands on 1808 Prairie's alley line, so it is built on 1808's
+record (`alley_wall`), not Glessner's (T-2201 left it here: L-glessner-court-wall-2201). Read on the
+committed scan at 37.2 px/ft: 1.4 ft through (53 px, +/- 0.15 ft: the hatch's inner edge has no drawn
+line), its west face the heavy line that runs on as the granite gate pier's outer face (W 162.0), and
+8.2 ft (304 px) from the court wall's north face (S 74.0) to its free south end (S 82.2). Its north
+end abuts the court wall and its coping stops short of the court wall's.
+**What is invented.** The run's height, 9.2 ft over Glessner's model grade (9.0 ft over its north
+grade), and its stone coping, 0.18 m deep and overhanging 0.06 m on each free side
+(`alley_wall_height`): no sheet draws it in elevation and no photograph of the alley side is held.
+Both are the court wall's own reconstructed height and coping, so the two meet at one coping line at
+the pier. The brick is 1808's own common buff (the K11 wall's slot of the house's K03 panel), the
+court's brick by Glessner 1923, which is quoted only in text.
+**What is inferred, not invented.** That the 1963 line, length and thickness stood in 1904, for the
+court wall's reason: nothing read records exterior work on the court before the 1946 conversion.
+**How to resolve:** a photograph of the alley behind 1800-1808 Prairie, or the museum's history of
+the courtyard wall read as a source record.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.alley_wall_height`.
+**Ticket:** T-3321 (piece 1 of T-1944, the 18th-20th block boundaries).
+**Recorded:** 2026-11-02 (T-3321).
 
 ### L-k01-1616-brick-front-2353 — 1616 Prairie's main body refined from the district draft to a K01 brick house with a street dormer for its half storey, everything but the plan the kits'
 
@@ -39276,3 +39300,24 @@ which the generator asserts. **How to resolve:** a garrison description, return 
 surface, grass, gravel or bare earth.
 **Ticket:** T-3320.
 **Recorded:** 2026-11-02 (T-3320).
+
+
+### L-farm-box-licensed-master-2793 — licensed work-wagon development master (2026-10-26)
+
+**Ticket:** T-2793. **Grade:** reconstructed. **Source:** `lyskilde_2020_old_cart`.
+
+**Decision:** The modern artist's Old Cart by Lyskilde/longtail (CC BY4.0) is a reusable construction/optical basis, not an identified historical vehicle. The original model supplies no maker, object date, region, prototype or calibrated metres. The original source, UVs, six PBR images and credit are preserved; an actual source-native quarter/profile picture was inspected before this adaptation. This entry does not supersede the historical W01 liberties or relabel its original80 static wagons/three fine-wood stands.
+
+The new separate master targets the existing reconstructed W01 maximum body envelope3.05×1.07×.55m, bed top.95m, axle stations±1.175m, track1.21m and front/rear wheel radii.535/.685m. Those are design choices, not extracted historical measurements. The source's eight-spoke wheels are retained in this master; existing W01's twelve-spoke model remains separately preserved. Source front steering is neutralised from its actual axle direction (12.930344degrees); each wheel's radial plane is scaled isotropically so calibration does not make an ellipse. The body/frame's explicit continuous metric transform is documented in the producer and emitted sidecar.
+
+The artist's paired shafts are omitted from the front-gear group. One exact licensed timber surface is adapted into the existing reconstructed single-pole envelope, and a short cloned timber bearing joins it to the axle. Its axle/pole joinery overlaps intentionally; this is not a force, load, pressure, hitch or structural-safety proof. Empty seat, boarding, camera and hitch transforms remain proposed interfaces rather than installed seats or enabled riding. Colour, timber species, weathering, hidden joints, exact component dimensions and the individual vehicle's1835 placement remain reconstructed. A later1893 catalogue analogy does not turn it into an1835 Studebaker wagon.
+
+This is an actual authored development increment. Current matched native views, steering/ground/clearance, LOD quality, phone/world costs and complete ticket photographic acceptance must be recorded from the new exact bytes; no original screenshot, schema, container check or old W01 proof supplies those results. Existing placed wagons remain selected while that qualification is pending.
+
+T-2793 measured fit amendment: the actual retained artist kingbolt is4.994mm from the reconstructed front yaw axis (XZ+1.925/+4.609mm); its8degree sweep is0.697mm. This small unmodified source detail is disclosed rather than called an exact coaxial mechanical joint. Actual artist rim irregularity gives a worst all-roll lower bound2.617mm below the ideal ground; the specimen declares3mm mesh tolerance, not exact rigid-wheel ground/suspension certification. Neither limit changes existing stands or qualifies a working hitch.
+
+T-2793 final structural scope: an actual90x55mm central reach reuses the licensed shaft surface/UVs between reconstructed front/rear attachment heights .6675/.73m at the existing axle stations. These heights/section and joinery are engineering reconstruction, not source dimensions or historical attestation. It has a real separate vehicle_reach frame; original body stringers are not relabeled as a coupling. The actual28-triangle artist pin is separately owned in vehicle_kingbolt with its prior4.994mm eccentricity unchanged. Surface intersections qualify bounded assembly contact only, not strength/load/hitch certification.
+
+**Recorded:** 2026-10-26.
+
+**Period cross-check:** T-2793 bounded period cross-check: the personally viewed1835 Wild Cincinnati painting (`wild_1835_third_vine`) shows the four-wheel, smaller-front/larger-rear work-wagon family with a covered box. The held Buffalo Eagle Tavern print shows an open loaded box but depicts1825 in an undated19th-century print reproduced1912. Neither supplies this specimen, Chicago presence, calibrated dimensions, hidden gear, wood species, coating or eight-spoke count. The current model intentionally remains open and empty, with reconstructed gray/warm finishes; no canvas/team/driver claim is added. Actual image hashes, provenance and comparison limits are in docs/RESEARCH/farm-box-master-2793/REFERENCE-COMPARISON.md. Existing geometry, UVs, images, GLB exports and source rights remain unchanged.
