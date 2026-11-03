@@ -1,0 +1,85 @@
+{
+  "structure_id": "mayer_house_2009_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
+  "glb_sha256": "6998109789eb9a763d55bc9bbc1f236632c69dc9bd044d6e47c1a72891fa14e3",
+  "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
+  "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
+  "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's 5.5 m box under a generic shaped gable is now the photograph's narrow party-wall front, 7.56 m across between the north corner and the party line with 2011, three tiers of lights over a raised stone basement, its side walls stopping at the kneelers (11.95 m)",
+      "status": "fixed"
+    },
+    {
+      "what": "the ogee gable: the front carried up past the side walls into a concave-sided spire to its crest at about 16.4 m, its outline laid over the print within about 0.1-0.2 m at every height; its attic pair under the apex",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's south foot: the print's outline runs on down past the kneeler to about 10.3 m over the party wall, where the build leaves the front's width at the kneelers (11.97 m) on both sides and the hip's eave shows over the party wall",
+      "status": "open"
+    },
+    {
+      "what": "the street lights: the ground floor's window (two lights on a mullion under a transom) under the oriel, the small light beside it, the third storey's paired light, each on the print's place and size",
+      "status": "fixed"
+    },
+    {
+      "what": "the oriel: three lights from the second floor on a corbelled apron under the string course, on the print's lights",
+      "status": "fixed"
+    },
+    {
+      "what": "the oriel's carved frieze over its lights and the carved apron under them: the build's are plain stone (T-1914)",
+      "status": "open"
+    },
+    {
+      "what": "the door: the print's elliptical head with its tracery under a carved panel between pinnacled pilasters; the build stands a square-headed panelled door with a transom under a plain lintel (T-1914)",
+      "status": "open"
+    },
+    {
+      "what": "the windows' moulded hoods and surrounds (the ground window's hood on consoles, the paired light's hood rising to the pendant, the small light's hood block), and the carved pendant in the gable: the build's lintels are plain (T-1914)",
+      "status": "open"
+    },
+    {
+      "what": "the north corner's stone quoins up the front's edge: the build's corner is brick (T-1914)",
+      "status": "open"
+    },
+    {
+      "what": "the gable's crest: a carved block on the apex in the print, a turned finial in the build (T-1914)",
+      "status": "open"
+    },
+    {
+      "what": "the basement's three square lights under the ground window: not cut (K01 takes no basement lights on a front whose street windows are named one by one)",
+      "status": "open"
+    },
+    {
+      "what": "the string course across the front at about 9.1 m and the stone sill course at the principal floor",
+      "status": "fixed"
+    },
+    {
+      "what": "the stoop: a straight flight between stone cheek walls from the walk to the door at the south end, on the print's place and width",
+      "status": "fixed"
+    },
+    {
+      "what": "the near tall stack on the north flank: about 0.6 m south of the print's place (K01 stands it inside the main body) and its corbelled cap plain",
+      "status": "open"
+    },
+    {
+      "what": "the north flank: its projection's front face and the tall light near the front corner, seen edge-on; the print's flank is mostly hidden by the parkway tree",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the far stack and the cornice at the print's left edge: north of this lot through the camera, read as 2005's",
+      "status": "not shown"
+    },
+    {
+      "what": "the low stone kerb along the front of the yard and the two bare parkway trees: not this record's (the yard and the street's trees)",
+      "status": "open"
+    },
+    {
+      "what": "colour: the print is monochrome; the brick is the register's rough red-brown and the basement its brownstone",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "monroe_1896_john_wellborn_root_meyer_plate",
+ "type": "engraving",
+ "citation": "Harriet Monroe, John Wellborn Root: A Study of His Life and Work (Boston and New York: Houghton, Mifflin and Company, 1896), p. 155, plate 'House of Mrs. Max Meyer'.",
+ "author": "Harriet Monroe (author); the illustrator is not named",
+ "date": "1896 (publication)",
+ "describes_date": "1888-1896: the house Burnham & Root built for Max A. Meyer in 1888, drawn by 1896",
+ "repository": "Internet Archive (digitized from the Boston Public Library's copy), https://archive.org/details/johnwellbornroot00monr/page/155/mode/1up. Prairie library image a20-monroe-1896-meyer-house-p155; the project's reference copy is the image store's, committed at data/sources/assets/meyer_2009_pictures_t1913/.",
+ "url": "https://archive.org/details/johnwellbornroot00monr/page/155/mode/1up",
+ "locator": "p. 155, the vignette between the text's paragraphs: the house's front from the south-west on Prairie Avenue, half hidden by trees.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1896: public domain by date.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-03 (T-1913) from the image store's display copy, 1050 x 1600 px, sha256 fdc5beaa81e6b9b8d5b5c837bd99062b6623c7e1c114e8314d1996948d18d704.",
+ "note": "A pen drawing of the house's front: the ogee gable with its crest and attic lights, the paired light under it, the oriel on its corbel with the frieze over it, the ground-floor window, the arched door and the stoop at the south end, and a tall stack on the north side, between trees. Its proportions are a draughtsman's; it confirms the composition the photograph shows.",
+ "what_it_supplies": [
+  "the front's composition, as a check on the photograph: the door and stoop at the south end, the oriel standing proud on its corbel, the gable's outline"
+ ],
+ "what_it_does_not_supply": [
+  "measurements: an illustrator's vignette, not a survey",
+  "colour, the rear and the north flank"
+ ]
+}
