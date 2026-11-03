@@ -6046,6 +6046,18 @@ Fresh sampling with the production heightfield confirmed all eight covered-wagon
 The candidate includes the intervening Kimball development merge through 5cb66944, preserving its model, source records and liberty. Final full-source and published functional frame, Images and approach qualification remain separate requirements before the grouped PR merges.
 
 
+## 2026-11-02 — Wolf Point picture-review increment (T-2386)
+
+Seven source-specific native drawing comparisons and their dated, credited source records are now installed for Wolf Point Tavern. The existing model, camera bytes and held originals are unchanged. The two inspection-only compositions retain their identification/rights limits. This is an incremental publication of the completed picture review; current published-card checks and source validation are recorded separately, and original T-2386 acceptance remains in progress.
+
+The combined Allerton/Wolf Point catalog measures 224,556 raw bytes and 59,383 gzip bytes on first open. Its measured raw allowance increases 4,000 bytes to 228,000; the compressed first-open allowance stays 120,000. This integration does not close T-2386 or create a photo follow-up.
+
+
+### Sauganash exterior increment joined before merge (T-2383)
+
+This same PR also installs the qualified Sauganash entrance and four lower-front sash correction: MASTER a369598a and WEB 5f7d8a54. The other 24 frame-family MASTER/WEB files and foreign registry entries remain exact. Three genuine unchanged-camera Carpenter group captures refresh the hotel context; root directly reviewed all three and preserves the existing annex matches, without claiming whole-hotel signoff. Native Liberty, scene, entrances and source-use owners, only the drifting yard-goods owner, the doorway consumers, jaunts, model-town, dataset, Carpenter image gate and publication checks pass. Full final combined source parts and published app acceptance follow. Both original T-2383 and T-2386 remain in progress; this is the owner-requested incremental delivery, with no new photo follow-up tickets.
+
+
 ### T-2793 incremental wagon delivery — 2026-11-02
 
 ### T-2793 licensed farm-box master continuation — 2026-10-26
@@ -6061,3 +6073,17 @@ T-2793 follow-up: costly continuous flora motion within each pass's existing rea
 
 
 Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.
+
+
+## Original T-2376 — connector/range increment, 2026-11-03
+
+Implemented the pictured low connector and turned farther gabled range beside Green Tree's preserved procedural open wagon bay. The prior rear ell is retired; the reference footprint and placement stay unchanged. Authenticated model adoption and compound physical consumers are documented at `docs/RESEARCH/green-tree-annex-T-2376/README.md`; the new reconstructed form is declared at `L-green-tree-enclosed-left-reading-2376`.
+
+The genuine refreshed Andreas comparison remains `differs`: its tall enclosed shoulder/dormered reading and complete farther-range opening/dimension match are not signed off by this useful partial increment. Continue original T-2376 for remaining picture coverage and signoff; the operational state stays in the original ticket, with no new photo follow-up.
+
+
+## 2026-11-03 — Wolf Point poster credit continuation (T-2386)
+
+The distinct Blanchard/Davis poster now has an attributed ca. 1893 SourceRecord and a textual Images-list join. Current Newberry 1935/Copyright Not Evaluated metadata is retained as a conflict, with the explicit archived publication evidence and review citation. This is a source-credit increment only. The initial independent poster camera is not enrolled, and no geometry or accepted comparison changes.
+
+Original T-2386 remains unfinished: refine and genuinely review the distinct poster camera before any model-gap or matching verdict, then complete required app/image acceptance. Existing seven reviewed views and the tiny Herriott unmeasurable-target exclusion are unchanged.

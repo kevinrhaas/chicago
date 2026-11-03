@@ -25431,6 +25431,18 @@ Fresh sampling with the production heightfield confirmed all eight covered-wagon
 The candidate includes the intervening Kimball development merge through 5cb66944, preserving its model, source records and liberty. Final full-source and published functional frame, Images and approach qualification remain separate requirements before the grouped PR merges.
 
 
+## 2026-11-02 — Wolf Point picture-review increment (T-2386)
+
+Seven source-specific native drawing comparisons and their dated, credited source records are now installed for Wolf Point Tavern. The existing model, camera bytes and held originals are unchanged. The two inspection-only compositions retain their identification/rights limits. This is an incremental publication of the completed picture review; current published-card checks and source validation are recorded separately, and original T-2386 acceptance remains in progress.
+
+Integration with dev's Allerton sources prices the complete 547-source catalog at 224,556 raw bytes, 51,974 gzip bytes for the index and 59,383 gzip bytes for the first open including source JavaScript and CSS. The raw ceiling consciously increases from 224,000 to 228,000 bytes (+1.79%); the 120,000-byte compressed first-open ceiling and all citations, counts and source edges remain intact.
+
+
+### Sauganash exterior increment joined before merge (T-2383)
+
+This same PR also installs the qualified Sauganash entrance and four lower-front sash correction: MASTER a369598a and WEB 5f7d8a54. The other 24 frame-family MASTER/WEB files and foreign registry entries remain exact. Three genuine unchanged-camera Carpenter group captures refresh the hotel context; root directly reviewed all three and preserves the existing annex matches, without claiming whole-hotel signoff. Native Liberty, scene, entrances and source-use owners, only the drifting yard-goods owner, the doorway consumers, jaunts, model-town, dataset, Carpenter image gate and publication checks pass. Full final combined source parts and published app acceptance follow. Both original T-2383 and T-2386 remain in progress; this is the owner-requested incremental delivery, with no new photo follow-up tickets.
+
+
 ### T-2793 incremental wagon delivery — 2026-11-02
 
 ### T-2793 — source-guided farm-box master in preparation (2026-10-26)
@@ -25446,3 +25458,19 @@ T-2793 follow-up: costly continuous flora motion within each pass's existing rea
 
 
 Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.
+
+
+## Green Tree connector and turned range — 2026-11-03
+
+Original T-2376 now has a low connector and turned farther gabled range beside the existing open wagon bay, replacing the earlier rear ell. The MASTER deliberately omits the open shoulder; native yard geometry remains the sole bay roof/post owner. Separate occupied rings follow the new solids through compilation, collision/routes, ground/prop clearance, entrance placement and framing, preserving the core reference footprint and open gaps.
+
+The authenticated existing MASTER `f447aa45…` was adopted only after all25 current full native recipe documents/input hashes matched its original production evidence; no local Blender ran. Real pinned WEB25 production preserved the other24 MASTER/WEB files, both Tremont version links and foreign registry entries. The scene/entrance/source-use/yard owner chain reached its native fixed point. Numeric annex dimensions and July1835 continuity remain reconstructed at liberty `L-green-tree-enclosed-left-reading-2376`.
+
+The unchanged Andreas camera was genuinely rendered again. Direct before/after review accepts the newly visible connector/farther gable as an increment; the record remains `differs` with one compound open entry for the closed-shoulder/dormered alternative and the remaining range-opening/dimension match. The neutral asset comparison omits procedural bay/signs, terrain and neighbors and establishes no app or door-traversal verdict. Original full-picture signoff remains unfinished; no follow-up ticket is created.
+
+
+## 2026-11-03 — Wolf Point poster source credit (T-2386, partial)
+
+The Images source list gains a distinct credited link for the Blanchard/Davis colored poster, on explicit archived Newberry ca. 1893 publication evidence. Its current object record still lists 1935/Copyright Not Evaluated; that conflict remains documented. The native cited-illustration join is used without adding a camera or changing geometry, form-source arrays, placement, material or existing match verdicts.
+
+The initial poster diagnostic remains unfitted and unreviewed outside the application. Seven accepted views and Herriott's unmeasurable-target disposition are retained. Full original T-2386 picture acceptance remains open; this increment registers provenance and makes the source reachable from the card.

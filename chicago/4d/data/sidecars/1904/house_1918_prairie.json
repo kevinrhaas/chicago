@@ -104,13 +104,13 @@
       "value": [
         4.5,
         4.11,
-        2.1
+        3.32
       ],
       "confidence": "inferred",
       "sources": [
         "chicago_tribune_1869_10_30_thompson_residence"
       ],
-      "note": "The 1869 Tribune: principal story 14 ft 9 in (4.50 m), second story 13 ft 6 in (4.11 m) for the main part; the main building 44 ft (13.41 m) from grade to the top of its cornice. The attic storey, 2.1 m, carries the wall head to 12.54 m, and K10's bracketed cornice over it stands its top near the Tribune's 13.4 m."
+      "note": "The 1869 Tribune: principal story 14 ft 9 in (4.50 m), second story 13 ft 6 in (4.11 m) for the main part; the main building 44 ft (13.41 m) from grade to the top of its cornice. The attic storey, 3.32 m, carries the wall head to 13.76 m, so that K10's bracketed cornice, whose crown stands 0.37 m under the wall head, tops at 13.39 m, the Tribune's 13.41 (T-3330: at 2.1 m the crown stood at 12.19 m, 1.2 m short; the photograph, read down the tower's front on one vertical scale, puts the main cornice's top at 0.60 of the tower's height, as the Tribune's 44 and 73 ft do)."
     },
     "wall_thickness_front_m": {
       "value": 0.45,
@@ -250,7 +250,7 @@
     },
     "hip_deck": {
       "value": {
-        "deck_m": 15.0,
+        "deck_m": 16.22,
         "rail": {
           "inset_m": 0.1,
           "height_m": 0.8,
@@ -267,7 +267,7 @@
       "sources": [
         "chicagology_1936_prairie_exterior_photo"
       ],
-      "note": "The hip cut off at a deck with a rail round it, in the photograph (y 260-300 px over the south-east corner, about 2.5 m over the cornice's top through the camera); K01's hip deck with 1906's pierced rail."
+      "note": "The hip cut off at a deck with a rail round it, in the photograph (y 260-300 px over the south-east corner, about 2.5 m over the cornice's top through the camera); K01's hip deck with 1906's pierced rail. Raised with the main cornice by T-3330, 15.0 to 16.22 m."
     },
     "window_kit": {
       "value": {
@@ -338,7 +338,7 @@
           "height_m": 2.7
         },
         {
-          "sill_above_floor_m": 0.5,
+          "sill_above_floor_m": 1.72,
           "width_m": 0.9,
           "height_m": 0.55
         }
@@ -348,7 +348,7 @@
         "chicagology_1936_prairie_exterior_photo",
         "chicago_tribune_1869_10_30_thompson_residence"
       ],
-      "note": "Tall principal-floor windows, chamber windows a little shorter, and the attic's 'frieze-light windows' (Tribune 1869), low horizontal lights under the cornice, in the photograph's south flank (y 455-470 px)."
+      "note": "Tall principal-floor windows, chamber windows a little shorter, and the attic's 'frieze-light windows' (Tribune 1869), low horizontal lights under the cornice, in the photograph's south flank (y 455-470 px). The frieze lights stand 1.72 m over the attic's floor, under the brackets (T-3330, with the attic raised to the Tribune's cornice)."
     },
     "basement_lights": {
       "value": {
@@ -552,7 +552,12 @@
             "sides": 4
           },
           "eaves": {
-            "cornice": "k10.cornice.bracketed_timber"
+            "cornice": "k10.cornice.bracketed_timber",
+            "deep": {
+              "overhang_m": 1.1,
+              "soffit_rise_m": 0.27,
+              "fascia_m": 0.51
+            }
           },
           "storeys": [
             {
@@ -586,34 +591,29 @@
               ]
             },
             {
-              "height_m": 2.1,
+              "height_m": 2.97,
               "windows": []
             },
             {
-              "height_m": 3.4,
-              "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.7,
-                  "clear_height_m": 1.6,
-                  "sill_m": 0.9,
-                  "at": [
-                    0.102,
-                    0.5,
-                    0.898
-                  ],
-                  "why_not_ordinary": "the stage over the main cornice, under the belvedere's balcony, in the photograph (y 330-385 px); one to each face of the square (T-3318)"
-                }
-              ]
+              "height_m": 1.78,
+              "windows": [],
+              "corbel_table": {
+                "height_m": 0.75,
+                "course_m": 0.35,
+                "proud_m": 0.5,
+                "block_m": 0.16,
+                "pitch_m": 0.37,
+                "margin_m": 0.2
+              }
             },
             {
-              "height_m": 4.3,
+              "height_m": 4.78,
               "windows": [
                 {
                   "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 0.8,
-                  "clear_height_m": 2.2,
-                  "sill_m": 0.9,
+                  "clear_height_m": 1.8,
+                  "sill_m": 0.88,
                   "at": [
                     0.102,
                     0.5,
@@ -626,7 +626,8 @@
           ],
           "roof": {
             "kind": "hip",
-            "pitch": 0.0,
+            "pitch": 0.6,
+            "deck_rise_m": 0.55,
             "covering": "tin_flat_seam_painted"
           },
           "balcony": {
@@ -638,6 +639,38 @@
             "pitch_m": 0.2,
             "rail_m": [
               0.22,
+              0.12
+            ],
+            "foot_rail_m": 0.12
+          },
+          "brackets": {
+            "consoles": {
+              "reach_m": 0.6,
+              "drop_m": 0.9,
+              "thickness_m": 0.2,
+              "segments": 8
+            },
+            "modillions": {
+              "width_m": 0.1,
+              "drop_m": 0.4,
+              "out_m": 0.3,
+              "spacing_m": 0.37,
+              "margin_m": 0.4
+            }
+          },
+          "storey_balcony": {
+            "storey": 4,
+            "out_m": 0.55,
+            "slab_m": 0.3,
+            "corbel_courses": 3,
+            "course_m": 0.16,
+            "height_m": 0.75,
+            "inset_m": 0.2,
+            "post_m": 0.25,
+            "bar_m": 0.08,
+            "pitch_m": 0.2,
+            "rail_m": [
+              0.2,
               0.12
             ],
             "foot_rail_m": 0.12
@@ -754,7 +787,7 @@
               ]
             },
             {
-              "height_m": 1.49,
+              "height_m": 2.71,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -851,7 +884,7 @@
         "chicago_tribune_1869_10_30_thompson_residence",
         "chicagology_1936_prairie_exterior_photo"
       ],
-      "note": "The 1911 sheet's plan (trace s28fp-1918-b1) read with the 1869 Tribune's rooms: the 'bay4B' square tower on the front at v 5.95-9.74, 3.8 m across and 1.3 m before the north block's face, rising past the cornice to a belvedere; built square, as the photograph shows it (T-3318: K08's polygonal tower with four sides, a face to the avenue, 3.79 m across, radius 2.68 m, its centre 0.595 m inside the wall so its front stands the sheet's 1.3 m out), with one round-headed light to each face of the belvedere and a stone balustrade round its flat top over the cornice, as the photograph draws them (its back stands on the wall's plane over the roof; liberty L-k01-1936-allerton-1901) (the photograph; 'seventy-three feet high from the ground line', 22.25 m, to its top); the reception room's half-octagonal stone bay on the south wall (u 10.65-16.16, 1.55 m out); the dining room's range before the south wall's rear part (u 0-9.03, 1.55 m out); and the octagonal library's canted bay on the north wall (u 0.1-7.5, 1.3 m out)."
+      "note": "The 1911 sheet's plan (trace s28fp-1918-b1) read with the 1869 Tribune's rooms: the 'bay4B' square tower on the front at v 5.95-9.74, 3.8 m across and 1.3 m before the north block's face, rising past the cornice to a belvedere; built square, as the photograph shows it (T-3318: K08's polygonal tower with four sides, a face to the avenue, 3.79 m across, radius 2.68 m, its centre 0.595 m inside the wall so its front stands the sheet's 1.3 m out), with one round-headed light to each face of the belvedere and a stone balustrade round its flat top over the cornice, as the photograph draws them; and (T-3324) a console at each of its two free corners under that cornice and a row of brackets 0.37 m apart along its faces (x 1530-1745, y 120-165 px), and at the belvedere's foot a corbelled stone balcony round its cheeks and front, its slab 0.55 m out and its floor the belvedere's, on three stepped courses, with a balustrade 0.75 m high (y 278-345 px), so the belvedere stands back over it, as the photograph draws them, their sizes read through its scale at the belvedere's lights (2.2 m over about 71 px) and so reconstructed (its back stands on the wall's plane over the roof; liberty L-k01-1936-allerton-1901) (the photograph; 'seventy-three feet high from the ground line', 22.25 m, to its top); the reception room's half-octagonal stone bay on the south wall (u 10.65-16.16, 1.55 m out); the dining room's range before the south wall's rear part (u 0-9.03, 1.55 m out); and the octagonal library's canted bay on the north wall (u 0.1-7.5, 1.3 m out). T-3330 re-proportioned the tower on the photograph's own vertical scale down its front (a level camera keeps one scale down a vertical plane: 39.6 px/m from the main cornice's top at y 380, the Tribune's 13.41 m, which puts the top balustrade's rail at y 30, the Tribune's 22.25 m): its third storey carried up to the main cornice's crown (2.97 m, to 13.41 m), where the main cornice runs round the tower as a corbel table, a 0.35 m stone course 0.5 m out over a row of 0.16 m blocks 0.37 m apart, 0.75 m deep (the photograph's moulded cornice and modillions, y 380-410 px; it shows no balcony at that level); the stage over it short and blind (1.78 m, to the balcony's floor at 15.19 m, y 310; its three lights withdrawn, the photograph showing plain stone between the cornice and the balcony's corbels, y 345-380); the belvedere 5.2 m, its lights 1.8 m high from 0.88 m over its floor (y 205-275); the top balustrade 1.1 m. Reconstructed to that scale (liberty L-k01-1936-allerton-1901). With the attic raised, the dining range's top storey is carried up with it (1.49 to 2.71 m), so its eaves stay the main cornice's. T-3345: the belvedere's own deep cornice, as the photograph draws it over the row of brackets (x 1480-1840, y 85-120 px, on the tower's 39.6 px/m from the main cornice's top at y 380): the wall head at 19.97 m (y 120), where the brackets hang in the frieze; a soffit rising 0.27 m from the kit's bed moulding to a corona 1.1 m out (its foot at y 107, 20.30 m) and 0.51 m deep (its top at y 87, 20.81 m); over it a skirt of the hip rising 0.55 m at a pitch of 0.6 to a flat deck (the balustrade's foot at y 62, 21.36 m) whose edge stands 0.18 m before the walls, and on it the balustrade 0.9 m high, its rail at the Tribune's 73 ft (22.25 m, y 30); the belvedere's storey is 4.78 m to its wall head, not 5.2 to a thin eave. Sizes read through the photograph's scale, so reconstructed (liberty L-k01-1936-allerton-1901)."
     },
     "rear_wings": {
       "value": [

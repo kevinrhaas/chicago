@@ -92,6 +92,7 @@ import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createFortGates } from './fort-gates.js';
+import { createNightLights } from './night-lights.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -99,6 +100,7 @@ import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
 import { createStreetFurniture } from './street-furniture.js';
 import { createFrontYards } from './front-yards.js';
+import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { createContext } from './context.js';
@@ -1548,6 +1550,13 @@ function readSeasonPreference() {
   const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
   return { season, treesShown: saved.streetTrees !== 'hidden' };
 }
+/** T-3331: the visitor's Time of day, a name or 'HH:MM'; daytime unless chosen. */
+function readTimePreference() {
+  try {
+    const v = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.timeOfDay;
+    return isTimeValue(v) ? v : 'daytime';
+  } catch { return 'daytime'; }
+}
 /** T-2692: whether Settings shows the 1904 lot lines; hidden unless chosen. */
 function readLotLinesPreference() {
   try { return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.lotLines === 'shown'; } catch { return false; }
@@ -2430,6 +2439,99 @@ async function boot() {
   // choice; the scene keeps its own date. T-2864 offers it in every year, and the
   // woods and the prairie take it too (`seasonPlants`, set once they are planted).
   const seasonal = true;
+
+  // T-3331 — Time of day (Settings › Show), and the setter a jaunt stop calls. The
+  // visitor's own choice is `own` (stored); a jaunt's is `transient` (never stored)
+  // and `restore()` returns to the visitor's. world.js relights; time-of-day.js has
+  // the names and the grade.
+  const timeState = { own: readTimePreference(), transient: null, ownDate: null };
+  const timeEls = () => ({
+    sel: document.getElementById('s-time-of-day'),
+    range: document.getElementById('s-time'),
+    out: document.getElementById('v-time'),
+  });
+  function paintTime() {
+    const { sel, range, out } = timeEls();
+    const r = world.resolveTime(timeState.own, timeState.ownDate ?? world.sunDate);
+    const named = TIME_NAMES.find((n) => n.id === r.name);
+    const own = sel?.querySelector('option[value="daytime"]');
+    if (own) own.textContent = `Daytime — ${world.sceneTime}, the scene's own hour`;
+    if (sel) sel.value = isTimeValue(timeState.own) && minutesOf(timeState.own) === null ? timeState.own : (r.name ?? 'custom');
+    if (range && document.activeElement !== range) range.value = String(minutesOf(r.hhmm));
+    if (out) {
+      out.textContent = `${r.hhmm}${named ? ` — ${named.label.toLowerCase()}` : ''}`
+        + (timeState.transient ? ' (the jaunt has set the hour)' : '');
+    }
+  }
+  // T-3328: the year chip's day follows a jaunt stop's own date (17 June at the Lalime
+  // gate, 6 April at Lee's Place) and goes back to the scene's when the hour is given back.
+  function paintChipDay(iso) {
+    const sub = document.querySelector('#year-badge .badge-sub');
+    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(iso || loaded.scene.target_date || '');
+    if (sub && m) sub.textContent = `${m[1]}.${m[2]}`;
+  }
+  function applyTime(value, { date, transient = false } = {}) {
+    const v = isTimeValue(value) ? value : 'daytime';
+    if (transient) {
+      if (!timeState.transient) timeState.ownDate = world.sunDate;
+      timeState.transient = { value: v, date: date || null };
+    } else {
+      timeState.own = v;
+      timeState.transient = null;
+    }
+    // A stop with no date of its own keeps the scene's (or the Season's) day, not the
+    // previous stop's: ownDate holds that day while a jaunt has the hour.
+    const day = date || timeState.ownDate || world.sunDate;
+    const r = world.resolveTime(v, day);
+    world.setSun({ date: day, time: r.hhmm });
+    if (!transient) timeState.ownDate = null;
+    paintChipDay(transient ? date : null);
+    paintTime();
+    gateFrame.invalidate();
+    return { hhmm: r.hhmm, name: r.name, date: world.sunDate, transient: !!transient };
+  }
+  if (timeState.own !== 'daytime') applyTime(timeState.own);
+  api.timeOfDay = {
+    /** { hhmm, name, date, transient, own } — the hour in force and the visitor's own. */
+    get current() {
+      const r = world.resolveTime(timeState.transient?.value ?? timeState.own, world.sunDate);
+      return { hhmm: world.sunTime, name: r.name, date: world.sunDate, transient: !!timeState.transient, own: timeState.own };
+    },
+    names: TIME_NAMES.map((n) => n.id),
+    /**
+     * Set the hour: 'HH:MM' local solar time or a name (daybreak, morning, daytime,
+     * afternoon, sunset, dusk, night). `date` ('YYYY-MM-DD') moves the sun's day as
+     * well, for a stop on another day than the scene's. `transient` is a jaunt's:
+     * not stored, and `restore()` undoes it. `ease` is accepted and, for now, the
+     * change is one step (a relight is a sky bake, too dear to run every frame).
+     * Resolves once the frame is relit.
+     */
+    async set(value, { date, transient = false } = {}) {
+      const r = applyTime(value, { date, transient });
+      if (!transient) {
+        try {
+          const saved = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {};
+          saved.timeOfDay = timeState.own;
+          window.localStorage.setItem('chicago4d.settings', JSON.stringify(saved));
+        } catch { /* optional */ }
+        if (timeState.hudSettings) timeState.hudSettings.timeOfDay = timeState.own;
+      }
+      return r;
+    },
+    /** Back to the visitor's own hour and the Season's date. */
+    async restore() {
+      if (!timeState.transient) return this.current;
+      const day = timeState.ownDate ?? world.sunDate;
+      timeState.transient = null;
+      const r = world.resolveTime(timeState.own, day);
+      world.setSun({ date: day, time: r.hhmm });
+      timeState.ownDate = null;
+      paintChipDay(null);
+      paintTime();
+      gateFrame.invalidate();
+      return this.current;
+    },
+  };
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown };
   let structuresSeasoned = false;
   let seasonPlants = () => null;
@@ -2455,7 +2557,12 @@ async function boot() {
       });
     }
     seasonState.season = applySeasonLook(s);
-    world.setSunDate(seasonDate(s, loaded.scene.target_date));
+    // T-3331: the season moves the date; a named hour (sunset, dusk) is solved again
+    // on it, and a jaunt stop's own hour, while one holds, is left alone.
+    const day = seasonDate(s, loaded.scene.target_date) || loaded.scene.target_date;
+    if (timeState.transient) timeState.ownDate = day;
+    else world.setSun({ date: day, time: world.resolveTime(timeState.own, day).hhmm });
+    paintTime();
     contextCity.setSeason?.(s);
     await seasonPlants(s);
     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
@@ -2678,6 +2785,15 @@ async function boot() {
   const interactions = createInteractions();
   for (const thing of fortGates.gates) interactions.add(thing);
   api.fortGates = fortGates;
+  // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
+  // lamps outside, from data/night_lights/<scene>.json. Hidden, and free, by day.
+  const nightLights = await createNightLights({
+    dataBase: layerBase('night_lights'), sceneId: loaded.scene.id ?? YEAR, terrain,
+    anchor: (id) => fortGates.gates.find((g) => g.id === id) ?? null,
+    problems: layerProblems('night_lights'),
+  });
+  scene3d.add(nightLights.group);
+  api.nightLights = nightLights;
   api.interactions = interactions;
 
   /**
@@ -2976,7 +3092,9 @@ async function boot() {
   // The trees give way to the travelled track, as before, and since T-1771 to
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
-  const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
+  // T-3339: and to a worn trail's trodden core (1812's paths through the bank timber).
+  const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n)
+    || yards.blocksTrees(e, n);
   // T-2094. Past the cleared track the rest of an opened street's corridor is
   // trodden: flora.js crops a turf community's tall plants there to the turf's
   // own height (`streets.verge` says where; the zone record says how tall).
@@ -3682,6 +3800,9 @@ async function boot() {
         api.targetTag?.setHold(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
+      } else if (key === 'timeOfDay') {
+        // T-3331. A choice made by hand ends a jaunt's hold on the hour.
+        applyTime(value);
       } else if (key === 'streetTrees') {
         seasonState.treesShown = value !== 'hidden';
         void streetTrees.setMode(streetTreeMode(seasonState.season, seasonState.treesShown))
@@ -3709,6 +3830,9 @@ async function boot() {
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
   hud.omitTabs(api.drawerOmitted.tabs);
+  // T-3331: Settings' own copy, so a later save keeps an hour set from code; then paint.
+  timeState.hudSettings = hud.settings;
+  paintTime();
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
@@ -4338,6 +4462,19 @@ async function boot() {
       let e0 = Infinity, n0 = Infinity, e1 = -Infinity, n1 = -Infinity;
       for (const [e, n] of fp.pts) { e0 = Math.min(e0, e); e1 = Math.max(e1, e); n0 = Math.min(n0, n); n1 = Math.max(n1, n); }
       r = Math.max(2, Math.hypot(e1 - e0, n1 - n0) / 2);
+      // Compound models aim at their actual visual centre. Keep the core's
+      // address/front unchanged, but fit every roof/ell in the selected asset.
+      // A radius about the old core centre needlessly spends the 90m stand cap.
+      if (footprints.some(part => part.id === id && part !== fp) && buildingBounds[id]) {
+        const box = buildingBounds[id], matrix = buildings.matrixOf(id);
+        if (matrix) {
+          r = 2;
+          for (const x of [box.min[0], box.max[0]]) for (const z of [box.min[2], box.max[2]]) {
+            const point = new THREE.Vector3(x, 0, z).applyMatrix4(matrix);
+            r = Math.max(r, Math.hypot(point.x-aim.x, point.z-aim.z));
+          }
+        }
+      }
     }
     const record = loaded.registry.get(id);
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
@@ -4464,6 +4601,14 @@ async function boot() {
     }
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
     const drawn = buildingBounds[id];
+    if (drawn && footprints.some(part => part.id === id && part !== fp)) {
+      const matrix = buildings.matrixOf(id);
+      if (matrix) return new THREE.Vector3(
+        (drawn.min[0]+drawn.max[0])/2,
+        (drawn.min[1]+drawn.max[1])/2,
+        (drawn.min[2]+drawn.max[2])/2,
+      ).applyMatrix4(matrix);
+    }
     const aimH = drawn ? (drawn.min[1] + drawn.max[1]) / 2 : wallH * 0.55;
     return enuToWorld(e, n, terrain.surfaceHeight(e, n) + aimH);
   }
@@ -4624,10 +4769,14 @@ async function boot() {
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
           // T-2946: measured to the building's walls and named as the jaunt names it.
-          const outlines = new Map(footprints.map(f => [f.id, f.pts]));
+          const outlines = new Map();
+          for (const f of footprints) {
+            if (!outlines.has(f.id)) outlines.set(f.id, []);
+            outlines.get(f.id).push(f.pts);
+          }
           const places = [...loaded.registry.values()].map(record => ({ id: record.id,
             label: context.placeName(state.jaunt, record.id, record.sidecar),
-            point: structurePosition(record.id), outline: outlines.get(record.id),
+            point: structurePosition(record.id), outlines: outlines.get(record.id),
             minor: context.minorPlace(record.sidecar) }));
           return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
@@ -4650,6 +4799,8 @@ async function boot() {
           if (state?.jaunt && state.phase === 'atStop') hints.show('jaunt');
         },
         onComplete: state => jauntPreview.award(state),
+        // T-3328: a stop's own hour, set for the stop and given back after (T-3331).
+        hour: api.timeOfDay,
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,
@@ -5258,6 +5409,7 @@ async function boot() {
     if (!gateOpen) backends.active?.update?.(dt);
     else intent.clear();
     terrain.update(dt);
+    nightLights.update(dt);
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
     // T-3319: a gate swinging, and the Interact key's reach, read four times a second.

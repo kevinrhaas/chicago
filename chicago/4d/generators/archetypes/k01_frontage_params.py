@@ -3152,7 +3152,30 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if "cornice" in ev:
                 k10 = json.loads(K10_KIT.read_text())
                 cv = next((x for x in k10["variants"] if x["id"] == ev["cornice"]), None)
-                if cv is not None and cv["id"] == BRACKETED_CORNICE and not set(ev) - {"cornice"}:
+                deep = ev.get("deep")
+                if deep is not None:
+                    # T-3345: a square tower's own deep cornice over the bracketed frieze (1936's
+                    # belvedere, about a metre from its soffit's foot to its top in the photograph):
+                    # the kit's bed moulding, a soffit rising straight from it to `soffit_rise_m`
+                    # over it at `overhang_m`, and a corona `fascia_m` deep whose top is the eaves
+                    # line; its brackets hang from the bed's top, the wall head, as in the frieze
+                    dk = {"overhang_m", "soffit_rise_m", "fascia_m"}
+                    if v["kind"] != "tower" or int(v["plan"].get("sides", 0)) != 4 or v["plan"].get("across_corner") \
+                            or cv is None or cv["id"] != BRACKETED_CORNICE or set(ev) != {"cornice", "deep"} \
+                            or not isinstance(deep, dict) or set(deep) != dk:
+                        raise ParamError(f"bays: {e['id']}'s deep eaves are a square tower's, under "
+                                         f"{BRACKETED_CORNICE}, and take {sorted(dk)}, not {ev}")
+                    ov_, rise_, fas_ = (float(deep[k]) for k in ("overhang_m", "soffit_rise_m", "fascia_m"))
+                    bed = [list(q) for q in k10["parts"]["profiles"]["bed_mould"]["points"]]
+                    bn, bu = bed[-1]
+                    if not 0.4 <= ov_ <= 1.5 or not 0.0 <= rise_ <= 0.6 or not 0.15 <= fas_ <= 0.8 or ov_ < bn + 0.1:
+                        raise ParamError(f"bays: {e['id']}'s deep eaves {deep}: 0.4-1.5 m out, the soffit "
+                                         f"rising 0-0.6 m, a 0.15-0.8 m corona")
+                    v["overrides"]["eaves"]["profile"] = bed + [[ov_, bu + rise_], [ov_, bu + rise_ + fas_],
+                                                                [0.0, bu + rise_ + fas_]]
+                    v["overrides"]["eaves"]["role"] = "fascia"
+                    v["overrides"]["eaves"]["brackets_at_m"] = bu
+                elif cv is not None and cv["id"] == BRACKETED_CORNICE and not set(ev) - {"cornice"}:
                     # T-2472: a bay rising to the bracketed timber cornice carries what of it
                     # a bow can: its bed moulding, and the house's eave over that (the K05
                     # soffit out `eave_overhang_m` to a fascia), in the eave's painted timber
@@ -3165,6 +3188,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
         # T-2408's consoles and modillions read off a picture (1637's south bay, T-2780): the
         # record sizes the variant's own brackets, never adds them to a variant without
+        # T-3324: a square tower may take brackets its variant has none of (1936's belvedere,
+        # its consoles and the row of brackets under its cornice in the photograph): the record
+        # names both, with every key the kit's bracketed bay gives them
+        if "brackets" in e and v.get("brackets") is None and v["kind"] == "tower" \
+                and int(v["plan"].get("sides", 0)) == 4 and not v["plan"].get("across_corner"):
+            kit_br = next(x for x in json.loads(BAY_KIT.read_text())["variants"] if x.get("brackets"))["brackets"]
+            if set(e["brackets"]) != set(kit_br):
+                raise ParamError(f"bays: {e['id']} adds brackets to a square tower, naming both "
+                                 f"{sorted(kit_br)}, not {sorted(e['brackets'])}")
+            v["brackets"] = {k: {kk: None for kk in kit_br[k]} for k in kit_br}
         if "brackets" in e:
             br, kb = e["brackets"], v.get("brackets")
             if kb is None or set(br) - set(kb) or any(set(br[k]) != set(kb[k]) for k in br):
@@ -3209,9 +3242,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0
             # T-3318: or a square tower's flat top, round its cheeks and front (1936's belvedere,
             # balustraded over its cornice in the photograph)
+            # T-3345: or that tower's hip cut flat to a deck, standing on the deck's edge (1936's
+            # belvedere, its balustrade over the skirt of its deep cornice in the photograph)
+            rf_ = e.get("roof", v["roof"])
             flat_top = flat_top or (v["kind"] == "tower" and int(v["plan"].get("sides", 0)) == 4
                                     and not v["plan"].get("across_corner")
-                                    and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0)
+                                    and (float(rf_.get("pitch", 1.0)) == 0.0
+                                         or (rf_.get("kind") == "hip" and rf_.get("deck_rise_m") is not None)))
             if not (v["plan"]["kind"] == "bow" or flat_top) or set(bl) != need or fabric not in ("iron", "stone"):
                 raise ParamError(f"bays: {e['id']}'s balcony stands on a bow, or on a canted bay's, a "
                                  f"projection's or a square tower's flat top, in iron or stone, and takes {sorted(need)}")
@@ -3284,6 +3321,33 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if not bal["slab_m"] <= bal["floor_m"] < sum(float(st["height_m"]) for st in v["storeys"]):
                 raise ParamError(f"bays: {e['id']}'s floor_balcony floor {bal['floor_m']} m is not inside its walls")
             v["floor_balcony"] = bal
+        # T-3324: a square tower's corbelled balcony at one of its storey lines, round its cheeks
+        # and front (1936's, at the belvedere's foot in the photograph, the belvedere standing
+        # back over it): a stone slab `out_m` proud whose top is the storey's floor, carried on
+        # `corbel_courses` stone courses `course_m` deep stepped back to the shaft, and a stone
+        # balustrade on it, its keys the flat top's balcony's
+        if "storey_balcony" in e:
+            sb = e["storey_balcony"]
+            rail = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
+            need = rail | {"storey", "out_m", "slab_m", "corbel_courses", "course_m"}
+            ok = isinstance(sb, dict) and set(sb) == need and v["kind"] == "tower" \
+                and int(v["plan"].get("sides", 0)) == 4 and not v["plan"].get("across_corner")
+            if ok:
+                bal = {k: ([float(x) for x in sb[k]] if k == "rail_m" else
+                           int(sb[k]) if k in ("storey", "corbel_courses") else float(sb[k])) for k in need}
+                ok = 0 < bal["storey"] < len(v["storeys"]) and 0.3 <= bal["out_m"] <= 1.2 \
+                    and 0.1 <= bal["slab_m"] <= 0.4 and 1 <= bal["corbel_courses"] <= 6 \
+                    and 0.08 <= bal["course_m"] <= 0.4 and 0.5 <= bal["height_m"] <= 1.2 \
+                    and bal["post_m"] / 2 <= bal["inset_m"] <= bal["out_m"] - bal["post_m"] / 2 \
+                    and 0.06 <= bal["pitch_m"] <= 0.3 and 0.0 < bal["bar_m"] < bal["pitch_m"] / 2 \
+                    and bal["rail_m"][0] < bal["post_m"] <= 0.4 and 0.0 < bal["foot_rail_m"] < bal["height_m"] / 2
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s storey_balcony stands on a square tower and takes "
+                                 f"{sorted(need)}: one of its storey lines, a slab 0.1-0.4 m on 1-6 courses "
+                                 f"0.08-0.4 m deep, 0.3-1.2 m out, a 0.5-1.2 m balustrade whose posts stand on "
+                                 f"the slab and whose rails are thinner than its posts, not {sb}")
+            bal["fabric"] = "stone"
+            v["storey_balcony"] = bal
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi
@@ -4484,7 +4548,29 @@ def _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top) -> dict:
         rise = (u1 - u0) / 2 * t
         if (v1 - v0) - sum(rise / math.tan(math.radians(end_pitch.get(sd, pitch))) for sd in ("south", "north")) < 0.3:
             raise ParamError(f"rear_wings: {wid}'s ends at {end_pitch} meet less than 0.3 m apart: no ridge")
+    # T-3337: a flank gable carried up in a stone coping, kneelers and a finial on the ends it
+    # names (1919's rear ranges, both Gatlin Institute plates), the street dormer's bounds
+    # (T-3301's dormer.coping), laid by k01_wing_coping
+    coping = None
+    if roof.get("coping") is not None:
+        c = roof["coping"]
+        if kind != "gable" or axis != "v":
+            raise ParamError(f"rear_wings: {wid}'s coping is laid on a gable facing a flank (south or north)")
+        if not isinstance(c, dict) or set(c) != {"thickness_m", "depth_m", "kneeler_m", "finial_m", "ends"}:
+            raise ParamError(f"rear_wings: {wid}'s coping takes thickness_m, depth_m, kneeler_m, finial_m and ends")
+        coping = {k_: float(c[k_]) for k_ in ("thickness_m", "depth_m", "kneeler_m", "finial_m")}
+        if not (0.1 <= coping["thickness_m"] <= 0.3 and 0.15 <= coping["depth_m"] <= 0.6
+                and 0.2 <= coping["kneeler_m"] <= 0.5
+                and (coping["finial_m"] == 0.0 or 0.4 <= coping["finial_m"] <= 0.9)):
+            raise ParamError(f"rear_wings: {wid}'s coping: a 0.1-0.3 m stone, 0.15-0.6 m back from the face, "
+                             f"0.2-0.5 m kneelers and a 0.4-0.9 m finial (or 0, none)")
+        ends = c["ends"]
+        if not isinstance(ends, list) or not ends or len(set(ends)) != len(ends) \
+                or set(ends) - {"south", "north"}:
+            raise ParamError(f"rear_wings: {wid}'s coping.ends names its gable ends, south and/or north")
+        coping["ends"] = tuple(sd for sd in ("south", "north") if sd in ends)
     return {"kind": kind, "pitch_deg": pitch, "covering": cov, "axis": axis,
+            **({"coping": coping} if coping else {}),
             **({"gable_to": gable_to} if kind == "gable" else {}),
             **({"end_pitch_deg": end_pitch} if end_pitch else {}),
             "ridge_m": ridge, "cover_m": ridge if axis == "u" else top}
@@ -4625,6 +4711,8 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
             if roof.get("covering") != "painted_tin_sheet":
                 raise ParamError(f"rear_wings: {wid}'s deck is covered in {roof.get('covering')!r}; a K01 wing "
                                  f"deck is K04's painted_tin_sheet")
+            if roof.get("coping") is not None:   # T-3337: a coping is a gable's
+                raise ParamError(f"rear_wings: {wid}'s coping is laid on a gable facing a flank (south or north)")
             pitched = None
             deck = cover = round(top + fas, 4)
         else:
@@ -4774,9 +4862,17 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
                              f"projection or an oriel")
         j, side = at[e["wall"]]
         w = wings[j]
-        if side in _gable_walls(w["roof"]):
+        # T-3337: except a FLAT-TOPPED full-height projection, which stops at the wing's wall top
+        # with nothing closed over it, so the gable's walling rises behind its flat top (1919
+        # Prairie's rear range: the 1911 sheet's canted north bay, flat-topped under a balustrade
+        # with the range's steep gable standing back over it in both Gatlin Institute plates)
+        flat = e["variant"] == "k08.projection.full_height" \
+            and (e.get("roof") or {}).get("kind") == "hip" and float((e.get("roof") or {}).get("pitch", -1)) == 0.0 \
+            and "past_end" not in e
+        if side in _gable_walls(w["roof"]) and not flat:
             raise ParamError(f"bays: {e['id']} stands on {e['wall']}, a gable end: the gable's walling rises "
-                             f"where the tower's back is closed over the wing's wall top")
+                             f"where the tower's back is closed over the wing's wall top (only a flat-topped "
+                             f"full-height projection, roof hip at pitch 0, stands on a gable end)")
         ops = list(w["openings"])
         past = e.get("past_end")
         if past is not None:

@@ -47,9 +47,9 @@ CONSUMED = frozenset({
     "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "construction",
     "paint", "siding_exposure_m", "shutters", "gallery", "log_wing", "chimneys",
     "elevation_scheme", "chimney_placement", "side_entrance", "rear_ell",
-    "shutter_type", "entrance_frontispiece", "chimney_material", "roof_colour",
+    "shutter_type", "entrance_frontispiece", "front_opening_details", "front_lower_sash", "chimney_material", "roof_colour",
     "log_wing_door", "log_wing_porch_hood",
-    "cross_wing", "cross_wing_depth_m", "cross_wing_end",
+    "cross_wing", "cross_wing_depth_m", "cross_wing_end", "enclosed_left_annex",
     "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
     "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout",
     "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
@@ -115,6 +115,9 @@ class FrameTavernParams:
     # the gable_front scheme dresses its own doors. Sizes are the archetype's;
     # docs/LIBERTIES.md L154 owns them.
     entrance_frontispiece: bool = False
+    front_opening_details: dict | None = field(default=None, kw_only=True)
+    # Source-specific four lower facade sash; None retains every stock opening.
+    front_lower_sash: dict | None = field(default=None, kw_only=True)
     # The clapboard's exposed face. 0.14 m (~5.5 in) is the archetype's own stock —
     # the one rhythm every frame building wore until T-0049 — and stays the default
     # for a record that carries no value. The deal that writes record values is
@@ -191,6 +194,10 @@ class FrameTavernParams:
     # (T-0083). Ridge continues the main axis at a lower eave; a wide carriage
     # door opens in its own (far) gable. All reconstructed; docs/LIBERTIES.md
     # owns the sizes.
+    # Optional undated enclosed side-group reading. All metric layout is R;
+    # None leaves every existing canonical/alternate geometry path unchanged.
+    enclosed_left_annex: dict | None = field(default=None, kw_only=True)
+
     rear_ell: bool = False
     rear_ell_width_m: float = 5.5
     rear_ell_depth_m: float = 4.5
@@ -297,7 +304,54 @@ class FrameTavernParams:
         even if we know it was white."""
         return max((self.conf(a) for a in attrs), default=1.0)
 
+    @property
+    def left_annex_parts(self) -> list[dict]:
+        """Resolved component frames, occupied rings and door faces.
+
+        The builder, compiler and physical readers share these exact frames.
+        An open shoulder is occupied by the separate yard bay, not an invisible
+        solid rectangle joining the main block to the enclosed connector.
+        """
+        g = self.enclosed_left_annex
+        if g is None:
+            return []
+        parts = []
+        x = self.width_m
+        for name in ("shoulder", "connector", "boarding_range"):
+            v = g[name]
+            x1 = x + v["span_m"]
+            front = self.depth_m - g["front_setback_m"] + v.get("front_set_out_m", 0.)
+            back = front - v["depth_m"]
+            angle = math.radians(v.get("plan_rotation_deg", 0.))
+            cs, sn = math.cos(angle), math.sin(angle)
+
+            def turn(u, vv):
+                if not angle:
+                    return [u, vv]
+                return [x + (u-x)*cs - (vv-back)*sn,
+                        back + (u-x)*sn + (vv-back)*cs]
+
+            occupied = name != "shoulder" or g.get("shoulder_enclosed", True)
+            part = {"id": name, "x0": x, "x1": x1, "back": back, "front": front,
+                    "cos": cs, "sin": sn, "rotated": bool(angle),
+                    "occupied": occupied,
+                    "polygon": [turn(x, back), turn(x1, back),
+                                turn(x1, front), turn(x, front)]}
+            if name == "boarding_range":
+                fraction, width, _height = v["front_door"]
+                part["door_face"] = {
+                    "face": "annex_boarding_range", "origin": turn(x, front),
+                    "along": [cs, sn], "outward": [-sn, cs], "u0": 0.,
+                    "u1": v["span_m"], "openings": [{"kind": "door",
+                        "u0": fraction*v["span_m"]-width/2,
+                        "u1": fraction*v["span_m"]+width/2}]}
+            parts.append(part)
+            x = x1
+        return parts
+
     def validate(self) -> None:
+        if self.enclosed_left_annex is not None:
+            _validate_enclosed_left_annex(self)
         if not 2.0 <= self.width_m <= 80.0:
             raise ParamError(f"width_m {self.width_m} outside plausible range 2-80 m")
         if not 2.0 <= self.depth_m <= 60.0:
@@ -336,6 +390,10 @@ class FrameTavernParams:
         for k, v in self.confidence.items():
             if v not in CONFIDENCE_VALUE:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
+        if self.front_lower_sash is not None:
+            _validate_front_lower_sash(self)
+        if self.front_opening_details is not None:
+            _validate_front_opening_details(self)
         if self.elevation_scheme not in ("frontage", "gable_front", "corner_gable"):
             raise ParamError(f"elevation_scheme '{self.elevation_scheme}' not in "
                              f"('frontage', 'gable_front', 'corner_gable')")
@@ -609,6 +667,65 @@ class FrameTavernParams:
         return self.width_m * door, (self.width_m * sash_a, self.width_m * sash_b)
 
 
+def _validate_front_lower_sash(p: FrameTavernParams) -> None:
+    """Only the four lower front sash; never a change to rear or upper openings."""
+    g = p.front_lower_sash
+    if not isinstance(g, dict) or set(g) != {"width_m", "height_m", "sill_m"}:
+        raise ParamError("front_lower_sash needs width_m, height_m and sill_m")
+    if p.elevation_scheme != "frontage" or p.stories != 2 or p.gallery:
+        raise ParamError("front_lower_sash needs a two-storey frontage without a gallery")
+    if p.confidence.get("front_lower_sash", "reconstructed") != "reconstructed":
+        raise ParamError("front_lower_sash numeric sections must remain reconstructed")
+    for key, lo, hi in [("width_m", .45, 1.2), ("height_m", 1.4, 2.6), ("sill_m", .35, 1.4)]:
+        value = g[key]
+        if (isinstance(value, bool) or not isinstance(value, (int, float))
+                or not math.isfinite(value) or not lo <= value <= hi):
+            raise ParamError(f"front_lower_sash {key} needs a finite number in {lo}..{hi}")
+    if g["sill_m"] + g["height_m"] > p.wall_height_m / p.stories + .05:
+        raise ParamError("front_lower_sash head must remain below its storey division")
+    reach = g["width_m"] / 2 + .090 + .01 + (g["width_m"] * .42 if p.shutters else 0.)
+    if 2 * reach + .02 >= p.width_m / 5:
+        raise ParamError("front_lower_sash and shutters overlap the neighbouring bay")
+
+
+def _validate_front_opening_details(p: FrameTavernParams) -> None:
+    """A bounded frontage-only entrance; never an unsupported interior claim."""
+    g = p.front_opening_details
+    keys = {"kind", "case_width_m", "jamb_outer_width_m", "leaf_width_m",
+            "leaf_head_m", "transom_top_m", "cornice_top_m",
+            "sidelights_each_width_m"}
+    if not isinstance(g, dict) or set(g) != keys:
+        raise ParamError("front_opening_details needs exactly the bounded entrance fields")
+    if g["kind"] != "blind_dark_recess":
+        raise ParamError("front_opening_details supports only a blind dark recess")
+    if (p.elevation_scheme != "frontage" or not p.entrance_frontispiece
+            or p.stories != 2 or p.gallery):
+        raise ParamError("front_opening_details needs a two-storey frontage with an entrance frontispiece")
+    if p.confidence.get("front_opening_details", "reconstructed") != "reconstructed":
+        raise ParamError("front_opening_details numeric sections must remain reconstructed")
+    bounds = {"case_width_m": (2., 3.2), "jamb_outer_width_m": (1.7, 2.4),
+              "leaf_width_m": (.7, 1.2), "leaf_head_m": (2.1, 2.7),
+              "transom_top_m": (2.6, 3.3), "cornice_top_m": (2.8, 3.5),
+              "sidelights_each_width_m": (.2, .45)}
+    for key, (lo, hi) in bounds.items():
+        value = g[key]
+        if (isinstance(value, bool) or not isinstance(value, (int, float))
+                or not math.isfinite(value) or not lo <= value <= hi):
+            raise ParamError(f"front_opening_details {key} needs a finite number in {lo}..{hi}")
+    if not (g["leaf_head_m"] + .3 <= g["transom_top_m"]
+            and g["transom_top_m"] + .12 <= g["cornice_top_m"]
+            and g["cornice_top_m"] <= p.wall_height_m - 1.4):
+        raise ParamError("front_opening_details head, transom and crown must stay ordered below the upper row")
+    if (g["case_width_m"] < g["jamb_outer_width_m"] + .3
+            or g["leaf_width_m"] + 2 * g["sidelights_each_width_m"] + .4 > g["jamb_outer_width_m"]):
+        raise ParamError("front_opening_details lights, leaf and jambs overlap")
+    # Check against the actual selected front sash and its open leaves.
+    sash_width = p.front_lower_sash["width_m"] if p.front_lower_sash else .85
+    neighbour_reach = sash_width / 2 + .090 + .01 + (sash_width * .42 if p.shutters else 0.)
+    if g["jamb_outer_width_m"] / 2 + neighbour_reach + .02 > p.width_m / 5:
+        raise ParamError("front_opening_details jambs overlap the neighbouring lower sash/shutters")
+
+
 def _board_lay(recon: dict) -> float:
     """The fabric rule's lay for this roof (FIN-L), from the material sheet."""
     from common.materials import board_lay  # noqa: E402 — generators/ is on the path
@@ -698,6 +815,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         shutter_type=val("shutter_type"),
         gallery=bool(val("gallery", False)),
         entrance_frontispiece=bool(val("entrance_frontispiece", False)),
+        front_opening_details=val("front_opening_details"),
+        front_lower_sash=val("front_lower_sash"),
         log_wing=bool(val("log_wing", False)),
         log_wing_door=bool(val("log_wing_door", False)),
         log_wing_porch_hood=bool(val("log_wing_porch_hood", False)),
@@ -715,6 +834,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         flagstaff_height_m=measure("flagstaff_height_m", 4.25),
         chimney_placement=str(val("chimney_placement", "frontage")),
         side_entrance_face=side_face,
+        enclosed_left_annex=val("enclosed_left_annex"),
         rear_ell=bool(val("rear_ell", False)),
         rear_ell_door=str(val("rear_ell_door", "carriage")),
         upper_windows=(None if val("upper_windows") is None
@@ -739,3 +859,90 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
     )
     p.validate()
     return p
+
+
+def _validate_enclosed_left_annex(p: FrameTavernParams) -> None:
+    """One bounded three-mass +X interpretation, not arbitrary compound geometry."""
+    g = p.enclosed_left_annex
+    if (p.elevation_scheme != "gable_front" or p.roof_type != "gable" or
+            p.stories != 2 or p.log_wing or p.cross_wing or p.gallery):
+        raise ParamError("enclosed_left_annex needs a simple two-storey gable-front frame block")
+    if p.confidence.get("enclosed_left_annex", "reconstructed") != "reconstructed":
+        raise ParamError("enclosed_left_annex metric layout must remain reconstructed")
+    required = {"attach_face", "front_setback_m", "shoulder", "connector", "boarding_range"}
+    if (not isinstance(g, dict) or not required <= set(g)
+            or set(g) - (required | {"shoulder_enclosed"})):
+        raise ParamError("enclosed_left_annex needs exactly the bounded three-part layout")
+    if "shoulder_enclosed" in g and type(g["shoulder_enclosed"]) is not bool:
+        raise ParamError("enclosed_left_annex shoulder enclosure must be boolean")
+    def number(v, lo, hi, label):
+        if isinstance(v, bool) or not isinstance(v, (int,float)) or not math.isfinite(v) or not lo <= v <= hi:
+            raise ParamError(f"enclosed_left_annex {label} needs a finite number in {lo}..{hi}")
+    if g["attach_face"] != "x_max":
+        raise ParamError("enclosed_left_annex attaches only to x_max")
+    number(g["front_setback_m"], -.3, 2., "setback")
+    common={"span_m", "depth_m", "wall_m", "roof"}
+    extra={"shoulder":{"roof_high_m","roof_low_m","front_window","front_gable_light","front_gable_peak_m"},
+           "connector":{"roof_low_m","roof_high_m","front_openings"},
+           "boarding_range":{"roof_pitch_deg","ridge_axis","front_door","front_window","front_gable_light"}}
+    roofs={"shoulder":"shed_with_front_gable","connector":"shed","boarding_range":"gable"}
+    for name in ("shoulder","connector","boarding_range"):
+        v=g[name]
+        optional = {"front_set_out_m", "plan_rotation_deg"} if name == "boarding_range" else set()
+        if (not isinstance(v,dict) or not common|extra[name] <= set(v)
+                or set(v) - (common|extra[name]|optional)):
+            raise ParamError(f"enclosed_left_annex {name} has unsupported or missing fields")
+        if "front_set_out_m" in v:
+            number(v["front_set_out_m"], 0., 3., name+" front set-out")
+        if "plan_rotation_deg" in v:
+            number(v["plan_rotation_deg"], 0., 45., name+" plan rotation")
+        number(v["span_m"], 1.5, 6., name+" span")
+        number(v["depth_m"], 2., min(8.,p.depth_m-g["front_setback_m"]), name+" depth")
+        number(v["wall_m"], 1.8, min(3.5,p.wall_height_m-.5), name+" wall")
+        if name == "boarding_range":
+            lap = v["depth_m"] - v.get("front_set_out_m", 0.)
+            if lap < .25 or (v.get("plan_rotation_deg", 0.)
+                             and lap > g["connector"]["depth_m"] - .25):
+                raise ParamError("enclosed_left_annex boarding range loses its connector attachment")
+        if v["roof"] != roofs[name]:
+            raise ParamError(f"enclosed_left_annex {name} roof category is fixed")
+        if name != "boarding_range":
+            number(v["roof_low_m"], v["wall_m"]+.05, p.wall_height_m-.3, name+" roof low")
+            number(v["roof_high_m"], v["roof_low_m"]+.05, p.wall_height_m-.2, name+" roof high")
+        else:
+            number(v["roof_pitch_deg"], 25., 40., name+" pitch")
+            if v["ridge_axis"] != "y":
+                raise ParamError("enclosed_left_annex boarding range ridge is y")
+        if name == "connector":
+            if v["front_openings"] != []:
+                raise ParamError("enclosed_left_annex low connector has no stated front opening")
+            continue
+        def opening(key, count):
+            a=v[key]
+            if not isinstance(a,(list,tuple)) or len(a)!=count:
+                raise ParamError(f"enclosed_left_annex {name} {key} has wrong section")
+            for n in a:number(n, .01, 5., name+" "+key)
+            number(a[0], .15, .85, name+" opening fraction")
+            width=a[1] if key=="front_door" else a[2]
+            if width/2+.15 > min(a[0],1-a[0])*v["span_m"]:
+                raise ParamError("enclosed_left_annex opening breaks its facade edge")
+            return a
+        w=opening("front_window",4)
+        if w[1]+w[3]+.15 > v["wall_m"]:
+            raise ParamError("enclosed_left_annex lower sash breaks its eave band")
+        light=opening("front_gable_light",4)
+        if name=="shoulder":
+            number(v["front_gable_peak_m"],max(v["roof_high_m"],light[1]+light[3]+.2),p.wall_height_m-.1,"shoulder peak")
+            if light[1]-.1 < v["roof_low_m"] or light[2]+.5 > v["span_m"]:
+                raise ParamError("enclosed_left_annex shoulder light breaks its bounded dormer")
+        else:
+            door=opening("front_door",3)
+            if door[2]+.15>v["wall_m"]:
+                raise ParamError("enclosed_left_annex door breaks its eave band")
+            if abs(door[0]-w[0])*v["span_m"] <= (door[1]+w[2])/2+.15:
+                raise ParamError("enclosed_left_annex door and sash overlap")
+            edge_z=light[1]+light[3]+.15
+            reach=abs((light[0]-.5)*v["span_m"])+light[2]/2+.1
+            roof_z=v["wall_m"]+((v["span_m"]+.5)/2-reach)*math.tan(math.radians(v["roof_pitch_deg"]))
+            if light[1]-.1<v["wall_m"] or edge_z>roof_z:
+                raise ParamError("enclosed_left_annex upper light breaks its gable rake")

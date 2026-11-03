@@ -1,0 +1,81 @@
+{
+  "_doc": "A WORN YARD (T-3339). The ground round burns_house_1812 as trodden earth feathered into the sward by renderers/web/js/yards.js. NOT ONE COORDINATE HERE IS AUTHORED - the ring is the convex hull of the buildings' committed footprints pushed out 3.0 m, written by tools/generate_worn_ground_1812.py and re-derived byte for byte by tools/check.sh. It draws no fence (`runs: []`). docs/LIBERTIES.md L-t3339-worn-ground-1812.",
+  "id": "worn_yard_1812_burns_house",
+  "name": "Worn ground: The Burns family's dooryard",
+  "kind": "worn_yard",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "structure_ids": [
+    "burns_house_1812"
+  ],
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin.",
+  "existence": {
+    "confidence": "reconstructed",
+    "note": "The Burns family's dooryard. That the ground round a used building was worn bare in patches is this project's reading; no source describes it. docs/LIBERTIES.md L-t3339-worn-ground-1812.",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1"
+    ]
+  },
+  "runs": [],
+  "runs_note": "EMPTY, AND DELIBERATELY: worn ground round a building, not a fenced yard.",
+  "ground": {
+    "treatment": "trodden_earth",
+    "confidence": "reconstructed",
+    "note": "worn_earth where stock stood and wheels turned; trodden_earth at a dooryard.",
+    "interior_local_enu_m": [
+      [
+        790.11,
+        104.65
+      ],
+      [
+        804.19,
+        104.65
+      ],
+      [
+        804.19,
+        115.25
+      ],
+      [
+        790.11,
+        115.25
+      ]
+    ],
+    "fringe_ring_local_enu_m": [
+      [
+        790.11,
+        104.65
+      ],
+      [
+        804.19,
+        104.65
+      ],
+      [
+        804.19,
+        115.25
+      ],
+      [
+        790.11,
+        115.25
+      ]
+    ],
+    "feather_m": 5.0,
+    "wear": 0.4,
+    "wear_note": "How bare the ground is, 0..1: the share of the treatment drawn and of the sward taken away. Sized by the traffic the building drew."
+  },
+  "assertions": [
+    {
+      "id": "no_garden_worn",
+      "claim": "the yard lies on no garden or field footprint",
+      "clashes": [],
+      "holds": true
+    },
+    {
+      "id": "dry_ground",
+      "claim": "no corner of the yard lies on water",
+      "wet_corners": 0,
+      "holds": true
+    }
+  ]
+}

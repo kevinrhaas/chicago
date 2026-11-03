@@ -853,9 +853,9 @@
     },
     {
       "id": "house_2001_prairie",
-      "name": "2001 Prairie Avenue — Stone-front masonry (district draft; refined by T-1912)",
+      "name": "2001 Prairie Avenue — stone-front corner house of two and a half storeys on 20th Street, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2001_prairie.json",
-      "asset": "gltf/house_2001_prairie__draft_1904.glb"
+      "asset": "gltf/house_2001_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2001_prairie_coach_house",
@@ -1297,9 +1297,9 @@
     },
     {
       "id": "jones_house_1834_prairie_coach_house",
-      "name": "1834 S. Prairie Avenue — the alley building of the house at 1834 (district draft; refined by T-1935)",
+      "name": "1834 Prairie Avenue (the Jones house): the brick barn on the alley, K12",
       "sidecar": "sidecars/1904/jones_house_1834_prairie_coach_house.json",
-      "asset": "gltf/jones_house_1834_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/jones_house_1834_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "keith_house_1808_prairie",

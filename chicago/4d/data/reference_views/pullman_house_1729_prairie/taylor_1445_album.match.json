@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2cac97eef92a6a91d18853d1fbce5206d4d5fa48dda37cc7c7efa466d9567f38",
+  "glb_sha256": "caee81cc2b5068d6c97eb7617246cd3283bbd261df681aeea3fa85533dbea197",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -42,19 +42,19 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
+      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
+      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
+      "sha256": "cd404eba8da667728585833a369f14ffe3c7757799d2df960b2f77439ac151ed"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
     },
     {
       "file": "renderers/web/js/season.js",
@@ -62,10 +62,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
     }
   ],
-  "flora_sha256": "9406b5b33896f04a4110391f0b69749cb194482bbf690ee2f39468d100fbe9c5",
+  "flora_sha256": "cca7cfceb2713a3bc77a556422f8889348a3f3a2deb86a427eec79785b9a1005",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -178,8 +178,8 @@
     },
     {
       "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1139-1273 through this camera, far down the street behind the picture's own trees; this item is unchanged.] [T-1934, 2026-10-31: the four parkway trees before the estate on 18th Street (37.65, 43.7, 51.3 and 64.1 m) and the two at the Calumet corner are now drawn as slender young elms, read off Taylor's 1445, Taylor's 16554 and the Detroit print; this item stands for the house's own parkway and lawn trees, unchanged.]",
-      "status": "open",
-      "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture. T-1881, 2026-10-30: 18th Street's north parkway west of T-1934's stretch (0-46.9 m) is now planted off Taylor's photograph no. 1445, five trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns (the app's grown trees against the picture's slender ones), the Prairie Avenue parkway and the lawn trees inside the walls (the slender saplings behind the 18th Street wall, the front lawn's three lindens), none yet worked to the pictures. T-1881, 2026-10-30 (the Prairie parkway): the house's own Prairie Avenue parkway (prairie__prairie_ic_16_18, 228.5-257.5 m) is now planted off the Detroit print, four trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns, the lawn trees inside the walls (the white-barked saplings behind the Prairie wall, the front lawn's lindens) and the corner between the two parkways."
+      "status": "fixed",
+      "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture. T-1881, 2026-10-30: 18th Street's north parkway west of T-1934's stretch (0-46.9 m) is now planted off Taylor's photograph no. 1445, five trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns (the app's grown trees against the picture's slender ones), the Prairie Avenue parkway and the lawn trees inside the walls (the slender saplings behind the 18th Street wall, the front lawn's three lindens), none yet worked to the pictures. T-1881, 2026-10-30 (the Prairie parkway): the house's own Prairie Avenue parkway (prairie__prairie_ic_16_18, 228.5-257.5 m) is now planted off the Detroit print, four trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns, the lawn trees inside the walls (the white-barked saplings behind the Prairie wall, the front lawn's lindens) and the corner between the two parkways. T-1881 (2026-11-03): the house's own parkway trees (Prairie Avenue 232.0-256.0 m, 18th Street 3.7-24.65 m) grow on a new pictured form, `high_head` (street-trees.js FORMS, tree-model.js ARCH.ulmus_americana_high): one straight leader about 0.3 m across, clear to about the second storey, under a head about 6 m across on a tree 16-20 m tall, read off this print and Taylor's no. 1445. Through this camera the three 18th Street trunks rise as straight leaders beside the flank with their heads from about the cornice, as the photograph's do, where the grown elm forked about 3 m up; their places are as read (T-1881, 2026-10-30). The heads' early leaf draws as scattered clumps against the photograph's airy crowns, the layer's spring drawing, under the bar."
     },
     {
       "what": "the Prairie parkway's corner tree (planted off the Detroit print and the 1890 Albertype plate at 256.0 m) renders at about x 60, where this photograph shows the Prairie parkway clear from the neighbour's stoop (x 60-150) to the corner's trunk at x 308",

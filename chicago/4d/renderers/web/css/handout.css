@@ -33,7 +33,8 @@
 .handout-print { display: none; }
 
 @media print {
-  @page { margin: 12mm; }
+  /* Three destinations of three Jaunts each (1812's since T-3325) on one Letter page. */
+  @page { margin: 10mm; }
   html.is-printing-handout, html.is-printing-handout body {
     height: auto !important; min-height: 0 !important; overflow: visible !important;
     position: static !important; background: #fff !important; color: #000 !important;
@@ -42,13 +43,13 @@
   html.is-printing-handout .handout-print { display: block !important; position: static; }
   .handout-print .handout {
     --ink: #000; --ink-dim: #333; --ink-faint: #555; --accent: #000;
-    font: 10pt/1.3 Georgia, 'Times New Roman', serif; color: #000;
+    font: 9.5pt/1.25 Georgia, 'Times New Roman', serif; color: #000;
     break-inside: avoid; page-break-inside: avoid;
   }
   .handout-print .handout-title { font: 700 17pt/1.15 Georgia, 'Times New Roman', serif; margin-bottom: 3pt; }
   .handout-print .handout-head { border-bottom: 1.5pt solid #000; padding-bottom: 5pt; margin-bottom: 4pt; }
-  .handout-print .handout-h { font: 700 8pt/1.3 ui-monospace, Menlo, Consolas, monospace; margin: 9pt 0 4pt; letter-spacing: .14em; color: #000; }
-  .handout-print .handout-steps { gap: 4pt; }
+  .handout-print .handout-h { font: 700 8pt/1.3 ui-monospace, Menlo, Consolas, monospace; margin: 7pt 0 3pt; letter-spacing: .14em; color: #000; }
+  .handout-print .handout-steps { gap: 3pt; }
   .handout-print .handout-step { grid-template-columns: 2.2em minmax(0, 1fr); border-bottom: .5pt solid #bbb; padding-bottom: 3pt; }
   .handout-print .handout-n { font: 700 11pt/1.2 ui-monospace, Menlo, Consolas, monospace; }
   .handout-print .handout-dests { gap: 6pt; }

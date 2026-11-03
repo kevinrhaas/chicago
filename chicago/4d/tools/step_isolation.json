@@ -4151,6 +4151,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/generate_worn_ground_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/generate_yard_goods.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5959,6 +5963,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_wheeler_signoff.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_wing_coping.py": {
       "wrote": [],
       "wrote_ignored": []
     },

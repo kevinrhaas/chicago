@@ -1,0 +1,37 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "view": "nypl-1867",
+  "glb": "assets/gltf/wolf_point_tavern__log_frame_1828.glb",
+  "glb_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+  "camera_sha256": "89d2ec2dc16a820d871aa38421353d3925b0ea079bdb547f4bff29df37493f34",
+  "photo_sha256": "d53dfb2f7110484d488f4c5329aad60cd53b5f408df44e273cc87406c5a58b50",
+  "side_by_side": "docs/RESEARCH/photo-match/wolf_point_tavern/nypl-1867-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Two outwardgableends meeting at the insidecorner, two darkentryrecesses, the smallrightlight, onebroadroofhead pluspipe and theleaningwolfboardsapling are built in the currentcanonicalmaster; root directly accepted these pictured categories against this exactnativecapture.",
+      "status": "fixed"
+    },
+    {
+      "what": "The formerpalegreyroof gap was already corrected by mergedPR1336. This neutralcurrentMASTER comparison reads as an appropriate darkfield. The exactdeepbrownpalette remains reconstructed, not claimed historicalpigment.",
+      "status": "fixed"
+    },
+    {
+      "what": "Smallroofedge, door/lightstation, pole/stackprojection and engravingpixel residuals lie within manual3–6pxpickuncertainty/artworkandfinitecamera disagreement; no additionalunambiguousstreetnoticeable dimension/count/shapeerror isestablished by this untied5mreconstructedscale.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Worldriverbank/terrain/neighbours/figures/context are not rendered by thissingleanchor neutralreview and are not accepted as a wholeworldmatch or measuredplacement.",
+      "status": "not shown"
+    },
+    {
+      "what": "Nativeapplicationroofnormal/ORMtreatment and authenticpigment are not certified by isolatedphoto_match; currentBOTHviewportappfinishproof remains necessary before originalclosure.",
+      "status": "not shown"
+    },
+    {
+      "what": "This record accepts only the pictured NYPL target categories. Root separately directly reviewed and accepted the other six usable native source-specific views under T-3153. The rights-conflicted poster and unresolved Herriott identity retain explicit inspection-only coverage dispositions; whole-ticket closure is not claimed.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

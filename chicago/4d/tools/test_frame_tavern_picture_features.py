@@ -30,13 +30,18 @@ from archetypes.frame_tavern_params import (  # noqa: E402
 from common.mesh import MeshBuilder  # noqa: E402
 
 
-def record_params(structure_id, phase_id, version=None):
+def record_params(structure_id, phase_id, version=None, *, annex=False):
     path = ROOT / "data/structures" / f"{structure_id}.json"
     if version is not None:
         path = ROOT / "data/structures/versions" / structure_id / f"{version}.json"
     record = json.loads(path.read_text())
     phase = next(p for p in record["phases"] if p["id"] == phase_id)
-    return record, phase, from_phase(phase, record)
+    params = from_phase(phase, record)
+    # Existing focused picture-feature fixtures exercise their own opt-in only.
+    # The complete new compound is tested explicitly with annex=True below.
+    if not annex and params.enclosed_left_annex is not None:
+        params = dataclasses.replace(params, enclosed_left_annex=None)
+    return record, phase, params
 
 
 def signature(result):
@@ -66,6 +71,53 @@ class PictureFeatures(unittest.TestCase):
         self.assertTrue(all(0 <= c <= 1 for c in mesh.conf))
         for face in mesh.faces:
             self.assertGreater(sum(c*c for c in normal(mesh, face)), 1e-14)
+
+    def test_occupied_annex_components_preserve_the_open_bay(self):
+        from occupied_footprints import additional_parts, local_polygons
+        record, phase, params = record_params("green_tree_tavern", "frame_1833", annex=True)
+        extra = additional_parts(record, phase)
+        self.assertEqual([p["id"] for p in extra], ["connector", "boarding_range"])
+        self.assertEqual(params.left_annex_parts[0]["occupied"], False)
+        self.assertEqual(dataclasses.replace(params, enclosed_left_annex=None).left_annex_parts, [])
+        mesh = MeshBuilder("open-compound")
+        builder._enclosed_left_annex(mesh, params, params.width_m, params.depth_m)
+        self.assert_valid_mesh(mesh)
+        self.assertEqual(set(mesh.conf), {1.0})
+        # The roof overhang is not a solid wall; use the actual wall-foot plane.
+        self.assertGreaterEqual(min(p[0] for p in mesh.verts if abs(p[2]) <= .05), 11.20,
+                                "no enclosed wall silently fills the 7.62..10.82m wagon bay")
+        # Exercise the competing closed reading without enrolling a version file.
+        closed_record = copy.deepcopy(record)
+        closed_phase = next(p for p in closed_record["phases"] if p["id"] == phase["id"])
+        closed_phase["form"]["enclosed_left_annex"]["value"]["shoulder_enclosed"] = True
+        closed = from_phase(closed_phase, closed_record)
+        self.assertEqual([p["id"] for p in additional_parts(closed_record, closed_phase)],
+                         ["shoulder", "connector", "boarding_range"])
+        self.assertTrue(closed.left_annex_parts[0]["occupied"])
+        bare = {"footprint": phase["footprint"]}
+        self.assertEqual(local_polygons(bare), [phase["footprint"]["polygon"]])
+        with self.assertRaises(ValueError):
+            local_polygons({"footprint": {"polygon": phase["footprint"]["polygon"],
+                           "additional_polygons": [{"polygon": [[0, 0], [1, math.nan], [2, 0]]}]}})
+
+    def test_annex_door_uses_the_same_rotated_frame_as_its_walls(self):
+        import generate_entrances
+        record, phase, params = record_params("green_tree_tavern", "frame_1833", annex=True)
+        face = params.left_annex_parts[-1]["door_face"]
+        centre = [(face["origin"][i] + .8*face["along"][i]) for i in range(2)]
+        self.assertAlmostEqual(centre[0], 13.6771914444072, places=9)
+        self.assertAlmostEqual(centre[1], 13.4470179705025, places=9)
+        sidecar = {"id": record["id"], "archetype": "frame_tavern", "phase": phase["id"],
+                   "placement": {"local_e": 0., "local_n": 0., "rotation_deg": 0.},
+                   "footprint": phase["footprint"], "attributes": {}}
+        with patch.object(generate_entrances, "_sidecars", return_value=[sidecar]), \
+                patch.object(generate_entrances, "_streets", return_value=[]):
+            result = generate_entrances.build()
+        entry = next(x for x in result["entrances"] if "annex_boarding_range" in x["id"])
+        self.assertEqual(entry["at_local_enu_m"], [13.68, 13.45])
+        self.assertEqual(entry["bearing_deg"], 335.)
+        self.assertEqual(entry["width_m"], 1.)
+
 
     def test_reconstructed_dark_stock_roof_colour_changes_only_material_and_roof_confidence(self):
         from common import materials

@@ -3046,7 +3046,7 @@
           "kind": "barrel",
           "pose": "laid",
           "at_local_enu_m": [
-            107.91,
+            107.73,
             -122.05
           ],
           "bearing_deg": 0.0,
@@ -3062,7 +3062,7 @@
           "kind": "crate",
           "tier": 0,
           "at_local_enu_m": [
-            109.24,
+            109.06,
             -122.05
           ],
           "bearing_deg": 0.0,
@@ -3079,7 +3079,7 @@
           "kind": "crate",
           "tier": 1,
           "at_local_enu_m": [
-            109.24,
+            109.06,
             -122.05
           ],
           "bearing_deg": 0.0,
@@ -5350,7 +5350,7 @@
       "eave_m": 2.95,
       "head_m": 3.63,
       "clearance_m": 3.31,
-      "note": "AN OPEN-SIDED WAGON SHED BESIDE THE FRONT GABLE, and the picture is the whole reason it is here. The verified Trowbridge/Gale 1902 plate (data/sources/trowbridge_green_tree_1902.json), captioned 1835, shows an open-sided wagon shed attached at the left of the house with a covered wagon standing under it — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. WHICH WALL IS DERIVED: the existing north (+u) host wall is unchanged. T-2376 places the bay at that wall's front end, ending at the same +v plane as the native primary entrance, instead of its former rear-end station. The covered wagon shares this centre. This is reconstructed setting from a retrospective drawing, not a surveyed coordinate or proof of the exact July-1835 state; the inn and its doors do not move. The enclosed gabled Andreas annexes remain unresolved and are not this yard roof. HOW BIG IS ARITHMETIC on numbers already here: the bay is 4.05 m along the wall (the wagon's body and 0.50 m of air at each end) by 3.20 m out from it (the ground a parked wagon is given), its open eave stands 2.95 m up (0.35 m over the tilt it covers) and its plate meets the wall 3.63 m up at 12 degrees. What is invented is that this inn had a wagon shed on 1 July 1835 and every dimension of it: docs/LIBERTIES.md L134. NOT THE SAME THING as the low one-storey additions John Gray describes at each end of the house — those are attributes of the BUILDING, dated three to six years after the scene and deliberately excluded from its footprint; this is a yard structure on the yard's own ground, and it does not date them."
+      "note": "AN OPEN-SIDED WAGON SHED BESIDE THE FRONT GABLE, and the picture is the whole reason it is here. The verified Trowbridge/Gale 1902 plate (data/sources/trowbridge_green_tree_1902.json), captioned 1835, shows an open-sided wagon shed attached at the left of the house with a covered wagon standing under it — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. WHICH WALL IS DERIVED: the existing north (+u) host wall is unchanged. T-2376 places the bay at that wall's front end, ending at the same +v plane as the native primary entrance, instead of its former rear-end station. The covered wagon shares this centre. This is reconstructed setting from a retrospective drawing, not a surveyed coordinate or proof of the exact July-1835 state; the inn and its doors do not move. The canonical low connector and farther gabled range are independent building geometry. The unadopted prepared Andreas reading closes the shoulder; this open wagon bay remains separate native yard geometry, not the gabled range. HOW BIG IS ARITHMETIC on numbers already here: the bay is 4.05 m along the wall (the wagon's body and 0.50 m of air at each end) by 3.20 m out from it (the ground a parked wagon is given), its open eave stands 2.95 m up (0.35 m over the tilt it covers) and its plate meets the wall 3.63 m up at 12 degrees. What is invented is that this inn had a wagon shed on 1 July 1835 and every dimension of it: docs/LIBERTIES.md L134. NOT THE SAME THING as the low one-storey additions John Gray describes at each end of the house — those are attributes of the BUILDING, dated three to six years after the scene and deliberately excluded from its footprint; this is a yard structure on the yard's own ground, and it does not date them."
     }
   ],
   "refused": [

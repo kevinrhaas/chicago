@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "73804318ecf5d670d5be4b76d30e4fa79087b6da1bd9cdea79bedfa27cbc5969",
+  "glb_sha256": "089240cbdd76a0a483f6d1b1d652508cef27d68187055a675db65f801470641b",
   "camera_sha256": "f72dc5d5006a4cbd513abe0b1afc875d574b75a8fce011cb6e2fe1d1c19dff69",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "73804318ecf5d670d5be4b76d30e4fa79087b6da1bd9cdea79bedfa27cbc5969"
+      "glb_sha256": "089240cbdd76a0a483f6d1b1d652508cef27d68187055a675db65f801470641b"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312"
     }
   ],
-  "group_sha256": "a336b06ced98f71e4810ee5f557b1fe208b1aa116be48a91ff6a9fa61ed1ebaa",
+  "group_sha256": "24da3fc95f8a1adb65bbfbc2674539348af0d0886de234116093512bf014a35a",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -140,19 +140,19 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
+      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
+      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
+      "sha256": "cd404eba8da667728585833a369f14ffe3c7757799d2df960b2f77439ac151ed"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
     },
     {
       "file": "renderers/web/js/season.js",
@@ -160,10 +160,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
     }
   ],
-  "flora_sha256": "0a0a2c1c446122b3b907ea7b6c11b9ff42676dde8f1284da3afee9929d51e702",
+  "flora_sha256": "97b9dd419068e0fc554b17156ed00b956f99aad3b3694cead6f86ec4cad20837",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

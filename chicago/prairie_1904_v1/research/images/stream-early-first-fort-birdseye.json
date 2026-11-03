@@ -1,0 +1,55 @@
+[
+ {
+  "id": "early-currey-1912-first-fort-birdseye",
+  "kind": "illustration",
+  "title": "Bird’s-Eye View of Old Fort Dearborn: the first fort (1803–1812), numbered reconstruction",
+  "building_ids": [],
+  "addresses": [],
+  "streetscape": true,
+  "view": "aerial",
+  "facing": "south-west",
+  "camera_position": null,
+  "date": "1912 publication; after an 1898 model; depicts 1803–1812 retrospectively",
+  "date_earliest": 1912,
+  "date_latest": 1912,
+  "period": "later",
+  "creator": "Illustrator uncredited; after a Chicago Daily Tribune drawing (5 March 1899) of Albert L. Van den Berghen’s 1898 model",
+  "repository": "J. Seymour Currey, The Story of Old Fort Dearborn (A. C. McClurg, 1912), p. 27; Wikimedia Commons reproduction",
+  "collection": "The Story of Old Fort Dearborn (1912), illustration at printed page 27",
+  "call_number": null,
+  "catalog_url": "https://commons.wikimedia.org/wiki/File:Birds_eye_view_of_first_Fort_Dearborn.jpg",
+  "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Birds_eye_view_of_first_Fort_Dearborn.jpg",
+  "rights": "public domain",
+  "rights_basis": "Published in the United States in 1912 and out of copyright there by age; Commons marks the file public domain by date of publication. The fetched Commons original (889 x 588, sha256 2f2b1e60…) is byte-identical to the copy the project already held at chicago/reference/images/chicago/chicago_fort_dearborn_birdseye_1812.jpg.",
+  "reference_copy": {
+   "basis": "Owner 2026-11-03 (T-3335): show this Commons picture with the fort's pictures; reference copy with attribution under the owner's 2026-10-11 rule (T-2368).",
+   "credit": {
+    "title": "Bird’s-Eye View of Old Fort Dearborn",
+    "date": "1912 publication; depicts 1803–1812 retrospectively",
+    "creator": "Illustrator uncredited; after a Chicago Daily Tribune drawing (5 March 1899) of Albert L. Van den Berghen’s 1898 model",
+    "repository": "Wikimedia Commons",
+    "collection": "J. Seymour Currey, The Story of Old Fort Dearborn (1912), p. 27",
+    "catalog_url": "https://commons.wikimedia.org/wiki/File:Birds_eye_view_of_first_Fort_Dearborn.jpg"
+   },
+   "credit_statement": "After a Chicago Daily Tribune drawing (1899) of Albert L. Van den Berghen’s 1898 model; J. Seymour Currey, The Story of Old Fort Dearborn (1912), p. 27; via Wikimedia Commons"
+  },
+  "local": {
+   "display": "research/images/files/early-currey-1912-first-fort-birdseye.jpg",
+   "display_bytes": 91001,
+   "thumb": "research/images/files/early-currey-1912-first-fort-birdseye-thumb.jpg",
+   "thumb_bytes": 21108,
+   "original_px": [
+    889,
+    588
+   ],
+   "original_sha256": "2f2b1e60fd78cb91956d16a50af526886b67c0b5fdc0337610ca5ad331360a1f",
+   "original_bytes": 132741,
+   "fetched_from": "https://commons.wikimedia.org/wiki/Special:FilePath/Birds_eye_view_of_first_Fort_Dearborn.jpg",
+   "fetched": "2026-11-03"
+  },
+  "verified": "viewed",
+  "found_via": "Owner, 2026-11-03: the Commons file page; already cited as data/sources/currey_1912_first_fort_birdseye since 2026-10-23",
+  "notes": "Not an eyewitness view. A retrospective reconstruction: Currey's plate follows a Chicago Daily Tribune drawing (5 March 1899) of a model Albert L. Van den Berghen built in 1898, nearly a century after the fort burned. Its numbered key names the main entrance (1), sally-port (2), western gateway (3), north-west and south-east blockhouses (4, 5), officers' quarters (6), barracks (7) and magazine (8). Where it departs from John Whistler's contemporary 1808 measured draught (which ranges stand where, the gate building, the blockhouse overhangs), the draught governs the model; this picture is shown for comparison. Joined to the 1812 fort's cards through the fort's diagnostic reference camera, with no Prairie parcel or building identity.",
+  "measurements": []
+ }
+]

@@ -60,6 +60,7 @@ import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
 import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround } from './fort-gates.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
+import { patchNightWindows } from './night-lights.js';
 import { layerPick } from './gpu-pick.js';
 import {
   compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
@@ -425,6 +426,7 @@ function materialKey(m) {
     m.roughnessMap?.uuid ?? '-',
     m.userData.roofFilter ?? '-',
     m.userData.glassPanes ?? '-',
+    m.userData.nightWindows ?? '-', // T-3332: a pane that glows by night is its own batch
     m.side, m.transparent ? 't' : 'o', m.alphaTest ?? 0, m.flatShading ? 'f' : 's', offset,
   ].join('|');
 }
@@ -658,6 +660,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         if (preserveMaterials) material.dispose();
         material = cheaper;
       }
+      // T-3332: a window pane glows by night (night-lights.js); 0 by day, to the bit.
+      if (bodyRole === 'glass') patchNightWindows(material);
       // Before the key is taken, and only ever by name — T-1488 and
       // docs/GLB-CONTRACT.md § Roof coverings.
       const reliefWarning = relief.apply(material);
