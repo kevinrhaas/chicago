@@ -30,7 +30,12 @@
         "heald-april",
         "waubun-escape"
       ],
-      "next": "burns"
+      "next": "burns",
+      "hour": "sunset",
+      "date": "1812-04-06",
+      "hour_evidence": [
+        "heald-april"
+      ]
     },
     {
       "id": "burns",
@@ -42,9 +47,15 @@
       "read_s": 17,
       "evidence": [
         "waubun-burns",
-        "quaife-militia"
+        "quaife-militia",
+        "burns-dusk"
       ],
-      "next": "the-order"
+      "next": "the-order",
+      "hour": "dusk",
+      "date": "1812-04-06",
+      "hour_evidence": [
+        "burns-dusk"
+      ]
     },
     {
       "id": "the-order",
@@ -58,7 +69,11 @@
         "hull-order",
         "order-arrives"
       ],
-      "next": "council"
+      "next": "council",
+      "hour": "morning",
+      "hour_evidence": [
+        "order-arrives"
+      ]
     },
     {
       "id": "council",
@@ -92,12 +107,17 @@
         "kind": "anchor",
         "id": "first_fort_covered_way"
       },
-      "text": "That night muskets were broken and dropped with powder, shot and flints down a well in the sally-port. The liquor went out through the northern gate, 'the heads of the barrels knocked in, and the contents poured into the river'. The knocking gave it away. Next morning, Wau-Bun says, the river tasted of 'strong grog'.",
+      "text": "That evening muskets were broken and dropped with powder, shot and flints down a well in the sally-port. The liquor went out through the northern gate, 'the heads of the barrels knocked in, and the contents poured into the river'. The knocking gave it away. Next morning, Wau-Bun says, the river tasted of 'strong grog'.",
       "read_s": 16,
       "evidence": [
         "destroyed"
       ],
-      "next": "the-gate"
+      "next": "the-gate",
+      "hour": "dusk",
+      "date": "1812-08-13",
+      "hour_evidence": [
+        "destroyed"
+      ]
     },
     {
       "id": "the-gate",
@@ -111,7 +131,11 @@
         "wells",
         "medal"
       ],
-      "next": "river-mouth"
+      "next": "river-mouth",
+      "hour": "sunset",
+      "hour_evidence": [
+        "medal"
+      ]
     },
     {
       "id": "river-mouth",
@@ -124,7 +148,12 @@
       "evidence": [
         "march"
       ],
-      "next": "the-bank"
+      "next": "the-bank",
+      "hour": "09:00",
+      "date": "1812-08-15",
+      "hour_evidence": [
+        "march"
+      ]
     },
     {
       "id": "the-bank",
@@ -136,9 +165,15 @@
       "read_s": 17,
       "evidence": [
         "attack",
-        "stand-mile"
+        "stand-mile",
+        "march"
       ],
-      "next": "cottonwoods"
+      "next": "cottonwoods",
+      "hour": "morning",
+      "date": "1812-08-15",
+      "hour_evidence": [
+        "march"
+      ]
     },
     {
       "id": "cottonwoods",
@@ -150,9 +185,15 @@
       "read_s": 16,
       "evidence": [
         "surrender",
-        "cottonwoods"
+        "cottonwoods",
+        "march"
       ],
-      "next": "kinzie-house"
+      "next": "kinzie-house",
+      "hour": "morning",
+      "date": "1812-08-15",
+      "hour_evidence": [
+        "march"
+      ]
     },
     {
       "id": "kinzie-house",
@@ -331,6 +372,16 @@
       "locator": "ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text, the April section"
     },
     {
+      "id": "burns-dusk",
+      "text": "The two runners left the cabin after the visitors came, which Heald puts a little before sunset, and ran some three miles down the river, stopping opposite the Burns house on the way; this stop is set at dusk. The hour is not recorded.",
+      "confidence": "inferred",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Heald's letter of 15 April 1812 gives the arrival at the cabin as a little before sunset and the distance as about three miles; Wau-Bun has the runners call across to Burns's on their way down to the fort. Nobody wrote down the hour of the warning, so dusk is the reading of those two facts, not a found time."
+    },
+    {
       "id": "quaife-militia",
       "text": "Quaife (1913): 'after the murders at the Lee farm, Captain Heald enrolled fifteen militiamen from the civilian population outside the fort.' Wau-Bun: the people outside the fort 'now intrenched themselves in the Agency House'; its piazzas 'were planked up, for greater security, port-holes were cut, and sentinels posted at night.'",
       "confidence": "attested",
@@ -381,7 +432,7 @@
     },
     {
       "id": "destroyed",
-      "text": "Heald's report: 'The surplus arms and ammunition I thought proper to destroy, fearing they would make bad use of it if put in their possession. I also destroyed all the liquor on hand after they began to collect.' Wau-Bun: 'the ammunition and liquor were carried, part into the sally-port, and thrown into a well which had been dug there to supply the garrison with water in case of emergency; the remainder was transported as secretly as possible through the northern gate, the heads of the barrels knocked in, and the contents poured into the river.' The muskets 'were broken up and thrown into the well'. The noise betrayed it, and 'the taste of the water the next morning was, as one expressed it, \"strong grog.\"'",
+      "text": "Heald's report: 'The surplus arms and ammunition I thought proper to destroy, fearing they would make bad use of it if put in their possession. I also destroyed all the liquor on hand after they began to collect.' Wau-Bun: 'The same evening the ammunition and liquor were carried, part into the sally-port, and thrown into a well which had been dug there to supply the garrison with water in case of emergency; the remainder was transported as secretly as possible through the northern gate, the heads of the barrels knocked in, and the contents poured into the river.' The muskets 'were broken up and thrown into the well'. The noise betrayed it, and 'the taste of the water the next morning was, as one expressed it, \"strong grog.\"'",
       "confidence": "attested",
       "sources": [
         "quaife_1913",
