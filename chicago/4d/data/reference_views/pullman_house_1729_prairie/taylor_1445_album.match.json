@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "bbc489fd83af2fd81b3bc988df60e8a51b860d7504256ec4102e812d8275e265",
+  "glb_sha256": "cd9e699200c27c5c9e240595167547a8480e2dbbde37dbb5d62f920ad547fd12",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
     }
   ],
-  "flora_sha256": "cca7cfceb2713a3bc77a556422f8889348a3f3a2deb86a427eec79785b9a1005",
+  "flora_sha256": "e755639c7f6478d7a790e9cd78c506270fcf04f6e15323c3ba2be6b350d5600f",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -173,8 +173,8 @@
     },
     {
       "what": "posts along the 18th Street wall's low course (x 565-643)",
-      "status": "open",
-      "how": "T-1881: not built; read again at the print's full size, the low course's top is crossed by a parkway tree (x 615-630) and what stands behind it is the house's area, so the posts' number and height are not read here; the Detroit print's posts and panels along the same wall are open in its own record"
+      "status": "within tolerance",
+      "how": "T-1881: not built; read again at the print's full size, the low course's top is crossed by a parkway tree (x 615-630) and what stands behind it is the house's area, so the posts' number and height are not read here; the Detroit print's posts and panels along the same wall are open in its own record T-1881 (2026-11-03): the Detroit print draws posts and panels along this stretch (its record lists them, x 695-770 there), this print does not read them and Taylor's no. 16554 draws a plain low wall, so the pictures disagree about it; within tolerance under the T-3153 bar, and the course stays as this print draws it."
     },
     {
       "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1139-1273 through this camera, far down the street behind the picture's own trees; this item is unchanged.] [T-1934, 2026-10-31: the four parkway trees before the estate on 18th Street (37.65, 43.7, 51.3 and 64.1 m) and the two at the Calumet corner are now drawn as slender young elms, read off Taylor's 1445, Taylor's 16554 and the Detroit print; this item stands for the house's own parkway and lawn trees, unchanged.]",
@@ -253,6 +253,11 @@
     {
       "what": "the porte-cochere's corner pier (x 745 px, beside the south front's arch) shows its banded stone bare here, where the build clothes it in ivy to the entablature: the Detroit print (c. 1901, nearer the 1904 scene) shows the same pier clothed, and this photograph is the earlier one, whose ivy is younger on every wall (T-1881, 2026-11-02). Two pictures of two dates disagree; the scene follows the later",
       "status": "within tolerance"
+    },
+    {
+      "what": "the solid post in the middle of the 18th Street balustrade east of the third pier, from plinth to rail between the turned balusters (x 874-889 px, u 14.36-13.18 through this camera)",
+      "status": "fixed",
+      "how": "T-1881 (2026-11-03): built as a K11 balustrade post (posts_m) 0.9 m long at u 13.05-13.95, between this print's reading and the Detroit print's (x 779.5-781.5 there, u 13.48-12.8); it renders at x 873-892 here, flush with the rail."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

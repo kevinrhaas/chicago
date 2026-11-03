@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "chm_clark_1905",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "bbc489fd83af2fd81b3bc988df60e8a51b860d7504256ec4102e812d8275e265",
+  "glb_sha256": "cd9e699200c27c5c9e240595167547a8480e2dbbde37dbb5d62f920ad547fd12",
   "camera_sha256": "aff196c66dbbceed8e5d7703d25104fb936052941fcd6a870030e252f4dffb7b",
   "photo_sha256": "fede674ee5cffe692cc4c096d33e28b01d23a13fecb26d1bcc10decf01614314",
   "rendered_flora": {
@@ -79,10 +79,10 @@
     },
     {
       "file": "renderers/web/js/street-furniture.js",
-      "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
+      "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "0d0bd83359d154f5c2733dd0b8a78d20452c41e9744a26eebe765553905f68ca",
+  "flora_sha256": "be93e00334b12fd3820c08d6dcaa54b4f6830f34c93f13813548273ea9c1a5d5",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/chm_clark_1905-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
