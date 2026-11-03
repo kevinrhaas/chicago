@@ -130,7 +130,7 @@ export function patchNightWindows(material) {
 
 // ---- the lamps outside ----------------------------------------------------------
 
-function glowTexture(size = 64, inner = 0.0) {
+export function glowTexture(size = 64, inner = 0.0) {
   const c = document.createElement('canvas');
   c.width = c.height = size;
   const g = c.getContext('2d');

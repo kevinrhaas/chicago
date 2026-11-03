@@ -27963,6 +27963,27 @@ replace the fixed night key with the moon where it stood, or no key on a moonles
 **Review:** `renderers/web/js/time-of-day.js`.
 **Recorded:** 2026-11-03 (T-3331).
 
+### L-night-lights-3334 — 1904 by night: the street lamps lit, gas and electric light in the houses' windows
+
+**Decision:** when Time of day darkens 1904 (T-3331), every gas lamp post on the district's parkways
+(the T-3199 posts, L-prairie-street-lamps-3199) is lit: its lantern glass glows a gas mantle's warm white,
+a halo stands in the lantern and a warm pool lies on the ground under it, from dusk to dawn. Every house's
+window panes can glow, building by building: about five in six lit at dusk, three in five until ten, a third
+until eleven, a few through the night, more again before six (`data/night_lights/1904.json`).
+**What it stands on:** gas mantles from the 1890s, gas streetlights still used in some areas of the city in
+the early 1900s, and electric light common by 1909 (`chipublib_gaslight_blog`); the lamp posts are
+T-3199's, drawn from the photographs as gas lamps.
+**What is invented:** that every post was lit and burned all night; the mantle's colour, the halo and the
+pool; which houses are lit at which hour (a seeded choice per building, not any household's record),
+the hours table, and one colour between gas and electric light for every house: no source reached says
+which Prairie Avenue houses burned gas and which electricity in 1904. The context city beyond the district
+is not lit. The light a window throws into the street is not drawn.
+**How to resolve:** the city's 1904 report on public lighting (which streets had gas lamps, which electric
+arcs, and the lighting hours), and a house's own account (the Glessners' fixtures and bills) for its windows.
+**Ticket:** T-3334.
+**Review:** `renderers/web/js/street-furniture.js`, `data/night_lights/1904.json`.
+**Recorded:** 2026-11-03 (T-3334).
+
 ### L-night-lights-3333 — 1835 by night: candle and lamp-lit windows by the hour, the lighthouse lit, a lantern at the fort's south gate
 
 **Decision:** when Time of day darkens 1835 (T-3331), every window pane in the town and the fort can

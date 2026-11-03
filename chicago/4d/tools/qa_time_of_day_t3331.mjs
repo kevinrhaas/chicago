@@ -16,6 +16,7 @@ const out=process.env.QA_OUT||path.join(root,'docs/RESEARCH/time-of-day-3331');
 fs.mkdirSync(out,{recursive:true});
 const YEAR=process.env.QA_YEAR||'1812';
 const desktop=!!process.env.QA_DESKTOP;
+const BOOT_MS=Number(process.env.QA_BOOT_MS)||240000; // 1904 boots slower under SwiftShader
 const TIMES=(process.env.QA_TIMES||'daytime,daybreak,sunset,dusk,night').split(',');
 const STANDS=JSON.parse(process.env.QA_STANDS||JSON.stringify([
  ['fort-sw',[1112,180,1.7],[1152,221,4]],
@@ -28,14 +29,14 @@ await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE||undefined,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const viewport=desktop?{width:1280,height:800}:{width:390,height:780};
 const context=await browser.newContext({viewport,deviceScaleFactor:1,isMobile:!desktop,hasTouch:!desktop});
-const page=await context.newPage();page.setDefaultTimeout(240000);
+const page=await context.newPage();page.setDefaultTimeout(BOOT_MS);
 const errors=[];page.on('pageerror',e=>errors.push(String(e)));
 const tag=desktop?'desktop':'phone';
 const rows=[];let identical=null;
 try{
  await page.goto(`http://127.0.0.1:${server.address().port}/${YEAR}/`,{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>window.__chicago4d?.ready||window.__chicago4d?.error,null,{timeout:240000,polling:500});
- await page.waitForFunction(()=>window.__chicago4d?.welcome.state==='welcome',null,{timeout:240000,polling:1000});
+ await page.waitForFunction(()=>window.__chicago4d?.ready||window.__chicago4d?.error,null,{timeout:BOOT_MS,polling:500});
+ await page.waitForFunction(()=>window.__chicago4d?.welcome.state==='welcome',null,{timeout:BOOT_MS,polling:1000});
  await page.evaluate(async()=>{const a=__chicago4d;if(!a.welcome.enter('spawn'))throw Error('welcome entry failed');document.exitPointerLock?.();document.getElementById('control-help-gotit')?.click();a.renderer.setAnimationLoop(null);a.step();});
  await page.waitForFunction(()=>document.getElementById('gate').hidden);
  const hold=async(pos,target)=>page.evaluate(({pos,target})=>{const a=__chicago4d;
