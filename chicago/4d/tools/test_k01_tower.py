@@ -163,6 +163,33 @@ def main() -> int:
             "a tower sized as a bow")
     refused("house_1600_prairie", tower(storeys=tall, wall="k01.wall.street_front", s=1.8),
             "a tower in front of 1600's entrance")
+
+    # T-3318: a square tower, a face to the street, its centre inside the wall (1936's)
+    sq = {"radius_m": 2.2, "centre_proud_m": -0.4, "sides": 4}
+    a, p, b = built("house_1600_prairie", tower("k08.tower.octagonal", storeys=tall, plan=sq, s=9.0),
+                    "1600 (hip), a square tower 1.16 m out")
+    ring = b["variant"]["plan"]
+    check(ring.get("sides") == 4 and abs(ring["centre_proud_m"] + 0.4) < 1e-9,
+          "1600 (hip): the square tower keeps four sides and its centre 0.4 m inside the wall")
+    flat = [{"height_m": h, "windows": []} for h in (3.8, 3.4, 4.2)]     # its deck over 1600's 11 m ridge
+    bal = {"fabric": "stone", "height_m": 0.9, "inset_m": 0.15, "post_m": 0.3, "bar_m": 0.08,
+           "pitch_m": 0.2, "rail_m": [0.22, 0.12], "foot_rail_m": 0.12}
+    a, p, b = built("house_1600_prairie", tower("k08.tower.octagonal", storeys=flat, plan=sq, s=9.0,
+                                                 roof={"kind": "hip", "pitch": 0.0, "covering": "copper_standing_seam"},
+                                                 balcony=bal),
+                    "1600 (hip), a square tower's balustraded flat top")
+    check(b["variant"].get("balcony", {}).get("fabric") == "stone",
+          "1600 (hip): the square tower's flat top carries its stone balustrade")
+    refused("house_1600_prairie", tower("k08.tower.round", storeys=tall, plan=sq, s=9.0),
+            "a square plan on a round tower")
+    refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=tall, s=9.0,
+                                        plan={"radius_m": 2.2, "centre_proud_m": -0.4, "sides": 6}),
+            "a polygonal tower of six sides")
+    refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=tall, s=9.0,
+                                        plan={"radius_m": 2.2, "centre_proud_m": -1.5, "sides": 4}),
+            "a square tower all but buried in its wall")
+    refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=tall, s=9.0, balcony=bal),
+            "a balustrade on an octagonal tower's pitched cap")
     if failures:
         print(f"test_k01_tower: {len(failures)} failed")
         return 1

@@ -61,8 +61,9 @@ function entryFor(byKey, key) {
 
 /**
  * Teach `loader` (a GLTFLoader) to decode each distinct embedded image once for
- * every file it parses. Returns `{ stats }`, which counts images decoded and
- * images shared, for the tools that measure it.
+ * every file it parses. `keepEncoded` is true for all recovery bytes, false for
+ * none, or 'compressed' for only decoded compressed textures. Returns `{ stats }`,
+ * which counts images decoded and images shared, for the tools that measure it.
  */
 export function shareImageSources(loader, { keepEncoded = false } = {}) {
   const byKey = new Map();
@@ -96,7 +97,8 @@ export function shareImageSources(loader, { keepEncoded = false } = {}) {
             // tenth of the levels it transcodes to.
             // A texture with no `source` (never one of three's) has nothing to key on.
             if (texture.source) {
-              glbSources.set(texture.source, { encoded: keepEncoded
+              const retainEncoded = keepEncoded && (keepEncoded !== 'compressed' || texture.isCompressedTexture);
+              glbSources.set(texture.source, { encoded: retainEncoded
                 ? { view, mimeType: def.mimeType, imageLoader } : null });
             }
             return texture;
@@ -148,4 +150,27 @@ export function retireSharedImage(image) {
   if (!entry) return;
   entry.forget();
   shared.delete(image);
+}
+
+/** Required authored texture slots survive the phone's disposal-only scene carrier.
+ * Keys retain their original node/material ordinals; the saved pairs contain only
+ * strings and counts, so no scene node or geometry stays alive for a later reload.
+ */
+export function sourceTextureSlots(scene) {
+  if (scene?.collapsed && Array.isArray(scene.requiredTextureSlots)) {
+    return new Map(scene.requiredTextureSlots);
+  }
+  const counts = new Map();
+  let ordinal = 0;
+  scene?.traverse?.((node) => {
+    const nodeOrdinal = ordinal++;
+    for (const [materialIndex, material] of [].concat(node.material ?? []).entries()) {
+      for (const [slot, value] of Object.entries(material ?? {})) {
+        if (!value?.isTexture) continue;
+        const key = JSON.stringify([nodeOrdinal, materialIndex, material.name ?? '', slot]);
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+    }
+  });
+  return counts;
 }

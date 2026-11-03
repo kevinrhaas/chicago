@@ -24368,9 +24368,12 @@ walks and the rainwater goods.
 
 **What is built otherwise than the evidence, and why.** The front stands on the north block's line
 (u 17.7): the sheet sets the part south of the tower 0.95 m behind it, under the verandah, and K01's main
-body is one rectangle. The tower is K08's octagonal tower 3.8 m across its flats, its centre on the wall
-line, so its front stands about 0.6 m before the sheet's: the photograph's tower is square, and K08 has no
-square tower while K10 lets no square projection rise through a bracketed cornice. The door stands in the
+body is one rectangle. The tower is square, as the photograph and the sheet draw it (T-3318: K08's
+polygonal tower with four sides, a face to the street, 3.79 m across and its front 1.3 m out of the wall,
+the sheet's), but its back stands on the front wall's plane all the way up, so over the main roof it is a
+1.3 m deep shaft and not the free-standing square the photograph shows above the cornice; its cornice is
+the kit's plain eaves, without the photograph's consoles (K08 adds no brackets to a tower), and its
+belvedere rises flush from the shaft rather than set back over a corbelled balcony. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
@@ -39281,3 +39284,24 @@ four, says whether the sheet or the photograph has the stable's place; the alley
 **Ticket:** T-3316.
 **Review:** `docs/RESEARCH/photo-match/hibbard_house_1701_prairie_coach_house/chicagology_front-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3316).
+
+
+### L-farm-box-licensed-master-2793 — licensed work-wagon development master (2026-10-26)
+
+**Ticket:** T-2793. **Grade:** reconstructed. **Source:** `lyskilde_2020_old_cart`.
+
+**Decision:** The modern artist's Old Cart by Lyskilde/longtail (CC BY4.0) is a reusable construction/optical basis, not an identified historical vehicle. The original model supplies no maker, object date, region, prototype or calibrated metres. The original source, UVs, six PBR images and credit are preserved; an actual source-native quarter/profile picture was inspected before this adaptation. This entry does not supersede the historical W01 liberties or relabel its original80 static wagons/three fine-wood stands.
+
+The new separate master targets the existing reconstructed W01 maximum body envelope3.05×1.07×.55m, bed top.95m, axle stations±1.175m, track1.21m and front/rear wheel radii.535/.685m. Those are design choices, not extracted historical measurements. The source's eight-spoke wheels are retained in this master; existing W01's twelve-spoke model remains separately preserved. Source front steering is neutralised from its actual axle direction (12.930344degrees); each wheel's radial plane is scaled isotropically so calibration does not make an ellipse. The body/frame's explicit continuous metric transform is documented in the producer and emitted sidecar.
+
+The artist's paired shafts are omitted from the front-gear group. One exact licensed timber surface is adapted into the existing reconstructed single-pole envelope, and a short cloned timber bearing joins it to the axle. Its axle/pole joinery overlaps intentionally; this is not a force, load, pressure, hitch or structural-safety proof. Empty seat, boarding, camera and hitch transforms remain proposed interfaces rather than installed seats or enabled riding. Colour, timber species, weathering, hidden joints, exact component dimensions and the individual vehicle's1835 placement remain reconstructed. A later1893 catalogue analogy does not turn it into an1835 Studebaker wagon.
+
+This is an actual authored development increment. Current matched native views, steering/ground/clearance, LOD quality, phone/world costs and complete ticket photographic acceptance must be recorded from the new exact bytes; no original screenshot, schema, container check or old W01 proof supplies those results. Existing placed wagons remain selected while that qualification is pending.
+
+T-2793 measured fit amendment: the actual retained artist kingbolt is4.994mm from the reconstructed front yaw axis (XZ+1.925/+4.609mm); its8degree sweep is0.697mm. This small unmodified source detail is disclosed rather than called an exact coaxial mechanical joint. Actual artist rim irregularity gives a worst all-roll lower bound2.617mm below the ideal ground; the specimen declares3mm mesh tolerance, not exact rigid-wheel ground/suspension certification. Neither limit changes existing stands or qualifies a working hitch.
+
+T-2793 final structural scope: an actual90x55mm central reach reuses the licensed shaft surface/UVs between reconstructed front/rear attachment heights .6675/.73m at the existing axle stations. These heights/section and joinery are engineering reconstruction, not source dimensions or historical attestation. It has a real separate vehicle_reach frame; original body stringers are not relabeled as a coupling. The actual28-triangle artist pin is separately owned in vehicle_kingbolt with its prior4.994mm eccentricity unchanged. Surface intersections qualify bounded assembly contact only, not strength/load/hitch certification.
+
+**Recorded:** 2026-10-26.
+
+**Period cross-check:** T-2793 bounded period cross-check: the personally viewed1835 Wild Cincinnati painting (`wild_1835_third_vine`) shows the four-wheel, smaller-front/larger-rear work-wagon family with a covered box. The held Buffalo Eagle Tavern print shows an open loaded box but depicts1825 in an undated19th-century print reproduced1912. Neither supplies this specimen, Chicago presence, calibrated dimensions, hidden gear, wood species, coating or eight-spoke count. The current model intentionally remains open and empty, with reconstructed gray/warm finishes; no canvas/team/driver claim is added. Actual image hashes, provenance and comparison limits are in docs/RESEARCH/farm-box-master-2793/REFERENCE-COMPARISON.md. Existing geometry, UVs, images, GLB exports and source rights remain unchanged.

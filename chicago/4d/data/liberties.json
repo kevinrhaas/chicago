@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 961,
+  "count": 962,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -35476,7 +35476,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house the 1911 sheet labels \"1918\" over \"(1936)\", which the sheet 28 census rules is the Thompson/Allerton house (ruling r28-allerton: one villa on the drawn footprint, the bare 1936 corner its lawn, no house at 1916 or 1930), is no longer a district draft. It stands, under the draft's own id 1936 Prairie Avenue — the Thompson/Allerton house (Italianate, L. B. Dixon, 1869-70), as a k01 frontage record built by the k01 emit generator: Daniel M. Thompson's 1869-70 Italian villa by L. B. Dixon, Samuel W. Allerton's from 1879 and still his family's in 1904, razed in 1915. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1918-b1): the main block, the \"bay4B\" tower on the front at v 5.95-9.74, the reception room's half-octagonal bay and the dining range on the south flank, the library's canted bay on the north, the \"rear2B\" range behind. From the Chicago Tribune of 30 October 1869 ('A Private Palace. Daniel Thompson's $100,000 Dwelling, read through Chicagology's transcription and held as inferred until the Tribune's page is read): the brownstone ashlar basement 6 ft high under Baltimore pressed brick with brownstone trim; the main floor 6 ft over grade; the principal and second storeys 14 ft 9 in and 13 ft 6 in; the cornice's top at 44 ft and the rear part's at 37 ft; the tower 73 ft; the entrance through the tower under a stone porch on fluted Corinthian columns; the verandah before the reception room's two front windows, its roof a balustraded balcony; the parlor's two front windows; the attic's frieze lights. From the undated winter photograph ([1936 S. Prairie Ave. (Daniel M. Thompson / Samuel W. Allerton residence).]…, rights check required: forms and places only): the bracketed cornice, the low hip with its railed deck, the stacks, the iron fence on its curb. **What is invented.** The walls' thickness; the brick's panel (K03's rough red-brown stands for the Tribune's Baltimore pressed brick, which the kit has no panel for); the roof's covering (the Tribune's slate is laid by K04 only at 45 degrees and over, and the photograph's hip is low, so it is the kit's painted standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's 15.0 m height; every window's place along the flanks and the rear, and the sashes' sizes; the north stack; the gates, the walks and the rainwater goods. **What is built otherwise than the evidence, and why.** The front stands on the north block's line (u 17.7): the sheet sets the part south of the tower 0.95 m behind it, under the verandah, and K01's main body is one rectangle. The tower is K08's octagonal tower 3.8 m across its flats, its centre on the wall line, so its front stands about 0.6 m before the sheet's: the photograph's tower is square, and K08 has no square tower while K10 lets no square projection rise through a bracketed cornice. The door stands in the front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower. The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice."
+          "text": "the house the 1911 sheet labels \"1918\" over \"(1936)\", which the sheet 28 census rules is the Thompson/Allerton house (ruling r28-allerton: one villa on the drawn footprint, the bare 1936 corner its lawn, no house at 1916 or 1930), is no longer a district draft. It stands, under the draft's own id 1936 Prairie Avenue — the Thompson/Allerton house (Italianate, L. B. Dixon, 1869-70), as a k01 frontage record built by the k01 emit generator: Daniel M. Thompson's 1869-70 Italian villa by L. B. Dixon, Samuel W. Allerton's from 1879 and still his family's in 1904, razed in 1915. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1918-b1): the main block, the \"bay4B\" tower on the front at v 5.95-9.74, the reception room's half-octagonal bay and the dining range on the south flank, the library's canted bay on the north, the \"rear2B\" range behind. From the Chicago Tribune of 30 October 1869 ('A Private Palace. Daniel Thompson's $100,000 Dwelling, read through Chicagology's transcription and held as inferred until the Tribune's page is read): the brownstone ashlar basement 6 ft high under Baltimore pressed brick with brownstone trim; the main floor 6 ft over grade; the principal and second storeys 14 ft 9 in and 13 ft 6 in; the cornice's top at 44 ft and the rear part's at 37 ft; the tower 73 ft; the entrance through the tower under a stone porch on fluted Corinthian columns; the verandah before the reception room's two front windows, its roof a balustraded balcony; the parlor's two front windows; the attic's frieze lights. From the undated winter photograph ([1936 S. Prairie Ave. (Daniel M. Thompson / Samuel W. Allerton residence).]…, rights check required: forms and places only): the bracketed cornice, the low hip with its railed deck, the stacks, the iron fence on its curb. **What is invented.** The walls' thickness; the brick's panel (K03's rough red-brown stands for the Tribune's Baltimore pressed brick, which the kit has no panel for); the roof's covering (the Tribune's slate is laid by K04 only at 45 degrees and over, and the photograph's hip is low, so it is the kit's painted standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's 15.0 m height; every window's place along the flanks and the rear, and the sashes' sizes; the north stack; the gates, the walks and the rainwater goods. **What is built otherwise than the evidence, and why.** The front stands on the north block's line (u 17.7): the sheet sets the part south of the tower 0.95 m behind it, under the verandah, and K01's main body is one rectangle. The tower is square, as the photograph and the sheet draw it (K08's polygonal tower with four sides, a face to the street, 3.79 m across and its front 1.3 m out of the wall, the sheet's), but its back stands on the front wall's plane all the way up, so over the main roof it is a 1.3 m deep shaft and not the free-standing square the photograph shows above the cornice; its cornice is the kit's plain eaves, without the photograph's consoles (K08 adds no brackets to a tower), and its belvedere rises flush from the shaft rather than set back over a corbelled balcony. The door stands in the front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower. The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice."
         },
         {
           "label": "How to resolve",
@@ -35497,6 +35497,7 @@
       ],
       "work_refs": [
         "T-1901",
+        "T-3318",
         "T-1902"
       ]
     },
@@ -65112,6 +65113,40 @@
         "T-1933",
         "T-3309",
         "T-3240"
+      ]
+    },
+    {
+      "id": "L-farm-box-licensed-master-2793",
+      "title": "licensed work-wagon development master (2026-10-26)",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Grade",
+          "text": "reconstructed."
+        },
+        {
+          "label": "Source",
+          "text": "Lyskilde (longtail), Old Cart, published15January2020, CC BY4.0, individually…."
+        },
+        {
+          "label": "Decision",
+          "text": "The modern artist's Old Cart by Lyskilde/longtail (CC BY4.0) is a reusable construction/optical basis, not an identified historical vehicle. The original model supplies no maker, object date, region, prototype or calibrated metres. The original source, UVs, six PBR images and credit are preserved; an actual source-native quarter/profile picture was inspected before this adaptation. This entry does not supersede the historical W01 liberties or relabel its original80 static wagons/three fine-wood stands. The new separate master targets the existing reconstructed W01 maximum body envelope3.05×1.07×.55m, bed top.95m, axle stations±1.175m, track1.21m and front/rear wheel radii.535/.685m. Those are design choices, not extracted historical measurements. The source's eight-spoke wheels are retained in this master; existing W01's twelve-spoke model remains separately preserved. Source front steering is neutralised from its actual axle direction (12.930344degrees); each wheel's radial plane is scaled isotropically so calibration does not make an ellipse. The body/frame's explicit continuous metric transform is documented in the producer and emitted sidecar. The artist's paired shafts are omitted from the front-gear group. One exact licensed timber surface is adapted into the existing reconstructed single-pole envelope, and a short cloned timber bearing joins it to the axle. Its axle/pole joinery overlaps intentionally; this is not a force, load, pressure, hitch or structural-safety proof. Empty seat, boarding, camera and hitch transforms remain proposed interfaces rather than installed seats or enabled riding. Colour, timber species, weathering, hidden joints, exact component dimensions and the individual vehicle's1835 placement remain reconstructed. A later1893 catalogue analogy does not turn it into an1835 Studebaker wagon. This is an actual authored development increment. Current matched native views, steering/ground/clearance, LOD quality, phone/world costs and complete piece of work photographic acceptance must be recorded from the new exact bytes; no original screenshot, schema, container check or old W01 proof supplies those results. Existing placed wagons remain selected while that qualification is pending. This work measured fit amendment: the actual retained artist kingbolt is4.994mm from the reconstructed front yaw axis (XZ+1.925/+4.609mm); its8degree sweep is0.697mm. This small unmodified source detail is disclosed rather than called an exact coaxial mechanical joint. Actual artist rim irregularity gives a worst all-roll lower bound2.617mm below the ideal ground; the specimen declares3mm mesh tolerance, not exact rigid-wheel ground/suspension certification. Neither limit changes existing stands or qualifies a working hitch. This work final structural scope: an actual90x55mm central reach reuses the licensed shaft surface/UVs between reconstructed front/rear attachment heights.6675/.73m at the existing axle stations. These heights/section and joinery are engineering reconstruction, not source dimensions or historical attestation. It has a real separate vehicle reach frame; original body stringers are not relabeled as a coupling. The actual28-triangle artist pin is separately owned in vehicle kingbolt with its prior4.994mm eccentricity unchanged. Surface intersections qualify bounded assembly contact only, not strength/load/hitch certification."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26."
+        },
+        {
+          "label": "Period cross-check",
+          "text": "This work bounded period cross-check: the personally viewed1835 Wild Cincinnati painting (J. C. Wild. Third and Vine Northside. 1835) shows the four-wheel, smaller-front/larger-rear work-wagon family with a covered box. The held Buffalo Eagle Tavern print shows an open loaded box but depicts1825 in an undated19th-century print reproduced1912. Neither supplies this specimen, Chicago presence, calibrated dimensions, hidden gear, wood species, coating or eight-spoke count. The current model intentionally remains open and empty, with reconstructed gray/warm finishes; no canvas/team/driver claim is added. Actual image hashes, provenance and comparison limits are in the research notes on farm box master. Existing geometry, UVs, images, GLB exports and source rights remain unchanged."
+        }
+      ],
+      "work_refs": [
+        "T-2793"
       ]
     },
     {
