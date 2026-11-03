@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2629, ts: '2026-11-03T23:10:42.020Z', date: 'Nov 3, 2026, 5:10 PM CT', title: 'Green Tree\'s enclosed shoulder beside the main gable', kind: 'change',
+    items: [
+      'The inn gains the closed wall, lower window and small gable light drawn by Andreas. Its competing open shed and covered wagon are removed together; the conflicting pictures and unfinished shape match remain recorded.',
+    ] },
   { v: 2628, ts: '2026-11-03T23:04:17.362Z', date: 'Nov 3, 2026, 5:04 PM CT', title: '1835 shop signs are fixed to the building, not hung', kind: 'change',
     items: [
       'The 35 signs that hung from brackets or under awnings in 1835 are now boards fixed flat on the shop or tavern front, over the door or beside it.',
