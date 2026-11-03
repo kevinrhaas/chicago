@@ -36820,12 +36820,6 @@
           "domain": "structure",
           "structure": "house_2003_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2003_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.boundary"
         },
         {
@@ -36869,12 +36863,6 @@
           "structure": "house_2003_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.rear_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2003_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.rear_wings"
         },
         {
           "domain": "structure",
@@ -36982,12 +36970,6 @@
           "domain": "structure",
           "structure": "house_2005_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2005_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.boundary"
         },
         {
@@ -37031,12 +37013,6 @@
           "structure": "house_2005_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.rear_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2005_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.rear_wings"
         },
         {
           "domain": "structure",
@@ -37148,7 +37124,7 @@
         },
         {
           "label": "Covers",
-          "text": "`house_2003_prairie.as_mapped_1904.form.principal_floor_m`, `house_2003_prairie.as_mapped_1904.form.storey_heights_m`, `house_2003_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2003_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2003_prairie.as_mapped_1904.form.service_wall_brick`, `house_2003_prairie.as_mapped_1904.form.street_front_trim`, `house_2003_prairie.as_mapped_1904.form.wall_head`, `house_2003_prairie.as_mapped_1904.form.roof_form`, `house_2003_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2003_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2003_prairie.as_mapped_1904.form.stair_tread_m`, `house_2003_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2003_prairie.as_mapped_1904.form.stoop_width_m`, `house_2003_prairie.as_mapped_1904.form.entrance_bay`, `house_2003_prairie.as_mapped_1904.form.front_bays`, `house_2003_prairie.as_mapped_1904.form.bays`, `house_2003_prairie.as_mapped_1904.form.side_bays`, `house_2003_prairie.as_mapped_1904.form.rear_bays`, `house_2003_prairie.as_mapped_1904.form.rear_wings`, `house_2003_prairie.as_mapped_1904.form.sash_by_storey`, `house_2003_prairie.as_mapped_1904.form.basement_lights`, `house_2003_prairie.as_mapped_1904.form.roof_covering`, `house_2003_prairie.as_mapped_1904.form.chimneys`, `house_2003_prairie.as_mapped_1904.form.window_kit`, `house_2003_prairie.as_mapped_1904.form.entrance_kit`, `house_2003_prairie.as_mapped_1904.form.boundary`, `house_2003_prairie.as_mapped_1904.form.yard`, `house_2005_prairie.as_mapped_1904.form.principal_floor_m`, `house_2005_prairie.as_mapped_1904.form.storey_heights_m`, `house_2005_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2005_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2005_prairie.as_mapped_1904.form.service_wall_brick`, `house_2005_prairie.as_mapped_1904.form.street_front_trim`, `house_2005_prairie.as_mapped_1904.form.wall_head`, `house_2005_prairie.as_mapped_1904.form.roof_form`, `house_2005_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2005_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2005_prairie.as_mapped_1904.form.stair_tread_m`, `house_2005_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2005_prairie.as_mapped_1904.form.stoop_width_m`, `house_2005_prairie.as_mapped_1904.form.entrance_bay`, `house_2005_prairie.as_mapped_1904.form.front_bays`, `house_2005_prairie.as_mapped_1904.form.bays`, `house_2005_prairie.as_mapped_1904.form.side_bays`, `house_2005_prairie.as_mapped_1904.form.rear_bays`, `house_2005_prairie.as_mapped_1904.form.rear_wings`, `house_2005_prairie.as_mapped_1904.form.sash_by_storey`, `house_2005_prairie.as_mapped_1904.form.basement_lights`, `house_2005_prairie.as_mapped_1904.form.roof_covering`, `house_2005_prairie.as_mapped_1904.form.chimneys`, `house_2005_prairie.as_mapped_1904.form.window_kit`, `house_2005_prairie.as_mapped_1904.form.entrance_kit`, `house_2005_prairie.as_mapped_1904.form.boundary`, `house_2005_prairie.as_mapped_1904.form.yard`."
+          "text": "`house_2003_prairie.as_mapped_1904.form.principal_floor_m`, `house_2003_prairie.as_mapped_1904.form.storey_heights_m`, `house_2003_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2003_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2003_prairie.as_mapped_1904.form.service_wall_brick`, `house_2003_prairie.as_mapped_1904.form.street_front_trim`, `house_2003_prairie.as_mapped_1904.form.wall_head`, `house_2003_prairie.as_mapped_1904.form.roof_form`, `house_2003_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2003_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2003_prairie.as_mapped_1904.form.stair_tread_m`, `house_2003_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2003_prairie.as_mapped_1904.form.stoop_width_m`, `house_2003_prairie.as_mapped_1904.form.entrance_bay`, `house_2003_prairie.as_mapped_1904.form.front_bays`, `house_2003_prairie.as_mapped_1904.form.side_bays`, `house_2003_prairie.as_mapped_1904.form.rear_bays`, `house_2003_prairie.as_mapped_1904.form.sash_by_storey`, `house_2003_prairie.as_mapped_1904.form.basement_lights`, `house_2003_prairie.as_mapped_1904.form.roof_covering`, `house_2003_prairie.as_mapped_1904.form.chimneys`, `house_2003_prairie.as_mapped_1904.form.window_kit`, `house_2003_prairie.as_mapped_1904.form.entrance_kit`, `house_2003_prairie.as_mapped_1904.form.boundary`, `house_2003_prairie.as_mapped_1904.form.yard`, `house_2005_prairie.as_mapped_1904.form.principal_floor_m`, `house_2005_prairie.as_mapped_1904.form.storey_heights_m`, `house_2005_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2005_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2005_prairie.as_mapped_1904.form.service_wall_brick`, `house_2005_prairie.as_mapped_1904.form.street_front_trim`, `house_2005_prairie.as_mapped_1904.form.wall_head`, `house_2005_prairie.as_mapped_1904.form.roof_form`, `house_2005_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2005_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2005_prairie.as_mapped_1904.form.stair_tread_m`, `house_2005_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2005_prairie.as_mapped_1904.form.stoop_width_m`, `house_2005_prairie.as_mapped_1904.form.entrance_bay`, `house_2005_prairie.as_mapped_1904.form.front_bays`, `house_2005_prairie.as_mapped_1904.form.side_bays`, `house_2005_prairie.as_mapped_1904.form.rear_bays`, `house_2005_prairie.as_mapped_1904.form.sash_by_storey`, `house_2005_prairie.as_mapped_1904.form.basement_lights`, `house_2005_prairie.as_mapped_1904.form.roof_covering`, `house_2005_prairie.as_mapped_1904.form.chimneys`, `house_2005_prairie.as_mapped_1904.form.window_kit`, `house_2005_prairie.as_mapped_1904.form.entrance_kit`, `house_2005_prairie.as_mapped_1904.form.boundary`, `house_2005_prairie.as_mapped_1904.form.yard`."
         },
         {
           "label": "Review",
