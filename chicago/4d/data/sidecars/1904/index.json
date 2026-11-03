@@ -757,13 +757,13 @@
     },
     {
       "id": "house_1918_prairie",
-      "name": "1916 (1930) Prairie Avenue — Identity conflict beside Allerton (district draft; refined by T-1901, T-1902)",
+      "name": "1936 Prairie Avenue — the Thompson/Allerton house (Italianate, L. B. Dixon, 1869-70)",
       "sidecar": "sidecars/1904/house_1918_prairie.json",
-      "asset": "gltf/house_1918_prairie__draft_1904.glb"
+      "asset": "gltf/house_1918_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1918_prairie_coach_house",
-      "name": "1918 S. Prairie Avenue — the alley building of the house at 1918 (district draft; refined by T-1935)",
+      "name": "1918 S. Prairie Avenue — the alley building of the house at 1936 (district draft; refined by T-1935)",
       "sidecar": "sidecars/1904/house_1918_prairie_coach_house.json",
       "asset": "gltf/house_1918_prairie_coach_house__draft_1904.glb"
     },

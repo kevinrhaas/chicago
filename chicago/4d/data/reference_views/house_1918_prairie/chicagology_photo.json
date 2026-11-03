@@ -1,0 +1,23 @@
+{
+ "structure_id": "house_1918_prairie",
+ "source_id": "chicagology_1936_prairie_exterior_photo",
+ "library_image": "a19-cgy-1936-thompson-photo",
+ "photo": "../../sources/assets/allerton_1936_photo_t1901/allerton_1936_chicagology.jpg",
+ "image_px": [
+  1955,
+  1080
+ ],
+ "principal_px": [
+  935.0,
+  930.0
+ ],
+ "focal_px": 1850.0,
+ "eye": [
+  50.0,
+  -19.0,
+  1.6
+ ],
+ "yaw_deg": 293.0,
+ "sky": "overcast",
+ "solve": "PROVISIONAL, fitted by T-1901 (piece 1) by eye, not by least squares: the render's silhouette laid over the image store's 1955 x 1080 px copy and moved until the south flank's ends (x 795-1130 px), the cornice's line over the south-east corner (y 395-450 px), the fence's line (y 895-960 px) and the house's north end against 1912's gable (x 1800 px) agree within about 20-40 px. The footprint frame's u runs east toward Prairie Avenue from the main block's rear wall (the front at u 17.7), v north from the south wall between the dining range and the reception bay (v 0). THE PRINT IS NOT REVERSED: the long south flank with its chimneys is at the left, 1912's Chateauesque gable at the right, the barn on the alley behind the flank at the far left. The camera is LEVEL (the lamp post and the tower stand vertical); the eye held at 1.6 m on the east walk of Prairie Avenue (u 50) about 19 m south of the house's south wall, looking west-north-west (yaw 293). WHY IT IS PROVISIONAL: a least-squares fit to six points read against the 1911 sheet's plan and the Tribune's heights (the dining range's south-west cornice corner at x 795, y 405; the reception bay's south-east corner at x 1127, y 450 and 868; the belvedere cornice's corners at x 1440 and 1735, y 95; the verandah's north end at x 1600, y 690) does not close: the best, with the eye's height freed, is 39 px rms on its bounds (an eye 14 m up), and this camera leaves those points 15-154 px off (120 px rms), most of all along the front: through it the photograph's verandah and tower stand about 100-150 px (2.5-4 m) north of where the sheet puts them, and the photograph shows a bay of windows between the south-east corner and the verandah that the sheet's yellow porch strip (v 0-5.95) leaves no room for. Either the dark band at x 1125-1165 px is not the reception bay's east cant, or the front's composition differs from the sheet's; T-1901's next piece re-solves this camera with more points (the Andreas 1886 engraving and the 1874 Land Owner vignette as cross-checks) and settles which. LIGHT: a grey winter sky, no cast shadows: overcast."
+}

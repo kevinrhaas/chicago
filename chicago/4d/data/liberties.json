@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 958,
+  "count": 960,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -863,11 +863,11 @@
     },
     {
       "id": "house_1918_prairie",
-      "name": "1916 (1930) Prairie Avenue — Identity conflict beside Allerton"
+      "name": "1936 Prairie Avenue — the Thompson/Allerton house (Italianate, L. B. Dixon, 1869-70)"
     },
     {
       "id": "house_1918_prairie_coach_house",
-      "name": "1918 S. Prairie Avenue — the alley building of the house at 1918"
+      "name": "1918 S. Prairie Avenue — the alley building of the house at 1936"
     },
     {
       "id": "house_1921_indiana",
@@ -20984,14 +20984,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 189
+        "count": 188
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.records[brick fabric] — 189 structures (190 until other work, 2026-11-02, whose work on Marshall Field Jr.'s house at 1919 Prairie reads its stone basement off the 1911 sheet's 'S.B.' and the Gatlin Institute plates and lays it under the brick, so it says brick with a stone front and leaves this count; 191 until other work, 2026-11-01, whose sign-off of Marshall Field's house at 1905 Prairie reads its pale stone basement off the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative and lays it under the brick, so it says brick with a stone front and leaves this count; 192 until other work, 2026-10-30, whose refinement of the Hibbard house at 1701 Prairie reads its light stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 193 until other work's re-entry, 2026-10-28, which reads the lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue as stone off the 1894 Inland plate, so it says stone and leaves this count; 194 until other work, 2026-10-27, whose refinement of the 1708 Prairie draft reads a stone string course off the Christmas print of the Glessner townhouses and lays it with a stone basement under the brick, so it says brick with a stone front and leaves this count; 195 until other work, 2026-10-26, whose refinement of the 1823 Prairie draft reads a stone street front off the Dent house's engraving and its 1883 album vignette, so it says brick with a stone front and leaves this count; 194 until other work, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: the prairie draft generator draws it in a flat colour; 174 until other work, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while other work's background row, which they replace, leaves it; 173 until other work, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until other work, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until other work, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until other work, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "structures.records[brick fabric] — 188 structures (189 until other work, 2026-11-02, whose refinement of the Thompson/Allerton house at 1936 Prairie reads its Portland brownstone basement off the Chicago Tribune of 30 October 1869 and the photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 190 until other work, 2026-11-02, whose work on Marshall Field Jr.'s house at 1919 Prairie reads its stone basement off the 1911 sheet's 'S.B.' and the Gatlin Institute plates and lays it under the brick, so it says brick with a stone front and leaves this count; 191 until other work, 2026-11-01, whose sign-off of Marshall Field's house at 1905 Prairie reads its pale stone basement off the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative and lays it under the brick, so it says brick with a stone front and leaves this count; 192 until other work, 2026-10-30, whose refinement of the Hibbard house at 1701 Prairie reads its light stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 193 until other work's re-entry, 2026-10-28, which reads the lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue as stone off the 1894 Inland plate, so it says stone and leaves this count; 194 until other work, 2026-10-27, whose refinement of the 1708 Prairie draft reads a stone string course off the Christmas print of the Glessner townhouses and lays it with a stone basement under the brick, so it says brick with a stone front and leaves this count; 195 until other work, 2026-10-26, whose refinement of the 1823 Prairie draft reads a stone street front off the Dent house's engraving and its 1883 album vignette, so it says brick with a stone front and leaves this count; 194 until other work, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: the prairie draft generator draws it in a flat colour; 174 until other work, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while other work's background row, which they replace, leaves it; 173 until other work, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until other work, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until other work, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until other work, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -21008,6 +21008,7 @@
       ],
       "work_refs": [
         "T-1687",
+        "T-1901",
         "T-3305",
         "T-3271",
         "T-3254",
@@ -35062,18 +35063,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_1918_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1918_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_1918_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35126,7 +35115,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35169,6 +35158,10 @@
           "text": "1912 the Moulton/Lowden house by later work, which refined it in place on the K01 frontage kit under `“1912 Prairie refined from the district draft to a K01 Chateauesque stone house, read off its photograph and the 1883 album vignette”`; its coach house is still this draft's."
         },
         {
+          "label": "Retired in part",
+          "text": "1936 the Thompson/Allerton house (the sheet's '1918 (1936)') by earlier work (piece 1), which refined it in place on the K01 frontage kit under `“1936 Prairie, the Thompson/Allerton house, refined from the district draft to a K01 Italianate brick villa, read off the 1869 Tribune and its photograph”`; its coach house is still this draft's."
+        },
+        {
           "label": "Review",
           "text": "the research notes on prairie draft west."
         },
@@ -35199,6 +35192,7 @@
         "T-3238",
         "T-1899",
         "T-3277",
+        "T-1901",
         "T-2329",
         "T-2159"
       ]
@@ -35418,6 +35412,92 @@
         "T-3292",
         "T-3278",
         "T-1900"
+      ]
+    },
+    {
+      "id": "L-k01-1936-allerton-1901",
+      "title": "1936 Prairie, the Thompson/Allerton house, refined from the district draft to a K01 Italianate brick villa, read off the 1869 Tribune and its photograph",
+      "section": "per_subject",
+      "subjects": [
+        "house_1918_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1918_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1918_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1918_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1918_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1918_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1918_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1918_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1918_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house the 1911 sheet labels \"1918\" over \"(1936)\", which the sheet 28 census rules is the Thompson/Allerton house (ruling r28-allerton: one villa on the drawn footprint, the bare 1936 corner its lawn, no house at 1916 or 1930), is no longer a district draft. It stands, under the draft's own id 1936 Prairie Avenue — the Thompson/Allerton house (Italianate, L. B. Dixon, 1869-70), as a k01 frontage record built by the k01 emit generator: Daniel M. Thompson's 1869-70 Italian villa by L. B. Dixon, Samuel W. Allerton's from 1879 and still his family's in 1904, razed in 1915. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1918-b1): the main block, the \"bay4B\" tower on the front at v 5.95-9.74, the reception room's half-octagonal bay and the dining range on the south flank, the library's canted bay on the north, the \"rear2B\" range behind. From the Chicago Tribune of 30 October 1869 ('A Private Palace. Daniel Thompson's $100,000 Dwelling, read through Chicagology's transcription and held as inferred until the Tribune's page is read): the brownstone ashlar basement 6 ft high under Baltimore pressed brick with brownstone trim; the main floor 6 ft over grade; the principal and second storeys 14 ft 9 in and 13 ft 6 in; the cornice's top at 44 ft and the rear part's at 37 ft; the tower 73 ft; the entrance through the tower under a stone porch on fluted Corinthian columns; the verandah before the reception room's two front windows, its roof a balustraded balcony; the parlor's two front windows; the attic's frieze lights. From the undated winter photograph ([1936 S. Prairie Ave. (Daniel M. Thompson / Samuel W. Allerton residence).]…, rights check required: forms and places only): the bracketed cornice, the low hip with its railed deck, the stacks, the iron fence on its curb. **What is invented.** The walls' thickness; the brick's panel (K03's rough red-brown stands for the Tribune's Baltimore pressed brick, which the kit has no panel for); the roof's covering (the Tribune's slate is laid by K04 only at 45 degrees and over, and the photograph's hip is low, so it is the kit's painted standing seam with the Tribune's copper flashings); the roof's 25 degree pitch and the deck's 15.0 m height; every window's place along the flanks and the rear, and the sashes' sizes; the north stack; the gates, the walks and the rainwater goods. **What is built otherwise than the evidence, and why.** The front stands on the north block's line (u 17.7): the sheet sets the part south of the tower 0.95 m behind it, under the verandah, and K01's main body is one rectangle. The tower is K08's octagonal tower 3.8 m across its flats, its centre on the wall line, so its front stands about 0.6 m before the sheet's: the photograph's tower is square, and K08 has no square tower while K10 lets no square projection rise through a bracketed cornice. The door stands in the front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower. The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice."
+        },
+        {
+          "label": "How to resolve",
+          "text": "This work's next piece re-solves the photograph's camera (its present fit is provisional: see the chicagology photo data), settles the front's composition between the photograph and the sheet, and works the tower, the verandah, the entrance and the window dressings toward the photograph; later work carves the finish."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1918_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1918_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1918_prairie.as_mapped_1904.form.roof_covering`, `house_1918_prairie.as_mapped_1904.form.stair_tread_m`, `house_1918_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1918_prairie.as_mapped_1904.form.north_bays`, `house_1918_prairie.as_mapped_1904.form.rainwater`, `house_1918_prairie.as_mapped_1904.form.yard`."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-02 (T-1901)."
+        }
+      ],
+      "work_refs": [
+        "T-1901",
+        "T-1902"
       ]
     },
     {
@@ -64779,6 +64859,53 @@
         "T-1936",
         "T-3271",
         "T-1841"
+      ]
+    },
+    {
+      "id": "L-t3319-fort-gate-leaves",
+      "title": "Fort Dearborn's gate leaves planked, ledged and braced, swinging inward, shut until a visitor opens them",
+      "section": "per_subject",
+      "subjects": [
+        "fort_dearborn_palisade"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_palisade",
+          "phase": "picket_1816",
+          "aspect": "form.gate_width_m"
+        }
+      ],
+      "recorded": "2026-11-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the main gates of both forts (1835: the second fort's north and south gates; 1812: the first fort's main gate through both picket rows) are hung by the walkthrough's fort gates code so a visitor can open and shut them with the Interact key. Each gateway takes two leaves on the jambs the palisade archetype already draws, each leaf butted vertical boards about 0.28 m wide with two ledges and a diagonal brace on the side facing into the fort, the leaves swinging inward through 90 degrees over 1.4 s. Every gate stands shut when the page opens, as the baked leaves stood before."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-02: *\"you should be able to enter the fort in both 1812 and 1835, be able to walk through the gate... the gate by default is closed and you can click on interact\"*."
+        },
+        {
+          "label": "What is recorded and\nwhat is not",
+          "text": "that there were gates and where is attested (Kinzie and Andreas for the second fort's north and south gates; Whistler's index no. 7, \"Main Gate\", for the first). Their size is the records' (gate width (m)). Nothing reached describes how either fort's leaves were made, how they hung, or which way they swung; the boards, ledges, brace, inward swing, its angle and its speed are ours, and so is a visitor's power to open a garrison's gate. The 1812 gates' place along the south rows (gate offset (m)) is the draught's, not this liberty's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a description or drawing of either fort's gates replaces the leaf; any garrison order on the gates' hours would say whether they stood open by day."
+        },
+        {
+          "label": "Covers",
+          "text": "`fort_dearborn_palisade.picket_1816.form.gate_width_m`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-02 (T-3319)."
+        }
+      ],
+      "work_refs": [
+        "T-3319"
       ]
     },
     {
