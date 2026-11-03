@@ -6087,3 +6087,12 @@ The genuine refreshed Andreas comparison remains `differs`: its tall enclosed sh
 The distinct Blanchard/Davis poster now has an attributed ca. 1893 SourceRecord and a textual Images-list join. Current Newberry 1935/Copyright Not Evaluated metadata is retained as a conflict, with the explicit archived publication evidence and review citation. This is a source-credit increment only. The initial independent poster camera is not enrolled, and no geometry or accepted comparison changes.
 
 Original T-2386 remains unfinished: refine and genuinely review the distinct poster camera before any model-gap or matching verdict, then complete required app/image acceptance. Existing seven reviewed views and the tiny Herriott unmeasurable-target exclusion are unchanged.
+
+
+### T-2374 picture-card continuation — original ticket remains open
+
+Expose the original keyed 1831 panorama as a credited Images-tab link on Cobweb
+Castle’s card. Preserve the same-witness Wau-Bun/Wentworth distinction, the
+unresolved compound appearance, partial siding and July 1835 survival. This
+increment adds no camera or matched verdict and does not promote the structure’s
+grade. Continue the original image gate; file no photo follow-up.
