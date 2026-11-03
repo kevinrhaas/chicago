@@ -61,6 +61,7 @@ DATA = ROOT / "data"
 sys.path.insert(0, str(ROOT / "tools"))
 
 from generate_dooryard_plantings import rear_ell_world  # noqa: E402
+from occupied_footprints import additional_world_polygons  # noqa: E402
 
 SCENES = ("1812", "1835", "1904")
 PARTY_WALL_M = 0.40       # deeper than a wall's thickness is one building inside another
@@ -246,7 +247,7 @@ def buildings(scene: str, overrides: dict | None = None) -> list[dict]:
         sid = sc.get("id") or f.stem
         rec_path = DATA / "structures" / f"{sid}.json"
         rec = load(rec_path) if rec_path.exists() else None
-        shapes = [poly]
+        shapes = [poly, *additional_world_polygons(sc)]
         ell = rear_ell_world(sc, rec) if rec else []
         if ell:
             shapes.append(ell)

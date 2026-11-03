@@ -2475,6 +2475,13 @@ async function boot() {
         + (timeState.transient ? ' (the jaunt has set the hour)' : '');
     }
   }
+  // T-3328: the year chip's day follows a jaunt stop's own date (17 June at the Lalime
+  // gate, 6 April at Lee's Place) and goes back to the scene's when the hour is given back.
+  function paintChipDay(iso) {
+    const sub = document.querySelector('#year-badge .badge-sub');
+    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(iso || loaded.scene.target_date || '');
+    if (sub && m) sub.textContent = `${m[1]}.${m[2]}`;
+  }
   function applyTime(value, { date, transient = false } = {}) {
     const v = isTimeValue(value) ? value : 'daytime';
     if (transient) {
@@ -2484,10 +2491,13 @@ async function boot() {
       timeState.own = v;
       timeState.transient = null;
     }
-    const day = date || (transient ? null : timeState.ownDate) || world.sunDate;
+    // A stop with no date of its own keeps the scene's (or the Season's) day, not the
+    // previous stop's: ownDate holds that day while a jaunt has the hour.
+    const day = date || timeState.ownDate || world.sunDate;
     const r = world.resolveTime(v, day);
     world.setSun({ date: day, time: r.hhmm });
     if (!transient) timeState.ownDate = null;
+    paintChipDay(transient ? date : null);
     paintTime();
     gateFrame.invalidate();
     return { hhmm: r.hhmm, name: r.name, date: world.sunDate, transient: !!transient };
@@ -2528,6 +2538,7 @@ async function boot() {
       const r = world.resolveTime(timeState.own, day);
       world.setSun({ date: day, time: r.hhmm });
       timeState.ownDate = null;
+      paintChipDay(null);
       paintTime();
       gateFrame.invalidate();
       return this.current;
@@ -4491,6 +4502,19 @@ async function boot() {
       let e0 = Infinity, n0 = Infinity, e1 = -Infinity, n1 = -Infinity;
       for (const [e, n] of fp.pts) { e0 = Math.min(e0, e); e1 = Math.max(e1, e); n0 = Math.min(n0, n); n1 = Math.max(n1, n); }
       r = Math.max(2, Math.hypot(e1 - e0, n1 - n0) / 2);
+      // Compound models aim at their actual visual centre. Keep the core's
+      // address/front unchanged, but fit every roof/ell in the selected asset.
+      // A radius about the old core centre needlessly spends the 90m stand cap.
+      if (footprints.some(part => part.id === id && part !== fp) && buildingBounds[id]) {
+        const box = buildingBounds[id], matrix = buildings.matrixOf(id);
+        if (matrix) {
+          r = 2;
+          for (const x of [box.min[0], box.max[0]]) for (const z of [box.min[2], box.max[2]]) {
+            const point = new THREE.Vector3(x, 0, z).applyMatrix4(matrix);
+            r = Math.max(r, Math.hypot(point.x-aim.x, point.z-aim.z));
+          }
+        }
+      }
     }
     const record = loaded.registry.get(id);
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
@@ -4617,6 +4641,14 @@ async function boot() {
     }
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
     const drawn = buildingBounds[id];
+    if (drawn && footprints.some(part => part.id === id && part !== fp)) {
+      const matrix = buildings.matrixOf(id);
+      if (matrix) return new THREE.Vector3(
+        (drawn.min[0]+drawn.max[0])/2,
+        (drawn.min[1]+drawn.max[1])/2,
+        (drawn.min[2]+drawn.max[2])/2,
+      ).applyMatrix4(matrix);
+    }
     const aimH = drawn ? (drawn.min[1] + drawn.max[1]) / 2 : wallH * 0.55;
     return enuToWorld(e, n, terrain.surfaceHeight(e, n) + aimH);
   }
@@ -4793,10 +4825,14 @@ async function boot() {
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
           // T-2946: measured to the building's walls and named as the jaunt names it.
-          const outlines = new Map(footprints.map(f => [f.id, f.pts]));
+          const outlines = new Map();
+          for (const f of footprints) {
+            if (!outlines.has(f.id)) outlines.set(f.id, []);
+            outlines.get(f.id).push(f.pts);
+          }
           const places = [...loaded.registry.values()].map(record => ({ id: record.id,
             label: context.placeName(state.jaunt, record.id, record.sidecar),
-            point: structurePosition(record.id), outline: outlines.get(record.id),
+            point: structurePosition(record.id), outlines: outlines.get(record.id),
             minor: context.minorPlace(record.sidecar) }));
           return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
@@ -4819,6 +4855,8 @@ async function boot() {
           if (state?.jaunt && state.phase === 'atStop') hints.show('jaunt');
         },
         onComplete: state => jauntPreview.award(state),
+        // T-3328: a stop's own hour, set for the stop and given back after (T-3331).
+        hour: api.timeOfDay,
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,

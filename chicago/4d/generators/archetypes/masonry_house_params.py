@@ -799,7 +799,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["court_dormer_union"] = raw.get("court_dormer_union", False)
         p.detail["court_finial"] = raw.get("court_finial")
         nc = raw.get("north_pair_colonnette")
-        p.detail["north_pair_colonnette"] = ({"capital_m": nc["capital_ft"] * FT, "base_m": nc["base_ft"] * FT}
+        # T-3343: the north pairs' stock, the front's kind (record note); capital_m and
+        # base_m are heights outright (T-2868), the rest widths and depths.
+        p.detail["north_pair_colonnette"] = ({**{k[:-3] + "_m": v * FT for k, v in nc.items() if k.endswith("_ft")},
+                                              "capitals": list(nc.get("capitals") or [])}
                                              if nc else None)
         pc = raw.get("prairie_colonnette")
         # T-2965: the Prairie colonnettes' stock, read off HABS sheet 6 (record note).

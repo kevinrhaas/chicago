@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-13-north-level",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
+  "glb_sha256": "d419de6058cfc0d822bca63b60e203b80d5281023a4db9472a2a33560c7c9d49",
   "camera_sha256": "c4607c01650b1d3dfeaf156dfd0d4ae0746fc97b45ed092c5504260edb48af9e",
   "photo_sha256": "b5de6769dbaab6ea0991a9351b10c47344e61b7480b0f53a6e5d104ecb48e176",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
@@ -43,7 +43,11 @@
     {
       "what": "T-3136, read on this side-by-side at 2x (GLB 6ba8c9f7): the two gable pairs' lights do not read as built. The east wing's pair (W 7.2-14.7, built 3.35 and 2.85 ft) shows two equal lights, 65 px each either side of a 27.5 px colonnette (about 3.1 ft each at the pair's 21 px a foot), where the render draws 72.5 and 59 px. The tower shoulder's pair (W 25.8-32.9, built 2.65 and 3.1 ft) shows 65 and 67.5 px (about 2.9-3.0 ft each) where the render draws 52.5 and 60, and the print's eastern jamb stands 27 px and its western 15 px east of the render's. T-3045 re-solved this camera on heights, so camera and plan are not separated here; T-3142 reads the pairs with HABS 14 and rules them. T-3140, ruled within tolerance (T-3153): both pairs are there, two lights each round a colonnette, as built. The lights differ from the build's by 0.25-0.5 ft, under the 1 ft bar; the jambs' 15-27 px (about 0.7-1.3 ft) rest on a camera re-solved on heights that this print alone cannot part from the plan, which puts the outer jambs within 0.1-0.3 ft. T-3142 was withdrawn on this ground.",
       "status": "within tolerance"
+    },
+    {
+      "what": "T-3343 (owner, 2026-11-03): both gable pairs' colonnettes were a pale plain post under a box with three blades; the print shows the Prairie front's kind, a round shaft in the wall's granite, a splayed foot and a carved block capital rounding in to the shaft. Rebuilt by the front's construction, sized off this print (capital 1.3 ft across, shaft about 0.85-0.95 ft); on the side-by-side the shaft, capital and foot now read as the print's. The capitals' carving is too small here to compare and is reconstructed (L-glessner-north-colonnettes-3343).",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

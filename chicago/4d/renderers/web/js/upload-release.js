@@ -53,6 +53,7 @@ import { compactBatchBounds } from './batch-bounds.js';
 export const RELEASE_KEEP = {
   terrain: [],
   trees: [],
+  'street-trees': [],
   'yard-ground': [],
   streets: [],
   // Street-grid CPU ray picks keep positions and indices; other uploaded lanes can go.

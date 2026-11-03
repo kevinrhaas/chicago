@@ -73,7 +73,7 @@
         "sources": [
           "chicagology_prefire127"
         ],
-        "note": "DERIVED FROM THE ATTESTED INTERIOR, not invented and not measured. This is the only footprint in the parcel with a textual basis. The arithmetic, in the original units: guest chambers 'about 12x12' feet, so a depth of two 12 ft ranks plus board partitions gives about 25 ft = 7.62 m; a hall 'divided the house' with the entrance 'about the middle of the long side', so the length is two end blocks either side of a hall of about 8 ft, and each end block must hold a 12 ft room plus partitions, giving about 40 ft = 12.19 m. The bar-room occupied one whole end, which is consistent. WHAT IS ATTESTED IS THE MODULE, NOT THE COUNT: no source gives the building's overall length or width, and a plan with three rooms rather than two on one side would make it about 52 ft. Treat the length as plus or minus about 20 per cent and the depth as firmer. The polygon is the two-storey core only — the 'low one-story addition to the right, the same as on the left' that John Gray recalls is NOT included, because its size is unattested and its date is unknown. The c. 1859 photograph (chm_green_tree_1859) would settle the overall dimensions from the proportions of a known-height building; it has not been seen."
+        "note": "DERIVED FROM THE ATTESTED INTERIOR, not invented and not measured. This is the only footprint in the parcel with a textual basis. The arithmetic, in the original units: guest chambers 'about 12x12' feet, so a depth of two 12 ft ranks plus board partitions gives about 25 ft = 7.62 m; a hall 'divided the house' with the entrance 'about the middle of the long side', so the length is two end blocks either side of a hall of about 8 ft, and each end block must hold a 12 ft room plus partitions, giving about 40 ft = 12.19 m. The bar-room occupied one whole end, which is consistent. WHAT IS ATTESTED IS THE MODULE, NOT THE COUNT: no source gives the building's overall length or width, and a plan with three rooms rather than two on one side would make it about 52 ft. Treat the length as plus or minus about 20 per cent and the depth as firmer. The polygon is the two-storey core only — the 'low one-story addition to the right, the same as on the left' that John Gray recalls is NOT included, because its size is unattested and its date is unknown. The c. 1859 photograph (chm_green_tree_1859) would settle the overall dimensions from the proportions of a known-height building; it has not been seen.\n\nT-2376: this polygon remains the main block's dimension/coordinate reference. The separately reconstructed left connector and gabled range are described by form.enclosed_left_annex. Their exact resolved occupied polygons are carried separately to physical consumers; the open wagon bay is not silently filled by a bounding rectangle. This does not add an archival dimension or date to the core. This model-only preparation does not yet qualify additional occupied solids or navigation/ground consumers; the main-body footprint stays unchanged until the separate compound-consumer work is verified."
       },
       "form": {
         "stories": {
@@ -171,12 +171,14 @@
           "note": "END CHIMNEYS AT BOTH GABLES. Plate '11' of the owner's 2026-08-11 reference set (committed at data/sources/assets/prefire_views_kevin_2026_08/p6_0.png, and its sibling Braunhold view written up as image 6 of data/sources/assets/owner_brief_2026_08_18/README.md) draws one stack at each end of the ridge — a tier-5 retrospective view driving massing as inferred. The plates are not yet held as source records (T-0075), so the citation is a committed path. This replaces the archetype's frontage-fraction arrangement, which on this deeper-than-wide footprint had left both stacks standing OFF the ridge on the roof slopes — the before frame of T-0083 shows it. The COUNT stays the chimneys attribute's own inference; docs/LIBERTIES.md L21 (the town chimney arrangement) and L152 say what is invented here."
         },
         "rear_ell": {
-          "value": true,
+          "value": false,
           "confidence": "reconstructed",
           "sources": [
-            "chicagology_prefire127"
+            "chicagology_prefire127",
+            "andreas_1884_green_tree_hotel_plate",
+            "trowbridge_green_tree_1902"
           ],
-          "note": "THE LOW ADDITION, BUILT AT THE REAR AND DECLARED. John Gray, landlord 1838-41, attests 'a low one-story addition to the right, the same as on the left'; the 1838 Braunhold engraving (owner_brief_2026_08_18 README, image 6) draws 'a lower gabled wing at the left with a wide (carriage) door', and plate '11' (prefire_views_kevin_2026_08/p6_0.png) draws the low gabled wing with the ship masts behind it. WHETHER A WING STOOD ON 1835-07-01 IS NOT ATTESTED — Gray describes the house three to six years after the scene date — so this is a reconstruction under the owner's 2026-08-18 standing ruling, sized by the views and claimed at docs/LIBERTIES.md L152. WHY THE REAR END AND ONLY THE REAR: Gray names additions at BOTH ends, but this record's committed placement puts the west face ON Canal Street's east frontage with zero offset, so the street end has no ground to build on — only the east (rear, yard) end does. That asymmetry is itself evidence worth recording: a west wing fits the ground only under the 'Lake and West Water' placement reading the position note carries as this record's largest residual uncertainty. If that reading ever wins, the second wing goes up with the move. The wing the views draw beside masts is consistent with either."
+          "note": "T-2376 retires the old rear ell as a July-1835 depiction choice. Its original position was a reconstruction made under the obsolete Canal placement, using the pictured lower wing and Gray's later testimony without a dated rear plan. The governing drawings do not resolve or show that projecting right/rear form. Gray explicitly recalls a right addition 'the same as on the left' during his 1838–41 tenancy, and the historical note promised a second wing if the Lake-and-West-Water placement won; that later bilateral testimony and the promise remain counterevidence, not proof that either addition was absent in 1835 or that both were the same pictured building. The revised model builds the pictured left connector/range, keeps the competing shoulder readings, and leaves an unverified 1835 rear/bilateral stage unmodeled rather than presenting the old placement proxy as another established wing. No historic absence, alteration date, tenant identity or room count is asserted.\n\nHISTORICAL PRE-RETIREMENT NOTE:\nTHE LOW ADDITION, BUILT AT THE REAR AND DECLARED. John Gray, landlord 1838-41, attests 'a low one-story addition to the right, the same as on the left'; the 1838 Braunhold engraving (owner_brief_2026_08_18 README, image 6) draws 'a lower gabled wing at the left with a wide (carriage) door', and plate '11' (prefire_views_kevin_2026_08/p6_0.png) draws the low gabled wing with the ship masts behind it. WHETHER A WING STOOD ON 1835-07-01 IS NOT ATTESTED — Gray describes the house three to six years after the scene date — so this is a reconstruction under the owner's 2026-08-18 standing ruling, sized by the views and claimed at docs/LIBERTIES.md L152. WHY THE REAR END AND ONLY THE REAR: Gray names additions at BOTH ends, but this record's committed placement puts the west face ON Canal Street's east frontage with zero offset, so the street end has no ground to build on — only the east (rear, yard) end does. That asymmetry is itself evidence worth recording: a west wing fits the ground only under the 'Lake and West Water' placement reading the position note carries as this record's largest residual uncertainty. If that reading ever wins, the second wing goes up with the move. The wing the views draw beside masts is consistent with either."
         },
         "gallery": {
           "value": false,
@@ -233,9 +235,80 @@
             "kurz_allison_1893"
           ],
           "note": "Two sash left of a rightmost front-gable entrance agree in the actually viewed Andreas 1884 p634/n1301 plate, Trowbridge/Gale 1902 plate facing p35/n55, and Kurz & Allison 1893 panel11. This is retrospective form agreement, not independent contemporaneous proof of 1 July 1835; Kurz may derive from Andreas and Trowbridge may rely on later material. The ascending LOCAL-u fractions are door .20, sash .50, sash .78: exterior +y viewers see higher u toward screen left, so this yields two screen-left sash and a screen-right entrance. Exact centre fractions .20/.50/.78 across the existing 7.62 m wall, equal existing .85x1.35 m sash and 1.20x2.10 m door stock, sill bands, sections and hidden joinery are RECONSTRUCTED, not measured or attested by those pictures. Only the +y front ground floor opts in. The current two upper sash versus Trowbridge's three, attic light, text-attested south-side door, disputed additions, roof, geographic placement and all existing source/camera uncertainties stay unresolved. The held-rights/unverified 1859 source is excluded as a geometry witness. Original T-2376 remains open/differs; this is not a solved camera or picture match. The same pure resolved_front_ground_stations dataclass property (whose actual values are covered by the existing native mesh recipe) is consumed by the mesh and the native entrance/apron/clearance reader after resolving exactly the sidecar-selected source phase; no renderer facade API or bearing is changed."
+        },
+        "enclosed_left_annex": {
+          "value": {
+            "attach_face": "x_max",
+            "front_setback_m": -0.2,
+            "shoulder": {
+              "span_m": 3.6,
+              "depth_m": 6.8,
+              "wall_m": 2.8,
+              "roof": "shed_with_front_gable",
+              "roof_high_m": 4.0,
+              "roof_low_m": 3.2,
+              "front_window": [
+                0.5,
+                0.7,
+                0.8,
+                1.5
+              ],
+              "front_gable_light": [
+                0.5,
+                3.35,
+                0.65,
+                0.7
+              ],
+              "front_gable_peak_m": 4.5
+            },
+            "connector": {
+              "span_m": 3.0,
+              "depth_m": 4.5,
+              "wall_m": 2.1,
+              "roof": "shed",
+              "roof_low_m": 2.25,
+              "roof_high_m": 2.85,
+              "front_openings": []
+            },
+            "boarding_range": {
+              "span_m": 4.0,
+              "depth_m": 3.0,
+              "wall_m": 2.6,
+              "roof": "gable",
+              "roof_pitch_deg": 37.0,
+              "ridge_axis": "y",
+              "front_door": [
+                0.2,
+                1.0,
+                2.0
+              ],
+              "front_window": [
+                0.65,
+                0.8,
+                0.75,
+                1.2
+              ],
+              "front_gable_light": [
+                0.5,
+                3.1,
+                0.65,
+                0.7
+              ],
+              "front_set_out_m": 1.0,
+              "plan_rotation_deg": 25.0
+            },
+            "shoulder_enclosed": false
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_green_tree_hotel_plate",
+            "kurz_allison_1893",
+            "trowbridge_green_tree_1902"
+          ],
+          "note": "The retrospective pictures disagree about the low structure immediately beside the main gable. Trowbridge/Gale, captioned 1835, shows an open post-and-roof wagon bay; Andreas shows a closed shoulder with a sash and small gable light, followed by a low connector and a farther-left gabled range. Trowbridge crops farther left and does not establish that the gabled range was absent. The canonical reading keeps its open bay and reconstructs the connector and farther range; the separate full proposal retains a closed-shoulder alternative; this minimal package enrolls no alternate version. These are competing pictured forms, not a demonstrated alteration history. The later reproduction's 1838 caption is not a date supplied by the original Andreas plate.\n\nThe occurrence and architectural categories are inferred from the pictures. Every metric span, unpictured depth, height, slope, opening station/section, local placement, plan turn and timber/color treatment is reconstructed, so the entire numeric group is marked reconstructed. The farther range has a 4 m front, 3 m hidden depth, roughly 4.3 m ridge and 25 degree turn toward the pictured viewpoint; its 1 m front projection and the overall 0.20 m offset are reconstruction choices, not surveyed coordinates. The actual occupied solids remain separate, preserving the open bay between the main building and the connector.\n\nNo source proves that these undated additions stood unchanged on 1 July 1835. Taylor's arrival in1834 does not date his remembered lodging in a left addition. Their use in this scene is a declared reconstruction; no tenant identity, authentic interior or extra lodging capacity is inferred. The unverified 1859 catalogue photograph supplies no geometry. See docs/LIBERTIES.md L-green-tree-enclosed-left-reading-2376 and the source qualifications in docs/RESEARCH/green-tree-annex-T-2376/README.md. The modern Chicagology page is retained elsewhere only for transcribed historical testimony and counterevidence, not as a geometry source for this group."
         }
       },
-      "change_note": "Built 1833 as the first building in Chicago put up specifically to be a hotel. The phase carries the two-storey core as built; the low one-storey side additions attested by 1838-41 are recorded on the record but not in the geometry, because nothing dates them."
+      "change_note": "Prepared T-2376 incremental appearance: keep the already-adopted front ground layout and replace the old rear ell with the source-qualified open wagon bay, connector and turned boarding range. The closed-shoulder alternative remains in a separate proposal, not a version enrolled by this minimal package. Dates, geographic placement and whole-picture acceptance remain qualified."
     }
   ],
   "function": {

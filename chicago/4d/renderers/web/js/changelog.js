@@ -1,4 +1,47 @@
 export const CHANGELOG = [ // newest first
+  { v: 2613, ts: '2026-11-03T12:43:46.565Z', date: 'Nov 3, 2026, 6:43 AM CT', title: '2001 Prairie\'s stone-fronted corner house on 20th Street, built on the house kit', kind: 'feature',
+    items: [
+      '2001 Prairie Avenue, the corner house on 20th Street, is no longer a rough draft: it now has two and a half storeys with a light stone front, a hipped roof with a dormer for the half storey, and a stoop at the corner end of its front.',
+      'Its outline is now read from the 1911 fire-insurance map at full size. The house is about 19 m deep, not the draft\'s 15 m. Its back part steps out to the 20th Street line, as the map draws it.',
+    ] },
+  { v: 2612, ts: '2026-11-03T11:50:19.415Z', date: 'Nov 3, 2026, 5:50 AM CT', title: '1904 by night: Prairie Avenue\'s gas lamps lit, and the houses\' windows', kind: 'feature',
+    items: [
+      'Set Time of day to dusk or night in 1904 and every gas lamp on the parkways is lit, with a warm pool of light on the walk under it.',
+      'The houses\' windows glow with gas and electric light, most through the evening and a few all night.',
+      'Daytime looks exactly as before.',
+    ] },
+  { v: 2611, ts: '2026-11-03T10:52:12.026Z', date: 'Nov 3, 2026, 4:52 AM CT', title: '1936 Prairie: the Allerton tower gets its deep cornice', kind: 'feature',
+    items: [
+      'The belvedere on the Allerton house\'s tower now wears the deep cornice the winter photograph shows: a heavy corona over a metre out, about half a metre deep, over the row of brackets, where before it had a thin eave.',
+      'Above the cornice a short sloping skirt rises to a flat deck. The top balustrade now stands on that deck, back from the edge, and its rail sits at the Tribune\'s 73 feet.',
+    ] },
+  { v: 2610, ts: '2026-11-03T10:50:47.299Z', date: 'Nov 3, 2026, 4:50 AM CT', title: 'Green Tree\'s connecting range and Wolf Point picture credit', kind: 'change',
+    items: [
+      'A low connector and angled gabled range now stand beside Green Tree Tavern\'s open wagon bay, replacing the previous rear ell.',
+      'The existing bay roof and posts remain, with open gaps preserved. Uncertain dimensions and the July-1835 appearance stay recorded as liberties.',
+      'The tavern\'s Images tab links the Blanchard/Davis colored poster with its publication credit.',
+      'The source record explains Newberry\'s conflicting dates. No building or camera changes are included.',
+    ] },
+  { v: 2609, ts: '2026-11-03T10:13:03.384Z', date: 'Nov 3, 2026, 4:13 AM CT', title: '1835 by night: lamp-lit windows, the lighthouse lit, a gate lantern', kind: 'feature',
+    items: [
+      'Set Time of day to dusk or night in 1835 and the town\'s and the fort\'s windows glow with candle and oil-lamp light, most in the evening and only a few in the small hours.',
+      'The lighthouse at the river mouth shows its light from dusk to dawn.',
+      'A lantern hangs outside the fort\'s south gate by the guard house.',
+      'Daytime looks exactly as before.',
+    ] },
+  { v: 2608, ts: '2026-11-03T09:51:47.576Z', date: 'Nov 3, 2026, 3:51 AM CT', title: 'Jaunt stops set the hour the sources give', kind: 'feature',
+    items: [
+      'A jaunt stop can carry its own hour and date: arriving sets the scene\'s light and the year chip\'s day, and leaving the jaunt gives your own Time of Day back.',
+      'The Lalime killing plays at six in the evening, sunset at the gate and night for Kinzie\'s flight, all on 17 June 1812, as the letters and Victoire Porthier tell it.',
+      'The Battle of Fort Dearborn: sunset at Lee\'s Place, dusk at the Burns house, evening for the well and the liquor, and 9 o\'clock in the morning for the march down the beach.',
+      'Every hour cites its claim; an hour no source gives is marked inferred.',
+    ] },
+  { v: 2607, ts: '2026-11-03T09:02:15.229Z', date: 'Nov 3, 2026, 3:02 AM CT', title: 'Glessner\'s north-face colonnettes carved like the Prairie front\'s', kind: 'fix',
+    items: [
+      'The two colonnettes between the 18th Street window pairs were pale plain posts; they are now the front\'s kind, as the 1965 HABS photographs show them.',
+      'Each has a splayed base, a tapered round shaft in the walls\' granite and a carved block capital, every capital cut differently.',
+      'Their carving is reconstructed and listed in Liberties; no close photograph of either capital is known.',
+    ] },
   { v: 2606, ts: '2026-11-03T08:49:31.505Z', date: 'Nov 3, 2026, 2:49 AM CT', title: 'Pullman stonework reads its joints; the glasshouse ground\'s edges finished', kind: 'fix',
     items: [
       'Every face of the Pullman house now shows its stone courses and blocks: the bays and towers that read as plain stone are coursed, and the joints are struck 10 mm wide and 6 mm deep.',

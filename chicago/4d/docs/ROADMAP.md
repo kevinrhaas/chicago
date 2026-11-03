@@ -6198,3 +6198,15 @@ The current source connects reconstructed1835 Otis/W01 and1904 Hans Johnson/Brou
 T-2793/T-3088/T-2803/T-1790/T-1789/T-2804 continue through an additive occupied1835 wagon and1904 carriage prototype. Existing named residents retain their evidence grades; the trips, appearances and activity are reconstructions. Find/Go to and the shared fort Interact path address the driver, with one resident card and reversible standing-person ownership. Slow in-place horse travel drives the vehicle and wheel phases; no riding or boarding is represented by camera motion.
 
 The earlier1904 candidate is superseded by the adjusted lane and exact drawn-road triangle reader described in STATUS. Paving depth order no longer introduces artificial physical steps. A model-bound complete native hoof-domain reproduction supplies source-specific dimensions without relaxing generic support defaults or the1mm/2degree/30mm limits. The complete native route passes7,906 finite samples; this is distinct from actual posed terrain contact, a replay of every instant, photographic matching and portable performance acceptance. Broader gait, mounted rider, rein/grip and photographic acceptance remain in the existing tickets rather than new follow-ups.
+## Original T-2376 — connector/range increment, 2026-11-03
+
+Implemented the pictured low connector and turned farther gabled range beside Green Tree's preserved procedural open wagon bay. The prior rear ell is retired; the reference footprint and placement stay unchanged. Authenticated model adoption and compound physical consumers are documented at `docs/RESEARCH/green-tree-annex-T-2376/README.md`; the new reconstructed form is declared at `L-green-tree-enclosed-left-reading-2376`.
+
+The genuine refreshed Andreas comparison remains `differs`: its tall enclosed shoulder/dormered reading and complete farther-range opening/dimension match are not signed off by this useful partial increment. Continue original T-2376 for remaining picture coverage and signoff; the operational state stays in the original ticket, with no new photo follow-up.
+
+
+## 2026-11-03 — Wolf Point poster credit continuation (T-2386)
+
+The distinct Blanchard/Davis poster now has an attributed ca. 1893 SourceRecord and a textual Images-list join. Current Newberry 1935/Copyright Not Evaluated metadata is retained as a conflict, with the explicit archived publication evidence and review citation. This is a source-credit increment only. The initial independent poster camera is not enrolled, and no geometry or accepted comparison changes.
+
+Original T-2386 remains unfinished: refine and genuinely review the distinct poster camera before any model-gap or matching verdict, then complete required app/image acceptance. Existing seven reviewed views and the tiny Herriott unmeasurable-target exclusion are unchanged.

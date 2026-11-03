@@ -13,6 +13,7 @@
  */
 
 import { formatDistance, normalUnitSystem } from './units.js';
+import { occupiedPolygons } from './occupied-footprints.js';
 import { isTyping } from './controls/pointerlock.js';
 import { todayText, withLotNumber } from './modern-streets.js';
 
@@ -95,27 +96,29 @@ function cardinal(bearing) {
   return CARDINALS[Math.round(normalBearing(bearing) / 22.5) % CARDINALS.length];
 }
 
-function structureOutlines(registry) {
+export function structureOutlines(registry) {
   const out = [];
   for (const record of registry?.values?.() ?? []) {
     const sidecar = record.sidecar ?? {};
     const raw = sidecar.footprint;
-    const polygon = Array.isArray(raw) ? raw : raw?.polygon;
+    const polygons = occupiedPolygons(raw);
     const placement = sidecar.placement ?? {};
-    if (!Array.isArray(polygon) || polygon.length < 3) continue;
+    if (!polygons.length) continue;
     const th = (placement.rotation_deg ?? 0) * DEG;
     const cos = Math.cos(th);
     const sin = Math.sin(th);
     const e0 = placement.local_e ?? 0;
     const n0 = placement.local_n ?? 0;
-    const ring = polygon.map(([u, v]) => [
-      e0 + u * cos + v * sin,
-      n0 - u * sin + v * cos,
-    ]);
-    // T-2654: the Map app hit-tests these and colours them by the building's own grade.
-    ring.id = record.id ?? sidecar.id ?? null;
-    ring.grade = sidecar.grade?.value ?? sidecar.documented_range?.confidence ?? null;
-    out.push(ring);
+    for (const polygon of polygons) {
+      const ring = polygon.map(([u, v]) => [
+        e0 + u * cos + v * sin,
+        n0 - u * sin + v * cos,
+      ]);
+      // Components retain one structure id and the structure's singular grade.
+      ring.id = record.id ?? sidecar.id ?? null;
+      ring.grade = sidecar.grade?.value ?? sidecar.documented_range?.confidence ?? null;
+      out.push(ring);
+    }
   }
   return out;
 }

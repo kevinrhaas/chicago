@@ -130,7 +130,7 @@ export function patchNightWindows(material) {
 
 // ---- the lamps outside ----------------------------------------------------------
 
-function glowTexture(size = 64, inner = 0.0) {
+export function glowTexture(size = 64, inner = 0.0) {
   const c = document.createElement('canvas');
   c.width = c.height = size;
   const g = c.getContext('2d');
@@ -151,6 +151,8 @@ const KINDS = {
   lantern: { flameM: 0.8, flame: 1.3, poolM: 4.5, pool: 0.14, flicker: 0.06 },
   fire: { flameM: 1.4, flame: 1.2, poolM: 7.0, pool: 0.2, flicker: 0.16 },
   torch: { flameM: 0.8, flame: 1.2, poolM: 5.0, pool: 0.16, flicker: 0.14 },
+  // A lighthouse's lamps behind reflectors: a large steady glow high up, no pool.
+  beacon: { flameM: 5.0, flame: 2.4, poolM: 0, pool: 0, flicker: 0.02 },
 };
 
 async function getJSON(url) {
@@ -215,16 +217,20 @@ export async function createNightLights({ dataBase, sceneId, terrain, anchor = (
     flame.scale.setScalar(kind.flameM);
     flame.position.set(e, ground + (L.height_m ?? 1.8), -n);
     flame.name = `night-light:${L.id}`;
-    const poolMat = new THREE.MeshBasicMaterial({
+    // A kind with no pool (a beacon high up) throws none: one draw, not two.
+    const poolMat = kind.pool > 0 ? new THREE.MeshBasicMaterial({
       map: poolTex, color: colour.clone().multiplyScalar(kind.pool), blending: THREE.AdditiveBlending,
       depthWrite: false, transparent: true, fog: true, polygonOffset: true, polygonOffsetFactor: -4,
-    });
-    const pool = new THREE.Mesh(new THREE.PlaneGeometry(kind.poolM * 2, kind.poolM * 2), poolMat);
-    pool.rotation.x = -Math.PI / 2;
-    pool.position.set(e, ground + 0.06, -n);
-    pool.name = `night-light-pool:${L.id}`;
-    pool.renderOrder = 2;
-    group.add(flame, pool);
+    }) : null;
+    group.add(flame);
+    if (poolMat) {
+      const pool = new THREE.Mesh(new THREE.PlaneGeometry(kind.poolM * 2, kind.poolM * 2), poolMat);
+      pool.rotation.x = -Math.PI / 2;
+      pool.position.set(e, ground + 0.06, -n);
+      pool.name = `night-light-pool:${L.id}`;
+      pool.renderOrder = 2;
+      group.add(pool);
+    }
     lamps.push({ L, kind, flameMat, poolMat, base: colour, phase: (lamps.length * 2.399) % 6.283 });
     placed.push({ id: L.id, kind: L.kind, e, n });
   }
@@ -250,13 +256,13 @@ export async function createNightLights({ dataBase, sceneId, terrain, anchor = (
       for (const l of lamps) {
         const f = 1 - l.kind.flicker * (0.5 + 0.5 * Math.sin(t * 7.3 + l.phase) * Math.sin(t * 3.1 + l.phase * 2));
         l.flameMat.color.copy(l.base).multiplyScalar(l.kind.flame * f * lampK);
-        l.poolMat.color.copy(l.base).multiplyScalar(l.kind.pool * f * lampK);
+        l.poolMat?.color.copy(l.base).multiplyScalar(l.kind.pool * f * lampK);
       }
     },
     dispose() {
       unhook();
       flameTex.dispose(); poolTex.dispose();
-      for (const l of lamps) { l.flameMat.dispose(); l.poolMat.dispose(); }
+      for (const l of lamps) { l.flameMat.dispose(); l.poolMat?.dispose(); }
       group.traverse((o) => o.geometry?.dispose?.());
     },
   };
