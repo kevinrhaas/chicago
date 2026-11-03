@@ -4852,6 +4852,23 @@ def round_corner_spans(rc: dict, depth: float, width: float) -> dict:
             "walls": {"k01.wall.street_front": (0.0, r), "k01.wall.side.south": (depth - r, depth)}}
 
 
+#: T-3314: how many straight runs the eave, its cornice and its gutter take round a round
+#: carried to the eave (`round_corner.to_eave`), 15 degrees each
+ROUND_EAVE_FACETS = 6
+#: ...and the name the cornice's and the gutter's runs round it carry
+ROUND_WALL = "k01.wall.round_corner"
+
+
+def round_corner_arc(rc: dict, depth: float, width: float, out: float, n: int = ROUND_EAVE_FACETS) -> list:
+    """T-3314: the round's line `out` outside the wall line, as n + 1 plan points (x, z) =
+    (u, -v) in the order a run round the house meets them (the street front's end to the north
+    wall's start, or the south wall's end to the front's start), on the round's own centre."""
+    (cu, cv), r = round_corner_spans(rc, depth, width)["centre"], rc["radius_m"] + out
+    a0 = 0.0 if rc["corner"] == "north" else -math.pi / 2
+    return [(cu + r * math.cos(a0 + math.pi / 2 * i / n), -(cv + r * math.sin(a0 + math.pi / 2 * i / n)))
+            for i in range(n + 1)]
+
+
 #: T-3186: the wall a canted corner's face is (`cant_corner`)
 CANT_WALL = "k01.wall.cant"
 #: ...cut this far back along each wall at the least and the most (1901's south-west corner,
@@ -5149,26 +5166,45 @@ def _front_pier(fp, stone, openings, bays, rainwater, round_corner, roof_form, m
             "weathering_pitch_deg": pitch}
 
 
-def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_belts, frontispiece) -> dict:
+def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_belts, frontispiece,
+                  roof_form=None, construction=None, wall_head=None, hip_deck=None) -> dict:
     """T-3006: a corner of the front block rounded on a radius from grade (1811's south corner
     on the 1888 plate, K01's 'north'), laid in the front's own stone and corbelled out to the
     square under the wall head, so the cornice, the eave and the gable end stand on the square
     corner as before. Nothing else may stand on the walls it replaces."""
     if not rc:
         return {}
-    if not isinstance(rc, dict) or set(rc) != {"corner", "radius_m"} or rc["corner"] not in ROUND_CORNERS:
-        raise ParamError(f"round_corner takes corner ({' or '.join(ROUND_CORNERS)}) and radius_m, not {rc}")
+    if not isinstance(rc, dict) or not {"corner", "radius_m"} <= set(rc) <= {"corner", "radius_m", "to_eave"} \
+            or rc["corner"] not in ROUND_CORNERS or rc.get("to_eave", True) is not True:
+        raise ParamError(f"round_corner takes corner ({' or '.join(ROUND_CORNERS)}) and radius_m, and to_eave: true "
+                         f"for a round carried up to the eave, not {rc}")
     r = float(rc["radius_m"])
+    to_eave = bool(rc.get("to_eave"))
     if not stone:
         raise ParamError("round_corner is laid in the front's stone: it needs a stone_front")
-    if stone.get("brick_above_m") is not None or frontispiece:
-        raise ParamError("round_corner is coursed on the front's own beds: not with brick_above_m or a frontispiece")
+    if frontispiece or (stone.get("brick_above_m") is not None and not to_eave):
+        raise ParamError("round_corner is coursed on the front's own beds: not with brick_above_m (unless "
+                         "to_eave) or a frontispiece")
+    if to_eave:
+        # T-3314: 1919's north corner, the plates' brick front and its eave swept round on a curve:
+        # the round is carried up to the wall head in the front's courses (its stone basement and
+        # belts, the brick between them), and the hip's eave, its soffit, the bracketed cornice's
+        # bed moulding and the gutter run round it on the round's own centre (to_eave)
+        if roof_form != "hip" or hip_deck:
+            raise ParamError("round_corner.to_eave sweeps a plain hip's eave round the corner: not a mansard, "
+                             "a gable, a flat roof or a railed hip deck")
+        if construction != "brick_with_stone_front" or stone.get("brick_above_m") is None:
+            raise ParamError("round_corner.to_eave is laid round a brick front over its stone basement "
+                             "(construction brick_with_stone_front, stone_front.brick_above_m)")
+        if (wall_head or {}).get("cornice") not in (None, "k10.cornice.bracketed_timber"):
+            raise ParamError("round_corner.to_eave carries the bracketed timber cornice round, not "
+                             f"{(wall_head or {}).get('cornice')}")
     if rc["corner"] == "south" and (stone["corners"] or "south_return_m" in stone):
         raise ParamError("round_corner south: the south corner is quoined or returned (corner_bond, south_return_m)")
     if not 0.3 <= r <= min(1.5, width / 4, depth / 4):
         raise ParamError(f"round_corner.radius_m {r}: 0.3-1.5 m and at most a quarter of the front block's "
                          f"width and depth")
-    out = {"corner": rc["corner"], "radius_m": r}
+    out = {"corner": rc["corner"], "radius_m": r, **({"to_eave": True} if to_eave else {})}
     spans = round_corner_spans(out, depth, width)["walls"]
     for wall, (s0, s1) in spans.items():
         for o in openings:
@@ -5180,7 +5216,7 @@ def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_be
                     continue   # T-3007: an oriel carried out over the round (k01_frontage.bay closes its back)
                 raise ParamError(f"round_corner {rc['corner']}: the bay {b['id']} on {wall} stands on the round"
                                  f"{'' if b['variant']['kind'] != 'oriel' else f' (an oriel may reach onto it from the flat front, its junction within {ROUND_ORIEL_GAP_M} m of the curve)'}")
-        if any(sb.get("wall") == wall for sb in side_belts):
+        if any(sb.get("wall") == wall for sb in side_belts) and not to_eave:
             raise ParamError(f"round_corner {rc['corner']}: a side belt runs on {wall} into the round")
     # a pipe on the round stands behind the front's plane, as far off the curve as a front
     # pipe stands off the front (K04's offset and 0.05 m); one before the front's plane over
@@ -7134,7 +7170,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                floors=floors, sash=sash, basement=bl, iron=val("street_front_iron"),
                                stone_top=(val("stone_front") or {}).get("brick_above_m"))
     round_corner = _round_corner(val("round_corner"), depth, width, stone, openings, bays, rainwater,
-                                 side_belts=val("side_belts") or (), frontispiece=frontispiece)
+                                 side_belts=val("side_belts") or (), frontispiece=frontispiece,
+                                 roof_form=roof_form, construction=construction, wall_head=val("wall_head"),
+                                 hip_deck=val("hip_deck"))
     front_pier = _front_pier(val("front_pier"), stone, openings, bays, rainwater, round_corner, roof_form,
                              mansard_roof, pf + sum(heights))
     from .k01_pavilions import ParamError as PavilionError, resolve as resolve_pavilions

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 959,
+  "count": 961,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -64561,6 +64561,40 @@
       ]
     },
     {
+      "id": "L-k01-1919-round-corner-3314",
+      "title": "1919 Prairie's north corner rounded from grade to the eave, its brick, belts and eave swept round it",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_jr_house_1919_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the front's north corner of 1919 Prairie is rounded on 1.0 m from grade to the eave, where it stood square. The 1913 almanac plate ('Former Residence of Marshall Field Jr.' [1919 S. Prairie Avenue], halftone in…, through its solved camera) sweeps the wall and the main eave round that corner on a curve, the 1919 programme plate shows the eave turning it beside the tower, and the 1911 sheet (Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3, trace s28fp-1919-b1) cuts the corner back about 0.85 by 1.2 m. K01 learns one additive thing for it, byte-identical for every other house (the k01 emit tool --check): a round corner may be carried to the eave (round corner to eave) on a brick front over a stone basement under a plain hip. The front's courses are laid round it (the basement's stone and coping, the three pale belts, the K03 brick between them, its bond's u carried on round the curve), the front's and the north flank's walls, belts and basement stop at its tangents, and the hip's soffit and fascia, the bracketed cornice's bed moulding and the copper gutter run round it on its own centre in six 15-degree runs, the slate turning it as a quarter cone tangent to the two hipped faces from the fascia to the inset where the round's radius is used up, the hip going on from that apex. **What is read, not invented.** That the corner is round and that the wall and the eave are carried round it (both plates; the sheet's cut). **What is invented.** The radius: the sheet's cut read as one quarter round (its two arms, about 0.85 and 1.2 m, disagree by 0.35 m; 1.0 m also stays clear of the bow's span from 1.1 m along the front); that the round is a true circle and not an ellipse or a canted face; that the brackets stop at the round's tangents and none stands on the curve (the kit's run rule; the halftones do not resolve the brackets there); the cone's slating; the gutter carried round."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a solved camera on the c. 1905 Daily News negative (Marshall Field Residence (Marshall Field, Sr., residence at 1905 South Prairie…) or a measured survey of the restored house would read the round's radius and whether brackets stand on it."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-02 (T-3314)."
+        }
+      ],
+      "work_refs": [
+        "T-3314",
+        "T-3306",
+        "T-3302"
+      ]
+    },
+    {
       "id": "L-k03-brick-shuffle-3295",
       "title": "A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle",
       "section": "per_subject",
@@ -64818,6 +64852,53 @@
         "T-1936",
         "T-3271",
         "T-1841"
+      ]
+    },
+    {
+      "id": "L-t3319-fort-gate-leaves",
+      "title": "Fort Dearborn's gate leaves planked, ledged and braced, swinging inward, shut until a visitor opens them",
+      "section": "per_subject",
+      "subjects": [
+        "fort_dearborn_palisade"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_palisade",
+          "phase": "picket_1816",
+          "aspect": "form.gate_width_m"
+        }
+      ],
+      "recorded": "2026-11-02",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the main gates of both forts (1835: the second fort's north and south gates; 1812: the first fort's main gate through both picket rows) are hung by the walkthrough's fort gates code so a visitor can open and shut them with the Interact key. Each gateway takes two leaves on the jambs the palisade archetype already draws, each leaf butted vertical boards about 0.28 m wide with two ledges and a diagonal brace on the side facing into the fort, the leaves swinging inward through 90 degrees over 1.4 s. Every gate stands shut when the page opens, as the baked leaves stood before."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-02: *\"you should be able to enter the fort in both 1812 and 1835, be able to walk through the gate... the gate by default is closed and you can click on interact\"*."
+        },
+        {
+          "label": "What is recorded and\nwhat is not",
+          "text": "that there were gates and where is attested (Kinzie and Andreas for the second fort's north and south gates; Whistler's index no. 7, \"Main Gate\", for the first). Their size is the records' (gate width (m)). Nothing reached describes how either fort's leaves were made, how they hung, or which way they swung; the boards, ledges, brace, inward swing, its angle and its speed are ours, and so is a visitor's power to open a garrison's gate. The 1812 gates' place along the south rows (gate offset (m)) is the draught's, not this liberty's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a description or drawing of either fort's gates replaces the leaf; any garrison order on the gates' hours would say whether they stood open by day."
+        },
+        {
+          "label": "Covers",
+          "text": "`fort_dearborn_palisade.picket_1816.form.gate_width_m`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-02 (T-3319)."
+        }
+      ],
+      "work_refs": [
+        "T-3319"
       ]
     },
     {

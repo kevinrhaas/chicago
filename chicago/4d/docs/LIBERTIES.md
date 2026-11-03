@@ -38911,6 +38911,35 @@ would read the basement's height, the courses' depths and the arch's size on the
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3305).
 
+### L-k01-1919-round-corner-3314 — 1919 Prairie's north corner rounded from grade to the eave, its brick, belts and eave swept round it
+
+**Decision:** the front's north corner of 1919 Prairie (T-3314, piece 2 of T-3306) is rounded on
+1.0 m from grade to the eave, where it stood square. The 1913 almanac plate
+(`cdn_almanac_1913_gatlin_1919_plate`, through its solved camera) sweeps the wall and the main eave
+round that corner on a curve, the 1919 programme plate shows the eave turning it beside the tower, and
+the 1911 sheet (`sanborn_1911_chicago_v3_sheet_28`, trace s28fp-1919-b1) cuts the corner back about
+0.85 by 1.2 m. K01 learns one additive thing for it, byte-identical for every other house
+(`k01_emit.py --check`): a round corner may be carried to the eave (`round_corner.to_eave`) on a brick
+front over a stone basement under a plain hip. The front's courses are laid round it (the basement's
+stone and coping, the three pale belts, the K03 brick between them, its bond's u carried on round the
+curve), the front's and the north flank's walls, belts and basement stop at its tangents, and the hip's
+soffit and fascia, the bracketed cornice's bed moulding and the copper gutter run round it on its own
+centre in six 15-degree runs, the slate turning it as a quarter cone tangent to the two hipped faces
+from the fascia to the inset where the round's radius is used up, the hip going on from that apex.
+**What is read, not invented.** That the corner is round and that the wall and the eave are carried
+round it (both plates; the sheet's cut).
+**What is invented.** The radius: the sheet's cut read as one quarter round (its two arms, about 0.85
+and 1.2 m, disagree by 0.35 m; 1.0 m also stays clear of the bow's span from 1.1 m along the front);
+that the round is a true circle and not an ellipse or a canted face; that the brackets stop at the
+round's tangents and none stands on the curve (the kit's run rule; the halftones do not resolve the
+brackets there); the cone's slating; the gutter carried round.
+**How to resolve:** a solved camera on the c. 1905 Daily News negative (`cdn_dn0003324_field_residence`)
+or a measured survey of the restored house would read the round's radius and whether brackets stand on
+it.
+**Ticket:** T-3314 (piece 2 of T-3306, itself piece 2 of T-3302).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg`.
+**Recorded:** 2026-11-02 (T-3314).
+
 ### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
 
 **Decision:** the renderer no longer repeats a K03 brick panel (`assets/textures/prairie_1904_brick/panel/`,
@@ -39086,6 +39115,26 @@ neighbour, gives the south building's date and form and the stable's alley front
 **Ticket:** T-1936.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_house_1905_prairie_coach_house/chicagology_923_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-1936).
+
+### L-t3319-fort-gate-leaves — Fort Dearborn's gate leaves planked, ledged and braced, swinging inward, shut until a visitor opens them
+
+**Decision:** the main gates of both forts (1835: the second fort's north and south gates; 1812: the first fort's
+main gate through both picket rows) are hung by `renderers/web/js/fort-gates.js` so a visitor can open and shut them
+with the Interact key (T-3319). Each gateway takes two leaves on the jambs the palisade archetype already draws, each
+leaf butted vertical boards about 0.28 m wide with two ledges and a diagonal brace on the side facing into the fort,
+the leaves swinging inward through 90 degrees over 1.4 s. Every gate stands shut when the page opens, as the baked
+leaves stood before. **Why:** the owner, 2026-11-02: *"you should be able to enter the fort in both 1812 and 1835, be
+able to walk through the gate ... the gate by default is closed and you can click on interact"*. **What is recorded and
+what is not:** that there were gates and where is attested (Kinzie and Andreas for the second fort's north and south
+gates; Whistler's index no. 7, "Main Gate", for the first). Their size is the records' (`gate_width_m`). Nothing
+reached describes how either fort's leaves were made, how they hung, or which way they swung; the boards, ledges,
+brace, inward swing, its angle and its speed are ours, and so is a visitor's power to open a garrison's gate. The
+1812 gates' place along the south rows (`gate_offset_m`) is the draught's, not this liberty's.
+**How to resolve:** a description or drawing of either fort's gates replaces the leaf; any garrison order on the
+gates' hours would say whether they stood open by day.
+**Covers:** `fort_dearborn_palisade.picket_1816.form.gate_width_m`
+**Ticket:** T-3319.
+**Recorded:** 2026-11-02 (T-3319).
 
 ### L-k12-1816-stable-1935 — The long brick stable on the alley behind 1816 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its two window marks and both party walls
 
