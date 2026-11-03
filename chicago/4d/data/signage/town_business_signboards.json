@@ -894,8 +894,8 @@
         "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
       },
       "anchor_local_enu_m": [
-        687.32,
-        -54.83
+        684.9,
+        -49.81
       ],
       "facade_bearing_deg": 90.0,
       "arm_height_m": 2.55,
@@ -912,20 +912,20 @@
       "frontage_m": 12.19,
       "ground_quad_local_enu_m": [
         [
-          679.7,
-          -43.7
+          677.28,
+          -38.68
         ],
         [
-          679.7,
-          -55.89
+          677.28,
+          -50.88
         ],
         [
-          687.32,
-          -55.89
+          684.9,
+          -50.88
         ],
         [
-          687.32,
-          -43.7
+          684.9,
+          -38.68
         ]
       ],
       "opening_fit": {
@@ -1675,8 +1675,8 @@
         "note": "black Egyptian on a yellow-ochre ground"
       },
       "anchor_local_enu_m": [
-        310.42,
-        -99.66
+        308.88,
+        -99.65
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.55,
@@ -1694,20 +1694,20 @@
       "frontage_m": 14.0,
       "ground_quad_local_enu_m": [
         [
-          319.12,
-          -90.66
+          317.58,
+          -90.65
         ],
         [
-          305.12,
-          -90.66
+          303.58,
+          -90.65
         ],
         [
-          305.12,
-          -99.66
+          303.58,
+          -99.65
         ],
         [
-          319.12,
-          -99.66
+          317.58,
+          -99.65
         ]
       ]
     },
@@ -3891,8 +3891,8 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        678.5,
-        -100.56
+        676.25,
+        -100.55
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.55,
@@ -3913,20 +3913,20 @@
       "frontage_m": 15.24,
       "ground_quad_local_enu_m": [
         [
-          687.82,
-          -91.42
+          685.57,
+          -91.41
         ],
         [
-          672.58,
-          -91.42
+          670.33,
+          -91.41
         ],
         [
-          672.58,
-          -100.56
+          670.33,
+          -100.55
         ],
         [
-          687.82,
-          -100.56
+          685.57,
+          -100.55
         ]
       ]
     },

@@ -6555,9 +6555,11 @@ for (const [label, viewport, touch] of [
     // T-3078 — the New York House moved 8 m west off the Exchange Coffee House's
     // lot and fronts Lake Street on its own, so an inn's stoop at its door: 52,
     // thirty-eight stoops.
-    check(`${label}: the fifty-two business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 52 && (frontage.fittings ?? []).length === 52
-        && fitKinds.stoop === 38 && fitKinds.mounting_block === 6
+    // T-3360 — a church takes a stoop at its door (St. Mary's and First Presbyterian,
+    // both onto Lake Street): 54, forty stoops.
+    check(`${label}: the fifty-four business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 54 && (frontage.fittings ?? []).length === 54
+        && fitKinds.stoop === 40 && fitKinds.mounting_block === 6
         && fitKinds.wagon_apron === 7 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
