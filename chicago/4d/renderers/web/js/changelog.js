@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2625, ts: '2026-11-03T22:33:17.106Z', date: 'Nov 3, 2026, 4:33 PM CT', title: 'The Pullman house\'s 18th Street balustrade gains its middle post', kind: 'polish',
+    items: [
+      'Along 18th Street, the stone balustrade on the Pullman estate\'s wall now has the solid post in its middle that two old photographs show.',
+    ] },
   { v: 2624, ts: '2026-11-03T22:11:48.552Z', date: 'Nov 3, 2026, 4:11 PM CT', title: 'The 1812 jaunts tell the whole story, stop by stop', kind: 'improvement',
     items: [
       'All three 1812 jaunts open by setting the scene: the fort, when it was built, its garrison under Captain Heald, and the war with Britain coming closer. Each opening ends on the moment the story ignites.',
