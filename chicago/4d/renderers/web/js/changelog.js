@@ -1,4 +1,38 @@
 export const CHANGELOG = [ // newest first
+  { v: 2600, ts: '2026-11-03T05:45:43.445Z', date: 'Nov 2, 2026, 11:45 PM CT', title: 'Pullman\'s street trees grown tall and slender, as the photographs show them', kind: 'fix',
+    items: [
+      'The seven elms before 1729 Prairie and along its 18th Street side now rise on one straight trunk to about the second floor before they branch, as the Detroit and Taylor photographs draw them',
+      'Their narrow heads let the house\'s front show between them from the roof to the walk, where low, wide crowns used to hide it',
+    ] },
+  { v: 2599, ts: '2026-11-03T05:42:37.772Z', date: 'Nov 2, 2026, 11:42 PM CT', title: 'Three Fort Dearborn jaunts for 1812: the battle, Lalime, the fort', kind: 'feature',
+    items: [
+      'The Battle of Fort Dearborn: twelve stops from Lee\'s Place in April 1812 to the beach on 15 August and Mrs. Helm hidden under a feather bed at Ouilmette\'s.',
+      'Chicago\'s First Murder: John Kinzie kills the interpreter Jean Lalime at the fort gate, told in the family\'s, a witness\'s and the factor\'s versions.',
+      'Fort Dearborn, Building by Building: every building on Whistler\'s 1808 draught, inside the pickets and out.',
+      'Each stop quotes its sources: Heald\'s report and journal, Wau-Bun, Quaife, Kirkland and the officers\' letters. Fly or Instantly crosses the river.',
+    ] },
+  { v: 2598, ts: '2026-11-03T05:04:21.487Z', date: 'Nov 2, 2026, 11:04 PM CT', title: '1812: worn trails and trodden yards round the settlement', kind: 'feature',
+    items: [
+      'The beaten Indian trail along the lake shore, the line the garrison marched out on in August 1812, is worn into the grass from the fort south.',
+      'The Vincennes trace runs south from the fork below the fort, the Potawatomi trail to the Wabash that Captain Heald rode up in 1811.',
+      'A cart road leaves the fort gate, and fainter paths follow both banks to Kinzie\'s, Burns\'s, the Clark house and on up the South Branch to Lee\'s Place.',
+      'Every house, the stables, the agency and the shops have a trodden yard that fades raggedly into the grass.',
+      'Wear varies with use: the fort road is near bare, the paths up the South Branch barely a line in the grass.',
+      'Grass and trees keep off the trails. Every line is ours, routed over the dry ground, and is recorded as a liberty.',
+    ] },
+  { v: 2597, ts: '2026-11-03T04:29:58.014Z', date: 'Nov 2, 2026, 10:29 PM CT', title: '1701 Prairie\'s stable: the low wing gets the photograph\'s narrow gable', kind: 'improvement',
+    items: [
+      'Behind 1701 Prairie Avenue, the stable\'s lower south wing no longer carries a gable across its whole end. As the Chicagology photograph shows it, the wing is hipped, with a narrow steep gable about 1.8 m across at its north corner, a lunette under it and a round window below that.',
+      'The stable now matches its picture. It still stands about 4 m south of where the house\'s camera sees it, because the 1911 map and the two camera fits disagree. The map\'s place stands.',
+    ] },
+  { v: 2596, ts: '2026-11-03T04:28:30.580Z', date: 'Nov 2, 2026, 10:28 PM CT', title: 'Time of day: watch the town from daybreak to night', kind: 'feature',
+    items: [
+      'Settings › Show › Time of day picks daybreak, morning, daytime, afternoon, sunset, dusk or night, or any hour on a slider in 10-minute steps.',
+      'Daytime is the scene\'s own hour and stays the default.',
+      'The sun, the sky, the shadows and the haze follow the hour, through twilight to a night sky.',
+      'Night is lit for a dark-adapted eye so you can still walk the town; it is a liberty, not a measured moon.',
+      'Lamps, candles and fires come next, starting with 1812\'s Fort Dearborn.',
+    ] },
   { v: 2595, ts: '2026-11-03T04:07:27.683Z', date: 'Nov 2, 2026, 10:07 PM CT', title: 'Fort Dearborn: Inspect names the building you face inside the walls', kind: 'fix',
     items: [
       'On a phone, standing inside Fort Dearborn and pressing Inspect named the stockade\'s pickets, whatever building you were facing, in 1812 and 1835.',

@@ -33,7 +33,10 @@
  *                 footprint that is NOT walkable. A standing viewpoint inside a
  *                 building is a camera in a wall; an AERIAL anchor
  *                 (`altitude_m`) is exempt, because it is a bird's-eye above
- *                 the ground and the town is the point.
+ *                 the ground and the town is the point. A parade is NOT a
+ *                 roof, and on a parade neither is the palisade round it: the
+ *                 walker treats the one as ground and the other as walls
+ *                 (T-3319), so a fort's parade is a place to stand (T-3327).
  *   stands_on     the anchor is on a DECK — a structure whose placement
  *                 declares `walk_surface_m`, which is the eight bridges, piers
  *                 and slough crossings. `north_branch_bridge_deck` is the
@@ -192,6 +195,14 @@ export function inPolygon([e, n], poly) {
   return inside;
 }
 
+/** The footprint a standing camera at (e, n) would be inside, or null. On a parade,
+ *  the parade and the palisades that close it in are not roofs (T-3327). */
+export function roofOver(roofs, e, n) {
+  const onParade = roofs.some((r) => r.ground && inPolygon([e, n], r.poly));
+  const over = roofs.filter((r) => !r.ground && !(onParade && r.enclosure) && inPolygon([e, n], r.poly));
+  return over.find((r) => !r.enclosure) ?? over[0] ?? null;   // the building, before the fence round it
+}
+
 export function anchorDeckHeight(row, e, n) {
   return row.deck_surface ? deckHeightAt(row.deck_surface, e, n) : row.walk_surface_m;
 }
@@ -212,6 +223,11 @@ async function sceneOutlines(scene) {
         // A declared walk surface is what makes a footprint somewhere to STAND
         // rather than something to stand in. See docs/GLB-CONTRACT.md.
         walk_surface_m: sidecar.placement?.walk_surface_m ?? null,
+        // T-3327: a parade is ground the visitor walks on (walker.js footprintsFrom,
+        // T-3319), and the stockade round it is an enclosure: its pickets are walls,
+        // not a roof over the parade.
+        ground: sidecar.attributes?.kind?.value === 'parade',
+        enclosure: sidecar.archetype === 'palisade',
         ...(sidecar.placement?.walk_surface_profile != null
           ? { deck_surface: deckFromSidecar(name.replace(/\.json$/, ''), sidecar) } : {}),
       });
@@ -232,7 +248,7 @@ export async function measure({ scene = '1835' } = {}) {
     const inside = hf.contains(e, n);
     const ground = hf.sample(e, n);
     const margin = inside ? marginToWater(hf, e, n, waterM) : 0;
-    const under = aerial ? null : (roofs.find((r) => inPolygon([e, n], r.poly)) ?? null);
+    const under = aerial ? null : roofOver(roofs, e, n);
     const deck = under && Number.isFinite(under.walk_surface_m) ? under : null;
     return {
       id: a.id,
@@ -327,6 +343,12 @@ function selfTest() {
   const poly = outline({ footprint: [[0, 0], [10, 0], [10, 10], [0, 10]], placement: { local_e: 100, local_n: 100, rotation_deg: 90 } });
   ok('outline() places and turns a footprint', poly.length === 4);
   ok('inPolygon() catches a point inside the turned footprint', inPolygon([105, 95], poly));
+  const sq = (e0, n0, d) => [[e0, n0], [e0 + d, n0], [e0 + d, n0 + d], [e0, n0 + d]];
+  const fort = [{ id: 'pickets', poly: sq(0, 0, 30), enclosure: true }, { id: 'parade', poly: sq(10, 10, 10), ground: true },
+    { id: 'barracks', poly: sq(2, 2, 6) }];
+  ok('roofOver(): on a parade, neither the parade nor its stockade is a roof', roofOver(fort, 15, 15) === null);
+  ok('roofOver(): inside the stockade but off the parade, the stockade is', roofOver(fort, 25, 25)?.id === 'pickets');
+  ok('roofOver(): a building inside the stockade is still a roof', roofOver(fort, 4, 4)?.id === 'barracks');
   ok('inPolygon() lets a point outside it through', !inPolygon([130, 130], poly));
   // The fault rules fire on each way of being wrong, and stay quiet on a good anchor.
   const f = (a) => faults({ water_surface_m: 0, anchors: [a] });

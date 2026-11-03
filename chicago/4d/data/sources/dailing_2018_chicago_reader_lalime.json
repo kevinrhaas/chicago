@@ -1,0 +1,28 @@
+{
+  "id": "dailing_2018_chicago_reader_lalime",
+  "type": "article",
+  "citation": "Paul Dailing, 'The long death of Jean Lalime: A classic tale of Chicago corruption, and also of rabbinical law, frontier justice, and the city's first murder', Chicago Reader, 18 October 2018.",
+  "author": "Paul Dailing",
+  "date": "2018-10-18; accessed 2026-11-03",
+  "describes_date": "Fort Dearborn and its traders, 1800-1812, and Lalime's remains, 1891-2018",
+  "url": "https://chicagoreader.com/news-politics/the-long-death-of-jean-lalime/",
+  "locator": "the article's paragraphs as read 2026-11-03; each claim citing it names the paragraph by its opening words.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A copyrighted 2018 newspaper article. Cited in text only, as jaunts do; nothing is derived from it as an asset.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-03 for T-3326 from the article page. It quotes the 1812 letters of the factor Matthew Irwin and the surgeon's mate Isaac Van Voorhis to the War Department and Captain Heald's reply to Irwin, which this project has not read in the original (they were published in the 1940s; the Wikipedia article on Jean La Lime cites the Ohio State Historical Society's Document Transcriptions of the War of 1812 in the Northwest, vol. VI, 1959, on HathiTrust, which this container cannot reach). So those letters are quoted here AS THE READER PRINTS THEM, and every claim says so.",
+  "note": "LATER JOURNALISM THAT QUOTES THE CONTEMPORARY LETTERS. Its value is the 1812 letters it quotes and the land record it reports: that the Wayne County register at Detroit shows Lalime, not Le Mai, buying du Sable's post in 1800 with Kinzie as a witness, and that no record of the next transfer was found. Its framing is its own and openly partisan against the Kinzie family's version ('a popular lie'); claims that rest on its framing rather than on a quoted document are graded inferred, and the opposing versions are told beside it.",
+  "what_it_supplies": [
+    "the Wayne County record of the 1800 sale of du Sable's post to Lalime, with Kinzie as witness, and no record of the next transfer",
+    "Captain Heald's garrison order of 17 January 1812 making 'Messrs. Kinzie & Forsyth' the sutlers",
+    "Irwin's letters of 30 December 1809, 16 April, March 10, July and 12 October 1812, and Van Voorhis's of 30 June 1812, as quoted",
+    "the date 17 June 1812, about six in the evening, and Irwin's watching the killing from twenty to thirty yards",
+    "Heald's letter to Irwin: 'a Citizen who had but a few days previous stabed an other citizen to the heart in your presence'"
+  ],
+  "what_it_does_not_supply": [
+    "the letters themselves, with their own pagination",
+    "where Lalime fell, beyond the fort's entrance"
+  ]
+}
