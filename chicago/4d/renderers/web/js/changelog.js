@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2606, ts: '2026-11-03T08:49:31.505Z', date: 'Nov 3, 2026, 2:49 AM CT', title: 'Pullman stonework reads its joints; the glasshouse ground\'s edges finished', kind: 'fix',
+    items: [
+      'Every face of the Pullman house now shows its stone courses and blocks: the bays and towers that read as plain stone are coursed, and the joints are struck 10 mm wide and 6 mm deep.',
+      'The glasshouse ground\'s walks and drive are crushed gravel you can see, not a flat grey sheet.',
+      'The lot-line coping along Calumet no longer stops dead on the lawn: it runs on past the glasshouse and opens with finished ends where the drive\'s turn meets the sidewalk.',
+      'The stray paving slab on the lawn at 1800 Calumet is gone, and the carriage walks round Calumet\'s bend meet the sidewalk square, with no grass showing between.',
+      'The glasshouse drive\'s join at 18th and Calumet now covers the sidewalk\'s bend, closing the sliver of lawn that showed through.',
+    ] },
   { v: 2605, ts: '2026-11-03T08:34:18.115Z', date: 'Nov 3, 2026, 2:34 AM CT', title: '1812 by night: candlelit windows and a lantern at the fort gate', kind: 'feature',
     items: [
       'Set Time of day to dusk or night in 1812 and the fort\'s and houses\' windows glow with candle and hearth light.',
