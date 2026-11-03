@@ -24371,9 +24371,15 @@ walks and the rainwater goods.
 body is one rectangle. The tower is square, as the photograph and the sheet draw it (T-3318: K08's
 polygonal tower with four sides, a face to the street, 3.79 m across and its front 1.3 m out of the wall,
 the sheet's), but its back stands on the front wall's plane all the way up, so over the main roof it is a
-1.3 m deep shaft and not the free-standing square the photograph shows above the cornice; its cornice is
-the kit's plain eaves, without the photograph's consoles (K08 adds no brackets to a tower), and its
-belvedere rises flush from the shaft rather than set back over a corbelled balcony. The door stands in the
+1.3 m deep shaft and not the free-standing square the photograph shows above the cornice. Its
+belvedere's cornice carries a console at each free corner and a row of plain brackets along its faces, and
+the belvedere stands back over a corbelled stone balcony round its cheeks and front (T-3329), as the
+photograph draws them; their sizes (the balcony 0.55 m out on a 0.3 m slab and three 0.16 m courses, a
+0.75 m balustrade; consoles 0.9 m deep; brackets 0.37 m apart) are read through the photograph's scale at
+the belvedere's lights and are reconstructed, and the photograph's carved consoles are the kit's plain
+quarter-ellipse ones and its moulded corbel table the kit's stepped courses. Both balconies stop on the
+wall's plane with the shaft. The bracketed cornice and balcony at the main cornice's level are not built:
+the shaft passes the main cornice with a plain string course. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
@@ -24381,7 +24387,7 @@ storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
-between the photograph and the sheet, and works the tower, the verandah, the entrance and the window
+between the photograph and the sheet, and works the tower's main-cornice stage and height (T-3330), the verandah, the entrance and the window
 dressings toward the photograph; T-1902 carves the finish.
 
 **Covers:** `house_1918_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1918_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1918_prairie.as_mapped_1904.form.roof_covering`, `house_1918_prairie.as_mapped_1904.form.stair_tread_m`, `house_1918_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1918_prairie.as_mapped_1904.form.north_bays`, `house_1918_prairie.as_mapped_1904.form.rainwater`, `house_1918_prairie.as_mapped_1904.form.yard`.
