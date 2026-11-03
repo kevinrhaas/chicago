@@ -4540,7 +4540,7 @@ export async function createFlora({
     if (!p.pending) {
       if (!spread) {
         if (!due) return false;
-        if (f.spread && costly) {
+        if (f.spread && costly && (f.pace > p.reach || f.turnRate > CONE_YAW_STEP)) {
           begin(p, f, true);
           stats.spread.jumps++;
           return advance(p, f, jumpSlice(p, f));

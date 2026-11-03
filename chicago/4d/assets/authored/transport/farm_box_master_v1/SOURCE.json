@@ -1,0 +1,114 @@
+{
+  "asset": "wagon_w01_farm_box_master_v1",
+  "creator": "Lyskilde / longtail",
+  "source": "https://sketchfab.com/3d-models/old-cart-f536745fd82144eeb5cc4900a48e816e",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "producer_code_license": "GPL-3.0-or-later; does not replace underlying geometry/UV/map license",
+  "grade": "reconstructed",
+  "modern_construction_reference_only": true,
+  "original_asset_date": "2020-01-15; publication date, not object date",
+  "authored_files": [
+    {
+      "path": "old-cart-original.glb",
+      "bytes": 9809548,
+      "sha256": "13600b73c1777545e1454d452c58d141469f031b2c5e6c29b1c6fdefe9145046"
+    },
+    {
+      "path": "ORIGINAL-CREDIT.json",
+      "bytes": 2741,
+      "sha256": "3a84404023c50c0375b5f4c0aef98fc411b0ebe604c06f00f5dd3a8ae4cbccd7"
+    },
+    {
+      "path": "ATTRIBUTION.md",
+      "bytes": 1158,
+      "sha256": "880a3a927dd0842b44ccf520486e232e987016b76d1f404c2ab39d9e29caa888"
+    },
+    {
+      "path": "derived/farm-box-source.glb",
+      "bytes": 11984672,
+      "sha256": "fb0c507048ad8a95e19cc0d8a1e57ade5c2937060eeef3adc9e45af96a0e4ee4"
+    },
+    {
+      "path": "derived/farm-box-source.json",
+      "bytes": 13964,
+      "sha256": "d820eec7844146b76099d0633b64c0603f1bc6675e72098b1c3a9e9e37806963"
+    }
+  ],
+  "canonical_original_pngs_preserved": true,
+  "source_texture_count_actual": 6,
+  "changes": [
+    "Metre/+Yup/+Zforward/+Xleft calibration to explicitly reconstructed W01 target dimensions",
+    "Continuous body calibration with transformed normals/tangents and exact original UV values",
+    "Independent circular radial wheel scaling; original eight spokes/tyres/hubs retained",
+    "Neutralized original12.930344degree front-steer pose, explicit independent front/rear wheel/turntable frames",
+    "Single2.75m pole from one source shaft; other source shaft omitted; central bearing reconstructed from licensed timber",
+    "Named empty proposed hitch/seat/boarding/camera interfaces; no occupants/harness/physics assertion",
+    "Compressed genuine near/mid/far; raw canonical PNG master preserved; role-specific measured WebP loss declared in actual export receipt",
+    "Separatelyownedactualsourcekingbolt; actualcentral90x55mmcouplingreach reusedfromlicensedshaftgeometry/UVs, joiningfixedfrontbolster/rearaxle; noemptynodeproxy orbodyrail relabeling"
+  ],
+  "web_export": {
+    "path": "renderers/web/transport/farm-box-master/EXPORT-RECEIPT.json",
+    "sha256": "41eaaa990edd0a97ea8c3396accadac76bd6d506651527b3d3f38df16319b7a5",
+    "producer_sha256": "d6ad251701bc791897f5cce7621089350cb9395186c52f4173e4d516af34059b",
+    "total_bytes": 8464492,
+    "levels": [
+      {
+        "level": "near",
+        "file": "farm-box-near.glb",
+        "bytes": 5105348,
+        "sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+        "triangles": 17550,
+        "vertices": 51727,
+        "draw_batches": 12,
+        "texture_RGBA8_mip_estimate_bytes": 33554424
+      },
+      {
+        "level": "mid",
+        "file": "farm-box-mid.glb",
+        "bytes": 2168924,
+        "sha256": "6a5fa3f484afbed41d05f055858df57a8163b19ff0057e292449c51ccb360b36",
+        "triangles": 12996,
+        "vertices": 34227,
+        "draw_batches": 12,
+        "texture_RGBA8_mip_estimate_bytes": 8388600
+      },
+      {
+        "level": "far",
+        "file": "farm-box-far.glb",
+        "bytes": 1190220,
+        "sha256": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+        "triangles": 10178,
+        "vertices": 27891,
+        "draw_batches": 12,
+        "texture_RGBA8_mip_estimate_bytes": 2097144
+      }
+    ]
+  },
+  "limits": [
+    "No maker/date/region/prototype or originalmetriccalibration supplied by modern source",
+    "No1835Chicago/Dearborn/Studebaker/owner/species/paint claim",
+    "Later1893StudebakerFarmWagonNo4 is a labeled period analogy; no earlierpresence proof",
+    "Actual dated matched-reference and currentworld/app/budget release qualification separate; no photographic completion from generator/fixture/schema",
+    "Original80staticwagons and3selectedfinewoodstands remain unchanged"
+  ],
+  "photographic_acceptance": false,
+  "ticket_complete": false,
+  "kinematic_fit_limits": {
+    "front_yaw_frame_policy": "Reconstructed tyre-axle-centre pivot; artist kingbolt preserved, no exact coaxial strength/engineering claim",
+    "artist_kingbolt_axis_XZ_from_frame_m": [
+      0.00192487193,
+      0.00460852031
+    ],
+    "artist_kingbolt_axis_eccentricity_m": 0.004994356,
+    "artist_kingbolt_axis_motion_at_8deg_m": 0.000696777,
+    "rim_policy": "Uniform radial scaling preserves source artistic rim irregularity; neutral ground near zero, all-roll worst lower-bound 2.617mm below ideal plane, declared <=3mm mesh tolerance; no suspension/idealcircle claim"
+  },
+  "period_family_cross_check": {
+    "source_id": "wild_1835_third_vine",
+    "scope": "Contemporary1835 Cincinnati family-form analogue only; not the geometry/texture source, this specimen or Chicago identity. Supplemental Buffalo1825-depiction/unknown19th-century-print/1912-reproduction limits remain in the comparison.",
+    "review": "docs/RESEARCH/farm-box-master-2793/REFERENCE-COMPARISON.md",
+    "reference_sha256": "428bfc9cf09352f3187fd31f6330310f64829fca17013b88de4ef812d37b966e",
+    "geometry_and_web_export_bytes_unchanged": true
+  }
+}
