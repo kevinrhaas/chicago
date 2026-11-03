@@ -171,7 +171,7 @@ export const CENSUS = () => {
         const kind = rec.sidecar.attributes?.['kind'];
         const parade = (kind && typeof kind === 'object' ? kind['value'] : kind) === 'parade';
         plan.set(id, { e0, e1, n0, n1, parts: 1, e: p.local_e, n: p.local_n,
-          occupiedE, occupiedN, compound: rec.sidecar.archetype === 'camp' || parade, transformError });
+          occupiedE, occupiedN, compound: ['camp', 'lodge_camp'].includes(rec.sidecar.archetype) || parade, transformError });
       }
     }
   }

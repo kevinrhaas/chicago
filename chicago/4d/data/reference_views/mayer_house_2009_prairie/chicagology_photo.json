@@ -1,0 +1,23 @@
+{
+ "structure_id": "mayer_house_2009_prairie",
+ "source_id": "chicagology_2009_prairie_meyer_photo",
+ "library_image": "a20-chicagology-2009-2011-photo",
+ "photo": "../../sources/assets/meyer_2009_pictures_t1913/meyer_2009_chicagology_photo.jpg",
+ "image_px": [
+  1671,
+  2000
+ ],
+ "principal_px": [
+  157.6,
+  1565.0
+ ],
+ "focal_px": 2217.0,
+ "eye": [
+  48.2,
+  -2.34,
+  1.6
+ ],
+ "yaw_deg": -90.0,
+ "sky": "overcast",
+ "solve": "Fitted by T-1913 as a LEVEL VIEW CAMERA SQUARE TO THE FRONT (yaw -90 in the footprint frame: u toward the street, v SOUTH on this side of the avenue; the eye looks east), as the print shows it: the front's string course, window heads and sills run level across it and its verticals stand upright, so its plane is the picture's. THE FRONT'S PLANE: its two ends, the north corner's quoins (x 390 px) and the party line with 2011 (x 1145 px), are the 1911 sheet's 7.56 m front, 99.9 px a metre; the wall's foot reads y 1725 px. THE THREE FREE NUMBERS from the stoop, which runs straight out from the door between stone cheek walls: 1.8 m between its cheeks at the house (x 925-1105 px) and 220 px between them at its foot (x 1095-1315 px), 122 px a metre, its centre moved 190 px right; so the eye stands 2.34 m north of the north wall (principal x 157.6 px, where the north flank's level lines meet) and 22.2 m in front of the front (f 2217 px), the stoop taken 4.0 m from the front to its foot (12 risers on 0.3 m treads and a landing). The eye's height is set at 1.6 m (the stoop's treads are seen from above); the principal y follows from it (1565 px). CHECKS it was not fitted to: the north flank's cornice at the far stack (x 170 px) reads y 715 px where this camera puts the 11.95 m wall head about 8 m back at y 800 px, and the far stack lies inside the flank's strip (x 130-210 px) as the camera allows; both are soft. LIGHT: a grey sky, no cast shadows on the front: overcast."
+}

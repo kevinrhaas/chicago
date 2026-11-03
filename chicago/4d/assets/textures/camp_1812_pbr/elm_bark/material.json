@@ -1,0 +1,26 @@
+{
+  "id": "elm_bark",
+  "group": "camp_1812",
+  "span_m": 1.2,
+  "mean_roughness": 0.93,
+  "resolution_px": 1024,
+  "web_resolution_px": 512,
+  "px_per_m": 853.33,
+  "orientation": "image x = round the covering (u, horizontal); image y = up it (v)",
+  "note": "The outer face of a sheet of elm bark: interlacing grey cork ridges over red-brown furrows, grain up the image, a little lichen. The covering of the summer bark house (Forsyth 1827; Wau-Bun). Reconstructed appearance.",
+  "confidence": "reconstructed appearance; the covering's material is inferred from the texts the record cites (L-1812-potawatomi-camp-2515)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic",
+    "height16": "linear 16-bit"
+  },
+  "web": {
+    "basecolor": "elm_bark_basecolor_web.jpg",
+    "normal_gl": "elm_bark_normal_gl_web.jpg",
+    "orm": "elm_bark_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 18120815,
+  "generation_method": "deterministic procedural synthesis (tools/generate_camp_1812_pbr.py); no photograph sampled"
+}

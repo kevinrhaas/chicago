@@ -993,6 +993,8 @@
     "s35-2001-front": "2001 Prairie now stands as the K01 stone-front house house_2001_prairie under a hip with a street dormer (T-3347, piece 2 of T-1912), which refines this draft in place under the draft's own id: the two-and-a-half-storey main body on K01 with the sheet's rear step to the 20th Street line on K08; the draft stands no second building beside it.",
     "s35-2001-wing": "2001 Prairie's one-storey frame porch on the 20th Street side stands on the face of house_2001_prairie's flank step (T-3347), where K08 hosts no second projection, so it is not built (liberty L-k01-2001-corner-3347); the draft stands no second building.",
     "s20-1613-f": "1613 Prairie now stands as the K01 brick frontage house_1613_prairie under K01's flat roof (T-2417, piece 1 of T-1868), the north half of the pair with 1615, which refines this draft in place under the draft's own id: the four-storey main body on K01 and the sheet's one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
+    "s35-2009-front": "2009 Prairie now stands as the K01 brick house mayer_house_2009_prairie (T-1913, the envelope package of the T-1837 programme), the Max A. Meyer house, which refines this draft in place under the draft's own id: the main body on K01 over its stone basement with the photograph's ogee gable on K01's shaped gable, its bowed oriel on K08, the north wall's projection off the sheet, and the sheet's one-storey rear range on K01's rear wings; the draft stands no second building beside it.",
+    "s35-2009-wing": "2009 Prairie's one-storey rear range now stands on K01's rear wings of mayer_house_2009_prairie (T-1913); the draft stands no second building.",
     "s35-2003-front": "2003 Prairie now stands as the K01 brick house house_2003_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the north half of the pair with 2005, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
     "s35-2003-wing": "2003 Prairie's two-storey rear range now stands on K01's rear wings of house_2003_prairie (T-3346); the draft stands no second building.",
     "s35-2005-front": "2005 Prairie now stands as the K01 brick house house_2005_prairie under K01's flat roof (T-3346, piece 1 of T-1912), the south half of the pair with 2003, which refines this draft in place under the draft's own id: the three-storey main body on K01 with the sheet's curved front bay on K08, and the sheet's two-storey rear range on K01's rear wings; the draft stands no second building beside it.",
@@ -1867,6 +1869,8 @@
       "front_bays": 2,
       "entrance": "north",
       "why": "The Max A. Mayer house (Burnham & Root, 1888): the register's 'ogee gable with finial, two attic lights, tall chimneys' on a narrow party-wall front, drawn as the kit's shaped street gable over the 2½B brick body, two bays wide. Its ogee curve, carved frieze and bowed window group are T-1913's and T-1914's; the draft keeps only the silhouette.",
+      "house_id": "mayer_house_2009_prairie",
+      "house_address": "2009",
       "built": {
         "value": 1888,
         "confidence": "attested",

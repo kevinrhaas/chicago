@@ -938,6 +938,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, rewrote data/enclosures/town_alley_lanes.json byte for byte, changed no committed byte.",
       "placed": "not yet placed: it reads data/traces/vectors/thompson_lots.json, data/sidecars/1835/ and data/streets/1835.json and nothing reads its output, so its slot is after the plat, sidecar and street writers — to be measured in its own ordering pass (T-1453), not appended blind (T-2095)"
     },
+    "generate_camp_ground_1812.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-03",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its one output (data/enclosures/1812/potawatomi_camp_1812_ground.json), changed no committed byte.",
+      "placed": "not yet: it reads the six lodge_camp sidecars (compile_scene.py's output), and data/enclosures/1812/index.json lists it through generate_fort_parade_ground.py's index_1812(), so its slot is after the sidecars and before the parade generator; to be placed with generate_fort_parade_ground.py in the next pass over the furniture layer (T-3342)"
+    },
     "generate_fort_apron.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

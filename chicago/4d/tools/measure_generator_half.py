@@ -679,13 +679,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # own glass on `k13_conservatories` (generators/k13_emit.py), pure Python, restaling on none of the
 # shared rows above.
 #
+# 1031 -> 1034, 744 -> 741 and 738 -> 735 on 2026-11-03 (T-3342): the 1812 Potawatomi camp's
+# three groups moved off the `camp` archetype (emit.py and the common modules) onto the new
+# pure-Python `lodge_camp` (generators/lodge_camp_emit.py), and three more grounds joined them
+# (_west_bank, _south_reach, _horse_ground): six assets restaling on none of the shared rows.
+#
 STATED = {
-    "assets": 1031,
+    "assets": 1034,
     "restales": {
-        "generators/common/*.py": 744,
+        "generators/common/*.py": 741,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 738,
+        "generators/emit.py": 735,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
