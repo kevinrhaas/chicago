@@ -1,34 +1,35 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Fort Dearborn",
   "featured": true,
   "review_required": false,
   "id": "battle-of-fort-dearborn",
   "scene": "1812",
   "title": "The Battle of Fort Dearborn",
-  "premise": "April to August 1812 in twelve stops, from the killings at Lee's Place to the march down the beach, the surrender, and the houses where the Kinzies and Mrs. Helm hid.",
+  "premise": "6 April to 16 August 1812 in twelve stops: the killings at Hardscrabble, the order to leave, the march down the beach, the surrender, and the houses where the Kinzies and Mrs. Helm hid.",
   "default_mode": "fly",
   "allowed_modes": [
     "fly",
     "instantly"
   ],
   "opening": {
-    "text": "JAUNT: THE BATTLE OF FORT DEARBORN. 6 April to 16 August 1812, twelve stops in date order: a farm three miles up the South Branch, the fort and the houses round it, the river mouth, a mile and a half of beach, and the Kinzie house on the north bank. Fly is set: the stops are far apart. Every date and quotation is from the record, and where the record argues with itself the stop says so: Captain Heald's own report and journal, General Hull's order, the Kinzie family's Wau-Bun, and Quaife's history of 1913, which doubts some of Wau-Bun's best scenes. Every account was written by the garrison's side or by settler historians. No one is drawn; the places are.",
-    "read_s": 35
+    "text": "JAUNT: THE BATTLE OF FORT DEARBORN. Spring 1812, where the Chicago River meets Lake Michigan. This story begins with the fort. In the summer of 1803 Captain John Whistler's company marched in from Detroit and built it in logs: barracks round a small parade, 'Two blockhouses' and 'a double row of palisades'. It has stood for nine years. Since 1810 it has been commanded by Captain Nathan Heald, with fifty-four regular soldiers. Across the river lives John Kinzie, the trader who supplies the garrison, with his family and his clerks; his stepdaughter Margaret is married to the fort's lieutenant, Linai Helm. A handful of other families live along the banks: the Ouilmettes, the Burnses, and the hands at Charles Lee's farm. The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller and farther from help. \n\nTwelve stops in date order, with the time of day set for each. Long rides go Instantly; every place keeps its stop.\n\nThe situation is about to ignite, three miles up the river, a little before sunset on 6 April 1812.",
+    "read_s": 57
   },
   "stops": [
     {
-      "id": "lees-place",
+      "id": "hardscrabble",
       "destination": {
         "kind": "anchor",
         "id": "lees_place_cabin"
       },
-      "text": "6 April 1812, a little before sunset. Eleven men walked into this cabin on the South Branch, 'about three miles from the garrison', and killed Liberty White and a Canadian hand. Heald supposed them Winnebagoes. A discharged soldier and Lee's son slipped over to the haystacks on this bank, as if to fodder the cattle, and ran for the fort.",
-      "read_s": 17,
+      "text": "6 April 1812, a little before sunset. Three miles up the river's South Branch is a farm called Lee's Place, later known as Hardscrabble. Charles Lee, who 'did not live on the premises, but occupied a house near the fort', owns it; it grows food the garrison buys. In the log house are Liberty White, who runs the farm, a discharged soldier, a Canadian hand and Lee's young son. Eleven armed men walk in and sit down. Captain Heald wrote ten days later that they were 'supposed to be Winnebagoes'. Sensing trouble, the soldier and the boy slip across the river, as if to fodder the cattle at the haystacks, and run. Behind them they hear two shots. White and the Canadian are killed. Downriver, a family with a day-old baby has no idea what is coming.",
+      "read_s": 39,
       "evidence": [
         "heald-april",
-        "waubun-escape"
+        "waubun-escape",
+        "hardscrabble"
       ],
       "next": "burns",
       "hour": "sunset",
@@ -43,12 +44,14 @@
         "kind": "anchor",
         "id": "burns_house_from_river"
       },
-      "text": "That evening the two runners shouted across the river to the Burns house to get out. Ensign Ronan took five or six soldiers upriver in a scow and 'took the mother, with her infant of scarcely a day old, upon her bed to the boat'. The fort fired a cannon to call in a fishing party. Heald enrolled fifteen militia.",
-      "read_s": 17,
+      "text": "6 April, dusk. Running downriver toward the fort, the two pause opposite this house, where the Burns family live, and shout across to warn them. At the fort Ensign George Ronan, 'a young cadet direct from West Point', takes five or six soldiers upriver in a flat-bottomed scow and brings Mrs. Burns out, 'with her infant of scarcely a day old, upon her bed to the boat'. A corporal and six men are still upriver fishing, so 'the commanding officer ordered a cannon to be fired'. They row home in the dark past the silent farm, find a scalped body by touch, and reach the gate about eleven at night. Heald enrols fifteen townsmen as militia. For four months the settlement waits behind its guns. When the blow comes, it comes as a letter.",
+      "read_s": 38,
       "evidence": [
         "waubun-burns",
         "quaife-militia",
-        "burns-dusk"
+        "burns-dusk",
+        "fishing",
+        "officers"
       ],
       "next": "the-order",
       "hour": "dusk",
@@ -63,16 +66,19 @@
         "kind": "anchor",
         "id": "first_fort_parade"
       },
-      "text": "9 August. A runner, Winnemac, brought General Hull's order from Detroit: 'It is with regret I order the Evacuation of your Post owing to the want of Provisions'. The arms were to be destroyed; the factory's goods could be given away. Wau-Bun says the officers begged Heald to stay and fortify. He chose to obey.",
-      "read_s": 16,
+      "text": "10 August 1812, morning, on the parade. The United States has been at war with Britain since June, and the British have taken Mackinac, the American post up the lake. General William Hull, commanding at Detroit, sends a runner, Winnemac, with a written order for Captain Heald: 'It is with regret I order the Evacuation of your Post owing to the want of Provisions'. The arms are to be destroyed, and the goods in the government store given away. Wau-Bun says the order 'was read next morning upon parade', and that the officers' 'unanimous advice was, to remain where they were, and fortify themselves as strongly as possible.' Heald chooses to obey. Outside the pickets, hundreds of people have already heard, and are gathering to see what Heald will promise them.",
+      "read_s": 37,
       "evidence": [
         "hull-order",
-        "order-arrives"
+        "order-arrives",
+        "mackinac",
+        "order-morning"
       ],
       "next": "council",
       "hour": "morning",
+      "date": "1812-08-10",
       "hour_evidence": [
-        "order-arrives"
+        "order-morning"
       ]
     },
     {
@@ -81,12 +87,17 @@
         "kind": "anchor",
         "id": "first_fort_esplanade"
       },
-      "text": "12 August by Wau-Bun, the 13th by Quaife. The Potawatomi of the villages around had come in 'from all quarters', as Heald wrote, and he met them in council on this open ground. His officers would not go. They manned the blockhouses above it, 'opened the port-holes, and pointed the cannon so as to command the whole assembly'.",
-      "read_s": 17,
+      "text": "12 August, afternoon (Quaife thinks the 13th), on this open ground outside the pickets. Heald wrote that the Potawatomi of the country round 'came in from all quarters in order to receive the goods in the factory store'. He meets their leaders in council here and promises them the goods. His own officers will not come: 'Captain Heald alone attended on the part of the military.' Instead they take the blockhouses that overlook this esplanade, open the port-holes and point the cannon 'so as to command the whole assembly.' It is a council held under the guns. He has promised the goods. He has not said what he means to do with the guns and the whiskey.",
+      "read_s": 33,
       "evidence": [
         "council"
       ],
-      "next": "factory"
+      "next": "factory",
+      "hour": "afternoon",
+      "date": "1812-08-12",
+      "hour_evidence": [
+        "council"
+      ]
     },
     {
       "id": "factory",
@@ -94,12 +105,19 @@
         "kind": "anchor",
         "id": "first_fort_factory_front"
       },
-      "text": "13 or 14 August. Out of this store, the government's trading house, went everything on its shelves: 'blankets, broadcloths, calicoes, paints'. Heald gave away 'a considerable quantity of provisions which we could not take away with us' as well. Hull's order allowed the goods. The powder and the liquor were another matter.",
-      "read_s": 15,
+      "text": "13 August, early afternoon. This log building is the factory, the government's trading house. Out of it now goes everything on the shelves: 'blankets, broadcloths, calicoes, paints'. Heald adds 'a considerable quantity of provisions which we could not take away with us.' Hull's order said the goods could go to those 'desirous of Escorting you on to Fort Wayne'. What Heald keeps back, the guns, the powder and the whiskey, is what matters most to everyone watching. That night, inside the walls, Heald does something he hopes no one will notice.",
+      "read_s": 26,
       "evidence": [
-        "goods"
+        "goods",
+        "hull-order",
+        "goods-hour"
       ],
-      "next": "covered-way"
+      "next": "covered-way",
+      "hour": "14:00",
+      "date": "1812-08-13",
+      "hour_evidence": [
+        "goods-hour"
+      ]
     },
     {
       "id": "covered-way",
@@ -107,8 +125,8 @@
         "kind": "anchor",
         "id": "first_fort_covered_way"
       },
-      "text": "That evening muskets were broken and dropped with powder, shot and flints down a well in the sally-port. The liquor went out through the northern gate, 'the heads of the barrels knocked in, and the contents poured into the river'. The knocking gave it away. Next morning, Wau-Bun says, the river tasted of 'strong grog'.",
-      "read_s": 16,
+      "text": "13 August, evening, from above. A covered way runs from the fort's north-east corner down to the river. 'The same evening the ammunition and liquor were carried, part into the sally-port, and thrown into a well'. Muskets are broken up and dropped in after them. The rest of the liquor goes 'as secretly as possible through the northern gate, the heads of the barrels knocked in, and the contents poured into the river.' Heald feared they 'would make bad use of it'. It is not secret: the knocking carries, and 'the taste of the water the next morning was, as one expressed it, \"strong grog.\"' By morning the river tastes of whiskey, and a rider from Fort Wayne is nearly at the gate.",
+      "read_s": 35,
       "evidence": [
         "destroyed"
       ],
@@ -125,16 +143,18 @@
         "kind": "anchor",
         "id": "first_fort_gate"
       },
-      "text": "13 or 14 August. Captain William Wells rode in from Fort Wayne with a Miami escort to bring out his niece, Rebekah Heald, and her husband, but 'all too late'. That evening Black Partridge, a Potawatomi leader, gave back his peace medal: 'I will not wear a token of peace while I am compelled to act as an enemy.'",
-      "read_s": 17,
+      "text": "14 August, sunset, at the main gate. Captain William Wells rides in from Fort Wayne with a Miami escort, Heald says 'about 30 Miamies'. Wells is Rebekah Heald's uncle; he has come to bring her and her husband out, but Wau-Bun says 'all too late'. That evening Black Partridge, a Potawatomi leader from the Illinois River, comes to Heald's quarters and hands back his peace medal: 'I will not wear a token of peace while I am compelled to act as an enemy.' It is the plainest warning anyone gives. At nine tomorrow the gate will open, and everyone inside will walk out of it.",
+      "read_s": 30,
       "evidence": [
         "wells",
-        "medal"
+        "medal",
+        "gate-evening"
       ],
       "next": "river-mouth",
       "hour": "sunset",
+      "date": "1812-08-14",
       "hour_evidence": [
-        "medal"
+        "gate-evening"
       ]
     },
     {
@@ -143,10 +163,11 @@
         "kind": "anchor",
         "id": "river_mouth_1812"
       },
-      "text": "15 August, nine in the morning. The column came down the river to its mouth here and turned south along the beach: Wells ahead, the soldiers, the wagons of children, the twelve militia. Wau-Bun says the band struck up the Dead March and Wells had 'blackened his face'. Mrs. Kinzie's boat, warned, waited at this mouth.",
-      "read_s": 16,
+      "text": "15 August 1812, nine in the morning. 'On the 15th, at 9 o'clock in the morning, we commenced our march', Heald wrote. Out of the gate, down to the river's mouth here, and south along the beach: Wells and part of the Miami escort in front, then the fifty-four regulars, the wagons with the women and children, and the twelve townsmen of the militia. Wau-Bun says the band played the Dead March, and that Wells 'had blackened his face before leaving the garrison, in token of his impending fate.' The Kinzie family's boat, warned, waits at this river mouth. A mile and a half ahead, behind the sand bank, men are waiting.",
+      "read_s": 32,
       "evidence": [
-        "march"
+        "march",
+        "fort"
       ],
       "next": "the-bank",
       "hour": "09:00",
@@ -161,18 +182,19 @@
         "kind": "anchor",
         "id": "heald_mile_and_a_half"
       },
-      "text": "'We had proceeded about a mile and a half,' Heald wrote, 'when it was discovered that the Indians were prepared to attack us from behind the bank.' About here, by his measure. The soldiers charged up it. Behind them the wagons were overrun; the militia died to a man, and with them Cicely, an enslaved servant, and her baby son.",
-      "read_s": 17,
+      "text": "About 9:40. The column walks with 'the lake on our left, and a high sand bank on our right'. 'We had proceeded about a mile and a half,' Heald wrote, 'when it was discovered that the Indians were prepared to attack us from behind the bank.' The soldiers charge up it. Behind them, at the wagons, Quaife writes, 'a deadlier combat, which we may perhaps think of as a separate battle,' is raging. The militia are 'cut down to a man'. Among the dead are 'Cicely, Mrs. Heald's negro serving-woman' and 'her infant son', two of the few people recorded as held in slavery at Chicago. Heald has a few dozen men left standing, and a decision to make.",
+      "read_s": 34,
       "evidence": [
         "attack",
         "stand-mile",
-        "march"
+        "march",
+        "battle-hour"
       ],
       "next": "cottonwoods",
-      "hour": "morning",
+      "hour": "09:40",
       "date": "1812-08-15",
       "hour_evidence": [
-        "march"
+        "battle-hour"
       ]
     },
     {
@@ -181,18 +203,19 @@
         "kind": "anchor",
         "id": "eighteenth_street_shore"
       },
-      "text": "Heald pulled his last men back to 'a small elevation in the open prarie'. The Potawatomi leader Black Bird came out, shook hands and asked him to surrender, 'promising to spare the lives of all the prisoners'. Heald counted 52 dead, twelve of them children. Later Chicago remembered two cottonwoods near here as the place.",
-      "read_s": 16,
+      "text": "About half past ten. Heald gathers his last men on 'a small elevation in the open prarie'. A Potawatomi leader called Black Bird comes out, shakes his hand and asks him to surrender, 'promising to spare the lives of all the prisoners.' Heald agrees. His count: 'twenty-six regulars and all the militia were killed in the action, with two women and twelve children.' Among them are Ensign Ronan, the young surgeon's mate Isaac Van Voorhis, and Captain Wells. Later Chicago remembered two cottonwoods near here as the place. The survivors are led back north, and at the Kinzie house the danger is not over.",
+      "read_s": 30,
       "evidence": [
         "surrender",
         "cottonwoods",
-        "march"
+        "surrender-hour",
+        "officers"
       ],
       "next": "kinzie-house",
-      "hour": "morning",
+      "hour": "10:30",
       "date": "1812-08-15",
       "hour_evidence": [
-        "march"
+        "surrender-hour"
       ]
     },
     {
@@ -201,12 +224,19 @@
         "kind": "anchor",
         "id": "kinzie_house_front"
       },
-      "text": "15 and 16 August. Here the Kinzies held out. Mrs. Heald was carried in wounded, and Kinzie cut a ball from her arm 'with his penknife'. Next day a war party with blackened faces sat down silent in the parlor. Billy Caldwell walked in 'with a calm step', greeted them as friends, and they left with cotton for their dead.",
-      "read_s": 17,
+      "text": "15 August, sunset, at the house of John Kinzie, the trader who sold to the garrison. His family is spared and brought home under guard: 'At their own mansion the family of Mr. Kinzie were closely guarded by their Indian friends.' Mrs. Heald, badly wounded, is ransomed by Kinzie's clerk for a mule, and Kinzie takes a ball from her arm 'with his penknife.' Next day a war party from the Wabash, faces blackened, sit down silent in the parlor. Then Billy Caldwell, the Sauganash, walks in 'with a calm step' and greets them as friends; they ask only for 'some white cotton in which to wrap their dead'. A few doors west, a wounded woman is hiding, and men are searching the houses.",
+      "read_s": 35,
       "evidence": [
-        "kinzie-house"
+        "kinzie-house",
+        "kinzie",
+        "kinzie-evening"
       ],
-      "next": "ouilmette"
+      "next": "ouilmette",
+      "hour": "sunset",
+      "date": "1812-08-15",
+      "hour_evidence": [
+        "kinzie-evening"
+      ]
     },
     {
       "id": "ouilmette",
@@ -214,28 +244,37 @@
         "kind": "anchor",
         "id": "ouilmette_house_front"
       },
-      "text": "16 August. Dressed as a Frenchwoman of the country, Margaret Helm was hidden in this house under the edge of a feather bed, face to the wall, while Mrs. Bisson sat on the bed sewing. 'I can but die,' Mrs. Helm begged; 'let them put an end to my misery at once.' The searchers looked round the room and left.",
-      "read_s": 17,
+      "text": "16 August, morning, while the fort burns. Margaret Helm, Kinzie's stepdaughter and Lieutenant Helm's wife, wounded at the wagons, has been brought here to Ouilmette's house by Black Partridge in 'the ordinary dress of a Frenchwoman of the country'. When searchers come, the family 'raised a large feather bed and placed her under the edge of it, upon the bedstead, with her face to the wall', and Mrs. Bisson sits sewing on the front of the bed. 'I can but die,' said she; 'let them put an end to my misery at once.' The searchers look round 'and left the house.' Quaife doubts the romance, not the rescue.",
+      "read_s": 31,
       "evidence": [
-        "featherbed"
+        "featherbed",
+        "helm-morning",
+        "aftermath"
       ],
-      "next": "$end"
+      "next": "$end",
+      "hour": "09:00",
+      "date": "1812-08-16",
+      "hour_evidence": [
+        "helm-morning"
+      ]
     }
   ],
   "legs": [
     {
-      "note": "Far: about three miles down the river to the fort. Fly, or go Instantly.",
-      "story": "Down the bank in the dusk the soldier and the boy ran for the fort, calling across the water as they went.",
+      "note": "Three miles down the river to the fort: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "The soldier and the boy run downriver in the dusk.",
       "evidence": [
         "heald-april"
       ],
       "story_evidence": [
-        "waubun-escape",
-        "waubun-burns"
+        "waubun-escape"
       ]
     },
     {
-      "story": "Four months on. War with Britain was declared in June; the news came to the fort in August.",
+      "note": "Across the river and four months on: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "War with Britain is declared in June. In August a runner comes from Detroit.",
       "evidence": [
         "order-arrives"
       ],
@@ -253,7 +292,7 @@
       ]
     },
     {
-      "story": "West past the agency house to the factory.",
+      "story": "West past the agency house to the government store.",
       "evidence": [
         "goods"
       ],
@@ -280,7 +319,9 @@
       ]
     },
     {
-      "story": "Down the river's west bank, the way the column marched.",
+      "note": "Half a mile to the river mouth: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "Down the river's bank, the way the column marched.",
       "evidence": [
         "march"
       ],
@@ -289,7 +330,8 @@
       ]
     },
     {
-      "note": "Far: a mile down the beach. Fly, or go Instantly.",
+      "note": "A mile down the beach: this leg goes Instantly.",
+      "mode": "instantly",
       "story": "South with 'the lake on our left, and a high sand bank on our right'.",
       "evidence": [
         "march"
@@ -299,7 +341,9 @@
       ]
     },
     {
-      "story": "Inland and south along the shore, toward the later Eighteenth Street.",
+      "note": "Further south along the shore: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "Inland and south, toward the later Eighteenth Street.",
       "evidence": [
         "cottonwoods"
       ],
@@ -308,8 +352,9 @@
       ]
     },
     {
-      "note": "Far: two miles back north, across the river. Fly, or go Instantly.",
-      "story": "The prisoners were taken back toward the fort; the Kinzies were returned to their own house.",
+      "note": "Two miles back north, across the river: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "The prisoners are taken back toward the fort; the Kinzies are returned to their own house.",
       "evidence": [
         "kinzie-house"
       ],
@@ -333,8 +378,8 @@
       "id": "burning",
       "default": true,
       "completion_eligible": true,
-      "read_s": 33,
-      "text": "The next morning, 16 August, the fort was set on fire. Only the brick magazine 'alone defied the fire'. On the third day the Kinzies were put into a boat for St. Joseph; the Healds, both wounded, were taken across the lake the day after the battle; the surviving soldiers, women and children were carried off until the next spring, when they were 'for the most part, carried to Detroit and ransomed'. Mrs. Lee and her baby were among them, and Mrs. Burns with the infant carried down to the fort in April. The fort stood in ashes until 1816, when the army came back and built a second one on the same ground."
+      "read_s": 32,
+      "text": "16 August 1812. 'The next morning, they set fire to the fort and left the place, taking the prisoners with them.' Only the brick magazine 'alone defied the fire'. On the third day the Kinzies were put into a boat for St. Joseph. Heald and his wife were taken there too, and the scattered prisoners were held in the villages 'until the following spring, when they were, for the most part, carried to Detroit and ransomed'. The army came back in 1816 and built the second Fort Dearborn on the same ground. Quaife's warning about Wau-Bun, the family's book that shaped this story for a century: its accounts do Heald 'grave injustice'."
     }
   ],
   "keepsake": {
@@ -499,16 +544,6 @@
       "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text"
     },
     {
-      "id": "cottonwoods",
-      "text": "Two cottonwoods in the later Eighteenth Street were remembered as the place of the attack, a tradition written down from the 1880s; this scene stands them where it put them, and Heald's own mile and a half falls short of them.",
-      "confidence": "inferred",
-      "sources": [
-        "moses_kirkland_history_of_chicago_v1",
-        "kirkland_1893_chicago_massacre_appendix_k"
-      ],
-      "reasoning": "The scene's card 'Where the attack happened' and data/terrain/1812_evacuation_readings.json weigh the tradition against Heald's distance; Isaac Arnold's letter of 1884 (Kirkland, Appendix K) has 'some cottonwood trees near which I was told the massacre occurred.' The camera is the scene's own anchor eighteenth_street_shore."
-    },
-    {
       "id": "kinzie-house",
       "text": "Wau-Bun: Mrs. Heald, badly wounded, was ransomed by Kinzie's clerk Chandonnai for a mule and the promise of whiskey and brought to the boat, and then to the house, where 'Mr. Kinzie then performed the operation himself, with his penknife.' 'At their own mansion the family of Mr. Kinzie were closely guarded by their Indian friends.' On the 16th 'Black Partridge, Wau-ban-see, and Kee-po-tah, with two other Indians' sat in the porch as sentinels. A party from the Wabash, who had 'blackened their faces', came into the parlor and 'seated themselves upon the floor in silence'. Then Billy Caldwell, the Sauganash, 'entered the parlor with a calm step', laid his rifle behind the door and greeted them as friends; 'thus taken by surprise', they 'said modestly that they came to beg of their friends some white cotton in which to wrap their dead before interring them.'",
       "confidence": "attested",
@@ -537,7 +572,142 @@
         "kinzie_waubun_1856"
       ],
       "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Quaife, the description of the fort and the evacuation chapter; Wau-Bun ch. XIX, Narrative of the Massacre, Continued, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "officers",
+      "text": "Quaife (1913): Ensign George Ronan was 'a young cadet direct from West Point', ordered to Fort Dearborn in March 1811; Lieutenant Linai T. Helm came from Detroit at his own request, for 'his straitened financial circumstances and the cheaper cost of living at Fort Dearborn as compared with Detroit.' Surgeon's mate Isaac Van Voorhis, writing in October 1811: 'In my solitary walks I contemplate what a great and powerful republic will yet arise in this new world. Here, I say, will be the seat of millions yet unborn'. Quaife: 'The man who at the age of twenty-two could pen these lines'. Heald's report: 'Ensign George Ronan and Doctor Isaac V. Van Voorhis of my company, with Captain Wells of Fort Wayne' were killed; Helm was taken prisoner.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VII, the paragraph beginning 'In March, 1811'; ch. X, the paragraph on Van Voorhis; Appendix IV, Heald's report"
+    },
+    {
+      "id": "fort",
+      "text": "Quaife (1913): 'At half-past five o'clock on the morning of July 14, 1803, the troops set out from Detroit'; they 'reached the Chicago River at two o'clock on the afternoon of August 17'. The fort: 'The barracks and other structures for the accommodation of the garrison were built around the four sides of a quadrangle', with 'Two blockhouses' and 'a double row of palisades'. In April 1810 Captain John Whistler was moved to Detroit, and 'Captain Nathan Heald, who, in turn, succeeded Whistler at Fort Dearborn'. Heald's report: 'Our strength was fifty-four regulars and twelve militia'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife 1913, the chapters on the building of the fort, the garrison of 1810 and the evacuation, Project Gutenberg eBook #69274 plain text"
+    },
+    {
+      "id": "kinzie",
+      "text": "Wau-Bun (1856): 'On the north side of the main stream, but quite near its junction with Lake Michigan, stood (as has already been described) the dwelling-house and trading-establishment of Mr. Kinzie.' 'The fort was situated on the southern bank, directly opposite this mansion'. The Chicago Reader (2018): in January 1812 Heald made 'Messrs. Kinzie & Forsyth' the exclusive fort sutlers. Kirkland (1893): Margaret Helm was the 'step-daughter of old John Kinzie'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Wau-Bun, the April section; the Reader, the sutler paragraph; Kirkland, the Helm narrative"
+    },
+    {
+      "id": "hardscrabble",
+      "text": "Currey (1912): 'Lee's place was also known as \"Hardscrabble,\" a name which continued to be applied to that neighborhood for many decades thereafter.' The farm 'was owned by a man named Charles Lee, who, however, did not live on the premises, but occupied a house near the fort.' 'On the seventh of April of the fateful year 1812 the log house at Hardscrabble was occupied by three men and a boy. The man who seems to have been in charge of the work at the farm was one Liberty White, and with him were a discharged soldier, also a Frenchman named Debou, and the boy, a son of Mr. Lee's.' 'The products of the farm found a ready market at the fort'. Wau-Bun: 'Lee's Place, since known by the name of Hardscrabble, was a farm intersected by the Chicago River, about four miles from its mouth.'",
+      "confidence": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Currey, ch. on Lee's Place, Project Gutenberg plain text lines 1455-1540; Wau-Bun, ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "fishing",
+      "text": "Currey (1912): that afternoon 'a party of soldiers from the fort, consisting of a corporal and six men, had obtained leave to go up the river to catch a supply of fish'. They passed Lee's place 'with the usual exchange of greetings' and fished two miles beyond 'until nearly dark. Suddenly they were startled by hearing the dull boom of a cannon'. Coming back, they found the place 'silent and deserted', stumbled on a body, and reached the fort 'about eleven o'clock at night'.",
+      "confidence": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "locator": "Currey, ch. on Lee's Place, Project Gutenberg plain text lines 1455-1540"
+    },
+    {
+      "id": "mackinac",
+      "text": "Quaife (1913): on 28 July 1812 'two Chippewa Indians reached Hull's camp at Sandwich bringing news of the surrender of Mackinac.' On 29 July Hull wrote, 'I shall immediately send an express to Fort Dearborn with orders to evacuate that post'. Hull was the American general commanding at Detroit.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife 1913, the chapters on the building of the fort, the garrison of 1810 and the evacuation, Project Gutenberg eBook #69274 plain text"
+    },
+    {
+      "id": "order-morning",
+      "text": "Heald's journal has the order received on 9 August; Wau-Bun says it 'was read next morning upon parade'. This stop is set on the morning of 10 August, putting the two together; the hour is Wau-Bun's 'next morning', not a recorded time.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Heald's own date for the order's arrival plus Wau-Bun's 'next morning' for its reading; the two sources differ by two days on the runner, so the date is a reading, not a record."
+    },
+    {
+      "id": "goods-hour",
+      "text": "Wau-Bun puts the goods out on the 13th and the powder down the well 'The same evening', so the giving-out was by day; this stop is set at two in the afternoon of the 13th. No hour is recorded.",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "reasoning": "Wau-Bun's sequence on the 13th (goods, then 'The same evening' the well); Heald dates the goods to the 14th. The hour is the jaunt's, inside the daylight the sequence needs."
+    },
+    {
+      "id": "gate-evening",
+      "text": "Wells reached the fort on the 13th by Heald's report or the 14th by Wau-Bun; Black Partridge came to the commanding officer 'on the evening' after the second council. This stop is set at sunset on 14 August, the eve of the march.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Wau-Bun's 'evening succeeding the council' and the march next morning; the hour is a reading of 'evening'."
+    },
+    {
+      "id": "battle-hour",
+      "text": "The march began 'at 9 o'clock in the morning'; at a marching pace a column covers a mile and a half in about half an hour to forty minutes, so the attack at the bank is set at 9:40. Heald gives no hour for it.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913"
+      ],
+      "reasoning": "Heald's 9 o'clock start and his 'about a mile and a half', at an ordinary infantry pace of two to three miles an hour; an estimate, not a recorded time."
+    },
+    {
+      "id": "surrender-hour",
+      "text": "The fight at the bank, the struggle at the wagons and Heald's withdrawal to the rise all came before the surrender; this stop is set at half past ten that morning. No source gives the hour.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913"
+      ],
+      "reasoning": "Sequence in Heald's report (charge, withdrawal to 'a small elevation in the open prarie', parley, surrender) after a 9:40 attack; an estimate."
+    },
+    {
+      "id": "cottonwoods",
+      "text": "Two cottonwoods in the later Eighteenth Street were remembered as the place of the attack, a tradition written down from the 1880s; this scene stands them where it put them, and Heald's own mile and a half falls short of them.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "reasoning": "Heald's own distance against the later tradition; the stand follows the tradition and says so."
+    },
+    {
+      "id": "kinzie-evening",
+      "text": "Wau-Bun has the Kinzies returned to their own house after the battle and Mrs. Heald brought there; this stop is set at sunset on 15 August. The Wabash party and Billy Caldwell came the next day. No hour is recorded.",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Wau-Bun's sequence: boat held at the river mouth during the fight, the family taken home after it; the hour is the jaunt's."
+    },
+    {
+      "id": "helm-morning",
+      "text": "Wau-Bun sets the search of Ouilmette's house on the 16th, the day the fort was burned 'The next morning'; this stop is set at nine that morning. No hour is recorded.",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "reasoning": "Heald's 'The next morning, they set fire to the fort' and Wau-Bun's placing of the search on the day after the battle; the hour is an estimate."
     }
   ],
-  "liberties": []
+  "liberties": [],
+  "long_form": true
 }
