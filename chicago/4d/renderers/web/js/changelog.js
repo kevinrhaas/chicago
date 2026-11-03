@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2592, ts: '2026-11-03T04:04:08.699Z', date: 'Nov 2, 2026, 10:04 PM CT', title: 'Wolf Point pictures and Sauganash windows', kind: 'add',
+    items: [
+      'Wolf Point Tavern\'s Images tab now includes the 1867 lithograph and five credited source links, alongside seven reviewed drawing comparisons.',
+      'The Sauganash Hotel has four taller lower front windows and a narrower entrance door, following the historical drawings. Its attached log shop keeps its reviewed picture comparisons.',
+    ] },
   { v: 2591, ts: '2026-11-03T03:00:02.545Z', date: 'Nov 2, 2026, 9:00 PM CT', title: 'Pullman\'s Prairie front laid where its photographs put it', kind: 'fix',
     items: [
       '1729 Prairie\'s big dormer and its tall arched windows move 3.2 m north, onto the spot two photographs taken from different corners both show them',
