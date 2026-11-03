@@ -147,6 +147,19 @@ export const ARCH = {
     clump: 0.08, clumpMin: 0.45, density: 0.70, gaps: 0.50, leaf: 'elm', bark: 'interlaced',
     winter: 'fringe',
   },
+  // T-1881 — THE PARKWAY ELM DRAWN UP TALL ON ITS LEADER. The Detroit print (1897-1901) and
+  // Taylor's no. 1445 draw the trees before 1729 Prairie and along its 18th Street flank as
+  // one straight leader clear to about the second storey (8-12 m), then a narrow head only
+  // 5-6 m across on a tree 15-20 m tall: a tree grown up in a file, not the open-grown
+  // elm's low fork. The young elm's habit, its crown base raised and its limbs steeper
+  // (docs/LIBERTIES.md L-pullman-18th-street-trees-1934). A pictured tree names it as
+  // `form: 'high_head'`.
+  ulmus_americana_high: {
+    crown: 'round', crownBase: 0.45, fork: 'excurrent', stems: [1, 1], scaffolds: [8, 11],
+    limbAngle: 44, rise: 0.05, twist: 0.22, order2: [6, 44], order3: [4, 46], droop: 0.12,
+    clump: 0.08, clumpMin: 0.45, density: 0.70, gaps: 0.50, leaf: 'elm', bark: 'interlaced',
+    winter: 'fringe',
+  },
   fraxinus_pennsylvanica: {
     crown: 'oval', crownBase: 0.36, fork: 'decurrent', stems: [1, 1], scaffolds: [3, 5],
     limbAngle: 34, rise: 0.06, twist: 0.20, order2: [5, 44], order3: [3, 44], droop: 0.10,
