@@ -1,6 +1,6 @@
 {
-  "not_a_reading": "A source-specific re-reading of the already inventoried eight ticket files / nine compositions for proposed signoff; no new research-reading count.",
-  "status": "SEVEN_USABLE_SOURCE_SPECIFIC_MATCHES_AUTHORIZED_BY_ROOT_DIRECT_REVIEW_TWO_INSPECTION_ONLY_DISPOSITIONS_PENDING_ORIGINAL_SCOPE_SIGNOFF",
+  "not_a_reading": "A source-specific re-reading of the already inventoried eight ticket files / nine compositions; no new research-reading count. Eight identified asset comparisons and one contextual identity disposition.",
+  "status": "ADOPTED_EIGHT_IDENTIFIED_COMPARISONS_PLUS_ONE_CONTEXTUAL_UNIDENTIFIED_PANORAMA",
   "file_count": 8,
   "composition_count": 9,
   "rows": [
@@ -19,8 +19,13 @@
       "source_id_or_admission": "blanchard_shober_1867_wolf_point",
       "fresh_direct_visual_observation": "Governs two low outward gables meeting at insidecorner, two dark entrances, right small sash, broad head plus pipe, leaningwolfpole; exact5m scale/plan/hiddenfabric are reconstructed.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "matches under T-3153, exact actual native frame directly reviewed by root; adoption/runtime/source gates still unclaimed",
-      "root_review_frame_sha256": "8df282d0e603841e5fee45fa40b512f0f5926f4ebae9d2f7f60291b5c19fa6a7"
+      "disposition": "Previously landed source-specific native comparison, matches under T-3153; exact original review frame/camera/master retained. Current application and source validation are recorded separately with this final adoption.",
+      "root_review_frame_sha256": "8df282d0e603841e5fee45fa40b512f0f5926f4ebae9d2f7f60291b5c19fa6a7",
+      "view_file": "data/reference_views/wolf_point_tavern/nypl-1867.json",
+      "match_file": "data/reference_views/wolf_point_tavern/nypl-1867.match.json",
+      "camera_sha256": "89d2ec2dc16a820d871aa38421353d3925b0ea079bdb547f4bff29df37493f34",
+      "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+      "native_side_by_side_sha256": "8df282d0e603841e5fee45fa40b512f0f5926f4ebae9d2f7f60291b5c19fa6a7"
     },
     {
       "composition_id": "andreas-1830",
@@ -34,11 +39,16 @@
       "panel": "whole",
       "publication_and_scene_limit": "1884 publication; depicted1830",
       "credit_as_recorded": "A.T.Andreas,HistoryofChicagoVol1, per existingcatalogue",
-      "source_id_or_admission": "andreas_1884_v1",
+      "source_id_or_admission": "andreas_1884_wolf_point_1830_view",
       "fresh_direct_visual_observation": "Lowpairedgable/log silhouette; barepole, weakopenings and monochrometones are earlierdate/artwork limits; do not remove the adopted1833sign.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "matches under T-3153, exact actual native frame directly reviewed by root; adoption/runtime/source gates still unclaimed",
-      "root_review_frame_sha256": "215f9dce080c31c5558555d1961abbf1c5956c5f235d4231d598320b1f80f6fd"
+      "disposition": "Previously landed source-specific native comparison, matches under T-3153; exact original review frame/camera/master retained. Current application and source validation are recorded separately with this final adoption.",
+      "root_review_frame_sha256": "215f9dce080c31c5558555d1961abbf1c5956c5f235d4231d598320b1f80f6fd",
+      "view_file": "data/reference_views/wolf_point_tavern/andreas-1830.json",
+      "match_file": "data/reference_views/wolf_point_tavern/andreas-1830.match.json",
+      "camera_sha256": "bb0e44d881eff159693e0f513de011b8bf106cc0bcb6e6eef2bbca979e57df74",
+      "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+      "native_side_by_side_sha256": "215f9dce080c31c5558555d1961abbf1c5956c5f235d4231d598320b1f80f6fd"
     },
     {
       "composition_id": "composite-left-1830",
@@ -52,11 +62,16 @@
       "panel": "LEFToval",
       "publication_and_scene_limit": "19th-century woodengravings per catalogue; exact editions unresolved",
       "credit_as_recorded": "Unknownengraver/publisher; localChicagologyscan",
-      "source_id_or_admission": "source_specific_record_pending",
+      "source_id_or_admission": "anonymous_19c_wolf_point_pair",
       "fresh_direct_visual_observation": "Two outwardgablemasses with different roofpitch/bridge/Millercontext; sourceconflict cannotmeasureworldlocation or require rebuildingotherbuildings.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "matches under T-3153, exact actual native frame directly reviewed by root; adoption/runtime/source gates still unclaimed",
-      "root_review_frame_sha256": "1d8a6fa720cb967324f7fe785e6111470e7c32b0a2922dd5ec0198f5f1295d2a"
+      "disposition": "Previously landed source-specific native comparison, matches under T-3153; exact original review frame/camera/master retained. Current application and source validation are recorded separately with this final adoption.",
+      "root_review_frame_sha256": "1d8a6fa720cb967324f7fe785e6111470e7c32b0a2922dd5ec0198f5f1295d2a",
+      "view_file": "data/reference_views/wolf_point_tavern/pair-left-1830.json",
+      "match_file": "data/reference_views/wolf_point_tavern/pair-left-1830.match.json",
+      "camera_sha256": "302a31d5bbba8deaef59c9e2788ecab783d72f7ce24a1407a0deb0ba78f42a38",
+      "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+      "native_side_by_side_sha256": "1d8a6fa720cb967324f7fe785e6111470e7c32b0a2922dd5ec0198f5f1295d2a"
     },
     {
       "composition_id": "composite-right-1833",
@@ -70,11 +85,16 @@
       "panel": "RIGHTsquare",
       "publication_and_scene_limit": "19th-century woodengravings per catalogue; exact editions unresolved",
       "credit_as_recorded": "Unknownengraver/publisher; localChicagologyscan",
-      "source_id_or_admission": "source_specific_record_pending",
+      "source_id_or_admission": "anonymous_19c_wolf_point_pair",
       "fresh_direct_visual_observation": "Right square is an independent panel; its left edge/vegetation limits partner reading. The other oval is a distinct projection, not a whole-scene camera control.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "matches under T-3153, exact actual native frame directly reviewed by root; adoption/runtime/source gates still unclaimed",
-      "root_review_frame_sha256": "4f642be86d9eac4de989f45514f72cb13abed20b187b44e1aa94ba3eeed9387f"
+      "disposition": "Previously landed source-specific native comparison, matches under T-3153; exact original review frame/camera/master retained. Current application and source validation are recorded separately with this final adoption.",
+      "root_review_frame_sha256": "4f642be86d9eac4de989f45514f72cb13abed20b187b44e1aa94ba3eeed9387f",
+      "view_file": "data/reference_views/wolf_point_tavern/pair-right-1833.json",
+      "match_file": "data/reference_views/wolf_point_tavern/pair-right-1833.match.json",
+      "camera_sha256": "a69f6d36dea1d0e6325cd85a72051de717c856e4a98edd6f74b1f6587d2283a1",
+      "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+      "native_side_by_side_sha256": "4f642be86d9eac4de989f45514f72cb13abed20b187b44e1aa94ba3eeed9387f"
     },
     {
       "composition_id": "miller-davis-1857",
@@ -88,11 +108,16 @@
       "panel": "centralvignette",
       "publication_and_scene_limit": "ChicagoMagazine1857-05-15 per catalogue; depicted1832",
       "credit_as_recorded": "Millerengraver, afterGeorgeDavis, per catalogue; floralwrapper",
-      "source_id_or_admission": "source_specific_record_pending",
+      "source_id_or_admission": "miller_davis_1857_wolf_point_vignette",
       "fresh_direct_visual_observation": "Small lefttwo-gable silhouette; no reliablepane/grain/colourmeasurements; stylizedbrightgablehatching neednotforceopposedNYPLcladding.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "matches under T-3153, exact actual native frame directly reviewed by root; adoption/runtime/source gates still unclaimed",
-      "root_review_frame_sha256": "f5f291fbef0527171f1714ce543badbd6279c74a8082c9dcb731c2730dc3f1ec"
+      "disposition": "Previously landed source-specific native comparison, matches under T-3153; exact original review frame/camera/master retained. Current application and source validation are recorded separately with this final adoption.",
+      "root_review_frame_sha256": "f5f291fbef0527171f1714ce543badbd6279c74a8082c9dcb731c2730dc3f1ec",
+      "view_file": "data/reference_views/wolf_point_tavern/miller-davis-1857.json",
+      "match_file": "data/reference_views/wolf_point_tavern/miller-davis-1857.match.json",
+      "camera_sha256": "d6e41f88c7ef0e153377acc7563743e2769c1c16039ed12a50eee0e5b2947529",
+      "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+      "native_side_by_side_sha256": "f5f291fbef0527171f1714ce543badbd6279c74a8082c9dcb731c2730dc3f1ec"
     },
     {
       "composition_id": "poster-1832",
@@ -104,13 +129,18 @@
         2502
       ],
       "panel": "whole",
-      "publication_and_scene_limit": "Oldcatalogue1892 conflicts with Newberry1935/CopyrightNotEvaluated",
-      "credit_as_recorded": "RufusBlanchard afterGeorgeDavis, ascredited; reproductionhistoryunresolved",
-      "source_id_or_admission": "inspection_only_rights_date_conflict_preserved",
-      "fresh_direct_visual_observation": "Twoentries/gables/signcorroborateNYPL, but this cannot independentlyclearproductionor camera derivation.",
+      "publication_and_scene_limit": "Archived Newberry curated bibliography: Chicago,RufusBlanchard,ca1893; currentholding1935/CopyrightNotEvaluated metadata conflict retained. Retrospective depiction labelled1832.",
+      "credit_as_recorded": "GeorgeDavis drawing credit; RufusBlanchard publisher, asprinted; NewberryLibraryGeorgeAPooleIIICollection",
+      "source_id_or_admission": "blanchard_davis_c1893_wolfs_point_poster",
+      "fresh_direct_visual_observation": "LowleftWolf pairedgables/entries/roofheadandpipe/sign identified; tallrightbuildingisMiller. The laterposter addsanextraannexopening againstearliergoverning1867plainwall; explicitT3153picture-disagreementdisposition retains1867form.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "inspection only; no camera or matches fabricated",
-      "limit": "Preserve old catalogue1892 versus Newberry1935/Copyright Not Evaluated conflict. No derivation, licence upgrade, camera or matches from this reproduction. Root must preserve this explicit coverage disposition in the original ticket; otherwise original acceptance remains open."
+      "disposition": "Eighth source-specific diagnostic-only asset camera and genuinely rendered reviewed native match adopted. This does not solve a geographic camera or independently qualify the published application.",
+      "limit": "Earlier inspection-only metadata statement is superseded by separate archivedprimary publication review and current credited source record. Current1935metadata conflict remains explicit. No geographic viewing spot, exactJuly1835continuity, hidden fabric/interior or wholeapp acceptance inferred.",
+      "view_file": "data/reference_views/wolf_point_tavern/blanchard-davis-c1893-poster.json",
+      "match_file": "data/reference_views/wolf_point_tavern/blanchard-davis-c1893-poster.match.json",
+      "camera_sha256": "1d6950d5b715da1a6fbe685845f875abf1fb36db0547e06d913de17b9e330637",
+      "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+      "native_side_by_side_sha256": "00beb9938b639233d881a03962ac865815381a7651ac4e1afa377059823acf87"
     },
     {
       "composition_id": "colbert-1871",
@@ -124,11 +154,16 @@
       "panel": "whole",
       "publication_and_scene_limit": "Colbert&Chamberlin1871; depicted1833, per catalogue",
       "credit_as_recorded": "BureauofIllustrationBuffalo; BritishLibraryMechanicalCurator/Commons",
-      "source_id_or_admission": "source_specific_record_pending",
+      "source_id_or_admission": "colbert_chamberlin_1871_chicago_1833",
       "fresh_direct_visual_observation": "Leftgablecropped; rightdoor+sash/loggable clear; artisticlinework,sign pose/roofhatching vary, notmetriccladdingorworldcoordinateproof.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "matches under T-3153, exact actual native frame directly reviewed by root; adoption/runtime/source gates still unclaimed",
-      "root_review_frame_sha256": "aaa862b0617f3640f1bd48cf4911ca11f3ac666d1fbe2f2ee4e1fa5ee2686bd1"
+      "disposition": "Previously landed source-specific native comparison, matches under T-3153; exact original review frame/camera/master retained. Current application and source validation are recorded separately with this final adoption.",
+      "root_review_frame_sha256": "aaa862b0617f3640f1bd48cf4911ca11f3ac666d1fbe2f2ee4e1fa5ee2686bd1",
+      "view_file": "data/reference_views/wolf_point_tavern/colbert-1871.json",
+      "match_file": "data/reference_views/wolf_point_tavern/colbert-1871.match.json",
+      "camera_sha256": "fc202bf7aec38ebeee49c4e438e356a1e10945ff1fb3e6978bc21bfcb585daab",
+      "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+      "native_side_by_side_sha256": "aaa862b0617f3640f1bd48cf4911ca11f3ac666d1fbe2f2ee4e1fa5ee2686bd1"
     },
     {
       "composition_id": "hammon-c1908",
@@ -142,11 +177,16 @@
       "panel": "whole",
       "publication_and_scene_limit": "c1908 postcard per catalogue; depicted1833",
       "credit_as_recorded": "V.O.HammonPublishingCo.No168, afterpaintingsignedWidney",
-      "source_id_or_admission": "source_specific_record_pending",
+      "source_id_or_admission": "widney_hammon_c1908_chicago_1833",
       "fresh_direct_visual_observation": "Low left Wolf/sign identified; partner wing obscured by actual source foliage; neutral render omits foliage. Tall right block is Miller. No blanket crop claim.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "matches under T-3153, exact actual native frame directly reviewed by root; adoption/runtime/source gates still unclaimed",
-      "root_review_frame_sha256": "b6c576d3881e8b494331474528d3ea8691e1f5667a2172fa2a85d5e3c27ad778"
+      "disposition": "Previously landed source-specific native comparison, matches under T-3153; exact original review frame/camera/master retained. Current application and source validation are recorded separately with this final adoption.",
+      "root_review_frame_sha256": "b6c576d3881e8b494331474528d3ea8691e1f5667a2172fa2a85d5e3c27ad778",
+      "view_file": "data/reference_views/wolf_point_tavern/hammon-c1908.json",
+      "match_file": "data/reference_views/wolf_point_tavern/hammon-c1908.match.json",
+      "camera_sha256": "ddb0a293177f2eb33d68f42a3e9057e2a3de2b0f6336847f96dda368faea3adf",
+      "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+      "native_side_by_side_sha256": "b6c576d3881e8b494331474528d3ea8691e1f5667a2172fa2a85d5e3c27ad778"
     },
     {
       "composition_id": "herriott-1902",
@@ -160,11 +200,18 @@
       "panel": "wholebirdseye",
       "publication_and_scene_limit": "JustinHerriott1902 per catalogue; labelled1833",
       "credit_as_recorded": "JustinHerriott; localChicagologyscan",
-      "source_id_or_admission": "contextual_identity_unresolved",
-      "fresh_direct_visual_observation": "Several tinywestbankgablehouses unkeyed; no confidentlyidentifiedmeasurableWolf target fromthisactualimage.",
+      "source_id_or_admission": "contextual_unidentified",
+      "fresh_direct_visual_observation": "The actual full1970x1073panorama contains several westbankgablehouses. NoindividualWolfTavern key/label is established. CheckedChicagologycaption namesSauganashTavern/MarkBeaubien andJustinHerriott1902; its broaderlocalinventoryassociation is not an independent house key.",
       "directly_viewed_in_this_preparation": true,
-      "disposition": "inspection only; no camera or matches fabricated",
-      "limit": "Several tiny unkeyed west-bank gables; no secure measurable Wolf identity established by direct view. Context only, not shown for detailed Wolf form. Do not invent a camera; root must rule explicitly on original ticket coverage."
+      "disposition": "Context-only panorama with individual Wolf identity unverified; no fabricated camera or ninth matching comparison.",
+      "limit": "Identity, not pixelresolution alone, limits this disposition. This does not claim Wolf absent/notdepicted, nor that no future identification is possible. It does not invent a camera, source-grade ruling or matches record.",
+      "coverage_status": "contextual_unidentified",
+      "original_inventory_association": "unverified",
+      "checked_source_url": "https://chicagology.com/prefire/prefire273/",
+      "caption_assessment": "The retrieved caption identifies the scene and Sauganash; it does not key an individual westbank gable as WolfTavern."
     }
-  ]
+  ],
+  "identified_comparison_count": 8,
+  "contextual_unidentified_count": 1,
+  "whole_original_acceptance": "The eight identified native asset comparisons are adopted with reviewed matches and the unkeyed Herriott panorama is contextual_unidentified. Original release is conditioned on the native image gate, authored source validation, exact-head desktop/phone published acceptance and ordinary protected-dev merge. This ledger alone does not assert DONE, a geographic/historical street camera, door traversal or every opening unobstructed."
 }

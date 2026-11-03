@@ -1,0 +1,129 @@
+{
+  "source_sha256": "96fb4ee23dfff23097365987be08d0486f4c05e2a7f25c10330fc8dc919ab4f8",
+  "MASTER_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+  "selection": "New manual selections in this recovery, not reconstruction of the lost pick file. Approximate roof paint edges, not subpixel measurements. Ground/pole positions are not controls.",
+  "controls": [
+    {
+      "id": "annex-east-eave-south",
+      "world_enu": [
+        7.320000171661377,
+        -0.11999999731779099,
+        2.4919514656066895
+      ],
+      "source_pixel": [
+        106,
+        1217
+      ],
+      "manual_uncertainty_px": 6
+    },
+    {
+      "id": "annex-east-apex",
+      "world_enu": [
+        7.320000171661377,
+        2.5,
+        4.851010322570801
+      ],
+      "source_pixel": [
+        211,
+        1087
+      ],
+      "manual_uncertainty_px": 5
+    },
+    {
+      "id": "annex-east-eave-north",
+      "world_enu": [
+        7.320000171661377,
+        5.119999885559082,
+        2.4919514656066895
+      ],
+      "source_pixel": [
+        310,
+        1222
+      ],
+      "manual_uncertainty_px": 6
+    },
+    {
+      "id": "main-north-eave-east",
+      "world_enu": [
+        5.119999885559082,
+        10.220000267028809,
+        2.4919514656066895
+      ],
+      "source_pixel": [
+        550,
+        1227
+      ],
+      "manual_uncertainty_px": 6
+    },
+    {
+      "id": "main-north-apex",
+      "world_enu": [
+        2.5,
+        10.220000267028809,
+        4.851010322570801
+      ],
+      "source_pixel": [
+        652,
+        1087
+      ],
+      "manual_uncertainty_px": 5
+    },
+    {
+      "id": "main-north-eave-west",
+      "world_enu": [
+        -0.11999999731779099,
+        10.220000267028809,
+        2.4919514656066895
+      ],
+      "source_pixel": [
+        765,
+        1218
+      ],
+      "manual_uncertainty_px": 6
+    }
+  ],
+  "held_out": [
+    {
+      "id": "square-stack-top-centre",
+      "world_enu": [
+        2.5,
+        2.929,
+        5.351009845733643
+      ],
+      "source_pixel": [
+        385,
+        1059
+      ],
+      "manual_uncertainty_px": 6,
+      "basis": "chimney material accessor31 top four vertices centre"
+    },
+    {
+      "id": "thin-pipe-top-centre",
+      "world_enu": [
+        2.5,
+        7.474,
+        5.401010036468506
+      ],
+      "source_pixel": [
+        542,
+        1060
+      ],
+      "manual_uncertainty_px": 6,
+      "basis": "dark material accessor16 octagonal pipe top vertices centre"
+    },
+    {
+      "id": "main-north-window-centre",
+      "world_enu": [
+        1.449999988079071,
+        10.147000312805176,
+        1.699999988079071
+      ],
+      "source_pixel": [
+        678,
+        1249
+      ],
+      "manual_uncertainty_px": 8,
+      "basis": "glass accessor41/11 front window centre; source opening partly textured"
+    }
+  ]
+}
