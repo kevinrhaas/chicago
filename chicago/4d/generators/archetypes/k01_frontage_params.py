@@ -4815,12 +4815,82 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
         stacks = _wing_stacks(wing, e.get("stacks"), stone)
         if stacks:
             wing["stacks"] = stacks
+        if e.get("dressings") is not None:   # T-3353: stone belts and corner quoins on a brick wing
+            if fabric != "brick":
+                raise ParamError(f"rear_wings: {wid}'s dressings are stone laid in a brick wing's walls")
+            wing["dressings"] = _wing_dressings(wid, e["dressings"], walls, ops, top)
         out.append(wing)
     slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
     if len(slates) > 1:
         raise ParamError(f"rear_wings: the wings are slated in {', '.join(sorted(slates))}; a K01 house's "
                          f"wings share one slate (the assembly's wing_slate)")
     return tuple(out)
+
+
+#: T-3353: the corners of a wing a quoin may stand on, each the two walls meeting there and
+#: which end of each: (wall, at its end s = length?), (wall, at its end s = length?)
+WING_CORNERS = {"south_front": (("south", True), ("front", False)),
+                "south_rear": (("south", False), ("rear", True)),
+                "north_front": (("north", False), ("front", True)),
+                "north_rear": (("north", True), ("rear", False))}
+
+
+def _wing_dressings(wid, d, walls, ops, top) -> dict:
+    """T-3353: a brick wing's stone dressings (1919 Prairie's rear ranges, the 1919 programme
+    plate's pale courses and corners across their north flank). `belts` are stone courses
+    (`from_m`/`to_m` over grade, `proud_m` out) laid on each wall `belt_sides` names, in place
+    of K03's brick string course there, stopped against what stands on the wall as a main
+    wall's belts are; `quoins` stands dressed stones up each corner `corners` names, from
+    `from_m` to the wall top in courses `course_m` high, `long_m` and `short_m` along the
+    two faces in turn, `proud_m` out of the brick. Refused where a stone would run through
+    a window, a course through a light, or a corner whose wall the wing does not have."""
+    if not set(d) <= {"belts", "belt_sides", "quoins"} or not (d.get("belts") or d.get("quoins")):
+        raise ParamError(f"rear_wings: {wid}'s dressings take belts (with belt_sides) and/or quoins")
+    out = {}
+    belts, sides = d.get("belts") or (), tuple(d.get("belt_sides") or ())
+    if bool(belts) != bool(sides) or any(x not in walls for x in sides) or len(set(sides)) != len(sides):
+        raise ParamError(f"rear_wings: {wid}'s belts name the walls they run on ({', '.join(walls)})")
+    rows = []
+    for j, b in enumerate(belts):
+        if set(b) != {"from_m", "to_m", "proud_m"}:
+            raise ParamError(f"rear_wings: {wid}'s belts[{j}] takes from_m, to_m and proud_m")
+        y0, y1, pr = float(b["from_m"]), float(b["to_m"]), float(b["proud_m"])
+        if not (0.3 <= y0 and 0.08 <= y1 - y0 <= 0.4 and y1 <= top - 0.5 and 0.01 <= pr <= 0.08):
+            raise ParamError(f"rear_wings: {wid}'s belts[{j}] runs {y0}-{y1} m, {pr} m proud: a course "
+                             f"0.08-0.4 m deep from 0.3 m up, 0.5 m under the wall top, 0.01-0.08 m proud")
+        for o in ops:
+            if o.wall.rsplit(".", 1)[1] in sides and o.sill_m < y1 and y0 < o.sill_m + o.height_m:
+                raise ParamError(f"rear_wings: {wid}'s belts[{j}] runs through the light at s {o.s_m} on {o.wall}")
+        rows.append((round(y0, 4), round(y1, 4), round(pr, 4)))
+    if rows:
+        out["belts"], out["belt_sides"] = tuple(rows), sides
+    q = d.get("quoins")
+    if q is not None:
+        keys = {"corners", "from_m", "course_m", "long_m", "short_m", "proud_m"}
+        if set(q) != keys:
+            raise ParamError(f"rear_wings: {wid}'s quoins take {', '.join(sorted(keys))}")
+        y0, ch, ln, sh, pr = (float(q[k]) for k in ("from_m", "course_m", "long_m", "short_m", "proud_m"))
+        if not (0.0 <= y0 <= top - 1.0 and 0.2 <= ch <= 0.5 and 0.2 <= sh < ln <= 0.9 and 0.01 <= pr <= 0.06):
+            raise ParamError(f"rear_wings: {wid}'s quoins stand from 0 to a metre under the wall top, in "
+                             f"courses 0.2-0.5 m high, 0.2 m <= short < long <= 0.9 m, 0.01-0.06 m proud")
+        corners = tuple(q["corners"])
+        if not corners or len(set(corners)) != len(corners):
+            raise ParamError(f"rear_wings: {wid}'s quoins name their corners once each")
+        for c in corners:
+            if c not in WING_CORNERS or any(w not in walls for w, _ in WING_CORNERS[c]):
+                raise ParamError(f"rear_wings: {wid} has no {c} corner (its walls: {', '.join(walls)})")
+            for w, at_end in WING_CORNERS[c]:
+                length = walls[w][2]
+                for o in ops:
+                    if o.wall != f"k01.wall.wing.{wid}.{w}":
+                        continue
+                    near = length - (o.s_m + o.width_m / 2) if at_end else o.s_m - o.width_m / 2
+                    if near < ln + 0.05 and o.sill_m < top and y0 < o.sill_m + o.height_m:
+                        raise ParamError(f"rear_wings: {wid}'s {c} quoins run through the light at s {o.s_m} "
+                                         f"on {o.wall} ({near:.2f} m from the corner, the long stone {ln} m)")
+        out["quoins"] = {"corners": corners, "from_m": round(y0, 4), "course_m": round(ch, 4),
+                         "long_m": round(ln, 4), "short_m": round(sh, 4), "proud_m": round(pr, 4)}
+    return out
 
 
 def _gable_walls(roof) -> set:

@@ -39192,6 +39192,33 @@ house's remaining pictures.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
 **Recorded:** 2026-11-03 (T-3337).
 
+### L-k01-1919-range-dressings-3353 — 1919 Prairie's rear ranges quoined at their street-facing corners and banded in stone across the north flank, read off the 1919 programme plate
+
+**Decision:** 1919 Prairie's two rear ranges (T-3353, piece 1 of T-3338, of T-3303) carry the stone the
+1919 programme plate draws plainest of all its walls: pale quoins up the north-east corner of each range,
+where its north wall meets the face it steps out on, and pale courses across the brick. Each corner takes
+dressed stones from grade to the range's wall top, long and short along the two faces in turn; the main
+block's three stone courses (T-3305: under the principal sills, at the second floor, under the chamber
+sills) run on across both ranges' north walls and their stepped-out faces, stopped against the canted
+north bay, in place of K03's brick string course there. K01 learns it as an additive `dressings` entry
+on a brick rear wing (`belts` with `belt_sides`, and `quoins` at named corners), byte-identical for every
+other house (`k01_emit --check`).
+**What is read, not invented.** That the ranges' corners are quoined in pale stone and that pale courses
+cross their walls, from the programme plate (the 1913 plate sees the flank too obliquely, under trees).
+**What is invented.** The stones' 0.55 m and 0.3 m lengths, their 0.35 m courses and 0.03 m projection;
+that the quoins run from grade; that the courses are the main block's three carried on at the same
+lines, 0.05 m proud. The plate's halftone is too soft to count the stones or read the courses' lines.
+**What is not built.** Quoins at the canted north bay's own corners, which the plate draws dark; the
+quoined flat-topped block at the middle range's north-west corner and its mullioned stretch; the small
+pinnacled dormers between the gables and the third, smaller gable at the flank's far end (both plates
+show the dormers standing on a slope facing the street-side camera, which the ranges' north-facing gables
+leave no room for, so they wait on the ranges' roofs being read again); the ranges' place against both
+plates; and the house's unsolved pictures (the 1912 Blue Book plate among them).
+**How to resolve:** T-3354 (piece 2 of T-3338) reads the ranges' roofs and place against all three Gatlin plates.
+**Ticket:** T-3353 (piece 1 of T-3338).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-3353).
+
 ### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
 
 **Decision:** the renderer no longer repeats a K03 brick panel (`assets/textures/prairie_1904_brick/panel/`,
