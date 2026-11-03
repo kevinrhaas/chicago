@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2591, ts: '2026-11-03T03:00:02.545Z', date: 'Nov 2, 2026, 9:00 PM CT', title: 'Pullman\'s Prairie front laid where its photographs put it', kind: 'fix',
+    items: [
+      '1729 Prairie\'s big dormer and its tall arched windows move 3.2 m north, onto the spot two photographs taken from different corners both show them',
+      'The front door, its porch and the steps move with the entry onto the line of the garden gate, as the Detroit photograph has them',
+      'The narrow south bay comes back: a slim arched window on each floor and a small dormer over it, near the corner',
+    ] },
   { v: 2590, ts: '2026-11-03T02:49:34.963Z', date: 'Nov 2, 2026, 8:49 PM CT', title: 'Fort Dearborn: the parade is trodden earth that fades into the grass', kind: 'improvement',
     items: [
       'The parade inside Fort Dearborn was a flat beige slab with a hard edge. It is now textured trodden earth, the same ground as outside the walls, in 1835 and in 1812.',
