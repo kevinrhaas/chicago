@@ -27797,6 +27797,14 @@ width, cap: plain dome, dome with collar or flattened dome; a lean of 0.4-2 degr
 two read as one casting. The paved crossings stay: pictures show them (1815, 2112, Glessner's in
 HABS no. 2). Still invented: every post's size and cap, the row's count and spacing, and which
 crossings exist where no picture reaches.
+**Amended (T-1881, 2026-11-03; owner, of a lone slab on the lawn near 1826 Calumet: "what is this
+random white panel on the ground", and of the walk beside it: "see the grass poking through, needs a
+finer work"):** a crossing was laid at the middle of its lot's street chord and square to its face's
+first-to-last chord. Round Calumet's bend at 18th the chord's middle stands inside the lot, so the
+1800 lot's crossing lay on the lawn: no crossing is laid where that middle is more than 1 m off the
+lot line (95 crossings). On Calumet's many-segment street line the face's chord ran up to 12 degrees
+off the walk at a lot, so a crossing met the walk on a wedge of grass: each is now laid square to the
+street line's own segment at its lot, and starts 4 cm under the public walk.
 
 ### L-prairie-corner-crossings-3200 — A stone ramp down to the roadway at every corner crossing
 
@@ -38284,6 +38292,12 @@ carried round the Calumet Avenue corner on the 1911 sheet's lot line to the star
 The pale line along the lawn's far side is built (2026-10-31) as the drive's turn toward Calumet Avenue. Through the plate's camera its edges fall at u 23-31 from the drive's east edge to the frame's edge. A gravel band 4 m wide on the middle of that reading, u 25-29, runs east to the 1911 sheet's Calumet line at v 28.3, joined to the drive by a wedge clear of the pictured lilacs. Its width, its depth (about 1.2 m of ground a pixel there), the wedge's plan and its run past the frame are invented. Each row's
 lift is the app's ground (the 1904 terrain, `e1871_postfire`) over the house's bed, measured where the
 row runs, so the gravel stands 0.02 m proud along a drive that rises 6 cm from the gate.
+**2026-11-03 (T-1881).** The owner, of the coping's end at the start of the Calumet straight: "and it
+ends abruptly!". The coping is carried on along the 1911 sheet's Calumet lot line to v 44, past the
+glasshouse, with a gap of about 5 m where the turn meets the public walk and a finished end (body and
+cap) each side of it; the turn is carried on from v 28.3 to the lot line in that gap. The run, the gap
+and the ends are invented: neither picture reaches that far. The gravel is drawn with the texture
+library's gravel photograph (2 m to a tile) for the flat buff tone the owner read as "not solid".
 **How to resolve:** a plan of the grounds, or a picture of the lawn's far side and the drive beyond the
 conservatory.
 **Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
@@ -39561,3 +39575,29 @@ not evidence of a graded lawn.
 **Covers:** `elbridge_keith_house_1900_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3322.
 **Recorded:** 2026-11-03 (T-3322).
+
+### L-glessner-north-colonnettes-3343 — Glessner's two north colonnettes: the front's kind, sized off HABS 13, their capitals' carving reconstructed
+
+**Decision:** the colonnettes between the two second-floor window pairs on the `glessner_house`
+18th Street front (the east-wing gable pair and the tower-shoulder pair, T-3343) are rebuilt by
+the Prairie front's construction (L-glessner-colonnettes-2965): a splayed square base, a
+straight-tapered round shaft, the round front of a stone mullion flush with the wall's face and a
+cushion block capital, all in the walls' granite. They had been a pale plain post with a box top.
+The owner, 2026-11-03: the north ones "are different than the ones on the east face that we
+worked hard to get nice". **What is read.** HABS 13 (level) and HABS 14 (inclined), both 1965,
+show each as a round shaft in the wall's own stone, its foot splayed onto the sill, under a carved
+block capital rounding in to the shaft; the museum's 2013 post "The stone capitals on Glessner
+House" counts nine carved capitals, front and north, each different. Off HABS 13 at the east pair
+(21.4 px/ft from its outer jambs): the capital 1.3 ft across (the full gap between the lights),
+the shaft about 0.85 ft under it and 0.95 ft at its foot, the base about 1.2 ft at the sill; the
+capital's 1.1-ft and the base's 0.5-ft heights are T-2868's readings. **What is invented.** Both
+capitals' band and body (a band of diamonds over a round boss on the east pair; a zigzag band over
+crossing stems on the west pair, which a utility pole hides in both prints), every cut, depth and
+stem path, the corner volutes and leaf tips (HABS 13 shows corner curls on the east pair, too
+small to cut from), and the mullion's depth, taken from the front's sheet 3.
+**What is not changed.** The openings, sashes and the seven front colonnettes.
+**How to resolve:** a close photograph of either north capital would let its band and body be cut
+as carved.
+**Ticket:** T-3343.
+**Review:** `data/reference_views/glessner_house/habs-13-north-level.match.json`.
+**Recorded:** 2026-11-03 (T-3343).
