@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2611, ts: '2026-11-03T10:52:12.026Z', date: 'Nov 3, 2026, 4:52 AM CT', title: '1936 Prairie: the Allerton tower gets its deep cornice', kind: 'feature',
+    items: [
+      'The belvedere on the Allerton house\'s tower now wears the deep cornice the winter photograph shows: a heavy corona over a metre out, about half a metre deep, over the row of brackets, where before it had a thin eave.',
+      'Above the cornice a short sloping skirt rises to a flat deck. The top balustrade now stands on that deck, back from the edge, and its rail sits at the Tribune\'s 73 feet.',
+    ] },
   { v: 2610, ts: '2026-11-03T10:50:47.299Z', date: 'Nov 3, 2026, 4:50 AM CT', title: 'Green Tree\'s connecting range and Wolf Point picture credit', kind: 'change',
     items: [
       'A low connector and angled gabled range now stand beside Green Tree Tavern\'s open wagon bay, replacing the previous rear ell.',
