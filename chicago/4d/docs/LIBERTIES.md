@@ -27916,6 +27916,32 @@ replace the place-based colours.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-19 (T-2864).
 
+### L-night-grade-3331 — Time of day: twilight and night graded for the dark-adapted eye
+
+**Decision:** Settings › Show › Time of day moves the sun to any hour of the scene's (or the
+Season's) day, in 10-minute steps, or to a named time: daybreak (sunrise), morning (9:00),
+daytime (the scene's own hour, the default), afternoon (16:00), sunset, dusk (end of civil
+twilight) and night (22:00). Below the horizon the sky is drawn as a night sky graded from zenith
+to horizon with a glow toward the sun through twilight; the key light becomes a cool night key
+from high in the south-east, the sky fill falls to a starlit floor, and the exposure rises about
+1.6 stops as a dark-adapted eye's would (`renderers/web/js/time-of-day.js` gradeAt, `world.js`).
+**What it stands on:** the sun's bearing and height at every hour are computed (NOAA's algorithm,
+`world.js`) for the date in force, in local mean solar time as the scene's own hour always was;
+sunrise and sunset are the almanac's (centre 0.833° under the horizon), dusk the end of civil
+twilight (6° under). That the low sun reddens and a clear twilight glows toward where it set is
+general knowledge of the sky, not a record of any day.
+**What is invented:** the night's brightness and colour: no moon, starlight or airglow is measured
+for 14 August 1812, 1 July 1835 or 1 July 1904, and the night key's direction is fixed, not a
+moon's. The night is lit so a visitor can walk the town and see its shapes; it is not a claim that
+the night was that bright. Twilight's colours are the shape of a clear evening, and the hours'
+clouds and haze are not recorded. Lamps, candles, fires and lit windows are not drawn by this
+setting (T-3332..T-3334).
+**How to resolve:** the moon's position and phase for each date (an ephemeris, not a record) would
+replace the fixed night key with the moon where it stood, or no key on a moonless night.
+**Ticket:** T-3331.
+**Review:** `renderers/web/js/time-of-day.js`.
+**Recorded:** 2026-11-03 (T-3331).
+
 ### L-glessner-service-junction-2219 — north service bay (2026-10-13)
 
 **Decision:** HABS plans 2/3 and photographs 01/15 support wider service openings than the
@@ -37804,6 +37830,27 @@ the crown base raised, 0.44 of its height against the young elm's 0.30
 **Review:**
 `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`
 and both 16554 side-by-sides.
+**Extended (T-1881, 2026-11-03), the house's own trees' habit:** the seven pictured trees before
+1729 Prairie itself, the four on Prairie Avenue's parkway at 232.0, 238.8, 246.4 and 256.0 m
+(`prairie__prairie_ic_16_18`) and the three nearest the corner on 18th Street at 3.7, 14.25 and
+24.65 m (`e18th__prairie_ic_16_18`), no longer grow as the rule's grown parkway elm, whose low fork
+drew a V about 3 m up and covered the house's front down to its principal storey through the
+Detroit print's camera and Clark's 1905. They grow on a third pictured form, `high_head`
+(street-trees.js FORMS, tree-model.js ARCH.ulmus_americana_high). **What is read:** the Detroit
+print (1897-1901, f 1093 px, the trunks 48-53 m off) draws each Prairie tree as one straight
+leader about 6 px (0.3 m) across, its head's foot at y 250-320 px (about 8.5-12.5 m up), the head
+125-140 px (about 6 m) across, the tree 16 m to over 20 m tall (three rise past the print's top);
+Taylor's no. 1445 (f 1610 px) draws the three 18th Street trees as leaders 0.33-0.35 m across,
+small limbs from about 5 m and the head from about 10-10.5 m, the heads 4.5-5 m across, the third
+about 15.5 m tall and the first two past the print's top. **What is chosen (reconstructed):** the
+habit's numbers: the young elm's excurrent leader with its crown base raised to 0.45 of the
+height, its limbs steeper (44 degrees), a round head 0.40 of the height across and a bole of
+0.28-0.35 m; scale 1.0 for the trees rising past the pictures' tops, 0.85 for the Prairie corner
+tree and 0.8 for the tree at 24.65 m, read off their tops; one form for all seven, though the
+pictures' heads vary by a couple of metres; that trees of the 1890s pictures are of this size in
+1904. The winter heads are the layer's bare sprays, coarser than the prints' fine twigs.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
+`taylor_1445_album-side-by-side.jpg`, `chm_clark_1905-side-by-side.jpg` and their match records.
 
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
@@ -39268,19 +39315,23 @@ hipped slate roof on a bracketed cornice about 4.5 m up, rising about 1.8 m; a s
 roof's north part, three round-headed lights a face, its cornice about 8.6 m up, a pyramidal cap to about 9.9 m and a
 finial; a wall gable on the yard front with a curved head about 0.95 m over the cornice and a small oculus in it, over
 a two-light window in a pale stone frame under a hood; three round oculi about 1 m up the wall; two short capped
-stacks on the roof's south part; and the lower wing's gable to the yard, eave about 3.9 m, a lunette in it, an oculus
-under it and a pale band low on its wall. **What is not reconciled.** Through that camera the sheet puts the crossed
+stacks on the roof's south part; and the lower wing's yard front, eave about 3.6 m, with a narrow straight-sided
+gable at its north corner (about 1.8 m across, both slopes seen, its apex about 0.95 m over the eave), a lunette under
+its springing, an oculus under that and a pale band low on its wall; so the wing is hipped behind that gable, not
+gabled on its whole end (re-read and rebuilt 2026-11-03, T-3316). **What is not reconciled.** Through that camera the sheet puts the crossed
 stable's north-west corner at x 2035 px, where the photograph's wing begins at x 1867: about 4 m along the wall. No
 camera fits the house's corners and the wing's corner both (a search over the eye's place and heading leaves the
 house 25-63 px out and the wing 46-76 px out), and the house's own record has the fit and the sheet disagreeing by
 up to 2.5 m on its bay. The stable stands where the sheet draws it, and its yard-front features are placed by their
 offsets from the wing's corner as the photograph shows them, so the side-by-side shows the stable whole about 150 px
-right of the print's; the photograph's wing gable reads about 2.4-3.3 m across where the sheet's end is 6.1 m.
-Both are open in the match record. **What is invented.** The carriage door in the two-storey part's yard front at its
+right of the print's. That gap is the two camera fits' disagreement (a joint fit with the focal freed puts the
+stable within 9 px of the print but reads the house's cornice 2.5 m low), so it is written `within tolerance` in the
+match record under T-3153, the sheet's place standing (moving the stable north would cross the 1701/1637 lot line). **What is invented.** The carriage door in the two-storey part's yard front at its
 north end (behind the house in the picture; a stable's yard needs one and the sheet draws no drive); the lantern's
 and the stacks' places across the roof (one view gives x, not depth) and the stacks' heights; the faces the picture
 does not see (the north end, the east face to the tracks, blank, and the wing's south face, the rules' openings); the
-wing's gable pitch carried over the sheet's whole 6.1 m end; the colours (the print is monochrome: brick per the
+wing's hip south of its gable and the gable's depth back to the two-storey part's wall (the print shows only the
+gable's face and the eave beside it); the colours (the print is monochrome: brick per the
 sheet, slate). **How it was measured.** Every height on the face's own plane through the house's camera at the
 offset that puts the wing's corner where the print has it (eye moved 3.9 m along the stable's axis for the reading
 only; the view file keeps the house's pose).
@@ -39310,6 +39361,27 @@ which the generator asserts. **How to resolve:** a garrison description, return 
 surface, grass, gravel or bare earth.
 **Ticket:** T-3320.
 **Recorded:** 2026-11-02 (T-3320).
+
+### L-t3339-worn-ground-1812 — the 1812 settlement's worn trails and trodden yards, routed by rule
+
+**Decision:** 1812 gets fifteen worn trails and seventeen trodden yards, all written by
+`tools/generate_worn_ground_1812.py` into `data/enclosures/1812/` (`worn_trails_1812.json`, `worn_yard_1812_*.json`) and
+laid by `renderers/web/js/yards.js`: a trail is a strip of bare earth draped on the terrain whose cover fades to
+nothing at its edges, the sward and the trees kept off it. Three are attested in kind: the beaten Indian trail along
+the lake shore, the path from Lee's Place to the canoes, and the way along the river from Lee's Place to the fort
+(Andreas 1884; Currey 1912; Kinzie 1856). The Vincennes trace is inferred: Quaife 1923 has it as the Potawatomi trail
+to the Wabash that Heald rode up in 1811 and the Wabash bands came up in August 1812, and its line from 35th Street
+south follows the 1834 State road that he says followed it. The rest are ours: the cart road south from the gate,
+the paths along both banks and to the Clark and Lemai houses, the short faint paths from the fort to its wharf,
+stables, agency and gardens. **What is ours throughout:** every line inside the box (routed by A* on a 5 m grid over
+the committed terrain, kept off wet ground, off the banks by a set distance, round every building and fence, then
+smoothed and given a seeded wander); every width (0.9 m tread to a 2.4 m two-track) and every wear figure (0.3 to
+0.9, by our guess at how much each way was used); the yards' extent (each house's footprint grown and ragged) and
+that they are bare earth. Nothing reached maps a path or a yard in 1812 Chicago. **How to resolve:** a survey or
+sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that
+places one.
+**Ticket:** T-3339.
+**Recorded:** 2026-11-03 (T-3339).
 
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash

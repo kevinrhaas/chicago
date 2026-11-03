@@ -40,6 +40,7 @@
  */
 
 import * as THREE from 'three';
+import { LEAF_SKY } from './time-of-day.js';
 import { buildTreeTemplate, archFor, mulberry32 } from './tree-model.js';
 import { loadCompressed, countSheet } from './ktx2.js';
 
@@ -566,9 +567,12 @@ function patchLeaves(material, uWind, patchWind) {
   const wind = material.onBeforeCompile;
   material.onBeforeCompile = (shader, r) => {
     wind(shader, r);
-    shader.fragmentShader = shader.fragmentShader.replace('#include <lights_fragment_end>', `
+    // T-3331: the transmitted skylight falls with the hour (time-of-day.js LEAF_SKY);
+    // 0.22 by day, exactly as before.
+    shader.uniforms.uLeafSky = LEAF_SKY;
+    shader.fragmentShader = 'uniform float uLeafSky;\n' + shader.fragmentShader.replace('#include <lights_fragment_end>', `
 #include <lights_fragment_end>
-reflectedLight.indirectDiffuse += diffuseColor.rgb * 0.22;
+reflectedLight.indirectDiffuse += diffuseColor.rgb * uLeafSky;
 `);
   };
   material.customProgramCacheKey = () => 'grown-tree-leaves-t2743';
