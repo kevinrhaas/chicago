@@ -10,7 +10,6 @@
   "premise": "Every building on Captain Whistler's 1808 draught of the first fort: gate, barracks, parade, magazine, covered way, gardens, the government houses and the wharf. Twelve stops.",
   "default_mode": "fly",
   "allowed_modes": [
-    "walk",
     "fly",
     "instantly"
   ],
@@ -198,7 +197,7 @@
       ]
     },
     {
-      "note": "Through both rows of pickets. Fly or Instantly if the gates are shut.",
+      "note": "Over both rows of pickets onto the parade.",
       "evidence": [
         "plan"
       ]

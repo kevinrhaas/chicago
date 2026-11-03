@@ -10,7 +10,6 @@
   "premise": "April to August 1812 in twelve stops, from the killings at Lee's Place to the march down the beach, the surrender, and the houses where the Kinzies and Mrs. Helm hid.",
   "default_mode": "fly",
   "allowed_modes": [
-    "walk",
     "fly",
     "instantly"
   ],

@@ -10,7 +10,6 @@
   "premise": "17 June 1812, sunset, the fort gate: Chicago's first recorded murder. The victim, interpreter Jean Lalime. The killer, John Kinzie, 'The Father of Chicago'. Eight stops.",
   "default_mode": "fly",
   "allowed_modes": [
-    "walk",
     "fly",
     "instantly"
   ],
