@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 977,
+  "count": 978,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -939,7 +939,7 @@
     },
     {
       "id": "house_2003_prairie",
-      "name": "2003 Prairie Avenue — Brick masonry"
+      "name": "2003 Prairie Avenue — three-storey brick house with a curved front bay, the north half of the pair with 2005"
     },
     {
       "id": "house_2004_calumet",
@@ -951,7 +951,7 @@
     },
     {
       "id": "house_2005_prairie",
-      "name": "2005 Prairie Avenue — Brick masonry"
+      "name": "2005 Prairie Avenue — three-storey brick house with a curved front bay, the south half of the pair with 2003"
     },
     {
       "id": "house_2007_indiana",
@@ -36471,8 +36471,6 @@
         "high_house_2021_prairie_coach_house",
         "house_2001_prairie",
         "house_2001_prairie_coach_house",
-        "house_2003_prairie",
-        "house_2005_prairie",
         "house_2011_prairie",
         "house_2011_prairie_coach_house",
         "house_2017_prairie",
@@ -36568,30 +36566,6 @@
         {
           "domain": "structure",
           "structure": "house_2001_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2003_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2003_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2005_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2005_prairie",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
         },
@@ -36877,7 +36851,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2003_prairie.draft_1904.form.draft_elevation`, `house_2003_prairie.draft_1904.form.draft`, `house_2005_prairie.draft_1904.form.draft_elevation`, `house_2005_prairie.draft_1904.form.draft`, `house_2011_prairie.draft_1904.form.draft_elevation`, `house_2011_prairie.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie.draft_1904.form.draft_elevation`, `house_2011_prairie.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -36889,7 +36863,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "2001, the stone-front corner house on 20th Street, by later work, which refined it in place on the K01 frontage kit under `“2001 Prairie refined from the district draft to a two-and-a-half-storey K01 house with a stone street front under a hip and a street dormer, its rear part stepping out to the 20th Street line, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's)."
+          "text": "2001, the stone-front corner house on 20th Street, by later work, which refined it in place on the K01 frontage kit under `“2001 Prairie refined from the district draft to a two-and-a-half-storey K01 house with a stone street front under a hip and a street dormer, its rear part stepping out to the 20th Street line, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's); and 2003 and 2005, the attached pair with curved front bays, by later work, which refined both in place on the K01 frontage kit under `“2003 and 2005 Prairie refined from the district draft to a mirrored pair of three-storey K01 brick houses under a flat roof, each with the sheet's curved front bay and two-storey rear range, everything but the plan the kits'”`, under the same ids; their draft attributes are gone."
         },
         {
           "label": "Review",
@@ -36913,6 +36887,7 @@
         "T-1931",
         "T-1938",
         "T-3347",
+        "T-3346",
         "T-1913"
       ]
     },
@@ -37127,6 +37102,349 @@
         "T-3347",
         "T-1912",
         "T-3191",
+        "T-1842"
+      ]
+    },
+    {
+      "id": "L-k01-2003-2005-pair-3346",
+      "title": "2003 and 2005 Prairie refined from the district draft to a mirrored pair of three-storey K01 brick houses under a flat roof, each with the sheet's curved front bay and two-storey rear range, everything but the plan the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_2003_prairie",
+        "house_2005_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the attached pair at 2003 and 2005 Prairie Avenue is no longer a district draft. Each house stands, under the draft's own id (2003 Prairie Avenue — three-storey brick house with a curved front bay, the north half of the pair with 2005, 2005 Prairie Avenue — three-storey brick house with a curved front bay, the south half of the pair with 2003), as a k01 frontage record built by the k01 emit generator: K03 common brick on every wall; K06 two-over-two sash under K09 cornice-hood lintels on the two lower storeys and K01's flat stone lintels on the third; the door at the head of a K07 stoop; the sheet's curved front bay as a K08 bow; the sheet's two-storey rear range on K01's rear wings; and K01's flat roof (K05's parapet deck) behind a stone blocking course over a 0.6 m K10 bracketed timber cornice. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size off the raster through the fit, and the census (s35-2003-front, s35-2005-front: '3B brick dwelling with a curved front bay (D), on a party wall with' the other; s35-2003-wing, s35-2005-wing: 'rear2B'): three storeys over a basement, brick; each main body's lines (18.65 m deep; 6.85 m and 7.0 m along the front, wider than the draft's 5.75 m and 5.5 m, whose fit stopped where the sheet's dimension numerals bite the trace); the curved bays' places and sizes (segmental bows 4.8 m and 4.45 m along the front, about 0.7 m out, standing either side of the party wall, so the doors go at the pair's outer ends); and each rear range's place, size, step and two storeys, on the lot's outer line. **Where the pair stands.** On 2001's party line: when 2001 Prairie landed beside it, the pair's first reading was found standing 0.53 m into 2001's main body, about 3 px north of the lines the sheet draws at rows 310-311 (2001/2003), 348 (2003/2005) and 386 (2005/2007), so the pair was moved whole 0.535 m south, its widths and its own party line as read. **What is invented.** Every height (a 1.4 m principal floor, 4.0, 3.6 and 3.3 m storeys; the ranges on the first two); the walls' thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size and place and every head (the third storey's sash 1.5 m, its head kept under the corner bracket beside 2003's door); the door, stoop and its 1.3 m width; the bows' height (stopping 1.2 m under the wall head with their own tin caps, clear of the brackets, as 1634's and 1636's bays do), their sash and caps; the cornice and its brackets; the flat roof's form, fall, parapets, blocking course and tin; the two stacks a house against the party wall; blank side walls (each house's outer wall stands against its neighbour, 2001's on the north and 2007's within about 0.4 m on the south); the open front with a flagged walk (no picture of either front is held; the draft stood no boundary). The pair is built as a mirrored pair, the census's 'party wall' pair, and not as two designs. **What is not built.** The 16 ft brick wall the sheet draws on 2005's south line from the rear range to the alley (s35-2005-walls): K01 builds a free-standing wall only on the rear lot line (alley wall), not on a side line, so it is still unbuilt, as it was in the draft."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, plate or description of 2003 or 2005 (or of the pair), ingested as a source, replaces the kit's choices attribute by attribute."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2003_prairie.as_mapped_1904.form.principal_floor_m`, `house_2003_prairie.as_mapped_1904.form.storey_heights_m`, `house_2003_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2003_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2003_prairie.as_mapped_1904.form.service_wall_brick`, `house_2003_prairie.as_mapped_1904.form.street_front_trim`, `house_2003_prairie.as_mapped_1904.form.wall_head`, `house_2003_prairie.as_mapped_1904.form.roof_form`, `house_2003_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2003_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2003_prairie.as_mapped_1904.form.stair_tread_m`, `house_2003_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2003_prairie.as_mapped_1904.form.stoop_width_m`, `house_2003_prairie.as_mapped_1904.form.entrance_bay`, `house_2003_prairie.as_mapped_1904.form.front_bays`, `house_2003_prairie.as_mapped_1904.form.side_bays`, `house_2003_prairie.as_mapped_1904.form.rear_bays`, `house_2003_prairie.as_mapped_1904.form.sash_by_storey`, `house_2003_prairie.as_mapped_1904.form.basement_lights`, `house_2003_prairie.as_mapped_1904.form.roof_covering`, `house_2003_prairie.as_mapped_1904.form.chimneys`, `house_2003_prairie.as_mapped_1904.form.window_kit`, `house_2003_prairie.as_mapped_1904.form.entrance_kit`, `house_2003_prairie.as_mapped_1904.form.boundary`, `house_2003_prairie.as_mapped_1904.form.yard`, `house_2005_prairie.as_mapped_1904.form.principal_floor_m`, `house_2005_prairie.as_mapped_1904.form.storey_heights_m`, `house_2005_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2005_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2005_prairie.as_mapped_1904.form.service_wall_brick`, `house_2005_prairie.as_mapped_1904.form.street_front_trim`, `house_2005_prairie.as_mapped_1904.form.wall_head`, `house_2005_prairie.as_mapped_1904.form.roof_form`, `house_2005_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2005_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2005_prairie.as_mapped_1904.form.stair_tread_m`, `house_2005_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2005_prairie.as_mapped_1904.form.stoop_width_m`, `house_2005_prairie.as_mapped_1904.form.entrance_bay`, `house_2005_prairie.as_mapped_1904.form.front_bays`, `house_2005_prairie.as_mapped_1904.form.side_bays`, `house_2005_prairie.as_mapped_1904.form.rear_bays`, `house_2005_prairie.as_mapped_1904.form.sash_by_storey`, `house_2005_prairie.as_mapped_1904.form.basement_lights`, `house_2005_prairie.as_mapped_1904.form.roof_covering`, `house_2005_prairie.as_mapped_1904.form.chimneys`, `house_2005_prairie.as_mapped_1904.form.window_kit`, `house_2005_prairie.as_mapped_1904.form.entrance_kit`, `house_2005_prairie.as_mapped_1904.form.boundary`, `house_2005_prairie.as_mapped_1904.form.yard`."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2003 2005 pair."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03 (T-3346)."
+        }
+      ],
+      "work_refs": [
+        "T-3346",
+        "T-1912",
+        "T-2350",
+        "T-3347",
+        "T-1250",
         "T-1842"
       ]
     },

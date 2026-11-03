@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2615, ts: '2026-11-03T15:11:01.717Z', date: 'Nov 3, 2026, 9:11 AM CT', title: '2003 and 2005 Prairie: the brick pair with its curved front bays', kind: 'feature',
+    items: [
+      '2003 and 2005 Prairie Avenue, a pair of three-storey brick houses on one party wall, now stand as finished houses instead of draft blocks: each has the curved front bay the 1911 fire-insurance map draws beside the party wall, its door at the pair\'s outer end up a stone stoop, a bracketed cornice under a flat roof, and the two-storey rear range the map draws behind it. Both houses are now as wide and deep as the map draws them. The map gives the plan; the brick, windows, cornice and heights are reconstructed and listed on each house\'s card.',
+    ] },
   { v: 2614, ts: '2026-11-03T14:19:21.317Z', date: 'Nov 3, 2026, 8:19 AM CT', title: '1834 Prairie\'s brick barn on the alley', kind: 'feature',
     items: [
       'The alley building behind 1834 Prairie Avenue is no longer a rough draft. It now stands as a two-storey brick barn, 16.3 m along the alley and 7.5 m deep, with a one-storey brick room against its yard side, all drawn from the 1911 fire-insurance map.',
