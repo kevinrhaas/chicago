@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2595, ts: '2026-11-03T04:07:27.683Z', date: 'Nov 2, 2026, 10:07 PM CT', title: 'Fort Dearborn: Inspect names the building you face inside the walls', kind: 'fix',
+    items: [
+      'On a phone, standing inside Fort Dearborn and pressing Inspect named the stockade\'s pickets, whatever building you were facing, in 1812 and 1835.',
+      'Inspect now names the barracks, quarters or store you are looking at, the same one a tap opens. With nothing nearer ahead, it still names the stockade.',
+    ] },
   { v: 2594, ts: '2026-11-03T04:06:14.756Z', date: 'Nov 2, 2026, 10:06 PM CT', title: 'Fort Dearborn\'s bird\'s-eye view now shows on every fort card', kind: 'add',
     items: [
       'The 1912 bird\'s-eye drawing of the first Fort Dearborn opens full size from the Images tab of each blockhouse, range, the magazine, flagstaff and both picket rows in 1812.',

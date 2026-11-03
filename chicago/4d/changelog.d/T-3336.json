@@ -1,8 +1,0 @@
-{
-  "title": "Fort Dearborn: Inspect names the building you face inside the walls",
-  "kind": "fix",
-  "items": [
-    "On a phone, standing inside Fort Dearborn and pressing Inspect named the stockade's pickets, whatever building you were facing, in 1812 and 1835.",
-    "Inspect now names the barracks, quarters or store you are looking at, the same one a tap opens. With nothing nearer ahead, it still names the stockade."
-  ]
-}
