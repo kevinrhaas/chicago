@@ -39262,19 +39262,23 @@ hipped slate roof on a bracketed cornice about 4.5 m up, rising about 1.8 m; a s
 roof's north part, three round-headed lights a face, its cornice about 8.6 m up, a pyramidal cap to about 9.9 m and a
 finial; a wall gable on the yard front with a curved head about 0.95 m over the cornice and a small oculus in it, over
 a two-light window in a pale stone frame under a hood; three round oculi about 1 m up the wall; two short capped
-stacks on the roof's south part; and the lower wing's gable to the yard, eave about 3.9 m, a lunette in it, an oculus
-under it and a pale band low on its wall. **What is not reconciled.** Through that camera the sheet puts the crossed
+stacks on the roof's south part; and the lower wing's yard front, eave about 3.6 m, with a narrow straight-sided
+gable at its north corner (about 1.8 m across, both slopes seen, its apex about 0.95 m over the eave), a lunette under
+its springing, an oculus under that and a pale band low on its wall; so the wing is hipped behind that gable, not
+gabled on its whole end (re-read and rebuilt 2026-11-03, T-3316). **What is not reconciled.** Through that camera the sheet puts the crossed
 stable's north-west corner at x 2035 px, where the photograph's wing begins at x 1867: about 4 m along the wall. No
 camera fits the house's corners and the wing's corner both (a search over the eye's place and heading leaves the
 house 25-63 px out and the wing 46-76 px out), and the house's own record has the fit and the sheet disagreeing by
 up to 2.5 m on its bay. The stable stands where the sheet draws it, and its yard-front features are placed by their
 offsets from the wing's corner as the photograph shows them, so the side-by-side shows the stable whole about 150 px
-right of the print's; the photograph's wing gable reads about 2.4-3.3 m across where the sheet's end is 6.1 m.
-Both are open in the match record. **What is invented.** The carriage door in the two-storey part's yard front at its
+right of the print's. That gap is the two camera fits' disagreement (a joint fit with the focal freed puts the
+stable within 9 px of the print but reads the house's cornice 2.5 m low), so it is written `within tolerance` in the
+match record under T-3153, the sheet's place standing (moving the stable north would cross the 1701/1637 lot line). **What is invented.** The carriage door in the two-storey part's yard front at its
 north end (behind the house in the picture; a stable's yard needs one and the sheet draws no drive); the lantern's
 and the stacks' places across the roof (one view gives x, not depth) and the stacks' heights; the faces the picture
 does not see (the north end, the east face to the tracks, blank, and the wing's south face, the rules' openings); the
-wing's gable pitch carried over the sheet's whole 6.1 m end; the colours (the print is monochrome: brick per the
+wing's hip south of its gable and the gable's depth back to the two-storey part's wall (the print shows only the
+gable's face and the eave beside it); the colours (the print is monochrome: brick per the
 sheet, slate). **How it was measured.** Every height on the face's own plane through the house's camera at the
 offset that puts the wing's corner where the print has it (eye moved 3.9 m along the stable's axis for the reading
 only; the view file keeps the house's pose).
