@@ -4164,9 +4164,9 @@ def _architrave(ar, k, variant, s, wd, sill, h, top, width) -> dict:
     wall; optional `impost_m` [height, how far it steps out past the band, and before it] and
     `key_m` [width, height over the head's crown]."""
     what = f"street_front_windows.windows[{k}].architrave"
-    if not {"band_m", "proud_m"} <= set(ar) <= {"band_m", "proud_m", "impost_m", "key_m"}:
-        raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out] and key_m "
-                         f"[width, height]")
+    if not {"band_m", "proud_m"} <= set(ar) <= {"band_m", "proud_m", "impost_m", "key_m", "foot"}:
+        raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out], key_m "
+                         f"[width, height] and foot")
     if variant["head"] != "round":
         raise ParamError(f"{what}: an architrave is carried round a round head, not a {variant['head']} one")
     b, pr = float(ar["band_m"]), float(ar["proud_m"])
@@ -4180,19 +4180,69 @@ def _architrave(ar, k, variant, s, wd, sill, h, top, width) -> dict:
         raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across (at most half the light), rising the band's "
                          f"depth to 0.4 m past it over the crown")
     out = b + (imp[1] if imp else 0.0)
-    if s - wd / 2 - out < 0.05 or s + wd / 2 + out > width - 0.05:
+    foot = _architrave_foot(ar["foot"], what, wd / 2 + b, sill, pr) if ar.get("foot") is not None else None
+    half = max(wd / 2 + out, foot["table_m"][0] / 2 if foot else 0.0)
+    if s - half < 0.05 or s + half > width - 0.05:
         raise ParamError(f"{what} runs off the front's end")
     crown = sill + h + max(b, key[1] if key else 0.0)
     if crown > top + 0.30:
         raise ParamError(f"{what} rises to {crown:.2f} m, past the storey's head ({top + 0.30:.2f} m)")
     return {"s_m": round(s, 4), "sill_m": round(sill, 4), "band_m": b, "proud_m": pr,
-            "half_m": round(wd / 2 + out, 4), "top_m": round(crown, 4),
-            **({"impost_m": imp} if imp else {}), **({"key_m": key} if key else {})}
+            "half_m": round(half, 4), "top_m": round(crown, 4),
+            "foot_m": round(foot["bottom_m"] if foot else sill, 4),
+            **({"impost_m": imp} if imp else {}), **({"key_m": key} if key else {}),
+            **({"foot": foot} if foot else {})}
+
+
+def _architrave_foot(ft, what, band_half, sill, band_proud) -> dict:
+    """T-1881: the foot of a named light's architrave (1729 Prairie's big principal-storey light
+    in the 1890 Albertype plate): the light's own sill `sill_m` [length, height, proud], its top
+    the light's sill, carrying a block either side of the architrave's feet, its ears,
+    `blocks_m` [width, height, proud]; under it, `table_m` [length, height, proud, gap] lower
+    by `gap`, a longer sill carried on two corbels `corbels_m` [width, height, proud, apart]
+    over a sunk panel `panel_m` [width, height, fillet], drawn by a fillet `fillet` broad
+    standing round a field left at the wall's face."""
+    what = f"{what}.foot"
+    keys = ("sill_m", "blocks_m", "table_m", "corbels_m", "panel_m")
+    if set(ft) != set(keys):
+        raise ParamError(f"{what} takes sill_m [length, height, proud], blocks_m [width, height, proud], table_m "
+                         f"[length, height, proud, gap], corbels_m [width, height, proud, apart] and panel_m "
+                         f"[width, height, fillet]")
+    try:
+        sl, bl, tb, cb, pn = (tuple(float(x) for x in ft[k]) for k in keys)
+    except (TypeError, ValueError):
+        raise ParamError(f"{what}: numbers each") from None
+    if (len(sl), len(bl), len(tb), len(cb), len(pn)) != (3, 3, 4, 4, 3):
+        raise ParamError(f"{what}: sill_m, blocks_m and panel_m three numbers, table_m and corbels_m four")
+    if not 0.1 <= sl[1] <= 0.35 or not band_proud <= sl[2] <= 0.3:
+        raise ParamError(f"{what}.sill_m: a sill 0.1-0.35 m high standing at least the band's {band_proud} m "
+                         f"and at most 0.3 m proud")
+    if not 0.2 <= bl[0] <= 0.8 or not 0.2 <= bl[1] <= 1.0 or not 0.05 <= bl[2] <= sl[2]:
+        raise ParamError(f"{what}.blocks_m: blocks 0.2-0.8 m wide and 0.2-1.0 m high, standing 0.05 m proud "
+                         f"to no prouder than the sill")
+    if sl[0] / 2 < band_half + bl[0] - 1e-6 or sl[0] / 2 > band_half + bl[0] + 0.5:
+        raise ParamError(f"{what}.sill_m: the sill carries both blocks beside the band's feet and runs at most "
+                         f"0.5 m past them ({2 * (band_half + bl[0]):.2f}-{2 * (band_half + bl[0]) + 1.0:.2f} m)")
+    if not sl[0] <= tb[0] <= sl[0] + 2.0 or not 0.1 <= tb[1] <= 0.35 or not 0.05 <= tb[2] <= 0.3 \
+            or not 0.0 <= tb[3] <= 0.6:
+        raise ParamError(f"{what}.table_m: a sill as long as the light's to 2 m longer, 0.1-0.35 m high, "
+                         f"0.05-0.3 m proud, 0-0.6 m under the light's")
+    if not 0.1 <= cb[0] <= 0.5 or not 0.1 <= cb[1] <= 0.6 or not 0.05 <= cb[2] <= tb[2] \
+            or not cb[0] <= cb[3] <= tb[0] - cb[0]:
+        raise ParamError(f"{what}.corbels_m: corbels 0.1-0.5 m wide and 0.1-0.6 m high, no prouder than the "
+                         f"table they carry, their centres `apart` within its length")
+    if not cb[3] + cb[0] <= pn[0] <= tb[0] or not cb[1] + 2 * pn[2] <= pn[1] <= 1.5 \
+            or not 0.05 <= pn[2] <= min(0.2, pn[1] / 3):
+        raise ParamError(f"{what}.panel_m: a panel round both corbels and no wider than the table, as high as "
+                         f"the corbels and its fillets to 1.5 m, its fillet 0.05-0.2 m (at most a third of it)")
+    bottom = sill - sl[1] - tb[3] - tb[1] - pn[1]
+    return {"sill_m": sl, "blocks_m": bl, "table_m": tb, "corbels_m": cb, "panel_m": pn,
+            "bottom_m": round(bottom, 4)}
 
 
 def _architraves_clear(arcs, laid):
     """T-1881: no architrave runs into another window's hole or another architrave."""
-    boxes = [(a["s_m"] - a["half_m"], a["s_m"] + a["half_m"], a["sill_m"], a["top_m"]) for a in arcs]
+    boxes = [(a["s_m"] - a["half_m"], a["s_m"] + a["half_m"], a.get("foot_m", a["sill_m"]), a["top_m"]) for a in arcs]
     for i, (a0, a1, b0, b1) in enumerate(boxes):
         for c0, c1, d0, d1 in laid:
             mine = abs((c0 + c1) / 2 - arcs[i]["s_m"]) < 1e-4 and abs(d0 - arcs[i]["sill_m"]) < 1e-4
@@ -5899,6 +5949,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             street_dress["voussoirs"] = tuple(rings)
         if arcs:    # T-1881: the named windows' moulded architraves
             _architraves_clear(arcs, laid)
+            for a in arcs:   # T-1881: an architrave's sunk panel stands on the front's base, not in it
+                if a["foot_m"] < float(sfw.get("base_top_m", 0.0)) + 0.05:
+                    raise ParamError(f"street_front_windows: the architrave at s {a['s_m']}'s foot reaches "
+                                     f"{a['foot_m']} m, into the base (its top {sfw.get('base_top_m')} m)")
             street_dress["architraves"] = tuple(arcs)
     if val("street_front_frontispiece"):
         if not sfw:

@@ -2133,10 +2133,32 @@ class Assembly:
             yk = ys + r0                                                    # on the crown, before the band
             lay([(cx - kw / 2, yk), (cx + kw / 2, yk), (cx + kw / 2, ys + r0 + kh), (cx - kw / 2, ys + r0 + kh)],
                 F + self.KEYSTONE_PROUD_M)
+        ft = arc.get("foot")
+        if ft:
+            # T-1881: the light's foot (the 1890 plate's big principal-storey light): its sill
+            # standing proud under it with an ear either side of the band's feet; under that a
+            # longer sill on two corbels, and under it a sunk panel, its field left at the wall's
+            # face inside a fillet standing round it
+            (sl, sh, sp), (bw, bh, bp) = ft["sill_m"], ft["blocks_m"]
+            (tl, th, tp, tg), (cw, ch, cp, ca), (pw, ph, pf) = ft["table_m"], ft["corbels_m"], ft["panel_m"]
+            lay([(cx - sl / 2, sill - sh), (cx + sl / 2, sill - sh), (cx + sl / 2, sill), (cx - sl / 2, sill)], sp)
+            for a0, a1 in ((hd.s0 - b - bw, hd.s0 - b), (hd.s1 + b, hd.s1 + b + bw)):
+                lay([(a0, sill), (a1, sill), (a1, sill + bh), (a0, sill + bh)], bp)
+            yt = sill - sh - tg                                             # the table's top
+            lay([(cx - tl / 2, yt - th), (cx + tl / 2, yt - th), (cx + tl / 2, yt), (cx - tl / 2, yt)], tp)
+            y1, y0 = yt - th, yt - th - ph                                   # the panel
+            for c in (cx - ca / 2, cx + ca / 2):                             # the corbels, under the table
+                lay([(c - cw / 2, y1 - ch), (c + cw / 2, y1 - ch), (c + cw / 2, y1), (c - cw / 2, y1)], cp)
+            x0, x1 = cx - pw / 2, cx + pw / 2
+            ff = min(0.08, tp / 2)
+            for pts in ([(x0, y0), (x1, y0), (x1, y0 + pf), (x0, y0 + pf)],             # the fillet's bed
+                        [(x0, y0 + pf), (x0 + pf, y0 + pf), (x0 + pf, y1), (x0, y1)],   # its sides, up to the table
+                        [(x1 - pf, y0 + pf), (x1, y0 + pf), (x1, y1), (x1 - pf, y1)]):
+                lay(pts, ff)
         self.architrave_meta = getattr(self, "architrave_meta", []) + [
             {"s_m": arc["s_m"], "sill_m": arc["sill_m"], "spring_m": round(ys, 4), "radius_m": round(r0, 4),
              "outer_m": [round(hd.s0 - b, 4), round(hd.s1 + b, 4)], "impost": bool(arc.get("impost_m")),
-             "key": bool(arc.get("key_m"))}]
+             "key": bool(arc.get("key_m")), "foot": bool(ft)}]
         return j
 
     # -- T-2753: the dressed surrounds and the proud frontispiece --------------------------
