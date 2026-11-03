@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2596, ts: '2026-11-03T04:28:30.580Z', date: 'Nov 2, 2026, 10:28 PM CT', title: 'Time of day: watch the town from daybreak to night', kind: 'feature',
+    items: [
+      'Settings › Show › Time of day picks daybreak, morning, daytime, afternoon, sunset, dusk or night, or any hour on a slider in 10-minute steps.',
+      'Daytime is the scene\'s own hour and stays the default.',
+      'The sun, the sky, the shadows and the haze follow the hour, through twilight to a night sky.',
+      'Night is lit for a dark-adapted eye so you can still walk the town; it is a liberty, not a measured moon.',
+      'Lamps, candles and fires come next, starting with 1812\'s Fort Dearborn.',
+    ] },
   { v: 2595, ts: '2026-11-03T04:07:27.683Z', date: 'Nov 2, 2026, 10:07 PM CT', title: 'Fort Dearborn: Inspect names the building you face inside the walls', kind: 'fix',
     items: [
       'On a phone, standing inside Fort Dearborn and pressing Inspect named the stockade\'s pickets, whatever building you were facing, in 1812 and 1835.',
