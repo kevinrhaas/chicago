@@ -1,0 +1,335 @@
+{
+  "structure_id": "first_fort_dearborn_pickets_outer",
+  "view": "currey_1912_birdseye",
+  "glb": "assets/gltf/first_fort_dearborn_pickets_outer__first_fort_1803.glb",
+  "glb_sha256": "517c6bd77df54f51dd1a641f52ed7fd2ab0477a8bb64f00e1ff523496ee1cfd7",
+  "camera_sha256": "e88282076f21185c303a21cdd1e8a199bbd21b695cedcd64bf9e7663c3c97f83",
+  "photo_sha256": "2f2b1e60fd78cb91956d16a50af526886b67c0b5fdc0337610ca5ad331360a1f",
+  "rendered_members": [
+    {
+      "structure_id": "first_fort_dearborn_pickets_outer",
+      "glb": "assets/gltf/first_fort_dearborn_pickets_outer__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1135.94,
+        "local_n": 204.08,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "517c6bd77df54f51dd1a641f52ed7fd2ab0477a8bb64f00e1ff523496ee1cfd7"
+    },
+    {
+      "structure_id": "first_fort_dearborn_blockhouse_nw",
+      "glb": "assets/gltf/first_fort_dearborn_blockhouse_nw__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1134.99,
+        "local_n": 233.28,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        -0.9500000000000455,
+        0,
+        -29.19999999999999
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "cc2ab61c858b7912be5be9fa0eb1aef53dd7f0f08f434da17f4866bfa182fc4d"
+    },
+    {
+      "structure_id": "first_fort_dearborn_blockhouse_se",
+      "glb": "assets/gltf/first_fort_dearborn_blockhouse_se__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1164.34,
+        "local_n": 203.08,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        28.399999999999864,
+        0,
+        1
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "ada355a40dced7d77d9e890977c52a88ccb0ee903cf60cd6ad9bda7a0654e4f0"
+    },
+    {
+      "structure_id": "first_fort_dearborn_commanding_officers_barracks",
+      "glb": "assets/gltf/first_fort_dearborn_commanding_officers_barracks__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1165.84,
+        "local_n": 218.23,
+        "rotation_deg": 270,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        29.899999999999864,
+        0,
+        -14.149999999999977
+      ],
+      "rotation_y": -4.71238898038469,
+      "glb_sha256": "ac4e94f33df04c8a0cd83b9818054db98c0233bd22e05a17ccd7e55ab01c374f"
+    },
+    {
+      "structure_id": "first_fort_dearborn_flagstaff",
+      "glb": "assets/gltf/first_fort_dearborn_flagstaff__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1152,
+        "local_n": 221,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        16.059999999999945,
+        0,
+        -16.919999999999987
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "c357d3b79c954102b992399cd8e72406a97a3c71b8f1c4d7fe001c6e8a354025"
+    },
+    {
+      "structure_id": "first_fort_dearborn_magazine",
+      "glb": "assets/gltf/first_fort_dearborn_magazine__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1149.32,
+        "local_n": 233.62,
+        "rotation_deg": 180,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        13.379999999999882,
+        0,
+        -29.539999999999992
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "8af2a21fd3c87b5ab7f38452def94788c67c8341ffbdb4ad636dea9a7dd7d655"
+    },
+    {
+      "structure_id": "first_fort_dearborn_north_range",
+      "glb": "assets/gltf/first_fort_dearborn_north_range__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1159.56,
+        "local_n": 234.9,
+        "rotation_deg": 180,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        23.61999999999989,
+        0,
+        -30.819999999999993
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "2c98e2095006dc80b3baad3a745266ab1e5e55233260cd3694c4ad18ab7af111"
+    },
+    {
+      "structure_id": "first_fort_dearborn_officers_barracks",
+      "glb": "assets/gltf/first_fort_dearborn_officers_barracks__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1138.53,
+        "local_n": 227,
+        "rotation_deg": 90,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        2.589999999999918,
+        0,
+        -22.919999999999987
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "9ae76627995609d3454b77cc5c02661e042d418f4e5d91ceff1336c4262627f2"
+    },
+    {
+      "structure_id": "first_fort_dearborn_parade",
+      "glb": "assets/gltf/first_fort_dearborn_parade__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1144.11,
+        "local_n": 213.04,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        8.169999999999845,
+        0,
+        -8.95999999999998
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "85a49f66d032d59f1e780e5de77db590608b207948865bfb520ad4e891d74e57"
+    },
+    {
+      "structure_id": "first_fort_dearborn_pickets_inner",
+      "glb": "assets/gltf/first_fort_dearborn_pickets_inner__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1138.53,
+        "local_n": 207.1,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        2.589999999999918,
+        0,
+        -3.019999999999982
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "64525231afa2bf84c25a86c63b6af8f68d82e9df6ec1b224572666c30bf32354"
+    },
+    {
+      "structure_id": "first_fort_dearborn_small_house_ne",
+      "glb": "assets/gltf/first_fort_dearborn_small_house_ne__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1165.84,
+        "local_n": 234.78,
+        "rotation_deg": 180,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        29.899999999999864,
+        0,
+        -30.69999999999999
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "1b8b3a40b3f5da3f355bd8e91b3fe56410cac25ebd1c15d5d45b0c909b378441"
+    },
+    {
+      "structure_id": "first_fort_dearborn_small_house_sw",
+      "glb": "assets/gltf/first_fort_dearborn_small_house_sw__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1139.72,
+        "local_n": 208.44,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        3.7799999999999727,
+        0,
+        -4.359999999999985
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "3a90ae5849854a8b2b99ef654a03e992f6f0ce556940e78057688b0fa9ce4c97"
+    },
+    {
+      "structure_id": "first_fort_dearborn_soldiers_barracks_se",
+      "glb": "assets/gltf/first_fort_dearborn_soldiers_barracks_se__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1150.51,
+        "local_n": 207.1,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        14.569999999999936,
+        0,
+        -3.019999999999982
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "38e4268e57a6683fff130b34604c4c6494ffb7a7a8892d1f1427277710e12bda"
+    },
+    {
+      "structure_id": "first_fort_dearborn_soldiers_barracks_sw",
+      "glb": "assets/gltf/first_fort_dearborn_soldiers_barracks_sw__first_fort_1803.glb",
+      "placement": {
+        "local_e": 1141.88,
+        "local_n": 207.1,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "first_fort_1803"
+      },
+      "position": [
+        5.940000000000055,
+        0,
+        -3.019999999999982
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f29ff0571f83798d9663a1d2a1d79a40b6fed779ce3e50ddfd4fd8ca4d973161"
+    }
+  ],
+  "group_sha256": "abfa98d8a3223f8c2abe7e76d3b611c800d7853544199580cd0196749144d72c",
+  "side_by_side": "docs/RESEARCH/photo-match/first_fort_dearborn_pickets_outer/currey_1912_birdseye-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Blockhouses (4, 5): the drawing tops each with a small square cupola under its own pyramid cap, above a jettied upper storey; ours stop at a plain pyramid roof. Whistler's 1808 index says 'the Cupolas are not yet built on the Block Houses as laid down', so his plan drew them and they were still to come in February 1808; whether they stood by 1812 is unrecorded.",
+      "status": "open"
+    },
+    {
+      "what": "Blockhouses: the drawing's are tall towers, roughly twice as high as wide; ours are 5.2 m of wall on a 5.3-5.9 m plan (Whistler's measured 17-19 ft square, the second fort's 2-storey wall height), so they read as squat boxes from above.",
+      "status": "open"
+    },
+    {
+      "what": "Main entrance (1): the drawing puts a gate building with its own pyramid-capped tower in the south range; ours is a 1.89 m gap between the two halves of the soldiers' barracks, as Whistler's measured plan leaves it (index no. 7). Whistler governs the plan.",
+      "status": "open"
+    },
+    {
+      "what": "Western gateway (3): the drawing opens a gate in the west side beside the north-west blockhouse; ours has none. Quaife (1913) also puts a wicket gate 'near the northwestern blockhouse' (Whistler index no. 8), but the register could not find it on the 1808 sheet, so it was not built.",
+      "status": "open"
+    },
+    {
+      "what": "Range functions: the drawing labels the east range 'barracks' (7) and puts the officers' quarters (6) on the south; ours follow Whistler's index (commanding officer east, officers west, soldiers south and north). The contemporary index governs; the drawing is retrospective.",
+      "status": "open"
+    },
+    {
+      "what": "Range lengths: the drawing's ranges run nearly the full length of each side, closing the corners; ours keep Whistler's measured lengths (north range 24.8 ft, east 29.9 ft, west 43.8 ft, the south range in two halves), with open ground at the corners.",
+      "status": "open"
+    },
+    {
+      "what": "Magazine (8): the drawing gives it a rounded, barrel-vaulted roof at the west end of the north side; ours stands in the same place with a gable roof. Whistler's elevation draws an arched front, which the record already notes 'may be a vault'.",
+      "status": "open"
+    },
+    {
+      "what": "North-east inner angle: the drawing has a small square building with a pyramid roof there; ours has Whistler's small house (index no. 16) in the same angle with a gable roof.",
+      "status": "open"
+    },
+    {
+      "what": "Chimneys: the drawing's are small stacks along each ridge; ours are larger red brick stacks. Counts follow Whistler's folded elevations; section and brick are reconstructed.",
+      "status": "open"
+    },
+    {
+      "what": "Galleries: two levels of gallery with close vertical pales on the courtyard faces match the drawing (the inference the ranges' gallery_storeys already cites from this picture); ours are painted white, which a pen drawing cannot show.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Sally-port (2): the drawing's dashed passage from the north-east corner to the river matches the covered way (index no. 33) built from the north-east angle down the bank.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Double picket rows, the blockhouses at the north-west and south-east corners, the flagstaff mid-parade and the magazine between the north range and the north-west blockhouse all agree with the drawing.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Not shown by the drawing: the south-west small house (hidden or not drawn), the parade surface, and every metric size; the drawing is not to scale and its camera here is diagnostic only.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "note": "T-3335 (owner, 2026-11-03). A retrospective reconstruction, not an eyewitness view: Currey (1912) after a Chicago Daily Tribune sketch (5 March 1899) of Albert L. Van den Berghen's 1898 model. Where it departs from Whistler's contemporary 1808 measured draught, the draught governs unless the owner rules otherwise; the open rows wait on his ruling, and fixes belong to T-3041."
+}
