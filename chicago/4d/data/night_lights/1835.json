@@ -1,0 +1,43 @@
+{
+  "scene": "1835",
+  "note": "T-3333. The lights people made in the town of 1 July 1835, drawn when Settings › Time of day darkens it (renderers/web/js/night-lights.js). Every window pane in the town and the fort can glow, building by building, as share_by_hour says; the colour is a candle's and a small oil lamp's. Outside: the lighthouse's lantern, and a lantern at the fort's south gate. Liberty L-night-lights-3333 records what is ours.",
+  "windows": {
+    "light": "candle and oil lamp",
+    "colour_linear": [1.0, 0.47, 0.15],
+    "intensity": 0.42,
+    "share_by_hour": [
+      ["00:00", 0.06],
+      ["04:00", 0.18],
+      ["05:00", 0.0],
+      ["17:00", 0.7],
+      ["21:00", 0.5],
+      ["22:00", 0.32],
+      ["23:00", 0.12]
+    ],
+    "basis": "The town made and sold its own light: the Chicago Democrat of 26 November 1833 carries Daniel Elston's soap and candle manufactory, 'paying cash for tallow and house ashes', and Philo Carpenter's drugs, medicines and 'oils' (chicago_democrat_1833_11_26); the Army's ration carried candles, a pound and a half to every hundred rations in the act of 1802, a quarter of an ounce a man a day (us_statutes_1802_military_peace_establishment, sec. 6). Light that cost money was burned in the evening and put out for the night. The hours table itself is ours.",
+    "sources": ["chicago_democrat_1833_11_26", "us_statutes_1802_military_peace_establishment"]
+  },
+  "lights": [
+    {
+      "id": "chicago_lighthouse_1832_light",
+      "kind": "beacon",
+      "label": "The lighthouse's light, in its lantern room",
+      "local_e": 1058.39,
+      "local_n": 175.34,
+      "height_m": 10.0,
+      "basis": "The tower 'employed four, fourteen-inch reflectors in its bird-cage lantern room' and Samuel Lasby was 'keeper of the light, which was the first established on Lake Michigan' (lighthousefriends_chicago; Andreas says 'a fourteen-inch reflector', andreas_1884_v1). A lighthouse is lit from sunset to sunrise; its place is the tower's (chicago_lighthouse_1832 placement, Wright 1834) at the middle of the modelled lantern cage, 9.0 to 11.0 m up. Its brightness, colour and the glow's size are ours.",
+      "sources": ["lighthousefriends_chicago", "andreas_1884_v1"],
+      "liberty": "L-night-lights-3333"
+    },
+    {
+      "id": "fort_dearborn_south_gate_lantern",
+      "kind": "lantern",
+      "label": "A lantern at the fort's south gate, by the guard house",
+      "at": { "gate": "fort_dearborn_palisade:s", "offset_en": [1.4, -0.9] },
+      "height_m": 2.1,
+      "basis": "Hubbard names a guard-house beside the southern gate in 1827 (andreas_1884_v1, read for fort_dearborn_guard_house); a guard kept the gate. That the sentry had a lantern, and that it hung here, is ours.",
+      "sources": ["andreas_1884_v1"],
+      "liberty": "L-night-lights-3333"
+    }
+  ]
+}

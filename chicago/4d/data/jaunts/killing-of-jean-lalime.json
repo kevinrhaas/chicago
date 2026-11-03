@@ -84,7 +84,12 @@
         "quarrel",
         "porthier"
       ],
-      "next": "the-gate"
+      "next": "the-gate",
+      "hour": "18:00",
+      "date": "1812-06-17",
+      "hour_evidence": [
+        "quarrel"
+      ]
     },
     {
       "id": "the-gate",
@@ -100,7 +105,12 @@
         "hubbard",
         "father"
       ],
-      "next": "the-flight"
+      "next": "the-flight",
+      "hour": "sunset",
+      "date": "1812-06-17",
+      "hour_evidence": [
+        "porthier"
+      ]
     },
     {
       "id": "the-flight",
@@ -115,7 +125,12 @@
         "hubbard",
         "porthier"
       ],
-      "next": "the-grave"
+      "next": "the-grave",
+      "hour": "night",
+      "date": "1812-06-17",
+      "hour_evidence": [
+        "porthier"
+      ]
     },
     {
       "id": "the-grave",

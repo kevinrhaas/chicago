@@ -599,3 +599,11 @@ sloped span. Before adoption, verify current whole emitted yard/asset extents
 clear the changed polygon and bind those finite scene inputs. Future overlapping
 placements require a qualified contact model. No horse, parked-transport or
 yard runtime architecture changes are included by this profile feature.
+
+### Separate occupied components beside the core footprint (T-2376)
+
+A compiled sidecar may carry `footprint.additional_polygons`, a list of `{id, polygon, confidence, sources, note}` objects in the same local metre frame as `footprint.polygon`. The core polygon remains the dimensional/coordinate and main-facade reference. Extra rings describe actual occupied solids; the space between rings is not filled. All rings retain the same structure owner id.
+
+The compiler derives these rings from the pure archetype's resolved component frames; the builder uses those same frames for the walls and door. Renderers consume the JSON rings without importing generator code or reconstructing the layout. Walking/routing/vegetation keep-outs and map outlines read all rings. Native physical clearance and ground readers do likewise. A record without extra components emits no additional key and preserves its previous footprint bytes.
+
+An open yard bay is not a solid component. Its separate roof/posts/vehicle geometry remains owned by its yard layer. Alternate structure versions carry the occupied rings of their own selected record.

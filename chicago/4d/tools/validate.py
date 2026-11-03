@@ -28,6 +28,7 @@ import math
 import re
 import sys
 from pathlib import Path
+from occupied_footprints import phase_polygons
 
 from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION, HOME_KINDS, WORK_KINDS,
                          check_association_rows, home_of, workplace_of)
@@ -1942,7 +1943,8 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             # the edge for its base AND for every contact point, the two agree
             # exactly, and the measurement below reports a perfect landing on
             # ground that does not exist. Ask the prior question first.
-            outline = _contact_outline(poly, decl["mode"])
+            polygons = phase_polygons(st, ph) if decl["mode"] == "perimeter" else [poly]
+            outline = [edge for ring in polygons for edge in _contact_outline(ring, decl["mode"])]
             points = [pt for a, b in outline
                       for pt in _resample(to_world(a), to_world(b))]
             if not all(field.covers(e, n) for e, n in points) or not field.covers(e0, n0):

@@ -361,28 +361,9 @@ def _fan(b,o,d):
 def _columns(b,params,d):
     # T-2965: the full tier's colonnettes (ornament.columns) at fewer facets: splayed
     # base, tapered shaft, cushion block, its carved band as one raised course and
-    # the leaf tips; the bodies' fine carving is the master's alone.
-    orn=d.ornament;spec=params.detail.get('prairie_colonnette') or {}
-    ops=sorted([o for o in params.openings if o['kind']=='window' and o['face']=='east' and o['z0']>5],
-               key=lambda o:(round(o['at'],3),round(o['z0'],2),o['u0']))
-    for a,c in zip(ops,ops[1:]):
-        gap=c['u0']-a['u1']
-        if not .12<gap<.3 or abs(a['z0']-c['z0'])>.05 or abs(a['at']-c['at'])>.05:continue
-        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1'];h=z1-z0
-        r=orn.Relief(b,a,params.detail.get('conf',max(a['conf'],c['conf'])),orn.CARVED_GRANITE)
-        foot=spec.get('shaft_foot_m',gap*1.24)/2;neck=spec.get('shaft_neck_m',gap*.98)/2
-        half=spec.get('abacus_m',gap*2.3)/2
-        base=z0+h*spec.get('base_share',.13);low=z1-h*spec.get('capital_share',.33)
-        dep=-foot
-        r.box(u-gap*.5-.004,u+gap*.5+.004,base,low,-spec.get('mullion_depth_m',.46),dep)
-        orn._splayed_base(r,u,z0,base,spec.get('base_foot_m',gap*1.8)/2,foot+.008,dep)
-        orn._taper(r,u,base,low,foot,neck,dep,12)
-        top=z1-.012;ch=top-low
-        orn._block(r,u,low,top,neck,half,dep,16,5)
-        r.box(u-half*.92,u+half*.92,low+ch*.82,top-.01,dep+half-.01,dep+half+.012)
-        for j in range(3):
-            r.leaf(u+(j-1)*half*.45,low+ch*.12,math.pi*.5+(j-1)*.15,ch*.30,half*.28,
-                   dep+neck+(half-neck)*.30,.02,0,False,steps=4)
+    # the leaf tips; the bodies' fine carving is the master's alone. T-3343: one recipe,
+    # ornament.colonnette(reduced=True), which the north pairs take too (via d.tower).
+    d.ornament.columns(b,params,reduced=True)
 
 
 def _ridges(b,params,d):

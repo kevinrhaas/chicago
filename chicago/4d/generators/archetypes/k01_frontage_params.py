@@ -3152,7 +3152,30 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if "cornice" in ev:
                 k10 = json.loads(K10_KIT.read_text())
                 cv = next((x for x in k10["variants"] if x["id"] == ev["cornice"]), None)
-                if cv is not None and cv["id"] == BRACKETED_CORNICE and not set(ev) - {"cornice"}:
+                deep = ev.get("deep")
+                if deep is not None:
+                    # T-3345: a square tower's own deep cornice over the bracketed frieze (1936's
+                    # belvedere, about a metre from its soffit's foot to its top in the photograph):
+                    # the kit's bed moulding, a soffit rising straight from it to `soffit_rise_m`
+                    # over it at `overhang_m`, and a corona `fascia_m` deep whose top is the eaves
+                    # line; its brackets hang from the bed's top, the wall head, as in the frieze
+                    dk = {"overhang_m", "soffit_rise_m", "fascia_m"}
+                    if v["kind"] != "tower" or int(v["plan"].get("sides", 0)) != 4 or v["plan"].get("across_corner") \
+                            or cv is None or cv["id"] != BRACKETED_CORNICE or set(ev) != {"cornice", "deep"} \
+                            or not isinstance(deep, dict) or set(deep) != dk:
+                        raise ParamError(f"bays: {e['id']}'s deep eaves are a square tower's, under "
+                                         f"{BRACKETED_CORNICE}, and take {sorted(dk)}, not {ev}")
+                    ov_, rise_, fas_ = (float(deep[k]) for k in ("overhang_m", "soffit_rise_m", "fascia_m"))
+                    bed = [list(q) for q in k10["parts"]["profiles"]["bed_mould"]["points"]]
+                    bn, bu = bed[-1]
+                    if not 0.4 <= ov_ <= 1.5 or not 0.0 <= rise_ <= 0.6 or not 0.15 <= fas_ <= 0.8 or ov_ < bn + 0.1:
+                        raise ParamError(f"bays: {e['id']}'s deep eaves {deep}: 0.4-1.5 m out, the soffit "
+                                         f"rising 0-0.6 m, a 0.15-0.8 m corona")
+                    v["overrides"]["eaves"]["profile"] = bed + [[ov_, bu + rise_], [ov_, bu + rise_ + fas_],
+                                                                [0.0, bu + rise_ + fas_]]
+                    v["overrides"]["eaves"]["role"] = "fascia"
+                    v["overrides"]["eaves"]["brackets_at_m"] = bu
+                elif cv is not None and cv["id"] == BRACKETED_CORNICE and not set(ev) - {"cornice"}:
                     # T-2472: a bay rising to the bracketed timber cornice carries what of it
                     # a bow can: its bed moulding, and the house's eave over that (the K05
                     # soffit out `eave_overhang_m` to a fascia), in the eave's painted timber
@@ -3219,9 +3242,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0
             # T-3318: or a square tower's flat top, round its cheeks and front (1936's belvedere,
             # balustraded over its cornice in the photograph)
+            # T-3345: or that tower's hip cut flat to a deck, standing on the deck's edge (1936's
+            # belvedere, its balustrade over the skirt of its deep cornice in the photograph)
+            rf_ = e.get("roof", v["roof"])
             flat_top = flat_top or (v["kind"] == "tower" and int(v["plan"].get("sides", 0)) == 4
                                     and not v["plan"].get("across_corner")
-                                    and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0)
+                                    and (float(rf_.get("pitch", 1.0)) == 0.0
+                                         or (rf_.get("kind") == "hip" and rf_.get("deck_rise_m") is not None)))
             if not (v["plan"]["kind"] == "bow" or flat_top) or set(bl) != need or fabric not in ("iron", "stone"):
                 raise ParamError(f"bays: {e['id']}'s balcony stands on a bow, or on a canted bay's, a "
                                  f"projection's or a square tower's flat top, in iron or stone, and takes {sorted(need)}")

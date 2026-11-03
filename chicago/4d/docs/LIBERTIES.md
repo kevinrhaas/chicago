@@ -24386,9 +24386,12 @@ round its faces as the kit's corbel table, a 0.35 m stone course 0.5 m out over 
 shows no balcony at that level, only the belvedere's. The heights over it are read on the photograph's
 own vertical scale down the tower's front (a level camera keeps one scale down a vertical plane), set by
 the Tribune's 44 ft at the main cornice's top, which then puts the top balustrade at the Tribune's 73 ft:
-a blind stage 1.78 m (its three lights withdrawn), the belvedere 5.2 m from its balcony's floor with
-lights 1.8 m high, a 1.1 m top balustrade. Those sizes are reconstructed to that scale, and the
-belvedere's cornice is still the kit's thin bracketed eave where the photograph's stands about 1 m deep. The door stands in the
+a blind stage 1.78 m (its three lights withdrawn), the belvedere 4.78 m from its balcony's floor to its
+wall head with lights 1.8 m high, and over it (T-3345) the belvedere's own deep cornice as the photograph
+draws it: a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep, a skirt of the hip rising 0.55 m
+to a flat deck, and on the deck a 0.9 m top balustrade to the Tribune's 73 ft. Those sizes are
+reconstructed to that scale; the cornice's section is a straight soffit and a plain corona where the
+photograph's is moulded, and its brackets are the kit's plain ones in the frieze under it. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
@@ -24914,7 +24917,7 @@ buildings are T-1937's.
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
-**Covers:** `armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie.draft_1904.form.draft_elevation`, `house_2001_prairie.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2003_prairie.draft_1904.form.draft_elevation`, `house_2003_prairie.draft_1904.form.draft`, `house_2005_prairie.draft_1904.form.draft_elevation`, `house_2005_prairie.draft_1904.form.draft`, `house_2011_prairie.draft_1904.form.draft_elevation`, `house_2011_prairie.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2003_prairie.draft_1904.form.draft_elevation`, `house_2003_prairie.draft_1904.form.draft`, `house_2005_prairie.draft_1904.form.draft_elevation`, `house_2005_prairie.draft_1904.form.draft`, `house_2011_prairie.draft_1904.form.draft_elevation`, `house_2011_prairie.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 20th-22nd block, east side (T-2352, piece 2 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -24946,9 +24949,47 @@ on the 22nd Street corner (ruling r35-2141-open-corner), and the draft stands no
 **How to resolve:** each house's per-building ticket (T-1912 to T-1931, named on its card and in
 its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the rear
 buildings are T-1938's.
+**Retired in part:** 2001, the stone-front corner house on 20th Street, by T-3347 (piece 2 of T-1912), which refined it in place on the K01 frontage kit under `L-k01-2001-corner-3347`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1938's).
 **Ticket:** T-2352 (piece 2 of T-2161, the district draft's 20th-22nd block).
 **Review:** `docs/RESEARCH/prairie-draft-20-22-east-2352/README.md`.
 **Recorded:** 2026-10-11 (T-2352).
+
+### L-k01-2001-corner-3347 — 2001 Prairie refined from the district draft to a two-and-a-half-storey K01 house with a stone street front under a hip and a street dormer, its rear part stepping out to the 20th Street line, everything but the plan the kits'
+
+**Decision:** the corner house at 2001 Prairie Avenue (T-3347, piece 2 of T-1912) is no longer a
+district draft. It stands, under the draft's own id (`house_2001_prairie`), as a `k01_frontage` record
+built by `generators/k01_emit.py` on 1712 Prairie's pattern, the programme's other two-and-a-half-storey
+stone front: a K02 smooth limestone street front over two rusticated base courses; K03 common brick on
+the flanks and rear; K06 two-over-two sash under K09's restrained rowhouse surrounds on the front and
+K01 openings elsewhere; the door at the head of a K07 stoop at the front's 20th Street end; K10's
+bracketed timber cornice; and a K04/K05 hip in painted tin with one gabled K05 dormer on the street
+slope for the half storey. The rear part of the 20th Street flank stands on K08's flank step (T-3191),
+two storeys to the cornice's bed moulding under a flat tin deck.
+**What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size off the raster
+through an affine fit of the committed trace (0.186 m a pixel, 0.005 m worst residual), and the T-1842
+census (s35-2001-front: '2½B brick dwelling with a stone front (D) on the 20th Street corner'): two
+storeys and a half storey in the roof; brick, the street front stone the whole width; the main body
+19.05 m from the rear wall to the front's face and 6.69 m along the front (the draft's fit drew 15.0 m
+by 5.75 m, its rectangles stopping where the roof-covering marks printed inside the house bite the
+trace); and the rear 11.71 m of the house standing 0.93 m further north, on the 20th Street lot line.
+**What is invented.** Every height (a 1.7 m principal floor, 4.0 and 3.6 m storeys, the step's top at
+the bed moulding); the walls' thickness; the stone's kind, dressing and courses and the brick's colour;
+every window's kind, size and place (three a storey across the front, two a storey in the flank's front
+part, three a storey on the step's face, two in the rear) and every surround; the door, stoop and its
+1.5 m width and its place at the corner end (the district draft's choice); the cornice; the hip's
+pitch, eaves, covering and its dormer; the two stacks against the party wall; the gutters and
+downpipes; the open front with a flagged walk (no picture of the front is held, and 2003 and 2005 beside
+it stand open). The party wall with 2003 is built blank.
+**What is not built.** The small one-storey frame porch the sheet draws on the 20th Street side
+(s35-2001-wing), about 5 m along the step's face and 0.75 m out over the lot line: it stands on the
+step's face, and K08 hosts no projection on another projection, so it is still unbuilt, as the T-1912
+brief's 'attached porch' wants it built.
+**How to resolve:** a photograph, plate or description of 2001 Prairie, ingested as a source, replaces
+the kit's choices attribute by attribute; a K08 porch hosted on a step's face builds the frame porch.
+**Covers:** `house_2001_prairie.as_mapped_1904.form.principal_floor_m`, `house_2001_prairie.as_mapped_1904.form.storey_heights_m`, `house_2001_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2001_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2001_prairie.as_mapped_1904.form.service_wall_brick`, `house_2001_prairie.as_mapped_1904.form.stone_front`, `house_2001_prairie.as_mapped_1904.form.street_front_trim`, `house_2001_prairie.as_mapped_1904.form.wall_head`, `house_2001_prairie.as_mapped_1904.form.roof_form`, `house_2001_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2001_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2001_prairie.as_mapped_1904.form.roof_covering`, `house_2001_prairie.as_mapped_1904.form.dormer`, `house_2001_prairie.as_mapped_1904.form.stair_tread_m`, `house_2001_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2001_prairie.as_mapped_1904.form.stoop_width_m`, `house_2001_prairie.as_mapped_1904.form.entrance_bay`, `house_2001_prairie.as_mapped_1904.form.front_bays`, `house_2001_prairie.as_mapped_1904.form.side_bays`, `house_2001_prairie.as_mapped_1904.form.north_bays`, `house_2001_prairie.as_mapped_1904.form.rear_bays`, `house_2001_prairie.as_mapped_1904.form.sash_by_storey`, `house_2001_prairie.as_mapped_1904.form.basement_lights`, `house_2001_prairie.as_mapped_1904.form.window_kit`, `house_2001_prairie.as_mapped_1904.form.rainwater`, `house_2001_prairie.as_mapped_1904.form.chimneys`, `house_2001_prairie.as_mapped_1904.form.entrance_kit`, `house_2001_prairie.as_mapped_1904.form.boundary`, `house_2001_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3347 (piece 2 of T-1912).
+**Review:** `docs/RESEARCH/k01-2001-corner-3347/README.md`.
+**Recorded:** 2026-11-03 (T-3347).
 
 ### L417 — The portable-human pipeline's test figure, which is nobody
 
@@ -27959,6 +28000,53 @@ replace the fixed night key with the moon where it stood, or no key on a moonles
 **Ticket:** T-3331.
 **Review:** `renderers/web/js/time-of-day.js`.
 **Recorded:** 2026-11-03 (T-3331).
+
+### L-night-lights-3334 — 1904 by night: the street lamps lit, gas and electric light in the houses' windows
+
+**Decision:** when Time of day darkens 1904 (T-3331), every gas lamp post on the district's parkways
+(the T-3199 posts, L-prairie-street-lamps-3199) is lit: its lantern glass glows a gas mantle's warm white,
+a halo stands in the lantern and a warm pool lies on the ground under it, from dusk to dawn. Every house's
+window panes can glow, building by building: about five in six lit at dusk, three in five until ten, a third
+until eleven, a few through the night, more again before six (`data/night_lights/1904.json`).
+**What it stands on:** gas mantles from the 1890s, gas streetlights still used in some areas of the city in
+the early 1900s, and electric light common by 1909 (`chipublib_gaslight_blog`); the lamp posts are
+T-3199's, drawn from the photographs as gas lamps.
+**What is invented:** that every post was lit and burned all night; the mantle's colour, the halo and the
+pool; which houses are lit at which hour (a seeded choice per building, not any household's record),
+the hours table, and one colour between gas and electric light for every house: no source reached says
+which Prairie Avenue houses burned gas and which electricity in 1904. The context city beyond the district
+is not lit. The light a window throws into the street is not drawn.
+**How to resolve:** the city's 1904 report on public lighting (which streets had gas lamps, which electric
+arcs, and the lighting hours), and a house's own account (the Glessners' fixtures and bills) for its windows.
+**Ticket:** T-3334.
+**Review:** `renderers/web/js/street-furniture.js`, `data/night_lights/1904.json`.
+**Recorded:** 2026-11-03 (T-3334).
+
+### L-night-lights-3333 — 1835 by night: candle and lamp-lit windows by the hour, the lighthouse lit, a lantern at the fort's south gate
+
+**Decision:** when Time of day darkens 1835 (T-3331), every window pane in the town and the fort can
+glow with the warm yellow-orange of a candle or a small oil lamp, building by building: about seven in
+ten lit from dusk, half after nine, a third after ten, a few through the small hours, more again before
+daybreak (`data/night_lights/1835.json` share_by_hour). The lighthouse's lantern room shows a large
+steady glow from dusk to dawn. A lantern hangs outside the fort's south gate with a warm pool under it.
+**What it stands on:** the town made and sold its light: the Chicago Democrat of 26 November 1833
+carries Daniel Elston's soap and candle manufactory and Philo Carpenter's 'oils'
+(`chicago_democrat_1833_11_26`); the Army's ration carried candles (`us_statutes_1802_military_peace_establishment`,
+sec. 6). The lighthouse 'employed four, fourteen-inch reflectors in its bird-cage lantern room' and had a
+keeper of the light (`lighthousefriends_chicago`; Andreas, `andreas_1884_v1`, says one reflector).
+Hubbard puts the guard-house beside the southern gate (`andreas_1884_v1`).
+**What is invented:** which buildings are lit at which hour (a seeded choice per building, not a record of
+any household, tavern or store), the hours table, the flame's colour, brightness and flicker; the
+lighthouse light's brightness, colour and the size of its glow (the reflectors are not modelled and no
+beam is drawn); and the gate lantern, which no source names. No tavern or store lantern is drawn: the
+record reached names none. The glow is drawn on the panes and the light they would throw into the
+street is not, except under the gate lantern.
+**How to resolve:** a tavern keeper's or merchant's account book (candles and oil bought), a newspaper
+notice of lamps or lanterns, or the lighthouse's own returns (lamps, oil and hours) would replace the
+table and the beacon's look.
+**Ticket:** T-3333.
+**Review:** `renderers/web/js/night-lights.js`, `data/night_lights/1835.json`.
+**Recorded:** 2026-11-03 (T-3333).
 
 ### L-night-lights-3332 — 1812 by night: candlelit windows by the hour, and a lantern at the fort's gate
 
@@ -39559,3 +39647,45 @@ not evidence of a graded lawn.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`.
 **Recorded:** 2026-11-03 (T-1881).
+
+### L-glessner-north-colonnettes-3343 — Glessner's two north colonnettes: the front's kind, sized off HABS 13, their capitals' carving reconstructed
+
+**Decision:** the colonnettes between the two second-floor window pairs on the `glessner_house`
+18th Street front (the east-wing gable pair and the tower-shoulder pair, T-3343) are rebuilt by
+the Prairie front's construction (L-glessner-colonnettes-2965): a splayed square base, a
+straight-tapered round shaft, the round front of a stone mullion flush with the wall's face and a
+cushion block capital, all in the walls' granite. They had been a pale plain post with a box top.
+The owner, 2026-11-03: the north ones "are different than the ones on the east face that we
+worked hard to get nice". **What is read.** HABS 13 (level) and HABS 14 (inclined), both 1965,
+show each as a round shaft in the wall's own stone, its foot splayed onto the sill, under a carved
+block capital rounding in to the shaft; the museum's 2013 post "The stone capitals on Glessner
+House" counts nine carved capitals, front and north, each different. Off HABS 13 at the east pair
+(21.4 px/ft from its outer jambs): the capital 1.3 ft across (the full gap between the lights),
+the shaft about 0.85 ft under it and 0.95 ft at its foot, the base about 1.2 ft at the sill; the
+capital's 1.1-ft and the base's 0.5-ft heights are T-2868's readings. **What is invented.** Both
+capitals' band and body (a band of diamonds over a round boss on the east pair; a zigzag band over
+crossing stems on the west pair, which a utility pole hides in both prints), every cut, depth and
+stem path, the corner volutes and leaf tips (HABS 13 shows corner curls on the east pair, too
+small to cut from), and the mullion's depth, taken from the front's sheet 3.
+**What is not changed.** The openings, sashes and the seven front colonnettes.
+**How to resolve:** a close photograph of either north capital would let its band and body be cut
+as carved.
+**Ticket:** T-3343.
+**Review:** `data/reference_views/glessner_house/habs-13-north-level.match.json`.
+**Recorded:** 2026-11-03 (T-3343).
+
+
+### L-green-tree-enclosed-left-reading-2376 — Green Tree connector beside the open wagon bay
+
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`, `green_tree_tavern.frame_1833.form.rear_ell`.
+
+**Decision:** Retain the already-adopted main-gable entrance/two front sash and the existing procedural open wagon bay. Replace the former rear ell with a low connector and the turned farther gabled boarding range shown more fully by Andreas. The MASTER omits the open shoulder (`shoulder_enclosed: false`); the native yard layer remains the sole owner of its roof, posts and covered wagon. It is not a duplicate model roof, and its open ground is not filled by a collision hull.
+
+The retrospective, potentially dependent pictures disagree about an open or enclosed shoulder and do not establish a dated alteration sequence. This increment retains the open reading; the separate closed-shoulder alternate is not enrolled. Every span, hidden depth, elevation, roof slope, opening station, plan turn, offset and timber/pigment treatment is reconstructed. Choosing the undated additions for July1835 proves no unchanged survival, exact dimensions, surveyed coordinate, tenant identity or increased lodging capacity. The unverified1859 catalogue photograph supplies no geometry. Geometry source records: `andreas_1884_green_tree_hotel_plate`, `trowbridge_green_tree_1902`, `kurz_allison_1893`. The modern `chicagology_prefire127` page remains text-only context for transcribed later testimony and counterevidence; its unresolved webpage rights supply no new annex geometry.
+
+The two existing static farm-wagon stands retain their earlier reconstructed parking-apron line, using the archetype's former rear-ell depth as an offset even though the wing is now absent. This preserves their positions, clearances, dimensions and eligibility; it is not a wall, a new surveyed dimension or evidence that the ell existed in1835. Their protected historical notes retain the earlier ell-based derivation; this paragraph amends that reasoning for the current open apron. Other structures' placement rules remain unchanged.
+
+The main-body reference footprint and source placement remain unchanged. Separate occupied rings follow the connector and turned range; consumers retain open gaps and the existing core's passages. Neither those physical consumers nor an isolated asset render establishes full original-ticket picture coverage, a calibrated historical camera, door traversal or an actual app-performance verdict. The original T-2376 signoff remains open; genuine changed-model comparisons and published app review are still required.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-03.
