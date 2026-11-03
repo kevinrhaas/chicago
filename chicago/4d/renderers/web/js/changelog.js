@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2597, ts: '2026-11-03T04:29:58.014Z', date: 'Nov 2, 2026, 10:29 PM CT', title: '1701 Prairie\'s stable: the low wing gets the photograph\'s narrow gable', kind: 'improvement',
+    items: [
+      'Behind 1701 Prairie Avenue, the stable\'s lower south wing no longer carries a gable across its whole end. As the Chicagology photograph shows it, the wing is hipped, with a narrow steep gable about 1.8 m across at its north corner, a lunette under it and a round window below that.',
+      'The stable now matches its picture. It still stands about 4 m south of where the house\'s camera sees it, because the 1911 map and the two camera fits disagree. The map\'s place stands.',
+    ] },
   { v: 2596, ts: '2026-11-03T04:28:30.580Z', date: 'Nov 2, 2026, 10:28 PM CT', title: 'Time of day: watch the town from daybreak to night', kind: 'feature',
     items: [
       'Settings › Show › Time of day picks daybreak, morning, daytime, afternoon, sunset, dusk or night, or any hour on a slider in 10-minute steps.',

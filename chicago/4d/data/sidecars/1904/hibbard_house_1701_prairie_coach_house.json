@@ -137,8 +137,8 @@
             "id": "r2",
             "role": "range",
             "storeys": 1,
-            "eave_m": 3.9,
-            "roof": "gable",
+            "eave_m": 3.6,
+            "roof": "hip",
             "pitch_deg": 26,
             "rect": [
               2.4,
@@ -161,7 +161,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "chicagology_1701_hibbard_photo"
       ],
-      "note": "T-3316: the plan is the 1911 sheet's, no longer the rules' fit. r1, the '2' part, and r2, the crossed '1½' part, stand on the outlines the sheet draws, unsheared in this record (rect) and built sheared by skew_per_m 0.29: each metre south steps the walls 0.29 m east, so the north and south walls keep their line across the lot and the long walls take the right-of-way's slant. Storeys per part are the sheet's. r1's eave (4.5 m) and hip (20 degrees) and r2's eave (3.9 m) are read off the Chicagology photograph through the house's camera; r2's gable pitch (26 degrees) is the photograph's gable slope, but the gable it shows is narrower than the sheet's 6.1 m end (L-t3316-hibbard-1701-stable)."
+      "note": "T-3316: the plan is the 1911 sheet's, no longer the rules' fit. r1, the '2' part, and r2, the crossed '1½' part, stand on the outlines the sheet draws, unsheared in this record (rect) and built sheared by skew_per_m 0.29: each metre south steps the walls 0.29 m east, so the north and south walls keep their line across the lot and the long walls take the right-of-way's slant. Storeys per part are the sheet's. r1's eave (4.5 m) and hip (20 degrees) and r2's eave (3.6 m, re-read 2026-11-03) are read off the Chicagology photograph through the house's camera; r2 is hipped (26 degrees) under the photograph's eave, its yard front carrying a narrow gable 1.8 m across at its north corner rather than a gable on the sheet's whole 6.1 m end: the photograph shows both slopes of that gable, its apex about 1.4 m south of the wing's corner (L-t3316-hibbard-1701-stable)."
     },
     "draft_elevation": {
       "value": {
@@ -243,19 +243,19 @@
               {
                 "part": "r2",
                 "side": "u1",
-                "s": 16.3,
-                "sill_m": 4.15,
-                "w_m": 1.1,
-                "h_m": 0.55,
+                "s": 14.4,
+                "sill_m": 2.85,
+                "w_m": 0.8,
+                "h_m": 0.45,
                 "head": "round"
               },
               {
                 "part": "r2",
                 "side": "u1",
-                "s": 16.3,
-                "sill_m": 2.75,
-                "w_m": 0.6,
-                "h_m": 0.6,
+                "s": 14.4,
+                "sill_m": 1.95,
+                "w_m": 0.45,
+                "h_m": 0.45,
                 "head": "oculus"
               }
             ],
@@ -295,6 +295,17 @@
                   "d_m": 0.35,
                   "y_m": 4.95
                 }
+              },
+              {
+                "part": "r2",
+                "side": "u1",
+                "s0": 13.48,
+                "s1": 15.28,
+                "from_m": 3.6,
+                "rise_m": 0.95,
+                "depth_m": 2.45,
+                "coping_m": 0.12,
+                "head": "pitched"
               }
             ],
             "lantern": {
@@ -355,7 +366,7 @@
         "v_toward": "south"
       },
       "confidence": "reconstructed",
-      "note": "T-3316: read off the Chicagology photograph of the Hibbard house (cgn-1701-hibbard-photo-wide, 1945 x 1207 px), whose right edge (x 1590-1945) shows the stable's yard (west) front 57-68 m off, through the house's own solved camera carried into this frame unchanged (data/reference_views/hibbard_house_1701_prairie_coach_house/chicagology_front.json), at about 35 px a metre. REGISTERED ON THE WING: through that camera the sheet puts the crossed stable's north-west corner at x 2035 px, where the photograph's gabled wing begins at x 1867, about 4 m north of the sheet's line along the wall; no camera fits the house and the wing both (a re-fit holding the wing leaves the house's corners 40-60 px out), so the features are placed by their offsets from the wing's corner, as the photograph shows them, and the difference is open in the match record. READ: a hipped slate roof on a bracketed cornice at about 4.5 m; a square lantern about 2.0 m across over the roof's north part, three round-headed lights a face, its cornice at about 8.6 m under a pyramidal cap to about 9.9 m and a finial; a wall gable with a curved head rising about 0.95 m over the cornice, an oculus in it, over a two-light window in a pale stone frame under a hood (top about 4.0 m); three round oculi about 1 m up the wall; two short capped stacks on the roof's south part; and the lower wing's gable to the yard, a lunette in it and an oculus under it, a pale band low on its wall, eave about 3.9 m. INVENTED: the carriage door in r1's yard front at its north end (behind the house in the picture; a stable's yard needs one, the sheet draws no drive); the lantern's place across the roof (one view gives x, not depth); the stacks' depth and heights; the faces the picture does not see (r1's north and east walls, r2's south and east) are blank or the rules' openings; colours (monochrome: brick per the sheet, slate). Liberty L-t3316-hibbard-1701-stable.",
+      "note": "T-3316: read off the Chicagology photograph of the Hibbard house (cgn-1701-hibbard-photo-wide, 1945 x 1207 px), whose right edge (x 1590-1945) shows the stable's yard (west) front 57-68 m off, through the house's own solved camera carried into this frame unchanged (data/reference_views/hibbard_house_1701_prairie_coach_house/chicagology_front.json), at about 35 px a metre. REGISTERED ON THE WING: through that camera the sheet puts the crossed stable's north-west corner at x 2035 px, where the photograph's gabled wing begins at x 1867, about 4 m north of the sheet's line along the wall; no camera fits the house and the wing both (a re-fit holding the wing leaves the house's corners 40-60 px out), so the features are placed by their offsets from the wing's corner, as the photograph shows them, and the difference is open in the match record. READ: a hipped slate roof on a bracketed cornice at about 4.5 m; a square lantern about 2.0 m across over the roof's north part, three round-headed lights a face, its cornice at about 8.6 m under a pyramidal cap to about 9.9 m and a finial; a wall gable with a curved head rising about 0.95 m over the cornice, an oculus in it, over a two-light window in a pale stone frame under a hood (top about 4.0 m); three round oculi about 1 m up the wall; two short capped stacks on the roof's south part; and the lower wing's yard front, eave about 3.6 m, carrying at its north corner a narrow straight-sided gable (about 1.8 m across, its apex about 0.95 m over the eave, both slopes seen; measured at about 47 px a metre on the wing's face with the whole stable's 167 px offset taken out), a lunette under its springing and an oculus under that, a pale band low on its wall (T-3316, re-read: the wing is hipped behind that gable, not gabled on its whole end). INVENTED: the carriage door in r1's yard front at its north end (behind the house in the picture; a stable's yard needs one, the sheet draws no drive); the lantern's place across the roof (one view gives x, not depth); the stacks' depth and heights; the faces the picture does not see (r1's north and east walls, r2's south and east) are blank or the rules' openings; colours (monochrome: brick per the sheet, slate). Liberty L-t3316-hibbard-1701-stable.",
       "sources": [
         "chicagology_1701_hibbard_photo",
         "sanborn_1911_chicago_v3_sheet_20"
