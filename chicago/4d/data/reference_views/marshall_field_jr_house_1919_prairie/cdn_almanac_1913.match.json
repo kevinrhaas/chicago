@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "cdn_almanac_1913",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "967924564b5d3ea7ff6ef44bfcfce058f544e0bb39c5ad735ed15bc69fca8820",
+  "glb_sha256": "d370c08701c46ba5083058c33ea0c4e4a41a66a13288aac3b14b5c14f2047ffe",
   "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
   "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
@@ -33,11 +33,11 @@
       "status": "fixed"
     },
     {
-      "what": "the north flank's two-storey bays with flat tops (balconies over them) across the rear ranges, and the rear range's canted north bay the sheet draws: not built, the ranges' north walls are flat",
+      "what": "the north flank's two-storey bays with flat tops (balconies over them) across the rear ranges, and the rear range's canted north bay the sheet draws: T-3337 builds the canted bay (u -14.5 to -9.4 on the sheet, 1.2 m out) flat-topped under a moulded stone cornice and a stone balustrade, with four-light stone-mullioned groups in both storeys; the quoined flat-topped block at the middle range's corner is not built",
       "status": "open"
     },
     {
-      "what": "the steep gables over the rear ranges: the plate draws three or more, stepped and finialled at their peaks; built as two plain slated gables",
+      "what": "the steep gables over the rear ranges: the plate draws three or more, stepped and finialled at their peaks; T-3337 carries both ranges' gables up in a stone coping with kneelers and a turned finial at each apex (the two ranges' apexes stand at about 13.8 and 15.2 m, stepping up toward the alley); the third, smaller gable the plate shows at the flank's far end and the small pinnacled dormers between the gables are not built",
       "status": "open"
     },
     {
@@ -69,8 +69,12 @@
       "status": "not shown"
     },
     {
-      "what": "the quoins and window dressings on the north flank's bays the programme plate shows (the bays themselves are not built yet, T-3303); this plate shows the flank too obliquely and under trees to read them",
+      "what": "the quoins and window dressings on the north flank's bays the programme plate shows (T-3337 builds the rear range's canted bay without them; T-3338); this plate shows the flank too obliquely and under trees to read them",
       "status": "not shown"
+    },
+    {
+      "what": "the rear ranges' north flank against both Gatlin plates: through this camera the plate's two-storey flank runs on past the garage's north-east corner (about 50-80 px further from the tower than the render's) and its cornice stands higher in the frame, as though its north face stood nearer the street-side camera than the 1911 sheet's trace puts the ranges (v -3.1 and -4.8 m); the camera is fitted on the front block alone, so whether the ranges or the fit are out is not settled here",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
