@@ -42,10 +42,10 @@
         3.0999999999999943
       ],
       "rotation_y": 0,
-      "glb_sha256": "ef7ea827f577505cbee8142064394efcf38ff79795e220b5c247d980aa0d8b54"
+      "glb_sha256": "a369598aafec6a868b0ec3e04ba591a821e4518174a1e75ac2bdba790ffbe5ec"
     }
   ],
-  "group_sha256": "cf7acf3e930b8e8261516da531a4031052371dfb0ec18e97c3d73d34f3f3f111",
+  "group_sha256": "a8fe7c17dbf1f39cc42ee95cb05d42801be41f127254dbb5908ac7333694232d",
   "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/trowbridge-1902-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -62,5 +62,10 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "context_refresh_review": {
+    "reviewed_at": "2026-11-02T23:33:24.941960+00:00",
+    "disposition": "Root directly viewed all three actual current native side-by-sides and approved Carpenter-target nonregression.",
+    "scope": "Carpenter MASTER, camera, placement and prior T-3153 dispositions are unchanged. The genuine Sauganash context now uses the bounded entrance/lower-sash correction; no newly introduced target occlusion or discrepancy was found. This review does not sign off the whole hotel or T-2383."
+  }
 }
