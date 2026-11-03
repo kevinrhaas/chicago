@@ -30,7 +30,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.round_corner     a corner of the front block rounded from grade (T-3006,
                             `round_corner`): the front's stone, coursed on its beds and
                             curved stone by stone, corbelled out to the square in its last
-                            course under the cornice, the eave and the gable end
+                            course under the cornice, the eave and the gable end; or
+                            (T-3314, `to_eave`) on a brick front over a stone basement,
+                            carried up to the wall head, its brick in K03's bond round the
+                            curve, the hip's eave, cornice and gutter swept round it
   k01.wall.cant             a corner of the main body cut on a canted face (T-3186,
                             `cant_corner`): the front's stone on its beds, its own window
                             column and basement light, the front and the side wall stopped
@@ -1939,6 +1942,9 @@ class Assembly:
             c0, c1 = k01_frontage_params.cant_corner_plan(p.cant_corner, p.depth_m, p.width_m)["walls"].get(
                 cid, (length, length))
             s_lo, s_hi = (max(s_lo, c1), s_hi) if c0 <= 1e-9 else (s_lo, min(s_hi, c0))
+        if (p.round_corner or {}).get("to_eave") and beds is None:   # T-3314: and at a round carried up
+            c0, c1 = k01_frontage_params.round_corner_spans(p.round_corner, p.depth_m, p.width_m)["walls"][cid]
+            s_lo, s_hi = (max(s_lo, c1), s_hi) if c0 <= 1e-9 else (s_lo, min(s_hi, c0))
         if E - yf > 1e-6:
             if brick is not None:   # T-2914: brick up to the eave
                 self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(s_hi, yf, 0.0), P(s_hi, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
@@ -2468,12 +2474,18 @@ class Assembly:
         conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front", "round_corner")
         wk, tk = k["wall"], k["trim_edges"]
         courses, ytop = self.front_courses, self.front_ytop
-        y_sq = courses[-1][0]
+        # T-3314: a round carried to the eave (`to_eave`) takes every course up to the wall head,
+        # the brick over the stone basement as the front lays it, and no corbel: the eave, the
+        # cornice and the gutter are swept round it (roof, k10_frontage.cornice_runs, rainwater)
+        to_eave = bool(p.round_corner.get("to_eave"))
+        y_sq = ytop if to_eave else courses[-1][0]
+        brick = k.get("brick_above_m") if to_eave else None
         cid = "k01.wall.round_corner"
         self.instance(cid, "wall", {"length_m": arc, "height_m": ytop, "thickness_m": thickness,
                                     "construction": "masonry", "openings": 0, "radius_m": rad,
                                     "corner": p.round_corner["corner"], "fabric": k["fabric"],
-                                    "dressing": k["dressing"]},
+                                    "dressing": k["dressing"],
+                                    **({"to_eave": True, "brick_above_m": brick} if to_eave else {})},
                       {"base": (cu + rad * math.cos(a_lo + math.pi / 4), 0.0, -(cv + rad * math.sin(a_lo + math.pi / 4))),
                        "top": (cu + rad * math.cos(a_lo + math.pi / 4), ytop, -(cv + rad * math.sin(a_lo + math.pi / 4)))})
         inst = len(self.components[cid]["instances"]) - 1
@@ -2500,6 +2512,9 @@ class Assembly:
             if band and band["y_lo"] - 1e-6 <= ya < band["y"][1] - 1e-6:
                 f0, f1 = (band["s"][1], arc) if p.round_corner["corner"] == "north" else (0.0, band["s"][0])
                 pieces = _lay(rng, f0, f1, lo, max(lo, min(hi, 0.65 * arc)), None, prev)
+            if brick is not None and kind == "walling" and ya >= brick - 1e-6:
+                self.round_brick(C, rad, a_lo, arc, ya, yb, conf)   # T-3314: the front's brick, round
+                continue
             prev = [s1 for _, s1 in pieces[:-1]]
             for s0, s1 in pieces:
                 bseed = self._stone_seed(cid, inst, j)
@@ -2512,6 +2527,8 @@ class Assembly:
                                  recess=r, bevel=spec["bevel_m"], F=F, rock=rock)
         if band:
             self.round_arcade(ra, band, C, rad, a_lo, conf, cid, inst, j)
+        if to_eave:
+            return
         # the corbel: ruled from the round at y_sq out to the square corner at ytop
         steps = 12
         phis = [a_lo + (math.pi / 2) * i / steps for i in range(steps + 1)]
@@ -2523,6 +2540,55 @@ class Assembly:
         for i in range(steps):
             fm = (phis[i] + phis[i + 1]) / 2
             pr.quad(ring[i], ring[i + 1], sq[i + 1], sq[i], (math.cos(fm), -1.0, -math.sin(fm)), b, conf)
+
+    def round_brick(self, C, rad, a_lo, arc, y0, y1, conf):
+        """T-3314: a band of the front's K03 brick round the round, y0 to y1, on its face in facets
+        of 7.5 degrees, its bond's u carried on round the curve in metres from the round's start
+        so the courses run on unbroken."""
+        n = max(2, math.ceil((math.pi / 2) / math.radians(7.5)))
+        P = lambda a, y: (C[0] + rad * math.cos(a), y, C[1] - rad * math.sin(a))
+        mat = self.front_brick
+        tile = self.tiles[self.fabric[mat] or MATERIALS["brick"]["fabric"]][0]
+        phase = k03_brick.phase_u("k01.wall.round_corner", arc, tile)
+        pr = self.prim(mat)
+        for i in range(n):
+            a0, a1 = a_lo + (math.pi / 2) * i / n, a_lo + (math.pi / 2) * (i + 1) / n
+            t = _unit(_sub(P(a1, 0.0), P(a0, 0.0)))
+            origin = _sub(P(a0, 0.0), _mul(t, arc * i / n))
+            am = (a0 + a1) / 2
+            pr.face([P(a0, y0), P(a1, y0), P(a1, y1), P(a0, y1)], (math.cos(am), 0.0, -math.sin(am)),
+                    self.basis(mat, origin, t, Y, 0, phase), conf)
+
+    def round_ring(self, ring, out, collapse=None):
+        """T-3314: a K05 ring of four (x, z) corners (k05_roofs.inset_rect's order) with the round's
+        corner replaced by its arc `out` outside the wall line, in the ring's own order; or, with
+        `collapse`, by that many copies of the ring's own corner, so every ring of a stack keeps
+        one vertex count and its faces stay planar."""
+        rc, p = self.p.round_corner, self.p
+        i = 1 if rc["corner"] == "north" else 2           # inset_rect: (xb, za) or (xb, zb)
+        if collapse is not None:
+            pts = [ring[i]] * collapse
+        else:
+            pts = list(reversed(k01_frontage_params.round_corner_arc(rc, p.depth_m, p.width_m, out)))
+        return list(ring[:i]) + pts + list(ring[i + 1:])
+
+    def round_hip(self, k5, D, W, E, tp, o, f):
+        """T-3314: K05's hip (hip_element) over a front block whose corner is rounded to the eave
+        (`round_corner.to_eave`): the soffit and fascia rings follow the round `o` outside it, on
+        its own centre, and over them the slopes run up to the inset where the round's radius is
+        used up, where its arc closes to the round's centre: a quarter cone between the two
+        hipped faces, tangent to both, and from there the hip goes on to its ridge as before."""
+        hs, he = E - o * tp - f, E - o * tp
+        X0, X1, Z0, Z1 = -o, D + o, -W - o, o
+        d = min(X1 - X0, Z1 - Z0) / 2
+        dc = self.p.round_corner["radius_m"] + o
+        if dc >= d - 1e-6:
+            raise ValueError("round_corner.to_eave: the round's cone reaches the hip's ridge")
+        n = k01_frontage_params.ROUND_EAVE_FACETS + 1
+        eave = self.round_ring(k5.inset_rect(X0, X1, Z0, Z1, 0.0), o)
+        rings = [(hs, eave), (he, eave), (he + dc * tp, self.round_ring(k5.inset_rect(X0, X1, Z0, Z1, dc), 0.0, n)),
+                 (he + d * tp, self.round_ring(k5.inset_rect(X0, X1, Z0, Z1, d), 0.0, n))]
+        return k5.ring_stack(rings, ["fascia", "covering", "covering"], "soffit"), hs
 
     # -- k01.wall.round_arcade (T-2991) -------------------------------------------------
     def round_arcade_band(self, ra, rad, arc, courses) -> dict:
@@ -3966,10 +4032,15 @@ class Assembly:
         elif p.hip_deck:   # T-3241: the hip cut off level at its railed deck
             from . import k01_hip_deck
             hip, hs = k01_hip_deck.hip(k5, 0.0, D, -W, 0.0, E, tp, o, f, p.hip_deck)
+        elif (p.round_corner or {}).get("to_eave"):   # T-3314: the eave swept round the round
+            hip, hs = self.round_hip(k5, D, W, E, tp, o, f)
         else:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         if not gb:
             solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        if (p.round_corner or {}).get("to_eave"):   # T-3314: the walls' tops under it on the round
+            ring = self.round_ring(k5.inset_rect(0.0, D, -W, 0.0, 0.0), 0.0)
+            solids[1] = k5.ring_stack([(hs - 1.0, ring), (hs, ring)], ["wall"], "base", top_role="hidden")
         if p.cant_corner:   # T-3186: and the walls' tops under it cut on the face's own line
             ring = k01_frontage_params.cant_ring(k5.inset_rect(0.0, D, -W, 0.0, 0.0), p.cant_corner, D, W, 0.0)
             solids[1] = k5.ring_stack([(hs - 1.0, ring), (hs, ring)], ["wall"], "base", top_role="hidden")
@@ -5494,15 +5565,28 @@ class Assembly:
         them — each run's start, direction, outward side and length, the run each wall's pipes
         stand on, and how far along it that wall's s = 0 stands."""
         D, W = self.p.depth_m, self.p.width_m
-        (u0, v0), (u1, v1) = k01_frontage_params.cant_corner_plan(self.p.cant_corner, D, W)["ends"]
         line = [(D, 0.0), (D, -W), (0.0, -W), (0.0, 0.0)]
         names = ["k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south"]
         origin = dict(zip(names, line))
-        i = 1 if self.p.cant_corner["corner"] == "north" else 0
-        line[i:i + 1] = [(u0, -v0), (u1, -v1)]
-        if i == 0:   # the south corner: the front starts at the face's end, the face closes the loop
-            line = line[1:] + line[:1]
-        names.insert(1 if i == 1 else 4, k01_frontage_params.CANT_WALL)
+        if (self.p.round_corner or {}).get("to_eave"):
+            # T-3314: or round a round carried to the eave, on the arc's facets: the wall line's
+            # sides with the round's chain between the two walls it replaces the corner of
+            rc = self.p.round_corner
+            arc = k01_frontage_params.round_corner_arc(rc, D, W, 0.0)
+            more = len(arc) - 1
+            i = 1 if rc["corner"] == "north" else 0
+            line[i:i + 1] = arc
+            if i == 0:   # the south corner: the front starts at the arc's end, the arc closes the loop
+                line = line[len(arc) - 1:] + line[:len(arc) - 1]
+            at = 1 if i == 1 else 4
+            names[at:at] = [k01_frontage_params.ROUND_WALL] * more
+        else:
+            (u0, v0), (u1, v1) = k01_frontage_params.cant_corner_plan(self.p.cant_corner, D, W)["ends"]
+            i = 1 if self.p.cant_corner["corner"] == "north" else 0
+            line[i:i + 1] = [(u0, -v0), (u1, -v1)]
+            if i == 0:   # the south corner: the front starts at the face's end, the face closes the loop
+                line = line[1:] + line[:1]
+            names.insert(1 if i == 1 else 4, k01_frontage_params.CANT_WALL)
         n = len(line)
         sides = []
         for j in range(n):
@@ -5548,7 +5632,7 @@ class Assembly:
         side_of = {"k01.wall.street_front": 0, "k01.wall.side.north": 1, "k01.wall.rear_service": 2,
                    "k01.wall.side.south": 3}
         lead = {w: A for w in side_of}       # how far along its run a wall's s = 0 stands
-        if p.cant_corner:
+        if p.cant_corner or (p.round_corner or {}).get("to_eave"):   # T-3314: or a round's arc
             corners, dirs, outs, lens, side_of, lead = self.cant_gutter(A)
         n_runs = len(lens)
         starts = [sum(lens[:i]) for i in range(n_runs)]
@@ -6054,6 +6138,10 @@ def build(params, structure_id: str):
     cant = k01_frontage_params.cant_corner_plan(p.cant_corner, D, W) if p.cant_corner else None
     cant_cut = {w: (*sp, 0.0, E) for w, sp in cant["walls"].items()} if cant else {}
     y_round = p.arched_front["stone_top_m"] if p.arched_front else yf
+    # T-3314: a round carried to the eave replaces the square corner up to the wall head
+    round_eave = bool((p.round_corner or {}).get("to_eave"))
+    if round_eave:
+        y_round = E
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
 
     def stops(wall_id):
@@ -6120,6 +6208,7 @@ def build(params, structure_id: str):
                  + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid]
                  + ([p.rear_section["host_span_m"]] if p.rear_section and p.rear_section["host_wall"] == cid else [])
                  + ([cant_cut[cid][:2]] if cid in cant_cut else [])   # T-3261: belts stop at a cant's cut
+                 + ([rounded[cid]] if round_eave and cid in rounded else [])   # T-3314: and at the round
              for cid in walls}
     if a.k14 is not None:   # T-2358: each wall's frame, for its trails and its damp line
         a.k14_walls = {cid: (O, R, _cross(R, Y), length) for cid, (mat, O, R, length, t, bands) in walls.items()}
