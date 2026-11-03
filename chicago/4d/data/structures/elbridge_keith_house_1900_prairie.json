@@ -545,6 +545,34 @@
      ],
      "note": "The photograph shows a low coped stone wall along the front of the lawn, with no fence on it, broken by the walk before the stoop: K11's stone coping wall, about 0.45 m high, open from s 4.4 to 7.0 m before the stoop (its width at the stoop's foot). Its line, 8.55 m before the front (just inside the sheet's street line), and its height are reconstructed. T-3208: the photograph's square stone posts at the walk's opening and at the lot's two front corners are built as short runs of the wall raised to about 0.8 m, each about 0.45-0.5 m along it (read through the camera against the stoop's foot); they keep the wall's 0.35 m thickness where the print's posts are a little broader, which is within tolerance."
     },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.9,
+       "top_m": 0.06,
+       "wear_tone": 0.9,
+       "width_m": 2.5
+      },
+      "grade_m": {
+       "front": 0.044,
+       "street": 0.054,
+       "per_m_s": 0.0008,
+       "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3322, tools/qa_house_walks_t3322.mjs): the yard is lifted onto it so the walk's flags are not under it"
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "T-3322 (piece 2 of T-1944, the 18th-20th block's grounds): the one worked house on the block with no walk to its door. The photograph shows a light paved walk running square from the public walk between the coping wall's two square posts to the stoop's foot, and lawn behind the coping on either side of it; laid as the K14 kit's flagged front walk from the stoop's foot through the wall's opening (s 4.4-7.0 m) to the public walk, 2.5 m wide (the opening's 2.6 m less a joint at each post), and the lawn as the app's own ground (`lawn: none`, T-3233), as at 1801 and 1901. RECONSTRUCTED: the flags, their size, joints and wear and the bare strip at the wall foot are the kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year; liberty L-k14-walk-1900-keith-3322."
+    },
     "bays": {
      "value": [
       {
