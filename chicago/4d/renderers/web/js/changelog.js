@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2594, ts: '2026-11-03T04:06:14.756Z', date: 'Nov 2, 2026, 10:06 PM CT', title: 'Fort Dearborn\'s bird\'s-eye view now shows on every fort card', kind: 'add',
+    items: [
+      'The 1912 bird\'s-eye drawing of the first Fort Dearborn opens full size from the Images tab of each blockhouse, range, the magazine, flagstaff and both picket rows in 1812.',
+      'It is credited as a later reconstruction, drawn from an 1898 model, not an eyewitness view.',
+      'A side-by-side of the 1812 fort against it lists where the two disagree.',
+    ] },
+  { v: 2593, ts: '2026-11-03T04:06:14.756Z', date: 'Nov 2, 2026, 10:06 PM CT', title: '1936 Prairie: the Allerton belvedere gets its balcony and brackets', kind: 'feature',
+    items: [
+      'The Allerton house\'s belvedere on Prairie Avenue now stands back over a corbelled stone balcony, with a balustrade round its front and sides, as the winter photograph shows it.',
+      'Brackets now carry the belvedere\'s deep cornice: a console at each outer corner and a row of smaller brackets along every face.',
+    ] },
   { v: 2592, ts: '2026-11-03T04:04:08.699Z', date: 'Nov 2, 2026, 10:04 PM CT', title: 'Wolf Point pictures and Sauganash windows', kind: 'add',
     items: [
       'Wolf Point Tavern\'s Images tab now includes the 1867 lithograph and five credited source links, alongside seven reviewed drawing comparisons.',
