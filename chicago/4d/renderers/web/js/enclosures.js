@@ -745,12 +745,16 @@ const PLANK_LEVELS = new Set(['light', 'balanced']);
  * @param {object} o dataBase (data/ root) · terrain · confidence · problems ·
  *                   detail (the scene-detail level, `full` by default) ·
  *                   hashes (T-2711: a Map each record's SHA-256 is set into,
- *                   keyed `data/enclosures/<file>`, for the yards' prebuild)
+ *                   keyed `data/enclosures/<file>`, for the yards' prebuild) ·
+ *                   dir (T-3320: the folder under data/ the manifest and its records
+ *                   are read from — `enclosures/` for 1835, the scene's own
+ *                   `enclosures_dir` for a scene whose grounds are not 1835's)
  * @returns {Promise<{group: THREE.Group, records: object[], census: object,
  *                    setDetail: function, dispose: function}>}
  */
 export async function createEnclosures({
   dataBase, terrain, confidence = null, problems = [], detail = 'full', hashes = null,
+  dir = 'enclosures/',
 } = {}) {
   const group = new THREE.Group();
   group.name = 'enclosures';
@@ -768,7 +772,7 @@ export async function createEnclosures({
   }
   let index;
   try {
-    index = await getJSON(new URL('enclosures/index.json', dataBase), hashes, 'data/enclosures/index.json');
+    index = await getJSON(new URL(`${dir}index.json`, dataBase), hashes, `data/${dir}index.json`);
   } catch (err) {
     // Degrade to NOTHING drawn plus a recorded problem, never to an invented
     // fence: the same contract the vegetation layers keep.
@@ -779,7 +783,7 @@ export async function createEnclosures({
   const loaded = await Promise.all(wanted.map(async (e) => {
     if (!e.file) return [e.id, null, 'the manifest gave no file'];
     try {
-      return [e.id, await getJSON(new URL(`enclosures/${e.file}`, dataBase), hashes, `data/enclosures/${e.file}`), null];
+      return [e.id, await getJSON(new URL(`${dir}${e.file}`, dataBase), hashes, `data/${dir}${e.file}`), null];
     } catch (err) { return [e.id, null, err.message]; }
   }));
 

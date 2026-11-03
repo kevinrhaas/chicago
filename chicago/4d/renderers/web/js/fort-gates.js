@@ -74,6 +74,17 @@ function gradeOf(sidecar, name) {
   return { attested: 0, inferred: 0.5, reconstructed: 1 }[grade] ?? 0.5;
 }
 
+/**
+ * T-3320: is this record a fort's parade, whose ground the yards layer lays as
+ * trodden earth feathered into the sward (data/enclosures/*parade_ground.json)?
+ * The buildings layer then leaves out the archetype's flat 6 cm slab (its `earth`
+ * primitive) and keeps the rest (Fergus's sun-dial).
+ */
+export function paradeLaidAsGround(record) {
+  const kind = record?.sidecar?.attributes?.['kind'];
+  return (kind && typeof kind === 'object' ? kind['value'] : kind) === 'parade';
+}
+
 /** Does the buildings layer leave this record's baked leaves to this layer? */
 export function drawsLeaves(record) {
   return !!record && Object.prototype.hasOwnProperty.call(FORT_GATES, record.id)
