@@ -1,0 +1,37 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "view": "colbert-1871",
+  "glb": "assets/gltf/wolf_point_tavern__log_frame_1828.glb",
+  "glb_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+  "camera_sha256": "fc202bf7aec38ebeee49c4e438e356a1e10945ff1fb3e6978bc21bfcb585daab",
+  "photo_sha256": "86930d0e39171922fd67cd66352f34e9ed077c3787806f1c3b533569fe828326",
+  "side_by_side": "docs/RESEARCH/photo-match/wolf_point_tavern/colbert-1871-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The actual new candidate shows one low Wolf gable with a dark door and small right sash, its long roof receding left. The other gable ends near source x32, outside the physical engraving art edge near x40; no mesh part, source crop or renderer mask was hidden. The old frame exposing an extra outward door is superseded only for this framing question.",
+      "status": "fixed"
+    },
+    {
+      "what": "Held-out door head residual is 20.549 px, 46.763 px per native metre, conditionally 0.439 m. Adding existing 12 px camera/roof and 8 px held-out pick envelopes gives 0.012–0.867 m before camera-family uncertainty. This does not establish a visitor-visible >0.3 m construction defect. Keep door geometry; this corrects the earlier overstrong open-door visual note.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Current sign head z=10.3 m is an explicit reconstructed pose governed by NYPL, whose conditional 9.743–10.557 m pixel-envelope interval contains it. Hammon gives 6.991–8.409 m and the two Colbert cameras give materially different intervals (8.962–9.980 and 8.080–8.939 m). These inversions hold native XY and provisional camera fixed and are not surveys or statistical confidence intervals. Conflicting drawings/camera families warrant within tolerance under T-3153; no universal pole delta is supported.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The single-gable fit has unchanged manual uncertainty 12 px and max residual 11.054 px. The late engraved roof hatching and source-specific roof-edge/stack projection are not measurements of historic reflectance or a consistent missing element against NYPL.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Neutral single-anchor photo_match does not show the application roof normal/ORM treatment, terrain, riverbank, trees, figures, neighbours or authentic historic pigment. Those absent scene elements do not validate app finish or surveyed placement.",
+      "status": "not shown"
+    },
+    {
+      "what": "The illustration is retrospective and depicts its stated earlier date. Exact 5 m compartments, plan, dimensions, hidden fabric and metric sign pose remain reconstructed; unchanged appearance on 1 July 1835 is not directly attested.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

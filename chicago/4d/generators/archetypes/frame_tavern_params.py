@@ -47,7 +47,7 @@ CONSUMED = frozenset({
     "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "construction",
     "paint", "siding_exposure_m", "shutters", "gallery", "log_wing", "chimneys",
     "elevation_scheme", "chimney_placement", "side_entrance", "rear_ell",
-    "shutter_type", "entrance_frontispiece", "chimney_material", "roof_colour",
+    "shutter_type", "entrance_frontispiece", "front_opening_details", "front_lower_sash", "chimney_material", "roof_colour",
     "log_wing_door", "log_wing_porch_hood",
     "cross_wing", "cross_wing_depth_m", "cross_wing_end",
     "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
@@ -115,6 +115,9 @@ class FrameTavernParams:
     # the gable_front scheme dresses its own doors. Sizes are the archetype's;
     # docs/LIBERTIES.md L154 owns them.
     entrance_frontispiece: bool = False
+    front_opening_details: dict | None = field(default=None, kw_only=True)
+    # Source-specific four lower facade sash; None retains every stock opening.
+    front_lower_sash: dict | None = field(default=None, kw_only=True)
     # The clapboard's exposed face. 0.14 m (~5.5 in) is the archetype's own stock —
     # the one rhythm every frame building wore until T-0049 — and stays the default
     # for a record that carries no value. The deal that writes record values is
@@ -336,6 +339,10 @@ class FrameTavernParams:
         for k, v in self.confidence.items():
             if v not in CONFIDENCE_VALUE:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
+        if self.front_lower_sash is not None:
+            _validate_front_lower_sash(self)
+        if self.front_opening_details is not None:
+            _validate_front_opening_details(self)
         if self.elevation_scheme not in ("frontage", "gable_front", "corner_gable"):
             raise ParamError(f"elevation_scheme '{self.elevation_scheme}' not in "
                              f"('frontage', 'gable_front', 'corner_gable')")
@@ -609,6 +616,65 @@ class FrameTavernParams:
         return self.width_m * door, (self.width_m * sash_a, self.width_m * sash_b)
 
 
+def _validate_front_lower_sash(p: FrameTavernParams) -> None:
+    """Only the four lower front sash; never a change to rear or upper openings."""
+    g = p.front_lower_sash
+    if not isinstance(g, dict) or set(g) != {"width_m", "height_m", "sill_m"}:
+        raise ParamError("front_lower_sash needs width_m, height_m and sill_m")
+    if p.elevation_scheme != "frontage" or p.stories != 2 or p.gallery:
+        raise ParamError("front_lower_sash needs a two-storey frontage without a gallery")
+    if p.confidence.get("front_lower_sash", "reconstructed") != "reconstructed":
+        raise ParamError("front_lower_sash numeric sections must remain reconstructed")
+    for key, lo, hi in [("width_m", .45, 1.2), ("height_m", 1.4, 2.6), ("sill_m", .35, 1.4)]:
+        value = g[key]
+        if (isinstance(value, bool) or not isinstance(value, (int, float))
+                or not math.isfinite(value) or not lo <= value <= hi):
+            raise ParamError(f"front_lower_sash {key} needs a finite number in {lo}..{hi}")
+    if g["sill_m"] + g["height_m"] > p.wall_height_m / p.stories + .05:
+        raise ParamError("front_lower_sash head must remain below its storey division")
+    reach = g["width_m"] / 2 + .090 + .01 + (g["width_m"] * .42 if p.shutters else 0.)
+    if 2 * reach + .02 >= p.width_m / 5:
+        raise ParamError("front_lower_sash and shutters overlap the neighbouring bay")
+
+
+def _validate_front_opening_details(p: FrameTavernParams) -> None:
+    """A bounded frontage-only entrance; never an unsupported interior claim."""
+    g = p.front_opening_details
+    keys = {"kind", "case_width_m", "jamb_outer_width_m", "leaf_width_m",
+            "leaf_head_m", "transom_top_m", "cornice_top_m",
+            "sidelights_each_width_m"}
+    if not isinstance(g, dict) or set(g) != keys:
+        raise ParamError("front_opening_details needs exactly the bounded entrance fields")
+    if g["kind"] != "blind_dark_recess":
+        raise ParamError("front_opening_details supports only a blind dark recess")
+    if (p.elevation_scheme != "frontage" or not p.entrance_frontispiece
+            or p.stories != 2 or p.gallery):
+        raise ParamError("front_opening_details needs a two-storey frontage with an entrance frontispiece")
+    if p.confidence.get("front_opening_details", "reconstructed") != "reconstructed":
+        raise ParamError("front_opening_details numeric sections must remain reconstructed")
+    bounds = {"case_width_m": (2., 3.2), "jamb_outer_width_m": (1.7, 2.4),
+              "leaf_width_m": (.7, 1.2), "leaf_head_m": (2.1, 2.7),
+              "transom_top_m": (2.6, 3.3), "cornice_top_m": (2.8, 3.5),
+              "sidelights_each_width_m": (.2, .45)}
+    for key, (lo, hi) in bounds.items():
+        value = g[key]
+        if (isinstance(value, bool) or not isinstance(value, (int, float))
+                or not math.isfinite(value) or not lo <= value <= hi):
+            raise ParamError(f"front_opening_details {key} needs a finite number in {lo}..{hi}")
+    if not (g["leaf_head_m"] + .3 <= g["transom_top_m"]
+            and g["transom_top_m"] + .12 <= g["cornice_top_m"]
+            and g["cornice_top_m"] <= p.wall_height_m - 1.4):
+        raise ParamError("front_opening_details head, transom and crown must stay ordered below the upper row")
+    if (g["case_width_m"] < g["jamb_outer_width_m"] + .3
+            or g["leaf_width_m"] + 2 * g["sidelights_each_width_m"] + .4 > g["jamb_outer_width_m"]):
+        raise ParamError("front_opening_details lights, leaf and jambs overlap")
+    # Check against the actual selected front sash and its open leaves.
+    sash_width = p.front_lower_sash["width_m"] if p.front_lower_sash else .85
+    neighbour_reach = sash_width / 2 + .090 + .01 + (sash_width * .42 if p.shutters else 0.)
+    if g["jamb_outer_width_m"] / 2 + neighbour_reach + .02 > p.width_m / 5:
+        raise ParamError("front_opening_details jambs overlap the neighbouring lower sash/shutters")
+
+
 def _board_lay(recon: dict) -> float:
     """The fabric rule's lay for this roof (FIN-L), from the material sheet."""
     from common.materials import board_lay  # noqa: E402 — generators/ is on the path
@@ -698,6 +764,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         shutter_type=val("shutter_type"),
         gallery=bool(val("gallery", False)),
         entrance_frontispiece=bool(val("entrance_frontispiece", False)),
+        front_opening_details=val("front_opening_details"),
+        front_lower_sash=val("front_lower_sash"),
         log_wing=bool(val("log_wing", False)),
         log_wing_door=bool(val("log_wing_door", False)),
         log_wing_porch_hood=bool(val("log_wing_porch_hood", False)),

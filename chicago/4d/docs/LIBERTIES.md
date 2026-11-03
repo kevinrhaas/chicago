@@ -39306,6 +39306,20 @@ surface, grass, gravel or bare earth.
 **Recorded:** 2026-11-02 (T-3320).
 
 
+### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash
+
+**Covers:** `sauganash_hotel.frame_1831.form.front_opening_details`, `sauganash_hotel.frame_1831.form.front_lower_sash`.
+
+**Decision:** Use the retrospective Andreas/Braunhold engraving's broad entrance case, dark transom and side lights to bound a reconstructed facade opening. Its exact outer width, jamb/cornice sections, shallow depth, light divisions and dark closed interior field are working appearance choices; they are not historical measurements or evidence that the older typological frontispiece was absent. Keep the existing entrance station, wall/roof massing, geographic placement and upper/rear openings. The generated entrance clearance follows this selected door leaf, rather than the wider decorative case.
+
+Replace the four stock lower front sash envelopes with reconstructed0.70m width,1.85m height and0.90m sill. The source draws tall narrow lower sash whose heads approach the entrance case; the selected2.75m heads remain at the existing nominal storey division. Their four bay stations stay unchanged, and their existing open blue leaves follow the narrower/taller sash. The separate Wau-Bun colour evidence is retained; neither monochrome print nor provisional off-image-principal camera establishes historic pigment, exact metres, hidden fabric, interior or July1835 continuity. Every numeric section in these two opt-ins remains reconstructed.
+
+Source: `andreas_1884_sauganash_hotel_plate`, F.Braunhold engraving reproduced in Andreas1884, with the existing retrospective/date/dependence qualifications. This bounded hotel-facade increment does not attest the entire hotel/Carpenter compound or complete original image acceptance. All absent opt-ins preserve the current frame-tavern family defaults.
+
+**Ticket:** T-2383.
+**Recorded:** 2026-11-02.
+
+
 ### L-farm-box-licensed-master-2793 — licensed work-wagon development master (2026-10-26)
 
 **Ticket:** T-2793. **Grade:** reconstructed. **Source:** `lyskilde_2020_old_cart`.
