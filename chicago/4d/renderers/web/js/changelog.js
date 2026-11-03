@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2612, ts: '2026-11-03T11:50:19.415Z', date: 'Nov 3, 2026, 5:50 AM CT', title: '1904 by night: Prairie Avenue\'s gas lamps lit, and the houses\' windows', kind: 'feature',
+    items: [
+      'Set Time of day to dusk or night in 1904 and every gas lamp on the parkways is lit, with a warm pool of light on the walk under it.',
+      'The houses\' windows glow with gas and electric light, most through the evening and a few all night.',
+      'Daytime looks exactly as before.',
+    ] },
   { v: 2611, ts: '2026-11-03T10:52:12.026Z', date: 'Nov 3, 2026, 4:52 AM CT', title: '1936 Prairie: the Allerton tower gets its deep cornice', kind: 'feature',
     items: [
       'The belvedere on the Allerton house\'s tower now wears the deep cornice the winter photograph shows: a heavy corona over a metre out, about half a metre deep, over the row of brackets, where before it had a thin eave.',
