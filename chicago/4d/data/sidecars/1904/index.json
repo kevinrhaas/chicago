@@ -865,9 +865,9 @@
     },
     {
       "id": "house_2003_prairie",
-      "name": "2003 Prairie Avenue — Brick masonry (district draft; refined by T-1912)",
+      "name": "2003 Prairie Avenue — three-storey brick house with a curved front bay, the north half of the pair with 2005, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2003_prairie.json",
-      "asset": "gltf/house_2003_prairie__draft_1904.glb"
+      "asset": "gltf/house_2003_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2004_calumet",
@@ -883,9 +883,9 @@
     },
     {
       "id": "house_2005_prairie",
-      "name": "2005 Prairie Avenue — Brick masonry (district draft; refined by T-1912)",
+      "name": "2005 Prairie Avenue — three-storey brick house with a curved front bay, the south half of the pair with 2003, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2005_prairie.json",
-      "asset": "gltf/house_2005_prairie__draft_1904.glb"
+      "asset": "gltf/house_2005_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2007_indiana",
