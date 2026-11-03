@@ -1532,3 +1532,82 @@ console.log('NAVIGATOR PASS — the probe looks only when asked and moved, each 
   if (previousCSS === undefined) delete globalThis.CSS; else globalThis.CSS = previousCSS;
   console.log('INSPECT PEOPLE BARRIER PASS — actual main/popup/view renders Hans+census/flags without liberties; Sources/Research/default retain original barrier');
 }
+
+// T-2804: an eligible driver may prepare Inspect's registered code before selection.
+// Preparation never mounts a screen or changes UI ownership; actual selection does.
+{
+  const dom = miniDom(), storage = fakeStorage(), opened = [];
+  let loads = 0, mounts = 0, resolveCode;
+  const code = new Promise(resolve => { resolveCode = resolve; });
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage, reduced: () => true, wait: () => {}, onOpen: id => opened.push(id), context: () => ({ selected: 'otis_house' }) });
+  rail.register({ id: 'home', label: 'Home', panel: 'nav-home' });
+  rail.register({ id: 'inspect', label: 'Inspect', when: () => true,
+    load: () => { loads++; return code; } });
+  await rail.select('home'); rail.evaluate();
+  const initialSeen = storage.m.get('chicago4d.navigator.seen');
+  const first = rail.preload('inspect'), second = rail.preload('inspect');
+  assert.strictEqual(first, second, 'simultaneous preparation shares the exact in-flight import');
+  await Promise.resolve();
+  assert.equal(loads, 1); assert.equal(mounts, 0);
+  assert.equal(rail.current, 'home'); assert.deepEqual(opened, ['home']);
+  assert.equal(dom.byId.get('nav-app-inspect'), undefined, 'preparation creates no panel');
+  assert.equal(storage.m.get('chicago4d.navigator.seen'), initialSeen, 'preparation marks nothing seen');
+  assert(button(dom, 'inspect').classList.contains('is-new'));
+  resolveCode({ mount(el) { mounts++; el.textContent = 'prepared inspector'; } });
+  assert.equal(await first, true);
+  assert.equal(mounts, 0); assert.equal(rail.current, 'home');
+  const openedPrepared = rail.select('inspect');
+  assert.equal(rail.current, 'inspect', 'a prepared synchronous mount switches in this task, without another import await');
+  assert.equal(mounts, 1); assert.equal(loads, 1);
+  assert.equal(await openedPrepared, true);
+  assert.deepEqual(opened, ['home', 'inspect']);
+  assert.deepEqual(JSON.parse(storage.m.get('chicago4d.navigator.seen')), ['inspect']);
+  assert.equal(await rail.preload('missing'), false);
+}
+{
+  const dom = miniDom(); let loads = 0, mounts = 0, release;
+  const code = new Promise(resolve => { release = resolve; });
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage: fakeStorage(), reduced: () => true, wait: () => {} });
+  rail.register({ id: 'home', label: 'Home', panel: 'nav-home' });
+  rail.register({ id: 'inspect', label: 'Inspect', load: () => { loads++; return code; } });
+  await rail.select('home');
+  const preparing = rail.preload('inspect'), opening = rail.select('inspect');
+  await Promise.resolve(); assert.equal(loads, 1, 'selection joins a pending preparation');
+  await rail.select('home'); // A newer choice must still win while the import is pending.
+  release({ mount() { mounts++; } });
+  assert.equal(await preparing, true); assert.equal(await opening, false);
+  assert.equal(rail.current, 'home'); assert.equal(mounts, 0);
+  assert.equal(await rail.select('inspect'), true); assert.equal(loads, 1); assert.equal(mounts, 1);
+}
+{
+  const dom = miniDom(); let attempts = 0, mounts = 0;
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage: fakeStorage(), reduced: () => true, wait: () => {} });
+  rail.register({ id: 'home', label: 'Home', panel: 'nav-home' });
+  rail.register({ id: 'inspect', label: 'Inspect', load: () => {
+    attempts++; if (attempts === 1) return Promise.reject(Error('optional code offline'));
+    return { mount() { mounts++; } };
+  } });
+  await rail.select('home');
+  await assert.rejects(rail.preload('inspect'), /optional code offline/);
+  assert.equal(rail.current, 'home'); assert.equal(mounts, 0);
+  assert.equal(dom.byId.get('nav-app-inspect'), undefined);
+  assert.equal(await rail.select('inspect'), true, 'a failed optional preparation does not poison the real open');
+  assert.equal(attempts, 2); assert.equal(mounts, 1);
+}
+{
+  const dom = miniDom(); let loads = 0, mounts = 0;
+  const nav = createNavigator({ root: dom.root, scene: { id: '1904' }, isPhone: () => true,
+    viewportHeight: () => 780, storage: fakeStorage(),
+    apps: [{ id: 'home', label: 'Home', panel: 'nav-home' },
+      { id: 'inspect', label: 'Inspect', load: () => { loads++; return { mount() { mounts++; } }; } }] });
+  await Promise.resolve();
+  assert.equal(await nav.preload('inspect'), true);
+  assert.equal(nav.app, 'home'); assert.equal(nav.level, 0); assert.equal(mounts, 0);
+  assert.equal(await nav.openLink({ app: 'inspect', id: 'otis_house', tab: 'people', person: 'Hans' }), true);
+  assert.equal(nav.app, 'inspect'); assert.equal(nav.level, 1); assert.equal(loads, 1); assert.equal(mounts, 1);
+  assert.deepEqual(nav.link, { app: 'inspect', id: 'otis_house', tab: 'people', person: 'Hans' });
+}
+console.log('NAVIGATOR PRELOAD PASS — code only, exact import dedup, synchronous prepared switch, original choice race, retry and real device port');

@@ -4966,7 +4966,7 @@ async function boot() {
   async function prepareSceneDirectoryPerson(id) {
     if (!supportsTownTransport(YEAR) || draws('residents')) return;
     await Promise.allSettled([
-      import('./apps/inspect-view.js'), ensureInspect(), ensureReaderText(), ensurePictures(),
+      navigatorUi?.preload?.('inspect') ?? import('./apps/inspect-view.js'), ensureInspect(), ensureReaderText(), ensurePictures(),
       peopleDirectory.load().then((directory) => {
         const row = directory?.people?.find(person => person.id === id);
         return row ? Promise.allSettled([householdRecord(row.file), ensureResidentCitations()]) : null;

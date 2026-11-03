@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "caee81cc2b5068d6c97eb7617246cd3283bbd261df681aeea3fa85533dbea197"
+      "glb_sha256": "dcca397ff222786b0b4c25e0f139b90d40677cd8982e55254363fe781fcaf4b0"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "73e83244585d752c78454459b1fa34e920f8c588f4b46e45a805c12e979dd170",
+  "group_sha256": "9b973d7c4d25302ad6dd0112dff52f796836d4c72c678c0534040e2d66eae2bf",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -135,10 +135,10 @@
     },
     {
       "file": "renderers/web/js/street-furniture.js",
-      "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
+      "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "55fa87aee53ac8892fc0bb976969419b856b760713cb449182363ea6c2d1239f",
+  "flora_sha256": "1537c4c99c50c6445a12091ee5c7cecff2b65941f02551cbc7969556bbf8e586",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

@@ -595,23 +595,23 @@ console.log('module-warm oldgeneration cancels beforemodels/newgeneration mounts
   assert.equal(town.ensureNear({ x: 20, z: 0 }, false), false);
   assert.equal(calls.length, 0); assert.equal(models, 0); town.dispose();
 }
-// Execute the actual main card warmup with the actual392-row catalog. No Navigator,
-// HUD, popup-open, figure loader or renderer is provided to this metadata-only closure.
+// Execute the actual main card warmup with the actual392-row catalog. Test its no-device
+// fallback and code-only Navigator port; no HUD, popup-open, figure loader or renderer.
 {
   const begin = mainSource.indexOf('  async function prepareSceneDirectoryPerson(id) {');
   const end = mainSource.indexOf('  function ensureResidentCitations()', begin);
   assert(begin >= 0 && end > begin);
   const code = mainSource.slice(begin, end).replace(/\bimport\(/g, 'loadModule(');
   const events = [], pending = deferredAsset();
-  const warm = (year, residents, failing = false) => new Function('supportsTownTransport', 'YEAR', 'draws', 'loadModule',
-    'ensureInspect', 'ensureReaderText', 'ensurePictures', 'peopleDirectory', 'householdRecord', 'ensureResidentCitations',
+  const warm = (year, residents, failing = false, navigatorUi = null) => new Function('supportsTownTransport', 'YEAR', 'draws', 'loadModule',
+    'ensureInspect', 'ensureReaderText', 'ensurePictures', 'peopleDirectory', 'householdRecord', 'ensureResidentCitations', 'navigatorUi',
     code + '\nreturn prepareSceneDirectoryPerson;')(supportsTownTransport, year, () => residents,
     path => { events.push(path); return pending.promise; },
     () => { events.push('summary'); return failing ? Promise.reject(Error('summary offline')) : pending.promise; },
     () => { events.push('reader'); return pending.promise; }, () => { events.push('pictures'); return pending.promise; },
     { load() { events.push('directory'); return Promise.resolve(actualPeople1904); } },
     file => { events.push(['household', file]); return failing ? Promise.reject(Error('household offline')) : pending.promise; },
-    () => { events.push('citations'); return pending.promise; });
+    () => { events.push('citations'); return pending.promise; }, navigatorUi);
   await warm('1835', true)(actualDriverRow.person_id);
   await warm('1812', false)(actualDriverRow.person_id); assert.equal(events.length, 0);
   const waiting = warm('1904', false)(actualDriverRow.person_id);
@@ -620,6 +620,12 @@ console.log('module-warm oldgeneration cancels beforemodels/newgeneration mounts
   const actualPerson = actualPeople1904.people.find(row => row.id === actualDriverRow.person_id);
   assert.deepEqual(events.slice(-2), [['household', actualPerson.file], 'citations']);
   pending.resolve(); await waiting;
+  events.length = 0;
+  await warm('1904', false, false, { preload(id) { events.push(['preload', id]); return Promise.resolve(true); } })(actualDriverRow.person_id);
+  assert.deepEqual(events[0], ['preload', 'inspect'], 'eligible driver prepares the exact Navigator app code');
+  assert(!events.includes('./apps/inspect-view.js'), 'a registered preload avoids a separate import on the opening path');
+  assert(events.includes('summary') && events.includes('reader') && events.includes('pictures'));
+  assert(events.some(event => Array.isArray(event) && event[0] === 'household' && event[1] === actualPerson.file));
   await warm('1904', false, true)(actualDriverRow.person_id); // Optional failures remain handled.
   assert(mainSource.includes("preparePersonCard: !draws('residents') ? prepareSceneDirectoryPerson : null"));
   assert(mainSource.includes('residentCitations: () => ensureResidentCitations(),'));

@@ -2911,6 +2911,13 @@ selftest "…and that agreement still fires when the frames drift off the holes"
 step "pictured frame taverns preserve defaults and build their opt-in details" \
   python3 tools/test_frame_tavern_picture_features.py
 
+# T-3359: the tavern front reader the 1835 flat signs stand clear of copies the
+# builder's literals (it cannot import Blender); hold the two together.
+step "frame_tavern_params.front_wall matches frame_tavern.py's frontage literals" \
+  python3 tools/check_tavern_front_reader.py
+selftest "the tavern front reader's check refuses a sash moved in the builder alone" \
+  python3 tools/check_tavern_front_reader.py --self-test
+
 # T-3105: gallery supports must clear the declared pictured front.
 step "first-fort explicit fronts preserve positional defaults and keep supports off apertures" \
   python3 tools/test_fort_picture_fronts.py

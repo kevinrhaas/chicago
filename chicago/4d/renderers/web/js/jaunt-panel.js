@@ -173,7 +173,7 @@ export function createJauntPanel({ destinations, actions }) {
       if (state.error) body.append(button('Try this stop again', actions.retry));
     } else {
       if (state.stopIndex === 0) {
-        const about = node('details', ''); about.append(node('summary', 'About this outing'), node('p', state.jaunt.opening.text)); body.append(about);
+        const about = node('details', ''); about.append(node('summary', 'About this outing'), ...String(state.jaunt.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim()))); body.append(about);
       }
       const historicalClaims = stop.narrative ? stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence !== 'reconstructed') : stop.evidence;
       prose(body, stop.text, historicalClaims, historicalClaims?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
