@@ -27910,6 +27910,32 @@ replace the place-based colours.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-19 (T-2864).
 
+### L-night-grade-3331 — Time of day: twilight and night graded for the dark-adapted eye
+
+**Decision:** Settings › Show › Time of day moves the sun to any hour of the scene's (or the
+Season's) day, in 10-minute steps, or to a named time: daybreak (sunrise), morning (9:00),
+daytime (the scene's own hour, the default), afternoon (16:00), sunset, dusk (end of civil
+twilight) and night (22:00). Below the horizon the sky is drawn as a night sky graded from zenith
+to horizon with a glow toward the sun through twilight; the key light becomes a cool night key
+from high in the south-east, the sky fill falls to a starlit floor, and the exposure rises about
+1.6 stops as a dark-adapted eye's would (`renderers/web/js/time-of-day.js` gradeAt, `world.js`).
+**What it stands on:** the sun's bearing and height at every hour are computed (NOAA's algorithm,
+`world.js`) for the date in force, in local mean solar time as the scene's own hour always was;
+sunrise and sunset are the almanac's (centre 0.833° under the horizon), dusk the end of civil
+twilight (6° under). That the low sun reddens and a clear twilight glows toward where it set is
+general knowledge of the sky, not a record of any day.
+**What is invented:** the night's brightness and colour: no moon, starlight or airglow is measured
+for 14 August 1812, 1 July 1835 or 1 July 1904, and the night key's direction is fixed, not a
+moon's. The night is lit so a visitor can walk the town and see its shapes; it is not a claim that
+the night was that bright. Twilight's colours are the shape of a clear evening, and the hours'
+clouds and haze are not recorded. Lamps, candles, fires and lit windows are not drawn by this
+setting (T-3332..T-3334).
+**How to resolve:** the moon's position and phase for each date (an ephemeris, not a record) would
+replace the fixed night key with the moon where it stood, or no key on a moonless night.
+**Ticket:** T-3331.
+**Review:** `renderers/web/js/time-of-day.js`.
+**Recorded:** 2026-11-03 (T-3331).
+
 ### L-glessner-service-junction-2219 — north service bay (2026-10-13)
 
 **Decision:** HABS plans 2/3 and photographs 01/15 support wider service openings than the

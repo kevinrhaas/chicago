@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 962,
+  "count": 963,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -43115,6 +43115,46 @@
       ],
       "work_refs": [
         "T-2864"
+      ]
+    },
+    {
+      "id": "L-night-grade-3331",
+      "title": "Time of day: twilight and night graded for the dark-adapted eye",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Settings › Show › Time of day moves the sun to any hour of the scene's (or the Season's) day, in 10-minute steps, or to a named time: daybreak (sunrise), morning (9:00), daytime (the scene's own hour, the default), afternoon (16:00), sunset, dusk (end of civil twilight) and night (22:00). Below the horizon the sky is drawn as a night sky graded from zenith to horizon with a glow toward the sun through twilight; the key light becomes a cool night key from high in the south-east, the sky fill falls to a starlit floor, and the exposure rises about 1.6 stops as a dark-adapted eye's would (the walkthrough's time of day code gradeAt, the walkthrough's world code)."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the sun's bearing and height at every hour are computed (NOAA's algorithm, the walkthrough's world code) for the date in force, in local mean solar time as the scene's own hour always was; sunrise and sunset are the almanac's (centre 0.833° under the horizon), dusk the end of civil twilight (6° under). That the low sun reddens and a clear twilight glows toward where it set is general knowledge of the sky, not a record of any day."
+        },
+        {
+          "label": "What is invented",
+          "text": "the night's brightness and colour: no moon, starlight or airglow is measured for 14 August 1812, 1 July 1835 or 1 July 1904, and the night key's direction is fixed, not a moon's. The night is lit so a visitor can walk the town and see its shapes; it is not a claim that the night was that bright. Twilight's colours are the shape of a clear evening, and the hours' clouds and haze are not recorded. Lamps, candles, fires and lit windows are not drawn by this setting (..)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the moon's position and phase for each date (an ephemeris, not a record) would replace the fixed night key with the moon where it stood, or no key on a moonless night."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's time of day code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03 (T-3331)."
+        }
+      ],
+      "work_refs": [
+        "T-3332",
+        "T-3334",
+        "T-3331"
       ]
     },
     {
