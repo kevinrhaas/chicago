@@ -639,9 +639,12 @@ def masonry_cells(o, holes, length, low, high, spec, trim_holes=()):
     import random
     rng = random.Random(1883)
     ch, bw, joint, relief = (spec[k] for k in ("course_m", "block_m", "joint_m", "relief_m"))
-    if any(not h[-1] for h in holes):
-        raise ValueError("masonry_cells currently supports flat-headed bay openings")
     wall_cells(o, "wall", holes, 0., length, low, high)
+    # T-1881: a round-headed light keeps its stones off its whole head: its cells stop at the
+    # crown of the arch's top chain, so no relief stands over the curve (the curve strips
+    # wall_cells laid stay the head's plain face beside it)
+    holes = [h if h[-1] else (h[0], h[1], h[2], max([h[3], *[q[1] for q in h[4]]]), h[4], True)
+             for h in holes]
     holes = [*holes, *trim_holes]  # raised dressings own their sockets, not overlapping stone
     c = spec.get("coursing")
     if c and c["rhythm"] == "street_front" and "beds_m" not in c:
@@ -1476,6 +1479,13 @@ class Bay:
                     merge(flat.prims, o.prims, drop)
                     self.windows.append(self._window_record(run, i, k, w, s, o, wall_t))
                 # T-2919: a bay rock-faced to a storey line (`to_m`) is smooth ashlar over it
+                sp_ = v["storeys"][k].get("pier")
+                if v.get("masonry") and sp_ and i == sp_["run"] and sp_.get("oculus"):
+                    # T-1881: no stone behind a pier's oculus, whose glass stands at the wall's
+                    # face where the light's reveal reaches it through the pier
+                    c_, r_ = run.L * sp_["at"], sp_["oculus"]["radius_m"] + .002
+                    y_ = levels[k] + sp_["oculus"]["centre_m"]
+                    trim_holes.append((c_ - r_, c_ + r_, y_ - r_, y_ + r_, (), True))
                 if v.get("masonry") and self.tier == "full" and hi <= v["masonry"].get("to_m", math.inf) + 1e-6:
                     masonry_cells(flat, holes, run.L, lo, hi, v["masonry"], trim_holes)
                 else:

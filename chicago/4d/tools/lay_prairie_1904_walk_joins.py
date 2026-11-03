@@ -58,6 +58,7 @@ REACH_M = 2.5      # an end farther than this from every public walk is not a st
 TUCK_M = 0.04      # a join runs this far under the house walk's end and into the public walk
 SIDE_JOINT_M = 0.01  # K14's JOINT_M: a gated service walk's street piece stands this clear of its south pier
 LIBERTY = "L-prairie-walk-joins-3274"
+JOIN_SAMPLES = 16  # points across a walk's end cast to the public walk (T-1881)
 
 
 # -- geometry ------------------------------------------------------------------------------
@@ -67,6 +68,27 @@ def _closest_on_seg(p, a, b):
     L = dx * dx + dy * dy
     t = 0.0 if L == 0 else max(0.0, min(1.0, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L))
     return (a[0] + t * dx, a[1] + t * dy)
+
+
+def _cast_to_walk(p, u, walks):
+    """How far from p along u the first public walk band begins (0 inside one); None if the
+    ray meets none within REACH_M."""
+    best = None
+    for _fid, poly in walks:
+        if H._inside(p, poly):
+            return 0.0
+        for i in range(len(poly)):
+            a, b = poly[i - 1], poly[i]
+            ex, ey = b[0] - a[0], b[1] - a[1]
+            den = u[0] * ey - u[1] * ex
+            if abs(den) < 1e-12:
+                continue
+            wx, wy = a[0] - p[0], a[1] - p[1]
+            s = (wx * ey - wy * ex) / den
+            t = (wx * u[1] - wy * u[0]) / den
+            if 0.0 <= t <= 1.0 and 0.0 <= s <= REACH_M and (best is None or s < best):
+                best = s
+    return best
 
 
 def nearest_walk(p, walks):
@@ -106,6 +128,19 @@ def join_for(end, walks):
     def reach(p, q):
         return max(0.0, (q[0] - p[0]) * ux + (q[1] - p[1]) * uy)
     r0, r1 = reach(p0, q0), reach(p1, q1)
+    # T-1881 (the owner, 2026-11-03, of grass between the Pullman glasshouse drive's join and the
+    # walk at 18th and Calumet: "see the grass poking through, needs a finer work"): where the
+    # public walk's edge bends between the two corners (one face's walk meeting the next, a
+    # curve's quads), a far edge drawn straight from corner to corner left a lens of lawn. Every
+    # point across the end is cast to the walk, and the far edge moved out until it reaches all.
+    short = 0.0
+    for k in range(1, JOIN_SAMPLES):
+        f = k / JOIN_SAMPLES
+        p = (p0[0] + (p1[0] - p0[0]) * f, p0[1] + (p1[1] - p0[1]) * f)
+        r = _cast_to_walk(p, (ux, uy), walks)
+        if r is not None:
+            short = max(short, r - (r0 + (r1 - r0) * f))
+    r0, r1 = r0 + short, r1 + short
     a0 = (p0[0] - ux * TUCK_M, p0[1] - uy * TUCK_M)
     a1 = (p1[0] - ux * TUCK_M, p1[1] - uy * TUCK_M)
     b1 = (p1[0] + ux * (r1 + TUCK_M), p1[1] + uy * (r1 + TUCK_M))
@@ -399,7 +434,19 @@ def self_test() -> int:
     case("a house facing west across the street is joined from its own side", j["state"] == "joined"
          and abs(j["gap_m"] - 0.5) < 1e-6 and max(p[0] for p in j["polygon_local_m"]) < 22.6 + 2 * TUCK_M
          and min(p[0] for p in j["polygon_local_m"]) > 22.1 - 2 * TUCK_M, j)
-    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {11 - bad} of 11 cases")
+    # T-1881: the public walk's inner edge bends away from the house between the end's corners
+    # (one face's walk meeting the next), so the corners reach it short of its middle
+    walk["k01"]["components"][0]["instances"][0]["sockets"]["public_walk"] = [20.0, 0.06, -4.0]
+    walk["k01"]["components"][0]["instances"][0]["params"]["width_m"] = 4.0
+    ends = [{"house": "h", **e} for e in _ends_of_glb("h", walk, world)]
+    nc = sum(c[1] for c in ends[0]["corners"]) / 2
+    bent = [("a", [[20.3, nc - 10.0], [20.6, nc], [22.4, nc], [22.1, nc - 10.0]]),
+            ("b", [[20.6, nc], [20.3, nc + 10.0], [22.1, nc + 10.0], [22.4, nc]])]
+    j = lay(ends, bent)[0]
+    far = [p for p in j.get("polygon_local_m", []) if p[0] > 20.1]
+    case("a join meeting a bent walk reaches past the bend, no lens of lawn left", j["state"] == "joined"
+         and len(far) == 2 and min(p[0] for p in far) >= 20.6 + TUCK_M - 2e-3, j.get("polygon_local_m"))
+    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {12 - bad} of 12 cases")
     return 1 if bad else 0
 
 

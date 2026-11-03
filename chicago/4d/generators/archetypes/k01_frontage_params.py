@@ -4571,7 +4571,29 @@ def _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top) -> dict:
         rise = (u1 - u0) / 2 * t
         if (v1 - v0) - sum(rise / math.tan(math.radians(end_pitch.get(sd, pitch))) for sd in ("south", "north")) < 0.3:
             raise ParamError(f"rear_wings: {wid}'s ends at {end_pitch} meet less than 0.3 m apart: no ridge")
+    # T-3337: a flank gable carried up in a stone coping, kneelers and a finial on the ends it
+    # names (1919's rear ranges, both Gatlin Institute plates), the street dormer's bounds
+    # (T-3301's dormer.coping), laid by k01_wing_coping
+    coping = None
+    if roof.get("coping") is not None:
+        c = roof["coping"]
+        if kind != "gable" or axis != "v":
+            raise ParamError(f"rear_wings: {wid}'s coping is laid on a gable facing a flank (south or north)")
+        if not isinstance(c, dict) or set(c) != {"thickness_m", "depth_m", "kneeler_m", "finial_m", "ends"}:
+            raise ParamError(f"rear_wings: {wid}'s coping takes thickness_m, depth_m, kneeler_m, finial_m and ends")
+        coping = {k_: float(c[k_]) for k_ in ("thickness_m", "depth_m", "kneeler_m", "finial_m")}
+        if not (0.1 <= coping["thickness_m"] <= 0.3 and 0.15 <= coping["depth_m"] <= 0.6
+                and 0.2 <= coping["kneeler_m"] <= 0.5
+                and (coping["finial_m"] == 0.0 or 0.4 <= coping["finial_m"] <= 0.9)):
+            raise ParamError(f"rear_wings: {wid}'s coping: a 0.1-0.3 m stone, 0.15-0.6 m back from the face, "
+                             f"0.2-0.5 m kneelers and a 0.4-0.9 m finial (or 0, none)")
+        ends = c["ends"]
+        if not isinstance(ends, list) or not ends or len(set(ends)) != len(ends) \
+                or set(ends) - {"south", "north"}:
+            raise ParamError(f"rear_wings: {wid}'s coping.ends names its gable ends, south and/or north")
+        coping["ends"] = tuple(sd for sd in ("south", "north") if sd in ends)
     return {"kind": kind, "pitch_deg": pitch, "covering": cov, "axis": axis,
+            **({"coping": coping} if coping else {}),
             **({"gable_to": gable_to} if kind == "gable" else {}),
             **({"end_pitch_deg": end_pitch} if end_pitch else {}),
             "ridge_m": ridge, "cover_m": ridge if axis == "u" else top}
@@ -4712,6 +4734,8 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
             if roof.get("covering") != "painted_tin_sheet":
                 raise ParamError(f"rear_wings: {wid}'s deck is covered in {roof.get('covering')!r}; a K01 wing "
                                  f"deck is K04's painted_tin_sheet")
+            if roof.get("coping") is not None:   # T-3337: a coping is a gable's
+                raise ParamError(f"rear_wings: {wid}'s coping is laid on a gable facing a flank (south or north)")
             pitched = None
             deck = cover = round(top + fas, 4)
         else:
@@ -4861,9 +4885,17 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
                              f"projection or an oriel")
         j, side = at[e["wall"]]
         w = wings[j]
-        if side in _gable_walls(w["roof"]):
+        # T-3337: except a FLAT-TOPPED full-height projection, which stops at the wing's wall top
+        # with nothing closed over it, so the gable's walling rises behind its flat top (1919
+        # Prairie's rear range: the 1911 sheet's canted north bay, flat-topped under a balustrade
+        # with the range's steep gable standing back over it in both Gatlin Institute plates)
+        flat = e["variant"] == "k08.projection.full_height" \
+            and (e.get("roof") or {}).get("kind") == "hip" and float((e.get("roof") or {}).get("pitch", -1)) == 0.0 \
+            and "past_end" not in e
+        if side in _gable_walls(w["roof"]) and not flat:
             raise ParamError(f"bays: {e['id']} stands on {e['wall']}, a gable end: the gable's walling rises "
-                             f"where the tower's back is closed over the wing's wall top")
+                             f"where the tower's back is closed over the wing's wall top (only a flat-topped "
+                             f"full-height projection, roof hip at pitch 0, stands on a gable end)")
         ops = list(w["openings"])
         past = e.get("past_end")
         if past is not None:

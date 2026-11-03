@@ -1335,6 +1335,9 @@ class Assembly:
                         self.prim(mat).face(piece, n, upright(mat, n), conf)
             else:
                 raise ValueError(f"the K05 union left a {role!r} face on {w['id']}'s roof")
+        if r.get("coping"):   # T-3337: its stone-coped gables (1919's rear ranges)
+            from . import k01_wing_coping
+            k01_wing_coping.dress(self, w)
 
     @staticmethod
     def wing_hip_ends(k5, r, u0, u1, z0, z1, top, t, o, f):
