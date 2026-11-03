@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2602, ts: '2026-11-03T06:53:00.774Z', date: 'Nov 3, 2026, 12:53 AM CT', title: '1936 Prairie: the Allerton house rises to its 44-foot cornice', kind: 'feature',
+    items: [
+      'The Allerton house\'s bracketed cornice now stands at the 44 feet the 1869 Tribune gives, 1.2 m higher than before; the attic\'s frieze lights, the roof deck and the chimneys rise with it.',
+      'Its tower is re-proportioned to the winter photograph: the main cornice now runs round the tower, and the short, windowless stage over it carries the belvedere\'s balcony nearer the roof.',
+    ] },
+  { v: 2601, ts: '2026-11-03T06:49:59.823Z', date: 'Nov 3, 2026, 12:49 AM CT', title: 'A front walk for 1900 Prairie', kind: 'feature',
+    items: [
+      '1900 Prairie, the Elbridge Keith house, now has the flagged walk its photograph shows, from the sidewalk between its low wall\'s two stone posts to the foot of its front steps.',
+      'Every finished 1904 house on Prairie Avenue can now be walked into from the sidewalk: 1900 was the last one without a way to its door.',
+    ] },
+  { v: 2600, ts: '2026-11-03T05:45:43.445Z', date: 'Nov 2, 2026, 11:45 PM CT', title: 'Pullman\'s street trees grown tall and slender, as the photographs show them', kind: 'fix',
+    items: [
+      'The seven elms before 1729 Prairie and along its 18th Street side now rise on one straight trunk to about the second floor before they branch, as the Detroit and Taylor photographs draw them',
+      'Their narrow heads let the house\'s front show between them from the roof to the walk, where low, wide crowns used to hide it',
+    ] },
+  { v: 2599, ts: '2026-11-03T05:42:37.772Z', date: 'Nov 2, 2026, 11:42 PM CT', title: 'Three Fort Dearborn jaunts for 1812: the battle, Lalime, the fort', kind: 'feature',
+    items: [
+      'The Battle of Fort Dearborn: twelve stops from Lee\'s Place in April 1812 to the beach on 15 August and Mrs. Helm hidden under a feather bed at Ouilmette\'s.',
+      'Chicago\'s First Murder: John Kinzie kills the interpreter Jean Lalime at the fort gate, told in the family\'s, a witness\'s and the factor\'s versions.',
+      'Fort Dearborn, Building by Building: every building on Whistler\'s 1808 draught, inside the pickets and out.',
+      'Each stop quotes its sources: Heald\'s report and journal, Wau-Bun, Quaife, Kirkland and the officers\' letters. Fly or Instantly crosses the river.',
+    ] },
   { v: 2598, ts: '2026-11-03T05:04:21.487Z', date: 'Nov 2, 2026, 11:04 PM CT', title: '1812: worn trails and trodden yards round the settlement', kind: 'feature',
     items: [
       'The beaten Indian trail along the lake shore, the line the garrison marched out on in August 1812, is worn into the grass from the fort south.',

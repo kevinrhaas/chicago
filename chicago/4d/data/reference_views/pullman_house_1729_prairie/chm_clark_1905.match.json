@@ -55,7 +55,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "102175de8a5d5aa1720ef9a4ba8441eaf1e4be3e52cb8b9b338a5242d823bcfd"
+      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -63,7 +63,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "caaa4feceb2cfb42def803de9dd1232e62156eec7e5a4bf079a2e5ce6cafd769"
+      "sha256": "cd404eba8da667728585833a369f14ffe3c7757799d2df960b2f77439ac151ed"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -82,7 +82,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "64497d7b1fc0a98c2ce0a22424fc4396911536a39085b883f6bd4242937f0016",
+  "flora_sha256": "c188c66ab946f6012e2d0cef8451f4e8e935c9f69b59354acd5beb110e230813",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/chm_clark_1905-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -113,8 +113,8 @@
     },
     {
       "what": "the parkway and lawn trees: the print's are tall elms in full leaf with trunks clear to about the second storey (crowns from about y 30-100) and the house's walls visible between them; the render's summer trees carry broad, low crowns that cover the house down to its principal storey",
-      "status": "open",
-      "how": "T-1881 (2026-11-02): as in the house's other four views (the trees' size and crowns); the street-tree layer's, not worked here"
+      "status": "fixed",
+      "how": "T-1881 (2026-11-02): as in the house's other four views (the trees' size and crowns); the street-tree layer's, not worked here T-1881 (2026-11-03): the house's own parkway trees (Prairie Avenue 232.0-256.0 m, 18th Street 3.7-24.65 m) grow on a new pictured form, `high_head` (street-trees.js FORMS, tree-model.js ARCH.ulmus_americana_high): one straight leader about 0.3 m across, clear to about the second storey, under a head about 6 m across on a tree 16-20 m tall, read off this print and Taylor's no. 1445. Through this camera the parkway trees before the house now stand on clear boles with their crowns from about the second storey, and the house's walls show between them from the mansard to the ground, as the print draws it; the crowns' extent in full leaf is read at a 375 px thumbnail, within its reach."
     },
     {
       "what": "the hydrant: the print's stands at x 157 (foot y 177), the build's (hydrant.pictured.pullman, v 20.1 on the Prairie parkway) at x 192",
