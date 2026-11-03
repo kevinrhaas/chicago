@@ -39341,6 +39341,27 @@ surface, grass, gravel or bare earth.
 **Ticket:** T-3320.
 **Recorded:** 2026-11-02 (T-3320).
 
+### L-t3339-worn-ground-1812 — the 1812 settlement's worn trails and trodden yards, routed by rule
+
+**Decision:** 1812 gets fifteen worn trails and seventeen trodden yards, all written by
+`tools/generate_worn_ground_1812.py` into `data/enclosures/1812/` (`worn_trails_1812.json`, `worn_yard_1812_*.json`) and
+laid by `renderers/web/js/yards.js`: a trail is a strip of bare earth draped on the terrain whose cover fades to
+nothing at its edges, the sward and the trees kept off it. Three are attested in kind: the beaten Indian trail along
+the lake shore, the path from Lee's Place to the canoes, and the way along the river from Lee's Place to the fort
+(Andreas 1884; Currey 1912; Kinzie 1856). The Vincennes trace is inferred: Quaife 1923 has it as the Potawatomi trail
+to the Wabash that Heald rode up in 1811 and the Wabash bands came up in August 1812, and its line from 35th Street
+south follows the 1834 State road that he says followed it. The rest are ours: the cart road south from the gate,
+the paths along both banks and to the Clark and Lemai houses, the short faint paths from the fort to its wharf,
+stables, agency and gardens. **What is ours throughout:** every line inside the box (routed by A* on a 5 m grid over
+the committed terrain, kept off wet ground, off the banks by a set distance, round every building and fence, then
+smoothed and given a seeded wander); every width (0.9 m tread to a 2.4 m two-track) and every wear figure (0.3 to
+0.9, by our guess at how much each way was used); the yards' extent (each house's footprint grown and ragged) and
+that they are bare earth. Nothing reached maps a path or a yard in 1812 Chicago. **How to resolve:** a survey or
+sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that
+places one.
+**Ticket:** T-3339.
+**Recorded:** 2026-11-03 (T-3339).
+
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash
 
