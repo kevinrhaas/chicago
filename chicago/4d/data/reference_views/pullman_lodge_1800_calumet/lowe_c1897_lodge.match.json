@@ -42,7 +42,7 @@
         36.35058159007709
       ],
       "rotation_y": 1.5707963267948963,
-      "glb_sha256": "73804318ecf5d670d5be4b76d30e4fa79087b6da1bd9cdea79bedfa27cbc5969"
+      "glb_sha256": "089240cbdd76a0a483f6d1b1d652508cef27d68187055a675db65f801470641b"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "cee0d6fea152eb04e9fc91bfb82b38157fb7749831b6e460e18d2c3adb2c009c"
     }
   ],
-  "group_sha256": "4a0d5a8cd4cf5b7a4168327901f0aa1e5bd7f539a84d7c00ceb9141e92980f9b",
+  "group_sha256": "08d8d50285f94677f1aeb0e2a9d85e8393562858ce187f06437d34116f109941",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -144,7 +144,7 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
+      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
     },
     {
       "file": "renderers/web/js/tree-model.js",
@@ -152,7 +152,7 @@
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
     },
     {
       "file": "renderers/web/js/season.js",
@@ -160,10 +160,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+      "sha256": "b83ae305f7e48c4924a6153f04123dca4b158797d8988d58b99af92e24fb3d98"
     }
   ],
-  "flora_sha256": "8be8acb166210e1c38ae555fda394f609081a2c06d300ad860be920c17ad4e5f",
+  "flora_sha256": "50c3c0f8d1f6e5fc8d6a15b506b3201e4a2b9dc0e9e4469f0d348959be38bf8b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

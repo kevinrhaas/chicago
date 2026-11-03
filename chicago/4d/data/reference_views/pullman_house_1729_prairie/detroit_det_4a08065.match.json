@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2cac97eef92a6a91d18853d1fbce5206d4d5fa48dda37cc7c7efa466d9567f38",
+  "glb_sha256": "caee81cc2b5068d6c97eb7617246cd3283bbd261df681aeea3fa85533dbea197",
   "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -47,7 +47,7 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
+      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
     },
     {
       "file": "renderers/web/js/tree-model.js",
@@ -55,7 +55,7 @@
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
     },
     {
       "file": "renderers/web/js/season.js",
@@ -63,10 +63,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+      "sha256": "b83ae305f7e48c4924a6153f04123dca4b158797d8988d58b99af92e24fb3d98"
     }
   ],
-  "flora_sha256": "0e9599f582864647711b46ed36842c0ea70fa204a561548e28fa6dfc81e43975",
+  "flora_sha256": "8a376ee73cc2599764af14769778081e1169e22ddf112791345fdbbd9f624219",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "inland_1894_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "73804318ecf5d670d5be4b76d30e4fa79087b6da1bd9cdea79bedfa27cbc5969",
+  "glb_sha256": "089240cbdd76a0a483f6d1b1d652508cef27d68187055a675db65f801470641b",
   "camera_sha256": "0b98ce75bc0bae6f3756075a436a5eb833f6d0067506a9ab64089862dda8221e",
   "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "73804318ecf5d670d5be4b76d30e4fa79087b6da1bd9cdea79bedfa27cbc5969"
+      "glb_sha256": "089240cbdd76a0a483f6d1b1d652508cef27d68187055a675db65f801470641b"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312"
     }
   ],
-  "group_sha256": "a336b06ced98f71e4810ee5f557b1fe208b1aa116be48a91ff6a9fa61ed1ebaa",
+  "group_sha256": "24da3fc95f8a1adb65bbfbc2674539348af0d0886de234116093512bf014a35a",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -144,7 +144,7 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "7cc62cc37a42a1459d775d1856b2c6d9800c7e0c1c42b0c93cf2b27fbbf1a352"
+      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
     },
     {
       "file": "renderers/web/js/tree-model.js",
@@ -152,7 +152,7 @@
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
     },
     {
       "file": "renderers/web/js/season.js",
@@ -160,10 +160,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+      "sha256": "b83ae305f7e48c4924a6153f04123dca4b158797d8988d58b99af92e24fb3d98"
     }
   ],
-  "flora_sha256": "ae768fd2fda8cbcb3666f2970bc943332241716633c67e903317c4e6bc6165d1",
+  "flora_sha256": "3e0dc20f4b400b796a04245d296e181644c3ad4ee85b9fa90fd491de301d2734",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
