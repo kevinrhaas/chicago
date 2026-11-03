@@ -507,6 +507,8 @@ const COVERAGE = [
   // T-2743: every tree in 1812, 1835 and the 1904 parkway is grown and instanced by these two.
   ['renderers/web/js/tree-model.js', [10, 11, 14], 'the grown species trees: the timber parts and the 1904 parkway elms'],
   ['renderers/web/js/tree-instances.js', [10, 11, 14], 'the grown trees\' instancing, levels and shadow ring: the timber parts and the 1904 elms'],
+  // T-3363: every grown wood's batches draw through it, so it is read where tree-instances.js is.
+  ['renderers/web/js/batch-instance.js', [10, 11, 14], 'the grown trees\' copies of one template drawn as one instanced draw'],
   ['assets/textures/trees/', [10, 11, 14], 'the grown trees\' leaf and bark atlases'],
   ['tools/generate_tree_atlas.py', NONE, 'writes assets/textures/trees/, read by no renderer itself'],
   ['renderers/web/js/shrub-grain.js', [10, 11, 12], 'the sward\'s grain'],
