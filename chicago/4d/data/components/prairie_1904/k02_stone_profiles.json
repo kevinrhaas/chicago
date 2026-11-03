@@ -58,7 +58,7 @@
       "course_height_m": [0.25, 0.46],
       "course_rule": "regular courses on a street front, laid smooth; no rock face",
       "block_length_m": [0.6, 1.5],
-      "joint": {"width_m": 0.003, "recess_m": 0.0015, "finish": "rubbed flush"},
+      "joint": {"width_m": 0.01, "recess_m": 0.006, "finish": "struck", "owner_ruling": "the owner, 2026-11-03, of the 3 mm hairline the prints suggest: \"on some faces of the pullman house you have lost the relief of the stones you cant see the stone grout lines\"; laid at 10 mm, 6 mm deep, so every face reads its courses and blocks at walking distance"},
       "arris": {"bevel_m": 0.004, "chips_per_m": 0.4, "chip_depth_m": [0.002, 0.006], "chip_length_m": [0.01, 0.04]},
       "rock_face_projection_m": [0.0, 0.0],
       "corner_bond": {"rule": "ashlar quoins return alternately long and short", "return_m": [0.3, 0.6]},

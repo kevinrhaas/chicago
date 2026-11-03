@@ -495,6 +495,13 @@ if [ -d data/enclosures ]; then
   cp -a data/enclosures "$SITE/data/enclosures"
 fi
 
+# T-3332 — the night lights (renderers/web/js/night-lights.js): window hours and the
+# lamps outside, per scene. A scene lists `night_lights` in its layers to fetch one.
+if [ -d data/night_lights ]; then
+  rm -rf "$SITE/data/night_lights"
+  cp -a data/night_lights "$SITE/data/night_lights"
+fi
+
 # The signage layer — the boards on the town's business frontages, drawn by
 # renderers/web/js/signage.js straight from these numbers. Same argument as the
 # enclosures above and the same failure if it is left out: no GLB carries any of

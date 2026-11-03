@@ -231,6 +231,53 @@ def lay_crossings(grid, xs):
     return out
 
 
+# T-1881 (the owner, 2026-11-03, of grass showing where a carriage walk met the public walk:
+# "and other join problem, see the grass poking through, needs a finer work"): the carriage walk
+# starts this far back under the public walk, so no hairline of parkway shows between them
+CARRIAGE_WALK_TUCK_M = 0.04
+
+
+def local_side(face, q):
+    """The point of the face's street line nearest q, the line's own direction there and its
+    out-normal. A face drawn round a bend (Calumet, 16th to 20th) has one street line of many
+    segments; its first-to-last chord is up to 12 degrees off the walk at a given lot, and a
+    carriage walk laid square to the chord met the public walk on a wedge of grass."""
+    _, n0 = street_side(face)
+    line = face["street_line_local_m"]
+    best = None
+    for a, b in zip(line, line[1:]):
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        L = dx * dx + dy * dy
+        if not L:
+            continue
+        f = max(0.0, min(1.0, ((q[0] - a[0]) * dx + (q[1] - a[1]) * dy) / L))
+        c = (a[0] + f * dx, a[1] + f * dy)
+        d = math.dist(c, q)
+        if best is None or d < best[0]:
+            best = (d, c, unit(a, b))
+    _, c, t = best
+    n = (-t[1], t[0])
+    if n[0] * n0[0] + n[1] * n0[1] < 0:
+        n = (-n[0], -n[1])
+    if t[0] * unit(line[0], line[-1])[0] + t[1] * unit(line[0], line[-1])[1] < 0:
+        t = (-t[0], -t[1])
+    return c, t, n
+
+
+CURVED_FRONT_M = 1.0   # a frontage whose chord's middle stands this far off its lot line is a curve
+
+
+def _off_lot_line(q, poly):
+    """How far a point stands from the nearest edge of a lot's polygon."""
+    best = math.inf
+    for (ax, ay), (bx, by) in zip(poly, poly[1:] + poly[:1]):
+        dx, dy = bx - ax, by - ay
+        L = dx * dx + dy * dy
+        f = max(0.0, min(1.0, ((q[0] - ax) * dx + (q[1] - ay) * dy) / L)) if L else 0.0
+        best = min(best, math.hypot(q[0] - ax - f * dx, q[1] - ay - f * dy))
+    return best
+
+
 def build():
     grid = json.loads(GRID.read_text())
     faces = {f["id"]: f for f in grid["faces"]}
@@ -245,8 +292,13 @@ def build():
         ends = [v for k, v in p["corners_local_m"].items() if k.endswith("_street")]
         if len(ends) != 2:
             continue
-        t, n = street_side(face)
         mid = ((ends[0][0] + ends[1][0]) / 2, (ends[0][1] + ends[1][1]) / 2)
+        if _off_lot_line(mid, p["polygon_local_m"]) > CURVED_FRONT_M:
+            # T-1881 (the owner, 2026-11-03, of a lone slab on the lawn at 1800 Calumet: "what is
+            # this random white panel on the ground"): a frontage round a curve (Calumet's bend at
+            # 18th) has its chord's middle inside the lot, not on its line, so no walk is laid there
+            continue
+        mid, t, n = local_side(face, mid)
         bands = {b["band"]: b for b in xs[face["cross_section"]]["bands"]}
         walks.append({
             "id": f"{p['id']}.carriage_walk",
@@ -258,6 +310,7 @@ def build():
             "from_ft": bands["parkway"]["from_ft"],
             "to_ft": bands["curb"]["from_ft"],
             "width_ft": WALK_WIDTH_FT,
+            "tuck_m": CARRIAGE_WALK_TUCK_M,
         })
     walks.sort(key=lambda w: w["id"])
     posts = lay_posts(grid, faces, xs, {w["parcel"]: w for w in walks})

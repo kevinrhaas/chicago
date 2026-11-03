@@ -53,6 +53,10 @@ from archetypes.k01_frontage import Prim, _add, _cross, _dot, _mul, _sub, _unit 
 from archetypes.k06_windows import area2  # noqa: E402
 
 ROOT = HERE.parents[1]
+# T-1881 (2026-11-03): the library a ground's `fabric` names, and each map's tile in metres
+# (masonry_house_v4_materials.TILE_M's gravel, the map the K01 yard's drives wear)
+FABRIC_LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
+FABRIC_TILE_M = {"gravel": 2.0}
 DATA = ROOT / "data" / "components" / "prairie_1904" / "k13_conservatories.json"
 GENERATOR = "chicago-4d generators/archetypes/k13_conservatories.py (K13, T-2305)"
 RECONSTRUCTED = 1.0  # k01_frontage_params.CONFIDENCE_VALUE["reconstructed"]
@@ -127,10 +131,14 @@ def materials(data: dict) -> dict:
         # as the public walk against the lawn; a buff limestone gravel, its tone reconstructed.
         # Owner, 2026-10-31: in the app's sun the walk read "abnormally white", so it is set a
         # step darker (0.66, 0.62, 0.54 before), still the lawn's palest ground
-        "gravel": {"color": (0.45, 0.42, 0.35), "roughness": 0.95},
+        # Owner, 2026-11-03: "i thought you fixed this surface so it was more accurate like i think
+        # you had criushed gravel or the white crushed surface but its not solid": laid in the
+        # library's crushed gravel (the house's drives' map, Glessner's), its own tone, no tint
+        "gravel": {"color": (1.0, 1.0, 1.0), "roughness": 0.95, "fabric": "gravel"},
         # T-3164 (owner, 2026-10-31: the walk "abnormally white"): the worn margin of a curved
         # walk, gravel trodden into the turf, a tone between the two; reconstructed
-        "gravel_edge": {"color": (0.36, 0.36, 0.27), "roughness": 1.0},
+        # (2026-11-03: in the same map, a step darker and greener than the walk, as before)
+        "gravel_edge": {"color": (0.8, 0.85, 0.72), "roughness": 1.0, "fabric": "gravel"},
         # T-3270: the roof deck's painted tin and its railing's iron; both tones reconstructed
         "deck": {"color": (0.24, 0.24, 0.22), "roughness": 0.6},
         "iron": {"color": (0.06, 0.06, 0.055), "roughness": 0.55, "metallic": 0.3},
@@ -3011,7 +3019,17 @@ def grounds(h: House, gr: dict):
     cp = gr.get("coping")
     if not cp:
         return
-    line = [tuple(map(float, q)) for q in cp["line_m"]]
+    # its first run's first end abuts the west pier and is not drawn; T-1881 (the owner,
+    # 2026-11-03, of its stop at the Calumet straight: "and it ends abruptly!"): `runs_m`
+    # carries it on along the Calumet Avenue line, each run with both its ends drawn
+    _coping_run(h, cp, [tuple(map(float, q)) for q in cp["line_m"]], first_end=False, last_end=True)
+    for run in cp.get("runs_m", ()):
+        _coping_run(h, cp, [tuple(map(float, q)) for q in run], first_end=True, last_end=True)
+
+
+def _coping_run(h: House, cp: dict, line: list, first_end: bool, last_end: bool):
+    """One run of the grounds' coping along `line` [(u, v), ...], its street face on the line
+    and `thick_m` into the lot (on the line's right as it runs); an end drawn where it stops."""
     t, hb, ht, co = cp["thick_m"], cp["body_m"], cp["top_m"], cp["cap_out_m"]
     norms = []
     for (ua, va), (ub, vb) in zip(line, line[1:]):
@@ -3035,12 +3053,14 @@ def grounds(h: House, gr: dict):
                                 (-co, hb, ht, out), (t + co, hb, ht, inw)):
             h.face("stonework", [at(k, d, y0), at(k + 1, d, y0), at(k + 1, d, y1), at(k, d, y1)], hint)
         h.face("stonework", [at(k, -co, ht), at(k + 1, -co, ht), at(k + 1, t + co, ht), at(k, t + co, ht)], Y)
-    # the far end, where the coping stops at the Calumet Avenue line
-    k = len(line) - 1
-    eu, ev = line[k][0] - line[k - 1][0], line[k][1] - line[k - 1][1]
-    end = (eu, 0.0, -ev)
-    h.face("stonework", [at(k, 0.0, 0.0), at(k, t, 0.0), at(k, t, hb), at(k, 0.0, hb)], end)
-    h.face("stonework", [at(k, -co, hb), at(k, t + co, hb), at(k, t + co, ht), at(k, -co, ht)], end)
+    for k, k0, draw in ((len(line) - 1, len(line) - 2, last_end), (0, 1, first_end)):
+        if not draw:
+            continue
+        # an end where the coping stops, square to its run
+        eu, ev = line[k][0] - line[k0][0], line[k][1] - line[k0][1]
+        end = (eu, 0.0, -ev)
+        h.face("stonework", [at(k, 0.0, 0.0), at(k, t, 0.0), at(k, t, hb), at(k, 0.0, hb)], end)
+        h.face("stonework", [at(k, -co, hb), at(k, t + co, hb), at(k, t + co, ht), at(k, -co, ht)], end)
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
@@ -3097,11 +3117,12 @@ def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extr
     bin_ = bytearray()
     views, accessors, meshes, nodes = [], [], [], []
 
-    def view(blob: bytes, target):
+    def view(blob: bytes, target=None):
         nonlocal bin_
         off = len(bin_)
         bin_ += _pad(blob)
-        views.append({"buffer": 0, "byteOffset": off, "byteLength": len(blob), "target": target})
+        views.append({"buffer": 0, "byteOffset": off, "byteLength": len(blob),
+                      **({"target": target} if target is not None else {})})
         return len(views) - 1
 
     def accessor(values, ctype, typ, comps, target, minmax=False):
@@ -3117,6 +3138,8 @@ def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extr
 
     mat_names = list(mats)
     materials_out = []
+    images, textures, image_of = [], [], {}
+    drawn = {ROLE_MATERIAL[r] for h in kit for r, pr in h.prims.items() if pr.idx}
     for name in mat_names:
         m = mats[name]
         alpha = m.get("alpha", 1.0)
@@ -3125,6 +3148,18 @@ def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extr
             "metallicFactor": m.get("metallic", 0.0), "roughnessFactor": m["roughness"]}}
         if alpha < 1.0:
             entry["alphaMode"] = "BLEND"
+        if m.get("fabric") and name in drawn:
+            # T-1881 (2026-11-03): a ground laid in a library map (the gravel), embedded as
+            # K01 embeds its fabrics; its UVs are the face's metres over the map's tile
+            fab = m["fabric"]
+            if fab not in image_of:
+                src = FABRIC_LIBRARY / f"{fab}_basecolor.jpg"
+                images.append({"name": src.stem, "mimeType": "image/jpeg", "bufferView": view(src.read_bytes())})
+                textures.append({"sampler": 0, "source": len(images) - 1})
+                image_of[fab] = len(textures) - 1
+            entry["pbrMetallicRoughness"]["baseColorTexture"] = {"index": image_of[fab], "texCoord": 0}
+            if tuple(m["color"]) == (1.0, 1.0, 1.0):
+                del entry["pbrMetallicRoughness"]["baseColorFactor"]   # glTF's default, as K01 writes it
         materials_out.append(entry)
     for h in kit:
         by_mat: dict[str, list[Prim]] = {}
@@ -3141,7 +3176,8 @@ def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extr
                 pos += ([tuple(round(c, 5) for c in q) for q in pr.pos] if not lift
                         else [(round(q[0], 5), round(q[1] + lift, 5), round(q[2], 5)) for q in pr.pos])
                 nrm += pr.nrm
-                uv += pr.uv
+                tile = FABRIC_TILE_M.get(mats[name].get("fabric"), 1.0) if name in drawn else 1.0
+                uv += pr.uv if tile == 1.0 else [(q[0] / tile, q[1] / tile) for q in pr.uv]
                 conf += pr.conf
                 idx += [base + i for i in pr.idx]
             ctype = 5123 if len(pos) < 65536 else 5125
@@ -3178,6 +3214,8 @@ def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extr
         "accessors": accessors,
         "bufferViews": views,
         "buffers": [{"byteLength": len(bin_)}],
+        **({"images": images, "textures": textures,
+            "samplers": [{"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497}]} if images else {}),
         "extras": {"k13": {"data": "data/components/prairie_1904/k13_conservatories.json", "ticket": "T-2305",
                            "contract": "data/components/prairie_1904/k01_contract.json",
                            "rainwater": "data/components/prairie_1904/k04_roofs.json", **(extras or {})}},
