@@ -25,9 +25,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "generators"))
 from archetypes import frame_tavern_params as P  # noqa: E402
+from archetypes import frame_dwelling_params as D  # noqa: E402
 from common import openings  # noqa: E402
 
 BUILDER = ROOT / "generators" / "archetypes" / "frame_tavern.py"
+DWELLING = ROOT / "generators" / "archetypes" / "frame_dwelling.py"
 
 
 def _body(src: str, name: str) -> str:
@@ -37,7 +39,7 @@ def _body(src: str, name: str) -> str:
     return m.group(0)
 
 
-def check(src: str) -> list[str]:
+def check(src: str, dwelling_src: str | None = None) -> list[str]:
     fen = _body(src, "_fenestration")
     fp = _body(src, "_frontispiece")
     pfe = _body(src, "_pictured_front_entrance")
@@ -73,6 +75,27 @@ def check(src: str) -> list[str]:
         if lit not in body:
             bad.append(f"{what}: frame_tavern.{fn} no longer carries `{lit}`, which "
                        "frame_tavern_params.front_wall copies — move both together")
+    if abs(P.TAVERN_HEAD_CAP_M - (openings.HEAD_W_M + openings.CAP_H_M)) > 1e-9:
+        bad.append("the window head: common/openings.HEAD_W_M + CAP_H_M is "
+                   f"{openings.HEAD_W_M + openings.CAP_H_M}, the reader copies "
+                   f"{P.TAVERN_HEAD_CAP_M}")
+    # ...and the frame dwelling's shutters and roofed porch, which its front reader
+    # now states for the same boards (T-3359).
+    dw = DWELLING.read_text(encoding="utf-8") if dwelling_src is None else dwelling_src
+    sh = _body(dw, "_shutters")
+    po = _body(dw, "_porch")
+    for fn, body, lit, what in (
+            ("_shutters", sh, "p.window_w_m / 2 + openings.CASING_W_M + 0.012",
+             "the dwelling shutter's hinge line"),
+            ("_shutters", sh, "p.window_w_m * 0.5", "the dwelling shutter leaf"),
+            ("_porch", po, "pw, pd = 2.30, 1.35", "the roofed porch's width"),
+            ("_porch", po, "head = min(wall_z - 0.32, 2.62)", "the roofed porch's head")):
+        if lit not in body:
+            bad.append(f"{what}: frame_dwelling.{fn} no longer carries `{lit}`, which "
+                       "frame_dwelling_params.front_wall copies — move both together")
+    if abs(D.DWELLING_CASING_W_M - openings.CASING_W_M) > 1e-9:
+        bad.append("the dwelling casing: frame_dwelling_params copies "
+                   f"{D.DWELLING_CASING_W_M}, common/openings has {openings.CASING_W_M}")
     if abs(P.TAVERN_CASING_W_M - openings.CASING_W_M) > 1e-9:
         bad.append(f"the casing: common/openings.CASING_W_M is {openings.CASING_W_M}, "
                    f"the reader copies {P.TAVERN_CASING_W_M}")

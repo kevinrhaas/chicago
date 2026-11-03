@@ -977,6 +977,7 @@ TAVERN_DOOR_H_M = 2.10
 TAVERN_GROUND_BAYS = 5
 TAVERN_SHUTTER_SHARE = 0.42          # a leaf is this share of the sash's width
 TAVERN_CASING_W_M = 0.090            # common/openings.CASING_W_M
+TAVERN_HEAD_CAP_M = 0.115 + 0.035    # common/openings.HEAD_W_M + CAP_H_M
 TAVERN_FRONTISPIECE_HALF_W_M = 1.02  # the crown of the hood, the widest member
 TAVERN_FRONTISPIECE_TOP_M = 2.31
 
@@ -1023,6 +1024,12 @@ def front_wall(p: FrameTavernParams) -> dict | None:
             sz = float(sash["sill_m"]) if sash else z0
             out.append({"kind": "window", "u0": cx - sw / 2, "u1": cx + sw / 2,
                         "z0": sz, "z1": sz + sh})
+            # ...and the joinery round it, its casing legs and its head and drip cap,
+            # which stand on the wall rather than in it: not a hole (`HOLE_KINDS`),
+            # so a reader of holes still sees one sash, but a board stays off it.
+            out.append({"kind": "casing", "u0": cx - sw / 2 - TAVERN_CASING_W_M,
+                        "u1": cx + sw / 2 + TAVERN_CASING_W_M,
+                        "z0": sz, "z1": sz + sh + TAVERN_HEAD_CAP_M})
             if p.shutters:
                 leaf = sw * TAVERN_SHUTTER_SHARE + TAVERN_CASING_W_M + 0.01
                 for side in (-1, 1):
