@@ -4243,7 +4243,31 @@
         },
         "north_pair_colonnette": {
           "capital_ft": 1.1,
-          "base_ft": 0.5
+          "base_ft": 0.5,
+          "shaft_neck_ft": 0.85,
+          "shaft_foot_ft": 0.95,
+          "base_foot_ft": 1.2,
+          "abacus_ft": 1.3,
+          "mullion_depth_ft": 1.5,
+          "capitals": [
+            {
+              "band": "diamonds",
+              "body": "boss",
+              "volute_shrink": 0.7,
+              "volutes": true,
+              "leaves": true,
+              "read": "east-wing gable pair (W 7.2-14.7). HABS 13 (level, about 21.4 px/ft): a block capital about 28 px (1.3 ft) across, its lower half rounded in to the shaft, dark curls at its upper corners under a carved band, a raised mass at its middle; HABS 14 the same block. The band's and body's motifs are too small in either print to read and are reconstructed"
+            },
+            {
+              "band": "chevron",
+              "body": "crossing",
+              "volute_shrink": 0.7,
+              "volutes": true,
+              "leaves": true,
+              "read": "tower-shoulder pair (W 25.8-32.9). A utility pole crosses it in both prints; HABS 13 shows the block's edges either side of the pole at the east pair's width and the same rounded-in foot. Its carving is reconstructed, cut unlike the east pair's and the seven front capitals, as the museum's 2013 post says every one of the nine differs"
+            }
+          ],
+          "note": "T-2868 read the capital's and base's heights off HABS 13/14. T-3343 (owner, 2026-11-03: the north colonnettes 'are different than the ones on the east face that we worked hard to get nice ... i think those ones are not right on the north face'): HABS 13 and HABS 14 show both north colonnettes as the Prairie front's kind (prairie_colonnette), not a plain post: a round shaft in the wall's own granite, a foot splayed onto the sill and a carved block capital rounding in to the shaft. The museum's 2013 post 'The stone capitals on Glessner House' counts nine carved capitals, front and north, each different. Read off HABS 13 at the east pair (21.4 px/ft from its outer jambs, W 7.2-14.7 over 160.5 px; T-2868's jamb picks): the capital 28 px wide (1.3 ft, the full gap between the lights), the shaft about 21 px under it and 22.5 px at its foot (0.85 / 0.95 ft, its shadowed side included), the base about the gap's width at the sill (1.2 ft, inside the 1.3-ft gap). The mullion's depth is the front's (sheet 3), not measured here. Built by the front's construction (ornament.colonnette); on the smaller block the corner volutes coil to 0.7 of their radius, not 0.82, so their eyes stay wider than the scroll is thick; the capitals' band and body motifs and every cut are reconstructed (LIBERTIES L-glessner-north-colonnettes-3343)."
         },
         "prairie_colonnette": {
           "shaft_neck_ft": 0.68,
