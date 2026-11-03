@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2588, ts: '2026-11-03T02:06:15.451Z', date: 'Nov 2, 2026, 8:06 PM CT', title: 'A more detailed farm-box wagon', kind: 'change',
+    items: [
+      'The wagon collection has a reconstructed farm-box model with weathered boards, shaped wheel hubs, iron fittings and a separately articulated front axle and pole. Its modern source artist is credited; the wagon\'s historical maker and owner remain unknown.',
+      'Prairie Avenue uses less memory on phones. If graphics are interrupted, the view pauses while it recovers or reloads.',
+      'Nearby plants update more reliably during horseback travel.',
+      'Switching Prairie Avenue from Light to Full detail works after unused model geometry has been released.',
+    ] },
   { v: 2587, ts: '2026-11-03T01:12:28.575Z', date: 'Nov 2, 2026, 7:12 PM CT', title: 'A brick wall closes 1808 Prairie\'s yard on the alley', kind: 'feature',
     items: [
       'Behind 1808 Prairie, the Glessner courtyard wall now turns the corner at the alley gate and runs about 2.5 m south along the alley, as the 1963 survey drawing shows. Before, it stopped dead at the gatepost.',

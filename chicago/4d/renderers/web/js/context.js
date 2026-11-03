@@ -169,10 +169,10 @@ function pyramidGeometry() {
 
 /** The faded streets as one ribbon mesh: each segment cut into pieces that each take the
  *  ground's height at their ends, so a street follows the ground and the skirt beyond it. */
-function streetGeometry(streets, at, width, ground, colour) {
-  const p = []; const c = []; const conf = [];
+function streetGeometry(streets, at, width, ground) {
+  const p = []; const conf = [];
   const half = width / 2;
-  const push = (e, n) => { p.push(wx(e), ground(e, n) + STREET_LIFT_M, wz(n)); c.push(colour.r, colour.g, colour.b); conf.push(1); };
+  const push = (e, n) => { p.push(wx(e), ground(e, n) + STREET_LIFT_M, wz(n)); conf.push(1); };
   for (const st of streets) {
     const e0 = st[at.e0]; const n0 = st[at.n0]; const e1 = st[at.e1]; const n1 = st[at.n1];
     const L = Math.hypot(e1 - e0, n1 - n0);
@@ -190,7 +190,6 @@ function streetGeometry(streets, at, width, ground, colour) {
   }
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.Float32BufferAttribute(p, 3));
-  g.setAttribute('color', new THREE.Float32BufferAttribute(c, 3));
   g.setAttribute('_confidence', new THREE.Float32BufferAttribute(conf, 1));
   g.computeVertexNormals();
   return g;
@@ -620,9 +619,12 @@ export async function createContext({
   let streetMesh = null; let streetMaterial = null;
   if ((doc.streets ?? []).length) {
     const width = doc.projection?.network?.carriageway_m ?? 11.58;
-    const geo = streetGeometry(doc.streets, S, width, ground, fadeHex(STREET));
+    const geo = streetGeometry(doc.streets, S, width, ground);
+    const streetColor = fadeHex(STREET);
+    // Match the original Float32 vertex colour at the uniform upload boundary.
+    streetColor.setRGB(Math.fround(streetColor.r), Math.fround(streetColor.g), Math.fround(streetColor.b));
     streetMaterial = new THREE.MeshStandardMaterial({
-      color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0,
+      color: streetColor, roughness: 1, metalness: 0,
       polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
     });
     confidence?.patch(streetMaterial);
