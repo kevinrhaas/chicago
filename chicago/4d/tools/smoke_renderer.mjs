@@ -10467,9 +10467,24 @@ for (const [label, viewport, touch] of [
       // tallest one in the scene. See the note on the assertions below.
       const bounds = a.buildings.instanceBounds();
       const perStructure = [];
+      // T-3320: a fort's parade is GROUND now — the yards layer lays it as trodden
+      // earth and the buildings layer draws only what stands on it (the sun-dial),
+      // so its drawn box is the dial's. It is measured below as ground instead.
+      const paradeGrounds = [];
       for (const [id, box] of Object.entries(bounds)) {
         const r = a.registry.get(id);
         const attrs = r?.sidecar?.attributes ?? {};
+        if (attrs.kind?.value === 'parade') {
+          const p = r.sidecar.placement ?? {};
+          const fp = r.sidecar.footprint?.polygon ?? [];
+          const u = fp.reduce((s, q) => s + q[0], 0) / (fp.length || 1);
+          const v = fp.reduce((s, q) => s + q[1], 0) / (fp.length || 1);
+          const b = ((p.rotation_deg ?? 0) * Math.PI) / 180;
+          const e = (p.local_e ?? 0) + u * Math.cos(b) + v * Math.sin(b);
+          const n = (p.local_n ?? 0) - u * Math.sin(b) + v * Math.cos(b);
+          paradeGrounds.push({ id, treatment: a.yards?.treatmentAt?.(e, n) ?? null });
+          continue;
+        }
         perStructure.push({
           id,
           size: box.size,
@@ -10480,7 +10495,7 @@ for (const [label, viewport, touch] of [
         });
       }
       return { terrainMeshes, gotW: maxX - minX, gotD: maxZ - minZ, wantW, wantD,
-        wall, perStructure, structureCount: a.registry.size };
+        wall, perStructure, paradeGrounds, structureCount: a.registry.size };
     });
     // The ground is deliberately LARGER than the heightfield — it carries a
     // far-field skirt past the modelled box, which is what you see on the horizon
@@ -10508,6 +10523,11 @@ for (const [label, viewport, touch] of [
     // A rendered size only means something against a claim, so the floor here is
     // the smallest thing the dataset actually contains — a privy, not a house —
     // and anything at or under the quantisation clamp is called out by name.
+    // T-3320: and a parade left out of the measure above must be ground that is
+    // actually laid: the yards layer answers trodden earth at its centre.
+    check(`${label}: every fort parade is laid as trodden ground`,
+      scale.paradeGrounds.every((g) => g.treatment === 'trodden_earth'),
+      scale.paradeGrounds.map((g) => `${g.id}: ${g.treatment ?? 'no ground'}`).join('; ') || 'no parade in this scene');
     const collapsed = scale.perStructure.filter((s) => Math.max(...s.size) <= 2.05);
     check(`${label}: no structure is collapsed to the quantisation clamp`,
       collapsed.length === 0,
