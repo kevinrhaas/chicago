@@ -14,8 +14,8 @@
   "tuck_m": 0.04
  },
  "summary": {
-  "walk_ends": 79,
-  "joined": 58,
+  "walk_ends": 80,
+  "joined": 59,
   "already_met": 13,
   "not_street_ends": 8,
   "widest_gap_m": 1.6
@@ -28,6 +28,7 @@
   {"id": "doane_house_1827_prairie:front_walk:0", "house": "doane_house_1827_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.299, "width_m": 1.28, "polygon_local_m": [[1412.758, -3301.59], [1412.77, -3302.87], [1412.391, -3302.874], [1412.378, -3301.594]]},
   {"id": "doane_house_1827_prairie:service_walk:1", "house": "doane_house_1827_prairie", "kind": "service_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.301, "width_m": 1.241, "polygon_local_m": [[1412.711, -3296.739], [1412.723, -3297.98], [1412.342, -3297.984], [1412.33, -3296.743]]},
   {"id": "edson_keith_house_1906_prairie:front_walk:0", "house": "edson_keith_house_1906_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.297, "width_m": 1.5, "polygon_local_m": [[1393.515, -3365.676], [1393.499, -3364.176], [1393.876, -3364.172], [1393.891, -3365.672]]},
+  {"id": "elbridge_keith_house_1900_prairie:front_walk:0", "house": "elbridge_keith_house_1900_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.302, "width_m": 2.5, "polygon_local_m": [[1393.346, -3349.185], [1393.319, -3346.686], [1393.701, -3346.682], [1393.726, -3349.182]]},
   {"id": "george_glessner_house_1706_prairie:front_walk:0", "house": "george_glessner_house_1706_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_16_18", "gap_m": 0.594, "width_m": 1.28, "polygon_local_m": [[1390.105, -3101.982], [1390.092, -3100.703], [1390.765, -3100.695], [1390.779, -3101.975]]},
   {"id": "glessner_lee_house_1700_prairie:front_walk:0", "house": "glessner_lee_house_1700_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_16_18", "gap_m": 0.578, "width_m": 1.28, "polygon_local_m": [[1389.942, -3085.933], [1389.929, -3084.653], [1390.586, -3084.645], [1390.6, -3085.925]]},
   {"id": "goodman_house_1612_prairie:front_walk:0", "house": "goodman_house_1612_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_16_18", "gap_m": 0.376, "width_m": 1.28, "polygon_local_m": [[1389.05, -2987.786], [1389.037, -2986.506], [1389.492, -2986.501], [1389.506, -2987.781]]},
