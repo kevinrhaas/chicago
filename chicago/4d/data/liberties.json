@@ -66871,6 +66871,41 @@
       ]
     },
     {
+      "id": "L-green-tree-closed-shoulder-working-2376",
+      "title": "the enclosed shoulder as a working reading",
+      "section": "per_subject",
+      "subjects": [
+        "green_tree_tavern"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "green_tree_tavern",
+          "phase": "frame_1833",
+          "aspect": "form.enclosed_left_annex"
+        }
+      ],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`green_tree_tavern.frame_1833.form.enclosed_left_annex`."
+        },
+        {
+          "label": "Decision",
+          "text": "Select the existing group's enclosed shoulder from Andreas's detailed retrospective engraving, with its lower sash and small gabled/dormered light. Trowbridge/Gale's1902 illustration captioned1835 instead shows an open wagon bay; that conflict remains explicit and does not establish a conversion year or exactJuly1835condition. Source ids remain \"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, Kurz & Allison. Chicago In Early Days, 1779-1857 and The Green Tree Tavern in 1835 (published 1902). No new measurement, historical chronology or confidence is invented. All numeric spans, depths, heights, pitches, opening stations, turn, finish and hidden fabric stay the earlier reconstructed choices; the canonical main footprint and world coordinate do not move. The yard source owner follows the same canonical attribute and declines only the competing open shed/posts and covered wagon while the shoulder is enclosed. The two separate farm wagons, bench and frontage goods retain their rules. The actual closed-model comparison adds the missing wall/sash/upper light but still differs in left-cluster roof silhouette and relative proportions. Earlier open-bay notes and prior model history remain verbatim in the dossier. No new25family bake, complete picture match, geographic camera, published-app acceptance, dated alteration or original-piece of work closure is implied."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03."
+        }
+      ],
+      "work_refs": [
+        "T-2376"
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",
