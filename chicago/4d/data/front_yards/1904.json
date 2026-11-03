@@ -158,7 +158,7 @@
   "beds": 11,
   "creeper_patches": 21,
   "attested_plants": 35,
-  "lots_with_a_door": 111,
+  "lots_with_a_door": 112,
   "schemes": {
    "corners": 77,
    "group": 22,
@@ -6023,8 +6023,13 @@
     ],
     "width_m": 7.38
    },
-   "front_m": 7.57,
-   "doors": [],
+   "front_m": 7.31,
+   "doors": [
+    [
+     1.76,
+     7.58
+    ]
+   ],
    "scheme": "lawn",
    "grade": "reconstructed",
    "shrubs": [],
@@ -6126,11 +6131,11 @@
     ],
     "width_m": 8.82
    },
-   "front_m": 7.14,
+   "front_m": 6.94,
    "doors": [
     [
-     4.86,
-     7.58
+     7.65,
+     7.11
     ]
    ],
    "scheme": "lawn",
