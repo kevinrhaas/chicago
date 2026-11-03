@@ -1,0 +1,35 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "source_id": "blanchard_davis_c1893_wolfs_point_poster",
+  "photo": "../../../../reference/images/chicago/chicago_wolf_tavern_miller_house_1832.jpg",
+  "image_px": [
+    2947,
+    2502
+  ],
+  "principal_px": [
+    754.0716283949971,
+    1242.0239209447896
+  ],
+  "focal_px": 9000,
+  "eye": [
+    119.19578505844599,
+    135.94939668401372,
+    2
+  ],
+  "yaw_deg": 223.46673466702535,
+  "near_m": 100,
+  "sky": "sun",
+  "diagnostic_only": true,
+  "solve": {
+    "status": "provisional_asset_comparison_world_camera_unsolved",
+    "method": "Six newly picked gable eave/apex controls on exact roof accessor6 vertices of225MASTER. Eavepaint-edgeuncertainty6px/apex5px. Fixed reconstructed5m modelgauge; finite1200/3000/9000focalprofiles. Fullfreefocal/eyeheight solve hits25000f/6m bounds for7.73pxRMS, showing poor camera identifiability. Choose9000f/2m near-ground review with8.53px coordinateRMS, threeindependentchimney/pipe/window checks16.13px coordinateRMS notfitted. Notasurvey or historical lens/eyeheight.",
+    "limitations": "Drawing/camera disagreement remains. ActualsourceNNW-type brightness suggests northface brighter/eastface darker; sun_uvy is a reconstructed review light, not an authenticated1832solarpose. Earliergoverning1867NYPL showsoneannexdoor/plainlogwall; later1893poster addsaseconddarkopening. Root reviewed bothactualcrops and appliesstandingT3153source-disagreementrule, retaining1867form, notclaimingpixel-small/countfixed. Nativecomparisonandcurrentfullbodyappreviewstillrequired.",
+    "controls_file": "docs/RESEARCH/wolf-picture-signoff-T-2386/poster-1893/source-picks.json",
+    "fits_file": "docs/RESEARCH/wolf-picture-signoff-T-2386/poster-1893/camera-sensitivity.json"
+  },
+  "sun_uvy": [
+    -0.35,
+    1,
+    1.2
+  ]
+}
