@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2626, ts: '2026-11-03T22:40:25.953Z', date: 'Nov 3, 2026, 4:40 PM CT', title: 'Dead trees and leafy crowns no longer float pieces in the air', kind: 'fix',
+    items: [
+      'A dead standing tree keeps only the branches still joined to its broken limbs. Before, about four sticks per dead tree hung in the air, some up to 8 m away.',
+      'The broken trunk now ends at its break, so the limbs that grew just below it stay attached.',
+      'Leaf clusters on the outside of a crown now sit on a twig. Before, some hung several metres off the side of a tree, such as the Kinzie cottonwoods in 1812.',
+      'Big limbs that branch just above the trunk\'s fork now start on the trunk instead of up to 0.7 m beside it.',
+      'Crowns keep their width and triangle count. This applies in 1812, 1835 and 1904.',
+    ] },
   { v: 2625, ts: '2026-11-03T22:33:17.106Z', date: 'Nov 3, 2026, 4:33 PM CT', title: 'The Pullman house\'s 18th Street balustrade gains its middle post', kind: 'polish',
     items: [
       'Along 18th Street, the stone balustrade on the Pullman estate\'s wall now has the solid post in its middle that two old photographs show.',
