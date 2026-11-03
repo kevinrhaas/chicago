@@ -24397,7 +24397,12 @@ reconstructed to that scale; the cornice's section is a straight soffit and a pl
 photograph's is moulded, and its brackets are the kit's plain ones in the frieze under it. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
-The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
+The verandah's two piers between its arches stand as the photograph's columns (T-3356): fluted shafts
+0.32 m across at the foot on a square plinth and a torus, each under a capital of two flaring tiers and a
+square abacus at the springing; the photograph's capitals are carved leafage a few pixels across, and the
+tiers, the 24 flutes and the shafts' diameter (read as about 15 px against the openings' 45-50 px) stand
+for the Tribune's "Corinthian fluted columns". The verandah's end piers stay solid, as the photograph
+shows them. The rear range is built to its second
 storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
