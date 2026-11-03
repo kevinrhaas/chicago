@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2600, ts: '2026-11-03T05:45:43.445Z', date: 'Nov 2, 2026, 11:45 PM CT', title: 'Pullman\'s street trees grown tall and slender, as the photographs show them', kind: 'fix',
+    items: [
+      'The seven elms before 1729 Prairie and along its 18th Street side now rise on one straight trunk to about the second floor before they branch, as the Detroit and Taylor photographs draw them',
+      'Their narrow heads let the house\'s front show between them from the roof to the walk, where low, wide crowns used to hide it',
+    ] },
   { v: 2599, ts: '2026-11-03T05:42:37.772Z', date: 'Nov 2, 2026, 11:42 PM CT', title: 'Three Fort Dearborn jaunts for 1812: the battle, Lalime, the fort', kind: 'feature',
     items: [
       'The Battle of Fort Dearborn: twelve stops from Lee\'s Place in April 1812 to the beach on 15 August and Mrs. Helm hidden under a feather bed at Ouilmette\'s.',
