@@ -268,7 +268,7 @@
             "s_m": 2.98,
             "width_m": 2.05,
             "sill_m": 2.05,
-            "height_m": 2.4
+            "height_m": 2.25
           },
           {
             "component": "k01.opening.street_sash_narrow",
@@ -299,7 +299,7 @@
       "sources": [
         "chicagology_2009_prairie_meyer_photo"
       ],
-      "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to 4.4 m; the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. The oriel's three lights are its own (bays)."
+      "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. The oriel's three lights are its own (bays)."
     },
     "bays": {
       "value": [
@@ -311,12 +311,28 @@
           "fabric": "front_stone",
           "base_m": 5.3,
           "plan": {
-            "kind": "bow",
-            "chord_m": 3.45,
-            "rise_m": 0.25
+            "kind": "polyline",
+            "points": [
+              [
+                -1.725,
+                0.0
+              ],
+              [
+                -1.6,
+                0.38
+              ],
+              [
+                1.6,
+                0.38
+              ],
+              [
+                1.725,
+                0.0
+              ]
+            ]
           },
           "corbel": {
-            "courses": 2
+            "courses": 3
           },
           "storeys": [
             {
@@ -324,15 +340,16 @@
               "windows": [
                 {
                   "opening": "k06.opening.sash_transom_flat",
-                  "clear_width_m": 0.95,
+                  "clear_width_m": 0.75,
                   "clear_height_m": 2.2,
                   "sill_m": 0.7,
-                  "at_deg": [
-                    -10,
-                    0,
-                    10
+                  "at": [
+                    0.2375,
+                    0.5,
+                    0.7625
                   ],
-                  "why_not_ordinary": "the oriel's three lights, read off the photograph: each about 0.9-1.1 m between its stone mullions, from 6.0 to 8.25 m over the walk, a transom at about 7.5 m"
+                  "recess_m": 0.33,
+                  "why_not_ordinary": "the oriel's three lights, read off the photograph: each about 0.9-1.1 m between its stone mullions (built 0.75 m clear in frames 1.0 m across, 1.05 m apart, so three fit its 3.2 m front), from 6.0 to 8.25 m over the walk, a transom at about 7.5 m"
                 }
               ]
             }
@@ -357,15 +374,45 @@
           "storeys": [
             {
               "height_m": 5.3,
-              "windows": []
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.9,
+                  "clear_height_m": 2.2,
+                  "sill_m": 2.75,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
             },
             {
               "height_m": 3.9,
-              "windows": []
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.9,
+                  "clear_height_m": 2.0,
+                  "sill_m": 0.75,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
             },
             {
               "height_m": 2.75,
-              "windows": []
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 1.65,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
             }
           ],
           "roof": {
@@ -381,7 +428,7 @@
         "monroe_1896_john_wellborn_root_meyer_plate",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The 'slightly bowed window group' of the register: a shallow bowed oriel on the street front over the ground-floor window, read off the photograph: 3.45 m across its stone frame (x 515-860 px), carried on a corbelled apron from 5.05 m, its three lights 6.0-8.25 m, a carved frieze over them to about 8.9 m and its cap at the string course (9.2 m). Its rise is not measurable square on; 0.25 m on two corbel courses (their foot at 4.9 m, the photograph's at about 5.05 m), as Monroe's plate shows it standing a little proud. The carved frieze and apron are T-1914's. The north wall's projection: the sheet draws the main body's north line stepping out 1.3 m for 5.86 m, from 5.85 to 11.71 m behind the front (px 946-978, rows 386-393), read at full size; it rises to the wall head, where the photograph's camera puts a cornice on the north flank about 12 m up behind the front (y 715 px). Its blind faces are reconstructed."
+      "note": "The 'slightly bowed window group' of the register: a shallow bowed oriel on the street front over the ground-floor window, read off the photograph: 3.45 m across its stone frame (x 515-860 px), carried on a corbelled apron from 5.05 m, its three lights 6.0-8.25 m, a carved frieze over them to about 8.9 m and its cap at the string course (9.2 m). Its depth is not measurable square on: a flat front 3.2 m across with short cants to the wall, 0.38 m out on three corbel courses (their foot at 4.7 m, the photograph's at about 5.05 m), as Monroe's plate shows it standing a little proud; the register's 'slightly bowed' group is drawn canted, the kit's bow being too deep for three lights this wide. The carved frieze and apron are T-1914's. The north wall's projection: the sheet draws the main body's north line stepping out 1.3 m for 5.86 m, from 5.85 to 11.71 m behind the front (px 946-978, rows 386-393), read at full size; it rises to the wall head, where the photograph's camera puts a cornice on the north flank about 12 m up behind the front (y 715 px). A light a storey in its outer face is reconstructed."
     },
     "shaped_gable": {
       "value": {
@@ -670,7 +717,7 @@
   "citations": [
     {
       "source_id": "chicagology_2009_prairie_meyer_photo",
-      "citation": "[2009 S. Prairie Ave. (left) and 2011 S. Prairie Ave. (right).] Photograph of the Max A. Meyer house's street front from the west side of Prairie Avenue, with the north flank of the house and the rock-faced front of 2011 beside it, in leafless season; unknown photographer, undated (reproduced as a halftone publication plate). Reproduced on chicagology.com, Prairie Avenue, 2009 Prairie.",
+      "citation": "[2009 and 2011 S. Prairie Ave.] Photograph of the Max A. Meyer house's front from the west walk; unknown photographer, undated. Reproduced on chicagology.com, 2009 Prairie.",
       "url": "https://chicagology.com/chicagostreets/prairieavenue/2009prairie/",
       "archived_url": "",
       "tier": 1,
@@ -701,7 +748,7 @@
     },
     {
       "source_id": "monroe_1896_john_wellborn_root_meyer_plate",
-      "citation": "Harriet Monroe, John Wellborn Root: A Study of His Life and Work (Boston and New York: Houghton, Mifflin and Company, 1896), p. 155, plate 'House of Mrs. Max Meyer'.",
+      "citation": "Harriet Monroe, John Wellborn Root (Boston: Houghton, Mifflin, 1896), p. 155, 'House of Mrs. Max Meyer'.",
       "url": "https://archive.org/details/johnwellbornroot00monr/page/155/mode/1up",
       "archived_url": "",
       "tier": 1,

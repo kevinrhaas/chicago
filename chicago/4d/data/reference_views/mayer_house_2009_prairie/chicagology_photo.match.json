@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6998109789eb9a763d55bc9bbc1f236632c69dc9bd044d6e47c1a72891fa14e3",
+  "glb_sha256": "3ae70901ba95b0c26fb6fac96bd555f2fbf0e6b71cfa6a3ab3bff393a8701850",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -25,8 +25,16 @@
       "status": "fixed"
     },
     {
+      "what": "the ground window's head about 0.15 m under the print's (it clears the oriel's corbel)",
+      "status": "within tolerance"
+    },
+    {
       "what": "the oriel: three lights from the second floor on a corbelled apron under the string course, on the print's lights",
       "status": "fixed"
+    },
+    {
+      "what": "the oriel's lights: each 0.75 m clear in a 1.0 m frame where the print's are about 0.9-1.1 m between mullions, and the oriel a flat front on short cants where the print's is slightly bowed (both about 0.2 m)",
+      "status": "within tolerance"
     },
     {
       "what": "the oriel's carved frieze over its lights and the carved apron under them: the build's are plain stone (T-1914)",
