@@ -665,6 +665,39 @@
           ],
           "note": "T-1883: The approved 1888 photograph shows low square stone posts and solid horizontal stone rails/curbs, with an open break aligned to the stair. Replaces the generic tall iron fence, urn piers, swinging gates and unsupported south wall. Heights and sections are rounded reconstructions; the line stays on the accepted street grid. The thin iron infill in the 1965 colour photograph belongs to that later date and is not carried into 1904."
         },
+        "alley_wall": {
+          "value": {
+            "u_m": [
+              -31.378,
+              -30.948
+            ],
+            "s_m": [
+              7.921,
+              10.085
+            ],
+            "ends": [
+              "free",
+              "wall"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "habs_glessner_house_il_1015_drawings"
+          ],
+          "note": "T-3321 (piece 1 of T-1944): the Glessner court wall's return south along the alley, which HABS IL-1015 sheet 2 (first floor plan, 1963) draws on 1808's alley line and T-2201 left to this lot (L-glessner-court-wall-2201). Read on the committed scan (chicago/prairie_1904_v1/research/public/glessner-habs-sheet-2.png) at the sheet's 37.2 px/ft: a hatched run 53 px through (1.4 ft, +/- 0.15: the hatch's inner edge has no drawn line), its west face the heavy line that runs on as the granite gate pier's outer face, from the court wall's north face (S 74.0) 304 px south (8.2 ft, to S 82.2). In Glessner's frame (x = (161.25 - W) x 0.3048, y = (74.0 - S) x 0.3048; this record's origin is that frame's u 31.149, v -10.42) the west face stands on W 162.0, u -31.378 here, the east face 0.43 m in, and the run from the court wall's south face (S 75.1, s 10.085) to s 7.921. Its north end abuts the court wall, so the end face it hides is not drawn and its coping stops short of the court wall's. INFERRED for 1904, as the court wall is: a survey of 1963 carried back because nothing read records exterior work on the court before the 1946 conversion. No picture of the alley side is held. Height and coping: alley_wall_height. docs/LIBERTIES.md L-1808-alley-return-1944."
+        },
+        "alley_wall_height": {
+          "value": {
+            "height_m": 2.804,
+            "coping_m": 0.18,
+            "overhang_m": 0.06
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "habs_glessner_house_il_1015_drawings"
+          ],
+          "note": "T-3321 (piece 1 of T-1944): no sheet draws the return in elevation and no photograph of the alley side is held. It is given the court wall's own reconstructed height and coping (glessner_house.courtyard_wall_heights: 9.0 ft over Glessner's north grade, which stands 0.2 ft over its model grade, so 9.2 ft = 2.804 m; 0.18 m of stone overhanging 0.06 m on each free side), so the two runs meet at one coping line at the gate pier. docs/LIBERTIES.md L-1808-alley-return-1944."
+        },
         "condition": {
           "value": {
             "kit": "data/components/prairie_1904/k14_condition.json",
