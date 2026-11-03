@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2587, ts: '2026-11-03T01:12:28.575Z', date: 'Nov 2, 2026, 7:12 PM CT', title: 'A brick wall closes 1808 Prairie\'s yard on the alley', kind: 'feature',
+    items: [
+      'Behind 1808 Prairie, the Glessner courtyard wall now turns the corner at the alley gate and runs about 2.5 m south along the alley, as the 1963 survey drawing shows. Before, it stopped dead at the gatepost.',
+      'It is built in 1808\'s own buff brick under a stone coping, at the courtyard wall\'s height. No drawing or photograph gives that height, so the Confidence view marks the wall as reconstructed.',
+    ] },
   { v: 2586, ts: '2026-11-03T00:22:30.489Z', date: 'Nov 2, 2026, 6:22 PM CT', title: '1919 Prairie\'s north corner rounded up to the eave', kind: 'feature',
     items: [
       'The Marshall Field Jr. house\'s front now turns its north corner on a curve from the ground to the roof, as the 1913 and 1919 Gatlin plates show: the stone basement, the pale stone bands and the red brick run round it, and so do the eave, its cornice and the gutter, with the slate rounding the corner above them.',
