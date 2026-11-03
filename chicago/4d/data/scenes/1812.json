@@ -24,9 +24,9 @@
     {
       "id": "first_fort_gate",
       "label": "Before the main gate, in the south picket rows",
-      "local_e": 1149.6,
-      "local_n": 196.0,
-      "yaw_deg": 0.0
+      "local_e": 1148.5,
+      "local_n": 190.0,
+      "yaw_deg": 5.0
     },
     {
       "id": "first_fort_from_above",
@@ -53,10 +53,12 @@
     },
     {
       "id": "eighteenth_street_shore",
-      "label": "The bank at the later Eighteenth Street - two remembered cottonwoods",
-      "local_e": 1495.0,
+      "label": "Above the shore at the later Eighteenth Street, where two cottonwoods were remembered, looking north up the beach",
+      "local_e": 1530.0,
       "local_n": -3185.0,
-      "yaw_deg": 120.0
+      "yaw_deg": 355.0,
+      "altitude_m": 30.0,
+      "pitch_deg": -10.0
     },
     {
       "id": "lees_place_reach",
@@ -80,6 +82,129 @@
       "yaw_deg": 225.0,
       "altitude_m": 22.0,
       "pitch_deg": -22.0
+    },
+    {
+      "id": "burns_house_from_river",
+      "label": "Before the Burns house, on the north bank of the main river",
+      "local_e": 797.0,
+      "local_n": 96.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "first_fort_parade",
+      "label": "On the parade of the first fort, facing the commanding officer's barracks",
+      "local_e": 1146.0,
+      "local_n": 225.0,
+      "yaw_deg": 100.0
+    },
+    {
+      "id": "first_fort_officers_quarters",
+      "label": "On the parade, facing the officers' barracks on the west side",
+      "local_e": 1157.0,
+      "local_n": 216.0,
+      "yaw_deg": 285.0
+    },
+    {
+      "id": "first_fort_inside_gate",
+      "label": "Just inside the main gate, between the soldiers' barracks",
+      "local_e": 1146.0,
+      "local_n": 213.6,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "first_fort_north_side",
+      "label": "On the parade's north-west corner, facing the magazine and the north-west blockhouse",
+      "local_e": 1148.0,
+      "local_n": 223.0,
+      "yaw_deg": 330.0
+    },
+    {
+      "id": "first_fort_esplanade",
+      "label": "On the open ground west of the fort, below the north-west blockhouse",
+      "local_e": 1108.0,
+      "local_n": 222.0,
+      "yaw_deg": 90.0
+    },
+    {
+      "id": "first_fort_factory_front",
+      "label": "Before the United States factory, west of the fort",
+      "local_e": 1092.0,
+      "local_n": 214.0,
+      "yaw_deg": 270.0
+    },
+    {
+      "id": "first_fort_wharf",
+      "label": "On the bank above the fort's wharf, looking north across the river to the Kinzie house",
+      "local_e": 1090.0,
+      "local_n": 232.0,
+      "yaw_deg": 30.0
+    },
+    {
+      "id": "first_fort_covered_way",
+      "label": "Above the river bank north-east of the fort, looking down the covered way to the water",
+      "local_e": 1188.0,
+      "local_n": 250.0,
+      "yaw_deg": 245.0,
+      "altitude_m": 15.0,
+      "pitch_deg": -25.0
+    },
+    {
+      "id": "first_fort_south_east",
+      "label": "South-east of the fort, facing the merchant's shop, the sutler's garden and the armourer's shop",
+      "local_e": 1195.0,
+      "local_n": 170.0,
+      "yaw_deg": 150.0
+    },
+    {
+      "id": "first_fort_gardens",
+      "label": "South of the commanding officer's garden, looking north across it to the fort",
+      "local_e": 1150.0,
+      "local_n": 100.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "river_mouth_1812",
+      "label": "On the beach south of the river's mouth, looking north up the channel to the Lee house",
+      "local_e": 1150.0,
+      "local_n": -490.0,
+      "yaw_deg": 340.0
+    },
+    {
+      "id": "heald_mile_and_a_half",
+      "label": "Above the beach at Captain Heald's 'about a mile and a half', looking north up the shore to the fort",
+      "local_e": 1300.0,
+      "local_n": -1853.0,
+      "yaw_deg": 355.0,
+      "altitude_m": 25.0,
+      "pitch_deg": -8.0
+    },
+    {
+      "id": "kinzie_house_front",
+      "label": "On the bank top before the Kinzie house's green, facing its door",
+      "local_e": 1152.0,
+      "local_n": 314.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "ouilmette_house_front",
+      "label": "Before Antoine Ouilmette's house, west of the Kinzie house",
+      "local_e": 1119.0,
+      "local_n": 334.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "lalime_house_front",
+      "label": "Before La Lime's house, the middle of the three houses west of Kinzie's",
+      "local_e": 1103.0,
+      "local_n": 333.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "west_of_kinzie_house",
+      "label": "Two hundred yards west of the Kinzie house, looking back east along the north bank",
+      "local_e": 975.0,
+      "local_n": 345.0,
+      "yaw_deg": 90.0
     }
   ],
   "layers": [
