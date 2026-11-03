@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5258c4d23a2276022f29537ba3a180d0a36eb68041894d89a9894220959b4cca",
+  "glb_sha256": "f4242a7d4eaa08b4c747374a35db414f558fd8220508338b40aba7aea2273847",
   "camera_sha256": "08a023b25d98770a1eb2830d73d84583e1fbf3dc02414c9cd7c5cf057c201980",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -13,11 +13,19 @@
       "status": "fixed"
     },
     {
-      "what": "the camera itself is provisional (fitted by eye; see the camera's solve): through it the photograph's verandah and tower stand about 100-150 px (2.5-4 m) north of where the 1911 sheet puts them, and the photograph shows a bay of windows between the south-east corner and the verandah (x 1172-1395 px) that the build, laid on the sheet's plan, has no room for; re-solve with more points and settle the front's composition",
+      "what": "the main cornice's height: its crown stood at 12.19 m, 1.2 m under the Tribune's 44 ft to the top of the cornice, which the photograph's tower confirms (the main cornice's top at 0.60 of the tower's height); T-3330 raised the attic to 3.32 m, the crown to 13.39 m, the frieze lights with it under the brackets, and the dining range's top storey to the same eaves",
+      "status": "fixed"
+    },
+    {
+      "what": "the camera itself is provisional (fitted by eye; see the camera's solve): through it the photograph's verandah and tower stand about 100-150 px (2.5-4 m) north of where the 1911 sheet puts them, and the photograph shows a bay of windows between the south-east corner and the verandah (x 1172-1395 px) that the build, laid on the sheet's plan, has no room for; re-solve with more points and settle the front's composition T-3330 tried: least-squares solves on the belvedere's top balustrade (its three posts read at x 1537, 1668 and 1735 px) with the house's corners (the south flank's west end at x 795, the south-east corner at x 1140, the north end at x 1825) do not close on the sheet's plan, 50-75 px rms whichever of the corners is the main block's and whichever is the reception bay's; the balustrade alone fits a camera about 100 m south-south-east on a long lens (5 px rms) if its tall post is the south-east corner, or one nearly due east if that post is the east face's middle, and neither agrees with the front's 685 px against the flank's 345. The Robinson atlas of 1886 (cgs-1936-robinson-1886) draws the tower in the middle of the front, about 6.6-10.4 m along a 14.2 m face, as the 1911 sheet does, and the etching (a19-cgy-1936-thompson-etching) draws the same order as the photograph: the corner, a two-window bay, the verandah (behind a tree), the tower, the stoop running north. So the front's composition is still the open question, now narrowed to where the photograph's corner at x 1140 stands on the plan.",
       "status": "open"
     },
     {
-      "what": "the tower: the photograph's is square, with a bracketed cornice and balcony at the main cornice's level, a short stage, a balconied belvedere with arched lights and a deep bracketed cornice under a balustraded top (x 1440-1785, y 5-385 px). T-3318 built it square (3.79 m, its front 1.3 m out, the sheet's), its belvedere lights round-headed, one to a face, and a stone balustrade round its flat top. T-3324 put a console at each of its free corners and a row of brackets under the belvedere's cornice, and the corbelled stone balcony at the belvedere's foot, 0.55 m out on three stepped courses with its balustrade, so the belvedere stands back over it. Still open: the bracketed cornice and balcony at the main cornice's level, and its height against the main cornice (about 70 px taller through this provisional camera, which the re-solve settles)",
+      "what": "the tower: the photograph's is square, with the main cornice carried round it at the main cornice's level, a short blind stage, a balconied belvedere with arched lights and a deep bracketed cornice under a balustraded top (x 1440-1785, y 5-385 px). T-3318 built it square, T-3324 bracketed the belvedere and stood it back over its corbelled balcony, and T-3330 set its heights on the photograph's own vertical scale down the tower's front (39.6 px/m from the main cornice's top at y 380, the Tribune's 44 ft, which puts the top rail at y 30, the Tribune's 73 ft): the main cornice carried round the tower as a corbel table at 12.66-13.41 m (y 380-410), the stage 1.78 m and blind (y 310-380; the photograph shows no balcony at the cornice's level and no lights in the stage), the balcony's floor at 15.19 m (y 310), the belvedere's lights 16.07-17.87 m (y 205-275), its eaves at 20.39 m. Built; the earlier 'about 70 px taller' was the stage's 3.4 m with lights over a cornice that stood 1.2 m low",
+      "status": "fixed"
+    },
+    {
+      "what": "the belvedere's cornice: the photograph's stands about 1 m deep over its brackets (y 80-120 px, 19.97-20.98 m on the tower's scale); the build's is the kit's thin bracketed eave, about 0.3 m",
       "status": "open"
     },
     {
@@ -33,11 +41,11 @@
       "status": "open"
     },
     {
-      "what": "the chimney stacks: the photograph's three tall panelled stacks with heavy caps, the left one over the flank's middle (x 905-995, top y 270 px) and the right one over the front part (x 1215-1290, top y 185 px), stand taller and further east than the build's",
+      "what": "the chimney stacks: the photograph's three tall panelled stacks with heavy caps, the left one over the flank's middle (x 905-995, top y 270 px) and the right one over the front part (x 1215-1290, top y 185 px), stand taller and further east than the build's (T-3330 raised them 1.22 m with the cornice and the deck; their places wait on the camera)",
       "status": "open"
     },
     {
-      "what": "the roof's deck stands higher in the photograph (its rail at y 260-300 px over the south-east corner) than the build's 15.0 m",
+      "what": "the roof's deck stands higher in the photograph (its rail at y 260-300 px over the south-east corner) than the build's 15.0 m (T-3330 raised it with the main cornice, 15.0 to 16.22 m; how it stands against the photograph waits on the camera)",
       "status": "open"
     },
     {
