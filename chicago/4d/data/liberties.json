@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 972,
+  "count": 973,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -43161,6 +43161,46 @@
         "T-3332",
         "T-3334",
         "T-3331"
+      ]
+    },
+    {
+      "id": "L-night-lights-3334",
+      "title": "1904 by night: the street lamps lit, gas and electric light in the houses' windows",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "when Time of day darkens 1904, every gas lamp post on the district's parkways (the posts, “The 1904 district's gas lamps: one at every street corner and one about every 160 ft of parkway, most of them placed by rule”) is lit: its lantern glass glows a gas mantle's warm white, a halo stands in the lantern and a warm pool lies on the ground under it, from dusk to dawn. Every house's window panes can glow, building by building: about five in six lit at dusk, three in five until ten, a third until eleven, a few through the night, more again before six (the 1904 night lights data)."
+        },
+        {
+          "label": "What it stands on",
+          "text": "gas mantles from the 1890s, gas streetlights still used in some areas of the city in the early 1900s, and electric light common by 1909 (Chicago Public Library, \"Technology That Changed Chicago: Gaslight\", Chicago…); the lamp posts are earlier work's, drawn from the photographs as gas lamps."
+        },
+        {
+          "label": "What is invented",
+          "text": "that every post was lit and burned all night; the mantle's colour, the halo and the pool; which houses are lit at which hour (a seeded choice per building, not any household's record), the hours table, and one colour between gas and electric light for every house: no source reached says which Prairie Avenue houses burned gas and which electricity in 1904. The context city beyond the district is not lit. The light a window throws into the street is not drawn."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the city's 1904 report on public lighting (which streets had gas lamps, which electric arcs, and the lighting hours), and a house's own account (the Glessners' fixtures and bills) for its windows."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's street furniture code, the 1904 night lights data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03 (T-3334)."
+        }
+      ],
+      "work_refs": [
+        "T-3331",
+        "T-3199",
+        "T-3334"
       ]
     },
     {

@@ -20,8 +20,13 @@
  * re-dealt only when the eye has moved a few metres, from a list of about a hundred.
  * No binary asset: the post is built here, to the measures the data file states.
  *
- * NO LIGHT. The scene is a July morning and has no night (world.js), so the lanterns
- * are glass in daylight and nothing is lit.
+ * LIT BY NIGHT (T-3334). By day the lanterns are clear glass and nothing is lit. When
+ * Settings › Time of day darkens the scene (time-of-day.js), every lamp is lit: its glass
+ * takes a gas mantle's warm white as emissive and turns nearly opaque, a halo stands in
+ * the lantern (one Points draw for every lamp) and a warm pool lies on the ground under
+ * it (one instanced draw). No three.js light is added. By day the emissive is black, the
+ * opacity the daylight one and the halos and pools hidden, so the frame is unchanged.
+ * What is ours is in docs/LIBERTIES.md L-night-lights-3334.
  *
  * A scene that does not list `street_furniture` hands this no data base and it draws
  * nothing; a failed fetch draws nothing and records a problem. A pick on a post opens
@@ -29,6 +34,8 @@
  */
 
 import * as THREE from 'three';
+import { onDaylight } from './time-of-day.js';
+import { glowTexture, windowGlowFor } from './night-lights.js';
 
 const PARKWAY_LIFT_M = 0.05;      // street-grid.js CLASSES.parkway.lift
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -665,7 +672,56 @@ export async function createStreetFurniture({
     const it = items.find((x) => x.id === id);
     return it ? itemCard(it, doc) : null;
   };
+  /* ---- by night (T-3334): the lanterns lit, a halo in each, a pool under it -- */
+  const lampsPlaced = placed.filter((p) => isLamp(p.it));
+  const lanternMid = ((model.lantern_m?.foot ?? 2.45) + (model.lantern_m?.top ?? 2.77)) / 2;
+  const GAS = new THREE.Color().setRGB(1.0, 0.8, 0.5, THREE.LinearSRGBColorSpace);
+  const DAY_OPACITY = mats.glass.opacity;
+  const glowTex = glowTexture(64);
+  const haloPos = new Float32Array(lampsPlaced.length * 3);
+  lampsPlaced.forEach((p, i) => {
+    const lift = p.it.footing ? footH : 0;
+    haloPos.set([p.x, p.y + lift + lanternMid, p.z], i * 3);
+  });
+  const haloGeo = new THREE.BufferGeometry();
+  haloGeo.setAttribute('position', new THREE.BufferAttribute(haloPos, 3));
+  const haloMat = new THREE.PointsMaterial({
+    map: glowTex, size: 1.1, sizeAttenuation: true, color: GAS.clone(), blending: THREE.AdditiveBlending,
+    depthWrite: false, transparent: true, fog: true,
+  });
+  const halos = new THREE.Points(haloGeo, haloMat);
+  halos.name = 'street-lamp-halos';
+  halos.frustumCulled = false;
+  const POOL_M = 4.2;
+  const poolMat = new THREE.MeshBasicMaterial({
+    map: glowTex, color: GAS.clone(), blending: THREE.AdditiveBlending, depthWrite: false,
+    transparent: true, fog: true, polygonOffset: true, polygonOffsetFactor: -4,
+  });
+  const poolGeo = new THREE.PlaneGeometry(POOL_M * 2, POOL_M * 2).rotateX(-Math.PI / 2);
+  const pools = new THREE.InstancedMesh(poolGeo, poolMat, Math.max(1, lampsPlaced.length));
+  pools.count = lampsPlaced.length;
+  pools.name = 'street-lamp-pools';
+  pools.renderOrder = 2;
+  const poolAt = new THREE.Matrix4();
+  lampsPlaced.forEach((p, i) => pools.setMatrixAt(i, poolAt.makeTranslation(p.x, p.y + 0.07, p.z)));
+  pools.instanceMatrix.needsUpdate = true;
+  pools.computeBoundingSphere();
+  halos.visible = pools.visible = false;
+  if (lampsPlaced.length) group.add(halos, pools);
+  stats.nightLit = 0;
+  const unhookNight = onDaylight(({ grade }) => {
+    const k = windowGlowFor(grade);
+    stats.nightLit = k;
+    mats.glass.emissive.copy(GAS).multiplyScalar(1.4 * k);
+    mats.glass.opacity = DAY_OPACITY + (0.92 - DAY_OPACITY) * k;
+    haloMat.color.copy(GAS).multiplyScalar(1.1 * k);
+    poolMat.color.copy(GAS).multiplyScalar(0.16 * k);
+    halos.visible = pools.visible = k > 0 && lampsPlaced.length > 0;
+  });
+
   out.dispose = () => {
+    unhookNight();
+    haloGeo.dispose(); poolGeo.dispose(); haloMat.dispose(); poolMat.dispose(); glowTex.dispose();
     for (const m of meshes) m.geometry.dispose();
     wires?.geometry.dispose();
     for (const m of Object.values(mats)) m.dispose();
