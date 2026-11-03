@@ -3649,6 +3649,7 @@ async function boot() {
       const { mountTownTransport } = await import('./town-transport-scene.js');
       api.townTransport = await mountTownTransport({
         sceneId: YEAR, dataBase: bases.dataBase, people, getPeople: () => peopleDirectory.load(),
+        preparePersonCard: !draws('residents') ? prepareSceneDirectoryPerson : null,
         humans: api.humans, confidence,
         heightAt: String(YEAR) === '1904'
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
@@ -4960,6 +4961,24 @@ async function boot() {
     }
     return householdRecords.get(file);
   }
+  // A nearby occupied driver can be inspected as soon as its model is ready.
+  // Warm only the existing card code/metadata; never open Navigator or acquire a model.
+  async function prepareSceneDirectoryPerson(id) {
+    if (!supportsTownTransport(YEAR) || draws('residents')) return;
+    await Promise.allSettled([
+      import('./apps/inspect-view.js'), ensureInspect(), ensureReaderText(), ensurePictures(),
+      peopleDirectory.load().then((directory) => {
+        const row = directory?.people?.find(person => person.id === id);
+        return row ? Promise.allSettled([householdRecord(row.file), ensureResidentCitations()]) : null;
+      }),
+    ]);
+  }
+  function ensureResidentCitations() {
+    return residentCitations ??= fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/residents_sources.json`, resolveBases().dataBase), { cache: 'no-cache' })
+      .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+      .then((doc) => doc?.citations ?? {})
+      .catch((err) => { residentCitations = null; throw err; });
+  }
   // One public person-card route for figure picks, firms, Go to and Navigator.
   // The existing later-scene reader follows the directory's own residents_root.
   async function openSceneDirectoryPerson(id) {
@@ -5264,11 +5283,12 @@ async function boot() {
         },
         // T-2639: the card's content as Inspect's tabs show it, once the lazy data it reads
         // (liberties, pictures, a seated record's household notes) is in hand.
-        cardSections: async (id) => {
+        cardSections: async (id, { tab = null } = {}) => {
           const record = loaded.registry.get(id);
           if (!record) return null;
           ensureHouseholdNotes(record);
-          await Promise.all([ensureLiberties(), ensurePictures(), householdNotes.get(record.id), ensureReaderText()].map((x) => Promise.resolve(x).catch(() => null)));
+          // People reads the record/households, not the Sources/Research liberties index.
+          await Promise.all([tab === 'people' ? null : ensureLiberties(), ensurePictures(), householdNotes.get(record.id), ensureReaderText()].map((x) => Promise.resolve(x).catch(() => null)));
           return popup.sections(record);
         },
         // A person by directory id: in the drawer's People section where the scene has one
@@ -5281,10 +5301,7 @@ async function boot() {
         // data/residents_<scene>/, published by publish.sh) and the citations it cites,
         // each once, when a card first asks.
         householdRecord: (file) => householdRecord(file),
-        residentCitations: () => (residentCitations ??= fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/residents_sources.json`, resolveBases().dataBase), { cache: 'no-cache' })
-          .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
-          .then((doc) => doc?.citations ?? {})
-          .catch((err) => { residentCitations = null; throw err; })),
+        residentCitations: () => ensureResidentCitations(),
         openPicture: (id, i) => openPictureViewer(popup.picturesDoc, id, i),
         holdInspect: (id) => { inspectHold = id ?? null; },
         closeCard: () => popup.close(),

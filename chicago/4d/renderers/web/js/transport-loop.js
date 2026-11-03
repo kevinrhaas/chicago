@@ -242,10 +242,19 @@ export function preflightTransportRoute(configuration) {
   return next.value;
 }
 
+/** Prefer a prioritized continuation while still yielding to input/browser work.
+ * Older engines retain the original timer path; neither path changes the samples. */
+function yieldRouteTask() {
+  const scheduler = globalThis.scheduler;
+  return typeof scheduler?.yield === 'function'
+    ? scheduler.yield()
+    : new Promise(resolve => setTimeout(resolve, 0));
+}
+
 /** Cooperative version for an already entered town. It yields BEFORE the first
  * reading and between small chunks; main's first frame and welcome never wait on it. */
 export async function preflightTransportRouteAsync(configuration, {
-  yieldEvery = 32, yieldControl = () => new Promise(resolve => setTimeout(resolve, 0)),
+  yieldEvery = 32, yieldControl = yieldRouteTask,
   cancelled = () => false,
 } = {}) {
   if (!Number.isInteger(yieldEvery) || yieldEvery <= 0 || yieldEvery > 128) throw Error('transport loop: bounded preflight chunk required');

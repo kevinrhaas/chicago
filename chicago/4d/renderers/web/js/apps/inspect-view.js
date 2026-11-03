@@ -401,7 +401,7 @@ async function fillPane(root, pane, key) {
   pane.dataset.filled = 'pending';
   pane.replaceChildren(el(doc, 'p', 'nav-sub', 'Reading the record…'));
   let sec = null;
-  try { sec = await ctx.actions?.cardSections?.(id); } catch { sec = null; }
+  try { sec = await ctx.actions?.cardSections?.(id, { tab: key }); } catch { sec = null; }
   if (root._insp?.id !== id) return; // the building changed while this was read
   pane.replaceChildren();
   if (!sec) {

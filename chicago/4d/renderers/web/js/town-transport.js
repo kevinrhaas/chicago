@@ -92,10 +92,11 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
 }
 
 /** One instance per scene. The static parked layer remains independently owned. */
-export function createTownTransport({ rows, sceneId, makeAssembly, heightAt,
+export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssembly = null, heightAt,
   clear, routeClear = clear, routeSupport = null, detail = 'full',
   reach = { full: 90, balanced: 60, light: 0 }, problems = [], onActorsChanged = () => {} }) {
   if (!Array.isArray(rows) || typeof makeAssembly !== 'function' || typeof clear !== 'function') throw Error('town transport: scene rows, assembly loader and clearance reader required');
+  if (prepareAssembly !== null && typeof prepareAssembly !== 'function') throw Error('town transport: optional assembly preparation callback required');
   const actors = [], roots = [];
   const saved = new Map();
   const routeReadings = new Map(), deferred = new Map(), failed = new Set();
@@ -129,6 +130,11 @@ export function createTownTransport({ rows, sceneId, makeAssembly, heightAt,
               ? roundedBlockRoute(row.route) : circleRoute(row.route);
             if (row.horse_offset_m && !routeSupport) throw Error('town transport: actual whole-circuit horse support reader required');
             let routeReading = routeReadings.get(row.id);
+            if (!routeReading && prepareAssembly) {
+              // Eligible near-route JS imports can overlap the complete static read.
+              // This optional warmup owns no models; the real factory remains authoritative.
+              try { Promise.resolve(prepareAssembly(liveRow)).catch(() => {}); } catch { /* factory reports its actual dependency error after the route passes */ }
+            }
             if (!routeReading) routeReading = await preflightTransportRouteAsync({ row, route, heightAt,
               clear: (from, to) => routeClear(row, from, to), support: routeSupport ? pose => routeSupport(row, pose) : null },
               { yieldEvery: 128, cancelled: () => disposed || ownGeneration !== generation || tier === 'light' });

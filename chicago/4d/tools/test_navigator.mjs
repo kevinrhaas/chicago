@@ -1459,3 +1459,76 @@ console.log('NAVIGATOR PASS — the probe looks only when asked and moved, each 
   if (previousCSS === undefined) delete globalThis.CSS; else globalThis.CSS = previousCSS;
   console.log('INSPECT LINKED PERSON PASS — actual mount/shown, household hydration, Find, Back and new link');
 }
+
+// Actual main cardSections + popup.sections + Inspect: People must not await the
+// unrelated liberties index; every other/default caller retains that exact barrier.
+{
+  const { createPopup } = await import('../renderers/web/js/popup.js');
+  const inspect = await import('../renderers/web/js/apps/inspect-view.js');
+  const main = fs.readFileSync(path.join(ROOT, 'renderers/web/js/main.js'), 'utf8');
+  const begin = main.indexOf('cardSections: async (id, { tab = null } = {}) => {');
+  const end = main.indexOf('\n        // A person by directory id', begin);
+  assert(begin >= 0 && end > begin);
+  const method = main.slice(begin + 'cardSections: '.length, end).trim().replace(/,$/, '');
+  const id = 'otis_house_2033_prairie', personId = 'pa1904_otis_f_r_c1900_hans_johnson';
+  const sidecar = json(`data/sidecars/1904/${id}.json`);
+  sidecar.review_required = true; // Exercise the existing held flag, not only an unflagged record.
+  const record = { id, sidecar };
+  const popup = createPopup({ addEventListener() {} });
+  const directory = json('data/sidecars/1904/people.json');
+  const row = directory.people.find(person => person.id === personId);
+  const household = json(`data/residents_1904/${row.file}`);
+  const citations = json('data/sidecars/1904/residents_sources.json').citations;
+  let releaseLiberties, libertyCalls = 0, pictures = 0, reader = 0, notes = 0;
+  const liberties = new Promise(resolve => { releaseLiberties = resolve; });
+  const cardSections = new Function('loaded', 'ensureHouseholdNotes', 'ensureLiberties', 'ensurePictures',
+    'householdNotes', 'ensureReaderText', 'popup', `return (${method});`)(
+    { registry: new Map([[id, record]]) }, current => { assert.strictEqual(current, record); notes++; },
+    () => { libertyCalls++; return liberties; }, () => { pictures++; return Promise.resolve(); },
+    new Map([[id, Promise.resolve()]]), () => { reader++; return Promise.resolve(); }, popup);
+  const flush = async () => { for (let n = 0; n < 48; n++) await Promise.resolve(); };
+  let peopleReady = false;
+  const earlyPromise = cardSections(id, { tab: 'people' }).then(sec => { peopleReady = true; return sec; });
+  await flush(); assert.equal(peopleReady, true, 'People must settle while liberties are still unresolved');
+  const early = await earlyPromise;
+  assert.equal(libertyCalls, 0, 'People must not even request the unrelated liberties file');
+  assert.equal(notes, 1); assert.equal(pictures, 1); assert.equal(reader, 1);
+  assert(early.people.includes('pop-flags'), 'held/review flags remain in real popup People HTML');
+  const pending = [];
+  for (const options of [undefined, { tab: 'sources' }, { tab: 'research' }, { tab: 'photos' }, { tab: 'unknown' }]) {
+    const state = { done: false };
+    state.promise = cardSections(id, options).then(sec => { state.done = true; return sec; }); pending.push(state);
+  }
+  await flush(); assert(pending.every(state => !state.done), 'default/Sources/Research/other tabs retain original unresolved-liberties barrier');
+  assert.equal(libertyCalls, pending.length);
+  const previousCSS = globalThis.CSS;
+  globalThis.CSS ??= { escape: value => value };
+  const dom = miniDom(), panel = dom.doc.createElement('div'); dom.root.append(panel);
+  panel.removeEventListener = () => {};
+  const ctx = { selected: id, scene: { id: '1904' }, isPhone: true,
+    link: { app: 'inspect', id, tab: 'people', person: personId },
+    actions: { record: () => record, inspectSummaries: async () => null, pictures: async () => null,
+      cardSections, peopleDirectory: async () => directory, householdRecord: async () => household,
+      residentCitations: async () => citations } };
+  await inspect.mount(panel, ctx); await inspect.shown(panel, ctx); await flush();
+  const pane = panel.querySelector('.insp-pane[data-insp-pane="people"]');
+  const card = pane?.querySelector('.insp-person-card');
+  assert.equal(pane?.dataset.filled, 'yes', 'actual fillPane passed the People tab to actual main action');
+  assert.equal(card?.dataset.personId, personId);
+  assert.equal(card.querySelector('.insp-person-name').textContent, 'Hans Johnson');
+  assert(card.querySelector('.insp-person-census'), 'actual household census hydrates while liberties remain unresolved');
+  assert.equal(card.querySelector('.insp-person-wait'), null);
+  assert(pending.every(state => !state.done), 'rendering a real named card does not resolve or bypass Sources/Research');
+  popup.setLiberties([{ structure_id: id, description: 'Native fixture liberty' }]);
+  releaseLiberties();
+  const ready = await Promise.all(pending.map(state => state.promise));
+  for (const sec of ready) {
+    assert.equal(sec.people, early.people, 'People HTML including review/household/agency content is byte-identical after liberties load');
+    assert.equal(sec.hasResidents, early.hasResidents); assert.deepEqual(sec.households, early.households);
+  }
+  assert(pending.every(state => state.done));
+  assert.equal(await cardSections('missing', { tab: 'people' }), null);
+  inspect.unmount(panel);
+  if (previousCSS === undefined) delete globalThis.CSS; else globalThis.CSS = previousCSS;
+  console.log('INSPECT PEOPLE BARRIER PASS — actual main/popup/view renders Hans+census/flags without liberties; Sources/Research/default retain original barrier');
+}

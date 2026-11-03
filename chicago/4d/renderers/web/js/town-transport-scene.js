@@ -7,7 +7,7 @@ import { teamSupportAt, certifiedHorseSupportDomain } from './transport-support.
 import { registerTransportInteractions } from './transport-interactions.js';
 
 /** Small scene binding; the first occupied GLB and whole-route reading stay lazy. */
-export async function mountTownTransport({ sceneId, dataBase, people, getPeople = null, humans, confidence,
+export async function mountTownTransport({ sceneId, dataBase, people, getPeople = null, preparePersonCard = null, humans, confidence,
   heightAt, footprints, visitor, interactions, detail, coarse = false, problems = [],
   configFile = 'transport/driven/loops.json' }) {
   if (!supportsTownTransport(sceneId)) return null;
@@ -36,11 +36,13 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
   const moduleBase = new URL('../', import.meta.url);
   // Light/remote boot needs route metadata, never assembly modules or loaders.
   // Start these only for an ordinary eligible assembly, alongside its directory.
-  let assemblyTools = null;
-  const getAssemblyTools = () => (assemblyTools ??= Promise.all([
+  let assemblyModules = null, assemblyTools = null;
+  const prepareAssemblyModules = () => (assemblyModules ??= Promise.all([
     import('./driven-assembly-loader.js'), import('./draft-hitch.js'),
     import('three/addons/loaders/GLTFLoader.js'),
-  ]).then(([{ createDrivenAssemblyLoader }, { createDraftHitchFactory }, { GLTFLoader }]) => {
+  ]).catch(error => { assemblyModules = null; throw error; }));
+  const getAssemblyTools = () => (assemblyTools ??= prepareAssemblyModules()
+    .then(([{ createDrivenAssemblyLoader }, { createDraftHitchFactory }, { GLTFLoader }]) => {
     const loader = new GLTFLoader();
     return { createDrivenAssemblyLoader, makeHitch: createDraftHitchFactory({ confidence, loadJSON: json,
       loadGLTF: file => loader.loadAsync(new URL(file, moduleBase).href) }) };
@@ -54,6 +56,12 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
     return cache.get(row.id);
   };
   town = createTownTransport({ rows, sceneId, heightAt, detail, problems,
+    prepareAssembly(row) {
+      const modules = prepareAssemblyModules();
+      // Optional scene UI preparation is metadata-only and cannot block assembly.
+      try { Promise.resolve(preparePersonCard?.(row.person_id)).catch(() => {}); } catch { /* the real card route remains authoritative */ }
+      return modules;
+    },
     clear: (row, a, b) => clearance(live, row, true)(a, b),
     routeClear: (row, a, b) => clearance(fixed, row, false)(a, b),
     routeSupport: (row, pose) => teamSupportAt(row, pose, heightAt, supportByHorse.get(modelFor(row))),

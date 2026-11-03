@@ -453,3 +453,197 @@ assert.equal(legacyStarted, true);
 assert.equal(await Promise.race([legacyPublicResult, Promise.resolve('unresolved-legacy-request')]), true, 'Legacy Navigator returns true without waiting for card household/joins');
 legacyFinish(true);
 console.log('original1835 Navigator immediate return preserved while household promise remains unresolved PASS');
+
+// Eligible preparation overlaps only JavaScript imports, never a GLB/model lease.
+// The actual factory still starts only after the complete ordinary static proof.
+{
+  let warmed = 0, models = 0, reads = 0;
+  const modules = deferredAsset();
+  const town = createTownTransport({ rows: [validRow], sceneId: '1835', detail: 'light',
+    heightAt() { reads++; return 0; }, clear: () => true,
+    prepareAssembly() { warmed++; return modules.promise; },
+    makeAssembly() { models++; throw Error('cancelled generation must not acquire'); } });
+  assert.throws(() => createTownTransport({ rows: [], sceneId: '1835', heightAt: () => 0,
+    clear: () => true, makeAssembly() {}, prepareAssembly: 1 }), /preparation callback/);
+  await town.ready(); assert.equal(warmed, 0); assert.equal(models, 0);
+  town.update(0, { x: 20, z: 0 }, { paused: true }); // welcome remains held
+  await town.setTier('full'); assert.equal(warmed, 0);
+  assert.equal(town.ensureNear({ x: 10000, z: 10000 }, true), false);
+  assert.equal(town.ensureNear({ x: 20, z: 0 }, false), false); assert.equal(warmed, 0);
+  const pending = town.ready(); assert.equal(warmed, 1); assert.equal(reads, 0); assert.equal(models, 0);
+  await town.setTier('light'); await pending;
+  assert.equal(reads, 0); assert.equal(models, 0); assert.equal(town.actors.length, 0);
+  modules.resolve(['modules only']); await modules.promise; await Promise.resolve();
+  assert.equal(models, 0); assert.equal(town.actors.length, 0); town.dispose();
+}
+{
+  const modules = deferredAsset(); let warmed = 0, makes = 0, models = 0, staticReads = 0;
+  const town = createTownTransport({ rows: [validRow], sceneId: '1835', heightAt: () => 0,
+    clear: () => true, routeClear() { staticReads++; return true; },
+    prepareAssembly() { warmed++; return modules.promise; },
+    async makeAssembly() {
+      makes++; assert(staticReads >= 505, 'entire20m circle must pass before actual factory');
+      await modules.promise; models++;
+      return { root: new THREE.Group(), pose() {}, dispose() {} };
+    } });
+  const pending = town.ready(); assert.equal(warmed, 1); assert.equal(makes, 0); assert.equal(models, 0);
+  await until(() => makes === 1); assert.equal(models, 0);
+  for (let i = 0; i < 5; i++) town.ensureNear({ x: 20, z: 0 });
+  assert.equal(warmed, 1); assert.equal(makes, 1);
+  modules.resolve(['same cached modules']); await pending;
+  assert.equal(models, 1); assert.equal(town.actors.length, 1); town.dispose();
+}
+{
+  const failure = Error('controlled module import refusal'), problems = [], unhandled = [];
+  const onUnhandled = error => unhandled.push(error); process.on('unhandledRejection', onUnhandled);
+  let warmed = 0, makes = 0;
+  try {
+    const rejected = Promise.reject(failure);
+    const town = createTownTransport({ rows: [validRow], sceneId: '1835', heightAt: () => 0,
+      clear: () => true, problems, prepareAssembly() { warmed++; return rejected; },
+      async makeAssembly() { makes++; await rejected; throw Error('must not reach models'); } });
+    await town.ready(); await new Promise(resolve => setImmediate(resolve));
+    assert.equal(warmed, 1); assert.equal(makes, 1, 'actual factory remains authoritative after import warmup refusal');
+    assert.equal(town.actors.length, 0); assert(problems.some(p => p.includes(failure.message)));
+    assert.deepEqual(unhandled, []); town.dispose();
+  } finally { process.removeListener('unhandledRejection', onUnhandled); }
+}
+{
+  let warmed = 0, models = 0;
+  const problems = [], town = createTownTransport({ rows: [validRow], sceneId: '1835', heightAt: () => 0,
+    clear: () => true, routeClear: () => false, problems,
+    prepareAssembly() { warmed++; return Promise.resolve(['onlyJS']); },
+    makeAssembly() { models++; throw Error('static proof failure must not acquire'); } });
+  await town.ready(); assert.equal(warmed, 1); assert.equal(models, 0); assert.equal(town.actors.length, 0);
+  assert.equal(problems.length, 1); town.dispose();
+}
+// Execute the ACTUAL scene import/tool-cache closures with controlled module I/O.
+// Resolving the warm modules must not construct loaders/factories or touch assets.
+{
+  const begin = sceneBindingSource.indexOf('let assemblyModules = null'), end = sceneBindingSource.indexOf('  const makeByHorse', begin);
+  assert(begin >= 0 && end > begin);
+  const events = [], pendingModules = deferredAsset(); let loaders = 0, hitchFactories = 0;
+  class Loader { constructor() { loaders++; } loadAsync() { events.push('GLB'); throw Error('no GLB before actual makeHitch'); } }
+  const modules = {
+    './driven-assembly-loader.js': { createDrivenAssemblyLoader() {} },
+    './draft-hitch.js': { createDraftHitchFactory() { hitchFactories++; return () => {}; } },
+    'three/addons/loaders/GLTFLoader.js': { GLTFLoader: Loader },
+  };
+  const source = sceneBindingSource.slice(begin, end).replace(/\bimport\(/g, 'loadModule(');
+  const caches = new Function('loadModule', 'confidence', 'json', 'moduleBase', source + '\nreturn { prepareAssemblyModules, getAssemblyTools };')(
+    path => { events.push(path); return pendingModules.promise.then(() => modules[path]); }, null,
+    () => { events.push('JSON'); throw Error('directory/binding JSON must remain lazy'); }, new URL('https://controlled.example/'));
+  const first = caches.prepareAssemblyModules(), second = caches.prepareAssemblyModules();
+  assert.strictEqual(first, second); assert.equal(events.length, 3);
+  assert(events.every(path => path.endsWith('.js'))); assert.equal(loaders, 0); assert.equal(hitchFactories, 0);
+  pendingModules.resolve(); await first;
+  assert.equal(loaders, 0); assert.equal(hitchFactories, 0); assert.equal(events.length, 3);
+  const tools = caches.getAssemblyTools(), sameTools = caches.getAssemblyTools(); assert.strictEqual(tools, sameTools);
+  const readyTools = await tools; assert.equal(typeof readyTools.createDrivenAssemblyLoader, 'function');
+  assert.equal(loaders, 1); assert.equal(hitchFactories, 1); assert.equal(events.length, 3);
+}
+console.log('eligibleJSprewarm: zeroGLBs/leases beforecomplete route, Light/remote/welcome/cancel/refusal/cache ownership PASS');
+// One cached JS request can finish across Light->Full generations; only the
+// new complete preflight may acquire an assembly, which remains singly owned.
+{
+  const modules = deferredAsset(); let warmed = 0, makes = 0, models = 0, frees = 0;
+  const town = createTownTransport({ rows: [validRow], sceneId: '1835', heightAt: () => 0,
+    clear: () => true, prepareAssembly() { warmed++; return modules.promise; },
+    async makeAssembly() { makes++; await modules.promise; models++;
+      return { root: new THREE.Group(), pose() {}, dispose() { frees++; } }; } });
+  town.update(0, { x: 20, z: 0 });
+  const oldReady = town.ready(); assert.equal(warmed, 1);
+  const light = town.setTier('light'), latest = town.setTier('full');
+  await until(() => makes === 1); await oldReady; await light;
+  assert.equal(warmed, 2); assert.equal(makes, 1); assert.equal(models, 0);
+  modules.resolve(); await latest;
+  assert.equal(models, 1); assert.equal(town.actors.length, 1);
+  town.dispose(); town.dispose(); assert.equal(frees, 1);
+}
+{
+  let warmed = 0, models = 0;
+  const town = createTownTransport({ rows: [validRow], sceneId: '1904', heightAt: () => 0,
+    clear: () => true, prepareAssembly() { warmed++; }, makeAssembly() { models++; } });
+  await town.ready(); assert.equal(warmed, 0); assert.equal(models, 0); town.dispose();
+}
+console.log('module-warm oldgeneration cancels beforemodels/newgeneration mounts once; wrongscene remains cold PASS');
+
+// The real eligible scene preparation fans out to optional card metadata only.
+// It must not acquire a model, wait for the card, or replace the authoritative opener.
+{
+  const begin = sceneBindingSource.indexOf('    prepareAssembly(row) {');
+  const end = sceneBindingSource.indexOf('    clear:', begin);
+  assert(begin >= 0 && end > begin);
+  const method = sceneBindingSource.slice(begin, end).trim().replace(/,$/, '').replace('prepareAssembly(row)', 'function(row)');
+  const modules = deferredAsset(), card = deferredAsset(), calls = [];
+  const prepare = new Function('prepareAssemblyModules', 'preparePersonCard', `return (${method});`)(
+    () => { calls.push('modules'); return modules.promise; }, id => { calls.push(id); return card.promise; });
+  assert.strictEqual(prepare(actualDriverRow), modules.promise);
+  assert.deepEqual(calls, ['modules', actualDriverRow.person_id]);
+  modules.resolve(); await modules.promise; // An unresolved card cannot stall the actual factory.
+  card.reject(Error('optional card is offline')); await new Promise(resolve => setTimeout(resolve, 0));
+  for (const warm of [null, () => { throw Error('card synchronous refusal'); }, () => Promise.reject(Error('card async refusal'))]) {
+    const callback = new Function('prepareAssemblyModules', 'preparePersonCard', `return (${method});`)(() => modules.promise, warm);
+    assert.strictEqual(callback(actualDriverRow), modules.promise);
+  }
+  await new Promise(resolve => setTimeout(resolve, 0));
+  let models = 0; calls.length = 0;
+  const town = createTownTransport({ rows: [validRow], sceneId: '1835', detail: 'light', heightAt: () => 0,
+    clear: () => true, prepareAssembly: prepare, makeAssembly() { models++; } });
+  await town.ready(); await town.setTier('balanced');
+  assert.equal(town.ensureNear({ x: 10000, z: 10000 }, true), false);
+  assert.equal(town.ensureNear({ x: 20, z: 0 }, false), false);
+  assert.equal(calls.length, 0); assert.equal(models, 0); town.dispose();
+}
+// Execute the actual main card warmup with the actual392-row catalog. No Navigator,
+// HUD, popup-open, figure loader or renderer is provided to this metadata-only closure.
+{
+  const begin = mainSource.indexOf('  async function prepareSceneDirectoryPerson(id) {');
+  const end = mainSource.indexOf('  function ensureResidentCitations()', begin);
+  assert(begin >= 0 && end > begin);
+  const code = mainSource.slice(begin, end).replace(/\bimport\(/g, 'loadModule(');
+  const events = [], pending = deferredAsset();
+  const warm = (year, residents, failing = false) => new Function('supportsTownTransport', 'YEAR', 'draws', 'loadModule',
+    'ensureInspect', 'ensureReaderText', 'ensurePictures', 'peopleDirectory', 'householdRecord', 'ensureResidentCitations',
+    code + '\nreturn prepareSceneDirectoryPerson;')(supportsTownTransport, year, () => residents,
+    path => { events.push(path); return pending.promise; },
+    () => { events.push('summary'); return failing ? Promise.reject(Error('summary offline')) : pending.promise; },
+    () => { events.push('reader'); return pending.promise; }, () => { events.push('pictures'); return pending.promise; },
+    { load() { events.push('directory'); return Promise.resolve(actualPeople1904); } },
+    file => { events.push(['household', file]); return failing ? Promise.reject(Error('household offline')) : pending.promise; },
+    () => { events.push('citations'); return pending.promise; });
+  await warm('1835', true)(actualDriverRow.person_id);
+  await warm('1812', false)(actualDriverRow.person_id); assert.equal(events.length, 0);
+  const waiting = warm('1904', false)(actualDriverRow.person_id);
+  assert.deepEqual(events, ['./apps/inspect-view.js', 'summary', 'reader', 'pictures', 'directory']);
+  await Promise.resolve();
+  const actualPerson = actualPeople1904.people.find(row => row.id === actualDriverRow.person_id);
+  assert.deepEqual(events.slice(-2), [['household', actualPerson.file], 'citations']);
+  pending.resolve(); await waiting;
+  await warm('1904', false, true)(actualDriverRow.person_id); // Optional failures remain handled.
+  assert(mainSource.includes("preparePersonCard: !draws('residents') ? prepareSceneDirectoryPerson : null"));
+  assert(mainSource.includes('residentCitations: () => ensureResidentCitations(),'));
+}
+// The actual citation cache is shared by warmup and the real Inspector action, including retry.
+{
+  const begin = mainSource.indexOf('  function ensureResidentCitations() {');
+  const end = mainSource.indexOf('  // One public person-card route', begin);
+  const code = mainSource.slice(begin, end);
+  let requests = 0, fail = false;
+  const ensure = new Function('fetch', 'URL', 'loaded', 'YEAR', 'resolveBases',
+    'let residentCitations = null;\n' + code + '\nreturn ensureResidentCitations;')(
+    async url => { requests++; assert.equal(url.href, 'https://metadata.example/sidecars/1904/residents_sources.json');
+      if (fail) throw Error('offline'); return { ok: true, json: async () => ({ citations: { real: 'citation' } }) }; },
+    URL, { scene: { id: '1904' } }, '1904', () => ({ dataBase: 'https://metadata.example/' }));
+  const first = ensure(), second = ensure(); assert.strictEqual(first, second);
+  assert.deepEqual(await first, { real: 'citation' }); assert.equal(requests, 1);
+  assert.strictEqual(ensure(), first); assert.equal(requests, 1);
+  fail = true;
+  // A separate cold cache proves the original retry-after-rejection contract.
+  const retry = new Function('fetch', 'URL', 'loaded', 'YEAR', 'resolveBases',
+    'let residentCitations = null;\n' + code + '\nreturn ensureResidentCitations;')(
+    async () => { requests++; if (fail) throw Error('offline'); return { ok: true, json: async () => ({ citations: {} }) }; },
+    URL, { scene: { id: '1904' } }, '1904', () => ({ dataBase: 'https://metadata.example/' }));
+  await assert.rejects(retry(), /offline/); fail = false; assert.deepEqual(await retry(), {});
+}
+console.log('eligible named-card warm: actual directory household/citation cache, no UI/model dependency, guarded optional failures PASS');

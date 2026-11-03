@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { circleRoute, roundedBlockRoute, createTransportLoop, preflightTransportRoute, preflightTransportRouteAsync } from '../renderers/web/js/transport-loop.js';
 
 let count = 0;
@@ -187,5 +188,64 @@ for (const chunk of [32, 128]) {
     heightAt: () => null, clear: () => true }, { yieldEvery: chunk }), /no rendered ground/); count++;
 }
 await assert.rejects(preflightTransportRouteAsync({}, { yieldEvery: 129 }), /bounded preflight chunk/); count++;
+
+
+// Prioritized default continuation changes scheduling only. These are Node CPU
+// count/cancellation fixtures, never a substituted field in a rendered scene.
+const current1904 = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url))).rows.find(row => row.scene === '1904');
+const actualBlock = roundedBlockRoute(current1904.route);
+async function defaultScheduleReading({ fallback = false, cancelAt = null, cancelBefore = false, rejectYield = false } = {}) {
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'scheduler');
+  const originalTimer = globalThis.setTimeout, reads = [], supports = [], boundaries = [];
+  let timerCalls = 0, schedulerCalls = 0;
+  const scheduler = { yield() {
+    assert.equal(this, scheduler); count++;
+    schedulerCalls++; boundaries.push(supports.length);
+    return rejectYield ? Promise.reject(new Error('native scheduler rejection')) : Promise.resolve();
+  } };
+  try {
+    Object.defineProperty(globalThis, 'scheduler', { configurable: true, writable: true,
+      value: fallback ? { yield: null } : scheduler });
+    globalThis.setTimeout = (fn, delay, ...args) => {
+      assert.equal(fallback, true, 'supported scheduler must avoid timer fallback'); count++;
+      assert.equal(delay, 0); count++;
+      timerCalls++; boundaries.push(supports.length);
+      return originalTimer(fn, delay, ...args);
+    };
+    const reading = preflightTransportRouteAsync({ row: current1904, route: actualBlock,
+      heightAt(e, n) { reads.push([e, n]); return 1.31; }, clear: () => true,
+      support(pose) { supports.push([pose.e, pose.n, pose.yaw]); } },
+      { yieldEvery: 128, cancelled: () => cancelBefore || (cancelAt !== null && supports.length >= cancelAt) });
+    assert.equal(reads.length, 0, 'initial cooperative yield precedes terrain reads'); count++;
+    const value = await reading;
+    return { value, reads, supports, boundaries, timerCalls, schedulerCalls };
+  } finally {
+    globalThis.setTimeout = originalTimer;
+    if (descriptor) Object.defineProperty(globalThis, 'scheduler', descriptor);
+    else delete globalThis.scheduler;
+  }
+}
+const prioritized = await defaultScheduleReading(), timerFallback = await defaultScheduleReading({ fallback: true });
+assert.deepEqual(prioritized.value, timerFallback.value); count++;
+assert.deepEqual(prioritized.reads, timerFallback.reads); count++;
+assert.deepEqual(prioritized.supports, timerFallback.supports); count++;
+assert.equal(prioritized.value.samples, 3163); count++;
+assert.deepEqual(prioritized.boundaries, Array.from({ length: 25 }, (_, i) => i * 128)); count++;
+assert.deepEqual(timerFallback.boundaries, prioritized.boundaries); count++;
+assert.equal(prioritized.schedulerCalls, 25); count++;
+assert.equal(prioritized.timerCalls, 0); count++;
+assert.equal(timerFallback.schedulerCalls, 0); count++;
+assert.equal(timerFallback.timerCalls, 25); count++;
+for (const cancelAt of [13, 128]) {
+  const cancelled = await defaultScheduleReading({ cancelAt });
+  assert.equal(cancelled.value.status, 'CANCELED_ROUTE_READING_NOT_PASS'); count++;
+  assert.equal(cancelled.supports.length, cancelAt); count++;
+  assert.deepEqual(cancelled.boundaries, cancelAt === 13 ? [0] : [0, 128]); count++;
+}
+const beforeAnyRead = await defaultScheduleReading({ cancelBefore: true });
+assert.equal(beforeAnyRead.value.status, 'CANCELED_ROUTE_READING_NOT_PASS'); count++;
+assert.equal(beforeAnyRead.reads.length, 0); count++;
+assert.deepEqual(beforeAnyRead.boundaries, [0]); count++;
+await assert.rejects(defaultScheduleReading({ rejectYield: true }), /native scheduler rejection/); count++;
 
 console.log(`transport loop: ${count} checks PASS`);
