@@ -809,6 +809,20 @@
       "confidence": "reconstructed",
       "note": "RECONSTRUCTED: the walk in flags from the stair's foot through the fence's gate to the public walk, the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year; liberty L-k01-1919-field-jr-3279."
     },
+    "round_corner": {
+      "value": {
+        "corner": "south",
+        "radius_m": 1.0,
+        "to_eave": true
+      },
+      "confidence": "inferred",
+      "sources": [
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "gatlin_programme_1919_field_jr_plate",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3314: the front's north corner (K01's 'south' in this frame, where the front starts) rounded on 1.0 m from grade to the eave: the 1913 almanac plate and the 1919 programme plate both sweep the wall and the main eave round it on a curve, and the 1911 sheet cuts the corner back about 0.85 by 1.2 m (s28fp-1919-b1), a quarter round about 1 m across in its 1:600 line. Built as K01's round_corner carried to the eave (to_eave): the front's courses laid round it (the smooth Lemont basement to 1.7 m and its coping, the three pale belts, the red brick between them), and the hip's soffit and fascia, the bracketed cornice's bed moulding and the copper gutter run round it on the round's own centre, the slate turning it as a quarter cone between the two hipped faces. INFERRED: the curve is the plates' and the sheet's; its radius is the sheet's cut read as one round (its two arms disagree by 0.35 m), and that the brackets stop at its tangents and do not stand on the curve is the kit's (L-k01-1919-round-corner-3314)."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

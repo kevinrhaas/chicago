@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2586, ts: '2026-11-03T00:22:30.489Z', date: 'Nov 2, 2026, 6:22 PM CT', title: '1919 Prairie\'s north corner rounded up to the eave', kind: 'feature',
+    items: [
+      'The Marshall Field Jr. house\'s front now turns its north corner on a curve from the ground to the roof, as the 1913 and 1919 Gatlin plates show: the stone basement, the pale stone bands and the red brick run round it, and so do the eave, its cornice and the gutter, with the slate rounding the corner above them.',
+    ] },
   { v: 2585, ts: '2026-11-02T23:20:20.853Z', date: 'Nov 2, 2026, 5:20 PM CT', title: 'Fort Dearborn: walk in through a gate you open with Interact', kind: 'feature',
     items: [
       'You can now walk inside Fort Dearborn in 1812 and 1835. Stand near a gate and an Interact key appears under Inspect; tap it, or press R, to swing the gate open or shut. Every gate starts shut, and a shut gate stops you.',
