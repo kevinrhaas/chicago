@@ -39031,6 +39031,40 @@ it.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3314).
 
+### L-k01-1919-north-bay-coped-gables-3337 — 1919 Prairie's canted north bay on its rear range, flat-topped under a balustrade, and its rear ranges' stone-coped gables, read off the Gatlin plates and the 1911 sheet
+
+**Decision:** the north flank of 1919 Prairie's rear ranges (T-3337, piece 1 of T-3303, of T-1907) carries
+what the 1911 sheet draws and both Gatlin Institute plates show: on the rear range's north wall, the
+sheet's canted north bay (u -14.5 to -9.4, about 1.4 m out), standing two storeys to the range's wall top
+under a flat top and a balustrade, its windows grouped between stone mullions, the range's steep gable
+standing back over it; and the gables of both ranges carried up past the slate in a pale stone coping,
+springing from kneelers and finialled at their peaks, as T-3301 found the street dormer's gable is. K01
+learns two additive things for it, byte-identical for every other house (`k01_emit --check`): a
+flat-topped full-height projection may stand on a wing's gable end (it was refused there, since a tower's
+back closes over the wing's wall top and a flat top closes nothing), and a flank-gabled wing's roof may
+name a stone `coping` on its gable ends (`generators/archetypes/k01_wing_coping.py`, the dormer coping's
+parts in the gable face's frame).
+**What is read, not invented.** The bay's place along the wall and its canted plan, from the 1911 sheet's
+trace; that it is two storeys, flat-topped under a balustrade and glazed in mullioned groups, from both
+plates; that the flank's gables are coped in pale stone with finials at their peaks, from both plates.
+**What is invented.** The bay's 1.2 m projection (the kit's most for a projection, 0.2 m under the sheet's
+reading) and its 1.2 m cants; its windows' kinds (K06's four-light transomed mullioned group on its face,
+a two-over-two sash in each cheek), sizes and sills; its 0.6 m plinth, its moulded stone cornice and its
+balustrade's rails; the rear range's two remaining flank windows moved to s 1.0 and 8.2 m beside it; the
+coping's 0.18 m section, 0.35 m run back and 0.35 m kneelers (the dormer's), the 0.6 m finials, and that
+the ranges' south gable ends, which face 1923's wall a metre off and no picture shows, are coped as the
+north ends are.
+**What is not built.** The stone quoins the plates show at the bay's corners (K08 dresses only a stone
+bay); the quoined flat-topped block at the middle range's north-west corner and its mullioned stretch;
+the small pinnacled dormers between the gables; the third, smaller gable at the flank's far end. And both
+plates' cameras put the flank's two-storey face nearer the street-side viewpoint, or higher, than the
+1911 sheet's trace puts the ranges, which is open in both match records.
+**How to resolve:** T-3338 takes the rest of the flank, the ranges' place against both plates and the
+house's remaining pictures.
+**Ticket:** T-3337 (piece 1 of T-3303).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-3337).
+
 ### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
 
 **Decision:** the renderer no longer repeats a K03 brick panel (`assets/textures/prairie_1904_brick/panel/`,
