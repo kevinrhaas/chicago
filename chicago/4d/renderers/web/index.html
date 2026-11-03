@@ -717,6 +717,20 @@
             <option value="fall">Fall — turned leaves, tawny grass</option>
             <option value="winter">Winter — snow, bare limbs</option>
           </select></label>
+        <!-- T-3331: Time of day. Named times, and any time of the day in 10-minute steps. -->
+        <label class="field row" id="row-time-of-day"><span>Time of day</span>
+          <select id="s-time-of-day" title="A viewing choice: local solar time, on the scene's date">
+            <option value="daybreak">Daybreak — sunrise</option>
+            <option value="morning">Morning — 9:00</option>
+            <option value="daytime">Daytime — the scene's own hour</option>
+            <option value="afternoon">Afternoon — 16:00</option>
+            <option value="sunset">Sunset</option>
+            <option value="dusk">Dusk — end of twilight</option>
+            <option value="night">Night — 22:00</option>
+            <option value="custom">Set by the slider</option>
+          </select></label>
+        <label class="field" id="row-time"><span>Hour <b id="v-time"></b></span>
+          <input type="range" id="s-time" min="0" max="1430" step="10" aria-label="Hour of the day"></label>
         <label class="field row" id="row-street-trees" hidden><span>Street trees</span>
           <select id="s-street-trees">
             <option value="shown">Shown</option>

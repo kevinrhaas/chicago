@@ -99,6 +99,7 @@ import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
 import { createStreetFurniture } from './street-furniture.js';
 import { createFrontYards } from './front-yards.js';
+import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { createContext } from './context.js';
@@ -1548,6 +1549,13 @@ function readSeasonPreference() {
   const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
   return { season, treesShown: saved.streetTrees !== 'hidden' };
 }
+/** T-3331: the visitor's Time of day, a name or 'HH:MM'; daytime unless chosen. */
+function readTimePreference() {
+  try {
+    const v = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.timeOfDay;
+    return isTimeValue(v) ? v : 'daytime';
+  } catch { return 'daytime'; }
+}
 /** T-2692: whether Settings shows the 1904 lot lines; hidden unless chosen. */
 function readLotLinesPreference() {
   try { return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.lotLines === 'shown'; } catch { return false; }
@@ -2430,6 +2438,88 @@ async function boot() {
   // choice; the scene keeps its own date. T-2864 offers it in every year, and the
   // woods and the prairie take it too (`seasonPlants`, set once they are planted).
   const seasonal = true;
+
+  // T-3331 — Time of day (Settings › Show), and the setter a jaunt stop calls. The
+  // visitor's own choice is `own` (stored); a jaunt's is `transient` (never stored)
+  // and `restore()` returns to the visitor's. world.js relights; time-of-day.js has
+  // the names and the grade.
+  const timeState = { own: readTimePreference(), transient: null, ownDate: null };
+  const timeEls = () => ({
+    sel: document.getElementById('s-time-of-day'),
+    range: document.getElementById('s-time'),
+    out: document.getElementById('v-time'),
+  });
+  function paintTime() {
+    const { sel, range, out } = timeEls();
+    const r = world.resolveTime(timeState.own, timeState.ownDate ?? world.sunDate);
+    const named = TIME_NAMES.find((n) => n.id === r.name);
+    const own = sel?.querySelector('option[value="daytime"]');
+    if (own) own.textContent = `Daytime — ${world.sceneTime}, the scene's own hour`;
+    if (sel) sel.value = isTimeValue(timeState.own) && minutesOf(timeState.own) === null ? timeState.own : (r.name ?? 'custom');
+    if (range && document.activeElement !== range) range.value = String(minutesOf(r.hhmm));
+    if (out) {
+      out.textContent = `${r.hhmm}${named ? ` — ${named.label.toLowerCase()}` : ''}`
+        + (timeState.transient ? ' (the jaunt has set the hour)' : '');
+    }
+  }
+  function applyTime(value, { date, transient = false } = {}) {
+    const v = isTimeValue(value) ? value : 'daytime';
+    if (transient) {
+      if (!timeState.transient) timeState.ownDate = world.sunDate;
+      timeState.transient = { value: v, date: date || null };
+    } else {
+      timeState.own = v;
+      timeState.transient = null;
+    }
+    const day = date || (transient ? null : timeState.ownDate) || world.sunDate;
+    const r = world.resolveTime(v, day);
+    world.setSun({ date: day, time: r.hhmm });
+    if (!transient) timeState.ownDate = null;
+    paintTime();
+    gateFrame.invalidate();
+    return { hhmm: r.hhmm, name: r.name, date: world.sunDate, transient: !!transient };
+  }
+  if (timeState.own !== 'daytime') applyTime(timeState.own);
+  api.timeOfDay = {
+    /** { hhmm, name, date, transient, own } — the hour in force and the visitor's own. */
+    get current() {
+      const r = world.resolveTime(timeState.transient?.value ?? timeState.own, world.sunDate);
+      return { hhmm: world.sunTime, name: r.name, date: world.sunDate, transient: !!timeState.transient, own: timeState.own };
+    },
+    names: TIME_NAMES.map((n) => n.id),
+    /**
+     * Set the hour: 'HH:MM' local solar time or a name (daybreak, morning, daytime,
+     * afternoon, sunset, dusk, night). `date` ('YYYY-MM-DD') moves the sun's day as
+     * well, for a stop on another day than the scene's. `transient` is a jaunt's:
+     * not stored, and `restore()` undoes it. `ease` is accepted and, for now, the
+     * change is one step (a relight is a sky bake, too dear to run every frame).
+     * Resolves once the frame is relit.
+     */
+    async set(value, { date, transient = false } = {}) {
+      const r = applyTime(value, { date, transient });
+      if (!transient) {
+        try {
+          const saved = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {};
+          saved.timeOfDay = timeState.own;
+          window.localStorage.setItem('chicago4d.settings', JSON.stringify(saved));
+        } catch { /* optional */ }
+        if (timeState.hudSettings) timeState.hudSettings.timeOfDay = timeState.own;
+      }
+      return r;
+    },
+    /** Back to the visitor's own hour and the Season's date. */
+    async restore() {
+      if (!timeState.transient) return this.current;
+      const day = timeState.ownDate ?? world.sunDate;
+      timeState.transient = null;
+      const r = world.resolveTime(timeState.own, day);
+      world.setSun({ date: day, time: r.hhmm });
+      timeState.ownDate = null;
+      paintTime();
+      gateFrame.invalidate();
+      return this.current;
+    },
+  };
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown };
   let structuresSeasoned = false;
   let seasonPlants = () => null;
@@ -2455,7 +2545,12 @@ async function boot() {
       });
     }
     seasonState.season = applySeasonLook(s);
-    world.setSunDate(seasonDate(s, loaded.scene.target_date));
+    // T-3331: the season moves the date; a named hour (sunset, dusk) is solved again
+    // on it, and a jaunt stop's own hour, while one holds, is left alone.
+    const day = seasonDate(s, loaded.scene.target_date) || loaded.scene.target_date;
+    if (timeState.transient) timeState.ownDate = day;
+    else world.setSun({ date: day, time: world.resolveTime(timeState.own, day).hhmm });
+    paintTime();
     contextCity.setSeason?.(s);
     await seasonPlants(s);
     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
@@ -2976,7 +3071,9 @@ async function boot() {
   // The trees give way to the travelled track, as before, and since T-1771 to
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
-  const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
+  // T-3339: and to a worn trail's trodden core (1812's paths through the bank timber).
+  const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n)
+    || yards.blocksTrees(e, n);
   // T-2094. Past the cleared track the rest of an opened street's corridor is
   // trodden: flora.js crops a turf community's tall plants there to the turf's
   // own height (`streets.verge` says where; the zone record says how tall).
@@ -3682,6 +3779,9 @@ async function boot() {
         api.targetTag?.setHold(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
+      } else if (key === 'timeOfDay') {
+        // T-3331. A choice made by hand ends a jaunt's hold on the hour.
+        applyTime(value);
       } else if (key === 'streetTrees') {
         seasonState.treesShown = value !== 'hidden';
         void streetTrees.setMode(streetTreeMode(seasonState.season, seasonState.treesShown))
@@ -3709,6 +3809,9 @@ async function boot() {
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
   hud.omitTabs(api.drawerOmitted.tabs);
+  // T-3331: Settings' own copy, so a later save keeps an hour set from code; then paint.
+  timeState.hudSettings = hud.settings;
+  paintTime();
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);

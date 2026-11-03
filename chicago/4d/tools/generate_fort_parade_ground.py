@@ -243,15 +243,25 @@ def index_1812() -> dict:
             "Manifest for the 1812 scene's enclosure layer (T-3320), read because "
             "data/scenes/1812.json names `enclosures_dir: enclosures/1812/`. The 1835 "
             "manifest one folder up is the 1835 town's; this one holds the first fort's "
-            "parade ground and nothing else. Written by tools/generate_fort_parade_ground.py."
+            "parade ground (T-3320) and the worn paths and yards of 1812 (T-3339). Written by "
+            "tools/generate_fort_parade_ground.py and tools/generate_worn_ground_1812.py alike."
         ),
         "version": 1,
         "scene": "1812",
         "scene_date": "1812-08-14",
         "coordinates": "Local East-North-Up metres from data/datum.json's origin.",
         "enclosures": [{"id": "first_fort_dearborn_parade_ground",
-                        "file": "first_fort_dearborn_parade_ground.json"}],
+                        "file": "first_fort_dearborn_parade_ground.json"}] + _worn_ground_entries(),
     }
+
+
+def _worn_ground_entries() -> list[dict]:
+    """T-3339: the worn paths and yards of 1812 share this manifest; their generator says
+    which files it writes, so both tools write the same index."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from generate_worn_ground_1812 import manifest_entries
+    return manifest_entries()
 
 
 def text(obj: dict) -> str:

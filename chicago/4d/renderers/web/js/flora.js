@@ -47,6 +47,7 @@
  */
 
 import * as THREE from 'three';
+import { onDaylight } from './time-of-day.js';
 // The shrub archetype's LAYOUT, in a module that imports nothing, so
 // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
 // without a second copy of the corner arithmetic. See K57.
@@ -1339,6 +1340,8 @@ export async function createFlora({
   };
   /** Resolved once, from the scene graph, at the first update. */
   let sunFound = false;
+  // T-3331: a new hour moves the sun, its colour and the fill; find them again.
+  onDaylight(() => { sunFound = false; });
 
   // One procedural atlas for every understory family; no network texture or
   // extra draw call. Alpha is clipped before lighting and still writes depth.
