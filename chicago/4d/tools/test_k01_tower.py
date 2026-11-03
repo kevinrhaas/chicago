@@ -180,6 +180,41 @@ def main() -> int:
                     "1600 (hip), a square tower's balustraded flat top")
     check(b["variant"].get("balcony", {}).get("fabric") == "stone",
           "1600 (hip): the square tower's flat top carries its stone balustrade")
+    # T-3324 (T-3329): a square tower's consoles and brackets under its cornice, and a corbelled
+    # balcony at one of its storey lines with the storey standing back over it (1936's belvedere)
+    from archetypes import k08_bays as K8
+    # sized to the kit's plain eaves (0.3 m out); 1936's own stand under its deeper moulded cornice
+    br = {"consoles": {"reach_m": 0.3, "drop_m": 0.6, "thickness_m": 0.15, "segments": 8},
+          "modillions": {"width_m": 0.1, "drop_m": 0.3, "out_m": 0.2, "spacing_m": 0.37, "margin_m": 0.4}}
+    sbal = {"storey": 2, "out_m": 0.55, "slab_m": 0.3, "corbel_courses": 3, "course_m": 0.16, "height_m": 0.75,
+            "inset_m": 0.2, "post_m": 0.25, "bar_m": 0.08, "pitch_m": 0.2, "rail_m": [0.2, 0.12], "foot_rail_m": 0.12}
+    dressed = tower("k08.tower.octagonal", storeys=flat, plan=sq, s=9.0, balcony=bal, brackets=br, storey_balcony=sbal,
+                    roof={"kind": "hip", "pitch": 0.0, "covering": "copper_standing_seam"})
+    a, p, b = built("house_1600_prairie", dressed, "1600 (hip), a square tower dressed as 1936's belvedere")
+    m = K8.Bay(b["variant"], K8.load(), "full").build(board=False).meta
+    check(m.get("brackets", {}).get("consoles") == 2,
+          f"1600 (hip): a console at each of the square tower's two free corners, none inside the house "
+          f"({m.get('brackets', {}).get('consoles')})")
+    check(m.get("brackets", {}).get("modillions", 0) >= 6,
+          f"1600 (hip): a row of brackets under the cornice ({m.get('brackets', {}).get('modillions')})")
+    sm = m.get("storey_balcony", {})
+    check(abs(sm.get("floor_m", 0) - m["levels_m"][2]) < 1e-6 and abs(sm.get("foot_m", 0) - (m["levels_m"][2] - 0.78)) < 1e-6,
+          f"1600 (hip): the balcony's floor is its storey line {m['levels_m'][2]} m, its corbelling 0.78 m under it ({sm})")
+    check(abs(sm.get("line_out_m", 0) - 0.35) < 1e-6 and sm.get("bars", 0) > 0,
+          "1600 (hip): its balustrade stands on the slab, 0.2 m in from its 0.55 m edge")
+    refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=tall, s=9.0, storey_balcony=sbal),
+            "a storey balcony on an octagonal tower")
+    refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=flat, plan=sq, s=9.0,
+                                        storey_balcony={**sbal, "storey": 0}),
+            "a storey balcony on the tower's foot, not one of its storey lines")
+    refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=flat, plan=sq, s=9.0,
+                                        storey_balcony={**sbal, "inset_m": 0.5}),
+            "a storey balcony whose posts stand off its slab")
+    refused("house_1600_prairie", tower(storeys=tall, brackets=br),
+            "brackets added to a round tower")
+    refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=flat, plan=sq, s=9.0,
+                                        brackets={"consoles": br["consoles"]}),
+            "a square tower given consoles without their row of brackets")
     refused("house_1600_prairie", tower("k08.tower.round", storeys=tall, plan=sq, s=9.0),
             "a square plan on a round tower")
     refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=tall, s=9.0,
